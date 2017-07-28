@@ -100,19 +100,19 @@ public class EXTTransformFeedback {
 
     // --- [ glBindBufferRangeEXT ] ---
 
-    public static native void glBindBufferRangeEXT(int target, int index, int buffer, long offset, long size);
+    public static native void glBindBufferRangeEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size);
 
     // --- [ glBindBufferOffsetEXT ] ---
 
-    public static native void glBindBufferOffsetEXT(int target, int index, int buffer, long offset);
+    public static native void glBindBufferOffsetEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset);
 
     // --- [ glBindBufferBaseEXT ] ---
 
-    public static native void glBindBufferBaseEXT(int target, int index, int buffer);
+    public static native void glBindBufferBaseEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer);
 
     // --- [ glBeginTransformFeedbackEXT ] ---
 
-    public static native void glBeginTransformFeedbackEXT(int primitiveMode);
+    public static native void glBeginTransformFeedbackEXT(@NativeType("GLenum") int primitiveMode);
 
     // --- [ glEndTransformFeedbackEXT ] ---
 
@@ -122,11 +122,11 @@ public class EXTTransformFeedback {
 
     public static native void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode);
 
-    public static void glTransformFeedbackVaryingsEXT(int program, PointerBuffer varyings, int bufferMode) {
+    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") PointerBuffer varyings, @NativeType("GLenum") int bufferMode) {
         nglTransformFeedbackVaryingsEXT(program, varyings.remaining(), memAddress(varyings), bufferMode);
     }
 
-    public static void glTransformFeedbackVaryingsEXT(int program, CharSequence[] varyings, int bufferMode) {
+    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") CharSequence[] varyings, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varyings);
@@ -137,7 +137,7 @@ public class EXTTransformFeedback {
         }
     }
 
-    public static void glTransformFeedbackVaryingsEXT(int program, CharSequence varying, int bufferMode) {
+    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") CharSequence varying, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varying);
@@ -152,7 +152,7 @@ public class EXTTransformFeedback {
 
     public static native void nglGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, long length, long size, long type, long name);
 
-    public static void glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
+    public static void glGetTransformFeedbackVaryingEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLsizei *") IntBuffer size, @NativeType("GLenum *") IntBuffer type, @NativeType("GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(size, 1);
@@ -161,7 +161,8 @@ public class EXTTransformFeedback {
         nglGetTransformFeedbackVaryingEXT(program, index, name.remaining(), memAddressSafe(length), memAddress(size), memAddress(type), memAddress(name));
     }
 
-    public static String glGetTransformFeedbackVaryingEXT(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
+    @NativeType("void")
+    public static String glGetTransformFeedbackVaryingEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei") int bufSize, @NativeType("GLsizei *") IntBuffer size, @NativeType("GLenum *") IntBuffer type) {
         if (CHECKS) {
             check(size, 1);
             check(type, 1);
@@ -177,7 +178,8 @@ public class EXTTransformFeedback {
         }
     }
 
-    public static String glGetTransformFeedbackVaryingEXT(int program, int index, IntBuffer size, IntBuffer type) {
+    @NativeType("void")
+    public static String glGetTransformFeedbackVaryingEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") IntBuffer size, @NativeType("GLenum *") IntBuffer type) {
         return glGetTransformFeedbackVaryingEXT(program, index, GL.getCapabilities().OpenGL20
             ? GL20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT)
             : ARBShaderObjects.glGetObjectParameteriARB(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT), size, type);
@@ -187,14 +189,15 @@ public class EXTTransformFeedback {
 
     public static native void nglGetIntegerIndexedvEXT(int param, int index, long values);
 
-    public static void glGetIntegerIndexedvEXT(int param, int index, IntBuffer values) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
         nglGetIntegerIndexedvEXT(param, index, memAddress(values));
     }
 
-    public static int glGetIntegerIndexedEXT(int param, int index) {
+    @NativeType("void")
+    public static int glGetIntegerIndexedEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer values = stack.callocInt(1);
@@ -209,14 +212,15 @@ public class EXTTransformFeedback {
 
     public static native void nglGetBooleanIndexedvEXT(int param, int index, long values);
 
-    public static void glGetBooleanIndexedvEXT(int param, int index, ByteBuffer values) {
+    public static void glGetBooleanIndexedvEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index, @NativeType("GLboolean *") ByteBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
         nglGetBooleanIndexedvEXT(param, index, memAddress(values));
     }
 
-    public static boolean glGetBooleanIndexedEXT(int param, int index) {
+    @NativeType("void")
+    public static boolean glGetBooleanIndexedEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer values = stack.calloc(1);
@@ -228,7 +232,7 @@ public class EXTTransformFeedback {
     }
 
     /** Array version of: {@link #glGetTransformFeedbackVaryingEXT GetTransformFeedbackVaryingEXT} */
-    public static void glGetTransformFeedbackVaryingEXT(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
+    public static void glGetTransformFeedbackVaryingEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") int[] length, @NativeType("GLsizei *") int[] size, @NativeType("GLenum *") int[] type, @NativeType("GLchar *") ByteBuffer name) {
         long __functionAddress = GL.getICD().glGetTransformFeedbackVaryingEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -240,7 +244,7 @@ public class EXTTransformFeedback {
     }
 
     /** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-    public static void glGetIntegerIndexedvEXT(int param, int index, int[] values) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index, @NativeType("GLint *") int[] values) {
         long __functionAddress = GL.getICD().glGetIntegerIndexedvEXT;
         if (CHECKS) {
             check(__functionAddress);

@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -85,7 +87,8 @@ public class GLXARBCreateContext {
      *                      <p>Use {@link GLX#glXIsDirect IsDirect} to determine whether or not a request for a direct rendering context succeeded.</p>
      * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
      */
-    public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, IntBuffer attrib_list) {
+    @NativeType("GLXContext")
+    public static long glXCreateContextAttribsARB(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("GLXContext") long share_context, @NativeType("Bool") boolean direct, @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -93,7 +96,8 @@ public class GLXARBCreateContext {
     }
 
     /** Array version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
-    public static long glXCreateContextAttribsARB(long display, long config, long share_context, boolean direct, int[] attrib_list) {
+    @NativeType("GLXContext")
+    public static long glXCreateContextAttribsARB(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("GLXContext") long share_context, @NativeType("Bool") boolean direct, @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
         if (CHECKS) {
             check(__functionAddress);

@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -57,7 +59,8 @@ public class KHRDisplayReference {
         return callPPI(__functionAddress, dpy, name, value);
     }
 
-    public static boolean eglQueryDisplayAttribKHR(long dpy, int name, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDisplayAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint") int name, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }

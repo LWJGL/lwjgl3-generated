@@ -76,12 +76,13 @@ public class VkClearDepthStencilValue extends Struct implements NativeResource {
     /** Returns the value of the {@code depth} field. */
     public float depth() { return ndepth(address()); }
     /** Returns the value of the {@code stencil} field. */
+    @NativeType("uint32_t")
     public int stencil() { return nstencil(address()); }
 
     /** Sets the specified value to the {@code depth} field. */
     public VkClearDepthStencilValue depth(float value) { ndepth(address(), value); return this; }
     /** Sets the specified value to the {@code stencil} field. */
-    public VkClearDepthStencilValue stencil(int value) { nstencil(address(), value); return this; }
+    public VkClearDepthStencilValue stencil(@NativeType("uint32_t") int value) { nstencil(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkClearDepthStencilValue set(
@@ -290,12 +291,13 @@ public class VkClearDepthStencilValue extends Struct implements NativeResource {
         /** Returns the value of the {@code depth} field. */
         public float depth() { return VkClearDepthStencilValue.ndepth(address()); }
         /** Returns the value of the {@code stencil} field. */
+        @NativeType("uint32_t")
         public int stencil() { return VkClearDepthStencilValue.nstencil(address()); }
 
         /** Sets the specified value to the {@code depth} field. */
         public VkClearDepthStencilValue.Buffer depth(float value) { VkClearDepthStencilValue.ndepth(address(), value); return this; }
         /** Sets the specified value to the {@code stencil} field. */
-        public VkClearDepthStencilValue.Buffer stencil(int value) { VkClearDepthStencilValue.nstencil(address(), value); return this; }
+        public VkClearDepthStencilValue.Buffer stencil(@NativeType("uint32_t") int value) { VkClearDepthStencilValue.nstencil(address(), value); return this; }
 
     }
 

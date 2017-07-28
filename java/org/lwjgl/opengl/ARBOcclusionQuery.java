@@ -98,11 +98,12 @@ public class ARBOcclusionQuery {
      *
      * @param ids a buffer in which the generated query object names are stored
      */
-    public static void glGenQueriesARB(IntBuffer ids) {
+    public static void glGenQueriesARB(@NativeType("GLuint *") IntBuffer ids) {
         nglGenQueriesARB(ids.remaining(), memAddress(ids));
     }
 
     /** Generates query object names. */
+    @NativeType("void")
     public static int glGenQueriesARB() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -128,12 +129,12 @@ public class ARBOcclusionQuery {
      *
      * @param ids an array of query objects to be deleted
      */
-    public static void glDeleteQueriesARB(IntBuffer ids) {
+    public static void glDeleteQueriesARB(@NativeType("const GLuint *") IntBuffer ids) {
         nglDeleteQueriesARB(ids.remaining(), memAddress(ids));
     }
 
     /** Deletes named query objects. */
-    public static void glDeleteQueriesARB(int id) {
+    public static void glDeleteQueriesARB(@NativeType("const GLuint *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -150,7 +151,8 @@ public class ARBOcclusionQuery {
      *
      * @param id a value that may be the name of a query object
      */
-    public static native boolean glIsQueryARB(int id);
+    @NativeType("GLboolean")
+    public static native boolean glIsQueryARB(@NativeType("GLuint") int id);
 
     // --- [ glBeginQueryARB ] ---
 
@@ -160,7 +162,7 @@ public class ARBOcclusionQuery {
      * @param target the target type of query object established. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
      * @param id     the name of a query object
      */
-    public static native void glBeginQueryARB(int target, int id);
+    public static native void glBeginQueryARB(@NativeType("GLenum") int target, @NativeType("GLuint") int id);
 
     // --- [ glEndQueryARB ] ---
 
@@ -169,7 +171,7 @@ public class ARBOcclusionQuery {
      *
      * @param target the query object target. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
      */
-    public static native void glEndQueryARB(int target);
+    public static native void glEndQueryARB(@NativeType("GLenum") int target);
 
     // --- [ glGetQueryivARB ] ---
 
@@ -183,7 +185,7 @@ public class ARBOcclusionQuery {
      * @param pname  the symbolic name of a query object target parameter. One of:<br><table><tr><td>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}</td><td>{@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}</td></tr></table>
      * @param params the requested data
      */
-    public static void glGetQueryivARB(int target, int pname, IntBuffer params) {
+    public static void glGetQueryivARB(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -196,7 +198,8 @@ public class ARBOcclusionQuery {
      * @param target the query object target. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
      * @param pname  the symbolic name of a query object target parameter. One of:<br><table><tr><td>{@link #GL_QUERY_COUNTER_BITS_ARB QUERY_COUNTER_BITS_ARB}</td><td>{@link #GL_CURRENT_QUERY_ARB CURRENT_QUERY_ARB}</td></tr></table>
      */
-    public static int glGetQueryiARB(int target, int pname) {
+    @NativeType("void")
+    public static int glGetQueryiARB(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -219,7 +222,7 @@ public class ARBOcclusionQuery {
      * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}</td></tr></table>
      * @param params the requested data
      */
-    public static void glGetQueryObjectivARB(int id, int pname, IntBuffer params) {
+    public static void glGetQueryObjectivARB(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -232,7 +235,8 @@ public class ARBOcclusionQuery {
      * @param id    the name of a query object
      * @param pname the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}</td></tr></table>
      */
-    public static int glGetQueryObjectiARB(int id, int pname) {
+    @NativeType("void")
+    public static int glGetQueryObjectiARB(@NativeType("GLuint") int id, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -255,7 +259,7 @@ public class ARBOcclusionQuery {
      * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}</td></tr></table>
      * @param params the requested data
      */
-    public static void glGetQueryObjectuivARB(int id, int pname, IntBuffer params) {
+    public static void glGetQueryObjectuivARB(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -268,7 +272,8 @@ public class ARBOcclusionQuery {
      * @param id    the name of a query object
      * @param pname the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link #GL_QUERY_RESULT_ARB QUERY_RESULT_ARB}</td><td>{@link #GL_QUERY_RESULT_AVAILABLE_ARB QUERY_RESULT_AVAILABLE_ARB}</td></tr></table>
      */
-    public static int glGetQueryObjectuiARB(int id, int pname) {
+    @NativeType("void")
+    public static int glGetQueryObjectuiARB(@NativeType("GLuint") int id, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -280,7 +285,7 @@ public class ARBOcclusionQuery {
     }
 
     /** Array version of: {@link #glGenQueriesARB GenQueriesARB} */
-    public static void glGenQueriesARB(int[] ids) {
+    public static void glGenQueriesARB(@NativeType("GLuint *") int[] ids) {
         long __functionAddress = GL.getICD().glGenQueriesARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -289,7 +294,7 @@ public class ARBOcclusionQuery {
     }
 
     /** Array version of: {@link #glDeleteQueriesARB DeleteQueriesARB} */
-    public static void glDeleteQueriesARB(int[] ids) {
+    public static void glDeleteQueriesARB(@NativeType("const GLuint *") int[] ids) {
         long __functionAddress = GL.getICD().glDeleteQueriesARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -298,7 +303,7 @@ public class ARBOcclusionQuery {
     }
 
     /** Array version of: {@link #glGetQueryivARB GetQueryivARB} */
-    public static void glGetQueryivARB(int target, int pname, int[] params) {
+    public static void glGetQueryivARB(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetQueryivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -308,7 +313,7 @@ public class ARBOcclusionQuery {
     }
 
     /** Array version of: {@link #glGetQueryObjectivARB GetQueryObjectivARB} */
-    public static void glGetQueryObjectivARB(int id, int pname, int[] params) {
+    public static void glGetQueryObjectivARB(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetQueryObjectivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -318,7 +323,7 @@ public class ARBOcclusionQuery {
     }
 
     /** Array version of: {@link #glGetQueryObjectuivARB GetQueryObjectuivARB} */
-    public static void glGetQueryObjectuivARB(int id, int pname, int[] params) {
+    public static void glGetQueryObjectuivARB(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GL.getICD().glGetQueryObjectuivARB;
         if (CHECKS) {
             check(__functionAddress);

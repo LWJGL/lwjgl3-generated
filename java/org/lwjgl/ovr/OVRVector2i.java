@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int y;
  * }</pre></code>
  */
+@NativeType("struct ovrVector2i")
 public class OVRVector2i extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

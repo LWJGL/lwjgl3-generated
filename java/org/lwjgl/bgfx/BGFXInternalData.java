@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link BGFXCaps bgfx_caps_t} * caps;
  * }</pre></code>
  */
+@NativeType("struct bgfx_internal_data_t")
 public class BGFXInternalData extends Struct {
 
     /** The struct size in bytes. */
@@ -67,6 +68,7 @@ public class BGFXInternalData extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link BGFXCaps} view of the struct pointed to by the {@code caps} field. */
+    @NativeType("bgfx_caps_t *")
     public BGFXCaps caps() { return ncaps(address()); }
 
     // -----------------------------------
@@ -134,6 +136,7 @@ public class BGFXInternalData extends Struct {
         }
 
         /** Returns a {@link BGFXCaps} view of the struct pointed to by the {@code caps} field. */
+        @NativeType("bgfx_caps_t *")
         public BGFXCaps caps() { return BGFXInternalData.ncaps(address()); }
 
     }

@@ -123,14 +123,19 @@ public class VkDeviceGroupPresentCapabilitiesKHX extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link IntBuffer} view of the {@code presentMask} field. */
+    @NativeType("uint32_t[VK_MAX_DEVICE_GROUP_SIZE_KHX]")
     public IntBuffer presentMask() { return npresentMask(address()); }
     /** Returns the value at the specified index of the {@code presentMask} field. */
+    @NativeType("uint32_t")
     public int presentMask(int index) { return npresentMask(address(), index); }
     /** Returns the value of the {@code modes} field. */
+    @NativeType("VkDeviceGroupPresentModeFlagsKHX")
     public int modes() { return nmodes(address()); }
 
     // -----------------------------------
@@ -319,14 +324,19 @@ public class VkDeviceGroupPresentCapabilitiesKHX extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDeviceGroupPresentCapabilitiesKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDeviceGroupPresentCapabilitiesKHX.npNext(address()); }
         /** Returns a {@link IntBuffer} view of the {@code presentMask} field. */
+        @NativeType("uint32_t[VK_MAX_DEVICE_GROUP_SIZE_KHX]")
         public IntBuffer presentMask() { return VkDeviceGroupPresentCapabilitiesKHX.npresentMask(address()); }
         /** Returns the value at the specified index of the {@code presentMask} field. */
+        @NativeType("uint32_t")
         public int presentMask(int index) { return VkDeviceGroupPresentCapabilitiesKHX.npresentMask(address(), index); }
         /** Returns the value of the {@code modes} field. */
+        @NativeType("VkDeviceGroupPresentModeFlagsKHX")
         public int modes() { return VkDeviceGroupPresentCapabilitiesKHX.nmodes(address()); }
 
     }

@@ -83,8 +83,10 @@ public class YGCachedMeasurement extends Struct {
     /** Returns the value of the {@code availableHeight} field. */
     public float availableHeight() { return navailableHeight(address()); }
     /** Returns the value of the {@code widthMeasureMode} field. */
+    @NativeType("YGMeasureMode")
     public int widthMeasureMode() { return nwidthMeasureMode(address()); }
     /** Returns the value of the {@code heightMeasureMode} field. */
+    @NativeType("YGMeasureMode")
     public int heightMeasureMode() { return nheightMeasureMode(address()); }
     /** Returns the value of the {@code computedWidth} field. */
     public float computedWidth() { return ncomputedWidth(address()); }
@@ -170,8 +172,10 @@ public class YGCachedMeasurement extends Struct {
         /** Returns the value of the {@code availableHeight} field. */
         public float availableHeight() { return YGCachedMeasurement.navailableHeight(address()); }
         /** Returns the value of the {@code widthMeasureMode} field. */
+        @NativeType("YGMeasureMode")
         public int widthMeasureMode() { return YGCachedMeasurement.nwidthMeasureMode(address()); }
         /** Returns the value of the {@code heightMeasureMode} field. */
+        @NativeType("YGMeasureMode")
         public int heightMeasureMode() { return YGCachedMeasurement.nheightMeasureMode(address()); }
         /** Returns the value of the {@code computedWidth} field. */
         public float computedWidth() { return YGCachedMeasurement.ncomputedWidth(address()); }

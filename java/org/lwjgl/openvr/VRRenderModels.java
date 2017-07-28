@@ -43,7 +43,8 @@ public class VRRenderModels {
      * @param pchRenderModelName 
      * @param ppRenderModel      
      */
-    public static int VRRenderModels_LoadRenderModel_Async(ByteBuffer pchRenderModelName, PointerBuffer ppRenderModel) {
+    @NativeType("EVRRenderModelError")
+    public static int VRRenderModels_LoadRenderModel_Async(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("RenderModel_t **") PointerBuffer ppRenderModel) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
             check(ppRenderModel, 1);
@@ -61,7 +62,8 @@ public class VRRenderModels {
      * @param pchRenderModelName 
      * @param ppRenderModel      
      */
-    public static int VRRenderModels_LoadRenderModel_Async(CharSequence pchRenderModelName, PointerBuffer ppRenderModel) {
+    @NativeType("EVRRenderModelError")
+    public static int VRRenderModels_LoadRenderModel_Async(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("RenderModel_t **") PointerBuffer ppRenderModel) {
         if (CHECKS) {
             check(ppRenderModel, 1);
         }
@@ -91,7 +93,7 @@ public class VRRenderModels {
      *
      * @param pRenderModel 
      */
-    public static void VRRenderModels_FreeRenderModel(RenderModel pRenderModel) {
+    public static void VRRenderModels_FreeRenderModel(@NativeType("RenderModel_t *") RenderModel pRenderModel) {
         nVRRenderModels_FreeRenderModel(memAddressSafe(pRenderModel));
     }
 
@@ -112,7 +114,8 @@ public class VRRenderModels {
      * @param textureId 
      * @param ppTexture 
      */
-    public static int VRRenderModels_LoadTexture_Async(int textureId, PointerBuffer ppTexture) {
+    @NativeType("EVRRenderModelError")
+    public static int VRRenderModels_LoadTexture_Async(@NativeType("TextureID_t") int textureId, @NativeType("RenderModel_TextureMap_t **") PointerBuffer ppTexture) {
         if (CHECKS) {
             check(ppTexture, 1);
         }
@@ -136,7 +139,7 @@ public class VRRenderModels {
      *
      * @param pTexture 
      */
-    public static void VRRenderModels_FreeTexture(RenderModelTextureMap pTexture) {
+    public static void VRRenderModels_FreeTexture(@NativeType("RenderModel_TextureMap_t *") RenderModelTextureMap pTexture) {
         nVRRenderModels_FreeTexture(memAddressSafe(pTexture));
     }
 
@@ -159,7 +162,8 @@ public class VRRenderModels {
      * @param pD3D11Device     
      * @param ppD3D11Texture2D 
      */
-    public static int VRRenderModels_LoadTextureD3D11_Async(int textureId, long pD3D11Device, PointerBuffer ppD3D11Texture2D) {
+    @NativeType("EVRRenderModelError")
+    public static int VRRenderModels_LoadTextureD3D11_Async(@NativeType("TextureID_t") int textureId, @NativeType("void *") long pD3D11Device, @NativeType("void **") PointerBuffer ppD3D11Texture2D) {
         if (CHECKS) {
             check(ppD3D11Texture2D, 1);
         }
@@ -174,7 +178,8 @@ public class VRRenderModels {
      * @param textureId   
      * @param pDstTexture 
      */
-    public static int VRRenderModels_LoadIntoTextureD3D11_Async(int textureId, long pDstTexture) {
+    @NativeType("EVRRenderModelError")
+    public static int VRRenderModels_LoadIntoTextureD3D11_Async(@NativeType("TextureID_t") int textureId, @NativeType("void *") long pDstTexture) {
         long __functionAddress = OpenVR.VRRenderModels.LoadIntoTextureD3D11_Async;
         if (CHECKS) {
             check(__functionAddress);
@@ -190,7 +195,7 @@ public class VRRenderModels {
      *
      * @param pD3D11Texture2D 
      */
-    public static void VRRenderModels_FreeTextureD3D11(long pD3D11Texture2D) {
+    public static void VRRenderModels_FreeTextureD3D11(@NativeType("void *") long pD3D11Texture2D) {
         long __functionAddress = OpenVR.VRRenderModels.FreeTextureD3D11;
         if (CHECKS) {
             check(__functionAddress);
@@ -218,7 +223,8 @@ public class VRRenderModels {
      * @param unRenderModelIndex 
      * @param pchRenderModelName 
      */
-    public static int VRRenderModels_GetRenderModelName(int unRenderModelIndex, ByteBuffer pchRenderModelName) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetRenderModelName(@NativeType("uint32_t") int unRenderModelIndex, @NativeType("char *") ByteBuffer pchRenderModelName) {
         return nVRRenderModels_GetRenderModelName(unRenderModelIndex, memAddressSafe(pchRenderModelName), remainingSafe(pchRenderModelName));
     }
 
@@ -230,7 +236,8 @@ public class VRRenderModels {
      * @param unRenderModelIndex   
      * @param unRenderModelNameLen 
      */
-    public static String VRRenderModels_GetRenderModelName(int unRenderModelIndex, int unRenderModelNameLen) {
+    @NativeType("uint32_t")
+    public static String VRRenderModels_GetRenderModelName(@NativeType("uint32_t") int unRenderModelIndex, @NativeType("uint32_t") int unRenderModelNameLen) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelName = stack.malloc(unRenderModelNameLen);
@@ -244,6 +251,7 @@ public class VRRenderModels {
     // --- [ VRRenderModels_GetRenderModelCount ] ---
 
     /** Returns the number of available render models. */
+    @NativeType("uint32_t")
     public static int VRRenderModels_GetRenderModelCount() {
         long __functionAddress = OpenVR.VRRenderModels.GetRenderModelCount;
         if (CHECKS) {
@@ -270,7 +278,8 @@ public class VRRenderModels {
      *
      * @param pchRenderModelName 
      */
-    public static int VRRenderModels_GetComponentCount(ByteBuffer pchRenderModelName) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetComponentCount(@NativeType("const char *") ByteBuffer pchRenderModelName) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
         }
@@ -284,7 +293,8 @@ public class VRRenderModels {
      *
      * @param pchRenderModelName 
      */
-    public static int VRRenderModels_GetComponentCount(CharSequence pchRenderModelName) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetComponentCount(@NativeType("const char *") CharSequence pchRenderModelName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -314,7 +324,8 @@ public class VRRenderModels {
      * @param unComponentIndex   
      * @param pchComponentName   
      */
-    public static int VRRenderModels_GetComponentName(ByteBuffer pchRenderModelName, int unComponentIndex, ByteBuffer pchComponentName) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetComponentName(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("uint32_t") int unComponentIndex, @NativeType("char *") ByteBuffer pchComponentName) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
         }
@@ -330,7 +341,8 @@ public class VRRenderModels {
      * @param unComponentIndex   
      * @param pchComponentName   
      */
-    public static int VRRenderModels_GetComponentName(CharSequence pchRenderModelName, int unComponentIndex, ByteBuffer pchComponentName) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetComponentName(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("uint32_t") int unComponentIndex, @NativeType("char *") ByteBuffer pchComponentName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -349,7 +361,8 @@ public class VRRenderModels {
      * @param unComponentIndex   
      * @param unComponentNameLen 
      */
-    public static String VRRenderModels_GetComponentName(CharSequence pchRenderModelName, int unComponentIndex, int unComponentNameLen) {
+    @NativeType("uint32_t")
+    public static String VRRenderModels_GetComponentName(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("uint32_t") int unComponentIndex, @NativeType("uint32_t") int unComponentNameLen) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -388,7 +401,8 @@ public class VRRenderModels {
      * @param pchRenderModelName 
      * @param pchComponentName   
      */
-    public static long VRRenderModels_GetComponentButtonMask(ByteBuffer pchRenderModelName, ByteBuffer pchComponentName) {
+    @NativeType("uint64_t")
+    public static long VRRenderModels_GetComponentButtonMask(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("const char *") ByteBuffer pchComponentName) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
             checkNT1(pchComponentName);
@@ -412,7 +426,8 @@ public class VRRenderModels {
      * @param pchRenderModelName 
      * @param pchComponentName   
      */
-    public static long VRRenderModels_GetComponentButtonMask(CharSequence pchRenderModelName, CharSequence pchComponentName) {
+    @NativeType("uint64_t")
+    public static long VRRenderModels_GetComponentButtonMask(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("const char *") CharSequence pchComponentName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -442,7 +457,8 @@ public class VRRenderModels {
      * @param pchComponentName            
      * @param pchComponentRenderModelName 
      */
-    public static int VRRenderModels_GetComponentRenderModelName(ByteBuffer pchRenderModelName, ByteBuffer pchComponentName, ByteBuffer pchComponentRenderModelName) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetComponentRenderModelName(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("const char *") ByteBuffer pchComponentName, @NativeType("char *") ByteBuffer pchComponentRenderModelName) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
             checkNT1(pchComponentName);
@@ -458,7 +474,8 @@ public class VRRenderModels {
      * @param pchComponentName            
      * @param pchComponentRenderModelName 
      */
-    public static int VRRenderModels_GetComponentRenderModelName(CharSequence pchRenderModelName, CharSequence pchComponentName, ByteBuffer pchComponentRenderModelName) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetComponentRenderModelName(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("const char *") CharSequence pchComponentName, @NativeType("char *") ByteBuffer pchComponentRenderModelName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -477,7 +494,8 @@ public class VRRenderModels {
      * @param pchComponentName              
      * @param unComponentRenderModelNameLen 
      */
-    public static String VRRenderModels_GetComponentRenderModelName(CharSequence pchRenderModelName, CharSequence pchComponentName, int unComponentRenderModelNameLen) {
+    @NativeType("uint32_t")
+    public static String VRRenderModels_GetComponentRenderModelName(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("const char *") CharSequence pchComponentName, @NativeType("uint32_t") int unComponentRenderModelNameLen) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -520,7 +538,8 @@ public class VRRenderModels {
      * @param pState             
      * @param pComponentState    
      */
-    public static boolean VRRenderModels_GetComponentState(ByteBuffer pchRenderModelName, ByteBuffer pchComponentName, VRControllerState pControllerState, RenderModelControllerModeState pState, RenderModelComponentState pComponentState) {
+    @NativeType("bool")
+    public static boolean VRRenderModels_GetComponentState(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("const char *") ByteBuffer pchComponentName, @NativeType("const VRControllerState_t *") VRControllerState pControllerState, @NativeType("const RenderModel_ControllerMode_State_t *") RenderModelControllerModeState pState, @NativeType("RenderModel_ComponentState_t *") RenderModelComponentState pComponentState) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
             checkNT1(pchComponentName);
@@ -547,7 +566,8 @@ public class VRRenderModels {
      * @param pState             
      * @param pComponentState    
      */
-    public static boolean VRRenderModels_GetComponentState(CharSequence pchRenderModelName, CharSequence pchComponentName, VRControllerState pControllerState, RenderModelControllerModeState pState, RenderModelComponentState pComponentState) {
+    @NativeType("bool")
+    public static boolean VRRenderModels_GetComponentState(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("const char *") CharSequence pchComponentName, @NativeType("const VRControllerState_t *") VRControllerState pControllerState, @NativeType("const RenderModel_ControllerMode_State_t *") RenderModelControllerModeState pState, @NativeType("RenderModel_ComponentState_t *") RenderModelComponentState pComponentState) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -575,7 +595,8 @@ public class VRRenderModels {
      * @param pchRenderModelName 
      * @param pchComponentName   
      */
-    public static boolean VRRenderModels_RenderModelHasComponent(ByteBuffer pchRenderModelName, ByteBuffer pchComponentName) {
+    @NativeType("bool")
+    public static boolean VRRenderModels_RenderModelHasComponent(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("const char *") ByteBuffer pchComponentName) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
             checkNT1(pchComponentName);
@@ -589,7 +610,8 @@ public class VRRenderModels {
      * @param pchRenderModelName 
      * @param pchComponentName   
      */
-    public static boolean VRRenderModels_RenderModelHasComponent(CharSequence pchRenderModelName, CharSequence pchComponentName) {
+    @NativeType("bool")
+    public static boolean VRRenderModels_RenderModelHasComponent(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("const char *") CharSequence pchComponentName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRenderModelNameEncoded = stack.ASCII(pchRenderModelName);
@@ -618,7 +640,8 @@ public class VRRenderModels {
      * @param pchThumbnailURL    
      * @param peError            
      */
-    public static int VRRenderModels_GetRenderModelThumbnailURL(ByteBuffer pchRenderModelName, ByteBuffer pchThumbnailURL, IntBuffer peError) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetRenderModelThumbnailURL(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("char *") ByteBuffer pchThumbnailURL, @NativeType("EVRRenderModelError *") IntBuffer peError) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
             check(peError, 1);
@@ -633,7 +656,8 @@ public class VRRenderModels {
      * @param pchThumbnailURL    
      * @param peError            
      */
-    public static int VRRenderModels_GetRenderModelThumbnailURL(CharSequence pchRenderModelName, ByteBuffer pchThumbnailURL, IntBuffer peError) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetRenderModelThumbnailURL(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("char *") ByteBuffer pchThumbnailURL, @NativeType("EVRRenderModelError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -653,7 +677,8 @@ public class VRRenderModels {
      * @param unThumbnailURLLen  
      * @param peError            
      */
-    public static String VRRenderModels_GetRenderModelThumbnailURL(CharSequence pchRenderModelName, int unThumbnailURLLen, IntBuffer peError) {
+    @NativeType("uint32_t")
+    public static String VRRenderModels_GetRenderModelThumbnailURL(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("uint32_t") int unThumbnailURLLen, @NativeType("EVRRenderModelError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -687,7 +712,8 @@ public class VRRenderModels {
      * @param pchOriginalPath    
      * @param peError            
      */
-    public static int VRRenderModels_GetRenderModelOriginalPath(ByteBuffer pchRenderModelName, ByteBuffer pchOriginalPath, IntBuffer peError) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetRenderModelOriginalPath(@NativeType("const char *") ByteBuffer pchRenderModelName, @NativeType("char *") ByteBuffer pchOriginalPath, @NativeType("EVRRenderModelError *") IntBuffer peError) {
         if (CHECKS) {
             checkNT1(pchRenderModelName);
             check(peError, 1);
@@ -703,7 +729,8 @@ public class VRRenderModels {
      * @param pchOriginalPath    
      * @param peError            
      */
-    public static int VRRenderModels_GetRenderModelOriginalPath(CharSequence pchRenderModelName, ByteBuffer pchOriginalPath, IntBuffer peError) {
+    @NativeType("uint32_t")
+    public static int VRRenderModels_GetRenderModelOriginalPath(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("char *") ByteBuffer pchOriginalPath, @NativeType("EVRRenderModelError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -724,7 +751,8 @@ public class VRRenderModels {
      * @param unOriginalPathLen  
      * @param peError            
      */
-    public static String VRRenderModels_GetRenderModelOriginalPath(CharSequence pchRenderModelName, int unOriginalPathLen, IntBuffer peError) {
+    @NativeType("uint32_t")
+    public static String VRRenderModels_GetRenderModelOriginalPath(@NativeType("const char *") CharSequence pchRenderModelName, @NativeType("uint32_t") int unOriginalPathLen, @NativeType("EVRRenderModelError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -755,7 +783,8 @@ public class VRRenderModels {
      *
      * @param error 
      */
-    public static String VRRenderModels_GetRenderModelErrorNameFromEnum(int error) {
+    @NativeType("const char *")
+    public static String VRRenderModels_GetRenderModelErrorNameFromEnum(@NativeType("EVRRenderModelError") int error) {
         long __result = nVRRenderModels_GetRenderModelErrorNameFromEnum(error);
         return memASCII(__result);
     }

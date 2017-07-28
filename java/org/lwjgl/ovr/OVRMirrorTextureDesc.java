@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned int MiscFlags;
  * }</pre></code>
  */
+@NativeType("struct ovrMirrorTextureDesc")
 public class OVRMirrorTextureDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -82,22 +83,24 @@ public class OVRMirrorTextureDesc extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code Format} field. */
+    @NativeType("ovrTextureFormat")
     public int Format() { return nFormat(address()); }
     /** Returns the value of the {@code Width} field. */
     public int Width() { return nWidth(address()); }
     /** Returns the value of the {@code Height} field. */
     public int Height() { return nHeight(address()); }
     /** Returns the value of the {@code MiscFlags} field. */
+    @NativeType("unsigned int")
     public int MiscFlags() { return nMiscFlags(address()); }
 
     /** Sets the specified value to the {@code Format} field. */
-    public OVRMirrorTextureDesc Format(int value) { nFormat(address(), value); return this; }
+    public OVRMirrorTextureDesc Format(@NativeType("ovrTextureFormat") int value) { nFormat(address(), value); return this; }
     /** Sets the specified value to the {@code Width} field. */
     public OVRMirrorTextureDesc Width(int value) { nWidth(address(), value); return this; }
     /** Sets the specified value to the {@code Height} field. */
     public OVRMirrorTextureDesc Height(int value) { nHeight(address(), value); return this; }
     /** Sets the specified value to the {@code MiscFlags} field. */
-    public OVRMirrorTextureDesc MiscFlags(int value) { nMiscFlags(address(), value); return this; }
+    public OVRMirrorTextureDesc MiscFlags(@NativeType("unsigned int") int value) { nMiscFlags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public OVRMirrorTextureDesc set(
@@ -316,22 +319,24 @@ public class OVRMirrorTextureDesc extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code Format} field. */
+        @NativeType("ovrTextureFormat")
         public int Format() { return OVRMirrorTextureDesc.nFormat(address()); }
         /** Returns the value of the {@code Width} field. */
         public int Width() { return OVRMirrorTextureDesc.nWidth(address()); }
         /** Returns the value of the {@code Height} field. */
         public int Height() { return OVRMirrorTextureDesc.nHeight(address()); }
         /** Returns the value of the {@code MiscFlags} field. */
+        @NativeType("unsigned int")
         public int MiscFlags() { return OVRMirrorTextureDesc.nMiscFlags(address()); }
 
         /** Sets the specified value to the {@code Format} field. */
-        public OVRMirrorTextureDesc.Buffer Format(int value) { OVRMirrorTextureDesc.nFormat(address(), value); return this; }
+        public OVRMirrorTextureDesc.Buffer Format(@NativeType("ovrTextureFormat") int value) { OVRMirrorTextureDesc.nFormat(address(), value); return this; }
         /** Sets the specified value to the {@code Width} field. */
         public OVRMirrorTextureDesc.Buffer Width(int value) { OVRMirrorTextureDesc.nWidth(address(), value); return this; }
         /** Sets the specified value to the {@code Height} field. */
         public OVRMirrorTextureDesc.Buffer Height(int value) { OVRMirrorTextureDesc.nHeight(address(), value); return this; }
         /** Sets the specified value to the {@code MiscFlags} field. */
-        public OVRMirrorTextureDesc.Buffer MiscFlags(int value) { OVRMirrorTextureDesc.nMiscFlags(address(), value); return this; }
+        public OVRMirrorTextureDesc.Buffer MiscFlags(@NativeType("unsigned int") int value) { OVRMirrorTextureDesc.nMiscFlags(address(), value); return this; }
 
     }
 

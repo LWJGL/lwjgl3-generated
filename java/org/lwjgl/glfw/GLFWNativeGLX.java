@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -41,7 +43,8 @@ public class GLFWNativeGLX {
      *
      * @since version 3.0
      */
-    public static long glfwGetGLXContext(long window) {
+    @NativeType("GLXContext")
+    public static long glfwGetGLXContext(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetGLXContext;
         if (CHECKS) {
             check(window);
@@ -62,7 +65,8 @@ public class GLFWNativeGLX {
      *
      * @since version 3.2
      */
-    public static long glfwGetGLXWindow(long window) {
+    @NativeType("GLXWindow")
+    public static long glfwGetGLXWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetGLXWindow;
         if (CHECKS) {
             check(window);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -37,7 +39,8 @@ public class SOFTPauseDevice {
      *
      * @param device the device to pause
      */
-    public static void alcDevicePauseSOFT(long device) {
+    @NativeType("ALCvoid")
+    public static void alcDevicePauseSOFT(@NativeType("ALCdevice *") long device) {
 		long __functionAddress = ALC.getICD().alcDevicePauseSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -59,7 +62,8 @@ public class SOFTPauseDevice {
      *
      * @param device the device to resume
      */
-    public static void alcDeviceResumeSOFT(long device) {
+    @NativeType("ALCvoid")
+    public static void alcDeviceResumeSOFT(@NativeType("ALCdevice *") long device) {
 		long __functionAddress = ALC.getICD().alcDeviceResumeSOFT;
         if (CHECKS) {
             check(__functionAddress);

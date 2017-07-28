@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -57,10 +59,10 @@ public class EXTMultisampledRenderToTexture {
 
     // --- [ glRenderbufferStorageMultisampleEXT ] ---
 
-    public static native void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleEXT(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glFramebufferTexture2DMultisampleEXT ] ---
 
-    public static native void glFramebufferTexture2DMultisampleEXT(int target, int attachment, int textarget, int texture, int level, int samples);
+    public static native void glFramebufferTexture2DMultisampleEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLsizei") int samples);
 
 }

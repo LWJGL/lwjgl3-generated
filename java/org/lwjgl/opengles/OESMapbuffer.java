@@ -51,38 +51,43 @@ public class OESMapbuffer {
 
     public static native long nglMapBufferOES(int target, int access);
 
-    public static ByteBuffer glMapBufferOES(int target, int access) {
+    @NativeType("void *")
+    public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access) {
         long __result = nglMapBufferOES(target, access);
         return memByteBuffer(__result, GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE));
     }
 
-    public static ByteBuffer glMapBufferOES(int target, int access, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access, ByteBuffer old_buffer) {
         long __result = nglMapBufferOES(target, access);
         int length = GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE);
         return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
-    public static ByteBuffer glMapBufferOES(int target, int access, long length, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access, long length, ByteBuffer old_buffer) {
         long __result = nglMapBufferOES(target, access);
         return apiGetMappedBuffer(old_buffer, __result, (int)length);
     }
 
     // --- [ glUnmapBufferOES ] ---
 
-    public static native boolean glUnmapBufferOES(int target);
+    @NativeType("GLboolean")
+    public static native boolean glUnmapBufferOES(@NativeType("GLenum") int target);
 
     // --- [ glGetBufferPointervOES ] ---
 
     public static native void nglGetBufferPointervOES(int target, int pname, long params);
 
-    public static void glGetBufferPointervOES(int target, int pname, PointerBuffer params) {
+    public static void glGetBufferPointervOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("void **") PointerBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetBufferPointervOES(target, pname, memAddress(params));
     }
 
-    public static long glGetBufferPointerOES(int target, int pname) {
+    @NativeType("void")
+    public static long glGetBufferPointerOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer params = stack.callocPointer(1);

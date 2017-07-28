@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -40,6 +42,6 @@ public class NVFragmentCoverageToColor {
 
     // --- [ glFragmentCoverageColorNV ] ---
 
-    public static native void glFragmentCoverageColorNV(int color);
+    public static native void glFragmentCoverageColorNV(@NativeType("GLuint") int color);
 
 }

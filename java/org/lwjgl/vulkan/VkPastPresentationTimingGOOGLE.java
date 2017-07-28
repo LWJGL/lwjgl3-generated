@@ -99,26 +99,31 @@ public class VkPastPresentationTimingGOOGLE extends Struct implements NativeReso
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code presentID} field. */
+    @NativeType("uint32_t")
     public int presentID() { return npresentID(address()); }
     /** Returns the value of the {@code desiredPresentTime} field. */
+    @NativeType("uint64_t")
     public long desiredPresentTime() { return ndesiredPresentTime(address()); }
     /** Returns the value of the {@code actualPresentTime} field. */
+    @NativeType("uint64_t")
     public long actualPresentTime() { return nactualPresentTime(address()); }
     /** Returns the value of the {@code earliestPresentTime} field. */
+    @NativeType("uint64_t")
     public long earliestPresentTime() { return nearliestPresentTime(address()); }
     /** Returns the value of the {@code presentMargin} field. */
+    @NativeType("uint64_t")
     public long presentMargin() { return npresentMargin(address()); }
 
     /** Sets the specified value to the {@code presentID} field. */
-    public VkPastPresentationTimingGOOGLE presentID(int value) { npresentID(address(), value); return this; }
+    public VkPastPresentationTimingGOOGLE presentID(@NativeType("uint32_t") int value) { npresentID(address(), value); return this; }
     /** Sets the specified value to the {@code desiredPresentTime} field. */
-    public VkPastPresentationTimingGOOGLE desiredPresentTime(long value) { ndesiredPresentTime(address(), value); return this; }
+    public VkPastPresentationTimingGOOGLE desiredPresentTime(@NativeType("uint64_t") long value) { ndesiredPresentTime(address(), value); return this; }
     /** Sets the specified value to the {@code actualPresentTime} field. */
-    public VkPastPresentationTimingGOOGLE actualPresentTime(long value) { nactualPresentTime(address(), value); return this; }
+    public VkPastPresentationTimingGOOGLE actualPresentTime(@NativeType("uint64_t") long value) { nactualPresentTime(address(), value); return this; }
     /** Sets the specified value to the {@code earliestPresentTime} field. */
-    public VkPastPresentationTimingGOOGLE earliestPresentTime(long value) { nearliestPresentTime(address(), value); return this; }
+    public VkPastPresentationTimingGOOGLE earliestPresentTime(@NativeType("uint64_t") long value) { nearliestPresentTime(address(), value); return this; }
     /** Sets the specified value to the {@code presentMargin} field. */
-    public VkPastPresentationTimingGOOGLE presentMargin(long value) { npresentMargin(address(), value); return this; }
+    public VkPastPresentationTimingGOOGLE presentMargin(@NativeType("uint64_t") long value) { npresentMargin(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPastPresentationTimingGOOGLE set(
@@ -343,26 +348,31 @@ public class VkPastPresentationTimingGOOGLE extends Struct implements NativeReso
         }
 
         /** Returns the value of the {@code presentID} field. */
+        @NativeType("uint32_t")
         public int presentID() { return VkPastPresentationTimingGOOGLE.npresentID(address()); }
         /** Returns the value of the {@code desiredPresentTime} field. */
+        @NativeType("uint64_t")
         public long desiredPresentTime() { return VkPastPresentationTimingGOOGLE.ndesiredPresentTime(address()); }
         /** Returns the value of the {@code actualPresentTime} field. */
+        @NativeType("uint64_t")
         public long actualPresentTime() { return VkPastPresentationTimingGOOGLE.nactualPresentTime(address()); }
         /** Returns the value of the {@code earliestPresentTime} field. */
+        @NativeType("uint64_t")
         public long earliestPresentTime() { return VkPastPresentationTimingGOOGLE.nearliestPresentTime(address()); }
         /** Returns the value of the {@code presentMargin} field. */
+        @NativeType("uint64_t")
         public long presentMargin() { return VkPastPresentationTimingGOOGLE.npresentMargin(address()); }
 
         /** Sets the specified value to the {@code presentID} field. */
-        public VkPastPresentationTimingGOOGLE.Buffer presentID(int value) { VkPastPresentationTimingGOOGLE.npresentID(address(), value); return this; }
+        public VkPastPresentationTimingGOOGLE.Buffer presentID(@NativeType("uint32_t") int value) { VkPastPresentationTimingGOOGLE.npresentID(address(), value); return this; }
         /** Sets the specified value to the {@code desiredPresentTime} field. */
-        public VkPastPresentationTimingGOOGLE.Buffer desiredPresentTime(long value) { VkPastPresentationTimingGOOGLE.ndesiredPresentTime(address(), value); return this; }
+        public VkPastPresentationTimingGOOGLE.Buffer desiredPresentTime(@NativeType("uint64_t") long value) { VkPastPresentationTimingGOOGLE.ndesiredPresentTime(address(), value); return this; }
         /** Sets the specified value to the {@code actualPresentTime} field. */
-        public VkPastPresentationTimingGOOGLE.Buffer actualPresentTime(long value) { VkPastPresentationTimingGOOGLE.nactualPresentTime(address(), value); return this; }
+        public VkPastPresentationTimingGOOGLE.Buffer actualPresentTime(@NativeType("uint64_t") long value) { VkPastPresentationTimingGOOGLE.nactualPresentTime(address(), value); return this; }
         /** Sets the specified value to the {@code earliestPresentTime} field. */
-        public VkPastPresentationTimingGOOGLE.Buffer earliestPresentTime(long value) { VkPastPresentationTimingGOOGLE.nearliestPresentTime(address(), value); return this; }
+        public VkPastPresentationTimingGOOGLE.Buffer earliestPresentTime(@NativeType("uint64_t") long value) { VkPastPresentationTimingGOOGLE.nearliestPresentTime(address(), value); return this; }
         /** Sets the specified value to the {@code presentMargin} field. */
-        public VkPastPresentationTimingGOOGLE.Buffer presentMargin(long value) { VkPastPresentationTimingGOOGLE.npresentMargin(address(), value); return this; }
+        public VkPastPresentationTimingGOOGLE.Buffer presentMargin(@NativeType("uint64_t") long value) { VkPastPresentationTimingGOOGLE.npresentMargin(address(), value); return this; }
 
     }
 

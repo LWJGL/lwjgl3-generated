@@ -109,22 +109,26 @@ public class VkMemoryAllocateFlagsInfoKHX extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkMemoryAllocateFlagsKHX")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code deviceMask} field. */
+    @NativeType("uint32_t")
     public int deviceMask() { return ndeviceMask(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkMemoryAllocateFlagsInfoKHX sType(int value) { nsType(address(), value); return this; }
+    public VkMemoryAllocateFlagsInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryAllocateFlagsInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkMemoryAllocateFlagsInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkMemoryAllocateFlagsInfoKHX flags(int value) { nflags(address(), value); return this; }
+    public VkMemoryAllocateFlagsInfoKHX flags(@NativeType("VkMemoryAllocateFlagsKHX") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code deviceMask} field. */
-    public VkMemoryAllocateFlagsInfoKHX deviceMask(int value) { ndeviceMask(address(), value); return this; }
+    public VkMemoryAllocateFlagsInfoKHX deviceMask(@NativeType("uint32_t") int value) { ndeviceMask(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkMemoryAllocateFlagsInfoKHX set(
@@ -343,22 +347,26 @@ public class VkMemoryAllocateFlagsInfoKHX extends Struct implements NativeResour
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkMemoryAllocateFlagsInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkMemoryAllocateFlagsInfoKHX.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkMemoryAllocateFlagsKHX")
         public int flags() { return VkMemoryAllocateFlagsInfoKHX.nflags(address()); }
         /** Returns the value of the {@code deviceMask} field. */
+        @NativeType("uint32_t")
         public int deviceMask() { return VkMemoryAllocateFlagsInfoKHX.ndeviceMask(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkMemoryAllocateFlagsInfoKHX.Buffer sType(int value) { VkMemoryAllocateFlagsInfoKHX.nsType(address(), value); return this; }
+        public VkMemoryAllocateFlagsInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryAllocateFlagsInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryAllocateFlagsInfoKHX.Buffer pNext(long value) { VkMemoryAllocateFlagsInfoKHX.npNext(address(), value); return this; }
+        public VkMemoryAllocateFlagsInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkMemoryAllocateFlagsInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkMemoryAllocateFlagsInfoKHX.Buffer flags(int value) { VkMemoryAllocateFlagsInfoKHX.nflags(address(), value); return this; }
+        public VkMemoryAllocateFlagsInfoKHX.Buffer flags(@NativeType("VkMemoryAllocateFlagsKHX") int value) { VkMemoryAllocateFlagsInfoKHX.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code deviceMask} field. */
-        public VkMemoryAllocateFlagsInfoKHX.Buffer deviceMask(int value) { VkMemoryAllocateFlagsInfoKHX.ndeviceMask(address(), value); return this; }
+        public VkMemoryAllocateFlagsInfoKHX.Buffer deviceMask(@NativeType("uint32_t") int value) { VkMemoryAllocateFlagsInfoKHX.ndeviceMask(address(), value); return this; }
 
     }
 

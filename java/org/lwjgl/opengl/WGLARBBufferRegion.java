@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -46,7 +48,8 @@ public class WGLARBBufferRegion {
      * @param type       a bitwise OR of any of the following values indicating which buffers can be saved or restored.  Multiple bits can be set and may result in better
      *                   performance if multiple buffers are saved or restored. One of:<br><table><tr><td>{@link #WGL_FRONT_COLOR_BUFFER_BIT_ARB FRONT_COLOR_BUFFER_BIT_ARB}</td><td>{@link #WGL_BACK_COLOR_BUFFER_BIT_ARB BACK_COLOR_BUFFER_BIT_ARB}</td><td>{@link #WGL_DEPTH_BUFFER_BIT_ARB DEPTH_BUFFER_BIT_ARB}</td></tr><tr><td>{@link #WGL_STENCIL_BUFFER_BIT_ARB STENCIL_BUFFER_BIT_ARB}</td></tr></table>
      */
-    public static long wglCreateBufferRegionARB(long hdc, int layerPlane, int type) {
+    @NativeType("HANDLE")
+    public static long wglCreateBufferRegionARB(@NativeType("HDC") long hdc, int layerPlane, @NativeType("UINT") int type) {
         long __functionAddress = GL.getCapabilitiesWGL().wglCreateBufferRegionARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -62,7 +65,8 @@ public class WGLARBBufferRegion {
      *
      * @param region a handle to a buffer region previously created with {@link #wglCreateBufferRegionARB CreateBufferRegionARB}.
      */
-    public static void wglDeleteBufferRegionARB(long region) {
+    @NativeType("VOID")
+    public static void wglDeleteBufferRegionARB(@NativeType("HANDLE") long region) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDeleteBufferRegionARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -89,7 +93,8 @@ public class WGLARBBufferRegion {
      * @param width  the source rectangle width
      * @param height the source rectangle height
      */
-    public static boolean wglSaveBufferRegionARB(long region, int x, int y, int width, int height) {
+    @NativeType("BOOL")
+    public static boolean wglSaveBufferRegionARB(@NativeType("HANDLE") long region, int x, int y, int width, int height) {
         long __functionAddress = GL.getCapabilitiesWGL().wglSaveBufferRegionARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -111,7 +116,8 @@ public class WGLARBBufferRegion {
      * @param xSrc   the buffer region x-coordinate for the source of the data
      * @param ySrc   the buffer region y-coordinate for the source of the data
      */
-    public static boolean wglRestoreBufferRegionARB(long region, int x, int y, int width, int height, int xSrc, int ySrc) {
+    @NativeType("BOOL")
+    public static boolean wglRestoreBufferRegionARB(@NativeType("HANDLE") long region, int x, int y, int width, int height, int xSrc, int ySrc) {
         long __functionAddress = GL.getCapabilitiesWGL().wglRestoreBufferRegionARB;
         if (CHECKS) {
             check(__functionAddress);

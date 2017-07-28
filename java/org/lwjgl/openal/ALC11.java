@@ -64,7 +64,8 @@ public class ALC11 {
      * @param format     the audio format
      * @param samples    the number of sample frames to buffer in the AL
      */
-    public static long alcCaptureOpenDevice(ByteBuffer deviceName, int frequency, int format, int samples) {
+    @NativeType("ALCdevice *")
+    public static long alcCaptureOpenDevice(@NativeType("const ALCchar *") ByteBuffer deviceName, @NativeType("ALCuint") int frequency, @NativeType("ALCenum") int format, @NativeType("ALCsizei") int samples) {
         if (CHECKS) {
             checkNT1Safe(deviceName);
         }
@@ -82,7 +83,8 @@ public class ALC11 {
      * @param format     the audio format
      * @param samples    the number of sample frames to buffer in the AL
      */
-    public static long alcCaptureOpenDevice(CharSequence deviceName, int frequency, int format, int samples) {
+    @NativeType("ALCdevice *")
+    public static long alcCaptureOpenDevice(@NativeType("const ALCchar *") CharSequence deviceName, @NativeType("ALCuint") int frequency, @NativeType("ALCenum") int format, @NativeType("ALCsizei") int samples) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer deviceNameEncoded = stack.UTF8(deviceName);
@@ -99,7 +101,8 @@ public class ALC11 {
      *
      * @param device the capture device to close
      */
-    public static boolean alcCaptureCloseDevice(long device) {
+    @NativeType("ALCboolean")
+    public static boolean alcCaptureCloseDevice(@NativeType("ALCdevice *") long device) {
 		long __functionAddress = ALC.getICD().alcCaptureCloseDevice;
         if (CHECKS) {
             check(__functionAddress);
@@ -119,7 +122,8 @@ public class ALC11 {
      *
      * @param device the capture device
      */
-    public static void alcCaptureStart(long device) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureStart(@NativeType("ALCdevice *") long device) {
 		long __functionAddress = ALC.getICD().alcCaptureStart;
         if (CHECKS) {
             check(__functionAddress);
@@ -138,7 +142,8 @@ public class ALC11 {
      *
      * @param device the capture device
      */
-    public static void alcCaptureStop(long device) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureStop(@NativeType("ALCdevice *") long device) {
 		long __functionAddress = ALC.getICD().alcCaptureStop;
         if (CHECKS) {
             check(__functionAddress);
@@ -168,7 +173,8 @@ public class ALC11 {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to obtain
      */
-    public static void alcCaptureSamples(long device, ByteBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureSamples(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") ByteBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcCaptureSamples(device, memAddress(buffer), samples);
     }
 
@@ -181,7 +187,8 @@ public class ALC11 {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to obtain
      */
-    public static void alcCaptureSamples(long device, ShortBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureSamples(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") ShortBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcCaptureSamples(device, memAddress(buffer), samples);
     }
 
@@ -194,7 +201,8 @@ public class ALC11 {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to obtain
      */
-    public static void alcCaptureSamples(long device, IntBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureSamples(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") IntBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcCaptureSamples(device, memAddress(buffer), samples);
     }
 
@@ -207,12 +215,14 @@ public class ALC11 {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to obtain
      */
-    public static void alcCaptureSamples(long device, FloatBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureSamples(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") FloatBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcCaptureSamples(device, memAddress(buffer), samples);
     }
 
     /** Array version of: {@link #alcCaptureSamples CaptureSamples} */
-    public static void alcCaptureSamples(long device, short[] buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureSamples(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") short[] buffer, @NativeType("ALCsizei") int samples) {
 		long __functionAddress = ALC.getICD().alcCaptureSamples;
         if (CHECKS) {
             check(__functionAddress);
@@ -222,7 +232,8 @@ public class ALC11 {
     }
 
     /** Array version of: {@link #alcCaptureSamples CaptureSamples} */
-    public static void alcCaptureSamples(long device, int[] buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureSamples(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") int[] buffer, @NativeType("ALCsizei") int samples) {
 		long __functionAddress = ALC.getICD().alcCaptureSamples;
         if (CHECKS) {
             check(__functionAddress);
@@ -232,7 +243,8 @@ public class ALC11 {
     }
 
     /** Array version of: {@link #alcCaptureSamples CaptureSamples} */
-    public static void alcCaptureSamples(long device, float[] buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcCaptureSamples(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") float[] buffer, @NativeType("ALCsizei") int samples) {
 		long __functionAddress = ALC.getICD().alcCaptureSamples;
         if (CHECKS) {
             check(__functionAddress);

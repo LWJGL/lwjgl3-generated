@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     ovrBool ShouldRecenter;
  * }</pre></code>
  */
+@NativeType("struct ovrSessionStatus")
 public class OVRSessionStatus extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -94,16 +95,22 @@ public class OVRSessionStatus extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code IsVisible} field. */
+    @NativeType("ovrBool")
     public boolean IsVisible() { return nIsVisible(address()); }
     /** Returns the value of the {@code HmdPresent} field. */
+    @NativeType("ovrBool")
     public boolean HmdPresent() { return nHmdPresent(address()); }
     /** Returns the value of the {@code HmdMounted} field. */
+    @NativeType("ovrBool")
     public boolean HmdMounted() { return nHmdMounted(address()); }
     /** Returns the value of the {@code DisplayLost} field. */
+    @NativeType("ovrBool")
     public boolean DisplayLost() { return nDisplayLost(address()); }
     /** Returns the value of the {@code ShouldQuit} field. */
+    @NativeType("ovrBool")
     public boolean ShouldQuit() { return nShouldQuit(address()); }
     /** Returns the value of the {@code ShouldRecenter} field. */
+    @NativeType("ovrBool")
     public boolean ShouldRecenter() { return nShouldRecenter(address()); }
 
     // -----------------------------------
@@ -291,16 +298,22 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code IsVisible} field. */
+        @NativeType("ovrBool")
         public boolean IsVisible() { return OVRSessionStatus.nIsVisible(address()); }
         /** Returns the value of the {@code HmdPresent} field. */
+        @NativeType("ovrBool")
         public boolean HmdPresent() { return OVRSessionStatus.nHmdPresent(address()); }
         /** Returns the value of the {@code HmdMounted} field. */
+        @NativeType("ovrBool")
         public boolean HmdMounted() { return OVRSessionStatus.nHmdMounted(address()); }
         /** Returns the value of the {@code DisplayLost} field. */
+        @NativeType("ovrBool")
         public boolean DisplayLost() { return OVRSessionStatus.nDisplayLost(address()); }
         /** Returns the value of the {@code ShouldQuit} field. */
+        @NativeType("ovrBool")
         public boolean ShouldQuit() { return OVRSessionStatus.nShouldQuit(address()); }
         /** Returns the value of the {@code ShouldRecenter} field. */
+        @NativeType("ovrBool")
         public boolean ShouldRecenter() { return OVRSessionStatus.nShouldRecenter(address()); }
 
     }

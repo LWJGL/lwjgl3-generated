@@ -48,6 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkDrawEndCallbackI nk_draw_end} draw_end;
  * }</pre></code>
  */
+@NativeType("struct nk_style_scrollbar")
 public class NkStyleScrollbar extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -148,20 +149,28 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem normal() { return nnormal(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem hover() { return nhover(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem active() { return nactive(address()); }
     /** Returns a {@link NkColor} view of the {@code border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor border_color() { return nborder_color(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem cursor_normal() { return ncursor_normal(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem cursor_hover() { return ncursor_hover(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem cursor_active() { return ncursor_active(address()); }
     /** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor cursor_border_color() { return ncursor_border_color(address()); }
     /** Returns the value of the {@code border} field. */
     public float border() { return nborder(address()); }
@@ -172,40 +181,48 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
     /** Returns the value of the {@code rounding_cursor} field. */
     public float rounding_cursor() { return nrounding_cursor(address()); }
     /** Returns a {@link NkVec2} view of the {@code padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 padding() { return npadding(address()); }
     /** Returns the value of the {@code show_buttons} field. */
     public int show_buttons() { return nshow_buttons(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code inc_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton inc_button() { return ninc_button(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code dec_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton dec_button() { return ndec_button(address()); }
     /** Returns the value of the {@code inc_symbol} field. */
+    @NativeType("enum nk_symbol_type")
     public int inc_symbol() { return ninc_symbol(address()); }
     /** Returns the value of the {@code dec_symbol} field. */
+    @NativeType("enum nk_symbol_type")
     public int dec_symbol() { return ndec_symbol(address()); }
     /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+    @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code draw_begin} field. */
+    @NativeType("nk_draw_begin")
     public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
     /** Returns the value of the {@code draw_end} field. */
+    @NativeType("nk_draw_end")
     public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
     /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-    public NkStyleScrollbar normal(NkStyleItem value) { nnormal(address(), value); return this; }
+    public NkStyleScrollbar normal(@NativeType("struct nk_style_item") NkStyleItem value) { nnormal(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-    public NkStyleScrollbar hover(NkStyleItem value) { nhover(address(), value); return this; }
+    public NkStyleScrollbar hover(@NativeType("struct nk_style_item") NkStyleItem value) { nhover(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-    public NkStyleScrollbar active(NkStyleItem value) { nactive(address(), value); return this; }
+    public NkStyleScrollbar active(@NativeType("struct nk_style_item") NkStyleItem value) { nactive(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-    public NkStyleScrollbar border_color(NkColor value) { nborder_color(address(), value); return this; }
+    public NkStyleScrollbar border_color(@NativeType("struct nk_color") NkColor value) { nborder_color(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
-    public NkStyleScrollbar cursor_normal(NkStyleItem value) { ncursor_normal(address(), value); return this; }
+    public NkStyleScrollbar cursor_normal(@NativeType("struct nk_style_item") NkStyleItem value) { ncursor_normal(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
-    public NkStyleScrollbar cursor_hover(NkStyleItem value) { ncursor_hover(address(), value); return this; }
+    public NkStyleScrollbar cursor_hover(@NativeType("struct nk_style_item") NkStyleItem value) { ncursor_hover(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
-    public NkStyleScrollbar cursor_active(NkStyleItem value) { ncursor_active(address(), value); return this; }
+    public NkStyleScrollbar cursor_active(@NativeType("struct nk_style_item") NkStyleItem value) { ncursor_active(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
-    public NkStyleScrollbar cursor_border_color(NkColor value) { ncursor_border_color(address(), value); return this; }
+    public NkStyleScrollbar cursor_border_color(@NativeType("struct nk_color") NkColor value) { ncursor_border_color(address(), value); return this; }
     /** Sets the specified value to the {@code border} field. */
     public NkStyleScrollbar border(float value) { nborder(address(), value); return this; }
     /** Sets the specified value to the {@code rounding} field. */
@@ -215,23 +232,23 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
     /** Sets the specified value to the {@code rounding_cursor} field. */
     public NkStyleScrollbar rounding_cursor(float value) { nrounding_cursor(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-    public NkStyleScrollbar padding(NkVec2 value) { npadding(address(), value); return this; }
+    public NkStyleScrollbar padding(@NativeType("struct nk_vec2") NkVec2 value) { npadding(address(), value); return this; }
     /** Sets the specified value to the {@code show_buttons} field. */
     public NkStyleScrollbar show_buttons(int value) { nshow_buttons(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code inc_button} field. */
-    public NkStyleScrollbar inc_button(NkStyleButton value) { ninc_button(address(), value); return this; }
+    public NkStyleScrollbar inc_button(@NativeType("struct nk_style_button") NkStyleButton value) { ninc_button(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code dec_button} field. */
-    public NkStyleScrollbar dec_button(NkStyleButton value) { ndec_button(address(), value); return this; }
+    public NkStyleScrollbar dec_button(@NativeType("struct nk_style_button") NkStyleButton value) { ndec_button(address(), value); return this; }
     /** Sets the specified value to the {@code inc_symbol} field. */
-    public NkStyleScrollbar inc_symbol(int value) { ninc_symbol(address(), value); return this; }
+    public NkStyleScrollbar inc_symbol(@NativeType("enum nk_symbol_type") int value) { ninc_symbol(address(), value); return this; }
     /** Sets the specified value to the {@code dec_symbol} field. */
-    public NkStyleScrollbar dec_symbol(int value) { ndec_symbol(address(), value); return this; }
+    public NkStyleScrollbar dec_symbol(@NativeType("enum nk_symbol_type") int value) { ndec_symbol(address(), value); return this; }
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-    public NkStyleScrollbar userdata(NkHandle value) { nuserdata(address(), value); return this; }
+    public NkStyleScrollbar userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code draw_begin} field. */
-    public NkStyleScrollbar draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+    public NkStyleScrollbar draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
     /** Sets the specified value to the {@code draw_end} field. */
-    public NkStyleScrollbar draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
+    public NkStyleScrollbar draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleScrollbar set(
@@ -552,20 +569,28 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem normal() { return NkStyleScrollbar.nnormal(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem hover() { return NkStyleScrollbar.nhover(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem active() { return NkStyleScrollbar.nactive(address()); }
         /** Returns a {@link NkColor} view of the {@code border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor border_color() { return NkStyleScrollbar.nborder_color(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem cursor_normal() { return NkStyleScrollbar.ncursor_normal(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem cursor_hover() { return NkStyleScrollbar.ncursor_hover(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem cursor_active() { return NkStyleScrollbar.ncursor_active(address()); }
         /** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor cursor_border_color() { return NkStyleScrollbar.ncursor_border_color(address()); }
         /** Returns the value of the {@code border} field. */
         public float border() { return NkStyleScrollbar.nborder(address()); }
@@ -576,40 +601,48 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         /** Returns the value of the {@code rounding_cursor} field. */
         public float rounding_cursor() { return NkStyleScrollbar.nrounding_cursor(address()); }
         /** Returns a {@link NkVec2} view of the {@code padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 padding() { return NkStyleScrollbar.npadding(address()); }
         /** Returns the value of the {@code show_buttons} field. */
         public int show_buttons() { return NkStyleScrollbar.nshow_buttons(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code inc_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton inc_button() { return NkStyleScrollbar.ninc_button(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code dec_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton dec_button() { return NkStyleScrollbar.ndec_button(address()); }
         /** Returns the value of the {@code inc_symbol} field. */
+        @NativeType("enum nk_symbol_type")
         public int inc_symbol() { return NkStyleScrollbar.ninc_symbol(address()); }
         /** Returns the value of the {@code dec_symbol} field. */
+        @NativeType("enum nk_symbol_type")
         public int dec_symbol() { return NkStyleScrollbar.ndec_symbol(address()); }
         /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+        @NativeType("nk_handle")
         public NkHandle userdata() { return NkStyleScrollbar.nuserdata(address()); }
         /** Returns the value of the {@code draw_begin} field. */
+        @NativeType("nk_draw_begin")
         public NkDrawBeginCallback draw_begin() { return NkStyleScrollbar.ndraw_begin(address()); }
         /** Returns the value of the {@code draw_end} field. */
+        @NativeType("nk_draw_end")
         public NkDrawEndCallback draw_end() { return NkStyleScrollbar.ndraw_end(address()); }
 
         /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-        public NkStyleScrollbar.Buffer normal(NkStyleItem value) { NkStyleScrollbar.nnormal(address(), value); return this; }
+        public NkStyleScrollbar.Buffer normal(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleScrollbar.nnormal(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-        public NkStyleScrollbar.Buffer hover(NkStyleItem value) { NkStyleScrollbar.nhover(address(), value); return this; }
+        public NkStyleScrollbar.Buffer hover(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleScrollbar.nhover(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-        public NkStyleScrollbar.Buffer active(NkStyleItem value) { NkStyleScrollbar.nactive(address(), value); return this; }
+        public NkStyleScrollbar.Buffer active(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleScrollbar.nactive(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-        public NkStyleScrollbar.Buffer border_color(NkColor value) { NkStyleScrollbar.nborder_color(address(), value); return this; }
+        public NkStyleScrollbar.Buffer border_color(@NativeType("struct nk_color") NkColor value) { NkStyleScrollbar.nborder_color(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
-        public NkStyleScrollbar.Buffer cursor_normal(NkStyleItem value) { NkStyleScrollbar.ncursor_normal(address(), value); return this; }
+        public NkStyleScrollbar.Buffer cursor_normal(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleScrollbar.ncursor_normal(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
-        public NkStyleScrollbar.Buffer cursor_hover(NkStyleItem value) { NkStyleScrollbar.ncursor_hover(address(), value); return this; }
+        public NkStyleScrollbar.Buffer cursor_hover(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleScrollbar.ncursor_hover(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
-        public NkStyleScrollbar.Buffer cursor_active(NkStyleItem value) { NkStyleScrollbar.ncursor_active(address(), value); return this; }
+        public NkStyleScrollbar.Buffer cursor_active(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleScrollbar.ncursor_active(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
-        public NkStyleScrollbar.Buffer cursor_border_color(NkColor value) { NkStyleScrollbar.ncursor_border_color(address(), value); return this; }
+        public NkStyleScrollbar.Buffer cursor_border_color(@NativeType("struct nk_color") NkColor value) { NkStyleScrollbar.ncursor_border_color(address(), value); return this; }
         /** Sets the specified value to the {@code border} field. */
         public NkStyleScrollbar.Buffer border(float value) { NkStyleScrollbar.nborder(address(), value); return this; }
         /** Sets the specified value to the {@code rounding} field. */
@@ -619,23 +652,23 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         /** Sets the specified value to the {@code rounding_cursor} field. */
         public NkStyleScrollbar.Buffer rounding_cursor(float value) { NkStyleScrollbar.nrounding_cursor(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-        public NkStyleScrollbar.Buffer padding(NkVec2 value) { NkStyleScrollbar.npadding(address(), value); return this; }
+        public NkStyleScrollbar.Buffer padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleScrollbar.npadding(address(), value); return this; }
         /** Sets the specified value to the {@code show_buttons} field. */
         public NkStyleScrollbar.Buffer show_buttons(int value) { NkStyleScrollbar.nshow_buttons(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code inc_button} field. */
-        public NkStyleScrollbar.Buffer inc_button(NkStyleButton value) { NkStyleScrollbar.ninc_button(address(), value); return this; }
+        public NkStyleScrollbar.Buffer inc_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleScrollbar.ninc_button(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code dec_button} field. */
-        public NkStyleScrollbar.Buffer dec_button(NkStyleButton value) { NkStyleScrollbar.ndec_button(address(), value); return this; }
+        public NkStyleScrollbar.Buffer dec_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleScrollbar.ndec_button(address(), value); return this; }
         /** Sets the specified value to the {@code inc_symbol} field. */
-        public NkStyleScrollbar.Buffer inc_symbol(int value) { NkStyleScrollbar.ninc_symbol(address(), value); return this; }
+        public NkStyleScrollbar.Buffer inc_symbol(@NativeType("enum nk_symbol_type") int value) { NkStyleScrollbar.ninc_symbol(address(), value); return this; }
         /** Sets the specified value to the {@code dec_symbol} field. */
-        public NkStyleScrollbar.Buffer dec_symbol(int value) { NkStyleScrollbar.ndec_symbol(address(), value); return this; }
+        public NkStyleScrollbar.Buffer dec_symbol(@NativeType("enum nk_symbol_type") int value) { NkStyleScrollbar.ndec_symbol(address(), value); return this; }
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-        public NkStyleScrollbar.Buffer userdata(NkHandle value) { NkStyleScrollbar.nuserdata(address(), value); return this; }
+        public NkStyleScrollbar.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkStyleScrollbar.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code draw_begin} field. */
-        public NkStyleScrollbar.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleScrollbar.ndraw_begin(address(), value); return this; }
+        public NkStyleScrollbar.Buffer draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleScrollbar.ndraw_begin(address(), value); return this; }
         /** Sets the specified value to the {@code draw_end} field. */
-        public NkStyleScrollbar.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleScrollbar.ndraw_end(address(), value); return this; }
+        public NkStyleScrollbar.Buffer draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleScrollbar.ndraw_end(address(), value); return this; }
 
     }
 

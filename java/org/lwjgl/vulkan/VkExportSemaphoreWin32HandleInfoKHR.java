@@ -129,28 +129,34 @@ public class VkExportSemaphoreWin32HandleInfoKHR extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+    @NativeType("const SECURITY_ATTRIBUTES *")
     public SECURITY_ATTRIBUTES pAttributes() { return npAttributes(address()); }
     /** Returns the value of the {@code dwAccess} field. */
+    @NativeType("DWORD")
     public int dwAccess() { return ndwAccess(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("LPCWSTR")
     public ByteBuffer name() { return nname(address()); }
     /** Decodes the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("LPCWSTR")
     public String nameString() { return nnameString(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkExportSemaphoreWin32HandleInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkExportSemaphoreWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkExportSemaphoreWin32HandleInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkExportSemaphoreWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-    public VkExportSemaphoreWin32HandleInfoKHR pAttributes(SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
+    public VkExportSemaphoreWin32HandleInfoKHR pAttributes(@NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
     /** Sets the specified value to the {@code dwAccess} field. */
-    public VkExportSemaphoreWin32HandleInfoKHR dwAccess(int value) { ndwAccess(address(), value); return this; }
+    public VkExportSemaphoreWin32HandleInfoKHR dwAccess(@NativeType("DWORD") int value) { ndwAccess(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code name} field. */
-    public VkExportSemaphoreWin32HandleInfoKHR name(ByteBuffer value) { nname(address(), value); return this; }
+    public VkExportSemaphoreWin32HandleInfoKHR name(@NativeType("LPCWSTR") ByteBuffer value) { nname(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkExportSemaphoreWin32HandleInfoKHR set(
@@ -405,28 +411,34 @@ public class VkExportSemaphoreWin32HandleInfoKHR extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkExportSemaphoreWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkExportSemaphoreWin32HandleInfoKHR.npNext(address()); }
         /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+        @NativeType("const SECURITY_ATTRIBUTES *")
         public SECURITY_ATTRIBUTES pAttributes() { return VkExportSemaphoreWin32HandleInfoKHR.npAttributes(address()); }
         /** Returns the value of the {@code dwAccess} field. */
+        @NativeType("DWORD")
         public int dwAccess() { return VkExportSemaphoreWin32HandleInfoKHR.ndwAccess(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("LPCWSTR")
         public ByteBuffer name() { return VkExportSemaphoreWin32HandleInfoKHR.nname(address()); }
         /** Decodes the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("LPCWSTR")
         public String nameString() { return VkExportSemaphoreWin32HandleInfoKHR.nnameString(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkExportSemaphoreWin32HandleInfoKHR.Buffer sType(int value) { VkExportSemaphoreWin32HandleInfoKHR.nsType(address(), value); return this; }
+        public VkExportSemaphoreWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkExportSemaphoreWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkExportSemaphoreWin32HandleInfoKHR.Buffer pNext(long value) { VkExportSemaphoreWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkExportSemaphoreWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkExportSemaphoreWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-        public VkExportSemaphoreWin32HandleInfoKHR.Buffer pAttributes(SECURITY_ATTRIBUTES value) { VkExportSemaphoreWin32HandleInfoKHR.npAttributes(address(), value); return this; }
+        public VkExportSemaphoreWin32HandleInfoKHR.Buffer pAttributes(@NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { VkExportSemaphoreWin32HandleInfoKHR.npAttributes(address(), value); return this; }
         /** Sets the specified value to the {@code dwAccess} field. */
-        public VkExportSemaphoreWin32HandleInfoKHR.Buffer dwAccess(int value) { VkExportSemaphoreWin32HandleInfoKHR.ndwAccess(address(), value); return this; }
+        public VkExportSemaphoreWin32HandleInfoKHR.Buffer dwAccess(@NativeType("DWORD") int value) { VkExportSemaphoreWin32HandleInfoKHR.ndwAccess(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code name} field. */
-        public VkExportSemaphoreWin32HandleInfoKHR.Buffer name(ByteBuffer value) { VkExportSemaphoreWin32HandleInfoKHR.nname(address(), value); return this; }
+        public VkExportSemaphoreWin32HandleInfoKHR.Buffer name(@NativeType("LPCWSTR") ByteBuffer value) { VkExportSemaphoreWin32HandleInfoKHR.nname(address(), value); return this; }
 
     }
 

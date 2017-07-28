@@ -28,6 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int max_frame_size;
  * }</pre></code>
  */
+@NativeType("struct stb_vorbis_info")
 public class STBVorbisInfo extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -83,14 +84,18 @@ public class STBVorbisInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sample_rate} field. */
+    @NativeType("unsigned int")
     public int sample_rate() { return nsample_rate(address()); }
     /** Returns the value of the {@code channels} field. */
     public int channels() { return nchannels(address()); }
     /** Returns the value of the {@code setup_memory_required} field. */
+    @NativeType("unsigned int")
     public int setup_memory_required() { return nsetup_memory_required(address()); }
     /** Returns the value of the {@code setup_temp_memory_required} field. */
+    @NativeType("unsigned int")
     public int setup_temp_memory_required() { return nsetup_temp_memory_required(address()); }
     /** Returns the value of the {@code temp_memory_required} field. */
+    @NativeType("unsigned int")
     public int temp_memory_required() { return ntemp_memory_required(address()); }
     /** Returns the value of the {@code max_frame_size} field. */
     public int max_frame_size() { return nmax_frame_size(address()); }
@@ -280,14 +285,18 @@ public class STBVorbisInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sample_rate} field. */
+        @NativeType("unsigned int")
         public int sample_rate() { return STBVorbisInfo.nsample_rate(address()); }
         /** Returns the value of the {@code channels} field. */
         public int channels() { return STBVorbisInfo.nchannels(address()); }
         /** Returns the value of the {@code setup_memory_required} field. */
+        @NativeType("unsigned int")
         public int setup_memory_required() { return STBVorbisInfo.nsetup_memory_required(address()); }
         /** Returns the value of the {@code setup_temp_memory_required} field. */
+        @NativeType("unsigned int")
         public int setup_temp_memory_required() { return STBVorbisInfo.nsetup_temp_memory_required(address()); }
         /** Returns the value of the {@code temp_memory_required} field. */
+        @NativeType("unsigned int")
         public int temp_memory_required() { return STBVorbisInfo.ntemp_memory_required(address()); }
         /** Returns the value of the {@code max_frame_size} field. */
         public int max_frame_size() { return STBVorbisInfo.nmax_frame_size(address()); }

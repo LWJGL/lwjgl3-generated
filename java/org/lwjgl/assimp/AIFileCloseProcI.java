@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("aiFileCloseProc")
 public interface AIFileCloseProcI extends CallbackI.V {
 
     String SIGNATURE = "(pp)v";
@@ -32,6 +33,6 @@ public interface AIFileCloseProcI extends CallbackI.V {
      * @param pFileIO FileIO system pointer
      * @param pFile   File pointer to close
      */
-    void invoke(long pFileIO, long pFile);
+    void invoke(@NativeType("struct aiFileIO *") long pFileIO, @NativeType("struct aiFile *") long pFile);
 
 }

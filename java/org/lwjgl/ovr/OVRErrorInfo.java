@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char ErrorString[512];
  * }</pre></code>
  */
+@NativeType("struct ovrErrorInfo")
 public class OVRErrorInfo extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -74,10 +75,13 @@ public class OVRErrorInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code Result} field. */
+    @NativeType("ovrResult")
     public int Result() { return nResult(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code ErrorString} field. */
+    @NativeType("char[512]")
     public ByteBuffer ErrorString() { return nErrorString(address()); }
     /** Decodes the null-terminated string stored in the {@code ErrorString} field. */
+    @NativeType("char[512]")
     public String ErrorStringString() { return nErrorStringString(address()); }
 
     // -----------------------------------
@@ -259,10 +263,13 @@ public class OVRErrorInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code Result} field. */
+        @NativeType("ovrResult")
         public int Result() { return OVRErrorInfo.nResult(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code ErrorString} field. */
+        @NativeType("char[512]")
         public ByteBuffer ErrorString() { return OVRErrorInfo.nErrorString(address()); }
         /** Decodes the null-terminated string stored in the {@code ErrorString} field. */
+        @NativeType("char[512]")
         public String ErrorStringString() { return OVRErrorInfo.nErrorStringString(address()); }
 
     }

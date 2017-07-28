@@ -30,6 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float t1;
  * }</pre></code>
  */
+@NativeType("struct stbtt_aligned_quad")
 public class STBTTAlignedQuad extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

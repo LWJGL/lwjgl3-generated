@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("YGRealloc")
 public interface YGReallocI extends CallbackI.P {
 
     String SIGNATURE = "(pp)p";
@@ -26,7 +27,6 @@ public interface YGReallocI extends CallbackI.P {
         );
     }
 
-
-    long invoke(long ptr, long size);
+    @NativeType("void *") long invoke(@NativeType("void *") long ptr, @NativeType("size_t") long size);
 
 }

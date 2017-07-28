@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     aiUserData UserData;
  * }</pre></code>
  */
+@NativeType("struct aiFileIO")
 public class AIFileIO extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -81,18 +82,21 @@ public class AIFileIO extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code OpenProc} field. */
+    @NativeType("aiFileOpenProc")
     public AIFileOpenProc OpenProc() { return nOpenProc(address()); }
     /** Returns the value of the {@code CloseProc} field. */
+    @NativeType("aiFileCloseProc")
     public AIFileCloseProc CloseProc() { return nCloseProc(address()); }
     /** Returns the value of the {@code UserData} field. */
+    @NativeType("aiUserData")
     public long UserData() { return nUserData(address()); }
 
     /** Sets the specified value to the {@code OpenProc} field. */
-    public AIFileIO OpenProc(AIFileOpenProcI value) { nOpenProc(address(), value); return this; }
+    public AIFileIO OpenProc(@NativeType("aiFileOpenProc") AIFileOpenProcI value) { nOpenProc(address(), value); return this; }
     /** Sets the specified value to the {@code CloseProc} field. */
-    public AIFileIO CloseProc(AIFileCloseProcI value) { nCloseProc(address(), value); return this; }
+    public AIFileIO CloseProc(@NativeType("aiFileCloseProc") AIFileCloseProcI value) { nCloseProc(address(), value); return this; }
     /** Sets the specified value to the {@code UserData} field. */
-    public AIFileIO UserData(long value) { nUserData(address(), value); return this; }
+    public AIFileIO UserData(@NativeType("aiUserData") long value) { nUserData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIFileIO set(
@@ -328,18 +332,21 @@ public class AIFileIO extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code OpenProc} field. */
+        @NativeType("aiFileOpenProc")
         public AIFileOpenProc OpenProc() { return AIFileIO.nOpenProc(address()); }
         /** Returns the value of the {@code CloseProc} field. */
+        @NativeType("aiFileCloseProc")
         public AIFileCloseProc CloseProc() { return AIFileIO.nCloseProc(address()); }
         /** Returns the value of the {@code UserData} field. */
+        @NativeType("aiUserData")
         public long UserData() { return AIFileIO.nUserData(address()); }
 
         /** Sets the specified value to the {@code OpenProc} field. */
-        public AIFileIO.Buffer OpenProc(AIFileOpenProcI value) { AIFileIO.nOpenProc(address(), value); return this; }
+        public AIFileIO.Buffer OpenProc(@NativeType("aiFileOpenProc") AIFileOpenProcI value) { AIFileIO.nOpenProc(address(), value); return this; }
         /** Sets the specified value to the {@code CloseProc} field. */
-        public AIFileIO.Buffer CloseProc(AIFileCloseProcI value) { AIFileIO.nCloseProc(address(), value); return this; }
+        public AIFileIO.Buffer CloseProc(@NativeType("aiFileCloseProc") AIFileCloseProcI value) { AIFileIO.nCloseProc(address(), value); return this; }
         /** Sets the specified value to the {@code UserData} field. */
-        public AIFileIO.Buffer UserData(long value) { AIFileIO.nUserData(address(), value); return this; }
+        public AIFileIO.Buffer UserData(@NativeType("aiUserData") long value) { AIFileIO.nUserData(address(), value); return this; }
 
     }
 

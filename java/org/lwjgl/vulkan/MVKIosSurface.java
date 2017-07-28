@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -123,7 +125,8 @@ public class MVKIosSurface {
      * @param pAllocator  the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
      * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
      */
-    public static int vkCreateIOSSurfaceMVK(VkInstance instance, VkIOSSurfaceCreateInfoMVK pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
+    @NativeType("VkResult")
+    public static int vkCreateIOSSurfaceMVK(VkInstance instance, @NativeType("const VkIOSSurfaceCreateInfoMVK *") VkIOSSurfaceCreateInfoMVK pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
         if (CHECKS) {
             check(pSurface, 1);
         }
@@ -131,7 +134,8 @@ public class MVKIosSurface {
     }
 
     /** Array version of: {@link #vkCreateIOSSurfaceMVK CreateIOSSurfaceMVK} */
-    public static int vkCreateIOSSurfaceMVK(VkInstance instance, VkIOSSurfaceCreateInfoMVK pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
+    @NativeType("VkResult")
+    public static int vkCreateIOSSurfaceMVK(VkInstance instance, @NativeType("const VkIOSSurfaceCreateInfoMVK *") VkIOSSurfaceCreateInfoMVK pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
         long __functionAddress = instance.getCapabilities().vkCreateIOSSurfaceMVK;
         if (CHECKS) {
             check(__functionAddress);

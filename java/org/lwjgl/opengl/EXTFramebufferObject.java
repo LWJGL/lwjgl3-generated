@@ -158,21 +158,22 @@ public class EXTFramebufferObject {
 
     // --- [ glIsRenderbufferEXT ] ---
 
-    public static native boolean glIsRenderbufferEXT(int renderbuffer);
+    @NativeType("GLboolean")
+    public static native boolean glIsRenderbufferEXT(@NativeType("GLuint") int renderbuffer);
 
     // --- [ glBindRenderbufferEXT ] ---
 
-    public static native void glBindRenderbufferEXT(int target, int renderbuffer);
+    public static native void glBindRenderbufferEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int renderbuffer);
 
     // --- [ glDeleteRenderbuffersEXT ] ---
 
     public static native void nglDeleteRenderbuffersEXT(int n, long renderbuffers);
 
-    public static void glDeleteRenderbuffersEXT(IntBuffer renderbuffers) {
+    public static void glDeleteRenderbuffersEXT(@NativeType("const GLuint *") IntBuffer renderbuffers) {
         nglDeleteRenderbuffersEXT(renderbuffers.remaining(), memAddress(renderbuffers));
     }
 
-    public static void glDeleteRenderbuffersEXT(int renderbuffer) {
+    public static void glDeleteRenderbuffersEXT(@NativeType("const GLuint *") int renderbuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer renderbuffers = stack.ints(renderbuffer);
@@ -186,10 +187,11 @@ public class EXTFramebufferObject {
 
     public static native void nglGenRenderbuffersEXT(int n, long renderbuffers);
 
-    public static void glGenRenderbuffersEXT(IntBuffer renderbuffers) {
+    public static void glGenRenderbuffersEXT(@NativeType("GLuint *") IntBuffer renderbuffers) {
         nglGenRenderbuffersEXT(renderbuffers.remaining(), memAddress(renderbuffers));
     }
 
+    @NativeType("void")
     public static int glGenRenderbuffersEXT() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -203,20 +205,21 @@ public class EXTFramebufferObject {
 
     // --- [ glRenderbufferStorageEXT ] ---
 
-    public static native void glRenderbufferStorageEXT(int target, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glGetRenderbufferParameterivEXT ] ---
 
     public static native void nglGetRenderbufferParameterivEXT(int target, int pname, long params);
 
-    public static void glGetRenderbufferParameterivEXT(int target, int pname, IntBuffer params) {
+    public static void glGetRenderbufferParameterivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetRenderbufferParameterivEXT(target, pname, memAddress(params));
     }
 
-    public static int glGetRenderbufferParameteriEXT(int target, int pname) {
+    @NativeType("void")
+    public static int glGetRenderbufferParameteriEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -229,21 +232,22 @@ public class EXTFramebufferObject {
 
     // --- [ glIsFramebufferEXT ] ---
 
-    public static native boolean glIsFramebufferEXT(int framebuffer);
+    @NativeType("GLboolean")
+    public static native boolean glIsFramebufferEXT(@NativeType("GLuint") int framebuffer);
 
     // --- [ glBindFramebufferEXT ] ---
 
-    public static native void glBindFramebufferEXT(int target, int framebuffer);
+    public static native void glBindFramebufferEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int framebuffer);
 
     // --- [ glDeleteFramebuffersEXT ] ---
 
     public static native void nglDeleteFramebuffersEXT(int n, long framebuffers);
 
-    public static void glDeleteFramebuffersEXT(IntBuffer framebuffers) {
+    public static void glDeleteFramebuffersEXT(@NativeType("const GLuint *") IntBuffer framebuffers) {
         nglDeleteFramebuffersEXT(framebuffers.remaining(), memAddress(framebuffers));
     }
 
-    public static void glDeleteFramebuffersEXT(int framebuffer) {
+    public static void glDeleteFramebuffersEXT(@NativeType("const GLuint *") int framebuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer framebuffers = stack.ints(framebuffer);
@@ -257,10 +261,11 @@ public class EXTFramebufferObject {
 
     public static native void nglGenFramebuffersEXT(int n, long framebuffers);
 
-    public static void glGenFramebuffersEXT(IntBuffer framebuffers) {
+    public static void glGenFramebuffersEXT(@NativeType("GLuint *") IntBuffer framebuffers) {
         nglGenFramebuffersEXT(framebuffers.remaining(), memAddress(framebuffers));
     }
 
+    @NativeType("void")
     public static int glGenFramebuffersEXT() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -274,36 +279,38 @@ public class EXTFramebufferObject {
 
     // --- [ glCheckFramebufferStatusEXT ] ---
 
-    public static native int glCheckFramebufferStatusEXT(int target);
+    @NativeType("GLenum")
+    public static native int glCheckFramebufferStatusEXT(@NativeType("GLenum") int target);
 
     // --- [ glFramebufferTexture1DEXT ] ---
 
-    public static native void glFramebufferTexture1DEXT(int target, int attachment, int textarget, int texture, int level);
+    public static native void glFramebufferTexture1DEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glFramebufferTexture2DEXT ] ---
 
-    public static native void glFramebufferTexture2DEXT(int target, int attachment, int textarget, int texture, int level);
+    public static native void glFramebufferTexture2DEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glFramebufferTexture3DEXT ] ---
 
-    public static native void glFramebufferTexture3DEXT(int target, int attachment, int textarget, int texture, int level, int zoffset);
+    public static native void glFramebufferTexture3DEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int zoffset);
 
     // --- [ glFramebufferRenderbufferEXT ] ---
 
-    public static native void glFramebufferRenderbufferEXT(int target, int attachment, int renderbuffertarget, int renderbuffer);
+    public static native void glFramebufferRenderbufferEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int renderbuffertarget, @NativeType("GLuint") int renderbuffer);
 
     // --- [ glGetFramebufferAttachmentParameterivEXT ] ---
 
     public static native void nglGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, long params);
 
-    public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, IntBuffer params) {
+    public static void glGetFramebufferAttachmentParameterivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetFramebufferAttachmentParameterivEXT(target, attachment, pname, memAddress(params));
     }
 
-    public static int glGetFramebufferAttachmentParameteriEXT(int target, int attachment, int pname) {
+    @NativeType("void")
+    public static int glGetFramebufferAttachmentParameteriEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -316,10 +323,10 @@ public class EXTFramebufferObject {
 
     // --- [ glGenerateMipmapEXT ] ---
 
-    public static native void glGenerateMipmapEXT(int target);
+    public static native void glGenerateMipmapEXT(@NativeType("GLenum") int target);
 
     /** Array version of: {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
-    public static void glDeleteRenderbuffersEXT(int[] renderbuffers) {
+    public static void glDeleteRenderbuffersEXT(@NativeType("const GLuint *") int[] renderbuffers) {
         long __functionAddress = GL.getICD().glDeleteRenderbuffersEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -328,7 +335,7 @@ public class EXTFramebufferObject {
     }
 
     /** Array version of: {@link #glGenRenderbuffersEXT GenRenderbuffersEXT} */
-    public static void glGenRenderbuffersEXT(int[] renderbuffers) {
+    public static void glGenRenderbuffersEXT(@NativeType("GLuint *") int[] renderbuffers) {
         long __functionAddress = GL.getICD().glGenRenderbuffersEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -337,7 +344,7 @@ public class EXTFramebufferObject {
     }
 
     /** Array version of: {@link #glGetRenderbufferParameterivEXT GetRenderbufferParameterivEXT} */
-    public static void glGetRenderbufferParameterivEXT(int target, int pname, int[] params) {
+    public static void glGetRenderbufferParameterivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetRenderbufferParameterivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -347,7 +354,7 @@ public class EXTFramebufferObject {
     }
 
     /** Array version of: {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
-    public static void glDeleteFramebuffersEXT(int[] framebuffers) {
+    public static void glDeleteFramebuffersEXT(@NativeType("const GLuint *") int[] framebuffers) {
         long __functionAddress = GL.getICD().glDeleteFramebuffersEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -356,7 +363,7 @@ public class EXTFramebufferObject {
     }
 
     /** Array version of: {@link #glGenFramebuffersEXT GenFramebuffersEXT} */
-    public static void glGenFramebuffersEXT(int[] framebuffers) {
+    public static void glGenFramebuffersEXT(@NativeType("GLuint *") int[] framebuffers) {
         long __functionAddress = GL.getICD().glGenFramebuffersEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -365,7 +372,7 @@ public class EXTFramebufferObject {
     }
 
     /** Array version of: {@link #glGetFramebufferAttachmentParameterivEXT GetFramebufferAttachmentParameterivEXT} */
-    public static void glGetFramebufferAttachmentParameterivEXT(int target, int attachment, int pname, int[] params) {
+    public static void glGetFramebufferAttachmentParameterivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetFramebufferAttachmentParameterivEXT;
         if (CHECKS) {
             check(__functionAddress);

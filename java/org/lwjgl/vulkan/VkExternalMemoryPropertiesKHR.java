@@ -85,10 +85,13 @@ public class VkExternalMemoryPropertiesKHR extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code externalMemoryFeatures} field. */
+    @NativeType("VkExternalMemoryFeatureFlagsKHR")
     public int externalMemoryFeatures() { return nexternalMemoryFeatures(address()); }
     /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
+    @NativeType("VkExternalMemoryHandleTypeFlagsKHR")
     public int exportFromImportedHandleTypes() { return nexportFromImportedHandleTypes(address()); }
     /** Returns the value of the {@code compatibleHandleTypes} field. */
+    @NativeType("VkExternalMemoryHandleTypeFlagsKHR")
     public int compatibleHandleTypes() { return ncompatibleHandleTypes(address()); }
 
     // -----------------------------------
@@ -160,10 +163,13 @@ public class VkExternalMemoryPropertiesKHR extends Struct {
         }
 
         /** Returns the value of the {@code externalMemoryFeatures} field. */
+        @NativeType("VkExternalMemoryFeatureFlagsKHR")
         public int externalMemoryFeatures() { return VkExternalMemoryPropertiesKHR.nexternalMemoryFeatures(address()); }
         /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
+        @NativeType("VkExternalMemoryHandleTypeFlagsKHR")
         public int exportFromImportedHandleTypes() { return VkExternalMemoryPropertiesKHR.nexportFromImportedHandleTypes(address()); }
         /** Returns the value of the {@code compatibleHandleTypes} field. */
+        @NativeType("VkExternalMemoryHandleTypeFlagsKHR")
         public int compatibleHandleTypes() { return VkExternalMemoryPropertiesKHR.ncompatibleHandleTypes(address()); }
 
     }

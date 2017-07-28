@@ -116,44 +116,57 @@ public class YGLayout extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code positions} field. */
+    @NativeType("float[4]")
     public FloatBuffer positions() { return npositions(address()); }
     /** Returns the value at the specified index of the {@code positions} field. */
     public float positions(int index) { return npositions(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code dimensions} field. */
+    @NativeType("float[2]")
     public FloatBuffer dimensions() { return ndimensions(address()); }
     /** Returns the value at the specified index of the {@code dimensions} field. */
     public float dimensions(int index) { return ndimensions(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code margin} field. */
+    @NativeType("float[6]")
     public FloatBuffer margin() { return nmargin(address()); }
     /** Returns the value at the specified index of the {@code margin} field. */
     public float margin(int index) { return nmargin(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code border} field. */
+    @NativeType("float[6]")
     public FloatBuffer border() { return nborder(address()); }
     /** Returns the value at the specified index of the {@code border} field. */
     public float border(int index) { return nborder(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code padding} field. */
+    @NativeType("float[6]")
     public FloatBuffer padding() { return npadding(address()); }
     /** Returns the value at the specified index of the {@code padding} field. */
     public float padding(int index) { return npadding(address(), index); }
     /** Returns the value of the {@code direction} field. */
+    @NativeType("YGDirection")
     public int direction() { return ndirection(address()); }
     /** Returns the value of the {@code computedFlexBasisGeneration} field. */
+    @NativeType("uint32_t")
     public int computedFlexBasisGeneration() { return ncomputedFlexBasisGeneration(address()); }
     /** Returns the value of the {@code computedFlexBasis} field. */
     public float computedFlexBasis() { return ncomputedFlexBasis(address()); }
     /** Returns the value of the {@code hadOverflow} field. */
+    @NativeType("bool")
     public boolean hadOverflow() { return nhadOverflow(address()); }
     /** Returns the value of the {@code generationCount} field. */
+    @NativeType("uint32_t")
     public int generationCount() { return ngenerationCount(address()); }
     /** Returns the value of the {@code lastParentDirection} field. */
+    @NativeType("YGDirection")
     public int lastParentDirection() { return nlastParentDirection(address()); }
     /** Returns the value of the {@code nextCachedMeasurementsIndex} field. */
+    @NativeType("uint32_t")
     public int nextCachedMeasurementsIndex() { return nnextCachedMeasurementsIndex(address()); }
     /** Returns a {@link YGCachedMeasurement}.Buffer view of the {@code cachedMeasurements} field. */
+    @NativeType("YGCachedMeasurement[16]")
     public YGCachedMeasurement.Buffer cachedMeasurements() { return ncachedMeasurements(address()); }
     /** Returns a {@link YGCachedMeasurement} view of the struct at the specified index of the {@code cachedMeasurements} field. */
     public YGCachedMeasurement cachedMeasurements(int index) { return ncachedMeasurements(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code measuredDimensions} field. */
+    @NativeType("float[2]")
     public FloatBuffer measuredDimensions() { return nmeasuredDimensions(address()); }
     /** Returns the value at the specified index of the {@code measuredDimensions} field. */
     public float measuredDimensions(int index) { return nmeasuredDimensions(address(), index); }
@@ -288,44 +301,57 @@ public class YGLayout extends Struct {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code positions} field. */
+        @NativeType("float[4]")
         public FloatBuffer positions() { return YGLayout.npositions(address()); }
         /** Returns the value at the specified index of the {@code positions} field. */
         public float positions(int index) { return YGLayout.npositions(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code dimensions} field. */
+        @NativeType("float[2]")
         public FloatBuffer dimensions() { return YGLayout.ndimensions(address()); }
         /** Returns the value at the specified index of the {@code dimensions} field. */
         public float dimensions(int index) { return YGLayout.ndimensions(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code margin} field. */
+        @NativeType("float[6]")
         public FloatBuffer margin() { return YGLayout.nmargin(address()); }
         /** Returns the value at the specified index of the {@code margin} field. */
         public float margin(int index) { return YGLayout.nmargin(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code border} field. */
+        @NativeType("float[6]")
         public FloatBuffer border() { return YGLayout.nborder(address()); }
         /** Returns the value at the specified index of the {@code border} field. */
         public float border(int index) { return YGLayout.nborder(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code padding} field. */
+        @NativeType("float[6]")
         public FloatBuffer padding() { return YGLayout.npadding(address()); }
         /** Returns the value at the specified index of the {@code padding} field. */
         public float padding(int index) { return YGLayout.npadding(address(), index); }
         /** Returns the value of the {@code direction} field. */
+        @NativeType("YGDirection")
         public int direction() { return YGLayout.ndirection(address()); }
         /** Returns the value of the {@code computedFlexBasisGeneration} field. */
+        @NativeType("uint32_t")
         public int computedFlexBasisGeneration() { return YGLayout.ncomputedFlexBasisGeneration(address()); }
         /** Returns the value of the {@code computedFlexBasis} field. */
         public float computedFlexBasis() { return YGLayout.ncomputedFlexBasis(address()); }
         /** Returns the value of the {@code hadOverflow} field. */
+        @NativeType("bool")
         public boolean hadOverflow() { return YGLayout.nhadOverflow(address()); }
         /** Returns the value of the {@code generationCount} field. */
+        @NativeType("uint32_t")
         public int generationCount() { return YGLayout.ngenerationCount(address()); }
         /** Returns the value of the {@code lastParentDirection} field. */
+        @NativeType("YGDirection")
         public int lastParentDirection() { return YGLayout.nlastParentDirection(address()); }
         /** Returns the value of the {@code nextCachedMeasurementsIndex} field. */
+        @NativeType("uint32_t")
         public int nextCachedMeasurementsIndex() { return YGLayout.nnextCachedMeasurementsIndex(address()); }
         /** Returns a {@link YGCachedMeasurement}.Buffer view of the {@code cachedMeasurements} field. */
+        @NativeType("YGCachedMeasurement[16]")
         public YGCachedMeasurement.Buffer cachedMeasurements() { return YGLayout.ncachedMeasurements(address()); }
         /** Returns a {@link YGCachedMeasurement} view of the struct at the specified index of the {@code cachedMeasurements} field. */
         public YGCachedMeasurement cachedMeasurements(int index) { return YGLayout.ncachedMeasurements(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code measuredDimensions} field. */
+        @NativeType("float[2]")
         public FloatBuffer measuredDimensions() { return YGLayout.nmeasuredDimensions(address()); }
         /** Returns the value at the specified index of the {@code measuredDimensions} field. */
         public float measuredDimensions(int index) { return YGLayout.nmeasuredDimensions(address(), index); }

@@ -67,7 +67,8 @@ public class KHREGLImage {
      * @param properties  a list of property names and their corresponding values
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
-    public static long clCreateFromEGLImageKHR(long context, long display, long image, long flags, PointerBuffer properties, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromEGLImageKHR(@NativeType("cl_context") long context, @NativeType("CLeglDisplayKHR") long display, @NativeType("CLeglImageKHR") long image, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_egl_image_properties_khr *") PointerBuffer properties, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
@@ -106,7 +107,8 @@ public class KHREGLImage {
      *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
      *                        {@code event_wait_list} array.
      */
-    public static int clEnqueueAcquireEGLObjectsKHR(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueAcquireEGLObjectsKHR(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -144,7 +146,8 @@ public class KHREGLImage {
      *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
      *                        {@code event_wait_list} array.
      */
-    public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReleaseEGLObjectsKHR(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -164,7 +167,8 @@ public class KHREGLImage {
      *                        complete. If the {@code event_wait_list} and the {@code event} arguments are not {@code NULL}, the event argument should not refer to an element of the
      *                        {@code event_wait_list} array.
      */
-    public static int clEnqueueReleaseEGLObjectsKHR(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReleaseEGLObjectsKHR(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -178,7 +182,8 @@ public class KHREGLImage {
     }
 
     /** Array version of: {@link #clCreateFromEGLImageKHR CreateFromEGLImageKHR} */
-    public static long clCreateFromEGLImageKHR(long context, long display, long image, long flags, PointerBuffer properties, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromEGLImageKHR(@NativeType("cl_context") long context, @NativeType("CLeglDisplayKHR") long display, @NativeType("CLeglImageKHR") long image, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_egl_image_properties_khr *") PointerBuffer properties, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromEGLImageKHR;
         if (CHECKS) {
             check(__functionAddress);

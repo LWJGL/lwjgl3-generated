@@ -101,42 +101,51 @@ public class JAWT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code version} field. */
+    @NativeType("jint")
     public int version() { return nversion(address()); }
     /** Returns the value of the {@code GetDrawingSurface} field. */
+    @NativeType("void *")
     public long GetDrawingSurface() { return nGetDrawingSurface(address()); }
     /** Returns the value of the {@code FreeDrawingSurface} field. */
+    @NativeType("void *")
     public long FreeDrawingSurface() { return nFreeDrawingSurface(address()); }
     /** Returns the value of the {@code Lock} field. */
+    @NativeType("void *")
     public long Lock() { return nLock(address()); }
     /** Returns the value of the {@code Unlock} field. */
+    @NativeType("void *")
     public long Unlock() { return nUnlock(address()); }
     /** Returns the value of the {@code GetComponent} field. */
+    @NativeType("void *")
     public long GetComponent() { return nGetComponent(address()); }
     /** Returns the value of the {@code CreateEmbeddedFrame} field. */
+    @NativeType("void *")
     public long CreateEmbeddedFrame() { return nCreateEmbeddedFrame(address()); }
     /** Returns the value of the {@code SetBounds} field. */
+    @NativeType("void *")
     public long SetBounds() { return nSetBounds(address()); }
     /** Returns the value of the {@code SynthesizeWindowActivation} field. */
+    @NativeType("void *")
     public long SynthesizeWindowActivation() { return nSynthesizeWindowActivation(address()); }
 
     /** Sets the specified value to the {@code version} field. */
-    public JAWT version(int value) { nversion(address(), value); return this; }
+    public JAWT version(@NativeType("jint") int value) { nversion(address(), value); return this; }
     /** Sets the specified value to the {@code GetDrawingSurface} field. */
-    public JAWT GetDrawingSurface(long value) { nGetDrawingSurface(address(), value); return this; }
+    public JAWT GetDrawingSurface(@NativeType("void *") long value) { nGetDrawingSurface(address(), value); return this; }
     /** Sets the specified value to the {@code FreeDrawingSurface} field. */
-    public JAWT FreeDrawingSurface(long value) { nFreeDrawingSurface(address(), value); return this; }
+    public JAWT FreeDrawingSurface(@NativeType("void *") long value) { nFreeDrawingSurface(address(), value); return this; }
     /** Sets the specified value to the {@code Lock} field. */
-    public JAWT Lock(long value) { nLock(address(), value); return this; }
+    public JAWT Lock(@NativeType("void *") long value) { nLock(address(), value); return this; }
     /** Sets the specified value to the {@code Unlock} field. */
-    public JAWT Unlock(long value) { nUnlock(address(), value); return this; }
+    public JAWT Unlock(@NativeType("void *") long value) { nUnlock(address(), value); return this; }
     /** Sets the specified value to the {@code GetComponent} field. */
-    public JAWT GetComponent(long value) { nGetComponent(address(), value); return this; }
+    public JAWT GetComponent(@NativeType("void *") long value) { nGetComponent(address(), value); return this; }
     /** Sets the specified value to the {@code CreateEmbeddedFrame} field. */
-    public JAWT CreateEmbeddedFrame(long value) { nCreateEmbeddedFrame(address(), value); return this; }
+    public JAWT CreateEmbeddedFrame(@NativeType("void *") long value) { nCreateEmbeddedFrame(address(), value); return this; }
     /** Sets the specified value to the {@code SetBounds} field. */
-    public JAWT SetBounds(long value) { nSetBounds(address(), value); return this; }
+    public JAWT SetBounds(@NativeType("void *") long value) { nSetBounds(address(), value); return this; }
     /** Sets the specified value to the {@code SynthesizeWindowActivation} field. */
-    public JAWT SynthesizeWindowActivation(long value) { nSynthesizeWindowActivation(address(), value); return this; }
+    public JAWT SynthesizeWindowActivation(@NativeType("void *") long value) { nSynthesizeWindowActivation(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public JAWT set(
@@ -385,42 +394,51 @@ public class JAWT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code version} field. */
+        @NativeType("jint")
         public int version() { return JAWT.nversion(address()); }
         /** Returns the value of the {@code GetDrawingSurface} field. */
+        @NativeType("void *")
         public long GetDrawingSurface() { return JAWT.nGetDrawingSurface(address()); }
         /** Returns the value of the {@code FreeDrawingSurface} field. */
+        @NativeType("void *")
         public long FreeDrawingSurface() { return JAWT.nFreeDrawingSurface(address()); }
         /** Returns the value of the {@code Lock} field. */
+        @NativeType("void *")
         public long Lock() { return JAWT.nLock(address()); }
         /** Returns the value of the {@code Unlock} field. */
+        @NativeType("void *")
         public long Unlock() { return JAWT.nUnlock(address()); }
         /** Returns the value of the {@code GetComponent} field. */
+        @NativeType("void *")
         public long GetComponent() { return JAWT.nGetComponent(address()); }
         /** Returns the value of the {@code CreateEmbeddedFrame} field. */
+        @NativeType("void *")
         public long CreateEmbeddedFrame() { return JAWT.nCreateEmbeddedFrame(address()); }
         /** Returns the value of the {@code SetBounds} field. */
+        @NativeType("void *")
         public long SetBounds() { return JAWT.nSetBounds(address()); }
         /** Returns the value of the {@code SynthesizeWindowActivation} field. */
+        @NativeType("void *")
         public long SynthesizeWindowActivation() { return JAWT.nSynthesizeWindowActivation(address()); }
 
         /** Sets the specified value to the {@code version} field. */
-        public JAWT.Buffer version(int value) { JAWT.nversion(address(), value); return this; }
+        public JAWT.Buffer version(@NativeType("jint") int value) { JAWT.nversion(address(), value); return this; }
         /** Sets the specified value to the {@code GetDrawingSurface} field. */
-        public JAWT.Buffer GetDrawingSurface(long value) { JAWT.nGetDrawingSurface(address(), value); return this; }
+        public JAWT.Buffer GetDrawingSurface(@NativeType("void *") long value) { JAWT.nGetDrawingSurface(address(), value); return this; }
         /** Sets the specified value to the {@code FreeDrawingSurface} field. */
-        public JAWT.Buffer FreeDrawingSurface(long value) { JAWT.nFreeDrawingSurface(address(), value); return this; }
+        public JAWT.Buffer FreeDrawingSurface(@NativeType("void *") long value) { JAWT.nFreeDrawingSurface(address(), value); return this; }
         /** Sets the specified value to the {@code Lock} field. */
-        public JAWT.Buffer Lock(long value) { JAWT.nLock(address(), value); return this; }
+        public JAWT.Buffer Lock(@NativeType("void *") long value) { JAWT.nLock(address(), value); return this; }
         /** Sets the specified value to the {@code Unlock} field. */
-        public JAWT.Buffer Unlock(long value) { JAWT.nUnlock(address(), value); return this; }
+        public JAWT.Buffer Unlock(@NativeType("void *") long value) { JAWT.nUnlock(address(), value); return this; }
         /** Sets the specified value to the {@code GetComponent} field. */
-        public JAWT.Buffer GetComponent(long value) { JAWT.nGetComponent(address(), value); return this; }
+        public JAWT.Buffer GetComponent(@NativeType("void *") long value) { JAWT.nGetComponent(address(), value); return this; }
         /** Sets the specified value to the {@code CreateEmbeddedFrame} field. */
-        public JAWT.Buffer CreateEmbeddedFrame(long value) { JAWT.nCreateEmbeddedFrame(address(), value); return this; }
+        public JAWT.Buffer CreateEmbeddedFrame(@NativeType("void *") long value) { JAWT.nCreateEmbeddedFrame(address(), value); return this; }
         /** Sets the specified value to the {@code SetBounds} field. */
-        public JAWT.Buffer SetBounds(long value) { JAWT.nSetBounds(address(), value); return this; }
+        public JAWT.Buffer SetBounds(@NativeType("void *") long value) { JAWT.nSetBounds(address(), value); return this; }
         /** Sets the specified value to the {@code SynthesizeWindowActivation} field. */
-        public JAWT.Buffer SynthesizeWindowActivation(long value) { JAWT.nSynthesizeWindowActivation(address(), value); return this; }
+        public JAWT.Buffer SynthesizeWindowActivation(@NativeType("void *") long value) { JAWT.nSynthesizeWindowActivation(address(), value); return this; }
 
     }
 

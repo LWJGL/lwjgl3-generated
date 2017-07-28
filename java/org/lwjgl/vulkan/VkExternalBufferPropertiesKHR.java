@@ -90,8 +90,10 @@ public class VkExternalBufferPropertiesKHR extends Struct implements NativeResou
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkExternalMemoryPropertiesKHR} view of the {@code externalMemoryProperties} field. */
     public VkExternalMemoryPropertiesKHR externalMemoryProperties() { return nexternalMemoryProperties(address()); }
@@ -275,8 +277,10 @@ public class VkExternalBufferPropertiesKHR extends Struct implements NativeResou
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkExternalBufferPropertiesKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkExternalBufferPropertiesKHR.npNext(address()); }
         /** Returns a {@link VkExternalMemoryPropertiesKHR} view of the {@code externalMemoryProperties} field. */
         public VkExternalMemoryPropertiesKHR externalMemoryProperties() { return VkExternalBufferPropertiesKHR.nexternalMemoryProperties(address()); }

@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -40,7 +42,8 @@ public class ANGLEQuerySurfacePointer {
         return callPPPI(__functionAddress, dpy, surface, attribute, value);
     }
 
-    public static boolean eglQuerySurfacePointerANGLE(long dpy, long surface, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQuerySurfacePointerANGLE(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLint") int attribute, @NativeType("void **") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }

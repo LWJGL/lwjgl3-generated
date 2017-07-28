@@ -377,34 +377,34 @@ public class GLES30 {
     // --- [ glReadBuffer ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glReadBuffer">Reference Page</a> */
-    public static native void glReadBuffer(int src);
+    public static native void glReadBuffer(@NativeType("GLenum") int src);
 
     // --- [ glDrawRangeElements ] ---
 
     public static native void nglDrawRangeElements(int mode, int start, int end, int count, int type, long indices);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElements">Reference Page</a> */
-    public static void glDrawRangeElements(int mode, int start, int end, int count, int type, long indices) {
+    public static void glDrawRangeElements(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices) {
         nglDrawRangeElements(mode, start, end, count, type, indices);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElements">Reference Page</a> */
-    public static void glDrawRangeElements(int mode, int start, int end, int type, ByteBuffer indices) {
+    public static void glDrawRangeElements(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices) {
         nglDrawRangeElements(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElements">Reference Page</a> */
-    public static void glDrawRangeElements(int mode, int start, int end, ByteBuffer indices) {
+    public static void glDrawRangeElements(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ByteBuffer indices) {
         nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElements">Reference Page</a> */
-    public static void glDrawRangeElements(int mode, int start, int end, ShortBuffer indices) {
+    public static void glDrawRangeElements(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ShortBuffer indices) {
         nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawRangeElements">Reference Page</a> */
-    public static void glDrawRangeElements(int mode, int start, int end, IntBuffer indices) {
+    public static void glDrawRangeElements(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") IntBuffer indices) {
         nglDrawRangeElements(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices));
     }
 
@@ -413,27 +413,27 @@ public class GLES30 {
     public static native void nglTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels);
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexImage3D">Reference Page</a> */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ByteBuffer pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer pixels) {
         nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexImage3D">Reference Page</a> */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, long pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long pixels) {
         nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexImage3D">Reference Page</a> */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ShortBuffer pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer pixels) {
         nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexImage3D">Reference Page</a> */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntBuffer pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer pixels) {
         nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexImage3D">Reference Page</a> */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, FloatBuffer pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer pixels) {
         nglTexImage3D(target, level, internalformat, width, height, depth, border, format, type, memAddressSafe(pixels));
     }
 
@@ -442,46 +442,46 @@ public class GLES30 {
     public static native void nglTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels);
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexSubImage3D">Reference Page</a> */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer pixels) {
         nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexSubImage3D">Reference Page</a> */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long pixels) {
         nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexSubImage3D">Reference Page</a> */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ShortBuffer pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer pixels) {
         nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexSubImage3D">Reference Page</a> */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntBuffer pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer pixels) {
         nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexSubImage3D">Reference Page</a> */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, FloatBuffer pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer pixels) {
         nglTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(pixels));
     }
 
     // --- [ glCopyTexSubImage3D ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glCopyTexSubImage3D">Reference Page</a> */
-    public static native void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
+    public static native void glCopyTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glCompressedTexImage3D ] ---
 
     public static native void nglCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data);
 
     /** <a target="_blank" href="http://docs.gl/es3/glCompressedTexImage3D">Reference Page</a> */
-    public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
+    public static void glCompressedTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glCompressedTexImage3D">Reference Page</a> */
-    public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
+    public static void glCompressedTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, remainingSafe(data), memAddressSafe(data));
     }
 
@@ -490,12 +490,12 @@ public class GLES30 {
     public static native void nglCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data);
 
     /** <a target="_blank" href="http://docs.gl/es3/glCompressedTexSubImage3D">Reference Page</a> */
-    public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
+    public static void glCompressedTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glCompressedTexSubImage3D">Reference Page</a> */
-    public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
+    public static void glCompressedTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
     }
 
@@ -504,11 +504,12 @@ public class GLES30 {
     public static native void nglGenQueries(int n, long ids);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenQueries">Reference Page</a> */
-    public static void glGenQueries(IntBuffer ids) {
+    public static void glGenQueries(@NativeType("GLuint *") IntBuffer ids) {
         nglGenQueries(ids.remaining(), memAddress(ids));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenQueries">Reference Page</a> */
+    @NativeType("void")
     public static int glGenQueries() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -525,12 +526,12 @@ public class GLES30 {
     public static native void nglDeleteQueries(int n, long ids);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteQueries">Reference Page</a> */
-    public static void glDeleteQueries(IntBuffer ids) {
+    public static void glDeleteQueries(@NativeType("const GLuint *") IntBuffer ids) {
         nglDeleteQueries(ids.remaining(), memAddress(ids));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteQueries">Reference Page</a> */
-    public static void glDeleteQueries(int id) {
+    public static void glDeleteQueries(@NativeType("const GLuint *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -543,24 +544,25 @@ public class GLES30 {
     // --- [ glIsQuery ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glIsQuery">Reference Page</a> */
-    public static native boolean glIsQuery(int id);
+    @NativeType("GLboolean")
+    public static native boolean glIsQuery(@NativeType("GLuint") int id);
 
     // --- [ glBeginQuery ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBeginQuery">Reference Page</a> */
-    public static native void glBeginQuery(int target, int id);
+    public static native void glBeginQuery(@NativeType("GLenum") int target, @NativeType("GLuint") int id);
 
     // --- [ glEndQuery ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glEndQuery">Reference Page</a> */
-    public static native void glEndQuery(int target);
+    public static native void glEndQuery(@NativeType("GLenum") int target);
 
     // --- [ glGetQueryiv ] ---
 
     public static native void nglGetQueryiv(int target, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetQuery">Reference Page</a> */
-    public static void glGetQueryiv(int target, int pname, IntBuffer params) {
+    public static void glGetQueryiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -568,7 +570,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetQuery">Reference Page</a> */
-    public static int glGetQueryi(int target, int pname) {
+    @NativeType("void")
+    public static int glGetQueryi(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -584,7 +587,7 @@ public class GLES30 {
     public static native void nglGetQueryObjectuiv(int id, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetQueryObject">Reference Page</a> */
-    public static void glGetQueryObjectuiv(int id, int pname, IntBuffer params) {
+    public static void glGetQueryObjectuiv(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -592,7 +595,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetQueryObject">Reference Page</a> */
-    public static int glGetQueryObjectui(int id, int pname) {
+    @NativeType("void")
+    public static int glGetQueryObjectui(@NativeType("GLuint") int id, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -606,14 +610,15 @@ public class GLES30 {
     // --- [ glUnmapBuffer ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glUnmapBuffer">Reference Page</a> */
-    public static native boolean glUnmapBuffer(int target);
+    @NativeType("GLboolean")
+    public static native boolean glUnmapBuffer(@NativeType("GLenum") int target);
 
     // --- [ glGetBufferPointerv ] ---
 
     public static native void nglGetBufferPointerv(int target, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetBufferPointerv">Reference Page</a> */
-    public static void glGetBufferPointerv(int target, int pname, PointerBuffer params) {
+    public static void glGetBufferPointerv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("void **") PointerBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -621,7 +626,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetBufferPointerv">Reference Page</a> */
-    public static long glGetBufferPointer(int target, int pname) {
+    @NativeType("void")
+    public static long glGetBufferPointer(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer params = stack.callocPointer(1);
@@ -637,12 +643,12 @@ public class GLES30 {
     public static native void nglDrawBuffers(int n, long bufs);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawBuffers">Reference Page</a> */
-    public static void glDrawBuffers(IntBuffer bufs) {
+    public static void glDrawBuffers(@NativeType("const GLenum *") IntBuffer bufs) {
         nglDrawBuffers(bufs.remaining(), memAddress(bufs));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawBuffers">Reference Page</a> */
-    public static void glDrawBuffers(int buf) {
+    public static void glDrawBuffers(@NativeType("const GLenum *") int buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer bufs = stack.ints(buf);
@@ -657,7 +663,7 @@ public class GLES30 {
     public static native void nglUniformMatrix2x3fv(int location, int count, boolean transpose, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniformMatrix2x3fv(int location, boolean transpose, FloatBuffer value) {
+    public static void glUniformMatrix2x3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglUniformMatrix2x3fv(location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -666,7 +672,7 @@ public class GLES30 {
     public static native void nglUniformMatrix3x2fv(int location, int count, boolean transpose, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniformMatrix3x2fv(int location, boolean transpose, FloatBuffer value) {
+    public static void glUniformMatrix3x2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglUniformMatrix3x2fv(location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -675,7 +681,7 @@ public class GLES30 {
     public static native void nglUniformMatrix2x4fv(int location, int count, boolean transpose, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniformMatrix2x4fv(int location, boolean transpose, FloatBuffer value) {
+    public static void glUniformMatrix2x4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglUniformMatrix2x4fv(location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -684,7 +690,7 @@ public class GLES30 {
     public static native void nglUniformMatrix4x2fv(int location, int count, boolean transpose, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniformMatrix4x2fv(int location, boolean transpose, FloatBuffer value) {
+    public static void glUniformMatrix4x2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglUniformMatrix4x2fv(location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -693,7 +699,7 @@ public class GLES30 {
     public static native void nglUniformMatrix3x4fv(int location, int count, boolean transpose, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniformMatrix3x4fv(int location, boolean transpose, FloatBuffer value) {
+    public static void glUniformMatrix3x4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglUniformMatrix3x4fv(location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -702,37 +708,39 @@ public class GLES30 {
     public static native void nglUniformMatrix4x3fv(int location, int count, boolean transpose, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniformMatrix4x3fv(int location, boolean transpose, FloatBuffer value) {
+    public static void glUniformMatrix4x3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglUniformMatrix4x3fv(location, value.remaining() / 12, transpose, memAddress(value));
     }
 
     // --- [ glBlitFramebuffer ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBlitFramebuffer">Reference Page</a> */
-    public static native void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
+    public static native void glBlitFramebuffer(@NativeType("GLint") int srcX0, @NativeType("GLint") int srcY0, @NativeType("GLint") int srcX1, @NativeType("GLint") int srcY1, @NativeType("GLint") int dstX0, @NativeType("GLint") int dstY0, @NativeType("GLint") int dstX1, @NativeType("GLint") int dstY1, @NativeType("GLbitfield") int mask, @NativeType("GLenum") int filter);
 
     // --- [ glRenderbufferStorageMultisample ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glRenderbufferStorageMultisample">Reference Page</a> */
-    public static native void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisample(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glFramebufferTextureLayer ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glFramebufferTextureLayer">Reference Page</a> */
-    public static native void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
+    public static native void glFramebufferTextureLayer(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int layer);
 
     // --- [ glMapBufferRange ] ---
 
     public static native long nglMapBufferRange(int target, long offset, long length, int access);
 
     /** <a target="_blank" href="http://docs.gl/es3/glMapBufferRange">Reference Page</a> */
-    public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access) {
+    @NativeType("void *")
+    public static ByteBuffer glMapBufferRange(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length, @NativeType("GLbitfield") int access) {
         long __result = nglMapBufferRange(target, offset, length, access);
         return memByteBuffer(__result, (int)length);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glMapBufferRange">Reference Page</a> */
-    public static ByteBuffer glMapBufferRange(int target, long offset, long length, int access, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapBufferRange(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length, @NativeType("GLbitfield") int access, ByteBuffer old_buffer) {
         long __result = nglMapBufferRange(target, offset, length, access);
         return apiGetMappedBuffer(old_buffer, __result, (int)length);
     }
@@ -740,24 +748,24 @@ public class GLES30 {
     // --- [ glFlushMappedBufferRange ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glFlushMappedBufferRange">Reference Page</a> */
-    public static native void glFlushMappedBufferRange(int target, long offset, long length);
+    public static native void glFlushMappedBufferRange(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length);
 
     // --- [ glBindVertexArray ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBindVertexArray">Reference Page</a> */
-    public static native void glBindVertexArray(int array);
+    public static native void glBindVertexArray(@NativeType("GLuint") int array);
 
     // --- [ glDeleteVertexArrays ] ---
 
     public static native void nglDeleteVertexArrays(int n, long arrays);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteVertexArrays">Reference Page</a> */
-    public static void glDeleteVertexArrays(IntBuffer arrays) {
+    public static void glDeleteVertexArrays(@NativeType("const GLuint *") IntBuffer arrays) {
         nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteVertexArrays">Reference Page</a> */
-    public static void glDeleteVertexArrays(int array) {
+    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int array) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer arrays = stack.ints(array);
@@ -772,11 +780,12 @@ public class GLES30 {
     public static native void nglGenVertexArrays(int n, long arrays);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenVertexArrays">Reference Page</a> */
-    public static void glGenVertexArrays(IntBuffer arrays) {
+    public static void glGenVertexArrays(@NativeType("GLuint *") IntBuffer arrays) {
         nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenVertexArrays">Reference Page</a> */
+    @NativeType("void")
     public static int glGenVertexArrays() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -791,14 +800,15 @@ public class GLES30 {
     // --- [ glIsVertexArray ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glIsVertexArray">Reference Page</a> */
-    public static native boolean glIsVertexArray(int array);
+    @NativeType("GLboolean")
+    public static native boolean glIsVertexArray(@NativeType("GLuint") int array);
 
     // --- [ glGetIntegeri_v ] ---
 
     public static native void nglGetIntegeri_v(int target, int index, long data);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetIntegeri_v">Reference Page</a> */
-    public static void glGetIntegeri_v(int target, int index, IntBuffer data) {
+    public static void glGetIntegeri_v(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer data) {
         if (CHECKS) {
             check(data, 1);
         }
@@ -806,7 +816,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetIntegeri_v">Reference Page</a> */
-    public static int glGetIntegeri(int target, int index) {
+    @NativeType("void")
+    public static int glGetIntegeri(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer data = stack.callocInt(1);
@@ -820,7 +831,7 @@ public class GLES30 {
     // --- [ glBeginTransformFeedback ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBeginTransformFeedback">Reference Page</a> */
-    public static native void glBeginTransformFeedback(int primitiveMode);
+    public static native void glBeginTransformFeedback(@NativeType("GLenum") int primitiveMode);
 
     // --- [ glEndTransformFeedback ] ---
 
@@ -830,24 +841,24 @@ public class GLES30 {
     // --- [ glBindBufferRange ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBindBufferRange">Reference Page</a> */
-    public static native void glBindBufferRange(int target, int index, int buffer, long offset, long size);
+    public static native void glBindBufferRange(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size);
 
     // --- [ glBindBufferBase ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBindBufferBase">Reference Page</a> */
-    public static native void glBindBufferBase(int target, int index, int buffer);
+    public static native void glBindBufferBase(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer);
 
     // --- [ glTransformFeedbackVaryings ] ---
 
     public static native void nglTransformFeedbackVaryings(int program, int count, long varyings, int bufferMode);
 
     /** <a target="_blank" href="http://docs.gl/es3/glTransformFeedbackVaryings">Reference Page</a> */
-    public static void glTransformFeedbackVaryings(int program, PointerBuffer varyings, int bufferMode) {
+    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") PointerBuffer varyings, @NativeType("GLenum") int bufferMode) {
         nglTransformFeedbackVaryings(program, varyings.remaining(), memAddress(varyings), bufferMode);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTransformFeedbackVaryings">Reference Page</a> */
-    public static void glTransformFeedbackVaryings(int program, CharSequence[] varyings, int bufferMode) {
+    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") CharSequence[] varyings, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varyings);
@@ -859,7 +870,7 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glTransformFeedbackVaryings">Reference Page</a> */
-    public static void glTransformFeedbackVaryings(int program, CharSequence varying, int bufferMode) {
+    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") CharSequence varying, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varying);
@@ -875,7 +886,7 @@ public class GLES30 {
     public static native void nglGetTransformFeedbackVarying(int program, int index, int bufSize, long length, long size, long type, long name);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetTransformFeedbackVarying">Reference Page</a> */
-    public static void glGetTransformFeedbackVarying(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
+    public static void glGetTransformFeedbackVarying(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLsizei *") IntBuffer size, @NativeType("GLenum *") IntBuffer type, @NativeType("GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(size, 1);
@@ -885,7 +896,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetTransformFeedbackVarying">Reference Page</a> */
-    public static String glGetTransformFeedbackVarying(int program, int index, int bufSize, IntBuffer size, IntBuffer type) {
+    @NativeType("void")
+    public static String glGetTransformFeedbackVarying(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei") int bufSize, @NativeType("GLsizei *") IntBuffer size, @NativeType("GLenum *") IntBuffer type) {
         if (CHECKS) {
             check(size, 1);
             check(type, 1);
@@ -902,7 +914,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetTransformFeedbackVarying">Reference Page</a> */
-    public static String glGetTransformFeedbackVarying(int program, int index, IntBuffer size, IntBuffer type) {
+    @NativeType("void")
+    public static String glGetTransformFeedbackVarying(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") IntBuffer size, @NativeType("GLenum *") IntBuffer type) {
         return glGetTransformFeedbackVarying(program, index, GLES20.glGetProgrami(program, GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH), size, type);
     }
 
@@ -911,22 +924,22 @@ public class GLES30 {
     public static native void nglVertexAttribIPointer(int index, int size, int type, int stride, long pointer);
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttribIPointer">Reference Page</a> */
-    public static void glVertexAttribIPointer(int index, int size, int type, int stride, ByteBuffer pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
         nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttribIPointer">Reference Page</a> */
-    public static void glVertexAttribIPointer(int index, int size, int type, int stride, long pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
         nglVertexAttribIPointer(index, size, type, stride, pointer);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttribIPointer">Reference Page</a> */
-    public static void glVertexAttribIPointer(int index, int size, int type, int stride, ShortBuffer pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
         nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttribIPointer">Reference Page</a> */
-    public static void glVertexAttribIPointer(int index, int size, int type, int stride, IntBuffer pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
         nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
     }
 
@@ -935,7 +948,7 @@ public class GLES30 {
     public static native void nglGetVertexAttribIiv(int index, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetVertexAttrib">Reference Page</a> */
-    public static void glGetVertexAttribIiv(int index, int pname, IntBuffer params) {
+    public static void glGetVertexAttribIiv(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -943,7 +956,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetVertexAttrib">Reference Page</a> */
-    public static int glGetVertexAttribIi(int index, int pname) {
+    @NativeType("void")
+    public static int glGetVertexAttribIi(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -959,7 +973,7 @@ public class GLES30 {
     public static native void nglGetVertexAttribIuiv(int index, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetVertexAttrib">Reference Page</a> */
-    public static void glGetVertexAttribIuiv(int index, int pname, IntBuffer params) {
+    public static void glGetVertexAttribIuiv(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -967,7 +981,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetVertexAttrib">Reference Page</a> */
-    public static int glGetVertexAttribIui(int index, int pname) {
+    @NativeType("void")
+    public static int glGetVertexAttribIui(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -981,19 +996,19 @@ public class GLES30 {
     // --- [ glVertexAttribI4i ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttrib">Reference Page</a> */
-    public static native void glVertexAttribI4i(int index, int x, int y, int z, int w);
+    public static native void glVertexAttribI4i(@NativeType("GLuint") int index, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLint") int z, @NativeType("GLint") int w);
 
     // --- [ glVertexAttribI4ui ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttrib">Reference Page</a> */
-    public static native void glVertexAttribI4ui(int index, int x, int y, int z, int w);
+    public static native void glVertexAttribI4ui(@NativeType("GLuint") int index, @NativeType("GLuint") int x, @NativeType("GLuint") int y, @NativeType("GLuint") int z, @NativeType("GLuint") int w);
 
     // --- [ glVertexAttribI4iv ] ---
 
     public static native void nglVertexAttribI4iv(int index, long v);
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttrib">Reference Page</a> */
-    public static void glVertexAttribI4iv(int index, IntBuffer v) {
+    public static void glVertexAttribI4iv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1005,7 +1020,7 @@ public class GLES30 {
     public static native void nglVertexAttribI4uiv(int index, long v);
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttrib">Reference Page</a> */
-    public static void glVertexAttribI4uiv(int index, IntBuffer v) {
+    public static void glVertexAttribI4uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1017,7 +1032,7 @@ public class GLES30 {
     public static native void nglGetUniformuiv(int program, int location, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a> */
-    public static void glGetUniformuiv(int program, int location, IntBuffer params) {
+    public static void glGetUniformuiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1025,7 +1040,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetUniform">Reference Page</a> */
-    public static int glGetUniformui(int program, int location) {
+    @NativeType("void")
+    public static int glGetUniformui(@NativeType("GLuint") int program, @NativeType("GLint") int location) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -1041,7 +1057,8 @@ public class GLES30 {
     public static native int nglGetFragDataLocation(int program, long name);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetFragDataLocation">Reference Page</a> */
-    public static int glGetFragDataLocation(int program, ByteBuffer name) {
+    @NativeType("GLint")
+    public static int glGetFragDataLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1049,7 +1066,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetFragDataLocation">Reference Page</a> */
-    public static int glGetFragDataLocation(int program, CharSequence name) {
+    @NativeType("GLint")
+    public static int glGetFragDataLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1062,29 +1080,29 @@ public class GLES30 {
     // --- [ glUniform1ui ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static native void glUniform1ui(int location, int v0);
+    public static native void glUniform1ui(@NativeType("GLint") int location, @NativeType("GLuint") int v0);
 
     // --- [ glUniform2ui ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static native void glUniform2ui(int location, int v0, int v1);
+    public static native void glUniform2ui(@NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1);
 
     // --- [ glUniform3ui ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static native void glUniform3ui(int location, int v0, int v1, int v2);
+    public static native void glUniform3ui(@NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1, @NativeType("GLuint") int v2);
 
     // --- [ glUniform4ui ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static native void glUniform4ui(int location, int v0, int v1, int v2, int v3);
+    public static native void glUniform4ui(@NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1, @NativeType("GLuint") int v2, @NativeType("GLuint") int v3);
 
     // --- [ glUniform1uiv ] ---
 
     public static native void nglUniform1uiv(int location, int count, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniform1uiv(int location, IntBuffer value) {
+    public static void glUniform1uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform1uiv(location, value.remaining(), memAddress(value));
     }
 
@@ -1093,7 +1111,7 @@ public class GLES30 {
     public static native void nglUniform2uiv(int location, int count, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniform2uiv(int location, IntBuffer value) {
+    public static void glUniform2uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform2uiv(location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -1102,7 +1120,7 @@ public class GLES30 {
     public static native void nglUniform3uiv(int location, int count, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniform3uiv(int location, IntBuffer value) {
+    public static void glUniform3uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform3uiv(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -1111,7 +1129,7 @@ public class GLES30 {
     public static native void nglUniform4uiv(int location, int count, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniform">Reference Page</a> */
-    public static void glUniform4uiv(int location, IntBuffer value) {
+    public static void glUniform4uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform4uiv(location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -1120,7 +1138,7 @@ public class GLES30 {
     public static native void nglClearBufferiv(int buffer, int drawbuffer, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glClearBuffer">Reference Page</a> */
-    public static void glClearBufferiv(int buffer, int drawbuffer, IntBuffer value) {
+    public static void glClearBufferiv(@NativeType("GLenum") int buffer, @NativeType("GLint") int drawbuffer, @NativeType("const GLint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -1132,7 +1150,7 @@ public class GLES30 {
     public static native void nglClearBufferuiv(int buffer, int drawbuffer, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glClearBuffer">Reference Page</a> */
-    public static void glClearBufferuiv(int buffer, int drawbuffer, IntBuffer value) {
+    public static void glClearBufferuiv(@NativeType("GLenum") int buffer, @NativeType("GLint") int drawbuffer, @NativeType("const GLuint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -1144,7 +1162,7 @@ public class GLES30 {
     public static native void nglClearBufferfv(int buffer, int drawbuffer, long value);
 
     /** <a target="_blank" href="http://docs.gl/es3/glClearBuffer">Reference Page</a> */
-    public static void glClearBufferfv(int buffer, int drawbuffer, FloatBuffer value) {
+    public static void glClearBufferfv(@NativeType("GLenum") int buffer, @NativeType("GLint") int drawbuffer, @NativeType("const GLfloat *") FloatBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -1154,14 +1172,15 @@ public class GLES30 {
     // --- [ glClearBufferfi ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glClearBufferfi">Reference Page</a> */
-    public static native void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil);
+    public static native void glClearBufferfi(@NativeType("GLenum") int buffer, @NativeType("GLint") int drawbuffer, @NativeType("GLfloat") float depth, @NativeType("GLint") int stencil);
 
     // --- [ glGetStringi ] ---
 
     public static native long nglGetStringi(int name, int index);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetStringi">Reference Page</a> */
-    public static String glGetStringi(int name, int index) {
+    @NativeType("GLubyte *")
+    public static String glGetStringi(@NativeType("GLenum") int name, @NativeType("GLuint") int index) {
         long __result = nglGetStringi(name, index);
         return memUTF8(__result);
     }
@@ -1169,14 +1188,14 @@ public class GLES30 {
     // --- [ glCopyBufferSubData ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glCopyBufferSubData">Reference Page</a> */
-    public static native void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
+    public static native void glCopyBufferSubData(@NativeType("GLenum") int readTarget, @NativeType("GLenum") int writeTarget, @NativeType("GLintptr") long readOffset, @NativeType("GLintptr") long writeOffset, @NativeType("GLsizeiptr") long size);
 
     // --- [ glGetUniformIndices ] ---
 
     public static native void nglGetUniformIndices(int program, int uniformCount, long uniformNames, long uniformIndices);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetUniformIndices">Reference Page</a> */
-    public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
+    public static void glGetUniformIndices(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") PointerBuffer uniformNames, @NativeType("GLuint *") IntBuffer uniformIndices) {
         if (CHECKS) {
             check(uniformIndices, uniformNames.remaining());
         }
@@ -1188,7 +1207,7 @@ public class GLES30 {
     public static native void nglGetActiveUniformsiv(int program, int uniformCount, long uniformIndices, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetActiveUniforms">Reference Page</a> */
-    public static void glGetActiveUniformsiv(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
+    public static void glGetActiveUniformsiv(@NativeType("GLuint") int program, @NativeType("const GLuint *") IntBuffer uniformIndices, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, uniformIndices.remaining());
         }
@@ -1200,7 +1219,8 @@ public class GLES30 {
     public static native int nglGetUniformBlockIndex(int program, long uniformBlockName);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetUniformBlockIndex">Reference Page</a> */
-    public static int glGetUniformBlockIndex(int program, ByteBuffer uniformBlockName) {
+    @NativeType("GLuint")
+    public static int glGetUniformBlockIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer uniformBlockName) {
         if (CHECKS) {
             checkNT1(uniformBlockName);
         }
@@ -1208,7 +1228,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetUniformBlockIndex">Reference Page</a> */
-    public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
+    @NativeType("GLuint")
+    public static int glGetUniformBlockIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence uniformBlockName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer uniformBlockNameEncoded = stack.ASCII(uniformBlockName);
@@ -1223,7 +1244,7 @@ public class GLES30 {
     public static native void nglGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetActiveUniformBlock">Reference Page</a> */
-    public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
+    public static void glGetActiveUniformBlockiv(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1231,7 +1252,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetActiveUniformBlock">Reference Page</a> */
-    public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
+    @NativeType("void")
+    public static int glGetActiveUniformBlocki(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -1247,7 +1269,7 @@ public class GLES30 {
     public static native void nglGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize, long length, long uniformBlockName);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetActiveUniformBlockName">Reference Page</a> */
-    public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
+    public static void glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer uniformBlockName) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -1255,7 +1277,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetActiveUniformBlockName">Reference Page</a> */
-    public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize) {
+    @NativeType("void")
+    public static String glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLsizei") int bufSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer length = stack.ints(0);
@@ -1268,60 +1291,63 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetActiveUniformBlockName">Reference Page</a> */
-    public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex) {
+    @NativeType("void")
+    public static String glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex) {
         return glGetActiveUniformBlockName(program, uniformBlockIndex, glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH));
     }
 
     // --- [ glUniformBlockBinding ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glUniformBlockBinding">Reference Page</a> */
-    public static native void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
+    public static native void glUniformBlockBinding(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLuint") int uniformBlockBinding);
 
     // --- [ glDrawArraysInstanced ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawArraysInstanced">Reference Page</a> */
-    public static native void glDrawArraysInstanced(int mode, int first, int count, int instancecount);
+    public static native void glDrawArraysInstanced(@NativeType("GLenum") int mode, @NativeType("GLint") int first, @NativeType("GLsizei") int count, @NativeType("GLsizei") int instancecount);
 
     // --- [ glDrawElementsInstanced ] ---
 
     public static native void nglDrawElementsInstanced(int mode, int count, int type, long indices, int instancecount);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstanced">Reference Page</a> */
-    public static void glDrawElementsInstanced(int mode, int count, int type, long indices, int instancecount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int instancecount) {
         nglDrawElementsInstanced(mode, count, type, indices, instancecount);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstanced">Reference Page</a> */
-    public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int instancecount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount) {
         nglDrawElementsInstanced(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstanced">Reference Page</a> */
-    public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int instancecount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount) {
         nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstanced">Reference Page</a> */
-    public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int instancecount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int instancecount) {
         nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDrawElementsInstanced">Reference Page</a> */
-    public static void glDrawElementsInstanced(int mode, IntBuffer indices, int instancecount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int instancecount) {
         nglDrawElementsInstanced(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount);
     }
 
     // --- [ glFenceSync ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glFenceSync">Reference Page</a> */
-    public static native long glFenceSync(int condition, int flags);
+    @NativeType("GLsync")
+    public static native long glFenceSync(@NativeType("GLenum") int condition, @NativeType("GLbitfield") int flags);
 
     // --- [ glIsSync ] ---
 
     public static native boolean nglIsSync(long sync);
 
     /** <a target="_blank" href="http://docs.gl/es3/glIsSync">Reference Page</a> */
-    public static boolean glIsSync(long sync) {
+    @NativeType("GLboolean")
+    public static boolean glIsSync(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -1333,7 +1359,7 @@ public class GLES30 {
     public static native void nglDeleteSync(long sync);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteSync">Reference Page</a> */
-    public static void glDeleteSync(long sync) {
+    public static void glDeleteSync(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -1345,7 +1371,8 @@ public class GLES30 {
     public static native int nglClientWaitSync(long sync, int flags, long timeout);
 
     /** <a target="_blank" href="http://docs.gl/es3/glClientWaitSync">Reference Page</a> */
-    public static int glClientWaitSync(long sync, int flags, long timeout) {
+    @NativeType("GLenum")
+    public static int glClientWaitSync(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -1357,7 +1384,7 @@ public class GLES30 {
     public static native void nglWaitSync(long sync, int flags, long timeout);
 
     /** <a target="_blank" href="http://docs.gl/es3/glWaitSync">Reference Page</a> */
-    public static void glWaitSync(long sync, int flags, long timeout) {
+    public static void glWaitSync(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -1369,7 +1396,7 @@ public class GLES30 {
     public static native void nglGetInteger64v(int pname, long data);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetInteger64v">Reference Page</a> */
-    public static void glGetInteger64v(int pname, LongBuffer data) {
+    public static void glGetInteger64v(@NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer data) {
         if (CHECKS) {
             check(data, 1);
         }
@@ -1377,7 +1404,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetInteger64v">Reference Page</a> */
-    public static long glGetInteger64(int pname) {
+    @NativeType("void")
+    public static long glGetInteger64(@NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer data = stack.callocLong(1);
@@ -1393,7 +1421,7 @@ public class GLES30 {
     public static native void nglGetSynciv(long sync, int pname, int bufSize, long length, long values);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetSync">Reference Page</a> */
-    public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer values) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -1402,7 +1430,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetSync">Reference Page</a> */
-    public static int glGetSynci(long sync, int pname, IntBuffer length) {
+    @NativeType("void")
+    public static int glGetSynci(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -1422,7 +1451,7 @@ public class GLES30 {
     public static native void nglGetInteger64i_v(int target, int index, long data);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetInteger">Reference Page</a> */
-    public static void glGetInteger64i_v(int target, int index, LongBuffer data) {
+    public static void glGetInteger64i_v(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint64 *") LongBuffer data) {
         if (CHECKS) {
             check(data, 1);
         }
@@ -1430,7 +1459,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetInteger">Reference Page</a> */
-    public static long glGetInteger64i(int target, int index) {
+    @NativeType("void")
+    public static long glGetInteger64i(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer data = stack.callocLong(1);
@@ -1446,7 +1476,7 @@ public class GLES30 {
     public static native void nglGetBufferParameteri64v(int target, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetBufferParameter">Reference Page</a> */
-    public static void glGetBufferParameteri64v(int target, int pname, LongBuffer params) {
+    public static void glGetBufferParameteri64v(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1454,7 +1484,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetBufferParameter">Reference Page</a> */
-    public static long glGetBufferParameteri64(int target, int pname) {
+    @NativeType("void")
+    public static long glGetBufferParameteri64(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -1470,11 +1501,12 @@ public class GLES30 {
     public static native void nglGenSamplers(int count, long samplers);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenSamplers">Reference Page</a> */
-    public static void glGenSamplers(IntBuffer samplers) {
+    public static void glGenSamplers(@NativeType("GLuint *") IntBuffer samplers) {
         nglGenSamplers(samplers.remaining(), memAddress(samplers));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenSamplers">Reference Page</a> */
+    @NativeType("void")
     public static int glGenSamplers() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -1491,12 +1523,12 @@ public class GLES30 {
     public static native void nglDeleteSamplers(int count, long samplers);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteSamplers">Reference Page</a> */
-    public static void glDeleteSamplers(IntBuffer samplers) {
+    public static void glDeleteSamplers(@NativeType("const GLuint *") IntBuffer samplers) {
         nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteSamplers">Reference Page</a> */
-    public static void glDeleteSamplers(int sampler) {
+    public static void glDeleteSamplers(@NativeType("const GLuint *") int sampler) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer samplers = stack.ints(sampler);
@@ -1509,24 +1541,25 @@ public class GLES30 {
     // --- [ glIsSampler ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glIsSampler">Reference Page</a> */
-    public static native boolean glIsSampler(int sampler);
+    @NativeType("GLboolean")
+    public static native boolean glIsSampler(@NativeType("GLuint") int sampler);
 
     // --- [ glBindSampler ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBindSampler">Reference Page</a> */
-    public static native void glBindSampler(int unit, int sampler);
+    public static native void glBindSampler(@NativeType("GLuint") int unit, @NativeType("GLuint") int sampler);
 
     // --- [ glSamplerParameteri ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glSamplerParameteri">Reference Page</a> */
-    public static native void glSamplerParameteri(int sampler, int pname, int param);
+    public static native void glSamplerParameteri(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint") int param);
 
     // --- [ glSamplerParameteriv ] ---
 
     public static native void nglSamplerParameteriv(int sampler, int pname, long param);
 
     /** <a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
-    public static void glSamplerParameteriv(int sampler, int pname, IntBuffer param) {
+    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer param) {
         if (CHECKS) {
             check(param, 1);
         }
@@ -1536,14 +1569,14 @@ public class GLES30 {
     // --- [ glSamplerParameterf ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glSamplerParameterf">Reference Page</a> */
-    public static native void glSamplerParameterf(int sampler, int pname, float param);
+    public static native void glSamplerParameterf(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLfloat") float param);
 
     // --- [ glSamplerParameterfv ] ---
 
     public static native void nglSamplerParameterfv(int sampler, int pname, long param);
 
     /** <a target="_blank" href="http://docs.gl/es3/glSamplerParameter">Reference Page</a> */
-    public static void glSamplerParameterfv(int sampler, int pname, FloatBuffer param) {
+    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer param) {
         if (CHECKS) {
             check(param, 1);
         }
@@ -1555,7 +1588,7 @@ public class GLES30 {
     public static native void nglGetSamplerParameteriv(int sampler, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
-    public static void glGetSamplerParameteriv(int sampler, int pname, IntBuffer params) {
+    public static void glGetSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1563,7 +1596,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
-    public static int glGetSamplerParameteri(int sampler, int pname) {
+    @NativeType("void")
+    public static int glGetSamplerParameteri(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -1579,7 +1613,7 @@ public class GLES30 {
     public static native void nglGetSamplerParameterfv(int sampler, int pname, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
-    public static void glGetSamplerParameterfv(int sampler, int pname, FloatBuffer params) {
+    public static void glGetSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1587,7 +1621,8 @@ public class GLES30 {
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetSamplerParameter">Reference Page</a> */
-    public static float glGetSamplerParameterf(int sampler, int pname) {
+    @NativeType("void")
+    public static float glGetSamplerParameterf(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -1601,24 +1636,24 @@ public class GLES30 {
     // --- [ glVertexAttribDivisor ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glVertexAttribDivisor">Reference Page</a> */
-    public static native void glVertexAttribDivisor(int index, int divisor);
+    public static native void glVertexAttribDivisor(@NativeType("GLuint") int index, @NativeType("GLuint") int divisor);
 
     // --- [ glBindTransformFeedback ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glBindTransformFeedback">Reference Page</a> */
-    public static native void glBindTransformFeedback(int target, int id);
+    public static native void glBindTransformFeedback(@NativeType("GLenum") int target, @NativeType("GLuint") int id);
 
     // --- [ glDeleteTransformFeedbacks ] ---
 
     public static native void nglDeleteTransformFeedbacks(int n, long ids);
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteTransformFeedbacks">Reference Page</a> */
-    public static void glDeleteTransformFeedbacks(IntBuffer ids) {
+    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") IntBuffer ids) {
         nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glDeleteTransformFeedbacks">Reference Page</a> */
-    public static void glDeleteTransformFeedbacks(int id) {
+    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -1633,11 +1668,12 @@ public class GLES30 {
     public static native void nglGenTransformFeedbacks(int n, long ids);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenTransformFeedbacks">Reference Page</a> */
-    public static void glGenTransformFeedbacks(IntBuffer ids) {
+    public static void glGenTransformFeedbacks(@NativeType("GLuint *") IntBuffer ids) {
         nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGenTransformFeedbacks">Reference Page</a> */
+    @NativeType("void")
     public static int glGenTransformFeedbacks() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -1652,7 +1688,8 @@ public class GLES30 {
     // --- [ glIsTransformFeedback ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glIsTransformFeedback">Reference Page</a> */
-    public static native boolean glIsTransformFeedback(int id);
+    @NativeType("GLboolean")
+    public static native boolean glIsTransformFeedback(@NativeType("GLuint") int id);
 
     // --- [ glPauseTransformFeedback ] ---
 
@@ -1669,7 +1706,7 @@ public class GLES30 {
     public static native void nglGetProgramBinary(int program, int bufSize, long length, long binaryFormat, long binary);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetProgramBinary">Reference Page</a> */
-    public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
+    public static void glGetProgramBinary(@NativeType("GLuint") int program, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLenum *") IntBuffer binaryFormat, @NativeType("void *") ByteBuffer binary) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(binaryFormat, 1);
@@ -1682,26 +1719,26 @@ public class GLES30 {
     public static native void nglProgramBinary(int program, int binaryFormat, long binary, int length);
 
     /** <a target="_blank" href="http://docs.gl/es3/glProgramBinary">Reference Page</a> */
-    public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary) {
+    public static void glProgramBinary(@NativeType("GLuint") int program, @NativeType("GLenum") int binaryFormat, @NativeType("const void *") ByteBuffer binary) {
         nglProgramBinary(program, binaryFormat, memAddress(binary), binary.remaining());
     }
 
     // --- [ glProgramParameteri ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glProgramParameteri">Reference Page</a> */
-    public static native void glProgramParameteri(int program, int pname, int value);
+    public static native void glProgramParameteri(@NativeType("GLuint") int program, @NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
     // --- [ glInvalidateFramebuffer ] ---
 
     public static native void nglInvalidateFramebuffer(int target, int numAttachments, long attachments);
 
     /** <a target="_blank" href="http://docs.gl/es3/glInvalidateFramebuffer">Reference Page</a> */
-    public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") IntBuffer attachments) {
         nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glInvalidateFramebuffer">Reference Page</a> */
-    public static void glInvalidateFramebuffer(int target, int attachment) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int attachment) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer attachments = stack.ints(attachment);
@@ -1716,12 +1753,12 @@ public class GLES30 {
     public static native void nglInvalidateSubFramebuffer(int target, int numAttachments, long attachments, int x, int y, int width, int height);
 
     /** <a target="_blank" href="http://docs.gl/es3/glInvalidateSubFramebuffer">Reference Page</a> */
-    public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") IntBuffer attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glInvalidateSubFramebuffer">Reference Page</a> */
-    public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int attachment, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer attachments = stack.ints(attachment);
@@ -1734,24 +1771,25 @@ public class GLES30 {
     // --- [ glTexStorage2D ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexStorage2D">Reference Page</a> */
-    public static native void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
+    public static native void glTexStorage2D(@NativeType("GLenum") int target, @NativeType("GLsizei") int levels, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glTexStorage3D ] ---
 
     /** <a target="_blank" href="http://docs.gl/es3/glTexStorage3D">Reference Page</a> */
-    public static native void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
+    public static native void glTexStorage3D(@NativeType("GLenum") int target, @NativeType("GLsizei") int levels, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth);
 
     // --- [ glGetInternalformativ ] ---
 
     public static native void nglGetInternalformativ(int target, int internalformat, int pname, int bufSize, long params);
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetInternalformat">Reference Page</a> */
-    public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
+    public static void glGetInternalformativ(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glGetInternalformat">Reference Page</a> */
-    public static int glGetInternalformati(int target, int internalformat, int pname) {
+    @NativeType("void")
+    public static int glGetInternalformati(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -1767,7 +1805,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glTexImage3D TexImage3D}
      */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short[] pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") short[] pixels) {
         long __functionAddress = GLES.getICD().glTexImage3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -1780,7 +1818,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glTexImage3D TexImage3D}
      */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int[] pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") int[] pixels) {
         long __functionAddress = GLES.getICD().glTexImage3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -1793,7 +1831,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glTexImage3D TexImage3D}
      */
-    public static void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float[] pixels) {
+    public static void glTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") float[] pixels) {
         long __functionAddress = GLES.getICD().glTexImage3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -1806,7 +1844,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glTexSubImage3D TexSubImage3D}
      */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short[] pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") short[] pixels) {
         long __functionAddress = GLES.getICD().glTexSubImage3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -1819,7 +1857,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glTexSubImage3D TexSubImage3D}
      */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int[] pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") int[] pixels) {
         long __functionAddress = GLES.getICD().glTexSubImage3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -1832,7 +1870,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glTexSubImage3D TexSubImage3D}
      */
-    public static void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float[] pixels) {
+    public static void glTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") float[] pixels) {
         long __functionAddress = GLES.getICD().glTexSubImage3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -1845,7 +1883,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGenQueries GenQueries}
      */
-    public static void glGenQueries(int[] ids) {
+    public static void glGenQueries(@NativeType("GLuint *") int[] ids) {
         long __functionAddress = GLES.getICD().glGenQueries;
         if (CHECKS) {
             check(__functionAddress);
@@ -1858,7 +1896,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glDeleteQueries DeleteQueries}
      */
-    public static void glDeleteQueries(int[] ids) {
+    public static void glDeleteQueries(@NativeType("const GLuint *") int[] ids) {
         long __functionAddress = GLES.getICD().glDeleteQueries;
         if (CHECKS) {
             check(__functionAddress);
@@ -1871,7 +1909,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetQueryiv GetQueryiv}
      */
-    public static void glGetQueryiv(int target, int pname, int[] params) {
+    public static void glGetQueryiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetQueryiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1885,7 +1923,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetQueryObjectuiv GetQueryObjectuiv}
      */
-    public static void glGetQueryObjectuiv(int id, int pname, int[] params) {
+    public static void glGetQueryObjectuiv(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetQueryObjectuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1899,7 +1937,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glDrawBuffers DrawBuffers}
      */
-    public static void glDrawBuffers(int[] bufs) {
+    public static void glDrawBuffers(@NativeType("const GLenum *") int[] bufs) {
         long __functionAddress = GLES.getICD().glDrawBuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -1912,7 +1950,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniformMatrix2x3fv UniformMatrix2x3fv}
      */
-    public static void glUniformMatrix2x3fv(int location, boolean transpose, float[] value) {
+    public static void glUniformMatrix2x3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glUniformMatrix2x3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1925,7 +1963,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniformMatrix3x2fv UniformMatrix3x2fv}
      */
-    public static void glUniformMatrix3x2fv(int location, boolean transpose, float[] value) {
+    public static void glUniformMatrix3x2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glUniformMatrix3x2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1938,7 +1976,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniformMatrix2x4fv UniformMatrix2x4fv}
      */
-    public static void glUniformMatrix2x4fv(int location, boolean transpose, float[] value) {
+    public static void glUniformMatrix2x4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glUniformMatrix2x4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1951,7 +1989,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniformMatrix4x2fv UniformMatrix4x2fv}
      */
-    public static void glUniformMatrix4x2fv(int location, boolean transpose, float[] value) {
+    public static void glUniformMatrix4x2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glUniformMatrix4x2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1964,7 +2002,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniformMatrix3x4fv UniformMatrix3x4fv}
      */
-    public static void glUniformMatrix3x4fv(int location, boolean transpose, float[] value) {
+    public static void glUniformMatrix3x4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glUniformMatrix3x4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1977,7 +2015,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniformMatrix4x3fv UniformMatrix4x3fv}
      */
-    public static void glUniformMatrix4x3fv(int location, boolean transpose, float[] value) {
+    public static void glUniformMatrix4x3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glUniformMatrix4x3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1990,7 +2028,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
      */
-    public static void glDeleteVertexArrays(int[] arrays) {
+    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int[] arrays) {
         long __functionAddress = GLES.getICD().glDeleteVertexArrays;
         if (CHECKS) {
             check(__functionAddress);
@@ -2003,7 +2041,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGenVertexArrays GenVertexArrays}
      */
-    public static void glGenVertexArrays(int[] arrays) {
+    public static void glGenVertexArrays(@NativeType("GLuint *") int[] arrays) {
         long __functionAddress = GLES.getICD().glGenVertexArrays;
         if (CHECKS) {
             check(__functionAddress);
@@ -2016,7 +2054,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetIntegeri_v GetIntegeri_v}
      */
-    public static void glGetIntegeri_v(int target, int index, int[] data) {
+    public static void glGetIntegeri_v(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") int[] data) {
         long __functionAddress = GLES.getICD().glGetIntegeri_v;
         if (CHECKS) {
             check(__functionAddress);
@@ -2030,7 +2068,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetTransformFeedbackVarying GetTransformFeedbackVarying}
      */
-    public static void glGetTransformFeedbackVarying(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
+    public static void glGetTransformFeedbackVarying(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") int[] length, @NativeType("GLsizei *") int[] size, @NativeType("GLenum *") int[] type, @NativeType("GLchar *") ByteBuffer name) {
         long __functionAddress = GLES.getICD().glGetTransformFeedbackVarying;
         if (CHECKS) {
             check(__functionAddress);
@@ -2046,7 +2084,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetVertexAttribIiv GetVertexAttribIiv}
      */
-    public static void glGetVertexAttribIiv(int index, int pname, int[] params) {
+    public static void glGetVertexAttribIiv(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetVertexAttribIiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2060,7 +2098,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetVertexAttribIuiv GetVertexAttribIuiv}
      */
-    public static void glGetVertexAttribIuiv(int index, int pname, int[] params) {
+    public static void glGetVertexAttribIuiv(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetVertexAttribIuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2074,7 +2112,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glVertexAttribI4iv VertexAttribI4iv}
      */
-    public static void glVertexAttribI4iv(int index, int[] v) {
+    public static void glVertexAttribI4iv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GLES.getICD().glVertexAttribI4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2088,7 +2126,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv}
      */
-    public static void glVertexAttribI4uiv(int index, int[] v) {
+    public static void glVertexAttribI4uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
         long __functionAddress = GLES.getICD().glVertexAttribI4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2102,7 +2140,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetUniformuiv GetUniformuiv}
      */
-    public static void glGetUniformuiv(int program, int location, int[] params) {
+    public static void glGetUniformuiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetUniformuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2116,7 +2154,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniform1uiv Uniform1uiv}
      */
-    public static void glUniform1uiv(int location, int[] value) {
+    public static void glUniform1uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glUniform1uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2129,7 +2167,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniform2uiv Uniform2uiv}
      */
-    public static void glUniform2uiv(int location, int[] value) {
+    public static void glUniform2uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glUniform2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2142,7 +2180,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniform3uiv Uniform3uiv}
      */
-    public static void glUniform3uiv(int location, int[] value) {
+    public static void glUniform3uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glUniform3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2155,7 +2193,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glUniform4uiv Uniform4uiv}
      */
-    public static void glUniform4uiv(int location, int[] value) {
+    public static void glUniform4uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glUniform4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2168,7 +2206,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glClearBufferiv ClearBufferiv}
      */
-    public static void glClearBufferiv(int buffer, int drawbuffer, int[] value) {
+    public static void glClearBufferiv(@NativeType("GLenum") int buffer, @NativeType("GLint") int drawbuffer, @NativeType("const GLint *") int[] value) {
         long __functionAddress = GLES.getICD().glClearBufferiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2182,7 +2220,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glClearBufferuiv ClearBufferuiv}
      */
-    public static void glClearBufferuiv(int buffer, int drawbuffer, int[] value) {
+    public static void glClearBufferuiv(@NativeType("GLenum") int buffer, @NativeType("GLint") int drawbuffer, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glClearBufferuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2196,7 +2234,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glClearBufferfv ClearBufferfv}
      */
-    public static void glClearBufferfv(int buffer, int drawbuffer, float[] value) {
+    public static void glClearBufferfv(@NativeType("GLenum") int buffer, @NativeType("GLint") int drawbuffer, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glClearBufferfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2210,7 +2248,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetUniformIndices GetUniformIndices}
      */
-    public static void glGetUniformIndices(int program, PointerBuffer uniformNames, int[] uniformIndices) {
+    public static void glGetUniformIndices(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") PointerBuffer uniformNames, @NativeType("GLuint *") int[] uniformIndices) {
         long __functionAddress = GLES.getICD().glGetUniformIndices;
         if (CHECKS) {
             check(__functionAddress);
@@ -2224,7 +2262,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv}
      */
-    public static void glGetActiveUniformsiv(int program, int[] uniformIndices, int pname, int[] params) {
+    public static void glGetActiveUniformsiv(@NativeType("GLuint") int program, @NativeType("const GLuint *") int[] uniformIndices, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetActiveUniformsiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2238,7 +2276,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv}
      */
-    public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, int[] params) {
+    public static void glGetActiveUniformBlockiv(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetActiveUniformBlockiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2252,7 +2290,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName}
      */
-    public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int[] length, ByteBuffer uniformBlockName) {
+    public static void glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer uniformBlockName) {
         long __functionAddress = GLES.getICD().glGetActiveUniformBlockName;
         if (CHECKS) {
             check(__functionAddress);
@@ -2266,7 +2304,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetInteger64v GetInteger64v}
      */
-    public static void glGetInteger64v(int pname, long[] data) {
+    public static void glGetInteger64v(@NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] data) {
         long __functionAddress = GLES.getICD().glGetInteger64v;
         if (CHECKS) {
             check(__functionAddress);
@@ -2280,7 +2318,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetSynciv GetSynciv}
      */
-    public static void glGetSynciv(long sync, int pname, int[] length, int[] values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] values) {
         long __functionAddress = GLES.getICD().glGetSynciv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2295,7 +2333,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetInteger64i_v GetInteger64i_v}
      */
-    public static void glGetInteger64i_v(int target, int index, long[] data) {
+    public static void glGetInteger64i_v(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint64 *") long[] data) {
         long __functionAddress = GLES.getICD().glGetInteger64i_v;
         if (CHECKS) {
             check(__functionAddress);
@@ -2309,7 +2347,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v}
      */
-    public static void glGetBufferParameteri64v(int target, int pname, long[] params) {
+    public static void glGetBufferParameteri64v(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GLES.getICD().glGetBufferParameteri64v;
         if (CHECKS) {
             check(__functionAddress);
@@ -2323,7 +2361,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGenSamplers GenSamplers}
      */
-    public static void glGenSamplers(int[] samplers) {
+    public static void glGenSamplers(@NativeType("GLuint *") int[] samplers) {
         long __functionAddress = GLES.getICD().glGenSamplers;
         if (CHECKS) {
             check(__functionAddress);
@@ -2336,7 +2374,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glDeleteSamplers DeleteSamplers}
      */
-    public static void glDeleteSamplers(int[] samplers) {
+    public static void glDeleteSamplers(@NativeType("const GLuint *") int[] samplers) {
         long __functionAddress = GLES.getICD().glDeleteSamplers;
         if (CHECKS) {
             check(__functionAddress);
@@ -2349,7 +2387,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glSamplerParameteriv SamplerParameteriv}
      */
-    public static void glSamplerParameteriv(int sampler, int pname, int[] param) {
+    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] param) {
         long __functionAddress = GLES.getICD().glSamplerParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2363,7 +2401,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glSamplerParameterfv SamplerParameterfv}
      */
-    public static void glSamplerParameterfv(int sampler, int pname, float[] param) {
+    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] param) {
         long __functionAddress = GLES.getICD().glSamplerParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2377,7 +2415,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetSamplerParameteriv GetSamplerParameteriv}
      */
-    public static void glGetSamplerParameteriv(int sampler, int pname, int[] params) {
+    public static void glGetSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetSamplerParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2391,7 +2429,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetSamplerParameterfv GetSamplerParameterfv}
      */
-    public static void glGetSamplerParameterfv(int sampler, int pname, float[] params) {
+    public static void glGetSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GLES.getICD().glGetSamplerParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2405,7 +2443,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks}
      */
-    public static void glDeleteTransformFeedbacks(int[] ids) {
+    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") int[] ids) {
         long __functionAddress = GLES.getICD().glDeleteTransformFeedbacks;
         if (CHECKS) {
             check(__functionAddress);
@@ -2418,7 +2456,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks}
      */
-    public static void glGenTransformFeedbacks(int[] ids) {
+    public static void glGenTransformFeedbacks(@NativeType("GLuint *") int[] ids) {
         long __functionAddress = GLES.getICD().glGenTransformFeedbacks;
         if (CHECKS) {
             check(__functionAddress);
@@ -2431,7 +2469,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetProgramBinary GetProgramBinary}
      */
-    public static void glGetProgramBinary(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
+    public static void glGetProgramBinary(@NativeType("GLuint") int program, @NativeType("GLsizei *") int[] length, @NativeType("GLenum *") int[] binaryFormat, @NativeType("void *") ByteBuffer binary) {
         long __functionAddress = GLES.getICD().glGetProgramBinary;
         if (CHECKS) {
             check(__functionAddress);
@@ -2446,7 +2484,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer}
      */
-    public static void glInvalidateFramebuffer(int target, int[] attachments) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int[] attachments) {
         long __functionAddress = GLES.getICD().glInvalidateFramebuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -2459,7 +2497,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer}
      */
-    public static void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int[] attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         long __functionAddress = GLES.getICD().glInvalidateSubFramebuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -2472,7 +2510,7 @@ public class GLES30 {
      * 
      * Array version of: {@link #glGetInternalformativ GetInternalformativ}
      */
-    public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
+    public static void glGetInternalformativ(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetInternalformativ;
         if (CHECKS) {
             check(__functionAddress);

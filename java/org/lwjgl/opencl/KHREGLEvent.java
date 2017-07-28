@@ -7,6 +7,8 @@ package org.lwjgl.opencl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -58,7 +60,8 @@ public class KHREGLEvent {
      * @param display     an {@code EGLDisplay}
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
-    public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, IntBuffer errcode_ret) {
+    @NativeType("cl_event")
+    public static long clCreateEventFromEGLSyncKHR(@NativeType("cl_context") long context, @NativeType("CLeglSyncKHR") long sync, @NativeType("CLeglDisplayKHR") long display, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -66,7 +69,8 @@ public class KHREGLEvent {
     }
 
     /** Array version of: {@link #clCreateEventFromEGLSyncKHR CreateEventFromEGLSyncKHR} */
-    public static long clCreateEventFromEGLSyncKHR(long context, long sync, long display, int[] errcode_ret) {
+    @NativeType("cl_event")
+    public static long clCreateEventFromEGLSyncKHR(@NativeType("cl_context") long context, @NativeType("CLeglSyncKHR") long sync, @NativeType("CLeglDisplayKHR") long display, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateEventFromEGLSyncKHR;
         if (CHECKS) {
             check(__functionAddress);

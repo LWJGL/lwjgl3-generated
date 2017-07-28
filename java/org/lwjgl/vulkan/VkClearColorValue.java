@@ -90,30 +90,35 @@ public class VkClearColorValue extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code float32} field. */
+    @NativeType("float[4]")
     public FloatBuffer float32() { return nfloat32(address()); }
     /** Returns the value at the specified index of the {@code float32} field. */
     public float float32(int index) { return nfloat32(address(), index); }
     /** Returns a {@link IntBuffer} view of the {@code int32} field. */
+    @NativeType("int32_t[4]")
     public IntBuffer int32() { return nint32(address()); }
     /** Returns the value at the specified index of the {@code int32} field. */
+    @NativeType("int32_t")
     public int int32(int index) { return nint32(address(), index); }
     /** Returns a {@link IntBuffer} view of the {@code uint32} field. */
+    @NativeType("uint32_t[4]")
     public IntBuffer uint32() { return nuint32(address()); }
     /** Returns the value at the specified index of the {@code uint32} field. */
+    @NativeType("uint32_t")
     public int uint32(int index) { return nuint32(address(), index); }
 
     /** Copies the specified {@link FloatBuffer} to the {@code float32} field. */
-    public VkClearColorValue float32(FloatBuffer value) { nfloat32(address(), value); return this; }
+    public VkClearColorValue float32(@NativeType("float[4]") FloatBuffer value) { nfloat32(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code float32} field. */
     public VkClearColorValue float32(int index, float value) { nfloat32(address(), index, value); return this; }
     /** Copies the specified {@link IntBuffer} to the {@code int32} field. */
-    public VkClearColorValue int32(IntBuffer value) { nint32(address(), value); return this; }
+    public VkClearColorValue int32(@NativeType("int32_t[4]") IntBuffer value) { nint32(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code int32} field. */
-    public VkClearColorValue int32(int index, int value) { nint32(address(), index, value); return this; }
+    public VkClearColorValue int32(int index, @NativeType("int32_t") int value) { nint32(address(), index, value); return this; }
     /** Copies the specified {@link IntBuffer} to the {@code uint32} field. */
-    public VkClearColorValue uint32(IntBuffer value) { nuint32(address(), value); return this; }
+    public VkClearColorValue uint32(@NativeType("uint32_t[4]") IntBuffer value) { nuint32(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code uint32} field. */
-    public VkClearColorValue uint32(int index, int value) { nuint32(address(), index, value); return this; }
+    public VkClearColorValue uint32(int index, @NativeType("uint32_t") int value) { nuint32(address(), index, value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -352,30 +357,35 @@ public class VkClearColorValue extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code float32} field. */
+        @NativeType("float[4]")
         public FloatBuffer float32() { return VkClearColorValue.nfloat32(address()); }
         /** Returns the value at the specified index of the {@code float32} field. */
         public float float32(int index) { return VkClearColorValue.nfloat32(address(), index); }
         /** Returns a {@link IntBuffer} view of the {@code int32} field. */
+        @NativeType("int32_t[4]")
         public IntBuffer int32() { return VkClearColorValue.nint32(address()); }
         /** Returns the value at the specified index of the {@code int32} field. */
+        @NativeType("int32_t")
         public int int32(int index) { return VkClearColorValue.nint32(address(), index); }
         /** Returns a {@link IntBuffer} view of the {@code uint32} field. */
+        @NativeType("uint32_t[4]")
         public IntBuffer uint32() { return VkClearColorValue.nuint32(address()); }
         /** Returns the value at the specified index of the {@code uint32} field. */
+        @NativeType("uint32_t")
         public int uint32(int index) { return VkClearColorValue.nuint32(address(), index); }
 
         /** Copies the specified {@link FloatBuffer} to the {@code float32} field. */
-        public VkClearColorValue.Buffer float32(FloatBuffer value) { VkClearColorValue.nfloat32(address(), value); return this; }
+        public VkClearColorValue.Buffer float32(@NativeType("float[4]") FloatBuffer value) { VkClearColorValue.nfloat32(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code float32} field. */
         public VkClearColorValue.Buffer float32(int index, float value) { VkClearColorValue.nfloat32(address(), index, value); return this; }
         /** Copies the specified {@link IntBuffer} to the {@code int32} field. */
-        public VkClearColorValue.Buffer int32(IntBuffer value) { VkClearColorValue.nint32(address(), value); return this; }
+        public VkClearColorValue.Buffer int32(@NativeType("int32_t[4]") IntBuffer value) { VkClearColorValue.nint32(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code int32} field. */
-        public VkClearColorValue.Buffer int32(int index, int value) { VkClearColorValue.nint32(address(), index, value); return this; }
+        public VkClearColorValue.Buffer int32(int index, @NativeType("int32_t") int value) { VkClearColorValue.nint32(address(), index, value); return this; }
         /** Copies the specified {@link IntBuffer} to the {@code uint32} field. */
-        public VkClearColorValue.Buffer uint32(IntBuffer value) { VkClearColorValue.nuint32(address(), value); return this; }
+        public VkClearColorValue.Buffer uint32(@NativeType("uint32_t[4]") IntBuffer value) { VkClearColorValue.nuint32(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code uint32} field. */
-        public VkClearColorValue.Buffer uint32(int index, int value) { VkClearColorValue.nuint32(address(), index, value); return this; }
+        public VkClearColorValue.Buffer uint32(int index, @NativeType("uint32_t") int value) { VkClearColorValue.nuint32(address(), index, value); return this; }
 
     }
 

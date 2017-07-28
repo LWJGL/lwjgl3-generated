@@ -37,6 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint8_t flags;
  * }</pre></code>
  */
+@NativeType("struct bgfx_hmd_t")
 public class BGFXHmd extends Struct {
 
     /** The struct size in bytes. */
@@ -92,18 +93,25 @@ public class BGFXHmd extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link BGFXHmdEye}.Buffer view of the {@code eye} field. */
+    @NativeType("bgfx_hmd_eye_t[2]")
     public BGFXHmdEye.Buffer eye() { return neye(address()); }
     /** Returns a {@link BGFXHmdEye} view of the struct at the specified index of the {@code eye} field. */
+    @NativeType("bgfx_hmd_eye_t")
     public BGFXHmdEye eye(int index) { return neye(address(), index); }
     /** Returns the value of the {@code width} field. */
+    @NativeType("uint16_t")
     public short width() { return nwidth(address()); }
     /** Returns the value of the {@code height} field. */
+    @NativeType("uint16_t")
     public short height() { return nheight(address()); }
     /** Returns the value of the {@code deviceWidth} field. */
+    @NativeType("uint32_t")
     public int deviceWidth() { return ndeviceWidth(address()); }
     /** Returns the value of the {@code deviceHeight} field. */
+    @NativeType("uint32_t")
     public int deviceHeight() { return ndeviceHeight(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("uint8_t")
     public byte flags() { return nflags(address()); }
 
     // -----------------------------------
@@ -186,18 +194,25 @@ public class BGFXHmd extends Struct {
         }
 
         /** Returns a {@link BGFXHmdEye}.Buffer view of the {@code eye} field. */
+        @NativeType("bgfx_hmd_eye_t[2]")
         public BGFXHmdEye.Buffer eye() { return BGFXHmd.neye(address()); }
         /** Returns a {@link BGFXHmdEye} view of the struct at the specified index of the {@code eye} field. */
+        @NativeType("bgfx_hmd_eye_t")
         public BGFXHmdEye eye(int index) { return BGFXHmd.neye(address(), index); }
         /** Returns the value of the {@code width} field. */
+        @NativeType("uint16_t")
         public short width() { return BGFXHmd.nwidth(address()); }
         /** Returns the value of the {@code height} field. */
+        @NativeType("uint16_t")
         public short height() { return BGFXHmd.nheight(address()); }
         /** Returns the value of the {@code deviceWidth} field. */
+        @NativeType("uint32_t")
         public int deviceWidth() { return BGFXHmd.ndeviceWidth(address()); }
         /** Returns the value of the {@code deviceHeight} field. */
+        @NativeType("uint32_t")
         public int deviceHeight() { return BGFXHmd.ndeviceHeight(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("uint8_t")
         public byte flags() { return BGFXHmd.nflags(address()); }
 
     }

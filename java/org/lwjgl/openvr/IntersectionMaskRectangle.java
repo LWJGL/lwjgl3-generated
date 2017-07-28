@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float m_flHeight;
  * }</pre></code>
  */
+@NativeType("struct IntersectionMaskRectangle_t")
 public class IntersectionMaskRectangle extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

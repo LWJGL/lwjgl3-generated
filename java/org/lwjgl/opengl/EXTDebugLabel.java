@@ -53,11 +53,11 @@ public class EXTDebugLabel {
 
     public static native void nglLabelObjectEXT(int type, int object, int length, long label);
 
-    public static void glLabelObjectEXT(int type, int object, ByteBuffer label) {
+    public static void glLabelObjectEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("const GLchar *") ByteBuffer label) {
         nglLabelObjectEXT(type, object, label.remaining(), memAddress(label));
     }
 
-    public static void glLabelObjectEXT(int type, int object, CharSequence label) {
+    public static void glLabelObjectEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("const GLchar *") CharSequence label) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer labelEncoded = stack.UTF8(label, false);
@@ -71,14 +71,15 @@ public class EXTDebugLabel {
 
     public static native void nglGetObjectLabelEXT(int type, int object, int bufSize, long length, long label);
 
-    public static void glGetObjectLabelEXT(int type, int object, IntBuffer length, ByteBuffer label) {
+    public static void glGetObjectLabelEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer label) {
         if (CHECKS) {
             check(length, 1);
         }
         nglGetObjectLabelEXT(type, object, label.remaining(), memAddress(length), memAddress(label));
     }
 
-    public static String glGetObjectLabelEXT(int type, int object, int bufSize) {
+    @NativeType("void")
+    public static String glGetObjectLabelEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("GLsizei") int bufSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer length = stack.ints(0);
@@ -91,7 +92,7 @@ public class EXTDebugLabel {
     }
 
     /** Array version of: {@link #glGetObjectLabelEXT GetObjectLabelEXT} */
-    public static void glGetObjectLabelEXT(int type, int object, int[] length, ByteBuffer label) {
+    public static void glGetObjectLabelEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer label) {
         long __functionAddress = GL.getICD().glGetObjectLabelEXT;
         if (CHECKS) {
             check(__functionAddress);

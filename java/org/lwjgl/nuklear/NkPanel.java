@@ -44,6 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkPanel struct nk_panel} * parent;
  * }</pre></code>
  */
+@NativeType("struct nk_panel")
 public class NkPanel extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -135,22 +136,27 @@ public class NkPanel extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("enum nk_panel_type")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("nk_flags")
     public int flags() { return nflags(address()); }
     /** Returns a {@link NkRect} view of the {@code bounds} field. */
+    @NativeType("struct nk_rect")
     public NkRect bounds() { return nbounds(address()); }
     /**
      * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_x} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("nk_uint *")
     public IntBuffer offset_x(int capacity) { return noffset_x(address(), capacity); }
     /**
      * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_y} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("nk_uint *")
     public IntBuffer offset_y(int capacity) { return noffset_y(address(), capacity); }
     /** Returns the value of the {@code at_x} field. */
     public float at_x() { return nat_x(address()); }
@@ -165,18 +171,25 @@ public class NkPanel extends Struct implements NativeResource {
     /** Returns the value of the {@code border} field. */
     public float border() { return nborder(address()); }
     /** Returns the value of the {@code has_scrolling} field. */
+    @NativeType("unsigned int")
     public int has_scrolling() { return nhas_scrolling(address()); }
     /** Returns a {@link NkRect} view of the {@code clip} field. */
+    @NativeType("struct nk_rect")
     public NkRect clip() { return nclip(address()); }
     /** Returns a {@link NkMenuState} view of the {@code menu} field. */
+    @NativeType("struct nk_menu_state")
     public NkMenuState menu() { return nmenu(address()); }
     /** Returns a {@link NkRowLayout} view of the {@code row} field. */
+    @NativeType("struct nk_row_layout")
     public NkRowLayout row() { return nrow(address()); }
     /** Returns a {@link NkChart} view of the {@code chart} field. */
+    @NativeType("struct nk_chart")
     public NkChart chart() { return nchart(address()); }
     /** Returns a {@link NkCommandBuffer} view of the struct pointed to by the {@code buffer} field. */
+    @NativeType("struct nk_command_buffer *")
     public NkCommandBuffer buffer() { return nbuffer(address()); }
     /** Returns a {@link NkPanel} view of the struct pointed to by the {@code parent} field. */
+    @NativeType("struct nk_panel *")
     public NkPanel parent() { return nparent(address()); }
 
     // -----------------------------------
@@ -388,22 +401,27 @@ public class NkPanel extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("enum nk_panel_type")
         public int type() { return NkPanel.ntype(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("nk_flags")
         public int flags() { return NkPanel.nflags(address()); }
         /** Returns a {@link NkRect} view of the {@code bounds} field. */
+        @NativeType("struct nk_rect")
         public NkRect bounds() { return NkPanel.nbounds(address()); }
         /**
          * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_x} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("nk_uint *")
         public IntBuffer offset_x(int capacity) { return NkPanel.noffset_x(address(), capacity); }
         /**
          * Returns a {@link IntBuffer} view of the data pointed to by the {@code offset_y} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("nk_uint *")
         public IntBuffer offset_y(int capacity) { return NkPanel.noffset_y(address(), capacity); }
         /** Returns the value of the {@code at_x} field. */
         public float at_x() { return NkPanel.nat_x(address()); }
@@ -418,18 +436,25 @@ public class NkPanel extends Struct implements NativeResource {
         /** Returns the value of the {@code border} field. */
         public float border() { return NkPanel.nborder(address()); }
         /** Returns the value of the {@code has_scrolling} field. */
+        @NativeType("unsigned int")
         public int has_scrolling() { return NkPanel.nhas_scrolling(address()); }
         /** Returns a {@link NkRect} view of the {@code clip} field. */
+        @NativeType("struct nk_rect")
         public NkRect clip() { return NkPanel.nclip(address()); }
         /** Returns a {@link NkMenuState} view of the {@code menu} field. */
+        @NativeType("struct nk_menu_state")
         public NkMenuState menu() { return NkPanel.nmenu(address()); }
         /** Returns a {@link NkRowLayout} view of the {@code row} field. */
+        @NativeType("struct nk_row_layout")
         public NkRowLayout row() { return NkPanel.nrow(address()); }
         /** Returns a {@link NkChart} view of the {@code chart} field. */
+        @NativeType("struct nk_chart")
         public NkChart chart() { return NkPanel.nchart(address()); }
         /** Returns a {@link NkCommandBuffer} view of the struct pointed to by the {@code buffer} field. */
+        @NativeType("struct nk_command_buffer *")
         public NkCommandBuffer buffer() { return NkPanel.nbuffer(address()); }
         /** Returns a {@link NkPanel} view of the struct pointed to by the {@code parent} field. */
+        @NativeType("struct nk_panel *")
         public NkPanel parent() { return NkPanel.nparent(address()); }
 
     }

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -38,6 +40,6 @@ public class NVAlphaToCoverageDitherControl {
 
     // --- [ glAlphaToCoverageDitherControlNV ] ---
 
-    public static native void glAlphaToCoverageDitherControlNV(int mode);
+    public static native void glAlphaToCoverageDitherControlNV(@NativeType("GLenum") int mode);
 
 }

@@ -48,7 +48,7 @@ public class VRSystem {
      * @param pnWidth  recommended width for the offscreen render target
      * @param pnHeight recommended height for the offscreen render target
      */
-    public static void VRSystem_GetRecommendedRenderTargetSize(IntBuffer pnWidth, IntBuffer pnHeight) {
+    public static void VRSystem_GetRecommendedRenderTargetSize(@NativeType("uint32_t *") IntBuffer pnWidth, @NativeType("uint32_t *") IntBuffer pnHeight) {
         if (CHECKS) {
             check(pnWidth, 1);
             check(pnHeight, 1);
@@ -77,7 +77,8 @@ public class VRSystem {
      * @param fNearZ distance to the near clip plane in meters
      * @param fFarZ  distance to the far clip plane in meters
      */
-    public static HmdMatrix44 VRSystem_GetProjectionMatrix(int eEye, float fNearZ, float fFarZ, HmdMatrix44 __result) {
+    @NativeType("HmdMatrix44_t")
+    public static HmdMatrix44 VRSystem_GetProjectionMatrix(@NativeType("EVREye") int eEye, float fNearZ, float fFarZ, HmdMatrix44 __result) {
         nVRSystem_GetProjectionMatrix(eEye, fNearZ, fFarZ, __result.address());
         return __result;
     }
@@ -102,7 +103,7 @@ public class VRSystem {
      * @param pfTop    coordinate for the top clipping plane
      * @param pfBottom coordinate for the bottom clipping plane
      */
-    public static void VRSystem_GetProjectionRaw(int eEye, FloatBuffer pfLeft, FloatBuffer pfRight, FloatBuffer pfTop, FloatBuffer pfBottom) {
+    public static void VRSystem_GetProjectionRaw(@NativeType("EVREye") int eEye, @NativeType("float *") FloatBuffer pfLeft, @NativeType("float *") FloatBuffer pfRight, @NativeType("float *") FloatBuffer pfTop, @NativeType("float *") FloatBuffer pfBottom) {
         if (CHECKS) {
             check(pfLeft, 1);
             check(pfRight, 1);
@@ -134,7 +135,8 @@ public class VRSystem {
      *
      * @return true for success. Otherwise, returns false, and distortion coordinates are not suitable.
      */
-    public static boolean VRSystem_ComputeDistortion(int eEye, float fU, float fV, DistortionCoordinates pDistortionCoordinates) {
+    @NativeType("bool")
+    public static boolean VRSystem_ComputeDistortion(@NativeType("EVREye") int eEye, float fU, float fV, @NativeType("DistortionCoordinates_t *") DistortionCoordinates pDistortionCoordinates) {
         return nVRSystem_ComputeDistortion(eEye, fU, fV, pDistortionCoordinates.address());
     }
 
@@ -159,7 +161,8 @@ public class VRSystem {
      *
      * @param eEye determines which eye the function should return the eye matrix for. One of:<br><table><tr><td>{@link VR#EVREye_Eye_Left}</td><td>{@link VR#EVREye_Eye_Right}</td></tr></table>
      */
-    public static HmdMatrix34 VRSystem_GetEyeToHeadTransform(int eEye, HmdMatrix34 __result) {
+    @NativeType("HmdMatrix34_t")
+    public static HmdMatrix34 VRSystem_GetEyeToHeadTransform(@NativeType("EVREye") int eEye, HmdMatrix34 __result) {
         nVRSystem_GetEyeToHeadTransform(eEye, __result.address());
         return __result;
     }
@@ -184,7 +187,8 @@ public class VRSystem {
      *
      * @return if no vsync times are available the function will return zero for vsync time and frame counter and return false from the method
      */
-    public static boolean VRSystem_GetTimeSinceLastVsync(FloatBuffer pfSecondsSinceLastVsync, LongBuffer pulFrameCounter) {
+    @NativeType("bool")
+    public static boolean VRSystem_GetTimeSinceLastVsync(@NativeType("float *") FloatBuffer pfSecondsSinceLastVsync, @NativeType("uint64_t *") LongBuffer pulFrameCounter) {
         if (CHECKS) {
             check(pfSecondsSinceLastVsync, 1);
             check(pulFrameCounter, 1);
@@ -202,6 +206,7 @@ public class VRSystem {
      *
      * @return -1 if there was an error
      */
+    @NativeType("int32_t")
     public static int VRSystem_GetD3D9AdapterIndex() {
         long __functionAddress = OpenVR.VRSystem.GetD3D9AdapterIndex;
         if (CHECKS) {
@@ -229,7 +234,7 @@ public class VRSystem {
      *
      * @param pnAdapterIndex the index of the adapter to use for this display
      */
-    public static void VRSystem_GetDXGIOutputInfo(IntBuffer pnAdapterIndex) {
+    public static void VRSystem_GetDXGIOutputInfo(@NativeType("int32_t *") IntBuffer pnAdapterIndex) {
         if (CHECKS) {
             check(pnAdapterIndex, 1);
         }
@@ -268,7 +273,7 @@ public class VRSystem {
      * @param pnDevice    
      * @param textureType 
      */
-    public static void VRSystem_GetOutputDevice(LongBuffer pnDevice, int textureType) {
+    public static void VRSystem_GetOutputDevice(@NativeType("uint64_t *") LongBuffer pnDevice, @NativeType("ETextureType") int textureType) {
         if (CHECKS) {
             check(pnDevice, 1);
         }
@@ -278,6 +283,7 @@ public class VRSystem {
     // --- [ VRSystem_IsDisplayOnDesktop ] ---
 
     /** Use to determine if the headset display is part of the desktop (i.e. extended) or hidden (i.e. direct mode). */
+    @NativeType("bool")
     public static boolean VRSystem_IsDisplayOnDesktop() {
         long __functionAddress = OpenVR.VRSystem.IsDisplayOnDesktop;
         if (CHECKS) {
@@ -295,7 +301,8 @@ public class VRSystem {
      *
      * @return true indicates that the change was successful
      */
-    public static boolean VRSystem_SetDisplayVisibility(boolean bIsVisibleOnDesktop) {
+    @NativeType("bool")
+    public static boolean VRSystem_SetDisplayVisibility(@NativeType("bool") boolean bIsVisibleOnDesktop) {
         long __functionAddress = OpenVR.VRSystem.SetDisplayVisibility;
         if (CHECKS) {
             check(__functionAddress);
@@ -334,7 +341,7 @@ public class VRSystem {
      * @param fPredictedSecondsToPhotonsFromNow number of seconds from now to predict poses for. Positive numbers are in the future. Pass 0 to get the state at the instant the function is called.
      * @param pTrackedDevicePoseArray           
      */
-    public static void VRSystem_GetDeviceToAbsoluteTrackingPose(int eOrigin, float fPredictedSecondsToPhotonsFromNow, TrackedDevicePose.Buffer pTrackedDevicePoseArray) {
+    public static void VRSystem_GetDeviceToAbsoluteTrackingPose(@NativeType("ETrackingUniverseOrigin") int eOrigin, @NativeType("float") float fPredictedSecondsToPhotonsFromNow, @NativeType("TrackedDevicePose_t *") TrackedDevicePose.Buffer pTrackedDevicePoseArray) {
         nVRSystem_GetDeviceToAbsoluteTrackingPose(eOrigin, fPredictedSecondsToPhotonsFromNow, pTrackedDevicePoseArray.address(), pTrackedDevicePoseArray.remaining());
     }
 
@@ -378,6 +385,7 @@ public class VRSystem {
      * <p>The seated origin may or may not be inside the Play Area or Collision Bounds returned by {@code IVRChaperone}. Its position depends on what the user
      * has set from the Dashboard settings and previous calls to {@link #VRSystem_ResetSeatedZeroPose ResetSeatedZeroPose}.</p>
      */
+    @NativeType("HmdMatrix34_t")
     public static HmdMatrix34 VRSystem_GetSeatedZeroPoseToStandingAbsoluteTrackingPose(HmdMatrix34 __result) {
         nVRSystem_GetSeatedZeroPoseToStandingAbsoluteTrackingPose(__result.address());
         return __result;
@@ -401,6 +409,7 @@ public class VRSystem {
      * Returns the transform from the tracking origin to the standing absolute tracking system. This allows applications to convert from raw tracking space to
      * the calibrated standing coordinate system.
      */
+    @NativeType("HmdMatrix34_t")
     public static HmdMatrix34 VRSystem_GetRawZeroPoseToStandingAbsoluteTrackingPose(HmdMatrix34 __result) {
         nVRSystem_GetRawZeroPoseToStandingAbsoluteTrackingPose(__result.address());
         return __result;
@@ -427,7 +436,8 @@ public class VRSystem {
      *
      * @return the number of devices in the list, or the size of the array needed if not large enough
      */
-    public static int VRSystem_GetSortedTrackedDeviceIndicesOfClass(int eTrackedDeviceClass, IntBuffer punTrackedDeviceIndexArray, int unRelativeToTrackedDeviceIndex) {
+    @NativeType("uint32_t")
+    public static int VRSystem_GetSortedTrackedDeviceIndicesOfClass(@NativeType("ETrackedDeviceClass") int eTrackedDeviceClass, @NativeType("TrackedDeviceIndex_t *") IntBuffer punTrackedDeviceIndexArray, @NativeType("TrackedDeviceIndex_t") int unRelativeToTrackedDeviceIndex) {
         return nVRSystem_GetSortedTrackedDeviceIndicesOfClass(eTrackedDeviceClass, memAddressSafe(punTrackedDeviceIndexArray), remainingSafe(punTrackedDeviceIndexArray), unRelativeToTrackedDeviceIndex);
     }
 
@@ -438,7 +448,8 @@ public class VRSystem {
      *
      * @param unDeviceId 
      */
-    public static int VRSystem_GetTrackedDeviceActivityLevel(int unDeviceId) {
+    @NativeType("EDeviceActivityLevel")
+    public static int VRSystem_GetTrackedDeviceActivityLevel(@NativeType("TrackedDeviceIndex_t") int unDeviceId) {
         long __functionAddress = OpenVR.VRSystem.GetTrackedDeviceActivityLevel;
         if (CHECKS) {
             check(__functionAddress);
@@ -465,7 +476,7 @@ public class VRSystem {
      * @param pTrackedDevicePose 
      * @param pTransform         
      */
-    public static void VRSystem_ApplyTransform(TrackedDevicePose pOutputPose, TrackedDevicePose pTrackedDevicePose, HmdMatrix34 pTransform) {
+    public static void VRSystem_ApplyTransform(@NativeType("TrackedDevicePose_t *") TrackedDevicePose pOutputPose, @NativeType("const TrackedDevicePose_t *") TrackedDevicePose pTrackedDevicePose, @NativeType("const HmdMatrix34_t *") HmdMatrix34 pTransform) {
         nVRSystem_ApplyTransform(pOutputPose.address(), pTrackedDevicePose.address(), pTransform.address());
     }
 
@@ -476,7 +487,8 @@ public class VRSystem {
      *
      * @param unDeviceType one of:<br><table><tr><td>{@link VR#ETrackedControllerRole_TrackedControllerRole_Invalid}</td></tr><tr><td>{@link VR#ETrackedControllerRole_TrackedControllerRole_LeftHand}</td></tr><tr><td>{@link VR#ETrackedControllerRole_TrackedControllerRole_RightHand}</td></tr></table>
      */
-    public static int VRSystem_GetTrackedDeviceIndexForControllerRole(int unDeviceType) {
+    @NativeType("TrackedDeviceIndex_t")
+    public static int VRSystem_GetTrackedDeviceIndexForControllerRole(@NativeType("ETrackedControllerRole") int unDeviceType) {
         long __functionAddress = OpenVR.VRSystem.GetTrackedDeviceIndexForControllerRole;
         if (CHECKS) {
             check(__functionAddress);
@@ -491,7 +503,8 @@ public class VRSystem {
      *
      * @param unDeviceIndex 
      */
-    public static int VRSystem_GetControllerRoleForTrackedDeviceIndex(int unDeviceIndex) {
+    @NativeType("ETrackedControllerRole")
+    public static int VRSystem_GetControllerRoleForTrackedDeviceIndex(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex) {
         long __functionAddress = OpenVR.VRSystem.GetControllerRoleForTrackedDeviceIndex;
         if (CHECKS) {
             check(__functionAddress);
@@ -510,7 +523,8 @@ public class VRSystem {
      *
      * @param unDeviceIndex index of the device to get the device class for.
      */
-    public static int VRSystem_GetTrackedDeviceClass(int unDeviceIndex) {
+    @NativeType("ETrackedDeviceClass")
+    public static int VRSystem_GetTrackedDeviceClass(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex) {
         long __functionAddress = OpenVR.VRSystem.GetTrackedDeviceClass;
         if (CHECKS) {
             check(__functionAddress);
@@ -525,7 +539,8 @@ public class VRSystem {
      *
      * @param unDeviceIndex index of the device to test connected state for
      */
-    public static boolean VRSystem_IsTrackedDeviceConnected(int unDeviceIndex) {
+    @NativeType("bool")
+    public static boolean VRSystem_IsTrackedDeviceConnected(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex) {
         long __functionAddress = OpenVR.VRSystem.IsTrackedDeviceConnected;
         if (CHECKS) {
             check(__functionAddress);
@@ -551,7 +566,8 @@ public class VRSystem {
      * @param prop          which property to get
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static boolean VRSystem_GetBoolTrackedDeviceProperty(int unDeviceIndex, int prop, IntBuffer pError) {
+    @NativeType("bool")
+    public static boolean VRSystem_GetBoolTrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
         if (CHECKS) {
             checkSafe(pError, 1);
         }
@@ -576,7 +592,7 @@ public class VRSystem {
      * @param prop          which property to get
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static float VRSystem_GetFloatTrackedDeviceProperty(int unDeviceIndex, int prop, IntBuffer pError) {
+    public static float VRSystem_GetFloatTrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
         if (CHECKS) {
             checkSafe(pError, 1);
         }
@@ -601,7 +617,8 @@ public class VRSystem {
      * @param prop          which property to get
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static int VRSystem_GetInt32TrackedDeviceProperty(int unDeviceIndex, int prop, IntBuffer pError) {
+    @NativeType("int32_t")
+    public static int VRSystem_GetInt32TrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
         if (CHECKS) {
             checkSafe(pError, 1);
         }
@@ -626,7 +643,8 @@ public class VRSystem {
      * @param prop          which property to get
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static long VRSystem_GetUint64TrackedDeviceProperty(int unDeviceIndex, int prop, IntBuffer pError) {
+    @NativeType("uint64_t")
+    public static long VRSystem_GetUint64TrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
         if (CHECKS) {
             checkSafe(pError, 1);
         }
@@ -654,7 +672,8 @@ public class VRSystem {
      * @param prop          which property to get
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static HmdMatrix34 VRSystem_GetMatrix34TrackedDeviceProperty(int unDeviceIndex, int prop, IntBuffer pError, HmdMatrix34 __result) {
+    @NativeType("HmdMatrix34_t")
+    public static HmdMatrix34 VRSystem_GetMatrix34TrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("ETrackedPropertyError *") IntBuffer pError, HmdMatrix34 __result) {
         if (CHECKS) {
             checkSafe(pError, 1);
         }
@@ -687,7 +706,8 @@ public class VRSystem {
      * @param pchValue      the buffer to store string properties in. {@code unBufferSize} should be the size of this buffer.
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static int VRSystem_GetStringTrackedDeviceProperty(int unDeviceIndex, int prop, ByteBuffer pchValue, IntBuffer pError) {
+    @NativeType("uint32_t")
+    public static int VRSystem_GetStringTrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("char *") ByteBuffer pchValue, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
         if (CHECKS) {
             checkSafe(pError, 1);
         }
@@ -704,7 +724,8 @@ public class VRSystem {
      * @param unBufferSize  the size of the buffer pointed to by {@code pchValue}
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static String VRSystem_GetStringTrackedDeviceProperty(int unDeviceIndex, int prop, int unBufferSize, IntBuffer pError) {
+    @NativeType("uint32_t")
+    public static String VRSystem_GetStringTrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("uint32_t") int unBufferSize, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
         if (CHECKS) {
             checkSafe(pError, 1);
         }
@@ -727,7 +748,8 @@ public class VRSystem {
      * @param prop          which property to get
      * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
      */
-    public static String VRSystem_GetStringTrackedDeviceProperty(int unDeviceIndex, int prop, IntBuffer pError) {
+    @NativeType("uint32_t")
+    public static String VRSystem_GetStringTrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
         return VRSystem_GetStringTrackedDeviceProperty(unDeviceIndex, prop, VR.k_unMaxPropertyStringSize, pError);
     }
 
@@ -747,7 +769,8 @@ public class VRSystem {
      *
      * @param error the error code to return a string for. One of:<br><table><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_Success}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_WrongDataType}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_WrongDeviceClass}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_BufferTooSmall}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_UnknownProperty}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_InvalidDevice}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_CouldNotContactServer}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_ValueNotProvidedByDevice}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_StringExceedsMaximumLength}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_NotYetAvailable}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_PermissionDenied}</td></tr><tr><td>{@link VR#ETrackedPropertyError_TrackedProp_InvalidOperation}</td></tr></table>
      */
-    public static String VRSystem_GetPropErrorNameFromEnum(int error) {
+    @NativeType("char *")
+    public static String VRSystem_GetPropErrorNameFromEnum(@NativeType("ETrackedPropertyError") int error) {
         long __result = nVRSystem_GetPropErrorNameFromEnum(error);
         return memASCII(__result);
     }
@@ -769,7 +792,8 @@ public class VRSystem {
      * @param pEvent      an event structure to fill with the next event
      * @param uncbVREvent the size in bytes of the {@link VREvent} struct
      */
-    public static boolean VRSystem_PollNextEvent(VREvent pEvent, int uncbVREvent) {
+    @NativeType("bool")
+    public static boolean VRSystem_PollNextEvent(@NativeType("VREvent_t *") VREvent pEvent, @NativeType("uint32_t") int uncbVREvent) {
         return nVRSystem_PollNextEvent(pEvent.address(), uncbVREvent);
     }
 
@@ -778,7 +802,8 @@ public class VRSystem {
      *
      * @param pEvent an event structure to fill with the next event
      */
-    public static boolean VRSystem_PollNextEvent(VREvent pEvent) {
+    @NativeType("bool")
+    public static boolean VRSystem_PollNextEvent(@NativeType("VREvent_t *") VREvent pEvent) {
         return nVRSystem_PollNextEvent(pEvent.address(), VREvent.SIZEOF);
     }
 
@@ -803,7 +828,8 @@ public class VRSystem {
      * @param uncbVREvent        the size in bytes of the {@link VREvent} struct
      * @param pTrackedDevicePose a pose struct to fill with the returned event's pose. Must not be {@code NULL}.
      */
-    public static boolean VRSystem_PollNextEventWithPose(int eOrigin, VREvent pEvent, int uncbVREvent, TrackedDevicePose pTrackedDevicePose) {
+    @NativeType("bool")
+    public static boolean VRSystem_PollNextEventWithPose(@NativeType("ETrackingUniverseOrigin") int eOrigin, @NativeType("VREvent_t *") VREvent pEvent, @NativeType("uint32_t") int uncbVREvent, @NativeType("TrackedDevicePose_t *") TrackedDevicePose pTrackedDevicePose) {
         return nVRSystem_PollNextEventWithPose(eOrigin, pEvent.address(), uncbVREvent, pTrackedDevicePose.address());
     }
 
@@ -816,7 +842,8 @@ public class VRSystem {
      * @param pEvent             an event structure to fill with the next event
      * @param pTrackedDevicePose a pose struct to fill with the returned event's pose. Must not be {@code NULL}.
      */
-    public static boolean VRSystem_PollNextEventWithPose(int eOrigin, VREvent pEvent, TrackedDevicePose pTrackedDevicePose) {
+    @NativeType("bool")
+    public static boolean VRSystem_PollNextEventWithPose(@NativeType("ETrackingUniverseOrigin") int eOrigin, @NativeType("VREvent_t *") VREvent pEvent, @NativeType("TrackedDevicePose_t *") TrackedDevicePose pTrackedDevicePose) {
         return nVRSystem_PollNextEventWithPose(eOrigin, pEvent.address(), VREvent.SIZEOF, pTrackedDevicePose.address());
     }
 
@@ -836,7 +863,8 @@ public class VRSystem {
      *
      * @param eType the event type to return a string for. One of:<br><table><tr><td>{@link VR#EVREventType_VREvent_None}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceActivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceDeactivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUserInteractionStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUserInteractionEnded}</td></tr><tr><td>{@link VR#EVREventType_VREvent_IpdChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnterStandbyMode}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LeaveStandbyMode}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceRoleChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WatchdogWakeUpRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LensDistortionChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PropertyChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WirelessDisconnect}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WirelessReconnect}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonPress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonUnpress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonTouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonUntouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseMove}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseButtonDown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseButtonUp}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FocusEnter}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FocusLeave}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Scroll}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TouchPadMove}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusCaptured}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusReleased}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusLost}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusGained}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneApplicationChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_HideRenderModels}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ShowRenderModels}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardActivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardDeactivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardThumbSelected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ResetDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_RenderToast}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ImageLoaded}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ShowKeyboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_HideKeyboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayGamepadFocusGained}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayGamepadFocusLost}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlaySharedTextureChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardGuideButtonDown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardGuideButtonUp}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotTriggered}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ImageFailed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardOverlayCreated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_RequestScreenshot}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotTaken}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotFailed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SubmitScreenshotToDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotProgressToDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PrimaryDashboardDeviceChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Shown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Hidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_BeginInteraction}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Destroyed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Quit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessQuit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_QuitAborted_UserPrompt}</td></tr><tr><td>{@link VR#EVREventType_VREvent_QuitAcknowledged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DriverRequestedQuit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneDataHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneUniverseHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneTempDataHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SeatedZeroPoseReset}</td></tr><tr><td>{@link VR#EVREventType_VREvent_AudioSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_BackgroundSettingHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_CameraSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ReprojectionSettingHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ModelSkinSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnvironmentSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PowerSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnableHomeAppSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_StatusUpdate}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MCImageUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FirmwareUpdateStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FirmwareUpdateFinished}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardClosed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardCharInput}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardDone}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionAborted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionNewAppStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationListUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationMimeTypeLoad}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessConnected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessDisconnected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_MirrorWindowShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_MirrorWindowHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_ChaperoneBoundsShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_ChaperoneBoundsHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_StartVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_StopVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_PauseVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_ResumeVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_EditingSurface}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_EnableCapture}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_DisableCapture}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_FidelityLevel}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MessageOverlay_Closed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_VendorSpecific_Reserved_Start}</td></tr><tr><td>{@link VR#EVREventType_VREvent_VendorSpecific_Reserved_End}</td></tr></table>
      */
-    public static String VRSystem_GetEventTypeNameFromEnum(int eType) {
+    @NativeType("char *")
+    public static String VRSystem_GetEventTypeNameFromEnum(@NativeType("EVREventType") int eType) {
         long __result = nVRSystem_GetEventTypeNameFromEnum(eType);
         return memASCII(__result);
     }
@@ -869,7 +897,8 @@ public class VRSystem {
      * @param eEye the eye to get the hidden area mesh for. One of:<br><table><tr><td>{@link VR#EVREye_Eye_Left}</td><td>{@link VR#EVREye_Eye_Right}</td></tr></table>
      * @param type one of:<br><table><tr><td>{@link VR#EHiddenAreaMeshType_k_eHiddenAreaMesh_Standard}</td></tr><tr><td>{@link VR#EHiddenAreaMeshType_k_eHiddenAreaMesh_Inverse}</td></tr><tr><td>{@link VR#EHiddenAreaMeshType_k_eHiddenAreaMesh_LineLoop}</td></tr><tr><td>{@link VR#EHiddenAreaMeshType_k_eHiddenAreaMesh_Max}</td></tr></table>
      */
-    public static HiddenAreaMesh VRSystem_GetHiddenAreaMesh(int eEye, int type, HiddenAreaMesh __result) {
+    @NativeType("HiddenAreaMesh_t")
+    public static HiddenAreaMesh VRSystem_GetHiddenAreaMesh(@NativeType("EVREye") int eEye, @NativeType("EHiddenAreaMeshType") int type, HiddenAreaMesh __result) {
         nVRSystem_GetHiddenAreaMesh(eEye, type, __result.address());
         return __result;
     }
@@ -894,7 +923,8 @@ public class VRSystem {
      *
      * @return false if the controller index is invalid
      */
-    public static boolean VRSystem_GetControllerState(int unControllerDeviceIndex, VRControllerState pControllerState, int unControllerStateSize) {
+    @NativeType("bool")
+    public static boolean VRSystem_GetControllerState(@NativeType("TrackedDeviceIndex_t") int unControllerDeviceIndex, @NativeType("VRControllerState_t *") VRControllerState pControllerState, @NativeType("uint32_t") int unControllerStateSize) {
         return nVRSystem_GetControllerState(unControllerDeviceIndex, pControllerState.address(), unControllerStateSize);
     }
 
@@ -906,7 +936,8 @@ public class VRSystem {
      *
      * @return false if the controller index is invalid
      */
-    public static boolean VRSystem_GetControllerState(int unControllerDeviceIndex, VRControllerState pControllerState) {
+    @NativeType("bool")
+    public static boolean VRSystem_GetControllerState(@NativeType("TrackedDeviceIndex_t") int unControllerDeviceIndex, @NativeType("VRControllerState_t *") VRControllerState pControllerState) {
         return nVRSystem_GetControllerState(unControllerDeviceIndex, pControllerState.address(), VRControllerState.SIZEOF);
     }
 
@@ -931,7 +962,8 @@ public class VRSystem {
      * @param unControllerStateSize   the size in bytes of the {@link VRControllerState} struct
      * @param pTrackedDevicePose      a pose struct to fill with the pose of the controller when the last button event occurred
      */
-    public static boolean VRSystem_GetControllerStateWithPose(int eOrigin, int unControllerDeviceIndex, VRControllerState pControllerState, int unControllerStateSize, TrackedDevicePose pTrackedDevicePose) {
+    @NativeType("bool")
+    public static boolean VRSystem_GetControllerStateWithPose(@NativeType("ETrackingUniverseOrigin") int eOrigin, @NativeType("TrackedDeviceIndex_t") int unControllerDeviceIndex, @NativeType("VRControllerState_t *") VRControllerState pControllerState, @NativeType("uint32_t") int unControllerStateSize, @NativeType("TrackedDevicePose_t *") TrackedDevicePose pTrackedDevicePose) {
         return nVRSystem_GetControllerStateWithPose(eOrigin, unControllerDeviceIndex, pControllerState.address(), unControllerStateSize, pTrackedDevicePose.address());
     }
 
@@ -945,7 +977,7 @@ public class VRSystem {
      * @param unAxisId                the ID of the axis to trigger a haptic pulse on
      * @param usDurationMicroSec      the duration of the desired haptic pulse in microseconds
      */
-    public static void VRSystem_TriggerHapticPulse(int unControllerDeviceIndex, int unAxisId, short usDurationMicroSec) {
+    public static void VRSystem_TriggerHapticPulse(@NativeType("TrackedDeviceIndex_t") int unControllerDeviceIndex, @NativeType("uint32_t") int unAxisId, @NativeType("unsigned short") short usDurationMicroSec) {
         long __functionAddress = OpenVR.VRSystem.TriggerHapticPulse;
         if (CHECKS) {
             check(__functionAddress);
@@ -969,7 +1001,8 @@ public class VRSystem {
      *
      * @param eButtonId the button ID to return the name of. One of:<br><table><tr><td>{@link VR#EVRButtonId_k_EButton_System}</td><td>{@link VR#EVRButtonId_k_EButton_ApplicationMenu}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_Grip}</td><td>{@link VR#EVRButtonId_k_EButton_DPad_Left}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_DPad_Up}</td><td>{@link VR#EVRButtonId_k_EButton_DPad_Right}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_DPad_Down}</td><td>{@link VR#EVRButtonId_k_EButton_A}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_ProximitySensor}</td><td>{@link VR#EVRButtonId_k_EButton_Axis0}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_Axis1}</td><td>{@link VR#EVRButtonId_k_EButton_Axis2}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_Axis3}</td><td>{@link VR#EVRButtonId_k_EButton_Axis4}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_SteamVR_Touchpad}</td><td>{@link VR#EVRButtonId_k_EButton_SteamVR_Trigger}</td></tr><tr><td>{@link VR#EVRButtonId_k_EButton_Dashboard_Back}</td><td>{@link VR#EVRButtonId_k_EButton_Max}</td></tr></table>
      */
-    public static String VRSystem_GetButtonIdNameFromEnum(int eButtonId) {
+    @NativeType("char *")
+    public static String VRSystem_GetButtonIdNameFromEnum(@NativeType("EVRButtonId") int eButtonId) {
         long __result = nVRSystem_GetButtonIdNameFromEnum(eButtonId);
         return memASCII(__result);
     }
@@ -990,7 +1023,8 @@ public class VRSystem {
      *
      * @param eAxisType the controller axis type to get a name for. One of:<br><table><tr><td>{@link VR#EVRControllerAxisType_k_eControllerAxis_None}</td></tr><tr><td>{@link VR#EVRControllerAxisType_k_eControllerAxis_TrackPad}</td></tr><tr><td>{@link VR#EVRControllerAxisType_k_eControllerAxis_Joystick}</td></tr><tr><td>{@link VR#EVRControllerAxisType_k_eControllerAxis_Trigger}</td></tr></table>
      */
-    public static String VRSystem_GetControllerAxisTypeNameFromEnum(int eAxisType) {
+    @NativeType("char *")
+    public static String VRSystem_GetControllerAxisTypeNameFromEnum(@NativeType("EVRControllerAxisType") int eAxisType) {
         long __result = nVRSystem_GetControllerAxisTypeNameFromEnum(eAxisType);
         return memASCII(__result);
     }
@@ -1001,6 +1035,7 @@ public class VRSystem {
      * Tells OpenVR that this process wants exclusive access to controller button states and button events. Other apps will be notified that they have lost
      * input focus with a {@link VR#EVREventType_VREvent_InputFocusCaptured} event. Returns false if input focus could not be captured for some reason.
      */
+    @NativeType("bool")
     public static boolean VRSystem_CaptureInputFocus() {
         long __functionAddress = OpenVR.VRSystem.CaptureInputFocus;
         if (CHECKS) {
@@ -1026,6 +1061,7 @@ public class VRSystem {
     // --- [ VRSystem_IsInputFocusCapturedByAnotherProcess ] ---
 
     /** Returns true if input focus is captured by another process. */
+    @NativeType("bool")
     public static boolean VRSystem_IsInputFocusCapturedByAnotherProcess() {
         long __functionAddress = OpenVR.VRSystem.IsInputFocusCapturedByAnotherProcess;
         if (CHECKS) {
@@ -1055,7 +1091,8 @@ public class VRSystem {
      *
      * @return the size of the response including its terminating null
      */
-    public static int VRSystem_DriverDebugRequest(int unDeviceIndex, ByteBuffer pchRequest, ByteBuffer pchResponseBuffer) {
+    @NativeType("uint32_t")
+    public static int VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") ByteBuffer pchRequest, @NativeType("char *") ByteBuffer pchResponseBuffer) {
         if (CHECKS) {
             checkNT1(pchRequest);
         }
@@ -1072,7 +1109,8 @@ public class VRSystem {
      *
      * @return the size of the response including its terminating null
      */
-    public static int VRSystem_DriverDebugRequest(int unDeviceIndex, CharSequence pchRequest, ByteBuffer pchResponseBuffer) {
+    @NativeType("uint32_t")
+    public static int VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") CharSequence pchRequest, @NativeType("char *") ByteBuffer pchResponseBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRequestEncoded = stack.ASCII(pchRequest);
@@ -1092,7 +1130,8 @@ public class VRSystem {
      *
      * @return the size of the response including its terminating null
      */
-    public static String VRSystem_DriverDebugRequest(int unDeviceIndex, CharSequence pchRequest, int unResponseBufferSize) {
+    @NativeType("uint32_t")
+    public static String VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") CharSequence pchRequest, @NativeType("uint32_t") int unResponseBufferSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRequestEncoded = stack.ASCII(pchRequest);
@@ -1113,7 +1152,8 @@ public class VRSystem {
      *
      * @return the size of the response including its terminating null
      */
-    public static String VRSystem_DriverDebugRequest(int unDeviceIndex, CharSequence pchRequest) {
+    @NativeType("uint32_t")
+    public static String VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") CharSequence pchRequest) {
         return VRSystem_DriverDebugRequest(unDeviceIndex, pchRequest, VR.k_unMaxDriverDebugResponseSize);
     }
 
@@ -1131,7 +1171,8 @@ public class VRSystem {
      *
      * @param unDeviceIndex 
      */
-    public static int VRSystem_PerformFirmwareUpdate(int unDeviceIndex) {
+    @NativeType("EVRFirmwareError")
+    public static int VRSystem_PerformFirmwareUpdate(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex) {
         long __functionAddress = OpenVR.VRSystem.PerformFirmwareUpdate;
         if (CHECKS) {
             check(__functionAddress);

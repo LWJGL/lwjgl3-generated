@@ -128,36 +128,44 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code waitSemaphoreCount} field. */
+    @NativeType("uint32_t")
     public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+    @NativeType("const VkSemaphore *")
     public LongBuffer pWaitSemaphores() { return npWaitSemaphores(address()); }
     /** Returns the value of the {@code swapchainCount} field. */
+    @NativeType("uint32_t")
     public int swapchainCount() { return nswapchainCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSwapchains} field. */
+    @NativeType("const VkSwapchainKHR *")
     public LongBuffer pSwapchains() { return npSwapchains(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pImageIndices} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pImageIndices() { return npImageIndices(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field. */
+    @NativeType("VkResult *")
     public IntBuffer pResults() { return npResults(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPresentInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkPresentInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPresentInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkPresentInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-    public VkPresentInfoKHR pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
+    public VkPresentInfoKHR pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { npWaitSemaphores(address(), value); return this; }
     /** Sets the specified value to the {@code swapchainCount} field. */
-    public VkPresentInfoKHR swapchainCount(int value) { nswapchainCount(address(), value); return this; }
+    public VkPresentInfoKHR swapchainCount(@NativeType("uint32_t") int value) { nswapchainCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pSwapchains} field. */
-    public VkPresentInfoKHR pSwapchains(LongBuffer value) { npSwapchains(address(), value); return this; }
+    public VkPresentInfoKHR pSwapchains(@NativeType("const VkSwapchainKHR *") LongBuffer value) { npSwapchains(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pImageIndices} field. */
-    public VkPresentInfoKHR pImageIndices(IntBuffer value) { npImageIndices(address(), value); return this; }
+    public VkPresentInfoKHR pImageIndices(@NativeType("const uint32_t *") IntBuffer value) { npImageIndices(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pResults} field. */
-    public VkPresentInfoKHR pResults(IntBuffer value) { npResults(address(), value); return this; }
+    public VkPresentInfoKHR pResults(@NativeType("VkResult *") IntBuffer value) { npResults(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPresentInfoKHR set(
@@ -423,36 +431,44 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPresentInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPresentInfoKHR.npNext(address()); }
         /** Returns the value of the {@code waitSemaphoreCount} field. */
+        @NativeType("uint32_t")
         public int waitSemaphoreCount() { return VkPresentInfoKHR.nwaitSemaphoreCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+        @NativeType("const VkSemaphore *")
         public LongBuffer pWaitSemaphores() { return VkPresentInfoKHR.npWaitSemaphores(address()); }
         /** Returns the value of the {@code swapchainCount} field. */
+        @NativeType("uint32_t")
         public int swapchainCount() { return VkPresentInfoKHR.nswapchainCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSwapchains} field. */
+        @NativeType("const VkSwapchainKHR *")
         public LongBuffer pSwapchains() { return VkPresentInfoKHR.npSwapchains(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pImageIndices} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pImageIndices() { return VkPresentInfoKHR.npImageIndices(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field. */
+        @NativeType("VkResult *")
         public IntBuffer pResults() { return VkPresentInfoKHR.npResults(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPresentInfoKHR.Buffer sType(int value) { VkPresentInfoKHR.nsType(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPresentInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPresentInfoKHR.Buffer pNext(long value) { VkPresentInfoKHR.npNext(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkPresentInfoKHR.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-        public VkPresentInfoKHR.Buffer pWaitSemaphores(LongBuffer value) { VkPresentInfoKHR.npWaitSemaphores(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { VkPresentInfoKHR.npWaitSemaphores(address(), value); return this; }
         /** Sets the specified value to the {@code swapchainCount} field. */
-        public VkPresentInfoKHR.Buffer swapchainCount(int value) { VkPresentInfoKHR.nswapchainCount(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer swapchainCount(@NativeType("uint32_t") int value) { VkPresentInfoKHR.nswapchainCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pSwapchains} field. */
-        public VkPresentInfoKHR.Buffer pSwapchains(LongBuffer value) { VkPresentInfoKHR.npSwapchains(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer pSwapchains(@NativeType("const VkSwapchainKHR *") LongBuffer value) { VkPresentInfoKHR.npSwapchains(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pImageIndices} field. */
-        public VkPresentInfoKHR.Buffer pImageIndices(IntBuffer value) { VkPresentInfoKHR.npImageIndices(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer pImageIndices(@NativeType("const uint32_t *") IntBuffer value) { VkPresentInfoKHR.npImageIndices(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pResults} field. */
-        public VkPresentInfoKHR.Buffer pResults(IntBuffer value) { VkPresentInfoKHR.npResults(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer pResults(@NativeType("VkResult *") IntBuffer value) { VkPresentInfoKHR.npResults(address(), value); return this; }
 
     }
 

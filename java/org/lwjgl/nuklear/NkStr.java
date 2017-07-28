@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int len;
  * }</pre></code>
  */
+@NativeType("struct nk_str")
 public class NkStr extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -76,6 +77,7 @@ public class NkStr extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkBuffer} view of the {@code buffer} field. */
+    @NativeType("struct nk_buffer")
     public NkBuffer buffer() { return nbuffer(address()); }
     /** Returns the value of the {@code len} field. */
     public int len() { return nlen(address()); }
@@ -257,6 +259,7 @@ public class NkStr extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkBuffer} view of the {@code buffer} field. */
+        @NativeType("struct nk_buffer")
         public NkBuffer buffer() { return NkStr.nbuffer(address()); }
         /** Returns the value of the {@code len} field. */
         public int len() { return NkStr.nlen(address()); }

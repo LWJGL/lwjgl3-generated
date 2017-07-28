@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -54,7 +56,7 @@ public class ARBInstancedArrays {
      * @param index   the attribute index
      * @param divisor the divisor value
      */
-    public static native void glVertexAttribDivisorARB(int index, int divisor);
+    public static native void glVertexAttribDivisorARB(@NativeType("GLuint") int index, @NativeType("GLuint") int divisor);
 
     // --- [ glVertexArrayVertexAttribDivisorEXT ] ---
 
@@ -74,6 +76,6 @@ public class ARBInstancedArrays {
      * @param index   the attribute index
      * @param divisor the divisor value
      */
-    public static native void glVertexArrayVertexAttribDivisorEXT(int vaobj, int index, int divisor);
+    public static native void glVertexArrayVertexAttribDivisorEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int index, @NativeType("GLuint") int divisor);
 
 }

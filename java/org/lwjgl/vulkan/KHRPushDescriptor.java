@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -163,7 +165,7 @@ public class KHRPushDescriptor {
      * @param set               the set number of the descriptor set in the pipeline layout that will be updated.
      * @param pDescriptorWrites a pointer to an array of {@link VkWriteDescriptorSet} structures describing the descriptors to be updated.
      */
-    public static void vkCmdPushDescriptorSetKHR(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int set, VkWriteDescriptorSet.Buffer pDescriptorWrites) {
+    public static void vkCmdPushDescriptorSetKHR(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipelineLayout") long layout, @NativeType("uint32_t") int set, @NativeType("const VkWriteDescriptorSet *") VkWriteDescriptorSet.Buffer pDescriptorWrites) {
         nvkCmdPushDescriptorSetKHR(commandBuffer, pipelineBindPoint, layout, set, pDescriptorWrites.remaining(), pDescriptorWrites.address());
     }
 

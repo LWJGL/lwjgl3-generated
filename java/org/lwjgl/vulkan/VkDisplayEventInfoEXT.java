@@ -91,18 +91,21 @@ public class VkDisplayEventInfoEXT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code displayEvent} field. */
+    @NativeType("VkDisplayEventTypeEXT")
     public int displayEvent() { return ndisplayEvent(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDisplayEventInfoEXT sType(int value) { nsType(address(), value); return this; }
+    public VkDisplayEventInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDisplayEventInfoEXT pNext(long value) { npNext(address(), value); return this; }
+    public VkDisplayEventInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code displayEvent} field. */
-    public VkDisplayEventInfoEXT displayEvent(int value) { ndisplayEvent(address(), value); return this; }
+    public VkDisplayEventInfoEXT displayEvent(@NativeType("VkDisplayEventTypeEXT") int value) { ndisplayEvent(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDisplayEventInfoEXT set(
@@ -315,18 +318,21 @@ public class VkDisplayEventInfoEXT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDisplayEventInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDisplayEventInfoEXT.npNext(address()); }
         /** Returns the value of the {@code displayEvent} field. */
+        @NativeType("VkDisplayEventTypeEXT")
         public int displayEvent() { return VkDisplayEventInfoEXT.ndisplayEvent(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDisplayEventInfoEXT.Buffer sType(int value) { VkDisplayEventInfoEXT.nsType(address(), value); return this; }
+        public VkDisplayEventInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkDisplayEventInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDisplayEventInfoEXT.Buffer pNext(long value) { VkDisplayEventInfoEXT.npNext(address(), value); return this; }
+        public VkDisplayEventInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkDisplayEventInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code displayEvent} field. */
-        public VkDisplayEventInfoEXT.Buffer displayEvent(int value) { VkDisplayEventInfoEXT.ndisplayEvent(address(), value); return this; }
+        public VkDisplayEventInfoEXT.Buffer displayEvent(@NativeType("VkDisplayEventTypeEXT") int value) { VkDisplayEventInfoEXT.ndisplayEvent(address(), value); return this; }
 
     }
 

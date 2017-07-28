@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint64_t uUserValue;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Keyboard_t")
 public class VREventKeyboard extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -75,18 +76,21 @@ public class VREventKeyboard extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code cNewInput} field. */
+    @NativeType("char[8]")
     public ByteBuffer cNewInput() { return ncNewInput(address()); }
     /** Returns the value at the specified index of the {@code cNewInput} field. */
+    @NativeType("char")
     public byte cNewInput(int index) { return ncNewInput(address(), index); }
     /** Returns the value of the {@code uUserValue} field. */
+    @NativeType("uint64_t")
     public long uUserValue() { return nuUserValue(address()); }
 
     /** Copies the specified {@link ByteBuffer} to the {@code cNewInput} field. */
-    public VREventKeyboard cNewInput(ByteBuffer value) { ncNewInput(address(), value); return this; }
+    public VREventKeyboard cNewInput(@NativeType("char[8]") ByteBuffer value) { ncNewInput(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code cNewInput} field. */
-    public VREventKeyboard cNewInput(int index, byte value) { ncNewInput(address(), index, value); return this; }
+    public VREventKeyboard cNewInput(int index, @NativeType("char") byte value) { ncNewInput(address(), index, value); return this; }
     /** Sets the specified value to the {@code uUserValue} field. */
-    public VREventKeyboard uUserValue(long value) { nuUserValue(address(), value); return this; }
+    public VREventKeyboard uUserValue(@NativeType("uint64_t") long value) { nuUserValue(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventKeyboard set(
@@ -306,18 +310,21 @@ public class VREventKeyboard extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code cNewInput} field. */
+        @NativeType("char[8]")
         public ByteBuffer cNewInput() { return VREventKeyboard.ncNewInput(address()); }
         /** Returns the value at the specified index of the {@code cNewInput} field. */
+        @NativeType("char")
         public byte cNewInput(int index) { return VREventKeyboard.ncNewInput(address(), index); }
         /** Returns the value of the {@code uUserValue} field. */
+        @NativeType("uint64_t")
         public long uUserValue() { return VREventKeyboard.nuUserValue(address()); }
 
         /** Copies the specified {@link ByteBuffer} to the {@code cNewInput} field. */
-        public VREventKeyboard.Buffer cNewInput(ByteBuffer value) { VREventKeyboard.ncNewInput(address(), value); return this; }
+        public VREventKeyboard.Buffer cNewInput(@NativeType("char[8]") ByteBuffer value) { VREventKeyboard.ncNewInput(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code cNewInput} field. */
-        public VREventKeyboard.Buffer cNewInput(int index, byte value) { VREventKeyboard.ncNewInput(address(), index, value); return this; }
+        public VREventKeyboard.Buffer cNewInput(int index, @NativeType("char") byte value) { VREventKeyboard.ncNewInput(address(), index, value); return this; }
         /** Sets the specified value to the {@code uUserValue} field. */
-        public VREventKeyboard.Buffer uUserValue(long value) { VREventKeyboard.nuUserValue(address(), value); return this; }
+        public VREventKeyboard.Buffer uUserValue(@NativeType("uint64_t") long value) { VREventKeyboard.nuUserValue(address(), value); return this; }
 
     }
 

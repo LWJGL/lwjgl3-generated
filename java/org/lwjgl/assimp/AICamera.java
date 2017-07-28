@@ -62,6 +62,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float mAspect;
  * }</pre></code>
  */
+@NativeType("struct aiCamera")
 public class AICamera extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -123,12 +124,16 @@ public class AICamera extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIString} view of the {@code mName} field. */
+    @NativeType("struct aiString")
     public AIString mName() { return nmName(address()); }
     /** Returns a {@link AIVector3D} view of the {@code mPosition} field. */
+    @NativeType("struct aiVector3D")
     public AIVector3D mPosition() { return nmPosition(address()); }
     /** Returns a {@link AIVector3D} view of the {@code mUp} field. */
+    @NativeType("struct aiVector3D")
     public AIVector3D mUp() { return nmUp(address()); }
     /** Returns a {@link AIVector3D} view of the {@code mLookAt} field. */
+    @NativeType("struct aiVector3D")
     public AIVector3D mLookAt() { return nmLookAt(address()); }
     /** Returns the value of the {@code mHorizontalFOV} field. */
     public float mHorizontalFOV() { return nmHorizontalFOV(address()); }
@@ -140,13 +145,13 @@ public class AICamera extends Struct implements NativeResource {
     public float mAspect() { return nmAspect(address()); }
 
     /** Copies the specified {@link AIString} to the {@code mName} field. */
-    public AICamera mName(AIString value) { nmName(address(), value); return this; }
+    public AICamera mName(@NativeType("struct aiString") AIString value) { nmName(address(), value); return this; }
     /** Copies the specified {@link AIVector3D} to the {@code mPosition} field. */
-    public AICamera mPosition(AIVector3D value) { nmPosition(address(), value); return this; }
+    public AICamera mPosition(@NativeType("struct aiVector3D") AIVector3D value) { nmPosition(address(), value); return this; }
     /** Copies the specified {@link AIVector3D} to the {@code mUp} field. */
-    public AICamera mUp(AIVector3D value) { nmUp(address(), value); return this; }
+    public AICamera mUp(@NativeType("struct aiVector3D") AIVector3D value) { nmUp(address(), value); return this; }
     /** Copies the specified {@link AIVector3D} to the {@code mLookAt} field. */
-    public AICamera mLookAt(AIVector3D value) { nmLookAt(address(), value); return this; }
+    public AICamera mLookAt(@NativeType("struct aiVector3D") AIVector3D value) { nmLookAt(address(), value); return this; }
     /** Sets the specified value to the {@code mHorizontalFOV} field. */
     public AICamera mHorizontalFOV(float value) { nmHorizontalFOV(address(), value); return this; }
     /** Sets the specified value to the {@code mClipPlaneNear} field. */
@@ -397,12 +402,16 @@ public class AICamera extends Struct implements NativeResource {
         }
 
         /** Returns a {@link AIString} view of the {@code mName} field. */
+        @NativeType("struct aiString")
         public AIString mName() { return AICamera.nmName(address()); }
         /** Returns a {@link AIVector3D} view of the {@code mPosition} field. */
+        @NativeType("struct aiVector3D")
         public AIVector3D mPosition() { return AICamera.nmPosition(address()); }
         /** Returns a {@link AIVector3D} view of the {@code mUp} field. */
+        @NativeType("struct aiVector3D")
         public AIVector3D mUp() { return AICamera.nmUp(address()); }
         /** Returns a {@link AIVector3D} view of the {@code mLookAt} field. */
+        @NativeType("struct aiVector3D")
         public AIVector3D mLookAt() { return AICamera.nmLookAt(address()); }
         /** Returns the value of the {@code mHorizontalFOV} field. */
         public float mHorizontalFOV() { return AICamera.nmHorizontalFOV(address()); }
@@ -414,13 +423,13 @@ public class AICamera extends Struct implements NativeResource {
         public float mAspect() { return AICamera.nmAspect(address()); }
 
         /** Copies the specified {@link AIString} to the {@code mName} field. */
-        public AICamera.Buffer mName(AIString value) { AICamera.nmName(address(), value); return this; }
+        public AICamera.Buffer mName(@NativeType("struct aiString") AIString value) { AICamera.nmName(address(), value); return this; }
         /** Copies the specified {@link AIVector3D} to the {@code mPosition} field. */
-        public AICamera.Buffer mPosition(AIVector3D value) { AICamera.nmPosition(address(), value); return this; }
+        public AICamera.Buffer mPosition(@NativeType("struct aiVector3D") AIVector3D value) { AICamera.nmPosition(address(), value); return this; }
         /** Copies the specified {@link AIVector3D} to the {@code mUp} field. */
-        public AICamera.Buffer mUp(AIVector3D value) { AICamera.nmUp(address(), value); return this; }
+        public AICamera.Buffer mUp(@NativeType("struct aiVector3D") AIVector3D value) { AICamera.nmUp(address(), value); return this; }
         /** Copies the specified {@link AIVector3D} to the {@code mLookAt} field. */
-        public AICamera.Buffer mLookAt(AIVector3D value) { AICamera.nmLookAt(address(), value); return this; }
+        public AICamera.Buffer mLookAt(@NativeType("struct aiVector3D") AIVector3D value) { AICamera.nmLookAt(address(), value); return this; }
         /** Sets the specified value to the {@code mHorizontalFOV} field. */
         public AICamera.Buffer mHorizontalFOV(float value) { AICamera.nmHorizontalFOV(address(), value); return this; }
         /** Sets the specified value to the {@code mClipPlaneNear} field. */

@@ -113,30 +113,36 @@ public class VkD3D12FenceSubmitInfoKHR extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code waitSemaphoreValuesCount} field. */
+    @NativeType("uint32_t")
     public int waitSemaphoreValuesCount() { return nwaitSemaphoreValuesCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphoreValues} field. */
+    @NativeType("const uint64_t *")
     public LongBuffer pWaitSemaphoreValues() { return npWaitSemaphoreValues(address()); }
     /** Returns the value of the {@code signalSemaphoreValuesCount} field. */
+    @NativeType("uint32_t")
     public int signalSemaphoreValuesCount() { return nsignalSemaphoreValuesCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphoreValues} field. */
+    @NativeType("const uint64_t *")
     public LongBuffer pSignalSemaphoreValues() { return npSignalSemaphoreValues(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkD3D12FenceSubmitInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkD3D12FenceSubmitInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkD3D12FenceSubmitInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkD3D12FenceSubmitInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code waitSemaphoreValuesCount} field. */
-    public VkD3D12FenceSubmitInfoKHR waitSemaphoreValuesCount(int value) { nwaitSemaphoreValuesCount(address(), value); return this; }
+    public VkD3D12FenceSubmitInfoKHR waitSemaphoreValuesCount(@NativeType("uint32_t") int value) { nwaitSemaphoreValuesCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphoreValues} field. */
-    public VkD3D12FenceSubmitInfoKHR pWaitSemaphoreValues(LongBuffer value) { npWaitSemaphoreValues(address(), value); return this; }
+    public VkD3D12FenceSubmitInfoKHR pWaitSemaphoreValues(@NativeType("const uint64_t *") LongBuffer value) { npWaitSemaphoreValues(address(), value); return this; }
     /** Sets the specified value to the {@code signalSemaphoreValuesCount} field. */
-    public VkD3D12FenceSubmitInfoKHR signalSemaphoreValuesCount(int value) { nsignalSemaphoreValuesCount(address(), value); return this; }
+    public VkD3D12FenceSubmitInfoKHR signalSemaphoreValuesCount(@NativeType("uint32_t") int value) { nsignalSemaphoreValuesCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphoreValues} field. */
-    public VkD3D12FenceSubmitInfoKHR pSignalSemaphoreValues(LongBuffer value) { npSignalSemaphoreValues(address(), value); return this; }
+    public VkD3D12FenceSubmitInfoKHR pSignalSemaphoreValues(@NativeType("const uint64_t *") LongBuffer value) { npSignalSemaphoreValues(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkD3D12FenceSubmitInfoKHR set(
@@ -367,30 +373,36 @@ public class VkD3D12FenceSubmitInfoKHR extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkD3D12FenceSubmitInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkD3D12FenceSubmitInfoKHR.npNext(address()); }
         /** Returns the value of the {@code waitSemaphoreValuesCount} field. */
+        @NativeType("uint32_t")
         public int waitSemaphoreValuesCount() { return VkD3D12FenceSubmitInfoKHR.nwaitSemaphoreValuesCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphoreValues} field. */
+        @NativeType("const uint64_t *")
         public LongBuffer pWaitSemaphoreValues() { return VkD3D12FenceSubmitInfoKHR.npWaitSemaphoreValues(address()); }
         /** Returns the value of the {@code signalSemaphoreValuesCount} field. */
+        @NativeType("uint32_t")
         public int signalSemaphoreValuesCount() { return VkD3D12FenceSubmitInfoKHR.nsignalSemaphoreValuesCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphoreValues} field. */
+        @NativeType("const uint64_t *")
         public LongBuffer pSignalSemaphoreValues() { return VkD3D12FenceSubmitInfoKHR.npSignalSemaphoreValues(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkD3D12FenceSubmitInfoKHR.Buffer sType(int value) { VkD3D12FenceSubmitInfoKHR.nsType(address(), value); return this; }
+        public VkD3D12FenceSubmitInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkD3D12FenceSubmitInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkD3D12FenceSubmitInfoKHR.Buffer pNext(long value) { VkD3D12FenceSubmitInfoKHR.npNext(address(), value); return this; }
+        public VkD3D12FenceSubmitInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkD3D12FenceSubmitInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code waitSemaphoreValuesCount} field. */
-        public VkD3D12FenceSubmitInfoKHR.Buffer waitSemaphoreValuesCount(int value) { VkD3D12FenceSubmitInfoKHR.nwaitSemaphoreValuesCount(address(), value); return this; }
+        public VkD3D12FenceSubmitInfoKHR.Buffer waitSemaphoreValuesCount(@NativeType("uint32_t") int value) { VkD3D12FenceSubmitInfoKHR.nwaitSemaphoreValuesCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphoreValues} field. */
-        public VkD3D12FenceSubmitInfoKHR.Buffer pWaitSemaphoreValues(LongBuffer value) { VkD3D12FenceSubmitInfoKHR.npWaitSemaphoreValues(address(), value); return this; }
+        public VkD3D12FenceSubmitInfoKHR.Buffer pWaitSemaphoreValues(@NativeType("const uint64_t *") LongBuffer value) { VkD3D12FenceSubmitInfoKHR.npWaitSemaphoreValues(address(), value); return this; }
         /** Sets the specified value to the {@code signalSemaphoreValuesCount} field. */
-        public VkD3D12FenceSubmitInfoKHR.Buffer signalSemaphoreValuesCount(int value) { VkD3D12FenceSubmitInfoKHR.nsignalSemaphoreValuesCount(address(), value); return this; }
+        public VkD3D12FenceSubmitInfoKHR.Buffer signalSemaphoreValuesCount(@NativeType("uint32_t") int value) { VkD3D12FenceSubmitInfoKHR.nsignalSemaphoreValuesCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphoreValues} field. */
-        public VkD3D12FenceSubmitInfoKHR.Buffer pSignalSemaphoreValues(LongBuffer value) { VkD3D12FenceSubmitInfoKHR.npSignalSemaphoreValues(address(), value); return this; }
+        public VkD3D12FenceSubmitInfoKHR.Buffer pSignalSemaphoreValues(@NativeType("const uint64_t *") LongBuffer value) { VkD3D12FenceSubmitInfoKHR.npSignalSemaphoreValues(address(), value); return this; }
 
     }
 

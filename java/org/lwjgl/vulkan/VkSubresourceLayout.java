@@ -111,14 +111,19 @@ public class VkSubresourceLayout extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code offset} field. */
+    @NativeType("VkDeviceSize")
     public long offset() { return noffset(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("VkDeviceSize")
     public long size() { return nsize(address()); }
     /** Returns the value of the {@code rowPitch} field. */
+    @NativeType("VkDeviceSize")
     public long rowPitch() { return nrowPitch(address()); }
     /** Returns the value of the {@code arrayPitch} field. */
+    @NativeType("VkDeviceSize")
     public long arrayPitch() { return narrayPitch(address()); }
     /** Returns the value of the {@code depthPitch} field. */
+    @NativeType("VkDeviceSize")
     public long depthPitch() { return ndepthPitch(address()); }
 
     // -----------------------------------
@@ -304,14 +309,19 @@ public class VkSubresourceLayout extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code offset} field. */
+        @NativeType("VkDeviceSize")
         public long offset() { return VkSubresourceLayout.noffset(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("VkDeviceSize")
         public long size() { return VkSubresourceLayout.nsize(address()); }
         /** Returns the value of the {@code rowPitch} field. */
+        @NativeType("VkDeviceSize")
         public long rowPitch() { return VkSubresourceLayout.nrowPitch(address()); }
         /** Returns the value of the {@code arrayPitch} field. */
+        @NativeType("VkDeviceSize")
         public long arrayPitch() { return VkSubresourceLayout.narrayPitch(address()); }
         /** Returns the value of the {@code depthPitch} field. */
+        @NativeType("VkDeviceSize")
         public long depthPitch() { return VkSubresourceLayout.ndepthPitch(address()); }
 
     }

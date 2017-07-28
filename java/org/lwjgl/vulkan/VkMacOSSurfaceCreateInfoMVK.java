@@ -104,22 +104,26 @@ public class VkMacOSSurfaceCreateInfoMVK extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkMacOSSurfaceCreateFlagsMVK")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code pView} field. */
+    @NativeType("const void *")
     public long pView() { return npView(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkMacOSSurfaceCreateInfoMVK sType(int value) { nsType(address(), value); return this; }
+    public VkMacOSSurfaceCreateInfoMVK sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMacOSSurfaceCreateInfoMVK pNext(long value) { npNext(address(), value); return this; }
+    public VkMacOSSurfaceCreateInfoMVK pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkMacOSSurfaceCreateInfoMVK flags(int value) { nflags(address(), value); return this; }
+    public VkMacOSSurfaceCreateInfoMVK flags(@NativeType("VkMacOSSurfaceCreateFlagsMVK") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code pView} field. */
-    public VkMacOSSurfaceCreateInfoMVK pView(long value) { npView(address(), value); return this; }
+    public VkMacOSSurfaceCreateInfoMVK pView(@NativeType("const void *") long value) { npView(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkMacOSSurfaceCreateInfoMVK set(
@@ -359,22 +363,26 @@ public class VkMacOSSurfaceCreateInfoMVK extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkMacOSSurfaceCreateInfoMVK.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkMacOSSurfaceCreateInfoMVK.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkMacOSSurfaceCreateFlagsMVK")
         public int flags() { return VkMacOSSurfaceCreateInfoMVK.nflags(address()); }
         /** Returns the value of the {@code pView} field. */
+        @NativeType("const void *")
         public long pView() { return VkMacOSSurfaceCreateInfoMVK.npView(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkMacOSSurfaceCreateInfoMVK.Buffer sType(int value) { VkMacOSSurfaceCreateInfoMVK.nsType(address(), value); return this; }
+        public VkMacOSSurfaceCreateInfoMVK.Buffer sType(@NativeType("VkStructureType") int value) { VkMacOSSurfaceCreateInfoMVK.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMacOSSurfaceCreateInfoMVK.Buffer pNext(long value) { VkMacOSSurfaceCreateInfoMVK.npNext(address(), value); return this; }
+        public VkMacOSSurfaceCreateInfoMVK.Buffer pNext(@NativeType("const void *") long value) { VkMacOSSurfaceCreateInfoMVK.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkMacOSSurfaceCreateInfoMVK.Buffer flags(int value) { VkMacOSSurfaceCreateInfoMVK.nflags(address(), value); return this; }
+        public VkMacOSSurfaceCreateInfoMVK.Buffer flags(@NativeType("VkMacOSSurfaceCreateFlagsMVK") int value) { VkMacOSSurfaceCreateInfoMVK.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code pView} field. */
-        public VkMacOSSurfaceCreateInfoMVK.Buffer pView(long value) { VkMacOSSurfaceCreateInfoMVK.npView(address(), value); return this; }
+        public VkMacOSSurfaceCreateInfoMVK.Buffer pView(@NativeType("const void *") long value) { VkMacOSSurfaceCreateInfoMVK.npView(address(), value); return this; }
 
     }
 

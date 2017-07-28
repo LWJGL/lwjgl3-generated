@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -49,7 +51,7 @@ public class ANDROIDBlobCache {
         callPPPV(__functionAddress, dpy, set, get);
     }
 
-    public static void eglSetBlobCacheFuncsANDROID(long dpy, EGLSetBlobFuncANDROIDI set, EGLGetBlobFuncANDROIDI get) {
+    public static void eglSetBlobCacheFuncsANDROID(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSetBlobFuncANDROID") EGLSetBlobFuncANDROIDI set, @NativeType("EGLGetBlobFuncANDROID") EGLGetBlobFuncANDROIDI get) {
         neglSetBlobCacheFuncsANDROID(dpy, set.address(), get.address());
     }
 

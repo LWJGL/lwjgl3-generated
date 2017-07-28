@@ -28,6 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t unTriangleCount;
  * }</pre></code>
  */
+@NativeType("struct HiddenAreaMesh_t")
 public class HiddenAreaMesh extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -71,12 +72,14 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdVector2.Buffer} view of the struct array pointed to by the {@code pVertexData} field. */
+    @NativeType("HmdVector2_t *")
     public HmdVector2.Buffer pVertexData() { return npVertexData(address()); }
     /** Returns the value of the {@code unTriangleCount} field. */
+    @NativeType("uint32_t")
     public int unTriangleCount() { return nunTriangleCount(address()); }
 
     /** Sets the address of the specified {@link HmdVector2.Buffer} to the {@code pVertexData} field. */
-    public HiddenAreaMesh pVertexData(HmdVector2.Buffer value) { npVertexData(address(), value); return this; }
+    public HiddenAreaMesh pVertexData(@NativeType("HmdVector2_t *") HmdVector2.Buffer value) { npVertexData(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -295,12 +298,14 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
         }
 
         /** Returns a {@link HmdVector2.Buffer} view of the struct array pointed to by the {@code pVertexData} field. */
+        @NativeType("HmdVector2_t *")
         public HmdVector2.Buffer pVertexData() { return HiddenAreaMesh.npVertexData(address()); }
         /** Returns the value of the {@code unTriangleCount} field. */
+        @NativeType("uint32_t")
         public int unTriangleCount() { return HiddenAreaMesh.nunTriangleCount(address()); }
 
         /** Sets the address of the specified {@link HmdVector2.Buffer} to the {@code pVertexData} field. */
-        public HiddenAreaMesh.Buffer pVertexData(HmdVector2.Buffer value) { HiddenAreaMesh.npVertexData(address(), value); return this; }
+        public HiddenAreaMesh.Buffer pVertexData(@NativeType("HmdVector2_t *") HmdVector2.Buffer value) { HiddenAreaMesh.npVertexData(address(), value); return this; }
 
     }
 

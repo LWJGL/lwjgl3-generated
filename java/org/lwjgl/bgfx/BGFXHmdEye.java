@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float pixelsPerTanAngle[2];
  * }</pre></code>
  */
+@NativeType("struct bgfx_hmd_eye_t")
 public class BGFXHmdEye extends Struct {
 
     /** The struct size in bytes. */
@@ -93,26 +94,32 @@ public class BGFXHmdEye extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code rotation} field. */
+    @NativeType("float[4]")
     public FloatBuffer rotation() { return nrotation(address()); }
     /** Returns the value at the specified index of the {@code rotation} field. */
     public float rotation(int index) { return nrotation(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code translation} field. */
+    @NativeType("float[3]")
     public FloatBuffer translation() { return ntranslation(address()); }
     /** Returns the value at the specified index of the {@code translation} field. */
     public float translation(int index) { return ntranslation(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code fov} field. */
+    @NativeType("float[4]")
     public FloatBuffer fov() { return nfov(address()); }
     /** Returns the value at the specified index of the {@code fov} field. */
     public float fov(int index) { return nfov(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code viewOffset} field. */
+    @NativeType("float[3]")
     public FloatBuffer viewOffset() { return nviewOffset(address()); }
     /** Returns the value at the specified index of the {@code viewOffset} field. */
     public float viewOffset(int index) { return nviewOffset(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code projection} field. */
+    @NativeType("float[16]")
     public FloatBuffer projection() { return nprojection(address()); }
     /** Returns the value at the specified index of the {@code projection} field. */
     public float projection(int index) { return nprojection(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code pixelsPerTanAngle} field. */
+    @NativeType("float[2]")
     public FloatBuffer pixelsPerTanAngle() { return npixelsPerTanAngle(address()); }
     /** Returns the value at the specified index of the {@code pixelsPerTanAngle} field. */
     public float pixelsPerTanAngle(int index) { return npixelsPerTanAngle(address(), index); }
@@ -222,26 +229,32 @@ public class BGFXHmdEye extends Struct {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code rotation} field. */
+        @NativeType("float[4]")
         public FloatBuffer rotation() { return BGFXHmdEye.nrotation(address()); }
         /** Returns the value at the specified index of the {@code rotation} field. */
         public float rotation(int index) { return BGFXHmdEye.nrotation(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code translation} field. */
+        @NativeType("float[3]")
         public FloatBuffer translation() { return BGFXHmdEye.ntranslation(address()); }
         /** Returns the value at the specified index of the {@code translation} field. */
         public float translation(int index) { return BGFXHmdEye.ntranslation(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code fov} field. */
+        @NativeType("float[4]")
         public FloatBuffer fov() { return BGFXHmdEye.nfov(address()); }
         /** Returns the value at the specified index of the {@code fov} field. */
         public float fov(int index) { return BGFXHmdEye.nfov(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code viewOffset} field. */
+        @NativeType("float[3]")
         public FloatBuffer viewOffset() { return BGFXHmdEye.nviewOffset(address()); }
         /** Returns the value at the specified index of the {@code viewOffset} field. */
         public float viewOffset(int index) { return BGFXHmdEye.nviewOffset(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code projection} field. */
+        @NativeType("float[16]")
         public FloatBuffer projection() { return BGFXHmdEye.nprojection(address()); }
         /** Returns the value at the specified index of the {@code projection} field. */
         public float projection(int index) { return BGFXHmdEye.nprojection(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code pixelsPerTanAngle} field. */
+        @NativeType("float[2]")
         public FloatBuffer pixelsPerTanAngle() { return BGFXHmdEye.npixelsPerTanAngle(address()); }
         /** Returns the value at the specified index of the {@code pixelsPerTanAngle} field. */
         public float pixelsPerTanAngle(int index) { return BGFXHmdEye.npixelsPerTanAngle(address(), index); }

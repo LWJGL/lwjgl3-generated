@@ -204,7 +204,7 @@ public class ARBInternalformatQuery2 {
      * @param pname          the type of information to query
      * @param params         a variable into which to write the retrieved information
      */
-    public static void glGetInternalformati64v(int target, int internalformat, int pname, LongBuffer params) {
+    public static void glGetInternalformati64v(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         nglGetInternalformati64v(target, internalformat, pname, params.remaining(), memAddress(params));
     }
 
@@ -215,7 +215,8 @@ public class ARBInternalformatQuery2 {
      * @param internalformat the internal format about which to retrieve information
      * @param pname          the type of information to query
      */
-    public static long glGetInternalformati64(int target, int internalformat, int pname) {
+    @NativeType("void")
+    public static long glGetInternalformati64(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -227,7 +228,7 @@ public class ARBInternalformatQuery2 {
     }
 
     /** Array version of: {@link #glGetInternalformati64v GetInternalformati64v} */
-    public static void glGetInternalformati64v(int target, int internalformat, int pname, long[] params) {
+    public static void glGetInternalformati64v(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetInternalformati64v;
         if (CHECKS) {
             check(__functionAddress);

@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t notificationId;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Notification_t")
 public class VREventNotification extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -67,14 +68,16 @@ public class VREventNotification extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code ulUserValue} field. */
+    @NativeType("uint64_t")
     public long ulUserValue() { return nulUserValue(address()); }
     /** Returns the value of the {@code notificationId} field. */
+    @NativeType("uint32_t")
     public int notificationId() { return nnotificationId(address()); }
 
     /** Sets the specified value to the {@code ulUserValue} field. */
-    public VREventNotification ulUserValue(long value) { nulUserValue(address(), value); return this; }
+    public VREventNotification ulUserValue(@NativeType("uint64_t") long value) { nulUserValue(address(), value); return this; }
     /** Sets the specified value to the {@code notificationId} field. */
-    public VREventNotification notificationId(int value) { nnotificationId(address(), value); return this; }
+    public VREventNotification notificationId(@NativeType("uint32_t") int value) { nnotificationId(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventNotification set(
@@ -281,14 +284,16 @@ public class VREventNotification extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code ulUserValue} field. */
+        @NativeType("uint64_t")
         public long ulUserValue() { return VREventNotification.nulUserValue(address()); }
         /** Returns the value of the {@code notificationId} field. */
+        @NativeType("uint32_t")
         public int notificationId() { return VREventNotification.nnotificationId(address()); }
 
         /** Sets the specified value to the {@code ulUserValue} field. */
-        public VREventNotification.Buffer ulUserValue(long value) { VREventNotification.nulUserValue(address(), value); return this; }
+        public VREventNotification.Buffer ulUserValue(@NativeType("uint64_t") long value) { VREventNotification.nulUserValue(address(), value); return this; }
         /** Sets the specified value to the {@code notificationId} field. */
-        public VREventNotification.Buffer notificationId(int value) { VREventNotification.nnotificationId(address(), value); return this; }
+        public VREventNotification.Buffer notificationId(@NativeType("uint32_t") int value) { VREventNotification.nnotificationId(address(), value); return this; }
 
     }
 

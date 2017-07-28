@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int id;
  * }</pre></code>
  */
+@NativeType("union nk_handle")
 public class NkHandle extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,12 +66,13 @@ public class NkHandle extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code ptr} field. */
+    @NativeType("void *")
     public long ptr() { return nptr(address()); }
     /** Returns the value of the {@code id} field. */
     public int id() { return nid(address()); }
 
     /** Sets the specified value to the {@code ptr} field. */
-    public NkHandle ptr(long value) { nptr(address(), value); return this; }
+    public NkHandle ptr(@NativeType("void *") long value) { nptr(address(), value); return this; }
     /** Sets the specified value to the {@code id} field. */
     public NkHandle id(int value) { nid(address(), value); return this; }
 
@@ -268,12 +270,13 @@ public class NkHandle extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code ptr} field. */
+        @NativeType("void *")
         public long ptr() { return NkHandle.nptr(address()); }
         /** Returns the value of the {@code id} field. */
         public int id() { return NkHandle.nid(address()); }
 
         /** Sets the specified value to the {@code ptr} field. */
-        public NkHandle.Buffer ptr(long value) { NkHandle.nptr(address(), value); return this; }
+        public NkHandle.Buffer ptr(@NativeType("void *") long value) { NkHandle.nptr(address(), value); return this; }
         /** Sets the specified value to the {@code id} field. */
         public NkHandle.Buffer id(int value) { NkHandle.nid(address(), value); return this; }
 

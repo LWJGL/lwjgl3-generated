@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -66,7 +68,7 @@ public class APPLEFramebufferMultisample {
 
     // --- [ glRenderbufferStorageMultisampleAPPLE ] ---
 
-    public static native void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleAPPLE(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glResolveMultisampleFramebufferAPPLE ] ---
 

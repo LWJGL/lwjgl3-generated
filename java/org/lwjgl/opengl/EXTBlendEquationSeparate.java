@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -43,6 +45,6 @@ public class EXTBlendEquationSeparate {
 
     // --- [ glBlendEquationSeparateEXT ] ---
 
-    public static native void glBlendEquationSeparateEXT(int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateEXT(@NativeType("GLenum") int modeRGB, @NativeType("GLenum") int modeAlpha);
 
 }

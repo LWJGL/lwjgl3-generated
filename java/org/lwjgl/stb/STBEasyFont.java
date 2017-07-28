@@ -69,7 +69,7 @@ public class STBEasyFont {
      *
      * @return the horizontal size, in pixels
      */
-    public static int stb_easy_font_width(ByteBuffer text) {
+    public static int stb_easy_font_width(@NativeType("char *") ByteBuffer text) {
         if (CHECKS) {
             checkNT1(text);
         }
@@ -83,7 +83,7 @@ public class STBEasyFont {
      *
      * @return the horizontal size, in pixels
      */
-    public static int stb_easy_font_width(CharSequence text) {
+    public static int stb_easy_font_width(@NativeType("char *") CharSequence text) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer textEncoded = stack.ASCII(text);
@@ -105,7 +105,7 @@ public class STBEasyFont {
      *
      * @return the vertical size, in pixels
      */
-    public static int stb_easy_font_height(ByteBuffer text) {
+    public static int stb_easy_font_height(@NativeType("char *") ByteBuffer text) {
         if (CHECKS) {
             checkNT1(text);
         }
@@ -119,7 +119,7 @@ public class STBEasyFont {
      *
      * @return the vertical size, in pixels
      */
-    public static int stb_easy_font_height(CharSequence text) {
+    public static int stb_easy_font_height(@NativeType("char *") CharSequence text) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer textEncoded = stack.ASCII(text);
@@ -169,7 +169,7 @@ public class STBEasyFont {
      *
      * @return the number of quads
      */
-    public static int stb_easy_font_print(float x, float y, ByteBuffer text, ByteBuffer color, ByteBuffer vertex_buffer) {
+    public static int stb_easy_font_print(@NativeType("float") float x, @NativeType("float") float y, @NativeType("char *") ByteBuffer text, @NativeType("unsigned char *") ByteBuffer color, @NativeType("void *") ByteBuffer vertex_buffer) {
         if (CHECKS) {
             checkNT1(text);
             checkSafe(color, 4);
@@ -208,7 +208,7 @@ public class STBEasyFont {
      *
      * @return the number of quads
      */
-    public static int stb_easy_font_print(float x, float y, CharSequence text, ByteBuffer color, ByteBuffer vertex_buffer) {
+    public static int stb_easy_font_print(@NativeType("float") float x, @NativeType("float") float y, @NativeType("char *") CharSequence text, @NativeType("unsigned char *") ByteBuffer color, @NativeType("void *") ByteBuffer vertex_buffer) {
         if (CHECKS) {
             checkSafe(color, 4);
         }

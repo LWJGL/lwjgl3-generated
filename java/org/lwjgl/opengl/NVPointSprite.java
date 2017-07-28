@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -63,13 +65,13 @@ public class NVPointSprite {
 
     // --- [ glPointParameteriNV ] ---
 
-    public static native void glPointParameteriNV(int pname, int param);
+    public static native void glPointParameteriNV(@NativeType("GLenum") int pname, @NativeType("GLint") int param);
 
     // --- [ glPointParameterivNV ] ---
 
     public static native void nglPointParameterivNV(int pname, long params);
 
-    public static void glPointParameterivNV(int pname, IntBuffer params) {
+    public static void glPointParameterivNV(@NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -77,7 +79,7 @@ public class NVPointSprite {
     }
 
     /** Array version of: {@link #glPointParameterivNV PointParameterivNV} */
-    public static void glPointParameterivNV(int pname, int[] params) {
+    public static void glPointParameterivNV(@NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
         long __functionAddress = GL.getICD().glPointParameterivNV;
         if (CHECKS) {
             check(__functionAddress);

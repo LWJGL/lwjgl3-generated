@@ -95,8 +95,10 @@ public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeReso
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkPhysicalDeviceProperties} view of the {@code properties} field. */
     public VkPhysicalDeviceProperties properties() { return nproperties(address()); }
@@ -280,8 +282,10 @@ public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeReso
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceProperties2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceProperties2KHR.npNext(address()); }
         /** Returns a {@link VkPhysicalDeviceProperties} view of the {@code properties} field. */
         public VkPhysicalDeviceProperties properties() { return VkPhysicalDeviceProperties2KHR.nproperties(address()); }

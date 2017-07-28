@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
 @FunctionalInterface
+@NativeType("cl_native_kernel")
 public interface CLNativeKernelI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(p)v");
@@ -30,6 +31,6 @@ public interface CLNativeKernelI extends CallbackI.V {
      *
      * @param args a pointer to the arguments list
      */
-    void invoke(long args);
+    void invoke(@NativeType("void *") long args);
 
 }

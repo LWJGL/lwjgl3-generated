@@ -84,7 +84,8 @@ public class LibCLocale {
      *         <p>A copy of the returned string along with the category used in this call to {@code setlocale} may be used later in the program to restore the locale
      *         back to the state at the end of this call.</p>
      */
-    public static String setlocale(int category, ByteBuffer locale) {
+    @NativeType("char *")
+    public static String setlocale(@NativeType("int") int category, @NativeType("const char *") ByteBuffer locale) {
         if (CHECKS) {
             checkNT1(locale);
         }
@@ -107,7 +108,8 @@ public class LibCLocale {
      *         <p>A copy of the returned string along with the category used in this call to {@code setlocale} may be used later in the program to restore the locale
      *         back to the state at the end of this call.</p>
      */
-    public static String setlocale(int category, CharSequence locale) {
+    @NativeType("char *")
+    public static String setlocale(@NativeType("int") int category, @NativeType("const char *") CharSequence locale) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer localeEncoded = stack.ASCII(locale);

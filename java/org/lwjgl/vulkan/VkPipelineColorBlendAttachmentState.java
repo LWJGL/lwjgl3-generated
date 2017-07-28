@@ -142,38 +142,46 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code blendEnable} field. */
+    @NativeType("VkBool32")
     public boolean blendEnable() { return nblendEnable(address()) != 0; }
     /** Returns the value of the {@code srcColorBlendFactor} field. */
+    @NativeType("VkBlendFactor")
     public int srcColorBlendFactor() { return nsrcColorBlendFactor(address()); }
     /** Returns the value of the {@code dstColorBlendFactor} field. */
+    @NativeType("VkBlendFactor")
     public int dstColorBlendFactor() { return ndstColorBlendFactor(address()); }
     /** Returns the value of the {@code colorBlendOp} field. */
+    @NativeType("VkBlendOp")
     public int colorBlendOp() { return ncolorBlendOp(address()); }
     /** Returns the value of the {@code srcAlphaBlendFactor} field. */
+    @NativeType("VkBlendFactor")
     public int srcAlphaBlendFactor() { return nsrcAlphaBlendFactor(address()); }
     /** Returns the value of the {@code dstAlphaBlendFactor} field. */
+    @NativeType("VkBlendFactor")
     public int dstAlphaBlendFactor() { return ndstAlphaBlendFactor(address()); }
     /** Returns the value of the {@code alphaBlendOp} field. */
+    @NativeType("VkBlendOp")
     public int alphaBlendOp() { return nalphaBlendOp(address()); }
     /** Returns the value of the {@code colorWriteMask} field. */
+    @NativeType("VkColorComponentFlags")
     public int colorWriteMask() { return ncolorWriteMask(address()); }
 
     /** Sets the specified value to the {@code blendEnable} field. */
-    public VkPipelineColorBlendAttachmentState blendEnable(boolean value) { nblendEnable(address(), value ? 1 : 0); return this; }
+    public VkPipelineColorBlendAttachmentState blendEnable(@NativeType("VkBool32") boolean value) { nblendEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code srcColorBlendFactor} field. */
-    public VkPipelineColorBlendAttachmentState srcColorBlendFactor(int value) { nsrcColorBlendFactor(address(), value); return this; }
+    public VkPipelineColorBlendAttachmentState srcColorBlendFactor(@NativeType("VkBlendFactor") int value) { nsrcColorBlendFactor(address(), value); return this; }
     /** Sets the specified value to the {@code dstColorBlendFactor} field. */
-    public VkPipelineColorBlendAttachmentState dstColorBlendFactor(int value) { ndstColorBlendFactor(address(), value); return this; }
+    public VkPipelineColorBlendAttachmentState dstColorBlendFactor(@NativeType("VkBlendFactor") int value) { ndstColorBlendFactor(address(), value); return this; }
     /** Sets the specified value to the {@code colorBlendOp} field. */
-    public VkPipelineColorBlendAttachmentState colorBlendOp(int value) { ncolorBlendOp(address(), value); return this; }
+    public VkPipelineColorBlendAttachmentState colorBlendOp(@NativeType("VkBlendOp") int value) { ncolorBlendOp(address(), value); return this; }
     /** Sets the specified value to the {@code srcAlphaBlendFactor} field. */
-    public VkPipelineColorBlendAttachmentState srcAlphaBlendFactor(int value) { nsrcAlphaBlendFactor(address(), value); return this; }
+    public VkPipelineColorBlendAttachmentState srcAlphaBlendFactor(@NativeType("VkBlendFactor") int value) { nsrcAlphaBlendFactor(address(), value); return this; }
     /** Sets the specified value to the {@code dstAlphaBlendFactor} field. */
-    public VkPipelineColorBlendAttachmentState dstAlphaBlendFactor(int value) { ndstAlphaBlendFactor(address(), value); return this; }
+    public VkPipelineColorBlendAttachmentState dstAlphaBlendFactor(@NativeType("VkBlendFactor") int value) { ndstAlphaBlendFactor(address(), value); return this; }
     /** Sets the specified value to the {@code alphaBlendOp} field. */
-    public VkPipelineColorBlendAttachmentState alphaBlendOp(int value) { nalphaBlendOp(address(), value); return this; }
+    public VkPipelineColorBlendAttachmentState alphaBlendOp(@NativeType("VkBlendOp") int value) { nalphaBlendOp(address(), value); return this; }
     /** Sets the specified value to the {@code colorWriteMask} field. */
-    public VkPipelineColorBlendAttachmentState colorWriteMask(int value) { ncolorWriteMask(address(), value); return this; }
+    public VkPipelineColorBlendAttachmentState colorWriteMask(@NativeType("VkColorComponentFlags") int value) { ncolorWriteMask(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineColorBlendAttachmentState set(
@@ -416,38 +424,46 @@ public class VkPipelineColorBlendAttachmentState extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code blendEnable} field. */
+        @NativeType("VkBool32")
         public boolean blendEnable() { return VkPipelineColorBlendAttachmentState.nblendEnable(address()) != 0; }
         /** Returns the value of the {@code srcColorBlendFactor} field. */
+        @NativeType("VkBlendFactor")
         public int srcColorBlendFactor() { return VkPipelineColorBlendAttachmentState.nsrcColorBlendFactor(address()); }
         /** Returns the value of the {@code dstColorBlendFactor} field. */
+        @NativeType("VkBlendFactor")
         public int dstColorBlendFactor() { return VkPipelineColorBlendAttachmentState.ndstColorBlendFactor(address()); }
         /** Returns the value of the {@code colorBlendOp} field. */
+        @NativeType("VkBlendOp")
         public int colorBlendOp() { return VkPipelineColorBlendAttachmentState.ncolorBlendOp(address()); }
         /** Returns the value of the {@code srcAlphaBlendFactor} field. */
+        @NativeType("VkBlendFactor")
         public int srcAlphaBlendFactor() { return VkPipelineColorBlendAttachmentState.nsrcAlphaBlendFactor(address()); }
         /** Returns the value of the {@code dstAlphaBlendFactor} field. */
+        @NativeType("VkBlendFactor")
         public int dstAlphaBlendFactor() { return VkPipelineColorBlendAttachmentState.ndstAlphaBlendFactor(address()); }
         /** Returns the value of the {@code alphaBlendOp} field. */
+        @NativeType("VkBlendOp")
         public int alphaBlendOp() { return VkPipelineColorBlendAttachmentState.nalphaBlendOp(address()); }
         /** Returns the value of the {@code colorWriteMask} field. */
+        @NativeType("VkColorComponentFlags")
         public int colorWriteMask() { return VkPipelineColorBlendAttachmentState.ncolorWriteMask(address()); }
 
         /** Sets the specified value to the {@code blendEnable} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer blendEnable(boolean value) { VkPipelineColorBlendAttachmentState.nblendEnable(address(), value ? 1 : 0); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer blendEnable(@NativeType("VkBool32") boolean value) { VkPipelineColorBlendAttachmentState.nblendEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code srcColorBlendFactor} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer srcColorBlendFactor(int value) { VkPipelineColorBlendAttachmentState.nsrcColorBlendFactor(address(), value); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer srcColorBlendFactor(@NativeType("VkBlendFactor") int value) { VkPipelineColorBlendAttachmentState.nsrcColorBlendFactor(address(), value); return this; }
         /** Sets the specified value to the {@code dstColorBlendFactor} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer dstColorBlendFactor(int value) { VkPipelineColorBlendAttachmentState.ndstColorBlendFactor(address(), value); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer dstColorBlendFactor(@NativeType("VkBlendFactor") int value) { VkPipelineColorBlendAttachmentState.ndstColorBlendFactor(address(), value); return this; }
         /** Sets the specified value to the {@code colorBlendOp} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer colorBlendOp(int value) { VkPipelineColorBlendAttachmentState.ncolorBlendOp(address(), value); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer colorBlendOp(@NativeType("VkBlendOp") int value) { VkPipelineColorBlendAttachmentState.ncolorBlendOp(address(), value); return this; }
         /** Sets the specified value to the {@code srcAlphaBlendFactor} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer srcAlphaBlendFactor(int value) { VkPipelineColorBlendAttachmentState.nsrcAlphaBlendFactor(address(), value); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer srcAlphaBlendFactor(@NativeType("VkBlendFactor") int value) { VkPipelineColorBlendAttachmentState.nsrcAlphaBlendFactor(address(), value); return this; }
         /** Sets the specified value to the {@code dstAlphaBlendFactor} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer dstAlphaBlendFactor(int value) { VkPipelineColorBlendAttachmentState.ndstAlphaBlendFactor(address(), value); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer dstAlphaBlendFactor(@NativeType("VkBlendFactor") int value) { VkPipelineColorBlendAttachmentState.ndstAlphaBlendFactor(address(), value); return this; }
         /** Sets the specified value to the {@code alphaBlendOp} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer alphaBlendOp(int value) { VkPipelineColorBlendAttachmentState.nalphaBlendOp(address(), value); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer alphaBlendOp(@NativeType("VkBlendOp") int value) { VkPipelineColorBlendAttachmentState.nalphaBlendOp(address(), value); return this; }
         /** Sets the specified value to the {@code colorWriteMask} field. */
-        public VkPipelineColorBlendAttachmentState.Buffer colorWriteMask(int value) { VkPipelineColorBlendAttachmentState.ncolorWriteMask(address(), value); return this; }
+        public VkPipelineColorBlendAttachmentState.Buffer colorWriteMask(@NativeType("VkColorComponentFlags") int value) { VkPipelineColorBlendAttachmentState.ncolorWriteMask(address(), value); return this; }
 
     }
 

@@ -36,6 +36,7 @@ public class WinBase {
      * <p><b>LWJGL note</b>: This function cannot be used after another JNI call to a Windows function, because the last error resets before that call returns.
      * For this reason, LWJGL stores the last error in thread-local storage, you can use {@link #getLastError} to access it.</p>
      */
+    @NativeType("DWORD")
     public static native int GetLastError();
 
     // --- [ getLastError ] ---
@@ -47,6 +48,7 @@ public class WinBase {
      * <p><b>LWJGL note</b>: This method has a meaningful value only after another LWJGL JNI call. It does not call {@code GetLastError()} from WinBase.h, it
      * returns the thread-local error code stored by a previous JNI call.</p>
      */
+    @NativeType("DWORD")
     public static native int getLastError();
 
     // --- [ GetModuleHandle ] ---
@@ -64,7 +66,8 @@ public class WinBase {
      *                   
      *                   <p>If this parameter is {@code NULL}, {@code GetModuleHandle} returns a handle to the file used to create the calling process (.exe file).</p>
      */
-    public static long GetModuleHandle(ByteBuffer moduleName) {
+    @NativeType("HMODULE")
+    public static long GetModuleHandle(@NativeType("LPCTSTR") ByteBuffer moduleName) {
         if (CHECKS) {
             checkNT2Safe(moduleName);
         }
@@ -81,7 +84,8 @@ public class WinBase {
      *                   
      *                   <p>If this parameter is {@code NULL}, {@code GetModuleHandle} returns a handle to the file used to create the calling process (.exe file).</p>
      */
-    public static long GetModuleHandle(CharSequence moduleName) {
+    @NativeType("HMODULE")
+    public static long GetModuleHandle(@NativeType("LPCTSTR") CharSequence moduleName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer moduleNameEncoded = stack.UTF16(moduleName);
@@ -112,7 +116,8 @@ public class WinBase {
      *             <p>If the string specifies a module name without a path and the file name extension is omitted, the function appends the default library extension .dll
      *             to the module name. To prevent the function from appending.dll to the module name, include a trailing point character (.) in the module name string.</p>
      */
-    public static long LoadLibrary(ByteBuffer name) {
+    @NativeType("HMODULE")
+    public static long LoadLibrary(@NativeType("LPCTSTR") ByteBuffer name) {
         if (CHECKS) {
             checkNT2(name);
         }
@@ -135,7 +140,8 @@ public class WinBase {
      *             <p>If the string specifies a module name without a path and the file name extension is omitted, the function appends the default library extension .dll
      *             to the module name. To prevent the function from appending.dll to the module name, include a trailing point character (.) in the module name string.</p>
      */
-    public static long LoadLibrary(CharSequence name) {
+    @NativeType("HMODULE")
+    public static long LoadLibrary(@NativeType("LPCTSTR") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF16(name);
@@ -157,7 +163,8 @@ public class WinBase {
      * @param name   the function or variable name, or the function's ordinal value. If this parameter is an ordinal value, it must be in the low-order word; the
      *               high-order word must be zero.
      */
-    public static long GetProcAddress(long handle, ByteBuffer name) {
+    @NativeType("FARPROC")
+    public static long GetProcAddress(@NativeType("HMODULE") long handle, @NativeType("LPCSTR") ByteBuffer name) {
         if (CHECKS) {
             check(handle);
             checkNT1(name);
@@ -172,7 +179,8 @@ public class WinBase {
      * @param name   the function or variable name, or the function's ordinal value. If this parameter is an ordinal value, it must be in the low-order word; the
      *               high-order word must be zero.
      */
-    public static long GetProcAddress(long handle, CharSequence name) {
+    @NativeType("FARPROC")
+    public static long GetProcAddress(@NativeType("HMODULE") long handle, @NativeType("LPCSTR") CharSequence name) {
         if (CHECKS) {
             check(handle);
         }
@@ -196,7 +204,8 @@ public class WinBase {
      *
      * @param handle a handle to the loaded library module
      */
-    public static boolean FreeLibrary(long handle) {
+    @NativeType("BOOL")
+    public static boolean FreeLibrary(@NativeType("HMODULE") long handle) {
         if (CHECKS) {
             check(handle);
         }

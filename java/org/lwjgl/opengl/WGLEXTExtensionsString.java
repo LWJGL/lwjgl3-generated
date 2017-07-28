@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -38,6 +40,7 @@ public class WGLEXTExtensionsString {
      * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
      * empty string is returned.
      */
+    @NativeType("const char *")
     public static String wglGetExtensionsStringEXT() {
         long __result = nwglGetExtensionsStringEXT();
         return memASCII(__result);

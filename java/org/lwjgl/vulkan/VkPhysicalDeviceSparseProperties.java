@@ -87,14 +87,19 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code residencyStandard2DBlockShape} field. */
+    @NativeType("VkBool32")
     public boolean residencyStandard2DBlockShape() { return nresidencyStandard2DBlockShape(address()) != 0; }
     /** Returns the value of the {@code residencyStandard2DMultisampleBlockShape} field. */
+    @NativeType("VkBool32")
     public boolean residencyStandard2DMultisampleBlockShape() { return nresidencyStandard2DMultisampleBlockShape(address()) != 0; }
     /** Returns the value of the {@code residencyStandard3DBlockShape} field. */
+    @NativeType("VkBool32")
     public boolean residencyStandard3DBlockShape() { return nresidencyStandard3DBlockShape(address()) != 0; }
     /** Returns the value of the {@code residencyAlignedMipSize} field. */
+    @NativeType("VkBool32")
     public boolean residencyAlignedMipSize() { return nresidencyAlignedMipSize(address()) != 0; }
     /** Returns the value of the {@code residencyNonResidentStrict} field. */
+    @NativeType("VkBool32")
     public boolean residencyNonResidentStrict() { return nresidencyNonResidentStrict(address()) != 0; }
 
     // -----------------------------------
@@ -170,14 +175,19 @@ public class VkPhysicalDeviceSparseProperties extends Struct {
         }
 
         /** Returns the value of the {@code residencyStandard2DBlockShape} field. */
+        @NativeType("VkBool32")
         public boolean residencyStandard2DBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard2DBlockShape(address()) != 0; }
         /** Returns the value of the {@code residencyStandard2DMultisampleBlockShape} field. */
+        @NativeType("VkBool32")
         public boolean residencyStandard2DMultisampleBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard2DMultisampleBlockShape(address()) != 0; }
         /** Returns the value of the {@code residencyStandard3DBlockShape} field. */
+        @NativeType("VkBool32")
         public boolean residencyStandard3DBlockShape() { return VkPhysicalDeviceSparseProperties.nresidencyStandard3DBlockShape(address()) != 0; }
         /** Returns the value of the {@code residencyAlignedMipSize} field. */
+        @NativeType("VkBool32")
         public boolean residencyAlignedMipSize() { return VkPhysicalDeviceSparseProperties.nresidencyAlignedMipSize(address()) != 0; }
         /** Returns the value of the {@code residencyNonResidentStrict} field. */
+        @NativeType("VkBool32")
         public boolean residencyNonResidentStrict() { return VkPhysicalDeviceSparseProperties.nresidencyNonResidentStrict(address()) != 0; }
 
     }

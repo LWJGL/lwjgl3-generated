@@ -113,28 +113,38 @@ public class YGNode extends Struct {
     /** Returns a {@link YGLayout} view of the {@code layout} field. */
     public YGLayout layout() { return nlayout(address()); }
     /** Returns the value of the {@code lineIndex} field. */
+    @NativeType("uint32_t")
     public int lineIndex() { return nlineIndex(address()); }
     /** Returns the value of the {@code parent} field. */
+    @NativeType("YGNodeRef")
     public long parent() { return nparent(address()); }
     /** Returns the value of the {@code children} field. */
+    @NativeType("YGNodeListRef")
     public long children() { return nchildren(address()); }
     /** Returns a {@link YGNode} view of the struct pointed to by the {@code nextChild} field. */
+    @NativeType("YGNode *")
     public YGNode nextChild() { return nnextChild(address()); }
     /** Returns the value of the {@code measure} field. */
     public YGMeasureFunc measure() { return nmeasure(address()); }
     /** Returns the value of the {@code print} field. */
     public YGPrintFunc print() { return nprint(address()); }
     /** Returns the value of the {@code context} field. */
+    @NativeType("void *")
     public long context() { return ncontext(address()); }
     /** Returns the value of the {@code isDirty} field. */
+    @NativeType("bool")
     public boolean isDirty() { return nisDirty(address()); }
     /** Returns the value of the {@code hasNewLayout} field. */
+    @NativeType("bool")
     public boolean hasNewLayout() { return nhasNewLayout(address()); }
     /** Returns the value of the {@code nodeType} field. */
+    @NativeType("YGNodeType")
     public int nodeType() { return nnodeType(address()); }
     /** Returns a {@link PointerBuffer} view of the {@code resolvedDimensions} field. */
+    @NativeType("YGValue *[2]")
     public PointerBuffer resolvedDimensions() { return nresolvedDimensions(address()); }
     /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions}. */
+    @NativeType("YGValue *")
     public YGValue resolvedDimensions(int index) { return nresolvedDimensions(address(), index); }
 
     // -----------------------------------
@@ -235,28 +245,38 @@ public class YGNode extends Struct {
         /** Returns a {@link YGLayout} view of the {@code layout} field. */
         public YGLayout layout() { return YGNode.nlayout(address()); }
         /** Returns the value of the {@code lineIndex} field. */
+        @NativeType("uint32_t")
         public int lineIndex() { return YGNode.nlineIndex(address()); }
         /** Returns the value of the {@code parent} field. */
+        @NativeType("YGNodeRef")
         public long parent() { return YGNode.nparent(address()); }
         /** Returns the value of the {@code children} field. */
+        @NativeType("YGNodeListRef")
         public long children() { return YGNode.nchildren(address()); }
         /** Returns a {@link YGNode} view of the struct pointed to by the {@code nextChild} field. */
+        @NativeType("YGNode *")
         public YGNode nextChild() { return YGNode.nnextChild(address()); }
         /** Returns the value of the {@code measure} field. */
         public YGMeasureFunc measure() { return YGNode.nmeasure(address()); }
         /** Returns the value of the {@code print} field. */
         public YGPrintFunc print() { return YGNode.nprint(address()); }
         /** Returns the value of the {@code context} field. */
+        @NativeType("void *")
         public long context() { return YGNode.ncontext(address()); }
         /** Returns the value of the {@code isDirty} field. */
+        @NativeType("bool")
         public boolean isDirty() { return YGNode.nisDirty(address()); }
         /** Returns the value of the {@code hasNewLayout} field. */
+        @NativeType("bool")
         public boolean hasNewLayout() { return YGNode.nhasNewLayout(address()); }
         /** Returns the value of the {@code nodeType} field. */
+        @NativeType("YGNodeType")
         public int nodeType() { return YGNode.nnodeType(address()); }
         /** Returns a {@link PointerBuffer} view of the {@code resolvedDimensions} field. */
+        @NativeType("YGValue *[2]")
         public PointerBuffer resolvedDimensions() { return YGNode.nresolvedDimensions(address()); }
         /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions}. */
+        @NativeType("YGValue *")
         public YGValue resolvedDimensions(int index) { return YGNode.nresolvedDimensions(address(), index); }
 
     }

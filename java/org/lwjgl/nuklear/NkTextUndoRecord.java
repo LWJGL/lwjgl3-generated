@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     short char_storage;
  * }</pre></code>
  */
+@NativeType("struct nk_text_undo_record")
 class NkTextUndoRecord extends Struct {
 
     /** The struct size in bytes. */

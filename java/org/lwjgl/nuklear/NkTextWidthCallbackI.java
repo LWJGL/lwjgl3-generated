@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkUserFont} struct. */
 @FunctionalInterface
+@NativeType("nk_text_width_f")
 public interface NkTextWidthCallbackI extends CallbackI.F {
 
     String SIGNATURE = "(pfpi)f";
@@ -28,7 +29,6 @@ public interface NkTextWidthCallbackI extends CallbackI.F {
         );
     }
 
-
-    float invoke(long handle, float h, long text, int len);
+    float invoke(@NativeType("nk_handle") long handle, float h, @NativeType("const char *") long text, int len);
 
 }

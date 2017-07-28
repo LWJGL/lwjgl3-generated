@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -138,7 +140,8 @@ public class EXTDisplaySurfaceCounter {
      * @param surface              the surface that will be associated with the swapchain.
      * @param pSurfaceCapabilities a pointer to an instance of the {@link VkSurfaceCapabilities2EXT} structure in which the capabilities are returned.
      */
-    public static int vkGetPhysicalDeviceSurfaceCapabilities2EXT(VkPhysicalDevice physicalDevice, long surface, VkSurfaceCapabilities2EXT pSurfaceCapabilities) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceCapabilities2EXT(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("VkSurfaceCapabilities2EXT *") VkSurfaceCapabilities2EXT pSurfaceCapabilities) {
         return nvkGetPhysicalDeviceSurfaceCapabilities2EXT(physicalDevice, surface, pSurfaceCapabilities.address());
     }
 

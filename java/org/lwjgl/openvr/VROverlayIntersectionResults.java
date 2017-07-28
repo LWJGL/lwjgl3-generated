@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float fDistance;
  * }</pre></code>
  */
+@NativeType("struct VROverlayIntersectionResults_t")
 public class VROverlayIntersectionResults extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -73,20 +74,23 @@ public class VROverlayIntersectionResults extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdVector3} view of the {@code vPoint} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vPoint() { return nvPoint(address()); }
     /** Returns a {@link HmdVector3} view of the {@code vNormal} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vNormal() { return nvNormal(address()); }
     /** Returns a {@link HmdVector2} view of the {@code vUVs} field. */
+    @NativeType("HmdVector2_t")
     public HmdVector2 vUVs() { return nvUVs(address()); }
     /** Returns the value of the {@code fDistance} field. */
     public float fDistance() { return nfDistance(address()); }
 
     /** Copies the specified {@link HmdVector3} to the {@code vPoint} field. */
-    public VROverlayIntersectionResults vPoint(HmdVector3 value) { nvPoint(address(), value); return this; }
+    public VROverlayIntersectionResults vPoint(@NativeType("HmdVector3_t") HmdVector3 value) { nvPoint(address(), value); return this; }
     /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-    public VROverlayIntersectionResults vNormal(HmdVector3 value) { nvNormal(address(), value); return this; }
+    public VROverlayIntersectionResults vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { nvNormal(address(), value); return this; }
     /** Copies the specified {@link HmdVector2} to the {@code vUVs} field. */
-    public VROverlayIntersectionResults vUVs(HmdVector2 value) { nvUVs(address(), value); return this; }
+    public VROverlayIntersectionResults vUVs(@NativeType("HmdVector2_t") HmdVector2 value) { nvUVs(address(), value); return this; }
     /** Sets the specified value to the {@code fDistance} field. */
     public VROverlayIntersectionResults fDistance(float value) { nfDistance(address(), value); return this; }
 
@@ -307,20 +311,23 @@ public class VROverlayIntersectionResults extends Struct implements NativeResour
         }
 
         /** Returns a {@link HmdVector3} view of the {@code vPoint} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vPoint() { return VROverlayIntersectionResults.nvPoint(address()); }
         /** Returns a {@link HmdVector3} view of the {@code vNormal} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vNormal() { return VROverlayIntersectionResults.nvNormal(address()); }
         /** Returns a {@link HmdVector2} view of the {@code vUVs} field. */
+        @NativeType("HmdVector2_t")
         public HmdVector2 vUVs() { return VROverlayIntersectionResults.nvUVs(address()); }
         /** Returns the value of the {@code fDistance} field. */
         public float fDistance() { return VROverlayIntersectionResults.nfDistance(address()); }
 
         /** Copies the specified {@link HmdVector3} to the {@code vPoint} field. */
-        public VROverlayIntersectionResults.Buffer vPoint(HmdVector3 value) { VROverlayIntersectionResults.nvPoint(address(), value); return this; }
+        public VROverlayIntersectionResults.Buffer vPoint(@NativeType("HmdVector3_t") HmdVector3 value) { VROverlayIntersectionResults.nvPoint(address(), value); return this; }
         /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-        public VROverlayIntersectionResults.Buffer vNormal(HmdVector3 value) { VROverlayIntersectionResults.nvNormal(address(), value); return this; }
+        public VROverlayIntersectionResults.Buffer vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { VROverlayIntersectionResults.nvNormal(address(), value); return this; }
         /** Copies the specified {@link HmdVector2} to the {@code vUVs} field. */
-        public VROverlayIntersectionResults.Buffer vUVs(HmdVector2 value) { VROverlayIntersectionResults.nvUVs(address(), value); return this; }
+        public VROverlayIntersectionResults.Buffer vUVs(@NativeType("HmdVector2_t") HmdVector2 value) { VROverlayIntersectionResults.nvUVs(address(), value); return this; }
         /** Sets the specified value to the {@code fDistance} field. */
         public VROverlayIntersectionResults.Buffer fDistance(float value) { VROverlayIntersectionResults.nfDistance(address(), value); return this; }
 

@@ -41,6 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkVec2 struct nk_vec2} spacing;
  * }</pre></code>
  */
+@NativeType("struct nk_style_window_header")
 public class NkStyleWindowHeader extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -123,66 +124,81 @@ public class NkStyleWindowHeader extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem normal() { return nnormal(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem hover() { return nhover(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem active() { return nactive(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code close_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton close_button() { return nclose_button(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code minimize_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton minimize_button() { return nminimize_button(address()); }
     /** Returns the value of the {@code close_symbol} field. */
+    @NativeType("enum nk_symbol_type")
     public int close_symbol() { return nclose_symbol(address()); }
     /** Returns the value of the {@code minimize_symbol} field. */
+    @NativeType("enum nk_symbol_type")
     public int minimize_symbol() { return nminimize_symbol(address()); }
     /** Returns the value of the {@code maximize_symbol} field. */
+    @NativeType("enum nk_symbol_type")
     public int maximize_symbol() { return nmaximize_symbol(address()); }
     /** Returns a {@link NkColor} view of the {@code label_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor label_normal() { return nlabel_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code label_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor label_hover() { return nlabel_hover(address()); }
     /** Returns a {@link NkColor} view of the {@code label_active} field. */
+    @NativeType("struct nk_color")
     public NkColor label_active() { return nlabel_active(address()); }
     /** Returns the value of the {@code align} field. */
+    @NativeType("enum nk_style_header_align")
     public int align() { return nalign(address()); }
     /** Returns a {@link NkVec2} view of the {@code padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 padding() { return npadding(address()); }
     /** Returns a {@link NkVec2} view of the {@code label_padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 label_padding() { return nlabel_padding(address()); }
     /** Returns a {@link NkVec2} view of the {@code spacing} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 spacing() { return nspacing(address()); }
 
     /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-    public NkStyleWindowHeader normal(NkStyleItem value) { nnormal(address(), value); return this; }
+    public NkStyleWindowHeader normal(@NativeType("struct nk_style_item") NkStyleItem value) { nnormal(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-    public NkStyleWindowHeader hover(NkStyleItem value) { nhover(address(), value); return this; }
+    public NkStyleWindowHeader hover(@NativeType("struct nk_style_item") NkStyleItem value) { nhover(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-    public NkStyleWindowHeader active(NkStyleItem value) { nactive(address(), value); return this; }
+    public NkStyleWindowHeader active(@NativeType("struct nk_style_item") NkStyleItem value) { nactive(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code close_button} field. */
-    public NkStyleWindowHeader close_button(NkStyleButton value) { nclose_button(address(), value); return this; }
+    public NkStyleWindowHeader close_button(@NativeType("struct nk_style_button") NkStyleButton value) { nclose_button(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code minimize_button} field. */
-    public NkStyleWindowHeader minimize_button(NkStyleButton value) { nminimize_button(address(), value); return this; }
+    public NkStyleWindowHeader minimize_button(@NativeType("struct nk_style_button") NkStyleButton value) { nminimize_button(address(), value); return this; }
     /** Sets the specified value to the {@code close_symbol} field. */
-    public NkStyleWindowHeader close_symbol(int value) { nclose_symbol(address(), value); return this; }
+    public NkStyleWindowHeader close_symbol(@NativeType("enum nk_symbol_type") int value) { nclose_symbol(address(), value); return this; }
     /** Sets the specified value to the {@code minimize_symbol} field. */
-    public NkStyleWindowHeader minimize_symbol(int value) { nminimize_symbol(address(), value); return this; }
+    public NkStyleWindowHeader minimize_symbol(@NativeType("enum nk_symbol_type") int value) { nminimize_symbol(address(), value); return this; }
     /** Sets the specified value to the {@code maximize_symbol} field. */
-    public NkStyleWindowHeader maximize_symbol(int value) { nmaximize_symbol(address(), value); return this; }
+    public NkStyleWindowHeader maximize_symbol(@NativeType("enum nk_symbol_type") int value) { nmaximize_symbol(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code label_normal} field. */
-    public NkStyleWindowHeader label_normal(NkColor value) { nlabel_normal(address(), value); return this; }
+    public NkStyleWindowHeader label_normal(@NativeType("struct nk_color") NkColor value) { nlabel_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code label_hover} field. */
-    public NkStyleWindowHeader label_hover(NkColor value) { nlabel_hover(address(), value); return this; }
+    public NkStyleWindowHeader label_hover(@NativeType("struct nk_color") NkColor value) { nlabel_hover(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code label_active} field. */
-    public NkStyleWindowHeader label_active(NkColor value) { nlabel_active(address(), value); return this; }
+    public NkStyleWindowHeader label_active(@NativeType("struct nk_color") NkColor value) { nlabel_active(address(), value); return this; }
     /** Sets the specified value to the {@code align} field. */
-    public NkStyleWindowHeader align(int value) { nalign(address(), value); return this; }
+    public NkStyleWindowHeader align(@NativeType("enum nk_style_header_align") int value) { nalign(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-    public NkStyleWindowHeader padding(NkVec2 value) { npadding(address(), value); return this; }
+    public NkStyleWindowHeader padding(@NativeType("struct nk_vec2") NkVec2 value) { npadding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code label_padding} field. */
-    public NkStyleWindowHeader label_padding(NkVec2 value) { nlabel_padding(address(), value); return this; }
+    public NkStyleWindowHeader label_padding(@NativeType("struct nk_vec2") NkVec2 value) { nlabel_padding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code spacing} field. */
-    public NkStyleWindowHeader spacing(NkVec2 value) { nspacing(address(), value); return this; }
+    public NkStyleWindowHeader spacing(@NativeType("struct nk_vec2") NkVec2 value) { nspacing(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleWindowHeader set(
@@ -467,66 +483,81 @@ public class NkStyleWindowHeader extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem normal() { return NkStyleWindowHeader.nnormal(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem hover() { return NkStyleWindowHeader.nhover(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem active() { return NkStyleWindowHeader.nactive(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code close_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton close_button() { return NkStyleWindowHeader.nclose_button(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code minimize_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton minimize_button() { return NkStyleWindowHeader.nminimize_button(address()); }
         /** Returns the value of the {@code close_symbol} field. */
+        @NativeType("enum nk_symbol_type")
         public int close_symbol() { return NkStyleWindowHeader.nclose_symbol(address()); }
         /** Returns the value of the {@code minimize_symbol} field. */
+        @NativeType("enum nk_symbol_type")
         public int minimize_symbol() { return NkStyleWindowHeader.nminimize_symbol(address()); }
         /** Returns the value of the {@code maximize_symbol} field. */
+        @NativeType("enum nk_symbol_type")
         public int maximize_symbol() { return NkStyleWindowHeader.nmaximize_symbol(address()); }
         /** Returns a {@link NkColor} view of the {@code label_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor label_normal() { return NkStyleWindowHeader.nlabel_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code label_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor label_hover() { return NkStyleWindowHeader.nlabel_hover(address()); }
         /** Returns a {@link NkColor} view of the {@code label_active} field. */
+        @NativeType("struct nk_color")
         public NkColor label_active() { return NkStyleWindowHeader.nlabel_active(address()); }
         /** Returns the value of the {@code align} field. */
+        @NativeType("enum nk_style_header_align")
         public int align() { return NkStyleWindowHeader.nalign(address()); }
         /** Returns a {@link NkVec2} view of the {@code padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 padding() { return NkStyleWindowHeader.npadding(address()); }
         /** Returns a {@link NkVec2} view of the {@code label_padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 label_padding() { return NkStyleWindowHeader.nlabel_padding(address()); }
         /** Returns a {@link NkVec2} view of the {@code spacing} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 spacing() { return NkStyleWindowHeader.nspacing(address()); }
 
         /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-        public NkStyleWindowHeader.Buffer normal(NkStyleItem value) { NkStyleWindowHeader.nnormal(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer normal(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleWindowHeader.nnormal(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-        public NkStyleWindowHeader.Buffer hover(NkStyleItem value) { NkStyleWindowHeader.nhover(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer hover(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleWindowHeader.nhover(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-        public NkStyleWindowHeader.Buffer active(NkStyleItem value) { NkStyleWindowHeader.nactive(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer active(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleWindowHeader.nactive(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code close_button} field. */
-        public NkStyleWindowHeader.Buffer close_button(NkStyleButton value) { NkStyleWindowHeader.nclose_button(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer close_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleWindowHeader.nclose_button(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code minimize_button} field. */
-        public NkStyleWindowHeader.Buffer minimize_button(NkStyleButton value) { NkStyleWindowHeader.nminimize_button(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer minimize_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleWindowHeader.nminimize_button(address(), value); return this; }
         /** Sets the specified value to the {@code close_symbol} field. */
-        public NkStyleWindowHeader.Buffer close_symbol(int value) { NkStyleWindowHeader.nclose_symbol(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer close_symbol(@NativeType("enum nk_symbol_type") int value) { NkStyleWindowHeader.nclose_symbol(address(), value); return this; }
         /** Sets the specified value to the {@code minimize_symbol} field. */
-        public NkStyleWindowHeader.Buffer minimize_symbol(int value) { NkStyleWindowHeader.nminimize_symbol(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer minimize_symbol(@NativeType("enum nk_symbol_type") int value) { NkStyleWindowHeader.nminimize_symbol(address(), value); return this; }
         /** Sets the specified value to the {@code maximize_symbol} field. */
-        public NkStyleWindowHeader.Buffer maximize_symbol(int value) { NkStyleWindowHeader.nmaximize_symbol(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer maximize_symbol(@NativeType("enum nk_symbol_type") int value) { NkStyleWindowHeader.nmaximize_symbol(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code label_normal} field. */
-        public NkStyleWindowHeader.Buffer label_normal(NkColor value) { NkStyleWindowHeader.nlabel_normal(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer label_normal(@NativeType("struct nk_color") NkColor value) { NkStyleWindowHeader.nlabel_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code label_hover} field. */
-        public NkStyleWindowHeader.Buffer label_hover(NkColor value) { NkStyleWindowHeader.nlabel_hover(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer label_hover(@NativeType("struct nk_color") NkColor value) { NkStyleWindowHeader.nlabel_hover(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code label_active} field. */
-        public NkStyleWindowHeader.Buffer label_active(NkColor value) { NkStyleWindowHeader.nlabel_active(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer label_active(@NativeType("struct nk_color") NkColor value) { NkStyleWindowHeader.nlabel_active(address(), value); return this; }
         /** Sets the specified value to the {@code align} field. */
-        public NkStyleWindowHeader.Buffer align(int value) { NkStyleWindowHeader.nalign(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer align(@NativeType("enum nk_style_header_align") int value) { NkStyleWindowHeader.nalign(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-        public NkStyleWindowHeader.Buffer padding(NkVec2 value) { NkStyleWindowHeader.npadding(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleWindowHeader.npadding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code label_padding} field. */
-        public NkStyleWindowHeader.Buffer label_padding(NkVec2 value) { NkStyleWindowHeader.nlabel_padding(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer label_padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleWindowHeader.nlabel_padding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code spacing} field. */
-        public NkStyleWindowHeader.Buffer spacing(NkVec2 value) { NkStyleWindowHeader.nspacing(address(), value); return this; }
+        public NkStyleWindowHeader.Buffer spacing(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleWindowHeader.nspacing(address(), value); return this; }
 
     }
 

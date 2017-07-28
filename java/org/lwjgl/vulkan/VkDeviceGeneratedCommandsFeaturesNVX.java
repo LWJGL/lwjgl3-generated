@@ -90,18 +90,21 @@ public class VkDeviceGeneratedCommandsFeaturesNVX extends Struct implements Nati
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code computeBindingPointSupport} field. */
+    @NativeType("VkBool32")
     public boolean computeBindingPointSupport() { return ncomputeBindingPointSupport(address()) != 0; }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDeviceGeneratedCommandsFeaturesNVX sType(int value) { nsType(address(), value); return this; }
+    public VkDeviceGeneratedCommandsFeaturesNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGeneratedCommandsFeaturesNVX pNext(long value) { npNext(address(), value); return this; }
+    public VkDeviceGeneratedCommandsFeaturesNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code computeBindingPointSupport} field. */
-    public VkDeviceGeneratedCommandsFeaturesNVX computeBindingPointSupport(boolean value) { ncomputeBindingPointSupport(address(), value ? 1 : 0); return this; }
+    public VkDeviceGeneratedCommandsFeaturesNVX computeBindingPointSupport(@NativeType("VkBool32") boolean value) { ncomputeBindingPointSupport(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceGeneratedCommandsFeaturesNVX set(
@@ -314,18 +317,21 @@ public class VkDeviceGeneratedCommandsFeaturesNVX extends Struct implements Nati
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDeviceGeneratedCommandsFeaturesNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDeviceGeneratedCommandsFeaturesNVX.npNext(address()); }
         /** Returns the value of the {@code computeBindingPointSupport} field. */
+        @NativeType("VkBool32")
         public boolean computeBindingPointSupport() { return VkDeviceGeneratedCommandsFeaturesNVX.ncomputeBindingPointSupport(address()) != 0; }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDeviceGeneratedCommandsFeaturesNVX.Buffer sType(int value) { VkDeviceGeneratedCommandsFeaturesNVX.nsType(address(), value); return this; }
+        public VkDeviceGeneratedCommandsFeaturesNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGeneratedCommandsFeaturesNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGeneratedCommandsFeaturesNVX.Buffer pNext(long value) { VkDeviceGeneratedCommandsFeaturesNVX.npNext(address(), value); return this; }
+        public VkDeviceGeneratedCommandsFeaturesNVX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGeneratedCommandsFeaturesNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code computeBindingPointSupport} field. */
-        public VkDeviceGeneratedCommandsFeaturesNVX.Buffer computeBindingPointSupport(boolean value) { VkDeviceGeneratedCommandsFeaturesNVX.ncomputeBindingPointSupport(address(), value ? 1 : 0); return this; }
+        public VkDeviceGeneratedCommandsFeaturesNVX.Buffer computeBindingPointSupport(@NativeType("VkBool32") boolean value) { VkDeviceGeneratedCommandsFeaturesNVX.ncomputeBindingPointSupport(address(), value ? 1 : 0); return this; }
 
     }
 

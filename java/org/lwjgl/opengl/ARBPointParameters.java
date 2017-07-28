@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -59,7 +61,7 @@ public class ARBPointParameters {
      * @param pname the parameter to set. One of:<br><table><tr><td>{@link #GL_POINT_SIZE_MIN_ARB POINT_SIZE_MIN_ARB}</td><td>{@link #GL_POINT_SIZE_MAX_ARB POINT_SIZE_MAX_ARB}</td><td>{@link #GL_POINT_FADE_THRESHOLD_SIZE_ARB POINT_FADE_THRESHOLD_SIZE_ARB}</td></tr></table>
      * @param param the parameter value
      */
-    public static native void glPointParameterfARB(int pname, float param);
+    public static native void glPointParameterfARB(@NativeType("GLenum") int pname, @NativeType("GLfloat") float param);
 
     // --- [ glPointParameterfvARB ] ---
 
@@ -72,7 +74,7 @@ public class ARBPointParameters {
      * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glPointParameterfvARB(int pname, FloatBuffer params) {
+    public static void glPointParameterfvARB(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 3);
         }
@@ -80,7 +82,7 @@ public class ARBPointParameters {
     }
 
     /** Array version of: {@link #glPointParameterfvARB PointParameterfvARB} */
-    public static void glPointParameterfvARB(int pname, float[] params) {
+    public static void glPointParameterfvARB(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glPointParameterfvARB;
         if (CHECKS) {
             check(__functionAddress);

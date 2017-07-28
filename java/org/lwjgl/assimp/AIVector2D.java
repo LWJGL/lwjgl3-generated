@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float y;
  * }</pre></code>
  */
+@NativeType("struct aiVector2D")
 public class AIVector2D extends Struct {
 
     /** The struct size in bytes. */

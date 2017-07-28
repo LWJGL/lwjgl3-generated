@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import org.lwjgl.system.*;
+
 
 /**
  * Native bindings to stb_perlin.h from the <a target="_blank" href="https://github.com/nothings/stb">stb library</a>.

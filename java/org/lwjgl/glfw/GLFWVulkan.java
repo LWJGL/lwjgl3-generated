@@ -58,6 +58,7 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
+    @NativeType("int")
     public static boolean glfwVulkanSupported() {
         long __functionAddress = Functions.VulkanSupported;
         return invokeI(__functionAddress) != 0;
@@ -99,6 +100,7 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
+    @NativeType("const char **")
     public static PointerBuffer glfwGetRequiredInstanceExtensions() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -147,7 +149,8 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
-    public static long glfwGetInstanceProcAddress(VkInstance instance, ByteBuffer procname) {
+    @NativeType("GLFWvkproc *")
+    public static long glfwGetInstanceProcAddress(VkInstance instance, @NativeType("const char *") ByteBuffer procname) {
         if (CHECKS) {
             checkNT1(procname);
         }
@@ -183,7 +186,8 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
-    public static long glfwGetInstanceProcAddress(VkInstance instance, CharSequence procname) {
+    @NativeType("GLFWvkproc *")
+    public static long glfwGetInstanceProcAddress(@NativeType("VkInstance") VkInstance instance, @NativeType("const char *") CharSequence procname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer procnameEncoded = stack.ASCII(procname);
@@ -214,7 +218,8 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
-    public static boolean glfwGetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, int queuefamily) {
+    @NativeType("int")
+    public static boolean glfwGetPhysicalDevicePresentationSupport(VkInstance instance, VkPhysicalDevice device, @NativeType("uint32_t") int queuefamily) {
         long __functionAddress = Functions.GetPhysicalDevicePresentationSupport;
         return invokePPI(__functionAddress, instance.address(), device.address(), queuefamily) != 0;
     }
@@ -260,7 +265,8 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
-    public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, LongBuffer surface) {
+    @NativeType("VkResult")
+    public static int glfwCreateWindowSurface(VkInstance instance, @NativeType("GLFWwindow *") long window, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks allocator, @NativeType("VkSurfaceKHR *") LongBuffer surface) {
         if (CHECKS) {
             check(surface, 1);
         }
@@ -268,7 +274,8 @@ public class GLFWVulkan {
     }
 
     /** Array version of: {@link #glfwCreateWindowSurface CreateWindowSurface} */
-    public static int glfwCreateWindowSurface(VkInstance instance, long window, VkAllocationCallbacks allocator, long[] surface) {
+    @NativeType("VkResult")
+    public static int glfwCreateWindowSurface(VkInstance instance, @NativeType("GLFWwindow *") long window, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks allocator, @NativeType("VkSurfaceKHR *") long[] surface) {
         long __functionAddress = Functions.CreateWindowSurface;
         if (CHECKS) {
             check(window);

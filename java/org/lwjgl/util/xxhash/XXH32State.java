@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned reserved;
  * }</pre></code>
  */
+@NativeType("struct XXH32_state_t")
 public class XXH32State extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -96,46 +97,56 @@ public class XXH32State extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code total_len_32} field. */
+    @NativeType("unsigned")
     public int total_len_32() { return ntotal_len_32(address()); }
     /** Returns the value of the {@code large_len} field. */
+    @NativeType("unsigned")
     public int large_len() { return nlarge_len(address()); }
     /** Returns the value of the {@code v1} field. */
+    @NativeType("unsigned")
     public int v1() { return nv1(address()); }
     /** Returns the value of the {@code v2} field. */
+    @NativeType("unsigned")
     public int v2() { return nv2(address()); }
     /** Returns the value of the {@code v3} field. */
+    @NativeType("unsigned")
     public int v3() { return nv3(address()); }
     /** Returns the value of the {@code v4} field. */
+    @NativeType("unsigned")
     public int v4() { return nv4(address()); }
     /** Returns a {@link IntBuffer} view of the {@code mem32} field. */
+    @NativeType("unsigned[4]")
     public IntBuffer mem32() { return nmem32(address()); }
     /** Returns the value at the specified index of the {@code mem32} field. */
+    @NativeType("unsigned")
     public int mem32(int index) { return nmem32(address(), index); }
     /** Returns the value of the {@code memsize} field. */
+    @NativeType("unsigned")
     public int memsize() { return nmemsize(address()); }
     /** Returns the value of the {@code reserved} field. */
+    @NativeType("unsigned")
     public int reserved() { return nreserved(address()); }
 
     /** Sets the specified value to the {@code total_len_32} field. */
-    public XXH32State total_len_32(int value) { ntotal_len_32(address(), value); return this; }
+    public XXH32State total_len_32(@NativeType("unsigned") int value) { ntotal_len_32(address(), value); return this; }
     /** Sets the specified value to the {@code large_len} field. */
-    public XXH32State large_len(int value) { nlarge_len(address(), value); return this; }
+    public XXH32State large_len(@NativeType("unsigned") int value) { nlarge_len(address(), value); return this; }
     /** Sets the specified value to the {@code v1} field. */
-    public XXH32State v1(int value) { nv1(address(), value); return this; }
+    public XXH32State v1(@NativeType("unsigned") int value) { nv1(address(), value); return this; }
     /** Sets the specified value to the {@code v2} field. */
-    public XXH32State v2(int value) { nv2(address(), value); return this; }
+    public XXH32State v2(@NativeType("unsigned") int value) { nv2(address(), value); return this; }
     /** Sets the specified value to the {@code v3} field. */
-    public XXH32State v3(int value) { nv3(address(), value); return this; }
+    public XXH32State v3(@NativeType("unsigned") int value) { nv3(address(), value); return this; }
     /** Sets the specified value to the {@code v4} field. */
-    public XXH32State v4(int value) { nv4(address(), value); return this; }
+    public XXH32State v4(@NativeType("unsigned") int value) { nv4(address(), value); return this; }
     /** Copies the specified {@link IntBuffer} to the {@code mem32} field. */
-    public XXH32State mem32(IntBuffer value) { nmem32(address(), value); return this; }
+    public XXH32State mem32(@NativeType("unsigned[4]") IntBuffer value) { nmem32(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code mem32} field. */
-    public XXH32State mem32(int index, int value) { nmem32(address(), index, value); return this; }
+    public XXH32State mem32(int index, @NativeType("unsigned") int value) { nmem32(address(), index, value); return this; }
     /** Sets the specified value to the {@code memsize} field. */
-    public XXH32State memsize(int value) { nmemsize(address(), value); return this; }
+    public XXH32State memsize(@NativeType("unsigned") int value) { nmemsize(address(), value); return this; }
     /** Sets the specified value to the {@code reserved} field. */
-    public XXH32State reserved(int value) { nreserved(address(), value); return this; }
+    public XXH32State reserved(@NativeType("unsigned") int value) { nreserved(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public XXH32State set(
@@ -397,46 +408,56 @@ public class XXH32State extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code total_len_32} field. */
+        @NativeType("unsigned")
         public int total_len_32() { return XXH32State.ntotal_len_32(address()); }
         /** Returns the value of the {@code large_len} field. */
+        @NativeType("unsigned")
         public int large_len() { return XXH32State.nlarge_len(address()); }
         /** Returns the value of the {@code v1} field. */
+        @NativeType("unsigned")
         public int v1() { return XXH32State.nv1(address()); }
         /** Returns the value of the {@code v2} field. */
+        @NativeType("unsigned")
         public int v2() { return XXH32State.nv2(address()); }
         /** Returns the value of the {@code v3} field. */
+        @NativeType("unsigned")
         public int v3() { return XXH32State.nv3(address()); }
         /** Returns the value of the {@code v4} field. */
+        @NativeType("unsigned")
         public int v4() { return XXH32State.nv4(address()); }
         /** Returns a {@link IntBuffer} view of the {@code mem32} field. */
+        @NativeType("unsigned[4]")
         public IntBuffer mem32() { return XXH32State.nmem32(address()); }
         /** Returns the value at the specified index of the {@code mem32} field. */
+        @NativeType("unsigned")
         public int mem32(int index) { return XXH32State.nmem32(address(), index); }
         /** Returns the value of the {@code memsize} field. */
+        @NativeType("unsigned")
         public int memsize() { return XXH32State.nmemsize(address()); }
         /** Returns the value of the {@code reserved} field. */
+        @NativeType("unsigned")
         public int reserved() { return XXH32State.nreserved(address()); }
 
         /** Sets the specified value to the {@code total_len_32} field. */
-        public XXH32State.Buffer total_len_32(int value) { XXH32State.ntotal_len_32(address(), value); return this; }
+        public XXH32State.Buffer total_len_32(@NativeType("unsigned") int value) { XXH32State.ntotal_len_32(address(), value); return this; }
         /** Sets the specified value to the {@code large_len} field. */
-        public XXH32State.Buffer large_len(int value) { XXH32State.nlarge_len(address(), value); return this; }
+        public XXH32State.Buffer large_len(@NativeType("unsigned") int value) { XXH32State.nlarge_len(address(), value); return this; }
         /** Sets the specified value to the {@code v1} field. */
-        public XXH32State.Buffer v1(int value) { XXH32State.nv1(address(), value); return this; }
+        public XXH32State.Buffer v1(@NativeType("unsigned") int value) { XXH32State.nv1(address(), value); return this; }
         /** Sets the specified value to the {@code v2} field. */
-        public XXH32State.Buffer v2(int value) { XXH32State.nv2(address(), value); return this; }
+        public XXH32State.Buffer v2(@NativeType("unsigned") int value) { XXH32State.nv2(address(), value); return this; }
         /** Sets the specified value to the {@code v3} field. */
-        public XXH32State.Buffer v3(int value) { XXH32State.nv3(address(), value); return this; }
+        public XXH32State.Buffer v3(@NativeType("unsigned") int value) { XXH32State.nv3(address(), value); return this; }
         /** Sets the specified value to the {@code v4} field. */
-        public XXH32State.Buffer v4(int value) { XXH32State.nv4(address(), value); return this; }
+        public XXH32State.Buffer v4(@NativeType("unsigned") int value) { XXH32State.nv4(address(), value); return this; }
         /** Copies the specified {@link IntBuffer} to the {@code mem32} field. */
-        public XXH32State.Buffer mem32(IntBuffer value) { XXH32State.nmem32(address(), value); return this; }
+        public XXH32State.Buffer mem32(@NativeType("unsigned[4]") IntBuffer value) { XXH32State.nmem32(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code mem32} field. */
-        public XXH32State.Buffer mem32(int index, int value) { XXH32State.nmem32(address(), index, value); return this; }
+        public XXH32State.Buffer mem32(int index, @NativeType("unsigned") int value) { XXH32State.nmem32(address(), index, value); return this; }
         /** Sets the specified value to the {@code memsize} field. */
-        public XXH32State.Buffer memsize(int value) { XXH32State.nmemsize(address(), value); return this; }
+        public XXH32State.Buffer memsize(@NativeType("unsigned") int value) { XXH32State.nmemsize(address(), value); return this; }
         /** Sets the specified value to the {@code reserved} field. */
-        public XXH32State.Buffer reserved(int value) { XXH32State.nreserved(address(), value); return this; }
+        public XXH32State.Buffer reserved(@NativeType("unsigned") int value) { XXH32State.nreserved(address(), value); return this; }
 
     }
 

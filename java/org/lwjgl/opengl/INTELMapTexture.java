@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -62,7 +64,7 @@ public class INTELMapTexture {
      *
      * @param texture the texture to synchronize
      */
-    public static native void glSyncTextureINTEL(int texture);
+    public static native void glSyncTextureINTEL(@NativeType("GLuint") int texture);
 
     // --- [ glUnmapTexture2DINTEL ] ---
 
@@ -74,7 +76,7 @@ public class INTELMapTexture {
      * @param texture the texture to unmap
      * @param level   the mipmap level-of-detail of the texture
      */
-    public static native void glUnmapTexture2DINTEL(int texture, int level);
+    public static native void glUnmapTexture2DINTEL(@NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glMapTexture2DINTEL ] ---
 
@@ -93,7 +95,8 @@ public class INTELMapTexture {
      * @param stride  returns the distance in bytes between subsequent rows in the texture
      * @param layout  returns the internal layout of the texture in the graphics memory
      */
-    public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout) {
+    @NativeType("void *")
+    public static ByteBuffer glMapTexture2DINTEL(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLbitfield") int access, @NativeType("GLint *") IntBuffer stride, @NativeType("GLenum *") IntBuffer layout) {
         if (CHECKS) {
             check(stride, 1);
             check(layout, 1);
@@ -114,7 +117,8 @@ public class INTELMapTexture {
      * @param stride  returns the distance in bytes between subsequent rows in the texture
      * @param layout  returns the internal layout of the texture in the graphics memory
      */
-    public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapTexture2DINTEL(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLbitfield") int access, @NativeType("GLint *") IntBuffer stride, @NativeType("GLenum *") IntBuffer layout, ByteBuffer old_buffer) {
         if (CHECKS) {
             check(stride, 1);
             check(layout, 1);
@@ -136,7 +140,8 @@ public class INTELMapTexture {
      * @param stride  returns the distance in bytes between subsequent rows in the texture
      * @param layout  returns the internal layout of the texture in the graphics memory
      */
-    public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, IntBuffer stride, IntBuffer layout, long length, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapTexture2DINTEL(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLbitfield") int access, @NativeType("GLint *") IntBuffer stride, @NativeType("GLenum *") IntBuffer layout, long length, ByteBuffer old_buffer) {
         if (CHECKS) {
             check(stride, 1);
             check(layout, 1);
@@ -146,7 +151,8 @@ public class INTELMapTexture {
     }
 
     /** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
-    public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout) {
+    @NativeType("void *")
+    public static ByteBuffer glMapTexture2DINTEL(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLbitfield") int access, @NativeType("GLint *") int[] stride, @NativeType("GLenum *") int[] layout) {
         long __functionAddress = GL.getICD().glMapTexture2DINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -158,7 +164,8 @@ public class INTELMapTexture {
     }
 
     /** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
-    public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapTexture2DINTEL(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLbitfield") int access, @NativeType("GLint *") int[] stride, @NativeType("GLenum *") int[] layout, ByteBuffer old_buffer) {
         long __functionAddress = GL.getICD().glMapTexture2DINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -171,7 +178,8 @@ public class INTELMapTexture {
     }
 
     /** Array version of: {@link #glMapTexture2DINTEL MapTexture2DINTEL} */
-    public static ByteBuffer glMapTexture2DINTEL(int texture, int level, int access, int[] stride, int[] layout, long length, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapTexture2DINTEL(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLbitfield") int access, @NativeType("GLint *") int[] stride, @NativeType("GLenum *") int[] layout, long length, ByteBuffer old_buffer) {
         long __functionAddress = GL.getICD().glMapTexture2DINTEL;
         if (CHECKS) {
             check(__functionAddress);

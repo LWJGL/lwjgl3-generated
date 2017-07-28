@@ -41,6 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     double AdditionalLatencySeconds;
  * }</pre></code>
  */
+@NativeType("struct ovrCameraExtrinsics")
 public class OVRCameraExtrinsics extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -101,10 +102,13 @@ public class OVRCameraExtrinsics extends Struct implements NativeResource {
     /** Returns the value of the {@code LastChangedTimeSeconds} field. */
     public double LastChangedTimeSeconds() { return nLastChangedTimeSeconds(address()); }
     /** Returns the value of the {@code CameraStatusFlags} field. */
+    @NativeType("unsigned int")
     public int CameraStatusFlags() { return nCameraStatusFlags(address()); }
     /** Returns the value of the {@code AttachedToDevice} field. */
+    @NativeType("ovrTrackedDeviceType")
     public int AttachedToDevice() { return nAttachedToDevice(address()); }
     /** Returns a {@link OVRPosef} view of the {@code RelativePose} field. */
+    @NativeType("ovrPosef")
     public OVRPosef RelativePose() { return nRelativePose(address()); }
     /** Returns the value of the {@code LastExposureTimeSeconds} field. */
     public double LastExposureTimeSeconds() { return nLastExposureTimeSeconds(address()); }
@@ -116,11 +120,11 @@ public class OVRCameraExtrinsics extends Struct implements NativeResource {
     /** Sets the specified value to the {@code LastChangedTimeSeconds} field. */
     public OVRCameraExtrinsics LastChangedTimeSeconds(double value) { nLastChangedTimeSeconds(address(), value); return this; }
     /** Sets the specified value to the {@code CameraStatusFlags} field. */
-    public OVRCameraExtrinsics CameraStatusFlags(int value) { nCameraStatusFlags(address(), value); return this; }
+    public OVRCameraExtrinsics CameraStatusFlags(@NativeType("unsigned int") int value) { nCameraStatusFlags(address(), value); return this; }
     /** Sets the specified value to the {@code AttachedToDevice} field. */
-    public OVRCameraExtrinsics AttachedToDevice(int value) { nAttachedToDevice(address(), value); return this; }
+    public OVRCameraExtrinsics AttachedToDevice(@NativeType("ovrTrackedDeviceType") int value) { nAttachedToDevice(address(), value); return this; }
     /** Copies the specified {@link OVRPosef} to the {@code RelativePose} field. */
-    public OVRCameraExtrinsics RelativePose(OVRPosef value) { nRelativePose(address(), value); return this; }
+    public OVRCameraExtrinsics RelativePose(@NativeType("ovrPosef") OVRPosef value) { nRelativePose(address(), value); return this; }
     /** Sets the specified value to the {@code LastExposureTimeSeconds} field. */
     public OVRCameraExtrinsics LastExposureTimeSeconds(double value) { nLastExposureTimeSeconds(address(), value); return this; }
     /** Sets the specified value to the {@code ExposureLatencySeconds} field. */
@@ -365,10 +369,13 @@ public class OVRCameraExtrinsics extends Struct implements NativeResource {
         /** Returns the value of the {@code LastChangedTimeSeconds} field. */
         public double LastChangedTimeSeconds() { return OVRCameraExtrinsics.nLastChangedTimeSeconds(address()); }
         /** Returns the value of the {@code CameraStatusFlags} field. */
+        @NativeType("unsigned int")
         public int CameraStatusFlags() { return OVRCameraExtrinsics.nCameraStatusFlags(address()); }
         /** Returns the value of the {@code AttachedToDevice} field. */
+        @NativeType("ovrTrackedDeviceType")
         public int AttachedToDevice() { return OVRCameraExtrinsics.nAttachedToDevice(address()); }
         /** Returns a {@link OVRPosef} view of the {@code RelativePose} field. */
+        @NativeType("ovrPosef")
         public OVRPosef RelativePose() { return OVRCameraExtrinsics.nRelativePose(address()); }
         /** Returns the value of the {@code LastExposureTimeSeconds} field. */
         public double LastExposureTimeSeconds() { return OVRCameraExtrinsics.nLastExposureTimeSeconds(address()); }
@@ -380,11 +387,11 @@ public class OVRCameraExtrinsics extends Struct implements NativeResource {
         /** Sets the specified value to the {@code LastChangedTimeSeconds} field. */
         public OVRCameraExtrinsics.Buffer LastChangedTimeSeconds(double value) { OVRCameraExtrinsics.nLastChangedTimeSeconds(address(), value); return this; }
         /** Sets the specified value to the {@code CameraStatusFlags} field. */
-        public OVRCameraExtrinsics.Buffer CameraStatusFlags(int value) { OVRCameraExtrinsics.nCameraStatusFlags(address(), value); return this; }
+        public OVRCameraExtrinsics.Buffer CameraStatusFlags(@NativeType("unsigned int") int value) { OVRCameraExtrinsics.nCameraStatusFlags(address(), value); return this; }
         /** Sets the specified value to the {@code AttachedToDevice} field. */
-        public OVRCameraExtrinsics.Buffer AttachedToDevice(int value) { OVRCameraExtrinsics.nAttachedToDevice(address(), value); return this; }
+        public OVRCameraExtrinsics.Buffer AttachedToDevice(@NativeType("ovrTrackedDeviceType") int value) { OVRCameraExtrinsics.nAttachedToDevice(address(), value); return this; }
         /** Copies the specified {@link OVRPosef} to the {@code RelativePose} field. */
-        public OVRCameraExtrinsics.Buffer RelativePose(OVRPosef value) { OVRCameraExtrinsics.nRelativePose(address(), value); return this; }
+        public OVRCameraExtrinsics.Buffer RelativePose(@NativeType("ovrPosef") OVRPosef value) { OVRCameraExtrinsics.nRelativePose(address(), value); return this; }
         /** Sets the specified value to the {@code LastExposureTimeSeconds} field. */
         public OVRCameraExtrinsics.Buffer LastExposureTimeSeconds(double value) { OVRCameraExtrinsics.nLastExposureTimeSeconds(address(), value); return this; }
         /** Sets the specified value to the {@code ExposureLatencySeconds} field. */

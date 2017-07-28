@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -46,7 +48,7 @@ public class NVVertexArrayRange {
 
     public static native void nglVertexArrayRangeNV(int length, long pointer);
 
-    public static void glVertexArrayRangeNV(ByteBuffer pointer) {
+    public static void glVertexArrayRangeNV(@NativeType("void *") ByteBuffer pointer) {
         nglVertexArrayRangeNV(pointer.remaining(), memAddress(pointer));
     }
 

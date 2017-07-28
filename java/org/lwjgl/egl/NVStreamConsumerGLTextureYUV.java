@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -60,7 +62,8 @@ public class NVStreamConsumerGLTextureYUV {
         return callPPPI(__functionAddress, dpy, stream, attrib_list);
     }
 
-    public static boolean eglStreamConsumerGLTextureExternalAttribsNV(long dpy, long stream, PointerBuffer attrib_list) {
+    @NativeType("EGLBoolean")
+    public static boolean eglStreamConsumerGLTextureExternalAttribsNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }

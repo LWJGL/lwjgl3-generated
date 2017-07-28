@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -87,7 +89,8 @@ public class INTELSubgroups {
      * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
      * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
      */
-    public static int clGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelSubGroupInfoKHR(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -106,7 +109,8 @@ public class INTELSubgroups {
      * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
      * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
      */
-    public static int clGetKernelSubGroupInfoKHR(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelSubGroupInfoKHR(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }

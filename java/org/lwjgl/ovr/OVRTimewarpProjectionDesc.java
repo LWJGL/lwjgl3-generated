@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float Projection32;
  * }</pre></code>
  */
+@NativeType("struct ovrTimewarpProjectionDesc")
 public class OVRTimewarpProjectionDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

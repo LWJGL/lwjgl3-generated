@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 @FunctionalInterface
+@NativeType("chunk_purge_t")
 public interface ChunkPurgeI extends CallbackI.Z {
 
     String SIGNATURE = "(ppppi)B";
@@ -38,6 +39,6 @@ public interface ChunkPurgeI extends CallbackI.Z {
      * @param length    
      * @param arena_ind 
      */
-    boolean invoke(long chunk, long size, long offset, long length, int arena_ind);
+    @NativeType("bool") boolean invoke(@NativeType("void *") long chunk, @NativeType("size_t") long size, @NativeType("size_t") long offset, @NativeType("size_t") long length, @NativeType("unsigned int") int arena_ind);
 
 }

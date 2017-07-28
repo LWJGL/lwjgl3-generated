@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkUserFont} struct. */
 @FunctionalInterface
+@NativeType("nk_query_font_glyph_f")
 public interface NkQueryFontGlyphCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pfpii)v";
@@ -29,7 +30,6 @@ public interface NkQueryFontGlyphCallbackI extends CallbackI.V {
         );
     }
 
-
-    void invoke(long handle, float font_height, long glyph, int codepoint, int next_codepoint);
+    void invoke(@NativeType("nk_handle") long handle, float font_height, @NativeType("struct nk_user_font_glyph *") long glyph, @NativeType("nk_rune") int codepoint, @NativeType("nk_rune") int next_codepoint);
 
 }

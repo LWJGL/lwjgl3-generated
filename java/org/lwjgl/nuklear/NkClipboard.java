@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkPluginCopyI nk_plugin_copy} copy;
  * }</pre></code>
  */
+@NativeType("struct nk_clipboard")
 public class NkClipboard extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,18 +70,21 @@ public class NkClipboard extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+    @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code paste} field. */
+    @NativeType("nk_plugin_paste")
     public NkPluginPaste paste() { return npaste(address()); }
     /** Returns the value of the {@code copy} field. */
+    @NativeType("nk_plugin_copy")
     public NkPluginCopy copy() { return ncopy(address()); }
 
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-    public NkClipboard userdata(NkHandle value) { nuserdata(address(), value); return this; }
+    public NkClipboard userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code paste} field. */
-    public NkClipboard paste(NkPluginPasteI value) { npaste(address(), value); return this; }
+    public NkClipboard paste(@NativeType("nk_plugin_paste") NkPluginPasteI value) { npaste(address(), value); return this; }
     /** Sets the specified value to the {@code copy} field. */
-    public NkClipboard copy(NkPluginCopyI value) { ncopy(address(), value); return this; }
+    public NkClipboard copy(@NativeType("nk_plugin_copy") NkPluginCopyI value) { ncopy(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkClipboard set(
@@ -293,18 +297,21 @@ public class NkClipboard extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+        @NativeType("nk_handle")
         public NkHandle userdata() { return NkClipboard.nuserdata(address()); }
         /** Returns the value of the {@code paste} field. */
+        @NativeType("nk_plugin_paste")
         public NkPluginPaste paste() { return NkClipboard.npaste(address()); }
         /** Returns the value of the {@code copy} field. */
+        @NativeType("nk_plugin_copy")
         public NkPluginCopy copy() { return NkClipboard.ncopy(address()); }
 
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-        public NkClipboard.Buffer userdata(NkHandle value) { NkClipboard.nuserdata(address(), value); return this; }
+        public NkClipboard.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkClipboard.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code paste} field. */
-        public NkClipboard.Buffer paste(NkPluginPasteI value) { NkClipboard.npaste(address(), value); return this; }
+        public NkClipboard.Buffer paste(@NativeType("nk_plugin_paste") NkPluginPasteI value) { NkClipboard.npaste(address(), value); return this; }
         /** Sets the specified value to the {@code copy} field. */
-        public NkClipboard.Buffer copy(NkPluginCopyI value) { NkClipboard.ncopy(address(), value); return this; }
+        public NkClipboard.Buffer copy(@NativeType("nk_plugin_copy") NkPluginCopyI value) { NkClipboard.ncopy(address(), value); return this; }
 
     }
 

@@ -25,6 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkChartSlot struct nk_chart_slot} slots[4];
  * }</pre></code>
  */
+@NativeType("struct nk_chart")
 public class NkChart extends Struct {
 
     /** The struct size in bytes. */
@@ -90,8 +91,10 @@ public class NkChart extends Struct {
     /** Returns the value of the {@code h} field. */
     public float h() { return nh(address()); }
     /** Returns a {@link NkChartSlot}.Buffer view of the {@code slots} field. */
+    @NativeType("struct nk_chart_slot[4]")
     public NkChartSlot.Buffer slots() { return nslots(address()); }
     /** Returns a {@link NkChartSlot} view of the struct at the specified index of the {@code slots} field. */
+    @NativeType("struct nk_chart_slot")
     public NkChartSlot slots(int index) { return nslots(address(), index); }
 
     // -----------------------------------
@@ -184,8 +187,10 @@ public class NkChart extends Struct {
         /** Returns the value of the {@code h} field. */
         public float h() { return NkChart.nh(address()); }
         /** Returns a {@link NkChartSlot}.Buffer view of the {@code slots} field. */
+        @NativeType("struct nk_chart_slot[4]")
         public NkChartSlot.Buffer slots() { return NkChart.nslots(address()); }
         /** Returns a {@link NkChartSlot} view of the struct at the specified index of the {@code slots} field. */
+        @NativeType("struct nk_chart_slot")
         public NkChartSlot slots(int index) { return NkChart.nslots(address(), index); }
 
     }

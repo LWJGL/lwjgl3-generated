@@ -167,52 +167,64 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code objectTable} field. */
+    @NativeType("VkObjectTableNVX")
     public long objectTable() { return nobjectTable(address()); }
     /** Returns the value of the {@code indirectCommandsLayout} field. */
+    @NativeType("VkIndirectCommandsLayoutNVX")
     public long indirectCommandsLayout() { return nindirectCommandsLayout(address()); }
     /** Returns the value of the {@code indirectCommandsTokenCount} field. */
+    @NativeType("uint32_t")
     public int indirectCommandsTokenCount() { return nindirectCommandsTokenCount(address()); }
     /** Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field. */
+    @NativeType("const VkIndirectCommandsTokenNVX *")
     public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens() { return npIndirectCommandsTokens(address()); }
     /** Returns the value of the {@code maxSequencesCount} field. */
+    @NativeType("uint32_t")
     public int maxSequencesCount() { return nmaxSequencesCount(address()); }
     /** Returns the value of the {@code targetCommandBuffer} field. */
+    @NativeType("VkCommandBuffer")
     public long targetCommandBuffer() { return ntargetCommandBuffer(address()); }
     /** Returns the value of the {@code sequencesCountBuffer} field. */
+    @NativeType("VkBuffer")
     public long sequencesCountBuffer() { return nsequencesCountBuffer(address()); }
     /** Returns the value of the {@code sequencesCountOffset} field. */
+    @NativeType("VkDeviceSize")
     public long sequencesCountOffset() { return nsequencesCountOffset(address()); }
     /** Returns the value of the {@code sequencesIndexBuffer} field. */
+    @NativeType("VkBuffer")
     public long sequencesIndexBuffer() { return nsequencesIndexBuffer(address()); }
     /** Returns the value of the {@code sequencesIndexOffset} field. */
+    @NativeType("VkDeviceSize")
     public long sequencesIndexOffset() { return nsequencesIndexOffset(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkCmdProcessCommandsInfoNVX sType(int value) { nsType(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCmdProcessCommandsInfoNVX pNext(long value) { npNext(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code objectTable} field. */
-    public VkCmdProcessCommandsInfoNVX objectTable(long value) { nobjectTable(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX objectTable(@NativeType("VkObjectTableNVX") long value) { nobjectTable(address(), value); return this; }
     /** Sets the specified value to the {@code indirectCommandsLayout} field. */
-    public VkCmdProcessCommandsInfoNVX indirectCommandsLayout(long value) { nindirectCommandsLayout(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX indirectCommandsLayout(@NativeType("VkIndirectCommandsLayoutNVX") long value) { nindirectCommandsLayout(address(), value); return this; }
     /** Sets the address of the specified {@link VkIndirectCommandsTokenNVX.Buffer} to the {@code pIndirectCommandsTokens} field. */
-    public VkCmdProcessCommandsInfoNVX pIndirectCommandsTokens(VkIndirectCommandsTokenNVX.Buffer value) { npIndirectCommandsTokens(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX pIndirectCommandsTokens(@NativeType("const VkIndirectCommandsTokenNVX *") VkIndirectCommandsTokenNVX.Buffer value) { npIndirectCommandsTokens(address(), value); return this; }
     /** Sets the specified value to the {@code maxSequencesCount} field. */
-    public VkCmdProcessCommandsInfoNVX maxSequencesCount(int value) { nmaxSequencesCount(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX maxSequencesCount(@NativeType("uint32_t") int value) { nmaxSequencesCount(address(), value); return this; }
     /** Sets the specified value to the {@code targetCommandBuffer} field. */
     public VkCmdProcessCommandsInfoNVX targetCommandBuffer(VkCommandBuffer value) { ntargetCommandBuffer(address(), value); return this; }
     /** Sets the specified value to the {@code sequencesCountBuffer} field. */
-    public VkCmdProcessCommandsInfoNVX sequencesCountBuffer(long value) { nsequencesCountBuffer(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX sequencesCountBuffer(@NativeType("VkBuffer") long value) { nsequencesCountBuffer(address(), value); return this; }
     /** Sets the specified value to the {@code sequencesCountOffset} field. */
-    public VkCmdProcessCommandsInfoNVX sequencesCountOffset(long value) { nsequencesCountOffset(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX sequencesCountOffset(@NativeType("VkDeviceSize") long value) { nsequencesCountOffset(address(), value); return this; }
     /** Sets the specified value to the {@code sequencesIndexBuffer} field. */
-    public VkCmdProcessCommandsInfoNVX sequencesIndexBuffer(long value) { nsequencesIndexBuffer(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX sequencesIndexBuffer(@NativeType("VkBuffer") long value) { nsequencesIndexBuffer(address(), value); return this; }
     /** Sets the specified value to the {@code sequencesIndexOffset} field. */
-    public VkCmdProcessCommandsInfoNVX sequencesIndexOffset(long value) { nsequencesIndexOffset(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX sequencesIndexOffset(@NativeType("VkDeviceSize") long value) { nsequencesIndexOffset(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkCmdProcessCommandsInfoNVX set(
@@ -498,52 +510,64 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkCmdProcessCommandsInfoNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkCmdProcessCommandsInfoNVX.npNext(address()); }
         /** Returns the value of the {@code objectTable} field. */
+        @NativeType("VkObjectTableNVX")
         public long objectTable() { return VkCmdProcessCommandsInfoNVX.nobjectTable(address()); }
         /** Returns the value of the {@code indirectCommandsLayout} field. */
+        @NativeType("VkIndirectCommandsLayoutNVX")
         public long indirectCommandsLayout() { return VkCmdProcessCommandsInfoNVX.nindirectCommandsLayout(address()); }
         /** Returns the value of the {@code indirectCommandsTokenCount} field. */
+        @NativeType("uint32_t")
         public int indirectCommandsTokenCount() { return VkCmdProcessCommandsInfoNVX.nindirectCommandsTokenCount(address()); }
         /** Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field. */
+        @NativeType("const VkIndirectCommandsTokenNVX *")
         public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens() { return VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address()); }
         /** Returns the value of the {@code maxSequencesCount} field. */
+        @NativeType("uint32_t")
         public int maxSequencesCount() { return VkCmdProcessCommandsInfoNVX.nmaxSequencesCount(address()); }
         /** Returns the value of the {@code targetCommandBuffer} field. */
+        @NativeType("VkCommandBuffer")
         public long targetCommandBuffer() { return VkCmdProcessCommandsInfoNVX.ntargetCommandBuffer(address()); }
         /** Returns the value of the {@code sequencesCountBuffer} field. */
+        @NativeType("VkBuffer")
         public long sequencesCountBuffer() { return VkCmdProcessCommandsInfoNVX.nsequencesCountBuffer(address()); }
         /** Returns the value of the {@code sequencesCountOffset} field. */
+        @NativeType("VkDeviceSize")
         public long sequencesCountOffset() { return VkCmdProcessCommandsInfoNVX.nsequencesCountOffset(address()); }
         /** Returns the value of the {@code sequencesIndexBuffer} field. */
+        @NativeType("VkBuffer")
         public long sequencesIndexBuffer() { return VkCmdProcessCommandsInfoNVX.nsequencesIndexBuffer(address()); }
         /** Returns the value of the {@code sequencesIndexOffset} field. */
+        @NativeType("VkDeviceSize")
         public long sequencesIndexOffset() { return VkCmdProcessCommandsInfoNVX.nsequencesIndexOffset(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer sType(int value) { VkCmdProcessCommandsInfoNVX.nsType(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkCmdProcessCommandsInfoNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer pNext(long value) { VkCmdProcessCommandsInfoNVX.npNext(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer pNext(@NativeType("const void *") long value) { VkCmdProcessCommandsInfoNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code objectTable} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer objectTable(long value) { VkCmdProcessCommandsInfoNVX.nobjectTable(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer objectTable(@NativeType("VkObjectTableNVX") long value) { VkCmdProcessCommandsInfoNVX.nobjectTable(address(), value); return this; }
         /** Sets the specified value to the {@code indirectCommandsLayout} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer indirectCommandsLayout(long value) { VkCmdProcessCommandsInfoNVX.nindirectCommandsLayout(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer indirectCommandsLayout(@NativeType("VkIndirectCommandsLayoutNVX") long value) { VkCmdProcessCommandsInfoNVX.nindirectCommandsLayout(address(), value); return this; }
         /** Sets the address of the specified {@link VkIndirectCommandsTokenNVX.Buffer} to the {@code pIndirectCommandsTokens} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer pIndirectCommandsTokens(VkIndirectCommandsTokenNVX.Buffer value) { VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer pIndirectCommandsTokens(@NativeType("const VkIndirectCommandsTokenNVX *") VkIndirectCommandsTokenNVX.Buffer value) { VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address(), value); return this; }
         /** Sets the specified value to the {@code maxSequencesCount} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer maxSequencesCount(int value) { VkCmdProcessCommandsInfoNVX.nmaxSequencesCount(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer maxSequencesCount(@NativeType("uint32_t") int value) { VkCmdProcessCommandsInfoNVX.nmaxSequencesCount(address(), value); return this; }
         /** Sets the specified value to the {@code targetCommandBuffer} field. */
         public VkCmdProcessCommandsInfoNVX.Buffer targetCommandBuffer(VkCommandBuffer value) { VkCmdProcessCommandsInfoNVX.ntargetCommandBuffer(address(), value); return this; }
         /** Sets the specified value to the {@code sequencesCountBuffer} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer sequencesCountBuffer(long value) { VkCmdProcessCommandsInfoNVX.nsequencesCountBuffer(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer sequencesCountBuffer(@NativeType("VkBuffer") long value) { VkCmdProcessCommandsInfoNVX.nsequencesCountBuffer(address(), value); return this; }
         /** Sets the specified value to the {@code sequencesCountOffset} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer sequencesCountOffset(long value) { VkCmdProcessCommandsInfoNVX.nsequencesCountOffset(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer sequencesCountOffset(@NativeType("VkDeviceSize") long value) { VkCmdProcessCommandsInfoNVX.nsequencesCountOffset(address(), value); return this; }
         /** Sets the specified value to the {@code sequencesIndexBuffer} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer sequencesIndexBuffer(long value) { VkCmdProcessCommandsInfoNVX.nsequencesIndexBuffer(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer sequencesIndexBuffer(@NativeType("VkBuffer") long value) { VkCmdProcessCommandsInfoNVX.nsequencesIndexBuffer(address(), value); return this; }
         /** Sets the specified value to the {@code sequencesIndexOffset} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer sequencesIndexOffset(long value) { VkCmdProcessCommandsInfoNVX.nsequencesIndexOffset(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer sequencesIndexOffset(@NativeType("VkDeviceSize") long value) { VkCmdProcessCommandsInfoNVX.nsequencesIndexOffset(address(), value); return this; }
 
     }
 

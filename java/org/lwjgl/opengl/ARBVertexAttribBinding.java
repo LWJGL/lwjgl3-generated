@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -86,7 +88,7 @@ public class ARBVertexAttribBinding {
      * @param offset       the offset of the first element of the buffer
      * @param stride       the distance between elements within the buffer
      */
-    public static native void glBindVertexBuffer(int bindingindex, int buffer, long offset, int stride);
+    public static native void glBindVertexBuffer(@NativeType("GLuint") int bindingindex, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizei") int stride);
 
     // --- [ glVertexAttribFormat ] ---
 
@@ -100,7 +102,7 @@ public class ARBVertexAttribBinding {
      *                       directly converted to floating point.
      * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
      */
-    public static native void glVertexAttribFormat(int attribindex, int size, int type, boolean normalized, int relativeoffset);
+    public static native void glVertexAttribFormat(@NativeType("GLuint") int attribindex, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint") int relativeoffset);
 
     // --- [ glVertexAttribIFormat ] ---
 
@@ -112,7 +114,7 @@ public class ARBVertexAttribBinding {
      * @param type           the type of the data stored in the array
      * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
      */
-    public static native void glVertexAttribIFormat(int attribindex, int size, int type, int relativeoffset);
+    public static native void glVertexAttribIFormat(@NativeType("GLuint") int attribindex, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLuint") int relativeoffset);
 
     // --- [ glVertexAttribLFormat ] ---
 
@@ -124,7 +126,7 @@ public class ARBVertexAttribBinding {
      * @param type           the type of the data stored in the array
      * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
      */
-    public static native void glVertexAttribLFormat(int attribindex, int size, int type, int relativeoffset);
+    public static native void glVertexAttribLFormat(@NativeType("GLuint") int attribindex, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLuint") int relativeoffset);
 
     // --- [ glVertexAttribBinding ] ---
 
@@ -134,7 +136,7 @@ public class ARBVertexAttribBinding {
      * @param attribindex  the index of the attribute to associate with a vertex buffer binding
      * @param bindingindex the index of the vertex buffer binding with which to associate the generic vertex attribute
      */
-    public static native void glVertexAttribBinding(int attribindex, int bindingindex);
+    public static native void glVertexAttribBinding(@NativeType("GLuint") int attribindex, @NativeType("GLuint") int bindingindex);
 
     // --- [ glVertexBindingDivisor ] ---
 
@@ -144,7 +146,7 @@ public class ARBVertexAttribBinding {
      * @param bindingindex the index of the generic vertex attribute
      * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
      */
-    public static native void glVertexBindingDivisor(int bindingindex, int divisor);
+    public static native void glVertexBindingDivisor(@NativeType("GLuint") int bindingindex, @NativeType("GLuint") int divisor);
 
     // --- [ glVertexArrayBindVertexBufferEXT ] ---
 
@@ -157,7 +159,7 @@ public class ARBVertexAttribBinding {
      * @param offset       the offset of the first element of the buffer
      * @param stride       the distance between elements within the buffer
      */
-    public static native void glVertexArrayBindVertexBufferEXT(int vaobj, int bindingindex, int buffer, long offset, int stride);
+    public static native void glVertexArrayBindVertexBufferEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int bindingindex, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizei") int stride);
 
     // --- [ glVertexArrayVertexAttribFormatEXT ] ---
 
@@ -172,7 +174,7 @@ public class ARBVertexAttribBinding {
      *                       directly converted to floating point.
      * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
      */
-    public static native void glVertexArrayVertexAttribFormatEXT(int vaobj, int attribindex, int size, int type, boolean normalized, int relativeoffset);
+    public static native void glVertexArrayVertexAttribFormatEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int attribindex, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint") int relativeoffset);
 
     // --- [ glVertexArrayVertexAttribIFormatEXT ] ---
 
@@ -185,7 +187,7 @@ public class ARBVertexAttribBinding {
      * @param type           the type of the data stored in the array
      * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
      */
-    public static native void glVertexArrayVertexAttribIFormatEXT(int vaobj, int attribindex, int size, int type, int relativeoffset);
+    public static native void glVertexArrayVertexAttribIFormatEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int attribindex, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLuint") int relativeoffset);
 
     // --- [ glVertexArrayVertexAttribLFormatEXT ] ---
 
@@ -198,7 +200,7 @@ public class ARBVertexAttribBinding {
      * @param type           the type of the data stored in the array
      * @param relativeoffset the offset, measured in basic machine units of the first element relative to the start of the vertex buffer binding this attribute fetches from
      */
-    public static native void glVertexArrayVertexAttribLFormatEXT(int vaobj, int attribindex, int size, int type, int relativeoffset);
+    public static native void glVertexArrayVertexAttribLFormatEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int attribindex, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLuint") int relativeoffset);
 
     // --- [ glVertexArrayVertexAttribBindingEXT ] ---
 
@@ -209,7 +211,7 @@ public class ARBVertexAttribBinding {
      * @param attribindex  the index of the attribute to associate with a vertex buffer binding
      * @param bindingindex the index of the vertex buffer binding with which to associate the generic vertex attribute
      */
-    public static native void glVertexArrayVertexAttribBindingEXT(int vaobj, int attribindex, int bindingindex);
+    public static native void glVertexArrayVertexAttribBindingEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int attribindex, @NativeType("GLuint") int bindingindex);
 
     // --- [ glVertexArrayVertexBindingDivisorEXT ] ---
 
@@ -220,6 +222,6 @@ public class ARBVertexAttribBinding {
      * @param bindingindex the index of the generic vertex attribute
      * @param divisor      the number of instances that will pass between updates of the generic attribute at slot {@code index}
      */
-    public static native void glVertexArrayVertexBindingDivisorEXT(int vaobj, int bindingindex, int divisor);
+    public static native void glVertexArrayVertexBindingDivisorEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int bindingindex, @NativeType("GLuint") int divisor);
 
 }

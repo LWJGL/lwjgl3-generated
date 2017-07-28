@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -44,7 +46,8 @@ public class GLXSGIVideoSync {
      *
      * @param count the video sync counter value
      */
-    public static int glXGetVideoSyncSGI(IntBuffer count) {
+    @NativeType("GLint")
+    public static int glXGetVideoSyncSGI(@NativeType("unsigned int *") IntBuffer count) {
         if (CHECKS) {
             check(count, 1);
         }
@@ -75,7 +78,8 @@ public class GLXSGIVideoSync {
      * @param remainder the remainder value
      * @param count     the video sync counter value
      */
-    public static int glXWaitVideoSyncSGI(int divisor, int remainder, IntBuffer count) {
+    @NativeType("GLint")
+    public static int glXWaitVideoSyncSGI(int divisor, int remainder, @NativeType("unsigned int *") IntBuffer count) {
         if (CHECKS) {
             check(count, 1);
         }
@@ -83,7 +87,8 @@ public class GLXSGIVideoSync {
     }
 
     /** Array version of: {@link #glXGetVideoSyncSGI GetVideoSyncSGI} */
-    public static int glXGetVideoSyncSGI(int[] count) {
+    @NativeType("GLint")
+    public static int glXGetVideoSyncSGI(@NativeType("unsigned int *") int[] count) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXGetVideoSyncSGI;
         if (CHECKS) {
             check(__functionAddress);
@@ -93,7 +98,8 @@ public class GLXSGIVideoSync {
     }
 
     /** Array version of: {@link #glXWaitVideoSyncSGI WaitVideoSyncSGI} */
-    public static int glXWaitVideoSyncSGI(int divisor, int remainder, int[] count) {
+    @NativeType("GLint")
+    public static int glXWaitVideoSyncSGI(int divisor, int remainder, @NativeType("unsigned int *") int[] count) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXWaitVideoSyncSGI;
         if (CHECKS) {
             check(__functionAddress);

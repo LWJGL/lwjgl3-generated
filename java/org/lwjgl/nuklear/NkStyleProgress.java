@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkDrawEndCallbackI nk_draw_end} draw_end;
  * }</pre></code>
  */
+@NativeType("struct nk_style_progress")
 public class NkStyleProgress extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -121,20 +122,28 @@ public class NkStyleProgress extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem normal() { return nnormal(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem hover() { return nhover(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem active() { return nactive(address()); }
     /** Returns a {@link NkColor} view of the {@code border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor border_color() { return nborder_color(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem cursor_normal() { return ncursor_normal(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem cursor_hover() { return ncursor_hover(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem cursor_active() { return ncursor_active(address()); }
     /** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor cursor_border_color() { return ncursor_border_color(address()); }
     /** Returns the value of the {@code rounding} field. */
     public float rounding() { return nrounding(address()); }
@@ -145,30 +154,34 @@ public class NkStyleProgress extends Struct implements NativeResource {
     /** Returns the value of the {@code cursor_rounding} field. */
     public float cursor_rounding() { return ncursor_rounding(address()); }
     /** Returns a {@link NkVec2} view of the {@code padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 padding() { return npadding(address()); }
     /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+    @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code draw_begin} field. */
+    @NativeType("nk_draw_begin")
     public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
     /** Returns the value of the {@code draw_end} field. */
+    @NativeType("nk_draw_end")
     public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
     /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-    public NkStyleProgress normal(NkStyleItem value) { nnormal(address(), value); return this; }
+    public NkStyleProgress normal(@NativeType("struct nk_style_item") NkStyleItem value) { nnormal(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-    public NkStyleProgress hover(NkStyleItem value) { nhover(address(), value); return this; }
+    public NkStyleProgress hover(@NativeType("struct nk_style_item") NkStyleItem value) { nhover(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-    public NkStyleProgress active(NkStyleItem value) { nactive(address(), value); return this; }
+    public NkStyleProgress active(@NativeType("struct nk_style_item") NkStyleItem value) { nactive(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-    public NkStyleProgress border_color(NkColor value) { nborder_color(address(), value); return this; }
+    public NkStyleProgress border_color(@NativeType("struct nk_color") NkColor value) { nborder_color(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
-    public NkStyleProgress cursor_normal(NkStyleItem value) { ncursor_normal(address(), value); return this; }
+    public NkStyleProgress cursor_normal(@NativeType("struct nk_style_item") NkStyleItem value) { ncursor_normal(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
-    public NkStyleProgress cursor_hover(NkStyleItem value) { ncursor_hover(address(), value); return this; }
+    public NkStyleProgress cursor_hover(@NativeType("struct nk_style_item") NkStyleItem value) { ncursor_hover(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
-    public NkStyleProgress cursor_active(NkStyleItem value) { ncursor_active(address(), value); return this; }
+    public NkStyleProgress cursor_active(@NativeType("struct nk_style_item") NkStyleItem value) { ncursor_active(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
-    public NkStyleProgress cursor_border_color(NkColor value) { ncursor_border_color(address(), value); return this; }
+    public NkStyleProgress cursor_border_color(@NativeType("struct nk_color") NkColor value) { ncursor_border_color(address(), value); return this; }
     /** Sets the specified value to the {@code rounding} field. */
     public NkStyleProgress rounding(float value) { nrounding(address(), value); return this; }
     /** Sets the specified value to the {@code border} field. */
@@ -178,13 +191,13 @@ public class NkStyleProgress extends Struct implements NativeResource {
     /** Sets the specified value to the {@code cursor_rounding} field. */
     public NkStyleProgress cursor_rounding(float value) { ncursor_rounding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-    public NkStyleProgress padding(NkVec2 value) { npadding(address(), value); return this; }
+    public NkStyleProgress padding(@NativeType("struct nk_vec2") NkVec2 value) { npadding(address(), value); return this; }
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-    public NkStyleProgress userdata(NkHandle value) { nuserdata(address(), value); return this; }
+    public NkStyleProgress userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code draw_begin} field. */
-    public NkStyleProgress draw_begin(NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+    public NkStyleProgress draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
     /** Sets the specified value to the {@code draw_end} field. */
-    public NkStyleProgress draw_end(NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
+    public NkStyleProgress draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleProgress set(
@@ -475,20 +488,28 @@ public class NkStyleProgress extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem normal() { return NkStyleProgress.nnormal(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem hover() { return NkStyleProgress.nhover(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem active() { return NkStyleProgress.nactive(address()); }
         /** Returns a {@link NkColor} view of the {@code border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor border_color() { return NkStyleProgress.nborder_color(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code cursor_normal} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem cursor_normal() { return NkStyleProgress.ncursor_normal(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code cursor_hover} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem cursor_hover() { return NkStyleProgress.ncursor_hover(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code cursor_active} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem cursor_active() { return NkStyleProgress.ncursor_active(address()); }
         /** Returns a {@link NkColor} view of the {@code cursor_border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor cursor_border_color() { return NkStyleProgress.ncursor_border_color(address()); }
         /** Returns the value of the {@code rounding} field. */
         public float rounding() { return NkStyleProgress.nrounding(address()); }
@@ -499,30 +520,34 @@ public class NkStyleProgress extends Struct implements NativeResource {
         /** Returns the value of the {@code cursor_rounding} field. */
         public float cursor_rounding() { return NkStyleProgress.ncursor_rounding(address()); }
         /** Returns a {@link NkVec2} view of the {@code padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 padding() { return NkStyleProgress.npadding(address()); }
         /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+        @NativeType("nk_handle")
         public NkHandle userdata() { return NkStyleProgress.nuserdata(address()); }
         /** Returns the value of the {@code draw_begin} field. */
+        @NativeType("nk_draw_begin")
         public NkDrawBeginCallback draw_begin() { return NkStyleProgress.ndraw_begin(address()); }
         /** Returns the value of the {@code draw_end} field. */
+        @NativeType("nk_draw_end")
         public NkDrawEndCallback draw_end() { return NkStyleProgress.ndraw_end(address()); }
 
         /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-        public NkStyleProgress.Buffer normal(NkStyleItem value) { NkStyleProgress.nnormal(address(), value); return this; }
+        public NkStyleProgress.Buffer normal(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleProgress.nnormal(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-        public NkStyleProgress.Buffer hover(NkStyleItem value) { NkStyleProgress.nhover(address(), value); return this; }
+        public NkStyleProgress.Buffer hover(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleProgress.nhover(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-        public NkStyleProgress.Buffer active(NkStyleItem value) { NkStyleProgress.nactive(address(), value); return this; }
+        public NkStyleProgress.Buffer active(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleProgress.nactive(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-        public NkStyleProgress.Buffer border_color(NkColor value) { NkStyleProgress.nborder_color(address(), value); return this; }
+        public NkStyleProgress.Buffer border_color(@NativeType("struct nk_color") NkColor value) { NkStyleProgress.nborder_color(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code cursor_normal} field. */
-        public NkStyleProgress.Buffer cursor_normal(NkStyleItem value) { NkStyleProgress.ncursor_normal(address(), value); return this; }
+        public NkStyleProgress.Buffer cursor_normal(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleProgress.ncursor_normal(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code cursor_hover} field. */
-        public NkStyleProgress.Buffer cursor_hover(NkStyleItem value) { NkStyleProgress.ncursor_hover(address(), value); return this; }
+        public NkStyleProgress.Buffer cursor_hover(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleProgress.ncursor_hover(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code cursor_active} field. */
-        public NkStyleProgress.Buffer cursor_active(NkStyleItem value) { NkStyleProgress.ncursor_active(address(), value); return this; }
+        public NkStyleProgress.Buffer cursor_active(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleProgress.ncursor_active(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code cursor_border_color} field. */
-        public NkStyleProgress.Buffer cursor_border_color(NkColor value) { NkStyleProgress.ncursor_border_color(address(), value); return this; }
+        public NkStyleProgress.Buffer cursor_border_color(@NativeType("struct nk_color") NkColor value) { NkStyleProgress.ncursor_border_color(address(), value); return this; }
         /** Sets the specified value to the {@code rounding} field. */
         public NkStyleProgress.Buffer rounding(float value) { NkStyleProgress.nrounding(address(), value); return this; }
         /** Sets the specified value to the {@code border} field. */
@@ -532,13 +557,13 @@ public class NkStyleProgress extends Struct implements NativeResource {
         /** Sets the specified value to the {@code cursor_rounding} field. */
         public NkStyleProgress.Buffer cursor_rounding(float value) { NkStyleProgress.ncursor_rounding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-        public NkStyleProgress.Buffer padding(NkVec2 value) { NkStyleProgress.npadding(address(), value); return this; }
+        public NkStyleProgress.Buffer padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleProgress.npadding(address(), value); return this; }
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-        public NkStyleProgress.Buffer userdata(NkHandle value) { NkStyleProgress.nuserdata(address(), value); return this; }
+        public NkStyleProgress.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkStyleProgress.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code draw_begin} field. */
-        public NkStyleProgress.Buffer draw_begin(NkDrawBeginCallbackI value) { NkStyleProgress.ndraw_begin(address(), value); return this; }
+        public NkStyleProgress.Buffer draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleProgress.ndraw_begin(address(), value); return this; }
         /** Sets the specified value to the {@code draw_end} field. */
-        public NkStyleProgress.Buffer draw_end(NkDrawEndCallbackI value) { NkStyleProgress.ndraw_end(address(), value); return this; }
+        public NkStyleProgress.Buffer draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleProgress.ndraw_end(address(), value); return this; }
 
     }
 

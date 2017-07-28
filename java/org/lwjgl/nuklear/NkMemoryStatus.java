@@ -26,6 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     nk_size calls;
  * }</pre></code>
  */
+@NativeType("struct nk_memory_status")
 public class NkMemoryStatus extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -81,16 +82,22 @@ public class NkMemoryStatus extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code memory} field. */
+    @NativeType("void *")
     public ByteBuffer memory() { return nmemory(address()); }
     /** Returns the value of the {@code type} field. */
+    @NativeType("unsigned int")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("nk_size")
     public long size() { return nsize(address()); }
     /** Returns the value of the {@code allocated} field. */
+    @NativeType("nk_size")
     public long allocated() { return nallocated(address()); }
     /** Returns the value of the {@code needed} field. */
+    @NativeType("nk_size")
     public long needed() { return nneeded(address()); }
     /** Returns the value of the {@code calls} field. */
+    @NativeType("nk_size")
     public long calls() { return ncalls(address()); }
 
     // -----------------------------------
@@ -278,16 +285,22 @@ public class NkMemoryStatus extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code memory} field. */
+        @NativeType("void *")
         public ByteBuffer memory() { return NkMemoryStatus.nmemory(address()); }
         /** Returns the value of the {@code type} field. */
+        @NativeType("unsigned int")
         public int type() { return NkMemoryStatus.ntype(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("nk_size")
         public long size() { return NkMemoryStatus.nsize(address()); }
         /** Returns the value of the {@code allocated} field. */
+        @NativeType("nk_size")
         public long allocated() { return NkMemoryStatus.nallocated(address()); }
         /** Returns the value of the {@code needed} field. */
+        @NativeType("nk_size")
         public long needed() { return NkMemoryStatus.nneeded(address()); }
         /** Returns the value of the {@code calls} field. */
+        @NativeType("nk_size")
         public long calls() { return NkMemoryStatus.ncalls(address()); }
 
     }

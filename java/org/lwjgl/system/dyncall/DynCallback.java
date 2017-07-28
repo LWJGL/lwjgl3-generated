@@ -50,7 +50,8 @@ public class DynCallback {
      * @param funcptr   a pointer to a callback handler
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
-    public static long dcbNewCallback(ByteBuffer signature, long funcptr, long userdata) {
+    @NativeType("DCCallback *")
+    public static long dcbNewCallback(@NativeType("const char *") ByteBuffer signature, @NativeType("DCCallbackHandler *") long funcptr, @NativeType("void *") long userdata) {
         if (CHECKS) {
             checkNT1(signature);
             check(funcptr);
@@ -68,7 +69,8 @@ public class DynCallback {
      * @param funcptr   a pointer to a callback handler
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
-    public static long dcbNewCallback(CharSequence signature, long funcptr, long userdata) {
+    @NativeType("DCCallback *")
+    public static long dcbNewCallback(@NativeType("const char *") CharSequence signature, @NativeType("DCCallbackHandler *") long funcptr, @NativeType("void *") long userdata) {
         if (CHECKS) {
             check(funcptr);
             check(userdata);
@@ -95,7 +97,7 @@ public class DynCallback {
      * @param handler   a pointer to a callback handler
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
-    public static void dcbInitCallback(long pcb, ByteBuffer signature, long handler, long userdata) {
+    public static void dcbInitCallback(@NativeType("DCCallback *") long pcb, @NativeType("const char *") ByteBuffer signature, @NativeType("DCCallbackHandler *") long handler, @NativeType("void *") long userdata) {
         if (CHECKS) {
             check(pcb);
             checkNT1(signature);
@@ -113,7 +115,7 @@ public class DynCallback {
      * @param handler   a pointer to a callback handler
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
-    public static void dcbInitCallback(long pcb, CharSequence signature, long handler, long userdata) {
+    public static void dcbInitCallback(@NativeType("DCCallback *") long pcb, @NativeType("const char *") CharSequence signature, @NativeType("DCCallbackHandler *") long handler, @NativeType("void *") long userdata) {
         if (CHECKS) {
             check(pcb);
             check(handler);
@@ -138,7 +140,7 @@ public class DynCallback {
      *
      * @param pcb the callback object
      */
-    public static void dcbFreeCallback(long pcb) {
+    public static void dcbFreeCallback(@NativeType("DCCallback *") long pcb) {
         if (CHECKS) {
             check(pcb);
         }
@@ -155,7 +157,8 @@ public class DynCallback {
      *
      * @param pcb the callback object
      */
-    public static long dcbGetUserData(long pcb) {
+    @NativeType("void *")
+    public static long dcbGetUserData(@NativeType("DCCallback *") long pcb) {
         if (CHECKS) {
             check(pcb);
         }
@@ -172,7 +175,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static boolean dcbArgBool(long args) {
+    @NativeType("DCbool")
+    public static boolean dcbArgBool(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -189,7 +193,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static byte dcbArgChar(long args) {
+    @NativeType("DCchar")
+    public static byte dcbArgChar(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -206,7 +211,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static short dcbArgShort(long args) {
+    @NativeType("DCshort")
+    public static short dcbArgShort(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -223,7 +229,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static int dcbArgInt(long args) {
+    @NativeType("DCint")
+    public static int dcbArgInt(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -240,7 +247,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static int dcbArgLong(long args) {
+    @NativeType("DClong")
+    public static int dcbArgLong(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -257,7 +265,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static long dcbArgLongLong(long args) {
+    @NativeType("DClonglong")
+    public static long dcbArgLongLong(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -274,7 +283,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static byte dcbArgUChar(long args) {
+    @NativeType("DCchar")
+    public static byte dcbArgUChar(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -291,7 +301,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static short dcbArgUShort(long args) {
+    @NativeType("DCshort")
+    public static short dcbArgUShort(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -308,7 +319,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static int dcbArgUInt(long args) {
+    @NativeType("DCint")
+    public static int dcbArgUInt(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -325,7 +337,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static int dcbArgULong(long args) {
+    @NativeType("DClong")
+    public static int dcbArgULong(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -342,7 +355,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static long dcbArgULongLong(long args) {
+    @NativeType("DClonglong")
+    public static long dcbArgULongLong(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -359,7 +373,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static float dcbArgFloat(long args) {
+    @NativeType("DCfloat")
+    public static float dcbArgFloat(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -376,7 +391,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static double dcbArgDouble(long args) {
+    @NativeType("DCdouble")
+    public static double dcbArgDouble(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }
@@ -393,7 +409,8 @@ public class DynCallback {
      *
      * @param args the function arguments
      */
-    public static long dcbArgPointer(long args) {
+    @NativeType("DCpointer")
+    public static long dcbArgPointer(@NativeType("DCArgs *") long args) {
         if (CHECKS) {
             check(args);
         }

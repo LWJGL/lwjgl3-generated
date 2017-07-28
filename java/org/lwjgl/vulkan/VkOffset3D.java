@@ -79,18 +79,21 @@ public class VkOffset3D extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("int32_t")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("int32_t")
     public int y() { return ny(address()); }
     /** Returns the value of the {@code z} field. */
+    @NativeType("int32_t")
     public int z() { return nz(address()); }
 
     /** Sets the specified value to the {@code x} field. */
-    public VkOffset3D x(int value) { nx(address(), value); return this; }
+    public VkOffset3D x(@NativeType("int32_t") int value) { nx(address(), value); return this; }
     /** Sets the specified value to the {@code y} field. */
-    public VkOffset3D y(int value) { ny(address(), value); return this; }
+    public VkOffset3D y(@NativeType("int32_t") int value) { ny(address(), value); return this; }
     /** Sets the specified value to the {@code z} field. */
-    public VkOffset3D z(int value) { nz(address(), value); return this; }
+    public VkOffset3D z(@NativeType("int32_t") int value) { nz(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkOffset3D set(
@@ -303,18 +306,21 @@ public class VkOffset3D extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("int32_t")
         public int x() { return VkOffset3D.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("int32_t")
         public int y() { return VkOffset3D.ny(address()); }
         /** Returns the value of the {@code z} field. */
+        @NativeType("int32_t")
         public int z() { return VkOffset3D.nz(address()); }
 
         /** Sets the specified value to the {@code x} field. */
-        public VkOffset3D.Buffer x(int value) { VkOffset3D.nx(address(), value); return this; }
+        public VkOffset3D.Buffer x(@NativeType("int32_t") int value) { VkOffset3D.nx(address(), value); return this; }
         /** Sets the specified value to the {@code y} field. */
-        public VkOffset3D.Buffer y(int value) { VkOffset3D.ny(address(), value); return this; }
+        public VkOffset3D.Buffer y(@NativeType("int32_t") int value) { VkOffset3D.ny(address(), value); return this; }
         /** Sets the specified value to the {@code z} field. */
-        public VkOffset3D.Buffer z(int value) { VkOffset3D.nz(address(), value); return this; }
+        public VkOffset3D.Buffer z(@NativeType("int32_t") int value) { VkOffset3D.nz(address(), value); return this; }
 
     }
 

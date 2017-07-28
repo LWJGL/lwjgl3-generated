@@ -108,20 +108,28 @@ public class VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT extends Struct 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code advancedBlendMaxColorAttachments} field. */
+    @NativeType("uint32_t")
     public int advancedBlendMaxColorAttachments() { return nadvancedBlendMaxColorAttachments(address()); }
     /** Returns the value of the {@code advancedBlendIndependentBlend} field. */
+    @NativeType("VkBool32")
     public boolean advancedBlendIndependentBlend() { return nadvancedBlendIndependentBlend(address()) != 0; }
     /** Returns the value of the {@code advancedBlendNonPremultipliedSrcColor} field. */
+    @NativeType("VkBool32")
     public boolean advancedBlendNonPremultipliedSrcColor() { return nadvancedBlendNonPremultipliedSrcColor(address()) != 0; }
     /** Returns the value of the {@code advancedBlendNonPremultipliedDstColor} field. */
+    @NativeType("VkBool32")
     public boolean advancedBlendNonPremultipliedDstColor() { return nadvancedBlendNonPremultipliedDstColor(address()) != 0; }
     /** Returns the value of the {@code advancedBlendCorrelatedOverlap} field. */
+    @NativeType("VkBool32")
     public boolean advancedBlendCorrelatedOverlap() { return nadvancedBlendCorrelatedOverlap(address()) != 0; }
     /** Returns the value of the {@code advancedBlendAllOperations} field. */
+    @NativeType("VkBool32")
     public boolean advancedBlendAllOperations() { return nadvancedBlendAllOperations(address()) != 0; }
 
     // -----------------------------------
@@ -203,20 +211,28 @@ public class VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT extends Struct 
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.npNext(address()); }
         /** Returns the value of the {@code advancedBlendMaxColorAttachments} field. */
+        @NativeType("uint32_t")
         public int advancedBlendMaxColorAttachments() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nadvancedBlendMaxColorAttachments(address()); }
         /** Returns the value of the {@code advancedBlendIndependentBlend} field. */
+        @NativeType("VkBool32")
         public boolean advancedBlendIndependentBlend() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nadvancedBlendIndependentBlend(address()) != 0; }
         /** Returns the value of the {@code advancedBlendNonPremultipliedSrcColor} field. */
+        @NativeType("VkBool32")
         public boolean advancedBlendNonPremultipliedSrcColor() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nadvancedBlendNonPremultipliedSrcColor(address()) != 0; }
         /** Returns the value of the {@code advancedBlendNonPremultipliedDstColor} field. */
+        @NativeType("VkBool32")
         public boolean advancedBlendNonPremultipliedDstColor() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nadvancedBlendNonPremultipliedDstColor(address()) != 0; }
         /** Returns the value of the {@code advancedBlendCorrelatedOverlap} field. */
+        @NativeType("VkBool32")
         public boolean advancedBlendCorrelatedOverlap() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nadvancedBlendCorrelatedOverlap(address()) != 0; }
         /** Returns the value of the {@code advancedBlendAllOperations} field. */
+        @NativeType("VkBool32")
         public boolean advancedBlendAllOperations() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nadvancedBlendAllOperations(address()) != 0; }
 
     }

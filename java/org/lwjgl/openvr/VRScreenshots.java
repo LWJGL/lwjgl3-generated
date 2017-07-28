@@ -51,7 +51,8 @@ public class VRScreenshots {
      * @param pchPreviewFilename   
      * @param pchVRFilename        
      */
-    public static int VRScreenshots_RequestScreenshot(IntBuffer pOutScreenshotHandle, int type, ByteBuffer pchPreviewFilename, ByteBuffer pchVRFilename) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_RequestScreenshot(@NativeType("ScreenshotHandle_t *") IntBuffer pOutScreenshotHandle, @NativeType("EVRScreenshotType") int type, @NativeType("const char *") ByteBuffer pchPreviewFilename, @NativeType("const char *") ByteBuffer pchVRFilename) {
         if (CHECKS) {
             check(pOutScreenshotHandle, 1);
             checkNT1(pchPreviewFilename);
@@ -79,7 +80,8 @@ public class VRScreenshots {
      * @param pchPreviewFilename   
      * @param pchVRFilename        
      */
-    public static int VRScreenshots_RequestScreenshot(IntBuffer pOutScreenshotHandle, int type, CharSequence pchPreviewFilename, CharSequence pchVRFilename) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_RequestScreenshot(@NativeType("ScreenshotHandle_t *") IntBuffer pOutScreenshotHandle, @NativeType("EVRScreenshotType") int type, @NativeType("const char *") CharSequence pchPreviewFilename, @NativeType("const char *") CharSequence pchVRFilename) {
         if (CHECKS) {
             check(pOutScreenshotHandle, 1);
         }
@@ -112,7 +114,8 @@ public class VRScreenshots {
      *
      * @param pSupportedTypes 
      */
-    public static int VRScreenshots_HookScreenshot(IntBuffer pSupportedTypes) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_HookScreenshot(@NativeType("const EVRScreenshotType *") IntBuffer pSupportedTypes) {
         return nVRScreenshots_HookScreenshot(memAddress(pSupportedTypes), pSupportedTypes.remaining());
     }
 
@@ -133,7 +136,8 @@ public class VRScreenshots {
      * @param screenshotHandle 
      * @param pError           
      */
-    public static int VRScreenshots_GetScreenshotPropertyType(int screenshotHandle, IntBuffer pError) {
+    @NativeType("EVRScreenshotType")
+    public static int VRScreenshots_GetScreenshotPropertyType(@NativeType("ScreenshotHandle_t") int screenshotHandle, @NativeType("EVRScreenshotError *") IntBuffer pError) {
         if (CHECKS) {
             check(pError, 1);
         }
@@ -161,7 +165,8 @@ public class VRScreenshots {
      *
      * @return the size of the string
      */
-    public static int VRScreenshots_GetScreenshotPropertyFilename(int screenshotHandle, int filenameType, ByteBuffer pchFilename, IntBuffer pError) {
+    @NativeType("uint32_t")
+    public static int VRScreenshots_GetScreenshotPropertyFilename(@NativeType("ScreenshotHandle_t") int screenshotHandle, @NativeType("EVRScreenshotPropertyFilenames") int filenameType, @NativeType("char *") ByteBuffer pchFilename, @NativeType("EVRScreenshotError *") IntBuffer pError) {
         if (CHECKS) {
             check(pError, 1);
         }
@@ -178,7 +183,8 @@ public class VRScreenshots {
      *
      * @return the size of the string
      */
-    public static String VRScreenshots_GetScreenshotPropertyFilename(int screenshotHandle, int filenameType, int cchFilename, IntBuffer pError) {
+    @NativeType("uint32_t")
+    public static String VRScreenshots_GetScreenshotPropertyFilename(@NativeType("ScreenshotHandle_t") int screenshotHandle, @NativeType("EVRScreenshotPropertyFilenames") int filenameType, @NativeType("uint32_t") int cchFilename, @NativeType("EVRScreenshotError *") IntBuffer pError) {
         if (CHECKS) {
             check(pError, 1);
         }
@@ -201,7 +207,8 @@ public class VRScreenshots {
      * @param screenshotHandle 
      * @param flProgress       
      */
-    public static int VRScreenshots_UpdateScreenshotProgress(int screenshotHandle, float flProgress) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_UpdateScreenshotProgress(@NativeType("ScreenshotHandle_t") int screenshotHandle, float flProgress) {
         long __functionAddress = OpenVR.VRScreenshots.UpdateScreenshotProgress;
         if (CHECKS) {
             check(__functionAddress);
@@ -230,7 +237,8 @@ public class VRScreenshots {
      * @param pchPreviewFilename   
      * @param pchVRFilename        
      */
-    public static int VRScreenshots_TakeStereoScreenshot(IntBuffer pOutScreenshotHandle, ByteBuffer pchPreviewFilename, ByteBuffer pchVRFilename) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_TakeStereoScreenshot(@NativeType("ScreenshotHandle_t *") IntBuffer pOutScreenshotHandle, @NativeType("const char *") ByteBuffer pchPreviewFilename, @NativeType("const char *") ByteBuffer pchVRFilename) {
         if (CHECKS) {
             check(pOutScreenshotHandle, 1);
             checkNT1(pchPreviewFilename);
@@ -249,7 +257,8 @@ public class VRScreenshots {
      * @param pchPreviewFilename   
      * @param pchVRFilename        
      */
-    public static int VRScreenshots_TakeStereoScreenshot(IntBuffer pOutScreenshotHandle, CharSequence pchPreviewFilename, CharSequence pchVRFilename) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_TakeStereoScreenshot(@NativeType("ScreenshotHandle_t *") IntBuffer pOutScreenshotHandle, @NativeType("const char *") CharSequence pchPreviewFilename, @NativeType("const char *") CharSequence pchVRFilename) {
         if (CHECKS) {
             check(pOutScreenshotHandle, 1);
         }
@@ -291,7 +300,8 @@ public class VRScreenshots {
      * @param pchSourcePreviewFilename 
      * @param pchSourceVRFilename      
      */
-    public static int VRScreenshots_SubmitScreenshot(int screenshotHandle, int type, ByteBuffer pchSourcePreviewFilename, ByteBuffer pchSourceVRFilename) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_SubmitScreenshot(@NativeType("ScreenshotHandle_t") int screenshotHandle, @NativeType("EVRScreenshotType") int type, @NativeType("const char *") ByteBuffer pchSourcePreviewFilename, @NativeType("const char *") ByteBuffer pchSourceVRFilename) {
         if (CHECKS) {
             checkNT1(pchSourcePreviewFilename);
             checkNT1(pchSourceVRFilename);
@@ -316,7 +326,8 @@ public class VRScreenshots {
      * @param pchSourcePreviewFilename 
      * @param pchSourceVRFilename      
      */
-    public static int VRScreenshots_SubmitScreenshot(int screenshotHandle, int type, CharSequence pchSourcePreviewFilename, CharSequence pchSourceVRFilename) {
+    @NativeType("EVRScreenshotError")
+    public static int VRScreenshots_SubmitScreenshot(@NativeType("ScreenshotHandle_t") int screenshotHandle, @NativeType("EVRScreenshotType") int type, @NativeType("const char *") CharSequence pchSourcePreviewFilename, @NativeType("const char *") CharSequence pchSourceVRFilename) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchSourcePreviewFilenameEncoded = stack.ASCII(pchSourcePreviewFilename);

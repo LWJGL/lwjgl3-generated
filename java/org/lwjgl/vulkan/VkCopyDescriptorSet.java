@@ -133,42 +133,51 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code srcSet} field. */
+    @NativeType("VkDescriptorSet")
     public long srcSet() { return nsrcSet(address()); }
     /** Returns the value of the {@code srcBinding} field. */
+    @NativeType("uint32_t")
     public int srcBinding() { return nsrcBinding(address()); }
     /** Returns the value of the {@code srcArrayElement} field. */
+    @NativeType("uint32_t")
     public int srcArrayElement() { return nsrcArrayElement(address()); }
     /** Returns the value of the {@code dstSet} field. */
+    @NativeType("VkDescriptorSet")
     public long dstSet() { return ndstSet(address()); }
     /** Returns the value of the {@code dstBinding} field. */
+    @NativeType("uint32_t")
     public int dstBinding() { return ndstBinding(address()); }
     /** Returns the value of the {@code dstArrayElement} field. */
+    @NativeType("uint32_t")
     public int dstArrayElement() { return ndstArrayElement(address()); }
     /** Returns the value of the {@code descriptorCount} field. */
+    @NativeType("uint32_t")
     public int descriptorCount() { return ndescriptorCount(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkCopyDescriptorSet sType(int value) { nsType(address(), value); return this; }
+    public VkCopyDescriptorSet sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCopyDescriptorSet pNext(long value) { npNext(address(), value); return this; }
+    public VkCopyDescriptorSet pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code srcSet} field. */
-    public VkCopyDescriptorSet srcSet(long value) { nsrcSet(address(), value); return this; }
+    public VkCopyDescriptorSet srcSet(@NativeType("VkDescriptorSet") long value) { nsrcSet(address(), value); return this; }
     /** Sets the specified value to the {@code srcBinding} field. */
-    public VkCopyDescriptorSet srcBinding(int value) { nsrcBinding(address(), value); return this; }
+    public VkCopyDescriptorSet srcBinding(@NativeType("uint32_t") int value) { nsrcBinding(address(), value); return this; }
     /** Sets the specified value to the {@code srcArrayElement} field. */
-    public VkCopyDescriptorSet srcArrayElement(int value) { nsrcArrayElement(address(), value); return this; }
+    public VkCopyDescriptorSet srcArrayElement(@NativeType("uint32_t") int value) { nsrcArrayElement(address(), value); return this; }
     /** Sets the specified value to the {@code dstSet} field. */
-    public VkCopyDescriptorSet dstSet(long value) { ndstSet(address(), value); return this; }
+    public VkCopyDescriptorSet dstSet(@NativeType("VkDescriptorSet") long value) { ndstSet(address(), value); return this; }
     /** Sets the specified value to the {@code dstBinding} field. */
-    public VkCopyDescriptorSet dstBinding(int value) { ndstBinding(address(), value); return this; }
+    public VkCopyDescriptorSet dstBinding(@NativeType("uint32_t") int value) { ndstBinding(address(), value); return this; }
     /** Sets the specified value to the {@code dstArrayElement} field. */
-    public VkCopyDescriptorSet dstArrayElement(int value) { ndstArrayElement(address(), value); return this; }
+    public VkCopyDescriptorSet dstArrayElement(@NativeType("uint32_t") int value) { ndstArrayElement(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorCount} field. */
-    public VkCopyDescriptorSet descriptorCount(int value) { ndescriptorCount(address(), value); return this; }
+    public VkCopyDescriptorSet descriptorCount(@NativeType("uint32_t") int value) { ndescriptorCount(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkCopyDescriptorSet set(
@@ -417,42 +426,51 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkCopyDescriptorSet.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkCopyDescriptorSet.npNext(address()); }
         /** Returns the value of the {@code srcSet} field. */
+        @NativeType("VkDescriptorSet")
         public long srcSet() { return VkCopyDescriptorSet.nsrcSet(address()); }
         /** Returns the value of the {@code srcBinding} field. */
+        @NativeType("uint32_t")
         public int srcBinding() { return VkCopyDescriptorSet.nsrcBinding(address()); }
         /** Returns the value of the {@code srcArrayElement} field. */
+        @NativeType("uint32_t")
         public int srcArrayElement() { return VkCopyDescriptorSet.nsrcArrayElement(address()); }
         /** Returns the value of the {@code dstSet} field. */
+        @NativeType("VkDescriptorSet")
         public long dstSet() { return VkCopyDescriptorSet.ndstSet(address()); }
         /** Returns the value of the {@code dstBinding} field. */
+        @NativeType("uint32_t")
         public int dstBinding() { return VkCopyDescriptorSet.ndstBinding(address()); }
         /** Returns the value of the {@code dstArrayElement} field. */
+        @NativeType("uint32_t")
         public int dstArrayElement() { return VkCopyDescriptorSet.ndstArrayElement(address()); }
         /** Returns the value of the {@code descriptorCount} field. */
+        @NativeType("uint32_t")
         public int descriptorCount() { return VkCopyDescriptorSet.ndescriptorCount(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkCopyDescriptorSet.Buffer sType(int value) { VkCopyDescriptorSet.nsType(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer sType(@NativeType("VkStructureType") int value) { VkCopyDescriptorSet.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCopyDescriptorSet.Buffer pNext(long value) { VkCopyDescriptorSet.npNext(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer pNext(@NativeType("const void *") long value) { VkCopyDescriptorSet.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code srcSet} field. */
-        public VkCopyDescriptorSet.Buffer srcSet(long value) { VkCopyDescriptorSet.nsrcSet(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer srcSet(@NativeType("VkDescriptorSet") long value) { VkCopyDescriptorSet.nsrcSet(address(), value); return this; }
         /** Sets the specified value to the {@code srcBinding} field. */
-        public VkCopyDescriptorSet.Buffer srcBinding(int value) { VkCopyDescriptorSet.nsrcBinding(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer srcBinding(@NativeType("uint32_t") int value) { VkCopyDescriptorSet.nsrcBinding(address(), value); return this; }
         /** Sets the specified value to the {@code srcArrayElement} field. */
-        public VkCopyDescriptorSet.Buffer srcArrayElement(int value) { VkCopyDescriptorSet.nsrcArrayElement(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer srcArrayElement(@NativeType("uint32_t") int value) { VkCopyDescriptorSet.nsrcArrayElement(address(), value); return this; }
         /** Sets the specified value to the {@code dstSet} field. */
-        public VkCopyDescriptorSet.Buffer dstSet(long value) { VkCopyDescriptorSet.ndstSet(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer dstSet(@NativeType("VkDescriptorSet") long value) { VkCopyDescriptorSet.ndstSet(address(), value); return this; }
         /** Sets the specified value to the {@code dstBinding} field. */
-        public VkCopyDescriptorSet.Buffer dstBinding(int value) { VkCopyDescriptorSet.ndstBinding(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer dstBinding(@NativeType("uint32_t") int value) { VkCopyDescriptorSet.ndstBinding(address(), value); return this; }
         /** Sets the specified value to the {@code dstArrayElement} field. */
-        public VkCopyDescriptorSet.Buffer dstArrayElement(int value) { VkCopyDescriptorSet.ndstArrayElement(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer dstArrayElement(@NativeType("uint32_t") int value) { VkCopyDescriptorSet.ndstArrayElement(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorCount} field. */
-        public VkCopyDescriptorSet.Buffer descriptorCount(int value) { VkCopyDescriptorSet.ndescriptorCount(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer descriptorCount(@NativeType("uint32_t") int value) { VkCopyDescriptorSet.ndescriptorCount(address(), value); return this; }
 
     }
 

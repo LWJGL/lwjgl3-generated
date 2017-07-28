@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -79,6 +81,6 @@ public class EXTRasterMultisample {
      * @param samples              the number of samples to be used for rasterization
      * @param fixedsamplelocations if {@link GL11#GL_TRUE TRUE}, identical sample locations will be used for all pixels
      */
-    public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
+    public static native void glRasterSamplesEXT(@NativeType("GLuint") int samples, @NativeType("GLboolean") boolean fixedsamplelocations);
 
 }

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
 @FunctionalInterface
+@NativeType("stbi_io_callbacks.skip")
 public interface STBISkipCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";
@@ -32,6 +33,6 @@ public interface STBISkipCallbackI extends CallbackI.V {
      * @param user a pointer to user data
      * @param n    the number of bytes to skip if positive, or <em>unget</em> the last {@code -n} bytes if negative
      */
-    void invoke(long user, int n);
+    void invoke(@NativeType("void *") long user, int n);
 
 }

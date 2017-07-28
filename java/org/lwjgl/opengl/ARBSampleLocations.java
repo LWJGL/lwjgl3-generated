@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -82,7 +84,7 @@ public class ARBSampleLocations {
      * @param start  the first sample location to update
      * @param v      a pair of values for each sample location to update
      */
-    public static void glFramebufferSampleLocationsfvARB(int target, int start, FloatBuffer v) {
+    public static void glFramebufferSampleLocationsfvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int start, @NativeType("const GLfloat *") FloatBuffer v) {
         nglFramebufferSampleLocationsfvARB(target, start, v.remaining() >> 1, memAddress(v));
     }
 
@@ -102,7 +104,7 @@ public class ARBSampleLocations {
      * @param start       the first sample location to update
      * @param v           a pair of values for each sample location to update
      */
-    public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, FloatBuffer v) {
+    public static void glNamedFramebufferSampleLocationsfvARB(@NativeType("GLuint") int framebuffer, @NativeType("GLuint") int start, @NativeType("const GLfloat *") FloatBuffer v) {
         nglNamedFramebufferSampleLocationsfvARB(framebuffer, start, v.remaining() >> 1, memAddress(v));
     }
 
@@ -116,7 +118,7 @@ public class ARBSampleLocations {
     public static native void glEvaluateDepthValuesARB();
 
     /** Array version of: {@link #glFramebufferSampleLocationsfvARB FramebufferSampleLocationsfvARB} */
-    public static void glFramebufferSampleLocationsfvARB(int target, int start, float[] v) {
+    public static void glFramebufferSampleLocationsfvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int start, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glFramebufferSampleLocationsfvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -125,7 +127,7 @@ public class ARBSampleLocations {
     }
 
     /** Array version of: {@link #glNamedFramebufferSampleLocationsfvARB NamedFramebufferSampleLocationsfvARB} */
-    public static void glNamedFramebufferSampleLocationsfvARB(int framebuffer, int start, float[] v) {
+    public static void glNamedFramebufferSampleLocationsfvARB(@NativeType("GLuint") int framebuffer, @NativeType("GLuint") int start, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glNamedFramebufferSampleLocationsfvARB;
         if (CHECKS) {
             check(__functionAddress);

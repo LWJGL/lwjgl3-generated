@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -37,6 +39,7 @@ public class GLXSGISwapControl {
      *
      * @param interval the swap interval
      */
+    @NativeType("GLint")
     public static int glXSwapIntervalSGI(int interval) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalSGI;
         if (CHECKS) {

@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -124,7 +126,8 @@ public class WGLARBRenderTexture {
      * @param pbuffer a pbuffer handle
      * @param buffer  the target buffer. One of:<br><table><tr><td>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}</td><td>{@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}</td><td>{@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}</td><td>{@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}</td><td>{@link #WGL_AUX0_ARB AUX0_ARB}</td><td>WGL_AUX[1-9]_ARB</td></tr></table>
      */
-    public static boolean wglBindTexImageARB(long pbuffer, int buffer) {
+    @NativeType("BOOL")
+    public static boolean wglBindTexImageARB(@NativeType("HPBUFFERARB") long pbuffer, int buffer) {
         long __functionAddress = GL.getCapabilitiesWGL().wglBindTexImageARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -142,7 +145,8 @@ public class WGLARBRenderTexture {
      * @param pbuffer a pbuffer handle
      * @param buffer  the target buffer. One of:<br><table><tr><td>{@link #WGL_FRONT_LEFT_ARB FRONT_LEFT_ARB}</td><td>{@link #WGL_FRONT_RIGHT_ARB FRONT_RIGHT_ARB}</td><td>{@link #WGL_BACK_LEFT_ARB BACK_LEFT_ARB}</td><td>{@link #WGL_BACK_RIGHT_ARB BACK_RIGHT_ARB}</td><td>{@link #WGL_AUX0_ARB AUX0_ARB}</td><td>WGL_AUX[1-9]_ARB</td></tr></table>
      */
-    public static boolean wglReleaseTexImageARB(long pbuffer, int buffer) {
+    @NativeType("BOOL")
+    public static boolean wglReleaseTexImageARB(@NativeType("HPBUFFERARB") long pbuffer, int buffer) {
         long __functionAddress = GL.getCapabilitiesWGL().wglReleaseTexImageARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -169,7 +173,8 @@ public class WGLARBRenderTexture {
      * @param pbuffer    a pbuffer handle
      * @param attribList a 0-terminated list of attribute {type, value} pairs containing integer values
      */
-    public static boolean wglSetPbufferAttribARB(long pbuffer, IntBuffer attribList) {
+    @NativeType("BOOL")
+    public static boolean wglSetPbufferAttribARB(@NativeType("HPBUFFERARB") long pbuffer, @NativeType("const int *") IntBuffer attribList) {
         if (CHECKS) {
             checkNTSafe(attribList);
         }
@@ -177,7 +182,8 @@ public class WGLARBRenderTexture {
     }
 
     /** Array version of: {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
-    public static boolean wglSetPbufferAttribARB(long pbuffer, int[] attribList) {
+    @NativeType("BOOL")
+    public static boolean wglSetPbufferAttribARB(@NativeType("HPBUFFERARB") long pbuffer, @NativeType("const int *") int[] attribList) {
         long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
         if (CHECKS) {
             check(__functionAddress);

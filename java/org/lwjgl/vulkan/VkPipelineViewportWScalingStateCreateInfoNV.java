@@ -109,24 +109,29 @@ public class VkPipelineViewportWScalingStateCreateInfoNV extends Struct implemen
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code viewportWScalingEnable} field. */
+    @NativeType("VkBool32")
     public boolean viewportWScalingEnable() { return nviewportWScalingEnable(address()) != 0; }
     /** Returns the value of the {@code viewportCount} field. */
+    @NativeType("uint32_t")
     public int viewportCount() { return nviewportCount(address()); }
     /** Returns a {@link VkViewportWScalingNV.Buffer} view of the struct array pointed to by the {@code pViewportWScalings} field. */
+    @NativeType("const VkViewportWScalingNV *")
     public VkViewportWScalingNV.Buffer pViewportWScalings() { return npViewportWScalings(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineViewportWScalingStateCreateInfoNV sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineViewportWScalingStateCreateInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineViewportWScalingStateCreateInfoNV pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineViewportWScalingStateCreateInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code viewportWScalingEnable} field. */
-    public VkPipelineViewportWScalingStateCreateInfoNV viewportWScalingEnable(boolean value) { nviewportWScalingEnable(address(), value ? 1 : 0); return this; }
+    public VkPipelineViewportWScalingStateCreateInfoNV viewportWScalingEnable(@NativeType("VkBool32") boolean value) { nviewportWScalingEnable(address(), value ? 1 : 0); return this; }
     /** Sets the address of the specified {@link VkViewportWScalingNV.Buffer} to the {@code pViewportWScalings} field. */
-    public VkPipelineViewportWScalingStateCreateInfoNV pViewportWScalings(VkViewportWScalingNV.Buffer value) { npViewportWScalings(address(), value); return this; }
+    public VkPipelineViewportWScalingStateCreateInfoNV pViewportWScalings(@NativeType("const VkViewportWScalingNV *") VkViewportWScalingNV.Buffer value) { npViewportWScalings(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineViewportWScalingStateCreateInfoNV set(
@@ -370,24 +375,29 @@ public class VkPipelineViewportWScalingStateCreateInfoNV extends Struct implemen
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineViewportWScalingStateCreateInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineViewportWScalingStateCreateInfoNV.npNext(address()); }
         /** Returns the value of the {@code viewportWScalingEnable} field. */
+        @NativeType("VkBool32")
         public boolean viewportWScalingEnable() { return VkPipelineViewportWScalingStateCreateInfoNV.nviewportWScalingEnable(address()) != 0; }
         /** Returns the value of the {@code viewportCount} field. */
+        @NativeType("uint32_t")
         public int viewportCount() { return VkPipelineViewportWScalingStateCreateInfoNV.nviewportCount(address()); }
         /** Returns a {@link VkViewportWScalingNV.Buffer} view of the struct array pointed to by the {@code pViewportWScalings} field. */
+        @NativeType("const VkViewportWScalingNV *")
         public VkViewportWScalingNV.Buffer pViewportWScalings() { return VkPipelineViewportWScalingStateCreateInfoNV.npViewportWScalings(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer sType(int value) { VkPipelineViewportWScalingStateCreateInfoNV.nsType(address(), value); return this; }
+        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineViewportWScalingStateCreateInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer pNext(long value) { VkPipelineViewportWScalingStateCreateInfoNV.npNext(address(), value); return this; }
+        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkPipelineViewportWScalingStateCreateInfoNV.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code viewportWScalingEnable} field. */
-        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer viewportWScalingEnable(boolean value) { VkPipelineViewportWScalingStateCreateInfoNV.nviewportWScalingEnable(address(), value ? 1 : 0); return this; }
+        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer viewportWScalingEnable(@NativeType("VkBool32") boolean value) { VkPipelineViewportWScalingStateCreateInfoNV.nviewportWScalingEnable(address(), value ? 1 : 0); return this; }
         /** Sets the address of the specified {@link VkViewportWScalingNV.Buffer} to the {@code pViewportWScalings} field. */
-        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer pViewportWScalings(VkViewportWScalingNV.Buffer value) { VkPipelineViewportWScalingStateCreateInfoNV.npViewportWScalings(address(), value); return this; }
+        public VkPipelineViewportWScalingStateCreateInfoNV.Buffer pViewportWScalings(@NativeType("const VkViewportWScalingNV *") VkViewportWScalingNV.Buffer value) { VkPipelineViewportWScalingStateCreateInfoNV.npViewportWScalings(address(), value); return this; }
 
     }
 

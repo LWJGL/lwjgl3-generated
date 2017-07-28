@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWscrollfun")
 public interface GLFWScrollCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pdd)v";
@@ -34,6 +35,6 @@ public interface GLFWScrollCallbackI extends CallbackI.V {
      * @param xoffset the scroll offset along the x-axis
      * @param yoffset the scroll offset along the y-axis
      */
-    void invoke(long window, double xoffset, double yoffset);
+    void invoke(@NativeType("GLFWwindow *") long window, double xoffset, double yoffset);
 
 }

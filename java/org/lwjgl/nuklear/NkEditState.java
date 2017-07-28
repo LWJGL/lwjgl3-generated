@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     bool single_line;
  * }</pre></code>
  */
+@NativeType("struct nk_edit_state")
 public class NkEditState extends Struct {
 
     /** The struct size in bytes. */
@@ -99,10 +100,13 @@ public class NkEditState extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code name} field. */
+    @NativeType("nk_hash")
     public int name() { return nname(address()); }
     /** Returns the value of the {@code seq} field. */
+    @NativeType("unsigned int")
     public int seq() { return nseq(address()); }
     /** Returns the value of the {@code old} field. */
+    @NativeType("unsigned int")
     public int old() { return nold(address()); }
     /** Returns the value of the {@code active} field. */
     public int active() { return nactive(address()); }
@@ -115,10 +119,13 @@ public class NkEditState extends Struct {
     /** Returns the value of the {@code sel_end} field. */
     public int sel_end() { return nsel_end(address()); }
     /** Returns a {@link NkScroll} view of the {@code scrollbar} field. */
+    @NativeType("struct nk_scroll")
     public NkScroll scrollbar() { return nscrollbar(address()); }
     /** Returns the value of the {@code mode} field. */
+    @NativeType("unsigned char")
     public byte mode() { return nmode(address()); }
     /** Returns the value of the {@code single_line} field. */
+    @NativeType("bool")
     public boolean single_line() { return nsingle_line(address()); }
 
     // -----------------------------------
@@ -206,10 +213,13 @@ public class NkEditState extends Struct {
         }
 
         /** Returns the value of the {@code name} field. */
+        @NativeType("nk_hash")
         public int name() { return NkEditState.nname(address()); }
         /** Returns the value of the {@code seq} field. */
+        @NativeType("unsigned int")
         public int seq() { return NkEditState.nseq(address()); }
         /** Returns the value of the {@code old} field. */
+        @NativeType("unsigned int")
         public int old() { return NkEditState.nold(address()); }
         /** Returns the value of the {@code active} field. */
         public int active() { return NkEditState.nactive(address()); }
@@ -222,10 +232,13 @@ public class NkEditState extends Struct {
         /** Returns the value of the {@code sel_end} field. */
         public int sel_end() { return NkEditState.nsel_end(address()); }
         /** Returns a {@link NkScroll} view of the {@code scrollbar} field. */
+        @NativeType("struct nk_scroll")
         public NkScroll scrollbar() { return NkEditState.nscrollbar(address()); }
         /** Returns the value of the {@code mode} field. */
+        @NativeType("unsigned char")
         public byte mode() { return NkEditState.nmode(address()); }
         /** Returns the value of the {@code single_line} field. */
+        @NativeType("bool")
         public boolean single_line() { return NkEditState.nsingle_line(address()); }
 
     }

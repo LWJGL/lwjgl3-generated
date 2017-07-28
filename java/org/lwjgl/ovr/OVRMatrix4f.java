@@ -30,6 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float M[16];
  * }</pre></code>
  */
+@NativeType("struct ovrMatrix4f")
 public class OVRMatrix4f extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -70,12 +71,13 @@ public class OVRMatrix4f extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code M} field. */
+    @NativeType("float[16]")
     public FloatBuffer M() { return nM(address()); }
     /** Returns the value at the specified index of the {@code M} field. */
     public float M(int index) { return nM(address(), index); }
 
     /** Copies the specified {@link FloatBuffer} to the {@code M} field. */
-    public OVRMatrix4f M(FloatBuffer value) { nM(address(), value); return this; }
+    public OVRMatrix4f M(@NativeType("float[16]") FloatBuffer value) { nM(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code M} field. */
     public OVRMatrix4f M(int index, float value) { nM(address(), index, value); return this; }
 
@@ -282,12 +284,13 @@ public class OVRMatrix4f extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code M} field. */
+        @NativeType("float[16]")
         public FloatBuffer M() { return OVRMatrix4f.nM(address()); }
         /** Returns the value at the specified index of the {@code M} field. */
         public float M(int index) { return OVRMatrix4f.nM(address(), index); }
 
         /** Copies the specified {@link FloatBuffer} to the {@code M} field. */
-        public OVRMatrix4f.Buffer M(FloatBuffer value) { OVRMatrix4f.nM(address(), value); return this; }
+        public OVRMatrix4f.Buffer M(@NativeType("float[16]") FloatBuffer value) { OVRMatrix4f.nM(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code M} field. */
         public OVRMatrix4f.Buffer M(int index, float value) { OVRMatrix4f.nM(address(), index, value); return this; }
 

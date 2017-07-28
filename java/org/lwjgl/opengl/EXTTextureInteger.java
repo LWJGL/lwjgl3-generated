@@ -124,24 +124,24 @@ public class EXTTextureInteger {
 
     // --- [ glClearColorIiEXT ] ---
 
-    public static native void glClearColorIiEXT(int r, int g, int b, int a);
+    public static native void glClearColorIiEXT(@NativeType("GLint") int r, @NativeType("GLint") int g, @NativeType("GLint") int b, @NativeType("GLint") int a);
 
     // --- [ glClearColorIuiEXT ] ---
 
-    public static native void glClearColorIuiEXT(int r, int g, int b, int a);
+    public static native void glClearColorIuiEXT(@NativeType("GLuint") int r, @NativeType("GLuint") int g, @NativeType("GLuint") int b, @NativeType("GLuint") int a);
 
     // --- [ glTexParameterIivEXT ] ---
 
     public static native void nglTexParameterIivEXT(int target, int pname, long params);
 
-    public static void glTexParameterIivEXT(int target, int pname, IntBuffer params) {
+    public static void glTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglTexParameterIivEXT(target, pname, memAddress(params));
     }
 
-    public static void glTexParameterIiEXT(int target, int pname, int param) {
+    public static void glTexParameterIiEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -155,14 +155,14 @@ public class EXTTextureInteger {
 
     public static native void nglTexParameterIuivEXT(int target, int pname, long params);
 
-    public static void glTexParameterIuivEXT(int target, int pname, IntBuffer params) {
+    public static void glTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglTexParameterIuivEXT(target, pname, memAddress(params));
     }
 
-    public static void glTexParameterIuiEXT(int target, int pname, int param) {
+    public static void glTexParameterIuiEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -176,14 +176,15 @@ public class EXTTextureInteger {
 
     public static native void nglGetTexParameterIivEXT(int target, int pname, long params);
 
-    public static void glGetTexParameterIivEXT(int target, int pname, IntBuffer params) {
+    public static void glGetTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetTexParameterIivEXT(target, pname, memAddress(params));
     }
 
-    public static int glGetTexParameterIiEXT(int target, int pname) {
+    @NativeType("void")
+    public static int glGetTexParameterIiEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -198,14 +199,15 @@ public class EXTTextureInteger {
 
     public static native void nglGetTexParameterIuivEXT(int target, int pname, long params);
 
-    public static void glGetTexParameterIuivEXT(int target, int pname, IntBuffer params) {
+    public static void glGetTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetTexParameterIuivEXT(target, pname, memAddress(params));
     }
 
-    public static int glGetTexParameterIuiEXT(int target, int pname) {
+    @NativeType("void")
+    public static int glGetTexParameterIuiEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -217,7 +219,7 @@ public class EXTTextureInteger {
     }
 
     /** Array version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
-    public static void glTexParameterIivEXT(int target, int pname, int[] params) {
+    public static void glTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glTexParameterIivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -227,7 +229,7 @@ public class EXTTextureInteger {
     }
 
     /** Array version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
-    public static void glTexParameterIuivEXT(int target, int pname, int[] params) {
+    public static void glTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GL.getICD().glTexParameterIuivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -237,7 +239,7 @@ public class EXTTextureInteger {
     }
 
     /** Array version of: {@link #glGetTexParameterIivEXT GetTexParameterIivEXT} */
-    public static void glGetTexParameterIivEXT(int target, int pname, int[] params) {
+    public static void glGetTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetTexParameterIivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -247,7 +249,7 @@ public class EXTTextureInteger {
     }
 
     /** Array version of: {@link #glGetTexParameterIuivEXT GetTexParameterIuivEXT} */
-    public static void glGetTexParameterIuivEXT(int target, int pname, int[] params) {
+    public static void glGetTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GL.getICD().glGetTexParameterIuivEXT;
         if (CHECKS) {
             check(__functionAddress);

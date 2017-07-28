@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.simd;
 
+import org.lwjgl.system.*;
+
 
 /** Bindings to SSE macros. */
 public class SSE {
@@ -56,11 +58,12 @@ public class SSE {
      *
      * @param mask the exception state. One of:<br><table><tr><td>{@link #_MM_EXCEPT_MASK EXCEPT_MASK}</td><td>{@link #_MM_EXCEPT_INVALID EXCEPT_INVALID}</td><td>{@link #_MM_EXCEPT_DENORM EXCEPT_DENORM}</td><td>{@link #_MM_EXCEPT_DIV_ZERO EXCEPT_DIV_ZERO}</td><td>{@link #_MM_EXCEPT_OVERFLOW EXCEPT_OVERFLOW}</td></tr><tr><td>{@link #_MM_EXCEPT_UNDERFLOW EXCEPT_UNDERFLOW}</td><td>{@link #_MM_EXCEPT_INEXACT EXCEPT_INEXACT}</td></tr></table>
      */
-    public static native void _MM_SET_EXCEPTION_STATE(int mask);
+    public static native void _MM_SET_EXCEPTION_STATE(@NativeType("unsigned int") int mask);
 
     // --- [ _MM_GET_EXCEPTION_STATE ] ---
 
     /** Returns the exception state bits from the MXCSR control and status register. */
+    @NativeType("unsigned int")
     public static native int _MM_GET_EXCEPTION_STATE();
 
     // --- [ _MM_SET_EXCEPTION_MASK ] ---
@@ -72,11 +75,12 @@ public class SSE {
      *
      * @param mask the exception mask. One or more of:<br><table><tr><td>{@link #_MM_MASK_MASK MASK_MASK}</td><td>{@link #_MM_MASK_INVALID MASK_INVALID}</td><td>{@link #_MM_MASK_DENORM MASK_DENORM}</td><td>{@link #_MM_MASK_DIV_ZERO MASK_DIV_ZERO}</td><td>{@link #_MM_MASK_OVERFLOW MASK_OVERFLOW}</td><td>{@link #_MM_MASK_UNDERFLOW MASK_UNDERFLOW}</td></tr><tr><td>{@link #_MM_MASK_INEXACT MASK_INEXACT}</td></tr></table>
      */
-    public static native void _MM_SET_EXCEPTION_MASK(int mask);
+    public static native void _MM_SET_EXCEPTION_MASK(@NativeType("unsigned int") int mask);
 
     // --- [ _MM_GET_EXCEPTION_MASK ] ---
 
     /** Returns the exception mask bits from the MXCSR control and status register. */
+    @NativeType("unsigned int")
     public static native int _MM_GET_EXCEPTION_MASK();
 
     // --- [ _MM_SET_ROUNDING_MODE ] ---
@@ -86,11 +90,12 @@ public class SSE {
      *
      * @param mode the rounding mode. One of:<br><table><tr><td>{@link #_MM_ROUND_MASK ROUND_MASK}</td><td>{@link #_MM_ROUND_NEAREST ROUND_NEAREST}</td><td>{@link #_MM_ROUND_DOWN ROUND_DOWN}</td><td>{@link #_MM_ROUND_UP ROUND_UP}</td><td>{@link #_MM_ROUND_TOWARD_ZERO ROUND_TOWARD_ZERO}</td></tr></table>
      */
-    public static native void _MM_SET_ROUNDING_MODE(int mode);
+    public static native void _MM_SET_ROUNDING_MODE(@NativeType("unsigned int") int mode);
 
     // --- [ _MM_GET_ROUNDING_MODE ] ---
 
     /** Returns the rounding mode bits from the MXCSR control and status register. */
+    @NativeType("unsigned int")
     public static native int _MM_GET_ROUNDING_MODE();
 
     // --- [ _MM_SET_FLUSH_ZERO_MODE ] ---
@@ -103,11 +108,12 @@ public class SSE {
      *
      * @param mode the flush-to-zero mode. One of:<br><table><tr><td>{@link #_MM_FLUSH_ZERO_MASK FLUSH_ZERO_MASK}</td><td>{@link #_MM_FLUSH_ZERO_ON FLUSH_ZERO_ON}</td><td>{@link #_MM_FLUSH_ZERO_OFF FLUSH_ZERO_OFF}</td></tr></table>
      */
-    public static native void _MM_SET_FLUSH_ZERO_MODE(int mode);
+    public static native void _MM_SET_FLUSH_ZERO_MODE(@NativeType("unsigned int") int mode);
 
     // --- [ _MM_GET_FLUSH_ZERO_MODE ] ---
 
     /** Returns the flush zero bits from the MXCSR control and status register. */
+    @NativeType("unsigned int")
     public static native int _MM_GET_FLUSH_ZERO_MODE();
 
 }

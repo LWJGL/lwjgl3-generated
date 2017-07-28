@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned char type;
  * }</pre></code>
  */
+@NativeType("struct stbtt_vertex")
 public class STBTTVertex extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -87,18 +88,25 @@ public class STBTTVertex extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("stbtt_vertex_type")
     public short x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("stbtt_vertex_type")
     public short y() { return ny(address()); }
     /** Returns the value of the {@code cx} field. */
+    @NativeType("stbtt_vertex_type")
     public short cx() { return ncx(address()); }
     /** Returns the value of the {@code cy} field. */
+    @NativeType("stbtt_vertex_type")
     public short cy() { return ncy(address()); }
     /** Returns the value of the {@code cx1} field. */
+    @NativeType("stbtt_vertex_type")
     public short cx1() { return ncx1(address()); }
     /** Returns the value of the {@code cy1} field. */
+    @NativeType("stbtt_vertex_type")
     public short cy1() { return ncy1(address()); }
     /** Returns the value of the {@code type} field. */
+    @NativeType("unsigned char")
     public byte type() { return ntype(address()); }
 
     // -----------------------------------
@@ -288,18 +296,25 @@ public class STBTTVertex extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("stbtt_vertex_type")
         public short x() { return STBTTVertex.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("stbtt_vertex_type")
         public short y() { return STBTTVertex.ny(address()); }
         /** Returns the value of the {@code cx} field. */
+        @NativeType("stbtt_vertex_type")
         public short cx() { return STBTTVertex.ncx(address()); }
         /** Returns the value of the {@code cy} field. */
+        @NativeType("stbtt_vertex_type")
         public short cy() { return STBTTVertex.ncy(address()); }
         /** Returns the value of the {@code cx1} field. */
+        @NativeType("stbtt_vertex_type")
         public short cx1() { return STBTTVertex.ncx1(address()); }
         /** Returns the value of the {@code cy1} field. */
+        @NativeType("stbtt_vertex_type")
         public short cy1() { return STBTTVertex.ncy1(address()); }
         /** Returns the value of the {@code type} field. */
+        @NativeType("unsigned char")
         public byte type() { return STBTTVertex.ntype(address()); }
 
     }

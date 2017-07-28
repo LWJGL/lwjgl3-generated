@@ -42,6 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link HmdMatrix44 HmdMatrix44_t} transform;
  * }</pre></code>
  */
+@NativeType("struct Compositor_OverlaySettings")
 public class CompositorOverlaySettings extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -121,10 +122,13 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code size} field. */
+    @NativeType("uint32_t")
     public int size() { return nsize(address()); }
     /** Returns the value of the {@code curved} field. */
+    @NativeType("bool")
     public boolean curved() { return ncurved(address()); }
     /** Returns the value of the {@code antialias} field. */
+    @NativeType("bool")
     public boolean antialias() { return nantialias(address()); }
     /** Returns the value of the {@code scale} field. */
     public float scale() { return nscale(address()); }
@@ -147,14 +151,15 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
     /** Returns the value of the {@code gridScale} field. */
     public float gridScale() { return ngridScale(address()); }
     /** Returns a {@link HmdMatrix44} view of the {@code transform} field. */
+    @NativeType("HmdMatrix44_t")
     public HmdMatrix44 transform() { return ntransform(address()); }
 
     /** Sets the specified value to the {@code size} field. */
-    public CompositorOverlaySettings size(int value) { nsize(address(), value); return this; }
+    public CompositorOverlaySettings size(@NativeType("uint32_t") int value) { nsize(address(), value); return this; }
     /** Sets the specified value to the {@code curved} field. */
-    public CompositorOverlaySettings curved(boolean value) { ncurved(address(), value); return this; }
+    public CompositorOverlaySettings curved(@NativeType("bool") boolean value) { ncurved(address(), value); return this; }
     /** Sets the specified value to the {@code antialias} field. */
-    public CompositorOverlaySettings antialias(boolean value) { nantialias(address(), value); return this; }
+    public CompositorOverlaySettings antialias(@NativeType("bool") boolean value) { nantialias(address(), value); return this; }
     /** Sets the specified value to the {@code scale} field. */
     public CompositorOverlaySettings scale(float value) { nscale(address(), value); return this; }
     /** Sets the specified value to the {@code distance} field. */
@@ -176,7 +181,7 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
     /** Sets the specified value to the {@code gridScale} field. */
     public CompositorOverlaySettings gridScale(float value) { ngridScale(address(), value); return this; }
     /** Copies the specified {@link HmdMatrix44} to the {@code transform} field. */
-    public CompositorOverlaySettings transform(HmdMatrix44 value) { ntransform(address(), value); return this; }
+    public CompositorOverlaySettings transform(@NativeType("HmdMatrix44_t") HmdMatrix44 value) { ntransform(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public CompositorOverlaySettings set(
@@ -455,10 +460,13 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code size} field. */
+        @NativeType("uint32_t")
         public int size() { return CompositorOverlaySettings.nsize(address()); }
         /** Returns the value of the {@code curved} field. */
+        @NativeType("bool")
         public boolean curved() { return CompositorOverlaySettings.ncurved(address()); }
         /** Returns the value of the {@code antialias} field. */
+        @NativeType("bool")
         public boolean antialias() { return CompositorOverlaySettings.nantialias(address()); }
         /** Returns the value of the {@code scale} field. */
         public float scale() { return CompositorOverlaySettings.nscale(address()); }
@@ -481,14 +489,15 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
         /** Returns the value of the {@code gridScale} field. */
         public float gridScale() { return CompositorOverlaySettings.ngridScale(address()); }
         /** Returns a {@link HmdMatrix44} view of the {@code transform} field. */
+        @NativeType("HmdMatrix44_t")
         public HmdMatrix44 transform() { return CompositorOverlaySettings.ntransform(address()); }
 
         /** Sets the specified value to the {@code size} field. */
-        public CompositorOverlaySettings.Buffer size(int value) { CompositorOverlaySettings.nsize(address(), value); return this; }
+        public CompositorOverlaySettings.Buffer size(@NativeType("uint32_t") int value) { CompositorOverlaySettings.nsize(address(), value); return this; }
         /** Sets the specified value to the {@code curved} field. */
-        public CompositorOverlaySettings.Buffer curved(boolean value) { CompositorOverlaySettings.ncurved(address(), value); return this; }
+        public CompositorOverlaySettings.Buffer curved(@NativeType("bool") boolean value) { CompositorOverlaySettings.ncurved(address(), value); return this; }
         /** Sets the specified value to the {@code antialias} field. */
-        public CompositorOverlaySettings.Buffer antialias(boolean value) { CompositorOverlaySettings.nantialias(address(), value); return this; }
+        public CompositorOverlaySettings.Buffer antialias(@NativeType("bool") boolean value) { CompositorOverlaySettings.nantialias(address(), value); return this; }
         /** Sets the specified value to the {@code scale} field. */
         public CompositorOverlaySettings.Buffer scale(float value) { CompositorOverlaySettings.nscale(address(), value); return this; }
         /** Sets the specified value to the {@code distance} field. */
@@ -510,7 +519,7 @@ public class CompositorOverlaySettings extends Struct implements NativeResource 
         /** Sets the specified value to the {@code gridScale} field. */
         public CompositorOverlaySettings.Buffer gridScale(float value) { CompositorOverlaySettings.ngridScale(address(), value); return this; }
         /** Copies the specified {@link HmdMatrix44} to the {@code transform} field. */
-        public CompositorOverlaySettings.Buffer transform(HmdMatrix44 value) { CompositorOverlaySettings.ntransform(address(), value); return this; }
+        public CompositorOverlaySettings.Buffer transform(@NativeType("HmdMatrix44_t") HmdMatrix44 value) { CompositorOverlaySettings.ntransform(address(), value); return this; }
 
     }
 

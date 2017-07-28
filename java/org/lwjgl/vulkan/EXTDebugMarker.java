@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -227,7 +229,8 @@ public class EXTDebugMarker {
      * @param device   the device that created the object.
      * @param pTagInfo a pointer to an instance of the {@link VkDebugMarkerObjectTagInfoEXT} structure specifying the parameters of the tag to attach to the object.
      */
-    public static int vkDebugMarkerSetObjectTagEXT(VkDevice device, VkDebugMarkerObjectTagInfoEXT pTagInfo) {
+    @NativeType("VkResult")
+    public static int vkDebugMarkerSetObjectTagEXT(VkDevice device, @NativeType("const VkDebugMarkerObjectTagInfoEXT *") VkDebugMarkerObjectTagInfoEXT pTagInfo) {
         return nvkDebugMarkerSetObjectTagEXT(device, pTagInfo.address());
     }
 
@@ -289,7 +292,8 @@ public class EXTDebugMarker {
      * @param device    the device that created the object.
      * @param pNameInfo a pointer to an instance of the {@link VkDebugMarkerObjectNameInfoEXT} structure specifying the parameters of the name to set on the object.
      */
-    public static int vkDebugMarkerSetObjectNameEXT(VkDevice device, VkDebugMarkerObjectNameInfoEXT pNameInfo) {
+    @NativeType("VkResult")
+    public static int vkDebugMarkerSetObjectNameEXT(VkDevice device, @NativeType("const VkDebugMarkerObjectNameInfoEXT *") VkDebugMarkerObjectNameInfoEXT pNameInfo) {
         return nvkDebugMarkerSetObjectNameEXT(device, pNameInfo.address());
     }
 
@@ -346,7 +350,7 @@ public class EXTDebugMarker {
      * @param commandBuffer the command buffer into which the command is recorded.
      * @param pMarkerInfo   a pointer to an instance of the {@link VkDebugMarkerMarkerInfoEXT} structure specifying the parameters of the marker region to open.
      */
-    public static void vkCmdDebugMarkerBeginEXT(VkCommandBuffer commandBuffer, VkDebugMarkerMarkerInfoEXT pMarkerInfo) {
+    public static void vkCmdDebugMarkerBeginEXT(VkCommandBuffer commandBuffer, @NativeType("const VkDebugMarkerMarkerInfoEXT *") VkDebugMarkerMarkerInfoEXT pMarkerInfo) {
         nvkCmdDebugMarkerBeginEXT(commandBuffer, pMarkerInfo.address());
     }
 
@@ -458,7 +462,7 @@ public class EXTDebugMarker {
      * @param commandBuffer the command buffer into which the command is recorded.
      * @param pMarkerInfo   a pointer to an instance of the {@link VkDebugMarkerMarkerInfoEXT} structure specifying the parameters of the marker to insert.
      */
-    public static void vkCmdDebugMarkerInsertEXT(VkCommandBuffer commandBuffer, VkDebugMarkerMarkerInfoEXT pMarkerInfo) {
+    public static void vkCmdDebugMarkerInsertEXT(VkCommandBuffer commandBuffer, @NativeType("const VkDebugMarkerMarkerInfoEXT *") VkDebugMarkerMarkerInfoEXT pMarkerInfo) {
         nvkCmdDebugMarkerInsertEXT(commandBuffer, pMarkerInfo.address());
     }
 

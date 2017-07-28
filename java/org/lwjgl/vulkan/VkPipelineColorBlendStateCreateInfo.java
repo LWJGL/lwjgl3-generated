@@ -130,38 +130,46 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkPipelineColorBlendStateCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code logicOpEnable} field. */
+    @NativeType("VkBool32")
     public boolean logicOpEnable() { return nlogicOpEnable(address()) != 0; }
     /** Returns the value of the {@code logicOp} field. */
+    @NativeType("VkLogicOp")
     public int logicOp() { return nlogicOp(address()); }
     /** Returns the value of the {@code attachmentCount} field. */
+    @NativeType("uint32_t")
     public int attachmentCount() { return nattachmentCount(address()); }
     /** Returns a {@link VkPipelineColorBlendAttachmentState.Buffer} view of the struct array pointed to by the {@code pAttachments} field. */
+    @NativeType("const VkPipelineColorBlendAttachmentState *")
     public VkPipelineColorBlendAttachmentState.Buffer pAttachments() { return npAttachments(address()); }
     /** Returns a {@link FloatBuffer} view of the {@code blendConstants} field. */
+    @NativeType("float[4]")
     public FloatBuffer blendConstants() { return nblendConstants(address()); }
     /** Returns the value at the specified index of the {@code blendConstants} field. */
     public float blendConstants(int index) { return nblendConstants(address(), index); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineColorBlendStateCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineColorBlendStateCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineColorBlendStateCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineColorBlendStateCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkPipelineColorBlendStateCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkPipelineColorBlendStateCreateInfo flags(@NativeType("VkPipelineColorBlendStateCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code logicOpEnable} field. */
-    public VkPipelineColorBlendStateCreateInfo logicOpEnable(boolean value) { nlogicOpEnable(address(), value ? 1 : 0); return this; }
+    public VkPipelineColorBlendStateCreateInfo logicOpEnable(@NativeType("VkBool32") boolean value) { nlogicOpEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code logicOp} field. */
-    public VkPipelineColorBlendStateCreateInfo logicOp(int value) { nlogicOp(address(), value); return this; }
+    public VkPipelineColorBlendStateCreateInfo logicOp(@NativeType("VkLogicOp") int value) { nlogicOp(address(), value); return this; }
     /** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */
-    public VkPipelineColorBlendStateCreateInfo pAttachments(VkPipelineColorBlendAttachmentState.Buffer value) { npAttachments(address(), value); return this; }
+    public VkPipelineColorBlendStateCreateInfo pAttachments(@NativeType("const VkPipelineColorBlendAttachmentState *") VkPipelineColorBlendAttachmentState.Buffer value) { npAttachments(address(), value); return this; }
     /** Copies the specified {@link FloatBuffer} to the {@code blendConstants} field. */
-    public VkPipelineColorBlendStateCreateInfo blendConstants(FloatBuffer value) { nblendConstants(address(), value); return this; }
+    public VkPipelineColorBlendStateCreateInfo blendConstants(@NativeType("float[4]") FloatBuffer value) { nblendConstants(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code blendConstants} field. */
     public VkPipelineColorBlendStateCreateInfo blendConstants(int index, float value) { nblendConstants(address(), index, value); return this; }
 
@@ -440,38 +448,46 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineColorBlendStateCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineColorBlendStateCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkPipelineColorBlendStateCreateFlags")
         public int flags() { return VkPipelineColorBlendStateCreateInfo.nflags(address()); }
         /** Returns the value of the {@code logicOpEnable} field. */
+        @NativeType("VkBool32")
         public boolean logicOpEnable() { return VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address()) != 0; }
         /** Returns the value of the {@code logicOp} field. */
+        @NativeType("VkLogicOp")
         public int logicOp() { return VkPipelineColorBlendStateCreateInfo.nlogicOp(address()); }
         /** Returns the value of the {@code attachmentCount} field. */
+        @NativeType("uint32_t")
         public int attachmentCount() { return VkPipelineColorBlendStateCreateInfo.nattachmentCount(address()); }
         /** Returns a {@link VkPipelineColorBlendAttachmentState.Buffer} view of the struct array pointed to by the {@code pAttachments} field. */
+        @NativeType("const VkPipelineColorBlendAttachmentState *")
         public VkPipelineColorBlendAttachmentState.Buffer pAttachments() { return VkPipelineColorBlendStateCreateInfo.npAttachments(address()); }
         /** Returns a {@link FloatBuffer} view of the {@code blendConstants} field. */
+        @NativeType("float[4]")
         public FloatBuffer blendConstants() { return VkPipelineColorBlendStateCreateInfo.nblendConstants(address()); }
         /** Returns the value at the specified index of the {@code blendConstants} field. */
         public float blendConstants(int index) { return VkPipelineColorBlendStateCreateInfo.nblendConstants(address(), index); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer sType(int value) { VkPipelineColorBlendStateCreateInfo.nsType(address(), value); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineColorBlendStateCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer pNext(long value) { VkPipelineColorBlendStateCreateInfo.npNext(address(), value); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkPipelineColorBlendStateCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer flags(int value) { VkPipelineColorBlendStateCreateInfo.nflags(address(), value); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer flags(@NativeType("VkPipelineColorBlendStateCreateFlags") int value) { VkPipelineColorBlendStateCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code logicOpEnable} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer logicOpEnable(boolean value) { VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address(), value ? 1 : 0); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer logicOpEnable(@NativeType("VkBool32") boolean value) { VkPipelineColorBlendStateCreateInfo.nlogicOpEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code logicOp} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer logicOp(int value) { VkPipelineColorBlendStateCreateInfo.nlogicOp(address(), value); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer logicOp(@NativeType("VkLogicOp") int value) { VkPipelineColorBlendStateCreateInfo.nlogicOp(address(), value); return this; }
         /** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer pAttachments(VkPipelineColorBlendAttachmentState.Buffer value) { VkPipelineColorBlendStateCreateInfo.npAttachments(address(), value); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer pAttachments(@NativeType("const VkPipelineColorBlendAttachmentState *") VkPipelineColorBlendAttachmentState.Buffer value) { VkPipelineColorBlendStateCreateInfo.npAttachments(address(), value); return this; }
         /** Copies the specified {@link FloatBuffer} to the {@code blendConstants} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer blendConstants(FloatBuffer value) { VkPipelineColorBlendStateCreateInfo.nblendConstants(address(), value); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer blendConstants(@NativeType("float[4]") FloatBuffer value) { VkPipelineColorBlendStateCreateInfo.nblendConstants(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code blendConstants} field. */
         public VkPipelineColorBlendStateCreateInfo.Buffer blendConstants(int index, float value) { VkPipelineColorBlendStateCreateInfo.nblendConstants(address(), index, value); return this; }
 

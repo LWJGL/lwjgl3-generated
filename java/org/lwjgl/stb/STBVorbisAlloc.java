@@ -25,6 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int alloc_buffer_length_in_bytes;
  * }</pre></code>
  */
+@NativeType("struct stb_vorbis_alloc")
 public class STBVorbisAlloc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -68,12 +69,13 @@ public class STBVorbisAlloc extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field. */
+    @NativeType("char *")
     public ByteBuffer alloc_buffer() { return nalloc_buffer(address()); }
     /** Returns the value of the {@code alloc_buffer_length_in_bytes} field. */
     public int alloc_buffer_length_in_bytes() { return nalloc_buffer_length_in_bytes(address()); }
 
     /** Sets the address of the specified {@link ByteBuffer} to the {@code alloc_buffer} field. */
-    public STBVorbisAlloc alloc_buffer(ByteBuffer value) { nalloc_buffer(address(), value); return this; }
+    public STBVorbisAlloc alloc_buffer(@NativeType("char *") ByteBuffer value) { nalloc_buffer(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -290,12 +292,13 @@ public class STBVorbisAlloc extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code alloc_buffer} field. */
+        @NativeType("char *")
         public ByteBuffer alloc_buffer() { return STBVorbisAlloc.nalloc_buffer(address()); }
         /** Returns the value of the {@code alloc_buffer_length_in_bytes} field. */
         public int alloc_buffer_length_in_bytes() { return STBVorbisAlloc.nalloc_buffer_length_in_bytes(address()); }
 
         /** Sets the address of the specified {@link ByteBuffer} to the {@code alloc_buffer} field. */
-        public STBVorbisAlloc.Buffer alloc_buffer(ByteBuffer value) { STBVorbisAlloc.nalloc_buffer(address(), value); return this; }
+        public STBVorbisAlloc.Buffer alloc_buffer(@NativeType("char *") ByteBuffer value) { STBVorbisAlloc.nalloc_buffer(address(), value); return this; }
 
     }
 

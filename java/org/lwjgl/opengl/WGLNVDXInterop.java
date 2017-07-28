@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -44,7 +46,8 @@ public class WGLNVDXInterop {
      * @param dxObject    a pointer to the DirectX resource that will be shared
      * @param shareHandle the share handle that the OS generated for the resource
      */
-    public static boolean wglDXSetResourceShareHandleNV(long dxObject, long shareHandle) {
+    @NativeType("BOOL")
+    public static boolean wglDXSetResourceShareHandleNV(@NativeType("void *") long dxObject, @NativeType("HANDLE") long shareHandle) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDXSetResourceShareHandleNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -61,7 +64,8 @@ public class WGLNVDXInterop {
      *
      * @param dxDevice a pointer to a supported Direct3D device object
      */
-    public static long wglDXOpenDeviceNV(long dxDevice) {
+    @NativeType("HANDLE")
+    public static long wglDXOpenDeviceNV(@NativeType("void *") long dxDevice) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDXOpenDeviceNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -72,7 +76,8 @@ public class WGLNVDXInterop {
 
     // --- [ wglDXCloseDeviceNV ] ---
 
-    public static boolean wglDXCloseDeviceNV(long device) {
+    @NativeType("BOOL")
+    public static boolean wglDXCloseDeviceNV(@NativeType("HANDLE") long device) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDXCloseDeviceNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -92,7 +97,8 @@ public class WGLNVDXInterop {
      * @param type       the GL object type that will map to the DirectX resource being shared
      * @param access     indicates the intended usage of the resource in GL. One of:<br><table><tr><td>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}</td><td>{@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}</td><td>{@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}</td></tr></table>
      */
-    public static long wglDXRegisterObjectNV(long device, long dxResource, int name, int type, int access) {
+    @NativeType("HANDLE")
+    public static long wglDXRegisterObjectNV(@NativeType("HANDLE") long device, @NativeType("void *") long dxResource, @NativeType("GLuint") int name, @NativeType("GLenum") int type, @NativeType("GLenum") int access) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDXRegisterObjectNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -104,7 +110,8 @@ public class WGLNVDXInterop {
 
     // --- [ wglDXUnregisterObjectNV ] ---
 
-    public static boolean wglDXUnregisterObjectNV(long device, long object) {
+    @NativeType("BOOL")
+    public static boolean wglDXUnregisterObjectNV(@NativeType("HANDLE") long device, @NativeType("HANDLE") long object) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDXUnregisterObjectNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -122,7 +129,8 @@ public class WGLNVDXInterop {
      * @param object the GL/DirectX interop object
      * @param access the new access mode. One of:<br><table><tr><td>{@link #WGL_ACCESS_READ_ONLY_NV ACCESS_READ_ONLY_NV}</td><td>{@link #WGL_ACCESS_READ_WRITE_NV ACCESS_READ_WRITE_NV}</td><td>{@link #WGL_ACCESS_WRITE_DISCARD_NV ACCESS_WRITE_DISCARD_NV}</td></tr></table>
      */
-    public static boolean wglDXObjectAccessNV(long object, int access) {
+    @NativeType("BOOL")
+    public static boolean wglDXObjectAccessNV(@NativeType("HANDLE") long object, @NativeType("GLenum") int access) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDXObjectAccessNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -160,7 +168,8 @@ public class WGLNVDXInterop {
      * @param device  the GL/DirectX interop device handle
      * @param objects an array of {@code count} interop objects
      */
-    public static boolean wglDXLockObjectsNV(long device, PointerBuffer objects) {
+    @NativeType("BOOL")
+    public static boolean wglDXLockObjectsNV(@NativeType("HANDLE") long device, @NativeType("HANDLE *") PointerBuffer objects) {
         return nwglDXLockObjectsNV(device, objects.remaining(), memAddress(objects)) != 0;
     }
 
@@ -186,7 +195,8 @@ public class WGLNVDXInterop {
      * @param device  the GL/DirectX interop device handle
      * @param objects an array of {@code count} interop objects
      */
-    public static boolean wglDXUnlockObjectsNV(long device, PointerBuffer objects) {
+    @NativeType("BOOL")
+    public static boolean wglDXUnlockObjectsNV(@NativeType("HANDLE") long device, @NativeType("HANDLE *") PointerBuffer objects) {
         return nwglDXUnlockObjectsNV(device, objects.remaining(), memAddress(objects)) != 0;
     }
 

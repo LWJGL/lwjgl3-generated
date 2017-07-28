@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     double z;
  * }</pre></code>
  */
+@NativeType("struct HmdQuaternion_t")
 public class HmdQuaternion extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

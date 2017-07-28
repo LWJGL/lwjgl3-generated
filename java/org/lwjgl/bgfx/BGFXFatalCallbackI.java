@@ -16,6 +16,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <p>Not thread safe and it can be called from any thread.</p>
  */
 @FunctionalInterface
+@NativeType("fatal")
 public interface BGFXFatalCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pip)v";
@@ -39,6 +40,6 @@ public interface BGFXFatalCallbackI extends CallbackI.V {
      * @param _code the error code
      * @param _str  the error message
      */
-    void invoke(long _this, int _code, long _str);
+    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("bgfx_fatal_t") int _code, @NativeType("char *") long _str);
 
 }

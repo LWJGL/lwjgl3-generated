@@ -113,7 +113,8 @@ public class DynCall {
      *
      * @param size the max size of the internal stack that will be allocated and used to bind arguments to
      */
-    public static native long dcNewCallVM(long size);
+    @NativeType("DCCallVM *")
+    public static native long dcNewCallVM(@NativeType("DCsize") long size);
 
     // --- [ dcFree ] ---
 
@@ -125,7 +126,7 @@ public class DynCall {
      *
      * @param vm a {@code CallVM} instance
      */
-    public static void dcFree(long vm) {
+    public static void dcFree(@NativeType("DCCallVM *") long vm) {
         if (CHECKS) {
             check(vm);
         }
@@ -146,7 +147,7 @@ public class DynCall {
      *
      * @param vm a {@code CallVM} instance
      */
-    public static void dcReset(long vm) {
+    public static void dcReset(@NativeType("DCCallVM *") long vm) {
         if (CHECKS) {
             check(vm);
         }
@@ -168,7 +169,7 @@ public class DynCall {
      * @param vm   a {@code CallVM} instance
      * @param mode the calling convention. One of:<br><table><tr><td>{@link #DC_CALL_C_DEFAULT CALL_C_DEFAULT}</td><td>{@link #DC_CALL_C_ELLIPSIS CALL_C_ELLIPSIS}</td><td>{@link #DC_CALL_C_ELLIPSIS_VARARGS CALL_C_ELLIPSIS_VARARGS}</td><td>{@link #DC_CALL_C_X86_CDECL CALL_C_X86_CDECL}</td></tr><tr><td>{@link #DC_CALL_C_X86_WIN32_STD CALL_C_X86_WIN32_STD}</td><td>{@link #DC_CALL_C_X86_WIN32_FAST_MS CALL_C_X86_WIN32_FAST_MS}</td><td>{@link #DC_CALL_C_X86_WIN32_FAST_GNU CALL_C_X86_WIN32_FAST_GNU}</td><td>{@link #DC_CALL_C_X86_WIN32_THIS_MS CALL_C_X86_WIN32_THIS_MS}</td></tr><tr><td>{@link #DC_CALL_C_X86_WIN32_THIS_GNU CALL_C_X86_WIN32_THIS_GNU}</td><td>{@link #DC_CALL_C_X64_WIN64 CALL_C_X64_WIN64}</td><td>{@link #DC_CALL_C_X64_SYSV CALL_C_X64_SYSV}</td><td>{@link #DC_CALL_C_PPC32_DARWIN CALL_C_PPC32_DARWIN}</td></tr><tr><td>{@link #DC_CALL_C_PPC32_OSX CALL_C_PPC32_OSX}</td><td>{@link #DC_CALL_C_ARM_ARM_EABI CALL_C_ARM_ARM_EABI}</td><td>{@link #DC_CALL_C_ARM_THUMB_EABI CALL_C_ARM_THUMB_EABI}</td><td>{@link #DC_CALL_C_ARM_ARMHF CALL_C_ARM_ARMHF}</td></tr><tr><td>{@link #DC_CALL_C_MIPS32_EABI CALL_C_MIPS32_EABI}</td><td>{@link #DC_CALL_C_PPC32_SYSV CALL_C_PPC32_SYSV}</td><td>{@link #DC_CALL_C_PPC32_LINUX CALL_C_PPC32_LINUX}</td><td>{@link #DC_CALL_C_ARM_ARM CALL_C_ARM_ARM}</td></tr><tr><td>{@link #DC_CALL_C_ARM_THUMB CALL_C_ARM_THUMB}</td><td>{@link #DC_CALL_C_MIPS32_O32 CALL_C_MIPS32_O32}</td><td>{@link #DC_CALL_C_MIPS64_N32 CALL_C_MIPS64_N32}</td><td>{@link #DC_CALL_C_MIPS64_N64 CALL_C_MIPS64_N64}</td></tr><tr><td>{@link #DC_CALL_C_X86_PLAN9 CALL_C_X86_PLAN9}</td><td>{@link #DC_CALL_C_SPARC32 CALL_C_SPARC32}</td><td>{@link #DC_CALL_C_SPARC64 CALL_C_SPARC64}</td><td>{@link #DC_CALL_C_ARM64 CALL_C_ARM64}</td></tr><tr><td>{@link #DC_CALL_C_PPC64 CALL_C_PPC64}</td><td>{@link #DC_CALL_C_PPC64_LINUX CALL_C_PPC64_LINUX}</td><td>{@link #DC_CALL_SYS_DEFAULT CALL_SYS_DEFAULT}</td><td>{@link #DC_CALL_SYS_X86_INT80H_LINUX CALL_SYS_X86_INT80H_LINUX}</td></tr><tr><td>{@link #DC_CALL_SYS_X86_INT80H_BSD CALL_SYS_X86_INT80H_BSD}</td><td>{@link #DC_CALL_SYS_PPC32 CALL_SYS_PPC32}</td><td>{@link #DC_CALL_SYS_PPC64 CALL_SYS_PPC64}</td></tr></table>
      */
-    public static void dcMode(long vm, int mode) {
+    public static void dcMode(@NativeType("DCCallVM *") long vm, @NativeType("DCint") int mode) {
         if (CHECKS) {
             check(vm);
         }
@@ -186,7 +187,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgBool(long vm, boolean value) {
+    public static void dcArgBool(@NativeType("DCCallVM *") long vm, @NativeType("DCbool") boolean value) {
         if (CHECKS) {
             check(vm);
         }
@@ -204,7 +205,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgChar(long vm, byte value) {
+    public static void dcArgChar(@NativeType("DCCallVM *") long vm, @NativeType("DCchar") byte value) {
         if (CHECKS) {
             check(vm);
         }
@@ -222,7 +223,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgShort(long vm, short value) {
+    public static void dcArgShort(@NativeType("DCCallVM *") long vm, @NativeType("DCshort") short value) {
         if (CHECKS) {
             check(vm);
         }
@@ -240,7 +241,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgInt(long vm, int value) {
+    public static void dcArgInt(@NativeType("DCCallVM *") long vm, @NativeType("DCint") int value) {
         if (CHECKS) {
             check(vm);
         }
@@ -258,7 +259,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgLong(long vm, int value) {
+    public static void dcArgLong(@NativeType("DCCallVM *") long vm, @NativeType("DClong") int value) {
         if (CHECKS) {
             check(vm);
         }
@@ -276,7 +277,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgLongLong(long vm, long value) {
+    public static void dcArgLongLong(@NativeType("DCCallVM *") long vm, @NativeType("DClonglong") long value) {
         if (CHECKS) {
             check(vm);
         }
@@ -294,7 +295,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgFloat(long vm, float value) {
+    public static void dcArgFloat(@NativeType("DCCallVM *") long vm, @NativeType("DCfloat") float value) {
         if (CHECKS) {
             check(vm);
         }
@@ -312,7 +313,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgDouble(long vm, double value) {
+    public static void dcArgDouble(@NativeType("DCCallVM *") long vm, @NativeType("DCdouble") double value) {
         if (CHECKS) {
             check(vm);
         }
@@ -330,7 +331,7 @@ public class DynCall {
      * @param vm    a {@code CallVM} instance
      * @param value the argument value
      */
-    public static void dcArgPointer(long vm, long value) {
+    public static void dcArgPointer(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long value) {
         if (CHECKS) {
             check(vm);
         }
@@ -349,7 +350,7 @@ public class DynCall {
      * @param s     
      * @param value the argument value
      */
-    public static void dcArgStruct(long vm, long s, long value) {
+    public static void dcArgStruct(@NativeType("DCCallVM *") long vm, @NativeType("DCstruct *") long s, @NativeType("DCpointer") long value) {
         if (CHECKS) {
             check(vm);
             check(s);
@@ -372,7 +373,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static void dcCallVoid(long vm, long funcptr) {
+    @NativeType("DCvoid")
+    public static void dcCallVoid(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -394,7 +396,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static boolean dcCallBool(long vm, long funcptr) {
+    @NativeType("DCbool")
+    public static boolean dcCallBool(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -416,7 +419,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static byte dcCallChar(long vm, long funcptr) {
+    @NativeType("DCchar")
+    public static byte dcCallChar(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -438,7 +442,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static short dcCallShort(long vm, long funcptr) {
+    @NativeType("DCshort")
+    public static short dcCallShort(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -460,7 +465,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static int dcCallInt(long vm, long funcptr) {
+    @NativeType("DCint")
+    public static int dcCallInt(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -482,7 +488,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static int dcCallLong(long vm, long funcptr) {
+    @NativeType("DClong")
+    public static int dcCallLong(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -504,7 +511,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static long dcCallLongLong(long vm, long funcptr) {
+    @NativeType("DClonglong")
+    public static long dcCallLongLong(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -526,7 +534,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static float dcCallFloat(long vm, long funcptr) {
+    @NativeType("DCfloat")
+    public static float dcCallFloat(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -548,7 +557,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static double dcCallDouble(long vm, long funcptr) {
+    @NativeType("DCdouble")
+    public static double dcCallDouble(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -570,7 +580,8 @@ public class DynCall {
      * @param vm      a {@code CallVM} instance
      * @param funcptr the function pointer
      */
-    public static long dcCallPointer(long vm, long funcptr) {
+    @NativeType("DCpointer")
+    public static long dcCallPointer(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -594,7 +605,7 @@ public class DynCall {
      * @param s           
      * @param returnValue 
      */
-    public static void dcCallStruct(long vm, long funcptr, long s, long returnValue) {
+    public static void dcCallStruct(@NativeType("DCCallVM *") long vm, @NativeType("DCpointer") long funcptr, @NativeType("DCstruct *") long s, @NativeType("DCpointer") long returnValue) {
         if (CHECKS) {
             check(vm);
             check(funcptr);
@@ -614,7 +625,8 @@ public class DynCall {
      *
      * @param vm a {@code CallVM} instance
      */
-    public static int dcGetError(long vm) {
+    @NativeType("DCint")
+    public static int dcGetError(@NativeType("DCCallVM *") long vm) {
         if (CHECKS) {
             check(vm);
         }
@@ -629,7 +641,8 @@ public class DynCall {
      * @param fieldCount the number of fields
      * @param alignment  a custom struct alignment, or 0 to calculate automatically
      */
-    public static native long dcNewStruct(long fieldCount, int alignment);
+    @NativeType("DCstruct *")
+    public static native long dcNewStruct(@NativeType("DCsize") long fieldCount, @NativeType("DCint") int alignment);
 
     // --- [ dcStructField ] ---
 
@@ -644,7 +657,7 @@ public class DynCall {
      * @param alignment   a custom field alignment, or 0 to calculate automatically
      * @param arrayLength 1 or a higher value if the field is an array
      */
-    public static void dcStructField(long s, int type, int alignment, long arrayLength) {
+    public static void dcStructField(@NativeType("DCstruct *") long s, @NativeType("DCint") int type, @NativeType("DCint") int alignment, @NativeType("DCsize") long arrayLength) {
         if (CHECKS) {
             check(s);
         }
@@ -664,7 +677,7 @@ public class DynCall {
      * @param alignment   a custom nested struct alignment, or 0 to calculate automatically
      * @param arrayLength 1 or a higher value if the nested struct is an array
      */
-    public static void dcSubStruct(long s, long fieldCount, int alignment, long arrayLength) {
+    public static void dcSubStruct(@NativeType("DCstruct *") long s, @NativeType("DCsize") long fieldCount, @NativeType("DCint") int alignment, @NativeType("DCsize") long arrayLength) {
         if (CHECKS) {
             check(s);
         }
@@ -681,7 +694,7 @@ public class DynCall {
      *
      * @param s the struct to close
      */
-    public static void dcCloseStruct(long s) {
+    public static void dcCloseStruct(@NativeType("DCstruct *") long s) {
         if (CHECKS) {
             check(s);
         }
@@ -698,7 +711,8 @@ public class DynCall {
      *
      * @param s the struct
      */
-    public static long dcStructSize(long s) {
+    @NativeType("DCsize")
+    public static long dcStructSize(@NativeType("DCstruct *") long s) {
         if (CHECKS) {
             check(s);
         }
@@ -715,7 +729,8 @@ public class DynCall {
      *
      * @param s the struct
      */
-    public static long dcStructAlignment(long s) {
+    @NativeType("DCsize")
+    public static long dcStructAlignment(@NativeType("DCstruct *") long s) {
         if (CHECKS) {
             check(s);
         }
@@ -732,7 +747,7 @@ public class DynCall {
      *
      * @param s the struct to free
      */
-    public static void dcFreeStruct(long s) {
+    public static void dcFreeStruct(@NativeType("DCstruct *") long s) {
         if (CHECKS) {
             check(s);
         }
@@ -749,7 +764,8 @@ public class DynCall {
      *
      * @param signature the struct signature
      */
-    public static long dcDefineStruct(ByteBuffer signature) {
+    @NativeType("DCstruct *")
+    public static long dcDefineStruct(@NativeType("const char *") ByteBuffer signature) {
         if (CHECKS) {
             checkNT1(signature);
         }
@@ -761,7 +777,8 @@ public class DynCall {
      *
      * @param signature the struct signature
      */
-    public static long dcDefineStruct(CharSequence signature) {
+    @NativeType("DCstruct *")
+    public static long dcDefineStruct(@NativeType("const char *") CharSequence signature) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer signatureEncoded = stack.ASCII(signature);

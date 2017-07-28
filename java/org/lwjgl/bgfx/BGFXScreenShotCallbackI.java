@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Screenshot captured. Screenshot format is always 4-byte BGRA. */
 @FunctionalInterface
+@NativeType("screen_shot")
 public interface BGFXScreenShotCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ppiiipiB)v";
@@ -42,6 +43,6 @@ public interface BGFXScreenShotCallbackI extends CallbackI.V {
      * @param _size     image size
      * @param _yflip    if true image origin is bottom left
      */
-    void invoke(long _this, long _filePath, int _width, int _height, int _pitch, long _data, int _size, boolean _yflip);
+    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("char *") long _filePath, @NativeType("uint32_t") int _width, @NativeType("uint32_t") int _height, @NativeType("uint32_t") int _pitch, @NativeType("const void *") long _data, @NativeType("uint32_t") int _size, @NativeType("bool") boolean _yflip);
 
 }

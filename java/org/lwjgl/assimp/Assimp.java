@@ -1810,6 +1810,7 @@ public class Assimp {
      * Returns the number of export file formats available in the current Assimp build. Use {@link #aiGetExportFormatDescription GetExportFormatDescription} to retrieve infos of a specific
      * export format.
      */
+    @NativeType("size_t")
     public static long aiGetExportFormatCount() {
         long __functionAddress = Functions.GetExportFormatCount;
         return invokeP(__functionAddress);
@@ -1831,7 +1832,8 @@ public class Assimp {
      *
      * @return A description of that specific export format. {@code NULL} if {@code pIndex} is out of range.
      */
-    public static AIExportFormatDesc aiGetExportFormatDescription(long pIndex) {
+    @NativeType("struct aiExportFormatDesc *")
+    public static AIExportFormatDesc aiGetExportFormatDescription(@NativeType("size_t") long pIndex) {
         long __result = naiGetExportFormatDescription(pIndex);
         return AIExportFormatDesc.create(__result);
     }
@@ -1852,7 +1854,7 @@ public class Assimp {
      *
      * @param desc Pointer to the description
      */
-    public static void aiReleaseExportFormatDescription(AIExportFormatDesc desc) {
+    public static void aiReleaseExportFormatDescription(@NativeType("const struct aiExportFormatDesc *") AIExportFormatDesc desc) {
         naiReleaseExportFormatDescription(desc.address());
     }
 
@@ -1876,7 +1878,7 @@ public class Assimp {
      * @param pIn  Valid scene to be copied
      * @param pOut Receives a modifyable copy of the scene. Use {@link #aiFreeScene FreeScene} to delete it again.
      */
-    public static void aiCopyScene(AIScene pIn, PointerBuffer pOut) {
+    public static void aiCopyScene(@NativeType("const struct aiScene *") AIScene pIn, @NativeType("struct aiScene **") PointerBuffer pOut) {
         if (CHECKS) {
             check(pOut, 1);
         }
@@ -1891,7 +1893,8 @@ public class Assimp {
      *
      * @param pIn Valid scene to be copied
      */
-    public static AIScene aiCopyScene(AIScene pIn) {
+    @NativeType("void")
+    public static AIScene aiCopyScene(@NativeType("const struct aiScene *") AIScene pIn) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer pOut = stack.callocPointer(1);
@@ -1918,7 +1921,7 @@ public class Assimp {
      *
      * @param pIn Scene to be freed
      */
-    public static void aiFreeScene(AIScene pIn) {
+    public static void aiFreeScene(@NativeType("const struct aiScene *") AIScene pIn) {
         naiFreeScene(pIn.address());
     }
 
@@ -1963,7 +1966,8 @@ public class Assimp {
      *
      * @return a status code indicating the result of the export
      */
-    public static int aiExportScene(AIScene pScene, ByteBuffer pFormatId, ByteBuffer pFileName, int pPreProcessing) {
+    @NativeType("aiReturn")
+    public static int aiExportScene(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") ByteBuffer pFormatId, @NativeType("const char *") ByteBuffer pFileName, @NativeType("unsigned int") int pPreProcessing) {
         if (CHECKS) {
             checkNT1(pFormatId);
             checkNT1(pFileName);
@@ -2001,7 +2005,8 @@ public class Assimp {
      *
      * @return a status code indicating the result of the export
      */
-    public static int aiExportScene(AIScene pScene, CharSequence pFormatId, CharSequence pFileName, int pPreProcessing) {
+    @NativeType("aiReturn")
+    public static int aiExportScene(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") CharSequence pFormatId, @NativeType("const char *") CharSequence pFileName, @NativeType("unsigned int") int pPreProcessing) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFormatIdEncoded = stack.UTF8(pFormatId);
@@ -2055,7 +2060,8 @@ public class Assimp {
      *
      * @return a status code indicating the result of the export
      */
-    public static int aiExportSceneEx(AIScene pScene, ByteBuffer pFormatId, ByteBuffer pFileName, AIFileIO pIO, int pPreProcessing) {
+    @NativeType("aiReturn")
+    public static int aiExportSceneEx(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") ByteBuffer pFormatId, @NativeType("const char *") ByteBuffer pFileName, @NativeType("const struct aiFileIO *") AIFileIO pIO, @NativeType("unsigned int") int pPreProcessing) {
         if (CHECKS) {
             checkNT1(pFormatId);
             checkNT1(pFileName);
@@ -2095,7 +2101,8 @@ public class Assimp {
      *
      * @return a status code indicating the result of the export
      */
-    public static int aiExportSceneEx(AIScene pScene, CharSequence pFormatId, CharSequence pFileName, AIFileIO pIO, int pPreProcessing) {
+    @NativeType("aiReturn")
+    public static int aiExportSceneEx(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") CharSequence pFormatId, @NativeType("const char *") CharSequence pFileName, @NativeType("const struct aiFileIO *") AIFileIO pIO, @NativeType("unsigned int") int pPreProcessing) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFormatIdEncoded = stack.UTF8(pFormatId);
@@ -2143,7 +2150,8 @@ public class Assimp {
      *
      * @return the exported data or {@code NULL} in case of error
      */
-    public static AIExportDataBlob aiExportSceneToBlob(AIScene pScene, ByteBuffer pFormatId, int pPreProcessing) {
+    @NativeType("struct aiExportDataBlob *")
+    public static AIExportDataBlob aiExportSceneToBlob(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") ByteBuffer pFormatId, @NativeType("unsigned int") int pPreProcessing) {
         if (CHECKS) {
             checkNT1(pFormatId);
         }
@@ -2177,7 +2185,8 @@ public class Assimp {
      *
      * @return the exported data or {@code NULL} in case of error
      */
-    public static AIExportDataBlob aiExportSceneToBlob(AIScene pScene, CharSequence pFormatId, int pPreProcessing) {
+    @NativeType("struct aiExportDataBlob *")
+    public static AIExportDataBlob aiExportSceneToBlob(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") CharSequence pFormatId, @NativeType("unsigned int") int pPreProcessing) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFormatIdEncoded = stack.UTF8(pFormatId);
@@ -2201,7 +2210,7 @@ public class Assimp {
      *
      * @param pData the data blob returned by {@link #aiExportSceneToBlob ExportSceneToBlob}
      */
-    public static void aiReleaseExportBlob(AIExportDataBlob pData) {
+    public static void aiReleaseExportBlob(@NativeType("const struct aiExportDataBlob *") AIExportDataBlob pData) {
         naiReleaseExportBlob(pData.address());
     }
 
@@ -2226,7 +2235,8 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFile(ByteBuffer pFile, int pFlags) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFile(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags) {
         if (CHECKS) {
             checkNT1(pFile);
         }
@@ -2247,7 +2257,8 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFile(CharSequence pFile, int pFlags) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFile(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFileEncoded = stack.UTF8(pFile);
@@ -2280,7 +2291,8 @@ public class Assimp {
      *
      * @return Pointer to the imported data or NULL if the import failed.
      */
-    public static AIScene aiImportFileEx(ByteBuffer pFile, int pFlags, AIFileIO pFS) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileEx(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS) {
         if (CHECKS) {
             checkNT1(pFile);
         }
@@ -2302,7 +2314,8 @@ public class Assimp {
      *
      * @return Pointer to the imported data or NULL if the import failed.
      */
-    public static AIScene aiImportFileEx(CharSequence pFile, int pFlags, AIFileIO pFS) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileEx(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFileEncoded = stack.UTF8(pFile);
@@ -2332,7 +2345,8 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFileExWithProperties(ByteBuffer pFile, int pFlags, AIFileIO pFS, AIPropertyStore pProps) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileExWithProperties(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         if (CHECKS) {
             checkNT1(pFile);
         }
@@ -2351,7 +2365,8 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFileExWithProperties(CharSequence pFile, int pFlags, AIFileIO pFS, AIPropertyStore pProps) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileExWithProperties(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFileEncoded = stack.UTF8(pFile);
@@ -2397,7 +2412,8 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFileFromMemory(ByteBuffer pBuffer, int pFlags, ByteBuffer pHint) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileFromMemory(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") ByteBuffer pHint) {
         if (CHECKS) {
             checkNT1Safe(pHint);
         }
@@ -2428,7 +2444,8 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFileFromMemory(ByteBuffer pBuffer, int pFlags, CharSequence pHint) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileFromMemory(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") CharSequence pHint) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pHintEncoded = stack.UTF8(pHint);
@@ -2464,7 +2481,8 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFileFromMemoryWithProperties(ByteBuffer pBuffer, int pFlags, ByteBuffer pHint, AIPropertyStore pProps) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileFromMemoryWithProperties(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") ByteBuffer pHint, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         if (CHECKS) {
             checkNT1Safe(pHint);
         }
@@ -2485,7 +2503,8 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
-    public static AIScene aiImportFileFromMemoryWithProperties(ByteBuffer pBuffer, int pFlags, CharSequence pHint, AIPropertyStore pProps) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiImportFileFromMemoryWithProperties(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") CharSequence pHint, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pHintEncoded = stack.UTF8(pHint);
@@ -2521,7 +2540,8 @@ public class Assimp {
      *         'fail'. To be exact, the {@link #aiProcess_ValidateDataStructure Process_ValidateDataStructure} flag is currently the only post processing step which can actually cause the scene to be reset
      *         to {@code NULL}.
      */
-    public static AIScene aiApplyPostProcessing(AIScene pScene, int pFlags) {
+    @NativeType("struct aiScene *")
+    public static AIScene aiApplyPostProcessing(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("unsigned int") int pFlags) {
         long __result = naiApplyPostProcessing(pScene.address(), pFlags);
         return AIScene.create(__result);
     }
@@ -2550,7 +2570,7 @@ public class Assimp {
      *
      * @param stream Describes the new log stream.
      */
-    public static void aiAttachLogStream(AILogStream stream) {
+    public static void aiAttachLogStream(@NativeType("const struct aiLogStream *") AILogStream stream) {
         naiAttachLogStream(stream.address());
     }
 
@@ -2562,7 +2582,7 @@ public class Assimp {
      *
      * @param d true or false, your decision
      */
-    public static void aiEnableVerboseLogging(boolean d) {
+    public static void aiEnableVerboseLogging(@NativeType("aiBool") boolean d) {
         long __functionAddress = Functions.EnableVerboseLogging;
         invokeV(__functionAddress, d ? 1 : 0);
     }
@@ -2587,7 +2607,8 @@ public class Assimp {
      *
      * @return {@link #aiReturn_SUCCESS Return_SUCCESS} if the log stream has been detached successfully.
      */
-    public static int aiDetachLogStream(AILogStream stream) {
+    @NativeType("aiReturn")
+    public static int aiDetachLogStream(@NativeType("struct aiLogStream *") AILogStream stream) {
         return naiDetachLogStream(stream.address());
     }
 
@@ -2620,7 +2641,7 @@ public class Assimp {
      *
      * @param pScene The imported data to release. {@code NULL} is a valid value.
      */
-    public static void aiReleaseImport(AIScene pScene) {
+    public static void aiReleaseImport(@NativeType("const struct aiScene *") AIScene pScene) {
         naiReleaseImport(memAddressSafe(pScene));
     }
 
@@ -2638,6 +2659,7 @@ public class Assimp {
      * @return A textual description of the error that occurred at the last import process. {@code NULL} if there was no error. There can't be an error if you got a
      *         non-{@code NULL} {@link AIScene} from {@link #aiImportFile ImportFile}/{@link #aiImportFileEx ImportFileEx}/{@link #aiApplyPostProcessing ApplyPostProcessing}.
      */
+    @NativeType("char *")
     public static String aiGetErrorString() {
         long __result = naiGetErrorString();
         return memUTF8(__result);
@@ -2658,7 +2680,8 @@ public class Assimp {
      *
      * @return true if the file extension is supported.
      */
-    public static boolean aiIsExtensionSupported(ByteBuffer szExtension) {
+    @NativeType("aiBool")
+    public static boolean aiIsExtensionSupported(@NativeType("const char *") ByteBuffer szExtension) {
         if (CHECKS) {
             checkNT1(szExtension);
         }
@@ -2672,7 +2695,8 @@ public class Assimp {
      *
      * @return true if the file extension is supported.
      */
-    public static boolean aiIsExtensionSupported(CharSequence szExtension) {
+    @NativeType("aiBool")
+    public static boolean aiIsExtensionSupported(@NativeType("const char *") CharSequence szExtension) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer szExtensionEncoded = stack.UTF8(szExtension);
@@ -2697,7 +2721,7 @@ public class Assimp {
      *
      * @param szOut String to receive the extension list. Format of the list: "*.3ds;*.obj;*.dae". {@code NULL} is not a valid parameter.
      */
-    public static void aiGetExtensionList(AIString szOut) {
+    public static void aiGetExtensionList(@NativeType("struct aiString *") AIString szOut) {
         naiGetExtensionList(szOut.address());
     }
 
@@ -2718,7 +2742,7 @@ public class Assimp {
      * @param pIn Input asset.
      * @param in  Data structure to be filled.
      */
-    public static void aiGetMemoryRequirements(AIScene pIn, AIMemoryInfo in) {
+    public static void aiGetMemoryRequirements(@NativeType("const struct aiScene *") AIScene pIn, @NativeType("struct aiMemoryInfo *") AIMemoryInfo in) {
         naiGetMemoryRequirements(pIn.address(), in.address());
     }
 
@@ -2735,6 +2759,7 @@ public class Assimp {
      *
      * @return New property store. Property stores need to be manually destroyed using the {@link #aiReleasePropertyStore ReleasePropertyStore} API function.
      */
+    @NativeType("struct aiPropertyStore *")
     public static AIPropertyStore aiCreatePropertyStore() {
         long __result = naiCreatePropertyStore();
         return AIPropertyStore.create(__result);
@@ -2753,7 +2778,7 @@ public class Assimp {
      *
      * @param p Property store to be deleted.
      */
-    public static void aiReleasePropertyStore(AIPropertyStore p) {
+    public static void aiReleasePropertyStore(@NativeType("struct aiPropertyStore *") AIPropertyStore p) {
         naiReleasePropertyStore(p.address());
     }
 
@@ -2775,7 +2800,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyInteger(AIPropertyStore store, ByteBuffer szName, int value) {
+    public static void aiSetImportPropertyInteger(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") ByteBuffer szName, int value) {
         if (CHECKS) {
             checkNT1(szName);
         }
@@ -2792,7 +2817,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyInteger(AIPropertyStore store, CharSequence szName, int value) {
+    public static void aiSetImportPropertyInteger(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") CharSequence szName, @NativeType("int") int value) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer szNameEncoded = stack.ASCII(szName);
@@ -2820,7 +2845,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyFloat(AIPropertyStore store, ByteBuffer szName, float value) {
+    public static void aiSetImportPropertyFloat(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") ByteBuffer szName, float value) {
         if (CHECKS) {
             checkNT1(szName);
         }
@@ -2837,7 +2862,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyFloat(AIPropertyStore store, CharSequence szName, float value) {
+    public static void aiSetImportPropertyFloat(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") CharSequence szName, @NativeType("float") float value) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer szNameEncoded = stack.ASCII(szName);
@@ -2865,7 +2890,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyString(AIPropertyStore store, ByteBuffer szName, AIString value) {
+    public static void aiSetImportPropertyString(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") ByteBuffer szName, @NativeType("const struct aiString *") AIString value) {
         if (CHECKS) {
             checkNT1(szName);
         }
@@ -2882,7 +2907,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyString(AIPropertyStore store, CharSequence szName, AIString value) {
+    public static void aiSetImportPropertyString(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") CharSequence szName, @NativeType("const struct aiString *") AIString value) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer szNameEncoded = stack.ASCII(szName);
@@ -2910,7 +2935,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyMatrix(AIPropertyStore store, ByteBuffer szName, AIMatrix4x4 value) {
+    public static void aiSetImportPropertyMatrix(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") ByteBuffer szName, @NativeType("const struct aiMatrix4x4 *") AIMatrix4x4 value) {
         if (CHECKS) {
             checkNT1(szName);
         }
@@ -2927,7 +2952,7 @@ public class Assimp {
      * @param szName Name of the configuration property to be set. One of:<br><table><tr><td>{@link #AI_CONFIG_GLOB_MEASURE_TIME}</td><td>{@link #AI_CONFIG_IMPORT_NO_SKELETON_MESHES}</td></tr><tr><td>{@link #AI_CONFIG_PP_SBBC_MAX_BONES}</td><td>{@link #AI_CONFIG_PP_CT_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_PP_CT_TEXTURE_CHANNEL_INDEX}</td><td>{@link #AI_CONFIG_PP_GSN_MAX_SMOOTHING_ANGLE}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDL_COLORMAP}</td><td>{@link #AI_CONFIG_PP_RRM_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_KEEP_HIERARCHY}</td><td>{@link #AI_CONFIG_PP_PTV_NORMALIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_PTV_ADD_ROOT_TRANSFORMATION}</td><td>{@link #AI_CONFIG_PP_PTV_ROOT_TRANSFORMATION}</td></tr><tr><td>{@link #AI_CONFIG_PP_FD_REMOVE}</td><td>{@link #AI_CONFIG_PP_OG_EXCLUDE_LIST}</td></tr><tr><td>{@link #AI_CONFIG_PP_SLM_TRIANGLE_LIMIT}</td><td>{@link #AI_CONFIG_PP_SLM_VERTEX_LIMIT}</td></tr><tr><td>{@link #AI_CONFIG_PP_LBW_MAX_WEIGHTS}</td><td>{@link #AI_CONFIG_PP_DB_THRESHOLD}</td></tr><tr><td>{@link #AI_CONFIG_PP_DB_ALL_OR_NONE}</td><td>{@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE}</td></tr><tr><td>{@link #AI_CONFIG_PP_RVC_FLAGS}</td><td>{@link #AI_CONFIG_PP_SBP_REMOVE}</td></tr><tr><td>{@link #AI_CONFIG_PP_FID_ANIM_ACCURACY}</td><td>{@link #AI_CONFIG_PP_TUV_EVALUATE}</td></tr><tr><td>{@link #AI_CONFIG_FAVOUR_SPEED}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_GEOMETRY_LAYERS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ALL_MATERIALS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_MATERIALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_TEXTURES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_CAMERAS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_READ_LIGHTS}</td><td>{@link #AI_CONFIG_IMPORT_FBX_READ_ANIMATIONS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_STRICT_MODE}</td><td>{@link #AI_CONFIG_IMPORT_FBX_PRESERVE_PIVOTS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_FBX_OPTIMIZE_EMPTY_ANIMATION_CURVES}</td><td>{@link #AI_CONFIG_IMPORT_FBX_SEARCH_EMBEDDED_TEXTURES}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_GLOBAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MD3_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD2_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_MDL_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MDC_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_SMD_KEYFRAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_UNREAL_KEYFRAME}</td><td>{@link #AI_CONFIG_IMPORT_AC_SEPARATE_BFCULL}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_AC_EVAL_SUBDIVISION}</td><td>{@link #AI_CONFIG_UNREAL_HANDLE_FLAGS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_TER_MAKE_UVS}</td><td>{@link #AI_CONFIG_IMPORT_ASE_RECONSTRUCT_NORMALS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_HANDLE_MULTIPART}</td><td>{@link #AI_CONFIG_IMPORT_MD3_SKIN_NAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD3_SHADER_SRC}</td><td>{@link #AI_CONFIG_IMPORT_LWO_ONE_LAYER_ONLY}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_MD5_NO_ANIM_AUTOLOAD}</td><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_START}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_LWS_ANIM_END}</td><td>{@link #AI_CONFIG_IMPORT_IRR_ANIM_FPS}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_OGRE_MATERIAL_FILE}</td><td>{@link #AI_CONFIG_IMPORT_OGRE_TEXTURETYPE_FROM_FILENAME}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_SPACE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_ANDROID_JNI_ASSIMP_MANAGER_SUPPORT}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SKIP_CURVE_REPRESENTATIONS}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CUSTOM_TRIANGULATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_IFC_SMOOTHING_ANGLE}</td><td>{@link #AI_CONFIG_IMPORT_IFC_CYLINDRICAL_TESSELLATION}</td></tr><tr><td>{@link #AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION}</td><td>{@link #AI_CONFIG_EXPORT_XFILE_64BIT}</td></tr></table>
      * @param value  New value for the property
      */
-    public static void aiSetImportPropertyMatrix(AIPropertyStore store, CharSequence szName, AIMatrix4x4 value) {
+    public static void aiSetImportPropertyMatrix(@NativeType("struct aiPropertyStore *") AIPropertyStore store, @NativeType("const char *") CharSequence szName, @NativeType("const struct aiMatrix4x4 *") AIMatrix4x4 value) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer szNameEncoded = stack.ASCII(szName);
@@ -2951,7 +2976,7 @@ public class Assimp {
      * @param quat Receives the output quaternion.
      * @param mat  Matrix to 'quaternionize'.
      */
-    public static void aiCreateQuaternionFromMatrix(AIQuaternion quat, AIMatrix3x3 mat) {
+    public static void aiCreateQuaternionFromMatrix(@NativeType("struct aiQuaternion *") AIQuaternion quat, @NativeType("const struct aiMatrix3x3 *") AIMatrix3x3 mat) {
         naiCreateQuaternionFromMatrix(quat.address(), mat.address());
     }
 
@@ -2971,7 +2996,7 @@ public class Assimp {
      * @param rotation Receives the rotational component
      * @param position Receives the translational component.
      */
-    public static void aiDecomposeMatrix(AIMatrix4x4 mat, AIVector3D scaling, AIQuaternion rotation, AIVector3D position) {
+    public static void aiDecomposeMatrix(@NativeType("const struct aiMatrix4x4 *") AIMatrix4x4 mat, @NativeType("struct aiVector3D *") AIVector3D scaling, @NativeType("struct aiQuaternion *") AIQuaternion rotation, @NativeType("struct aiVector3D *") AIVector3D position) {
         naiDecomposeMatrix(mat.address(), scaling.address(), rotation.address(), position.address());
     }
 
@@ -2988,7 +3013,7 @@ public class Assimp {
      *
      * @param mat Pointer to the matrix to be transposed
      */
-    public static void aiTransposeMatrix4(AIMatrix4x4 mat) {
+    public static void aiTransposeMatrix4(@NativeType("struct aiMatrix4x4 *") AIMatrix4x4 mat) {
         naiTransposeMatrix4(mat.address());
     }
 
@@ -3005,7 +3030,7 @@ public class Assimp {
      *
      * @param mat Pointer to the matrix to be transposed
      */
-    public static void aiTransposeMatrix3(AIMatrix3x3 mat) {
+    public static void aiTransposeMatrix3(@NativeType("struct aiMatrix3x3 *") AIMatrix3x3 mat) {
         naiTransposeMatrix3(mat.address());
     }
 
@@ -3023,7 +3048,7 @@ public class Assimp {
      * @param vec Vector to be transformed.
      * @param mat Matrix to transform the vector with.
      */
-    public static void aiTransformVecByMatrix3(AIVector3D vec, AIMatrix3x3 mat) {
+    public static void aiTransformVecByMatrix3(@NativeType("struct aiVector3D *") AIVector3D vec, @NativeType("const struct aiMatrix3x3 *") AIMatrix3x3 mat) {
         naiTransformVecByMatrix3(vec.address(), mat.address());
     }
 
@@ -3041,7 +3066,7 @@ public class Assimp {
      * @param vec Vector to be transformed.
      * @param mat Matrix to transform the vector with.
      */
-    public static void aiTransformVecByMatrix4(AIVector3D vec, AIMatrix4x4 mat) {
+    public static void aiTransformVecByMatrix4(@NativeType("struct aiVector3D *") AIVector3D vec, @NativeType("const struct aiMatrix4x4 *") AIMatrix4x4 mat) {
         naiTransformVecByMatrix4(vec.address(), mat.address());
     }
 
@@ -3059,7 +3084,7 @@ public class Assimp {
      * @param dst First factor, receives result.
      * @param src Matrix to be multiplied with 'dst'.
      */
-    public static void aiMultiplyMatrix4(AIMatrix4x4 dst, AIMatrix4x4 src) {
+    public static void aiMultiplyMatrix4(@NativeType("struct aiMatrix4x4 *") AIMatrix4x4 dst, @NativeType("const struct aiMatrix4x4 *") AIMatrix4x4 src) {
         naiMultiplyMatrix4(dst.address(), src.address());
     }
 
@@ -3077,7 +3102,7 @@ public class Assimp {
      * @param dst First factor, receives result.
      * @param src Matrix to be multiplied with 'dst'.
      */
-    public static void aiMultiplyMatrix3(AIMatrix3x3 dst, AIMatrix3x3 src) {
+    public static void aiMultiplyMatrix3(@NativeType("struct aiMatrix3x3 *") AIMatrix3x3 dst, @NativeType("const struct aiMatrix3x3 *") AIMatrix3x3 src) {
         naiMultiplyMatrix3(dst.address(), src.address());
     }
 
@@ -3094,7 +3119,7 @@ public class Assimp {
      *
      * @param mat Matrix to receive its personal identity
      */
-    public static void aiIdentityMatrix3(AIMatrix3x3 mat) {
+    public static void aiIdentityMatrix3(@NativeType("struct aiMatrix3x3 *") AIMatrix3x3 mat) {
         naiIdentityMatrix3(mat.address());
     }
 
@@ -3111,7 +3136,7 @@ public class Assimp {
      *
      * @param mat Matrix to receive its personal identity
      */
-    public static void aiIdentityMatrix4(AIMatrix4x4 mat) {
+    public static void aiIdentityMatrix4(@NativeType("struct aiMatrix4x4 *") AIMatrix4x4 mat) {
         naiIdentityMatrix4(mat.address());
     }
 
@@ -3121,6 +3146,7 @@ public class Assimp {
      * Returns the number of import file formats available in the current Assimp build. Use {@link #aiGetImportFormatDescription GetImportFormatDescription} to retrieve infos of a specific
      * import format.
      */
+    @NativeType("size_t")
     public static long aiGetImportFormatCount() {
         long __functionAddress = Functions.GetImportFormatCount;
         return invokeP(__functionAddress);
@@ -3141,7 +3167,8 @@ public class Assimp {
      *
      * @return A description of that specific import format. {@code NULL} if {@code pIndex} is out of range.
      */
-    public static AIImporterDesc aiGetImportFormatDescription(long pIndex) {
+    @NativeType("struct aiImporterDesc *")
+    public static AIImporterDesc aiGetImportFormatDescription(@NativeType("size_t") long pIndex) {
         long __result = naiGetImportFormatDescription(pIndex);
         return AIImporterDesc.create(__result);
     }
@@ -3163,7 +3190,8 @@ public class Assimp {
      *
      * @return A pointer showing to the ImporterDesc, {@link AIImporterDesc}.
      */
-    public static AIImporterDesc aiGetImporterDesc(ByteBuffer extension) {
+    @NativeType("struct aiImporterDesc *")
+    public static AIImporterDesc aiGetImporterDesc(@NativeType("const char *") ByteBuffer extension) {
         if (CHECKS) {
             checkNT1(extension);
         }
@@ -3180,7 +3208,8 @@ public class Assimp {
      *
      * @return A pointer showing to the ImporterDesc, {@link AIImporterDesc}.
      */
-    public static AIImporterDesc aiGetImporterDesc(CharSequence extension) {
+    @NativeType("struct aiImporterDesc *")
+    public static AIImporterDesc aiGetImporterDesc(@NativeType("const char *") CharSequence extension) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer extensionEncoded = stack.ASCII(extension);
@@ -3213,7 +3242,8 @@ public class Assimp {
      *
      * @return Return_xxx values.
      */
-    public static int aiGetMaterialProperty(AIMaterial pMat, ByteBuffer pKey, int type, int index, PointerBuffer mPropOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialProperty(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiMaterialProperty **") PointerBuffer mPropOut) {
         if (CHECKS) {
             checkNT1(pKey);
             check(mPropOut, 1);
@@ -3232,7 +3262,8 @@ public class Assimp {
      *
      * @return Return_xxx values.
      */
-    public static int aiGetMaterialProperty(AIMaterial pMat, CharSequence pKey, int type, int index, PointerBuffer mPropOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialProperty(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiMaterialProperty **") PointerBuffer mPropOut) {
         if (CHECKS) {
             check(mPropOut, 1);
         }
@@ -3256,7 +3287,8 @@ public class Assimp {
      *
      * @return Return_xxx values.
      */
-    public static int aiGetMaterialProperty(AIMaterial pMat, ByteBuffer pKey, PointerBuffer mPropOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialProperty(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("struct aiMaterialProperty **") PointerBuffer mPropOut) {
         return aiGetMaterialProperty(pMat, pKey, 0, 0, mPropOut);
     }
 
@@ -3269,7 +3301,8 @@ public class Assimp {
      *
      * @return Return_xxx values.
      */
-    public static int aiGetMaterialProperty(AIMaterial pMat, CharSequence pKey, PointerBuffer mPropOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialProperty(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("struct aiMaterialProperty **") PointerBuffer mPropOut) {
         return aiGetMaterialProperty(pMat, pKey, 0, 0, mPropOut);
     }
 
@@ -3300,7 +3333,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
-    public static int aiGetMaterialFloatArray(AIMaterial pMat, ByteBuffer pKey, int type, int index, FloatBuffer pOut, IntBuffer pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") FloatBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkNT1(pKey);
             checkSafe(pMax, 1);
@@ -3321,7 +3355,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
-    public static int aiGetMaterialFloatArray(AIMaterial pMat, CharSequence pKey, int type, int index, FloatBuffer pOut, IntBuffer pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") FloatBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkSafe(pMax, 1);
             check(pOut, pMax.get(pMax.position()));
@@ -3362,7 +3397,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
-    public static int aiGetMaterialIntegerArray(AIMaterial pMat, ByteBuffer pKey, int type, int index, IntBuffer pOut, IntBuffer pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") IntBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkNT1(pKey);
             checkSafe(pMax, 1);
@@ -3383,7 +3419,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
-    public static int aiGetMaterialIntegerArray(AIMaterial pMat, CharSequence pKey, int type, int index, IntBuffer pOut, IntBuffer pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") IntBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkSafe(pMax, 1);
             check(pOut, pMax.get(pMax.position()));
@@ -3419,7 +3456,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output struct remains unmodified.
      */
-    public static int aiGetMaterialColor(AIMaterial pMat, ByteBuffer pKey, int type, int index, AIColor4D pOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialColor(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiColor4D *") AIColor4D pOut) {
         if (CHECKS) {
             checkNT1(pKey);
         }
@@ -3437,7 +3475,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output struct remains unmodified.
      */
-    public static int aiGetMaterialColor(AIMaterial pMat, CharSequence pKey, int type, int index, AIColor4D pOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialColor(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiColor4D *") AIColor4D pOut) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pKeyEncoded = stack.ASCII(pKey);
@@ -3469,7 +3508,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output struct remains unmodified.
      */
-    public static int aiGetMaterialUVTransform(AIMaterial pMat, ByteBuffer pKey, int type, int index, AIUVTransform pOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialUVTransform(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiUVTransform *") AIUVTransform pOut) {
         if (CHECKS) {
             checkNT1(pKey);
         }
@@ -3487,7 +3527,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output struct remains unmodified.
      */
-    public static int aiGetMaterialUVTransform(AIMaterial pMat, CharSequence pKey, int type, int index, AIUVTransform pOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialUVTransform(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiUVTransform *") AIUVTransform pOut) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pKeyEncoded = stack.ASCII(pKey);
@@ -3519,7 +3560,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output struct remains unmodified.
      */
-    public static int aiGetMaterialString(AIMaterial pMat, ByteBuffer pKey, int type, int index, AIString pOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialString(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString pOut) {
         if (CHECKS) {
             checkNT1(pKey);
         }
@@ -3537,7 +3579,8 @@ public class Assimp {
      *
      * @return Specifies whether the key has been found. If not, the output struct remains unmodified.
      */
-    public static int aiGetMaterialString(AIMaterial pMat, CharSequence pKey, int type, int index, AIString pOut) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialString(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString pOut) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pKeyEncoded = stack.ASCII(pKey);
@@ -3566,7 +3609,8 @@ public class Assimp {
      *
      * @return Number of textures for this type.
      */
-    public static int aiGetMaterialTextureCount(AIMaterial pMat, int type) {
+    @NativeType("unsigned int")
+    public static int aiGetMaterialTextureCount(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("aiTextureType") int type) {
         return naiGetMaterialTextureCount(pMat.address(), type);
     }
 
@@ -3604,7 +3648,8 @@ public class Assimp {
      *
      * @return {@link #aiReturn_SUCCESS Return_SUCCESS} on success, otherwise something else. Have fun.
      */
-    public static int aiGetMaterialTexture(AIMaterial pMat, int type, int index, AIString path, IntBuffer mapping, IntBuffer uvindex, FloatBuffer blend, IntBuffer op, IntBuffer mapmode, IntBuffer flags) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialTexture(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("aiTextureType") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString path, @NativeType("aiTextureMapping *") IntBuffer mapping, @NativeType("unsigned int *") IntBuffer uvindex, @NativeType("float *") FloatBuffer blend, @NativeType("aiTextureOp *") IntBuffer op, @NativeType("aiTextureMapMode *") IntBuffer mapmode, @NativeType("unsigned int *") IntBuffer flags) {
         if (CHECKS) {
             checkSafe(mapping, 1);
             checkSafe(uvindex, 1);
@@ -3629,6 +3674,7 @@ public class Assimp {
      *
      * @return A string containing the legal information.
      */
+    @NativeType("const char *")
     public static String aiGetLegalString() {
         long __result = naiGetLegalString();
         return memASCII(__result);
@@ -3641,6 +3687,7 @@ public class Assimp {
      *
      * @return Minor version of the Assimp runtime the application was linked/built against
      */
+    @NativeType("unsigned int")
     public static int aiGetVersionMinor() {
         long __functionAddress = Functions.GetVersionMinor;
         return invokeI(__functionAddress);
@@ -3653,6 +3700,7 @@ public class Assimp {
      *
      * @return Major version of the Assimp runtime the application was linked/built against
      */
+    @NativeType("unsigned int")
     public static int aiGetVersionMajor() {
         long __functionAddress = Functions.GetVersionMajor;
         return invokeI(__functionAddress);
@@ -3665,6 +3713,7 @@ public class Assimp {
      *
      * @return SVN Repository revision number of the Assimp runtime the application was linked/built against.
      */
+    @NativeType("unsigned int")
     public static int aiGetVersionRevision() {
         long __functionAddress = Functions.GetVersionRevision;
         return invokeI(__functionAddress);
@@ -3677,13 +3726,15 @@ public class Assimp {
      *
      * @return Any bitwise combination of the {@code ASSIMP_CFLAGS_xxx} constants.
      */
+    @NativeType("unsigned int")
     public static int aiGetCompileFlags() {
         long __functionAddress = Functions.GetCompileFlags;
         return invokeI(__functionAddress);
     }
 
     /** Array version of: {@link #aiGetMaterialFloatArray GetMaterialFloatArray} */
-    public static int aiGetMaterialFloatArray(AIMaterial pMat, ByteBuffer pKey, int type, int index, float[] pOut, int[] pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") float[] pOut, @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialFloatArray;
         if (CHECKS) {
             checkNT1(pKey);
@@ -3695,7 +3746,8 @@ public class Assimp {
     }
 
     /** Array version of: {@link #aiGetMaterialFloatArray GetMaterialFloatArray} */
-    public static int aiGetMaterialFloatArray(AIMaterial pMat, CharSequence pKey, int type, int index, float[] pOut, int[] pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") float[] pOut, @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialFloatArray;
         if (CHECKS) {
             checkSafe(pMax, 1);
@@ -3712,7 +3764,8 @@ public class Assimp {
     }
 
     /** Array version of: {@link #aiGetMaterialIntegerArray GetMaterialIntegerArray} */
-    public static int aiGetMaterialIntegerArray(AIMaterial pMat, ByteBuffer pKey, int type, int index, int[] pOut, int[] pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") int[] pOut, @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialIntegerArray;
         if (CHECKS) {
             checkNT1(pKey);
@@ -3724,7 +3777,8 @@ public class Assimp {
     }
 
     /** Array version of: {@link #aiGetMaterialIntegerArray GetMaterialIntegerArray} */
-    public static int aiGetMaterialIntegerArray(AIMaterial pMat, CharSequence pKey, int type, int index, int[] pOut, int[] pMax) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") int[] pOut, @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialIntegerArray;
         if (CHECKS) {
             checkSafe(pMax, 1);
@@ -3741,7 +3795,8 @@ public class Assimp {
     }
 
     /** Array version of: {@link #aiGetMaterialTexture GetMaterialTexture} */
-    public static int aiGetMaterialTexture(AIMaterial pMat, int type, int index, AIString path, int[] mapping, int[] uvindex, float[] blend, int[] op, int[] mapmode, int[] flags) {
+    @NativeType("aiReturn")
+    public static int aiGetMaterialTexture(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("aiTextureType") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString path, @NativeType("aiTextureMapping *") int[] mapping, @NativeType("unsigned int *") int[] uvindex, @NativeType("float *") float[] blend, @NativeType("aiTextureOp *") int[] op, @NativeType("aiTextureMapMode *") int[] mapmode, @NativeType("unsigned int *") int[] flags) {
         long __functionAddress = Functions.GetMaterialTexture;
         if (CHECKS) {
             checkSafe(mapping, 1);

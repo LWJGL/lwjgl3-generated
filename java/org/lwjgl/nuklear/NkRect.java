@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float h;
  * }</pre></code>
  */
+@NativeType("struct nk_rect")
 public class NkRect extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -93,7 +95,8 @@ public class EXTDeviceFission {
 
     // --- [ clReleaseDeviceEXT ] ---
 
-    public static int clReleaseDeviceEXT(long device) {
+    @NativeType("cl_int")
+    public static int clReleaseDeviceEXT(@NativeType("cl_device_id") long device) {
         long __functionAddress = CL.getICD().clReleaseDeviceEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -104,7 +107,8 @@ public class EXTDeviceFission {
 
     // --- [ clRetainDeviceEXT ] ---
 
-    public static int clRetainDeviceEXT(long device) {
+    @NativeType("cl_int")
+    public static int clRetainDeviceEXT(@NativeType("cl_device_id") long device) {
         long __functionAddress = CL.getICD().clRetainDeviceEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -124,7 +128,8 @@ public class EXTDeviceFission {
         return callPPPPI(__functionAddress, in_device, properties, num_entries, out_devices, num_devices);
     }
 
-    public static int clCreateSubDevicesEXT(long in_device, LongBuffer properties, PointerBuffer out_devices, IntBuffer num_devices) {
+    @NativeType("cl_int")
+    public static int clCreateSubDevicesEXT(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property_ext *") LongBuffer properties, @NativeType("cl_device_id *") PointerBuffer out_devices, @NativeType("cl_uint *") IntBuffer num_devices) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(num_devices, 1);
@@ -133,7 +138,8 @@ public class EXTDeviceFission {
     }
 
     /** Array version of: {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
-    public static int clCreateSubDevicesEXT(long in_device, long[] properties, PointerBuffer out_devices, int[] num_devices) {
+    @NativeType("cl_int")
+    public static int clCreateSubDevicesEXT(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property_ext *") long[] properties, @NativeType("cl_device_id *") PointerBuffer out_devices, @NativeType("cl_uint *") int[] num_devices) {
         long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
         if (CHECKS) {
             check(__functionAddress);

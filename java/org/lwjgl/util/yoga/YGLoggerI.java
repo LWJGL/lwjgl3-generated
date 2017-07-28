@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("YGLogger")
 public interface YGLoggerI extends CallbackI.I {
 
     String SIGNATURE = "(ppipp)i";
@@ -29,7 +30,6 @@ public interface YGLoggerI extends CallbackI.I {
         );
     }
 
-
-    int invoke(long config, long node, int level, long format, long args);
+    int invoke(@NativeType("const YGConfigRef") long config, @NativeType("const YGNodeRef") long node, @NativeType("YGLogLevel") int level, @NativeType("const char *") long format, @NativeType("va_list *") long args);
 
 }

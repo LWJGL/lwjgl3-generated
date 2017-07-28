@@ -349,7 +349,8 @@ public class ARBFramebufferObject {
      *
      * @param renderbuffer a value that may be the name of a renderbuffer object
      */
-    public static native boolean glIsRenderbuffer(int renderbuffer);
+    @NativeType("GLboolean")
+    public static native boolean glIsRenderbuffer(@NativeType("GLuint") int renderbuffer);
 
     // --- [ glBindRenderbuffer ] ---
 
@@ -359,7 +360,7 @@ public class ARBFramebufferObject {
      * @param target       the renderbuffer target of the binding operation. Must be:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
      * @param renderbuffer the name of the renderbuffer object to bind
      */
-    public static native void glBindRenderbuffer(int target, int renderbuffer);
+    public static native void glBindRenderbuffer(@NativeType("GLenum") int target, @NativeType("GLuint") int renderbuffer);
 
     // --- [ glDeleteRenderbuffers ] ---
 
@@ -375,12 +376,12 @@ public class ARBFramebufferObject {
      *
      * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
      */
-    public static void glDeleteRenderbuffers(IntBuffer renderbuffers) {
+    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") IntBuffer renderbuffers) {
         nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
     }
 
     /** Deletes renderbuffer objects. */
-    public static void glDeleteRenderbuffers(int renderbuffer) {
+    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") int renderbuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer renderbuffers = stack.ints(renderbuffer);
@@ -404,11 +405,12 @@ public class ARBFramebufferObject {
      *
      * @param renderbuffers a buffer in which the generated renderbuffer object names are stored
      */
-    public static void glGenRenderbuffers(IntBuffer renderbuffers) {
+    public static void glGenRenderbuffers(@NativeType("GLuint *") IntBuffer renderbuffers) {
         nglGenRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
     }
 
     /** Generates renderbuffer object names. */
+    @NativeType("void")
     public static int glGenRenderbuffers() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -430,7 +432,7 @@ public class ARBFramebufferObject {
      * @param width          the width of the renderbuffer, in pixels
      * @param height         the height of the renderbuffer, in pixels
      */
-    public static native void glRenderbufferStorage(int target, int internalformat, int width, int height);
+    public static native void glRenderbufferStorage(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glRenderbufferStorageMultisample ] ---
 
@@ -445,7 +447,7 @@ public class ARBFramebufferObject {
      * @param width          the width of the renderbuffer, in pixels
      * @param height         the height of the renderbuffer, in pixels
      */
-    public static native void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisample(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glGetRenderbufferParameteriv ] ---
 
@@ -459,7 +461,7 @@ public class ARBFramebufferObject {
      * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}</td><td>{@link GL30#GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}</td><td>{@link GL30#GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}</td></tr><tr><td>{@link GL30#GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}</td></tr><tr><td>{@link GL30#GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}</td></tr><tr><td>{@link GL30#GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}</td></tr></table>
      * @param params an array to receive the value of the queried parameter
      */
-    public static void glGetRenderbufferParameteriv(int target, int pname, IntBuffer params) {
+    public static void glGetRenderbufferParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -472,7 +474,8 @@ public class ARBFramebufferObject {
      * @param target the target of the query operation. Must be:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
      * @param pname  the parameter whose value to retrieve from the renderbuffer bound to {@code target}. One of:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER_WIDTH RENDERBUFFER_WIDTH}</td><td>{@link GL30#GL_RENDERBUFFER_HEIGHT RENDERBUFFER_HEIGHT}</td><td>{@link GL30#GL_RENDERBUFFER_INTERNAL_FORMAT RENDERBUFFER_INTERNAL_FORMAT}</td></tr><tr><td>{@link GL30#GL_RENDERBUFFER_RED_SIZE RENDERBUFFER_RED_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_GREEN_SIZE RENDERBUFFER_GREEN_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_BLUE_SIZE RENDERBUFFER_BLUE_SIZE}</td></tr><tr><td>{@link GL30#GL_RENDERBUFFER_ALPHA_SIZE RENDERBUFFER_ALPHA_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_DEPTH_SIZE RENDERBUFFER_DEPTH_SIZE}</td><td>{@link GL30#GL_RENDERBUFFER_STENCIL_SIZE RENDERBUFFER_STENCIL_SIZE}</td></tr><tr><td>{@link GL30#GL_RENDERBUFFER_SAMPLES RENDERBUFFER_SAMPLES}</td></tr></table>
      */
-    public static int glGetRenderbufferParameteri(int target, int pname) {
+    @NativeType("void")
+    public static int glGetRenderbufferParameteri(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -490,7 +493,8 @@ public class ARBFramebufferObject {
      *
      * @param framebuffer a value that may be the name of a framebuffer object
      */
-    public static native boolean glIsFramebuffer(int framebuffer);
+    @NativeType("GLboolean")
+    public static native boolean glIsFramebuffer(@NativeType("GLuint") int framebuffer);
 
     // --- [ glBindFramebuffer ] ---
 
@@ -500,7 +504,7 @@ public class ARBFramebufferObject {
      * @param target      the framebuffer target of the binding operation. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
      * @param framebuffer the name of the framebuffer object to bind
      */
-    public static native void glBindFramebuffer(int target, int framebuffer);
+    public static native void glBindFramebuffer(@NativeType("GLenum") int target, @NativeType("GLuint") int framebuffer);
 
     // --- [ glDeleteFramebuffers ] ---
 
@@ -516,12 +520,12 @@ public class ARBFramebufferObject {
      *
      * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
      */
-    public static void glDeleteFramebuffers(IntBuffer framebuffers) {
+    public static void glDeleteFramebuffers(@NativeType("const GLuint *") IntBuffer framebuffers) {
         nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
     }
 
     /** Deletes framebuffer objects. */
-    public static void glDeleteFramebuffers(int framebuffer) {
+    public static void glDeleteFramebuffers(@NativeType("const GLuint *") int framebuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer framebuffers = stack.ints(framebuffer);
@@ -545,11 +549,12 @@ public class ARBFramebufferObject {
      *
      * @param framebuffers a buffer in which the generated framebuffer object names are stored
      */
-    public static void glGenFramebuffers(IntBuffer framebuffers) {
+    public static void glGenFramebuffers(@NativeType("GLuint *") IntBuffer framebuffers) {
         nglGenFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
     }
 
     /** Generates framebuffer object names. */
+    @NativeType("void")
     public static int glGenFramebuffers() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -568,7 +573,8 @@ public class ARBFramebufferObject {
      *
      * @param target the target of the framebuffer completeness check. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td></tr></table>
      */
-    public static native int glCheckFramebufferStatus(int target);
+    @NativeType("GLenum")
+    public static native int glCheckFramebufferStatus(@NativeType("GLenum") int target);
 
     // --- [ glFramebufferTexture1D ] ---
 
@@ -581,7 +587,7 @@ public class ARBFramebufferObject {
      * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
      * @param level      the mipmap level of {@code texture} to attach
      */
-    public static native void glFramebufferTexture1D(int target, int attachment, int textarget, int texture, int level);
+    public static native void glFramebufferTexture1D(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glFramebufferTexture2D ] ---
 
@@ -594,7 +600,7 @@ public class ARBFramebufferObject {
      * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
      * @param level      the mipmap level of {@code texture} to attach
      */
-    public static native void glFramebufferTexture2D(int target, int attachment, int textarget, int texture, int level);
+    public static native void glFramebufferTexture2D(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glFramebufferTexture3D ] ---
 
@@ -608,7 +614,7 @@ public class ARBFramebufferObject {
      * @param level      the mipmap level of {@code texture} to attach
      * @param layer      the layer of a 2-dimensional image within the 3-dimensional texture.
      */
-    public static native void glFramebufferTexture3D(int target, int attachment, int textarget, int texture, int level, int layer);
+    public static native void glFramebufferTexture3D(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int layer);
 
     // --- [ glFramebufferTextureLayer ] ---
 
@@ -621,7 +627,7 @@ public class ARBFramebufferObject {
      * @param level      the mipmap level of {@code texture} to attach
      * @param layer      the layer of {@code texture} to attach.
      */
-    public static native void glFramebufferTextureLayer(int target, int attachment, int texture, int level, int layer);
+    public static native void glFramebufferTextureLayer(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int layer);
 
     // --- [ glFramebufferRenderbuffer ] ---
 
@@ -633,7 +639,7 @@ public class ARBFramebufferObject {
      * @param renderbuffertarget the renderbuffer target. Must be:<br><table><tr><td>{@link GL30#GL_RENDERBUFFER RENDERBUFFER}</td></tr></table>
      * @param renderbuffer       the name of an existing renderbuffer object of type {@code renderbuffertarget} to attach
      */
-    public static native void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, int renderbuffer);
+    public static native void glFramebufferRenderbuffer(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int renderbuffertarget, @NativeType("GLuint") int renderbuffer);
 
     // --- [ glGetFramebufferAttachmentParameteriv ] ---
 
@@ -648,7 +654,7 @@ public class ARBFramebufferObject {
      * @param pname      the parameter of {@code attachment} to query. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}</td></tr></table>
      * @param params     an array to receive the value of the queried parameter
      */
-    public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, IntBuffer params) {
+    public static void glGetFramebufferAttachmentParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -662,7 +668,8 @@ public class ARBFramebufferObject {
      * @param attachment the attachment within {@code target}. One of:<br><table><tr><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>{@link GL30#GL_COLOR_ATTACHMENT1 COLOR_ATTACHMENT1}</td><td>{@link GL30#GL_COLOR_ATTACHMENT2 COLOR_ATTACHMENT2}</td><td>{@link GL30#GL_COLOR_ATTACHMENT3 COLOR_ATTACHMENT3}</td></tr><tr><td>{@link GL30#GL_COLOR_ATTACHMENT4 COLOR_ATTACHMENT4}</td><td>{@link GL30#GL_COLOR_ATTACHMENT5 COLOR_ATTACHMENT5}</td><td>{@link GL30#GL_COLOR_ATTACHMENT6 COLOR_ATTACHMENT6}</td><td>{@link GL30#GL_COLOR_ATTACHMENT7 COLOR_ATTACHMENT7}</td></tr><tr><td>{@link GL30#GL_COLOR_ATTACHMENT8 COLOR_ATTACHMENT8}</td><td>{@link GL30#GL_COLOR_ATTACHMENT9 COLOR_ATTACHMENT9}</td><td>{@link GL30#GL_COLOR_ATTACHMENT10 COLOR_ATTACHMENT10}</td><td>{@link GL30#GL_COLOR_ATTACHMENT11 COLOR_ATTACHMENT11}</td></tr><tr><td>{@link GL30#GL_COLOR_ATTACHMENT12 COLOR_ATTACHMENT12}</td><td>{@link GL30#GL_COLOR_ATTACHMENT13 COLOR_ATTACHMENT13}</td><td>{@link GL30#GL_COLOR_ATTACHMENT14 COLOR_ATTACHMENT14}</td><td>{@link GL30#GL_COLOR_ATTACHMENT15 COLOR_ATTACHMENT15}</td></tr><tr><td>{@link GL30#GL_COLOR_ATTACHMENT16 COLOR_ATTACHMENT16}</td><td>{@link GL30#GL_COLOR_ATTACHMENT17 COLOR_ATTACHMENT17}</td><td>{@link GL30#GL_COLOR_ATTACHMENT18 COLOR_ATTACHMENT18}</td><td>{@link GL30#GL_COLOR_ATTACHMENT19 COLOR_ATTACHMENT19}</td></tr><tr><td>{@link GL30#GL_COLOR_ATTACHMENT20 COLOR_ATTACHMENT20}</td><td>{@link GL30#GL_COLOR_ATTACHMENT21 COLOR_ATTACHMENT21}</td><td>{@link GL30#GL_COLOR_ATTACHMENT22 COLOR_ATTACHMENT22}</td><td>{@link GL30#GL_COLOR_ATTACHMENT23 COLOR_ATTACHMENT23}</td></tr><tr><td>{@link GL30#GL_COLOR_ATTACHMENT24 COLOR_ATTACHMENT24}</td><td>{@link GL30#GL_COLOR_ATTACHMENT25 COLOR_ATTACHMENT25}</td><td>{@link GL30#GL_COLOR_ATTACHMENT26 COLOR_ATTACHMENT26}</td><td>{@link GL30#GL_COLOR_ATTACHMENT27 COLOR_ATTACHMENT27}</td></tr><tr><td>{@link GL30#GL_COLOR_ATTACHMENT28 COLOR_ATTACHMENT28}</td><td>{@link GL30#GL_COLOR_ATTACHMENT29 COLOR_ATTACHMENT29}</td><td>{@link GL30#GL_COLOR_ATTACHMENT30 COLOR_ATTACHMENT30}</td><td>{@link GL30#GL_COLOR_ATTACHMENT31 COLOR_ATTACHMENT31}</td></tr><tr><td>{@link GL30#GL_DEPTH_ATTACHMENT DEPTH_ATTACHMENT}</td><td>{@link GL30#GL_STENCIL_ATTACHMENT STENCIL_ATTACHMENT}</td><td>{@link GL30#GL_DEPTH_STENCIL_ATTACHMENT DEPTH_STENCIL_ATTACHMENT}</td></tr></table>
      * @param pname      the parameter of {@code attachment} to query. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME FRAMEBUFFER_ATTACHMENT_OBJECT_NAME}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE FRAMEBUFFER_ATTACHMENT_RED_SIZE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE FRAMEBUFFER_ATTACHMENT_GREEN_SIZE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE FRAMEBUFFER_ATTACHMENT_BLUE_SIZE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE}</td><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE}</td></tr><tr><td>{@link GL30#GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE}</td></tr></table>
      */
-    public static int glGetFramebufferAttachmentParameteri(int target, int attachment, int pname) {
+    @NativeType("void")
+    public static int glGetFramebufferAttachmentParameteri(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -689,7 +696,7 @@ public class ARBFramebufferObject {
      * @param mask   the bitwise OR of the flags indicating which buffers are to be copied. One of:<br><table><tr><td>{@link GL11#GL_COLOR_BUFFER_BIT COLOR_BUFFER_BIT}</td><td>{@link GL11#GL_DEPTH_BUFFER_BIT DEPTH_BUFFER_BIT}</td><td>{@link GL11#GL_STENCIL_BUFFER_BIT STENCIL_BUFFER_BIT}</td></tr></table>
      * @param filter the interpolation to be applied if the image is stretched. One of:<br><table><tr><td>{@link GL11#GL_NEAREST NEAREST}</td><td>{@link GL11#GL_LINEAR LINEAR}</td></tr></table>
      */
-    public static native void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
+    public static native void glBlitFramebuffer(@NativeType("GLint") int srcX0, @NativeType("GLint") int srcY0, @NativeType("GLint") int srcX1, @NativeType("GLint") int srcY1, @NativeType("GLint") int dstX0, @NativeType("GLint") int dstY0, @NativeType("GLint") int dstX1, @NativeType("GLint") int dstY1, @NativeType("GLbitfield") int mask, @NativeType("GLenum") int filter);
 
     // --- [ glGenerateMipmap ] ---
 
@@ -698,10 +705,10 @@ public class ARBFramebufferObject {
      *
      * @param target the target to which the texture whose mimaps to generate is bound. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_1D TEXTURE_1D}</td><td>{@link GL11#GL_TEXTURE_2D TEXTURE_2D}</td><td>{@link GL12#GL_TEXTURE_3D TEXTURE_3D}</td><td>{@link GL30#GL_TEXTURE_1D_ARRAY TEXTURE_1D_ARRAY}</td><td>{@link GL30#GL_TEXTURE_2D_ARRAY TEXTURE_2D_ARRAY}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP TEXTURE_CUBE_MAP}</td></tr></table>
      */
-    public static native void glGenerateMipmap(int target);
+    public static native void glGenerateMipmap(@NativeType("GLenum") int target);
 
     /** Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
-    public static void glDeleteRenderbuffers(int[] renderbuffers) {
+    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") int[] renderbuffers) {
         long __functionAddress = GL.getICD().glDeleteRenderbuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -710,7 +717,7 @@ public class ARBFramebufferObject {
     }
 
     /** Array version of: {@link #glGenRenderbuffers GenRenderbuffers} */
-    public static void glGenRenderbuffers(int[] renderbuffers) {
+    public static void glGenRenderbuffers(@NativeType("GLuint *") int[] renderbuffers) {
         long __functionAddress = GL.getICD().glGenRenderbuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -719,7 +726,7 @@ public class ARBFramebufferObject {
     }
 
     /** Array version of: {@link #glGetRenderbufferParameteriv GetRenderbufferParameteriv} */
-    public static void glGetRenderbufferParameteriv(int target, int pname, int[] params) {
+    public static void glGetRenderbufferParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetRenderbufferParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -729,7 +736,7 @@ public class ARBFramebufferObject {
     }
 
     /** Array version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
-    public static void glDeleteFramebuffers(int[] framebuffers) {
+    public static void glDeleteFramebuffers(@NativeType("const GLuint *") int[] framebuffers) {
         long __functionAddress = GL.getICD().glDeleteFramebuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -738,7 +745,7 @@ public class ARBFramebufferObject {
     }
 
     /** Array version of: {@link #glGenFramebuffers GenFramebuffers} */
-    public static void glGenFramebuffers(int[] framebuffers) {
+    public static void glGenFramebuffers(@NativeType("GLuint *") int[] framebuffers) {
         long __functionAddress = GL.getICD().glGenFramebuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -747,7 +754,7 @@ public class ARBFramebufferObject {
     }
 
     /** Array version of: {@link #glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv} */
-    public static void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, int[] params) {
+    public static void glGetFramebufferAttachmentParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetFramebufferAttachmentParameteriv;
         if (CHECKS) {
             check(__functionAddress);

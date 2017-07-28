@@ -119,26 +119,31 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code binding} field. */
+    @NativeType("uint32_t")
     public int binding() { return nbinding(address()); }
     /** Returns the value of the {@code descriptorType} field. */
+    @NativeType("VkDescriptorType")
     public int descriptorType() { return ndescriptorType(address()); }
     /** Returns the value of the {@code descriptorCount} field. */
+    @NativeType("uint32_t")
     public int descriptorCount() { return ndescriptorCount(address()); }
     /** Returns the value of the {@code stageFlags} field. */
+    @NativeType("VkShaderStageFlags")
     public int stageFlags() { return nstageFlags(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pImmutableSamplers} field. */
+    @NativeType("const VkSampler *")
     public LongBuffer pImmutableSamplers() { return npImmutableSamplers(address()); }
 
     /** Sets the specified value to the {@code binding} field. */
-    public VkDescriptorSetLayoutBinding binding(int value) { nbinding(address(), value); return this; }
+    public VkDescriptorSetLayoutBinding binding(@NativeType("uint32_t") int value) { nbinding(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorType} field. */
-    public VkDescriptorSetLayoutBinding descriptorType(int value) { ndescriptorType(address(), value); return this; }
+    public VkDescriptorSetLayoutBinding descriptorType(@NativeType("VkDescriptorType") int value) { ndescriptorType(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorCount} field. */
-    public VkDescriptorSetLayoutBinding descriptorCount(int value) { ndescriptorCount(address(), value); return this; }
+    public VkDescriptorSetLayoutBinding descriptorCount(@NativeType("uint32_t") int value) { ndescriptorCount(address(), value); return this; }
     /** Sets the specified value to the {@code stageFlags} field. */
-    public VkDescriptorSetLayoutBinding stageFlags(int value) { nstageFlags(address(), value); return this; }
+    public VkDescriptorSetLayoutBinding stageFlags(@NativeType("VkShaderStageFlags") int value) { nstageFlags(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pImmutableSamplers} field. */
-    public VkDescriptorSetLayoutBinding pImmutableSamplers(LongBuffer value) { npImmutableSamplers(address(), value); return this; }
+    public VkDescriptorSetLayoutBinding pImmutableSamplers(@NativeType("const VkSampler *") LongBuffer value) { npImmutableSamplers(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorSetLayoutBinding set(
@@ -363,26 +368,31 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
         }
 
         /** Returns the value of the {@code binding} field. */
+        @NativeType("uint32_t")
         public int binding() { return VkDescriptorSetLayoutBinding.nbinding(address()); }
         /** Returns the value of the {@code descriptorType} field. */
+        @NativeType("VkDescriptorType")
         public int descriptorType() { return VkDescriptorSetLayoutBinding.ndescriptorType(address()); }
         /** Returns the value of the {@code descriptorCount} field. */
+        @NativeType("uint32_t")
         public int descriptorCount() { return VkDescriptorSetLayoutBinding.ndescriptorCount(address()); }
         /** Returns the value of the {@code stageFlags} field. */
+        @NativeType("VkShaderStageFlags")
         public int stageFlags() { return VkDescriptorSetLayoutBinding.nstageFlags(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pImmutableSamplers} field. */
+        @NativeType("const VkSampler *")
         public LongBuffer pImmutableSamplers() { return VkDescriptorSetLayoutBinding.npImmutableSamplers(address()); }
 
         /** Sets the specified value to the {@code binding} field. */
-        public VkDescriptorSetLayoutBinding.Buffer binding(int value) { VkDescriptorSetLayoutBinding.nbinding(address(), value); return this; }
+        public VkDescriptorSetLayoutBinding.Buffer binding(@NativeType("uint32_t") int value) { VkDescriptorSetLayoutBinding.nbinding(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorType} field. */
-        public VkDescriptorSetLayoutBinding.Buffer descriptorType(int value) { VkDescriptorSetLayoutBinding.ndescriptorType(address(), value); return this; }
+        public VkDescriptorSetLayoutBinding.Buffer descriptorType(@NativeType("VkDescriptorType") int value) { VkDescriptorSetLayoutBinding.ndescriptorType(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorCount} field. */
-        public VkDescriptorSetLayoutBinding.Buffer descriptorCount(int value) { VkDescriptorSetLayoutBinding.ndescriptorCount(address(), value); return this; }
+        public VkDescriptorSetLayoutBinding.Buffer descriptorCount(@NativeType("uint32_t") int value) { VkDescriptorSetLayoutBinding.ndescriptorCount(address(), value); return this; }
         /** Sets the specified value to the {@code stageFlags} field. */
-        public VkDescriptorSetLayoutBinding.Buffer stageFlags(int value) { VkDescriptorSetLayoutBinding.nstageFlags(address(), value); return this; }
+        public VkDescriptorSetLayoutBinding.Buffer stageFlags(@NativeType("VkShaderStageFlags") int value) { VkDescriptorSetLayoutBinding.nstageFlags(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pImmutableSamplers} field. */
-        public VkDescriptorSetLayoutBinding.Buffer pImmutableSamplers(LongBuffer value) { VkDescriptorSetLayoutBinding.npImmutableSamplers(address(), value); return this; }
+        public VkDescriptorSetLayoutBinding.Buffer pImmutableSamplers(@NativeType("const VkSampler *") LongBuffer value) { VkDescriptorSetLayoutBinding.npImmutableSamplers(address(), value); return this; }
 
     }
 

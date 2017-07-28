@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int SamplesQueued;
  * }</pre></code>
  */
+@NativeType("struct ovrHapticsPlaybackState")
 public class OVRHapticsPlaybackState extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

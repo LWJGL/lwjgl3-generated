@@ -71,7 +71,8 @@ public class ARBBindlessTexture {
      *
      * @param texture the texture object
      */
-    public static native long glGetTextureHandleARB(int texture);
+    @NativeType("GLuint64")
+    public static native long glGetTextureHandleARB(@NativeType("GLuint") int texture);
 
     // --- [ glGetTextureSamplerHandleARB ] ---
 
@@ -106,7 +107,8 @@ public class ARBBindlessTexture {
      * @param texture the texture object
      * @param sampler the sampler object
      */
-    public static native long glGetTextureSamplerHandleARB(int texture, int sampler);
+    @NativeType("GLuint64")
+    public static native long glGetTextureSamplerHandleARB(@NativeType("GLuint") int texture, @NativeType("GLuint") int sampler);
 
     // --- [ glMakeTextureHandleResidentARB ] ---
 
@@ -120,7 +122,7 @@ public class ARBBindlessTexture {
      *
      * @param handle the texture handle
      */
-    public static native void glMakeTextureHandleResidentARB(long handle);
+    public static native void glMakeTextureHandleResidentARB(@NativeType("GLuint64") long handle);
 
     // --- [ glMakeTextureHandleNonResidentARB ] ---
 
@@ -132,7 +134,7 @@ public class ARBBindlessTexture {
      *
      * @param handle the texture handle
      */
-    public static native void glMakeTextureHandleNonResidentARB(long handle);
+    public static native void glMakeTextureHandleNonResidentARB(@NativeType("GLuint64") long handle);
 
     // --- [ glGetImageHandleARB ] ---
 
@@ -178,7 +180,8 @@ public class ARBBindlessTexture {
      * @param layer   the texture layer
      * @param format  the texture format
      */
-    public static native long glGetImageHandleARB(int texture, int level, boolean layered, int layer, int format);
+    @NativeType("GLuint64")
+    public static native long glGetImageHandleARB(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLboolean") boolean layered, @NativeType("GLint") int layer, @NativeType("GLenum") int format);
 
     // --- [ glMakeImageHandleResidentARB ] ---
 
@@ -197,7 +200,7 @@ public class ARBBindlessTexture {
      * @param handle the image handle
      * @param access the access type. One of:<br><table><tr><td>{@link GL15#GL_READ_ONLY READ_ONLY}</td><td>{@link GL15#GL_WRITE_ONLY WRITE_ONLY}</td><td>{@link GL15#GL_READ_WRITE READ_WRITE}</td></tr></table>
      */
-    public static native void glMakeImageHandleResidentARB(long handle, int access);
+    public static native void glMakeImageHandleResidentARB(@NativeType("GLuint64") long handle, @NativeType("GLenum") int access);
 
     // --- [ glMakeImageHandleNonResidentARB ] ---
 
@@ -206,7 +209,7 @@ public class ARBBindlessTexture {
      *
      * @param handle the image handle
      */
-    public static native void glMakeImageHandleNonResidentARB(long handle);
+    public static native void glMakeImageHandleNonResidentARB(@NativeType("GLuint64") long handle);
 
     // --- [ glUniformHandleui64ARB ] ---
 
@@ -216,7 +219,7 @@ public class ARBBindlessTexture {
      * @param location the uniform location
      * @param value    the handle value
      */
-    public static native void glUniformHandleui64ARB(int location, long value);
+    public static native void glUniformHandleui64ARB(@NativeType("GLint") int location, @NativeType("GLuint64") long value);
 
     // --- [ glUniformHandleui64vARB ] ---
 
@@ -233,7 +236,7 @@ public class ARBBindlessTexture {
      * @param location the uniform location
      * @param values   a buffer from which to load the handles
      */
-    public static void glUniformHandleui64vARB(int location, LongBuffer values) {
+    public static void glUniformHandleui64vARB(@NativeType("GLint") int location, @NativeType("const GLuint64 *") LongBuffer values) {
         nglUniformHandleui64vARB(location, values.remaining(), memAddress(values));
     }
 
@@ -246,7 +249,7 @@ public class ARBBindlessTexture {
      * @param location the uniform location
      * @param value    the handle value
      */
-    public static native void glProgramUniformHandleui64ARB(int program, int location, long value);
+    public static native void glProgramUniformHandleui64ARB(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64") long value);
 
     // --- [ glProgramUniformHandleui64vARB ] ---
 
@@ -264,7 +267,7 @@ public class ARBBindlessTexture {
      * @param location the uniform location
      * @param values   a buffer from which to load the handles
      */
-    public static void glProgramUniformHandleui64vARB(int program, int location, LongBuffer values) {
+    public static void glProgramUniformHandleui64vARB(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64 *") LongBuffer values) {
         nglProgramUniformHandleui64vARB(program, location, values.remaining(), memAddress(values));
     }
 
@@ -275,7 +278,8 @@ public class ARBBindlessTexture {
      *
      * @param handle the texture handle
      */
-    public static native boolean glIsTextureHandleResidentARB(long handle);
+    @NativeType("GLboolean")
+    public static native boolean glIsTextureHandleResidentARB(@NativeType("GLuint64") long handle);
 
     // --- [ glIsImageHandleResidentARB ] ---
 
@@ -284,7 +288,8 @@ public class ARBBindlessTexture {
      *
      * @param handle the image handle
      */
-    public static native boolean glIsImageHandleResidentARB(long handle);
+    @NativeType("GLboolean")
+    public static native boolean glIsImageHandleResidentARB(@NativeType("GLuint64") long handle);
 
     // --- [ glVertexAttribL1ui64ARB ] ---
 
@@ -294,7 +299,7 @@ public class ARBBindlessTexture {
      * @param index the index of the generic vertex attribute to be modified
      * @param x     the handle value
      */
-    public static native void glVertexAttribL1ui64ARB(int index, long x);
+    public static native void glVertexAttribL1ui64ARB(@NativeType("GLuint") int index, @NativeType("GLuint64") long x);
 
     // --- [ glVertexAttribL1ui64vARB ] ---
 
@@ -307,7 +312,7 @@ public class ARBBindlessTexture {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttribL1ui64vARB(int index, LongBuffer v) {
+    public static void glVertexAttribL1ui64vARB(@NativeType("GLuint") int index, @NativeType("const GLuint64 *") LongBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -326,7 +331,7 @@ public class ARBBindlessTexture {
      * @param pname  the parameter to query
      * @param params a buffer in which to place the returned data
      */
-    public static void glGetVertexAttribLui64vARB(int index, int pname, LongBuffer params) {
+    public static void glGetVertexAttribLui64vARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -339,7 +344,8 @@ public class ARBBindlessTexture {
      * @param index the generic vertex attribute index
      * @param pname the parameter to query
      */
-    public static long glGetVertexAttribLui64ARB(int index, int pname) {
+    @NativeType("void")
+    public static long glGetVertexAttribLui64ARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -351,7 +357,7 @@ public class ARBBindlessTexture {
     }
 
     /** Array version of: {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
-    public static void glUniformHandleui64vARB(int location, long[] values) {
+    public static void glUniformHandleui64vARB(@NativeType("GLint") int location, @NativeType("const GLuint64 *") long[] values) {
         long __functionAddress = GL.getICD().glUniformHandleui64vARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -360,7 +366,7 @@ public class ARBBindlessTexture {
     }
 
     /** Array version of: {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
-    public static void glProgramUniformHandleui64vARB(int program, int location, long[] values) {
+    public static void glProgramUniformHandleui64vARB(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64 *") long[] values) {
         long __functionAddress = GL.getICD().glProgramUniformHandleui64vARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -369,7 +375,7 @@ public class ARBBindlessTexture {
     }
 
     /** Array version of: {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
-    public static void glVertexAttribL1ui64vARB(int index, long[] v) {
+    public static void glVertexAttribL1ui64vARB(@NativeType("GLuint") int index, @NativeType("const GLuint64 *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL1ui64vARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -379,7 +385,7 @@ public class ARBBindlessTexture {
     }
 
     /** Array version of: {@link #glGetVertexAttribLui64vARB GetVertexAttribLui64vARB} */
-    public static void glGetVertexAttribLui64vARB(int index, int pname, long[] params) {
+    public static void glGetVertexAttribLui64vARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribLui64vARB;
         if (CHECKS) {
             check(__functionAddress);

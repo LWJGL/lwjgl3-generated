@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -185,7 +187,8 @@ public class KHRSwapchain {
      * @param pAllocator  the allocator used for host memory allocated for the swapchain object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
      * @param pSwapchain  a pointer to a {@code VkSwapchainKHR} handle in which the created swapchain object will be returned.
      */
-    public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSwapchain) {
+    @NativeType("VkResult")
+    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchain) {
         if (CHECKS) {
             check(pSwapchain, 1);
         }
@@ -253,7 +256,7 @@ public class KHRSwapchain {
      * @param swapchain  the swapchain to destroy.
      * @param pAllocator the allocator used for host memory allocated for the swapchain object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
      */
-    public static void vkDestroySwapchainKHR(VkDevice device, long swapchain, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySwapchainKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroySwapchainKHR(device, swapchain, memAddressSafe(pAllocator));
     }
 
@@ -319,7 +322,8 @@ public class KHRSwapchain {
      * @param pSwapchainImageCount a pointer to an integer related to the number of presentable images available or queried, as described below.
      * @param pSwapchainImages     either {@code NULL} or a pointer to an array of {@code VkImage} handles.
      */
-    public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, IntBuffer pSwapchainImageCount, LongBuffer pSwapchainImages) {
+    @NativeType("VkResult")
+    public static int vkGetSwapchainImagesKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") IntBuffer pSwapchainImageCount, @NativeType("VkImage *") LongBuffer pSwapchainImages) {
         if (CHECKS) {
             check(pSwapchainImageCount, 1);
             checkSafe(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
@@ -409,7 +413,8 @@ public class KHRSwapchain {
      * @param fence       {@link VK10#VK_NULL_HANDLE NULL_HANDLE} or a fence to signal.
      * @param pImageIndex a pointer to a {@code uint32_t} that is set to the index of the next image to use (i.e. an index into the array of images returned by {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR}).
      */
-    public static int vkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, IntBuffer pImageIndex) {
+    @NativeType("VkResult")
+    public static int vkAcquireNextImageKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint64_t") long timeout, @NativeType("VkSemaphore") long semaphore, @NativeType("VkFence") long fence, @NativeType("uint32_t *") IntBuffer pImageIndex) {
         if (CHECKS) {
             check(pImageIndex, 1);
         }
@@ -498,12 +503,14 @@ public class KHRSwapchain {
      * @param queue        a queue that is capable of presentation to the target surface&#8217;s platform on the same device as the image&#8217;s swapchain.
      * @param pPresentInfo a pointer to an instance of the {@link VkPresentInfoKHR} structure specifying the parameters of the presentation.
      */
-    public static int vkQueuePresentKHR(VkQueue queue, VkPresentInfoKHR pPresentInfo) {
+    @NativeType("VkResult")
+    public static int vkQueuePresentKHR(VkQueue queue, @NativeType("const VkPresentInfoKHR *") VkPresentInfoKHR pPresentInfo) {
         return nvkQueuePresentKHR(queue, pPresentInfo.address());
     }
 
     /** Array version of: {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
-    public static int vkCreateSwapchainKHR(VkDevice device, VkSwapchainCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSwapchain) {
+    @NativeType("VkResult")
+    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchain) {
         long __functionAddress = device.getCapabilities().vkCreateSwapchainKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -515,7 +522,8 @@ public class KHRSwapchain {
     }
 
     /** Array version of: {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
-    public static int vkGetSwapchainImagesKHR(VkDevice device, long swapchain, int[] pSwapchainImageCount, long[] pSwapchainImages) {
+    @NativeType("VkResult")
+    public static int vkGetSwapchainImagesKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") int[] pSwapchainImageCount, @NativeType("VkImage *") long[] pSwapchainImages) {
         long __functionAddress = device.getCapabilities().vkGetSwapchainImagesKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -526,7 +534,8 @@ public class KHRSwapchain {
     }
 
     /** Array version of: {@link #vkAcquireNextImageKHR AcquireNextImageKHR} */
-    public static int vkAcquireNextImageKHR(VkDevice device, long swapchain, long timeout, long semaphore, long fence, int[] pImageIndex) {
+    @NativeType("VkResult")
+    public static int vkAcquireNextImageKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint64_t") long timeout, @NativeType("VkSemaphore") long semaphore, @NativeType("VkFence") long fence, @NativeType("uint32_t *") int[] pImageIndex) {
         long __functionAddress = device.getCapabilities().vkAcquireNextImageKHR;
         if (CHECKS) {
             check(__functionAddress);

@@ -90,8 +90,10 @@ public class VkSurfaceCapabilities2KHR extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkSurfaceCapabilitiesKHR} view of the {@code surfaceCapabilities} field. */
     public VkSurfaceCapabilitiesKHR surfaceCapabilities() { return nsurfaceCapabilities(address()); }
@@ -275,8 +277,10 @@ public class VkSurfaceCapabilities2KHR extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSurfaceCapabilities2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkSurfaceCapabilities2KHR.npNext(address()); }
         /** Returns a {@link VkSurfaceCapabilitiesKHR} view of the {@code surfaceCapabilities} field. */
         public VkSurfaceCapabilitiesKHR surfaceCapabilities() { return VkSurfaceCapabilities2KHR.nsurfaceCapabilities(address()); }

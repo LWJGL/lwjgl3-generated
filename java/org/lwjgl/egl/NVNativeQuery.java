@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -39,7 +41,8 @@ public class NVNativeQuery {
         return callPPI(__functionAddress, dpy, display_id);
     }
 
-    public static boolean eglQueryNativeDisplayNV(long dpy, PointerBuffer display_id) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryNativeDisplayNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLNativeDisplayType *") PointerBuffer display_id) {
         if (CHECKS) {
             check(display_id, 1);
         }
@@ -58,7 +61,8 @@ public class NVNativeQuery {
         return callPPPI(__functionAddress, dpy, surf, window);
     }
 
-    public static boolean eglQueryNativeWindowNV(long dpy, long surf, PointerBuffer window) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryNativeWindowNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surf, @NativeType("EGLNativeWindowType *") PointerBuffer window) {
         if (CHECKS) {
             check(window, 1);
         }
@@ -77,7 +81,8 @@ public class NVNativeQuery {
         return callPPPI(__functionAddress, dpy, surf, pixmap);
     }
 
-    public static boolean eglQueryNativePixmapNV(long dpy, long surf, PointerBuffer pixmap) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryNativePixmapNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surf, @NativeType("EGLNativePixmapType *") PointerBuffer pixmap) {
         if (CHECKS) {
             check(pixmap, 1);
         }

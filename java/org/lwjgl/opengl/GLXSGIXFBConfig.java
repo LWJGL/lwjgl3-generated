@@ -96,7 +96,7 @@ public class GLXSGIXFBConfig {
      * @param attribute the attribute to query
      * @param value     returns the attribute value
      */
-    public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, IntBuffer value) {
+    public static int glXGetFBConfigAttribSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfigSGIX") long config, int attribute, @NativeType("int *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -126,7 +126,8 @@ public class GLXSGIXFBConfig {
      * @param screen      the screen number
      * @param attrib_list an optional list of attributes, terminated with org.lwjgl.system.linux.{@code None}
      */
-    public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, IntBuffer attrib_list) {
+    @NativeType("GLXFBConfigSGIX *")
+    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -149,7 +150,8 @@ public class GLXSGIXFBConfig {
      * @param config  the {@code GLXFBConfigSGIX}
      * @param pixmap  the pixmap
      */
-    public static long glXCreateGLXPixmapWithConfigSGIX(long display, long config, long pixmap) {
+    @NativeType("GLXPixmap")
+    public static long glXCreateGLXPixmapWithConfigSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Pixmap") long pixmap) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPixmapWithConfigSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -170,7 +172,8 @@ public class GLXSGIXFBConfig {
      * @param share_list  the GLX context to share objects with
      * @param direct      direct rendering request
      */
-    public static long glXCreateContextWithConfigSGIX(long display, long config, int render_type, long share_list, boolean direct) {
+    @NativeType("GLXContext")
+    public static long glXCreateContextWithConfigSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, int render_type, @NativeType("GLXContext") long share_list, @NativeType("Bool") boolean direct) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextWithConfigSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -200,7 +203,8 @@ public class GLXSGIXFBConfig {
      * @param display the connection to the X server
      * @param config  the {@code GLXFBConfigSGIX}
      */
-    public static XVisualInfo glXGetVisualFromFBConfigSGIX(long display, long config) {
+    @NativeType("XVisualInfo *")
+    public static XVisualInfo glXGetVisualFromFBConfigSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config) {
         long __result = nglXGetVisualFromFBConfigSGIX(display, config);
         return XVisualInfo.create(__result);
     }
@@ -224,12 +228,13 @@ public class GLXSGIXFBConfig {
      * @param display the connection to the X server
      * @param vis     the visual
      */
-    public static long glXGetFBConfigFromVisualSGIX(long display, XVisualInfo vis) {
+    @NativeType("GLXFBConfigSGIX")
+    public static long glXGetFBConfigFromVisualSGIX(@NativeType("Display *") long display, @NativeType("XVisualInfo *") XVisualInfo vis) {
         return nglXGetFBConfigFromVisualSGIX(display, vis.address());
     }
 
     /** Array version of: {@link #glXGetFBConfigAttribSGIX GetFBConfigAttribSGIX} */
-    public static int glXGetFBConfigAttribSGIX(long display, long config, int attribute, int[] value) {
+    public static int glXGetFBConfigAttribSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfigSGIX") long config, int attribute, @NativeType("int *") int[] value) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXGetFBConfigAttribSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -241,7 +246,8 @@ public class GLXSGIXFBConfig {
     }
 
     /** Array version of: {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
-    public static PointerBuffer glXChooseFBConfigSGIX(long display, int screen, int[] attrib_list) {
+    @NativeType("GLXFBConfigSGIX *")
+    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
         if (CHECKS) {
             check(__functionAddress);

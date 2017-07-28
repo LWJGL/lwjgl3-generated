@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -94,7 +96,8 @@ public class EXTDirectModeDisplay {
      * @param physicalDevice The physical device the display is on.
      * @param display        The display to release control of.
      */
-    public static int vkReleaseDisplayEXT(VkPhysicalDevice physicalDevice, long display) {
+    @NativeType("VkResult")
+    public static int vkReleaseDisplayEXT(VkPhysicalDevice physicalDevice, @NativeType("VkDisplayKHR") long display) {
         long __functionAddress = physicalDevice.getCapabilities().vkReleaseDisplayEXT;
         if (CHECKS) {
             check(__functionAddress);

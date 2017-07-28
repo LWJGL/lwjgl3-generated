@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link Nuklear#nk_combo_callback combo_callback} and {@link Nuklear#nk_combobox_callback combobox_callback} functions. */
 @FunctionalInterface
+@NativeType("nk_item_getter")
 public interface NkItemGetterI extends CallbackI.F {
 
     String SIGNATURE = "(pip)f";
@@ -27,7 +28,6 @@ public interface NkItemGetterI extends CallbackI.F {
         );
     }
 
-
-    float invoke(long userdata, int selected, long item);
+    float invoke(@NativeType("void *") long userdata, int selected, @NativeType("const char **") long item);
 
 }

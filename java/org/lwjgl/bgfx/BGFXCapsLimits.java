@@ -61,6 +61,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t maxOcclusionQueries;
  * }</pre></code>
  */
+@NativeType("struct bgfx_caps_limits_t")
 public class BGFXCapsLimits extends Struct {
 
     /** The struct size in bytes. */
@@ -152,40 +153,58 @@ public class BGFXCapsLimits extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code maxDrawCalls} field. */
+    @NativeType("uint32_t")
     public int maxDrawCalls() { return nmaxDrawCalls(address()); }
     /** Returns the value of the {@code maxBlits} field. */
+    @NativeType("uint32_t")
     public int maxBlits() { return nmaxBlits(address()); }
     /** Returns the value of the {@code maxTextureSize} field. */
+    @NativeType("uint32_t")
     public int maxTextureSize() { return nmaxTextureSize(address()); }
     /** Returns the value of the {@code maxViews} field. */
+    @NativeType("uint32_t")
     public int maxViews() { return nmaxViews(address()); }
     /** Returns the value of the {@code maxFrameBuffers} field. */
+    @NativeType("uint32_t")
     public int maxFrameBuffers() { return nmaxFrameBuffers(address()); }
     /** Returns the value of the {@code maxFBAttachments} field. */
+    @NativeType("uint32_t")
     public int maxFBAttachments() { return nmaxFBAttachments(address()); }
     /** Returns the value of the {@code maxPrograms} field. */
+    @NativeType("uint32_t")
     public int maxPrograms() { return nmaxPrograms(address()); }
     /** Returns the value of the {@code maxShaders} field. */
+    @NativeType("uint32_t")
     public int maxShaders() { return nmaxShaders(address()); }
     /** Returns the value of the {@code maxTextures} field. */
+    @NativeType("uint32_t")
     public int maxTextures() { return nmaxTextures(address()); }
     /** Returns the value of the {@code maxTextureSamplers} field. */
+    @NativeType("uint32_t")
     public int maxTextureSamplers() { return nmaxTextureSamplers(address()); }
     /** Returns the value of the {@code maxVertexDecls} field. */
+    @NativeType("uint32_t")
     public int maxVertexDecls() { return nmaxVertexDecls(address()); }
     /** Returns the value of the {@code maxVertexStreams} field. */
+    @NativeType("uint32_t")
     public int maxVertexStreams() { return nmaxVertexStreams(address()); }
     /** Returns the value of the {@code maxIndexBuffers} field. */
+    @NativeType("uint32_t")
     public int maxIndexBuffers() { return nmaxIndexBuffers(address()); }
     /** Returns the value of the {@code maxVertexBuffers} field. */
+    @NativeType("uint32_t")
     public int maxVertexBuffers() { return nmaxVertexBuffers(address()); }
     /** Returns the value of the {@code maxDynamicIndexBuffers} field. */
+    @NativeType("uint32_t")
     public int maxDynamicIndexBuffers() { return nmaxDynamicIndexBuffers(address()); }
     /** Returns the value of the {@code maxDynamicVertexBuffers} field. */
+    @NativeType("uint32_t")
     public int maxDynamicVertexBuffers() { return nmaxDynamicVertexBuffers(address()); }
     /** Returns the value of the {@code maxUniforms} field. */
+    @NativeType("uint32_t")
     public int maxUniforms() { return nmaxUniforms(address()); }
     /** Returns the value of the {@code maxOcclusionQueries} field. */
+    @NativeType("uint32_t")
     public int maxOcclusionQueries() { return nmaxOcclusionQueries(address()); }
 
     // -----------------------------------
@@ -287,40 +306,58 @@ public class BGFXCapsLimits extends Struct {
         }
 
         /** Returns the value of the {@code maxDrawCalls} field. */
+        @NativeType("uint32_t")
         public int maxDrawCalls() { return BGFXCapsLimits.nmaxDrawCalls(address()); }
         /** Returns the value of the {@code maxBlits} field. */
+        @NativeType("uint32_t")
         public int maxBlits() { return BGFXCapsLimits.nmaxBlits(address()); }
         /** Returns the value of the {@code maxTextureSize} field. */
+        @NativeType("uint32_t")
         public int maxTextureSize() { return BGFXCapsLimits.nmaxTextureSize(address()); }
         /** Returns the value of the {@code maxViews} field. */
+        @NativeType("uint32_t")
         public int maxViews() { return BGFXCapsLimits.nmaxViews(address()); }
         /** Returns the value of the {@code maxFrameBuffers} field. */
+        @NativeType("uint32_t")
         public int maxFrameBuffers() { return BGFXCapsLimits.nmaxFrameBuffers(address()); }
         /** Returns the value of the {@code maxFBAttachments} field. */
+        @NativeType("uint32_t")
         public int maxFBAttachments() { return BGFXCapsLimits.nmaxFBAttachments(address()); }
         /** Returns the value of the {@code maxPrograms} field. */
+        @NativeType("uint32_t")
         public int maxPrograms() { return BGFXCapsLimits.nmaxPrograms(address()); }
         /** Returns the value of the {@code maxShaders} field. */
+        @NativeType("uint32_t")
         public int maxShaders() { return BGFXCapsLimits.nmaxShaders(address()); }
         /** Returns the value of the {@code maxTextures} field. */
+        @NativeType("uint32_t")
         public int maxTextures() { return BGFXCapsLimits.nmaxTextures(address()); }
         /** Returns the value of the {@code maxTextureSamplers} field. */
+        @NativeType("uint32_t")
         public int maxTextureSamplers() { return BGFXCapsLimits.nmaxTextureSamplers(address()); }
         /** Returns the value of the {@code maxVertexDecls} field. */
+        @NativeType("uint32_t")
         public int maxVertexDecls() { return BGFXCapsLimits.nmaxVertexDecls(address()); }
         /** Returns the value of the {@code maxVertexStreams} field. */
+        @NativeType("uint32_t")
         public int maxVertexStreams() { return BGFXCapsLimits.nmaxVertexStreams(address()); }
         /** Returns the value of the {@code maxIndexBuffers} field. */
+        @NativeType("uint32_t")
         public int maxIndexBuffers() { return BGFXCapsLimits.nmaxIndexBuffers(address()); }
         /** Returns the value of the {@code maxVertexBuffers} field. */
+        @NativeType("uint32_t")
         public int maxVertexBuffers() { return BGFXCapsLimits.nmaxVertexBuffers(address()); }
         /** Returns the value of the {@code maxDynamicIndexBuffers} field. */
+        @NativeType("uint32_t")
         public int maxDynamicIndexBuffers() { return BGFXCapsLimits.nmaxDynamicIndexBuffers(address()); }
         /** Returns the value of the {@code maxDynamicVertexBuffers} field. */
+        @NativeType("uint32_t")
         public int maxDynamicVertexBuffers() { return BGFXCapsLimits.nmaxDynamicVertexBuffers(address()); }
         /** Returns the value of the {@code maxUniforms} field. */
+        @NativeType("uint32_t")
         public int maxUniforms() { return BGFXCapsLimits.nmaxUniforms(address()); }
         /** Returns the value of the {@code maxOcclusionQueries} field. */
+        @NativeType("uint32_t")
         public int maxOcclusionQueries() { return BGFXCapsLimits.nmaxOcclusionQueries(address()); }
 
     }

@@ -80,8 +80,10 @@ public class EXRChannelInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code name} field. */
+    @NativeType("char[256]")
     public ByteBuffer name() { return nname(address()); }
     /** Decodes the null-terminated string stored in the {@code name} field. */
+    @NativeType("char[256]")
     public String nameString() { return nnameString(address()); }
     /** Returns the value of the {@code pixel_type} field. */
     public int pixel_type() { return npixel_type(address()); }
@@ -90,10 +92,11 @@ public class EXRChannelInfo extends Struct implements NativeResource {
     /** Returns the value of the {@code y_sampling} field. */
     public int y_sampling() { return ny_sampling(address()); }
     /** Returns the value of the {@code p_linear} field. */
+    @NativeType("unsigned char")
     public byte p_linear() { return np_linear(address()); }
 
     /** Copies the specified encoded string to the {@code name} field. */
-    public EXRChannelInfo name(ByteBuffer value) { nname(address(), value); return this; }
+    public EXRChannelInfo name(@NativeType("char[256]") ByteBuffer value) { nname(address(), value); return this; }
     /** Sets the specified value to the {@code pixel_type} field. */
     public EXRChannelInfo pixel_type(int value) { npixel_type(address(), value); return this; }
     /** Sets the specified value to the {@code x_sampling} field. */
@@ -101,7 +104,7 @@ public class EXRChannelInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code y_sampling} field. */
     public EXRChannelInfo y_sampling(int value) { ny_sampling(address(), value); return this; }
     /** Sets the specified value to the {@code p_linear} field. */
-    public EXRChannelInfo p_linear(byte value) { np_linear(address(), value); return this; }
+    public EXRChannelInfo p_linear(@NativeType("unsigned char") byte value) { np_linear(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public EXRChannelInfo set(
@@ -334,8 +337,10 @@ public class EXRChannelInfo extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code name} field. */
+        @NativeType("char[256]")
         public ByteBuffer name() { return EXRChannelInfo.nname(address()); }
         /** Decodes the null-terminated string stored in the {@code name} field. */
+        @NativeType("char[256]")
         public String nameString() { return EXRChannelInfo.nnameString(address()); }
         /** Returns the value of the {@code pixel_type} field. */
         public int pixel_type() { return EXRChannelInfo.npixel_type(address()); }
@@ -344,10 +349,11 @@ public class EXRChannelInfo extends Struct implements NativeResource {
         /** Returns the value of the {@code y_sampling} field. */
         public int y_sampling() { return EXRChannelInfo.ny_sampling(address()); }
         /** Returns the value of the {@code p_linear} field. */
+        @NativeType("unsigned char")
         public byte p_linear() { return EXRChannelInfo.np_linear(address()); }
 
         /** Copies the specified encoded string to the {@code name} field. */
-        public EXRChannelInfo.Buffer name(ByteBuffer value) { EXRChannelInfo.nname(address(), value); return this; }
+        public EXRChannelInfo.Buffer name(@NativeType("char[256]") ByteBuffer value) { EXRChannelInfo.nname(address(), value); return this; }
         /** Sets the specified value to the {@code pixel_type} field. */
         public EXRChannelInfo.Buffer pixel_type(int value) { EXRChannelInfo.npixel_type(address(), value); return this; }
         /** Sets the specified value to the {@code x_sampling} field. */
@@ -355,7 +361,7 @@ public class EXRChannelInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code y_sampling} field. */
         public EXRChannelInfo.Buffer y_sampling(int value) { EXRChannelInfo.ny_sampling(address(), value); return this; }
         /** Sets the specified value to the {@code p_linear} field. */
-        public EXRChannelInfo.Buffer p_linear(byte value) { EXRChannelInfo.np_linear(address(), value); return this; }
+        public EXRChannelInfo.Buffer p_linear(@NativeType("unsigned char") byte value) { EXRChannelInfo.np_linear(address(), value); return this; }
 
     }
 

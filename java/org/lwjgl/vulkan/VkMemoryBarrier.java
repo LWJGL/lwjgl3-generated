@@ -103,22 +103,26 @@ public class VkMemoryBarrier extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code srcAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int srcAccessMask() { return nsrcAccessMask(address()); }
     /** Returns the value of the {@code dstAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int dstAccessMask() { return ndstAccessMask(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkMemoryBarrier sType(int value) { nsType(address(), value); return this; }
+    public VkMemoryBarrier sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryBarrier pNext(long value) { npNext(address(), value); return this; }
+    public VkMemoryBarrier pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code srcAccessMask} field. */
-    public VkMemoryBarrier srcAccessMask(int value) { nsrcAccessMask(address(), value); return this; }
+    public VkMemoryBarrier srcAccessMask(@NativeType("VkAccessFlags") int value) { nsrcAccessMask(address(), value); return this; }
     /** Sets the specified value to the {@code dstAccessMask} field. */
-    public VkMemoryBarrier dstAccessMask(int value) { ndstAccessMask(address(), value); return this; }
+    public VkMemoryBarrier dstAccessMask(@NativeType("VkAccessFlags") int value) { ndstAccessMask(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkMemoryBarrier set(
@@ -337,22 +341,26 @@ public class VkMemoryBarrier extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkMemoryBarrier.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkMemoryBarrier.npNext(address()); }
         /** Returns the value of the {@code srcAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int srcAccessMask() { return VkMemoryBarrier.nsrcAccessMask(address()); }
         /** Returns the value of the {@code dstAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int dstAccessMask() { return VkMemoryBarrier.ndstAccessMask(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkMemoryBarrier.Buffer sType(int value) { VkMemoryBarrier.nsType(address(), value); return this; }
+        public VkMemoryBarrier.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryBarrier.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryBarrier.Buffer pNext(long value) { VkMemoryBarrier.npNext(address(), value); return this; }
+        public VkMemoryBarrier.Buffer pNext(@NativeType("const void *") long value) { VkMemoryBarrier.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code srcAccessMask} field. */
-        public VkMemoryBarrier.Buffer srcAccessMask(int value) { VkMemoryBarrier.nsrcAccessMask(address(), value); return this; }
+        public VkMemoryBarrier.Buffer srcAccessMask(@NativeType("VkAccessFlags") int value) { VkMemoryBarrier.nsrcAccessMask(address(), value); return this; }
         /** Sets the specified value to the {@code dstAccessMask} field. */
-        public VkMemoryBarrier.Buffer dstAccessMask(int value) { VkMemoryBarrier.ndstAccessMask(address(), value); return this; }
+        public VkMemoryBarrier.Buffer dstAccessMask(@NativeType("VkAccessFlags") int value) { VkMemoryBarrier.ndstAccessMask(address(), value); return this; }
 
     }
 

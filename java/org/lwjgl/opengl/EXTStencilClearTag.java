@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -64,6 +66,6 @@ public class EXTStencilClearTag {
 
     // --- [ glStencilClearTagEXT ] ---
 
-    public static native void glStencilClearTagEXT(int stencilTagBits, int stencilClearTag);
+    public static native void glStencilClearTagEXT(@NativeType("GLsizei") int stencilTagBits, @NativeType("GLuint") int stencilClearTag);
 
 }

@@ -111,12 +111,16 @@ public class VkMemoryDedicatedRequirementsKHR extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code prefersDedicatedAllocation} field. */
+    @NativeType("VkBool32")
     public boolean prefersDedicatedAllocation() { return nprefersDedicatedAllocation(address()) != 0; }
     /** Returns the value of the {@code requiresDedicatedAllocation} field. */
+    @NativeType("VkBool32")
     public boolean requiresDedicatedAllocation() { return nrequiresDedicatedAllocation(address()) != 0; }
 
     // -----------------------------------
@@ -190,12 +194,16 @@ public class VkMemoryDedicatedRequirementsKHR extends Struct {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkMemoryDedicatedRequirementsKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkMemoryDedicatedRequirementsKHR.npNext(address()); }
         /** Returns the value of the {@code prefersDedicatedAllocation} field. */
+        @NativeType("VkBool32")
         public boolean prefersDedicatedAllocation() { return VkMemoryDedicatedRequirementsKHR.nprefersDedicatedAllocation(address()) != 0; }
         /** Returns the value of the {@code requiresDedicatedAllocation} field. */
+        @NativeType("VkBool32")
         public boolean requiresDedicatedAllocation() { return VkMemoryDedicatedRequirementsKHR.nrequiresDedicatedAllocation(address()) != 0; }
 
     }

@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t type;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Screenshot_t")
 public class VREventScreenshot extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class VREventScreenshot extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code handle} field. */
+    @NativeType("uint32_t")
     public int handle() { return nhandle(address()); }
     /** Returns the value of the {@code type} field. */
+    @NativeType("uint32_t")
     public int type() { return ntype(address()); }
 
     /** Sets the specified value to the {@code handle} field. */
-    public VREventScreenshot handle(int value) { nhandle(address(), value); return this; }
+    public VREventScreenshot handle(@NativeType("uint32_t") int value) { nhandle(address(), value); return this; }
     /** Sets the specified value to the {@code type} field. */
-    public VREventScreenshot type(int value) { ntype(address(), value); return this; }
+    public VREventScreenshot type(@NativeType("uint32_t") int value) { ntype(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventScreenshot set(
@@ -279,14 +282,16 @@ public class VREventScreenshot extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code handle} field. */
+        @NativeType("uint32_t")
         public int handle() { return VREventScreenshot.nhandle(address()); }
         /** Returns the value of the {@code type} field. */
+        @NativeType("uint32_t")
         public int type() { return VREventScreenshot.ntype(address()); }
 
         /** Sets the specified value to the {@code handle} field. */
-        public VREventScreenshot.Buffer handle(int value) { VREventScreenshot.nhandle(address(), value); return this; }
+        public VREventScreenshot.Buffer handle(@NativeType("uint32_t") int value) { VREventScreenshot.nhandle(address(), value); return this; }
         /** Sets the specified value to the {@code type} field. */
-        public VREventScreenshot.Buffer type(int value) { VREventScreenshot.ntype(address(), value); return this; }
+        public VREventScreenshot.Buffer type(@NativeType("uint32_t") int value) { VREventScreenshot.ntype(address(), value); return this; }
 
     }
 

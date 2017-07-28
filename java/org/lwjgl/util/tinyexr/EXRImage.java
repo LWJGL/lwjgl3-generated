@@ -89,8 +89,10 @@ public class EXRImage extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link EXRTile.Buffer} view of the struct array pointed to by the {@code tiles} field. */
+    @NativeType("EXRTile *")
     public EXRTile.Buffer tiles() { return ntiles(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code images} field. */
+    @NativeType("unsigned char **")
     public PointerBuffer images() { return nimages(address()); }
     /** Returns the value of the {@code width} field. */
     public int width() { return nwidth(address()); }
@@ -102,9 +104,9 @@ public class EXRImage extends Struct implements NativeResource {
     public int num_tiles() { return nnum_tiles(address()); }
 
     /** Sets the address of the specified {@link EXRTile.Buffer} to the {@code tiles} field. */
-    public EXRImage tiles(EXRTile.Buffer value) { ntiles(address(), value); return this; }
+    public EXRImage tiles(@NativeType("EXRTile *") EXRTile.Buffer value) { ntiles(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code images} field. */
-    public EXRImage images(PointerBuffer value) { nimages(address(), value); return this; }
+    public EXRImage images(@NativeType("unsigned char **") PointerBuffer value) { nimages(address(), value); return this; }
     /** Sets the specified value to the {@code width} field. */
     public EXRImage width(int value) { nwidth(address(), value); return this; }
     /** Sets the specified value to the {@code height} field. */
@@ -365,8 +367,10 @@ public class EXRImage extends Struct implements NativeResource {
         }
 
         /** Returns a {@link EXRTile.Buffer} view of the struct array pointed to by the {@code tiles} field. */
+        @NativeType("EXRTile *")
         public EXRTile.Buffer tiles() { return EXRImage.ntiles(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code images} field. */
+        @NativeType("unsigned char **")
         public PointerBuffer images() { return EXRImage.nimages(address()); }
         /** Returns the value of the {@code width} field. */
         public int width() { return EXRImage.nwidth(address()); }
@@ -378,9 +382,9 @@ public class EXRImage extends Struct implements NativeResource {
         public int num_tiles() { return EXRImage.nnum_tiles(address()); }
 
         /** Sets the address of the specified {@link EXRTile.Buffer} to the {@code tiles} field. */
-        public EXRImage.Buffer tiles(EXRTile.Buffer value) { EXRImage.ntiles(address(), value); return this; }
+        public EXRImage.Buffer tiles(@NativeType("EXRTile *") EXRTile.Buffer value) { EXRImage.ntiles(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code images} field. */
-        public EXRImage.Buffer images(PointerBuffer value) { EXRImage.nimages(address(), value); return this; }
+        public EXRImage.Buffer images(@NativeType("unsigned char **") PointerBuffer value) { EXRImage.nimages(address(), value); return this; }
         /** Sets the specified value to the {@code width} field. */
         public EXRImage.Buffer width(int value) { EXRImage.nwidth(address(), value); return this; }
         /** Sets the specified value to the {@code height} field. */

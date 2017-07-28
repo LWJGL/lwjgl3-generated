@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -83,7 +85,8 @@ public class KHRDebug {
         return callPPI(__functionAddress, callback, attrib_list);
     }
 
-    public static int eglDebugMessageControlKHR(EGLDebugMessageKHRCallbackI callback, PointerBuffer attrib_list) {
+    @NativeType("EGLint")
+    public static int eglDebugMessageControlKHR(@NativeType("EGLDEBUGPROCKHR") EGLDebugMessageKHRCallbackI callback, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -100,7 +103,8 @@ public class KHRDebug {
         return callPI(__functionAddress, attribute, value);
     }
 
-    public static boolean eglQueryDebugKHR(int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDebugKHR(@NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -109,7 +113,8 @@ public class KHRDebug {
 
     // --- [ eglLabelObjectKHR ] ---
 
-    public static int eglLabelObjectKHR(long display, int objectType, long object, long label) {
+    @NativeType("EGLint")
+    public static int eglLabelObjectKHR(@NativeType("EGLDisplay") long display, @NativeType("EGLenum") int objectType, @NativeType("EGLObjectKHR") long object, @NativeType("EGLLabelKHR") long label) {
         long __functionAddress = EGL.getCapabilities().eglLabelObjectKHR;
         if (CHECKS) {
             check(__functionAddress);

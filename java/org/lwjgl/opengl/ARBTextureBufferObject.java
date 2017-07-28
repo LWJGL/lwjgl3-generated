@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -89,6 +91,6 @@ public class ARBTextureBufferObject {
      * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
      * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
      */
-    public static native void glTexBufferARB(int target, int internalformat, int buffer);
+    public static native void glTexBufferARB(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLuint") int buffer);
 
 }

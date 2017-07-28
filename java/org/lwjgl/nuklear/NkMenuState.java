@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkScroll struct nk_scroll} offset;
  * }</pre></code>
  */
+@NativeType("struct nk_menu_state")
 public class NkMenuState extends Struct {
 
     /** The struct size in bytes. */
@@ -83,6 +84,7 @@ public class NkMenuState extends Struct {
     /** Returns the value of the {@code h} field. */
     public float h() { return nh(address()); }
     /** Returns a {@link NkScroll} view of the {@code offset} field. */
+    @NativeType("struct nk_scroll")
     public NkScroll offset() { return noffset(address()); }
 
     // -----------------------------------
@@ -166,6 +168,7 @@ public class NkMenuState extends Struct {
         /** Returns the value of the {@code h} field. */
         public float h() { return NkMenuState.nh(address()); }
         /** Returns a {@link NkScroll} view of the {@code offset} field. */
+        @NativeType("struct nk_scroll")
         public NkScroll offset() { return NkMenuState.noffset(address()); }
 
     }

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -37,6 +39,6 @@ public class NVCopyBuffer {
 
     // --- [ glCopyBufferSubDataNV ] ---
 
-    public static native void glCopyBufferSubDataNV(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
+    public static native void glCopyBufferSubDataNV(@NativeType("GLenum") int readTarget, @NativeType("GLenum") int writeTarget, @NativeType("GLintptr") long readOffset, @NativeType("GLintptr") long writeOffset, @NativeType("GLsizeiptr") long size);
 
 }

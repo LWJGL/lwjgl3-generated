@@ -126,7 +126,7 @@ public class AMDDebugOutput {
      * @param ids      an array of message ids
      * @param enabled  whether to enable or disable the referenced subset of messages
      */
-    public static void glDebugMessageEnableAMD(int category, int severity, IntBuffer ids, boolean enabled) {
+    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
         nglDebugMessageEnableAMD(category, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
     }
 
@@ -164,7 +164,7 @@ public class AMDDebugOutput {
      * @param severity the message severity. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}</td></tr></table>
      * @param enabled  whether to enable or disable the referenced subset of messages
      */
-    public static void glDebugMessageEnableAMD(int category, int severity, int id, boolean enabled) {
+    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -199,7 +199,7 @@ public class AMDDebugOutput {
      * @param id       the message id
      * @param buf      the message characters
      */
-    public static void glDebugMessageInsertAMD(int category, int severity, int id, ByteBuffer buf) {
+    public static void glDebugMessageInsertAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("GLuint") int id, @NativeType("const GLchar *") ByteBuffer buf) {
         nglDebugMessageInsertAMD(category, severity, id, buf.remaining(), memAddress(buf));
     }
 
@@ -219,7 +219,7 @@ public class AMDDebugOutput {
      * @param id       the message id
      * @param buf      the message characters
      */
-    public static void glDebugMessageInsertAMD(int category, int severity, int id, CharSequence buf) {
+    public static void glDebugMessageInsertAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("GLuint") int id, @NativeType("const GLchar *") CharSequence buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer bufEncoded = stack.UTF8(buf, false);
@@ -261,7 +261,7 @@ public class AMDDebugOutput {
      * @param callback  a callback function that will be called when a debug message is generated
      * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
      */
-    public static void glDebugMessageCallbackAMD(GLDebugMessageAMDCallbackI callback, long userParam) {
+    public static void glDebugMessageCallbackAMD(@NativeType("GLDEBUGPROCAMD") GLDebugMessageAMDCallbackI callback, @NativeType("void *") long userParam) {
         nglDebugMessageCallbackAMD(memAddressSafe(callback), userParam);
     }
 
@@ -298,7 +298,8 @@ public class AMDDebugOutput {
      * @param lengths    an array of variables to receive the lengths of the retrieved messages
      * @param messageLog an array of characters that will receive the messages
      */
-    public static int glGetDebugMessageLogAMD(int count, IntBuffer categories, IntBuffer severities, IntBuffer ids, IntBuffer lengths, ByteBuffer messageLog) {
+    @NativeType("GLuint")
+    public static int glGetDebugMessageLogAMD(@NativeType("GLuint") int count, @NativeType("GLenum *") IntBuffer categories, @NativeType("GLuint *") IntBuffer severities, @NativeType("GLuint *") IntBuffer ids, @NativeType("GLsizei *") IntBuffer lengths, @NativeType("GLchar *") ByteBuffer messageLog) {
         if (CHECKS) {
             checkSafe(categories, count);
             checkSafe(severities, count);
@@ -309,7 +310,7 @@ public class AMDDebugOutput {
     }
 
     /** Array version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
-    public static void glDebugMessageEnableAMD(int category, int severity, int[] ids, boolean enabled) {
+    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
         long __functionAddress = GL.getICD().glDebugMessageEnableAMD;
         if (CHECKS) {
             check(__functionAddress);
@@ -318,7 +319,8 @@ public class AMDDebugOutput {
     }
 
     /** Array version of: {@link #glGetDebugMessageLogAMD GetDebugMessageLogAMD} */
-    public static int glGetDebugMessageLogAMD(int count, int[] categories, int[] severities, int[] ids, int[] lengths, ByteBuffer messageLog) {
+    @NativeType("GLuint")
+    public static int glGetDebugMessageLogAMD(@NativeType("GLuint") int count, @NativeType("GLenum *") int[] categories, @NativeType("GLuint *") int[] severities, @NativeType("GLuint *") int[] ids, @NativeType("GLsizei *") int[] lengths, @NativeType("GLchar *") ByteBuffer messageLog) {
         long __functionAddress = GL.getICD().glGetDebugMessageLogAMD;
         if (CHECKS) {
             check(__functionAddress);

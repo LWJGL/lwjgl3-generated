@@ -51,6 +51,7 @@ public class CoreFoundation {
 
     // --- [ kCFAllocatorDefault ] ---
 
+    @NativeType("CFAllocatorRef")
     private static native long kCFAllocatorDefault();
 
     /** This is a synonym for {@code NULL}, if you'd rather use a named constant. */
@@ -58,6 +59,7 @@ public class CoreFoundation {
 
     // --- [ kCFAllocatorSystemDefault ] ---
 
+    @NativeType("CFAllocatorRef")
     private static native long kCFAllocatorSystemDefault();
 
     /** Default system allocator; you rarely need to use this. */
@@ -65,6 +67,7 @@ public class CoreFoundation {
 
     // --- [ kCFAllocatorMalloc ] ---
 
+    @NativeType("CFAllocatorRef")
     private static native long kCFAllocatorMalloc();
 
     /**
@@ -76,6 +79,7 @@ public class CoreFoundation {
 
     // --- [ kCFAllocatorMallocZone ] ---
 
+    @NativeType("CFAllocatorRef")
     private static native long kCFAllocatorMallocZone();
 
     /**
@@ -86,6 +90,7 @@ public class CoreFoundation {
 
     // --- [ kCFAllocatorNull ] ---
 
+    @NativeType("CFAllocatorRef")
     private static native long kCFAllocatorNull();
 
     /**
@@ -96,6 +101,7 @@ public class CoreFoundation {
 
     // --- [ kCFAllocatorUseContext ] ---
 
+    @NativeType("CFAllocatorRef")
     private static native long kCFAllocatorUseContext();
 
     /** Special allocator argument to CFAllocatorCreate which means "use the functions given in the context to allocate the allocator itself as well". */
@@ -114,7 +120,8 @@ public class CoreFoundation {
      *
      * @param cf the CFType object to retain
      */
-    public static long CFRetain(long cf) {
+    @NativeType("CFTypeRef")
+    public static long CFRetain(@NativeType("CFTypeRef") long cf) {
         if (CHECKS) {
             check(cf);
         }
@@ -134,7 +141,7 @@ public class CoreFoundation {
      *
      * @param cf the CFType object to release
      */
-    public static void CFRelease(long cf) {
+    public static void CFRelease(@NativeType("CFTypeRef") long cf) {
         if (CHECKS) {
             check(cf);
         }
@@ -152,7 +159,8 @@ public class CoreFoundation {
      * @param allocator the allocator to use to allocate memory for the new object. Pass {@code NULL} or {@code kCFAllocatorDefault} to use the current default allocator.
      * @param bundleURL the location of the bundle for which to create a {@code CFBundle} object
      */
-    public static long CFBundleCreate(long allocator, long bundleURL) {
+    @NativeType("CFBundleRef")
+    public static long CFBundleCreate(@NativeType("CFAllocatorRef") long allocator, @NativeType("CFURLRef") long bundleURL) {
         if (CHECKS) {
             check(bundleURL);
         }
@@ -169,7 +177,8 @@ public class CoreFoundation {
      *
      * @param bundleID the identifier of the bundle to locate. Note that identifier names are case-sensitive.
      */
-    public static long CFBundleGetBundleWithIdentifier(long bundleID) {
+    @NativeType("CFBundleRef")
+    public static long CFBundleGetBundleWithIdentifier(@NativeType("CFStringRef") long bundleID) {
         if (CHECKS) {
             check(bundleID);
         }
@@ -187,7 +196,8 @@ public class CoreFoundation {
      * @param bundle       the bundle to examine
      * @param functionName the name of the function to locate
      */
-    public static long CFBundleGetFunctionPointerForName(long bundle, long functionName) {
+    @NativeType("void *")
+    public static long CFBundleGetFunctionPointerForName(@NativeType("CFBundleRef") long bundle, @NativeType("CFStringRef") long functionName) {
         if (CHECKS) {
             check(bundle);
             check(functionName);
@@ -207,7 +217,8 @@ public class CoreFoundation {
      * @param cStr      the {@code NULL}-terminated C string to be used to create the {@code CFString} object. The string must use an 8-bit encoding.
      * @param encoding  the encoding of the characters in the C string. The encoding must specify an 8-bit encoding. One of:<br><table><tr><td>{@link #kCFStringEncodingMacRoman}</td><td>{@link #kCFStringEncodingWindowsLatin1}</td><td>{@link #kCFStringEncodingISOLatin1}</td></tr><tr><td>{@link #kCFStringEncodingNextStepLatin}</td><td>{@link #kCFStringEncodingASCII}</td><td>{@link #kCFStringEncodingUnicode}</td></tr><tr><td>{@link #kCFStringEncodingUTF8}</td><td>{@link #kCFStringEncodingNonLossyASCII}</td><td>{@link #kCFStringEncodingUTF16}</td></tr><tr><td>{@link #kCFStringEncodingUTF16BE}</td><td>{@link #kCFStringEncodingUTF16LE}</td><td>{@link #kCFStringEncodingUTF32}</td></tr><tr><td>{@link #kCFStringEncodingUTF32BE}</td><td>{@link #kCFStringEncodingUTF32LE}</td></tr></table>
      */
-    public static long CFStringCreateWithCString(long allocator, ByteBuffer cStr, int encoding) {
+    @NativeType("CFStringRef")
+    public static long CFStringCreateWithCString(@NativeType("CFAllocatorRef") long allocator, @NativeType("const char *") ByteBuffer cStr, @NativeType("CFStringEncoding") int encoding) {
         return nCFStringCreateWithCString(allocator, memAddress(cStr), encoding);
     }
 
@@ -226,7 +237,8 @@ public class CoreFoundation {
      *                            {@code kCFAllocatorDefault} to request the default allocator for this purpose. If the buffer does not need to be deallocated, or if you want to
      *                            assume responsibility for deallocating the buffer (and not have the {@code CFString} object deallocate it), pass {@code kCFAllocatorNull}.
      */
-    public static long CFStringCreateWithCStringNoCopy(long allocator, ByteBuffer cStr, int encoding, long contentsDeallocator) {
+    @NativeType("CFStringRef")
+    public static long CFStringCreateWithCStringNoCopy(@NativeType("CFAllocatorRef") long allocator, @NativeType("const char *") ByteBuffer cStr, @NativeType("CFStringEncoding") int encoding, @NativeType("CFAllocatorRef") long contentsDeallocator) {
         return nCFStringCreateWithCStringNoCopy(allocator, memAddress(cStr), encoding, contentsDeallocator);
     }
 
@@ -245,7 +257,8 @@ public class CoreFoundation {
      * @param isDirectory a Boolean value that specifies whether filePath is treated as a directory path when resolving against relative path components. Pass true if the
      *                    pathname indicates a directory, false otherwise.
      */
-    public static long CFURLCreateWithFileSystemPath(long allocator, long filePath, long pathStyle, boolean isDirectory) {
+    @NativeType("CFURLRef")
+    public static long CFURLCreateWithFileSystemPath(@NativeType("CFAllocatorRef") long allocator, @NativeType("CFStringRef") long filePath, @NativeType("CFURLPathStyle") long pathStyle, @NativeType("Boolean") boolean isDirectory) {
         if (CHECKS) {
             check(filePath);
         }

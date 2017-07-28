@@ -98,22 +98,26 @@ public class VkObjectTableDescriptorSetEntryNVX extends Struct implements Native
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("VkObjectEntryTypeNVX")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkObjectEntryUsageFlagsNVX")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code pipelineLayout} field. */
+    @NativeType("VkPipelineLayout")
     public long pipelineLayout() { return npipelineLayout(address()); }
     /** Returns the value of the {@code descriptorSet} field. */
+    @NativeType("VkDescriptorSet")
     public long descriptorSet() { return ndescriptorSet(address()); }
 
     /** Sets the specified value to the {@code type} field. */
-    public VkObjectTableDescriptorSetEntryNVX type(int value) { ntype(address(), value); return this; }
+    public VkObjectTableDescriptorSetEntryNVX type(@NativeType("VkObjectEntryTypeNVX") int value) { ntype(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkObjectTableDescriptorSetEntryNVX flags(int value) { nflags(address(), value); return this; }
+    public VkObjectTableDescriptorSetEntryNVX flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code pipelineLayout} field. */
-    public VkObjectTableDescriptorSetEntryNVX pipelineLayout(long value) { npipelineLayout(address(), value); return this; }
+    public VkObjectTableDescriptorSetEntryNVX pipelineLayout(@NativeType("VkPipelineLayout") long value) { npipelineLayout(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorSet} field. */
-    public VkObjectTableDescriptorSetEntryNVX descriptorSet(long value) { ndescriptorSet(address(), value); return this; }
+    public VkObjectTableDescriptorSetEntryNVX descriptorSet(@NativeType("VkDescriptorSet") long value) { ndescriptorSet(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkObjectTableDescriptorSetEntryNVX set(
@@ -332,22 +336,26 @@ public class VkObjectTableDescriptorSetEntryNVX extends Struct implements Native
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("VkObjectEntryTypeNVX")
         public int type() { return VkObjectTableDescriptorSetEntryNVX.ntype(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkObjectEntryUsageFlagsNVX")
         public int flags() { return VkObjectTableDescriptorSetEntryNVX.nflags(address()); }
         /** Returns the value of the {@code pipelineLayout} field. */
+        @NativeType("VkPipelineLayout")
         public long pipelineLayout() { return VkObjectTableDescriptorSetEntryNVX.npipelineLayout(address()); }
         /** Returns the value of the {@code descriptorSet} field. */
+        @NativeType("VkDescriptorSet")
         public long descriptorSet() { return VkObjectTableDescriptorSetEntryNVX.ndescriptorSet(address()); }
 
         /** Sets the specified value to the {@code type} field. */
-        public VkObjectTableDescriptorSetEntryNVX.Buffer type(int value) { VkObjectTableDescriptorSetEntryNVX.ntype(address(), value); return this; }
+        public VkObjectTableDescriptorSetEntryNVX.Buffer type(@NativeType("VkObjectEntryTypeNVX") int value) { VkObjectTableDescriptorSetEntryNVX.ntype(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkObjectTableDescriptorSetEntryNVX.Buffer flags(int value) { VkObjectTableDescriptorSetEntryNVX.nflags(address(), value); return this; }
+        public VkObjectTableDescriptorSetEntryNVX.Buffer flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { VkObjectTableDescriptorSetEntryNVX.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code pipelineLayout} field. */
-        public VkObjectTableDescriptorSetEntryNVX.Buffer pipelineLayout(long value) { VkObjectTableDescriptorSetEntryNVX.npipelineLayout(address(), value); return this; }
+        public VkObjectTableDescriptorSetEntryNVX.Buffer pipelineLayout(@NativeType("VkPipelineLayout") long value) { VkObjectTableDescriptorSetEntryNVX.npipelineLayout(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorSet} field. */
-        public VkObjectTableDescriptorSetEntryNVX.Buffer descriptorSet(long value) { VkObjectTableDescriptorSetEntryNVX.ndescriptorSet(address(), value); return this; }
+        public VkObjectTableDescriptorSetEntryNVX.Buffer descriptorSet(@NativeType("VkDescriptorSet") long value) { VkObjectTableDescriptorSetEntryNVX.ndescriptorSet(address(), value); return this; }
 
     }
 

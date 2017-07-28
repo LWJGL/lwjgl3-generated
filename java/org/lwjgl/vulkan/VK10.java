@@ -2663,7 +2663,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pInstance   points a {@code VkInstance} handle in which the resulting instance is returned.
      */
-    public static int vkCreateInstance(VkInstanceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pInstance) {
+    @NativeType("VkResult")
+    public static int vkCreateInstance(@NativeType("const VkInstanceCreateInfo *") VkInstanceCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkInstance *") PointerBuffer pInstance) {
         if (CHECKS) {
             check(pInstance, 1);
         }
@@ -2721,7 +2722,7 @@ public class VK10 {
      * @param instance   the handle of the instance to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyInstance(VkInstance instance, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyInstance(VkInstance instance, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyInstance(instance, memAddressSafe(pAllocator));
     }
 
@@ -2782,7 +2783,8 @@ public class VK10 {
      * @param pPhysicalDeviceCount a pointer to an integer related to the number of physical devices available or queried, as described below.
      * @param pPhysicalDevices     either {@code NULL} or a pointer to an array of {@code VkPhysicalDevice} handles.
      */
-    public static int vkEnumeratePhysicalDevices(VkInstance instance, IntBuffer pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
+    @NativeType("VkResult")
+    public static int vkEnumeratePhysicalDevices(VkInstance instance, @NativeType("uint32_t *") IntBuffer pPhysicalDeviceCount, @NativeType("VkPhysicalDevice *") PointerBuffer pPhysicalDevices) {
         if (CHECKS) {
             check(pPhysicalDeviceCount, 1);
             checkSafe(pPhysicalDevices, pPhysicalDeviceCount.get(pPhysicalDeviceCount.position()));
@@ -2824,7 +2826,7 @@ public class VK10 {
      * @param physicalDevice the physical device from which to query the supported features.
      * @param pFeatures      a pointer to a {@link VkPhysicalDeviceFeatures} structure in which the physical device features are returned. For each feature, a value of {@link #VK_TRUE TRUE} indicates that the feature is supported on this physical device, and {@link #VK_FALSE FALSE} indicates that the feature is not supported.
      */
-    public static void vkGetPhysicalDeviceFeatures(VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures pFeatures) {
+    public static void vkGetPhysicalDeviceFeatures(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceFeatures *") VkPhysicalDeviceFeatures pFeatures) {
         nvkGetPhysicalDeviceFeatures(physicalDevice, pFeatures.address());
     }
 
@@ -2865,7 +2867,7 @@ public class VK10 {
      * @param format            the format whose properties are queried.
      * @param pFormatProperties a pointer to a {@link VkFormatProperties} structure in which physical device properties for {@code format} are returned.
      */
-    public static void vkGetPhysicalDeviceFormatProperties(VkPhysicalDevice physicalDevice, int format, VkFormatProperties pFormatProperties) {
+    public static void vkGetPhysicalDeviceFormatProperties(VkPhysicalDevice physicalDevice, @NativeType("VkFormat") int format, @NativeType("VkFormatProperties *") VkFormatProperties pFormatProperties) {
         nvkGetPhysicalDeviceFormatProperties(physicalDevice, format, pFormatProperties.address());
     }
 
@@ -2942,7 +2944,8 @@ public class VK10 {
      * @param flags                  a bitmask of {@code VkImageCreateFlagBits} specifying additional parameters of the image, corresponding to {@link VkImageCreateInfo}{@code ::flags}.
      * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties} structure in which capabilities are returned.
      */
-    public static int vkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int tiling, int usage, int flags, VkImageFormatProperties pImageFormatProperties) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, @NativeType("VkFormat") int format, @NativeType("VkImageType") int type, @NativeType("VkImageTiling") int tiling, @NativeType("VkImageUsageFlags") int usage, @NativeType("VkImageCreateFlags") int flags, @NativeType("VkImageFormatProperties *") VkImageFormatProperties pImageFormatProperties) {
         return nvkGetPhysicalDeviceImageFormatProperties(physicalDevice, format, type, tiling, usage, flags, pImageFormatProperties.address());
     }
 
@@ -2980,7 +2983,7 @@ public class VK10 {
      * @param physicalDevice the handle to the physical device whose properties will be queried.
      * @param pProperties    points to an instance of the {@link VkPhysicalDeviceProperties} structure, that will be filled with returned information.
      */
-    public static void vkGetPhysicalDeviceProperties(VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties pProperties) {
+    public static void vkGetPhysicalDeviceProperties(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceProperties *") VkPhysicalDeviceProperties pProperties) {
         nvkGetPhysicalDeviceProperties(physicalDevice, pProperties.address());
     }
 
@@ -3029,7 +3032,7 @@ public class VK10 {
      * @param pQueueFamilyPropertyCount a pointer to an integer related to the number of queue families available or queried, as described below.
      * @param pQueueFamilyProperties    either {@code NULL} or a pointer to an array of {@link VkQueueFamilyProperties} structures.
      */
-    public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, IntBuffer pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
+    public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") IntBuffer pQueueFamilyPropertyCount, @NativeType("VkQueueFamilyProperties *") VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
         if (CHECKS) {
             check(pQueueFamilyPropertyCount, 1);
             checkSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount.get(pQueueFamilyPropertyCount.position()));
@@ -3071,7 +3074,7 @@ public class VK10 {
      * @param physicalDevice    the handle to the device to query.
      * @param pMemoryProperties points to an instance of {@link VkPhysicalDeviceMemoryProperties} structure in which the properties are returned.
      */
-    public static void vkGetPhysicalDeviceMemoryProperties(VkPhysicalDevice physicalDevice, VkPhysicalDeviceMemoryProperties pMemoryProperties) {
+    public static void vkGetPhysicalDeviceMemoryProperties(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceMemoryProperties *") VkPhysicalDeviceMemoryProperties pMemoryProperties) {
         nvkGetPhysicalDeviceMemoryProperties(physicalDevice, pMemoryProperties.address());
     }
 
@@ -3142,7 +3145,8 @@ public class VK10 {
      * @param instance the instance that the function pointer will be compatible with, or {@code NULL} for commands not dependent on any instance.
      * @param pName    the name of the command to obtain.
      */
-    public static long vkGetInstanceProcAddr(VkInstance instance, ByteBuffer pName) {
+    @NativeType("PFN_vkVoidFunction")
+    public static long vkGetInstanceProcAddr(VkInstance instance, @NativeType("const char *") ByteBuffer pName) {
         if (CHECKS) {
             checkNT1(pName);
         }
@@ -3208,7 +3212,8 @@ public class VK10 {
      * @param instance the instance that the function pointer will be compatible with, or {@code NULL} for commands not dependent on any instance.
      * @param pName    the name of the command to obtain.
      */
-    public static long vkGetInstanceProcAddr(VkInstance instance, CharSequence pName) {
+    @NativeType("PFN_vkVoidFunction")
+    public static long vkGetInstanceProcAddr(@NativeType("VkInstance") VkInstance instance, @NativeType("const char *") CharSequence pName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pNameEncoded = stack.ASCII(pName);
@@ -3275,7 +3280,8 @@ public class VK10 {
      * @param device 
      * @param pName  
      */
-    public static long vkGetDeviceProcAddr(VkDevice device, ByteBuffer pName) {
+    @NativeType("PFN_vkVoidFunction")
+    public static long vkGetDeviceProcAddr(VkDevice device, @NativeType("const char *") ByteBuffer pName) {
         if (CHECKS) {
             checkNT1(pName);
         }
@@ -3331,7 +3337,8 @@ public class VK10 {
      * @param device 
      * @param pName  
      */
-    public static long vkGetDeviceProcAddr(VkDevice device, CharSequence pName) {
+    @NativeType("PFN_vkVoidFunction")
+    public static long vkGetDeviceProcAddr(@NativeType("VkDevice") VkDevice device, @NativeType("const char *") CharSequence pName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pNameEncoded = stack.ASCII(pName);
@@ -3418,7 +3425,8 @@ public class VK10 {
      * @param pAllocator     controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pDevice        points to a handle in which the created {@code VkDevice} is returned.
      */
-    public static int vkCreateDevice(VkPhysicalDevice physicalDevice, VkDeviceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, PointerBuffer pDevice) {
+    @NativeType("VkResult")
+    public static int vkCreateDevice(VkPhysicalDevice physicalDevice, @NativeType("const VkDeviceCreateInfo *") VkDeviceCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDevice *") PointerBuffer pDevice) {
         if (CHECKS) {
             check(pDevice, 1);
         }
@@ -3485,7 +3493,7 @@ public class VK10 {
      * @param device     the logical device to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyDevice(VkDevice device, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyDevice(VkDevice device, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyDevice(device, memAddressSafe(pAllocator));
     }
 
@@ -3554,7 +3562,8 @@ public class VK10 {
      * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried, as described below.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures.
      */
-    public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateInstanceExtensionProperties(@NativeType("const char *") ByteBuffer pLayerName, @NativeType("uint32_t *") IntBuffer pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         if (CHECKS) {
             checkNT1Safe(pLayerName);
             check(pPropertyCount, 1);
@@ -3616,7 +3625,8 @@ public class VK10 {
      * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried, as described below.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures.
      */
-    public static int vkEnumerateInstanceExtensionProperties(CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateInstanceExtensionProperties(@NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") IntBuffer pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -3694,7 +3704,8 @@ public class VK10 {
      * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried, and is treated in the same fashion as the {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}{@code ::pPropertyCount} parameter.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures.
      */
-    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, @NativeType("const char *") ByteBuffer pLayerName, @NativeType("uint32_t *") IntBuffer pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         if (CHECKS) {
             checkNT1Safe(pLayerName);
             check(pPropertyCount, 1);
@@ -3755,7 +3766,8 @@ public class VK10 {
      * @param pPropertyCount a pointer to an integer related to the number of extension properties available or queried, and is treated in the same fashion as the {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties}{@code ::pPropertyCount} parameter.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures.
      */
-    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, CharSequence pLayerName, IntBuffer pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateDeviceExtensionProperties(@NativeType("VkPhysicalDevice") VkPhysicalDevice physicalDevice, @NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") IntBuffer pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -3828,7 +3840,8 @@ public class VK10 {
      * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried, as described below.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkLayerProperties} structures.
      */
-    public static int vkEnumerateInstanceLayerProperties(IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateInstanceLayerProperties(@NativeType("uint32_t *") IntBuffer pPropertyCount, @NativeType("VkLayerProperties *") VkLayerProperties.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -3898,7 +3911,8 @@ public class VK10 {
      * @param pPropertyCount a pointer to an integer related to the number of layer properties available or queried.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkLayerProperties} structures.
      */
-    public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, IntBuffer pPropertyCount, VkLayerProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") IntBuffer pPropertyCount, @NativeType("VkLayerProperties *") VkLayerProperties.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -3947,7 +3961,7 @@ public class VK10 {
      * @param queueIndex       the index within this queue family of the queue to retrieve.
      * @param pQueue           a pointer to a {@code VkQueue} object that will be filled with the handle for the requested queue.
      */
-    public static void vkGetDeviceQueue(VkDevice device, int queueFamilyIndex, int queueIndex, PointerBuffer pQueue) {
+    public static void vkGetDeviceQueue(VkDevice device, @NativeType("uint32_t") int queueFamilyIndex, @NativeType("uint32_t") int queueIndex, @NativeType("VkQueue *") PointerBuffer pQueue) {
         if (CHECKS) {
             check(pQueue, 1);
         }
@@ -4067,7 +4081,8 @@ public class VK10 {
      * @param pSubmits a pointer to an array of {@link VkSubmitInfo} structures, each specifying a command buffer submission batch.
      * @param fence    an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
-    public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo.Buffer pSubmits, long fence) {
+    @NativeType("VkResult")
+    public static int vkQueueSubmit(@NativeType("VkQueue") VkQueue queue, @NativeType("const VkSubmitInfo *") VkSubmitInfo.Buffer pSubmits, @NativeType("VkFence") long fence) {
         return nvkQueueSubmit(queue, remainingSafe(pSubmits), memAddressSafe(pSubmits), fence);
     }
 
@@ -4168,7 +4183,8 @@ public class VK10 {
      * @param queue the queue that the command buffers will be submitted to.
      * @param fence an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
-    public static int vkQueueSubmit(VkQueue queue, VkSubmitInfo pSubmit, long fence) {
+    @NativeType("VkResult")
+    public static int vkQueueSubmit(@NativeType("VkQueue") VkQueue queue, @NativeType("const VkSubmitInfo *") VkSubmitInfo pSubmit, @NativeType("VkFence") long fence) {
         return nvkQueueSubmit(queue, 1, pSubmit.address(), fence);
     }
 
@@ -4219,6 +4235,7 @@ public class VK10 {
      *
      * @param queue the queue on which to wait.
      */
+    @NativeType("VkResult")
     public static int vkQueueWaitIdle(VkQueue queue) {
         long __functionAddress = queue.getCapabilities().vkQueueWaitIdle;
         return callPI(__functionAddress, queue.address());
@@ -4270,6 +4287,7 @@ public class VK10 {
      *
      * @param device the logical device to idle.
      */
+    @NativeType("VkResult")
     public static int vkDeviceWaitIdle(VkDevice device) {
         long __functionAddress = device.getCapabilities().vkDeviceWaitIdle;
         return callPI(__functionAddress, device.address());
@@ -4353,7 +4371,8 @@ public class VK10 {
      * @param pAllocator    controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pMemory       a pointer to a {@code VkDeviceMemory} handle in which information about the allocated memory is returned.
      */
-    public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, LongBuffer pMemory) {
+    @NativeType("VkResult")
+    public static int vkAllocateMemory(VkDevice device, @NativeType("const VkMemoryAllocateInfo *") VkMemoryAllocateInfo pAllocateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDeviceMemory *") LongBuffer pMemory) {
         if (CHECKS) {
             check(pMemory, 1);
         }
@@ -4426,7 +4445,7 @@ public class VK10 {
      * @param memory     the {@code VkDeviceMemory} object to be freed.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkFreeMemory(VkDevice device, long memory, VkAllocationCallbacks pAllocator) {
+    public static void vkFreeMemory(VkDevice device, @NativeType("VkDeviceMemory") long memory, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkFreeMemory(device, memory, memAddressSafe(pAllocator));
     }
 
@@ -4521,7 +4540,8 @@ public class VK10 {
      * @param flags  reserved for future use.
      * @param ppData points to a pointer in which is returned a host-accessible pointer to the beginning of the mapped range. This pointer minus {@code offset} <b>must</b> be aligned to at least {@link VkPhysicalDeviceLimits}{@code ::minMemoryMapAlignment}.
      */
-    public static int vkMapMemory(VkDevice device, long memory, long offset, long size, int flags, PointerBuffer ppData) {
+    @NativeType("VkResult")
+    public static int vkMapMemory(VkDevice device, @NativeType("VkDeviceMemory") long memory, @NativeType("VkDeviceSize") long offset, @NativeType("VkDeviceSize") long size, @NativeType("VkMemoryMapFlags") int flags, @NativeType("void **") PointerBuffer ppData) {
         if (CHECKS) {
             check(ppData, 1);
         }
@@ -4565,7 +4585,7 @@ public class VK10 {
      * @param device the logical device that owns the memory.
      * @param memory the memory object to be unmapped.
      */
-    public static void vkUnmapMemory(VkDevice device, long memory) {
+    public static void vkUnmapMemory(VkDevice device, @NativeType("VkDeviceMemory") long memory) {
         long __functionAddress = device.getCapabilities().vkUnmapMemory;
         callPJV(__functionAddress, device.address(), memory);
     }
@@ -4635,7 +4655,8 @@ public class VK10 {
      * @param device        the logical device that owns the memory ranges.
      * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to flush.
      */
-    public static int vkFlushMappedMemoryRanges(VkDevice device, VkMappedMemoryRange.Buffer pMemoryRanges) {
+    @NativeType("VkResult")
+    public static int vkFlushMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange.Buffer pMemoryRanges) {
         return nvkFlushMappedMemoryRanges(device, pMemoryRanges.remaining(), pMemoryRanges.address());
     }
 
@@ -4691,7 +4712,8 @@ public class VK10 {
      *
      * @param device the logical device that owns the memory ranges.
      */
-    public static int vkFlushMappedMemoryRanges(VkDevice device, VkMappedMemoryRange pMemoryRange) {
+    @NativeType("VkResult")
+    public static int vkFlushMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange pMemoryRange) {
         return nvkFlushMappedMemoryRanges(device, 1, pMemoryRange.address());
     }
 
@@ -4758,7 +4780,8 @@ public class VK10 {
      * @param device        the logical device that owns the memory ranges.
      * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to invalidate.
      */
-    public static int vkInvalidateMappedMemoryRanges(VkDevice device, VkMappedMemoryRange.Buffer pMemoryRanges) {
+    @NativeType("VkResult")
+    public static int vkInvalidateMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange.Buffer pMemoryRanges) {
         return nvkInvalidateMappedMemoryRanges(device, pMemoryRanges.remaining(), pMemoryRanges.address());
     }
 
@@ -4812,7 +4835,8 @@ public class VK10 {
      *
      * @param device the logical device that owns the memory ranges.
      */
-    public static int vkInvalidateMappedMemoryRanges(VkDevice device, VkMappedMemoryRange pMemoryRange) {
+    @NativeType("VkResult")
+    public static int vkInvalidateMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange pMemoryRange) {
         return nvkInvalidateMappedMemoryRanges(device, 1, pMemoryRange.address());
     }
 
@@ -4862,7 +4886,7 @@ public class VK10 {
      * @param memory                  the memory object being queried.
      * @param pCommittedMemoryInBytes a pointer to a {@code VkDeviceSize} value in which the number of bytes currently committed is returned, on success.
      */
-    public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, LongBuffer pCommittedMemoryInBytes) {
+    public static void vkGetDeviceMemoryCommitment(VkDevice device, @NativeType("VkDeviceMemory") long memory, @NativeType("VkDeviceSize *") LongBuffer pCommittedMemoryInBytes) {
         if (CHECKS) {
             check(pCommittedMemoryInBytes, 1);
         }
@@ -4940,7 +4964,8 @@ public class VK10 {
      * @param memory       a {@code VkDeviceMemory} object describing the device memory to attach.
      * @param memoryOffset the start offset of the region of {@code memory} which is to be bound to the buffer. The number of bytes returned in the {@link VkMemoryRequirements}{@code ::size} member in {@code memory}, starting from {@code memoryOffset} bytes, will be bound to the specified buffer.
      */
-    public static int vkBindBufferMemory(VkDevice device, long buffer, long memory, long memoryOffset) {
+    @NativeType("VkResult")
+    public static int vkBindBufferMemory(VkDevice device, @NativeType("VkBuffer") long buffer, @NativeType("VkDeviceMemory") long memory, @NativeType("VkDeviceSize") long memoryOffset) {
         long __functionAddress = device.getCapabilities().vkBindBufferMemory;
         return callPJJJI(__functionAddress, device.address(), buffer, memory, memoryOffset);
     }
@@ -5013,7 +5038,8 @@ public class VK10 {
      * @param memory       the {@code VkDeviceMemory} object describing the device memory to attach.
      * @param memoryOffset the start offset of the region of {@code memory} which is to be bound to the image. The number of bytes returned in the {@link VkMemoryRequirements}{@code ::size} member in {@code memory}, starting from {@code memoryOffset} bytes, will be bound to the specified image.
      */
-    public static int vkBindImageMemory(VkDevice device, long image, long memory, long memoryOffset) {
+    @NativeType("VkResult")
+    public static int vkBindImageMemory(VkDevice device, @NativeType("VkImage") long image, @NativeType("VkDeviceMemory") long memory, @NativeType("VkDeviceSize") long memoryOffset) {
         long __functionAddress = device.getCapabilities().vkBindImageMemory;
         return callPJJJI(__functionAddress, device.address(), image, memory, memoryOffset);
     }
@@ -5056,7 +5082,7 @@ public class VK10 {
      * @param buffer              the buffer to query.
      * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements} structure in which the memory requirements of the buffer object are returned.
      */
-    public static void vkGetBufferMemoryRequirements(VkDevice device, long buffer, VkMemoryRequirements pMemoryRequirements) {
+    public static void vkGetBufferMemoryRequirements(VkDevice device, @NativeType("VkBuffer") long buffer, @NativeType("VkMemoryRequirements *") VkMemoryRequirements pMemoryRequirements) {
         nvkGetBufferMemoryRequirements(device, buffer, pMemoryRequirements.address());
     }
 
@@ -5098,7 +5124,7 @@ public class VK10 {
      * @param image               the image to query.
      * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements} structure in which the memory requirements of the image object are returned.
      */
-    public static void vkGetImageMemoryRequirements(VkDevice device, long image, VkMemoryRequirements pMemoryRequirements) {
+    public static void vkGetImageMemoryRequirements(VkDevice device, @NativeType("VkImage") long image, @NativeType("VkMemoryRequirements *") VkMemoryRequirements pMemoryRequirements) {
         nvkGetImageMemoryRequirements(device, image, pMemoryRequirements.address());
     }
 
@@ -5158,7 +5184,7 @@ public class VK10 {
      * @param pSparseMemoryRequirementCount a pointer to an integer related to the number of sparse memory requirements available or queried, as described below.
      * @param pSparseMemoryRequirements     either {@code NULL} or a pointer to an array of {@link VkSparseImageMemoryRequirements} structures.
      */
-    public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, IntBuffer pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
+    public static void vkGetImageSparseMemoryRequirements(VkDevice device, @NativeType("VkImage") long image, @NativeType("uint32_t *") IntBuffer pSparseMemoryRequirementCount, @NativeType("VkSparseImageMemoryRequirements *") VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
         if (CHECKS) {
             check(pSparseMemoryRequirementCount, 1);
             checkSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
@@ -5239,7 +5265,7 @@ public class VK10 {
      * @param pPropertyCount a pointer to an integer related to the number of sparse format properties available or queried, as described below.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkSparseImageFormatProperties} structures.
      */
-    public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, IntBuffer pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
+    public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, @NativeType("VkFormat") int format, @NativeType("VkImageType") int type, @NativeType("VkSampleCountFlagBits") int samples, @NativeType("VkImageUsageFlags") int usage, @NativeType("VkImageTiling") int tiling, @NativeType("uint32_t *") IntBuffer pPropertyCount, @NativeType("VkSparseImageFormatProperties *") VkSparseImageFormatProperties.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -5348,7 +5374,8 @@ public class VK10 {
      * @param pBindInfo an array of {@link VkBindSparseInfo} structures, each specifying a sparse binding submission batch.
      * @param fence     an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
-    public static int vkQueueBindSparse(VkQueue queue, VkBindSparseInfo.Buffer pBindInfo, long fence) {
+    @NativeType("VkResult")
+    public static int vkQueueBindSparse(@NativeType("VkQueue") VkQueue queue, @NativeType("const VkBindSparseInfo *") VkBindSparseInfo.Buffer pBindInfo, @NativeType("VkFence") long fence) {
         return nvkQueueBindSparse(queue, remainingSafe(pBindInfo), memAddressSafe(pBindInfo), fence);
     }
 
@@ -5438,7 +5465,8 @@ public class VK10 {
      * @param pBindInfo an array of {@link VkBindSparseInfo} structures, each specifying a sparse binding submission batch.
      * @param fence     an optional handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
-    public static int vkQueueBindSparse(VkQueue queue, VkBindSparseInfo pBindInfo, long fence) {
+    @NativeType("VkResult")
+    public static int vkQueueBindSparse(@NativeType("VkQueue") VkQueue queue, @NativeType("const VkBindSparseInfo *") VkBindSparseInfo pBindInfo, @NativeType("VkFence") long fence) {
         return nvkQueueBindSparse(queue, 1, pBindInfo.address(), fence);
     }
 
@@ -5499,7 +5527,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pFence      points to a handle in which the resulting fence object is returned.
      */
-    public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
+    @NativeType("VkResult")
+    public static int vkCreateFence(VkDevice device, @NativeType("const VkFenceCreateInfo *") VkFenceCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFence *") LongBuffer pFence) {
         if (CHECKS) {
             check(pFence, 1);
         }
@@ -5561,7 +5590,7 @@ public class VK10 {
      * @param fence      the handle of the fence to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyFence(VkDevice device, long fence, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyFence(VkDevice device, @NativeType("VkFence") long fence, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyFence(device, fence, memAddressSafe(pAllocator));
     }
 
@@ -5636,7 +5665,8 @@ public class VK10 {
      * @param device  the logical device that owns the fences.
      * @param pFences a pointer to an array of fence handles to reset.
      */
-    public static int vkResetFences(VkDevice device, LongBuffer pFences) {
+    @NativeType("VkResult")
+    public static int vkResetFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") LongBuffer pFences) {
         return nvkResetFences(device, pFences.remaining(), memAddress(pFences));
     }
 
@@ -5698,7 +5728,8 @@ public class VK10 {
      *
      * @param device the logical device that owns the fences.
      */
-    public static int vkResetFences(VkDevice device, long pFence) {
+    @NativeType("VkResult")
+    public static int vkResetFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long pFence) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer pFences = stack.longs(pFence);
@@ -5768,7 +5799,8 @@ public class VK10 {
      * @param device the logical device that owns the fence.
      * @param fence  the handle of the fence to query.
      */
-    public static int vkGetFenceStatus(VkDevice device, long fence) {
+    @NativeType("VkResult")
+    public static int vkGetFenceStatus(VkDevice device, @NativeType("VkFence") long fence) {
         long __functionAddress = device.getCapabilities().vkGetFenceStatus;
         return callPJI(__functionAddress, device.address(), fence);
     }
@@ -5845,7 +5877,8 @@ public class VK10 {
      * @param waitAll the condition that <b>must</b> be satisfied to successfully unblock the wait. If {@code waitAll} is {@link #VK_TRUE TRUE}, then the condition is that all fences in {@code pFences} are signaled. Otherwise, the condition is that at least one fence in {@code pFences} is signaled.
      * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
      */
-    public static int vkWaitForFences(VkDevice device, LongBuffer pFences, boolean waitAll, long timeout) {
+    @NativeType("VkResult")
+    public static int vkWaitForFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") LongBuffer pFences, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
         return nvkWaitForFences(device, pFences.remaining(), memAddress(pFences), waitAll ? 1 : 0, timeout);
     }
 
@@ -5908,7 +5941,8 @@ public class VK10 {
      * @param waitAll the condition that <b>must</b> be satisfied to successfully unblock the wait. If {@code waitAll} is {@link #VK_TRUE TRUE}, then the condition is that all fences in {@code pFences} are signaled. Otherwise, the condition is that at least one fence in {@code pFences} is signaled.
      * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
      */
-    public static int vkWaitForFences(VkDevice device, long pFence, boolean waitAll, long timeout) {
+    @NativeType("VkResult")
+    public static int vkWaitForFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long pFence, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer pFences = stack.longs(pFence);
@@ -5979,7 +6013,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pSemaphore  points to a handle in which the resulting semaphore object is returned.
      */
-    public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSemaphore) {
+    @NativeType("VkResult")
+    public static int vkCreateSemaphore(VkDevice device, @NativeType("const VkSemaphoreCreateInfo *") VkSemaphoreCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSemaphore *") LongBuffer pSemaphore) {
         if (CHECKS) {
             check(pSemaphore, 1);
         }
@@ -6041,7 +6076,7 @@ public class VK10 {
      * @param semaphore  the handle of the semaphore to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroySemaphore(VkDevice device, long semaphore, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySemaphore(VkDevice device, @NativeType("VkSemaphore") long semaphore, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroySemaphore(device, semaphore, memAddressSafe(pAllocator));
     }
 
@@ -6106,7 +6141,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pEvent      points to a handle in which the resulting event object is returned.
      */
-    public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pEvent) {
+    @NativeType("VkResult")
+    public static int vkCreateEvent(VkDevice device, @NativeType("const VkEventCreateInfo *") VkEventCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkEvent *") LongBuffer pEvent) {
         if (CHECKS) {
             check(pEvent, 1);
         }
@@ -6168,7 +6204,7 @@ public class VK10 {
      * @param event      the handle of the event to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyEvent(VkDevice device, long event, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyEvent(VkDevice device, @NativeType("VkEvent") long event, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyEvent(device, event, memAddressSafe(pAllocator));
     }
 
@@ -6231,7 +6267,8 @@ public class VK10 {
      * @param device the logical device that owns the event.
      * @param event  the handle of the event to query.
      */
-    public static int vkGetEventStatus(VkDevice device, long event) {
+    @NativeType("VkResult")
+    public static int vkGetEventStatus(VkDevice device, @NativeType("VkEvent") long event) {
         long __functionAddress = device.getCapabilities().vkGetEventStatus;
         return callPJI(__functionAddress, device.address(), event);
     }
@@ -6287,7 +6324,8 @@ public class VK10 {
      * @param device the logical device that owns the event.
      * @param event  the event to set.
      */
-    public static int vkSetEvent(VkDevice device, long event) {
+    @NativeType("VkResult")
+    public static int vkSetEvent(VkDevice device, @NativeType("VkEvent") long event) {
         long __functionAddress = device.getCapabilities().vkSetEvent;
         return callPJI(__functionAddress, device.address(), event);
     }
@@ -6349,7 +6387,8 @@ public class VK10 {
      * @param device the logical device that owns the event.
      * @param event  the event to reset.
      */
-    public static int vkResetEvent(VkDevice device, long event) {
+    @NativeType("VkResult")
+    public static int vkResetEvent(VkDevice device, @NativeType("VkEvent") long event) {
         long __functionAddress = device.getCapabilities().vkResetEvent;
         return callPJI(__functionAddress, device.address(), event);
     }
@@ -6411,7 +6450,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pQueryPool  a pointer to a {@code VkQueryPool} handle in which the resulting query pool object is returned.
      */
-    public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pQueryPool) {
+    @NativeType("VkResult")
+    public static int vkCreateQueryPool(VkDevice device, @NativeType("const VkQueryPoolCreateInfo *") VkQueryPoolCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkQueryPool *") LongBuffer pQueryPool) {
         if (CHECKS) {
             check(pQueryPool, 1);
         }
@@ -6473,7 +6513,7 @@ public class VK10 {
      * @param queryPool  the query pool to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyQueryPool(VkDevice device, long queryPool, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyQueryPool(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyQueryPool(device, queryPool, memAddressSafe(pAllocator));
     }
 
@@ -6588,7 +6628,8 @@ public class VK10 {
      * @param stride     the stride in bytes between results for individual queries within {@code pData}.
      * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
-    public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, ByteBuffer pData, long stride, int flags) {
+    @NativeType("VkResult")
+    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") ByteBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
     }
 
@@ -6691,7 +6732,8 @@ public class VK10 {
      * @param stride     the stride in bytes between results for individual queries within {@code pData}.
      * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
-    public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, IntBuffer pData, long stride, int flags) {
+    @NativeType("VkResult")
+    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") IntBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 2, memAddress(pData), stride, flags);
     }
 
@@ -6794,7 +6836,8 @@ public class VK10 {
      * @param stride     the stride in bytes between results for individual queries within {@code pData}.
      * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
-    public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, LongBuffer pData, long stride, int flags) {
+    @NativeType("VkResult")
+    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") LongBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 3, memAddress(pData), stride, flags);
     }
 
@@ -6862,7 +6905,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pBuffer     points to a {@code VkBuffer} handle in which the resulting buffer object is returned.
      */
-    public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pBuffer) {
+    @NativeType("VkResult")
+    public static int vkCreateBuffer(VkDevice device, @NativeType("const VkBufferCreateInfo *") VkBufferCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkBuffer *") LongBuffer pBuffer) {
         if (CHECKS) {
             check(pBuffer, 1);
         }
@@ -6924,7 +6968,7 @@ public class VK10 {
      * @param buffer     the buffer to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyBuffer(VkDevice device, long buffer, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyBuffer(VkDevice device, @NativeType("VkBuffer") long buffer, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyBuffer(device, buffer, memAddressSafe(pAllocator));
     }
 
@@ -6985,7 +7029,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pView       points to a {@code VkBufferView} handle in which the resulting buffer view object is returned.
      */
-    public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
+    @NativeType("VkResult")
+    public static int vkCreateBufferView(VkDevice device, @NativeType("const VkBufferViewCreateInfo *") VkBufferViewCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkBufferView *") LongBuffer pView) {
         if (CHECKS) {
             check(pView, 1);
         }
@@ -7047,7 +7092,7 @@ public class VK10 {
      * @param bufferView the buffer view to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyBufferView(VkDevice device, long bufferView, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyBufferView(VkDevice device, @NativeType("VkBufferView") long bufferView, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyBufferView(device, bufferView, memAddressSafe(pAllocator));
     }
 
@@ -7115,7 +7160,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pImage      points to a {@code VkImage} handle in which the resulting image object is returned.
      */
-    public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pImage) {
+    @NativeType("VkResult")
+    public static int vkCreateImage(VkDevice device, @NativeType("const VkImageCreateInfo *") VkImageCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkImage *") LongBuffer pImage) {
         if (CHECKS) {
             check(pImage, 1);
         }
@@ -7177,7 +7223,7 @@ public class VK10 {
      * @param image      the image to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyImage(VkDevice device, long image, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyImage(VkDevice device, @NativeType("VkImage") long image, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyImage(device, image, memAddressSafe(pAllocator));
     }
 
@@ -7233,7 +7279,7 @@ public class VK10 {
      * @param pSubresource a pointer to a {@link VkImageSubresource} structure selecting a specific image for the image subresource.
      * @param pLayout      points to a {@link VkSubresourceLayout} structure in which the layout is returned.
      */
-    public static void vkGetImageSubresourceLayout(VkDevice device, long image, VkImageSubresource pSubresource, VkSubresourceLayout pLayout) {
+    public static void vkGetImageSubresourceLayout(VkDevice device, @NativeType("VkImage") long image, @NativeType("const VkImageSubresource *") VkImageSubresource pSubresource, @NativeType("VkSubresourceLayout *") VkSubresourceLayout pLayout) {
         nvkGetImageSubresourceLayout(device, image, pSubresource.address(), pLayout.address());
     }
 
@@ -7298,7 +7344,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pView       points to a {@code VkImageView} handle in which the resulting image view object is returned.
      */
-    public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pView) {
+    @NativeType("VkResult")
+    public static int vkCreateImageView(VkDevice device, @NativeType("const VkImageViewCreateInfo *") VkImageViewCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkImageView *") LongBuffer pView) {
         if (CHECKS) {
             check(pView, 1);
         }
@@ -7360,7 +7407,7 @@ public class VK10 {
      * @param imageView  the image view to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyImageView(VkDevice device, long imageView, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyImageView(VkDevice device, @NativeType("VkImageView") long imageView, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyImageView(device, imageView, memAddressSafe(pAllocator));
     }
 
@@ -7429,7 +7476,8 @@ public class VK10 {
      * @param pAllocator    controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pShaderModule points to a {@code VkShaderModule} handle in which the resulting shader module object is returned.
      */
-    public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pShaderModule) {
+    @NativeType("VkResult")
+    public static int vkCreateShaderModule(VkDevice device, @NativeType("const VkShaderModuleCreateInfo *") VkShaderModuleCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkShaderModule *") LongBuffer pShaderModule) {
         if (CHECKS) {
             check(pShaderModule, 1);
         }
@@ -7494,7 +7542,7 @@ public class VK10 {
      * @param shaderModule the handle of the shader module to destroy.
      * @param pAllocator   controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyShaderModule(VkDevice device, long shaderModule, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyShaderModule(VkDevice device, @NativeType("VkShaderModule") long shaderModule, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyShaderModule(device, shaderModule, memAddressSafe(pAllocator));
     }
 
@@ -7570,7 +7618,8 @@ public class VK10 {
      * @param pAllocator     controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pPipelineCache a pointer to a {@code VkPipelineCache} handle in which the resulting pipeline cache object is returned.
      */
-    public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineCache) {
+    @NativeType("VkResult")
+    public static int vkCreatePipelineCache(VkDevice device, @NativeType("const VkPipelineCacheCreateInfo *") VkPipelineCacheCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipelineCache *") LongBuffer pPipelineCache) {
         if (CHECKS) {
             check(pPipelineCache, 1);
         }
@@ -7631,7 +7680,7 @@ public class VK10 {
      * @param pipelineCache the handle of the pipeline cache to destroy.
      * @param pAllocator    controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyPipelineCache(VkDevice device, long pipelineCache, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyPipelineCache(VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyPipelineCache(device, pipelineCache, memAddressSafe(pAllocator));
     }
 
@@ -7720,7 +7769,8 @@ public class VK10 {
      * @param pDataSize     a pointer to a value related to the amount of data in the pipeline cache, as described below.
      * @param pData         either {@code NULL} or a pointer to a buffer.
      */
-    public static int vkGetPipelineCacheData(VkDevice device, long pipelineCache, PointerBuffer pDataSize, ByteBuffer pData) {
+    @NativeType("VkResult")
+    public static int vkGetPipelineCacheData(VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("size_t *") PointerBuffer pDataSize, @NativeType("void *") ByteBuffer pData) {
         if (CHECKS) {
             check(pDataSize, 1);
             checkSafe(pData, pDataSize.get(pDataSize.position()));
@@ -7802,7 +7852,8 @@ public class VK10 {
      * @param dstCache   the handle of the pipeline cache to merge results into.
      * @param pSrcCaches an array of pipeline cache handles, which will be merged into {@code dstCache}. The previous contents of {@code dstCache} are included after the merge.
      */
-    public static int vkMergePipelineCaches(VkDevice device, long dstCache, LongBuffer pSrcCaches) {
+    @NativeType("VkResult")
+    public static int vkMergePipelineCaches(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long dstCache, @NativeType("const VkPipelineCache *") LongBuffer pSrcCaches) {
         return nvkMergePipelineCaches(device, dstCache, pSrcCaches.remaining(), memAddress(pSrcCaches));
     }
 
@@ -7886,7 +7937,8 @@ public class VK10 {
      * @param pAllocator    controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pPipelines    a pointer to an array in which the resulting graphics pipeline objects are returned.
      */
-    public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
+    @NativeType("VkResult")
+    public static int vkCreateGraphicsPipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkGraphicsPipelineCreateInfo *") VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") LongBuffer pPipelines) {
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
         }
@@ -7969,7 +8021,8 @@ public class VK10 {
      * @param pAllocator    controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pPipelines    a pointer to an array in which the resulting compute pipeline objects are returned.
      */
-    public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pPipelines) {
+    @NativeType("VkResult")
+    public static int vkCreateComputePipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkComputePipelineCreateInfo *") VkComputePipelineCreateInfo.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") LongBuffer pPipelines) {
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
         }
@@ -8031,7 +8084,7 @@ public class VK10 {
      * @param pipeline   the handle of the pipeline to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyPipeline(VkDevice device, long pipeline, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyPipeline(VkDevice device, @NativeType("VkPipeline") long pipeline, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyPipeline(device, pipeline, memAddressSafe(pAllocator));
     }
 
@@ -8093,7 +8146,8 @@ public class VK10 {
      * @param pAllocator      controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pPipelineLayout points to a {@code VkPipelineLayout} handle in which the resulting pipeline layout object is returned.
      */
-    public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pPipelineLayout) {
+    @NativeType("VkResult")
+    public static int vkCreatePipelineLayout(VkDevice device, @NativeType("const VkPipelineLayoutCreateInfo *") VkPipelineLayoutCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipelineLayout *") LongBuffer pPipelineLayout) {
         if (CHECKS) {
             check(pPipelineLayout, 1);
         }
@@ -8154,7 +8208,7 @@ public class VK10 {
      * @param pipelineLayout the pipeline layout to destroy.
      * @param pAllocator     controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyPipelineLayout(VkDevice device, long pipelineLayout, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyPipelineLayout(VkDevice device, @NativeType("VkPipelineLayout") long pipelineLayout, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyPipelineLayout(device, pipelineLayout, memAddressSafe(pAllocator));
     }
 
@@ -8216,7 +8270,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pSampler    points to a {@code VkSampler} handle in which the resulting sampler object is returned.
      */
-    public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSampler) {
+    @NativeType("VkResult")
+    public static int vkCreateSampler(VkDevice device, @NativeType("const VkSamplerCreateInfo *") VkSamplerCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSampler *") LongBuffer pSampler) {
         if (CHECKS) {
             check(pSampler, 1);
         }
@@ -8278,7 +8333,7 @@ public class VK10 {
      * @param sampler    the sampler to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroySampler(VkDevice device, long sampler, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySampler(VkDevice device, @NativeType("VkSampler") long sampler, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroySampler(device, sampler, memAddressSafe(pAllocator));
     }
 
@@ -8340,7 +8395,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pSetLayout  points to a {@code VkDescriptorSetLayout} handle in which the resulting descriptor set layout object is returned.
      */
-    public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSetLayout) {
+    @NativeType("VkResult")
+    public static int vkCreateDescriptorSetLayout(VkDevice device, @NativeType("const VkDescriptorSetLayoutCreateInfo *") VkDescriptorSetLayoutCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorSetLayout *") LongBuffer pSetLayout) {
         if (CHECKS) {
             check(pSetLayout, 1);
         }
@@ -8401,7 +8457,7 @@ public class VK10 {
      * @param descriptorSetLayout the descriptor set layout to destroy.
      * @param pAllocator          controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyDescriptorSetLayout(VkDevice device, long descriptorSetLayout, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyDescriptorSetLayout(VkDevice device, @NativeType("VkDescriptorSetLayout") long descriptorSetLayout, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyDescriptorSetLayout(device, descriptorSetLayout, memAddressSafe(pAllocator));
     }
 
@@ -8469,7 +8525,8 @@ public class VK10 {
      * @param pAllocator      controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pDescriptorPool points to a {@code VkDescriptorPool} handle in which the resulting descriptor pool object is returned.
      */
-    public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pDescriptorPool) {
+    @NativeType("VkResult")
+    public static int vkCreateDescriptorPool(VkDevice device, @NativeType("const VkDescriptorPoolCreateInfo *") VkDescriptorPoolCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorPool *") LongBuffer pDescriptorPool) {
         if (CHECKS) {
             check(pDescriptorPool, 1);
         }
@@ -8535,7 +8592,7 @@ public class VK10 {
      * @param descriptorPool the descriptor pool to destroy.
      * @param pAllocator     controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyDescriptorPool(VkDevice device, long descriptorPool, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyDescriptorPool(VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyDescriptorPool(device, descriptorPool, memAddressSafe(pAllocator));
     }
 
@@ -8598,7 +8655,8 @@ public class VK10 {
      * @param descriptorPool the descriptor pool to be reset.
      * @param flags          reserved for future use.
      */
-    public static int vkResetDescriptorPool(VkDevice device, long descriptorPool, int flags) {
+    @NativeType("VkResult")
+    public static int vkResetDescriptorPool(VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("VkDescriptorPoolResetFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkResetDescriptorPool;
         return callPJI(__functionAddress, device.address(), descriptorPool, flags);
     }
@@ -8682,7 +8740,8 @@ public class VK10 {
      * @param pAllocateInfo   a pointer to an instance of the {@link VkDescriptorSetAllocateInfo} structure describing parameters of the allocation.
      * @param pDescriptorSets a pointer to an array of {@code VkDescriptorSet} handles in which the resulting descriptor set objects are returned. The array <b>must</b> be at least the length specified by the {@code descriptorSetCount} member of {@code pAllocateInfo}.
      */
-    public static int vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo pAllocateInfo, LongBuffer pDescriptorSets) {
+    @NativeType("VkResult")
+    public static int vkAllocateDescriptorSets(VkDevice device, @NativeType("const VkDescriptorSetAllocateInfo *") VkDescriptorSetAllocateInfo pAllocateInfo, @NativeType("VkDescriptorSet *") LongBuffer pDescriptorSets) {
         if (CHECKS) {
             check(pDescriptorSets, pAllocateInfo.descriptorSetCount());
         }
@@ -8763,7 +8822,8 @@ public class VK10 {
      * @param descriptorPool  the descriptor pool from which the descriptor sets were allocated.
      * @param pDescriptorSets an array of handles to {@code VkDescriptorSet} objects.
      */
-    public static int vkFreeDescriptorSets(VkDevice device, long descriptorPool, LongBuffer pDescriptorSets) {
+    @NativeType("VkResult")
+    public static int vkFreeDescriptorSets(@NativeType("VkDevice") VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") LongBuffer pDescriptorSets) {
         return nvkFreeDescriptorSets(device, descriptorPool, pDescriptorSets.remaining(), memAddress(pDescriptorSets));
     }
 
@@ -8828,7 +8888,8 @@ public class VK10 {
      * @param device         the logical device that owns the descriptor pool.
      * @param descriptorPool the descriptor pool from which the descriptor sets were allocated.
      */
-    public static int vkFreeDescriptorSets(VkDevice device, long descriptorPool, long pDescriptorSet) {
+    @NativeType("VkResult")
+    public static int vkFreeDescriptorSets(@NativeType("VkDevice") VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") long pDescriptorSet) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer pDescriptorSets = stack.longs(pDescriptorSet);
@@ -8908,7 +8969,7 @@ public class VK10 {
      * @param pDescriptorWrites a pointer to an array of {@link VkWriteDescriptorSet} structures describing the descriptor sets to write to.
      * @param pDescriptorCopies a pointer to an array of {@link VkCopyDescriptorSet} structures describing the descriptor sets to copy between.
      */
-    public static void vkUpdateDescriptorSets(VkDevice device, VkWriteDescriptorSet.Buffer pDescriptorWrites, VkCopyDescriptorSet.Buffer pDescriptorCopies) {
+    public static void vkUpdateDescriptorSets(@NativeType("VkDevice") VkDevice device, @NativeType("const VkWriteDescriptorSet *") VkWriteDescriptorSet.Buffer pDescriptorWrites, @NativeType("const VkCopyDescriptorSet *") VkCopyDescriptorSet.Buffer pDescriptorCopies) {
         nvkUpdateDescriptorSets(device, remainingSafe(pDescriptorWrites), memAddressSafe(pDescriptorWrites), remainingSafe(pDescriptorCopies), memAddressSafe(pDescriptorCopies));
     }
 
@@ -8970,7 +9031,8 @@ public class VK10 {
      * @param pAllocator   controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pFramebuffer points to a {@code VkFramebuffer} handle in which the resulting framebuffer object is returned.
      */
-    public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pFramebuffer) {
+    @NativeType("VkResult")
+    public static int vkCreateFramebuffer(VkDevice device, @NativeType("const VkFramebufferCreateInfo *") VkFramebufferCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFramebuffer *") LongBuffer pFramebuffer) {
         if (CHECKS) {
             check(pFramebuffer, 1);
         }
@@ -9032,7 +9094,7 @@ public class VK10 {
      * @param framebuffer the handle of the framebuffer to destroy.
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyFramebuffer(VkDevice device, long framebuffer, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyFramebuffer(VkDevice device, @NativeType("VkFramebuffer") long framebuffer, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyFramebuffer(device, framebuffer, memAddressSafe(pAllocator));
     }
 
@@ -9094,7 +9156,8 @@ public class VK10 {
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pRenderPass points to a {@code VkRenderPass} handle in which the resulting render pass object is returned.
      */
-    public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pRenderPass) {
+    @NativeType("VkResult")
+    public static int vkCreateRenderPass(VkDevice device, @NativeType("const VkRenderPassCreateInfo *") VkRenderPassCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkRenderPass *") LongBuffer pRenderPass) {
         if (CHECKS) {
             check(pRenderPass, 1);
         }
@@ -9156,7 +9219,7 @@ public class VK10 {
      * @param renderPass the handle of the render pass to destroy.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyRenderPass(VkDevice device, long renderPass, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyRenderPass(VkDevice device, @NativeType("VkRenderPass") long renderPass, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyRenderPass(device, renderPass, memAddressSafe(pAllocator));
     }
 
@@ -9211,7 +9274,7 @@ public class VK10 {
      * @param renderPass   a handle to a render pass.
      * @param pGranularity points to a {@link VkExtent2D} structure in which the granularity is returned.
      */
-    public static void vkGetRenderAreaGranularity(VkDevice device, long renderPass, VkExtent2D pGranularity) {
+    public static void vkGetRenderAreaGranularity(VkDevice device, @NativeType("VkRenderPass") long renderPass, @NativeType("VkExtent2D *") VkExtent2D pGranularity) {
         nvkGetRenderAreaGranularity(device, renderPass, pGranularity.address());
     }
 
@@ -9272,7 +9335,8 @@ public class VK10 {
      * @param pAllocator   controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pCommandPool points to a {@code VkCommandPool} handle in which the created pool is returned.
      */
-    public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pCommandPool) {
+    @NativeType("VkResult")
+    public static int vkCreateCommandPool(VkDevice device, @NativeType("const VkCommandPoolCreateInfo *") VkCommandPoolCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkCommandPool *") LongBuffer pCommandPool) {
         if (CHECKS) {
             check(pCommandPool, 1);
         }
@@ -9340,7 +9404,7 @@ public class VK10 {
      * @param commandPool the handle of the command pool to destroy.
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyCommandPool(VkDevice device, long commandPool, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyCommandPool(VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyCommandPool(device, commandPool, memAddressSafe(pAllocator));
     }
 
@@ -9404,7 +9468,8 @@ public class VK10 {
      * @param commandPool the command pool to reset.
      * @param flags       a bitmask of {@code VkCommandPoolResetFlagBits} controlling the reset operation.
      */
-    public static int vkResetCommandPool(VkDevice device, long commandPool, int flags) {
+    @NativeType("VkResult")
+    public static int vkResetCommandPool(VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("VkCommandPoolResetFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkResetCommandPool;
         return callPJI(__functionAddress, device.address(), commandPool, flags);
     }
@@ -9472,7 +9537,8 @@ public class VK10 {
      * @param pAllocateInfo   a pointer to an instance of the {@link VkCommandBufferAllocateInfo} structure describing parameters of the allocation.
      * @param pCommandBuffers a pointer to an array of {@code VkCommandBuffer} handles in which the resulting command buffer objects are returned. The array <b>must</b> be at least the length specified by the {@code commandBufferCount} member of {@code pAllocateInfo}. Each allocated command buffer begins in the initial state.
      */
-    public static int vkAllocateCommandBuffers(VkDevice device, VkCommandBufferAllocateInfo pAllocateInfo, PointerBuffer pCommandBuffers) {
+    @NativeType("VkResult")
+    public static int vkAllocateCommandBuffers(VkDevice device, @NativeType("const VkCommandBufferAllocateInfo *") VkCommandBufferAllocateInfo pAllocateInfo, @NativeType("VkCommandBuffer *") PointerBuffer pCommandBuffers) {
         if (CHECKS) {
             check(pCommandBuffers, pAllocateInfo.commandBufferCount());
         }
@@ -9537,7 +9603,7 @@ public class VK10 {
      * @param commandPool     the command pool from which the command buffers were allocated.
      * @param pCommandBuffers an array of handles of command buffers to free.
      */
-    public static void vkFreeCommandBuffers(VkDevice device, long commandPool, PointerBuffer pCommandBuffers) {
+    public static void vkFreeCommandBuffers(@NativeType("VkDevice") VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("const VkCommandBuffer *") PointerBuffer pCommandBuffers) {
         nvkFreeCommandBuffers(device, commandPool, pCommandBuffers.remaining(), memAddress(pCommandBuffers));
     }
 
@@ -9586,7 +9652,7 @@ public class VK10 {
      * @param device      the logical device that owns the command pool.
      * @param commandPool the command pool from which the command buffers were allocated.
      */
-    public static void vkFreeCommandBuffers(VkDevice device, long commandPool, VkCommandBuffer pCommandBuffer) {
+    public static void vkFreeCommandBuffers(@NativeType("VkDevice") VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("const VkCommandBuffer *") VkCommandBuffer pCommandBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer pCommandBuffers = stack.pointers(pCommandBuffer);
@@ -9660,7 +9726,8 @@ public class VK10 {
      * @param commandBuffer the handle of the command buffer which is to be put in the recording state.
      * @param pBeginInfo    an instance of the {@link VkCommandBufferBeginInfo} structure, which defines additional information about how the command buffer begins recording.
      */
-    public static int vkBeginCommandBuffer(VkCommandBuffer commandBuffer, VkCommandBufferBeginInfo pBeginInfo) {
+    @NativeType("VkResult")
+    public static int vkBeginCommandBuffer(VkCommandBuffer commandBuffer, @NativeType("const VkCommandBufferBeginInfo *") VkCommandBufferBeginInfo pBeginInfo) {
         return nvkBeginCommandBuffer(commandBuffer, pBeginInfo.address());
     }
 
@@ -9719,6 +9786,7 @@ public class VK10 {
      *
      * @param commandBuffer the command buffer to complete recording.
      */
+    @NativeType("VkResult")
     public static int vkEndCommandBuffer(VkCommandBuffer commandBuffer) {
         long __functionAddress = commandBuffer.getCapabilities().vkEndCommandBuffer;
         return callPI(__functionAddress, commandBuffer.address());
@@ -9779,7 +9847,8 @@ public class VK10 {
      * @param commandBuffer the command buffer to reset. The command buffer <b>can</b> be in any state other than <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending</a>, and is moved into the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">initial state</a>.
      * @param flags         a bitmask of {@code VkCommandBufferResetFlagBits} controlling the reset operation.
      */
-    public static int vkResetCommandBuffer(VkCommandBuffer commandBuffer, int flags) {
+    @NativeType("VkResult")
+    public static int vkResetCommandBuffer(VkCommandBuffer commandBuffer, @NativeType("VkCommandBufferResetFlags") int flags) {
         long __functionAddress = commandBuffer.getCapabilities().vkResetCommandBuffer;
         return callPI(__functionAddress, commandBuffer.address(), flags);
     }
@@ -9842,7 +9911,7 @@ public class VK10 {
      * @param pipelineBindPoint a {@code VkPipelineBindPoint} value specifying whether to bind to the compute or graphics bind point. Binding one does not disturb the other.
      * @param pipeline          the pipeline to be bound.
      */
-    public static void vkCmdBindPipeline(VkCommandBuffer commandBuffer, int pipelineBindPoint, long pipeline) {
+    public static void vkCmdBindPipeline(VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipeline") long pipeline) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBindPipeline;
         callPJV(__functionAddress, commandBuffer.address(), pipelineBindPoint, pipeline);
     }
@@ -9927,7 +9996,7 @@ public class VK10 {
      * @param firstViewport the index of the first viewport whose parameters are updated by the command.
      * @param pViewports    a pointer to an array of {@link VkViewport} structures specifying viewport parameters.
      */
-    public static void vkCmdSetViewport(VkCommandBuffer commandBuffer, int firstViewport, VkViewport.Buffer pViewports) {
+    public static void vkCmdSetViewport(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstViewport, @NativeType("const VkViewport *") VkViewport.Buffer pViewports) {
         nvkCmdSetViewport(commandBuffer, firstViewport, pViewports.remaining(), pViewports.address());
     }
 
@@ -10022,7 +10091,7 @@ public class VK10 {
      * @param firstScissor  the index of the first scissor whose state is updated by the command.
      * @param pScissors     a pointer to an array of {@link VkRect2D} structures defining scissor rectangles.
      */
-    public static void vkCmdSetScissor(VkCommandBuffer commandBuffer, int firstScissor, VkRect2D.Buffer pScissors) {
+    public static void vkCmdSetScissor(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstScissor, @NativeType("const VkRect2D *") VkRect2D.Buffer pScissors) {
         nvkCmdSetScissor(commandBuffer, firstScissor, pScissors.remaining(), pScissors.address());
     }
 
@@ -10262,7 +10331,7 @@ public class VK10 {
      * @param commandBuffer  the command buffer into which the command will be recorded.
      * @param blendConstants an array of four values specifying the R, G, B, and A components of the blend constant color used in blending, depending on the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-blendfactors">blend factor</a>.
      */
-    public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, FloatBuffer blendConstants) {
+    public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, @NativeType("const float *") FloatBuffer blendConstants) {
         if (CHECKS) {
             check(blendConstants, 4);
         }
@@ -10374,7 +10443,7 @@ public class VK10 {
      * @param faceMask      a bitmask of {@code VkStencilFaceFlagBits} specifying the set of stencil state for which to update the compare mask.
      * @param compareMask   the new value to use as the stencil compare mask.
      */
-    public static void vkCmdSetStencilCompareMask(VkCommandBuffer commandBuffer, int faceMask, int compareMask) {
+    public static void vkCmdSetStencilCompareMask(VkCommandBuffer commandBuffer, @NativeType("VkStencilFaceFlags") int faceMask, @NativeType("uint32_t") int compareMask) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdSetStencilCompareMask;
         callPV(__functionAddress, commandBuffer.address(), faceMask, compareMask);
     }
@@ -10428,7 +10497,7 @@ public class VK10 {
      * @param faceMask      a bitmask of {@code VkStencilFaceFlagBits} specifying the set of stencil state for which to update the write mask, as described above for {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask}.
      * @param writeMask     the new value to use as the stencil write mask.
      */
-    public static void vkCmdSetStencilWriteMask(VkCommandBuffer commandBuffer, int faceMask, int writeMask) {
+    public static void vkCmdSetStencilWriteMask(VkCommandBuffer commandBuffer, @NativeType("VkStencilFaceFlags") int faceMask, @NativeType("uint32_t") int writeMask) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdSetStencilWriteMask;
         callPV(__functionAddress, commandBuffer.address(), faceMask, writeMask);
     }
@@ -10482,7 +10551,7 @@ public class VK10 {
      * @param faceMask      a bitmask of {@code VkStencilFaceFlagBits} specifying the set of stencil state for which to update the reference value, as described above for {@link #vkCmdSetStencilCompareMask CmdSetStencilCompareMask}.
      * @param reference     the new value to use as the stencil reference value.
      */
-    public static void vkCmdSetStencilReference(VkCommandBuffer commandBuffer, int faceMask, int reference) {
+    public static void vkCmdSetStencilReference(VkCommandBuffer commandBuffer, @NativeType("VkStencilFaceFlags") int faceMask, @NativeType("uint32_t") int reference) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdSetStencilReference;
         callPV(__functionAddress, commandBuffer.address(), faceMask, reference);
     }
@@ -10579,7 +10648,7 @@ public class VK10 {
      * @param pDescriptorSets   an array of handles to {@code VkDescriptorSet} objects describing the descriptor sets to write to.
      * @param pDynamicOffsets   a pointer to an array of {@code uint32_t} values specifying dynamic offsets.
      */
-    public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, LongBuffer pDescriptorSets, IntBuffer pDynamicOffsets) {
+    public static void vkCmdBindDescriptorSets(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipelineLayout") long layout, @NativeType("uint32_t") int firstSet, @NativeType("const VkDescriptorSet *") LongBuffer pDescriptorSets, @NativeType("const uint32_t *") IntBuffer pDynamicOffsets) {
         nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), remainingSafe(pDynamicOffsets), memAddressSafe(pDynamicOffsets));
     }
 
@@ -10638,7 +10707,7 @@ public class VK10 {
      * @param offset        the starting offset in bytes within {@code buffer} used in index buffer address calculations.
      * @param indexType     a {@code VkIndexType} value specifying whether indices are treated as 16 bits or 32 bits.
      */
-    public static void vkCmdBindIndexBuffer(VkCommandBuffer commandBuffer, long buffer, long offset, int indexType) {
+    public static void vkCmdBindIndexBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long buffer, @NativeType("VkDeviceSize") long offset, @NativeType("VkIndexType") int indexType) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBindIndexBuffer;
         callPJJV(__functionAddress, commandBuffer.address(), buffer, offset, indexType);
     }
@@ -10723,7 +10792,7 @@ public class VK10 {
      * @param pBuffers      a pointer to an array of buffer handles.
      * @param pOffsets      a pointer to an array of buffer offsets.
      */
-    public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, LongBuffer pBuffers, LongBuffer pOffsets) {
+    public static void vkCmdBindVertexBuffers(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstBinding, @NativeType("const VkBuffer *") LongBuffer pBuffers, @NativeType("const VkDeviceSize *") LongBuffer pOffsets) {
         if (CHECKS) {
             check(pOffsets, pBuffers.remaining());
         }
@@ -10804,7 +10873,7 @@ public class VK10 {
      * @param firstVertex   the index of the first vertex to draw.
      * @param firstInstance the instance ID of the first instance to draw.
      */
-    public static void vkCmdDraw(VkCommandBuffer commandBuffer, int vertexCount, int instanceCount, int firstVertex, int firstInstance) {
+    public static void vkCmdDraw(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int vertexCount, @NativeType("uint32_t") int instanceCount, @NativeType("uint32_t") int firstVertex, @NativeType("uint32_t") int firstInstance) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDraw;
         callPV(__functionAddress, commandBuffer.address(), vertexCount, instanceCount, firstVertex, firstInstance);
     }
@@ -10892,7 +10961,7 @@ public class VK10 {
      * @param vertexOffset  the value added to the vertex index before indexing into the vertex buffer.
      * @param firstInstance the instance ID of the first instance to draw.
      */
-    public static void vkCmdDrawIndexed(VkCommandBuffer commandBuffer, int indexCount, int instanceCount, int firstIndex, int vertexOffset, int firstInstance) {
+    public static void vkCmdDrawIndexed(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int indexCount, @NativeType("uint32_t") int instanceCount, @NativeType("uint32_t") int firstIndex, @NativeType("int32_t") int vertexOffset, @NativeType("uint32_t") int firstInstance) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndexed;
         callPV(__functionAddress, commandBuffer.address(), indexCount, instanceCount, firstIndex, vertexOffset, firstInstance);
     }
@@ -10984,7 +11053,7 @@ public class VK10 {
      * @param drawCount     the number of draws to execute, and <b>can</b> be zero.
      * @param stride        the byte stride between successive sets of draw parameters.
      */
-    public static void vkCmdDrawIndirect(VkCommandBuffer commandBuffer, long buffer, long offset, int drawCount, int stride) {
+    public static void vkCmdDrawIndirect(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long buffer, @NativeType("VkDeviceSize") long offset, @NativeType("uint32_t") int drawCount, @NativeType("uint32_t") int stride) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndirect;
         callPJJV(__functionAddress, commandBuffer.address(), buffer, offset, drawCount, stride);
     }
@@ -11076,7 +11145,7 @@ public class VK10 {
      * @param drawCount     the number of draws to execute, and <b>can</b> be zero.
      * @param stride        the byte stride between successive sets of draw parameters.
      */
-    public static void vkCmdDrawIndexedIndirect(VkCommandBuffer commandBuffer, long buffer, long offset, int drawCount, int stride) {
+    public static void vkCmdDrawIndexedIndirect(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long buffer, @NativeType("VkDeviceSize") long offset, @NativeType("uint32_t") int drawCount, @NativeType("uint32_t") int stride) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndexedIndirect;
         callPJJV(__functionAddress, commandBuffer.address(), buffer, offset, drawCount, stride);
     }
@@ -11151,7 +11220,7 @@ public class VK10 {
      * @param groupCountY   the number of local workgroups to dispatch in the Y dimension.
      * @param groupCountZ   the number of local workgroups to dispatch in the Z dimension.
      */
-    public static void vkCmdDispatch(VkCommandBuffer commandBuffer, int groupCountX, int groupCountY, int groupCountZ) {
+    public static void vkCmdDispatch(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int groupCountX, @NativeType("uint32_t") int groupCountY, @NativeType("uint32_t") int groupCountZ) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatch;
         callPV(__functionAddress, commandBuffer.address(), groupCountX, groupCountY, groupCountZ);
     }
@@ -11225,7 +11294,7 @@ public class VK10 {
      * @param buffer        the buffer containing dispatch parameters.
      * @param offset        the byte offset into {@code buffer} where parameters begin.
      */
-    public static void vkCmdDispatchIndirect(VkCommandBuffer commandBuffer, long buffer, long offset) {
+    public static void vkCmdDispatchIndirect(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long buffer, @NativeType("VkDeviceSize") long offset) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatchIndirect;
         callPJJV(__functionAddress, commandBuffer.address(), buffer, offset);
     }
@@ -11313,7 +11382,7 @@ public class VK10 {
      * @param dstBuffer     the destination buffer.
      * @param pRegions      a pointer to an array of {@link VkBufferCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyBuffer(VkCommandBuffer commandBuffer, long srcBuffer, long dstBuffer, VkBufferCopy.Buffer pRegions) {
+    public static void vkCmdCopyBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long srcBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("const VkBufferCopy *") VkBufferCopy.Buffer pRegions) {
         nvkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, pRegions.remaining(), pRegions.address());
     }
 
@@ -11449,7 +11518,7 @@ public class VK10 {
      * @param dstImageLayout the current layout of the destination image subresource.
      * @param pRegions       a pointer to an array of {@link VkImageCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageCopy.Buffer pRegions) {
+    public static void vkCmdCopyImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageCopy *") VkImageCopy.Buffer pRegions) {
         nvkCmdCopyImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
     }
 
@@ -11624,7 +11693,7 @@ public class VK10 {
      * @param pRegions       a pointer to an array of {@link VkImageBlit} structures specifying the regions to blit.
      * @param filter         a {@code VkFilter} specifying the filter to apply if the blits require scaling.
      */
-    public static void vkCmdBlitImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageBlit.Buffer pRegions, int filter) {
+    public static void vkCmdBlitImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageBlit *") VkImageBlit.Buffer pRegions, @NativeType("VkFilter") int filter) {
         nvkCmdBlitImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address(), filter);
     }
 
@@ -11715,7 +11784,7 @@ public class VK10 {
      * @param dstImageLayout the layout of the destination image subresources for the copy.
      * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, long srcBuffer, long dstImage, int dstImageLayout, VkBufferImageCopy.Buffer pRegions) {
+    public static void vkCmdCopyBufferToImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long srcBuffer, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkBufferImageCopy *") VkBufferImageCopy.Buffer pRegions) {
         nvkCmdCopyBufferToImage(commandBuffer, srcBuffer, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
     }
 
@@ -11806,7 +11875,7 @@ public class VK10 {
      * @param dstBuffer      the destination buffer.
      * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstBuffer, VkBufferImageCopy.Buffer pRegions) {
+    public static void vkCmdCopyImageToBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkBuffer") long dstBuffer, @NativeType("const VkBufferImageCopy *") VkBufferImageCopy.Buffer pRegions) {
         nvkCmdCopyImageToBuffer(commandBuffer, srcImage, srcImageLayout, dstBuffer, pRegions.remaining(), pRegions.address());
     }
 
@@ -11889,7 +11958,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, ByteBuffer pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") ByteBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining(), memAddress(pData));
     }
 
@@ -11960,7 +12029,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, ShortBuffer pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") ShortBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 1, memAddress(pData));
     }
 
@@ -12031,7 +12100,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, IntBuffer pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") IntBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
     }
 
@@ -12102,7 +12171,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, LongBuffer pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") LongBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
     }
 
@@ -12173,7 +12242,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, FloatBuffer pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") FloatBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
     }
 
@@ -12244,7 +12313,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, DoubleBuffer pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") DoubleBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
     }
 
@@ -12312,7 +12381,7 @@ public class VK10 {
      * @param size          the number of bytes to fill, and <b>must</b> be either a multiple of 4, or {@link #VK_WHOLE_SIZE WHOLE_SIZE} to fill the range from {@code offset} to the end of the buffer. If {@link #VK_WHOLE_SIZE WHOLE_SIZE} is used and the remaining size of the buffer is not a multiple of 4, then the nearest smaller multiple is used.
      * @param data          the 4-byte word written repeatedly to the buffer to fill {@code size} bytes of data. The data word is written to memory according to the host endianness.
      */
-    public static void vkCmdFillBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long size, int data) {
+    public static void vkCmdFillBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("VkDeviceSize") long size, @NativeType("uint32_t") int data) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdFillBuffer;
         callPJJJV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, size, data);
     }
@@ -12407,7 +12476,7 @@ public class VK10 {
      * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">the “Clear Values” section</a> below).
      * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views">Image Views</a>. The {@code aspectMask} of all image subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
      */
-    public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearColorValue pColor, VkImageSubresourceRange.Buffer pRanges) {
+    public static void vkCmdClearColorImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearColorValue *") VkClearColorValue pColor, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange.Buffer pRanges) {
         nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), pRanges.remaining(), pRanges.address());
     }
 
@@ -12488,7 +12557,7 @@ public class VK10 {
      * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
      * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">the “Clear Values” section</a> below).
      */
-    public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearColorValue pColor, VkImageSubresourceRange pRange) {
+    public static void vkCmdClearColorImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearColorValue *") VkClearColorValue pColor, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange pRange) {
         nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), 1, pRange.address());
     }
 
@@ -12578,7 +12647,7 @@ public class VK10 {
      * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">the “Clear Values” section</a> below).
      * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-image-views">Image Views</a>. The {@code aspectMask} of each image subresource range in {@code pRanges} <b>can</b> include {@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} if the image format has a depth component, and {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if the image format has a stencil component. {@code pDepthStencil} is a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">the “Clear Values” section</a> below).
      */
-    public static void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearDepthStencilValue pDepthStencil, VkImageSubresourceRange.Buffer pRanges) {
+    public static void vkCmdClearDepthStencilImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearDepthStencilValue *") VkClearDepthStencilValue pDepthStencil, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange.Buffer pRanges) {
         nvkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil.address(), pRanges.remaining(), pRanges.address());
     }
 
@@ -12655,7 +12724,7 @@ public class VK10 {
      * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
      * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">the “Clear Values” section</a> below).
      */
-    public static void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, long image, int imageLayout, VkClearDepthStencilValue pDepthStencil, VkImageSubresourceRange pRange) {
+    public static void vkCmdClearDepthStencilImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearDepthStencilValue *") VkClearDepthStencilValue pDepthStencil, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange pRange) {
         nvkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil.address(), 1, pRange.address());
     }
 
@@ -12735,7 +12804,7 @@ public class VK10 {
      * @param pAttachments  a pointer to an array of {@link VkClearAttachment} structures defining the attachments to clear and the clear values to use.
      * @param pRects        points to an array of {@link VkClearRect} structures defining regions within each selected attachment to clear.
      */
-    public static void vkCmdClearAttachments(VkCommandBuffer commandBuffer, VkClearAttachment.Buffer pAttachments, VkClearRect.Buffer pRects) {
+    public static void vkCmdClearAttachments(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkClearAttachment *") VkClearAttachment.Buffer pAttachments, @NativeType("const VkClearRect *") VkClearRect.Buffer pRects) {
         nvkCmdClearAttachments(commandBuffer, pAttachments.remaining(), pAttachments.address(), pRects.remaining(), pRects.address());
     }
 
@@ -12836,7 +12905,7 @@ public class VK10 {
      * @param dstImageLayout the layout of the destination image subresources for the resolve.
      * @param pRegions       a pointer to an array of {@link VkImageResolve} structures specifying the regions to resolve.
      */
-    public static void vkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageResolve.Buffer pRegions) {
+    public static void vkCmdResolveImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageResolve *") VkImageResolve.Buffer pRegions) {
         nvkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
     }
 
@@ -12924,7 +12993,7 @@ public class VK10 {
      * @param dstImage       the destination image.
      * @param dstImageLayout the layout of the destination image subresources for the resolve.
      */
-    public static void vkCmdResolveImage(VkCommandBuffer commandBuffer, long srcImage, int srcImageLayout, long dstImage, int dstImageLayout, VkImageResolve pRegion) {
+    public static void vkCmdResolveImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageResolve *") VkImageResolve pRegion) {
         nvkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, 1, pRegion.address());
     }
 
@@ -12993,7 +13062,7 @@ public class VK10 {
      * @param event         the event that will be signaled.
      * @param stageMask     specifies the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">source stage mask</a> used to determine when the {@code event} is signaled.
      */
-    public static void vkCmdSetEvent(VkCommandBuffer commandBuffer, long event, int stageMask) {
+    public static void vkCmdSetEvent(VkCommandBuffer commandBuffer, @NativeType("VkEvent") long event, @NativeType("VkPipelineStageFlags") int stageMask) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdSetEvent;
         callPJV(__functionAddress, commandBuffer.address(), event, stageMask);
     }
@@ -13064,7 +13133,7 @@ public class VK10 {
      * @param event         the event that will be unsignaled.
      * @param stageMask     a bitmask of {@code VkPipelineStageFlagBits} specifying the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages">source stage mask</a> used to determine when the {@code event} is unsignaled.
      */
-    public static void vkCmdResetEvent(VkCommandBuffer commandBuffer, long event, int stageMask) {
+    public static void vkCmdResetEvent(VkCommandBuffer commandBuffer, @NativeType("VkEvent") long event, @NativeType("VkPipelineStageFlags") int stageMask) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdResetEvent;
         callPJV(__functionAddress, commandBuffer.address(), event, stageMask);
     }
@@ -13186,7 +13255,7 @@ public class VK10 {
      * @param pBufferMemoryBarriers a pointer to an array of {@link VkBufferMemoryBarrier} structures.
      * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures.
      */
-    public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, LongBuffer pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+    public static void vkCmdWaitEvents(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkEvent *") LongBuffer pEvents, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
         nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
     }
 
@@ -13304,7 +13373,7 @@ public class VK10 {
      * @param pBufferMemoryBarriers a pointer to an array of {@link VkBufferMemoryBarrier} structures.
      * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures.
      */
-    public static void vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, int srcStageMask, int dstStageMask, int dependencyFlags, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+    public static void vkCmdPipelineBarrier(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @NativeType("VkDependencyFlags") int dependencyFlags, @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
         nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
     }
 
@@ -13376,7 +13445,7 @@ public class VK10 {
      * @param query         the query index within the query pool that will contain the results.
      * @param flags         a bitmask of {@code VkQueryControlFlagBits} specifying constraints on the types of queries that <b>can</b> be performed.
      */
-    public static void vkCmdBeginQuery(VkCommandBuffer commandBuffer, long queryPool, int query, int flags) {
+    public static void vkCmdBeginQuery(VkCommandBuffer commandBuffer, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int query, @NativeType("VkQueryControlFlags") int flags) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBeginQuery;
         callPJV(__functionAddress, commandBuffer.address(), queryPool, query, flags);
     }
@@ -13439,7 +13508,7 @@ public class VK10 {
      * @param queryPool     the query pool that is managing the results of the query.
      * @param query         the query index within the query pool where the result is stored.
      */
-    public static void vkCmdEndQuery(VkCommandBuffer commandBuffer, long queryPool, int query) {
+    public static void vkCmdEndQuery(VkCommandBuffer commandBuffer, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int query) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdEndQuery;
         callPJV(__functionAddress, commandBuffer.address(), queryPool, query);
     }
@@ -13503,7 +13572,7 @@ public class VK10 {
      * @param firstQuery    the initial query index to reset.
      * @param queryCount    the number of queries to reset.
      */
-    public static void vkCmdResetQueryPool(VkCommandBuffer commandBuffer, long queryPool, int firstQuery, int queryCount) {
+    public static void vkCmdResetQueryPool(VkCommandBuffer commandBuffer, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdResetQueryPool;
         callPJV(__functionAddress, commandBuffer.address(), queryPool, firstQuery, queryCount);
     }
@@ -13594,7 +13663,7 @@ public class VK10 {
      * @param queryPool     the query pool that will manage the timestamp.
      * @param query         the query within the query pool that will contain the timestamp.
      */
-    public static void vkCmdWriteTimestamp(VkCommandBuffer commandBuffer, int pipelineStage, long queryPool, int query) {
+    public static void vkCmdWriteTimestamp(VkCommandBuffer commandBuffer, @NativeType("VkPipelineStageFlagBits") int pipelineStage, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int query) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdWriteTimestamp;
         callPJV(__functionAddress, commandBuffer.address(), pipelineStage, queryPool, query);
     }
@@ -13689,7 +13758,7 @@ public class VK10 {
      * @param stride        the stride in bytes between results for individual queries within {@code dstBuffer}. The required size of the backing memory for {@code dstBuffer} is determined as described above for {@link #vkGetQueryPoolResults GetQueryPoolResults}.
      * @param flags         a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
-    public static void vkCmdCopyQueryPoolResults(VkCommandBuffer commandBuffer, long queryPool, int firstQuery, int queryCount, long dstBuffer, long dstOffset, long stride, int flags) {
+    public static void vkCmdCopyQueryPoolResults(VkCommandBuffer commandBuffer, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdCopyQueryPoolResults;
         callPJJJJV(__functionAddress, commandBuffer.address(), queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
     }
@@ -13766,7 +13835,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, ByteBuffer pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") ByteBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining(), memAddress(pValues));
     }
 
@@ -13830,7 +13899,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, ShortBuffer pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") ShortBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 1, memAddress(pValues));
     }
 
@@ -13894,7 +13963,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, IntBuffer pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") IntBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
     }
 
@@ -13958,7 +14027,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, LongBuffer pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") LongBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
     }
 
@@ -14022,7 +14091,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, FloatBuffer pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") FloatBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
     }
 
@@ -14086,7 +14155,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, DoubleBuffer pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") DoubleBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
     }
 
@@ -14164,7 +14233,7 @@ public class VK10 {
      * @param pRenderPassBegin a pointer to a {@link VkRenderPassBeginInfo} structure (defined below) which indicates the render pass to begin an instance of, and the framebuffer the instance uses.
      * @param contents         a {@code VkSubpassContents} value specifying how the commands in the first subpass will be provided.
      */
-    public static void vkCmdBeginRenderPass(VkCommandBuffer commandBuffer, VkRenderPassBeginInfo pRenderPassBegin, int contents) {
+    public static void vkCmdBeginRenderPass(VkCommandBuffer commandBuffer, @NativeType("const VkRenderPassBeginInfo *") VkRenderPassBeginInfo pRenderPassBegin, @NativeType("VkSubpassContents") int contents) {
         nvkCmdBeginRenderPass(commandBuffer, pRenderPassBegin.address(), contents);
     }
 
@@ -14224,7 +14293,7 @@ public class VK10 {
      * @param commandBuffer the command buffer in which to record the command.
      * @param contents      specifies how the commands in the next subpass will be provided, in the same fashion as the corresponding parameter of {@link #vkCmdBeginRenderPass CmdBeginRenderPass}.
      */
-    public static void vkCmdNextSubpass(VkCommandBuffer commandBuffer, int contents) {
+    public static void vkCmdNextSubpass(VkCommandBuffer commandBuffer, @NativeType("VkSubpassContents") int contents) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdNextSubpass;
         callPV(__functionAddress, commandBuffer.address(), contents);
     }
@@ -14365,7 +14434,7 @@ public class VK10 {
      * @param commandBuffer   a handle to a primary command buffer that the secondary command buffers are executed in.
      * @param pCommandBuffers an array of secondary command buffer handles, which are recorded to execute in the primary command buffer in the order they are listed in the array.
      */
-    public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, PointerBuffer pCommandBuffers) {
+    public static void vkCmdExecuteCommands(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkCommandBuffer *") PointerBuffer pCommandBuffers) {
         nvkCmdExecuteCommands(commandBuffer, pCommandBuffers.remaining(), memAddress(pCommandBuffers));
     }
 
@@ -14438,7 +14507,7 @@ public class VK10 {
      *
      * @param commandBuffer a handle to a primary command buffer that the secondary command buffers are executed in.
      */
-    public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, VkCommandBuffer pCommandBuffer) {
+    public static void vkCmdExecuteCommands(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkCommandBuffer *") VkCommandBuffer pCommandBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer pCommandBuffers = stack.pointers(pCommandBuffer);
@@ -14459,7 +14528,8 @@ public class VK10 {
      * @param minor the minor version number
      * @param patch the patch version number
      */
-    public static int VK_MAKE_VERSION(int major, int minor, int patch) {
+    @NativeType("uint32_t")
+    public static int VK_MAKE_VERSION(@NativeType("uint32_t") int major, @NativeType("uint32_t") int minor, @NativeType("uint32_t") int patch) {
         return (major << 22) | (minor << 12) | patch;
     }
 
@@ -14470,7 +14540,8 @@ public class VK10 {
      *
      * @param version the Vulkan API version
      */
-    public static int VK_VERSION_MAJOR(int version) {
+    @NativeType("uint32_t")
+    public static int VK_VERSION_MAJOR(@NativeType("uint32_t") int version) {
         return version >> 22;
     }
 
@@ -14481,7 +14552,8 @@ public class VK10 {
      *
      * @param version the Vulkan API version
      */
-    public static int VK_VERSION_MINOR(int version) {
+    @NativeType("uint32_t")
+    public static int VK_VERSION_MINOR(@NativeType("uint32_t") int version) {
         return (version >> 12) & 0x3FF;
     }
 
@@ -14492,12 +14564,14 @@ public class VK10 {
      *
      * @param version the Vulkan API version
      */
-    public static int VK_VERSION_PATCH(int version) {
+    @NativeType("uint32_t")
+    public static int VK_VERSION_PATCH(@NativeType("uint32_t") int version) {
         return version & 0xFFF;
     }
 
     /** Array version of: {@link #vkEnumeratePhysicalDevices EnumeratePhysicalDevices} */
-    public static int vkEnumeratePhysicalDevices(VkInstance instance, int[] pPhysicalDeviceCount, PointerBuffer pPhysicalDevices) {
+    @NativeType("VkResult")
+    public static int vkEnumeratePhysicalDevices(VkInstance instance, @NativeType("uint32_t *") int[] pPhysicalDeviceCount, @NativeType("VkPhysicalDevice *") PointerBuffer pPhysicalDevices) {
         long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDevices;
         if (CHECKS) {
             check(pPhysicalDeviceCount, 1);
@@ -14507,7 +14581,7 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties} */
-    public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, int[] pQueueFamilyPropertyCount, VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
+    public static void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") int[] pQueueFamilyPropertyCount, @NativeType("VkQueueFamilyProperties *") VkQueueFamilyProperties.Buffer pQueueFamilyProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceQueueFamilyProperties;
         if (CHECKS) {
             check(pQueueFamilyPropertyCount, 1);
@@ -14517,7 +14591,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
-    public static int vkEnumerateInstanceExtensionProperties(ByteBuffer pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateInstanceExtensionProperties(@NativeType("const char *") ByteBuffer pLayerName, @NativeType("uint32_t *") int[] pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
         if (CHECKS) {
             checkNT1Safe(pLayerName);
@@ -14528,7 +14603,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkEnumerateInstanceExtensionProperties EnumerateInstanceExtensionProperties} */
-    public static int vkEnumerateInstanceExtensionProperties(CharSequence pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateInstanceExtensionProperties(@NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") int[] pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceExtensionProperties;
         if (CHECKS) {
             check(pPropertyCount, 1);
@@ -14544,7 +14620,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
-    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, ByteBuffer pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, @NativeType("const char *") ByteBuffer pLayerName, @NativeType("uint32_t *") int[] pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
         if (CHECKS) {
             checkNT1Safe(pLayerName);
@@ -14555,7 +14632,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
-    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, CharSequence pLayerName, int[] pPropertyCount, VkExtensionProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateDeviceExtensionProperties(@NativeType("VkPhysicalDevice") VkPhysicalDevice physicalDevice, @NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") int[] pPropertyCount, @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
         if (CHECKS) {
             check(pPropertyCount, 1);
@@ -14571,7 +14649,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkEnumerateInstanceLayerProperties EnumerateInstanceLayerProperties} */
-    public static int vkEnumerateInstanceLayerProperties(int[] pPropertyCount, VkLayerProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateInstanceLayerProperties(@NativeType("uint32_t *") int[] pPropertyCount, @NativeType("VkLayerProperties *") VkLayerProperties.Buffer pProperties) {
         long __functionAddress = VK.getGlobalCommands().vkEnumerateInstanceLayerProperties;
         if (CHECKS) {
             check(pPropertyCount, 1);
@@ -14581,7 +14660,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkEnumerateDeviceLayerProperties EnumerateDeviceLayerProperties} */
-    public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, int[] pPropertyCount, VkLayerProperties.Buffer pProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumerateDeviceLayerProperties(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") int[] pPropertyCount, @NativeType("VkLayerProperties *") VkLayerProperties.Buffer pProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceLayerProperties;
         if (CHECKS) {
             check(pPropertyCount, 1);
@@ -14591,7 +14671,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkAllocateMemory AllocateMemory} */
-    public static int vkAllocateMemory(VkDevice device, VkMemoryAllocateInfo pAllocateInfo, VkAllocationCallbacks pAllocator, long[] pMemory) {
+    @NativeType("VkResult")
+    public static int vkAllocateMemory(VkDevice device, @NativeType("const VkMemoryAllocateInfo *") VkMemoryAllocateInfo pAllocateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDeviceMemory *") long[] pMemory) {
         long __functionAddress = device.getCapabilities().vkAllocateMemory;
         if (CHECKS) {
             check(pMemory, 1);
@@ -14601,7 +14682,7 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkGetDeviceMemoryCommitment GetDeviceMemoryCommitment} */
-    public static void vkGetDeviceMemoryCommitment(VkDevice device, long memory, long[] pCommittedMemoryInBytes) {
+    public static void vkGetDeviceMemoryCommitment(VkDevice device, @NativeType("VkDeviceMemory") long memory, @NativeType("VkDeviceSize *") long[] pCommittedMemoryInBytes) {
         long __functionAddress = device.getCapabilities().vkGetDeviceMemoryCommitment;
         if (CHECKS) {
             check(pCommittedMemoryInBytes, 1);
@@ -14610,7 +14691,7 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkGetImageSparseMemoryRequirements GetImageSparseMemoryRequirements} */
-    public static void vkGetImageSparseMemoryRequirements(VkDevice device, long image, int[] pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
+    public static void vkGetImageSparseMemoryRequirements(VkDevice device, @NativeType("VkImage") long image, @NativeType("uint32_t *") int[] pSparseMemoryRequirementCount, @NativeType("VkSparseImageMemoryRequirements *") VkSparseImageMemoryRequirements.Buffer pSparseMemoryRequirements) {
         long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements;
         if (CHECKS) {
             check(pSparseMemoryRequirementCount, 1);
@@ -14620,7 +14701,7 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties} */
-    public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, int format, int type, int samples, int usage, int tiling, int[] pPropertyCount, VkSparseImageFormatProperties.Buffer pProperties) {
+    public static void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, @NativeType("VkFormat") int format, @NativeType("VkImageType") int type, @NativeType("VkSampleCountFlagBits") int samples, @NativeType("VkImageUsageFlags") int usage, @NativeType("VkImageTiling") int tiling, @NativeType("uint32_t *") int[] pPropertyCount, @NativeType("VkSparseImageFormatProperties *") VkSparseImageFormatProperties.Buffer pProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties;
         if (CHECKS) {
             check(pPropertyCount, 1);
@@ -14630,7 +14711,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateFence CreateFence} */
-    public static int vkCreateFence(VkDevice device, VkFenceCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pFence) {
+    @NativeType("VkResult")
+    public static int vkCreateFence(VkDevice device, @NativeType("const VkFenceCreateInfo *") VkFenceCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFence *") long[] pFence) {
         long __functionAddress = device.getCapabilities().vkCreateFence;
         if (CHECKS) {
             check(pFence, 1);
@@ -14640,19 +14722,22 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkResetFences ResetFences} */
-    public static int vkResetFences(VkDevice device, long[] pFences) {
+    @NativeType("VkResult")
+    public static int vkResetFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long[] pFences) {
         long __functionAddress = device.getCapabilities().vkResetFences;
         return callPPI(__functionAddress, device.address(), pFences.length, pFences);
     }
 
     /** Array version of: {@link #vkWaitForFences WaitForFences} */
-    public static int vkWaitForFences(VkDevice device, long[] pFences, boolean waitAll, long timeout) {
+    @NativeType("VkResult")
+    public static int vkWaitForFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long[] pFences, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
         long __functionAddress = device.getCapabilities().vkWaitForFences;
         return callPPJI(__functionAddress, device.address(), pFences.length, pFences, waitAll ? 1 : 0, timeout);
     }
 
     /** Array version of: {@link #vkCreateSemaphore CreateSemaphore} */
-    public static int vkCreateSemaphore(VkDevice device, VkSemaphoreCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSemaphore) {
+    @NativeType("VkResult")
+    public static int vkCreateSemaphore(VkDevice device, @NativeType("const VkSemaphoreCreateInfo *") VkSemaphoreCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSemaphore *") long[] pSemaphore) {
         long __functionAddress = device.getCapabilities().vkCreateSemaphore;
         if (CHECKS) {
             check(pSemaphore, 1);
@@ -14662,7 +14747,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateEvent CreateEvent} */
-    public static int vkCreateEvent(VkDevice device, VkEventCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pEvent) {
+    @NativeType("VkResult")
+    public static int vkCreateEvent(VkDevice device, @NativeType("const VkEventCreateInfo *") VkEventCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkEvent *") long[] pEvent) {
         long __functionAddress = device.getCapabilities().vkCreateEvent;
         if (CHECKS) {
             check(pEvent, 1);
@@ -14672,7 +14758,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateQueryPool CreateQueryPool} */
-    public static int vkCreateQueryPool(VkDevice device, VkQueryPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pQueryPool) {
+    @NativeType("VkResult")
+    public static int vkCreateQueryPool(VkDevice device, @NativeType("const VkQueryPoolCreateInfo *") VkQueryPoolCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkQueryPool *") long[] pQueryPool) {
         long __functionAddress = device.getCapabilities().vkCreateQueryPool;
         if (CHECKS) {
             check(pQueryPool, 1);
@@ -14682,19 +14769,22 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
-    public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, int[] pData, long stride, int flags) {
+    @NativeType("VkResult")
+    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") int[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
         return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 2), pData, stride, flags);
     }
 
     /** Array version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
-    public static int vkGetQueryPoolResults(VkDevice device, long queryPool, int firstQuery, int queryCount, long[] pData, long stride, int flags) {
+    @NativeType("VkResult")
+    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") long[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
         return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 3), pData, stride, flags);
     }
 
     /** Array version of: {@link #vkCreateBuffer CreateBuffer} */
-    public static int vkCreateBuffer(VkDevice device, VkBufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pBuffer) {
+    @NativeType("VkResult")
+    public static int vkCreateBuffer(VkDevice device, @NativeType("const VkBufferCreateInfo *") VkBufferCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkBuffer *") long[] pBuffer) {
         long __functionAddress = device.getCapabilities().vkCreateBuffer;
         if (CHECKS) {
             check(pBuffer, 1);
@@ -14705,7 +14795,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateBufferView CreateBufferView} */
-    public static int vkCreateBufferView(VkDevice device, VkBufferViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pView) {
+    @NativeType("VkResult")
+    public static int vkCreateBufferView(VkDevice device, @NativeType("const VkBufferViewCreateInfo *") VkBufferViewCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkBufferView *") long[] pView) {
         long __functionAddress = device.getCapabilities().vkCreateBufferView;
         if (CHECKS) {
             check(pView, 1);
@@ -14715,7 +14806,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateImage CreateImage} */
-    public static int vkCreateImage(VkDevice device, VkImageCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pImage) {
+    @NativeType("VkResult")
+    public static int vkCreateImage(VkDevice device, @NativeType("const VkImageCreateInfo *") VkImageCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkImage *") long[] pImage) {
         long __functionAddress = device.getCapabilities().vkCreateImage;
         if (CHECKS) {
             check(pImage, 1);
@@ -14726,7 +14818,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateImageView CreateImageView} */
-    public static int vkCreateImageView(VkDevice device, VkImageViewCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pView) {
+    @NativeType("VkResult")
+    public static int vkCreateImageView(VkDevice device, @NativeType("const VkImageViewCreateInfo *") VkImageViewCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkImageView *") long[] pView) {
         long __functionAddress = device.getCapabilities().vkCreateImageView;
         if (CHECKS) {
             check(pView, 1);
@@ -14736,7 +14829,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateShaderModule CreateShaderModule} */
-    public static int vkCreateShaderModule(VkDevice device, VkShaderModuleCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pShaderModule) {
+    @NativeType("VkResult")
+    public static int vkCreateShaderModule(VkDevice device, @NativeType("const VkShaderModuleCreateInfo *") VkShaderModuleCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkShaderModule *") long[] pShaderModule) {
         long __functionAddress = device.getCapabilities().vkCreateShaderModule;
         if (CHECKS) {
             check(pShaderModule, 1);
@@ -14747,7 +14841,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreatePipelineCache CreatePipelineCache} */
-    public static int vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pPipelineCache) {
+    @NativeType("VkResult")
+    public static int vkCreatePipelineCache(VkDevice device, @NativeType("const VkPipelineCacheCreateInfo *") VkPipelineCacheCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipelineCache *") long[] pPipelineCache) {
         long __functionAddress = device.getCapabilities().vkCreatePipelineCache;
         if (CHECKS) {
             check(pPipelineCache, 1);
@@ -14758,13 +14853,15 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkMergePipelineCaches MergePipelineCaches} */
-    public static int vkMergePipelineCaches(VkDevice device, long dstCache, long[] pSrcCaches) {
+    @NativeType("VkResult")
+    public static int vkMergePipelineCaches(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long dstCache, @NativeType("const VkPipelineCache *") long[] pSrcCaches) {
         long __functionAddress = device.getCapabilities().vkMergePipelineCaches;
         return callPJPI(__functionAddress, device.address(), dstCache, pSrcCaches.length, pSrcCaches);
     }
 
     /** Array version of: {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} */
-    public static int vkCreateGraphicsPipelines(VkDevice device, long pipelineCache, VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pPipelines) {
+    @NativeType("VkResult")
+    public static int vkCreateGraphicsPipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkGraphicsPipelineCreateInfo *") VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") long[] pPipelines) {
         long __functionAddress = device.getCapabilities().vkCreateGraphicsPipelines;
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
@@ -14775,7 +14872,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateComputePipelines CreateComputePipelines} */
-    public static int vkCreateComputePipelines(VkDevice device, long pipelineCache, VkComputePipelineCreateInfo.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pPipelines) {
+    @NativeType("VkResult")
+    public static int vkCreateComputePipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkComputePipelineCreateInfo *") VkComputePipelineCreateInfo.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") long[] pPipelines) {
         long __functionAddress = device.getCapabilities().vkCreateComputePipelines;
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
@@ -14786,7 +14884,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreatePipelineLayout CreatePipelineLayout} */
-    public static int vkCreatePipelineLayout(VkDevice device, VkPipelineLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pPipelineLayout) {
+    @NativeType("VkResult")
+    public static int vkCreatePipelineLayout(VkDevice device, @NativeType("const VkPipelineLayoutCreateInfo *") VkPipelineLayoutCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipelineLayout *") long[] pPipelineLayout) {
         long __functionAddress = device.getCapabilities().vkCreatePipelineLayout;
         if (CHECKS) {
             check(pPipelineLayout, 1);
@@ -14797,7 +14896,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateSampler CreateSampler} */
-    public static int vkCreateSampler(VkDevice device, VkSamplerCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSampler) {
+    @NativeType("VkResult")
+    public static int vkCreateSampler(VkDevice device, @NativeType("const VkSamplerCreateInfo *") VkSamplerCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSampler *") long[] pSampler) {
         long __functionAddress = device.getCapabilities().vkCreateSampler;
         if (CHECKS) {
             check(pSampler, 1);
@@ -14807,7 +14907,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateDescriptorSetLayout CreateDescriptorSetLayout} */
-    public static int vkCreateDescriptorSetLayout(VkDevice device, VkDescriptorSetLayoutCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSetLayout) {
+    @NativeType("VkResult")
+    public static int vkCreateDescriptorSetLayout(VkDevice device, @NativeType("const VkDescriptorSetLayoutCreateInfo *") VkDescriptorSetLayoutCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorSetLayout *") long[] pSetLayout) {
         long __functionAddress = device.getCapabilities().vkCreateDescriptorSetLayout;
         if (CHECKS) {
             check(pSetLayout, 1);
@@ -14818,7 +14919,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateDescriptorPool CreateDescriptorPool} */
-    public static int vkCreateDescriptorPool(VkDevice device, VkDescriptorPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pDescriptorPool) {
+    @NativeType("VkResult")
+    public static int vkCreateDescriptorPool(VkDevice device, @NativeType("const VkDescriptorPoolCreateInfo *") VkDescriptorPoolCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorPool *") long[] pDescriptorPool) {
         long __functionAddress = device.getCapabilities().vkCreateDescriptorPool;
         if (CHECKS) {
             check(pDescriptorPool, 1);
@@ -14829,7 +14931,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkAllocateDescriptorSets AllocateDescriptorSets} */
-    public static int vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo pAllocateInfo, long[] pDescriptorSets) {
+    @NativeType("VkResult")
+    public static int vkAllocateDescriptorSets(VkDevice device, @NativeType("const VkDescriptorSetAllocateInfo *") VkDescriptorSetAllocateInfo pAllocateInfo, @NativeType("VkDescriptorSet *") long[] pDescriptorSets) {
         long __functionAddress = device.getCapabilities().vkAllocateDescriptorSets;
         if (CHECKS) {
             check(pDescriptorSets, pAllocateInfo.descriptorSetCount());
@@ -14839,13 +14942,15 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkFreeDescriptorSets FreeDescriptorSets} */
-    public static int vkFreeDescriptorSets(VkDevice device, long descriptorPool, long[] pDescriptorSets) {
+    @NativeType("VkResult")
+    public static int vkFreeDescriptorSets(@NativeType("VkDevice") VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") long[] pDescriptorSets) {
         long __functionAddress = device.getCapabilities().vkFreeDescriptorSets;
         return callPJPI(__functionAddress, device.address(), descriptorPool, pDescriptorSets.length, pDescriptorSets);
     }
 
     /** Array version of: {@link #vkCreateFramebuffer CreateFramebuffer} */
-    public static int vkCreateFramebuffer(VkDevice device, VkFramebufferCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pFramebuffer) {
+    @NativeType("VkResult")
+    public static int vkCreateFramebuffer(VkDevice device, @NativeType("const VkFramebufferCreateInfo *") VkFramebufferCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFramebuffer *") long[] pFramebuffer) {
         long __functionAddress = device.getCapabilities().vkCreateFramebuffer;
         if (CHECKS) {
             check(pFramebuffer, 1);
@@ -14856,7 +14961,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateRenderPass CreateRenderPass} */
-    public static int vkCreateRenderPass(VkDevice device, VkRenderPassCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pRenderPass) {
+    @NativeType("VkResult")
+    public static int vkCreateRenderPass(VkDevice device, @NativeType("const VkRenderPassCreateInfo *") VkRenderPassCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkRenderPass *") long[] pRenderPass) {
         long __functionAddress = device.getCapabilities().vkCreateRenderPass;
         if (CHECKS) {
             check(pRenderPass, 1);
@@ -14867,7 +14973,8 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCreateCommandPool CreateCommandPool} */
-    public static int vkCreateCommandPool(VkDevice device, VkCommandPoolCreateInfo pCreateInfo, VkAllocationCallbacks pAllocator, long[] pCommandPool) {
+    @NativeType("VkResult")
+    public static int vkCreateCommandPool(VkDevice device, @NativeType("const VkCommandPoolCreateInfo *") VkCommandPoolCreateInfo pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkCommandPool *") long[] pCommandPool) {
         long __functionAddress = device.getCapabilities().vkCreateCommandPool;
         if (CHECKS) {
             check(pCommandPool, 1);
@@ -14877,7 +14984,7 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCmdSetBlendConstants CmdSetBlendConstants} */
-    public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, float[] blendConstants) {
+    public static void vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, @NativeType("const float *") float[] blendConstants) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdSetBlendConstants;
         if (CHECKS) {
             check(blendConstants, 4);
@@ -14886,13 +14993,13 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} */
-    public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, int pipelineBindPoint, long layout, int firstSet, long[] pDescriptorSets, int[] pDynamicOffsets) {
+    public static void vkCmdBindDescriptorSets(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipelineLayout") long layout, @NativeType("uint32_t") int firstSet, @NativeType("const VkDescriptorSet *") long[] pDescriptorSets, @NativeType("const uint32_t *") int[] pDynamicOffsets) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBindDescriptorSets;
         callPJPPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, pDescriptorSets.length, pDescriptorSets, lengthSafe(pDynamicOffsets), pDynamicOffsets);
     }
 
     /** Array version of: {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers} */
-    public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, int firstBinding, long[] pBuffers, long[] pOffsets) {
+    public static void vkCmdBindVertexBuffers(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstBinding, @NativeType("const VkBuffer *") long[] pBuffers, @NativeType("const VkDeviceSize *") long[] pOffsets) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBindVertexBuffers;
         if (CHECKS) {
             check(pOffsets, pBuffers.length);
@@ -14901,67 +15008,67 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, short[] pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") short[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 1), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, int[] pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") int[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, long[] pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") long[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, float[] pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") float[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, long dstBuffer, long dstOffset, double[] pData) {
+    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") double[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
     }
 
     /** Array version of: {@link #vkCmdWaitEvents CmdWaitEvents} */
-    public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, long[] pEvents, int srcStageMask, int dstStageMask, VkMemoryBarrier.Buffer pMemoryBarriers, VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+    public static void vkCmdWaitEvents(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkEvent *") long[] pEvents, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
         callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, short[] pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") short[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 1, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, int[] pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") int[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, long[] pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") long[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, float[] pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") float[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, long layout, int stageFlags, int offset, double[] pValues) {
+    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") double[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);
     }

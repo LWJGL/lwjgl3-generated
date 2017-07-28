@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -42,6 +44,7 @@ public class SOFTDeferredUpdates {
      * listener gain, or auxiliary slot gain or effect if EFX is supported, among others, will be deferred. Multiple changes can be batched so that they all
      * apply at once at a later time.</p>
      */
+    @NativeType("ALvoid")
     public static void alDeferUpdatesSOFT() {
         long __functionAddress = AL.getICD().alDeferUpdatesSOFT;
         if (CHECKS) {
@@ -57,6 +60,7 @@ public class SOFTDeferredUpdates {
      * 
      * <p>Once called, all pending deferred updates will be processed. Any following state changes will also apply as normal.</p>
      */
+    @NativeType("ALvoid")
     public static void alProcessUpdatesSOFT() {
         long __functionAddress = AL.getICD().alProcessUpdatesSOFT;
         if (CHECKS) {

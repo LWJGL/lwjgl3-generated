@@ -94,21 +94,23 @@ public class EXTSeparateShaderObjects {
 
     // --- [ glActiveShaderProgramEXT ] ---
 
-    public static native void glActiveShaderProgramEXT(int pipeline, int program);
+    public static native void glActiveShaderProgramEXT(@NativeType("GLuint") int pipeline, @NativeType("GLuint") int program);
 
     // --- [ glBindProgramPipelineEXT ] ---
 
-    public static native void glBindProgramPipelineEXT(int pipeline);
+    public static native void glBindProgramPipelineEXT(@NativeType("GLuint") int pipeline);
 
     // --- [ glCreateShaderProgramvEXT ] ---
 
     public static native int nglCreateShaderProgramvEXT(int type, int count, long strings);
 
-    public static int glCreateShaderProgramvEXT(int type, PointerBuffer strings) {
+    @NativeType("GLuint")
+    public static int glCreateShaderProgramvEXT(@NativeType("GLenum") int type, @NativeType("const GLchar **") PointerBuffer strings) {
         return nglCreateShaderProgramvEXT(type, strings.remaining(), memAddress(strings));
     }
 
-    public static int glCreateShaderProgramvEXT(int type, CharSequence... strings) {
+    @NativeType("GLuint")
+    public static int glCreateShaderProgramvEXT(@NativeType("GLenum") int type, @NativeType("const GLchar **") CharSequence... strings) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long stringsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memUTF8, strings);
@@ -120,7 +122,8 @@ public class EXTSeparateShaderObjects {
         }
     }
 
-    public static int glCreateShaderProgramvEXT(int type, CharSequence string) {
+    @NativeType("GLuint")
+    public static int glCreateShaderProgramvEXT(@NativeType("GLenum") int type, @NativeType("const GLchar **") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long stringsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memUTF8, string);
@@ -136,11 +139,11 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglDeleteProgramPipelinesEXT(int n, long pipelines);
 
-    public static void glDeleteProgramPipelinesEXT(IntBuffer pipelines) {
+    public static void glDeleteProgramPipelinesEXT(@NativeType("const GLuint *") IntBuffer pipelines) {
         nglDeleteProgramPipelinesEXT(pipelines.remaining(), memAddress(pipelines));
     }
 
-    public static void glDeleteProgramPipelinesEXT(int pipeline) {
+    public static void glDeleteProgramPipelinesEXT(@NativeType("const GLuint *") int pipeline) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer pipelines = stack.ints(pipeline);
@@ -154,10 +157,11 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglGenProgramPipelinesEXT(int n, long pipelines);
 
-    public static void glGenProgramPipelinesEXT(IntBuffer pipelines) {
+    public static void glGenProgramPipelinesEXT(@NativeType("GLuint *") IntBuffer pipelines) {
         nglGenProgramPipelinesEXT(pipelines.remaining(), memAddress(pipelines));
     }
 
+    @NativeType("void")
     public static int glGenProgramPipelinesEXT() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -173,14 +177,15 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglGetProgramPipelineInfoLogEXT(int pipeline, int bufSize, long length, long infoLog);
 
-    public static void glGetProgramPipelineInfoLogEXT(int pipeline, IntBuffer length, ByteBuffer infoLog) {
+    public static void glGetProgramPipelineInfoLogEXT(@NativeType("GLuint") int pipeline, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer infoLog) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
         nglGetProgramPipelineInfoLogEXT(pipeline, infoLog.remaining(), memAddressSafe(length), memAddress(infoLog));
     }
 
-    public static String glGetProgramPipelineInfoLogEXT(int pipeline, int bufSize) {
+    @NativeType("void")
+    public static String glGetProgramPipelineInfoLogEXT(@NativeType("GLuint") int pipeline, @NativeType("GLsizei") int bufSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         ByteBuffer infoLog = memAlloc(bufSize);
         try {
@@ -193,7 +198,8 @@ public class EXTSeparateShaderObjects {
         }
     }
 
-    public static String glGetProgramPipelineInfoLogEXT(int pipeline) {
+    @NativeType("void")
+    public static String glGetProgramPipelineInfoLogEXT(@NativeType("GLuint") int pipeline) {
         return glGetProgramPipelineInfoLogEXT(pipeline, glGetProgramPipelineiEXT(pipeline, GLES20.GL_INFO_LOG_LENGTH));
     }
 
@@ -201,14 +207,15 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglGetProgramPipelineivEXT(int pipeline, int pname, long params);
 
-    public static void glGetProgramPipelineivEXT(int pipeline, int pname, IntBuffer params) {
+    public static void glGetProgramPipelineivEXT(@NativeType("GLuint") int pipeline, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetProgramPipelineivEXT(pipeline, pname, memAddress(params));
     }
 
-    public static int glGetProgramPipelineiEXT(int pipeline, int pname) {
+    @NativeType("void")
+    public static int glGetProgramPipelineiEXT(@NativeType("GLuint") int pipeline, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -221,105 +228,106 @@ public class EXTSeparateShaderObjects {
 
     // --- [ glIsProgramPipelineEXT ] ---
 
-    public static native boolean glIsProgramPipelineEXT(int pipeline);
+    @NativeType("GLboolean")
+    public static native boolean glIsProgramPipelineEXT(@NativeType("GLuint") int pipeline);
 
     // --- [ glProgramParameteriEXT ] ---
 
-    public static native void glProgramParameteriEXT(int program, int pname, int value);
+    public static native void glProgramParameteriEXT(@NativeType("GLuint") int program, @NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
     // --- [ glProgramUniform1fEXT ] ---
 
-    public static native void glProgramUniform1fEXT(int program, int location, float v0);
+    public static native void glProgramUniform1fEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat") float v0);
 
     // --- [ glProgramUniform1fvEXT ] ---
 
     public static native void nglProgramUniform1fvEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform1fvEXT(int program, int location, FloatBuffer value) {
+    public static void glProgramUniform1fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniform1fvEXT(program, location, value.remaining(), memAddress(value));
     }
 
     // --- [ glProgramUniform1iEXT ] ---
 
-    public static native void glProgramUniform1iEXT(int program, int location, int v0);
+    public static native void glProgramUniform1iEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint") int v0);
 
     // --- [ glProgramUniform1ivEXT ] ---
 
     public static native void nglProgramUniform1ivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform1ivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform1ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
         nglProgramUniform1ivEXT(program, location, value.remaining(), memAddress(value));
     }
 
     // --- [ glProgramUniform2fEXT ] ---
 
-    public static native void glProgramUniform2fEXT(int program, int location, float v0, float v1);
+    public static native void glProgramUniform2fEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat") float v0, @NativeType("GLfloat") float v1);
 
     // --- [ glProgramUniform2fvEXT ] ---
 
     public static native void nglProgramUniform2fvEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform2fvEXT(int program, int location, FloatBuffer value) {
+    public static void glProgramUniform2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniform2fvEXT(program, location, value.remaining() >> 1, memAddress(value));
     }
 
     // --- [ glProgramUniform2iEXT ] ---
 
-    public static native void glProgramUniform2iEXT(int program, int location, int v0, int v1);
+    public static native void glProgramUniform2iEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint") int v0, @NativeType("GLint") int v1);
 
     // --- [ glProgramUniform2ivEXT ] ---
 
     public static native void nglProgramUniform2ivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform2ivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform2ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
         nglProgramUniform2ivEXT(program, location, value.remaining() >> 1, memAddress(value));
     }
 
     // --- [ glProgramUniform3fEXT ] ---
 
-    public static native void glProgramUniform3fEXT(int program, int location, float v0, float v1, float v2);
+    public static native void glProgramUniform3fEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat") float v0, @NativeType("GLfloat") float v1, @NativeType("GLfloat") float v2);
 
     // --- [ glProgramUniform3fvEXT ] ---
 
     public static native void nglProgramUniform3fvEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform3fvEXT(int program, int location, FloatBuffer value) {
+    public static void glProgramUniform3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniform3fvEXT(program, location, value.remaining() / 3, memAddress(value));
     }
 
     // --- [ glProgramUniform3iEXT ] ---
 
-    public static native void glProgramUniform3iEXT(int program, int location, int v0, int v1, int v2);
+    public static native void glProgramUniform3iEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint") int v0, @NativeType("GLint") int v1, @NativeType("GLint") int v2);
 
     // --- [ glProgramUniform3ivEXT ] ---
 
     public static native void nglProgramUniform3ivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform3ivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform3ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
         nglProgramUniform3ivEXT(program, location, value.remaining() / 3, memAddress(value));
     }
 
     // --- [ glProgramUniform4fEXT ] ---
 
-    public static native void glProgramUniform4fEXT(int program, int location, float v0, float v1, float v2, float v3);
+    public static native void glProgramUniform4fEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat") float v0, @NativeType("GLfloat") float v1, @NativeType("GLfloat") float v2, @NativeType("GLfloat") float v3);
 
     // --- [ glProgramUniform4fvEXT ] ---
 
     public static native void nglProgramUniform4fvEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform4fvEXT(int program, int location, FloatBuffer value) {
+    public static void glProgramUniform4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniform4fvEXT(program, location, value.remaining() >> 2, memAddress(value));
     }
 
     // --- [ glProgramUniform4iEXT ] ---
 
-    public static native void glProgramUniform4iEXT(int program, int location, int v0, int v1, int v2, int v3);
+    public static native void glProgramUniform4iEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint") int v0, @NativeType("GLint") int v1, @NativeType("GLint") int v2, @NativeType("GLint") int v3);
 
     // --- [ glProgramUniform4ivEXT ] ---
 
     public static native void nglProgramUniform4ivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform4ivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform4ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
         nglProgramUniform4ivEXT(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -327,7 +335,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix2fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix2fvEXT(program, location, value.remaining() >> 2, transpose, memAddress(value));
     }
 
@@ -335,7 +343,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix3fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix3fvEXT(program, location, value.remaining() / 9, transpose, memAddress(value));
     }
 
@@ -343,39 +351,39 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix4fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix4fvEXT(program, location, value.remaining() >> 4, transpose, memAddress(value));
     }
 
     // --- [ glUseProgramStagesEXT ] ---
 
-    public static native void glUseProgramStagesEXT(int pipeline, int stages, int program);
+    public static native void glUseProgramStagesEXT(@NativeType("GLuint") int pipeline, @NativeType("GLbitfield") int stages, @NativeType("GLuint") int program);
 
     // --- [ glValidateProgramPipelineEXT ] ---
 
-    public static native void glValidateProgramPipelineEXT(int pipeline);
+    public static native void glValidateProgramPipelineEXT(@NativeType("GLuint") int pipeline);
 
     // --- [ glProgramUniform1uiEXT ] ---
 
-    public static native void glProgramUniform1uiEXT(int program, int location, int v0);
+    public static native void glProgramUniform1uiEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint") int v0);
 
     // --- [ glProgramUniform2uiEXT ] ---
 
-    public static native void glProgramUniform2uiEXT(int program, int location, int v0, int v1);
+    public static native void glProgramUniform2uiEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1);
 
     // --- [ glProgramUniform3uiEXT ] ---
 
-    public static native void glProgramUniform3uiEXT(int program, int location, int v0, int v1, int v2);
+    public static native void glProgramUniform3uiEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1, @NativeType("GLuint") int v2);
 
     // --- [ glProgramUniform4uiEXT ] ---
 
-    public static native void glProgramUniform4uiEXT(int program, int location, int v0, int v1, int v2, int v3);
+    public static native void glProgramUniform4uiEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1, @NativeType("GLuint") int v2, @NativeType("GLuint") int v3);
 
     // --- [ glProgramUniform1uivEXT ] ---
 
     public static native void nglProgramUniform1uivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform1uivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform1uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglProgramUniform1uivEXT(program, location, value.remaining(), memAddress(value));
     }
 
@@ -383,7 +391,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniform2uivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform2uivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform2uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglProgramUniform2uivEXT(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -391,7 +399,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniform3uivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform3uivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform3uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglProgramUniform3uivEXT(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -399,7 +407,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniform4uivEXT(int program, int location, int count, long value);
 
-    public static void glProgramUniform4uivEXT(int program, int location, IntBuffer value) {
+    public static void glProgramUniform4uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglProgramUniform4uivEXT(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -407,7 +415,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix2x3fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix2x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix2x3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix2x3fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -415,7 +423,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix3x2fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix3x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix3x2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix3x2fvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -423,7 +431,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix2x4fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix2x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix2x4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix2x4fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -431,7 +439,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix4x2fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix4x2fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix4x2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix4x2fvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -439,7 +447,7 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix3x4fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix3x4fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix3x4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix3x4fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -447,12 +455,12 @@ public class EXTSeparateShaderObjects {
 
     public static native void nglProgramUniformMatrix4x3fvEXT(int program, int location, int count, boolean transpose, long value);
 
-    public static void glProgramUniformMatrix4x3fvEXT(int program, int location, boolean transpose, FloatBuffer value) {
+    public static void glProgramUniformMatrix4x3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
         nglProgramUniformMatrix4x3fvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
     /** Array version of: {@link #glDeleteProgramPipelinesEXT DeleteProgramPipelinesEXT} */
-    public static void glDeleteProgramPipelinesEXT(int[] pipelines) {
+    public static void glDeleteProgramPipelinesEXT(@NativeType("const GLuint *") int[] pipelines) {
         long __functionAddress = GLES.getICD().glDeleteProgramPipelinesEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -461,7 +469,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glGenProgramPipelinesEXT GenProgramPipelinesEXT} */
-    public static void glGenProgramPipelinesEXT(int[] pipelines) {
+    public static void glGenProgramPipelinesEXT(@NativeType("GLuint *") int[] pipelines) {
         long __functionAddress = GLES.getICD().glGenProgramPipelinesEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -470,7 +478,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glGetProgramPipelineInfoLogEXT GetProgramPipelineInfoLogEXT} */
-    public static void glGetProgramPipelineInfoLogEXT(int pipeline, int[] length, ByteBuffer infoLog) {
+    public static void glGetProgramPipelineInfoLogEXT(@NativeType("GLuint") int pipeline, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer infoLog) {
         long __functionAddress = GLES.getICD().glGetProgramPipelineInfoLogEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -480,7 +488,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glGetProgramPipelineivEXT GetProgramPipelineivEXT} */
-    public static void glGetProgramPipelineivEXT(int pipeline, int pname, int[] params) {
+    public static void glGetProgramPipelineivEXT(@NativeType("GLuint") int pipeline, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetProgramPipelineivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -490,7 +498,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */
-    public static void glProgramUniform1fvEXT(int program, int location, float[] value) {
+    public static void glProgramUniform1fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform1fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -499,7 +507,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform1ivEXT ProgramUniform1ivEXT} */
-    public static void glProgramUniform1ivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform1ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform1ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -508,7 +516,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform2fvEXT ProgramUniform2fvEXT} */
-    public static void glProgramUniform2fvEXT(int program, int location, float[] value) {
+    public static void glProgramUniform2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform2fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -517,7 +525,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform2ivEXT ProgramUniform2ivEXT} */
-    public static void glProgramUniform2ivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform2ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform2ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -526,7 +534,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform3fvEXT ProgramUniform3fvEXT} */
-    public static void glProgramUniform3fvEXT(int program, int location, float[] value) {
+    public static void glProgramUniform3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform3fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -535,7 +543,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform3ivEXT ProgramUniform3ivEXT} */
-    public static void glProgramUniform3ivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform3ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform3ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -544,7 +552,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform4fvEXT ProgramUniform4fvEXT} */
-    public static void glProgramUniform4fvEXT(int program, int location, float[] value) {
+    public static void glProgramUniform4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform4fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -553,7 +561,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform4ivEXT ProgramUniform4ivEXT} */
-    public static void glProgramUniform4ivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform4ivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform4ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -562,7 +570,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2fvEXT ProgramUniformMatrix2fvEXT} */
-    public static void glProgramUniformMatrix2fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix2fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -571,7 +579,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3fvEXT ProgramUniformMatrix3fvEXT} */
-    public static void glProgramUniformMatrix3fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix3fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -580,7 +588,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4fvEXT ProgramUniformMatrix4fvEXT} */
-    public static void glProgramUniformMatrix4fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix4fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -589,7 +597,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform1uivEXT ProgramUniform1uivEXT} */
-    public static void glProgramUniform1uivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform1uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform1uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -598,7 +606,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform2uivEXT ProgramUniform2uivEXT} */
-    public static void glProgramUniform2uivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform2uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform2uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -607,7 +615,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform3uivEXT ProgramUniform3uivEXT} */
-    public static void glProgramUniform3uivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform3uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform3uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -616,7 +624,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform4uivEXT ProgramUniform4uivEXT} */
-    public static void glProgramUniform4uivEXT(int program, int location, int[] value) {
+    public static void glProgramUniform4uivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GLES.getICD().glProgramUniform4uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -625,7 +633,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x3fvEXT ProgramUniformMatrix2x3fvEXT} */
-    public static void glProgramUniformMatrix2x3fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix2x3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix2x3fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -634,7 +642,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x2fvEXT ProgramUniformMatrix3x2fvEXT} */
-    public static void glProgramUniformMatrix3x2fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix3x2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix3x2fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -643,7 +651,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x4fvEXT ProgramUniformMatrix2x4fvEXT} */
-    public static void glProgramUniformMatrix2x4fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix2x4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix2x4fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -652,7 +660,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x2fvEXT ProgramUniformMatrix4x2fvEXT} */
-    public static void glProgramUniformMatrix4x2fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix4x2fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix4x2fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -661,7 +669,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x4fvEXT ProgramUniformMatrix3x4fvEXT} */
-    public static void glProgramUniformMatrix3x4fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix3x4fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix3x4fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -670,7 +678,7 @@ public class EXTSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x3fvEXT ProgramUniformMatrix4x3fvEXT} */
-    public static void glProgramUniformMatrix4x3fvEXT(int program, int location, boolean transpose, float[] value) {
+    public static void glProgramUniformMatrix4x3fvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
         long __functionAddress = GLES.getICD().glProgramUniformMatrix4x3fvEXT;
         if (CHECKS) {
             check(__functionAddress);

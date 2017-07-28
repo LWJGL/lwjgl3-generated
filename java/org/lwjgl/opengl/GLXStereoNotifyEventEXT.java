@@ -102,18 +102,23 @@ public class GLXStereoNotifyEventEXT extends Struct {
     /** Returns the value of the {@code type} field. */
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code serial} field. */
+    @NativeType("unsigned long")
     public long serial() { return nserial(address()); }
     /** Returns the value of the {@code send_event} field. */
+    @NativeType("Bool")
     public boolean send_event() { return nsend_event(address()) != 0; }
     /** Returns the value of the {@code display} field. */
+    @NativeType("Display *")
     public long display() { return ndisplay(address()); }
     /** Returns the value of the {@code extension} field. */
     public int extension() { return nextension(address()); }
     /** Returns the value of the {@code evtype} field. */
     public int evtype() { return nevtype(address()); }
     /** Returns the value of the {@code window} field. */
+    @NativeType("GLXDrawable")
     public long window() { return nwindow(address()); }
     /** Returns the value of the {@code stereo_tree} field. */
+    @NativeType("Bool")
     public boolean stereo_tree() { return nstereo_tree(address()) != 0; }
 
     // -----------------------------------
@@ -197,18 +202,23 @@ public class GLXStereoNotifyEventEXT extends Struct {
         /** Returns the value of the {@code type} field. */
         public int type() { return GLXStereoNotifyEventEXT.ntype(address()); }
         /** Returns the value of the {@code serial} field. */
+        @NativeType("unsigned long")
         public long serial() { return GLXStereoNotifyEventEXT.nserial(address()); }
         /** Returns the value of the {@code send_event} field. */
+        @NativeType("Bool")
         public boolean send_event() { return GLXStereoNotifyEventEXT.nsend_event(address()) != 0; }
         /** Returns the value of the {@code display} field. */
+        @NativeType("Display *")
         public long display() { return GLXStereoNotifyEventEXT.ndisplay(address()); }
         /** Returns the value of the {@code extension} field. */
         public int extension() { return GLXStereoNotifyEventEXT.nextension(address()); }
         /** Returns the value of the {@code evtype} field. */
         public int evtype() { return GLXStereoNotifyEventEXT.nevtype(address()); }
         /** Returns the value of the {@code window} field. */
+        @NativeType("GLXDrawable")
         public long window() { return GLXStereoNotifyEventEXT.nwindow(address()); }
         /** Returns the value of the {@code stereo_tree} field. */
+        @NativeType("Bool")
         public boolean stereo_tree() { return GLXStereoNotifyEventEXT.nstereo_tree(address()) != 0; }
 
     }

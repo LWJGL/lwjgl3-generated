@@ -235,7 +235,7 @@ public class GL42 {
      * @param pname       the parameter to query. One of:<br><table><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE ATOMIC_COUNTER_BUFFER_DATA_SIZE}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
      * @param params      a buffer in which to place the returned value
      */
-    public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, IntBuffer params) {
+    public static void glGetActiveAtomicCounterBufferiv(@NativeType("GLuint") int program, @NativeType("GLuint") int bufferIndex, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -251,7 +251,8 @@ public class GL42 {
      * @param bufferIndex the index of an active atomic counter buffer
      * @param pname       the parameter to query. One of:<br><table><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE ATOMIC_COUNTER_BUFFER_DATA_SIZE}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER}</td></tr><tr><td>{@link #GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
      */
-    public static int glGetActiveAtomicCounterBufferi(int program, int bufferIndex, int pname) {
+    @NativeType("void")
+    public static int glGetActiveAtomicCounterBufferi(@NativeType("GLuint") int program, @NativeType("GLuint") int bufferIndex, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -274,7 +275,7 @@ public class GL42 {
      * @param internalformat the sized internal format to be used to store texture image data
      * @param width          the width of the texture, in texels
      */
-    public static native void glTexStorage1D(int target, int levels, int internalformat, int width);
+    public static native void glTexStorage1D(@NativeType("GLenum") int target, @NativeType("GLsizei") int levels, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width);
 
     // --- [ glTexStorage2D ] ---
 
@@ -289,7 +290,7 @@ public class GL42 {
      * @param width          the width of the texture, in texels
      * @param height         the height of the texture, in texels
      */
-    public static native void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
+    public static native void glTexStorage2D(@NativeType("GLenum") int target, @NativeType("GLsizei") int levels, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glTexStorage3D ] ---
 
@@ -305,7 +306,7 @@ public class GL42 {
      * @param height         the height of the texture, in texels
      * @param depth          the depth of the texture, in texels
      */
-    public static native void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
+    public static native void glTexStorage3D(@NativeType("GLenum") int target, @NativeType("GLsizei") int levels, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth);
 
     // --- [ glDrawTransformFeedbackInstanced ] ---
 
@@ -318,7 +319,7 @@ public class GL42 {
      * @param id        the name of a transform feedback object from which to retrieve a primitive count
      * @param primcount the number of instances of the geometry to render
      */
-    public static native void glDrawTransformFeedbackInstanced(int mode, int id, int primcount);
+    public static native void glDrawTransformFeedbackInstanced(@NativeType("GLenum") int mode, @NativeType("GLuint") int id, @NativeType("GLsizei") int primcount);
 
     // --- [ glDrawTransformFeedbackStreamInstanced ] ---
 
@@ -332,7 +333,7 @@ public class GL42 {
      * @param stream    the index of the transform feedback stream from which to retrieve a primitive count
      * @param primcount the number of instances of the geometry to render
      */
-    public static native void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount);
+    public static native void glDrawTransformFeedbackStreamInstanced(@NativeType("GLenum") int mode, @NativeType("GLuint") int id, @NativeType("GLuint") int stream, @NativeType("GLsizei") int primcount);
 
     // --- [ glDrawArraysInstancedBaseInstance ] ---
 
@@ -347,7 +348,7 @@ public class GL42 {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static native void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
+    public static native void glDrawArraysInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLint") int first, @NativeType("GLsizei") int count, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance);
 
     // --- [ glDrawElementsInstancedBaseInstance ] ---
 
@@ -371,7 +372,7 @@ public class GL42 {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
     }
 
@@ -386,7 +387,7 @@ public class GL42 {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, baseinstance);
     }
 
@@ -400,7 +401,7 @@ public class GL42 {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, ByteBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, baseinstance);
     }
 
@@ -414,7 +415,7 @@ public class GL42 {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, ShortBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, baseinstance);
     }
 
@@ -428,7 +429,7 @@ public class GL42 {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, baseinstance);
     }
 
@@ -455,7 +456,7 @@ public class GL42 {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
     }
 
@@ -471,7 +472,7 @@ public class GL42 {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex, baseinstance);
     }
 
@@ -486,7 +487,7 @@ public class GL42 {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex, baseinstance);
     }
 
@@ -501,7 +502,7 @@ public class GL42 {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ShortBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex, baseinstance);
     }
 
@@ -516,7 +517,7 @@ public class GL42 {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex, baseinstance);
     }
 
@@ -535,7 +536,7 @@ public class GL42 {
      * @param access  a token indicating the type of access that will be performed on the image
      * @param format  the format that the elements of the image will be treated as for the purposes of formatted stores
      */
-    public static native void glBindImageTexture(int unit, int texture, int level, boolean layered, int layer, int access, int format);
+    public static native void glBindImageTexture(@NativeType("GLuint") int unit, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLboolean") boolean layered, @NativeType("GLint") int layer, @NativeType("GLenum") int access, @NativeType("GLenum") int format);
 
     // --- [ glMemoryBarrier ] ---
 
@@ -546,7 +547,7 @@ public class GL42 {
      *
      * @param barriers the barriers to insert (bitwise combination). One or more of:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT VERTEX_ATTRIB_ARRAY_BARRIER_BIT}</td><td>{@link #GL_ELEMENT_ARRAY_BARRIER_BIT ELEMENT_ARRAY_BARRIER_BIT}</td><td>{@link #GL_UNIFORM_BARRIER_BIT UNIFORM_BARRIER_BIT}</td></tr><tr><td>{@link #GL_TEXTURE_FETCH_BARRIER_BIT TEXTURE_FETCH_BARRIER_BIT}</td><td>{@link #GL_SHADER_IMAGE_ACCESS_BARRIER_BIT SHADER_IMAGE_ACCESS_BARRIER_BIT}</td><td>{@link #GL_COMMAND_BARRIER_BIT COMMAND_BARRIER_BIT}</td></tr><tr><td>{@link #GL_PIXEL_BUFFER_BARRIER_BIT PIXEL_BUFFER_BARRIER_BIT}</td><td>{@link #GL_TEXTURE_UPDATE_BARRIER_BIT TEXTURE_UPDATE_BARRIER_BIT}</td><td>{@link #GL_BUFFER_UPDATE_BARRIER_BIT BUFFER_UPDATE_BARRIER_BIT}</td></tr><tr><td>{@link #GL_FRAMEBUFFER_BARRIER_BIT FRAMEBUFFER_BARRIER_BIT}</td><td>{@link #GL_TRANSFORM_FEEDBACK_BARRIER_BIT TRANSFORM_FEEDBACK_BARRIER_BIT}</td><td>{@link #GL_ATOMIC_COUNTER_BARRIER_BIT ATOMIC_COUNTER_BARRIER_BIT}</td></tr><tr><td>{@link #GL_ALL_BARRIER_BITS ALL_BARRIER_BITS}</td><td>{@link GL43#GL_SHADER_STORAGE_BARRIER_BIT SHADER_STORAGE_BARRIER_BIT}</td></tr></table>
      */
-    public static native void glMemoryBarrier(int barriers);
+    public static native void glMemoryBarrier(@NativeType("GLbitfield") int barriers);
 
     // --- [ glGetInternalformativ ] ---
 
@@ -567,7 +568,7 @@ public class GL42 {
      * @param pname          the type of information to query
      * @param params         a variable into which to write the retrieved information
      */
-    public static void glGetInternalformativ(int target, int internalformat, int pname, IntBuffer params) {
+    public static void glGetInternalformativ(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         nglGetInternalformativ(target, internalformat, pname, params.remaining(), memAddress(params));
     }
 
@@ -580,7 +581,8 @@ public class GL42 {
      * @param internalformat the internal format about which to retrieve information
      * @param pname          the type of information to query
      */
-    public static int glGetInternalformati(int target, int internalformat, int pname) {
+    @NativeType("void")
+    public static int glGetInternalformati(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -596,7 +598,7 @@ public class GL42 {
      * 
      * Array version of: {@link #glGetActiveAtomicCounterBufferiv GetActiveAtomicCounterBufferiv}
      */
-    public static void glGetActiveAtomicCounterBufferiv(int program, int bufferIndex, int pname, int[] params) {
+    public static void glGetActiveAtomicCounterBufferiv(@NativeType("GLuint") int program, @NativeType("GLuint") int bufferIndex, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetActiveAtomicCounterBufferiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -610,7 +612,7 @@ public class GL42 {
      * 
      * Array version of: {@link #glGetInternalformativ GetInternalformativ}
      */
-    public static void glGetInternalformativ(int target, int internalformat, int pname, int[] params) {
+    public static void glGetInternalformativ(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetInternalformativ;
         if (CHECKS) {
             check(__functionAddress);

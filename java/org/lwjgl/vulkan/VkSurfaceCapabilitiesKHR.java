@@ -134,8 +134,10 @@ public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code minImageCount} field. */
+    @NativeType("uint32_t")
     public int minImageCount() { return nminImageCount(address()); }
     /** Returns the value of the {@code maxImageCount} field. */
+    @NativeType("uint32_t")
     public int maxImageCount() { return nmaxImageCount(address()); }
     /** Returns a {@link VkExtent2D} view of the {@code currentExtent} field. */
     public VkExtent2D currentExtent() { return ncurrentExtent(address()); }
@@ -144,14 +146,19 @@ public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
     /** Returns a {@link VkExtent2D} view of the {@code maxImageExtent} field. */
     public VkExtent2D maxImageExtent() { return nmaxImageExtent(address()); }
     /** Returns the value of the {@code maxImageArrayLayers} field. */
+    @NativeType("uint32_t")
     public int maxImageArrayLayers() { return nmaxImageArrayLayers(address()); }
     /** Returns the value of the {@code supportedTransforms} field. */
+    @NativeType("VkSurfaceTransformFlagsKHR")
     public int supportedTransforms() { return nsupportedTransforms(address()); }
     /** Returns the value of the {@code currentTransform} field. */
+    @NativeType("VkSurfaceTransformFlagBitsKHR")
     public int currentTransform() { return ncurrentTransform(address()); }
     /** Returns the value of the {@code supportedCompositeAlpha} field. */
+    @NativeType("VkCompositeAlphaFlagsKHR")
     public int supportedCompositeAlpha() { return nsupportedCompositeAlpha(address()); }
     /** Returns the value of the {@code supportedUsageFlags} field. */
+    @NativeType("VkImageUsageFlags")
     public int supportedUsageFlags() { return nsupportedUsageFlags(address()); }
 
     // -----------------------------------
@@ -347,8 +354,10 @@ public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code minImageCount} field. */
+        @NativeType("uint32_t")
         public int minImageCount() { return VkSurfaceCapabilitiesKHR.nminImageCount(address()); }
         /** Returns the value of the {@code maxImageCount} field. */
+        @NativeType("uint32_t")
         public int maxImageCount() { return VkSurfaceCapabilitiesKHR.nmaxImageCount(address()); }
         /** Returns a {@link VkExtent2D} view of the {@code currentExtent} field. */
         public VkExtent2D currentExtent() { return VkSurfaceCapabilitiesKHR.ncurrentExtent(address()); }
@@ -357,14 +366,19 @@ public class VkSurfaceCapabilitiesKHR extends Struct implements NativeResource {
         /** Returns a {@link VkExtent2D} view of the {@code maxImageExtent} field. */
         public VkExtent2D maxImageExtent() { return VkSurfaceCapabilitiesKHR.nmaxImageExtent(address()); }
         /** Returns the value of the {@code maxImageArrayLayers} field. */
+        @NativeType("uint32_t")
         public int maxImageArrayLayers() { return VkSurfaceCapabilitiesKHR.nmaxImageArrayLayers(address()); }
         /** Returns the value of the {@code supportedTransforms} field. */
+        @NativeType("VkSurfaceTransformFlagsKHR")
         public int supportedTransforms() { return VkSurfaceCapabilitiesKHR.nsupportedTransforms(address()); }
         /** Returns the value of the {@code currentTransform} field. */
+        @NativeType("VkSurfaceTransformFlagBitsKHR")
         public int currentTransform() { return VkSurfaceCapabilitiesKHR.ncurrentTransform(address()); }
         /** Returns the value of the {@code supportedCompositeAlpha} field. */
+        @NativeType("VkCompositeAlphaFlagsKHR")
         public int supportedCompositeAlpha() { return VkSurfaceCapabilitiesKHR.nsupportedCompositeAlpha(address()); }
         /** Returns the value of the {@code supportedUsageFlags} field. */
+        @NativeType("VkImageUsageFlags")
         public int supportedUsageFlags() { return VkSurfaceCapabilitiesKHR.nsupportedUsageFlags(address()); }
 
     }

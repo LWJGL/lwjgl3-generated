@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t button;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Mouse_t")
 public class VREventMouse extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -82,6 +83,7 @@ public class VREventMouse extends Struct implements NativeResource {
     /** Returns the value of the {@code y} field. */
     public float y() { return ny(address()); }
     /** Returns the value of the {@code button} field. */
+    @NativeType("uint32_t")
     public int button() { return nbutton(address()); }
 
     /** Sets the specified value to the {@code x} field. */
@@ -89,7 +91,7 @@ public class VREventMouse extends Struct implements NativeResource {
     /** Sets the specified value to the {@code y} field. */
     public VREventMouse y(float value) { ny(address(), value); return this; }
     /** Sets the specified value to the {@code button} field. */
-    public VREventMouse button(int value) { nbutton(address(), value); return this; }
+    public VREventMouse button(@NativeType("uint32_t") int value) { nbutton(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventMouse set(
@@ -306,6 +308,7 @@ public class VREventMouse extends Struct implements NativeResource {
         /** Returns the value of the {@code y} field. */
         public float y() { return VREventMouse.ny(address()); }
         /** Returns the value of the {@code button} field. */
+        @NativeType("uint32_t")
         public int button() { return VREventMouse.nbutton(address()); }
 
         /** Sets the specified value to the {@code x} field. */
@@ -313,7 +316,7 @@ public class VREventMouse extends Struct implements NativeResource {
         /** Sets the specified value to the {@code y} field. */
         public VREventMouse.Buffer y(float value) { VREventMouse.ny(address(), value); return this; }
         /** Sets the specified value to the {@code button} field. */
-        public VREventMouse.Buffer button(int value) { VREventMouse.nbutton(address(), value); return this; }
+        public VREventMouse.Buffer button(@NativeType("uint32_t") int value) { VREventMouse.nbutton(address(), value); return this; }
 
     }
 

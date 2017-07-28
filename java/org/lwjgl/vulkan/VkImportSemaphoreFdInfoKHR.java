@@ -135,28 +135,33 @@ public class VkImportSemaphoreFdInfoKHR extends Struct implements NativeResource
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code semaphore} field. */
+    @NativeType("VkSemaphore")
     public long semaphore() { return nsemaphore(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkSemaphoreImportFlagsKHR")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code handleType} field. */
+    @NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR")
     public int handleType() { return nhandleType(address()); }
     /** Returns the value of the {@code fd} field. */
     public int fd() { return nfd(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkImportSemaphoreFdInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkImportSemaphoreFdInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImportSemaphoreFdInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkImportSemaphoreFdInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code semaphore} field. */
-    public VkImportSemaphoreFdInfoKHR semaphore(long value) { nsemaphore(address(), value); return this; }
+    public VkImportSemaphoreFdInfoKHR semaphore(@NativeType("VkSemaphore") long value) { nsemaphore(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkImportSemaphoreFdInfoKHR flags(int value) { nflags(address(), value); return this; }
+    public VkImportSemaphoreFdInfoKHR flags(@NativeType("VkSemaphoreImportFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkImportSemaphoreFdInfoKHR handleType(int value) { nhandleType(address(), value); return this; }
+    public VkImportSemaphoreFdInfoKHR handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
     /** Sets the specified value to the {@code fd} field. */
     public VkImportSemaphoreFdInfoKHR fd(int value) { nfd(address(), value); return this; }
 
@@ -389,28 +394,33 @@ public class VkImportSemaphoreFdInfoKHR extends Struct implements NativeResource
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkImportSemaphoreFdInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkImportSemaphoreFdInfoKHR.npNext(address()); }
         /** Returns the value of the {@code semaphore} field. */
+        @NativeType("VkSemaphore")
         public long semaphore() { return VkImportSemaphoreFdInfoKHR.nsemaphore(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkSemaphoreImportFlagsKHR")
         public int flags() { return VkImportSemaphoreFdInfoKHR.nflags(address()); }
         /** Returns the value of the {@code handleType} field. */
+        @NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR")
         public int handleType() { return VkImportSemaphoreFdInfoKHR.nhandleType(address()); }
         /** Returns the value of the {@code fd} field. */
         public int fd() { return VkImportSemaphoreFdInfoKHR.nfd(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkImportSemaphoreFdInfoKHR.Buffer sType(int value) { VkImportSemaphoreFdInfoKHR.nsType(address(), value); return this; }
+        public VkImportSemaphoreFdInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImportSemaphoreFdInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImportSemaphoreFdInfoKHR.Buffer pNext(long value) { VkImportSemaphoreFdInfoKHR.npNext(address(), value); return this; }
+        public VkImportSemaphoreFdInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkImportSemaphoreFdInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code semaphore} field. */
-        public VkImportSemaphoreFdInfoKHR.Buffer semaphore(long value) { VkImportSemaphoreFdInfoKHR.nsemaphore(address(), value); return this; }
+        public VkImportSemaphoreFdInfoKHR.Buffer semaphore(@NativeType("VkSemaphore") long value) { VkImportSemaphoreFdInfoKHR.nsemaphore(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkImportSemaphoreFdInfoKHR.Buffer flags(int value) { VkImportSemaphoreFdInfoKHR.nflags(address(), value); return this; }
+        public VkImportSemaphoreFdInfoKHR.Buffer flags(@NativeType("VkSemaphoreImportFlagsKHR") int value) { VkImportSemaphoreFdInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkImportSemaphoreFdInfoKHR.Buffer handleType(int value) { VkImportSemaphoreFdInfoKHR.nhandleType(address(), value); return this; }
+        public VkImportSemaphoreFdInfoKHR.Buffer handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR") int value) { VkImportSemaphoreFdInfoKHR.nhandleType(address(), value); return this; }
         /** Sets the specified value to the {@code fd} field. */
         public VkImportSemaphoreFdInfoKHR.Buffer fd(int value) { VkImportSemaphoreFdInfoKHR.nfd(address(), value); return this; }
 

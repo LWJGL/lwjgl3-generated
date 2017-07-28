@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float y;
  * }</pre></code>
  */
+@NativeType("struct nk_vec2")
 public class NkVec2 extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

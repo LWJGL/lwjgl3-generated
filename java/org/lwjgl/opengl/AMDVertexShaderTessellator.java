@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -97,10 +99,10 @@ public class AMDVertexShaderTessellator {
 
     // --- [ glTessellationFactorAMD ] ---
 
-    public static native void glTessellationFactorAMD(float factor);
+    public static native void glTessellationFactorAMD(@NativeType("GLfloat") float factor);
 
     // --- [ glTessellationModeAMD ] ---
 
-    public static native void glTessellationModeAMD(int mode);
+    public static native void glTessellationModeAMD(@NativeType("GLenum") int mode);
 
 }

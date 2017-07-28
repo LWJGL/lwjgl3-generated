@@ -96,6 +96,7 @@ public class VkRectLayerKHR extends Struct implements NativeResource {
     /** Returns a {@link VkExtent2D} view of the {@code extent} field. */
     public VkExtent2D extent() { return nextent(address()); }
     /** Returns the value of the {@code layer} field. */
+    @NativeType("uint32_t")
     public int layer() { return nlayer(address()); }
 
     /** Copies the specified {@link VkOffset2D} to the {@code offset} field. */
@@ -103,7 +104,7 @@ public class VkRectLayerKHR extends Struct implements NativeResource {
     /** Copies the specified {@link VkExtent2D} to the {@code extent} field. */
     public VkRectLayerKHR extent(VkExtent2D value) { nextent(address(), value); return this; }
     /** Sets the specified value to the {@code layer} field. */
-    public VkRectLayerKHR layer(int value) { nlayer(address(), value); return this; }
+    public VkRectLayerKHR layer(@NativeType("uint32_t") int value) { nlayer(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkRectLayerKHR set(
@@ -320,6 +321,7 @@ public class VkRectLayerKHR extends Struct implements NativeResource {
         /** Returns a {@link VkExtent2D} view of the {@code extent} field. */
         public VkExtent2D extent() { return VkRectLayerKHR.nextent(address()); }
         /** Returns the value of the {@code layer} field. */
+        @NativeType("uint32_t")
         public int layer() { return VkRectLayerKHR.nlayer(address()); }
 
         /** Copies the specified {@link VkOffset2D} to the {@code offset} field. */
@@ -327,7 +329,7 @@ public class VkRectLayerKHR extends Struct implements NativeResource {
         /** Copies the specified {@link VkExtent2D} to the {@code extent} field. */
         public VkRectLayerKHR.Buffer extent(VkExtent2D value) { VkRectLayerKHR.nextent(address(), value); return this; }
         /** Sets the specified value to the {@code layer} field. */
-        public VkRectLayerKHR.Buffer layer(int value) { VkRectLayerKHR.nlayer(address(), value); return this; }
+        public VkRectLayerKHR.Buffer layer(@NativeType("uint32_t") int value) { VkRectLayerKHR.nlayer(address(), value); return this; }
 
     }
 

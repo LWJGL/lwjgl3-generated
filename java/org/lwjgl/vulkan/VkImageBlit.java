@@ -122,12 +122,14 @@ public class VkImageBlit extends Struct implements NativeResource {
     /** Returns a {@link VkImageSubresourceLayers} view of the {@code srcSubresource} field. */
     public VkImageSubresourceLayers srcSubresource() { return nsrcSubresource(address()); }
     /** Returns a {@link VkOffset3D}.Buffer view of the {@code srcOffsets} field. */
+    @NativeType("VkOffset3D[2]")
     public VkOffset3D.Buffer srcOffsets() { return nsrcOffsets(address()); }
     /** Returns a {@link VkOffset3D} view of the struct at the specified index of the {@code srcOffsets} field. */
     public VkOffset3D srcOffsets(int index) { return nsrcOffsets(address(), index); }
     /** Returns a {@link VkImageSubresourceLayers} view of the {@code dstSubresource} field. */
     public VkImageSubresourceLayers dstSubresource() { return ndstSubresource(address()); }
     /** Returns a {@link VkOffset3D}.Buffer view of the {@code dstOffsets} field. */
+    @NativeType("VkOffset3D[2]")
     public VkOffset3D.Buffer dstOffsets() { return ndstOffsets(address()); }
     /** Returns a {@link VkOffset3D} view of the struct at the specified index of the {@code dstOffsets} field. */
     public VkOffset3D dstOffsets(int index) { return ndstOffsets(address(), index); }
@@ -135,13 +137,13 @@ public class VkImageBlit extends Struct implements NativeResource {
     /** Copies the specified {@link VkImageSubresourceLayers} to the {@code srcSubresource} field. */
     public VkImageBlit srcSubresource(VkImageSubresourceLayers value) { nsrcSubresource(address(), value); return this; }
     /** Copies the specified {@link VkOffset3D.Buffer} to the {@code srcOffsets} field. */
-    public VkImageBlit srcOffsets(VkOffset3D.Buffer value) { nsrcOffsets(address(), value); return this; }
+    public VkImageBlit srcOffsets(@NativeType("VkOffset3D[2]") VkOffset3D.Buffer value) { nsrcOffsets(address(), value); return this; }
     /** Copies the specified {@link VkOffset3D} at the specified index of the {@code srcOffsets} field. */
     public VkImageBlit srcOffsets(int index, VkOffset3D value) { nsrcOffsets(address(), index, value); return this; }
     /** Copies the specified {@link VkImageSubresourceLayers} to the {@code dstSubresource} field. */
     public VkImageBlit dstSubresource(VkImageSubresourceLayers value) { ndstSubresource(address(), value); return this; }
     /** Copies the specified {@link VkOffset3D.Buffer} to the {@code dstOffsets} field. */
-    public VkImageBlit dstOffsets(VkOffset3D.Buffer value) { ndstOffsets(address(), value); return this; }
+    public VkImageBlit dstOffsets(@NativeType("VkOffset3D[2]") VkOffset3D.Buffer value) { ndstOffsets(address(), value); return this; }
     /** Copies the specified {@link VkOffset3D} at the specified index of the {@code dstOffsets} field. */
     public VkImageBlit dstOffsets(int index, VkOffset3D value) { ndstOffsets(address(), index, value); return this; }
 
@@ -390,12 +392,14 @@ public class VkImageBlit extends Struct implements NativeResource {
         /** Returns a {@link VkImageSubresourceLayers} view of the {@code srcSubresource} field. */
         public VkImageSubresourceLayers srcSubresource() { return VkImageBlit.nsrcSubresource(address()); }
         /** Returns a {@link VkOffset3D}.Buffer view of the {@code srcOffsets} field. */
+        @NativeType("VkOffset3D[2]")
         public VkOffset3D.Buffer srcOffsets() { return VkImageBlit.nsrcOffsets(address()); }
         /** Returns a {@link VkOffset3D} view of the struct at the specified index of the {@code srcOffsets} field. */
         public VkOffset3D srcOffsets(int index) { return VkImageBlit.nsrcOffsets(address(), index); }
         /** Returns a {@link VkImageSubresourceLayers} view of the {@code dstSubresource} field. */
         public VkImageSubresourceLayers dstSubresource() { return VkImageBlit.ndstSubresource(address()); }
         /** Returns a {@link VkOffset3D}.Buffer view of the {@code dstOffsets} field. */
+        @NativeType("VkOffset3D[2]")
         public VkOffset3D.Buffer dstOffsets() { return VkImageBlit.ndstOffsets(address()); }
         /** Returns a {@link VkOffset3D} view of the struct at the specified index of the {@code dstOffsets} field. */
         public VkOffset3D dstOffsets(int index) { return VkImageBlit.ndstOffsets(address(), index); }
@@ -403,13 +407,13 @@ public class VkImageBlit extends Struct implements NativeResource {
         /** Copies the specified {@link VkImageSubresourceLayers} to the {@code srcSubresource} field. */
         public VkImageBlit.Buffer srcSubresource(VkImageSubresourceLayers value) { VkImageBlit.nsrcSubresource(address(), value); return this; }
         /** Copies the specified {@link VkOffset3D.Buffer} to the {@code srcOffsets} field. */
-        public VkImageBlit.Buffer srcOffsets(VkOffset3D.Buffer value) { VkImageBlit.nsrcOffsets(address(), value); return this; }
+        public VkImageBlit.Buffer srcOffsets(@NativeType("VkOffset3D[2]") VkOffset3D.Buffer value) { VkImageBlit.nsrcOffsets(address(), value); return this; }
         /** Copies the specified {@link VkOffset3D} at the specified index of the {@code srcOffsets} field. */
         public VkImageBlit.Buffer srcOffsets(int index, VkOffset3D value) { VkImageBlit.nsrcOffsets(address(), index, value); return this; }
         /** Copies the specified {@link VkImageSubresourceLayers} to the {@code dstSubresource} field. */
         public VkImageBlit.Buffer dstSubresource(VkImageSubresourceLayers value) { VkImageBlit.ndstSubresource(address(), value); return this; }
         /** Copies the specified {@link VkOffset3D.Buffer} to the {@code dstOffsets} field. */
-        public VkImageBlit.Buffer dstOffsets(VkOffset3D.Buffer value) { VkImageBlit.ndstOffsets(address(), value); return this; }
+        public VkImageBlit.Buffer dstOffsets(@NativeType("VkOffset3D[2]") VkOffset3D.Buffer value) { VkImageBlit.ndstOffsets(address(), value); return this; }
         /** Copies the specified {@link VkOffset3D} at the specified index of the {@code dstOffsets} field. */
         public VkImageBlit.Buffer dstOffsets(int index, VkOffset3D value) { VkImageBlit.ndstOffsets(address(), index, value); return this; }
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -52,7 +54,8 @@ public class NVStreamReset {
 
     // --- [ eglResetStreamNV ] ---
 
-    public static boolean eglResetStreamNV(long dpy, long stream) {
+    @NativeType("EGLBoolean")
+    public static boolean eglResetStreamNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream) {
         long __functionAddress = EGL.getCapabilities().eglResetStreamNV;
         if (CHECKS) {
             check(__functionAddress);

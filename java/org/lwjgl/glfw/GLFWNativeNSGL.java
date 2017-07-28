@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -44,7 +46,8 @@ public class GLFWNativeNSGL {
      *
      * @since version 3.0
      */
-    public static long glfwGetNSGLContext(long window) {
+    @NativeType("id")
+    public static long glfwGetNSGLContext(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetNSGLContext;
         if (CHECKS) {
             check(window);

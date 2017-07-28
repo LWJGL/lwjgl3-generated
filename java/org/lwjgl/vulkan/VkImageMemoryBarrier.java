@@ -173,44 +173,53 @@ public class VkImageMemoryBarrier extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code srcAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int srcAccessMask() { return nsrcAccessMask(address()); }
     /** Returns the value of the {@code dstAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int dstAccessMask() { return ndstAccessMask(address()); }
     /** Returns the value of the {@code oldLayout} field. */
+    @NativeType("VkImageLayout")
     public int oldLayout() { return noldLayout(address()); }
     /** Returns the value of the {@code newLayout} field. */
+    @NativeType("VkImageLayout")
     public int newLayout() { return nnewLayout(address()); }
     /** Returns the value of the {@code srcQueueFamilyIndex} field. */
+    @NativeType("uint32_t")
     public int srcQueueFamilyIndex() { return nsrcQueueFamilyIndex(address()); }
     /** Returns the value of the {@code dstQueueFamilyIndex} field. */
+    @NativeType("uint32_t")
     public int dstQueueFamilyIndex() { return ndstQueueFamilyIndex(address()); }
     /** Returns the value of the {@code image} field. */
+    @NativeType("VkImage")
     public long image() { return nimage(address()); }
     /** Returns a {@link VkImageSubresourceRange} view of the {@code subresourceRange} field. */
     public VkImageSubresourceRange subresourceRange() { return nsubresourceRange(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkImageMemoryBarrier sType(int value) { nsType(address(), value); return this; }
+    public VkImageMemoryBarrier sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageMemoryBarrier pNext(long value) { npNext(address(), value); return this; }
+    public VkImageMemoryBarrier pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code srcAccessMask} field. */
-    public VkImageMemoryBarrier srcAccessMask(int value) { nsrcAccessMask(address(), value); return this; }
+    public VkImageMemoryBarrier srcAccessMask(@NativeType("VkAccessFlags") int value) { nsrcAccessMask(address(), value); return this; }
     /** Sets the specified value to the {@code dstAccessMask} field. */
-    public VkImageMemoryBarrier dstAccessMask(int value) { ndstAccessMask(address(), value); return this; }
+    public VkImageMemoryBarrier dstAccessMask(@NativeType("VkAccessFlags") int value) { ndstAccessMask(address(), value); return this; }
     /** Sets the specified value to the {@code oldLayout} field. */
-    public VkImageMemoryBarrier oldLayout(int value) { noldLayout(address(), value); return this; }
+    public VkImageMemoryBarrier oldLayout(@NativeType("VkImageLayout") int value) { noldLayout(address(), value); return this; }
     /** Sets the specified value to the {@code newLayout} field. */
-    public VkImageMemoryBarrier newLayout(int value) { nnewLayout(address(), value); return this; }
+    public VkImageMemoryBarrier newLayout(@NativeType("VkImageLayout") int value) { nnewLayout(address(), value); return this; }
     /** Sets the specified value to the {@code srcQueueFamilyIndex} field. */
-    public VkImageMemoryBarrier srcQueueFamilyIndex(int value) { nsrcQueueFamilyIndex(address(), value); return this; }
+    public VkImageMemoryBarrier srcQueueFamilyIndex(@NativeType("uint32_t") int value) { nsrcQueueFamilyIndex(address(), value); return this; }
     /** Sets the specified value to the {@code dstQueueFamilyIndex} field. */
-    public VkImageMemoryBarrier dstQueueFamilyIndex(int value) { ndstQueueFamilyIndex(address(), value); return this; }
+    public VkImageMemoryBarrier dstQueueFamilyIndex(@NativeType("uint32_t") int value) { ndstQueueFamilyIndex(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
-    public VkImageMemoryBarrier image(long value) { nimage(address(), value); return this; }
+    public VkImageMemoryBarrier image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
     /** Copies the specified {@link VkImageSubresourceRange} to the {@code subresourceRange} field. */
     public VkImageMemoryBarrier subresourceRange(VkImageSubresourceRange value) { nsubresourceRange(address(), value); return this; }
 
@@ -467,44 +476,53 @@ public class VkImageMemoryBarrier extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkImageMemoryBarrier.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkImageMemoryBarrier.npNext(address()); }
         /** Returns the value of the {@code srcAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int srcAccessMask() { return VkImageMemoryBarrier.nsrcAccessMask(address()); }
         /** Returns the value of the {@code dstAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int dstAccessMask() { return VkImageMemoryBarrier.ndstAccessMask(address()); }
         /** Returns the value of the {@code oldLayout} field. */
+        @NativeType("VkImageLayout")
         public int oldLayout() { return VkImageMemoryBarrier.noldLayout(address()); }
         /** Returns the value of the {@code newLayout} field. */
+        @NativeType("VkImageLayout")
         public int newLayout() { return VkImageMemoryBarrier.nnewLayout(address()); }
         /** Returns the value of the {@code srcQueueFamilyIndex} field. */
+        @NativeType("uint32_t")
         public int srcQueueFamilyIndex() { return VkImageMemoryBarrier.nsrcQueueFamilyIndex(address()); }
         /** Returns the value of the {@code dstQueueFamilyIndex} field. */
+        @NativeType("uint32_t")
         public int dstQueueFamilyIndex() { return VkImageMemoryBarrier.ndstQueueFamilyIndex(address()); }
         /** Returns the value of the {@code image} field. */
+        @NativeType("VkImage")
         public long image() { return VkImageMemoryBarrier.nimage(address()); }
         /** Returns a {@link VkImageSubresourceRange} view of the {@code subresourceRange} field. */
         public VkImageSubresourceRange subresourceRange() { return VkImageMemoryBarrier.nsubresourceRange(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkImageMemoryBarrier.Buffer sType(int value) { VkImageMemoryBarrier.nsType(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer sType(@NativeType("VkStructureType") int value) { VkImageMemoryBarrier.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageMemoryBarrier.Buffer pNext(long value) { VkImageMemoryBarrier.npNext(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer pNext(@NativeType("const void *") long value) { VkImageMemoryBarrier.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code srcAccessMask} field. */
-        public VkImageMemoryBarrier.Buffer srcAccessMask(int value) { VkImageMemoryBarrier.nsrcAccessMask(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer srcAccessMask(@NativeType("VkAccessFlags") int value) { VkImageMemoryBarrier.nsrcAccessMask(address(), value); return this; }
         /** Sets the specified value to the {@code dstAccessMask} field. */
-        public VkImageMemoryBarrier.Buffer dstAccessMask(int value) { VkImageMemoryBarrier.ndstAccessMask(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer dstAccessMask(@NativeType("VkAccessFlags") int value) { VkImageMemoryBarrier.ndstAccessMask(address(), value); return this; }
         /** Sets the specified value to the {@code oldLayout} field. */
-        public VkImageMemoryBarrier.Buffer oldLayout(int value) { VkImageMemoryBarrier.noldLayout(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer oldLayout(@NativeType("VkImageLayout") int value) { VkImageMemoryBarrier.noldLayout(address(), value); return this; }
         /** Sets the specified value to the {@code newLayout} field. */
-        public VkImageMemoryBarrier.Buffer newLayout(int value) { VkImageMemoryBarrier.nnewLayout(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer newLayout(@NativeType("VkImageLayout") int value) { VkImageMemoryBarrier.nnewLayout(address(), value); return this; }
         /** Sets the specified value to the {@code srcQueueFamilyIndex} field. */
-        public VkImageMemoryBarrier.Buffer srcQueueFamilyIndex(int value) { VkImageMemoryBarrier.nsrcQueueFamilyIndex(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer srcQueueFamilyIndex(@NativeType("uint32_t") int value) { VkImageMemoryBarrier.nsrcQueueFamilyIndex(address(), value); return this; }
         /** Sets the specified value to the {@code dstQueueFamilyIndex} field. */
-        public VkImageMemoryBarrier.Buffer dstQueueFamilyIndex(int value) { VkImageMemoryBarrier.ndstQueueFamilyIndex(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer dstQueueFamilyIndex(@NativeType("uint32_t") int value) { VkImageMemoryBarrier.ndstQueueFamilyIndex(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
-        public VkImageMemoryBarrier.Buffer image(long value) { VkImageMemoryBarrier.nimage(address(), value); return this; }
+        public VkImageMemoryBarrier.Buffer image(@NativeType("VkImage") long value) { VkImageMemoryBarrier.nimage(address(), value); return this; }
         /** Copies the specified {@link VkImageSubresourceRange} to the {@code subresourceRange} field. */
         public VkImageMemoryBarrier.Buffer subresourceRange(VkImageSubresourceRange value) { VkImageMemoryBarrier.nsubresourceRange(address(), value); return this; }
 

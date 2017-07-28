@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("aiFileTellProc")
 public interface AIFileTellProcI extends CallbackI.P {
 
     String SIGNATURE = "(p)p";
@@ -30,6 +31,6 @@ public interface AIFileTellProcI extends CallbackI.P {
      *
      * @param pFile File pointer to find ftell() on
      */
-    long invoke(long pFile);
+    @NativeType("size_t") long invoke(@NativeType("struct aiFile *") long pFile);
 
 }

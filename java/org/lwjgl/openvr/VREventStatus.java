@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t statusState;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Status_t")
 public class VREventStatus extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -63,10 +64,11 @@ public class VREventStatus extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code statusState} field. */
+    @NativeType("uint32_t")
     public int statusState() { return nstatusState(address()); }
 
     /** Sets the specified value to the {@code statusState} field. */
-    public VREventStatus statusState(int value) { nstatusState(address(), value); return this; }
+    public VREventStatus statusState(@NativeType("uint32_t") int value) { nstatusState(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -258,10 +260,11 @@ public class VREventStatus extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code statusState} field. */
+        @NativeType("uint32_t")
         public int statusState() { return VREventStatus.nstatusState(address()); }
 
         /** Sets the specified value to the {@code statusState} field. */
-        public VREventStatus.Buffer statusState(int value) { VREventStatus.nstatusState(address(), value); return this; }
+        public VREventStatus.Buffer statusState(@NativeType("uint32_t") int value) { VREventStatus.nstatusState(address(), value); return this; }
 
     }
 

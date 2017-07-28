@@ -147,36 +147,44 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code fence} field. */
+    @NativeType("VkFence")
     public long fence() { return nfence(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkFenceImportFlagsKHR")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code handleType} field. */
+    @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
     public int handleType() { return nhandleType(address()); }
     /** Returns the value of the {@code handle} field. */
+    @NativeType("HANDLE")
     public long handle() { return nhandle(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("LPCWSTR")
     public ByteBuffer name() { return nname(address()); }
     /** Decodes the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("LPCWSTR")
     public String nameString() { return nnameString(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkImportFenceWin32HandleInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImportFenceWin32HandleInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code fence} field. */
-    public VkImportFenceWin32HandleInfoKHR fence(long value) { nfence(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkImportFenceWin32HandleInfoKHR flags(int value) { nflags(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR flags(@NativeType("VkFenceImportFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkImportFenceWin32HandleInfoKHR handleType(int value) { nhandleType(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
     /** Sets the specified value to the {@code handle} field. */
-    public VkImportFenceWin32HandleInfoKHR handle(long value) { nhandle(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR handle(@NativeType("HANDLE") long value) { nhandle(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code name} field. */
-    public VkImportFenceWin32HandleInfoKHR name(ByteBuffer value) { nname(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR name(@NativeType("LPCWSTR") ByteBuffer value) { nname(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkImportFenceWin32HandleInfoKHR set(
@@ -440,36 +448,44 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkImportFenceWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkImportFenceWin32HandleInfoKHR.npNext(address()); }
         /** Returns the value of the {@code fence} field. */
+        @NativeType("VkFence")
         public long fence() { return VkImportFenceWin32HandleInfoKHR.nfence(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkFenceImportFlagsKHR")
         public int flags() { return VkImportFenceWin32HandleInfoKHR.nflags(address()); }
         /** Returns the value of the {@code handleType} field. */
+        @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
         public int handleType() { return VkImportFenceWin32HandleInfoKHR.nhandleType(address()); }
         /** Returns the value of the {@code handle} field. */
+        @NativeType("HANDLE")
         public long handle() { return VkImportFenceWin32HandleInfoKHR.nhandle(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("LPCWSTR")
         public ByteBuffer name() { return VkImportFenceWin32HandleInfoKHR.nname(address()); }
         /** Decodes the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("LPCWSTR")
         public String nameString() { return VkImportFenceWin32HandleInfoKHR.nnameString(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer sType(int value) { VkImportFenceWin32HandleInfoKHR.nsType(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImportFenceWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer pNext(long value) { VkImportFenceWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkImportFenceWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code fence} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer fence(long value) { VkImportFenceWin32HandleInfoKHR.nfence(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer fence(@NativeType("VkFence") long value) { VkImportFenceWin32HandleInfoKHR.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer flags(int value) { VkImportFenceWin32HandleInfoKHR.nflags(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer flags(@NativeType("VkFenceImportFlagsKHR") int value) { VkImportFenceWin32HandleInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer handleType(int value) { VkImportFenceWin32HandleInfoKHR.nhandleType(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { VkImportFenceWin32HandleInfoKHR.nhandleType(address(), value); return this; }
         /** Sets the specified value to the {@code handle} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer handle(long value) { VkImportFenceWin32HandleInfoKHR.nhandle(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer handle(@NativeType("HANDLE") long value) { VkImportFenceWin32HandleInfoKHR.nhandle(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code name} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer name(ByteBuffer value) { VkImportFenceWin32HandleInfoKHR.nname(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer name(@NativeType("LPCWSTR") ByteBuffer value) { VkImportFenceWin32HandleInfoKHR.nname(address(), value); return this; }
 
     }
 

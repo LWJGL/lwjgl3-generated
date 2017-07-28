@@ -93,16 +93,18 @@ public class VkPhysicalDeviceFeatures2KHR extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkPhysicalDeviceFeatures} view of the {@code features} field. */
     public VkPhysicalDeviceFeatures features() { return nfeatures(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPhysicalDeviceFeatures2KHR sType(int value) { nsType(address(), value); return this; }
+    public VkPhysicalDeviceFeatures2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceFeatures2KHR pNext(long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceFeatures2KHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
     /** Copies the specified {@link VkPhysicalDeviceFeatures} to the {@code features} field. */
     public VkPhysicalDeviceFeatures2KHR features(VkPhysicalDeviceFeatures value) { nfeatures(address(), value); return this; }
 
@@ -317,16 +319,18 @@ public class VkPhysicalDeviceFeatures2KHR extends Struct implements NativeResour
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceFeatures2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceFeatures2KHR.npNext(address()); }
         /** Returns a {@link VkPhysicalDeviceFeatures} view of the {@code features} field. */
         public VkPhysicalDeviceFeatures features() { return VkPhysicalDeviceFeatures2KHR.nfeatures(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPhysicalDeviceFeatures2KHR.Buffer sType(int value) { VkPhysicalDeviceFeatures2KHR.nsType(address(), value); return this; }
+        public VkPhysicalDeviceFeatures2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceFeatures2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceFeatures2KHR.Buffer pNext(long value) { VkPhysicalDeviceFeatures2KHR.npNext(address(), value); return this; }
+        public VkPhysicalDeviceFeatures2KHR.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceFeatures2KHR.npNext(address(), value); return this; }
         /** Copies the specified {@link VkPhysicalDeviceFeatures} to the {@code features} field. */
         public VkPhysicalDeviceFeatures2KHR.Buffer features(VkPhysicalDeviceFeatures value) { VkPhysicalDeviceFeatures2KHR.nfeatures(address(), value); return this; }
 

@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -41,18 +43,18 @@ public class EXTMultiDrawIndirect {
 
     public static native void nglMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride);
 
-    public static void glMultiDrawArraysIndirectEXT(int mode, ByteBuffer indirect, int drawcount, int stride) {
+    public static void glMultiDrawArraysIndirectEXT(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, drawcount * (stride == 0 ? (4 * 4) : stride));
         }
         nglMultiDrawArraysIndirectEXT(mode, memAddress(indirect), drawcount, stride);
     }
 
-    public static void glMultiDrawArraysIndirectEXT(int mode, long indirect, int drawcount, int stride) {
+    public static void glMultiDrawArraysIndirectEXT(@NativeType("GLenum") int mode, @NativeType("const void *") long indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawArraysIndirectEXT(mode, indirect, drawcount, stride);
     }
 
-    public static void glMultiDrawArraysIndirectEXT(int mode, IntBuffer indirect, int drawcount, int stride) {
+    public static void glMultiDrawArraysIndirectEXT(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (drawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
         }
@@ -63,18 +65,18 @@ public class EXTMultiDrawIndirect {
 
     public static native void nglMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride);
 
-    public static void glMultiDrawElementsIndirectEXT(int mode, int type, ByteBuffer indirect, int drawcount, int stride) {
+    public static void glMultiDrawElementsIndirectEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, drawcount * (stride == 0 ? (5 * 4) : stride));
         }
         nglMultiDrawElementsIndirectEXT(mode, type, memAddress(indirect), drawcount, stride);
     }
 
-    public static void glMultiDrawElementsIndirectEXT(int mode, int type, long indirect, int drawcount, int stride) {
+    public static void glMultiDrawElementsIndirectEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") long indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawElementsIndirectEXT(mode, type, indirect, drawcount, stride);
     }
 
-    public static void glMultiDrawElementsIndirectEXT(int mode, int type, IntBuffer indirect, int drawcount, int stride) {
+    public static void glMultiDrawElementsIndirectEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (drawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
         }
@@ -82,7 +84,7 @@ public class EXTMultiDrawIndirect {
     }
 
     /** Array version of: {@link #glMultiDrawArraysIndirectEXT MultiDrawArraysIndirectEXT} */
-    public static void glMultiDrawArraysIndirectEXT(int mode, int[] indirect, int drawcount, int stride) {
+    public static void glMultiDrawArraysIndirectEXT(@NativeType("GLenum") int mode, @NativeType("const void *") int[] indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GLES.getICD().glMultiDrawArraysIndirectEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -92,7 +94,7 @@ public class EXTMultiDrawIndirect {
     }
 
     /** Array version of: {@link #glMultiDrawElementsIndirectEXT MultiDrawElementsIndirectEXT} */
-    public static void glMultiDrawElementsIndirectEXT(int mode, int type, int[] indirect, int drawcount, int stride) {
+    public static void glMultiDrawElementsIndirectEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") int[] indirect, @NativeType("GLsizei") int drawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GLES.getICD().glMultiDrawElementsIndirectEXT;
         if (CHECKS) {
             check(__functionAddress);

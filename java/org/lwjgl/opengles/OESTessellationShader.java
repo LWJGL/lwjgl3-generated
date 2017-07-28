@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -141,6 +143,6 @@ public class OESTessellationShader {
 
     // --- [ glPatchParameteriOES ] ---
 
-    public static native void glPatchParameteriOES(int pname, int value);
+    public static native void glPatchParameteriOES(@NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
 }

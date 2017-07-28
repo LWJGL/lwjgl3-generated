@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -60,7 +62,8 @@ public class EXTCompositor {
         return callPI(__functionAddress, external_ref_ids, num_entries);
     }
 
-    public static boolean eglCompositorSetContextListEXT(IntBuffer external_ref_ids) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetContextListEXT(@NativeType("const EGLint *") IntBuffer external_ref_ids) {
         return neglCompositorSetContextListEXT(memAddress(external_ref_ids), external_ref_ids.remaining()) != 0;
     }
 
@@ -74,7 +77,8 @@ public class EXTCompositor {
         return callPI(__functionAddress, external_ref_id, context_attributes, num_entries);
     }
 
-    public static boolean eglCompositorSetContextAttributesEXT(int external_ref_id, IntBuffer context_attributes) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetContextAttributesEXT(@NativeType("EGLint") int external_ref_id, @NativeType("const EGLint *") IntBuffer context_attributes) {
         return neglCompositorSetContextAttributesEXT(external_ref_id, memAddress(context_attributes), context_attributes.remaining()) != 0;
     }
 
@@ -88,7 +92,8 @@ public class EXTCompositor {
         return callPI(__functionAddress, external_ref_id, external_win_ids, num_entries);
     }
 
-    public static boolean eglCompositorSetWindowListEXT(int external_ref_id, IntBuffer external_win_ids) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetWindowListEXT(@NativeType("EGLint") int external_ref_id, @NativeType("const EGLint *") IntBuffer external_win_ids) {
         return neglCompositorSetWindowListEXT(external_ref_id, memAddress(external_win_ids), external_win_ids.remaining()) != 0;
     }
 
@@ -102,13 +107,15 @@ public class EXTCompositor {
         return callPI(__functionAddress, external_win_id, window_attributes, num_entries);
     }
 
-    public static boolean eglCompositorSetWindowAttributesEXT(int external_win_id, IntBuffer window_attributes) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetWindowAttributesEXT(@NativeType("EGLint") int external_win_id, @NativeType("const EGLint *") IntBuffer window_attributes) {
         return neglCompositorSetWindowAttributesEXT(external_win_id, memAddress(window_attributes), window_attributes.remaining()) != 0;
     }
 
     // --- [ eglCompositorBindTexWindowEXT ] ---
 
-    public static boolean eglCompositorBindTexWindowEXT(int external_win_id) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorBindTexWindowEXT(@NativeType("EGLint") int external_win_id) {
         long __functionAddress = EGL.getCapabilities().eglCompositorBindTexWindowEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -118,7 +125,8 @@ public class EXTCompositor {
 
     // --- [ eglCompositorSetSizeEXT ] ---
 
-    public static boolean eglCompositorSetSizeEXT(int external_win_id, int width, int height) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetSizeEXT(@NativeType("EGLint") int external_win_id, @NativeType("EGLint") int width, @NativeType("EGLint") int height) {
         long __functionAddress = EGL.getCapabilities().eglCompositorSetSizeEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -128,7 +136,8 @@ public class EXTCompositor {
 
     // --- [ eglCompositorSwapPolicyEXT ] ---
 
-    public static boolean eglCompositorSwapPolicyEXT(int external_win_id, int policy) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSwapPolicyEXT(@NativeType("EGLint") int external_win_id, @NativeType("EGLint") int policy) {
         long __functionAddress = EGL.getCapabilities().eglCompositorSwapPolicyEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -137,7 +146,8 @@ public class EXTCompositor {
     }
 
     /** Array version of: {@link #eglCompositorSetContextListEXT CompositorSetContextListEXT} */
-    public static boolean eglCompositorSetContextListEXT(int[] external_ref_ids) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetContextListEXT(@NativeType("const EGLint *") int[] external_ref_ids) {
         long __functionAddress = EGL.getCapabilities().eglCompositorSetContextListEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -146,7 +156,8 @@ public class EXTCompositor {
     }
 
     /** Array version of: {@link #eglCompositorSetContextAttributesEXT CompositorSetContextAttributesEXT} */
-    public static boolean eglCompositorSetContextAttributesEXT(int external_ref_id, int[] context_attributes) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetContextAttributesEXT(@NativeType("EGLint") int external_ref_id, @NativeType("const EGLint *") int[] context_attributes) {
         long __functionAddress = EGL.getCapabilities().eglCompositorSetContextAttributesEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -155,7 +166,8 @@ public class EXTCompositor {
     }
 
     /** Array version of: {@link #eglCompositorSetWindowListEXT CompositorSetWindowListEXT} */
-    public static boolean eglCompositorSetWindowListEXT(int external_ref_id, int[] external_win_ids) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetWindowListEXT(@NativeType("EGLint") int external_ref_id, @NativeType("const EGLint *") int[] external_win_ids) {
         long __functionAddress = EGL.getCapabilities().eglCompositorSetWindowListEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -164,7 +176,8 @@ public class EXTCompositor {
     }
 
     /** Array version of: {@link #eglCompositorSetWindowAttributesEXT CompositorSetWindowAttributesEXT} */
-    public static boolean eglCompositorSetWindowAttributesEXT(int external_win_id, int[] window_attributes) {
+    @NativeType("EGLBoolean")
+    public static boolean eglCompositorSetWindowAttributesEXT(@NativeType("EGLint") int external_win_id, @NativeType("const EGLint *") int[] window_attributes) {
         long __functionAddress = EGL.getCapabilities().eglCompositorSetWindowAttributesEXT;
         if (CHECKS) {
             check(__functionAddress);

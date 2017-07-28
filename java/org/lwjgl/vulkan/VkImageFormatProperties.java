@@ -112,12 +112,16 @@ public class VkImageFormatProperties extends Struct implements NativeResource {
     /** Returns a {@link VkExtent3D} view of the {@code maxExtent} field. */
     public VkExtent3D maxExtent() { return nmaxExtent(address()); }
     /** Returns the value of the {@code maxMipLevels} field. */
+    @NativeType("uint32_t")
     public int maxMipLevels() { return nmaxMipLevels(address()); }
     /** Returns the value of the {@code maxArrayLayers} field. */
+    @NativeType("uint32_t")
     public int maxArrayLayers() { return nmaxArrayLayers(address()); }
     /** Returns the value of the {@code sampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int sampleCounts() { return nsampleCounts(address()); }
     /** Returns the value of the {@code maxResourceSize} field. */
+    @NativeType("VkDeviceSize")
     public long maxResourceSize() { return nmaxResourceSize(address()); }
 
     // -----------------------------------
@@ -305,12 +309,16 @@ public class VkImageFormatProperties extends Struct implements NativeResource {
         /** Returns a {@link VkExtent3D} view of the {@code maxExtent} field. */
         public VkExtent3D maxExtent() { return VkImageFormatProperties.nmaxExtent(address()); }
         /** Returns the value of the {@code maxMipLevels} field. */
+        @NativeType("uint32_t")
         public int maxMipLevels() { return VkImageFormatProperties.nmaxMipLevels(address()); }
         /** Returns the value of the {@code maxArrayLayers} field. */
+        @NativeType("uint32_t")
         public int maxArrayLayers() { return VkImageFormatProperties.nmaxArrayLayers(address()); }
         /** Returns the value of the {@code sampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int sampleCounts() { return VkImageFormatProperties.nsampleCounts(address()); }
         /** Returns the value of the {@code maxResourceSize} field. */
+        @NativeType("VkDeviceSize")
         public long maxResourceSize() { return VkImageFormatProperties.nmaxResourceSize(address()); }
 
     }

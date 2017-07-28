@@ -83,7 +83,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to modify
      * @param value  the parameter value
      */
-    public static void alSourcedSOFT(int source, int param, double value) {
+    @NativeType("ALvoid")
+    public static void alSourcedSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble") double value) {
         long __functionAddress = AL.getICD().alSourcedSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -102,7 +103,8 @@ public class SOFTSourceLatency {
      * @param value2 the second value
      * @param value3 the third value
      */
-    public static void alSource3dSOFT(int source, int param, double value1, double value2, double value3) {
+    @NativeType("ALvoid")
+    public static void alSource3dSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble") double value1, @NativeType("ALdouble") double value2, @NativeType("ALdouble") double value3) {
         long __functionAddress = AL.getICD().alSource3dSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -128,7 +130,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to modify
      * @param value  the parameter values
      */
-    public static void alSourcedvSOFT(int source, int param, DoubleBuffer value) {
+    @NativeType("ALvoid")
+    public static void alSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALdouble *") DoubleBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -153,7 +156,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to query
      * @param value  the parameter values
      */
-    public static void alGetSourcedSOFT(int source, int param, DoubleBuffer value) {
+    @NativeType("ALvoid")
+    public static void alGetSourcedSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble *") DoubleBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -166,7 +170,8 @@ public class SOFTSourceLatency {
      * @param source the source to query
      * @param param  the parameter to query
      */
-    public static double alGetSourcedSOFT(int source, int param) {
+    @NativeType("ALvoid")
+    public static double alGetSourcedSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             DoubleBuffer value = stack.callocDouble(1);
@@ -197,7 +202,8 @@ public class SOFTSourceLatency {
      * @param value2 the second value
      * @param value3 the third value
      */
-    public static void alGetSource3dSOFT(int source, int param, DoubleBuffer value1, DoubleBuffer value2, DoubleBuffer value3) {
+    @NativeType("ALvoid")
+    public static void alGetSource3dSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble *") DoubleBuffer value1, @NativeType("ALdouble *") DoubleBuffer value2, @NativeType("ALdouble *") DoubleBuffer value3) {
         if (CHECKS) {
             check(value1, 1);
             check(value2, 1);
@@ -224,7 +230,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to query
      * @param values the parameter values
      */
-    public static void alGetSourcedvSOFT(int source, int param, DoubleBuffer values) {
+    @NativeType("ALvoid")
+    public static void alGetSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble *") DoubleBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -240,7 +247,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to modify
      * @param value  the parameter values
      */
-    public static void alSourcei64SOFT(int source, int param, long value) {
+    @NativeType("ALvoid")
+    public static void alSourcei64SOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT") long value) {
         long __functionAddress = AL.getICD().alSourcei64SOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -259,7 +267,8 @@ public class SOFTSourceLatency {
      * @param value2 the second value
      * @param value3 the third value
      */
-    public static void alSource3i64SOFT(int source, int param, long value1, long value2, long value3) {
+    @NativeType("ALvoid")
+    public static void alSource3i64SOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT") long value1, @NativeType("ALint64SOFT") long value2, @NativeType("ALint64SOFT") long value3) {
         long __functionAddress = AL.getICD().alSource3i64SOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -285,7 +294,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to modify
      * @param values the parameter values
      */
-    public static void alSourcei64vSOFT(int source, int param, LongBuffer values) {
+    @NativeType("ALvoid")
+    public static void alSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALint64SOFT *") LongBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -310,7 +320,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to query
      * @param value  the parameter values
      */
-    public static void alGetSourcei64SOFT(int source, int param, LongBuffer value) {
+    @NativeType("ALvoid")
+    public static void alGetSourcei64SOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT *") LongBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -323,7 +334,8 @@ public class SOFTSourceLatency {
      * @param source the source to query
      * @param param  the parameter to query
      */
-    public static long alGetSourcei64SOFT(int source, int param) {
+    @NativeType("ALvoid")
+    public static long alGetSourcei64SOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer value = stack.callocLong(1);
@@ -354,7 +366,8 @@ public class SOFTSourceLatency {
      * @param value2 the second value
      * @param value3 the third value
      */
-    public static void alGetSource3i64SOFT(int source, int param, LongBuffer value1, LongBuffer value2, LongBuffer value3) {
+    @NativeType("ALvoid")
+    public static void alGetSource3i64SOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT *") LongBuffer value1, @NativeType("ALint64SOFT *") LongBuffer value2, @NativeType("ALint64SOFT *") LongBuffer value3) {
         if (CHECKS) {
             check(value1, 1);
             check(value2, 1);
@@ -381,7 +394,8 @@ public class SOFTSourceLatency {
      * @param param  the parameter to query
      * @param values the parameter values
      */
-    public static void alGetSourcei64vSOFT(int source, int param, LongBuffer values) {
+    @NativeType("ALvoid")
+    public static void alGetSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT *") LongBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -389,7 +403,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alSourcedvSOFT SourcedvSOFT} */
-    public static void alSourcedvSOFT(int source, int param, double[] value) {
+    @NativeType("ALvoid")
+    public static void alSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALdouble *") double[] value) {
         long __functionAddress = AL.getICD().alSourcedvSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -399,7 +414,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alGetSourcedSOFT GetSourcedSOFT} */
-    public static void alGetSourcedSOFT(int source, int param, double[] value) {
+    @NativeType("ALvoid")
+    public static void alGetSourcedSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble *") double[] value) {
         long __functionAddress = AL.getICD().alGetSourcedSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -409,7 +425,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alGetSource3dSOFT GetSource3dSOFT} */
-    public static void alGetSource3dSOFT(int source, int param, double[] value1, double[] value2, double[] value3) {
+    @NativeType("ALvoid")
+    public static void alGetSource3dSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble *") double[] value1, @NativeType("ALdouble *") double[] value2, @NativeType("ALdouble *") double[] value3) {
         long __functionAddress = AL.getICD().alGetSource3dSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -421,7 +438,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alGetSourcedvSOFT GetSourcedvSOFT} */
-    public static void alGetSourcedvSOFT(int source, int param, double[] values) {
+    @NativeType("ALvoid")
+    public static void alGetSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble *") double[] values) {
         long __functionAddress = AL.getICD().alGetSourcedvSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -431,7 +449,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alSourcei64vSOFT Sourcei64vSOFT} */
-    public static void alSourcei64vSOFT(int source, int param, long[] values) {
+    @NativeType("ALvoid")
+    public static void alSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALint64SOFT *") long[] values) {
         long __functionAddress = AL.getICD().alSourcei64vSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -441,7 +460,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alGetSourcei64SOFT GetSourcei64SOFT} */
-    public static void alGetSourcei64SOFT(int source, int param, long[] value) {
+    @NativeType("ALvoid")
+    public static void alGetSourcei64SOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT *") long[] value) {
         long __functionAddress = AL.getICD().alGetSourcei64SOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -451,7 +471,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alGetSource3i64SOFT GetSource3i64SOFT} */
-    public static void alGetSource3i64SOFT(int source, int param, long[] value1, long[] value2, long[] value3) {
+    @NativeType("ALvoid")
+    public static void alGetSource3i64SOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT *") long[] value1, @NativeType("ALint64SOFT *") long[] value2, @NativeType("ALint64SOFT *") long[] value3) {
         long __functionAddress = AL.getICD().alGetSource3i64SOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -463,7 +484,8 @@ public class SOFTSourceLatency {
     }
 
     /** Array version of: {@link #alGetSourcei64vSOFT GetSourcei64vSOFT} */
-    public static void alGetSourcei64vSOFT(int source, int param, long[] values) {
+    @NativeType("ALvoid")
+    public static void alGetSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT *") long[] values) {
         long __functionAddress = AL.getICD().alGetSourcei64vSOFT;
         if (CHECKS) {
             check(__functionAddress);

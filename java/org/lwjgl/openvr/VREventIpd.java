@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float ipdMeters;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Ipd_t")
 public class VREventIpd extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

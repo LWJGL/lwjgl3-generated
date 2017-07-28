@@ -67,12 +67,13 @@ public class YGValue extends Struct implements NativeResource {
     /** Returns the value of the {@code value} field. */
     public float value() { return nvalue(address()); }
     /** Returns the value of the {@code unit} field. */
+    @NativeType("YGUnit")
     public int unit() { return nunit(address()); }
 
     /** Sets the specified value to the {@code value} field. */
     public YGValue value(float value) { nvalue(address(), value); return this; }
     /** Sets the specified value to the {@code unit} field. */
-    public YGValue unit(int value) { nunit(address(), value); return this; }
+    public YGValue unit(@NativeType("YGUnit") int value) { nunit(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public YGValue set(
@@ -281,12 +282,13 @@ public class YGValue extends Struct implements NativeResource {
         /** Returns the value of the {@code value} field. */
         public float value() { return YGValue.nvalue(address()); }
         /** Returns the value of the {@code unit} field. */
+        @NativeType("YGUnit")
         public int unit() { return YGValue.nunit(address()); }
 
         /** Sets the specified value to the {@code value} field. */
         public YGValue.Buffer value(float value) { YGValue.nvalue(address(), value); return this; }
         /** Sets the specified value to the {@code unit} field. */
-        public YGValue.Buffer unit(int value) { YGValue.nunit(address(), value); return this; }
+        public YGValue.Buffer unit(@NativeType("YGUnit") int value) { YGValue.nunit(address(), value); return this; }
 
     }
 

@@ -86,18 +86,21 @@ public class SECURITY_ATTRIBUTES extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code nLength} field. */
+    @NativeType("DWORD")
     public int nLength() { return nnLength(address()); }
     /** Returns the value of the {@code lpSecurityDescriptor} field. */
+    @NativeType("LPVOID")
     public long lpSecurityDescriptor() { return nlpSecurityDescriptor(address()); }
     /** Returns the value of the {@code bInheritHandle} field. */
+    @NativeType("BOOL")
     public boolean bInheritHandle() { return nbInheritHandle(address()) != 0; }
 
     /** Sets the specified value to the {@code nLength} field. */
-    public SECURITY_ATTRIBUTES nLength(int value) { nnLength(address(), value); return this; }
+    public SECURITY_ATTRIBUTES nLength(@NativeType("DWORD") int value) { nnLength(address(), value); return this; }
     /** Sets the specified value to the {@code lpSecurityDescriptor} field. */
-    public SECURITY_ATTRIBUTES lpSecurityDescriptor(long value) { nlpSecurityDescriptor(address(), value); return this; }
+    public SECURITY_ATTRIBUTES lpSecurityDescriptor(@NativeType("LPVOID") long value) { nlpSecurityDescriptor(address(), value); return this; }
     /** Sets the specified value to the {@code bInheritHandle} field. */
-    public SECURITY_ATTRIBUTES bInheritHandle(boolean value) { nbInheritHandle(address(), value ? 1 : 0); return this; }
+    public SECURITY_ATTRIBUTES bInheritHandle(@NativeType("BOOL") boolean value) { nbInheritHandle(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public SECURITY_ATTRIBUTES set(
@@ -331,18 +334,21 @@ public class SECURITY_ATTRIBUTES extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code nLength} field. */
+        @NativeType("DWORD")
         public int nLength() { return SECURITY_ATTRIBUTES.nnLength(address()); }
         /** Returns the value of the {@code lpSecurityDescriptor} field. */
+        @NativeType("LPVOID")
         public long lpSecurityDescriptor() { return SECURITY_ATTRIBUTES.nlpSecurityDescriptor(address()); }
         /** Returns the value of the {@code bInheritHandle} field. */
+        @NativeType("BOOL")
         public boolean bInheritHandle() { return SECURITY_ATTRIBUTES.nbInheritHandle(address()) != 0; }
 
         /** Sets the specified value to the {@code nLength} field. */
-        public SECURITY_ATTRIBUTES.Buffer nLength(int value) { SECURITY_ATTRIBUTES.nnLength(address(), value); return this; }
+        public SECURITY_ATTRIBUTES.Buffer nLength(@NativeType("DWORD") int value) { SECURITY_ATTRIBUTES.nnLength(address(), value); return this; }
         /** Sets the specified value to the {@code lpSecurityDescriptor} field. */
-        public SECURITY_ATTRIBUTES.Buffer lpSecurityDescriptor(long value) { SECURITY_ATTRIBUTES.nlpSecurityDescriptor(address(), value); return this; }
+        public SECURITY_ATTRIBUTES.Buffer lpSecurityDescriptor(@NativeType("LPVOID") long value) { SECURITY_ATTRIBUTES.nlpSecurityDescriptor(address(), value); return this; }
         /** Sets the specified value to the {@code bInheritHandle} field. */
-        public SECURITY_ATTRIBUTES.Buffer bInheritHandle(boolean value) { SECURITY_ATTRIBUTES.nbInheritHandle(address(), value ? 1 : 0); return this; }
+        public SECURITY_ATTRIBUTES.Buffer bInheritHandle(@NativeType("BOOL") boolean value) { SECURITY_ATTRIBUTES.nbInheritHandle(address(), value ? 1 : 0); return this; }
 
     }
 

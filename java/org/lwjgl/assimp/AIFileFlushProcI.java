@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("aiFileFlushProc")
 public interface AIFileFlushProcI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";
@@ -30,6 +31,6 @@ public interface AIFileFlushProcI extends CallbackI.V {
      *
      * @param pFile File pointer to flush
      */
-    void invoke(long pFile);
+    void invoke(@NativeType("struct aiFile *") long pFile);
 
 }

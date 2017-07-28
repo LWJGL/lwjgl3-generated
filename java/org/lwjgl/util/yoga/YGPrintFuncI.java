@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("YGPrintFunc")
 public interface YGPrintFuncI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";
@@ -25,7 +26,6 @@ public interface YGPrintFuncI extends CallbackI.V {
         );
     }
 
-
-    void invoke(long node);
+    void invoke(@NativeType("YGNodeRef") long node);
 
 }

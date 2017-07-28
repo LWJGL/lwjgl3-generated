@@ -50,25 +50,25 @@ public class NVVertexAttribInteger64bit {
 
     // --- [ glVertexAttribL1i64NV ] ---
 
-    public static native void glVertexAttribL1i64NV(int index, long x);
+    public static native void glVertexAttribL1i64NV(@NativeType("GLuint") int index, @NativeType("GLint64EXT") long x);
 
     // --- [ glVertexAttribL2i64NV ] ---
 
-    public static native void glVertexAttribL2i64NV(int index, long x, long y);
+    public static native void glVertexAttribL2i64NV(@NativeType("GLuint") int index, @NativeType("GLint64EXT") long x, @NativeType("GLint64EXT") long y);
 
     // --- [ glVertexAttribL3i64NV ] ---
 
-    public static native void glVertexAttribL3i64NV(int index, long x, long y, long z);
+    public static native void glVertexAttribL3i64NV(@NativeType("GLuint") int index, @NativeType("GLint64EXT") long x, @NativeType("GLint64EXT") long y, @NativeType("GLint64EXT") long z);
 
     // --- [ glVertexAttribL4i64NV ] ---
 
-    public static native void glVertexAttribL4i64NV(int index, long x, long y, long z, long w);
+    public static native void glVertexAttribL4i64NV(@NativeType("GLuint") int index, @NativeType("GLint64EXT") long x, @NativeType("GLint64EXT") long y, @NativeType("GLint64EXT") long z, @NativeType("GLint64EXT") long w);
 
     // --- [ glVertexAttribL1i64vNV ] ---
 
     public static native void nglVertexAttribL1i64vNV(int index, long v);
 
-    public static void glVertexAttribL1i64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL1i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -79,7 +79,7 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglVertexAttribL2i64vNV(int index, long v);
 
-    public static void glVertexAttribL2i64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL2i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -90,7 +90,7 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglVertexAttribL3i64vNV(int index, long v);
 
-    public static void glVertexAttribL3i64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL3i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -101,7 +101,7 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglVertexAttribL4i64vNV(int index, long v);
 
-    public static void glVertexAttribL4i64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL4i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -110,25 +110,25 @@ public class NVVertexAttribInteger64bit {
 
     // --- [ glVertexAttribL1ui64NV ] ---
 
-    public static native void glVertexAttribL1ui64NV(int index, long x);
+    public static native void glVertexAttribL1ui64NV(@NativeType("GLuint") int index, @NativeType("GLuint64EXT") long x);
 
     // --- [ glVertexAttribL2ui64NV ] ---
 
-    public static native void glVertexAttribL2ui64NV(int index, long x, long y);
+    public static native void glVertexAttribL2ui64NV(@NativeType("GLuint") int index, @NativeType("GLuint64EXT") long x, @NativeType("GLuint64EXT") long y);
 
     // --- [ glVertexAttribL3ui64NV ] ---
 
-    public static native void glVertexAttribL3ui64NV(int index, long x, long y, long z);
+    public static native void glVertexAttribL3ui64NV(@NativeType("GLuint") int index, @NativeType("GLuint64EXT") long x, @NativeType("GLuint64EXT") long y, @NativeType("GLuint64EXT") long z);
 
     // --- [ glVertexAttribL4ui64NV ] ---
 
-    public static native void glVertexAttribL4ui64NV(int index, long x, long y, long z, long w);
+    public static native void glVertexAttribL4ui64NV(@NativeType("GLuint") int index, @NativeType("GLuint64EXT") long x, @NativeType("GLuint64EXT") long y, @NativeType("GLuint64EXT") long z, @NativeType("GLuint64EXT") long w);
 
     // --- [ glVertexAttribL1ui64vNV ] ---
 
     public static native void nglVertexAttribL1ui64vNV(int index, long v);
 
-    public static void glVertexAttribL1ui64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL1ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -139,7 +139,7 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglVertexAttribL2ui64vNV(int index, long v);
 
-    public static void glVertexAttribL2ui64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL2ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -150,7 +150,7 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglVertexAttribL3ui64vNV(int index, long v);
 
-    public static void glVertexAttribL3ui64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL3ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -161,7 +161,7 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglVertexAttribL4ui64vNV(int index, long v);
 
-    public static void glVertexAttribL4ui64vNV(int index, LongBuffer v) {
+    public static void glVertexAttribL4ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") LongBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -172,14 +172,15 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglGetVertexAttribLi64vNV(int index, int pname, long params);
 
-    public static void glGetVertexAttribLi64vNV(int index, int pname, LongBuffer params) {
+    public static void glGetVertexAttribLi64vNV(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint64EXT *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetVertexAttribLi64vNV(index, pname, memAddress(params));
     }
 
-    public static long glGetVertexAttribLi64NV(int index, int pname) {
+    @NativeType("void")
+    public static long glGetVertexAttribLi64NV(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -194,14 +195,15 @@ public class NVVertexAttribInteger64bit {
 
     public static native void nglGetVertexAttribLui64vNV(int index, int pname, long params);
 
-    public static void glGetVertexAttribLui64vNV(int index, int pname, LongBuffer params) {
+    public static void glGetVertexAttribLui64vNV(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint64EXT *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetVertexAttribLui64vNV(index, pname, memAddress(params));
     }
 
-    public static long glGetVertexAttribLui64NV(int index, int pname) {
+    @NativeType("void")
+    public static long glGetVertexAttribLui64NV(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -214,10 +216,10 @@ public class NVVertexAttribInteger64bit {
 
     // --- [ glVertexAttribLFormatNV ] ---
 
-    public static native void glVertexAttribLFormatNV(int index, int size, int type, int stride);
+    public static native void glVertexAttribLFormatNV(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     /** Array version of: {@link #glVertexAttribL1i64vNV VertexAttribL1i64vNV} */
-    public static void glVertexAttribL1i64vNV(int index, long[] v) {
+    public static void glVertexAttribL1i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL1i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -227,7 +229,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL2i64vNV VertexAttribL2i64vNV} */
-    public static void glVertexAttribL2i64vNV(int index, long[] v) {
+    public static void glVertexAttribL2i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL2i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -237,7 +239,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL3i64vNV VertexAttribL3i64vNV} */
-    public static void glVertexAttribL3i64vNV(int index, long[] v) {
+    public static void glVertexAttribL3i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL3i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -247,7 +249,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL4i64vNV VertexAttribL4i64vNV} */
-    public static void glVertexAttribL4i64vNV(int index, long[] v) {
+    public static void glVertexAttribL4i64vNV(@NativeType("GLuint") int index, @NativeType("const GLint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL4i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -257,7 +259,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL1ui64vNV VertexAttribL1ui64vNV} */
-    public static void glVertexAttribL1ui64vNV(int index, long[] v) {
+    public static void glVertexAttribL1ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL1ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -267,7 +269,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL2ui64vNV VertexAttribL2ui64vNV} */
-    public static void glVertexAttribL2ui64vNV(int index, long[] v) {
+    public static void glVertexAttribL2ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL2ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -277,7 +279,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL3ui64vNV VertexAttribL3ui64vNV} */
-    public static void glVertexAttribL3ui64vNV(int index, long[] v) {
+    public static void glVertexAttribL3ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL3ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -287,7 +289,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL4ui64vNV VertexAttribL4ui64vNV} */
-    public static void glVertexAttribL4ui64vNV(int index, long[] v) {
+    public static void glVertexAttribL4ui64vNV(@NativeType("GLuint") int index, @NativeType("const GLuint64EXT *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL4ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -297,7 +299,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glGetVertexAttribLi64vNV GetVertexAttribLi64vNV} */
-    public static void glGetVertexAttribLi64vNV(int index, int pname, long[] params) {
+    public static void glGetVertexAttribLi64vNV(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint64EXT *") long[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribLi64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -307,7 +309,7 @@ public class NVVertexAttribInteger64bit {
     }
 
     /** Array version of: {@link #glGetVertexAttribLui64vNV GetVertexAttribLui64vNV} */
-    public static void glGetVertexAttribLui64vNV(int index, int pname, long[] params) {
+    public static void glGetVertexAttribLui64vNV(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint64EXT *") long[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribLui64vNV;
         if (CHECKS) {
             check(__functionAddress);

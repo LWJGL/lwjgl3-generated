@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -45,7 +47,8 @@ public class GLFWNativeCocoa {
      *
      * @since version 3.1
      */
-    public static int glfwGetCocoaMonitor(long monitor) {
+    @NativeType("CGDirectDisplayID")
+    public static int glfwGetCocoaMonitor(@NativeType("GLFWmonitor *") long monitor) {
         long __functionAddress = Functions.GetCocoaMonitor;
         if (CHECKS) {
             check(monitor);
@@ -70,7 +73,8 @@ public class GLFWNativeCocoa {
      *
      * @since version 3.0
      */
-    public static long glfwGetCocoaWindow(long window) {
+    @NativeType("id")
+    public static long glfwGetCocoaWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetCocoaWindow;
         if (CHECKS) {
             check(window);

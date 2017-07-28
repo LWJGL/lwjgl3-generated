@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -51,6 +53,6 @@ public class ANGLEFramebufferMultisample {
 
     // --- [ glRenderbufferStorageMultisampleANGLE ] ---
 
-    public static native void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleANGLE(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
 }

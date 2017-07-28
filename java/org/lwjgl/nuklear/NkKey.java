@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     unsigned int clicked;
  * }</pre></code>
  */
+@NativeType("struct nk_key")
 public class NkKey extends Struct {
 
     /** The struct size in bytes. */
@@ -65,6 +66,7 @@ public class NkKey extends Struct {
     /** Returns the value of the {@code down} field. */
     public int down() { return ndown(address()); }
     /** Returns the value of the {@code clicked} field. */
+    @NativeType("unsigned int")
     public int clicked() { return nclicked(address()); }
 
     // -----------------------------------
@@ -136,6 +138,7 @@ public class NkKey extends Struct {
         /** Returns the value of the {@code down} field. */
         public int down() { return NkKey.ndown(address()); }
         /** Returns the value of the {@code clicked} field. */
+        @NativeType("unsigned int")
         public int clicked() { return NkKey.nclicked(address()); }
 
     }

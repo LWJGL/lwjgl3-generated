@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -34,18 +36,18 @@ public class AMDDrawBuffersBlend {
 
     // --- [ glBlendFuncIndexedAMD ] ---
 
-    public static native void glBlendFuncIndexedAMD(int buf, int src, int dst);
+    public static native void glBlendFuncIndexedAMD(@NativeType("GLuint") int buf, @NativeType("GLenum") int src, @NativeType("GLenum") int dst);
 
     // --- [ glBlendFuncSeparateIndexedAMD ] ---
 
-    public static native void glBlendFuncSeparateIndexedAMD(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    public static native void glBlendFuncSeparateIndexedAMD(@NativeType("GLuint") int buf, @NativeType("GLenum") int srcRGB, @NativeType("GLenum") int dstRGB, @NativeType("GLenum") int srcAlpha, @NativeType("GLenum") int dstAlpha);
 
     // --- [ glBlendEquationIndexedAMD ] ---
 
-    public static native void glBlendEquationIndexedAMD(int buf, int mode);
+    public static native void glBlendEquationIndexedAMD(@NativeType("GLuint") int buf, @NativeType("GLenum") int mode);
 
     // --- [ glBlendEquationSeparateIndexedAMD ] ---
 
-    public static native void glBlendEquationSeparateIndexedAMD(int buf, int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateIndexedAMD(@NativeType("GLuint") int buf, @NativeType("GLenum") int modeRGB, @NativeType("GLenum") int modeAlpha);
 
 }

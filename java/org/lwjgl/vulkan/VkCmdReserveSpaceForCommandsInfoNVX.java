@@ -109,26 +109,31 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code objectTable} field. */
+    @NativeType("VkObjectTableNVX")
     public long objectTable() { return nobjectTable(address()); }
     /** Returns the value of the {@code indirectCommandsLayout} field. */
+    @NativeType("VkIndirectCommandsLayoutNVX")
     public long indirectCommandsLayout() { return nindirectCommandsLayout(address()); }
     /** Returns the value of the {@code maxSequencesCount} field. */
+    @NativeType("uint32_t")
     public int maxSequencesCount() { return nmaxSequencesCount(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkCmdReserveSpaceForCommandsInfoNVX sType(int value) { nsType(address(), value); return this; }
+    public VkCmdReserveSpaceForCommandsInfoNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCmdReserveSpaceForCommandsInfoNVX pNext(long value) { npNext(address(), value); return this; }
+    public VkCmdReserveSpaceForCommandsInfoNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code objectTable} field. */
-    public VkCmdReserveSpaceForCommandsInfoNVX objectTable(long value) { nobjectTable(address(), value); return this; }
+    public VkCmdReserveSpaceForCommandsInfoNVX objectTable(@NativeType("VkObjectTableNVX") long value) { nobjectTable(address(), value); return this; }
     /** Sets the specified value to the {@code indirectCommandsLayout} field. */
-    public VkCmdReserveSpaceForCommandsInfoNVX indirectCommandsLayout(long value) { nindirectCommandsLayout(address(), value); return this; }
+    public VkCmdReserveSpaceForCommandsInfoNVX indirectCommandsLayout(@NativeType("VkIndirectCommandsLayoutNVX") long value) { nindirectCommandsLayout(address(), value); return this; }
     /** Sets the specified value to the {@code maxSequencesCount} field. */
-    public VkCmdReserveSpaceForCommandsInfoNVX maxSequencesCount(int value) { nmaxSequencesCount(address(), value); return this; }
+    public VkCmdReserveSpaceForCommandsInfoNVX maxSequencesCount(@NativeType("uint32_t") int value) { nmaxSequencesCount(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkCmdReserveSpaceForCommandsInfoNVX set(
@@ -353,26 +358,31 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkCmdReserveSpaceForCommandsInfoNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkCmdReserveSpaceForCommandsInfoNVX.npNext(address()); }
         /** Returns the value of the {@code objectTable} field. */
+        @NativeType("VkObjectTableNVX")
         public long objectTable() { return VkCmdReserveSpaceForCommandsInfoNVX.nobjectTable(address()); }
         /** Returns the value of the {@code indirectCommandsLayout} field. */
+        @NativeType("VkIndirectCommandsLayoutNVX")
         public long indirectCommandsLayout() { return VkCmdReserveSpaceForCommandsInfoNVX.nindirectCommandsLayout(address()); }
         /** Returns the value of the {@code maxSequencesCount} field. */
+        @NativeType("uint32_t")
         public int maxSequencesCount() { return VkCmdReserveSpaceForCommandsInfoNVX.nmaxSequencesCount(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer sType(int value) { VkCmdReserveSpaceForCommandsInfoNVX.nsType(address(), value); return this; }
+        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkCmdReserveSpaceForCommandsInfoNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer pNext(long value) { VkCmdReserveSpaceForCommandsInfoNVX.npNext(address(), value); return this; }
+        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer pNext(@NativeType("const void *") long value) { VkCmdReserveSpaceForCommandsInfoNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code objectTable} field. */
-        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer objectTable(long value) { VkCmdReserveSpaceForCommandsInfoNVX.nobjectTable(address(), value); return this; }
+        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer objectTable(@NativeType("VkObjectTableNVX") long value) { VkCmdReserveSpaceForCommandsInfoNVX.nobjectTable(address(), value); return this; }
         /** Sets the specified value to the {@code indirectCommandsLayout} field. */
-        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer indirectCommandsLayout(long value) { VkCmdReserveSpaceForCommandsInfoNVX.nindirectCommandsLayout(address(), value); return this; }
+        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer indirectCommandsLayout(@NativeType("VkIndirectCommandsLayoutNVX") long value) { VkCmdReserveSpaceForCommandsInfoNVX.nindirectCommandsLayout(address(), value); return this; }
         /** Sets the specified value to the {@code maxSequencesCount} field. */
-        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer maxSequencesCount(int value) { VkCmdReserveSpaceForCommandsInfoNVX.nmaxSequencesCount(address(), value); return this; }
+        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer maxSequencesCount(@NativeType("uint32_t") int value) { VkCmdReserveSpaceForCommandsInfoNVX.nmaxSequencesCount(address(), value); return this; }
 
     }
 

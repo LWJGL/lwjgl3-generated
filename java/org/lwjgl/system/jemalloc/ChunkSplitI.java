@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link ChunkHooks} struct. */
 @FunctionalInterface
+@NativeType("chunk_split_t")
 public interface ChunkSplitI extends CallbackI.Z {
 
     String SIGNATURE = "(ppppBi)B";
@@ -40,6 +41,6 @@ public interface ChunkSplitI extends CallbackI.Z {
      * @param committed 
      * @param arena_ind 
      */
-    boolean invoke(long chunk, long size, long size_a, long size_b, boolean committed, int arena_ind);
+    @NativeType("bool") boolean invoke(@NativeType("void *") long chunk, @NativeType("size_t") long size, @NativeType("size_t") long size_a, @NativeType("size_t") long size_b, @NativeType("bool") boolean committed, @NativeType("unsigned int") int arena_ind);
 
 }

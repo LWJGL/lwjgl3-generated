@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned char * pixels;
  * }</pre></code>
  */
+@NativeType("struct stbtt__bitmap")
 public class STBTTBitmap extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -95,6 +96,7 @@ public class STBTTBitmap extends Struct implements NativeResource {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("unsigned char *")
     public ByteBuffer pixels(int capacity) { return npixels(address(), capacity); }
 
     /** Sets the specified value to the {@code w} field. */
@@ -104,7 +106,7 @@ public class STBTTBitmap extends Struct implements NativeResource {
     /** Sets the specified value to the {@code stride} field. */
     public STBTTBitmap stride(int value) { nstride(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pixels} field. */
-    public STBTTBitmap pixels(ByteBuffer value) { npixels(address(), value); return this; }
+    public STBTTBitmap pixels(@NativeType("unsigned char *") ByteBuffer value) { npixels(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public STBTTBitmap set(
@@ -354,6 +356,7 @@ public class STBTTBitmap extends Struct implements NativeResource {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("unsigned char *")
         public ByteBuffer pixels(int capacity) { return STBTTBitmap.npixels(address(), capacity); }
 
         /** Sets the specified value to the {@code w} field. */
@@ -363,7 +366,7 @@ public class STBTTBitmap extends Struct implements NativeResource {
         /** Sets the specified value to the {@code stride} field. */
         public STBTTBitmap.Buffer stride(int value) { STBTTBitmap.nstride(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pixels} field. */
-        public STBTTBitmap.Buffer pixels(ByteBuffer value) { STBTTBitmap.npixels(address(), value); return this; }
+        public STBTTBitmap.Buffer pixels(@NativeType("unsigned char *") ByteBuffer value) { STBTTBitmap.npixels(address(), value); return this; }
 
     }
 

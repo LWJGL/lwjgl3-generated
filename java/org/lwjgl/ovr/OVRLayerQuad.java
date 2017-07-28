@@ -50,6 +50,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRVector2f ovrVector2f} QuadSize;
  * }</pre></code>
  */
+@NativeType("struct ovrLayerQuad")
 public class OVRLayerQuad extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -102,26 +103,31 @@ public class OVRLayerQuad extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+    @NativeType("ovrLayerHeader")
     public OVRLayerHeader Header() { return nHeader(address()); }
     /** Returns the value of the {@code ColorTexture} field. */
+    @NativeType("ovrTextureSwapChain")
     public long ColorTexture() { return nColorTexture(address()); }
     /** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
+    @NativeType("ovrRecti")
     public OVRRecti Viewport() { return nViewport(address()); }
     /** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */
+    @NativeType("ovrPosef")
     public OVRPosef QuadPoseCenter() { return nQuadPoseCenter(address()); }
     /** Returns a {@link OVRVector2f} view of the {@code QuadSize} field. */
+    @NativeType("ovrVector2f")
     public OVRVector2f QuadSize() { return nQuadSize(address()); }
 
     /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-    public OVRLayerQuad Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+    public OVRLayerQuad Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { nHeader(address(), value); return this; }
     /** Sets the specified value to the {@code ColorTexture} field. */
-    public OVRLayerQuad ColorTexture(long value) { nColorTexture(address(), value); return this; }
+    public OVRLayerQuad ColorTexture(@NativeType("ovrTextureSwapChain") long value) { nColorTexture(address(), value); return this; }
     /** Copies the specified {@link OVRRecti} to the {@code Viewport} field. */
-    public OVRLayerQuad Viewport(OVRRecti value) { nViewport(address(), value); return this; }
+    public OVRLayerQuad Viewport(@NativeType("ovrRecti") OVRRecti value) { nViewport(address(), value); return this; }
     /** Copies the specified {@link OVRPosef} to the {@code QuadPoseCenter} field. */
-    public OVRLayerQuad QuadPoseCenter(OVRPosef value) { nQuadPoseCenter(address(), value); return this; }
+    public OVRLayerQuad QuadPoseCenter(@NativeType("ovrPosef") OVRPosef value) { nQuadPoseCenter(address(), value); return this; }
     /** Copies the specified {@link OVRVector2f} to the {@code QuadSize} field. */
-    public OVRLayerQuad QuadSize(OVRVector2f value) { nQuadSize(address(), value); return this; }
+    public OVRLayerQuad QuadSize(@NativeType("ovrVector2f") OVRVector2f value) { nQuadSize(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public OVRLayerQuad set(
@@ -367,26 +373,31 @@ public class OVRLayerQuad extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+        @NativeType("ovrLayerHeader")
         public OVRLayerHeader Header() { return OVRLayerQuad.nHeader(address()); }
         /** Returns the value of the {@code ColorTexture} field. */
+        @NativeType("ovrTextureSwapChain")
         public long ColorTexture() { return OVRLayerQuad.nColorTexture(address()); }
         /** Returns a {@link OVRRecti} view of the {@code Viewport} field. */
+        @NativeType("ovrRecti")
         public OVRRecti Viewport() { return OVRLayerQuad.nViewport(address()); }
         /** Returns a {@link OVRPosef} view of the {@code QuadPoseCenter} field. */
+        @NativeType("ovrPosef")
         public OVRPosef QuadPoseCenter() { return OVRLayerQuad.nQuadPoseCenter(address()); }
         /** Returns a {@link OVRVector2f} view of the {@code QuadSize} field. */
+        @NativeType("ovrVector2f")
         public OVRVector2f QuadSize() { return OVRLayerQuad.nQuadSize(address()); }
 
         /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-        public OVRLayerQuad.Buffer Header(OVRLayerHeader value) { OVRLayerQuad.nHeader(address(), value); return this; }
+        public OVRLayerQuad.Buffer Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { OVRLayerQuad.nHeader(address(), value); return this; }
         /** Sets the specified value to the {@code ColorTexture} field. */
-        public OVRLayerQuad.Buffer ColorTexture(long value) { OVRLayerQuad.nColorTexture(address(), value); return this; }
+        public OVRLayerQuad.Buffer ColorTexture(@NativeType("ovrTextureSwapChain") long value) { OVRLayerQuad.nColorTexture(address(), value); return this; }
         /** Copies the specified {@link OVRRecti} to the {@code Viewport} field. */
-        public OVRLayerQuad.Buffer Viewport(OVRRecti value) { OVRLayerQuad.nViewport(address(), value); return this; }
+        public OVRLayerQuad.Buffer Viewport(@NativeType("ovrRecti") OVRRecti value) { OVRLayerQuad.nViewport(address(), value); return this; }
         /** Copies the specified {@link OVRPosef} to the {@code QuadPoseCenter} field. */
-        public OVRLayerQuad.Buffer QuadPoseCenter(OVRPosef value) { OVRLayerQuad.nQuadPoseCenter(address(), value); return this; }
+        public OVRLayerQuad.Buffer QuadPoseCenter(@NativeType("ovrPosef") OVRPosef value) { OVRLayerQuad.nQuadPoseCenter(address(), value); return this; }
         /** Copies the specified {@link OVRVector2f} to the {@code QuadSize} field. */
-        public OVRLayerQuad.Buffer QuadSize(OVRVector2f value) { OVRLayerQuad.nQuadSize(address(), value); return this; }
+        public OVRLayerQuad.Buffer QuadSize(@NativeType("ovrVector2f") OVRVector2f value) { OVRLayerQuad.nQuadSize(address(), value); return this; }
 
     }
 

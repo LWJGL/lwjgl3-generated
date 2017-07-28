@@ -37,6 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     int refreshRate;
  * }</pre></code>
  */
+@NativeType("struct GLFWvidmode")
 public class GLFWVidMode extends Struct {
 
     /** The struct size in bytes. */

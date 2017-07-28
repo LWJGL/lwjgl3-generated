@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     void * user;
  * }</pre></code>
  */
+@NativeType("struct aiLogStream")
 public class AILogStream extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -75,14 +76,16 @@ public class AILogStream extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code callback} field. */
+    @NativeType("aiLogStreamCallback")
     public AILogStreamCallback callback() { return ncallback(address()); }
     /** Returns the value of the {@code user} field. */
+    @NativeType("void *")
     public long user() { return nuser(address()); }
 
     /** Sets the specified value to the {@code callback} field. */
-    public AILogStream callback(AILogStreamCallbackI value) { ncallback(address(), value); return this; }
+    public AILogStream callback(@NativeType("aiLogStreamCallback") AILogStreamCallbackI value) { ncallback(address(), value); return this; }
     /** Sets the specified value to the {@code user} field. */
-    public AILogStream user(long value) { nuser(address(), value); return this; }
+    public AILogStream user(@NativeType("void *") long value) { nuser(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AILogStream set(
@@ -311,14 +314,16 @@ public class AILogStream extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code callback} field. */
+        @NativeType("aiLogStreamCallback")
         public AILogStreamCallback callback() { return AILogStream.ncallback(address()); }
         /** Returns the value of the {@code user} field. */
+        @NativeType("void *")
         public long user() { return AILogStream.nuser(address()); }
 
         /** Sets the specified value to the {@code callback} field. */
-        public AILogStream.Buffer callback(AILogStreamCallbackI value) { AILogStream.ncallback(address(), value); return this; }
+        public AILogStream.Buffer callback(@NativeType("aiLogStreamCallback") AILogStreamCallbackI value) { AILogStream.ncallback(address(), value); return this; }
         /** Sets the specified value to the {@code user} field. */
-        public AILogStream.Buffer user(long value) { AILogStream.nuser(address(), value); return this; }
+        public AILogStream.Buffer user(@NativeType("void *") long value) { AILogStream.nuser(address(), value); return this; }
 
     }
 

@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -42,7 +44,8 @@ public class GLXNVSwapGroup {
      * @param drawable 
      * @param group    
      */
-    public static boolean glXJoinSwapGroupNV(long display, long drawable, int group) {
+    @NativeType("Bool")
+    public static boolean glXJoinSwapGroupNV(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, @NativeType("GLuint") int group) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -59,7 +62,8 @@ public class GLXNVSwapGroup {
      * @param group   
      * @param barrier 
      */
-    public static boolean glXBindSwapBarrierNV(long display, int group, int barrier) {
+    @NativeType("Bool")
+    public static boolean glXBindSwapBarrierNV(@NativeType("Display *") long display, @NativeType("GLuint") int group, @NativeType("GLuint") int barrier) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -87,7 +91,8 @@ public class GLXNVSwapGroup {
      * @param group    
      * @param barrier  
      */
-    public static boolean glXQuerySwapGroupNV(long display, long drawable, IntBuffer group, IntBuffer barrier) {
+    @NativeType("Bool")
+    public static boolean glXQuerySwapGroupNV(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, @NativeType("GLuint *") IntBuffer group, @NativeType("GLuint *") IntBuffer barrier) {
         if (CHECKS) {
             check(group, 1);
             check(barrier, 1);
@@ -113,7 +118,8 @@ public class GLXNVSwapGroup {
      * @param maxGroups   
      * @param maxBarriers 
      */
-    public static boolean glXQueryMaxSwapGroupsNV(long display, int screen, IntBuffer maxGroups, IntBuffer maxBarriers) {
+    @NativeType("Bool")
+    public static boolean glXQueryMaxSwapGroupsNV(@NativeType("Display *") long display, int screen, @NativeType("GLuint *") IntBuffer maxGroups, @NativeType("GLuint *") IntBuffer maxBarriers) {
         if (CHECKS) {
             check(maxGroups, 1);
             check(maxBarriers, 1);
@@ -138,7 +144,8 @@ public class GLXNVSwapGroup {
      * @param screen  
      * @param count   
      */
-    public static boolean glXQueryFrameCountNV(long display, int screen, IntBuffer count) {
+    @NativeType("Bool")
+    public static boolean glXQueryFrameCountNV(@NativeType("Display *") long display, int screen, @NativeType("GLuint *") IntBuffer count) {
         if (CHECKS) {
             check(count, 1);
         }
@@ -151,7 +158,8 @@ public class GLXNVSwapGroup {
      * @param display the connection to the X server
      * @param screen  
      */
-    public static boolean glXResetFrameCountNV(long display, int screen) {
+    @NativeType("Bool")
+    public static boolean glXResetFrameCountNV(@NativeType("Display *") long display, int screen) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXResetFrameCountNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -161,7 +169,8 @@ public class GLXNVSwapGroup {
     }
 
     /** Array version of: {@link #glXQuerySwapGroupNV QuerySwapGroupNV} */
-    public static boolean glXQuerySwapGroupNV(long display, long drawable, int[] group, int[] barrier) {
+    @NativeType("Bool")
+    public static boolean glXQuerySwapGroupNV(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, @NativeType("GLuint *") int[] group, @NativeType("GLuint *") int[] barrier) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXQuerySwapGroupNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -174,7 +183,8 @@ public class GLXNVSwapGroup {
     }
 
     /** Array version of: {@link #glXQueryMaxSwapGroupsNV QueryMaxSwapGroupsNV} */
-    public static boolean glXQueryMaxSwapGroupsNV(long display, int screen, int[] maxGroups, int[] maxBarriers) {
+    @NativeType("Bool")
+    public static boolean glXQueryMaxSwapGroupsNV(@NativeType("Display *") long display, int screen, @NativeType("GLuint *") int[] maxGroups, @NativeType("GLuint *") int[] maxBarriers) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapGroupsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -186,7 +196,8 @@ public class GLXNVSwapGroup {
     }
 
     /** Array version of: {@link #glXQueryFrameCountNV QueryFrameCountNV} */
-    public static boolean glXQueryFrameCountNV(long display, int screen, int[] count) {
+    @NativeType("Bool")
+    public static boolean glXQueryFrameCountNV(@NativeType("Display *") long display, int screen, @NativeType("GLuint *") int[] count) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryFrameCountNV;
         if (CHECKS) {
             check(__functionAddress);

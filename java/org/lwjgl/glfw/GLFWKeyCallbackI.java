@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback SetKeyCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWkeyfun")
 public interface GLFWKeyCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(piiii)v";
@@ -38,6 +39,6 @@ public interface GLFWKeyCallbackI extends CallbackI.V {
      * @param action   the key action. One of:<br><table><tr><td>{@link GLFW#GLFW_PRESS PRESS}</td><td>{@link GLFW#GLFW_RELEASE RELEASE}</td><td>{@link GLFW#GLFW_REPEAT REPEAT}</td></tr></table>
      * @param mods     bitfield describing which modifiers keys were held down
      */
-    void invoke(long window, int key, int scancode, int action, int mods);
+    void invoke(@NativeType("GLFWwindow *") long window, int key, int scancode, int action, int mods);
 
 }

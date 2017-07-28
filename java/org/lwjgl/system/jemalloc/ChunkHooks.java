@@ -47,6 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link ChunkMergeI chunk_merge_t} merge;
  * }</pre></code>
  */
+@NativeType("struct chunk_hooks_t")
 public class ChunkHooks extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -105,34 +106,41 @@ public class ChunkHooks extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code alloc} field. */
+    @NativeType("chunk_alloc_t")
     public ChunkAlloc alloc() { return nalloc(address()); }
     /** Returns the value of the {@code dalloc} field. */
+    @NativeType("chunk_dalloc_t")
     public ChunkDalloc dalloc() { return ndalloc(address()); }
     /** Returns the value of the {@code commit} field. */
+    @NativeType("chunk_commit_t")
     public ChunkCommit commit() { return ncommit(address()); }
     /** Returns the value of the {@code decommit} field. */
+    @NativeType("chunk_decommit_t")
     public ChunkDecommit decommit() { return ndecommit(address()); }
     /** Returns the value of the {@code purge} field. */
+    @NativeType("chunk_purge_t")
     public ChunkPurge purge() { return npurge(address()); }
     /** Returns the value of the {@code split} field. */
+    @NativeType("chunk_split_t")
     public ChunkSplit split() { return nsplit(address()); }
     /** Returns the value of the {@code merge} field. */
+    @NativeType("chunk_merge_t")
     public ChunkMerge merge() { return nmerge(address()); }
 
     /** Sets the specified value to the {@code alloc} field. */
-    public ChunkHooks alloc(ChunkAllocI value) { nalloc(address(), value); return this; }
+    public ChunkHooks alloc(@NativeType("chunk_alloc_t") ChunkAllocI value) { nalloc(address(), value); return this; }
     /** Sets the specified value to the {@code dalloc} field. */
-    public ChunkHooks dalloc(ChunkDallocI value) { ndalloc(address(), value); return this; }
+    public ChunkHooks dalloc(@NativeType("chunk_dalloc_t") ChunkDallocI value) { ndalloc(address(), value); return this; }
     /** Sets the specified value to the {@code commit} field. */
-    public ChunkHooks commit(ChunkCommitI value) { ncommit(address(), value); return this; }
+    public ChunkHooks commit(@NativeType("chunk_commit_t") ChunkCommitI value) { ncommit(address(), value); return this; }
     /** Sets the specified value to the {@code decommit} field. */
-    public ChunkHooks decommit(ChunkDecommitI value) { ndecommit(address(), value); return this; }
+    public ChunkHooks decommit(@NativeType("chunk_decommit_t") ChunkDecommitI value) { ndecommit(address(), value); return this; }
     /** Sets the specified value to the {@code purge} field. */
-    public ChunkHooks purge(ChunkPurgeI value) { npurge(address(), value); return this; }
+    public ChunkHooks purge(@NativeType("chunk_purge_t") ChunkPurgeI value) { npurge(address(), value); return this; }
     /** Sets the specified value to the {@code split} field. */
-    public ChunkHooks split(ChunkSplitI value) { nsplit(address(), value); return this; }
+    public ChunkHooks split(@NativeType("chunk_split_t") ChunkSplitI value) { nsplit(address(), value); return this; }
     /** Sets the specified value to the {@code merge} field. */
-    public ChunkHooks merge(ChunkMergeI value) { nmerge(address(), value); return this; }
+    public ChunkHooks merge(@NativeType("chunk_merge_t") ChunkMergeI value) { nmerge(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public ChunkHooks set(
@@ -396,34 +404,41 @@ public class ChunkHooks extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code alloc} field. */
+        @NativeType("chunk_alloc_t")
         public ChunkAlloc alloc() { return ChunkHooks.nalloc(address()); }
         /** Returns the value of the {@code dalloc} field. */
+        @NativeType("chunk_dalloc_t")
         public ChunkDalloc dalloc() { return ChunkHooks.ndalloc(address()); }
         /** Returns the value of the {@code commit} field. */
+        @NativeType("chunk_commit_t")
         public ChunkCommit commit() { return ChunkHooks.ncommit(address()); }
         /** Returns the value of the {@code decommit} field. */
+        @NativeType("chunk_decommit_t")
         public ChunkDecommit decommit() { return ChunkHooks.ndecommit(address()); }
         /** Returns the value of the {@code purge} field. */
+        @NativeType("chunk_purge_t")
         public ChunkPurge purge() { return ChunkHooks.npurge(address()); }
         /** Returns the value of the {@code split} field. */
+        @NativeType("chunk_split_t")
         public ChunkSplit split() { return ChunkHooks.nsplit(address()); }
         /** Returns the value of the {@code merge} field. */
+        @NativeType("chunk_merge_t")
         public ChunkMerge merge() { return ChunkHooks.nmerge(address()); }
 
         /** Sets the specified value to the {@code alloc} field. */
-        public ChunkHooks.Buffer alloc(ChunkAllocI value) { ChunkHooks.nalloc(address(), value); return this; }
+        public ChunkHooks.Buffer alloc(@NativeType("chunk_alloc_t") ChunkAllocI value) { ChunkHooks.nalloc(address(), value); return this; }
         /** Sets the specified value to the {@code dalloc} field. */
-        public ChunkHooks.Buffer dalloc(ChunkDallocI value) { ChunkHooks.ndalloc(address(), value); return this; }
+        public ChunkHooks.Buffer dalloc(@NativeType("chunk_dalloc_t") ChunkDallocI value) { ChunkHooks.ndalloc(address(), value); return this; }
         /** Sets the specified value to the {@code commit} field. */
-        public ChunkHooks.Buffer commit(ChunkCommitI value) { ChunkHooks.ncommit(address(), value); return this; }
+        public ChunkHooks.Buffer commit(@NativeType("chunk_commit_t") ChunkCommitI value) { ChunkHooks.ncommit(address(), value); return this; }
         /** Sets the specified value to the {@code decommit} field. */
-        public ChunkHooks.Buffer decommit(ChunkDecommitI value) { ChunkHooks.ndecommit(address(), value); return this; }
+        public ChunkHooks.Buffer decommit(@NativeType("chunk_decommit_t") ChunkDecommitI value) { ChunkHooks.ndecommit(address(), value); return this; }
         /** Sets the specified value to the {@code purge} field. */
-        public ChunkHooks.Buffer purge(ChunkPurgeI value) { ChunkHooks.npurge(address(), value); return this; }
+        public ChunkHooks.Buffer purge(@NativeType("chunk_purge_t") ChunkPurgeI value) { ChunkHooks.npurge(address(), value); return this; }
         /** Sets the specified value to the {@code split} field. */
-        public ChunkHooks.Buffer split(ChunkSplitI value) { ChunkHooks.nsplit(address(), value); return this; }
+        public ChunkHooks.Buffer split(@NativeType("chunk_split_t") ChunkSplitI value) { ChunkHooks.nsplit(address(), value); return this; }
         /** Sets the specified value to the {@code merge} field. */
-        public ChunkHooks.Buffer merge(ChunkMergeI value) { ChunkHooks.nmerge(address(), value); return this; }
+        public ChunkHooks.Buffer merge(@NativeType("chunk_merge_t") ChunkMergeI value) { ChunkHooks.nmerge(address(), value); return this; }
 
     }
 

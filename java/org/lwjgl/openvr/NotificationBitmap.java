@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int32_t m_nBytesPerPixel;
  * }</pre></code>
  */
+@NativeType("struct NotificationBitmap_t")
 public class NotificationBitmap extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -80,22 +81,26 @@ public class NotificationBitmap extends Struct implements NativeResource {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("void *")
     public ByteBuffer m_pImageData(int capacity) { return nm_pImageData(address(), capacity); }
     /** Returns the value of the {@code m_nWidth} field. */
+    @NativeType("int32_t")
     public int m_nWidth() { return nm_nWidth(address()); }
     /** Returns the value of the {@code m_nHeight} field. */
+    @NativeType("int32_t")
     public int m_nHeight() { return nm_nHeight(address()); }
     /** Returns the value of the {@code m_nBytesPerPixel} field. */
+    @NativeType("int32_t")
     public int m_nBytesPerPixel() { return nm_nBytesPerPixel(address()); }
 
     /** Sets the address of the specified {@link ByteBuffer} to the {@code m_pImageData} field. */
-    public NotificationBitmap m_pImageData(ByteBuffer value) { nm_pImageData(address(), value); return this; }
+    public NotificationBitmap m_pImageData(@NativeType("void *") ByteBuffer value) { nm_pImageData(address(), value); return this; }
     /** Sets the specified value to the {@code m_nWidth} field. */
-    public NotificationBitmap m_nWidth(int value) { nm_nWidth(address(), value); return this; }
+    public NotificationBitmap m_nWidth(@NativeType("int32_t") int value) { nm_nWidth(address(), value); return this; }
     /** Sets the specified value to the {@code m_nHeight} field. */
-    public NotificationBitmap m_nHeight(int value) { nm_nHeight(address(), value); return this; }
+    public NotificationBitmap m_nHeight(@NativeType("int32_t") int value) { nm_nHeight(address(), value); return this; }
     /** Sets the specified value to the {@code m_nBytesPerPixel} field. */
-    public NotificationBitmap m_nBytesPerPixel(int value) { nm_nBytesPerPixel(address(), value); return this; }
+    public NotificationBitmap m_nBytesPerPixel(@NativeType("int32_t") int value) { nm_nBytesPerPixel(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NotificationBitmap set(
@@ -339,22 +344,26 @@ public class NotificationBitmap extends Struct implements NativeResource {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("void *")
         public ByteBuffer m_pImageData(int capacity) { return NotificationBitmap.nm_pImageData(address(), capacity); }
         /** Returns the value of the {@code m_nWidth} field. */
+        @NativeType("int32_t")
         public int m_nWidth() { return NotificationBitmap.nm_nWidth(address()); }
         /** Returns the value of the {@code m_nHeight} field. */
+        @NativeType("int32_t")
         public int m_nHeight() { return NotificationBitmap.nm_nHeight(address()); }
         /** Returns the value of the {@code m_nBytesPerPixel} field. */
+        @NativeType("int32_t")
         public int m_nBytesPerPixel() { return NotificationBitmap.nm_nBytesPerPixel(address()); }
 
         /** Sets the address of the specified {@link ByteBuffer} to the {@code m_pImageData} field. */
-        public NotificationBitmap.Buffer m_pImageData(ByteBuffer value) { NotificationBitmap.nm_pImageData(address(), value); return this; }
+        public NotificationBitmap.Buffer m_pImageData(@NativeType("void *") ByteBuffer value) { NotificationBitmap.nm_pImageData(address(), value); return this; }
         /** Sets the specified value to the {@code m_nWidth} field. */
-        public NotificationBitmap.Buffer m_nWidth(int value) { NotificationBitmap.nm_nWidth(address(), value); return this; }
+        public NotificationBitmap.Buffer m_nWidth(@NativeType("int32_t") int value) { NotificationBitmap.nm_nWidth(address(), value); return this; }
         /** Sets the specified value to the {@code m_nHeight} field. */
-        public NotificationBitmap.Buffer m_nHeight(int value) { NotificationBitmap.nm_nHeight(address(), value); return this; }
+        public NotificationBitmap.Buffer m_nHeight(@NativeType("int32_t") int value) { NotificationBitmap.nm_nHeight(address(), value); return this; }
         /** Sets the specified value to the {@code m_nBytesPerPixel} field. */
-        public NotificationBitmap.Buffer m_nBytesPerPixel(int value) { NotificationBitmap.nm_nBytesPerPixel(address(), value); return this; }
+        public NotificationBitmap.Buffer m_nBytesPerPixel(@NativeType("int32_t") int value) { NotificationBitmap.nm_nBytesPerPixel(address(), value); return this; }
 
     }
 

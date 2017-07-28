@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float yoff2;
  * }</pre></code>
  */
+@NativeType("struct stbtt_packedchar")
 public class STBTTPackedchar extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -95,12 +96,16 @@ public class STBTTPackedchar extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x0} field. */
+    @NativeType("unsigned short")
     public short x0() { return nx0(address()); }
     /** Returns the value of the {@code y0} field. */
+    @NativeType("unsigned short")
     public short y0() { return ny0(address()); }
     /** Returns the value of the {@code x1} field. */
+    @NativeType("unsigned short")
     public short x1() { return nx1(address()); }
     /** Returns the value of the {@code y1} field. */
+    @NativeType("unsigned short")
     public short y1() { return ny1(address()); }
     /** Returns the value of the {@code xoff} field. */
     public float xoff() { return nxoff(address()); }
@@ -304,12 +309,16 @@ public class STBTTPackedchar extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x0} field. */
+        @NativeType("unsigned short")
         public short x0() { return STBTTPackedchar.nx0(address()); }
         /** Returns the value of the {@code y0} field. */
+        @NativeType("unsigned short")
         public short y0() { return STBTTPackedchar.ny0(address()); }
         /** Returns the value of the {@code x1} field. */
+        @NativeType("unsigned short")
         public short x1() { return STBTTPackedchar.nx1(address()); }
         /** Returns the value of the {@code y1} field. */
+        @NativeType("unsigned short")
         public short y1() { return STBTTPackedchar.ny1(address()); }
         /** Returns the value of the {@code xoff} field. */
         public float xoff() { return STBTTPackedchar.nxoff(address()); }

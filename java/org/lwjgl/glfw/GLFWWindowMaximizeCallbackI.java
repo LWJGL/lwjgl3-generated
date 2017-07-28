@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowMaximizeCallback SetWindowMaximizeCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWwindowmaximizefun")
 public interface GLFWWindowMaximizeCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";
@@ -32,6 +33,6 @@ public interface GLFWWindowMaximizeCallbackI extends CallbackI.V {
      * @param window    the window that was maximized or restored.
      * @param maximized {@link GLFW#GLFW_TRUE TRUE} if the window was maximized, or {@link GLFW#GLFW_FALSE FALSE} if it was restored
      */
-    void invoke(long window, boolean maximized);
+    void invoke(@NativeType("GLFWwindow *") long window, @NativeType("int") boolean maximized);
 
 }

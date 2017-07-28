@@ -76,24 +76,29 @@ public class EXRAttribute extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code name} field. */
+    @NativeType("char[256]")
     public ByteBuffer name() { return nname(address()); }
     /** Decodes the null-terminated string stored in the {@code name} field. */
+    @NativeType("char[256]")
     public String nameString() { return nnameString(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code type} field. */
+    @NativeType("char[256]")
     public ByteBuffer type() { return ntype(address()); }
     /** Decodes the null-terminated string stored in the {@code type} field. */
+    @NativeType("char[256]")
     public String typeString() { return ntypeString(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code value} field. */
+    @NativeType("unsigned char *")
     public ByteBuffer value() { return nvalue(address()); }
     /** Returns the value of the {@code size} field. */
     public int size() { return nsize(address()); }
 
     /** Copies the specified encoded string to the {@code name} field. */
-    public EXRAttribute name(ByteBuffer value) { nname(address(), value); return this; }
+    public EXRAttribute name(@NativeType("char[256]") ByteBuffer value) { nname(address(), value); return this; }
     /** Copies the specified encoded string to the {@code type} field. */
-    public EXRAttribute type(ByteBuffer value) { ntype(address(), value); return this; }
+    public EXRAttribute type(@NativeType("char[256]") ByteBuffer value) { ntype(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code value} field. */
-    public EXRAttribute value(ByteBuffer value) { nvalue(address(), value); return this; }
+    public EXRAttribute value(@NativeType("unsigned char *") ByteBuffer value) { nvalue(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public EXRAttribute set(
@@ -349,24 +354,29 @@ public class EXRAttribute extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code name} field. */
+        @NativeType("char[256]")
         public ByteBuffer name() { return EXRAttribute.nname(address()); }
         /** Decodes the null-terminated string stored in the {@code name} field. */
+        @NativeType("char[256]")
         public String nameString() { return EXRAttribute.nnameString(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code type} field. */
+        @NativeType("char[256]")
         public ByteBuffer type() { return EXRAttribute.ntype(address()); }
         /** Decodes the null-terminated string stored in the {@code type} field. */
+        @NativeType("char[256]")
         public String typeString() { return EXRAttribute.ntypeString(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code value} field. */
+        @NativeType("unsigned char *")
         public ByteBuffer value() { return EXRAttribute.nvalue(address()); }
         /** Returns the value of the {@code size} field. */
         public int size() { return EXRAttribute.nsize(address()); }
 
         /** Copies the specified encoded string to the {@code name} field. */
-        public EXRAttribute.Buffer name(ByteBuffer value) { EXRAttribute.nname(address(), value); return this; }
+        public EXRAttribute.Buffer name(@NativeType("char[256]") ByteBuffer value) { EXRAttribute.nname(address(), value); return this; }
         /** Copies the specified encoded string to the {@code type} field. */
-        public EXRAttribute.Buffer type(ByteBuffer value) { EXRAttribute.ntype(address(), value); return this; }
+        public EXRAttribute.Buffer type(@NativeType("char[256]") ByteBuffer value) { EXRAttribute.ntype(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code value} field. */
-        public EXRAttribute.Buffer value(ByteBuffer value) { EXRAttribute.nvalue(address(), value); return this; }
+        public EXRAttribute.Buffer value(@NativeType("unsigned char *") ByteBuffer value) { EXRAttribute.nvalue(address(), value); return this; }
 
     }
 

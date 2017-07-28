@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -47,6 +49,6 @@ public class EXTPolygonOffsetClamp {
      * @param units  scales an implementation-dependent constant that relates to the usable resolution of the depth buffer
      * @param clamp  the minimum or maximum clamp value
      */
-    public static native void glPolygonOffsetClampEXT(float factor, float units, float clamp);
+    public static native void glPolygonOffsetClampEXT(@NativeType("GLfloat") float factor, @NativeType("GLfloat") float units, @NativeType("GLfloat") float clamp);
 
 }

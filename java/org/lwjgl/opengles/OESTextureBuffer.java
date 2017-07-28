@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -79,10 +81,10 @@ public class OESTextureBuffer {
 
     // --- [ glTexBufferOES ] ---
 
-    public static native void glTexBufferOES(int target, int internalformat, int buffer);
+    public static native void glTexBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLuint") int buffer);
 
     // --- [ glTexBufferRangeOES ] ---
 
-    public static native void glTexBufferRangeOES(int target, int internalformat, int buffer, long offset, long size);
+    public static native void glTexBufferRangeOES(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size);
 
 }

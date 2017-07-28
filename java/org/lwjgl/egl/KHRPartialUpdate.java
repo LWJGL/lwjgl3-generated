@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -56,12 +58,14 @@ public class KHRPartialUpdate {
         return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
     }
 
-    public static boolean eglSetDamageRegionKHR(long dpy, long surface, IntBuffer rects) {
+    @NativeType("EGLBoolean")
+    public static boolean eglSetDamageRegionKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLint *") IntBuffer rects) {
         return neglSetDamageRegionKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
     }
 
     /** Array version of: {@link #eglSetDamageRegionKHR SetDamageRegionKHR} */
-    public static boolean eglSetDamageRegionKHR(long dpy, long surface, int[] rects) {
+    @NativeType("EGLBoolean")
+    public static boolean eglSetDamageRegionKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLint *") int[] rects) {
         long __functionAddress = EGL.getCapabilities().eglSetDamageRegionKHR;
         if (CHECKS) {
             check(__functionAddress);

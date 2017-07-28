@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     nk_flags old_value;
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_flags_element")
 class NkConfigStackFlagsElement extends Struct {
 
     /** The struct size in bytes. */
@@ -67,8 +68,10 @@ class NkConfigStackFlagsElement extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("nk_flags *")
     public IntBuffer pValues(int capacity) { return npValues(address(), capacity); }
     /** Returns the value of the {@code old_value} field. */
+    @NativeType("nk_flags")
     public int old_value() { return nold_value(address()); }
 
     // -----------------------------------
@@ -142,8 +145,10 @@ class NkConfigStackFlagsElement extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("nk_flags *")
         public IntBuffer pValues(int capacity) { return NkConfigStackFlagsElement.npValues(address(), capacity); }
         /** Returns the value of the {@code old_value} field. */
+        @NativeType("nk_flags")
         public int old_value() { return NkConfigStackFlagsElement.nold_value(address()); }
 
     }

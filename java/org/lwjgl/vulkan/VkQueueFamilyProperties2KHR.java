@@ -90,8 +90,10 @@ public class VkQueueFamilyProperties2KHR extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkQueueFamilyProperties} view of the {@code queueFamilyProperties} field. */
     public VkQueueFamilyProperties queueFamilyProperties() { return nqueueFamilyProperties(address()); }
@@ -275,8 +277,10 @@ public class VkQueueFamilyProperties2KHR extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkQueueFamilyProperties2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkQueueFamilyProperties2KHR.npNext(address()); }
         /** Returns a {@link VkQueueFamilyProperties} view of the {@code queueFamilyProperties} field. */
         public VkQueueFamilyProperties queueFamilyProperties() { return VkQueueFamilyProperties2KHR.nqueueFamilyProperties(address()); }

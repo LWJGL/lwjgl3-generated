@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -37,7 +39,7 @@ public class OESEGLImage {
 
     public static native void nglEGLImageTargetTexture2DOES(int target, long image);
 
-    public static void glEGLImageTargetTexture2DOES(int target, long image) {
+    public static void glEGLImageTargetTexture2DOES(@NativeType("GLenum") int target, @NativeType("GLeglImageOES") long image) {
         if (CHECKS) {
             check(image);
         }
@@ -48,7 +50,7 @@ public class OESEGLImage {
 
     public static native void nglEGLImageTargetRenderbufferStorageOES(int target, long image);
 
-    public static void glEGLImageTargetRenderbufferStorageOES(int target, long image) {
+    public static void glEGLImageTargetRenderbufferStorageOES(@NativeType("GLenum") int target, @NativeType("GLeglImageOES") long image) {
         if (CHECKS) {
             check(image);
         }

@@ -76,7 +76,7 @@ public class ARBInvalidateSubdata {
      * @param height  the height of the region to be invalidated
      * @param depth   the depth of the region to be invalidated
      */
-    public static native void glInvalidateTexSubImage(int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth);
+    public static native void glInvalidateTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth);
 
     // --- [ glInvalidateTexImage ] ---
 
@@ -86,7 +86,7 @@ public class ARBInvalidateSubdata {
      * @param texture the name of a texture object to invalidate
      * @param level   the level of detail of the texture object to invalidate
      */
-    public static native void glInvalidateTexImage(int texture, int level);
+    public static native void glInvalidateTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glInvalidateBufferSubData ] ---
 
@@ -97,7 +97,7 @@ public class ARBInvalidateSubdata {
      * @param offset the offset within the buffer's data store of the start of the range to be invalidated
      * @param length the length of the range within the buffer's data store to be invalidated
      */
-    public static native void glInvalidateBufferSubData(int buffer, long offset, long length);
+    public static native void glInvalidateBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length);
 
     // --- [ glInvalidateBufferData ] ---
 
@@ -106,7 +106,7 @@ public class ARBInvalidateSubdata {
      *
      * @param buffer the name of a buffer object whose data store to invalidate
      */
-    public static native void glInvalidateBufferData(int buffer);
+    public static native void glInvalidateBufferData(@NativeType("GLuint") int buffer);
 
     // --- [ glInvalidateFramebuffer ] ---
 
@@ -123,7 +123,7 @@ public class ARBInvalidateSubdata {
      * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
      * @param attachments the address of an array identifying the attachments to be invalidated
      */
-    public static void glInvalidateFramebuffer(int target, IntBuffer attachments) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") IntBuffer attachments) {
         nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
     }
 
@@ -132,7 +132,7 @@ public class ARBInvalidateSubdata {
      *
      * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
      */
-    public static void glInvalidateFramebuffer(int target, int attachment) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int attachment) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer attachments = stack.ints(attachment);
@@ -161,7 +161,7 @@ public class ARBInvalidateSubdata {
      * @param width       the width of the region to be invalidated
      * @param height      the height of the region to be invalidated
      */
-    public static void glInvalidateSubFramebuffer(int target, IntBuffer attachments, int x, int y, int width, int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") IntBuffer attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
     }
 
@@ -174,7 +174,7 @@ public class ARBInvalidateSubdata {
      * @param width  the width of the region to be invalidated
      * @param height the height of the region to be invalidated
      */
-    public static void glInvalidateSubFramebuffer(int target, int attachment, int x, int y, int width, int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int attachment, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer attachments = stack.ints(attachment);
@@ -185,7 +185,7 @@ public class ARBInvalidateSubdata {
     }
 
     /** Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer} */
-    public static void glInvalidateFramebuffer(int target, int[] attachments) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int[] attachments) {
         long __functionAddress = GL.getICD().glInvalidateFramebuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -194,7 +194,7 @@ public class ARBInvalidateSubdata {
     }
 
     /** Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer} */
-    public static void glInvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int[] attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         long __functionAddress = GL.getICD().glInvalidateSubFramebuffer;
         if (CHECKS) {
             check(__functionAddress);

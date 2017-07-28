@@ -40,6 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned char v_oversample;
  * }</pre></code>
  */
+@NativeType("struct stbtt_pack_range")
 public class STBTTPackRange extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -102,10 +103,12 @@ public class STBTTPackRange extends Struct implements NativeResource {
     /** Returns the value of the {@code first_unicode_codepoint_in_range} field. */
     public int first_unicode_codepoint_in_range() { return nfirst_unicode_codepoint_in_range(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field. */
+    @NativeType("int *")
     public IntBuffer array_of_unicode_codepoints() { return narray_of_unicode_codepoints(address()); }
     /** Returns the value of the {@code num_chars} field. */
     public int num_chars() { return nnum_chars(address()); }
     /** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+    @NativeType("stbtt_packedchar *")
     public STBTTPackedchar.Buffer chardata_for_range() { return nchardata_for_range(address()); }
 
     /** Sets the specified value to the {@code font_size} field. */
@@ -113,11 +116,11 @@ public class STBTTPackRange extends Struct implements NativeResource {
     /** Sets the specified value to the {@code first_unicode_codepoint_in_range} field. */
     public STBTTPackRange first_unicode_codepoint_in_range(int value) { nfirst_unicode_codepoint_in_range(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code array_of_unicode_codepoints} field. */
-    public STBTTPackRange array_of_unicode_codepoints(IntBuffer value) { narray_of_unicode_codepoints(address(), value); return this; }
+    public STBTTPackRange array_of_unicode_codepoints(@NativeType("int *") IntBuffer value) { narray_of_unicode_codepoints(address(), value); return this; }
     /** Sets the specified value to the {@code num_chars} field. */
     public STBTTPackRange num_chars(int value) { nnum_chars(address(), value); return this; }
     /** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
-    public STBTTPackRange chardata_for_range(STBTTPackedchar.Buffer value) { nchardata_for_range(address(), value); return this; }
+    public STBTTPackRange chardata_for_range(@NativeType("stbtt_packedchar *") STBTTPackedchar.Buffer value) { nchardata_for_range(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public STBTTPackRange set(
@@ -371,10 +374,12 @@ public class STBTTPackRange extends Struct implements NativeResource {
         /** Returns the value of the {@code first_unicode_codepoint_in_range} field. */
         public int first_unicode_codepoint_in_range() { return STBTTPackRange.nfirst_unicode_codepoint_in_range(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code array_of_unicode_codepoints} field. */
+        @NativeType("int *")
         public IntBuffer array_of_unicode_codepoints() { return STBTTPackRange.narray_of_unicode_codepoints(address()); }
         /** Returns the value of the {@code num_chars} field. */
         public int num_chars() { return STBTTPackRange.nnum_chars(address()); }
         /** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
+        @NativeType("stbtt_packedchar *")
         public STBTTPackedchar.Buffer chardata_for_range() { return STBTTPackRange.nchardata_for_range(address()); }
 
         /** Sets the specified value to the {@code font_size} field. */
@@ -382,11 +387,11 @@ public class STBTTPackRange extends Struct implements NativeResource {
         /** Sets the specified value to the {@code first_unicode_codepoint_in_range} field. */
         public STBTTPackRange.Buffer first_unicode_codepoint_in_range(int value) { STBTTPackRange.nfirst_unicode_codepoint_in_range(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code array_of_unicode_codepoints} field. */
-        public STBTTPackRange.Buffer array_of_unicode_codepoints(IntBuffer value) { STBTTPackRange.narray_of_unicode_codepoints(address(), value); return this; }
+        public STBTTPackRange.Buffer array_of_unicode_codepoints(@NativeType("int *") IntBuffer value) { STBTTPackRange.narray_of_unicode_codepoints(address(), value); return this; }
         /** Sets the specified value to the {@code num_chars} field. */
         public STBTTPackRange.Buffer num_chars(int value) { STBTTPackRange.nnum_chars(address(), value); return this; }
         /** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
-        public STBTTPackRange.Buffer chardata_for_range(STBTTPackedchar.Buffer value) { STBTTPackRange.nchardata_for_range(address(), value); return this; }
+        public STBTTPackRange.Buffer chardata_for_range(@NativeType("stbtt_packedchar *") STBTTPackedchar.Buffer value) { STBTTPackRange.nchardata_for_range(address(), value); return this; }
 
     }
 

@@ -47,7 +47,8 @@ public class VRNotifications {
      * @param pImage          
      * @param pNotificationId 
      */
-    public static int VRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, ByteBuffer pchText, int style, NotificationBitmap pImage, IntBuffer pNotificationId) {
+    @NativeType("EVRNotificationError")
+    public static int VRNotifications_CreateNotification(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("uint64_t") long ulUserValue, @NativeType("EVRNotificationType") int type, @NativeType("const char *") ByteBuffer pchText, @NativeType("EVRNotificationStyle") int style, @NativeType("const NotificationBitmap_t *") NotificationBitmap pImage, @NativeType("VRNotificationId *") IntBuffer pNotificationId) {
         if (CHECKS) {
             checkNT1(pchText);
             check(pNotificationId, 1);
@@ -70,7 +71,8 @@ public class VRNotifications {
      * @param pImage          
      * @param pNotificationId 
      */
-    public static int VRNotifications_CreateNotification(long ulOverlayHandle, long ulUserValue, int type, CharSequence pchText, int style, NotificationBitmap pImage, IntBuffer pNotificationId) {
+    @NativeType("EVRNotificationError")
+    public static int VRNotifications_CreateNotification(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("uint64_t") long ulUserValue, @NativeType("EVRNotificationType") int type, @NativeType("const char *") CharSequence pchText, @NativeType("EVRNotificationStyle") int style, @NativeType("const NotificationBitmap_t *") NotificationBitmap pImage, @NativeType("VRNotificationId *") IntBuffer pNotificationId) {
         if (CHECKS) {
             check(pNotificationId, 1);
         }
@@ -90,7 +92,8 @@ public class VRNotifications {
      *
      * @param notificationId 
      */
-    public static int VRNotifications_RemoveNotification(int notificationId) {
+    @NativeType("EVRNotificationError")
+    public static int VRNotifications_RemoveNotification(@NativeType("VRNotificationId") int notificationId) {
         long __functionAddress = OpenVR.VRNotifications.RemoveNotification;
         if (CHECKS) {
             check(__functionAddress);

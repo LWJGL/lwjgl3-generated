@@ -83,7 +83,8 @@ public class SOFTLoopback {
      * @param deviceName which device or device driver to use for subsequent rendering. This may be {@code NULL} for an implementation-defined default, otherwise it must be a
      *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
      */
-    public static long alcLoopbackOpenDeviceSOFT(ByteBuffer deviceName) {
+    @NativeType("ALCdevice *")
+    public static long alcLoopbackOpenDeviceSOFT(@NativeType("const ALCchar *") ByteBuffer deviceName) {
         if (CHECKS) {
             checkNT1Safe(deviceName);
         }
@@ -106,7 +107,8 @@ public class SOFTLoopback {
      * @param deviceName which device or device driver to use for subsequent rendering. This may be {@code NULL} for an implementation-defined default, otherwise it must be a
      *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
      */
-    public static long alcLoopbackOpenDeviceSOFT(CharSequence deviceName) {
+    @NativeType("ALCdevice *")
+    public static long alcLoopbackOpenDeviceSOFT(@NativeType("const ALCchar *") CharSequence deviceName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer deviceNameEncoded = stack.UTF8(deviceName);
@@ -129,7 +131,8 @@ public class SOFTLoopback {
      * @param channels  the channel configuration used for rendering. One of:<br><table><tr><td>{@link #ALC_MONO_SOFT MONO_SOFT}</td><td>{@link #ALC_STEREO_SOFT STEREO_SOFT}</td><td>{@link #ALC_QUAD_SOFT QUAD_SOFT}</td><td>{@link #ALC_5POINT1_SOFT 5POINT1_SOFT}</td><td>{@link #ALC_6POINT1_SOFT 6POINT1_SOFT}</td><td>{@link #ALC_7POINT1_SOFT 7POINT1_SOFT}</td></tr></table>
      * @param type      sample type of the written audio. One of:<br><table><tr><td>{@link #ALC_BYTE_SOFT BYTE_SOFT}</td><td>{@link #ALC_UNSIGNED_BYTE_SOFT UNSIGNED_BYTE_SOFT}</td><td>{@link #ALC_SHORT_SOFT SHORT_SOFT}</td><td>{@link #ALC_UNSIGNED_SHORT_SOFT UNSIGNED_SHORT_SOFT}</td><td>{@link #ALC_INT_SOFT INT_SOFT}</td><td>{@link #ALC_UNSIGNED_INT_SOFT UNSIGNED_INT_SOFT}</td></tr><tr><td>{@link #ALC_FLOAT_SOFT FLOAT_SOFT}</td></tr></table>
      */
-    public static boolean alcIsRenderFormatSupportedSOFT(long device, int frequency, int channels, int type) {
+    @NativeType("ALCboolean")
+    public static boolean alcIsRenderFormatSupportedSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCsizei") int frequency, @NativeType("ALCenum") int channels, @NativeType("ALCenum") int type) {
 		long __functionAddress = ALC.getICD().alcIsRenderFormatSupportedSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -158,7 +161,8 @@ public class SOFTLoopback {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to render
      */
-    public static void alcRenderSamplesSOFT(long device, ByteBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcRenderSamplesSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") ByteBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
     }
 
@@ -170,7 +174,8 @@ public class SOFTLoopback {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to render
      */
-    public static void alcRenderSamplesSOFT(long device, ShortBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcRenderSamplesSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") ShortBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
     }
 
@@ -182,7 +187,8 @@ public class SOFTLoopback {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to render
      */
-    public static void alcRenderSamplesSOFT(long device, IntBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcRenderSamplesSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") IntBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
     }
 
@@ -194,12 +200,14 @@ public class SOFTLoopback {
      * @param buffer  the buffer that will receive the samples. It must be big enough to contain at least {@code samples} sample frames.
      * @param samples the number of sample frames to render
      */
-    public static void alcRenderSamplesSOFT(long device, FloatBuffer buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcRenderSamplesSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") FloatBuffer buffer, @NativeType("ALCsizei") int samples) {
         nalcRenderSamplesSOFT(device, memAddress(buffer), samples);
     }
 
     /** Array version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
-    public static void alcRenderSamplesSOFT(long device, short[] buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcRenderSamplesSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") short[] buffer, @NativeType("ALCsizei") int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -209,7 +217,8 @@ public class SOFTLoopback {
     }
 
     /** Array version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
-    public static void alcRenderSamplesSOFT(long device, int[] buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcRenderSamplesSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") int[] buffer, @NativeType("ALCsizei") int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -219,7 +228,8 @@ public class SOFTLoopback {
     }
 
     /** Array version of: {@link #alcRenderSamplesSOFT RenderSamplesSOFT} */
-    public static void alcRenderSamplesSOFT(long device, float[] buffer, int samples) {
+    @NativeType("ALCvoid")
+    public static void alcRenderSamplesSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCvoid *") float[] buffer, @NativeType("ALCsizei") int samples) {
 		long __functionAddress = ALC.getICD().alcRenderSamplesSOFT;
         if (CHECKS) {
             check(__functionAddress);

@@ -62,7 +62,7 @@ public class ARBTimerQuery {
      * @param id     the name of a query object into which to record the GL time
      * @param target the counter to query. Must be:<br><table><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td></tr></table>
      */
-    public static native void glQueryCounter(int id, int target);
+    public static native void glQueryCounter(@NativeType("GLuint") int id, @NativeType("GLenum") int target);
 
     // --- [ glGetQueryObjecti64v ] ---
 
@@ -76,7 +76,7 @@ public class ARBTimerQuery {
      * @param pname  the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
      * @param params the requested data
      */
-    public static void glGetQueryObjecti64v(int id, int pname, LongBuffer params) {
+    public static void glGetQueryObjecti64v(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -89,7 +89,8 @@ public class ARBTimerQuery {
      * @param id    the name of a query object
      * @param pname the symbolic name of a query object parameter. One of:<br><table><tr><td>{@link GL15#GL_QUERY_RESULT QUERY_RESULT}</td><td>{@link GL15#GL_QUERY_RESULT_AVAILABLE QUERY_RESULT_AVAILABLE}</td></tr></table>
      */
-    public static long glGetQueryObjecti64(int id, int pname) {
+    @NativeType("void")
+    public static long glGetQueryObjecti64(@NativeType("GLuint") int id, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -112,7 +113,7 @@ public class ARBTimerQuery {
      * @param pname  the symbolic name of a query object parameter
      * @param params the requested data
      */
-    public static void glGetQueryObjectui64v(int id, int pname, LongBuffer params) {
+    public static void glGetQueryObjectui64v(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -125,7 +126,8 @@ public class ARBTimerQuery {
      * @param id    the name of a query object
      * @param pname the symbolic name of a query object parameter
      */
-    public static long glGetQueryObjectui64(int id, int pname) {
+    @NativeType("void")
+    public static long glGetQueryObjectui64(@NativeType("GLuint") int id, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -137,7 +139,7 @@ public class ARBTimerQuery {
     }
 
     /** Array version of: {@link #glGetQueryObjecti64v GetQueryObjecti64v} */
-    public static void glGetQueryObjecti64v(int id, int pname, long[] params) {
+    public static void glGetQueryObjecti64v(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetQueryObjecti64v;
         if (CHECKS) {
             check(__functionAddress);
@@ -147,7 +149,7 @@ public class ARBTimerQuery {
     }
 
     /** Array version of: {@link #glGetQueryObjectui64v GetQueryObjectui64v} */
-    public static void glGetQueryObjectui64v(int id, int pname, long[] params) {
+    public static void glGetQueryObjectui64v(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetQueryObjectui64v;
         if (CHECKS) {
             check(__functionAddress);

@@ -47,6 +47,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link AIMetaData struct aiMetadata} * mMetadata;
  * }</pre></code>
  */
+@NativeType("struct aiNode")
 public class AINode extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -108,34 +109,42 @@ public class AINode extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIString} view of the {@code mName} field. */
+    @NativeType("struct aiString")
     public AIString mName() { return nmName(address()); }
     /** Returns a {@link AIMatrix4x4} view of the {@code mTransformation} field. */
+    @NativeType("struct aiMatrix4x4")
     public AIMatrix4x4 mTransformation() { return nmTransformation(address()); }
     /** Returns a {@link AINode} view of the struct pointed to by the {@code mParent} field. */
+    @NativeType("struct aiNode *")
     public AINode mParent() { return nmParent(address()); }
     /** Returns the value of the {@code mNumChildren} field. */
+    @NativeType("unsigned int")
     public int mNumChildren() { return nmNumChildren(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mChildren} field. */
+    @NativeType("struct aiNode **")
     public PointerBuffer mChildren() { return nmChildren(address()); }
     /** Returns the value of the {@code mNumMeshes} field. */
+    @NativeType("unsigned int")
     public int mNumMeshes() { return nmNumMeshes(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code mMeshes} field. */
+    @NativeType("unsigned int *")
     public IntBuffer mMeshes() { return nmMeshes(address()); }
     /** Returns a {@link AIMetaData} view of the struct pointed to by the {@code mMetadata} field. */
+    @NativeType("struct aiMetadata *")
     public AIMetaData mMetadata() { return nmMetadata(address()); }
 
     /** Copies the specified {@link AIString} to the {@code mName} field. */
-    public AINode mName(AIString value) { nmName(address(), value); return this; }
+    public AINode mName(@NativeType("struct aiString") AIString value) { nmName(address(), value); return this; }
     /** Copies the specified {@link AIMatrix4x4} to the {@code mTransformation} field. */
-    public AINode mTransformation(AIMatrix4x4 value) { nmTransformation(address(), value); return this; }
+    public AINode mTransformation(@NativeType("struct aiMatrix4x4") AIMatrix4x4 value) { nmTransformation(address(), value); return this; }
     /** Sets the address of the specified {@link AINode} to the {@code mParent} field. */
-    public AINode mParent(AINode value) { nmParent(address(), value); return this; }
+    public AINode mParent(@NativeType("struct aiNode *") AINode value) { nmParent(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mChildren} field. */
-    public AINode mChildren(PointerBuffer value) { nmChildren(address(), value); return this; }
+    public AINode mChildren(@NativeType("struct aiNode **") PointerBuffer value) { nmChildren(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code mMeshes} field. */
-    public AINode mMeshes(IntBuffer value) { nmMeshes(address(), value); return this; }
+    public AINode mMeshes(@NativeType("unsigned int *") IntBuffer value) { nmMeshes(address(), value); return this; }
     /** Sets the address of the specified {@link AIMetaData} to the {@code mMetadata} field. */
-    public AINode mMetadata(AIMetaData value) { nmMetadata(address(), value); return this; }
+    public AINode mMetadata(@NativeType("struct aiMetadata *") AIMetaData value) { nmMetadata(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AINode set(
@@ -404,34 +413,42 @@ public class AINode extends Struct implements NativeResource {
         }
 
         /** Returns a {@link AIString} view of the {@code mName} field. */
+        @NativeType("struct aiString")
         public AIString mName() { return AINode.nmName(address()); }
         /** Returns a {@link AIMatrix4x4} view of the {@code mTransformation} field. */
+        @NativeType("struct aiMatrix4x4")
         public AIMatrix4x4 mTransformation() { return AINode.nmTransformation(address()); }
         /** Returns a {@link AINode} view of the struct pointed to by the {@code mParent} field. */
+        @NativeType("struct aiNode *")
         public AINode mParent() { return AINode.nmParent(address()); }
         /** Returns the value of the {@code mNumChildren} field. */
+        @NativeType("unsigned int")
         public int mNumChildren() { return AINode.nmNumChildren(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mChildren} field. */
+        @NativeType("struct aiNode **")
         public PointerBuffer mChildren() { return AINode.nmChildren(address()); }
         /** Returns the value of the {@code mNumMeshes} field. */
+        @NativeType("unsigned int")
         public int mNumMeshes() { return AINode.nmNumMeshes(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code mMeshes} field. */
+        @NativeType("unsigned int *")
         public IntBuffer mMeshes() { return AINode.nmMeshes(address()); }
         /** Returns a {@link AIMetaData} view of the struct pointed to by the {@code mMetadata} field. */
+        @NativeType("struct aiMetadata *")
         public AIMetaData mMetadata() { return AINode.nmMetadata(address()); }
 
         /** Copies the specified {@link AIString} to the {@code mName} field. */
-        public AINode.Buffer mName(AIString value) { AINode.nmName(address(), value); return this; }
+        public AINode.Buffer mName(@NativeType("struct aiString") AIString value) { AINode.nmName(address(), value); return this; }
         /** Copies the specified {@link AIMatrix4x4} to the {@code mTransformation} field. */
-        public AINode.Buffer mTransformation(AIMatrix4x4 value) { AINode.nmTransformation(address(), value); return this; }
+        public AINode.Buffer mTransformation(@NativeType("struct aiMatrix4x4") AIMatrix4x4 value) { AINode.nmTransformation(address(), value); return this; }
         /** Sets the address of the specified {@link AINode} to the {@code mParent} field. */
-        public AINode.Buffer mParent(AINode value) { AINode.nmParent(address(), value); return this; }
+        public AINode.Buffer mParent(@NativeType("struct aiNode *") AINode value) { AINode.nmParent(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mChildren} field. */
-        public AINode.Buffer mChildren(PointerBuffer value) { AINode.nmChildren(address(), value); return this; }
+        public AINode.Buffer mChildren(@NativeType("struct aiNode **") PointerBuffer value) { AINode.nmChildren(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code mMeshes} field. */
-        public AINode.Buffer mMeshes(IntBuffer value) { AINode.nmMeshes(address(), value); return this; }
+        public AINode.Buffer mMeshes(@NativeType("unsigned int *") IntBuffer value) { AINode.nmMeshes(address(), value); return this; }
         /** Sets the address of the specified {@link AIMetaData} to the {@code mMetadata} field. */
-        public AINode.Buffer mMetadata(AIMetaData value) { AINode.nmMetadata(address(), value); return this; }
+        public AINode.Buffer mMetadata(@NativeType("struct aiMetadata *") AIMetaData value) { AINode.nmMetadata(address(), value); return this; }
 
     }
 

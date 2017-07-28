@@ -76,10 +76,13 @@ public class VkExtensionProperties extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code extensionName} field. */
+    @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
     public ByteBuffer extensionName() { return nextensionName(address()); }
     /** Decodes the null-terminated string stored in the {@code extensionName} field. */
+    @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
     public String extensionNameString() { return nextensionNameString(address()); }
     /** Returns the value of the {@code specVersion} field. */
+    @NativeType("uint32_t")
     public int specVersion() { return nspecVersion(address()); }
 
     // -----------------------------------
@@ -261,10 +264,13 @@ public class VkExtensionProperties extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code extensionName} field. */
+        @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
         public ByteBuffer extensionName() { return VkExtensionProperties.nextensionName(address()); }
         /** Decodes the null-terminated string stored in the {@code extensionName} field. */
+        @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
         public String extensionNameString() { return VkExtensionProperties.nextensionNameString(address()); }
         /** Returns the value of the {@code specVersion} field. */
+        @NativeType("uint32_t")
         public int specVersion() { return VkExtensionProperties.nspecVersion(address()); }
 
     }

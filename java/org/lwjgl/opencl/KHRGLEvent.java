@@ -7,6 +7,8 @@ package org.lwjgl.opencl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -56,7 +58,8 @@ public class KHRGLEvent {
      * @param sync        the OpenGL fence sync object
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
-    public static long clCreateEventFromGLsyncKHR(long context, long sync, IntBuffer errcode_ret) {
+    @NativeType("cl_event")
+    public static long clCreateEventFromGLsyncKHR(@NativeType("cl_context") long context, @NativeType("GLsync") long sync, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -64,7 +67,8 @@ public class KHRGLEvent {
     }
 
     /** Array version of: {@link #clCreateEventFromGLsyncKHR CreateEventFromGLsyncKHR} */
-    public static long clCreateEventFromGLsyncKHR(long context, long sync, int[] errcode_ret) {
+    @NativeType("cl_event")
+    public static long clCreateEventFromGLsyncKHR(@NativeType("cl_context") long context, @NativeType("GLsync") long sync, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateEventFromGLsyncKHR;
         if (CHECKS) {
             check(__functionAddress);

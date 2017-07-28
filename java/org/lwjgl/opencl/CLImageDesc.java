@@ -68,6 +68,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     cl_mem buffer;
  * }</pre></code>
  */
+@NativeType("struct cl_image_desc")
 public class CLImageDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -135,46 +136,56 @@ public class CLImageDesc extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code image_type} field. */
+    @NativeType("cl_mem_object_type")
     public int image_type() { return nimage_type(address()); }
     /** Returns the value of the {@code image_width} field. */
+    @NativeType("size_t")
     public long image_width() { return nimage_width(address()); }
     /** Returns the value of the {@code image_height} field. */
+    @NativeType("size_t")
     public long image_height() { return nimage_height(address()); }
     /** Returns the value of the {@code image_depth} field. */
+    @NativeType("size_t")
     public long image_depth() { return nimage_depth(address()); }
     /** Returns the value of the {@code image_array_size} field. */
+    @NativeType("size_t")
     public long image_array_size() { return nimage_array_size(address()); }
     /** Returns the value of the {@code image_row_pitch} field. */
+    @NativeType("size_t")
     public long image_row_pitch() { return nimage_row_pitch(address()); }
     /** Returns the value of the {@code image_slice_pitch} field. */
+    @NativeType("size_t")
     public long image_slice_pitch() { return nimage_slice_pitch(address()); }
     /** Returns the value of the {@code num_mip_levels} field. */
+    @NativeType("cl_uint")
     public int num_mip_levels() { return nnum_mip_levels(address()); }
     /** Returns the value of the {@code num_samples} field. */
+    @NativeType("cl_uint")
     public int num_samples() { return nnum_samples(address()); }
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("cl_mem")
     public long buffer() { return nbuffer(address()); }
 
     /** Sets the specified value to the {@code image_type} field. */
-    public CLImageDesc image_type(int value) { nimage_type(address(), value); return this; }
+    public CLImageDesc image_type(@NativeType("cl_mem_object_type") int value) { nimage_type(address(), value); return this; }
     /** Sets the specified value to the {@code image_width} field. */
-    public CLImageDesc image_width(long value) { nimage_width(address(), value); return this; }
+    public CLImageDesc image_width(@NativeType("size_t") long value) { nimage_width(address(), value); return this; }
     /** Sets the specified value to the {@code image_height} field. */
-    public CLImageDesc image_height(long value) { nimage_height(address(), value); return this; }
+    public CLImageDesc image_height(@NativeType("size_t") long value) { nimage_height(address(), value); return this; }
     /** Sets the specified value to the {@code image_depth} field. */
-    public CLImageDesc image_depth(long value) { nimage_depth(address(), value); return this; }
+    public CLImageDesc image_depth(@NativeType("size_t") long value) { nimage_depth(address(), value); return this; }
     /** Sets the specified value to the {@code image_array_size} field. */
-    public CLImageDesc image_array_size(long value) { nimage_array_size(address(), value); return this; }
+    public CLImageDesc image_array_size(@NativeType("size_t") long value) { nimage_array_size(address(), value); return this; }
     /** Sets the specified value to the {@code image_row_pitch} field. */
-    public CLImageDesc image_row_pitch(long value) { nimage_row_pitch(address(), value); return this; }
+    public CLImageDesc image_row_pitch(@NativeType("size_t") long value) { nimage_row_pitch(address(), value); return this; }
     /** Sets the specified value to the {@code image_slice_pitch} field. */
-    public CLImageDesc image_slice_pitch(long value) { nimage_slice_pitch(address(), value); return this; }
+    public CLImageDesc image_slice_pitch(@NativeType("size_t") long value) { nimage_slice_pitch(address(), value); return this; }
     /** Sets the specified value to the {@code num_mip_levels} field. */
-    public CLImageDesc num_mip_levels(int value) { nnum_mip_levels(address(), value); return this; }
+    public CLImageDesc num_mip_levels(@NativeType("cl_uint") int value) { nnum_mip_levels(address(), value); return this; }
     /** Sets the specified value to the {@code num_samples} field. */
-    public CLImageDesc num_samples(int value) { nnum_samples(address(), value); return this; }
+    public CLImageDesc num_samples(@NativeType("cl_uint") int value) { nnum_samples(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
-    public CLImageDesc buffer(long value) { nbuffer(address(), value); return this; }
+    public CLImageDesc buffer(@NativeType("cl_mem") long value) { nbuffer(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public CLImageDesc set(
@@ -429,46 +440,56 @@ public class CLImageDesc extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code image_type} field. */
+        @NativeType("cl_mem_object_type")
         public int image_type() { return CLImageDesc.nimage_type(address()); }
         /** Returns the value of the {@code image_width} field. */
+        @NativeType("size_t")
         public long image_width() { return CLImageDesc.nimage_width(address()); }
         /** Returns the value of the {@code image_height} field. */
+        @NativeType("size_t")
         public long image_height() { return CLImageDesc.nimage_height(address()); }
         /** Returns the value of the {@code image_depth} field. */
+        @NativeType("size_t")
         public long image_depth() { return CLImageDesc.nimage_depth(address()); }
         /** Returns the value of the {@code image_array_size} field. */
+        @NativeType("size_t")
         public long image_array_size() { return CLImageDesc.nimage_array_size(address()); }
         /** Returns the value of the {@code image_row_pitch} field. */
+        @NativeType("size_t")
         public long image_row_pitch() { return CLImageDesc.nimage_row_pitch(address()); }
         /** Returns the value of the {@code image_slice_pitch} field. */
+        @NativeType("size_t")
         public long image_slice_pitch() { return CLImageDesc.nimage_slice_pitch(address()); }
         /** Returns the value of the {@code num_mip_levels} field. */
+        @NativeType("cl_uint")
         public int num_mip_levels() { return CLImageDesc.nnum_mip_levels(address()); }
         /** Returns the value of the {@code num_samples} field. */
+        @NativeType("cl_uint")
         public int num_samples() { return CLImageDesc.nnum_samples(address()); }
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("cl_mem")
         public long buffer() { return CLImageDesc.nbuffer(address()); }
 
         /** Sets the specified value to the {@code image_type} field. */
-        public CLImageDesc.Buffer image_type(int value) { CLImageDesc.nimage_type(address(), value); return this; }
+        public CLImageDesc.Buffer image_type(@NativeType("cl_mem_object_type") int value) { CLImageDesc.nimage_type(address(), value); return this; }
         /** Sets the specified value to the {@code image_width} field. */
-        public CLImageDesc.Buffer image_width(long value) { CLImageDesc.nimage_width(address(), value); return this; }
+        public CLImageDesc.Buffer image_width(@NativeType("size_t") long value) { CLImageDesc.nimage_width(address(), value); return this; }
         /** Sets the specified value to the {@code image_height} field. */
-        public CLImageDesc.Buffer image_height(long value) { CLImageDesc.nimage_height(address(), value); return this; }
+        public CLImageDesc.Buffer image_height(@NativeType("size_t") long value) { CLImageDesc.nimage_height(address(), value); return this; }
         /** Sets the specified value to the {@code image_depth} field. */
-        public CLImageDesc.Buffer image_depth(long value) { CLImageDesc.nimage_depth(address(), value); return this; }
+        public CLImageDesc.Buffer image_depth(@NativeType("size_t") long value) { CLImageDesc.nimage_depth(address(), value); return this; }
         /** Sets the specified value to the {@code image_array_size} field. */
-        public CLImageDesc.Buffer image_array_size(long value) { CLImageDesc.nimage_array_size(address(), value); return this; }
+        public CLImageDesc.Buffer image_array_size(@NativeType("size_t") long value) { CLImageDesc.nimage_array_size(address(), value); return this; }
         /** Sets the specified value to the {@code image_row_pitch} field. */
-        public CLImageDesc.Buffer image_row_pitch(long value) { CLImageDesc.nimage_row_pitch(address(), value); return this; }
+        public CLImageDesc.Buffer image_row_pitch(@NativeType("size_t") long value) { CLImageDesc.nimage_row_pitch(address(), value); return this; }
         /** Sets the specified value to the {@code image_slice_pitch} field. */
-        public CLImageDesc.Buffer image_slice_pitch(long value) { CLImageDesc.nimage_slice_pitch(address(), value); return this; }
+        public CLImageDesc.Buffer image_slice_pitch(@NativeType("size_t") long value) { CLImageDesc.nimage_slice_pitch(address(), value); return this; }
         /** Sets the specified value to the {@code num_mip_levels} field. */
-        public CLImageDesc.Buffer num_mip_levels(int value) { CLImageDesc.nnum_mip_levels(address(), value); return this; }
+        public CLImageDesc.Buffer num_mip_levels(@NativeType("cl_uint") int value) { CLImageDesc.nnum_mip_levels(address(), value); return this; }
         /** Sets the specified value to the {@code num_samples} field. */
-        public CLImageDesc.Buffer num_samples(int value) { CLImageDesc.nnum_samples(address(), value); return this; }
+        public CLImageDesc.Buffer num_samples(@NativeType("cl_uint") int value) { CLImageDesc.nnum_samples(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
-        public CLImageDesc.Buffer buffer(long value) { CLImageDesc.nbuffer(address(), value); return this; }
+        public CLImageDesc.Buffer buffer(@NativeType("cl_mem") long value) { CLImageDesc.nbuffer(address(), value); return this; }
 
     }
 

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** A mutation handler. */
 @FunctionalInterface
+@NativeType("EnumerationMutationHandler")
 public interface EnumerationMutationHandlerI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";
@@ -30,6 +31,6 @@ public interface EnumerationMutationHandlerI extends CallbackI.V {
      *
      * @param id the object that was mutated
      */
-    void invoke(long id);
+    void invoke(@NativeType("id") long id);
 
 }

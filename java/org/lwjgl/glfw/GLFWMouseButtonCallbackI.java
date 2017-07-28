@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWmousebuttonfun")
 public interface GLFWMouseButtonCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(piii)v";
@@ -36,6 +37,6 @@ public interface GLFWMouseButtonCallbackI extends CallbackI.V {
      * @param action the button action. One of:<br><table><tr><td>{@link GLFW#GLFW_PRESS PRESS}</td><td>{@link GLFW#GLFW_RELEASE RELEASE}</td><td>{@link GLFW#GLFW_REPEAT REPEAT}</td></tr></table>
      * @param mods   bitfield describing which modifiers keys were held down
      */
-    void invoke(long window, int button, int action, int mods);
+    void invoke(@NativeType("GLFWwindow *") long window, int button, int action, int mods);
 
 }

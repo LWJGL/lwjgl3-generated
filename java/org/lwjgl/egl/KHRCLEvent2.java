@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -53,7 +55,8 @@ public class KHRCLEvent2 {
         return callPPP(__functionAddress, dpy, type, attrib_list);
     }
 
-    public static long eglCreateSync64KHR(long dpy, int type, PointerBuffer attrib_list) {
+    @NativeType("EGLSyncKHR")
+    public static long eglCreateSync64KHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLAttribKHR *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }

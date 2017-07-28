@@ -23,6 +23,7 @@ class MemoryAccessJNI {
 
     // --- [ malloc ] ---
 
+    @NativeType("void *")
     private static native long malloc();
 
     /** Returns the address of the stdlib {@code malloc} function. */
@@ -30,6 +31,7 @@ class MemoryAccessJNI {
 
     // --- [ calloc ] ---
 
+    @NativeType("void *")
     private static native long calloc();
 
     /** Returns the address of the stdlib {@code calloc} function. */
@@ -37,6 +39,7 @@ class MemoryAccessJNI {
 
     // --- [ realloc ] ---
 
+    @NativeType("void *")
     private static native long realloc();
 
     /** Returns the address of the stdlib {@code realloc} function. */
@@ -44,6 +47,7 @@ class MemoryAccessJNI {
 
     // --- [ free ] ---
 
+    @NativeType("void *")
     private static native long free();
 
     /** Returns the address of the stdlib {@code free} function. */
@@ -51,6 +55,7 @@ class MemoryAccessJNI {
 
     // --- [ aligned_alloc ] ---
 
+    @NativeType("void *")
     private static native long aligned_alloc();
 
     /** Returns the address of the stdlib {@code aligned_alloc} function. */
@@ -58,6 +63,7 @@ class MemoryAccessJNI {
 
     // --- [ aligned_free ] ---
 
+    @NativeType("void *")
     private static native long aligned_free();
 
     /** Returns the address of the stdlib {@code aligned_free} function. */
@@ -73,7 +79,8 @@ class MemoryAccessJNI {
      *
      * @param ptr the memory address to read
      */
-    static byte getByte(long ptr) {
+    @NativeType("int8_t")
+    static byte getByte(@NativeType("void *") long ptr) {
         if (CHECKS) {
             check(ptr);
         }
@@ -90,7 +97,8 @@ class MemoryAccessJNI {
      *
      * @param ptr the memory address to read
      */
-    static short getShort(long ptr) {
+    @NativeType("int16_t")
+    static short getShort(@NativeType("void *") long ptr) {
         if (CHECKS) {
             check(ptr);
         }
@@ -107,7 +115,8 @@ class MemoryAccessJNI {
      *
      * @param ptr the memory address to read
      */
-    static int getInt(long ptr) {
+    @NativeType("int32_t")
+    static int getInt(@NativeType("void *") long ptr) {
         if (CHECKS) {
             check(ptr);
         }
@@ -124,7 +133,8 @@ class MemoryAccessJNI {
      *
      * @param ptr the memory address to read
      */
-    static long getLong(long ptr) {
+    @NativeType("int64_t")
+    static long getLong(@NativeType("void *") long ptr) {
         if (CHECKS) {
             check(ptr);
         }
@@ -141,7 +151,7 @@ class MemoryAccessJNI {
      *
      * @param ptr the memory address to read
      */
-    static float getFloat(long ptr) {
+    static float getFloat(@NativeType("void *") long ptr) {
         if (CHECKS) {
             check(ptr);
         }
@@ -158,7 +168,7 @@ class MemoryAccessJNI {
      *
      * @param ptr the memory address to read
      */
-    static double getDouble(long ptr) {
+    static double getDouble(@NativeType("void *") long ptr) {
         if (CHECKS) {
             check(ptr);
         }
@@ -175,7 +185,8 @@ class MemoryAccessJNI {
      *
      * @param ptr the memory address to read
      */
-    static long getAddress(long ptr) {
+    @NativeType("intptr_t")
+    static long getAddress(@NativeType("void *") long ptr) {
         if (CHECKS) {
             check(ptr);
         }
@@ -193,7 +204,7 @@ class MemoryAccessJNI {
      * @param ptr   the memory address to write
      * @param value the value to write
      */
-    static void putByte(long ptr, byte value) {
+    static void putByte(@NativeType("void *") long ptr, @NativeType("int8_t") byte value) {
         if (CHECKS) {
             check(ptr);
         }
@@ -211,7 +222,7 @@ class MemoryAccessJNI {
      * @param ptr   the memory address to write
      * @param value the value to write
      */
-    static void putShort(long ptr, short value) {
+    static void putShort(@NativeType("void *") long ptr, @NativeType("int16_t") short value) {
         if (CHECKS) {
             check(ptr);
         }
@@ -229,7 +240,7 @@ class MemoryAccessJNI {
      * @param ptr   the memory address to write
      * @param value the value to write
      */
-    static void putInt(long ptr, int value) {
+    static void putInt(@NativeType("void *") long ptr, @NativeType("int32_t") int value) {
         if (CHECKS) {
             check(ptr);
         }
@@ -247,7 +258,7 @@ class MemoryAccessJNI {
      * @param ptr   the memory address to write
      * @param value the value to write
      */
-    static void putLong(long ptr, long value) {
+    static void putLong(@NativeType("void *") long ptr, @NativeType("int64_t") long value) {
         if (CHECKS) {
             check(ptr);
         }
@@ -265,7 +276,7 @@ class MemoryAccessJNI {
      * @param ptr   the memory address to write
      * @param value the value to write
      */
-    static void putFloat(long ptr, float value) {
+    static void putFloat(@NativeType("void *") long ptr, float value) {
         if (CHECKS) {
             check(ptr);
         }
@@ -283,7 +294,7 @@ class MemoryAccessJNI {
      * @param ptr   the memory address to write
      * @param value the value to write
      */
-    static void putDouble(long ptr, double value) {
+    static void putDouble(@NativeType("void *") long ptr, double value) {
         if (CHECKS) {
             check(ptr);
         }
@@ -301,7 +312,7 @@ class MemoryAccessJNI {
      * @param ptr   the memory address to write
      * @param value the value to write
      */
-    static void putAddress(long ptr, long value) {
+    static void putAddress(@NativeType("void *") long ptr, @NativeType("intptr_t") long value) {
         if (CHECKS) {
             check(ptr);
         }

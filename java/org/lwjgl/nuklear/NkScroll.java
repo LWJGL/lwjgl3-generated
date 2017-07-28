@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     nk_uint y;
  * }</pre></code>
  */
+@NativeType("struct nk_scroll")
 public class NkScroll extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,8 +66,10 @@ public class NkScroll extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("nk_uint")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("nk_uint")
     public int y() { return ny(address()); }
 
     // -----------------------------------
@@ -246,8 +249,10 @@ public class NkScroll extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("nk_uint")
         public int x() { return NkScroll.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("nk_uint")
         public int y() { return NkScroll.ny(address()); }
 
     }

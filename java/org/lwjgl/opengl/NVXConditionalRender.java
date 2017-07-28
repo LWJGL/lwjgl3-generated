@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -35,7 +37,7 @@ public class NVXConditionalRender {
 
     // --- [ glBeginConditionalRenderNVX ] ---
 
-    public static native void glBeginConditionalRenderNVX(int id);
+    public static native void glBeginConditionalRenderNVX(@NativeType("GLuint") int id);
 
     // --- [ glEndConditionalRenderNVX ] ---
 

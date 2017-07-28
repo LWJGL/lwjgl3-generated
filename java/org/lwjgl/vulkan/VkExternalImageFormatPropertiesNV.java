@@ -86,10 +86,13 @@ public class VkExternalImageFormatPropertiesNV extends Struct implements NativeR
     /** Returns a {@link VkImageFormatProperties} view of the {@code imageFormatProperties} field. */
     public VkImageFormatProperties imageFormatProperties() { return nimageFormatProperties(address()); }
     /** Returns the value of the {@code externalMemoryFeatures} field. */
+    @NativeType("VkExternalMemoryFeatureFlagsNV")
     public int externalMemoryFeatures() { return nexternalMemoryFeatures(address()); }
     /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
+    @NativeType("VkExternalMemoryHandleTypeFlagsNV")
     public int exportFromImportedHandleTypes() { return nexportFromImportedHandleTypes(address()); }
     /** Returns the value of the {@code compatibleHandleTypes} field. */
+    @NativeType("VkExternalMemoryHandleTypeFlagsNV")
     public int compatibleHandleTypes() { return ncompatibleHandleTypes(address()); }
 
     // -----------------------------------
@@ -275,10 +278,13 @@ public class VkExternalImageFormatPropertiesNV extends Struct implements NativeR
         /** Returns a {@link VkImageFormatProperties} view of the {@code imageFormatProperties} field. */
         public VkImageFormatProperties imageFormatProperties() { return VkExternalImageFormatPropertiesNV.nimageFormatProperties(address()); }
         /** Returns the value of the {@code externalMemoryFeatures} field. */
+        @NativeType("VkExternalMemoryFeatureFlagsNV")
         public int externalMemoryFeatures() { return VkExternalImageFormatPropertiesNV.nexternalMemoryFeatures(address()); }
         /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
+        @NativeType("VkExternalMemoryHandleTypeFlagsNV")
         public int exportFromImportedHandleTypes() { return VkExternalImageFormatPropertiesNV.nexportFromImportedHandleTypes(address()); }
         /** Returns the value of the {@code compatibleHandleTypes} field. */
+        @NativeType("VkExternalMemoryHandleTypeFlagsNV")
         public int compatibleHandleTypes() { return VkExternalImageFormatPropertiesNV.ncompatibleHandleTypes(address()); }
 
     }

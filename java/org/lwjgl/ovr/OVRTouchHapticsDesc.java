@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int SubmitOptimalSamples;
  * }</pre></code>
  */
+@NativeType("struct ovrTouchHapticsDesc")
 public class OVRTouchHapticsDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

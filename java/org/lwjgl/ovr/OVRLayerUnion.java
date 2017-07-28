@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRLayerQuad ovrLayerQuad} Quad;
  * }</pre></code>
  */
+@NativeType("union ovrLayer_Union")
 public class OVRLayerUnion extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -77,18 +78,21 @@ public class OVRLayerUnion extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+    @NativeType("ovrLayerHeader")
     public OVRLayerHeader Header() { return nHeader(address()); }
     /** Returns a {@link OVRLayerEyeFov} view of the {@code EyeFov} field. */
+    @NativeType("ovrLayerEyeFov")
     public OVRLayerEyeFov EyeFov() { return nEyeFov(address()); }
     /** Returns a {@link OVRLayerQuad} view of the {@code Quad} field. */
+    @NativeType("ovrLayerQuad")
     public OVRLayerQuad Quad() { return nQuad(address()); }
 
     /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-    public OVRLayerUnion Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+    public OVRLayerUnion Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { nHeader(address(), value); return this; }
     /** Copies the specified {@link OVRLayerEyeFov} to the {@code EyeFov} field. */
-    public OVRLayerUnion EyeFov(OVRLayerEyeFov value) { nEyeFov(address(), value); return this; }
+    public OVRLayerUnion EyeFov(@NativeType("ovrLayerEyeFov") OVRLayerEyeFov value) { nEyeFov(address(), value); return this; }
     /** Copies the specified {@link OVRLayerQuad} to the {@code Quad} field. */
-    public OVRLayerUnion Quad(OVRLayerQuad value) { nQuad(address(), value); return this; }
+    public OVRLayerUnion Quad(@NativeType("ovrLayerQuad") OVRLayerQuad value) { nQuad(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -288,18 +292,21 @@ public class OVRLayerUnion extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+        @NativeType("ovrLayerHeader")
         public OVRLayerHeader Header() { return OVRLayerUnion.nHeader(address()); }
         /** Returns a {@link OVRLayerEyeFov} view of the {@code EyeFov} field. */
+        @NativeType("ovrLayerEyeFov")
         public OVRLayerEyeFov EyeFov() { return OVRLayerUnion.nEyeFov(address()); }
         /** Returns a {@link OVRLayerQuad} view of the {@code Quad} field. */
+        @NativeType("ovrLayerQuad")
         public OVRLayerQuad Quad() { return OVRLayerUnion.nQuad(address()); }
 
         /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-        public OVRLayerUnion.Buffer Header(OVRLayerHeader value) { OVRLayerUnion.nHeader(address(), value); return this; }
+        public OVRLayerUnion.Buffer Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { OVRLayerUnion.nHeader(address(), value); return this; }
         /** Copies the specified {@link OVRLayerEyeFov} to the {@code EyeFov} field. */
-        public OVRLayerUnion.Buffer EyeFov(OVRLayerEyeFov value) { OVRLayerUnion.nEyeFov(address(), value); return this; }
+        public OVRLayerUnion.Buffer EyeFov(@NativeType("ovrLayerEyeFov") OVRLayerEyeFov value) { OVRLayerUnion.nEyeFov(address(), value); return this; }
         /** Copies the specified {@link OVRLayerQuad} to the {@code Quad} field. */
-        public OVRLayerUnion.Buffer Quad(OVRLayerQuad value) { OVRLayerUnion.nQuad(address(), value); return this; }
+        public OVRLayerUnion.Buffer Quad(@NativeType("ovrLayerQuad") OVRLayerQuad value) { OVRLayerUnion.nQuad(address(), value); return this; }
 
     }
 

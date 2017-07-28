@@ -55,6 +55,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link AITexel struct aiTexel} * pcData;
  * }</pre></code>
  */
+@NativeType("struct aiTexture")
 public class AITexture extends Struct {
 
     /** The struct size in bytes. */
@@ -104,18 +105,23 @@ public class AITexture extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code mWidth} field. */
+    @NativeType("unsigned int")
     public int mWidth() { return nmWidth(address()); }
     /** Returns the value of the {@code mHeight} field. */
+    @NativeType("unsigned int")
     public int mHeight() { return nmHeight(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code achFormatHint} field. */
+    @NativeType("char[4]")
     public ByteBuffer achFormatHint() { return nachFormatHint(address()); }
     /** Decodes the null-terminated string stored in the {@code achFormatHint} field. */
+    @NativeType("char[4]")
     public String achFormatHintString() { return nachFormatHintString(address()); }
     /**
      * Returns a {@link AITexel.Buffer} view of the struct array pointed to by the {@code pcData} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("struct aiTexel *")
     public AITexel.Buffer pcData(int capacity) { return npcData(address(), capacity); }
 
     // -----------------------------------
@@ -191,18 +197,23 @@ public class AITexture extends Struct {
         }
 
         /** Returns the value of the {@code mWidth} field. */
+        @NativeType("unsigned int")
         public int mWidth() { return AITexture.nmWidth(address()); }
         /** Returns the value of the {@code mHeight} field. */
+        @NativeType("unsigned int")
         public int mHeight() { return AITexture.nmHeight(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code achFormatHint} field. */
+        @NativeType("char[4]")
         public ByteBuffer achFormatHint() { return AITexture.nachFormatHint(address()); }
         /** Decodes the null-terminated string stored in the {@code achFormatHint} field. */
+        @NativeType("char[4]")
         public String achFormatHintString() { return AITexture.nachFormatHintString(address()); }
         /**
          * Returns a {@link AITexel.Buffer} view of the struct array pointed to by the {@code pcData} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("struct aiTexel *")
         public AITexel.Buffer pcData(int capacity) { return AITexture.npcData(address(), capacity); }
 
     }

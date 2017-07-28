@@ -74,14 +74,16 @@ public class VkOffset2D extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("int32_t")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("int32_t")
     public int y() { return ny(address()); }
 
     /** Sets the specified value to the {@code x} field. */
-    public VkOffset2D x(int value) { nx(address(), value); return this; }
+    public VkOffset2D x(@NativeType("int32_t") int value) { nx(address(), value); return this; }
     /** Sets the specified value to the {@code y} field. */
-    public VkOffset2D y(int value) { ny(address(), value); return this; }
+    public VkOffset2D y(@NativeType("int32_t") int value) { ny(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkOffset2D set(
@@ -288,14 +290,16 @@ public class VkOffset2D extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("int32_t")
         public int x() { return VkOffset2D.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("int32_t")
         public int y() { return VkOffset2D.ny(address()); }
 
         /** Sets the specified value to the {@code x} field. */
-        public VkOffset2D.Buffer x(int value) { VkOffset2D.nx(address(), value); return this; }
+        public VkOffset2D.Buffer x(@NativeType("int32_t") int value) { VkOffset2D.nx(address(), value); return this; }
         /** Sets the specified value to the {@code y} field. */
-        public VkOffset2D.Buffer y(int value) { VkOffset2D.ny(address(), value); return this; }
+        public VkOffset2D.Buffer y(@NativeType("int32_t") int value) { VkOffset2D.ny(address(), value); return this; }
 
     }
 

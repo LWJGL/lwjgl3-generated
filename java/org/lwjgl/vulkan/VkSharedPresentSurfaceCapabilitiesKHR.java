@@ -83,10 +83,13 @@ public class VkSharedPresentSurfaceCapabilitiesKHR extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code sharedPresentSupportedUsageFlags} field. */
+    @NativeType("VkImageUsageFlags")
     public int sharedPresentSupportedUsageFlags() { return nsharedPresentSupportedUsageFlags(address()); }
 
     // -----------------------------------
@@ -158,10 +161,13 @@ public class VkSharedPresentSurfaceCapabilitiesKHR extends Struct {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSharedPresentSurfaceCapabilitiesKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkSharedPresentSurfaceCapabilitiesKHR.npNext(address()); }
         /** Returns the value of the {@code sharedPresentSupportedUsageFlags} field. */
+        @NativeType("VkImageUsageFlags")
         public int sharedPresentSupportedUsageFlags() { return VkSharedPresentSurfaceCapabilitiesKHR.nsharedPresentSupportedUsageFlags(address()); }
 
     }

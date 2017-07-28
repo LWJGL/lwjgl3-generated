@@ -29,6 +29,7 @@ import static org.lwjgl.nuklear.Nuklear.NK_BUTTON_MAX;
  *     bool ungrab;
  * }</pre></code>
  */
+@NativeType("struct nk_mouse")
 public class NkMouse extends Struct {
 
     /** The struct size in bytes. */
@@ -90,22 +91,31 @@ public class NkMouse extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkMouseButton}.Buffer view of the {@code buttons} field. */
+    @NativeType("struct nk_mouse_button[NK_BUTTON_MAX]")
     public NkMouseButton.Buffer buttons() { return nbuttons(address()); }
     /** Returns a {@link NkMouseButton} view of the struct at the specified index of the {@code buttons} field. */
+    @NativeType("struct nk_mouse_button")
     public NkMouseButton buttons(int index) { return nbuttons(address(), index); }
     /** Returns a {@link NkVec2} view of the {@code pos} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 pos() { return npos(address()); }
     /** Returns a {@link NkVec2} view of the {@code prev} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 prev() { return nprev(address()); }
     /** Returns a {@link NkVec2} view of the {@code delta} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 delta() { return ndelta(address()); }
     /** Returns a {@link NkVec2} view of the {@code scroll_delta} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 scroll_delta() { return nscroll_delta(address()); }
     /** Returns the value of the {@code grab} field. */
+    @NativeType("bool")
     public boolean grab() { return ngrab(address()); }
     /** Returns the value of the {@code grabbed} field. */
+    @NativeType("bool")
     public boolean grabbed() { return ngrabbed(address()); }
     /** Returns the value of the {@code ungrab} field. */
+    @NativeType("bool")
     public boolean ungrab() { return nungrab(address()); }
 
     // -----------------------------------
@@ -192,22 +202,31 @@ public class NkMouse extends Struct {
         }
 
         /** Returns a {@link NkMouseButton}.Buffer view of the {@code buttons} field. */
+        @NativeType("struct nk_mouse_button[NK_BUTTON_MAX]")
         public NkMouseButton.Buffer buttons() { return NkMouse.nbuttons(address()); }
         /** Returns a {@link NkMouseButton} view of the struct at the specified index of the {@code buttons} field. */
+        @NativeType("struct nk_mouse_button")
         public NkMouseButton buttons(int index) { return NkMouse.nbuttons(address(), index); }
         /** Returns a {@link NkVec2} view of the {@code pos} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 pos() { return NkMouse.npos(address()); }
         /** Returns a {@link NkVec2} view of the {@code prev} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 prev() { return NkMouse.nprev(address()); }
         /** Returns a {@link NkVec2} view of the {@code delta} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 delta() { return NkMouse.ndelta(address()); }
         /** Returns a {@link NkVec2} view of the {@code scroll_delta} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 scroll_delta() { return NkMouse.nscroll_delta(address()); }
         /** Returns the value of the {@code grab} field. */
+        @NativeType("bool")
         public boolean grab() { return NkMouse.ngrab(address()); }
         /** Returns the value of the {@code grabbed} field. */
+        @NativeType("bool")
         public boolean grabbed() { return NkMouse.ngrabbed(address()); }
         /** Returns the value of the {@code ungrab} field. */
+        @NativeType("bool")
         public boolean ungrab() { return NkMouse.nungrab(address()); }
 
     }

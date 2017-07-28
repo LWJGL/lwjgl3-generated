@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -34,7 +36,7 @@ public class QCOMExtendedGet2 {
 
     public static native void nglExtGetShadersQCOM(long shaders, int maxShaders, long numShaders);
 
-    public static void glExtGetShadersQCOM(IntBuffer shaders, IntBuffer numShaders) {
+    public static void glExtGetShadersQCOM(@NativeType("GLuint *") IntBuffer shaders, @NativeType("GLint *") IntBuffer numShaders) {
         if (CHECKS) {
             checkSafe(numShaders, 1);
         }
@@ -45,7 +47,7 @@ public class QCOMExtendedGet2 {
 
     public static native void nglExtGetProgramsQCOM(long programs, int maxPrograms, long numPrograms);
 
-    public static void glExtGetProgramsQCOM(IntBuffer programs, IntBuffer numPrograms) {
+    public static void glExtGetProgramsQCOM(@NativeType("GLuint *") IntBuffer programs, @NativeType("GLint *") IntBuffer numPrograms) {
         if (CHECKS) {
             checkSafe(numPrograms, 1);
         }
@@ -54,13 +56,14 @@ public class QCOMExtendedGet2 {
 
     // --- [ glExtIsProgramBinaryQCOM ] ---
 
-    public static native boolean glExtIsProgramBinaryQCOM(int program);
+    @NativeType("GLboolean")
+    public static native boolean glExtIsProgramBinaryQCOM(@NativeType("GLuint") int program);
 
     // --- [ glExtGetProgramBinarySourceQCOM ] ---
 
     public static native void nglExtGetProgramBinarySourceQCOM(int program, int shadertype, long source, long length);
 
-    public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, IntBuffer length) {
+    public static void glExtGetProgramBinarySourceQCOM(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("GLchar *") ByteBuffer source, @NativeType("GLint *") IntBuffer length) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -68,7 +71,7 @@ public class QCOMExtendedGet2 {
     }
 
     /** Array version of: {@link #glExtGetShadersQCOM ExtGetShadersQCOM} */
-    public static void glExtGetShadersQCOM(int[] shaders, int[] numShaders) {
+    public static void glExtGetShadersQCOM(@NativeType("GLuint *") int[] shaders, @NativeType("GLint *") int[] numShaders) {
         long __functionAddress = GLES.getICD().glExtGetShadersQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -78,7 +81,7 @@ public class QCOMExtendedGet2 {
     }
 
     /** Array version of: {@link #glExtGetProgramsQCOM ExtGetProgramsQCOM} */
-    public static void glExtGetProgramsQCOM(int[] programs, int[] numPrograms) {
+    public static void glExtGetProgramsQCOM(@NativeType("GLuint *") int[] programs, @NativeType("GLint *") int[] numPrograms) {
         long __functionAddress = GLES.getICD().glExtGetProgramsQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -88,7 +91,7 @@ public class QCOMExtendedGet2 {
     }
 
     /** Array version of: {@link #glExtGetProgramBinarySourceQCOM ExtGetProgramBinarySourceQCOM} */
-    public static void glExtGetProgramBinarySourceQCOM(int program, int shadertype, ByteBuffer source, int[] length) {
+    public static void glExtGetProgramBinarySourceQCOM(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("GLchar *") ByteBuffer source, @NativeType("GLint *") int[] length) {
         long __functionAddress = GLES.getICD().glExtGetProgramBinarySourceQCOM;
         if (CHECKS) {
             check(__functionAddress);

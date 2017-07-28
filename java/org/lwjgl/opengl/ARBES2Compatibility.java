@@ -84,7 +84,7 @@ public class ARBES2Compatibility {
      * @param binaryformat the format of the shader binaries contained in {@code binary}
      * @param binary       an array of bytes containing pre-compiled binary shader code
      */
-    public static void glShaderBinary(IntBuffer shaders, int binaryformat, ByteBuffer binary) {
+    public static void glShaderBinary(@NativeType("const GLuint *") IntBuffer shaders, @NativeType("GLenum") int binaryformat, @NativeType("const void *") ByteBuffer binary) {
         nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
     }
 
@@ -101,7 +101,7 @@ public class ARBES2Compatibility {
      * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
      * @param precision     the address of an integer into which the numeric precision of the implementation is written
      */
-    public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range, IntBuffer precision) {
+    public static void glGetShaderPrecisionFormat(@NativeType("GLenum") int shadertype, @NativeType("GLenum") int precisiontype, @NativeType("GLint *") IntBuffer range, @NativeType("GLint *") IntBuffer precision) {
         if (CHECKS) {
             check(range, 2);
             check(precision, 1);
@@ -116,7 +116,8 @@ public class ARBES2Compatibility {
      * @param precisiontype the numeric format whose precision and range to query
      * @param range         the address of array of two integers into which encodings of the implementation's numeric range are returned
      */
-    public static int glGetShaderPrecisionFormat(int shadertype, int precisiontype, IntBuffer range) {
+    @NativeType("void")
+    public static int glGetShaderPrecisionFormat(@NativeType("GLenum") int shadertype, @NativeType("GLenum") int precisiontype, @NativeType("GLint *") IntBuffer range) {
         if (CHECKS) {
             check(range, 2);
         }
@@ -138,7 +139,7 @@ public class ARBES2Compatibility {
      * @param zNear the mapping of the near clipping plane to window coordinates. The initial value is 0.0f.
      * @param zFar  the mapping of the far clipping plane to window coordinates. The initial value is 1.0f.
      */
-    public static native void glDepthRangef(float zNear, float zFar);
+    public static native void glDepthRangef(@NativeType("GLfloat") float zNear, @NativeType("GLfloat") float zFar);
 
     // --- [ glClearDepthf ] ---
 
@@ -147,10 +148,10 @@ public class ARBES2Compatibility {
      *
      * @param depth the depth value used when the depth buffer is cleared. The initial value is 1.0f.
      */
-    public static native void glClearDepthf(float depth);
+    public static native void glClearDepthf(@NativeType("GLfloat") float depth);
 
     /** Array version of: {@link #glShaderBinary ShaderBinary} */
-    public static void glShaderBinary(int[] shaders, int binaryformat, ByteBuffer binary) {
+    public static void glShaderBinary(@NativeType("const GLuint *") int[] shaders, @NativeType("GLenum") int binaryformat, @NativeType("const void *") ByteBuffer binary) {
         long __functionAddress = GL.getICD().glShaderBinary;
         if (CHECKS) {
             check(__functionAddress);
@@ -159,7 +160,7 @@ public class ARBES2Compatibility {
     }
 
     /** Array version of: {@link #glGetShaderPrecisionFormat GetShaderPrecisionFormat} */
-    public static void glGetShaderPrecisionFormat(int shadertype, int precisiontype, int[] range, int[] precision) {
+    public static void glGetShaderPrecisionFormat(@NativeType("GLenum") int shadertype, @NativeType("GLenum") int precisiontype, @NativeType("GLint *") int[] range, @NativeType("GLint *") int[] precision) {
         long __functionAddress = GL.getICD().glGetShaderPrecisionFormat;
         if (CHECKS) {
             check(__functionAddress);

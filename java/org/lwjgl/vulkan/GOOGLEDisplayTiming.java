@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -135,7 +137,8 @@ public class GOOGLEDisplayTiming {
      * @param swapchain                the swapchain to obtain the refresh duration for.
      * @param pDisplayTimingProperties a pointer to an instance of the {@link VkRefreshCycleDurationGOOGLE} structure.
      */
-    public static int vkGetRefreshCycleDurationGOOGLE(VkDevice device, long swapchain, VkRefreshCycleDurationGOOGLE pDisplayTimingProperties) {
+    @NativeType("VkResult")
+    public static int vkGetRefreshCycleDurationGOOGLE(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("VkRefreshCycleDurationGOOGLE *") VkRefreshCycleDurationGOOGLE pDisplayTimingProperties) {
         return nvkGetRefreshCycleDurationGOOGLE(device, swapchain, pDisplayTimingProperties.address());
     }
 
@@ -213,7 +216,8 @@ public class GOOGLEDisplayTiming {
      * @param pPresentationTimingCount a pointer to an integer related to the number of {@link VkPastPresentationTimingGOOGLE} structures to query, as described below.
      * @param pPresentationTimings     either {@code NULL} or a pointer to an an array of {@link VkPastPresentationTimingGOOGLE} structures.
      */
-    public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, IntBuffer pPresentationTimingCount, VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
+    @NativeType("VkResult")
+    public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") IntBuffer pPresentationTimingCount, @NativeType("VkPastPresentationTimingGOOGLE *") VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
         if (CHECKS) {
             check(pPresentationTimingCount, 1);
             checkSafe(pPresentationTimings, pPresentationTimingCount.get(pPresentationTimingCount.position()));
@@ -222,7 +226,8 @@ public class GOOGLEDisplayTiming {
     }
 
     /** Array version of: {@link #vkGetPastPresentationTimingGOOGLE GetPastPresentationTimingGOOGLE} */
-    public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, long swapchain, int[] pPresentationTimingCount, VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
+    @NativeType("VkResult")
+    public static int vkGetPastPresentationTimingGOOGLE(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") int[] pPresentationTimingCount, @NativeType("VkPastPresentationTimingGOOGLE *") VkPastPresentationTimingGOOGLE.Buffer pPresentationTimings) {
         long __functionAddress = device.getCapabilities().vkGetPastPresentationTimingGOOGLE;
         if (CHECKS) {
             check(__functionAddress);

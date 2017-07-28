@@ -32,7 +32,7 @@ public class VRCompositor {
      *
      * @param eOrigin one of:<br><table><tr><td>{@link VR#ETrackingUniverseOrigin_TrackingUniverseSeated}</td></tr><tr><td>{@link VR#ETrackingUniverseOrigin_TrackingUniverseStanding}</td></tr><tr><td>{@link VR#ETrackingUniverseOrigin_TrackingUniverseRawAndUncalibrated}</td></tr></table>
      */
-    public static void VRCompositor_SetTrackingSpace(int eOrigin) {
+    public static void VRCompositor_SetTrackingSpace(@NativeType("ETrackingUniverseOrigin") int eOrigin) {
         long __functionAddress = OpenVR.VRCompositor.SetTrackingSpace;
         if (CHECKS) {
             check(__functionAddress);
@@ -43,6 +43,7 @@ public class VRCompositor {
     // --- [ VRCompositor_GetTrackingSpace ] ---
 
     /** Gets current tracking space returned by {@link #VRCompositor_WaitGetPoses WaitGetPoses}. */
+    @NativeType("ETrackingUniverseOrigin")
     public static int VRCompositor_GetTrackingSpace() {
         long __functionAddress = OpenVR.VRCompositor.GetTrackingSpace;
         if (CHECKS) {
@@ -70,7 +71,8 @@ public class VRCompositor {
      * @param pRenderPoseArray 
      * @param pGamePoseArray   
      */
-    public static int VRCompositor_WaitGetPoses(TrackedDevicePose.Buffer pRenderPoseArray, TrackedDevicePose.Buffer pGamePoseArray) {
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_WaitGetPoses(@NativeType("TrackedDevicePose_t *") TrackedDevicePose.Buffer pRenderPoseArray, @NativeType("TrackedDevicePose_t *") TrackedDevicePose.Buffer pGamePoseArray) {
         return nVRCompositor_WaitGetPoses(pRenderPoseArray.address(), pRenderPoseArray.remaining(), pGamePoseArray.address(), pGamePoseArray.remaining());
     }
 
@@ -91,7 +93,8 @@ public class VRCompositor {
      * @param pRenderPoseArray 
      * @param pGamePoseArray   
      */
-    public static int VRCompositor_GetLastPoses(TrackedDevicePose.Buffer pRenderPoseArray, TrackedDevicePose.Buffer pGamePoseArray) {
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_GetLastPoses(@NativeType("TrackedDevicePose_t *") TrackedDevicePose.Buffer pRenderPoseArray, @NativeType("TrackedDevicePose_t *") TrackedDevicePose.Buffer pGamePoseArray) {
         return nVRCompositor_GetLastPoses(pRenderPoseArray.address(), pRenderPoseArray.remaining(), pGamePoseArray.address(), pGamePoseArray.remaining());
     }
 
@@ -118,7 +121,8 @@ public class VRCompositor {
      * @return {@link VR#EVRCompositorError_VRCompositorError_IndexOutOfRange} if {@code unDeviceIndex} not less than {@link VR#k_unMaxTrackedDeviceCount} otherwise
      *         {@link VR#EVRCompositorError_VRCompositorError_None}
      */
-    public static int VRCompositor_GetLastPoseForTrackedDeviceIndex(int unDeviceIndex, TrackedDevicePose pOutputPose, TrackedDevicePose pOutputGamePose) {
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_GetLastPoseForTrackedDeviceIndex(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("TrackedDevicePose_t *") TrackedDevicePose pOutputPose, @NativeType("TrackedDevicePose_t *") TrackedDevicePose pOutputGamePose) {
         return nVRCompositor_GetLastPoseForTrackedDeviceIndex(unDeviceIndex, memAddressSafe(pOutputPose), memAddressSafe(pOutputGamePose));
     }
 
@@ -160,7 +164,8 @@ public class VRCompositor {
      *         <li>AlreadySubmitted (app has submitted two left textures or two right textures in a single frame - i.e. before calling WaitGetPoses again)</li>
      *         </ul>
      */
-    public static int VRCompositor_Submit(int eEye, Texture pTexture, VRTextureBounds pBounds, int nSubmitFlags) {
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_Submit(@NativeType("EVREye") int eEye, @NativeType("const Texture_t *") Texture pTexture, @NativeType("const VRTextureBounds_t *") VRTextureBounds pBounds, @NativeType("EVRSubmitFlags") int nSubmitFlags) {
         return nVRCompositor_Submit(eEye, pTexture.address(), memAddressSafe(pBounds), nSubmitFlags);
     }
 
@@ -211,7 +216,8 @@ public class VRCompositor {
      *
      * @param pTiming 
      */
-    public static boolean VRCompositor_GetFrameTiming(CompositorFrameTiming.Buffer pTiming) {
+    @NativeType("bool")
+    public static boolean VRCompositor_GetFrameTiming(@NativeType("Compositor_FrameTiming *") CompositorFrameTiming.Buffer pTiming) {
         return nVRCompositor_GetFrameTiming(pTiming.address(), pTiming.remaining());
     }
 
@@ -232,7 +238,8 @@ public class VRCompositor {
      *
      * @param pTiming 
      */
-    public static int VRCompositor_GetFrameTimings(CompositorFrameTiming.Buffer pTiming) {
+    @NativeType("uint32_t")
+    public static int VRCompositor_GetFrameTimings(@NativeType("Compositor_FrameTiming *") CompositorFrameTiming.Buffer pTiming) {
         return nVRCompositor_GetFrameTimings(pTiming.address(), pTiming.remaining());
     }
 
@@ -268,7 +275,7 @@ public class VRCompositor {
      * @param pStats            
      * @param nStatsSizeInBytes must be {@code sizeof( Compositor_CumulativeStats )}
      */
-    public static void VRCompositor_GetCumulativeStats(CompositorCumulativeStats pStats, int nStatsSizeInBytes) {
+    public static void VRCompositor_GetCumulativeStats(@NativeType("Compositor_CumulativeStats *") CompositorCumulativeStats pStats, @NativeType("uint32_t") int nStatsSizeInBytes) {
         nVRCompositor_GetCumulativeStats(pStats.address(), nStatsSizeInBytes);
     }
 
@@ -277,7 +284,7 @@ public class VRCompositor {
      *
      * @param pStats 
      */
-    public static void VRCompositor_GetCumulativeStats(CompositorCumulativeStats pStats) {
+    public static void VRCompositor_GetCumulativeStats(@NativeType("Compositor_CumulativeStats *") CompositorCumulativeStats pStats) {
         nVRCompositor_GetCumulativeStats(pStats.address(), CompositorCumulativeStats.SIZEOF);
     }
 
@@ -296,7 +303,7 @@ public class VRCompositor {
      * @param fAlpha      
      * @param bBackground 
      */
-    public static void VRCompositor_FadeToColor(float fSeconds, float fRed, float fGreen, float fBlue, float fAlpha, boolean bBackground) {
+    public static void VRCompositor_FadeToColor(float fSeconds, float fRed, float fGreen, float fBlue, float fAlpha, @NativeType("bool") boolean bBackground) {
         long __functionAddress = OpenVR.VRCompositor.FadeToColor;
         if (CHECKS) {
             check(__functionAddress);
@@ -323,7 +330,8 @@ public class VRCompositor {
      *
      * @param bBackground 
      */
-    public static HmdColor VRCompositor_GetCurrentFadeColor(boolean bBackground, HmdColor __result) {
+    @NativeType("HmdColor_t")
+    public static HmdColor VRCompositor_GetCurrentFadeColor(@NativeType("bool") boolean bBackground, HmdColor __result) {
         nVRCompositor_GetCurrentFadeColor(bBackground, __result.address());
         return __result;
     }
@@ -336,7 +344,7 @@ public class VRCompositor {
      * @param fSeconds 
      * @param bFadeIn  
      */
-    public static void VRCompositor_FadeGrid(float fSeconds, boolean bFadeIn) {
+    public static void VRCompositor_FadeGrid(float fSeconds, @NativeType("bool") boolean bFadeIn) {
         long __functionAddress = OpenVR.VRCompositor.FadeGrid;
         if (CHECKS) {
             check(__functionAddress);
@@ -375,7 +383,8 @@ public class VRCompositor {
      *
      * @param pTextures 
      */
-    public static int VRCompositor_SetSkyboxOverride(Texture.Buffer pTextures) {
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_SetSkyboxOverride(@NativeType("Texture_t *") Texture.Buffer pTextures) {
         return nVRCompositor_SetSkyboxOverride(pTextures.address(), pTextures.remaining());
     }
 
@@ -429,6 +438,7 @@ public class VRCompositor {
     // --- [ VRCompositor_IsFullscreen ] ---
 
     /** Return whether the compositor is fullscreen. */
+    @NativeType("bool")
     public static boolean VRCompositor_IsFullscreen() {
         long __functionAddress = OpenVR.VRCompositor.IsFullscreen;
         if (CHECKS) {
@@ -440,6 +450,7 @@ public class VRCompositor {
     // --- [ VRCompositor_GetCurrentSceneFocusProcess ] ---
 
     /** Returns the process ID of the process that is currently rendering the scene. */
+    @NativeType("uint32_t")
     public static int VRCompositor_GetCurrentSceneFocusProcess() {
         long __functionAddress = OpenVR.VRCompositor.GetCurrentSceneFocusProcess;
         if (CHECKS) {
@@ -455,6 +466,7 @@ public class VRCompositor {
      *
      * @return 0 when fading out from an app and the app's process Id when fading into an app
      */
+    @NativeType("uint32_t")
     public static int VRCompositor_GetLastFrameRenderer() {
         long __functionAddress = OpenVR.VRCompositor.GetLastFrameRenderer;
         if (CHECKS) {
@@ -466,6 +478,7 @@ public class VRCompositor {
     // --- [ VRCompositor_CanRenderScene ] ---
 
     /** Returns true if the current process has the scene focus. */
+    @NativeType("bool")
     public static boolean VRCompositor_CanRenderScene() {
         long __functionAddress = OpenVR.VRCompositor.CanRenderScene;
         if (CHECKS) {
@@ -499,6 +512,7 @@ public class VRCompositor {
     // --- [ VRCompositor_IsMirrorWindowVisible ] ---
 
     /** Returns true if the mirror window is shown. */
+    @NativeType("bool")
     public static boolean VRCompositor_IsMirrorWindowVisible() {
         long __functionAddress = OpenVR.VRCompositor.IsMirrorWindowVisible;
         if (CHECKS) {
@@ -521,6 +535,7 @@ public class VRCompositor {
     // --- [ VRCompositor_ShouldAppRenderWithLowResources ] ---
 
     /** Let an app know it should be rendering with low resources. */
+    @NativeType("bool")
     public static boolean VRCompositor_ShouldAppRenderWithLowResources() {
         long __functionAddress = OpenVR.VRCompositor.ShouldAppRenderWithLowResources;
         if (CHECKS) {
@@ -536,7 +551,7 @@ public class VRCompositor {
      *
      * @param bOverride 
      */
-    public static void VRCompositor_ForceInterleavedReprojectionOn(boolean bOverride) {
+    public static void VRCompositor_ForceInterleavedReprojectionOn(@NativeType("bool") boolean bOverride) {
         long __functionAddress = OpenVR.VRCompositor.ForceInterleavedReprojectionOn;
         if (CHECKS) {
             check(__functionAddress);
@@ -562,7 +577,7 @@ public class VRCompositor {
      *
      * @param bSuspend 
      */
-    public static void VRCompositor_SuspendRendering(boolean bSuspend) {
+    public static void VRCompositor_SuspendRendering(@NativeType("bool") boolean bSuspend) {
         long __functionAddress = OpenVR.VRCompositor.SuspendRendering;
         if (CHECKS) {
             check(__functionAddress);
@@ -591,7 +606,8 @@ public class VRCompositor {
      * @param pD3D11DeviceOrResource    
      * @param ppD3D11ShaderResourceView 
      */
-    public static int VRCompositor_GetMirrorTextureD3D11(int eEye, long pD3D11DeviceOrResource, PointerBuffer ppD3D11ShaderResourceView) {
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_GetMirrorTextureD3D11(@NativeType("EVREye") int eEye, @NativeType("void *") long pD3D11DeviceOrResource, @NativeType("void **") PointerBuffer ppD3D11ShaderResourceView) {
         if (CHECKS) {
             check(ppD3D11ShaderResourceView, 1);
         }
@@ -605,7 +621,7 @@ public class VRCompositor {
      *
      * @param pD3D11ShaderResourceView 
      */
-    public static void VRCompositor_ReleaseMirrorTextureD3D11(long pD3D11ShaderResourceView) {
+    public static void VRCompositor_ReleaseMirrorTextureD3D11(@NativeType("void *") long pD3D11ShaderResourceView) {
         long __functionAddress = OpenVR.VRCompositor.ReleaseMirrorTextureD3D11;
         if (CHECKS) {
             check(__functionAddress);
@@ -632,7 +648,8 @@ public class VRCompositor {
      * @param pglTextureId           
      * @param pglSharedTextureHandle 
      */
-    public static int VRCompositor_GetMirrorTextureGL(int eEye, IntBuffer pglTextureId, PointerBuffer pglSharedTextureHandle) {
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_GetMirrorTextureGL(@NativeType("EVREye") int eEye, @NativeType("glUInt_t *") IntBuffer pglTextureId, @NativeType("glSharedTextureHandle_t *") PointerBuffer pglSharedTextureHandle) {
         if (CHECKS) {
             check(pglTextureId, 1);
             check(pglSharedTextureHandle, 1);
@@ -642,7 +659,8 @@ public class VRCompositor {
 
     // --- [ VRCompositor_ReleaseSharedGLTexture ] ---
 
-    public static boolean VRCompositor_ReleaseSharedGLTexture(int glTextureId, long glSharedTextureHandle) {
+    @NativeType("bool")
+    public static boolean VRCompositor_ReleaseSharedGLTexture(@NativeType("glUInt_t") int glTextureId, @NativeType("glSharedTextureHandle_t") long glSharedTextureHandle) {
         long __functionAddress = OpenVR.VRCompositor.ReleaseSharedGLTexture;
         if (CHECKS) {
             check(__functionAddress);
@@ -653,7 +671,7 @@ public class VRCompositor {
 
     // --- [ VRCompositor_LockGLSharedTextureForAccess ] ---
 
-    public static void VRCompositor_LockGLSharedTextureForAccess(long glSharedTextureHandle) {
+    public static void VRCompositor_LockGLSharedTextureForAccess(@NativeType("glSharedTextureHandle_t") long glSharedTextureHandle) {
         long __functionAddress = OpenVR.VRCompositor.LockGLSharedTextureForAccess;
         if (CHECKS) {
             check(__functionAddress);
@@ -664,7 +682,7 @@ public class VRCompositor {
 
     // --- [ VRCompositor_UnlockGLSharedTextureForAccess ] ---
 
-    public static void VRCompositor_UnlockGLSharedTextureForAccess(long glSharedTextureHandle) {
+    public static void VRCompositor_UnlockGLSharedTextureForAccess(@NativeType("glSharedTextureHandle_t") long glSharedTextureHandle) {
         long __functionAddress = OpenVR.VRCompositor.UnlockGLSharedTextureForAccess;
         if (CHECKS) {
             check(__functionAddress);
@@ -690,7 +708,8 @@ public class VRCompositor {
      *
      * @param pchValue 
      */
-    public static int VRCompositor_GetVulkanInstanceExtensionsRequired(ByteBuffer pchValue) {
+    @NativeType("uint32_t")
+    public static int VRCompositor_GetVulkanInstanceExtensionsRequired(@NativeType("char *") ByteBuffer pchValue) {
         return nVRCompositor_GetVulkanInstanceExtensionsRequired(memAddressSafe(pchValue), remainingSafe(pchValue));
     }
 
@@ -700,7 +719,8 @@ public class VRCompositor {
      *
      * @param unBufferSize 
      */
-    public static String VRCompositor_GetVulkanInstanceExtensionsRequired(int unBufferSize) {
+    @NativeType("uint32_t")
+    public static String VRCompositor_GetVulkanInstanceExtensionsRequired(@NativeType("uint32_t") int unBufferSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchValue = stack.malloc(unBufferSize);
@@ -730,7 +750,8 @@ public class VRCompositor {
      * @param pPhysicalDevice 
      * @param pchValue        
      */
-    public static int VRCompositor_GetVulkanDeviceExtensionsRequired(long pPhysicalDevice, ByteBuffer pchValue) {
+    @NativeType("uint32_t")
+    public static int VRCompositor_GetVulkanDeviceExtensionsRequired(@NativeType("VkPhysicalDevice_T") long pPhysicalDevice, @NativeType("char *") ByteBuffer pchValue) {
         return nVRCompositor_GetVulkanDeviceExtensionsRequired(pPhysicalDevice, memAddressSafe(pchValue), remainingSafe(pchValue));
     }
 
@@ -741,7 +762,8 @@ public class VRCompositor {
      * @param pPhysicalDevice 
      * @param unBufferSize    
      */
-    public static String VRCompositor_GetVulkanDeviceExtensionsRequired(long pPhysicalDevice, int unBufferSize) {
+    @NativeType("uint32_t")
+    public static String VRCompositor_GetVulkanDeviceExtensionsRequired(@NativeType("VkPhysicalDevice_T") long pPhysicalDevice, @NativeType("uint32_t") int unBufferSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchValue = stack.malloc(unBufferSize);

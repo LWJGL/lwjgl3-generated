@@ -131,7 +131,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param x     the vertex attribute x component
      */
-    public static native void glVertexAttribI1iEXT(int index, int x);
+    public static native void glVertexAttribI1iEXT(@NativeType("GLuint") int index, @NativeType("GLint") int x);
 
     // --- [ glVertexAttribI2iEXT ] ---
 
@@ -142,7 +142,7 @@ public class EXTGPUShader4 {
      * @param x     the vertex attribute x component
      * @param y     the vertex attribute y component
      */
-    public static native void glVertexAttribI2iEXT(int index, int x, int y);
+    public static native void glVertexAttribI2iEXT(@NativeType("GLuint") int index, @NativeType("GLint") int x, @NativeType("GLint") int y);
 
     // --- [ glVertexAttribI3iEXT ] ---
 
@@ -154,7 +154,7 @@ public class EXTGPUShader4 {
      * @param y     the vertex attribute y component
      * @param z     the vertex attribute z component
      */
-    public static native void glVertexAttribI3iEXT(int index, int x, int y, int z);
+    public static native void glVertexAttribI3iEXT(@NativeType("GLuint") int index, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLint") int z);
 
     // --- [ glVertexAttribI4iEXT ] ---
 
@@ -167,7 +167,7 @@ public class EXTGPUShader4 {
      * @param z     the vertex attribute z component
      * @param w     the vertex attribute w component
      */
-    public static native void glVertexAttribI4iEXT(int index, int x, int y, int z, int w);
+    public static native void glVertexAttribI4iEXT(@NativeType("GLuint") int index, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLint") int z, @NativeType("GLint") int w);
 
     // --- [ glVertexAttribI1uiEXT ] ---
 
@@ -177,7 +177,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param x     the vertex attribute x component
      */
-    public static native void glVertexAttribI1uiEXT(int index, int x);
+    public static native void glVertexAttribI1uiEXT(@NativeType("GLuint") int index, @NativeType("GLuint") int x);
 
     // --- [ glVertexAttribI2uiEXT ] ---
 
@@ -188,7 +188,7 @@ public class EXTGPUShader4 {
      * @param x     the vertex attribute x component
      * @param y     the vertex attribute y component
      */
-    public static native void glVertexAttribI2uiEXT(int index, int x, int y);
+    public static native void glVertexAttribI2uiEXT(@NativeType("GLuint") int index, @NativeType("GLuint") int x, @NativeType("GLuint") int y);
 
     // --- [ glVertexAttribI3uiEXT ] ---
 
@@ -200,7 +200,7 @@ public class EXTGPUShader4 {
      * @param y     the vertex attribute y component
      * @param z     the vertex attribute z component
      */
-    public static native void glVertexAttribI3uiEXT(int index, int x, int y, int z);
+    public static native void glVertexAttribI3uiEXT(@NativeType("GLuint") int index, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLint") int z);
 
     // --- [ glVertexAttribI4uiEXT ] ---
 
@@ -213,7 +213,7 @@ public class EXTGPUShader4 {
      * @param z     the vertex attribute z component
      * @param w     the vertex attribute w component
      */
-    public static native void glVertexAttribI4uiEXT(int index, int x, int y, int z, int w);
+    public static native void glVertexAttribI4uiEXT(@NativeType("GLuint") int index, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLint") int z, @NativeType("GLint") int w);
 
     // --- [ glVertexAttribI1ivEXT ] ---
 
@@ -226,7 +226,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI1ivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI1ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -244,7 +244,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI2ivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI2ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -262,7 +262,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI3ivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI3ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -280,7 +280,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4ivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI4ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -298,7 +298,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI1uivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI1uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -316,7 +316,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI2uivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI2uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -334,7 +334,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI3uivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI3uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -352,7 +352,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4uivEXT(int index, IntBuffer v) {
+    public static void glVertexAttribI4uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -370,7 +370,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4bvEXT(int index, ByteBuffer v) {
+    public static void glVertexAttribI4bvEXT(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -388,7 +388,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4svEXT(int index, ShortBuffer v) {
+    public static void glVertexAttribI4svEXT(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -406,7 +406,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4ubvEXT(int index, ByteBuffer v) {
+    public static void glVertexAttribI4ubvEXT(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -424,7 +424,7 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4usvEXT(int index, ShortBuffer v) {
+    public static void glVertexAttribI4usvEXT(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -447,7 +447,7 @@ public class EXTGPUShader4 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
+    public static void glVertexAttribIPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
         nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
     }
 
@@ -462,7 +462,7 @@ public class EXTGPUShader4 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, long pointer) {
+    public static void glVertexAttribIPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
         nglVertexAttribIPointerEXT(index, size, type, stride, pointer);
     }
 
@@ -477,7 +477,7 @@ public class EXTGPUShader4 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, ShortBuffer pointer) {
+    public static void glVertexAttribIPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
         nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
     }
 
@@ -492,7 +492,7 @@ public class EXTGPUShader4 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, IntBuffer pointer) {
+    public static void glVertexAttribIPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
         nglVertexAttribIPointerEXT(index, size, type, stride, memAddress(pointer));
     }
 
@@ -508,7 +508,7 @@ public class EXTGPUShader4 {
      * @param pname  the symbolic name of the vertex attribute parameter to be queried
      * @param params returns the requested data
      */
-    public static void glGetVertexAttribIivEXT(int index, int pname, IntBuffer params) {
+    public static void glGetVertexAttribIivEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -521,7 +521,8 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param pname the symbolic name of the vertex attribute parameter to be queried
      */
-    public static int glGetVertexAttribIiEXT(int index, int pname) {
+    @NativeType("void")
+    public static int glGetVertexAttribIiEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -544,7 +545,7 @@ public class EXTGPUShader4 {
      * @param pname  the symbolic name of the vertex attribute parameter to be queried
      * @param params returns the requested data
      */
-    public static void glGetVertexAttribIuivEXT(int index, int pname, IntBuffer params) {
+    public static void glGetVertexAttribIuivEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -557,7 +558,8 @@ public class EXTGPUShader4 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param pname the symbolic name of the vertex attribute parameter to be queried
      */
-    public static int glGetVertexAttribIuiEXT(int index, int pname) {
+    @NativeType("void")
+    public static int glGetVertexAttribIuiEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -572,14 +574,15 @@ public class EXTGPUShader4 {
 
     public static native void nglGetUniformuivEXT(int program, int location, long params);
 
-    public static void glGetUniformuivEXT(int program, int location, IntBuffer params) {
+    public static void glGetUniformuivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetUniformuivEXT(program, location, memAddress(params));
     }
 
-    public static int glGetUniformuiEXT(int program, int location) {
+    @NativeType("void")
+    public static int glGetUniformuiEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -594,14 +597,14 @@ public class EXTGPUShader4 {
 
     public static native void nglBindFragDataLocationEXT(int program, int color, long name);
 
-    public static void glBindFragDataLocationEXT(int program, int color, ByteBuffer name) {
+    public static void glBindFragDataLocationEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int color, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         nglBindFragDataLocationEXT(program, color, memAddress(name));
     }
 
-    public static void glBindFragDataLocationEXT(int program, int color, CharSequence name) {
+    public static void glBindFragDataLocationEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int color, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -615,14 +618,16 @@ public class EXTGPUShader4 {
 
     public static native int nglGetFragDataLocationEXT(int program, long name);
 
-    public static int glGetFragDataLocationEXT(int program, ByteBuffer name) {
+    @NativeType("GLint")
+    public static int glGetFragDataLocationEXT(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         return nglGetFragDataLocationEXT(program, memAddress(name));
     }
 
-    public static int glGetFragDataLocationEXT(int program, CharSequence name) {
+    @NativeType("GLint")
+    public static int glGetFragDataLocationEXT(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -634,25 +639,25 @@ public class EXTGPUShader4 {
 
     // --- [ glUniform1uiEXT ] ---
 
-    public static native void glUniform1uiEXT(int location, int v0);
+    public static native void glUniform1uiEXT(@NativeType("GLint") int location, @NativeType("GLuint") int v0);
 
     // --- [ glUniform2uiEXT ] ---
 
-    public static native void glUniform2uiEXT(int location, int v0, int v1);
+    public static native void glUniform2uiEXT(@NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1);
 
     // --- [ glUniform3uiEXT ] ---
 
-    public static native void glUniform3uiEXT(int location, int v0, int v1, int v2);
+    public static native void glUniform3uiEXT(@NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1, @NativeType("GLuint") int v2);
 
     // --- [ glUniform4uiEXT ] ---
 
-    public static native void glUniform4uiEXT(int location, int v0, int v1, int v2, int v3);
+    public static native void glUniform4uiEXT(@NativeType("GLint") int location, @NativeType("GLuint") int v0, @NativeType("GLuint") int v1, @NativeType("GLuint") int v2, @NativeType("GLuint") int v3);
 
     // --- [ glUniform1uivEXT ] ---
 
     public static native void nglUniform1uivEXT(int location, int count, long value);
 
-    public static void glUniform1uivEXT(int location, IntBuffer value) {
+    public static void glUniform1uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform1uivEXT(location, value.remaining(), memAddress(value));
     }
 
@@ -660,7 +665,7 @@ public class EXTGPUShader4 {
 
     public static native void nglUniform2uivEXT(int location, int count, long value);
 
-    public static void glUniform2uivEXT(int location, IntBuffer value) {
+    public static void glUniform2uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform2uivEXT(location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -668,7 +673,7 @@ public class EXTGPUShader4 {
 
     public static native void nglUniform3uivEXT(int location, int count, long value);
 
-    public static void glUniform3uivEXT(int location, IntBuffer value) {
+    public static void glUniform3uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform3uivEXT(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -676,12 +681,12 @@ public class EXTGPUShader4 {
 
     public static native void nglUniform4uivEXT(int location, int count, long value);
 
-    public static void glUniform4uivEXT(int location, IntBuffer value) {
+    public static void glUniform4uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
         nglUniform4uivEXT(location, value.remaining() >> 2, memAddress(value));
     }
 
     /** Array version of: {@link #glVertexAttribI1ivEXT VertexAttribI1ivEXT} */
-    public static void glVertexAttribI1ivEXT(int index, int[] v) {
+    public static void glVertexAttribI1ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI1ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -691,7 +696,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI2ivEXT VertexAttribI2ivEXT} */
-    public static void glVertexAttribI2ivEXT(int index, int[] v) {
+    public static void glVertexAttribI2ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI2ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -701,7 +706,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI3ivEXT VertexAttribI3ivEXT} */
-    public static void glVertexAttribI3ivEXT(int index, int[] v) {
+    public static void glVertexAttribI3ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI3ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -711,7 +716,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI4ivEXT VertexAttribI4ivEXT} */
-    public static void glVertexAttribI4ivEXT(int index, int[] v) {
+    public static void glVertexAttribI4ivEXT(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -721,7 +726,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI1uivEXT VertexAttribI1uivEXT} */
-    public static void glVertexAttribI1uivEXT(int index, int[] v) {
+    public static void glVertexAttribI1uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI1uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -731,7 +736,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI2uivEXT VertexAttribI2uivEXT} */
-    public static void glVertexAttribI2uivEXT(int index, int[] v) {
+    public static void glVertexAttribI2uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI2uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -741,7 +746,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI3uivEXT VertexAttribI3uivEXT} */
-    public static void glVertexAttribI3uivEXT(int index, int[] v) {
+    public static void glVertexAttribI3uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI3uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -751,7 +756,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI4uivEXT VertexAttribI4uivEXT} */
-    public static void glVertexAttribI4uivEXT(int index, int[] v) {
+    public static void glVertexAttribI4uivEXT(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -761,7 +766,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI4svEXT VertexAttribI4svEXT} */
-    public static void glVertexAttribI4svEXT(int index, short[] v) {
+    public static void glVertexAttribI4svEXT(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4svEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -771,7 +776,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribI4usvEXT VertexAttribI4usvEXT} */
-    public static void glVertexAttribI4usvEXT(int index, short[] v) {
+    public static void glVertexAttribI4usvEXT(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4usvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -781,7 +786,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
-    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, short[] pointer) {
+    public static void glVertexAttribIPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") short[] pointer) {
         long __functionAddress = GL.getICD().glVertexAttribIPointerEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -790,7 +795,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glVertexAttribIPointerEXT VertexAttribIPointerEXT} */
-    public static void glVertexAttribIPointerEXT(int index, int size, int type, int stride, int[] pointer) {
+    public static void glVertexAttribIPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") int[] pointer) {
         long __functionAddress = GL.getICD().glVertexAttribIPointerEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -799,7 +804,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glGetVertexAttribIivEXT GetVertexAttribIivEXT} */
-    public static void glGetVertexAttribIivEXT(int index, int pname, int[] params) {
+    public static void glGetVertexAttribIivEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribIivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -809,7 +814,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glGetVertexAttribIuivEXT GetVertexAttribIuivEXT} */
-    public static void glGetVertexAttribIuivEXT(int index, int pname, int[] params) {
+    public static void glGetVertexAttribIuivEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribIuivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -819,7 +824,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glGetUniformuivEXT GetUniformuivEXT} */
-    public static void glGetUniformuivEXT(int program, int location, int[] params) {
+    public static void glGetUniformuivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint *") int[] params) {
         long __functionAddress = GL.getICD().glGetUniformuivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -829,7 +834,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glUniform1uivEXT Uniform1uivEXT} */
-    public static void glUniform1uivEXT(int location, int[] value) {
+    public static void glUniform1uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GL.getICD().glUniform1uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -838,7 +843,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glUniform2uivEXT Uniform2uivEXT} */
-    public static void glUniform2uivEXT(int location, int[] value) {
+    public static void glUniform2uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GL.getICD().glUniform2uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -847,7 +852,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glUniform3uivEXT Uniform3uivEXT} */
-    public static void glUniform3uivEXT(int location, int[] value) {
+    public static void glUniform3uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GL.getICD().glUniform3uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -856,7 +861,7 @@ public class EXTGPUShader4 {
     }
 
     /** Array version of: {@link #glUniform4uivEXT Uniform4uivEXT} */
-    public static void glUniform4uivEXT(int location, int[] value) {
+    public static void glUniform4uivEXT(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
         long __functionAddress = GL.getICD().glUniform4uivEXT;
         if (CHECKS) {
             check(__functionAddress);

@@ -7,6 +7,8 @@ package org.lwjgl.openal;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -53,7 +55,8 @@ public class EXTStaticBuffer {
      * @param data   the sample data
      * @param freq   the data frequency
      */
-    public static void alBufferDataStatic(int buffer, int format, ByteBuffer data, int freq) {
+    @NativeType("ALvoid")
+    public static void alBufferDataStatic(@NativeType("ALint") int buffer, @NativeType("ALenum") int format, @NativeType("ALvoid *") ByteBuffer data, @NativeType("ALsizei") int freq) {
         nalBufferDataStatic(buffer, format, memAddress(data), data.remaining(), freq);
     }
 
@@ -65,7 +68,8 @@ public class EXTStaticBuffer {
      * @param data   the sample data
      * @param freq   the data frequency
      */
-    public static void alBufferDataStatic(int buffer, int format, ShortBuffer data, int freq) {
+    @NativeType("ALvoid")
+    public static void alBufferDataStatic(@NativeType("ALint") int buffer, @NativeType("ALenum") int format, @NativeType("ALvoid *") ShortBuffer data, @NativeType("ALsizei") int freq) {
         nalBufferDataStatic(buffer, format, memAddress(data), data.remaining() << 1, freq);
     }
 
@@ -77,7 +81,8 @@ public class EXTStaticBuffer {
      * @param data   the sample data
      * @param freq   the data frequency
      */
-    public static void alBufferDataStatic(int buffer, int format, IntBuffer data, int freq) {
+    @NativeType("ALvoid")
+    public static void alBufferDataStatic(@NativeType("ALint") int buffer, @NativeType("ALenum") int format, @NativeType("ALvoid *") IntBuffer data, @NativeType("ALsizei") int freq) {
         nalBufferDataStatic(buffer, format, memAddress(data), data.remaining() << 2, freq);
     }
 
@@ -89,12 +94,14 @@ public class EXTStaticBuffer {
      * @param data   the sample data
      * @param freq   the data frequency
      */
-    public static void alBufferDataStatic(int buffer, int format, FloatBuffer data, int freq) {
+    @NativeType("ALvoid")
+    public static void alBufferDataStatic(@NativeType("ALint") int buffer, @NativeType("ALenum") int format, @NativeType("ALvoid *") FloatBuffer data, @NativeType("ALsizei") int freq) {
         nalBufferDataStatic(buffer, format, memAddress(data), data.remaining() << 2, freq);
     }
 
     /** Array version of: {@link #alBufferDataStatic BufferDataStatic} */
-    public static void alBufferDataStatic(int buffer, int format, short[] data, int freq) {
+    @NativeType("ALvoid")
+    public static void alBufferDataStatic(@NativeType("ALint") int buffer, @NativeType("ALenum") int format, @NativeType("ALvoid *") short[] data, @NativeType("ALsizei") int freq) {
         long __functionAddress = AL.getICD().alBufferDataStatic;
         if (CHECKS) {
             check(__functionAddress);
@@ -103,7 +110,8 @@ public class EXTStaticBuffer {
     }
 
     /** Array version of: {@link #alBufferDataStatic BufferDataStatic} */
-    public static void alBufferDataStatic(int buffer, int format, int[] data, int freq) {
+    @NativeType("ALvoid")
+    public static void alBufferDataStatic(@NativeType("ALint") int buffer, @NativeType("ALenum") int format, @NativeType("ALvoid *") int[] data, @NativeType("ALsizei") int freq) {
         long __functionAddress = AL.getICD().alBufferDataStatic;
         if (CHECKS) {
             check(__functionAddress);
@@ -112,7 +120,8 @@ public class EXTStaticBuffer {
     }
 
     /** Array version of: {@link #alBufferDataStatic BufferDataStatic} */
-    public static void alBufferDataStatic(int buffer, int format, float[] data, int freq) {
+    @NativeType("ALvoid")
+    public static void alBufferDataStatic(@NativeType("ALint") int buffer, @NativeType("ALenum") int format, @NativeType("ALvoid *") float[] data, @NativeType("ALsizei") int freq) {
         long __functionAddress = AL.getICD().alBufferDataStatic;
         if (CHECKS) {
             check(__functionAddress);

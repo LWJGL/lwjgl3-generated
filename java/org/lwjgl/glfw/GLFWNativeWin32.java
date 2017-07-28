@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -52,7 +54,8 @@ public class GLFWNativeWin32 {
      *
      * @since version 3.1
      */
-    public static String glfwGetWin32Adapter(long monitor) {
+    @NativeType("const char *")
+    public static String glfwGetWin32Adapter(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetWin32Adapter(monitor);
         return memUTF8(__result);
     }
@@ -79,7 +82,8 @@ public class GLFWNativeWin32 {
      *
      * @since version 3.1
      */
-    public static String glfwGetWin32Monitor(long monitor) {
+    @NativeType("const char *")
+    public static String glfwGetWin32Monitor(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetWin32Monitor(monitor);
         return memUTF8(__result);
     }
@@ -101,7 +105,8 @@ public class GLFWNativeWin32 {
      *
      * @since version 3.0
      */
-    public static long glfwGetWin32Window(long window) {
+    @NativeType("HWND")
+    public static long glfwGetWin32Window(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetWin32Window;
         if (CHECKS) {
             check(window);

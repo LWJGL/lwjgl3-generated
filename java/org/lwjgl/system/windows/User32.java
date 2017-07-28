@@ -995,7 +995,8 @@ public class User32 {
      *
      * @param lpwcx a {@link WNDCLASSEX} structure. You must fill the structure with the appropriate class attributes before passing it to the function.
      */
-    public static short RegisterClassEx(WNDCLASSEX lpwcx) {
+    @NativeType("ATOM")
+    public static short RegisterClassEx(@NativeType("const WNDCLASSEX *") WNDCLASSEX lpwcx) {
         return nRegisterClassEx(lpwcx.address());
     }
 
@@ -1019,7 +1020,8 @@ public class User32 {
      *                    word of {@code lpClassName}; the high-order word must be zero.
      * @param hInstance   a handle to the instance of the module that created the class
      */
-    public static boolean UnregisterClass(ByteBuffer lpClassName, long hInstance) {
+    @NativeType("BOOL")
+    public static boolean UnregisterClass(@NativeType("LPCTSTR") ByteBuffer lpClassName, @NativeType("HINSTANCE") long hInstance) {
         if (CHECKS) {
             checkNT2(lpClassName);
         }
@@ -1035,7 +1037,8 @@ public class User32 {
      *                    word of {@code lpClassName}; the high-order word must be zero.
      * @param hInstance   a handle to the instance of the module that created the class
      */
-    public static boolean UnregisterClass(CharSequence lpClassName, long hInstance) {
+    @NativeType("BOOL")
+    public static boolean UnregisterClass(@NativeType("LPCTSTR") CharSequence lpClassName, @NativeType("HINSTANCE") long hInstance) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer lpClassNameEncoded = stack.UTF16(lpClassName);
@@ -1073,7 +1076,8 @@ public class User32 {
      * @param lpParam      a value to be passed to the window through the {@code CREATESTRUCT} structure ({@code createParams} member) pointed to by the {@code lParam} param
      *                     of the {@link #WM_CREATE} message.
      */
-    public static long CreateWindowEx(int dwExStyle, ByteBuffer lpClassName, ByteBuffer lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
+    @NativeType("HWND")
+    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @NativeType("LPCTSTR") ByteBuffer lpClassName, @NativeType("LPCTSTR") ByteBuffer lpWindowName, @NativeType("DWORD") int dwStyle, int x, int y, int nWidth, int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
         if (CHECKS) {
             checkNT2Safe(lpClassName);
             checkNT2Safe(lpWindowName);
@@ -1098,7 +1102,8 @@ public class User32 {
      * @param lpParam      a value to be passed to the window through the {@code CREATESTRUCT} structure ({@code createParams} member) pointed to by the {@code lParam} param
      *                     of the {@link #WM_CREATE} message.
      */
-    public static long CreateWindowEx(int dwExStyle, CharSequence lpClassName, CharSequence lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
+    @NativeType("HWND")
+    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @NativeType("LPCTSTR") CharSequence lpClassName, @NativeType("LPCTSTR") CharSequence lpWindowName, @NativeType("DWORD") int dwStyle, @NativeType("int") int x, @NativeType("int") int y, @NativeType("int") int nWidth, @NativeType("int") int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer lpClassNameEncoded = stack.UTF16(lpClassName);
@@ -1124,7 +1129,8 @@ public class User32 {
      *
      * @param hWnd a handle to the window to be destroyed
      */
-    public static boolean DestroyWindow(long hWnd) {
+    @NativeType("BOOL")
+    public static boolean DestroyWindow(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.DestroyWindow;
         if (CHECKS) {
             check(hWnd);
@@ -1143,7 +1149,8 @@ public class User32 {
      * @param wParam additional message information. The content of this parameter depends on the value of the {@code Msg} parameter.
      * @param lParam additional message information. The content of this parameter depends on the value of the {@code Msg} parameter.
      */
-    public static long DefWindowProc(long hWnd, int Msg, long wParam, long lParam) {
+    @NativeType("LRESULT")
+    public static long DefWindowProc(@NativeType("HWND") long hWnd, @NativeType("UINT") int Msg, @NativeType("WPARAM") long wParam, @NativeType("LPARAM") long lParam) {
         long __functionAddress = Functions.DefWindowProc;
         if (CHECKS) {
             check(hWnd);
@@ -1161,7 +1168,8 @@ public class User32 {
      *                 launched the application provides a {@code STARTUPINFO} structure. Otherwise, the first time {@code ShowWindow} is called, the value should be the
      *                 value obtained by the {@code WinMain} function in its {@code nCmdShow} parameter. In subsequent calls, this parameter can be one of:<br><table><tr><td>{@link #SW_HIDE}</td><td>{@link #SW_SHOWNORMAL}</td><td>{@link #SW_NORMAL}</td><td>{@link #SW_SHOWMINIMIZED}</td><td>{@link #SW_SHOWMAXIMIZED}</td><td>{@link #SW_MAXIMIZE}</td></tr><tr><td>{@link #SW_SHOWNOACTIVATE}</td><td>{@link #SW_SHOW}</td><td>{@link #SW_MINIMIZE}</td><td>{@link #SW_SHOWMINNOACTIVE}</td><td>{@link #SW_SHOWNA}</td><td>{@link #SW_RESTORE}</td></tr><tr><td>{@link #SW_SHOWDEFAULT}</td><td>{@link #SW_FORCEMINIMIZE}</td><td>{@link #SW_MAX}</td></tr></table>
      */
-    public static boolean ShowWindow(long hWnd, int nCmdShow) {
+    @NativeType("BOOL")
+    public static boolean ShowWindow(@NativeType("HWND") long hWnd, int nCmdShow) {
         long __functionAddress = Functions.ShowWindow;
         if (CHECKS) {
             check(hWnd);
@@ -1178,7 +1186,8 @@ public class User32 {
      *
      * @param hWnd handle to the window to be updated
      */
-    public static boolean UpdateWindow(long hWnd) {
+    @NativeType("BOOL")
+    public static boolean UpdateWindow(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.UpdateWindow;
         if (CHECKS) {
             check(hWnd);
@@ -1203,7 +1212,8 @@ public class User32 {
      * @param cy              the new height of the window, in pixels
      * @param uFlags          the window sizing and positioning flags. One or more of:<br><table><tr><td>{@link #SWP_NOSIZE}</td><td>{@link #SWP_NOMOVE}</td><td>{@link #SWP_NOZORDER}</td><td>{@link #SWP_NOREDRAW}</td><td>{@link #SWP_NOACTIVATE}</td></tr><tr><td>{@link #SWP_FRAMECHANGED}</td><td>{@link #SWP_SHOWWINDOW}</td><td>{@link #SWP_HIDEWINDOW}</td><td>{@link #SWP_NOCOPYBITS}</td><td>{@link #SWP_NOOWNERZORDER}</td></tr><tr><td>{@link #SWP_NOSENDCHANGING}</td><td>{@link #SWP_DRAWFRAME}</td><td>{@link #SWP_NOREPOSITION}</td><td>{@link #SWP_DEFERERASE}</td><td>{@link #SWP_ASYNCWINDOWPOS}</td></tr></table>
      */
-    public static boolean SetWindowPos(long hWnd, long hWndInsertAfter, int X, int Y, int cx, int cy, int uFlags) {
+    @NativeType("BOOL")
+    public static boolean SetWindowPos(@NativeType("HWND") long hWnd, @NativeType("HWND") long hWndInsertAfter, int X, int Y, int cx, int cy, @NativeType("UINT") int uFlags) {
         long __functionAddress = Functions.SetWindowPos;
         if (CHECKS) {
             check(hWnd);
@@ -1232,7 +1242,8 @@ public class User32 {
      * @param hWnd     a handle to the window or control whose text is to be changed
      * @param lpString the new title or control text
      */
-    public static boolean SetWindowText(long hWnd, ByteBuffer lpString) {
+    @NativeType("BOOL")
+    public static boolean SetWindowText(@NativeType("HWND") long hWnd, @NativeType("LPCTSTR") ByteBuffer lpString) {
         if (CHECKS) {
             checkNT2(lpString);
         }
@@ -1246,7 +1257,8 @@ public class User32 {
      * @param hWnd     a handle to the window or control whose text is to be changed
      * @param lpString the new title or control text
      */
-    public static boolean SetWindowText(long hWnd, CharSequence lpString) {
+    @NativeType("BOOL")
+    public static boolean SetWindowText(@NativeType("HWND") long hWnd, @NativeType("LPCTSTR") CharSequence lpString) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer lpStringEncoded = stack.UTF16(lpString);
@@ -1283,7 +1295,8 @@ public class User32 {
      * @param wMsgFilterMin the integer value of the lowest message value to be retrieved
      * @param wMsgFilterMax the integer value of the highest message value to be retrieved
      */
-    public static boolean GetMessage(MSG lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
+    @NativeType("BOOL")
+    public static boolean GetMessage(@NativeType("LPMSG") MSG lpMsg, @NativeType("HWND") long hWnd, @NativeType("UINT") int wMsgFilterMin, @NativeType("UINT") int wMsgFilterMax) {
         return nGetMessage(lpMsg.address(), hWnd, wMsgFilterMin, wMsgFilterMax) != 0;
     }
 
@@ -1311,7 +1324,8 @@ public class User32 {
      * @param wMsgFilterMax the integer value of the highest message value to be retrieved
      * @param wRemoveMsg    specifies how messages are to be handled. One of:<br><table><tr><td>{@link #PM_NOREMOVE}</td><td>{@link #PM_REMOVE}</td><td>{@link #PM_NOYIELD}</td></tr></table>
      */
-    public static boolean PeekMessage(MSG lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax, int wRemoveMsg) {
+    @NativeType("BOOL")
+    public static boolean PeekMessage(@NativeType("LPMSG") MSG lpMsg, @NativeType("HWND") long hWnd, @NativeType("UINT") int wMsgFilterMin, @NativeType("UINT") int wMsgFilterMax, @NativeType("UINT") int wRemoveMsg) {
         return nPeekMessage(lpMsg.address(), hWnd, wMsgFilterMin, wMsgFilterMax, wRemoveMsg) != 0;
     }
 
@@ -1330,7 +1344,8 @@ public class User32 {
      * @param lpMsg an {@link MSG} structure that contains message information retrieved from the calling thread's message queue by using the {@link #GetMessage} or {@link #PeekMessage}
      *              function.
      */
-    public static boolean TranslateMessage(MSG lpMsg) {
+    @NativeType("BOOL")
+    public static boolean TranslateMessage(@NativeType("const MSG *") MSG lpMsg) {
         return nTranslateMessage(lpMsg.address()) != 0;
     }
 
@@ -1343,6 +1358,7 @@ public class User32 {
      * Yields control to other threads when a thread has no other messages in its message queue. The WaitMessage function suspends the thread and does not
      * return until a new message is placed in the thread's message queue.
      */
+    @NativeType("BOOL")
     public static boolean WaitMessage() {
         long __functionAddress = Functions.WaitMessage;
         return nWaitMessage(__functionAddress) != 0;
@@ -1361,7 +1377,8 @@ public class User32 {
      *
      * @param lpmsg a pointer to a structure that contains the message.
      */
-    public static long DispatchMessage(MSG lpmsg) {
+    @NativeType("LRESULT")
+    public static long DispatchMessage(@NativeType("const MSG *") MSG lpmsg) {
         return nDispatchMessage(lpmsg.address());
     }
 
@@ -1385,7 +1402,8 @@ public class User32 {
      * @param wParam additional message-specific information
      * @param lParam additional message-specific information
      */
-    public static boolean PostMessage(long hWnd, int Msg, long wParam, long lParam) {
+    @NativeType("BOOL")
+    public static boolean PostMessage(@NativeType("HWND") long hWnd, @NativeType("UINT") int Msg, @NativeType("WPARAM") long wParam, @NativeType("LPARAM") long lParam) {
         long __functionAddress = Functions.PostMessage;
         return nPostMessageW(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
     }
@@ -1409,7 +1427,8 @@ public class User32 {
      * @param wParam additional message-specific information
      * @param lParam additional message-specific information
      */
-    public static boolean SendMessage(long hWnd, int Msg, long wParam, long lParam) {
+    @NativeType("BOOL")
+    public static boolean SendMessage(@NativeType("HWND") long hWnd, @NativeType("UINT") int Msg, @NativeType("WPARAM") long wParam, @NativeType("LPARAM") long lParam) {
         long __functionAddress = Functions.SendMessage;
         if (CHECKS) {
             check(hWnd);
@@ -1439,7 +1458,8 @@ public class User32 {
      * @param bMenu     indicates whether the window has a menu
      * @param dwExStyle the extended window style of the window whose required size is to be calculated
      */
-    public static boolean AdjustWindowRectEx(RECT lpRect, int dwStyle, boolean bMenu, int dwExStyle) {
+    @NativeType("BOOL")
+    public static boolean AdjustWindowRectEx(@NativeType("LPRECT") RECT lpRect, @NativeType("DWORD") int dwStyle, @NativeType("BOOL") boolean bMenu, @NativeType("DWORD") int dwExStyle) {
         return nAdjustWindowRectEx(lpRect.address(), dwStyle, bMenu ? 1 : 0, dwExStyle) != 0;
     }
 
@@ -1464,7 +1484,8 @@ public class User32 {
      * @param hWnd   a handle to the window
      * @param lpRect a pointer to a {@link RECT} structure that receives the screen coordinates of the upper-left and lower-right corners of the window
      */
-    public static boolean GetWindowRect(long hWnd, RECT lpRect) {
+    @NativeType("BOOL")
+    public static boolean GetWindowRect(@NativeType("HWND") long hWnd, @NativeType("LPRECT") RECT lpRect) {
         return nGetWindowRect(hWnd, lpRect.address()) != 0;
     }
 
@@ -1486,7 +1507,8 @@ public class User32 {
      *                 of any kind occurs. This applies to the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent
      *                 window uncovered as a result of moving a child window.
      */
-    public static boolean MoveWindow(long hWnd, int X, int Y, int nWidth, int nHeight, boolean bRepaint) {
+    @NativeType("BOOL")
+    public static boolean MoveWindow(@NativeType("HWND") long hWnd, int X, int Y, int nWidth, int nHeight, @NativeType("BOOL") boolean bRepaint) {
         long __functionAddress = Functions.MoveWindow;
         if (CHECKS) {
             check(hWnd);
@@ -1517,7 +1539,8 @@ public class User32 {
      *                <p>Before calling {@code GetWindowPlacement}, set the length member to {@link WINDOWPLACEMENT#SIZEOF}. {@code GetWindowPlacement} fails if
      *                {@code lpwndpl->length} is not set correctly.</p>
      */
-    public static boolean GetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
+    @NativeType("BOOL")
+    public static boolean GetWindowPlacement(@NativeType("HWND") long hWnd, @NativeType("WINDOWPLACEMENT *") WINDOWPLACEMENT lpwndpl) {
         return nGetWindowPlacement(hWnd, lpwndpl.address()) != 0;
     }
 
@@ -1544,7 +1567,8 @@ public class User32 {
      *                <p>Before calling {@code SetWindowPlacement}, set the {@code length} member of the {@code WINDOWPLACEMENT} structure to {@link WINDOWPLACEMENT#SIZEOF}.
      *                {@code SetWindowPlacement} fails if the length member is not set correctly.</p>
      */
-    public static boolean SetWindowPlacement(long hWnd, WINDOWPLACEMENT lpwndpl) {
+    @NativeType("BOOL")
+    public static boolean SetWindowPlacement(@NativeType("HWND") long hWnd, @NativeType("const WINDOWPLACEMENT *") WINDOWPLACEMENT lpwndpl) {
         return nSetWindowPlacement(hWnd, lpwndpl.address()) != 0;
     }
 
@@ -1555,7 +1579,8 @@ public class User32 {
      *
      * @param hWnd a handle to the window to be tested
      */
-    public static boolean IsWindowVisible(long hWnd) {
+    @NativeType("BOOL")
+    public static boolean IsWindowVisible(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.IsWindowVisible;
         if (CHECKS) {
             check(hWnd);
@@ -1570,7 +1595,8 @@ public class User32 {
      *
      * @param hWnd a handle to the window to be tested
      */
-    public static boolean IsIconic(long hWnd) {
+    @NativeType("BOOL")
+    public static boolean IsIconic(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.IsIconic;
         if (CHECKS) {
             check(hWnd);
@@ -1585,7 +1611,8 @@ public class User32 {
      *
      * @param hWnd a handle to the window to be tested
      */
-    public static boolean IsZoomed(long hWnd) {
+    @NativeType("BOOL")
+    public static boolean IsZoomed(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.IsZoomed;
         if (CHECKS) {
             check(hWnd);
@@ -1601,7 +1628,8 @@ public class User32 {
      *
      * @param hWnd a handle to the window to bring to the top of the Z order
      */
-    public static boolean BringWindowToTop(long hWnd) {
+    @NativeType("BOOL")
+    public static boolean BringWindowToTop(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.BringWindowToTop;
         if (CHECKS) {
             check(hWnd);
@@ -1624,7 +1652,8 @@ public class User32 {
      *
      * @return the previous value at the given {@code index}
      */
-    public static long SetWindowLongPtr(long hWnd, int nIndex, long dwNewLong) {
+    @NativeType("LONG_PTR")
+    public static long SetWindowLongPtr(@NativeType("HWND") long hWnd, int nIndex, @NativeType("LONG_PTR") long dwNewLong) {
         long __functionAddress = Functions.SetWindowLongPtr;
         if (CHECKS) {
             check(hWnd);
@@ -1644,7 +1673,8 @@ public class User32 {
      * @param nIndex the zero-based offset to the value to be set. Valid values are in the range zero through the number of bytes of extra window memory, minus the size
      *               of an integer. To set any other value, specify one of:<br><table><tr><td>{@link #GWL_WNDPROC}</td><td>{@link #GWL_HINSTANCE}</td><td>{@link #GWL_HWNDPARENT}</td><td>{@link #GWL_STYLE}</td><td>{@link #GWL_EXSTYLE}</td><td>{@link #GWL_USERDATA}</td><td>{@link #GWL_ID}</td></tr></table>
      */
-    public static long GetWindowLongPtr(long hWnd, int nIndex) {
+    @NativeType("LONG_PTR")
+    public static long GetWindowLongPtr(@NativeType("HWND") long hWnd, int nIndex) {
         long __functionAddress = Functions.GetWindowLongPtr;
         if (CHECKS) {
             check(hWnd);
@@ -1671,7 +1701,8 @@ public class User32 {
      *         
      *         <p>If the function fails, the return value is zero. To get extended error information, call {@link WinBase#getLastError}.</p>
      */
-    public static long SetClassLongPtr(long hWnd, int nIndex, long dwNewLong) {
+    @NativeType("LONG_PTR")
+    public static long SetClassLongPtr(@NativeType("HWND") long hWnd, int nIndex, @NativeType("LONG_PTR") long dwNewLong) {
         long __functionAddress = Functions.SetClassLongPtr;
         if (CHECKS) {
             check(hWnd);
@@ -1693,7 +1724,8 @@ public class User32 {
      *               more bytes of extra class memory, a value of 16 would be an index to the third integer. To retrieve any other value from the {@link WNDCLASSEX}
      *               structure, specify one of:<br><table><tr><td>{@link #GCL_MENUNAME}</td><td>{@link #GCL_HBRBACKGROUND}</td><td>{@link #GCL_HCURSOR}</td><td>{@link #GCL_HICON}</td><td>{@link #GCL_HMODULE}</td><td>{@link #GCL_CBWNDEXTRA}</td></tr><tr><td>{@link #GCL_CBCLSEXTRA}</td><td>{@link #GCL_WNDPROC}</td><td>{@link #GCL_STYLE}</td><td>{@link #GCW_ATOM}</td><td>{@link #GCL_HICONSM}</td></tr></table>
      */
-    public static long GetClassLongPtr(long hWnd, int nIndex) {
+    @NativeType("LONG_PTR")
+    public static long GetClassLongPtr(@NativeType("HWND") long hWnd, int nIndex) {
         long __functionAddress = Functions.GetClassLongPtr;
         if (CHECKS) {
             check(hWnd);
@@ -1715,7 +1747,8 @@ public class User32 {
      *                {@code bAlpha} is 255, the window is opaque.
      * @param dwFlags an action to be taken. One or more of:<br><table><tr><td>{@link #LWA_COLORKEY}</td><td>{@link #LWA_ALPHA}</td></tr></table>
      */
-    public static boolean SetLayeredWindowAttributes(long hwnd, int crKey, byte bAlpha, int dwFlags) {
+    @NativeType("BOOL")
+    public static boolean SetLayeredWindowAttributes(@NativeType("HWND") long hwnd, @NativeType("COLORREF") int crKey, @NativeType("BYTE") byte bAlpha, @NativeType("DWORD") int dwFlags) {
         long __functionAddress = Functions.SetLayeredWindowAttributes;
         if (CHECKS) {
             check(hwnd);
@@ -1741,7 +1774,8 @@ public class User32 {
      *                 being loaded.
      * @param iconName the name of the icon resource to be loaded or one of:<br><table><tr><td>{@link #IDI_APPLICATION}</td><td>{@link #IDI_HAND}</td><td>{@link #IDI_QUESTION}</td><td>{@link #IDI_EXCLAMATION}</td><td>{@link #IDI_ASTERISK}</td><td>{@link #IDI_WINLOGO}</td></tr><tr><td>{@link #IDI_SHIELD}</td><td>{@link #IDI_WARNING}</td><td>{@link #IDI_ERROR}</td><td>{@link #IDI_INFORMATION}</td></tr></table>
      */
-    public static long LoadIcon(long instance, ByteBuffer iconName) {
+    @NativeType("HICON")
+    public static long LoadIcon(@NativeType("HINSTANCE") long instance, @NativeType("LPCTSTR") ByteBuffer iconName) {
         if (CHECKS) {
             checkNT2(iconName);
         }
@@ -1755,7 +1789,8 @@ public class User32 {
      *                 being loaded.
      * @param iconName the name of the icon resource to be loaded or one of:<br><table><tr><td>{@link #IDI_APPLICATION}</td><td>{@link #IDI_HAND}</td><td>{@link #IDI_QUESTION}</td><td>{@link #IDI_EXCLAMATION}</td><td>{@link #IDI_ASTERISK}</td><td>{@link #IDI_WINLOGO}</td></tr><tr><td>{@link #IDI_SHIELD}</td><td>{@link #IDI_WARNING}</td><td>{@link #IDI_ERROR}</td><td>{@link #IDI_INFORMATION}</td></tr></table>
      */
-    public static long LoadIcon(long instance, CharSequence iconName) {
+    @NativeType("HICON")
+    public static long LoadIcon(@NativeType("HINSTANCE") long instance, @NativeType("LPCTSTR") CharSequence iconName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer iconNameEncoded = stack.UTF16(iconName);
@@ -1782,7 +1817,8 @@ public class User32 {
      * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
      * @param cursorName the name of the cursor resource to be loaded or one of:<br><table><tr><td>{@link #IDC_ARROW}</td><td>{@link #IDC_IBEAM}</td><td>{@link #IDC_WAIT}</td><td>{@link #IDC_CROSS}</td><td>{@link #IDC_UPARROW}</td><td>{@link #IDC_SIZE}</td><td>{@link #IDC_ICON}</td><td>{@link #IDC_SIZENWSE}</td></tr><tr><td>{@link #IDC_SIZENESW}</td><td>{@link #IDC_SIZEWE}</td><td>{@link #IDC_SIZENS}</td><td>{@link #IDC_SIZEALL}</td><td>{@link #IDC_NO}</td><td>{@link #IDC_HAND}</td><td>{@link #IDC_APPSTARTING}</td><td>{@link #IDC_HELP}</td></tr></table>
      */
-    public static long LoadCursor(long instance, ByteBuffer cursorName) {
+    @NativeType("HCURSOR")
+    public static long LoadCursor(@NativeType("HINSTANCE") long instance, @NativeType("LPCTSTR") ByteBuffer cursorName) {
         if (CHECKS) {
             checkNT2(cursorName);
         }
@@ -1795,7 +1831,8 @@ public class User32 {
      * @param instance   a handle to an instance of the module whose executable file contains the cursor to be loaded.
      * @param cursorName the name of the cursor resource to be loaded or one of:<br><table><tr><td>{@link #IDC_ARROW}</td><td>{@link #IDC_IBEAM}</td><td>{@link #IDC_WAIT}</td><td>{@link #IDC_CROSS}</td><td>{@link #IDC_UPARROW}</td><td>{@link #IDC_SIZE}</td><td>{@link #IDC_ICON}</td><td>{@link #IDC_SIZENWSE}</td></tr><tr><td>{@link #IDC_SIZENESW}</td><td>{@link #IDC_SIZEWE}</td><td>{@link #IDC_SIZENS}</td><td>{@link #IDC_SIZEALL}</td><td>{@link #IDC_NO}</td><td>{@link #IDC_HAND}</td><td>{@link #IDC_APPSTARTING}</td><td>{@link #IDC_HELP}</td></tr></table>
      */
-    public static long LoadCursor(long instance, CharSequence cursorName) {
+    @NativeType("HCURSOR")
+    public static long LoadCursor(@NativeType("HINSTANCE") long instance, @NativeType("LPCTSTR") CharSequence cursorName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer cursorNameEncoded = stack.UTF16(cursorName);
@@ -1813,7 +1850,8 @@ public class User32 {
      *
      * @param hWnd a handle to the window whose DC is to be retrieved. If this value is {@code NULL}, GetDC retrieves the DC for the entire screen.
      */
-    public static long GetDC(long hWnd) {
+    @NativeType("HDC")
+    public static long GetDC(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.GetDC;
         return callPP(__functionAddress, hWnd);
     }
@@ -1827,7 +1865,8 @@ public class User32 {
      * @param hWnd a handle to the window whose DC is to be released
      * @param hDC  a handle to the DC to be released
      */
-    public static boolean ReleaseDC(long hWnd, long hDC) {
+    @NativeType("BOOL")
+    public static boolean ReleaseDC(@NativeType("HWND") long hWnd, @NativeType("HDC") long hDC) {
         long __functionAddress = Functions.ReleaseDC;
         if (CHECKS) {
             check(hWnd);
@@ -1867,7 +1906,8 @@ public class User32 {
      *
      * @since Windows 7 (desktop apps only)
      */
-    public static boolean RegisterTouchWindow(long hWnd, int ulFlags) {
+    @NativeType("BOOL")
+    public static boolean RegisterTouchWindow(@NativeType("HWND") long hWnd, @NativeType("ULONG") int ulFlags) {
         long __functionAddress = Functions.RegisterTouchWindow;
         if (CHECKS) {
             check(__functionAddress);
@@ -1888,7 +1928,8 @@ public class User32 {
      *
      * @since Windows 7 (desktop apps only)
      */
-    public static boolean UnregisterTouchWindow(long hWnd) {
+    @NativeType("BOOL")
+    public static boolean UnregisterTouchWindow(@NativeType("HWND") long hWnd) {
         long __functionAddress = Functions.UnregisterTouchWindow;
         if (CHECKS) {
             check(__functionAddress);
@@ -1918,7 +1959,8 @@ public class User32 {
      *
      * @since Windows 7 (desktop apps only)
      */
-    public static boolean IsTouchWindow(long hWnd, IntBuffer pulFlags) {
+    @NativeType("BOOL")
+    public static boolean IsTouchWindow(@NativeType("HWND") long hWnd, @NativeType("PULONG") IntBuffer pulFlags) {
         if (CHECKS) {
             checkSafe(pulFlags, 1);
         }
@@ -1964,7 +2006,8 @@ public class User32 {
      *
      * @since Windows 7 (desktop apps only)
      */
-    public static boolean GetTouchInputInfo(long hTouchInput, TOUCHINPUT.Buffer pInputs, int cbSize) {
+    @NativeType("BOOL")
+    public static boolean GetTouchInputInfo(@NativeType("HTOUCHINPUT") long hTouchInput, @NativeType("PTOUCHINPUT") TOUCHINPUT.Buffer pInputs, @NativeType("int") int cbSize) {
         return nGetTouchInputInfo(hTouchInput, pInputs.remaining(), pInputs.address(), cbSize) != 0;
     }
 
@@ -1982,7 +2025,8 @@ public class User32 {
      *
      * @since Windows 7 (desktop apps only)
      */
-    public static boolean CloseTouchInputHandle(long hTouchInput) {
+    @NativeType("BOOL")
+    public static boolean CloseTouchInputHandle(@NativeType("HTOUCHINPUT") long hTouchInput) {
         long __functionAddress = Functions.CloseTouchInputHandle;
         if (CHECKS) {
             check(__functionAddress);
@@ -1999,7 +2043,8 @@ public class User32 {
      * @param hWnd    a handle to the window of interest
      * @param dwFlags determines the function's return value if the window does not intersect any display monitor. One of:<br><table><tr><td>{@link #MONITOR_DEFAULTTONULL}</td><td>{@link #MONITOR_DEFAULTTOPRIMARY}</td><td>{@link #MONITOR_DEFAULTTONEAREST}</td></tr></table>
      */
-    public static long MonitorFromWindow(long hWnd, int dwFlags) {
+    @NativeType("HMONITOR")
+    public static long MonitorFromWindow(@NativeType("HWND") long hWnd, @NativeType("DWORD") int dwFlags) {
         long __functionAddress = Functions.MonitorFromWindow;
         if (CHECKS) {
             check(hWnd);
@@ -2027,7 +2072,8 @@ public class User32 {
      *                 <p>You must set the {@code cbSize} member of the structure to {@link MONITORINFOEX#SIZEOF} before calling the {@code GetMonitorInfo} function. Doing so lets
      *                 the function determine the type of structure you are passing to it.</p>
      */
-    public static boolean GetMonitorInfo(long hMonitor, MONITORINFOEX lpmi) {
+    @NativeType("BOOL")
+    public static boolean GetMonitorInfo(@NativeType("HMONITOR") long hMonitor, @NativeType("LPMONITORINFOEX") MONITORINFOEX lpmi) {
         return nGetMonitorInfo(hMonitor, lpmi.address()) != 0;
     }
 
@@ -2056,7 +2102,8 @@ public class User32 {
      *                        {@code lpDisplayDevice}. The resulting device interface name can be used with SetupAPI functions and serves as a link between GDI monitor devices
      *                        and SetupAPI monitor devices.
      */
-    public static boolean EnumDisplayDevices(ByteBuffer lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
+    @NativeType("BOOL")
+    public static boolean EnumDisplayDevices(@NativeType("LPCTSTR") ByteBuffer lpDevice, @NativeType("DWORD") int iDevNum, @NativeType("PDISPLAY_DEVICE") DISPLAY_DEVICE lpDisplayDevice, @NativeType("DWORD") int dwFlags) {
         if (CHECKS) {
             checkNT2Safe(lpDevice);
         }
@@ -2080,7 +2127,8 @@ public class User32 {
      *                        {@code lpDisplayDevice}. The resulting device interface name can be used with SetupAPI functions and serves as a link between GDI monitor devices
      *                        and SetupAPI monitor devices.
      */
-    public static boolean EnumDisplayDevices(CharSequence lpDevice, int iDevNum, DISPLAY_DEVICE lpDisplayDevice, int dwFlags) {
+    @NativeType("BOOL")
+    public static boolean EnumDisplayDevices(@NativeType("LPCTSTR") CharSequence lpDevice, @NativeType("DWORD") int iDevNum, @NativeType("PDISPLAY_DEVICE") DISPLAY_DEVICE lpDisplayDevice, @NativeType("DWORD") int dwFlags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer lpDeviceEncoded = stack.UTF16(lpDevice);
@@ -2125,7 +2173,8 @@ public class User32 {
      *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
      * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
      */
-    public static boolean EnumDisplaySettingsEx(ByteBuffer lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
+    @NativeType("BOOL")
+    public static boolean EnumDisplaySettingsEx(@NativeType("LPCTSTR") ByteBuffer lpszDeviceName, @NativeType("DWORD") int iModeNum, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("DWORD") int dwFlags) {
         if (CHECKS) {
             checkNT2Safe(lpszDeviceName);
         }
@@ -2159,7 +2208,8 @@ public class User32 {
      *                       {@code DEVMODE} structure. To determine which members were set by the call to {@code EnumDisplaySettingsEx}, inspect the {@code dmFields} bitmask.</p>
      * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
      */
-    public static boolean EnumDisplaySettingsEx(CharSequence lpszDeviceName, int iModeNum, DEVMODE lpDevMode, int dwFlags) {
+    @NativeType("BOOL")
+    public static boolean EnumDisplaySettingsEx(@NativeType("LPCTSTR") CharSequence lpszDeviceName, @NativeType("DWORD") int iModeNum, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("DWORD") int dwFlags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer lpszDeviceNameEncoded = stack.UTF16(lpszDeviceName);
@@ -2197,7 +2247,8 @@ public class User32 {
      *
      * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
      */
-    public static int ChangeDisplaySettingsEx(ByteBuffer lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
+    @NativeType("LONG")
+    public static int ChangeDisplaySettingsEx(@NativeType("LPCTSTR") ByteBuffer lpszDeviceName, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("HWND") long hwnd, @NativeType("DWORD") int dwflags, @NativeType("LPVOID") long lParam) {
         if (CHECKS) {
             checkNT2Safe(lpszDeviceName);
         }
@@ -2224,7 +2275,8 @@ public class User32 {
      *
      * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
      */
-    public static int ChangeDisplaySettingsEx(CharSequence lpszDeviceName, DEVMODE lpDevMode, long hwnd, int dwflags, long lParam) {
+    @NativeType("LONG")
+    public static int ChangeDisplaySettingsEx(@NativeType("LPCTSTR") CharSequence lpszDeviceName, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("HWND") long hwnd, @NativeType("DWORD") int dwflags, @NativeType("LPVOID") long lParam) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer lpszDeviceNameEncoded = stack.UTF16(lpszDeviceName);
@@ -2247,7 +2299,8 @@ public class User32 {
      *
      * @param point a pointer to a {@link POINT} structure that receives the screen coordinates of the cursor
      */
-    public static boolean GetCursorPos(POINT point) {
+    @NativeType("BOOL")
+    public static boolean GetCursorPos(@NativeType("LPPOINT") POINT point) {
         return nGetCursorPos(point.address()) != 0;
     }
 
@@ -2260,6 +2313,7 @@ public class User32 {
      * @param X the new x-coordinate of the cursor, in screen coordinates.
      * @param Y the new y-coordinate of the cursor, in screen coordinates.
      */
+    @NativeType("BOOL")
     public static boolean SetCursorPos(int X, int Y) {
         long __functionAddress = Functions.SetCursorPos;
         return callI(__functionAddress, X, Y) != 0;
@@ -2280,7 +2334,8 @@ public class User32 {
      * @param rect a pointer to the structure that contains the screen coordinates of the upper-left and lower-right corners of the confining rectangle. If this
      *             parameter is {@code NULL}, the cursor is free to move anywhere on the screen.
      */
-    public static boolean ClipCursor(RECT rect) {
+    @NativeType("BOOL")
+    public static boolean ClipCursor(@NativeType("const RECT *") RECT rect) {
         return nClipCursor(memAddressSafe(rect)) != 0;
     }
 
@@ -2296,7 +2351,7 @@ public class User32 {
      *
      * @return the new display counter
      */
-    public static int ShowCursor(boolean show) {
+    public static int ShowCursor(@NativeType("BOOL") boolean show) {
         long __functionAddress = Functions.ShowCursor;
         return callI(__functionAddress, show ? 1 : 0);
     }
@@ -2323,13 +2378,15 @@ public class User32 {
      *
      * @return the handle to the previous cursor, if there was one
      */
-    public static long SetCursor(long hCursor) {
+    @NativeType("HCURSOR")
+    public static long SetCursor(@NativeType("HCURSOR") long hCursor) {
         long __functionAddress = Functions.SetCursor;
         return callPP(__functionAddress, hCursor);
     }
 
     /** Array version of: {@link #IsTouchWindow} */
-    public static boolean IsTouchWindow(long hWnd, int[] pulFlags) {
+    @NativeType("BOOL")
+    public static boolean IsTouchWindow(@NativeType("HWND") long hWnd, @NativeType("PULONG") int[] pulFlags) {
         long __functionAddress = Functions.IsTouchWindow;
         if (CHECKS) {
             check(__functionAddress);

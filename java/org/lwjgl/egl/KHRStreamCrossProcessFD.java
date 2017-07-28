@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -51,7 +53,8 @@ public class KHRStreamCrossProcessFD {
 
     // --- [ eglGetStreamFileDescriptorKHR ] ---
 
-    public static int eglGetStreamFileDescriptorKHR(long dpy, long stream) {
+    @NativeType("EGLNativeFileDescriptorKHR")
+    public static int eglGetStreamFileDescriptorKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream) {
         long __functionAddress = EGL.getCapabilities().eglGetStreamFileDescriptorKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -63,7 +66,8 @@ public class KHRStreamCrossProcessFD {
 
     // --- [ eglCreateStreamFromFileDescriptorKHR ] ---
 
-    public static long eglCreateStreamFromFileDescriptorKHR(long dpy, int file_descriptor) {
+    @NativeType("EGLStreamKHR")
+    public static long eglCreateStreamFromFileDescriptorKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLNativeFileDescriptorKHR") int file_descriptor) {
         long __functionAddress = EGL.getCapabilities().eglCreateStreamFromFileDescriptorKHR;
         if (CHECKS) {
             check(__functionAddress);

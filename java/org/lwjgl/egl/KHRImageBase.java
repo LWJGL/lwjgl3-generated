@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -49,7 +51,8 @@ public class KHRImageBase {
         return callPPPPP(__functionAddress, dpy, ctx, target, buffer, attrib_list);
     }
 
-    public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, IntBuffer attrib_list) {
+    @NativeType("EGLImageKHR")
+    public static long eglCreateImageKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLContext") long ctx, @NativeType("EGLenum") int target, @NativeType("EGLClientBuffer") long buffer, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -58,7 +61,8 @@ public class KHRImageBase {
 
     // --- [ eglDestroyImageKHR ] ---
 
-    public static boolean eglDestroyImageKHR(long dpy, long image) {
+    @NativeType("EGLBoolean")
+    public static boolean eglDestroyImageKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLImageKHR") long image) {
         long __functionAddress = EGL.getCapabilities().eglDestroyImageKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -69,7 +73,8 @@ public class KHRImageBase {
     }
 
     /** Array version of: {@link #eglCreateImageKHR CreateImageKHR} */
-    public static long eglCreateImageKHR(long dpy, long ctx, int target, long buffer, int[] attrib_list) {
+    @NativeType("EGLImageKHR")
+    public static long eglCreateImageKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLContext") long ctx, @NativeType("EGLenum") int target, @NativeType("EGLClientBuffer") long buffer, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateImageKHR;
         if (CHECKS) {
             check(__functionAddress);

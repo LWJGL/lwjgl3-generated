@@ -149,34 +149,41 @@ public class VkSubpassDependency extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code srcSubpass} field. */
+    @NativeType("uint32_t")
     public int srcSubpass() { return nsrcSubpass(address()); }
     /** Returns the value of the {@code dstSubpass} field. */
+    @NativeType("uint32_t")
     public int dstSubpass() { return ndstSubpass(address()); }
     /** Returns the value of the {@code srcStageMask} field. */
+    @NativeType("VkPipelineStageFlags")
     public int srcStageMask() { return nsrcStageMask(address()); }
     /** Returns the value of the {@code dstStageMask} field. */
+    @NativeType("VkPipelineStageFlags")
     public int dstStageMask() { return ndstStageMask(address()); }
     /** Returns the value of the {@code srcAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int srcAccessMask() { return nsrcAccessMask(address()); }
     /** Returns the value of the {@code dstAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int dstAccessMask() { return ndstAccessMask(address()); }
     /** Returns the value of the {@code dependencyFlags} field. */
+    @NativeType("VkDependencyFlags")
     public int dependencyFlags() { return ndependencyFlags(address()); }
 
     /** Sets the specified value to the {@code srcSubpass} field. */
-    public VkSubpassDependency srcSubpass(int value) { nsrcSubpass(address(), value); return this; }
+    public VkSubpassDependency srcSubpass(@NativeType("uint32_t") int value) { nsrcSubpass(address(), value); return this; }
     /** Sets the specified value to the {@code dstSubpass} field. */
-    public VkSubpassDependency dstSubpass(int value) { ndstSubpass(address(), value); return this; }
+    public VkSubpassDependency dstSubpass(@NativeType("uint32_t") int value) { ndstSubpass(address(), value); return this; }
     /** Sets the specified value to the {@code srcStageMask} field. */
-    public VkSubpassDependency srcStageMask(int value) { nsrcStageMask(address(), value); return this; }
+    public VkSubpassDependency srcStageMask(@NativeType("VkPipelineStageFlags") int value) { nsrcStageMask(address(), value); return this; }
     /** Sets the specified value to the {@code dstStageMask} field. */
-    public VkSubpassDependency dstStageMask(int value) { ndstStageMask(address(), value); return this; }
+    public VkSubpassDependency dstStageMask(@NativeType("VkPipelineStageFlags") int value) { ndstStageMask(address(), value); return this; }
     /** Sets the specified value to the {@code srcAccessMask} field. */
-    public VkSubpassDependency srcAccessMask(int value) { nsrcAccessMask(address(), value); return this; }
+    public VkSubpassDependency srcAccessMask(@NativeType("VkAccessFlags") int value) { nsrcAccessMask(address(), value); return this; }
     /** Sets the specified value to the {@code dstAccessMask} field. */
-    public VkSubpassDependency dstAccessMask(int value) { ndstAccessMask(address(), value); return this; }
+    public VkSubpassDependency dstAccessMask(@NativeType("VkAccessFlags") int value) { ndstAccessMask(address(), value); return this; }
     /** Sets the specified value to the {@code dependencyFlags} field. */
-    public VkSubpassDependency dependencyFlags(int value) { ndependencyFlags(address(), value); return this; }
+    public VkSubpassDependency dependencyFlags(@NativeType("VkDependencyFlags") int value) { ndependencyFlags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSubpassDependency set(
@@ -413,34 +420,41 @@ public class VkSubpassDependency extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code srcSubpass} field. */
+        @NativeType("uint32_t")
         public int srcSubpass() { return VkSubpassDependency.nsrcSubpass(address()); }
         /** Returns the value of the {@code dstSubpass} field. */
+        @NativeType("uint32_t")
         public int dstSubpass() { return VkSubpassDependency.ndstSubpass(address()); }
         /** Returns the value of the {@code srcStageMask} field. */
+        @NativeType("VkPipelineStageFlags")
         public int srcStageMask() { return VkSubpassDependency.nsrcStageMask(address()); }
         /** Returns the value of the {@code dstStageMask} field. */
+        @NativeType("VkPipelineStageFlags")
         public int dstStageMask() { return VkSubpassDependency.ndstStageMask(address()); }
         /** Returns the value of the {@code srcAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int srcAccessMask() { return VkSubpassDependency.nsrcAccessMask(address()); }
         /** Returns the value of the {@code dstAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int dstAccessMask() { return VkSubpassDependency.ndstAccessMask(address()); }
         /** Returns the value of the {@code dependencyFlags} field. */
+        @NativeType("VkDependencyFlags")
         public int dependencyFlags() { return VkSubpassDependency.ndependencyFlags(address()); }
 
         /** Sets the specified value to the {@code srcSubpass} field. */
-        public VkSubpassDependency.Buffer srcSubpass(int value) { VkSubpassDependency.nsrcSubpass(address(), value); return this; }
+        public VkSubpassDependency.Buffer srcSubpass(@NativeType("uint32_t") int value) { VkSubpassDependency.nsrcSubpass(address(), value); return this; }
         /** Sets the specified value to the {@code dstSubpass} field. */
-        public VkSubpassDependency.Buffer dstSubpass(int value) { VkSubpassDependency.ndstSubpass(address(), value); return this; }
+        public VkSubpassDependency.Buffer dstSubpass(@NativeType("uint32_t") int value) { VkSubpassDependency.ndstSubpass(address(), value); return this; }
         /** Sets the specified value to the {@code srcStageMask} field. */
-        public VkSubpassDependency.Buffer srcStageMask(int value) { VkSubpassDependency.nsrcStageMask(address(), value); return this; }
+        public VkSubpassDependency.Buffer srcStageMask(@NativeType("VkPipelineStageFlags") int value) { VkSubpassDependency.nsrcStageMask(address(), value); return this; }
         /** Sets the specified value to the {@code dstStageMask} field. */
-        public VkSubpassDependency.Buffer dstStageMask(int value) { VkSubpassDependency.ndstStageMask(address(), value); return this; }
+        public VkSubpassDependency.Buffer dstStageMask(@NativeType("VkPipelineStageFlags") int value) { VkSubpassDependency.ndstStageMask(address(), value); return this; }
         /** Sets the specified value to the {@code srcAccessMask} field. */
-        public VkSubpassDependency.Buffer srcAccessMask(int value) { VkSubpassDependency.nsrcAccessMask(address(), value); return this; }
+        public VkSubpassDependency.Buffer srcAccessMask(@NativeType("VkAccessFlags") int value) { VkSubpassDependency.nsrcAccessMask(address(), value); return this; }
         /** Sets the specified value to the {@code dstAccessMask} field. */
-        public VkSubpassDependency.Buffer dstAccessMask(int value) { VkSubpassDependency.ndstAccessMask(address(), value); return this; }
+        public VkSubpassDependency.Buffer dstAccessMask(@NativeType("VkAccessFlags") int value) { VkSubpassDependency.ndstAccessMask(address(), value); return this; }
         /** Sets the specified value to the {@code dependencyFlags} field. */
-        public VkSubpassDependency.Buffer dependencyFlags(int value) { VkSubpassDependency.ndependencyFlags(address(), value); return this; }
+        public VkSubpassDependency.Buffer dependencyFlags(@NativeType("VkDependencyFlags") int value) { VkSubpassDependency.ndependencyFlags(address(), value); return this; }
 
     }
 

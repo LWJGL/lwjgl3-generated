@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -50,7 +52,8 @@ public class EXTDeviceQuery {
         return callPPI(__functionAddress, device, attribute, value);
     }
 
-    public static boolean eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDeviceAttribEXT(@NativeType("EGLDeviceEXT") long device, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -68,7 +71,8 @@ public class EXTDeviceQuery {
         return callPP(__functionAddress, device, name);
     }
 
-    public static String eglQueryDeviceStringEXT(long device, int name) {
+    @NativeType("char *")
+    public static String eglQueryDeviceStringEXT(@NativeType("EGLDeviceEXT") long device, @NativeType("EGLint") int name) {
         long __result = neglQueryDeviceStringEXT(device, name);
         return memASCII(__result);
     }
@@ -84,7 +88,8 @@ public class EXTDeviceQuery {
         return callPPI(__functionAddress, dpy, attribute, value);
     }
 
-    public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDisplayAttribEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }

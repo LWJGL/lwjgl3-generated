@@ -124,7 +124,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateFromGLBuffer(long context, long flags, int bufobj, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int bufobj, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -183,7 +184,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLTexture2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -241,7 +243,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLTexture3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -291,7 +294,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLRenderbuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int renderbuffer, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -329,7 +333,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetGLObjectInfo(long memobj, IntBuffer gl_object_type, IntBuffer gl_object_name) {
+    @NativeType("cl_int")
+    public static int clGetGLObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_object_type *") IntBuffer gl_object_type, @NativeType("GLuint *") IntBuffer gl_object_name) {
         if (CHECKS) {
             checkSafe(gl_object_type, 1);
             checkSafe(gl_object_name, 1);
@@ -374,7 +379,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetGLTextureInfo(long memobj, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -402,7 +408,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetGLTextureInfo(long memobj, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -467,7 +474,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueAcquireGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -514,7 +522,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueAcquireGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -581,7 +590,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueReleaseGLObjects(long command_queue, PointerBuffer mem_objects, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -624,7 +634,8 @@ public class CL10GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueReleaseGLObjects(long command_queue, long mem_object, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -642,7 +653,8 @@ public class CL10GL {
      * 
      * Array version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer}
      */
-    public static long clCreateFromGLBuffer(long context, long flags, int bufobj, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int bufobj, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLBuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -657,7 +669,8 @@ public class CL10GL {
      * 
      * Array version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D}
      */
-    public static long clCreateFromGLTexture2D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLTexture2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLTexture2D;
         if (CHECKS) {
             check(__functionAddress);
@@ -672,7 +685,8 @@ public class CL10GL {
      * 
      * Array version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D}
      */
-    public static long clCreateFromGLTexture3D(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLTexture3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLTexture3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -687,7 +701,8 @@ public class CL10GL {
      * 
      * Array version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer}
      */
-    public static long clCreateFromGLRenderbuffer(long context, long flags, int renderbuffer, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLRenderbuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int renderbuffer, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLRenderbuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -702,7 +717,8 @@ public class CL10GL {
      * 
      * Array version of: {@link #clGetGLObjectInfo GetGLObjectInfo}
      */
-    public static int clGetGLObjectInfo(long memobj, int[] gl_object_type, int[] gl_object_name) {
+    @NativeType("cl_int")
+    public static int clGetGLObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_object_type *") int[] gl_object_type, @NativeType("GLuint *") int[] gl_object_name) {
         long __functionAddress = CL.getICD().clGetGLObjectInfo;
         if (CHECKS) {
             check(__functionAddress);
@@ -718,7 +734,8 @@ public class CL10GL {
      * 
      * Array version of: {@link #clGetGLTextureInfo GetGLTextureInfo}
      */
-    public static int clGetGLTextureInfo(long memobj, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetGLTextureInfo;
         if (CHECKS) {
             check(__functionAddress);

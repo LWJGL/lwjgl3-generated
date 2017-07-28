@@ -117,7 +117,7 @@ public class NVTransformFeedback {
 
     // --- [ glBeginTransformFeedbackNV ] ---
 
-    public static native void glBeginTransformFeedbackNV(int primitiveMode);
+    public static native void glBeginTransformFeedbackNV(@NativeType("GLenum") int primitiveMode);
 
     // --- [ glEndTransformFeedbackNV ] ---
 
@@ -127,27 +127,27 @@ public class NVTransformFeedback {
 
     public static native void nglTransformFeedbackAttribsNV(int count, long attribs, int bufferMode);
 
-    public static void glTransformFeedbackAttribsNV(IntBuffer attribs, int bufferMode) {
+    public static void glTransformFeedbackAttribsNV(@NativeType("const GLint *") IntBuffer attribs, @NativeType("GLenum") int bufferMode) {
         nglTransformFeedbackAttribsNV(attribs.remaining(), memAddress(attribs), bufferMode);
     }
 
     // --- [ glBindBufferRangeNV ] ---
 
-    public static native void glBindBufferRangeNV(int target, int index, int buffer, long offset, long size);
+    public static native void glBindBufferRangeNV(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size);
 
     // --- [ glBindBufferOffsetNV ] ---
 
-    public static native void glBindBufferOffsetNV(int target, int index, int buffer, long offset);
+    public static native void glBindBufferOffsetNV(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset);
 
     // --- [ glBindBufferBaseNV ] ---
 
-    public static native void glBindBufferBaseNV(int target, int index, int buffer);
+    public static native void glBindBufferBaseNV(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int buffer);
 
     // --- [ glTransformFeedbackVaryingsNV ] ---
 
     public static native void nglTransformFeedbackVaryingsNV(int program, int count, long locations, int bufferMode);
 
-    public static void glTransformFeedbackVaryingsNV(int program, IntBuffer locations, int bufferMode) {
+    public static void glTransformFeedbackVaryingsNV(@NativeType("GLuint") int program, @NativeType("const GLint *") IntBuffer locations, @NativeType("GLenum") int bufferMode) {
         nglTransformFeedbackVaryingsNV(program, locations.remaining(), memAddress(locations), bufferMode);
     }
 
@@ -155,14 +155,14 @@ public class NVTransformFeedback {
 
     public static native void nglActiveVaryingNV(int program, long name);
 
-    public static void glActiveVaryingNV(int program, ByteBuffer name) {
+    public static void glActiveVaryingNV(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         nglActiveVaryingNV(program, memAddress(name));
     }
 
-    public static void glActiveVaryingNV(int program, CharSequence name) {
+    public static void glActiveVaryingNV(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -176,14 +176,16 @@ public class NVTransformFeedback {
 
     public static native int nglGetVaryingLocationNV(int program, long name);
 
-    public static int glGetVaryingLocationNV(int program, ByteBuffer name) {
+    @NativeType("GLint")
+    public static int glGetVaryingLocationNV(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         return nglGetVaryingLocationNV(program, memAddress(name));
     }
 
-    public static int glGetVaryingLocationNV(int program, CharSequence name) {
+    @NativeType("GLint")
+    public static int glGetVaryingLocationNV(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -197,7 +199,7 @@ public class NVTransformFeedback {
 
     public static native void nglGetActiveVaryingNV(int program, int index, int bufSize, long length, long size, long type, long name);
 
-    public static void glGetActiveVaryingNV(int program, int index, IntBuffer length, IntBuffer size, IntBuffer type, ByteBuffer name) {
+    public static void glGetActiveVaryingNV(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLsizei *") IntBuffer size, @NativeType("GLenum *") IntBuffer type, @NativeType("GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(size, 1);
@@ -210,14 +212,15 @@ public class NVTransformFeedback {
 
     public static native void nglGetTransformFeedbackVaryingNV(int program, int index, long location);
 
-    public static void glGetTransformFeedbackVaryingNV(int program, int index, IntBuffer location) {
+    public static void glGetTransformFeedbackVaryingNV(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer location) {
         if (CHECKS) {
             check(location, 1);
         }
         nglGetTransformFeedbackVaryingNV(program, index, memAddress(location));
     }
 
-    public static int glGetTransformFeedbackVaryingNV(int program, int index) {
+    @NativeType("void")
+    public static int glGetTransformFeedbackVaryingNV(@NativeType("GLuint") int program, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer location = stack.callocInt(1);
@@ -232,12 +235,12 @@ public class NVTransformFeedback {
 
     public static native void nglTransformFeedbackStreamAttribsNV(int count, long attribs, int nbuffers, long bufstreams, int bufferMode);
 
-    public static void glTransformFeedbackStreamAttribsNV(IntBuffer attribs, IntBuffer bufstreams, int bufferMode) {
+    public static void glTransformFeedbackStreamAttribsNV(@NativeType("const GLint *") IntBuffer attribs, @NativeType("const GLint *") IntBuffer bufstreams, @NativeType("GLenum") int bufferMode) {
         nglTransformFeedbackStreamAttribsNV(attribs.remaining(), memAddress(attribs), bufstreams.remaining(), memAddress(bufstreams), bufferMode);
     }
 
     /** Array version of: {@link #glTransformFeedbackAttribsNV TransformFeedbackAttribsNV} */
-    public static void glTransformFeedbackAttribsNV(int[] attribs, int bufferMode) {
+    public static void glTransformFeedbackAttribsNV(@NativeType("const GLint *") int[] attribs, @NativeType("GLenum") int bufferMode) {
         long __functionAddress = GL.getICD().glTransformFeedbackAttribsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -246,7 +249,7 @@ public class NVTransformFeedback {
     }
 
     /** Array version of: {@link #glTransformFeedbackVaryingsNV TransformFeedbackVaryingsNV} */
-    public static void glTransformFeedbackVaryingsNV(int program, int[] locations, int bufferMode) {
+    public static void glTransformFeedbackVaryingsNV(@NativeType("GLuint") int program, @NativeType("const GLint *") int[] locations, @NativeType("GLenum") int bufferMode) {
         long __functionAddress = GL.getICD().glTransformFeedbackVaryingsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -255,7 +258,7 @@ public class NVTransformFeedback {
     }
 
     /** Array version of: {@link #glGetActiveVaryingNV GetActiveVaryingNV} */
-    public static void glGetActiveVaryingNV(int program, int index, int[] length, int[] size, int[] type, ByteBuffer name) {
+    public static void glGetActiveVaryingNV(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") int[] length, @NativeType("GLsizei *") int[] size, @NativeType("GLenum *") int[] type, @NativeType("GLchar *") ByteBuffer name) {
         long __functionAddress = GL.getICD().glGetActiveVaryingNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -267,7 +270,7 @@ public class NVTransformFeedback {
     }
 
     /** Array version of: {@link #glGetTransformFeedbackVaryingNV GetTransformFeedbackVaryingNV} */
-    public static void glGetTransformFeedbackVaryingNV(int program, int index, int[] location) {
+    public static void glGetTransformFeedbackVaryingNV(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLint *") int[] location) {
         long __functionAddress = GL.getICD().glGetTransformFeedbackVaryingNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -277,7 +280,7 @@ public class NVTransformFeedback {
     }
 
     /** Array version of: {@link #glTransformFeedbackStreamAttribsNV TransformFeedbackStreamAttribsNV} */
-    public static void glTransformFeedbackStreamAttribsNV(int[] attribs, int[] bufstreams, int bufferMode) {
+    public static void glTransformFeedbackStreamAttribsNV(@NativeType("const GLint *") int[] attribs, @NativeType("const GLint *") int[] bufstreams, @NativeType("GLenum") int bufferMode) {
         long __functionAddress = GL.getICD().glTransformFeedbackStreamAttribsNV;
         if (CHECKS) {
             check(__functionAddress);

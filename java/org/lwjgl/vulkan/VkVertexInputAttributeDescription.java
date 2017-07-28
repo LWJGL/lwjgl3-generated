@@ -103,22 +103,26 @@ public class VkVertexInputAttributeDescription extends Struct implements NativeR
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code location} field. */
+    @NativeType("uint32_t")
     public int location() { return nlocation(address()); }
     /** Returns the value of the {@code binding} field. */
+    @NativeType("uint32_t")
     public int binding() { return nbinding(address()); }
     /** Returns the value of the {@code format} field. */
+    @NativeType("VkFormat")
     public int format() { return nformat(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("uint32_t")
     public int offset() { return noffset(address()); }
 
     /** Sets the specified value to the {@code location} field. */
-    public VkVertexInputAttributeDescription location(int value) { nlocation(address(), value); return this; }
+    public VkVertexInputAttributeDescription location(@NativeType("uint32_t") int value) { nlocation(address(), value); return this; }
     /** Sets the specified value to the {@code binding} field. */
-    public VkVertexInputAttributeDescription binding(int value) { nbinding(address(), value); return this; }
+    public VkVertexInputAttributeDescription binding(@NativeType("uint32_t") int value) { nbinding(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
-    public VkVertexInputAttributeDescription format(int value) { nformat(address(), value); return this; }
+    public VkVertexInputAttributeDescription format(@NativeType("VkFormat") int value) { nformat(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkVertexInputAttributeDescription offset(int value) { noffset(address(), value); return this; }
+    public VkVertexInputAttributeDescription offset(@NativeType("uint32_t") int value) { noffset(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkVertexInputAttributeDescription set(
@@ -337,22 +341,26 @@ public class VkVertexInputAttributeDescription extends Struct implements NativeR
         }
 
         /** Returns the value of the {@code location} field. */
+        @NativeType("uint32_t")
         public int location() { return VkVertexInputAttributeDescription.nlocation(address()); }
         /** Returns the value of the {@code binding} field. */
+        @NativeType("uint32_t")
         public int binding() { return VkVertexInputAttributeDescription.nbinding(address()); }
         /** Returns the value of the {@code format} field. */
+        @NativeType("VkFormat")
         public int format() { return VkVertexInputAttributeDescription.nformat(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("uint32_t")
         public int offset() { return VkVertexInputAttributeDescription.noffset(address()); }
 
         /** Sets the specified value to the {@code location} field. */
-        public VkVertexInputAttributeDescription.Buffer location(int value) { VkVertexInputAttributeDescription.nlocation(address(), value); return this; }
+        public VkVertexInputAttributeDescription.Buffer location(@NativeType("uint32_t") int value) { VkVertexInputAttributeDescription.nlocation(address(), value); return this; }
         /** Sets the specified value to the {@code binding} field. */
-        public VkVertexInputAttributeDescription.Buffer binding(int value) { VkVertexInputAttributeDescription.nbinding(address(), value); return this; }
+        public VkVertexInputAttributeDescription.Buffer binding(@NativeType("uint32_t") int value) { VkVertexInputAttributeDescription.nbinding(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
-        public VkVertexInputAttributeDescription.Buffer format(int value) { VkVertexInputAttributeDescription.nformat(address(), value); return this; }
+        public VkVertexInputAttributeDescription.Buffer format(@NativeType("VkFormat") int value) { VkVertexInputAttributeDescription.nformat(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkVertexInputAttributeDescription.Buffer offset(int value) { VkVertexInputAttributeDescription.noffset(address(), value); return this; }
+        public VkVertexInputAttributeDescription.Buffer offset(@NativeType("uint32_t") int value) { VkVertexInputAttributeDescription.noffset(address(), value); return this; }
 
     }
 

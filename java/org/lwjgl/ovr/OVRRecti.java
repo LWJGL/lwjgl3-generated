@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRSizei ovrSizei} Size;
  * }</pre></code>
  */
+@NativeType("struct ovrRecti")
 public class OVRRecti extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -74,14 +75,16 @@ public class OVRRecti extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRVector2i} view of the {@code Pos} field. */
+    @NativeType("ovrVector2i")
     public OVRVector2i Pos() { return nPos(address()); }
     /** Returns a {@link OVRSizei} view of the {@code Size} field. */
+    @NativeType("ovrSizei")
     public OVRSizei Size() { return nSize(address()); }
 
     /** Copies the specified {@link OVRVector2i} to the {@code Pos} field. */
-    public OVRRecti Pos(OVRVector2i value) { nPos(address(), value); return this; }
+    public OVRRecti Pos(@NativeType("ovrVector2i") OVRVector2i value) { nPos(address(), value); return this; }
     /** Copies the specified {@link OVRSizei} to the {@code Size} field. */
-    public OVRRecti Size(OVRSizei value) { nSize(address(), value); return this; }
+    public OVRRecti Size(@NativeType("ovrSizei") OVRSizei value) { nSize(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public OVRRecti set(
@@ -288,14 +291,16 @@ public class OVRRecti extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRVector2i} view of the {@code Pos} field. */
+        @NativeType("ovrVector2i")
         public OVRVector2i Pos() { return OVRRecti.nPos(address()); }
         /** Returns a {@link OVRSizei} view of the {@code Size} field. */
+        @NativeType("ovrSizei")
         public OVRSizei Size() { return OVRRecti.nSize(address()); }
 
         /** Copies the specified {@link OVRVector2i} to the {@code Pos} field. */
-        public OVRRecti.Buffer Pos(OVRVector2i value) { OVRRecti.nPos(address(), value); return this; }
+        public OVRRecti.Buffer Pos(@NativeType("ovrVector2i") OVRVector2i value) { OVRRecti.nPos(address(), value); return this; }
         /** Copies the specified {@link OVRSizei} to the {@code Size} field. */
-        public OVRRecti.Buffer Size(OVRSizei value) { OVRRecti.nSize(address(), value); return this; }
+        public OVRRecti.Buffer Size(@NativeType("ovrSizei") OVRSizei value) { OVRRecti.nSize(address(), value); return this; }
 
     }
 

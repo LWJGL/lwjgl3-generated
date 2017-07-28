@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -46,7 +48,8 @@ public class WGLARBExtensionsString {
      *
      * @param hdc the device context to query extensions for
      */
-    public static String wglGetExtensionsStringARB(long hdc) {
+    @NativeType("const char *")
+    public static String wglGetExtensionsStringARB(@NativeType("HDC") long hdc) {
         long __result = nwglGetExtensionsStringARB(hdc);
         return memASCII(__result);
     }

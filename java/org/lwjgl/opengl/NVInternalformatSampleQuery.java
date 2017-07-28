@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -64,12 +66,12 @@ public class NVInternalformatSampleQuery {
 
     public static native void nglGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, long params);
 
-    public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, IntBuffer params) {
+    public static void glGetInternalformatSampleivNV(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int samples, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         nglGetInternalformatSampleivNV(target, internalformat, samples, pname, params.remaining(), memAddress(params));
     }
 
     /** Array version of: {@link #glGetInternalformatSampleivNV GetInternalformatSampleivNV} */
-    public static void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int[] params) {
+    public static void glGetInternalformatSampleivNV(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int samples, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetInternalformatSampleivNV;
         if (CHECKS) {
             check(__functionAddress);

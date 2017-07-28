@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int h;
  * }</pre></code>
  */
+@NativeType("struct ovrSizei")
 public class OVRSizei extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

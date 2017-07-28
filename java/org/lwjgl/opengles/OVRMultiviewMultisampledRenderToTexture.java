@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -41,6 +43,6 @@ public class OVRMultiviewMultisampledRenderToTexture {
      * @param baseViewIndex 
      * @param numViews      
      */
-    public static native void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, int texture, int level, int samples, int baseViewIndex, int numViews);
+    public static native void glFramebufferTextureMultisampleMultiviewOVR(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLsizei") int samples, @NativeType("GLint") int baseViewIndex, @NativeType("GLsizei") int numViews);
 
 }

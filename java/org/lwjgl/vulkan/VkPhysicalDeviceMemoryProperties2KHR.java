@@ -90,8 +90,10 @@ public class VkPhysicalDeviceMemoryProperties2KHR extends Struct implements Nati
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkPhysicalDeviceMemoryProperties} view of the {@code memoryProperties} field. */
     public VkPhysicalDeviceMemoryProperties memoryProperties() { return nmemoryProperties(address()); }
@@ -275,8 +277,10 @@ public class VkPhysicalDeviceMemoryProperties2KHR extends Struct implements Nati
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceMemoryProperties2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceMemoryProperties2KHR.npNext(address()); }
         /** Returns a {@link VkPhysicalDeviceMemoryProperties} view of the {@code memoryProperties} field. */
         public VkPhysicalDeviceMemoryProperties memoryProperties() { return VkPhysicalDeviceMemoryProperties2KHR.nmemoryProperties(address()); }

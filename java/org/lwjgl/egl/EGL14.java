@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -35,6 +37,7 @@ public class EGL14 {
     // --- [ eglGetCurrentContext ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetCurrentContext.xhtml">Reference Page</a> */
+    @NativeType("EGLContext")
     public static long eglGetCurrentContext() {
         long __functionAddress = EGL.getCapabilities().eglGetCurrentContext;
         if (CHECKS) {

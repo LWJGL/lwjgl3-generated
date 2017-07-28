@@ -7,6 +7,8 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -28,7 +30,8 @@ public class VRChaperoneSetup {
      *
      * @param configFile 
      */
-    public static boolean VRChaperoneSetup_CommitWorkingCopy(int configFile) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_CommitWorkingCopy(@NativeType("EChaperoneConfigFile") int configFile) {
         long __functionAddress = OpenVR.VRChaperoneSetup.CommitWorkingCopy;
         if (CHECKS) {
             check(__functionAddress);
@@ -70,7 +73,8 @@ public class VRChaperoneSetup {
      * @param pSizeX 
      * @param pSizeZ 
      */
-    public static boolean VRChaperoneSetup_GetWorkingPlayAreaSize(FloatBuffer pSizeX, FloatBuffer pSizeZ) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetWorkingPlayAreaSize(@NativeType("float *") FloatBuffer pSizeX, @NativeType("float *") FloatBuffer pSizeZ) {
         if (CHECKS) {
             check(pSizeX, 1);
             check(pSizeZ, 1);
@@ -97,7 +101,8 @@ public class VRChaperoneSetup {
      *
      * @param rect 
      */
-    public static boolean VRChaperoneSetup_GetWorkingPlayAreaRect(HmdQuad rect) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetWorkingPlayAreaRect(@NativeType("HmdQuad_t *") HmdQuad rect) {
         return nVRChaperoneSetup_GetWorkingPlayAreaRect(rect.address());
     }
 
@@ -118,7 +123,8 @@ public class VRChaperoneSetup {
      * @param pQuadsBuffer  
      * @param punQuadsCount 
      */
-    public static boolean VRChaperoneSetup_GetWorkingCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetWorkingCollisionBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
         if (CHECKS) {
             check(punQuadsCount, 1);
             checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
@@ -143,7 +149,8 @@ public class VRChaperoneSetup {
      * @param pQuadsBuffer  
      * @param punQuadsCount 
      */
-    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
         if (CHECKS) {
             check(punQuadsCount, 1);
             checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
@@ -167,7 +174,8 @@ public class VRChaperoneSetup {
      *
      * @param pmatSeatedZeroPoseToRawTrackingPose 
      */
-    public static boolean VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(@NativeType("HmdMatrix34_t *") HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
         return nVRChaperoneSetup_GetWorkingSeatedZeroPoseToRawTrackingPose(pmatSeatedZeroPoseToRawTrackingPose.address());
     }
 
@@ -187,7 +195,8 @@ public class VRChaperoneSetup {
      *
      * @param pmatStandingZeroPoseToRawTrackingPose 
      */
-    public static boolean VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(HmdMatrix34 pmatStandingZeroPoseToRawTrackingPose) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(@NativeType("HmdMatrix34_t *") HmdMatrix34 pmatStandingZeroPoseToRawTrackingPose) {
         return nVRChaperoneSetup_GetWorkingStandingZeroPoseToRawTrackingPose(pmatStandingZeroPoseToRawTrackingPose.address());
     }
 
@@ -223,7 +232,7 @@ public class VRChaperoneSetup {
      *
      * @param pQuadsBuffer 
      */
-    public static void VRChaperoneSetup_SetWorkingCollisionBoundsInfo(HmdQuad.Buffer pQuadsBuffer) {
+    public static void VRChaperoneSetup_SetWorkingCollisionBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer) {
         nVRChaperoneSetup_SetWorkingCollisionBoundsInfo(pQuadsBuffer.address(), pQuadsBuffer.remaining());
     }
 
@@ -243,7 +252,7 @@ public class VRChaperoneSetup {
      *
      * @param pMatSeatedZeroPoseToRawTrackingPose 
      */
-    public static void VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pMatSeatedZeroPoseToRawTrackingPose) {
+    public static void VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(@NativeType("const HmdMatrix34_t *") HmdMatrix34 pMatSeatedZeroPoseToRawTrackingPose) {
         nVRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(pMatSeatedZeroPoseToRawTrackingPose.address());
     }
 
@@ -263,7 +272,7 @@ public class VRChaperoneSetup {
      *
      * @param pMatStandingZeroPoseToRawTrackingPose 
      */
-    public static void VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(HmdMatrix34 pMatStandingZeroPoseToRawTrackingPose) {
+    public static void VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(@NativeType("const HmdMatrix34_t *") HmdMatrix34 pMatStandingZeroPoseToRawTrackingPose) {
         nVRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(pMatStandingZeroPoseToRawTrackingPose.address());
     }
 
@@ -274,7 +283,7 @@ public class VRChaperoneSetup {
      *
      * @param configFile one of:<br><table><tr><td>{@link VR#EChaperoneConfigFile_Live}</td><td>{@link VR#EChaperoneConfigFile_Temp}</td></tr></table>
      */
-    public static void VRChaperoneSetup_ReloadFromDisk(int configFile) {
+    public static void VRChaperoneSetup_ReloadFromDisk(@NativeType("EChaperoneConfigFile") int configFile) {
         long __functionAddress = OpenVR.VRChaperoneSetup.ReloadFromDisk;
         if (CHECKS) {
             check(__functionAddress);
@@ -298,7 +307,8 @@ public class VRChaperoneSetup {
      *
      * @param pmatSeatedZeroPoseToRawTrackingPose 
      */
-    public static boolean VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(@NativeType("HmdMatrix34_t *") HmdMatrix34 pmatSeatedZeroPoseToRawTrackingPose) {
         return nVRChaperoneSetup_GetLiveSeatedZeroPoseToRawTrackingPose(pmatSeatedZeroPoseToRawTrackingPose.address());
     }
 
@@ -312,7 +322,7 @@ public class VRChaperoneSetup {
         callPV(__functionAddress, pTagsBuffer, unTagCount);
     }
 
-    public static void VRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(ByteBuffer pTagsBuffer) {
+    public static void VRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(@NativeType("uint8_t *") ByteBuffer pTagsBuffer) {
         nVRChaperoneSetup_SetWorkingCollisionBoundsTagsInfo(memAddress(pTagsBuffer), pTagsBuffer.remaining());
     }
 
@@ -326,7 +336,8 @@ public class VRChaperoneSetup {
         return callPPZ(__functionAddress, pTagsBuffer, punTagCount);
     }
 
-    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(ByteBuffer pTagsBuffer, IntBuffer punTagCount) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(@NativeType("uint8_t *") ByteBuffer pTagsBuffer, @NativeType("uint32_t *") IntBuffer punTagCount) {
         if (CHECKS) {
             check(punTagCount, 1);
             checkSafe(pTagsBuffer, punTagCount.get(punTagCount.position()));
@@ -344,7 +355,8 @@ public class VRChaperoneSetup {
         return callPZ(__functionAddress, pQuadsBuffer, unQuadsCount);
     }
 
-    public static boolean VRChaperoneSetup_SetWorkingPhysicalBoundsInfo(HmdQuad.Buffer pQuadsBuffer) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_SetWorkingPhysicalBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer) {
         return nVRChaperoneSetup_SetWorkingPhysicalBoundsInfo(pQuadsBuffer.address(), pQuadsBuffer.remaining());
     }
 
@@ -358,7 +370,8 @@ public class VRChaperoneSetup {
         return callPPZ(__functionAddress, pQuadsBuffer, punQuadsCount);
     }
 
-    public static boolean VRChaperoneSetup_GetLivePhysicalBoundsInfo(HmdQuad.Buffer pQuadsBuffer, IntBuffer punQuadsCount) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_GetLivePhysicalBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
         if (CHECKS) {
             check(punQuadsCount, 1);
             checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
@@ -376,7 +389,8 @@ public class VRChaperoneSetup {
         return callPPZ(__functionAddress, pBuffer, pnBufferLength);
     }
 
-    public static boolean VRChaperoneSetup_ExportLiveToBuffer(ByteBuffer pBuffer, IntBuffer pnBufferLength) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_ExportLiveToBuffer(@NativeType("char *") ByteBuffer pBuffer, @NativeType("uint32_t *") IntBuffer pnBufferLength) {
         if (CHECKS) {
             check(pnBufferLength, 1);
             checkSafe(pBuffer, pnBufferLength.get(pnBufferLength.position()));
@@ -394,7 +408,8 @@ public class VRChaperoneSetup {
         return callPZ(__functionAddress, pBuffer, nImportFlags);
     }
 
-    public static boolean VRChaperoneSetup_ImportFromBufferToWorking(ByteBuffer pBuffer, int nImportFlags) {
+    @NativeType("bool")
+    public static boolean VRChaperoneSetup_ImportFromBufferToWorking(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("uint32_t") int nImportFlags) {
         return nVRChaperoneSetup_ImportFromBufferToWorking(memAddress(pBuffer), nImportFlags);
     }
 

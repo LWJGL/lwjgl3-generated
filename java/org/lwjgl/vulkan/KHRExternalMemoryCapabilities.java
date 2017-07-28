@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -186,7 +188,7 @@ public class KHRExternalMemoryCapabilities {
      * @param pExternalBufferInfo       points to an instance of the {@link VkPhysicalDeviceExternalBufferInfoKHR} structure, describing the parameters that would be consumed by {@link VK10#vkCreateBuffer CreateBuffer}.
      * @param pExternalBufferProperties points to an instance of the {@link VkExternalBufferPropertiesKHR} structure in which capabilities are returned.
      */
-    public static void vkGetPhysicalDeviceExternalBufferPropertiesKHR(VkPhysicalDevice physicalDevice, VkPhysicalDeviceExternalBufferInfoKHR pExternalBufferInfo, VkExternalBufferPropertiesKHR pExternalBufferProperties) {
+    public static void vkGetPhysicalDeviceExternalBufferPropertiesKHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceExternalBufferInfoKHR *") VkPhysicalDeviceExternalBufferInfoKHR pExternalBufferInfo, @NativeType("VkExternalBufferPropertiesKHR *") VkExternalBufferPropertiesKHR pExternalBufferProperties) {
         nvkGetPhysicalDeviceExternalBufferPropertiesKHR(physicalDevice, pExternalBufferInfo.address(), pExternalBufferProperties.address());
     }
 

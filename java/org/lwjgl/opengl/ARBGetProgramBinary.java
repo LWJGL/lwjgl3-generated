@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -70,7 +72,7 @@ public class ARBGetProgramBinary {
      * @param binaryFormat a variable to receive a token indicating the format of the binary data returned by the GL
      * @param binary       an array into which the GL will return {@code program}'s binary representation
      */
-    public static void glGetProgramBinary(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
+    public static void glGetProgramBinary(@NativeType("GLuint") int program, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLenum *") IntBuffer binaryFormat, @NativeType("void *") ByteBuffer binary) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(binaryFormat, 1);
@@ -94,7 +96,7 @@ public class ARBGetProgramBinary {
      * @param binaryFormat the format of the binary data in binary
      * @param binary       an array containing the binary to be loaded into {@code program}
      */
-    public static void glProgramBinary(int program, int binaryFormat, ByteBuffer binary) {
+    public static void glProgramBinary(@NativeType("GLuint") int program, @NativeType("GLenum") int binaryFormat, @NativeType("const void *") ByteBuffer binary) {
         nglProgramBinary(program, binaryFormat, memAddress(binary), binary.remaining());
     }
 
@@ -107,10 +109,10 @@ public class ARBGetProgramBinary {
      * @param pname   the name of the parameter to modify. One of:<br><table><tr><td>{@link GL41#GL_PROGRAM_BINARY_RETRIEVABLE_HINT PROGRAM_BINARY_RETRIEVABLE_HINT}</td><td>{@link GL41#GL_PROGRAM_SEPARABLE PROGRAM_SEPARABLE}</td></tr></table>
      * @param value   the new value of the parameter specified by {@code pname} for {@code program}
      */
-    public static native void glProgramParameteri(int program, int pname, int value);
+    public static native void glProgramParameteri(@NativeType("GLuint") int program, @NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
     /** Array version of: {@link #glGetProgramBinary GetProgramBinary} */
-    public static void glGetProgramBinary(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
+    public static void glGetProgramBinary(@NativeType("GLuint") int program, @NativeType("GLsizei *") int[] length, @NativeType("GLenum *") int[] binaryFormat, @NativeType("void *") ByteBuffer binary) {
         long __functionAddress = GL.getICD().glGetProgramBinary;
         if (CHECKS) {
             check(__functionAddress);

@@ -102,14 +102,19 @@ public class VkExternalFencePropertiesKHR extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
+    @NativeType("VkExternalFenceHandleTypeFlagsKHR")
     public int exportFromImportedHandleTypes() { return nexportFromImportedHandleTypes(address()); }
     /** Returns the value of the {@code compatibleHandleTypes} field. */
+    @NativeType("VkExternalFenceHandleTypeFlagsKHR")
     public int compatibleHandleTypes() { return ncompatibleHandleTypes(address()); }
     /** Returns the value of the {@code externalFenceFeatures} field. */
+    @NativeType("VkExternalFenceFeatureFlagsKHR")
     public int externalFenceFeatures() { return nexternalFenceFeatures(address()); }
 
     // -----------------------------------
@@ -295,14 +300,19 @@ public class VkExternalFencePropertiesKHR extends Struct implements NativeResour
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkExternalFencePropertiesKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkExternalFencePropertiesKHR.npNext(address()); }
         /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
+        @NativeType("VkExternalFenceHandleTypeFlagsKHR")
         public int exportFromImportedHandleTypes() { return VkExternalFencePropertiesKHR.nexportFromImportedHandleTypes(address()); }
         /** Returns the value of the {@code compatibleHandleTypes} field. */
+        @NativeType("VkExternalFenceHandleTypeFlagsKHR")
         public int compatibleHandleTypes() { return VkExternalFencePropertiesKHR.ncompatibleHandleTypes(address()); }
         /** Returns the value of the {@code externalFenceFeatures} field. */
+        @NativeType("VkExternalFenceFeatureFlagsKHR")
         public int externalFenceFeatures() { return VkExternalFencePropertiesKHR.nexternalFenceFeatures(address()); }
 
     }

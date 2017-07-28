@@ -69,24 +69,26 @@ public class EXTSeparateShaderObjects {
 
     // --- [ glUseShaderProgramEXT ] ---
 
-    public static native void glUseShaderProgramEXT(int type, int program);
+    public static native void glUseShaderProgramEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int program);
 
     // --- [ glActiveProgramEXT ] ---
 
-    public static native void glActiveProgramEXT(int program);
+    public static native void glActiveProgramEXT(@NativeType("GLuint") int program);
 
     // --- [ glCreateShaderProgramEXT ] ---
 
     public static native int nglCreateShaderProgramEXT(int type, long string);
 
-    public static int glCreateShaderProgramEXT(int type, ByteBuffer string) {
+    @NativeType("GLuint")
+    public static int glCreateShaderProgramEXT(@NativeType("GLenum") int type, @NativeType("const GLchar *") ByteBuffer string) {
         if (CHECKS) {
             checkNT1(string);
         }
         return nglCreateShaderProgramEXT(type, memAddress(string));
     }
 
-    public static int glCreateShaderProgramEXT(int type, CharSequence string) {
+    @NativeType("GLuint")
+    public static int glCreateShaderProgramEXT(@NativeType("GLenum") int type, @NativeType("const GLchar *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.UTF8(string);

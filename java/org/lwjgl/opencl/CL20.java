@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -166,7 +168,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateCommandQueueWithProperties(long context, long device, LongBuffer properties, IntBuffer errcode_ret) {
+    @NativeType("cl_command_queue")
+    public static long clCreateCommandQueueWithProperties(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("const cl_command_queue_properties *") LongBuffer properties, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
@@ -214,7 +217,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, IntBuffer properties, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreatePipe(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_uint") int pipe_packet_size, @NativeType("cl_uint") int pipe_max_packets, @NativeType("const cl_pipe_properties *") IntBuffer properties, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
@@ -258,7 +262,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetPipeInfo(long pipe, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetPipeInfo(@NativeType("cl_mem") long pipe, @NativeType("cl_pipe_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -285,7 +290,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetPipeInfo(long pipe, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetPipeInfo(@NativeType("cl_mem") long pipe, @NativeType("cl_pipe_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -353,7 +359,8 @@ public class CL20 {
      *         <li>There was a failure to allocate resources.</li>
      *         </ul>
      */
-    public static ByteBuffer clSVMAlloc(long context, long flags, long size, int alignment) {
+    @NativeType("void *")
+    public static ByteBuffer clSVMAlloc(@NativeType("cl_context") long context, @NativeType("cl_svm_mem_flags") long flags, @NativeType("size_t") long size, @NativeType("unsigned int") int alignment) {
         long __result = nclSVMAlloc(context, flags, size, alignment);
         return memByteBuffer(__result, (int)size);
     }
@@ -387,7 +394,7 @@ public class CL20 {
      * @param context     a valid OpenCL context used to create the SVM buffer
      * @param svm_pointer must be the value returned by a call to {@link #clSVMAlloc SVMAlloc}. If a {@code NULL} pointer is passed in {@code svm_pointer}, no action occurs.
      */
-    public static void clSVMFree(long context, ByteBuffer svm_pointer) {
+    public static void clSVMFree(@NativeType("cl_context") long context, @NativeType("void *") ByteBuffer svm_pointer) {
         nclSVMFree(context, memAddress(svm_pointer));
     }
 
@@ -442,7 +449,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueSVMFree(long command_queue, PointerBuffer svm_pointers, CLSVMFreeCallbackI pfn_free_func, long user_data, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueSVMFree(@NativeType("cl_command_queue") long command_queue, @NativeType("void **") PointerBuffer svm_pointers, @NativeType("cl_svmfree_callback") CLSVMFreeCallbackI pfn_free_func, @NativeType("void *") long user_data, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -510,7 +518,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueSVMMemcpy(long command_queue, boolean blocking_copy, ByteBuffer dst_ptr, ByteBuffer src_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueSVMMemcpy(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_bool") boolean blocking_copy, @NativeType("void *") ByteBuffer dst_ptr, @NativeType("const void *") ByteBuffer src_ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(dst_ptr, src_ptr.remaining());
             checkSafe(event, 1);
@@ -574,7 +583,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueSVMMemFill(long command_queue, ByteBuffer svm_ptr, ByteBuffer pattern, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueSVMMemFill(@NativeType("cl_command_queue") long command_queue, @NativeType("void *") ByteBuffer svm_ptr, @NativeType("const void *") ByteBuffer pattern, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -639,7 +649,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueSVMMap(long command_queue, boolean blocking_map, long map_flags, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueSVMMap(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("void *") ByteBuffer svm_ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -691,7 +702,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueSVMUnmap(long command_queue, ByteBuffer svm_ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueSVMUnmap(@NativeType("cl_command_queue") long command_queue, @NativeType("void *") ByteBuffer svm_ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -735,7 +747,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetKernelArgSVMPointer(long kernel, int arg_index, ByteBuffer arg_value) {
+    @NativeType("cl_int")
+    public static int clSetKernelArgSVMPointer(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") ByteBuffer arg_value) {
         return nclSetKernelArgSVMPointer(kernel, arg_index, memAddress(arg_value));
     }
 
@@ -803,7 +816,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetKernelExecInfo(long kernel, int param_name, ByteBuffer param_value) {
+    @NativeType("cl_int")
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") ByteBuffer param_value) {
         return nclSetKernelExecInfo(kernel, param_name, param_value.remaining(), memAddress(param_value));
     }
 
@@ -855,7 +869,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetKernelExecInfo(long kernel, int param_name, PointerBuffer param_value) {
+    @NativeType("cl_int")
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") PointerBuffer param_value) {
         return nclSetKernelExecInfo(kernel, param_name, param_value.remaining() << POINTER_SHIFT, memAddress(param_value));
     }
 
@@ -907,7 +922,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetKernelExecInfo(long kernel, int param_name, IntBuffer param_value) {
+    @NativeType("cl_int")
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") IntBuffer param_value) {
         return nclSetKernelExecInfo(kernel, param_name, param_value.remaining() << 2, memAddress(param_value));
     }
 
@@ -946,7 +962,8 @@ public class CL20 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateSamplerWithProperties(long context, IntBuffer sampler_properties, IntBuffer errcode_ret) {
+    @NativeType("cl_sampler")
+    public static long clCreateSamplerWithProperties(@NativeType("cl_context") long context, @NativeType("const cl_sampler_properties *") IntBuffer sampler_properties, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNTSafe(sampler_properties);
             checkSafe(errcode_ret, 1);
@@ -959,7 +976,8 @@ public class CL20 {
      * 
      * Array version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties}
      */
-    public static long clCreateCommandQueueWithProperties(long context, long device, long[] properties, int[] errcode_ret) {
+    @NativeType("cl_command_queue")
+    public static long clCreateCommandQueueWithProperties(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("const cl_command_queue_properties *") long[] properties, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateCommandQueueWithProperties;
         if (CHECKS) {
             check(__functionAddress);
@@ -976,7 +994,8 @@ public class CL20 {
      * 
      * Array version of: {@link #clCreatePipe CreatePipe}
      */
-    public static long clCreatePipe(long context, long flags, int pipe_packet_size, int pipe_max_packets, int[] properties, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreatePipe(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_uint") int pipe_packet_size, @NativeType("cl_uint") int pipe_max_packets, @NativeType("const cl_pipe_properties *") int[] properties, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreatePipe;
         if (CHECKS) {
             check(__functionAddress);
@@ -992,7 +1011,8 @@ public class CL20 {
      * 
      * Array version of: {@link #clGetPipeInfo GetPipeInfo}
      */
-    public static int clGetPipeInfo(long pipe, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetPipeInfo(@NativeType("cl_mem") long pipe, @NativeType("cl_pipe_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetPipeInfo;
         if (CHECKS) {
             check(__functionAddress);
@@ -1007,7 +1027,8 @@ public class CL20 {
      * 
      * Array version of: {@link #clSetKernelExecInfo SetKernelExecInfo}
      */
-    public static int clSetKernelExecInfo(long kernel, int param_name, int[] param_value) {
+    @NativeType("cl_int")
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") int[] param_value) {
         long __functionAddress = CL.getICD().clSetKernelExecInfo;
         if (CHECKS) {
             check(__functionAddress);
@@ -1021,7 +1042,8 @@ public class CL20 {
      * 
      * Array version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties}
      */
-    public static long clCreateSamplerWithProperties(long context, int[] sampler_properties, int[] errcode_ret) {
+    @NativeType("cl_sampler")
+    public static long clCreateSamplerWithProperties(@NativeType("cl_context") long context, @NativeType("const cl_sampler_properties *") int[] sampler_properties, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateSamplerWithProperties;
         if (CHECKS) {
             check(__functionAddress);

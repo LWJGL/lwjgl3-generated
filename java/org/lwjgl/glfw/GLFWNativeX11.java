@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -45,6 +47,7 @@ public class GLFWNativeX11 {
      *
      * @since version 3.0
      */
+    @NativeType("Display *")
     public static long glfwGetX11Display() {
         long __functionAddress = Functions.GetX11Display;
         return invokeP(__functionAddress);
@@ -67,7 +70,8 @@ public class GLFWNativeX11 {
      *
      * @since version 3.1
      */
-    public static long glfwGetX11Adapter(long monitor) {
+    @NativeType("RRCrtc")
+    public static long glfwGetX11Adapter(@NativeType("GLFWmonitor *") long monitor) {
         long __functionAddress = Functions.GetX11Adapter;
         if (CHECKS) {
             check(monitor);
@@ -92,7 +96,8 @@ public class GLFWNativeX11 {
      *
      * @since version 3.1
      */
-    public static long glfwGetX11Monitor(long monitor) {
+    @NativeType("RROutput")
+    public static long glfwGetX11Monitor(@NativeType("GLFWmonitor *") long monitor) {
         long __functionAddress = Functions.GetX11Monitor;
         if (CHECKS) {
             check(monitor);
@@ -117,7 +122,8 @@ public class GLFWNativeX11 {
      *
      * @since version 3.0
      */
-    public static long glfwGetX11Window(long window) {
+    @NativeType("Window")
+    public static long glfwGetX11Window(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetX11Window;
         if (CHECKS) {
             check(window);

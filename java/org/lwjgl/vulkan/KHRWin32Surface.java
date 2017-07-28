@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -138,7 +140,8 @@ public class KHRWin32Surface {
      * @param pAllocator  the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
      * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
      */
-    public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
+    @NativeType("VkResult")
+    public static int vkCreateWin32SurfaceKHR(VkInstance instance, @NativeType("const VkWin32SurfaceCreateInfoKHR *") VkWin32SurfaceCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
         if (CHECKS) {
             check(pSurface, 1);
         }
@@ -178,7 +181,8 @@ public class KHRWin32Surface {
      * @param physicalDevice   the physical device.
      * @param queueFamilyIndex the queue family index.
      */
-    public static boolean vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex) {
+    @NativeType("VkBool32")
+    public static boolean vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t") int queueFamilyIndex) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceWin32PresentationSupportKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -187,7 +191,8 @@ public class KHRWin32Surface {
     }
 
     /** Array version of: {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
-    public static int vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
+    @NativeType("VkResult")
+    public static int vkCreateWin32SurfaceKHR(VkInstance instance, @NativeType("const VkWin32SurfaceCreateInfoKHR *") VkWin32SurfaceCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
         long __functionAddress = instance.getCapabilities().vkCreateWin32SurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);

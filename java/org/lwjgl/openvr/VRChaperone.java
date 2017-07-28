@@ -7,6 +7,8 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -29,6 +31,7 @@ public class VRChaperone {
     // --- [ VRChaperone_GetCalibrationState ] ---
 
     /** Get the current state of Chaperone calibration. This state can change at any time during a session due to physical base station changes. */
+    @NativeType("ChaperoneCalibrationState")
     public static int VRChaperone_GetCalibrationState() {
         long __functionAddress = OpenVR.VRChaperone.GetCalibrationState;
         if (CHECKS) {
@@ -54,7 +57,8 @@ public class VRChaperone {
      * @param pSizeX 
      * @param pSizeZ 
      */
-    public static boolean VRChaperone_GetPlayAreaSize(FloatBuffer pSizeX, FloatBuffer pSizeZ) {
+    @NativeType("bool")
+    public static boolean VRChaperone_GetPlayAreaSize(@NativeType("float *") FloatBuffer pSizeX, @NativeType("float *") FloatBuffer pSizeZ) {
         if (CHECKS) {
             check(pSizeX, 1);
             check(pSizeZ, 1);
@@ -81,7 +85,8 @@ public class VRChaperone {
      *
      * @param rect 
      */
-    public static boolean VRChaperone_GetPlayAreaRect(HmdQuad rect) {
+    @NativeType("bool")
+    public static boolean VRChaperone_GetPlayAreaRect(@NativeType("HmdQuad_t *") HmdQuad rect) {
         return nVRChaperone_GetPlayAreaRect(rect.address());
     }
 
@@ -112,7 +117,7 @@ public class VRChaperone {
      *
      * @param color 
      */
-    public static void VRChaperone_SetSceneColor(HmdColor color) {
+    public static void VRChaperone_SetSceneColor(@NativeType("HmdColor_t") HmdColor color) {
         nVRChaperone_SetSceneColor(color.address());
     }
 
@@ -134,13 +139,14 @@ public class VRChaperone {
      * @param flCollisionBoundsFadeDistance 
      * @param pOutputCameraColor            
      */
-    public static void VRChaperone_GetBoundsColor(HmdColor.Buffer pOutputColorArray, float flCollisionBoundsFadeDistance, HmdColor pOutputCameraColor) {
+    public static void VRChaperone_GetBoundsColor(@NativeType("HmdColor_t *") HmdColor.Buffer pOutputColorArray, @NativeType("float") float flCollisionBoundsFadeDistance, @NativeType("HmdColor_t *") HmdColor pOutputCameraColor) {
         nVRChaperone_GetBoundsColor(pOutputColorArray.address(), pOutputColorArray.remaining(), flCollisionBoundsFadeDistance, pOutputCameraColor.address());
     }
 
     // --- [ VRChaperone_AreBoundsVisible ] ---
 
     /** Determine whether the bounds are showing right now. */
+    @NativeType("bool")
     public static boolean VRChaperone_AreBoundsVisible() {
         long __functionAddress = OpenVR.VRChaperone.AreBoundsVisible;
         if (CHECKS) {
@@ -156,7 +162,7 @@ public class VRChaperone {
      *
      * @param bForce 
      */
-    public static void VRChaperone_ForceBoundsVisible(boolean bForce) {
+    public static void VRChaperone_ForceBoundsVisible(@NativeType("bool") boolean bForce) {
         long __functionAddress = OpenVR.VRChaperone.ForceBoundsVisible;
         if (CHECKS) {
             check(__functionAddress);

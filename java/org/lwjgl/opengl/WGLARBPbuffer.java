@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -91,7 +93,8 @@ public class WGLARBPbuffer {
      * @param height      the pixel height of the rectangular pbuffer
      * @param attribList  a 0-terminated list of attributes {type, value} pairs containing integer attribute values
      */
-    public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, IntBuffer attribList) {
+    @NativeType("HPBUFFERARB")
+    public static long wglCreatePbufferARB(@NativeType("HDC") long hdc, int pixelFormat, int width, int height, @NativeType("const int *") IntBuffer attribList) {
         if (CHECKS) {
             checkNTSafe(attribList);
         }
@@ -105,7 +108,8 @@ public class WGLARBPbuffer {
      *
      * @param pbuffer a pbuffer handle returned from a previous call to {@link #wglCreatePbufferARB CreatePbufferARB}
      */
-    public static long wglGetPbufferDCARB(long pbuffer) {
+    @NativeType("HDC")
+    public static long wglGetPbufferDCARB(@NativeType("HPBUFFERARB") long pbuffer) {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetPbufferDCARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -122,7 +126,7 @@ public class WGLARBPbuffer {
      * @param pbuffer a pbuffer handle
      * @param hdc     a device context handle
      */
-    public static int wglReleasePbufferDCARB(long pbuffer, long hdc) {
+    public static int wglReleasePbufferDCARB(@NativeType("HPBUFFERARB") long pbuffer, @NativeType("HDC") long hdc) {
         long __functionAddress = GL.getCapabilitiesWGL().wglReleasePbufferDCARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -142,7 +146,8 @@ public class WGLARBPbuffer {
      *
      * @param pbuffer a pbuffer handle
      */
-    public static boolean wglDestroyPbufferARB(long pbuffer) {
+    @NativeType("BOOL")
+    public static boolean wglDestroyPbufferARB(@NativeType("HPBUFFERARB") long pbuffer) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDestroyPbufferARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -170,7 +175,8 @@ public class WGLARBPbuffer {
      * @param attribute the attribute to query. One of:<br><table><tr><td>{@link #WGL_PBUFFER_WIDTH_ARB PBUFFER_WIDTH_ARB}</td><td>{@link #WGL_PBUFFER_HEIGHT_ARB PBUFFER_HEIGHT_ARB}</td><td>{@link #WGL_PBUFFER_LOST_ARB PBUFFER_LOST_ARB}</td></tr></table>
      * @param value     the attribute value
      */
-    public static boolean wglQueryPbufferARB(long pbuffer, int attribute, IntBuffer value) {
+    @NativeType("BOOL")
+    public static boolean wglQueryPbufferARB(@NativeType("HPBUFFERARB") long pbuffer, int attribute, @NativeType("int *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -178,7 +184,8 @@ public class WGLARBPbuffer {
     }
 
     /** Array version of: {@link #wglCreatePbufferARB CreatePbufferARB} */
-    public static long wglCreatePbufferARB(long hdc, int pixelFormat, int width, int height, int[] attribList) {
+    @NativeType("HPBUFFERARB")
+    public static long wglCreatePbufferARB(@NativeType("HDC") long hdc, int pixelFormat, int width, int height, @NativeType("const int *") int[] attribList) {
         long __functionAddress = GL.getCapabilitiesWGL().wglCreatePbufferARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -189,7 +196,8 @@ public class WGLARBPbuffer {
     }
 
     /** Array version of: {@link #wglQueryPbufferARB QueryPbufferARB} */
-    public static boolean wglQueryPbufferARB(long pbuffer, int attribute, int[] value) {
+    @NativeType("BOOL")
+    public static boolean wglQueryPbufferARB(@NativeType("HPBUFFERARB") long pbuffer, int attribute, @NativeType("int *") int[] value) {
         long __functionAddress = GL.getCapabilitiesWGL().wglQueryPbufferARB;
         if (CHECKS) {
             check(__functionAddress);

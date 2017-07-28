@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -71,7 +73,7 @@ public class ARBMatrixPalette {
      *
      * @param index the current matrix index. Must be a value between 0 and {@link #GL_MAX_PALETTE_MATRICES_ARB MAX_PALETTE_MATRICES_ARB}.
      */
-    public static native void glCurrentPaletteMatrixARB(int index);
+    public static native void glCurrentPaletteMatrixARB(@NativeType("GLint") int index);
 
     // --- [ glMatrixIndexuivARB ] ---
 
@@ -87,7 +89,7 @@ public class ARBMatrixPalette {
      *
      * @param indices the matrix index values
      */
-    public static void glMatrixIndexuivARB(IntBuffer indices) {
+    public static void glMatrixIndexuivARB(@NativeType("GLuint *") IntBuffer indices) {
         nglMatrixIndexuivARB(indices.remaining(), memAddress(indices));
     }
 
@@ -105,7 +107,7 @@ public class ARBMatrixPalette {
      *
      * @param indices the matrix index values
      */
-    public static void glMatrixIndexubvARB(ByteBuffer indices) {
+    public static void glMatrixIndexubvARB(@NativeType("GLubyte *") ByteBuffer indices) {
         nglMatrixIndexubvARB(indices.remaining(), memAddress(indices));
     }
 
@@ -123,7 +125,7 @@ public class ARBMatrixPalette {
      *
      * @param indices the matrix index values
      */
-    public static void glMatrixIndexusvARB(ShortBuffer indices) {
+    public static void glMatrixIndexusvARB(@NativeType("GLushort *") ShortBuffer indices) {
         nglMatrixIndexusvARB(indices.remaining(), memAddress(indices));
     }
 
@@ -142,7 +144,7 @@ public class ARBMatrixPalette {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data
      */
-    public static void glMatrixIndexPointerARB(int size, int type, int stride, ByteBuffer pointer) {
+    public static void glMatrixIndexPointerARB(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void *") ByteBuffer pointer) {
         nglMatrixIndexPointerARB(size, type, stride, memAddress(pointer));
     }
 
@@ -152,7 +154,7 @@ public class ARBMatrixPalette {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data
      */
-    public static void glMatrixIndexPointerARB(int size, int type, int stride, long pointer) {
+    public static void glMatrixIndexPointerARB(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void *") long pointer) {
         nglMatrixIndexPointerARB(size, type, stride, pointer);
     }
 
@@ -161,7 +163,7 @@ public class ARBMatrixPalette {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data
      */
-    public static void glMatrixIndexPointerARB(int size, int stride, ByteBuffer pointer) {
+    public static void glMatrixIndexPointerARB(@NativeType("GLint") int size, @NativeType("GLsizei") int stride, @NativeType("void *") ByteBuffer pointer) {
         nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
     }
 
@@ -170,7 +172,7 @@ public class ARBMatrixPalette {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data
      */
-    public static void glMatrixIndexPointerARB(int size, int stride, ShortBuffer pointer) {
+    public static void glMatrixIndexPointerARB(@NativeType("GLint") int size, @NativeType("GLsizei") int stride, @NativeType("void *") ShortBuffer pointer) {
         nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_SHORT, stride, memAddress(pointer));
     }
 
@@ -179,12 +181,12 @@ public class ARBMatrixPalette {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the matrix index data
      */
-    public static void glMatrixIndexPointerARB(int size, int stride, IntBuffer pointer) {
+    public static void glMatrixIndexPointerARB(@NativeType("GLint") int size, @NativeType("GLsizei") int stride, @NativeType("void *") IntBuffer pointer) {
         nglMatrixIndexPointerARB(size, GL11.GL_UNSIGNED_INT, stride, memAddress(pointer));
     }
 
     /** Array version of: {@link #glMatrixIndexuivARB MatrixIndexuivARB} */
-    public static void glMatrixIndexuivARB(int[] indices) {
+    public static void glMatrixIndexuivARB(@NativeType("GLuint *") int[] indices) {
         long __functionAddress = GL.getICD().glMatrixIndexuivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -193,7 +195,7 @@ public class ARBMatrixPalette {
     }
 
     /** Array version of: {@link #glMatrixIndexusvARB MatrixIndexusvARB} */
-    public static void glMatrixIndexusvARB(short[] indices) {
+    public static void glMatrixIndexusvARB(@NativeType("GLushort *") short[] indices) {
         long __functionAddress = GL.getICD().glMatrixIndexusvARB;
         if (CHECKS) {
             check(__functionAddress);

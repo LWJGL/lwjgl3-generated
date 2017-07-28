@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkConfigStackFlagsElement struct nk_config_stack_flags_element} elements[32];
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_flags")
 class NkConfigStackFlags extends Struct {
 
     /** The struct size in bytes. */
@@ -66,8 +67,10 @@ class NkConfigStackFlags extends Struct {
     /** Returns the value of the {@code head} field. */
     public int head() { return nhead(address()); }
     /** Returns a {@link NkConfigStackFlagsElement}.Buffer view of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_flags_element[32]")
     public NkConfigStackFlagsElement.Buffer elements() { return nelements(address()); }
     /** Returns a {@link NkConfigStackFlagsElement} view of the struct at the specified index of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_flags_element")
     public NkConfigStackFlagsElement elements(int index) { return nelements(address(), index); }
 
     // -----------------------------------
@@ -144,8 +147,10 @@ class NkConfigStackFlags extends Struct {
         /** Returns the value of the {@code head} field. */
         public int head() { return NkConfigStackFlags.nhead(address()); }
         /** Returns a {@link NkConfigStackFlagsElement}.Buffer view of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_flags_element[32]")
         public NkConfigStackFlagsElement.Buffer elements() { return NkConfigStackFlags.nelements(address()); }
         /** Returns a {@link NkConfigStackFlagsElement} view of the struct at the specified index of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_flags_element")
         public NkConfigStackFlagsElement elements(int index) { return NkConfigStackFlags.nelements(address(), index); }
 
     }

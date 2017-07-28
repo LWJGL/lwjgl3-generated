@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     void * session;
  * }</pre></code>
  */
+@NativeType("struct bgfx_platform_data_t")
 public class BGFXPlatformData extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -94,30 +95,36 @@ public class BGFXPlatformData extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code ndt} field. */
+    @NativeType("void *")
     public long ndt() { return nndt(address()); }
     /** Returns the value of the {@code nwh} field. */
+    @NativeType("void *")
     public long nwh() { return nnwh(address()); }
     /** Returns the value of the {@code context} field. */
+    @NativeType("void *")
     public long context() { return ncontext(address()); }
     /** Returns the value of the {@code backBuffer} field. */
+    @NativeType("void *")
     public long backBuffer() { return nbackBuffer(address()); }
     /** Returns the value of the {@code backBufferDS} field. */
+    @NativeType("void *")
     public long backBufferDS() { return nbackBufferDS(address()); }
     /** Returns the value of the {@code session} field. */
+    @NativeType("void *")
     public long session() { return nsession(address()); }
 
     /** Sets the specified value to the {@code ndt} field. */
-    public BGFXPlatformData ndt(long value) { nndt(address(), value); return this; }
+    public BGFXPlatformData ndt(@NativeType("void *") long value) { nndt(address(), value); return this; }
     /** Sets the specified value to the {@code nwh} field. */
-    public BGFXPlatformData nwh(long value) { nnwh(address(), value); return this; }
+    public BGFXPlatformData nwh(@NativeType("void *") long value) { nnwh(address(), value); return this; }
     /** Sets the specified value to the {@code context} field. */
-    public BGFXPlatformData context(long value) { ncontext(address(), value); return this; }
+    public BGFXPlatformData context(@NativeType("void *") long value) { ncontext(address(), value); return this; }
     /** Sets the specified value to the {@code backBuffer} field. */
-    public BGFXPlatformData backBuffer(long value) { nbackBuffer(address(), value); return this; }
+    public BGFXPlatformData backBuffer(@NativeType("void *") long value) { nbackBuffer(address(), value); return this; }
     /** Sets the specified value to the {@code backBufferDS} field. */
-    public BGFXPlatformData backBufferDS(long value) { nbackBufferDS(address(), value); return this; }
+    public BGFXPlatformData backBufferDS(@NativeType("void *") long value) { nbackBufferDS(address(), value); return this; }
     /** Sets the specified value to the {@code session} field. */
-    public BGFXPlatformData session(long value) { nsession(address(), value); return this; }
+    public BGFXPlatformData session(@NativeType("void *") long value) { nsession(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public BGFXPlatformData set(
@@ -348,30 +355,36 @@ public class BGFXPlatformData extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code ndt} field. */
+        @NativeType("void *")
         public long ndt() { return BGFXPlatformData.nndt(address()); }
         /** Returns the value of the {@code nwh} field. */
+        @NativeType("void *")
         public long nwh() { return BGFXPlatformData.nnwh(address()); }
         /** Returns the value of the {@code context} field. */
+        @NativeType("void *")
         public long context() { return BGFXPlatformData.ncontext(address()); }
         /** Returns the value of the {@code backBuffer} field. */
+        @NativeType("void *")
         public long backBuffer() { return BGFXPlatformData.nbackBuffer(address()); }
         /** Returns the value of the {@code backBufferDS} field. */
+        @NativeType("void *")
         public long backBufferDS() { return BGFXPlatformData.nbackBufferDS(address()); }
         /** Returns the value of the {@code session} field. */
+        @NativeType("void *")
         public long session() { return BGFXPlatformData.nsession(address()); }
 
         /** Sets the specified value to the {@code ndt} field. */
-        public BGFXPlatformData.Buffer ndt(long value) { BGFXPlatformData.nndt(address(), value); return this; }
+        public BGFXPlatformData.Buffer ndt(@NativeType("void *") long value) { BGFXPlatformData.nndt(address(), value); return this; }
         /** Sets the specified value to the {@code nwh} field. */
-        public BGFXPlatformData.Buffer nwh(long value) { BGFXPlatformData.nnwh(address(), value); return this; }
+        public BGFXPlatformData.Buffer nwh(@NativeType("void *") long value) { BGFXPlatformData.nnwh(address(), value); return this; }
         /** Sets the specified value to the {@code context} field. */
-        public BGFXPlatformData.Buffer context(long value) { BGFXPlatformData.ncontext(address(), value); return this; }
+        public BGFXPlatformData.Buffer context(@NativeType("void *") long value) { BGFXPlatformData.ncontext(address(), value); return this; }
         /** Sets the specified value to the {@code backBuffer} field. */
-        public BGFXPlatformData.Buffer backBuffer(long value) { BGFXPlatformData.nbackBuffer(address(), value); return this; }
+        public BGFXPlatformData.Buffer backBuffer(@NativeType("void *") long value) { BGFXPlatformData.nbackBuffer(address(), value); return this; }
         /** Sets the specified value to the {@code backBufferDS} field. */
-        public BGFXPlatformData.Buffer backBufferDS(long value) { BGFXPlatformData.nbackBufferDS(address(), value); return this; }
+        public BGFXPlatformData.Buffer backBufferDS(@NativeType("void *") long value) { BGFXPlatformData.nbackBufferDS(address(), value); return this; }
         /** Sets the specified value to the {@code session} field. */
-        public BGFXPlatformData.Buffer session(long value) { BGFXPlatformData.nsession(address(), value); return this; }
+        public BGFXPlatformData.Buffer session(@NativeType("void *") long value) { BGFXPlatformData.nsession(address(), value); return this; }
 
     }
 

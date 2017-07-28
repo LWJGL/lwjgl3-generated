@@ -166,7 +166,7 @@ public class GDI32 {
      * @param hdc                   the device context that the function examines to determine the best match for the pixel format descriptor pointed to by {@code pixelFormatDescriptor}
      * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that specifies the requested pixel format
      */
-    public static int ChoosePixelFormat(long hdc, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+    public static int ChoosePixelFormat(@NativeType("HDC") long hdc, @NativeType("const PIXELFORMATDESCRIPTOR *") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
         return nChoosePixelFormat(hdc, pixelFormatDescriptor.address());
     }
 
@@ -197,7 +197,7 @@ public class GDI32 {
      *                              the structure in the structure's {@code size} member. If, upon entry, {@code pixelFormatDescriptor} is {@code NULL}, the function writes no data to the
      *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
      */
-    public static int DescribePixelFormat(long hdc, int pixelFormat, int bytes, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+    public static int DescribePixelFormat(@NativeType("HDC") long hdc, int pixelFormat, @NativeType("UINT") int bytes, @NativeType("LPPIXELFORMATDESCRIPTOR") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
         return nDescribePixelFormat(hdc, pixelFormat, bytes, memAddressSafe(pixelFormatDescriptor));
     }
 
@@ -212,7 +212,7 @@ public class GDI32 {
      *                              the structure in the structure's {@code size} member. If, upon entry, {@code pixelFormatDescriptor} is {@code NULL}, the function writes no data to the
      *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
      */
-    public static int DescribePixelFormat(long hdc, int pixelFormat, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+    public static int DescribePixelFormat(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @NativeType("LPPIXELFORMATDESCRIPTOR") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
         return nDescribePixelFormat(hdc, pixelFormat, PIXELFORMATDESCRIPTOR.SIZEOF, memAddressSafe(pixelFormatDescriptor));
     }
 
@@ -226,7 +226,7 @@ public class GDI32 {
      *
      * @param hdc the device context of the currently selected pixel format index returned by the function
      */
-    public static int GetPixelFormat(long hdc) {
+    public static int GetPixelFormat(@NativeType("HDC") long hdc) {
         long __functionAddress = Functions.GetPixelFormat;
         if (CHECKS) {
             check(hdc);
@@ -256,7 +256,8 @@ public class GDI32 {
      * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that contains the logical pixel format specification. The system's metafile component uses this structure
      *                              to record the logical pixel format specification. The structure has no other effect upon the behavior of the SetPixelFormat function.
      */
-    public static boolean SetPixelFormat(long hdc, int pixelFormat, PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+    @NativeType("BOOL")
+    public static boolean SetPixelFormat(@NativeType("HDC") long hdc, int pixelFormat, @NativeType("const PIXELFORMATDESCRIPTOR *") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
         return nSetPixelFormat(hdc, pixelFormat, memAddressSafe(pixelFormatDescriptor)) != 0;
     }
 
@@ -271,7 +272,8 @@ public class GDI32 {
      * @param dc a device context. If the current pixel format for the window referenced by this device context includes a back buffer, the function exchanges the
      *           front and back buffers.
      */
-    public static boolean SwapBuffers(long dc) {
+    @NativeType("BOOL")
+    public static boolean SwapBuffers(@NativeType("HDC") long dc) {
         long __functionAddress = Functions.SwapBuffers;
         if (CHECKS) {
             check(dc);

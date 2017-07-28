@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -47,7 +49,8 @@ public class ANDROIDPresentationTime {
      * @param surface the {@code EGLSurface}
      * @param time    the presentation time
      */
-    public static boolean eglPresentationTimeANDROID(long dpy, long surface, long time) {
+    @NativeType("EGLBoolean")
+    public static boolean eglPresentationTimeANDROID(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLnsecsANDROID") long time) {
         long __functionAddress = EGL.getCapabilities().eglPresentationTimeANDROID;
         if (CHECKS) {
             check(__functionAddress);

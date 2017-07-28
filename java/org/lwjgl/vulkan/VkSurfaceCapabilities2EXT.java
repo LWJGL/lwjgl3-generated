@@ -136,12 +136,16 @@ public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code minImageCount} field. */
+    @NativeType("uint32_t")
     public int minImageCount() { return nminImageCount(address()); }
     /** Returns the value of the {@code maxImageCount} field. */
+    @NativeType("uint32_t")
     public int maxImageCount() { return nmaxImageCount(address()); }
     /** Returns a {@link VkExtent2D} view of the {@code currentExtent} field. */
     public VkExtent2D currentExtent() { return ncurrentExtent(address()); }
@@ -150,16 +154,22 @@ public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource 
     /** Returns a {@link VkExtent2D} view of the {@code maxImageExtent} field. */
     public VkExtent2D maxImageExtent() { return nmaxImageExtent(address()); }
     /** Returns the value of the {@code maxImageArrayLayers} field. */
+    @NativeType("uint32_t")
     public int maxImageArrayLayers() { return nmaxImageArrayLayers(address()); }
     /** Returns the value of the {@code supportedTransforms} field. */
+    @NativeType("VkSurfaceTransformFlagsKHR")
     public int supportedTransforms() { return nsupportedTransforms(address()); }
     /** Returns the value of the {@code currentTransform} field. */
+    @NativeType("VkSurfaceTransformFlagBitsKHR")
     public int currentTransform() { return ncurrentTransform(address()); }
     /** Returns the value of the {@code supportedCompositeAlpha} field. */
+    @NativeType("VkCompositeAlphaFlagsKHR")
     public int supportedCompositeAlpha() { return nsupportedCompositeAlpha(address()); }
     /** Returns the value of the {@code supportedUsageFlags} field. */
+    @NativeType("VkImageUsageFlags")
     public int supportedUsageFlags() { return nsupportedUsageFlags(address()); }
     /** Returns the value of the {@code supportedSurfaceCounters} field. */
+    @NativeType("VkSurfaceCounterFlagsEXT")
     public int supportedSurfaceCounters() { return nsupportedSurfaceCounters(address()); }
 
     // -----------------------------------
@@ -361,12 +371,16 @@ public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSurfaceCapabilities2EXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkSurfaceCapabilities2EXT.npNext(address()); }
         /** Returns the value of the {@code minImageCount} field. */
+        @NativeType("uint32_t")
         public int minImageCount() { return VkSurfaceCapabilities2EXT.nminImageCount(address()); }
         /** Returns the value of the {@code maxImageCount} field. */
+        @NativeType("uint32_t")
         public int maxImageCount() { return VkSurfaceCapabilities2EXT.nmaxImageCount(address()); }
         /** Returns a {@link VkExtent2D} view of the {@code currentExtent} field. */
         public VkExtent2D currentExtent() { return VkSurfaceCapabilities2EXT.ncurrentExtent(address()); }
@@ -375,16 +389,22 @@ public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource 
         /** Returns a {@link VkExtent2D} view of the {@code maxImageExtent} field. */
         public VkExtent2D maxImageExtent() { return VkSurfaceCapabilities2EXT.nmaxImageExtent(address()); }
         /** Returns the value of the {@code maxImageArrayLayers} field. */
+        @NativeType("uint32_t")
         public int maxImageArrayLayers() { return VkSurfaceCapabilities2EXT.nmaxImageArrayLayers(address()); }
         /** Returns the value of the {@code supportedTransforms} field. */
+        @NativeType("VkSurfaceTransformFlagsKHR")
         public int supportedTransforms() { return VkSurfaceCapabilities2EXT.nsupportedTransforms(address()); }
         /** Returns the value of the {@code currentTransform} field. */
+        @NativeType("VkSurfaceTransformFlagBitsKHR")
         public int currentTransform() { return VkSurfaceCapabilities2EXT.ncurrentTransform(address()); }
         /** Returns the value of the {@code supportedCompositeAlpha} field. */
+        @NativeType("VkCompositeAlphaFlagsKHR")
         public int supportedCompositeAlpha() { return VkSurfaceCapabilities2EXT.nsupportedCompositeAlpha(address()); }
         /** Returns the value of the {@code supportedUsageFlags} field. */
+        @NativeType("VkImageUsageFlags")
         public int supportedUsageFlags() { return VkSurfaceCapabilities2EXT.nsupportedUsageFlags(address()); }
         /** Returns the value of the {@code supportedSurfaceCounters} field. */
+        @NativeType("VkSurfaceCounterFlagsEXT")
         public int supportedSurfaceCounters() { return VkSurfaceCapabilities2EXT.nsupportedSurfaceCounters(address()); }
 
     }

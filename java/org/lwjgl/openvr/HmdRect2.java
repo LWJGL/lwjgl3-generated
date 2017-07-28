@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link HmdVector2 HmdVector2_t} vBottomRight;
  * }</pre></code>
  */
+@NativeType("struct HmdRect2_t")
 public class HmdRect2 extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class HmdRect2 extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdVector2} view of the {@code vTopLeft} field. */
+    @NativeType("HmdVector2_t")
     public HmdVector2 vTopLeft() { return nvTopLeft(address()); }
     /** Returns a {@link HmdVector2} view of the {@code vBottomRight} field. */
+    @NativeType("HmdVector2_t")
     public HmdVector2 vBottomRight() { return nvBottomRight(address()); }
 
     /** Copies the specified {@link HmdVector2} to the {@code vTopLeft} field. */
-    public HmdRect2 vTopLeft(HmdVector2 value) { nvTopLeft(address(), value); return this; }
+    public HmdRect2 vTopLeft(@NativeType("HmdVector2_t") HmdVector2 value) { nvTopLeft(address(), value); return this; }
     /** Copies the specified {@link HmdVector2} to the {@code vBottomRight} field. */
-    public HmdRect2 vBottomRight(HmdVector2 value) { nvBottomRight(address(), value); return this; }
+    public HmdRect2 vBottomRight(@NativeType("HmdVector2_t") HmdVector2 value) { nvBottomRight(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public HmdRect2 set(
@@ -279,14 +282,16 @@ public class HmdRect2 extends Struct implements NativeResource {
         }
 
         /** Returns a {@link HmdVector2} view of the {@code vTopLeft} field. */
+        @NativeType("HmdVector2_t")
         public HmdVector2 vTopLeft() { return HmdRect2.nvTopLeft(address()); }
         /** Returns a {@link HmdVector2} view of the {@code vBottomRight} field. */
+        @NativeType("HmdVector2_t")
         public HmdVector2 vBottomRight() { return HmdRect2.nvBottomRight(address()); }
 
         /** Copies the specified {@link HmdVector2} to the {@code vTopLeft} field. */
-        public HmdRect2.Buffer vTopLeft(HmdVector2 value) { HmdRect2.nvTopLeft(address(), value); return this; }
+        public HmdRect2.Buffer vTopLeft(@NativeType("HmdVector2_t") HmdVector2 value) { HmdRect2.nvTopLeft(address(), value); return this; }
         /** Copies the specified {@link HmdVector2} to the {@code vBottomRight} field. */
-        public HmdRect2.Buffer vBottomRight(HmdVector2 value) { HmdRect2.nvBottomRight(address(), value); return this; }
+        public HmdRect2.Buffer vBottomRight(@NativeType("HmdVector2_t") HmdVector2 value) { HmdRect2.nvBottomRight(address(), value); return this; }
 
     }
 

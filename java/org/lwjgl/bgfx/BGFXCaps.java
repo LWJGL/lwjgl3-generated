@@ -48,6 +48,7 @@ import static org.lwjgl.bgfx.BGFX.BGFX_TEXTURE_FORMAT_COUNT;
  *     uint16_t formats[BGFX_TEXTURE_FORMAT_COUNT];
  * }</pre></code>
  */
+@NativeType("struct bgfx_caps_t")
 public class BGFXCaps extends Struct {
 
     /** The struct size in bytes. */
@@ -115,28 +116,40 @@ public class BGFXCaps extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code rendererType} field. */
+    @NativeType("bgfx_renderer_type_t")
     public int rendererType() { return nrendererType(address()); }
     /** Returns the value of the {@code supported} field. */
+    @NativeType("uint64_t")
     public long supported() { return nsupported(address()); }
     /** Returns the value of the {@code vendorId} field. */
+    @NativeType("uint16_t")
     public short vendorId() { return nvendorId(address()); }
     /** Returns the value of the {@code deviceId} field. */
+    @NativeType("uint16_t")
     public short deviceId() { return ndeviceId(address()); }
     /** Returns the value of the {@code homogeneousDepth} field. */
+    @NativeType("bool")
     public boolean homogeneousDepth() { return nhomogeneousDepth(address()); }
     /** Returns the value of the {@code originBottomLeft} field. */
+    @NativeType("bool")
     public boolean originBottomLeft() { return noriginBottomLeft(address()); }
     /** Returns the value of the {@code numGPUs} field. */
+    @NativeType("uint8_t")
     public byte numGPUs() { return nnumGPUs(address()); }
     /** Returns a {@link BGFXCapsGPU}.Buffer view of the {@code gpu} field. */
+    @NativeType("bgfx_caps_gpu_t[4]")
     public BGFXCapsGPU.Buffer gpu() { return ngpu(address()); }
     /** Returns a {@link BGFXCapsGPU} view of the struct at the specified index of the {@code gpu} field. */
+    @NativeType("bgfx_caps_gpu_t")
     public BGFXCapsGPU gpu(int index) { return ngpu(address(), index); }
     /** Returns a {@link BGFXCapsLimits} view of the {@code limits} field. */
+    @NativeType("bgfx_caps_limits_t")
     public BGFXCapsLimits limits() { return nlimits(address()); }
     /** Returns a {@link ShortBuffer} view of the {@code formats} field. */
+    @NativeType("uint16_t[BGFX_TEXTURE_FORMAT_COUNT]")
     public ShortBuffer formats() { return nformats(address()); }
     /** Returns the value at the specified index of the {@code formats} field. */
+    @NativeType("uint16_t")
     public short formats(int index) { return nformats(address(), index); }
 
     // -----------------------------------
@@ -232,28 +245,40 @@ public class BGFXCaps extends Struct {
         }
 
         /** Returns the value of the {@code rendererType} field. */
+        @NativeType("bgfx_renderer_type_t")
         public int rendererType() { return BGFXCaps.nrendererType(address()); }
         /** Returns the value of the {@code supported} field. */
+        @NativeType("uint64_t")
         public long supported() { return BGFXCaps.nsupported(address()); }
         /** Returns the value of the {@code vendorId} field. */
+        @NativeType("uint16_t")
         public short vendorId() { return BGFXCaps.nvendorId(address()); }
         /** Returns the value of the {@code deviceId} field. */
+        @NativeType("uint16_t")
         public short deviceId() { return BGFXCaps.ndeviceId(address()); }
         /** Returns the value of the {@code homogeneousDepth} field. */
+        @NativeType("bool")
         public boolean homogeneousDepth() { return BGFXCaps.nhomogeneousDepth(address()); }
         /** Returns the value of the {@code originBottomLeft} field. */
+        @NativeType("bool")
         public boolean originBottomLeft() { return BGFXCaps.noriginBottomLeft(address()); }
         /** Returns the value of the {@code numGPUs} field. */
+        @NativeType("uint8_t")
         public byte numGPUs() { return BGFXCaps.nnumGPUs(address()); }
         /** Returns a {@link BGFXCapsGPU}.Buffer view of the {@code gpu} field. */
+        @NativeType("bgfx_caps_gpu_t[4]")
         public BGFXCapsGPU.Buffer gpu() { return BGFXCaps.ngpu(address()); }
         /** Returns a {@link BGFXCapsGPU} view of the struct at the specified index of the {@code gpu} field. */
+        @NativeType("bgfx_caps_gpu_t")
         public BGFXCapsGPU gpu(int index) { return BGFXCaps.ngpu(address(), index); }
         /** Returns a {@link BGFXCapsLimits} view of the {@code limits} field. */
+        @NativeType("bgfx_caps_limits_t")
         public BGFXCapsLimits limits() { return BGFXCaps.nlimits(address()); }
         /** Returns a {@link ShortBuffer} view of the {@code formats} field. */
+        @NativeType("uint16_t[BGFX_TEXTURE_FORMAT_COUNT]")
         public ShortBuffer formats() { return BGFXCaps.nformats(address()); }
         /** Returns the value at the specified index of the {@code formats} field. */
+        @NativeType("uint16_t")
         public short formats(int index) { return BGFXCaps.nformats(address(), index); }
 
     }

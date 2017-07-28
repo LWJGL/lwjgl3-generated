@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -93,7 +95,7 @@ public class ARBComputeShader {
      * @param num_groups_y the number of work groups to be launched in the Y dimension
      * @param num_groups_z the number of work groups to be launched in the Z dimension
      */
-    public static native void glDispatchCompute(int num_groups_x, int num_groups_y, int num_groups_z);
+    public static native void glDispatchCompute(@NativeType("GLuint") int num_groups_x, @NativeType("GLuint") int num_groups_y, @NativeType("GLuint") int num_groups_z);
 
     // --- [ glDispatchComputeIndirect ] ---
 
@@ -121,7 +123,7 @@ public class ARBComputeShader {
      * @param indirect the offset into the buffer object currently bound to the {@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER} buffer target at which the dispatch parameters are
      *                 stored.
      */
-    public static void glDispatchComputeIndirect(long indirect) {
+    public static void glDispatchComputeIndirect(@NativeType("GLintptr") long indirect) {
         nglDispatchComputeIndirect(indirect);
     }
 

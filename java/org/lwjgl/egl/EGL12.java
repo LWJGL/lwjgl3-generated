@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -58,7 +60,8 @@ public class EGL12 {
     // --- [ eglBindAPI ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglBindAPI.xhtml">Reference Page</a> */
-    public static boolean eglBindAPI(int api) {
+    @NativeType("EGLBoolean")
+    public static boolean eglBindAPI(@NativeType("EGLenum") int api) {
         long __functionAddress = EGL.getCapabilities().eglBindAPI;
         if (CHECKS) {
             check(__functionAddress);
@@ -69,6 +72,7 @@ public class EGL12 {
     // --- [ eglQueryAPI ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglQueryAPI.xhtml">Reference Page</a> */
+    @NativeType("EGLenum")
     public static int eglQueryAPI() {
         long __functionAddress = EGL.getCapabilities().eglQueryAPI;
         if (CHECKS) {
@@ -91,7 +95,8 @@ public class EGL12 {
     }
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePbufferFromClientBuffer.xhtml">Reference Page</a> */
-    public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, IntBuffer attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePbufferFromClientBuffer(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int buftype, @NativeType("EGLClientBuffer") long buffer, @NativeType("EGLConfig") long config, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -101,6 +106,7 @@ public class EGL12 {
     // --- [ eglReleaseThread ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglReleaseThread.xhtml">Reference Page</a> */
+    @NativeType("EGLBoolean")
     public static boolean eglReleaseThread() {
         long __functionAddress = EGL.getCapabilities().eglReleaseThread;
         if (CHECKS) {
@@ -112,6 +118,7 @@ public class EGL12 {
     // --- [ eglWaitClient ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglWaitClient.xhtml">Reference Page</a> */
+    @NativeType("EGLBoolean")
     public static boolean eglWaitClient() {
         long __functionAddress = EGL.getCapabilities().eglWaitClient;
         if (CHECKS) {
@@ -125,7 +132,8 @@ public class EGL12 {
      * 
      * Array version of: {@link #eglCreatePbufferFromClientBuffer CreatePbufferFromClientBuffer}
      */
-    public static long eglCreatePbufferFromClientBuffer(long dpy, int buftype, long buffer, long config, int[] attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePbufferFromClientBuffer(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int buftype, @NativeType("EGLClientBuffer") long buffer, @NativeType("EGLConfig") long config, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreatePbufferFromClientBuffer;
         if (CHECKS) {
             check(__functionAddress);

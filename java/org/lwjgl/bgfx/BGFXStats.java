@@ -55,6 +55,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint16_t textHeight;
  * }</pre></code>
  */
+@NativeType("struct bgfx_stats_t")
 public class BGFXStats extends Struct {
 
     /** The struct size in bytes. */
@@ -137,34 +138,49 @@ public class BGFXStats extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code cpuTimeBegin} field. */
+    @NativeType("uint64_t")
     public long cpuTimeBegin() { return ncpuTimeBegin(address()); }
     /** Returns the value of the {@code cpuTimeEnd} field. */
+    @NativeType("uint64_t")
     public long cpuTimeEnd() { return ncpuTimeEnd(address()); }
     /** Returns the value of the {@code cpuTimerFreq} field. */
+    @NativeType("uint64_t")
     public long cpuTimerFreq() { return ncpuTimerFreq(address()); }
     /** Returns the value of the {@code gpuTimeBegin} field. */
+    @NativeType("uint64_t")
     public long gpuTimeBegin() { return ngpuTimeBegin(address()); }
     /** Returns the value of the {@code gpuTimeEnd} field. */
+    @NativeType("uint64_t")
     public long gpuTimeEnd() { return ngpuTimeEnd(address()); }
     /** Returns the value of the {@code gpuTimerFreq} field. */
+    @NativeType("uint64_t")
     public long gpuTimerFreq() { return ngpuTimerFreq(address()); }
     /** Returns the value of the {@code waitRender} field. */
+    @NativeType("int64_t")
     public long waitRender() { return nwaitRender(address()); }
     /** Returns the value of the {@code waitSubmit} field. */
+    @NativeType("int64_t")
     public long waitSubmit() { return nwaitSubmit(address()); }
     /** Returns the value of the {@code numDraw} field. */
+    @NativeType("uint32_t")
     public int numDraw() { return nnumDraw(address()); }
     /** Returns the value of the {@code numCompute} field. */
+    @NativeType("uint32_t")
     public int numCompute() { return nnumCompute(address()); }
     /** Returns the value of the {@code maxGpuLatency} field. */
+    @NativeType("uint32_t")
     public int maxGpuLatency() { return nmaxGpuLatency(address()); }
     /** Returns the value of the {@code width} field. */
+    @NativeType("uint16_t")
     public short width() { return nwidth(address()); }
     /** Returns the value of the {@code height} field. */
+    @NativeType("uint16_t")
     public short height() { return nheight(address()); }
     /** Returns the value of the {@code textWidth} field. */
+    @NativeType("uint16_t")
     public short textWidth() { return ntextWidth(address()); }
     /** Returns the value of the {@code textHeight} field. */
+    @NativeType("uint16_t")
     public short textHeight() { return ntextHeight(address()); }
 
     // -----------------------------------
@@ -260,34 +276,49 @@ public class BGFXStats extends Struct {
         }
 
         /** Returns the value of the {@code cpuTimeBegin} field. */
+        @NativeType("uint64_t")
         public long cpuTimeBegin() { return BGFXStats.ncpuTimeBegin(address()); }
         /** Returns the value of the {@code cpuTimeEnd} field. */
+        @NativeType("uint64_t")
         public long cpuTimeEnd() { return BGFXStats.ncpuTimeEnd(address()); }
         /** Returns the value of the {@code cpuTimerFreq} field. */
+        @NativeType("uint64_t")
         public long cpuTimerFreq() { return BGFXStats.ncpuTimerFreq(address()); }
         /** Returns the value of the {@code gpuTimeBegin} field. */
+        @NativeType("uint64_t")
         public long gpuTimeBegin() { return BGFXStats.ngpuTimeBegin(address()); }
         /** Returns the value of the {@code gpuTimeEnd} field. */
+        @NativeType("uint64_t")
         public long gpuTimeEnd() { return BGFXStats.ngpuTimeEnd(address()); }
         /** Returns the value of the {@code gpuTimerFreq} field. */
+        @NativeType("uint64_t")
         public long gpuTimerFreq() { return BGFXStats.ngpuTimerFreq(address()); }
         /** Returns the value of the {@code waitRender} field. */
+        @NativeType("int64_t")
         public long waitRender() { return BGFXStats.nwaitRender(address()); }
         /** Returns the value of the {@code waitSubmit} field. */
+        @NativeType("int64_t")
         public long waitSubmit() { return BGFXStats.nwaitSubmit(address()); }
         /** Returns the value of the {@code numDraw} field. */
+        @NativeType("uint32_t")
         public int numDraw() { return BGFXStats.nnumDraw(address()); }
         /** Returns the value of the {@code numCompute} field. */
+        @NativeType("uint32_t")
         public int numCompute() { return BGFXStats.nnumCompute(address()); }
         /** Returns the value of the {@code maxGpuLatency} field. */
+        @NativeType("uint32_t")
         public int maxGpuLatency() { return BGFXStats.nmaxGpuLatency(address()); }
         /** Returns the value of the {@code width} field. */
+        @NativeType("uint16_t")
         public short width() { return BGFXStats.nwidth(address()); }
         /** Returns the value of the {@code height} field. */
+        @NativeType("uint16_t")
         public short height() { return BGFXStats.nheight(address()); }
         /** Returns the value of the {@code textWidth} field. */
+        @NativeType("uint16_t")
         public short textWidth() { return BGFXStats.ntextWidth(address()); }
         /** Returns the value of the {@code textHeight} field. */
+        @NativeType("uint16_t")
         public short textHeight() { return BGFXStats.ntextHeight(address()); }
 
     }

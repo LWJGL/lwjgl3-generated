@@ -17,6 +17,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * {@code oldptr} address to be relative to the {@code newptr} address.</p>
  */
 @FunctionalInterface
+@NativeType("MDB_rel_func *")
 public interface MDBRelFuncI extends CallbackI.V {
 
     String SIGNATURE = "(pppp)v";
@@ -42,6 +43,6 @@ public interface MDBRelFuncI extends CallbackI.V {
      * @param newptr the new address to relocate to
      * @param relctx an application-provided context, set by {@link LMDB#mdb_set_relctx set_relctx}
      */
-    void invoke(long item, long oldptr, long newptr, long relctx);
+    void invoke(@NativeType("MDB_val *") long item, @NativeType("void *") long oldptr, @NativeType("void *") long newptr, @NativeType("void *") long relctx);
 
 }

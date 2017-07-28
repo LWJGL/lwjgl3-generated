@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t unArgsHandle;
  * }</pre></code>
  */
+@NativeType("struct VREvent_ApplicationLaunch_t")
 public class VREventApplicationLaunch extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class VREventApplicationLaunch extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code pid} field. */
+    @NativeType("uint32_t")
     public int pid() { return npid(address()); }
     /** Returns the value of the {@code unArgsHandle} field. */
+    @NativeType("uint32_t")
     public int unArgsHandle() { return nunArgsHandle(address()); }
 
     /** Sets the specified value to the {@code pid} field. */
-    public VREventApplicationLaunch pid(int value) { npid(address(), value); return this; }
+    public VREventApplicationLaunch pid(@NativeType("uint32_t") int value) { npid(address(), value); return this; }
     /** Sets the specified value to the {@code unArgsHandle} field. */
-    public VREventApplicationLaunch unArgsHandle(int value) { nunArgsHandle(address(), value); return this; }
+    public VREventApplicationLaunch unArgsHandle(@NativeType("uint32_t") int value) { nunArgsHandle(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventApplicationLaunch set(
@@ -279,14 +282,16 @@ public class VREventApplicationLaunch extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code pid} field. */
+        @NativeType("uint32_t")
         public int pid() { return VREventApplicationLaunch.npid(address()); }
         /** Returns the value of the {@code unArgsHandle} field. */
+        @NativeType("uint32_t")
         public int unArgsHandle() { return VREventApplicationLaunch.nunArgsHandle(address()); }
 
         /** Sets the specified value to the {@code pid} field. */
-        public VREventApplicationLaunch.Buffer pid(int value) { VREventApplicationLaunch.npid(address(), value); return this; }
+        public VREventApplicationLaunch.Buffer pid(@NativeType("uint32_t") int value) { VREventApplicationLaunch.npid(address(), value); return this; }
         /** Sets the specified value to the {@code unArgsHandle} field. */
-        public VREventApplicationLaunch.Buffer unArgsHandle(int value) { VREventApplicationLaunch.nunArgsHandle(address(), value); return this; }
+        public VREventApplicationLaunch.Buffer unArgsHandle(@NativeType("uint32_t") int value) { VREventApplicationLaunch.nunArgsHandle(address(), value); return this; }
 
     }
 

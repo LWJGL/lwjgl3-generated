@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     nk_size offset;
  * }</pre></code>
  */
+@NativeType("struct nk_draw_vertex_layout_element")
 public class NkDrawVertexLayoutElement extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -77,18 +78,21 @@ public class NkDrawVertexLayoutElement extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code attribute} field. */
+    @NativeType("enum nk_draw_vertex_layout_attribute")
     public int attribute() { return nattribute(address()); }
     /** Returns the value of the {@code format} field. */
+    @NativeType("enum nk_draw_vertex_layout_format")
     public int format() { return nformat(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("nk_size")
     public long offset() { return noffset(address()); }
 
     /** Sets the specified value to the {@code attribute} field. */
-    public NkDrawVertexLayoutElement attribute(int value) { nattribute(address(), value); return this; }
+    public NkDrawVertexLayoutElement attribute(@NativeType("enum nk_draw_vertex_layout_attribute") int value) { nattribute(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
-    public NkDrawVertexLayoutElement format(int value) { nformat(address(), value); return this; }
+    public NkDrawVertexLayoutElement format(@NativeType("enum nk_draw_vertex_layout_format") int value) { nformat(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public NkDrawVertexLayoutElement offset(long value) { noffset(address(), value); return this; }
+    public NkDrawVertexLayoutElement offset(@NativeType("nk_size") long value) { noffset(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkDrawVertexLayoutElement set(
@@ -301,18 +305,21 @@ public class NkDrawVertexLayoutElement extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code attribute} field. */
+        @NativeType("enum nk_draw_vertex_layout_attribute")
         public int attribute() { return NkDrawVertexLayoutElement.nattribute(address()); }
         /** Returns the value of the {@code format} field. */
+        @NativeType("enum nk_draw_vertex_layout_format")
         public int format() { return NkDrawVertexLayoutElement.nformat(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("nk_size")
         public long offset() { return NkDrawVertexLayoutElement.noffset(address()); }
 
         /** Sets the specified value to the {@code attribute} field. */
-        public NkDrawVertexLayoutElement.Buffer attribute(int value) { NkDrawVertexLayoutElement.nattribute(address(), value); return this; }
+        public NkDrawVertexLayoutElement.Buffer attribute(@NativeType("enum nk_draw_vertex_layout_attribute") int value) { NkDrawVertexLayoutElement.nattribute(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
-        public NkDrawVertexLayoutElement.Buffer format(int value) { NkDrawVertexLayoutElement.nformat(address(), value); return this; }
+        public NkDrawVertexLayoutElement.Buffer format(@NativeType("enum nk_draw_vertex_layout_format") int value) { NkDrawVertexLayoutElement.nformat(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public NkDrawVertexLayoutElement.Buffer offset(long value) { NkDrawVertexLayoutElement.noffset(address(), value); return this; }
+        public NkDrawVertexLayoutElement.Buffer offset(@NativeType("nk_size") long value) { NkDrawVertexLayoutElement.noffset(address(), value); return this; }
 
     }
 

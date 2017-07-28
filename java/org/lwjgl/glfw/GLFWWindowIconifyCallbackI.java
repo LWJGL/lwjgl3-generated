@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWwindowiconifyfun")
 public interface GLFWWindowIconifyCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";
@@ -32,6 +33,6 @@ public interface GLFWWindowIconifyCallbackI extends CallbackI.V {
      * @param window    the window that was iconified or restored.
      * @param iconified {@link GLFW#GLFW_TRUE TRUE} if the window was iconified, or {@link GLFW#GLFW_FALSE FALSE} if it was restored
      */
-    void invoke(long window, boolean iconified);
+    void invoke(@NativeType("GLFWwindow *") long window, @NativeType("int") boolean iconified);
 
 }

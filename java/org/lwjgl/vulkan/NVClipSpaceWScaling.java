@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -232,7 +234,7 @@ public class NVClipSpaceWScaling {
      * @param firstViewport      the index of the first viewport whose parameters are updated by the command.
      * @param pViewportWScalings 
      */
-    public static void vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, int firstViewport, VkViewportWScalingNV.Buffer pViewportWScalings) {
+    public static void vkCmdSetViewportWScalingNV(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstViewport, @NativeType("const VkViewportWScalingNV *") VkViewportWScalingNV.Buffer pViewportWScalings) {
         nvkCmdSetViewportWScalingNV(commandBuffer, firstViewport, pViewportWScalings.remaining(), pViewportWScalings.address());
     }
 

@@ -244,7 +244,8 @@ public class CL12 {
      * @param platform the platform to query
      * @param funcname the extension function name
      */
-    public static long clGetExtensionFunctionAddressForPlatform(long platform, ByteBuffer funcname) {
+    @NativeType("void *")
+    public static long clGetExtensionFunctionAddressForPlatform(@NativeType("cl_platform_id") long platform, @NativeType("const cl_char *") ByteBuffer funcname) {
         if (CHECKS) {
             checkNT1(funcname);
         }
@@ -273,7 +274,8 @@ public class CL12 {
      * @param platform the platform to query
      * @param funcname the extension function name
      */
-    public static long clGetExtensionFunctionAddressForPlatform(long platform, CharSequence funcname) {
+    @NativeType("void *")
+    public static long clGetExtensionFunctionAddressForPlatform(@NativeType("cl_platform_id") long platform, @NativeType("const cl_char *") CharSequence funcname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer funcnameEncoded = stack.ASCII(funcname);
@@ -301,7 +303,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clRetainDevice(long device) {
+    @NativeType("cl_int")
+    public static int clRetainDevice(@NativeType("cl_device_id") long device) {
         long __functionAddress = CL.getICD().clRetainDevice;
         if (CHECKS) {
             check(__functionAddress);
@@ -331,7 +334,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clReleaseDevice(long device) {
+    @NativeType("cl_int")
+    public static int clReleaseDevice(@NativeType("cl_device_id") long device) {
         long __functionAddress = CL.getICD().clReleaseDevice;
         if (CHECKS) {
             check(__functionAddress);
@@ -402,7 +406,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clCreateSubDevices(long in_device, PointerBuffer properties, PointerBuffer out_devices, IntBuffer num_devices_ret) {
+    @NativeType("cl_int")
+    public static int clCreateSubDevices(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property *") PointerBuffer properties, @NativeType("cl_device_id *") PointerBuffer out_devices, @NativeType("cl_uint *") IntBuffer num_devices_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(num_devices_ret, 1);
@@ -493,7 +498,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, ByteBuffer host_ptr, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -571,7 +577,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, ShortBuffer host_ptr, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") ShortBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -649,7 +656,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, IntBuffer host_ptr, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") IntBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -727,7 +735,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, FloatBuffer host_ptr, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") FloatBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -777,7 +786,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, ByteBuffer kernel_names, IntBuffer errcode_ret) {
+    @NativeType("cl_program")
+    public static long clCreateProgramWithBuiltInKernels(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer kernel_names, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT1(kernel_names);
             checkSafe(errcode_ret, 1);
@@ -812,7 +822,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, CharSequence kernel_names, IntBuffer errcode_ret) {
+    @NativeType("cl_program")
+    public static long clCreateProgramWithBuiltInKernels(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence kernel_names, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -847,7 +858,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateProgramWithBuiltInKernels(long context, long device, CharSequence kernel_names, IntBuffer errcode_ret) {
+    @NativeType("cl_program")
+    public static long clCreateProgramWithBuiltInKernels(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") long device, @NativeType("const cl_char *") CharSequence kernel_names, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -929,7 +941,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clCompileProgram(long program, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_int")
+    public static int clCompileProgram(@NativeType("cl_program") long program, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer options, @NativeType("const cl_program *") PointerBuffer input_headers, @NativeType("const cl_char **") PointerBuffer header_include_names, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         if (CHECKS) {
             checkNT1(options);
             checkSafe(header_include_names, remainingSafe(input_headers));
@@ -988,7 +1001,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clCompileProgram(long program, PointerBuffer device_list, CharSequence options, PointerBuffer input_headers, PointerBuffer header_include_names, CLProgramCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_int")
+    public static int clCompileProgram(@NativeType("cl_program") long program, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence options, @NativeType("const cl_program *") PointerBuffer input_headers, @NativeType("const cl_char **") PointerBuffer header_include_names, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         if (CHECKS) {
             checkSafe(header_include_names, remainingSafe(input_headers));
         }
@@ -1088,7 +1102,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clLinkProgram(long context, PointerBuffer device_list, ByteBuffer options, PointerBuffer input_programs, CLProgramCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_program")
+    public static long clLinkProgram(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer options, @NativeType("const cl_program *") PointerBuffer input_programs, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         if (CHECKS) {
             checkNT1(options);
         }
@@ -1165,7 +1180,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, PointerBuffer input_programs, CLProgramCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_program")
+    public static long clLinkProgram(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence options, @NativeType("const cl_program *") PointerBuffer input_programs, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -1235,7 +1251,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clLinkProgram(long context, PointerBuffer device_list, CharSequence options, long input_program, CLProgramCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_program")
+    public static long clLinkProgram(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence options, @NativeType("const cl_program *") long input_program, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -1264,7 +1281,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_INVALID_PLATFORM INVALID_PLATFORM} if {@code platform} is not a valid platform.</li>
      *         </ul>
      */
-    public static int clUnloadPlatformCompiler(long platform) {
+    @NativeType("cl_int")
+    public static int clUnloadPlatformCompiler(@NativeType("cl_platform_id") long platform) {
         long __functionAddress = CL.getICD().clUnloadPlatformCompiler;
         if (CHECKS) {
             check(__functionAddress);
@@ -1313,7 +1331,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
      *         </ul>
      */
-    public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelArgInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_indx, @NativeType("cl_kernel_arg_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1344,7 +1363,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
      *         </ul>
      */
-    public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelArgInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_indx, @NativeType("cl_kernel_arg_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1375,7 +1395,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_INVALID_KERNEL INVALID_KERNEL} if {@code kernel} is a not a valid kernel object.</li>
      *         </ul>
      */
-    public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, LongBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelArgInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_indx, @NativeType("cl_kernel_arg_info") int param_name, @NativeType("void *") LongBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1444,7 +1465,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueFillBuffer(long command_queue, long buffer, ByteBuffer pattern, long offset, long size, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueFillBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("const void *") ByteBuffer pattern, @NativeType("size_t") long offset, @NativeType("size_t") long size, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1517,7 +1539,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueFillImage(long command_queue, long image, ByteBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueFillImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("const void *") ByteBuffer fill_color, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(fill_color, 16);
             check(origin, 1);
@@ -1576,7 +1599,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueFillImage(long command_queue, long image, IntBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueFillImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("const void *") IntBuffer fill_color, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(fill_color, 16 >> 2);
             check(origin, 1);
@@ -1635,7 +1659,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueFillImage(long command_queue, long image, FloatBuffer fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueFillImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("const void *") FloatBuffer fill_color, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(fill_color, 16 >> 2);
             check(origin, 1);
@@ -1708,7 +1733,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueMigrateMemObjects(long command_queue, PointerBuffer mem_objects, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueMigrateMemObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("cl_mem_migration_flags") long flags, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1759,7 +1785,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueMarkerWithWaitList(long command_queue, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueMarkerWithWaitList(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1810,7 +1837,8 @@ public class CL12 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueBarrierWithWaitList(long command_queue, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueBarrierWithWaitList(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1822,7 +1850,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clCreateSubDevices CreateSubDevices}
      */
-    public static int clCreateSubDevices(long in_device, PointerBuffer properties, PointerBuffer out_devices, int[] num_devices_ret) {
+    @NativeType("cl_int")
+    public static int clCreateSubDevices(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property *") PointerBuffer properties, @NativeType("cl_device_id *") PointerBuffer out_devices, @NativeType("cl_uint *") int[] num_devices_ret) {
         long __functionAddress = CL.getICD().clCreateSubDevices;
         if (CHECKS) {
             check(__functionAddress);
@@ -1838,7 +1867,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clCreateImage CreateImage}
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, ByteBuffer host_ptr, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1853,7 +1883,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clCreateImage CreateImage}
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, short[] host_ptr, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") short[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1868,7 +1899,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clCreateImage CreateImage}
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, int[] host_ptr, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") int[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1883,7 +1915,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clCreateImage CreateImage}
      */
-    public static long clCreateImage(long context, long flags, CLImageFormat image_format, CLImageDesc image_desc, float[] host_ptr, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateImage(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("const cl_image_desc *") CLImageDesc image_desc, @NativeType("void *") float[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1898,7 +1931,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels}
      */
-    public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, ByteBuffer kernel_names, int[] errcode_ret) {
+    @NativeType("cl_program")
+    public static long clCreateProgramWithBuiltInKernels(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer kernel_names, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
         if (CHECKS) {
             check(__functionAddress);
@@ -1914,7 +1948,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clCreateProgramWithBuiltInKernels CreateProgramWithBuiltInKernels}
      */
-    public static long clCreateProgramWithBuiltInKernels(long context, PointerBuffer device_list, CharSequence kernel_names, int[] errcode_ret) {
+    @NativeType("cl_program")
+    public static long clCreateProgramWithBuiltInKernels(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence kernel_names, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateProgramWithBuiltInKernels;
         if (CHECKS) {
             check(__functionAddress);
@@ -1935,7 +1970,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clGetKernelArgInfo GetKernelArgInfo}
      */
-    public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelArgInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_indx, @NativeType("cl_kernel_arg_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetKernelArgInfo;
         if (CHECKS) {
             check(__functionAddress);
@@ -1950,7 +1986,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clGetKernelArgInfo GetKernelArgInfo}
      */
-    public static int clGetKernelArgInfo(long kernel, int arg_indx, int param_name, long[] param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelArgInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_indx, @NativeType("cl_kernel_arg_info") int param_name, @NativeType("void *") long[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetKernelArgInfo;
         if (CHECKS) {
             check(__functionAddress);
@@ -1965,7 +2002,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clEnqueueFillImage EnqueueFillImage}
      */
-    public static int clEnqueueFillImage(long command_queue, long image, int[] fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueFillImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("const void *") int[] fill_color, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueFillImage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1984,7 +2022,8 @@ public class CL12 {
      * 
      * Array version of: {@link #clEnqueueFillImage EnqueueFillImage}
      */
-    public static int clEnqueueFillImage(long command_queue, long image, float[] fill_color, PointerBuffer origin, PointerBuffer region, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueFillImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("const void *") float[] fill_color, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueFillImage;
         if (CHECKS) {
             check(__functionAddress);

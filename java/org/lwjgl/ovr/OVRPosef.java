@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRVector3f ovrVector3f} Position;
  * }</pre></code>
  */
+@NativeType("struct ovrPosef")
 public class OVRPosef extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -74,14 +75,16 @@ public class OVRPosef extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRQuatf} view of the {@code Orientation} field. */
+    @NativeType("ovrQuatf")
     public OVRQuatf Orientation() { return nOrientation(address()); }
     /** Returns a {@link OVRVector3f} view of the {@code Position} field. */
+    @NativeType("ovrVector3f")
     public OVRVector3f Position() { return nPosition(address()); }
 
     /** Copies the specified {@link OVRQuatf} to the {@code Orientation} field. */
-    public OVRPosef Orientation(OVRQuatf value) { nOrientation(address(), value); return this; }
+    public OVRPosef Orientation(@NativeType("ovrQuatf") OVRQuatf value) { nOrientation(address(), value); return this; }
     /** Copies the specified {@link OVRVector3f} to the {@code Position} field. */
-    public OVRPosef Position(OVRVector3f value) { nPosition(address(), value); return this; }
+    public OVRPosef Position(@NativeType("ovrVector3f") OVRVector3f value) { nPosition(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public OVRPosef set(
@@ -288,14 +291,16 @@ public class OVRPosef extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRQuatf} view of the {@code Orientation} field. */
+        @NativeType("ovrQuatf")
         public OVRQuatf Orientation() { return OVRPosef.nOrientation(address()); }
         /** Returns a {@link OVRVector3f} view of the {@code Position} field. */
+        @NativeType("ovrVector3f")
         public OVRVector3f Position() { return OVRPosef.nPosition(address()); }
 
         /** Copies the specified {@link OVRQuatf} to the {@code Orientation} field. */
-        public OVRPosef.Buffer Orientation(OVRQuatf value) { OVRPosef.nOrientation(address(), value); return this; }
+        public OVRPosef.Buffer Orientation(@NativeType("ovrQuatf") OVRQuatf value) { OVRPosef.nOrientation(address(), value); return this; }
         /** Copies the specified {@link OVRVector3f} to the {@code Position} field. */
-        public OVRPosef.Buffer Position(OVRVector3f value) { OVRPosef.nPosition(address(), value); return this; }
+        public OVRPosef.Buffer Position(@NativeType("ovrVector3f") OVRVector3f value) { OVRPosef.nPosition(address(), value); return this; }
 
     }
 

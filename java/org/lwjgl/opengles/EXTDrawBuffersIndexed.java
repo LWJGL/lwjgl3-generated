@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -44,34 +46,35 @@ public class EXTDrawBuffersIndexed {
 
     // --- [ glEnableiEXT ] ---
 
-    public static native void glEnableiEXT(int target, int index);
+    public static native void glEnableiEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glDisableiEXT ] ---
 
-    public static native void glDisableiEXT(int target, int index);
+    public static native void glDisableiEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glBlendEquationiEXT ] ---
 
-    public static native void glBlendEquationiEXT(int buf, int mode);
+    public static native void glBlendEquationiEXT(@NativeType("GLuint") int buf, @NativeType("GLenum") int mode);
 
     // --- [ glBlendEquationSeparateiEXT ] ---
 
-    public static native void glBlendEquationSeparateiEXT(int buf, int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateiEXT(@NativeType("GLuint") int buf, @NativeType("GLenum") int modeRGB, @NativeType("GLenum") int modeAlpha);
 
     // --- [ glBlendFunciEXT ] ---
 
-    public static native void glBlendFunciEXT(int buf, int src, int dst);
+    public static native void glBlendFunciEXT(@NativeType("GLuint") int buf, @NativeType("GLenum") int src, @NativeType("GLenum") int dst);
 
     // --- [ glBlendFuncSeparateiEXT ] ---
 
-    public static native void glBlendFuncSeparateiEXT(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    public static native void glBlendFuncSeparateiEXT(@NativeType("GLuint") int buf, @NativeType("GLenum") int srcRGB, @NativeType("GLenum") int dstRGB, @NativeType("GLenum") int srcAlpha, @NativeType("GLenum") int dstAlpha);
 
     // --- [ glColorMaskiEXT ] ---
 
-    public static native void glColorMaskiEXT(int index, boolean r, boolean g, boolean b, boolean a);
+    public static native void glColorMaskiEXT(@NativeType("GLuint") int index, @NativeType("GLboolean") boolean r, @NativeType("GLboolean") boolean g, @NativeType("GLboolean") boolean b, @NativeType("GLboolean") boolean a);
 
     // --- [ glIsEnablediEXT ] ---
 
-    public static native boolean glIsEnablediEXT(int target, int index);
+    @NativeType("GLboolean")
+    public static native boolean glIsEnablediEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
 }

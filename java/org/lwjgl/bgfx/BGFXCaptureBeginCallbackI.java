@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Called when capture begins. */
 @FunctionalInterface
+@NativeType("capture_begin")
 public interface BGFXCaptureBeginCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(piiiiB)v";
@@ -40,6 +41,6 @@ public interface BGFXCaptureBeginCallbackI extends CallbackI.V {
      * @param _format texture format
      * @param _yflip  if true image origin is bottom left
      */
-    void invoke(long _this, int _width, int _height, int _pitch, int _format, boolean _yflip);
+    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("uint32_t") int _width, @NativeType("uint32_t") int _height, @NativeType("uint32_t") int _pitch, @NativeType("bgfx_texture_format_t") int _format, @NativeType("bool") boolean _yflip);
 
 }

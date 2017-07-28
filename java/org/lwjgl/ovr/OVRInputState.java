@@ -57,6 +57,7 @@ import static org.lwjgl.ovr.OVR.ovrHand_Count;
  *     {@link OVRVector2f ovrVector2f} ThumbstickRaw[ovrHand_Count];
  * }</pre></code>
  */
+@NativeType("struct ovrInputState")
 public class OVRInputState extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -135,46 +136,61 @@ public class OVRInputState extends Struct implements NativeResource {
     /** Returns the value of the {@code TimeInSeconds} field. */
     public double TimeInSeconds() { return nTimeInSeconds(address()); }
     /** Returns the value of the {@code Buttons} field. */
+    @NativeType("unsigned int")
     public int Buttons() { return nButtons(address()); }
     /** Returns the value of the {@code Touches} field. */
+    @NativeType("unsigned int")
     public int Touches() { return nTouches(address()); }
     /** Returns a {@link FloatBuffer} view of the {@code IndexTrigger} field. */
+    @NativeType("float[ovrHand_Count]")
     public FloatBuffer IndexTrigger() { return nIndexTrigger(address()); }
     /** Returns the value at the specified index of the {@code IndexTrigger} field. */
     public float IndexTrigger(int index) { return nIndexTrigger(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code HandTrigger} field. */
+    @NativeType("float[ovrHand_Count]")
     public FloatBuffer HandTrigger() { return nHandTrigger(address()); }
     /** Returns the value at the specified index of the {@code HandTrigger} field. */
     public float HandTrigger(int index) { return nHandTrigger(address(), index); }
     /** Returns a {@link OVRVector2f}.Buffer view of the {@code Thumbstick} field. */
+    @NativeType("ovrVector2f[ovrHand_Count]")
     public OVRVector2f.Buffer Thumbstick() { return nThumbstick(address()); }
     /** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code Thumbstick} field. */
+    @NativeType("ovrVector2f")
     public OVRVector2f Thumbstick(int index) { return nThumbstick(address(), index); }
     /** Returns the value of the {@code ControllerType} field. */
+    @NativeType("ovrControllerType")
     public int ControllerType() { return nControllerType(address()); }
     /** Returns a {@link FloatBuffer} view of the {@code IndexTriggerNoDeadzone} field. */
+    @NativeType("float[ovrHand_Count]")
     public FloatBuffer IndexTriggerNoDeadzone() { return nIndexTriggerNoDeadzone(address()); }
     /** Returns the value at the specified index of the {@code IndexTriggerNoDeadzone} field. */
     public float IndexTriggerNoDeadzone(int index) { return nIndexTriggerNoDeadzone(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code HandTriggerNoDeadzone} field. */
+    @NativeType("float[ovrHand_Count]")
     public FloatBuffer HandTriggerNoDeadzone() { return nHandTriggerNoDeadzone(address()); }
     /** Returns the value at the specified index of the {@code HandTriggerNoDeadzone} field. */
     public float HandTriggerNoDeadzone(int index) { return nHandTriggerNoDeadzone(address(), index); }
     /** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickNoDeadzone} field. */
+    @NativeType("ovrVector2f[ovrHand_Count]")
     public OVRVector2f.Buffer ThumbstickNoDeadzone() { return nThumbstickNoDeadzone(address()); }
     /** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickNoDeadzone} field. */
+    @NativeType("ovrVector2f")
     public OVRVector2f ThumbstickNoDeadzone(int index) { return nThumbstickNoDeadzone(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code IndexTriggerRaw} field. */
+    @NativeType("float[ovrHand_Count]")
     public FloatBuffer IndexTriggerRaw() { return nIndexTriggerRaw(address()); }
     /** Returns the value at the specified index of the {@code IndexTriggerRaw} field. */
     public float IndexTriggerRaw(int index) { return nIndexTriggerRaw(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code HandTriggerRaw} field. */
+    @NativeType("float[ovrHand_Count]")
     public FloatBuffer HandTriggerRaw() { return nHandTriggerRaw(address()); }
     /** Returns the value at the specified index of the {@code HandTriggerRaw} field. */
     public float HandTriggerRaw(int index) { return nHandTriggerRaw(address(), index); }
     /** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickRaw} field. */
+    @NativeType("ovrVector2f[ovrHand_Count]")
     public OVRVector2f.Buffer ThumbstickRaw() { return nThumbstickRaw(address()); }
     /** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickRaw} field. */
+    @NativeType("ovrVector2f")
     public OVRVector2f ThumbstickRaw(int index) { return nThumbstickRaw(address(), index); }
 
     // -----------------------------------
@@ -423,46 +439,61 @@ public class OVRInputState extends Struct implements NativeResource {
         /** Returns the value of the {@code TimeInSeconds} field. */
         public double TimeInSeconds() { return OVRInputState.nTimeInSeconds(address()); }
         /** Returns the value of the {@code Buttons} field. */
+        @NativeType("unsigned int")
         public int Buttons() { return OVRInputState.nButtons(address()); }
         /** Returns the value of the {@code Touches} field. */
+        @NativeType("unsigned int")
         public int Touches() { return OVRInputState.nTouches(address()); }
         /** Returns a {@link FloatBuffer} view of the {@code IndexTrigger} field. */
+        @NativeType("float[ovrHand_Count]")
         public FloatBuffer IndexTrigger() { return OVRInputState.nIndexTrigger(address()); }
         /** Returns the value at the specified index of the {@code IndexTrigger} field. */
         public float IndexTrigger(int index) { return OVRInputState.nIndexTrigger(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code HandTrigger} field. */
+        @NativeType("float[ovrHand_Count]")
         public FloatBuffer HandTrigger() { return OVRInputState.nHandTrigger(address()); }
         /** Returns the value at the specified index of the {@code HandTrigger} field. */
         public float HandTrigger(int index) { return OVRInputState.nHandTrigger(address(), index); }
         /** Returns a {@link OVRVector2f}.Buffer view of the {@code Thumbstick} field. */
+        @NativeType("ovrVector2f[ovrHand_Count]")
         public OVRVector2f.Buffer Thumbstick() { return OVRInputState.nThumbstick(address()); }
         /** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code Thumbstick} field. */
+        @NativeType("ovrVector2f")
         public OVRVector2f Thumbstick(int index) { return OVRInputState.nThumbstick(address(), index); }
         /** Returns the value of the {@code ControllerType} field. */
+        @NativeType("ovrControllerType")
         public int ControllerType() { return OVRInputState.nControllerType(address()); }
         /** Returns a {@link FloatBuffer} view of the {@code IndexTriggerNoDeadzone} field. */
+        @NativeType("float[ovrHand_Count]")
         public FloatBuffer IndexTriggerNoDeadzone() { return OVRInputState.nIndexTriggerNoDeadzone(address()); }
         /** Returns the value at the specified index of the {@code IndexTriggerNoDeadzone} field. */
         public float IndexTriggerNoDeadzone(int index) { return OVRInputState.nIndexTriggerNoDeadzone(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code HandTriggerNoDeadzone} field. */
+        @NativeType("float[ovrHand_Count]")
         public FloatBuffer HandTriggerNoDeadzone() { return OVRInputState.nHandTriggerNoDeadzone(address()); }
         /** Returns the value at the specified index of the {@code HandTriggerNoDeadzone} field. */
         public float HandTriggerNoDeadzone(int index) { return OVRInputState.nHandTriggerNoDeadzone(address(), index); }
         /** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickNoDeadzone} field. */
+        @NativeType("ovrVector2f[ovrHand_Count]")
         public OVRVector2f.Buffer ThumbstickNoDeadzone() { return OVRInputState.nThumbstickNoDeadzone(address()); }
         /** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickNoDeadzone} field. */
+        @NativeType("ovrVector2f")
         public OVRVector2f ThumbstickNoDeadzone(int index) { return OVRInputState.nThumbstickNoDeadzone(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code IndexTriggerRaw} field. */
+        @NativeType("float[ovrHand_Count]")
         public FloatBuffer IndexTriggerRaw() { return OVRInputState.nIndexTriggerRaw(address()); }
         /** Returns the value at the specified index of the {@code IndexTriggerRaw} field. */
         public float IndexTriggerRaw(int index) { return OVRInputState.nIndexTriggerRaw(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code HandTriggerRaw} field. */
+        @NativeType("float[ovrHand_Count]")
         public FloatBuffer HandTriggerRaw() { return OVRInputState.nHandTriggerRaw(address()); }
         /** Returns the value at the specified index of the {@code HandTriggerRaw} field. */
         public float HandTriggerRaw(int index) { return OVRInputState.nHandTriggerRaw(address(), index); }
         /** Returns a {@link OVRVector2f}.Buffer view of the {@code ThumbstickRaw} field. */
+        @NativeType("ovrVector2f[ovrHand_Count]")
         public OVRVector2f.Buffer ThumbstickRaw() { return OVRInputState.nThumbstickRaw(address()); }
         /** Returns a {@link OVRVector2f} view of the struct at the specified index of the {@code ThumbstickRaw} field. */
+        @NativeType("ovrVector2f")
         public OVRVector2f ThumbstickRaw(int index) { return OVRInputState.nThumbstickRaw(address(), index); }
 
     }

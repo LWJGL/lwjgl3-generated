@@ -68,7 +68,7 @@ public class ARBTransformFeedback2 {
      * @param target the target to which to bind the transform feedback object {@code id}. Must be:<br><table><tr><td>{@link GL40#GL_TRANSFORM_FEEDBACK TRANSFORM_FEEDBACK}</td></tr></table>
      * @param id     the name of a transform feedback object
      */
-    public static native void glBindTransformFeedback(int target, int id);
+    public static native void glBindTransformFeedback(@NativeType("GLenum") int target, @NativeType("GLuint") int id);
 
     // --- [ glDeleteTransformFeedbacks ] ---
 
@@ -84,12 +84,12 @@ public class ARBTransformFeedback2 {
      *
      * @param ids an array of names of transform feedback objects to delete
      */
-    public static void glDeleteTransformFeedbacks(IntBuffer ids) {
+    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") IntBuffer ids) {
         nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
     }
 
     /** Deletes transform feedback objects. */
-    public static void glDeleteTransformFeedbacks(int id) {
+    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -113,11 +113,12 @@ public class ARBTransformFeedback2 {
      *
      * @param ids an array of into which the reserved names will be written
      */
-    public static void glGenTransformFeedbacks(IntBuffer ids) {
+    public static void glGenTransformFeedbacks(@NativeType("GLuint *") IntBuffer ids) {
         nglGenTransformFeedbacks(ids.remaining(), memAddress(ids));
     }
 
     /** Reserves transform feedback object names. */
+    @NativeType("void")
     public static int glGenTransformFeedbacks() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -136,7 +137,8 @@ public class ARBTransformFeedback2 {
      *
      * @param id a value that may be the name of a transform feedback object
      */
-    public static native boolean glIsTransformFeedback(int id);
+    @NativeType("GLboolean")
+    public static native boolean glIsTransformFeedback(@NativeType("GLuint") int id);
 
     // --- [ glPauseTransformFeedback ] ---
 
@@ -172,10 +174,10 @@ public class ARBTransformFeedback2 {
      * @param mode what kind of primitives to render. One of:<br><table><tr><td>{@link GL11#GL_POINTS POINTS}</td><td>{@link GL11#GL_LINE_STRIP LINE_STRIP}</td><td>{@link GL11#GL_LINE_LOOP LINE_LOOP}</td><td>{@link GL11#GL_LINES LINES}</td><td>{@link GL11#GL_POLYGON POLYGON}</td><td>{@link GL11#GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link GL11#GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link GL11#GL_TRIANGLES TRIANGLES}</td><td>{@link GL11#GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link GL11#GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
      * @param id   the name of a transform feedback object from which to retrieve a primitive count
      */
-    public static native void glDrawTransformFeedback(int mode, int id);
+    public static native void glDrawTransformFeedback(@NativeType("GLenum") int mode, @NativeType("GLuint") int id);
 
     /** Array version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
-    public static void glDeleteTransformFeedbacks(int[] ids) {
+    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") int[] ids) {
         long __functionAddress = GL.getICD().glDeleteTransformFeedbacks;
         if (CHECKS) {
             check(__functionAddress);
@@ -184,7 +186,7 @@ public class ARBTransformFeedback2 {
     }
 
     /** Array version of: {@link #glGenTransformFeedbacks GenTransformFeedbacks} */
-    public static void glGenTransformFeedbacks(int[] ids) {
+    public static void glGenTransformFeedbacks(@NativeType("GLuint *") int[] ids) {
         long __functionAddress = GL.getICD().glGenTransformFeedbacks;
         if (CHECKS) {
             check(__functionAddress);

@@ -129,38 +129,46 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code renderPass} field. */
+    @NativeType("VkRenderPass")
     public long renderPass() { return nrenderPass(address()); }
     /** Returns the value of the {@code subpass} field. */
+    @NativeType("uint32_t")
     public int subpass() { return nsubpass(address()); }
     /** Returns the value of the {@code framebuffer} field. */
+    @NativeType("VkFramebuffer")
     public long framebuffer() { return nframebuffer(address()); }
     /** Returns the value of the {@code occlusionQueryEnable} field. */
+    @NativeType("VkBool32")
     public boolean occlusionQueryEnable() { return nocclusionQueryEnable(address()) != 0; }
     /** Returns the value of the {@code queryFlags} field. */
+    @NativeType("VkQueryControlFlags")
     public int queryFlags() { return nqueryFlags(address()); }
     /** Returns the value of the {@code pipelineStatistics} field. */
+    @NativeType("VkQueryPipelineStatisticFlags")
     public int pipelineStatistics() { return npipelineStatistics(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkCommandBufferInheritanceInfo sType(int value) { nsType(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCommandBufferInheritanceInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code renderPass} field. */
-    public VkCommandBufferInheritanceInfo renderPass(long value) { nrenderPass(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo renderPass(@NativeType("VkRenderPass") long value) { nrenderPass(address(), value); return this; }
     /** Sets the specified value to the {@code subpass} field. */
-    public VkCommandBufferInheritanceInfo subpass(int value) { nsubpass(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo subpass(@NativeType("uint32_t") int value) { nsubpass(address(), value); return this; }
     /** Sets the specified value to the {@code framebuffer} field. */
-    public VkCommandBufferInheritanceInfo framebuffer(long value) { nframebuffer(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo framebuffer(@NativeType("VkFramebuffer") long value) { nframebuffer(address(), value); return this; }
     /** Sets the specified value to the {@code occlusionQueryEnable} field. */
-    public VkCommandBufferInheritanceInfo occlusionQueryEnable(boolean value) { nocclusionQueryEnable(address(), value ? 1 : 0); return this; }
+    public VkCommandBufferInheritanceInfo occlusionQueryEnable(@NativeType("VkBool32") boolean value) { nocclusionQueryEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code queryFlags} field. */
-    public VkCommandBufferInheritanceInfo queryFlags(int value) { nqueryFlags(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo queryFlags(@NativeType("VkQueryControlFlags") int value) { nqueryFlags(address(), value); return this; }
     /** Sets the specified value to the {@code pipelineStatistics} field. */
-    public VkCommandBufferInheritanceInfo pipelineStatistics(int value) { npipelineStatistics(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo pipelineStatistics(@NativeType("VkQueryPipelineStatisticFlags") int value) { npipelineStatistics(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkCommandBufferInheritanceInfo set(
@@ -403,38 +411,46 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkCommandBufferInheritanceInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkCommandBufferInheritanceInfo.npNext(address()); }
         /** Returns the value of the {@code renderPass} field. */
+        @NativeType("VkRenderPass")
         public long renderPass() { return VkCommandBufferInheritanceInfo.nrenderPass(address()); }
         /** Returns the value of the {@code subpass} field. */
+        @NativeType("uint32_t")
         public int subpass() { return VkCommandBufferInheritanceInfo.nsubpass(address()); }
         /** Returns the value of the {@code framebuffer} field. */
+        @NativeType("VkFramebuffer")
         public long framebuffer() { return VkCommandBufferInheritanceInfo.nframebuffer(address()); }
         /** Returns the value of the {@code occlusionQueryEnable} field. */
+        @NativeType("VkBool32")
         public boolean occlusionQueryEnable() { return VkCommandBufferInheritanceInfo.nocclusionQueryEnable(address()) != 0; }
         /** Returns the value of the {@code queryFlags} field. */
+        @NativeType("VkQueryControlFlags")
         public int queryFlags() { return VkCommandBufferInheritanceInfo.nqueryFlags(address()); }
         /** Returns the value of the {@code pipelineStatistics} field. */
+        @NativeType("VkQueryPipelineStatisticFlags")
         public int pipelineStatistics() { return VkCommandBufferInheritanceInfo.npipelineStatistics(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkCommandBufferInheritanceInfo.Buffer sType(int value) { VkCommandBufferInheritanceInfo.nsType(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkCommandBufferInheritanceInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCommandBufferInheritanceInfo.Buffer pNext(long value) { VkCommandBufferInheritanceInfo.npNext(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer pNext(@NativeType("const void *") long value) { VkCommandBufferInheritanceInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code renderPass} field. */
-        public VkCommandBufferInheritanceInfo.Buffer renderPass(long value) { VkCommandBufferInheritanceInfo.nrenderPass(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer renderPass(@NativeType("VkRenderPass") long value) { VkCommandBufferInheritanceInfo.nrenderPass(address(), value); return this; }
         /** Sets the specified value to the {@code subpass} field. */
-        public VkCommandBufferInheritanceInfo.Buffer subpass(int value) { VkCommandBufferInheritanceInfo.nsubpass(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer subpass(@NativeType("uint32_t") int value) { VkCommandBufferInheritanceInfo.nsubpass(address(), value); return this; }
         /** Sets the specified value to the {@code framebuffer} field. */
-        public VkCommandBufferInheritanceInfo.Buffer framebuffer(long value) { VkCommandBufferInheritanceInfo.nframebuffer(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer framebuffer(@NativeType("VkFramebuffer") long value) { VkCommandBufferInheritanceInfo.nframebuffer(address(), value); return this; }
         /** Sets the specified value to the {@code occlusionQueryEnable} field. */
-        public VkCommandBufferInheritanceInfo.Buffer occlusionQueryEnable(boolean value) { VkCommandBufferInheritanceInfo.nocclusionQueryEnable(address(), value ? 1 : 0); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer occlusionQueryEnable(@NativeType("VkBool32") boolean value) { VkCommandBufferInheritanceInfo.nocclusionQueryEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code queryFlags} field. */
-        public VkCommandBufferInheritanceInfo.Buffer queryFlags(int value) { VkCommandBufferInheritanceInfo.nqueryFlags(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer queryFlags(@NativeType("VkQueryControlFlags") int value) { VkCommandBufferInheritanceInfo.nqueryFlags(address(), value); return this; }
         /** Sets the specified value to the {@code pipelineStatistics} field. */
-        public VkCommandBufferInheritanceInfo.Buffer pipelineStatistics(int value) { VkCommandBufferInheritanceInfo.npipelineStatistics(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer pipelineStatistics(@NativeType("VkQueryPipelineStatisticFlags") int value) { VkCommandBufferInheritanceInfo.npipelineStatistics(address(), value); return this; }
 
     }
 

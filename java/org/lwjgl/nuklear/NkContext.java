@@ -42,6 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned int seq;
  * }</pre></code>
  */
+@NativeType("struct nk_context")
 public class NkContext extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -145,18 +146,25 @@ public class NkContext extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkInput} view of the {@code input} field. */
+    @NativeType("struct nk_input")
     public NkInput input() { return ninput(address()); }
     /** Returns a {@link NkStyle} view of the {@code style} field. */
+    @NativeType("struct nk_style")
     public NkStyle style() { return nstyle(address()); }
     /** Returns a {@link NkBuffer} view of the {@code memory} field. */
+    @NativeType("struct nk_buffer")
     public NkBuffer memory() { return nmemory(address()); }
     /** Returns a {@link NkClipboard} view of the {@code clip} field. */
+    @NativeType("struct nk_clipboard")
     public NkClipboard clip() { return nclip(address()); }
     /** Returns the value of the {@code last_widget_state} field. */
+    @NativeType("nk_flags")
     public int last_widget_state() { return nlast_widget_state(address()); }
     /** Returns the value of the {@code button_behavior} field. */
+    @NativeType("enum nk_button_behavior")
     public int button_behavior() { return nbutton_behavior(address()); }
     /** Returns a {@link NkConfigurationStacks} view of the {@code stacks} field. */
+    @NativeType("struct nk_configuration_stacks")
     public NkConfigurationStacks stacks() { return nstacks(address()); }
     /** Returns the value of the {@code delta_time_seconds} field. */
     public float delta_time_seconds() { return ndelta_time_seconds(address()); }
@@ -364,18 +372,25 @@ public class NkContext extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkInput} view of the {@code input} field. */
+        @NativeType("struct nk_input")
         public NkInput input() { return NkContext.ninput(address()); }
         /** Returns a {@link NkStyle} view of the {@code style} field. */
+        @NativeType("struct nk_style")
         public NkStyle style() { return NkContext.nstyle(address()); }
         /** Returns a {@link NkBuffer} view of the {@code memory} field. */
+        @NativeType("struct nk_buffer")
         public NkBuffer memory() { return NkContext.nmemory(address()); }
         /** Returns a {@link NkClipboard} view of the {@code clip} field. */
+        @NativeType("struct nk_clipboard")
         public NkClipboard clip() { return NkContext.nclip(address()); }
         /** Returns the value of the {@code last_widget_state} field. */
+        @NativeType("nk_flags")
         public int last_widget_state() { return NkContext.nlast_widget_state(address()); }
         /** Returns the value of the {@code button_behavior} field. */
+        @NativeType("enum nk_button_behavior")
         public int button_behavior() { return NkContext.nbutton_behavior(address()); }
         /** Returns a {@link NkConfigurationStacks} view of the {@code stacks} field. */
+        @NativeType("struct nk_configuration_stacks")
         public NkConfigurationStacks stacks() { return NkContext.nstacks(address()); }
         /** Returns the value of the {@code delta_time_seconds} field. */
         public float delta_time_seconds() { return NkContext.ndelta_time_seconds(address()); }

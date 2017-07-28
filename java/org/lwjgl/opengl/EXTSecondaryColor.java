@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -62,7 +64,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3bEXT(byte red, byte green, byte blue);
+    public static native void glSecondaryColor3bEXT(@NativeType("GLbyte") byte red, @NativeType("GLbyte") byte green, @NativeType("GLbyte") byte blue);
 
     // --- [ glSecondaryColor3sEXT ] ---
 
@@ -73,7 +75,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3sEXT(short red, short green, short blue);
+    public static native void glSecondaryColor3sEXT(@NativeType("GLshort") short red, @NativeType("GLshort") short green, @NativeType("GLshort") short blue);
 
     // --- [ glSecondaryColor3iEXT ] ---
 
@@ -84,7 +86,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3iEXT(int red, int green, int blue);
+    public static native void glSecondaryColor3iEXT(@NativeType("GLint") int red, @NativeType("GLint") int green, @NativeType("GLint") int blue);
 
     // --- [ glSecondaryColor3fEXT ] ---
 
@@ -95,7 +97,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3fEXT(float red, float green, float blue);
+    public static native void glSecondaryColor3fEXT(@NativeType("GLfloat") float red, @NativeType("GLfloat") float green, @NativeType("GLfloat") float blue);
 
     // --- [ glSecondaryColor3dEXT ] ---
 
@@ -106,7 +108,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3dEXT(double red, double green, double blue);
+    public static native void glSecondaryColor3dEXT(@NativeType("GLdouble") double red, @NativeType("GLdouble") double green, @NativeType("GLdouble") double blue);
 
     // --- [ glSecondaryColor3ubEXT ] ---
 
@@ -117,7 +119,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3ubEXT(byte red, byte green, byte blue);
+    public static native void glSecondaryColor3ubEXT(@NativeType("GLubyte") byte red, @NativeType("GLubyte") byte green, @NativeType("GLubyte") byte blue);
 
     // --- [ glSecondaryColor3usEXT ] ---
 
@@ -128,7 +130,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3usEXT(short red, short green, short blue);
+    public static native void glSecondaryColor3usEXT(@NativeType("GLushort") short red, @NativeType("GLushort") short green, @NativeType("GLushort") short blue);
 
     // --- [ glSecondaryColor3uiEXT ] ---
 
@@ -139,7 +141,7 @@ public class EXTSecondaryColor {
      * @param green the green component of the current secondary color
      * @param blue  the blue component of the current secondary color
      */
-    public static native void glSecondaryColor3uiEXT(int red, int green, int blue);
+    public static native void glSecondaryColor3uiEXT(@NativeType("GLint") int red, @NativeType("GLint") int green, @NativeType("GLint") int blue);
 
     // --- [ glSecondaryColor3bvEXT ] ---
 
@@ -151,7 +153,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3bvEXT(ByteBuffer v) {
+    public static void glSecondaryColor3bvEXT(@NativeType("const GLbyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -168,7 +170,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3svEXT(ShortBuffer v) {
+    public static void glSecondaryColor3svEXT(@NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -185,7 +187,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3ivEXT(IntBuffer v) {
+    public static void glSecondaryColor3ivEXT(@NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -202,7 +204,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3fvEXT(FloatBuffer v) {
+    public static void glSecondaryColor3fvEXT(@NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -219,7 +221,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3dvEXT(DoubleBuffer v) {
+    public static void glSecondaryColor3dvEXT(@NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -236,7 +238,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3ubvEXT(ByteBuffer v) {
+    public static void glSecondaryColor3ubvEXT(@NativeType("const GLubyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -253,7 +255,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3usvEXT(ShortBuffer v) {
+    public static void glSecondaryColor3usvEXT(@NativeType("const GLushort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -270,7 +272,7 @@ public class EXTSecondaryColor {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3uivEXT(IntBuffer v) {
+    public static void glSecondaryColor3uivEXT(@NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -290,7 +292,7 @@ public class EXTSecondaryColor {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, ByteBuffer pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
         nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
     }
 
@@ -302,7 +304,7 @@ public class EXTSecondaryColor {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, long pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
         nglSecondaryColorPointerEXT(size, type, stride, pointer);
     }
 
@@ -314,7 +316,7 @@ public class EXTSecondaryColor {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, ShortBuffer pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
         nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
     }
 
@@ -326,7 +328,7 @@ public class EXTSecondaryColor {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, IntBuffer pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
         nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
     }
 
@@ -338,12 +340,12 @@ public class EXTSecondaryColor {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, FloatBuffer pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
         nglSecondaryColorPointerEXT(size, type, stride, memAddress(pointer));
     }
 
     /** Array version of: {@link #glSecondaryColor3svEXT SecondaryColor3svEXT} */
-    public static void glSecondaryColor3svEXT(short[] v) {
+    public static void glSecondaryColor3svEXT(@NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3svEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -353,7 +355,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColor3ivEXT SecondaryColor3ivEXT} */
-    public static void glSecondaryColor3ivEXT(int[] v) {
+    public static void glSecondaryColor3ivEXT(@NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3ivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -363,7 +365,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColor3fvEXT SecondaryColor3fvEXT} */
-    public static void glSecondaryColor3fvEXT(float[] v) {
+    public static void glSecondaryColor3fvEXT(@NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3fvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -373,7 +375,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColor3dvEXT SecondaryColor3dvEXT} */
-    public static void glSecondaryColor3dvEXT(double[] v) {
+    public static void glSecondaryColor3dvEXT(@NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -383,7 +385,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColor3usvEXT SecondaryColor3usvEXT} */
-    public static void glSecondaryColor3usvEXT(short[] v) {
+    public static void glSecondaryColor3usvEXT(@NativeType("const GLushort *") short[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3usvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -393,7 +395,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColor3uivEXT SecondaryColor3uivEXT} */
-    public static void glSecondaryColor3uivEXT(int[] v) {
+    public static void glSecondaryColor3uivEXT(@NativeType("const GLuint *") int[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3uivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -403,7 +405,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, short[] pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") short[] pointer) {
         long __functionAddress = GL.getICD().glSecondaryColorPointerEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -412,7 +414,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, int[] pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") int[] pointer) {
         long __functionAddress = GL.getICD().glSecondaryColorPointerEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -421,7 +423,7 @@ public class EXTSecondaryColor {
     }
 
     /** Array version of: {@link #glSecondaryColorPointerEXT SecondaryColorPointerEXT} */
-    public static void glSecondaryColorPointerEXT(int size, int type, int stride, float[] pointer) {
+    public static void glSecondaryColorPointerEXT(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") float[] pointer) {
         long __functionAddress = GL.getICD().glSecondaryColorPointerEXT;
         if (CHECKS) {
             check(__functionAddress);

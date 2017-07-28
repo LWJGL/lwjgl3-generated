@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
 @FunctionalInterface
+@NativeType("stbi_io_callbacks.eof")
 public interface STBIEOFCallbackI extends CallbackI.I {
 
     String SIGNATURE = "(p)i";
@@ -32,6 +33,6 @@ public interface STBIEOFCallbackI extends CallbackI.I {
      *
      * @return nonzero if we are at the end of file/data
      */
-    int invoke(long user);
+    int invoke(@NativeType("void *") long user);
 
 }

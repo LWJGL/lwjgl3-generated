@@ -7,6 +7,8 @@ package org.lwjgl.util.xxhash;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -63,7 +65,8 @@ public class XXHash {
      * @param input the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
      * @param seed  the seed that can be used to alter the result predictably
      */
-    public static int XXH32(ByteBuffer input, int seed) {
+    @NativeType("XXH32_hash_t")
+    public static int XXH32(@NativeType("const void *") ByteBuffer input, @NativeType("unsigned int") int seed) {
         return nXXH32(memAddress(input), input.remaining(), seed);
     }
 
@@ -77,6 +80,7 @@ public class XXHash {
      * 
      * <p><b>LWJGL note</b>: This function simply delegates to the system {@code malloc()} function.</p>
      */
+    @NativeType("XXH32_state_t *")
     public static XXH32State XXH32_createState() {
         long __result = nXXH32_createState();
         return XXH32State.create(__result);
@@ -92,7 +96,8 @@ public class XXHash {
      *
      * @param statePtr the state to free
      */
-    public static int XXH32_freeState(XXH32State statePtr) {
+    @NativeType("XXH_errorcode")
+    public static int XXH32_freeState(@NativeType("XXH32_state_t *") XXH32State statePtr) {
         return nXXH32_freeState(statePtr.address());
     }
 
@@ -100,7 +105,7 @@ public class XXHash {
 
     public static native void nXXH32_copyState(long dst_state, long src_state);
 
-    public static void XXH32_copyState(XXH32State dst_state, XXH32State src_state) {
+    public static void XXH32_copyState(@NativeType("XXH32_state_t *") XXH32State dst_state, @NativeType("const XXH32_state_t *") XXH32State src_state) {
         nXXH32_copyState(dst_state.address(), src_state.address());
     }
 
@@ -115,7 +120,8 @@ public class XXHash {
      * @param statePtr the {@code XXH32_state_t} to reset
      * @param seed     the seed that can be used to alter the hashing result predictably
      */
-    public static int XXH32_reset(XXH32State statePtr, int seed) {
+    @NativeType("XXH_errorcode")
+    public static int XXH32_reset(@NativeType("XXH32_state_t *") XXH32State statePtr, @NativeType("unsigned int") int seed) {
         return nXXH32_reset(statePtr.address(), seed);
     }
 
@@ -149,7 +155,8 @@ public class XXHash {
      * @param statePtr the {@code XXH32_state_t} to use
      * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
      */
-    public static int XXH32_update(XXH32State statePtr, ByteBuffer input) {
+    @NativeType("XXH_errorcode")
+    public static int XXH32_update(@NativeType("XXH32_state_t *") XXH32State statePtr, @NativeType("const void *") ByteBuffer input) {
         return nXXH32_update(statePtr.address(), memAddress(input), input.remaining());
     }
 
@@ -163,7 +170,8 @@ public class XXHash {
      *
      * @param statePtr the {@code XXH32_state_t} to use
      */
-    public static int XXH32_digest(XXH32State statePtr) {
+    @NativeType("XXH32_hash_t")
+    public static int XXH32_digest(@NativeType("const XXH32_state_t *") XXH32State statePtr) {
         return nXXH32_digest(statePtr.address());
     }
 
@@ -182,7 +190,7 @@ public class XXHash {
      * @param dst  the destination canonical representation
      * @param hash the source hash
      */
-    public static void XXH32_canonicalFromHash(XXH32Canonical dst, int hash) {
+    public static void XXH32_canonicalFromHash(@NativeType("XXH32_canonical_t *") XXH32Canonical dst, @NativeType("XXH32_hash_t") int hash) {
         nXXH32_canonicalFromHash(dst.address(), hash);
     }
 
@@ -196,7 +204,8 @@ public class XXHash {
      *
      * @param src the source canonical representation
      */
-    public static int XXH32_hashFromCanonical(XXH32Canonical src) {
+    @NativeType("XXH32_hash_t")
+    public static int XXH32_hashFromCanonical(@NativeType("const XXH32_canonical_t *") XXH32Canonical src) {
         return nXXH32_hashFromCanonical(src.address());
     }
 
@@ -217,7 +226,8 @@ public class XXHash {
      * @param input the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
      * @param seed  the seed that can be used to alter the result predictably
      */
-    public static long XXH64(ByteBuffer input, long seed) {
+    @NativeType("XXH32_hash_t")
+    public static long XXH64(@NativeType("const void *") ByteBuffer input, @NativeType("long long") long seed) {
         return nXXH64(memAddress(input), input.remaining(), seed);
     }
 
@@ -227,6 +237,7 @@ public class XXHash {
     public static native long nXXH64_createState();
 
     /** 64-bit version of {@link #XXH32_createState 32_createState}. */
+    @NativeType("XXH64_state_t *")
     public static XXH64State XXH64_createState() {
         long __result = nXXH64_createState();
         return XXH64State.create(__result);
@@ -242,7 +253,8 @@ public class XXHash {
      *
      * @param statePtr the state to free
      */
-    public static int XXH64_freeState(XXH64State statePtr) {
+    @NativeType("XXH_errorcode")
+    public static int XXH64_freeState(@NativeType("XXH64_state_t *") XXH64State statePtr) {
         return nXXH64_freeState(statePtr.address());
     }
 
@@ -250,7 +262,7 @@ public class XXHash {
 
     public static native void nXXH64_copyState(long dst_state, long src_state);
 
-    public static void XXH64_copyState(XXH64State dst_state, XXH64State src_state) {
+    public static void XXH64_copyState(@NativeType("XXH64_state_t *") XXH64State dst_state, @NativeType("const XXH64_state_t *") XXH64State src_state) {
         nXXH64_copyState(dst_state.address(), src_state.address());
     }
 
@@ -265,7 +277,8 @@ public class XXHash {
      * @param statePtr the {@code XXH64_state_t} to reset
      * @param seed     the seed that can be used to alter the hashing result predictably
      */
-    public static int XXH64_reset(XXH64State statePtr, long seed) {
+    @NativeType("XXH_errorcode")
+    public static int XXH64_reset(@NativeType("XXH64_state_t *") XXH64State statePtr, @NativeType("long long") long seed) {
         return nXXH64_reset(statePtr.address(), seed);
     }
 
@@ -284,7 +297,8 @@ public class XXHash {
      * @param statePtr the {@code XXH64_state_t} to use
      * @param input    the bytes to hash. The memory between {@code input} &amp; {@code input+length} must be valid (allocated and read-accessible).
      */
-    public static int XXH64_update(XXH64State statePtr, ByteBuffer input) {
+    @NativeType("XXH_errorcode")
+    public static int XXH64_update(@NativeType("XXH64_state_t *") XXH64State statePtr, @NativeType("const void *") ByteBuffer input) {
         return nXXH64_update(statePtr.address(), memAddress(input), input.remaining());
     }
 
@@ -298,7 +312,8 @@ public class XXHash {
      *
      * @param statePtr the {@code XXH64_state_t} to use
      */
-    public static long XXH64_digest(XXH64State statePtr) {
+    @NativeType("XXH32_hash_t")
+    public static long XXH64_digest(@NativeType("const XXH64_state_t *") XXH64State statePtr) {
         return nXXH64_digest(statePtr.address());
     }
 
@@ -313,7 +328,7 @@ public class XXHash {
      * @param dst  the destination canonical representation
      * @param hash the source hash
      */
-    public static void XXH64_canonicalFromHash(XXH64Canonical dst, long hash) {
+    public static void XXH64_canonicalFromHash(@NativeType("XXH64_canonical_t *") XXH64Canonical dst, @NativeType("XXH32_hash_t") long hash) {
         nXXH64_canonicalFromHash(dst.address(), hash);
     }
 
@@ -327,7 +342,8 @@ public class XXHash {
      *
      * @param src the source canonical representation
      */
-    public static long XXH64_hashFromCanonical(XXH64Canonical src) {
+    @NativeType("XXH32_hash_t")
+    public static long XXH64_hashFromCanonical(@NativeType("const XXH64_canonical_t *") XXH64Canonical src) {
         return nXXH64_hashFromCanonical(src.address());
     }
 

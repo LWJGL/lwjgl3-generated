@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("MDB_cmp_func *")
 public interface MDBCmpFuncI extends CallbackI.I {
 
     String SIGNATURE = "(pp)i";
@@ -34,6 +35,6 @@ public interface MDBCmpFuncI extends CallbackI.I {
      *
      * @return &lt; 0 if a &lt; b, 0 if a == b, &gt; 0 if a &gt; b
      */
-    int invoke(long a, long b);
+    int invoke(@NativeType("const MDB_val *") long a, @NativeType("const MDB_val *") long b);
 
 }

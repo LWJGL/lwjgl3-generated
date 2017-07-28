@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -59,10 +61,10 @@ public class AMDSparseTexture {
 
     // --- [ glTexStorageSparseAMD ] ---
 
-    public static native void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, int flags);
+    public static native void glTexStorageSparseAMD(@NativeType("GLenum") int target, @NativeType("GLenum") int internalFormat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLsizei") int layers, @NativeType("GLbitfield") int flags);
 
     // --- [ glTextureStorageSparseAMD ] ---
 
-    public static native void glTextureStorageSparseAMD(int texture, int target, int internalFormat, int width, int height, int depth, int layers, int flags);
+    public static native void glTextureStorageSparseAMD(@NativeType("GLuint") int texture, @NativeType("GLenum") int target, @NativeType("GLenum") int internalFormat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLsizei") int layers, @NativeType("GLbitfield") int flags);
 
 }

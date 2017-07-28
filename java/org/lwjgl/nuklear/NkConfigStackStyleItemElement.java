@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkStyleItem struct nk_style_item} old_value;
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_style_item_element")
 class NkConfigStackStyleItemElement extends Struct {
 
     /** The struct size in bytes. */
@@ -63,8 +64,10 @@ class NkConfigStackStyleItemElement extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the struct pointed to by the {@code pValues} field. */
+    @NativeType("struct nk_style_item *")
     public NkStyleItem pValues() { return npValues(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code old_value} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem old_value() { return nold_value(address()); }
 
     // -----------------------------------
@@ -134,8 +137,10 @@ class NkConfigStackStyleItemElement extends Struct {
         }
 
         /** Returns a {@link NkStyleItem} view of the struct pointed to by the {@code pValues} field. */
+        @NativeType("struct nk_style_item *")
         public NkStyleItem pValues() { return NkConfigStackStyleItemElement.npValues(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code old_value} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem old_value() { return NkConfigStackStyleItemElement.nold_value(address()); }
 
     }

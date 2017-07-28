@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -379,7 +381,7 @@ public class NVXDeviceGeneratedCommands {
      * @param commandBuffer        the primary command buffer in which the generation process takes space.
      * @param pProcessCommandsInfo a pointer to an instance of the {@link VkCmdProcessCommandsInfoNVX} structure containing parameters affecting the processing of commands.
      */
-    public static void vkCmdProcessCommandsNVX(VkCommandBuffer commandBuffer, VkCmdProcessCommandsInfoNVX pProcessCommandsInfo) {
+    public static void vkCmdProcessCommandsNVX(VkCommandBuffer commandBuffer, @NativeType("const VkCmdProcessCommandsInfoNVX *") VkCmdProcessCommandsInfoNVX pProcessCommandsInfo) {
         nvkCmdProcessCommandsNVX(commandBuffer, pProcessCommandsInfo.address());
     }
 
@@ -445,7 +447,7 @@ public class NVXDeviceGeneratedCommands {
      * @param commandBuffer     the secondary command buffer in which the space for device-generated commands is reserved.
      * @param pReserveSpaceInfo 
      */
-    public static void vkCmdReserveSpaceForCommandsNVX(VkCommandBuffer commandBuffer, VkCmdReserveSpaceForCommandsInfoNVX pReserveSpaceInfo) {
+    public static void vkCmdReserveSpaceForCommandsNVX(VkCommandBuffer commandBuffer, @NativeType("const VkCmdReserveSpaceForCommandsInfoNVX *") VkCmdReserveSpaceForCommandsInfoNVX pReserveSpaceInfo) {
         nvkCmdReserveSpaceForCommandsNVX(commandBuffer, pReserveSpaceInfo.address());
     }
 
@@ -508,7 +510,8 @@ public class NVXDeviceGeneratedCommands {
      * @param pAllocator              controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pIndirectCommandsLayout points to a {@code VkObjectTableNVX} handle in which the resulting object table is returned.
      */
-    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pIndirectCommandsLayout) {
+    @NativeType("VkResult")
+    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, @NativeType("const VkIndirectCommandsLayoutCreateInfoNVX *") VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkIndirectCommandsLayoutNVX *") LongBuffer pIndirectCommandsLayout) {
         if (CHECKS) {
             check(pIndirectCommandsLayout, 1);
         }
@@ -565,7 +568,7 @@ public class NVXDeviceGeneratedCommands {
      * @param indirectCommandsLayout the table to destroy.
      * @param pAllocator             controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyIndirectCommandsLayoutNVX(VkDevice device, long indirectCommandsLayout, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyIndirectCommandsLayoutNVX(VkDevice device, @NativeType("VkIndirectCommandsLayoutNVX") long indirectCommandsLayout, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyIndirectCommandsLayoutNVX(device, indirectCommandsLayout, memAddressSafe(pAllocator));
     }
 
@@ -628,7 +631,8 @@ public class NVXDeviceGeneratedCommands {
      * @param pAllocator   controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pObjectTable points to a {@code VkObjectTableNVX} handle in which the resulting object table is returned.
      */
-    public static int vkCreateObjectTableNVX(VkDevice device, VkObjectTableCreateInfoNVX pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pObjectTable) {
+    @NativeType("VkResult")
+    public static int vkCreateObjectTableNVX(VkDevice device, @NativeType("const VkObjectTableCreateInfoNVX *") VkObjectTableCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkObjectTableNVX *") LongBuffer pObjectTable) {
         if (CHECKS) {
             check(pObjectTable, 1);
         }
@@ -691,7 +695,7 @@ public class NVXDeviceGeneratedCommands {
      * @param objectTable the table to destroy.
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyObjectTableNVX(VkDevice device, long objectTable, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyObjectTableNVX(VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyObjectTableNVX(device, objectTable, memAddressSafe(pAllocator));
     }
 
@@ -773,7 +777,8 @@ public class NVXDeviceGeneratedCommands {
      * @param ppObjectTableEntries provides an array for detailed binding informations, each array element is a pointer to a struct of type {@link VkObjectTablePipelineEntryNVX}, {@link VkObjectTableDescriptorSetEntryNVX}, {@link VkObjectTableVertexBufferEntryNVX}, {@link VkObjectTableIndexBufferEntryNVX} or {@link VkObjectTablePushConstantEntryNVX} (see below for details).
      * @param pObjectIndices       are the indices at which each resource is registered.
      */
-    public static int vkRegisterObjectsNVX(VkDevice device, long objectTable, PointerBuffer ppObjectTableEntries, IntBuffer pObjectIndices) {
+    @NativeType("VkResult")
+    public static int vkRegisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectTableEntryNVX * const *") PointerBuffer ppObjectTableEntries, @NativeType("const uint32_t *") IntBuffer pObjectIndices) {
         if (CHECKS) {
             check(pObjectIndices, ppObjectTableEntries.remaining());
         }
@@ -854,7 +859,8 @@ public class NVXDeviceGeneratedCommands {
      * @param pObjectEntryTypes 
      * @param pObjectIndices    provides the array of object indices to be removed.
      */
-    public static int vkUnregisterObjectsNVX(VkDevice device, long objectTable, IntBuffer pObjectEntryTypes, IntBuffer pObjectIndices) {
+    @NativeType("VkResult")
+    public static int vkUnregisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectEntryTypeNVX *") IntBuffer pObjectEntryTypes, @NativeType("const uint32_t *") IntBuffer pObjectIndices) {
         if (CHECKS) {
             check(pObjectIndices, pObjectEntryTypes.remaining());
         }
@@ -901,12 +907,13 @@ public class NVXDeviceGeneratedCommands {
      * @param pFeatures      points to an instance of the {@link VkDeviceGeneratedCommandsFeaturesNVX} structure, that will be filled with returned information.
      * @param pLimits        points to an instance of the {@link VkDeviceGeneratedCommandsLimitsNVX} structure, that will be filled with returned information.
      */
-    public static void vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX(VkPhysicalDevice physicalDevice, VkDeviceGeneratedCommandsFeaturesNVX pFeatures, VkDeviceGeneratedCommandsLimitsNVX pLimits) {
+    public static void vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX(VkPhysicalDevice physicalDevice, @NativeType("VkDeviceGeneratedCommandsFeaturesNVX *") VkDeviceGeneratedCommandsFeaturesNVX pFeatures, @NativeType("VkDeviceGeneratedCommandsLimitsNVX *") VkDeviceGeneratedCommandsLimitsNVX pLimits) {
         nvkGetPhysicalDeviceGeneratedCommandsPropertiesNVX(physicalDevice, pFeatures.address(), pLimits.address());
     }
 
     /** Array version of: {@link #vkCreateIndirectCommandsLayoutNVX CreateIndirectCommandsLayoutNVX} */
-    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, VkAllocationCallbacks pAllocator, long[] pIndirectCommandsLayout) {
+    @NativeType("VkResult")
+    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, @NativeType("const VkIndirectCommandsLayoutCreateInfoNVX *") VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkIndirectCommandsLayoutNVX *") long[] pIndirectCommandsLayout) {
         long __functionAddress = device.getCapabilities().vkCreateIndirectCommandsLayoutNVX;
         if (CHECKS) {
             check(__functionAddress);
@@ -918,7 +925,8 @@ public class NVXDeviceGeneratedCommands {
     }
 
     /** Array version of: {@link #vkCreateObjectTableNVX CreateObjectTableNVX} */
-    public static int vkCreateObjectTableNVX(VkDevice device, VkObjectTableCreateInfoNVX pCreateInfo, VkAllocationCallbacks pAllocator, long[] pObjectTable) {
+    @NativeType("VkResult")
+    public static int vkCreateObjectTableNVX(VkDevice device, @NativeType("const VkObjectTableCreateInfoNVX *") VkObjectTableCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkObjectTableNVX *") long[] pObjectTable) {
         long __functionAddress = device.getCapabilities().vkCreateObjectTableNVX;
         if (CHECKS) {
             check(__functionAddress);
@@ -930,7 +938,8 @@ public class NVXDeviceGeneratedCommands {
     }
 
     /** Array version of: {@link #vkRegisterObjectsNVX RegisterObjectsNVX} */
-    public static int vkRegisterObjectsNVX(VkDevice device, long objectTable, PointerBuffer ppObjectTableEntries, int[] pObjectIndices) {
+    @NativeType("VkResult")
+    public static int vkRegisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectTableEntryNVX * const *") PointerBuffer ppObjectTableEntries, @NativeType("const uint32_t *") int[] pObjectIndices) {
         long __functionAddress = device.getCapabilities().vkRegisterObjectsNVX;
         if (CHECKS) {
             check(__functionAddress);
@@ -940,7 +949,8 @@ public class NVXDeviceGeneratedCommands {
     }
 
     /** Array version of: {@link #vkUnregisterObjectsNVX UnregisterObjectsNVX} */
-    public static int vkUnregisterObjectsNVX(VkDevice device, long objectTable, int[] pObjectEntryTypes, int[] pObjectIndices) {
+    @NativeType("VkResult")
+    public static int vkUnregisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectEntryTypeNVX *") int[] pObjectEntryTypes, @NativeType("const uint32_t *") int[] pObjectIndices) {
         long __functionAddress = device.getCapabilities().vkUnregisterObjectsNVX;
         if (CHECKS) {
             check(__functionAddress);

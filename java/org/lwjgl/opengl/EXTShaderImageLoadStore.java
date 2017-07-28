@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -119,10 +121,10 @@ public class EXTShaderImageLoadStore {
 
     // --- [ glBindImageTextureEXT ] ---
 
-    public static native void glBindImageTextureEXT(int index, int texture, int level, boolean layered, int layer, int access, int format);
+    public static native void glBindImageTextureEXT(@NativeType("GLuint") int index, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLboolean") boolean layered, @NativeType("GLint") int layer, @NativeType("GLenum") int access, @NativeType("GLint") int format);
 
     // --- [ glMemoryBarrierEXT ] ---
 
-    public static native void glMemoryBarrierEXT(int barriers);
+    public static native void glMemoryBarrierEXT(@NativeType("GLbitfield") int barriers);
 
 }

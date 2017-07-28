@@ -74,14 +74,16 @@ public class POINTL extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("LONG")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("LONG")
     public int y() { return ny(address()); }
 
     /** Sets the specified value to the {@code x} field. */
-    public POINTL x(int value) { nx(address(), value); return this; }
+    public POINTL x(@NativeType("LONG") int value) { nx(address(), value); return this; }
     /** Sets the specified value to the {@code y} field. */
-    public POINTL y(int value) { ny(address(), value); return this; }
+    public POINTL y(@NativeType("LONG") int value) { ny(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public POINTL set(
@@ -288,14 +290,16 @@ public class POINTL extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("LONG")
         public int x() { return POINTL.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("LONG")
         public int y() { return POINTL.ny(address()); }
 
         /** Sets the specified value to the {@code x} field. */
-        public POINTL.Buffer x(int value) { POINTL.nx(address(), value); return this; }
+        public POINTL.Buffer x(@NativeType("LONG") int value) { POINTL.nx(address(), value); return this; }
         /** Sets the specified value to the {@code y} field. */
-        public POINTL.Buffer y(int value) { POINTL.ny(address(), value); return this; }
+        public POINTL.Buffer y(@NativeType("LONG") int value) { POINTL.ny(address(), value); return this; }
 
     }
 

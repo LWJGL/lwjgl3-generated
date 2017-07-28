@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float v[3];
  * }</pre></code>
  */
+@NativeType("struct HmdVector3_t")
 public class HmdVector3 extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -62,12 +63,13 @@ public class HmdVector3 extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code v} field. */
+    @NativeType("float[3]")
     public FloatBuffer v() { return nv(address()); }
     /** Returns the value at the specified index of the {@code v} field. */
     public float v(int index) { return nv(address(), index); }
 
     /** Copies the specified {@link FloatBuffer} to the {@code v} field. */
-    public HmdVector3 v(FloatBuffer value) { nv(address(), value); return this; }
+    public HmdVector3 v(@NativeType("float[3]") FloatBuffer value) { nv(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code v} field. */
     public HmdVector3 v(int index, float value) { nv(address(), index, value); return this; }
 
@@ -274,12 +276,13 @@ public class HmdVector3 extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code v} field. */
+        @NativeType("float[3]")
         public FloatBuffer v() { return HmdVector3.nv(address()); }
         /** Returns the value at the specified index of the {@code v} field. */
         public float v(int index) { return HmdVector3.nv(address(), index); }
 
         /** Copies the specified {@link FloatBuffer} to the {@code v} field. */
-        public HmdVector3.Buffer v(FloatBuffer value) { HmdVector3.nv(address(), value); return this; }
+        public HmdVector3.Buffer v(@NativeType("float[3]") FloatBuffer value) { HmdVector3.nv(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code v} field. */
         public HmdVector3.Buffer v(int index, float value) { HmdVector3.nv(address(), index, value); return this; }
 

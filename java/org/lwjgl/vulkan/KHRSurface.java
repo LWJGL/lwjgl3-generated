@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -321,7 +323,7 @@ public class KHRSurface {
      * @param surface    the surface to destroy.
      * @param pAllocator the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
      */
-    public static void vkDestroySurfaceKHR(VkInstance instance, long surface, VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySurfaceKHR(VkInstance instance, @NativeType("VkSurfaceKHR") long surface, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroySurfaceKHR(instance, surface, memAddressSafe(pAllocator));
     }
 
@@ -384,7 +386,8 @@ public class KHRSurface {
      * @param surface          the surface.
      * @param pSupported       a pointer to a {@code VkBool32}, which is set to {@link VK10#VK_TRUE TRUE} to indicate support, and {@link VK10#VK_FALSE FALSE} otherwise.
      */
-    public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, IntBuffer pSupported) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t") int queueFamilyIndex, @NativeType("VkSurfaceKHR") long surface, @NativeType("VkBool32 *") IntBuffer pSupported) {
         if (CHECKS) {
             check(pSupported, 1);
         }
@@ -446,7 +449,8 @@ public class KHRSurface {
      * @param surface              the surface that will be associated with the swapchain.
      * @param pSurfaceCapabilities a pointer to an instance of the {@link VkSurfaceCapabilitiesKHR} structure in which the capabilities are returned.
      */
-    public static int vkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, long surface, VkSurfaceCapabilitiesKHR pSurfaceCapabilities) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("VkSurfaceCapabilitiesKHR *") VkSurfaceCapabilitiesKHR pSurfaceCapabilities) {
         return nvkGetPhysicalDeviceSurfaceCapabilitiesKHR(physicalDevice, surface, pSurfaceCapabilities.address());
     }
 
@@ -517,7 +521,8 @@ public class KHRSurface {
      * @param pSurfaceFormatCount a pointer to an integer related to the number of format pairs available or queried, as described below.
      * @param pSurfaceFormats     either {@code NULL} or a pointer to an array of {@link VkSurfaceFormatKHR} structures.
      */
-    public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, IntBuffer pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("uint32_t *") IntBuffer pSurfaceFormatCount, @NativeType("VkSurfaceFormatKHR *") VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
         if (CHECKS) {
             check(pSurfaceFormatCount, 1);
             checkSafe(pSurfaceFormats, pSurfaceFormatCount.get(pSurfaceFormatCount.position()));
@@ -588,7 +593,8 @@ public class KHRSurface {
      * @param pPresentModeCount a pointer to an integer related to the number of presentation modes available or queried, as described below.
      * @param pPresentModes     either {@code NULL} or a pointer to an array of {@code VkPresentModeKHR} values, indicating the supported presentation modes.
      */
-    public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, IntBuffer pPresentModeCount, IntBuffer pPresentModes) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("uint32_t *") IntBuffer pPresentModeCount, @NativeType("VkPresentModeKHR *") IntBuffer pPresentModes) {
         if (CHECKS) {
             check(pPresentModeCount, 1);
             checkSafe(pPresentModes, pPresentModeCount.get(pPresentModeCount.position()));
@@ -597,7 +603,8 @@ public class KHRSurface {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR} */
-    public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long surface, int[] pSupported) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t") int queueFamilyIndex, @NativeType("VkSurfaceKHR") long surface, @NativeType("VkBool32 *") int[] pSupported) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceSupportKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -607,7 +614,8 @@ public class KHRSurface {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} */
-    public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, long surface, int[] pSurfaceFormatCount, VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("uint32_t *") int[] pSurfaceFormatCount, @NativeType("VkSurfaceFormatKHR *") VkSurfaceFormatKHR.Buffer pSurfaceFormats) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceFormatsKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -618,7 +626,8 @@ public class KHRSurface {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} */
-    public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, long surface, int[] pPresentModeCount, int[] pPresentModes) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("uint32_t *") int[] pPresentModeCount, @NativeType("VkPresentModeKHR *") int[] pPresentModes) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfacePresentModesKHR;
         if (CHECKS) {
             check(__functionAddress);

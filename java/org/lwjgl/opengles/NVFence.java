@@ -59,11 +59,11 @@ public class NVFence {
 
     public static native void nglDeleteFencesNV(int n, long fences);
 
-    public static void glDeleteFencesNV(IntBuffer fences) {
+    public static void glDeleteFencesNV(@NativeType("const GLuint *") IntBuffer fences) {
         nglDeleteFencesNV(fences.remaining(), memAddress(fences));
     }
 
-    public static void glDeleteFencesNV(int fence) {
+    public static void glDeleteFencesNV(@NativeType("const GLuint *") int fence) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer fences = stack.ints(fence);
@@ -77,10 +77,11 @@ public class NVFence {
 
     public static native void nglGenFencesNV(int n, long fences);
 
-    public static void glGenFencesNV(IntBuffer fences) {
+    public static void glGenFencesNV(@NativeType("GLuint *") IntBuffer fences) {
         nglGenFencesNV(fences.remaining(), memAddress(fences));
     }
 
+    @NativeType("void")
     public static int glGenFencesNV() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -94,24 +95,27 @@ public class NVFence {
 
     // --- [ glIsFenceNV ] ---
 
-    public static native boolean glIsFenceNV(int fence);
+    @NativeType("GLboolean")
+    public static native boolean glIsFenceNV(@NativeType("GLuint") int fence);
 
     // --- [ glTestFenceNV ] ---
 
-    public static native boolean glTestFenceNV(int fence);
+    @NativeType("GLboolean")
+    public static native boolean glTestFenceNV(@NativeType("GLuint") int fence);
 
     // --- [ glGetFenceivNV ] ---
 
     public static native void nglGetFenceivNV(int fence, int pname, long params);
 
-    public static void glGetFenceivNV(int fence, int pname, IntBuffer params) {
+    public static void glGetFenceivNV(@NativeType("GLuint") int fence, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetFenceivNV(fence, pname, memAddress(params));
     }
 
-    public static int glGetFenceiNV(int fence, int pname) {
+    @NativeType("void")
+    public static int glGetFenceiNV(@NativeType("GLuint") int fence, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -124,14 +128,14 @@ public class NVFence {
 
     // --- [ glFinishFenceNV ] ---
 
-    public static native void glFinishFenceNV(int fence);
+    public static native void glFinishFenceNV(@NativeType("GLuint") int fence);
 
     // --- [ glSetFenceNV ] ---
 
-    public static native void glSetFenceNV(int fence, int condition);
+    public static native void glSetFenceNV(@NativeType("GLuint") int fence, @NativeType("GLenum") int condition);
 
     /** Array version of: {@link #glDeleteFencesNV DeleteFencesNV} */
-    public static void glDeleteFencesNV(int[] fences) {
+    public static void glDeleteFencesNV(@NativeType("const GLuint *") int[] fences) {
         long __functionAddress = GLES.getICD().glDeleteFencesNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -140,7 +144,7 @@ public class NVFence {
     }
 
     /** Array version of: {@link #glGenFencesNV GenFencesNV} */
-    public static void glGenFencesNV(int[] fences) {
+    public static void glGenFencesNV(@NativeType("GLuint *") int[] fences) {
         long __functionAddress = GLES.getICD().glGenFencesNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -149,7 +153,7 @@ public class NVFence {
     }
 
     /** Array version of: {@link #glGetFenceivNV GetFenceivNV} */
-    public static void glGetFenceivNV(int fence, int pname, int[] params) {
+    public static void glGetFenceivNV(@NativeType("GLuint") int fence, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetFenceivNV;
         if (CHECKS) {
             check(__functionAddress);

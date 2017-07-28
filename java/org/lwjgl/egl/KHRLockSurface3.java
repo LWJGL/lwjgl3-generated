@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -69,7 +71,8 @@ public class KHRLockSurface3 {
         return callPPPI(__functionAddress, dpy, surface, attrib_list);
     }
 
-    public static boolean eglLockSurfaceKHR(long dpy, long surface, IntBuffer attrib_list) {
+    @NativeType("EGLBoolean")
+    public static boolean eglLockSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -78,7 +81,8 @@ public class KHRLockSurface3 {
 
     // --- [ eglUnlockSurfaceKHR ] ---
 
-    public static boolean eglUnlockSurfaceKHR(long dpy, long surface) {
+    @NativeType("EGLBoolean")
+    public static boolean eglUnlockSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface) {
         long __functionAddress = EGL.getCapabilities().eglUnlockSurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -100,7 +104,8 @@ public class KHRLockSurface3 {
         return callPPPI(__functionAddress, dpy, surface, attribute, value);
     }
 
-    public static boolean eglQuerySurface64KHR(long dpy, long surface, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQuerySurface64KHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLint") int attribute, @NativeType("EGLAttribKHR *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -108,7 +113,8 @@ public class KHRLockSurface3 {
     }
 
     /** Array version of: {@link #eglLockSurfaceKHR LockSurfaceKHR} */
-    public static boolean eglLockSurfaceKHR(long dpy, long surface, int[] attrib_list) {
+    @NativeType("EGLBoolean")
+    public static boolean eglLockSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglLockSurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);

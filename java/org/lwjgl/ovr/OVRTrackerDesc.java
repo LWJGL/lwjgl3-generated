@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float FrustumFarZInMeters;
  * }</pre></code>
  */
+@NativeType("struct ovrTrackerDesc")
 public class OVRTrackerDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

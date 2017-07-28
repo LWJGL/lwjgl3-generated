@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRColorf ovrColorf} Color;
  * }</pre></code>
  */
+@NativeType("struct ovrBoundaryLookAndFeel")
 public class OVRBoundaryLookAndFeel extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,10 +70,11 @@ public class OVRBoundaryLookAndFeel extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRColorf} view of the {@code Color} field. */
+    @NativeType("ovrColorf")
     public OVRColorf Color() { return nColor(address()); }
 
     /** Copies the specified {@link OVRColorf} to the {@code Color} field. */
-    public OVRBoundaryLookAndFeel Color(OVRColorf value) { nColor(address(), value); return this; }
+    public OVRBoundaryLookAndFeel Color(@NativeType("ovrColorf") OVRColorf value) { nColor(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -264,10 +266,11 @@ public class OVRBoundaryLookAndFeel extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRColorf} view of the {@code Color} field. */
+        @NativeType("ovrColorf")
         public OVRColorf Color() { return OVRBoundaryLookAndFeel.nColor(address()); }
 
         /** Copies the specified {@link OVRColorf} to the {@code Color} field. */
-        public OVRBoundaryLookAndFeel.Buffer Color(OVRColorf value) { OVRBoundaryLookAndFeel.nColor(address(), value); return this; }
+        public OVRBoundaryLookAndFeel.Buffer Color(@NativeType("ovrColorf") OVRColorf value) { OVRBoundaryLookAndFeel.nColor(address(), value); return this; }
 
     }
 

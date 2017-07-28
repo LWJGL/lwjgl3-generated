@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -84,7 +86,8 @@ public class EGL15 {
     }
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateSync.xhtml">Reference Page</a> */
-    public static long eglCreateSync(long dpy, int type, PointerBuffer attrib_list) {
+    @NativeType("EGLSync")
+    public static long eglCreateSync(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }
@@ -94,7 +97,8 @@ public class EGL15 {
     // --- [ eglDestroySync ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglDestroySync.xhtml">Reference Page</a> */
-    public static boolean eglDestroySync(long dpy, long sync) {
+    @NativeType("EGLBoolean")
+    public static boolean eglDestroySync(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSync") long sync) {
         long __functionAddress = EGL.getCapabilities().eglDestroySync;
         if (CHECKS) {
             check(__functionAddress);
@@ -107,7 +111,8 @@ public class EGL15 {
     // --- [ eglClientWaitSync ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglClientWaitSync.xhtml">Reference Page</a> */
-    public static int eglClientWaitSync(long dpy, long sync, int flags, long timeout) {
+    @NativeType("EGLint")
+    public static int eglClientWaitSync(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSync") long sync, @NativeType("EGLint") int flags, @NativeType("EGLTime") long timeout) {
         long __functionAddress = EGL.getCapabilities().eglClientWaitSync;
         if (CHECKS) {
             check(__functionAddress);
@@ -130,7 +135,8 @@ public class EGL15 {
     }
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetSyncAttrib.xhtml">Reference Page</a> */
-    public static boolean eglGetSyncAttrib(long dpy, long sync, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglGetSyncAttrib(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSync") long sync, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -151,7 +157,8 @@ public class EGL15 {
     }
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateImage.xhtml">Reference Page</a> */
-    public static long eglCreateImage(long dpy, long ctx, int target, long buffer, PointerBuffer attrib_list) {
+    @NativeType("EGLImage")
+    public static long eglCreateImage(@NativeType("EGLDisplay") long dpy, @NativeType("EGLContext") long ctx, @NativeType("EGLenum") int target, @NativeType("EGLClientBuffer") long buffer, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -161,7 +168,8 @@ public class EGL15 {
     // --- [ eglDestroyImage ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglDestroyImage.xhtml">Reference Page</a> */
-    public static boolean eglDestroyImage(long dpy, long image) {
+    @NativeType("EGLBoolean")
+    public static boolean eglDestroyImage(@NativeType("EGLDisplay") long dpy, @NativeType("EGLImage") long image) {
         long __functionAddress = EGL.getCapabilities().eglDestroyImage;
         if (CHECKS) {
             check(__functionAddress);
@@ -183,7 +191,8 @@ public class EGL15 {
     }
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetPlatformDisplay.xhtml">Reference Page</a> */
-    public static long eglGetPlatformDisplay(int platform, long native_display, PointerBuffer attrib_list) {
+    @NativeType("EGLDisplay")
+    public static long eglGetPlatformDisplay(@NativeType("EGLenum") int platform, @NativeType("void *") long native_display, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -204,7 +213,8 @@ public class EGL15 {
     }
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePlatformWindowSurface.xhtml">Reference Page</a> */
-    public static long eglCreatePlatformWindowSurface(long dpy, long config, long native_window, PointerBuffer attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePlatformWindowSurface(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_window, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -225,7 +235,8 @@ public class EGL15 {
     }
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePlatformPixmapSurface.xhtml">Reference Page</a> */
-    public static long eglCreatePlatformPixmapSurface(long dpy, long config, long native_pixmap, PointerBuffer attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePlatformPixmapSurface(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_pixmap, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -235,7 +246,8 @@ public class EGL15 {
     // --- [ eglWaitSync ] ---
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglWaitSync.xhtml">Reference Page</a> */
-    public static boolean eglWaitSync(long dpy, long sync, int flags) {
+    @NativeType("EGLBoolean")
+    public static boolean eglWaitSync(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSync") long sync, @NativeType("EGLint") int flags) {
         long __functionAddress = EGL.getCapabilities().eglWaitSync;
         if (CHECKS) {
             check(__functionAddress);

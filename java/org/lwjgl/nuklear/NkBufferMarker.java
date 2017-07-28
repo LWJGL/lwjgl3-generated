@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     nk_size offset;
  * }</pre></code>
  */
+@NativeType("struct nk_buffer_marker")
 public class NkBufferMarker extends Struct {
 
     /** The struct size in bytes. */
@@ -65,6 +66,7 @@ public class NkBufferMarker extends Struct {
     /** Returns the value of the {@code active} field. */
     public int active() { return nactive(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("nk_size")
     public long offset() { return noffset(address()); }
 
     // -----------------------------------
@@ -136,6 +138,7 @@ public class NkBufferMarker extends Struct {
         /** Returns the value of the {@code active} field. */
         public int active() { return NkBufferMarker.nactive(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("nk_size")
         public long offset() { return NkBufferMarker.noffset(address()); }
 
     }

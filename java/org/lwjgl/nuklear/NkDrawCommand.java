@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkHandle nk_handle} userdata;
  * }</pre></code>
  */
+@NativeType("struct nk_draw_command")
 public class NkDrawCommand extends Struct {
 
     /** The struct size in bytes. */
@@ -71,12 +72,16 @@ public class NkDrawCommand extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code elem_count} field. */
+    @NativeType("unsigned int")
     public int elem_count() { return nelem_count(address()); }
     /** Returns a {@link NkRect} view of the {@code clip_rect} field. */
+    @NativeType("struct nk_rect")
     public NkRect clip_rect() { return nclip_rect(address()); }
     /** Returns a {@link NkHandle} view of the {@code texture} field. */
+    @NativeType("nk_handle")
     public NkHandle texture() { return ntexture(address()); }
     /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+    @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
 
     // -----------------------------------
@@ -150,12 +155,16 @@ public class NkDrawCommand extends Struct {
         }
 
         /** Returns the value of the {@code elem_count} field. */
+        @NativeType("unsigned int")
         public int elem_count() { return NkDrawCommand.nelem_count(address()); }
         /** Returns a {@link NkRect} view of the {@code clip_rect} field. */
+        @NativeType("struct nk_rect")
         public NkRect clip_rect() { return NkDrawCommand.nclip_rect(address()); }
         /** Returns a {@link NkHandle} view of the {@code texture} field. */
+        @NativeType("nk_handle")
         public NkHandle texture() { return NkDrawCommand.ntexture(address()); }
         /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+        @NativeType("nk_handle")
         public NkHandle userdata() { return NkDrawCommand.nuserdata(address()); }
 
     }

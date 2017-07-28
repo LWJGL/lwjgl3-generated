@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -78,13 +80,13 @@ public class EXTPointParameters {
 
     // --- [ glPointParameterfEXT ] ---
 
-    public static native void glPointParameterfEXT(int pname, float param);
+    public static native void glPointParameterfEXT(@NativeType("GLenum") int pname, @NativeType("GLfloat") float param);
 
     // --- [ glPointParameterfvEXT ] ---
 
     public static native void nglPointParameterfvEXT(int pname, long params);
 
-    public static void glPointParameterfvEXT(int pname, FloatBuffer params) {
+    public static void glPointParameterfvEXT(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -92,7 +94,7 @@ public class EXTPointParameters {
     }
 
     /** Array version of: {@link #glPointParameterfvEXT PointParameterfvEXT} */
-    public static void glPointParameterfvEXT(int pname, float[] params) {
+    public static void glPointParameterfvEXT(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glPointParameterfvEXT;
         if (CHECKS) {
             check(__functionAddress);

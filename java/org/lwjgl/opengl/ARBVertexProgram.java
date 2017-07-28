@@ -194,7 +194,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param x     the {@code x} attribute component
      */
-    public static native void glVertexAttrib1sARB(int index, short x);
+    public static native void glVertexAttrib1sARB(@NativeType("GLuint") int index, @NativeType("GLshort") short x);
 
     // --- [ glVertexAttrib1fARB ] ---
 
@@ -204,7 +204,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param x     the {@code x} attribute component
      */
-    public static native void glVertexAttrib1fARB(int index, float x);
+    public static native void glVertexAttrib1fARB(@NativeType("GLuint") int index, @NativeType("GLfloat") float x);
 
     // --- [ glVertexAttrib1dARB ] ---
 
@@ -214,7 +214,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param x     the {@code x} attribute component
      */
-    public static native void glVertexAttrib1dARB(int index, double x);
+    public static native void glVertexAttrib1dARB(@NativeType("GLuint") int index, @NativeType("GLdouble") double x);
 
     // --- [ glVertexAttrib2sARB ] ---
 
@@ -225,7 +225,7 @@ public class ARBVertexProgram {
      * @param x     the {@code x} attribute component
      * @param y     the {@code y} attribute component
      */
-    public static native void glVertexAttrib2sARB(int index, short x, short y);
+    public static native void glVertexAttrib2sARB(@NativeType("GLuint") int index, @NativeType("GLshort") short x, @NativeType("GLshort") short y);
 
     // --- [ glVertexAttrib2fARB ] ---
 
@@ -236,7 +236,7 @@ public class ARBVertexProgram {
      * @param x     the {@code x} attribute component
      * @param y     the {@code y} attribute component
      */
-    public static native void glVertexAttrib2fARB(int index, float x, float y);
+    public static native void glVertexAttrib2fARB(@NativeType("GLuint") int index, @NativeType("GLfloat") float x, @NativeType("GLfloat") float y);
 
     // --- [ glVertexAttrib2dARB ] ---
 
@@ -247,7 +247,7 @@ public class ARBVertexProgram {
      * @param x     the {@code x} attribute component
      * @param y     the {@code y} attribute component
      */
-    public static native void glVertexAttrib2dARB(int index, double x, double y);
+    public static native void glVertexAttrib2dARB(@NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y);
 
     // --- [ glVertexAttrib3sARB ] ---
 
@@ -259,7 +259,7 @@ public class ARBVertexProgram {
      * @param y     the {@code y} attribute component
      * @param z     the {@code z} attribute component
      */
-    public static native void glVertexAttrib3sARB(int index, short x, short y, short z);
+    public static native void glVertexAttrib3sARB(@NativeType("GLuint") int index, @NativeType("GLshort") short x, @NativeType("GLshort") short y, @NativeType("GLshort") short z);
 
     // --- [ glVertexAttrib3fARB ] ---
 
@@ -271,7 +271,7 @@ public class ARBVertexProgram {
      * @param y     the {@code y} attribute component
      * @param z     the {@code z} attribute component
      */
-    public static native void glVertexAttrib3fARB(int index, float x, float y, float z);
+    public static native void glVertexAttrib3fARB(@NativeType("GLuint") int index, @NativeType("GLfloat") float x, @NativeType("GLfloat") float y, @NativeType("GLfloat") float z);
 
     // --- [ glVertexAttrib3dARB ] ---
 
@@ -283,7 +283,7 @@ public class ARBVertexProgram {
      * @param y     the {@code y} attribute component
      * @param z     the {@code z} attribute component
      */
-    public static native void glVertexAttrib3dARB(int index, double x, double y, double z);
+    public static native void glVertexAttrib3dARB(@NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y, @NativeType("GLdouble") double z);
 
     // --- [ glVertexAttrib4sARB ] ---
 
@@ -296,7 +296,7 @@ public class ARBVertexProgram {
      * @param z     the {@code z} attribute component
      * @param w     the {@code w} attribute component
      */
-    public static native void glVertexAttrib4sARB(int index, short x, short y, short z, short w);
+    public static native void glVertexAttrib4sARB(@NativeType("GLuint") int index, @NativeType("GLshort") short x, @NativeType("GLshort") short y, @NativeType("GLshort") short z, @NativeType("GLshort") short w);
 
     // --- [ glVertexAttrib4fARB ] ---
 
@@ -309,7 +309,7 @@ public class ARBVertexProgram {
      * @param z     the {@code z} attribute component
      * @param w     the {@code w} attribute component
      */
-    public static native void glVertexAttrib4fARB(int index, float x, float y, float z, float w);
+    public static native void glVertexAttrib4fARB(@NativeType("GLuint") int index, @NativeType("GLfloat") float x, @NativeType("GLfloat") float y, @NativeType("GLfloat") float z, @NativeType("GLfloat") float w);
 
     // --- [ glVertexAttrib4dARB ] ---
 
@@ -322,7 +322,7 @@ public class ARBVertexProgram {
      * @param z     the {@code z} attribute component
      * @param w     the {@code w} attribute component
      */
-    public static native void glVertexAttrib4dARB(int index, double x, double y, double z, double w);
+    public static native void glVertexAttrib4dARB(@NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y, @NativeType("GLdouble") double z, @NativeType("GLdouble") double w);
 
     // --- [ glVertexAttrib4NubARB ] ---
 
@@ -335,7 +335,7 @@ public class ARBVertexProgram {
      * @param z     the {@code z} attribute component
      * @param w     the {@code w} attribute component
      */
-    public static native void glVertexAttrib4NubARB(int index, byte x, byte y, byte z, byte w);
+    public static native void glVertexAttrib4NubARB(@NativeType("GLuint") int index, @NativeType("GLubyte") byte x, @NativeType("GLubyte") byte y, @NativeType("GLubyte") byte z, @NativeType("GLubyte") byte w);
 
     // --- [ glVertexAttrib1svARB ] ---
 
@@ -348,7 +348,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib1svARB(int index, ShortBuffer v) {
+    public static void glVertexAttrib1svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -366,7 +366,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib1fvARB(int index, FloatBuffer v) {
+    public static void glVertexAttrib1fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -384,7 +384,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib1dvARB(int index, DoubleBuffer v) {
+    public static void glVertexAttrib1dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -402,7 +402,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib2svARB(int index, ShortBuffer v) {
+    public static void glVertexAttrib2svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -420,7 +420,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib2fvARB(int index, FloatBuffer v) {
+    public static void glVertexAttrib2fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -438,7 +438,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib2dvARB(int index, DoubleBuffer v) {
+    public static void glVertexAttrib2dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -456,7 +456,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib3svARB(int index, ShortBuffer v) {
+    public static void glVertexAttrib3svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -474,7 +474,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib3fvARB(int index, FloatBuffer v) {
+    public static void glVertexAttrib3fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -492,7 +492,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib3dvARB(int index, DoubleBuffer v) {
+    public static void glVertexAttrib3dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -510,7 +510,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4fvARB(int index, FloatBuffer v) {
+    public static void glVertexAttrib4fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -528,7 +528,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4bvARB(int index, ByteBuffer v) {
+    public static void glVertexAttrib4bvARB(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -546,7 +546,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4svARB(int index, ShortBuffer v) {
+    public static void glVertexAttrib4svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -564,7 +564,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4ivARB(int index, IntBuffer v) {
+    public static void glVertexAttrib4ivARB(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -582,7 +582,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4ubvARB(int index, ByteBuffer v) {
+    public static void glVertexAttrib4ubvARB(@NativeType("GLuint") int index, @NativeType("const GLubyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -600,7 +600,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4usvARB(int index, ShortBuffer v) {
+    public static void glVertexAttrib4usvARB(@NativeType("GLuint") int index, @NativeType("const GLushort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -618,7 +618,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4uivARB(int index, IntBuffer v) {
+    public static void glVertexAttrib4uivARB(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -636,7 +636,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4dvARB(int index, DoubleBuffer v) {
+    public static void glVertexAttrib4dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -654,7 +654,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4NbvARB(int index, ByteBuffer v) {
+    public static void glVertexAttrib4NbvARB(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -672,7 +672,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4NsvARB(int index, ShortBuffer v) {
+    public static void glVertexAttrib4NsvARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -690,7 +690,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4NivARB(int index, IntBuffer v) {
+    public static void glVertexAttrib4NivARB(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -708,7 +708,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4NubvARB(int index, ByteBuffer v) {
+    public static void glVertexAttrib4NubvARB(@NativeType("GLuint") int index, @NativeType("const GLubyte *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -726,7 +726,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4NusvARB(int index, ShortBuffer v) {
+    public static void glVertexAttrib4NusvARB(@NativeType("GLuint") int index, @NativeType("const GLushort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -744,7 +744,7 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param v     a buffer from which to read the attribute value
      */
-    public static void glVertexAttrib4NuivARB(int index, IntBuffer v) {
+    public static void glVertexAttrib4NuivARB(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -766,7 +766,7 @@ public class ARBVertexProgram {
      * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer    the vertex attribute array data
      */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ByteBuffer pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
         nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -780,7 +780,7 @@ public class ARBVertexProgram {
      * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer    the vertex attribute array data
      */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, long pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
         nglVertexAttribPointerARB(index, size, type, normalized, stride, pointer);
     }
 
@@ -794,7 +794,7 @@ public class ARBVertexProgram {
      * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer    the vertex attribute array data
      */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, ShortBuffer pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
         nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -808,7 +808,7 @@ public class ARBVertexProgram {
      * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer    the vertex attribute array data
      */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, IntBuffer pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
         nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -822,7 +822,7 @@ public class ARBVertexProgram {
      * @param stride     the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer    the vertex attribute array data
      */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, FloatBuffer pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
         nglVertexAttribPointerARB(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -833,7 +833,7 @@ public class ARBVertexProgram {
      *
      * @param index the vertex attribute index
      */
-    public static native void glEnableVertexAttribArrayARB(int index);
+    public static native void glEnableVertexAttribArrayARB(@NativeType("GLuint") int index);
 
     // --- [ glDisableVertexAttribArrayARB ] ---
 
@@ -842,7 +842,7 @@ public class ARBVertexProgram {
      *
      * @param index the vertex attribute index
      */
-    public static native void glDisableVertexAttribArrayARB(int index);
+    public static native void glDisableVertexAttribArrayARB(@NativeType("GLuint") int index);
 
     // --- [ glProgramStringARB ] ---
 
@@ -871,7 +871,7 @@ public class ARBVertexProgram {
      * @param format the format of the program string. Must be:<br><table><tr><td>{@link #GL_PROGRAM_FORMAT_ASCII_ARB PROGRAM_FORMAT_ASCII_ARB}</td></tr></table>
      * @param string an array of bytes representing the program string being loaded
      */
-    public static void glProgramStringARB(int target, int format, ByteBuffer string) {
+    public static void glProgramStringARB(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("const void *") ByteBuffer string) {
         nglProgramStringARB(target, format, string.remaining(), memAddress(string));
     }
 
@@ -885,7 +885,7 @@ public class ARBVertexProgram {
      * @param program the program object to bind. If {@code program} is zero, the default program object for {@code target} is bound.  If {@code program} is the name of
      *                an existing program object whose associated program target is {@code target}, the named program object is bound.
      */
-    public static native void glBindProgramARB(int target, int program);
+    public static native void glBindProgramARB(@NativeType("GLenum") int target, @NativeType("GLuint") int program);
 
     // --- [ glDeleteProgramsARB ] ---
 
@@ -901,7 +901,7 @@ public class ARBVertexProgram {
      *
      * @param programs an array of {@code n} program objects to be deleted
      */
-    public static void glDeleteProgramsARB(IntBuffer programs) {
+    public static void glDeleteProgramsARB(@NativeType("const GLuint *") IntBuffer programs) {
         nglDeleteProgramsARB(programs.remaining(), memAddress(programs));
     }
 
@@ -920,7 +920,7 @@ public class ARBVertexProgram {
      *
      * @param programs an array in which to return the generated program names
      */
-    public static void glGenProgramsARB(IntBuffer programs) {
+    public static void glGenProgramsARB(@NativeType("GLuint *") IntBuffer programs) {
         nglGenProgramsARB(programs.remaining(), memAddress(programs));
     }
 
@@ -928,6 +928,7 @@ public class ARBVertexProgram {
      * Returns {@code n} currently unused program names in {@code programs}. These names are marked as used, for the purposes of GenProgramsARB only, but
      * objects are created only when they are first bound using {@link #glBindProgramARB BindProgramARB}.
      */
+    @NativeType("void")
     public static int glGenProgramsARB() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -951,7 +952,7 @@ public class ARBVertexProgram {
      * @param z      the {@code z} parameter component
      * @param w      the {@code w} parameter component
      */
-    public static native void glProgramEnvParameter4dARB(int target, int index, double x, double y, double z, double w);
+    public static native void glProgramEnvParameter4dARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y, @NativeType("GLdouble") double z, @NativeType("GLdouble") double w);
 
     // --- [ glProgramEnvParameter4dvARB ] ---
 
@@ -965,7 +966,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer from which to read the parameter value
      */
-    public static void glProgramEnvParameter4dvARB(int target, int index, DoubleBuffer params) {
+    public static void glProgramEnvParameter4dvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -984,7 +985,7 @@ public class ARBVertexProgram {
      * @param z      the {@code z} parameter component
      * @param w      the {@code w} parameter component
      */
-    public static native void glProgramEnvParameter4fARB(int target, int index, float x, float y, float z, float w);
+    public static native void glProgramEnvParameter4fARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLfloat") float x, @NativeType("GLfloat") float y, @NativeType("GLfloat") float z, @NativeType("GLfloat") float w);
 
     // --- [ glProgramEnvParameter4fvARB ] ---
 
@@ -998,7 +999,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer from which to read the parameter value
      */
-    public static void glProgramEnvParameter4fvARB(int target, int index, FloatBuffer params) {
+    public static void glProgramEnvParameter4fvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1017,7 +1018,7 @@ public class ARBVertexProgram {
      * @param z      the {@code z} parameter component
      * @param w      the {@code w} parameter component
      */
-    public static native void glProgramLocalParameter4dARB(int target, int index, double x, double y, double z, double w);
+    public static native void glProgramLocalParameter4dARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y, @NativeType("GLdouble") double z, @NativeType("GLdouble") double w);
 
     // --- [ glProgramLocalParameter4dvARB ] ---
 
@@ -1031,7 +1032,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer from which to read the parameter value
      */
-    public static void glProgramLocalParameter4dvARB(int target, int index, DoubleBuffer params) {
+    public static void glProgramLocalParameter4dvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1050,7 +1051,7 @@ public class ARBVertexProgram {
      * @param z      the {@code z} parameter component
      * @param w      the {@code w} parameter component
      */
-    public static native void glProgramLocalParameter4fARB(int target, int index, float x, float y, float z, float w);
+    public static native void glProgramLocalParameter4fARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLfloat") float x, @NativeType("GLfloat") float y, @NativeType("GLfloat") float z, @NativeType("GLfloat") float w);
 
     // --- [ glProgramLocalParameter4fvARB ] ---
 
@@ -1064,7 +1065,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer from which to read the parameter value
      */
-    public static void glProgramLocalParameter4fvARB(int target, int index, FloatBuffer params) {
+    public static void glProgramLocalParameter4fvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1084,7 +1085,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer in which to place the current parameter value
      */
-    public static void glGetProgramEnvParameterfvARB(int target, int index, FloatBuffer params) {
+    public static void glGetProgramEnvParameterfvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1103,7 +1104,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer in which to place the current parameter value
      */
-    public static void glGetProgramEnvParameterdvARB(int target, int index, DoubleBuffer params) {
+    public static void glGetProgramEnvParameterdvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLdouble *") DoubleBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1123,7 +1124,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer in which to place the current parameter value
      */
-    public static void glGetProgramLocalParameterfvARB(int target, int index, FloatBuffer params) {
+    public static void glGetProgramLocalParameterfvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1142,7 +1143,7 @@ public class ARBVertexProgram {
      * @param index  the environment parameter index
      * @param params a buffer in which to place the current parameter value
      */
-    public static void glGetProgramLocalParameterdvARB(int target, int index, DoubleBuffer params) {
+    public static void glGetProgramLocalParameterdvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLdouble *") DoubleBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1162,7 +1163,7 @@ public class ARBVertexProgram {
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}</td><td>{@link #GL_PROGRAM_FORMAT_ARB PROGRAM_FORMAT_ARB}</td></tr><tr><td>{@link #GL_PROGRAM_BINDING_ARB PROGRAM_BINDING_ARB}</td><td>{@link #GL_PROGRAM_INSTRUCTIONS_ARB PROGRAM_INSTRUCTIONS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_INSTRUCTIONS_ARB MAX_PROGRAM_INSTRUCTIONS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_INSTRUCTIONS_ARB PROGRAM_NATIVE_INSTRUCTIONS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB}</td><td>{@link #GL_PROGRAM_TEMPORARIES_ARB PROGRAM_TEMPORARIES_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_TEMPORARIES_ARB MAX_PROGRAM_TEMPORARIES_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_TEMPORARIES_ARB PROGRAM_NATIVE_TEMPORARIES_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_TEMPORARIES_ARB MAX_PROGRAM_NATIVE_TEMPORARIES_ARB}</td><td>{@link #GL_PROGRAM_PARAMETERS_ARB PROGRAM_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_PARAMETERS_ARB MAX_PROGRAM_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_PARAMETERS_ARB PROGRAM_NATIVE_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_PARAMETERS_ARB MAX_PROGRAM_NATIVE_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_ATTRIBS_ARB PROGRAM_ATTRIBS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ATTRIBS_ARB MAX_PROGRAM_ATTRIBS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_ATTRIBS_ARB PROGRAM_NATIVE_ATTRIBS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_ATTRIBS_ARB MAX_PROGRAM_NATIVE_ATTRIBS_ARB}</td><td>{@link #GL_PROGRAM_ADDRESS_REGISTERS_ARB PROGRAM_ADDRESS_REGISTERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ADDRESS_REGISTERS_ARB MAX_PROGRAM_ADDRESS_REGISTERS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}</td><td>{@link #GL_MAX_PROGRAM_LOCAL_PARAMETERS_ARB MAX_PROGRAM_LOCAL_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ENV_PARAMETERS_ARB MAX_PROGRAM_ENV_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_UNDER_NATIVE_LIMITS_ARB PROGRAM_UNDER_NATIVE_LIMITS_ARB}</td></tr></table>
      * @param params an array in which to place the parameter value
      */
-    public static void glGetProgramivARB(int target, int pname, IntBuffer params) {
+    public static void glGetProgramivARB(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1176,7 +1177,8 @@ public class ARBVertexProgram {
      * @param target the program target. One of:<br><table><tr><td>{@link #GL_VERTEX_PROGRAM_ARB VERTEX_PROGRAM_ARB}</td><td>{@link ARBFragmentProgram#GL_FRAGMENT_PROGRAM_ARB FRAGMENT_PROGRAM_ARB}</td></tr></table>
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_PROGRAM_LENGTH_ARB PROGRAM_LENGTH_ARB}</td><td>{@link #GL_PROGRAM_FORMAT_ARB PROGRAM_FORMAT_ARB}</td></tr><tr><td>{@link #GL_PROGRAM_BINDING_ARB PROGRAM_BINDING_ARB}</td><td>{@link #GL_PROGRAM_INSTRUCTIONS_ARB PROGRAM_INSTRUCTIONS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_INSTRUCTIONS_ARB MAX_PROGRAM_INSTRUCTIONS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_INSTRUCTIONS_ARB PROGRAM_NATIVE_INSTRUCTIONS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB MAX_PROGRAM_NATIVE_INSTRUCTIONS_ARB}</td><td>{@link #GL_PROGRAM_TEMPORARIES_ARB PROGRAM_TEMPORARIES_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_TEMPORARIES_ARB MAX_PROGRAM_TEMPORARIES_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_TEMPORARIES_ARB PROGRAM_NATIVE_TEMPORARIES_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_TEMPORARIES_ARB MAX_PROGRAM_NATIVE_TEMPORARIES_ARB}</td><td>{@link #GL_PROGRAM_PARAMETERS_ARB PROGRAM_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_PARAMETERS_ARB MAX_PROGRAM_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_PARAMETERS_ARB PROGRAM_NATIVE_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_PARAMETERS_ARB MAX_PROGRAM_NATIVE_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_ATTRIBS_ARB PROGRAM_ATTRIBS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ATTRIBS_ARB MAX_PROGRAM_ATTRIBS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_ATTRIBS_ARB PROGRAM_NATIVE_ATTRIBS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_ATTRIBS_ARB MAX_PROGRAM_NATIVE_ATTRIBS_ARB}</td><td>{@link #GL_PROGRAM_ADDRESS_REGISTERS_ARB PROGRAM_ADDRESS_REGISTERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ADDRESS_REGISTERS_ARB MAX_PROGRAM_ADDRESS_REGISTERS_ARB}</td><td>{@link #GL_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB MAX_PROGRAM_NATIVE_ADDRESS_REGISTERS_ARB}</td><td>{@link #GL_MAX_PROGRAM_LOCAL_PARAMETERS_ARB MAX_PROGRAM_LOCAL_PARAMETERS_ARB}</td></tr><tr><td>{@link #GL_MAX_PROGRAM_ENV_PARAMETERS_ARB MAX_PROGRAM_ENV_PARAMETERS_ARB}</td><td>{@link #GL_PROGRAM_UNDER_NATIVE_LIMITS_ARB PROGRAM_UNDER_NATIVE_LIMITS_ARB}</td></tr></table>
      */
-    public static int glGetProgramiARB(int target, int pname) {
+    @NativeType("void")
+    public static int glGetProgramiARB(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -1202,7 +1204,7 @@ public class ARBVertexProgram {
      * @param pname  the parameter to query. Must be:<br><table><tr><td>{@link #GL_PROGRAM_STRING_ARB PROGRAM_STRING_ARB}</td></tr></table>
      * @param string an array in which to place the program string
      */
-    public static void glGetProgramStringARB(int target, int pname, ByteBuffer string) {
+    public static void glGetProgramStringARB(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("void *") ByteBuffer string) {
         if (CHECKS) {
             if (DEBUG) {
                 check(string, glGetProgramiARB(target, GL_PROGRAM_LENGTH_ARB));
@@ -1224,7 +1226,7 @@ public class ARBVertexProgram {
      * @param pname  the parameter to query. Must be:<br><table><tr><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td></tr></table>
      * @param params an array in which to place the parameter value
      */
-    public static void glGetVertexAttribfvARB(int index, int pname, FloatBuffer params) {
+    public static void glGetVertexAttribfvARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1243,7 +1245,7 @@ public class ARBVertexProgram {
      * @param pname  the parameter to query. Must be:<br><table><tr><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td></tr></table>
      * @param params an array in which to place the parameter value
      */
-    public static void glGetVertexAttribdvARB(int index, int pname, DoubleBuffer params) {
+    public static void glGetVertexAttribdvARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLdouble *") DoubleBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -1262,7 +1264,7 @@ public class ARBVertexProgram {
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}</td><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td></tr></table>
      * @param params an array in which to place the parameter value
      */
-    public static void glGetVertexAttribivARB(int index, int pname, IntBuffer params) {
+    public static void glGetVertexAttribivARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1275,7 +1277,8 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param pname the parameter to query. One of:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB VERTEX_ATTRIB_ARRAY_ENABLED_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB VERTEX_ATTRIB_ARRAY_SIZE_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB VERTEX_ATTRIB_ARRAY_STRIDE_ARB}</td><td>{@link #GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB VERTEX_ATTRIB_ARRAY_TYPE_ARB}</td></tr><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB}</td><td>{@link #GL_CURRENT_VERTEX_ATTRIB_ARB CURRENT_VERTEX_ATTRIB_ARB}</td></tr></table>
      */
-    public static int glGetVertexAttribiARB(int index, int pname) {
+    @NativeType("void")
+    public static int glGetVertexAttribiARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -1298,7 +1301,7 @@ public class ARBVertexProgram {
      * @param pname   the parameter to query. Must be:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB VERTEX_ATTRIB_ARRAY_POINTER_ARB}</td></tr></table>
      * @param pointer an array in which to place the vertex attribute array pointer
      */
-    public static void glGetVertexAttribPointervARB(int index, int pname, PointerBuffer pointer) {
+    public static void glGetVertexAttribPointervARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("void **") PointerBuffer pointer) {
         if (CHECKS) {
             check(pointer, 1);
         }
@@ -1311,7 +1314,8 @@ public class ARBVertexProgram {
      * @param index the vertex attribute index
      * @param pname the parameter to query. Must be:<br><table><tr><td>{@link #GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB VERTEX_ATTRIB_ARRAY_POINTER_ARB}</td></tr></table>
      */
-    public static long glGetVertexAttribPointerARB(int index, int pname) {
+    @NativeType("void")
+    public static long glGetVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer pointer = stack.callocPointer(1);
@@ -1331,10 +1335,11 @@ public class ARBVertexProgram {
      *
      * @param program the program name
      */
-    public static native boolean glIsProgramARB(int program);
+    @NativeType("GLboolean")
+    public static native boolean glIsProgramARB(@NativeType("GLuint") int program);
 
     /** Array version of: {@link #glVertexAttrib1svARB VertexAttrib1svARB} */
-    public static void glVertexAttrib1svARB(int index, short[] v) {
+    public static void glVertexAttrib1svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib1svARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1344,7 +1349,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib1fvARB VertexAttrib1fvARB} */
-    public static void glVertexAttrib1fvARB(int index, float[] v) {
+    public static void glVertexAttrib1fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib1fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1354,7 +1359,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib1dvARB VertexAttrib1dvARB} */
-    public static void glVertexAttrib1dvARB(int index, double[] v) {
+    public static void glVertexAttrib1dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib1dvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1364,7 +1369,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib2svARB VertexAttrib2svARB} */
-    public static void glVertexAttrib2svARB(int index, short[] v) {
+    public static void glVertexAttrib2svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib2svARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1374,7 +1379,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib2fvARB VertexAttrib2fvARB} */
-    public static void glVertexAttrib2fvARB(int index, float[] v) {
+    public static void glVertexAttrib2fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib2fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1384,7 +1389,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib2dvARB VertexAttrib2dvARB} */
-    public static void glVertexAttrib2dvARB(int index, double[] v) {
+    public static void glVertexAttrib2dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib2dvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1394,7 +1399,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib3svARB VertexAttrib3svARB} */
-    public static void glVertexAttrib3svARB(int index, short[] v) {
+    public static void glVertexAttrib3svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib3svARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1404,7 +1409,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib3fvARB VertexAttrib3fvARB} */
-    public static void glVertexAttrib3fvARB(int index, float[] v) {
+    public static void glVertexAttrib3fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib3fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1414,7 +1419,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib3dvARB VertexAttrib3dvARB} */
-    public static void glVertexAttrib3dvARB(int index, double[] v) {
+    public static void glVertexAttrib3dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib3dvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1424,7 +1429,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4fvARB VertexAttrib4fvARB} */
-    public static void glVertexAttrib4fvARB(int index, float[] v) {
+    public static void glVertexAttrib4fvARB(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1434,7 +1439,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4svARB VertexAttrib4svARB} */
-    public static void glVertexAttrib4svARB(int index, short[] v) {
+    public static void glVertexAttrib4svARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4svARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1444,7 +1449,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4ivARB VertexAttrib4ivARB} */
-    public static void glVertexAttrib4ivARB(int index, int[] v) {
+    public static void glVertexAttrib4ivARB(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4ivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1454,7 +1459,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4usvARB VertexAttrib4usvARB} */
-    public static void glVertexAttrib4usvARB(int index, short[] v) {
+    public static void glVertexAttrib4usvARB(@NativeType("GLuint") int index, @NativeType("const GLushort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4usvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1464,7 +1469,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4uivARB VertexAttrib4uivARB} */
-    public static void glVertexAttrib4uivARB(int index, int[] v) {
+    public static void glVertexAttrib4uivARB(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4uivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1474,7 +1479,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4dvARB VertexAttrib4dvARB} */
-    public static void glVertexAttrib4dvARB(int index, double[] v) {
+    public static void glVertexAttrib4dvARB(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4dvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1484,7 +1489,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4NsvARB VertexAttrib4NsvARB} */
-    public static void glVertexAttrib4NsvARB(int index, short[] v) {
+    public static void glVertexAttrib4NsvARB(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4NsvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1494,7 +1499,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4NivARB VertexAttrib4NivARB} */
-    public static void glVertexAttrib4NivARB(int index, int[] v) {
+    public static void glVertexAttrib4NivARB(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4NivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1504,7 +1509,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4NusvARB VertexAttrib4NusvARB} */
-    public static void glVertexAttrib4NusvARB(int index, short[] v) {
+    public static void glVertexAttrib4NusvARB(@NativeType("GLuint") int index, @NativeType("const GLushort *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4NusvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1514,7 +1519,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttrib4NuivARB VertexAttrib4NuivARB} */
-    public static void glVertexAttrib4NuivARB(int index, int[] v) {
+    public static void glVertexAttrib4NuivARB(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4NuivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1524,7 +1529,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, short[] pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") short[] pointer) {
         long __functionAddress = GL.getICD().glVertexAttribPointerARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1533,7 +1538,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, int[] pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") int[] pointer) {
         long __functionAddress = GL.getICD().glVertexAttribPointerARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1542,7 +1547,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glVertexAttribPointerARB VertexAttribPointerARB} */
-    public static void glVertexAttribPointerARB(int index, int size, int type, boolean normalized, int stride, float[] pointer) {
+    public static void glVertexAttribPointerARB(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") float[] pointer) {
         long __functionAddress = GL.getICD().glVertexAttribPointerARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1551,7 +1556,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glDeleteProgramsARB DeleteProgramsARB} */
-    public static void glDeleteProgramsARB(int[] programs) {
+    public static void glDeleteProgramsARB(@NativeType("const GLuint *") int[] programs) {
         long __functionAddress = GL.getICD().glDeleteProgramsARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1560,7 +1565,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGenProgramsARB GenProgramsARB} */
-    public static void glGenProgramsARB(int[] programs) {
+    public static void glGenProgramsARB(@NativeType("GLuint *") int[] programs) {
         long __functionAddress = GL.getICD().glGenProgramsARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1569,7 +1574,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glProgramEnvParameter4dvARB ProgramEnvParameter4dvARB} */
-    public static void glProgramEnvParameter4dvARB(int target, int index, double[] params) {
+    public static void glProgramEnvParameter4dvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] params) {
         long __functionAddress = GL.getICD().glProgramEnvParameter4dvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1579,7 +1584,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glProgramEnvParameter4fvARB ProgramEnvParameter4fvARB} */
-    public static void glProgramEnvParameter4fvARB(int target, int index, float[] params) {
+    public static void glProgramEnvParameter4fvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glProgramEnvParameter4fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1589,7 +1594,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glProgramLocalParameter4dvARB ProgramLocalParameter4dvARB} */
-    public static void glProgramLocalParameter4dvARB(int target, int index, double[] params) {
+    public static void glProgramLocalParameter4dvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] params) {
         long __functionAddress = GL.getICD().glProgramLocalParameter4dvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1599,7 +1604,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glProgramLocalParameter4fvARB ProgramLocalParameter4fvARB} */
-    public static void glProgramLocalParameter4fvARB(int target, int index, float[] params) {
+    public static void glProgramLocalParameter4fvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glProgramLocalParameter4fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1609,7 +1614,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetProgramEnvParameterfvARB GetProgramEnvParameterfvARB} */
-    public static void glGetProgramEnvParameterfvARB(int target, int index, float[] params) {
+    public static void glGetProgramEnvParameterfvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glGetProgramEnvParameterfvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1619,7 +1624,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetProgramEnvParameterdvARB GetProgramEnvParameterdvARB} */
-    public static void glGetProgramEnvParameterdvARB(int target, int index, double[] params) {
+    public static void glGetProgramEnvParameterdvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLdouble *") double[] params) {
         long __functionAddress = GL.getICD().glGetProgramEnvParameterdvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1629,7 +1634,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetProgramLocalParameterfvARB GetProgramLocalParameterfvARB} */
-    public static void glGetProgramLocalParameterfvARB(int target, int index, float[] params) {
+    public static void glGetProgramLocalParameterfvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glGetProgramLocalParameterfvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1639,7 +1644,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetProgramLocalParameterdvARB GetProgramLocalParameterdvARB} */
-    public static void glGetProgramLocalParameterdvARB(int target, int index, double[] params) {
+    public static void glGetProgramLocalParameterdvARB(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLdouble *") double[] params) {
         long __functionAddress = GL.getICD().glGetProgramLocalParameterdvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1649,7 +1654,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetProgramivARB GetProgramivARB} */
-    public static void glGetProgramivARB(int target, int pname, int[] params) {
+    public static void glGetProgramivARB(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetProgramivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1659,7 +1664,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetVertexAttribfvARB GetVertexAttribfvARB} */
-    public static void glGetVertexAttribfvARB(int index, int pname, float[] params) {
+    public static void glGetVertexAttribfvARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribfvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1669,7 +1674,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetVertexAttribdvARB GetVertexAttribdvARB} */
-    public static void glGetVertexAttribdvARB(int index, int pname, double[] params) {
+    public static void glGetVertexAttribdvARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLdouble *") double[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribdvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -1679,7 +1684,7 @@ public class ARBVertexProgram {
     }
 
     /** Array version of: {@link #glGetVertexAttribivARB GetVertexAttribivARB} */
-    public static void glGetVertexAttribivARB(int index, int pname, int[] params) {
+    public static void glGetVertexAttribivARB(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribivARB;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -42,34 +44,35 @@ public class OESDrawBuffersIndexed {
 
     // --- [ glEnableiOES ] ---
 
-    public static native void glEnableiOES(int target, int index);
+    public static native void glEnableiOES(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glDisableiOES ] ---
 
-    public static native void glDisableiOES(int target, int index);
+    public static native void glDisableiOES(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glBlendEquationiOES ] ---
 
-    public static native void glBlendEquationiOES(int buf, int mode);
+    public static native void glBlendEquationiOES(@NativeType("GLuint") int buf, @NativeType("GLenum") int mode);
 
     // --- [ glBlendEquationSeparateiOES ] ---
 
-    public static native void glBlendEquationSeparateiOES(int buf, int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateiOES(@NativeType("GLuint") int buf, @NativeType("GLenum") int modeRGB, @NativeType("GLenum") int modeAlpha);
 
     // --- [ glBlendFunciOES ] ---
 
-    public static native void glBlendFunciOES(int buf, int src, int dst);
+    public static native void glBlendFunciOES(@NativeType("GLuint") int buf, @NativeType("GLenum") int src, @NativeType("GLenum") int dst);
 
     // --- [ glBlendFuncSeparateiOES ] ---
 
-    public static native void glBlendFuncSeparateiOES(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    public static native void glBlendFuncSeparateiOES(@NativeType("GLuint") int buf, @NativeType("GLenum") int srcRGB, @NativeType("GLenum") int dstRGB, @NativeType("GLenum") int srcAlpha, @NativeType("GLenum") int dstAlpha);
 
     // --- [ glColorMaskiOES ] ---
 
-    public static native void glColorMaskiOES(int index, boolean r, boolean g, boolean b, boolean a);
+    public static native void glColorMaskiOES(@NativeType("GLuint") int index, @NativeType("GLboolean") boolean r, @NativeType("GLboolean") boolean g, @NativeType("GLboolean") boolean b, @NativeType("GLboolean") boolean a);
 
     // --- [ glIsEnablediOES ] ---
 
-    public static native boolean glIsEnablediOES(int target, int index);
+    @NativeType("GLboolean")
+    public static native boolean glIsEnablediOES(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
 }

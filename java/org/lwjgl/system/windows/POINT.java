@@ -74,14 +74,16 @@ public class POINT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("LONG")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("LONG")
     public int y() { return ny(address()); }
 
     /** Sets the specified value to the {@code x} field. */
-    public POINT x(int value) { nx(address(), value); return this; }
+    public POINT x(@NativeType("LONG") int value) { nx(address(), value); return this; }
     /** Sets the specified value to the {@code y} field. */
-    public POINT y(int value) { ny(address(), value); return this; }
+    public POINT y(@NativeType("LONG") int value) { ny(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public POINT set(
@@ -288,14 +290,16 @@ public class POINT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("LONG")
         public int x() { return POINT.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("LONG")
         public int y() { return POINT.ny(address()); }
 
         /** Sets the specified value to the {@code x} field. */
-        public POINT.Buffer x(int value) { POINT.nx(address(), value); return this; }
+        public POINT.Buffer x(@NativeType("LONG") int value) { POINT.nx(address(), value); return this; }
         /** Sets the specified value to the {@code y} field. */
-        public POINT.Buffer y(int value) { POINT.ny(address(), value); return this; }
+        public POINT.Buffer y(@NativeType("LONG") int value) { POINT.ny(address(), value); return this; }
 
     }
 

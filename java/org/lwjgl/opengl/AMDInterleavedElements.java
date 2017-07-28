@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -49,6 +51,6 @@ public class AMDInterleavedElements {
 
     // --- [ glVertexAttribParameteriAMD ] ---
 
-    public static native void glVertexAttribParameteriAMD(int index, int pname, int param);
+    public static native void glVertexAttribParameteriAMD(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint") int param);
 
 }

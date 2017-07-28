@@ -63,13 +63,13 @@ public class EXTMultiviewDrawBuffers {
 
     // --- [ glReadBufferIndexedEXT ] ---
 
-    public static native void glReadBufferIndexedEXT(int src, int index);
+    public static native void glReadBufferIndexedEXT(@NativeType("GLenum") int src, @NativeType("GLint") int index);
 
     // --- [ glDrawBuffersIndexedEXT ] ---
 
     public static native void nglDrawBuffersIndexedEXT(int n, long location, long indices);
 
-    public static void glDrawBuffersIndexedEXT(IntBuffer location, IntBuffer indices) {
+    public static void glDrawBuffersIndexedEXT(@NativeType("const GLenum *") IntBuffer location, @NativeType("const GLint *") IntBuffer indices) {
         if (CHECKS) {
             check(indices, location.remaining());
         }
@@ -80,14 +80,15 @@ public class EXTMultiviewDrawBuffers {
 
     public static native void nglGetIntegeri_vEXT(int target, int index, long data);
 
-    public static void glGetIntegeri_vEXT(int target, int index, IntBuffer data) {
+    public static void glGetIntegeri_vEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer data) {
         if (CHECKS) {
             check(data, 1);
         }
         nglGetIntegeri_vEXT(target, index, memAddress(data));
     }
 
-    public static int glGetIntegeriEXT(int target, int index) {
+    @NativeType("void")
+    public static int glGetIntegeriEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer data = stack.callocInt(1);
@@ -99,7 +100,7 @@ public class EXTMultiviewDrawBuffers {
     }
 
     /** Array version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
-    public static void glDrawBuffersIndexedEXT(int[] location, int[] indices) {
+    public static void glDrawBuffersIndexedEXT(@NativeType("const GLenum *") int[] location, @NativeType("const GLint *") int[] indices) {
         long __functionAddress = GLES.getICD().glDrawBuffersIndexedEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -109,7 +110,7 @@ public class EXTMultiviewDrawBuffers {
     }
 
     /** Array version of: {@link #glGetIntegeri_vEXT GetIntegeri_vEXT} */
-    public static void glGetIntegeri_vEXT(int target, int index, int[] data) {
+    public static void glGetIntegeri_vEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") int[] data) {
         long __functionAddress = GLES.getICD().glGetIntegeri_vEXT;
         if (CHECKS) {
             check(__functionAddress);

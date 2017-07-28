@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkVec2 struct nk_vec2} spacing;
  * }</pre></code>
  */
+@NativeType("struct nk_style_combo")
 public class NkStyleCombo extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -133,82 +134,99 @@ public class NkStyleCombo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem normal() { return nnormal(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem hover() { return nhover(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem active() { return nactive(address()); }
     /** Returns a {@link NkColor} view of the {@code border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor border_color() { return nborder_color(address()); }
     /** Returns a {@link NkColor} view of the {@code label_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor label_normal() { return nlabel_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code label_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor label_hover() { return nlabel_hover(address()); }
     /** Returns a {@link NkColor} view of the {@code label_active} field. */
+    @NativeType("struct nk_color")
     public NkColor label_active() { return nlabel_active(address()); }
     /** Returns a {@link NkColor} view of the {@code symbol_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor symbol_normal() { return nsymbol_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code symbol_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor symbol_hover() { return nsymbol_hover(address()); }
     /** Returns a {@link NkColor} view of the {@code symbol_active} field. */
+    @NativeType("struct nk_color")
     public NkColor symbol_active() { return nsymbol_active(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton button() { return nbutton(address()); }
     /** Returns the value of the {@code sym_normal} field. */
+    @NativeType("enum nk_symbol_type")
     public int sym_normal() { return nsym_normal(address()); }
     /** Returns the value of the {@code sym_hover} field. */
+    @NativeType("enum nk_symbol_type")
     public int sym_hover() { return nsym_hover(address()); }
     /** Returns the value of the {@code sym_active} field. */
+    @NativeType("enum nk_symbol_type")
     public int sym_active() { return nsym_active(address()); }
     /** Returns the value of the {@code border} field. */
     public float border() { return nborder(address()); }
     /** Returns the value of the {@code rounding} field. */
     public float rounding() { return nrounding(address()); }
     /** Returns a {@link NkVec2} view of the {@code content_padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 content_padding() { return ncontent_padding(address()); }
     /** Returns a {@link NkVec2} view of the {@code button_padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 button_padding() { return nbutton_padding(address()); }
     /** Returns a {@link NkVec2} view of the {@code spacing} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 spacing() { return nspacing(address()); }
 
     /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-    public NkStyleCombo normal(NkStyleItem value) { nnormal(address(), value); return this; }
+    public NkStyleCombo normal(@NativeType("struct nk_style_item") NkStyleItem value) { nnormal(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-    public NkStyleCombo hover(NkStyleItem value) { nhover(address(), value); return this; }
+    public NkStyleCombo hover(@NativeType("struct nk_style_item") NkStyleItem value) { nhover(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-    public NkStyleCombo active(NkStyleItem value) { nactive(address(), value); return this; }
+    public NkStyleCombo active(@NativeType("struct nk_style_item") NkStyleItem value) { nactive(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-    public NkStyleCombo border_color(NkColor value) { nborder_color(address(), value); return this; }
+    public NkStyleCombo border_color(@NativeType("struct nk_color") NkColor value) { nborder_color(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code label_normal} field. */
-    public NkStyleCombo label_normal(NkColor value) { nlabel_normal(address(), value); return this; }
+    public NkStyleCombo label_normal(@NativeType("struct nk_color") NkColor value) { nlabel_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code label_hover} field. */
-    public NkStyleCombo label_hover(NkColor value) { nlabel_hover(address(), value); return this; }
+    public NkStyleCombo label_hover(@NativeType("struct nk_color") NkColor value) { nlabel_hover(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code label_active} field. */
-    public NkStyleCombo label_active(NkColor value) { nlabel_active(address(), value); return this; }
+    public NkStyleCombo label_active(@NativeType("struct nk_color") NkColor value) { nlabel_active(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code symbol_normal} field. */
-    public NkStyleCombo symbol_normal(NkColor value) { nsymbol_normal(address(), value); return this; }
+    public NkStyleCombo symbol_normal(@NativeType("struct nk_color") NkColor value) { nsymbol_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code symbol_hover} field. */
-    public NkStyleCombo symbol_hover(NkColor value) { nsymbol_hover(address(), value); return this; }
+    public NkStyleCombo symbol_hover(@NativeType("struct nk_color") NkColor value) { nsymbol_hover(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code symbol_active} field. */
-    public NkStyleCombo symbol_active(NkColor value) { nsymbol_active(address(), value); return this; }
+    public NkStyleCombo symbol_active(@NativeType("struct nk_color") NkColor value) { nsymbol_active(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code button} field. */
-    public NkStyleCombo button(NkStyleButton value) { nbutton(address(), value); return this; }
+    public NkStyleCombo button(@NativeType("struct nk_style_button") NkStyleButton value) { nbutton(address(), value); return this; }
     /** Sets the specified value to the {@code sym_normal} field. */
-    public NkStyleCombo sym_normal(int value) { nsym_normal(address(), value); return this; }
+    public NkStyleCombo sym_normal(@NativeType("enum nk_symbol_type") int value) { nsym_normal(address(), value); return this; }
     /** Sets the specified value to the {@code sym_hover} field. */
-    public NkStyleCombo sym_hover(int value) { nsym_hover(address(), value); return this; }
+    public NkStyleCombo sym_hover(@NativeType("enum nk_symbol_type") int value) { nsym_hover(address(), value); return this; }
     /** Sets the specified value to the {@code sym_active} field. */
-    public NkStyleCombo sym_active(int value) { nsym_active(address(), value); return this; }
+    public NkStyleCombo sym_active(@NativeType("enum nk_symbol_type") int value) { nsym_active(address(), value); return this; }
     /** Sets the specified value to the {@code border} field. */
     public NkStyleCombo border(float value) { nborder(address(), value); return this; }
     /** Sets the specified value to the {@code rounding} field. */
     public NkStyleCombo rounding(float value) { nrounding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code content_padding} field. */
-    public NkStyleCombo content_padding(NkVec2 value) { ncontent_padding(address(), value); return this; }
+    public NkStyleCombo content_padding(@NativeType("struct nk_vec2") NkVec2 value) { ncontent_padding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code button_padding} field. */
-    public NkStyleCombo button_padding(NkVec2 value) { nbutton_padding(address(), value); return this; }
+    public NkStyleCombo button_padding(@NativeType("struct nk_vec2") NkVec2 value) { nbutton_padding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code spacing} field. */
-    public NkStyleCombo spacing(NkVec2 value) { nspacing(address(), value); return this; }
+    public NkStyleCombo spacing(@NativeType("struct nk_vec2") NkVec2 value) { nspacing(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleCombo set(
@@ -517,82 +535,99 @@ public class NkStyleCombo extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem normal() { return NkStyleCombo.nnormal(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem hover() { return NkStyleCombo.nhover(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem active() { return NkStyleCombo.nactive(address()); }
         /** Returns a {@link NkColor} view of the {@code border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor border_color() { return NkStyleCombo.nborder_color(address()); }
         /** Returns a {@link NkColor} view of the {@code label_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor label_normal() { return NkStyleCombo.nlabel_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code label_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor label_hover() { return NkStyleCombo.nlabel_hover(address()); }
         /** Returns a {@link NkColor} view of the {@code label_active} field. */
+        @NativeType("struct nk_color")
         public NkColor label_active() { return NkStyleCombo.nlabel_active(address()); }
         /** Returns a {@link NkColor} view of the {@code symbol_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor symbol_normal() { return NkStyleCombo.nsymbol_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code symbol_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor symbol_hover() { return NkStyleCombo.nsymbol_hover(address()); }
         /** Returns a {@link NkColor} view of the {@code symbol_active} field. */
+        @NativeType("struct nk_color")
         public NkColor symbol_active() { return NkStyleCombo.nsymbol_active(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton button() { return NkStyleCombo.nbutton(address()); }
         /** Returns the value of the {@code sym_normal} field. */
+        @NativeType("enum nk_symbol_type")
         public int sym_normal() { return NkStyleCombo.nsym_normal(address()); }
         /** Returns the value of the {@code sym_hover} field. */
+        @NativeType("enum nk_symbol_type")
         public int sym_hover() { return NkStyleCombo.nsym_hover(address()); }
         /** Returns the value of the {@code sym_active} field. */
+        @NativeType("enum nk_symbol_type")
         public int sym_active() { return NkStyleCombo.nsym_active(address()); }
         /** Returns the value of the {@code border} field. */
         public float border() { return NkStyleCombo.nborder(address()); }
         /** Returns the value of the {@code rounding} field. */
         public float rounding() { return NkStyleCombo.nrounding(address()); }
         /** Returns a {@link NkVec2} view of the {@code content_padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 content_padding() { return NkStyleCombo.ncontent_padding(address()); }
         /** Returns a {@link NkVec2} view of the {@code button_padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 button_padding() { return NkStyleCombo.nbutton_padding(address()); }
         /** Returns a {@link NkVec2} view of the {@code spacing} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 spacing() { return NkStyleCombo.nspacing(address()); }
 
         /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-        public NkStyleCombo.Buffer normal(NkStyleItem value) { NkStyleCombo.nnormal(address(), value); return this; }
+        public NkStyleCombo.Buffer normal(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleCombo.nnormal(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-        public NkStyleCombo.Buffer hover(NkStyleItem value) { NkStyleCombo.nhover(address(), value); return this; }
+        public NkStyleCombo.Buffer hover(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleCombo.nhover(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-        public NkStyleCombo.Buffer active(NkStyleItem value) { NkStyleCombo.nactive(address(), value); return this; }
+        public NkStyleCombo.Buffer active(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleCombo.nactive(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-        public NkStyleCombo.Buffer border_color(NkColor value) { NkStyleCombo.nborder_color(address(), value); return this; }
+        public NkStyleCombo.Buffer border_color(@NativeType("struct nk_color") NkColor value) { NkStyleCombo.nborder_color(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code label_normal} field. */
-        public NkStyleCombo.Buffer label_normal(NkColor value) { NkStyleCombo.nlabel_normal(address(), value); return this; }
+        public NkStyleCombo.Buffer label_normal(@NativeType("struct nk_color") NkColor value) { NkStyleCombo.nlabel_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code label_hover} field. */
-        public NkStyleCombo.Buffer label_hover(NkColor value) { NkStyleCombo.nlabel_hover(address(), value); return this; }
+        public NkStyleCombo.Buffer label_hover(@NativeType("struct nk_color") NkColor value) { NkStyleCombo.nlabel_hover(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code label_active} field. */
-        public NkStyleCombo.Buffer label_active(NkColor value) { NkStyleCombo.nlabel_active(address(), value); return this; }
+        public NkStyleCombo.Buffer label_active(@NativeType("struct nk_color") NkColor value) { NkStyleCombo.nlabel_active(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code symbol_normal} field. */
-        public NkStyleCombo.Buffer symbol_normal(NkColor value) { NkStyleCombo.nsymbol_normal(address(), value); return this; }
+        public NkStyleCombo.Buffer symbol_normal(@NativeType("struct nk_color") NkColor value) { NkStyleCombo.nsymbol_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code symbol_hover} field. */
-        public NkStyleCombo.Buffer symbol_hover(NkColor value) { NkStyleCombo.nsymbol_hover(address(), value); return this; }
+        public NkStyleCombo.Buffer symbol_hover(@NativeType("struct nk_color") NkColor value) { NkStyleCombo.nsymbol_hover(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code symbol_active} field. */
-        public NkStyleCombo.Buffer symbol_active(NkColor value) { NkStyleCombo.nsymbol_active(address(), value); return this; }
+        public NkStyleCombo.Buffer symbol_active(@NativeType("struct nk_color") NkColor value) { NkStyleCombo.nsymbol_active(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code button} field. */
-        public NkStyleCombo.Buffer button(NkStyleButton value) { NkStyleCombo.nbutton(address(), value); return this; }
+        public NkStyleCombo.Buffer button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleCombo.nbutton(address(), value); return this; }
         /** Sets the specified value to the {@code sym_normal} field. */
-        public NkStyleCombo.Buffer sym_normal(int value) { NkStyleCombo.nsym_normal(address(), value); return this; }
+        public NkStyleCombo.Buffer sym_normal(@NativeType("enum nk_symbol_type") int value) { NkStyleCombo.nsym_normal(address(), value); return this; }
         /** Sets the specified value to the {@code sym_hover} field. */
-        public NkStyleCombo.Buffer sym_hover(int value) { NkStyleCombo.nsym_hover(address(), value); return this; }
+        public NkStyleCombo.Buffer sym_hover(@NativeType("enum nk_symbol_type") int value) { NkStyleCombo.nsym_hover(address(), value); return this; }
         /** Sets the specified value to the {@code sym_active} field. */
-        public NkStyleCombo.Buffer sym_active(int value) { NkStyleCombo.nsym_active(address(), value); return this; }
+        public NkStyleCombo.Buffer sym_active(@NativeType("enum nk_symbol_type") int value) { NkStyleCombo.nsym_active(address(), value); return this; }
         /** Sets the specified value to the {@code border} field. */
         public NkStyleCombo.Buffer border(float value) { NkStyleCombo.nborder(address(), value); return this; }
         /** Sets the specified value to the {@code rounding} field. */
         public NkStyleCombo.Buffer rounding(float value) { NkStyleCombo.nrounding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code content_padding} field. */
-        public NkStyleCombo.Buffer content_padding(NkVec2 value) { NkStyleCombo.ncontent_padding(address(), value); return this; }
+        public NkStyleCombo.Buffer content_padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleCombo.ncontent_padding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code button_padding} field. */
-        public NkStyleCombo.Buffer button_padding(NkVec2 value) { NkStyleCombo.nbutton_padding(address(), value); return this; }
+        public NkStyleCombo.Buffer button_padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleCombo.nbutton_padding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code spacing} field. */
-        public NkStyleCombo.Buffer spacing(NkVec2 value) { NkStyleCombo.nspacing(address(), value); return this; }
+        public NkStyleCombo.Buffer spacing(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleCombo.nspacing(address(), value); return this; }
 
     }
 

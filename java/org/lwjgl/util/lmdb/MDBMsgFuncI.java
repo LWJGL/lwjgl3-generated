@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** A callback function used to print a message from the library. */
 @FunctionalInterface
+@NativeType("MDB_msg_func *")
 public interface MDBMsgFuncI extends CallbackI.I {
 
     String SIGNATURE = "(pp)i";
@@ -34,6 +35,6 @@ public interface MDBMsgFuncI extends CallbackI.I {
      *
      * @return &lt; 0 on failure, &ge; 0 on success
      */
-    int invoke(long msg, long ctx);
+    int invoke(@NativeType("const char *") long msg, @NativeType("void *") long ctx);
 
 }

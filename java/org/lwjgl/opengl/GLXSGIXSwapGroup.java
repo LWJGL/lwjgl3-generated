@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -39,7 +41,7 @@ public class GLXSGIXSwapGroup {
      * @param drawable the GLXDrawable to add to the swap group
      * @param member   a member of the swap group or {@code None}
      */
-    public static void glXJoinSwapGroupSGIX(long display, long drawable, long member) {
+    public static void glXJoinSwapGroupSGIX(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, @NativeType("GLXDrawable") long member) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXJoinSwapGroupSGIX;
         if (CHECKS) {
             check(__functionAddress);

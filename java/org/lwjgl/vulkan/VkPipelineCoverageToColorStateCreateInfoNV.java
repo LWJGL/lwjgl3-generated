@@ -113,26 +113,31 @@ public class VkPipelineCoverageToColorStateCreateInfoNV extends Struct implement
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkPipelineCoverageToColorStateCreateFlagsNV")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code coverageToColorEnable} field. */
+    @NativeType("VkBool32")
     public boolean coverageToColorEnable() { return ncoverageToColorEnable(address()) != 0; }
     /** Returns the value of the {@code coverageToColorLocation} field. */
+    @NativeType("uint32_t")
     public int coverageToColorLocation() { return ncoverageToColorLocation(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineCoverageToColorStateCreateInfoNV sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineCoverageToColorStateCreateInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineCoverageToColorStateCreateInfoNV pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineCoverageToColorStateCreateInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkPipelineCoverageToColorStateCreateInfoNV flags(int value) { nflags(address(), value); return this; }
+    public VkPipelineCoverageToColorStateCreateInfoNV flags(@NativeType("VkPipelineCoverageToColorStateCreateFlagsNV") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code coverageToColorEnable} field. */
-    public VkPipelineCoverageToColorStateCreateInfoNV coverageToColorEnable(boolean value) { ncoverageToColorEnable(address(), value ? 1 : 0); return this; }
+    public VkPipelineCoverageToColorStateCreateInfoNV coverageToColorEnable(@NativeType("VkBool32") boolean value) { ncoverageToColorEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code coverageToColorLocation} field. */
-    public VkPipelineCoverageToColorStateCreateInfoNV coverageToColorLocation(int value) { ncoverageToColorLocation(address(), value); return this; }
+    public VkPipelineCoverageToColorStateCreateInfoNV coverageToColorLocation(@NativeType("uint32_t") int value) { ncoverageToColorLocation(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineCoverageToColorStateCreateInfoNV set(
@@ -357,26 +362,31 @@ public class VkPipelineCoverageToColorStateCreateInfoNV extends Struct implement
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineCoverageToColorStateCreateInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineCoverageToColorStateCreateInfoNV.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkPipelineCoverageToColorStateCreateFlagsNV")
         public int flags() { return VkPipelineCoverageToColorStateCreateInfoNV.nflags(address()); }
         /** Returns the value of the {@code coverageToColorEnable} field. */
+        @NativeType("VkBool32")
         public boolean coverageToColorEnable() { return VkPipelineCoverageToColorStateCreateInfoNV.ncoverageToColorEnable(address()) != 0; }
         /** Returns the value of the {@code coverageToColorLocation} field. */
+        @NativeType("uint32_t")
         public int coverageToColorLocation() { return VkPipelineCoverageToColorStateCreateInfoNV.ncoverageToColorLocation(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer sType(int value) { VkPipelineCoverageToColorStateCreateInfoNV.nsType(address(), value); return this; }
+        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineCoverageToColorStateCreateInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer pNext(long value) { VkPipelineCoverageToColorStateCreateInfoNV.npNext(address(), value); return this; }
+        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkPipelineCoverageToColorStateCreateInfoNV.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer flags(int value) { VkPipelineCoverageToColorStateCreateInfoNV.nflags(address(), value); return this; }
+        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer flags(@NativeType("VkPipelineCoverageToColorStateCreateFlagsNV") int value) { VkPipelineCoverageToColorStateCreateInfoNV.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code coverageToColorEnable} field. */
-        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer coverageToColorEnable(boolean value) { VkPipelineCoverageToColorStateCreateInfoNV.ncoverageToColorEnable(address(), value ? 1 : 0); return this; }
+        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer coverageToColorEnable(@NativeType("VkBool32") boolean value) { VkPipelineCoverageToColorStateCreateInfoNV.ncoverageToColorEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code coverageToColorLocation} field. */
-        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer coverageToColorLocation(int value) { VkPipelineCoverageToColorStateCreateInfoNV.ncoverageToColorLocation(address(), value); return this; }
+        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer coverageToColorLocation(@NativeType("uint32_t") int value) { VkPipelineCoverageToColorStateCreateInfoNV.ncoverageToColorLocation(address(), value); return this; }
 
     }
 

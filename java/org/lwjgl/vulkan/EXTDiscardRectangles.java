@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -187,7 +189,7 @@ public class EXTDiscardRectangles {
      * @param firstDiscardRectangle the index of the first discard rectangle whose state is updated by the command.
      * @param pDiscardRectangles    a pointer to an array of {@link VkRect2D} structures specifying discard rectangles.
      */
-    public static void vkCmdSetDiscardRectangleEXT(VkCommandBuffer commandBuffer, int firstDiscardRectangle, VkRect2D.Buffer pDiscardRectangles) {
+    public static void vkCmdSetDiscardRectangleEXT(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstDiscardRectangle, @NativeType("const VkRect2D *") VkRect2D.Buffer pDiscardRectangles) {
         nvkCmdSetDiscardRectangleEXT(commandBuffer, firstDiscardRectangle, pDiscardRectangles.remaining(), pDiscardRectangles.address());
     }
 

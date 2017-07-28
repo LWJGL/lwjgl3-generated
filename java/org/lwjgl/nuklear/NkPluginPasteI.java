@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkClipboard} struct. */
 @FunctionalInterface
+@NativeType("nk_plugin_paste")
 public interface NkPluginPasteI extends CallbackI.V {
 
     String SIGNATURE = "(pp)v";
@@ -26,7 +27,6 @@ public interface NkPluginPasteI extends CallbackI.V {
         );
     }
 
-
-    void invoke(long handle, long edit);
+    void invoke(@NativeType("nk_handle") long handle, @NativeType("struct nk_text_edit *") long edit);
 
 }

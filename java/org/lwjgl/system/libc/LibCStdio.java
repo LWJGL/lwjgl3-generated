@@ -24,6 +24,7 @@ public class LibCStdio {
 
     // --- [ sscanf ] ---
 
+    @NativeType("void *")
     private static native long sscanf();
 
     /** The address of the {@code sscanf} function. */
@@ -44,7 +45,7 @@ public class LibCStdio {
      *
      * @return the number of receiving arguments successfully assigned, or {@code EOF} if read failure occurs before the first receiving argument was assigned
      */
-    public static int vsscanf(ByteBuffer buffer, ByteBuffer format, long vlist) {
+    public static int vsscanf(@NativeType("const char *") ByteBuffer buffer, @NativeType("const char *") ByteBuffer format, @NativeType("va_list *") long vlist) {
         if (CHECKS) {
             checkNT1(buffer);
             checkNT1(format);
@@ -63,7 +64,7 @@ public class LibCStdio {
      *
      * @return the number of receiving arguments successfully assigned, or {@code EOF} if read failure occurs before the first receiving argument was assigned
      */
-    public static int vsscanf(CharSequence buffer, CharSequence format, long vlist) {
+    public static int vsscanf(@NativeType("const char *") CharSequence buffer, @NativeType("const char *") CharSequence format, @NativeType("va_list *") long vlist) {
         if (CHECKS) {
             check(vlist);
         }
@@ -79,6 +80,7 @@ public class LibCStdio {
 
     // --- [ sprintf ] ---
 
+    @NativeType("void *")
     private static native long sprintf();
 
     /** The address of the {@code sprintf} function. */
@@ -86,6 +88,7 @@ public class LibCStdio {
 
     // --- [ snprintf ] ---
 
+    @NativeType("void *")
     private static native long snprintf();
 
     /** The address of the {@code snprintf} function. */
@@ -112,7 +115,7 @@ public class LibCStdio {
      *         limit, function returns the total number of characters (not including the terminating null-byte) which would have been written, if the limit was not
      *         imposed.
      */
-    public static int vsnprintf(ByteBuffer buffer, ByteBuffer format, long vlist) {
+    public static int vsnprintf(@NativeType("char *") ByteBuffer buffer, @NativeType("const char *") ByteBuffer format, @NativeType("va_list *") long vlist) {
         if (CHECKS) {
             checkNT1(format);
             check(vlist);
@@ -132,7 +135,7 @@ public class LibCStdio {
      *         limit, function returns the total number of characters (not including the terminating null-byte) which would have been written, if the limit was not
      *         imposed.
      */
-    public static int vsnprintf(ByteBuffer buffer, CharSequence format, long vlist) {
+    public static int vsnprintf(@NativeType("char *") ByteBuffer buffer, @NativeType("const char *") CharSequence format, @NativeType("va_list *") long vlist) {
         if (CHECKS) {
             check(vlist);
         }

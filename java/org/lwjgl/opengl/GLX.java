@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -112,7 +114,8 @@ public class GLX {
      * @param error_base returns the value of the first error code
      * @param event_base returns the value of the first event code
      */
-    public static boolean glXQueryExtension(long display, IntBuffer error_base, IntBuffer event_base) {
+    @NativeType("Bool")
+    public static boolean glXQueryExtension(@NativeType("Display *") long display, @NativeType("int *") IntBuffer error_base, @NativeType("int *") IntBuffer event_base) {
         if (CHECKS) {
             check(error_base, 1);
             check(event_base, 1);
@@ -138,7 +141,8 @@ public class GLX {
      * @param major   returns the major version
      * @param minor   returns the minor version
      */
-    public static boolean glXQueryVersion(long display, IntBuffer major, IntBuffer minor) {
+    @NativeType("Bool")
+    public static boolean glXQueryVersion(@NativeType("Display *") long display, @NativeType("int *") IntBuffer major, @NativeType("int *") IntBuffer minor) {
         if (CHECKS) {
             check(major, 1);
             check(minor, 1);
@@ -166,7 +170,7 @@ public class GLX {
      * @param attribute the attribute to query
      * @param value     returns the attribute value
      */
-    public static int glXGetConfig(long display, XVisualInfo visual, int attribute, IntBuffer value) {
+    public static int glXGetConfig(@NativeType("Display *") long display, @NativeType("XVisualInfo *") XVisualInfo visual, int attribute, @NativeType("int *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -194,7 +198,8 @@ public class GLX {
      * @return a pointer to an {@code XVisualInfo} structure describing the visual that best matches the specified attributes. If no matching visual exists, {@code NULL} is
      *         returned.
      */
-    public static XVisualInfo glXChooseVisual(long display, int screen, IntBuffer attrib_list) {
+    @NativeType("XVisualInfo *")
+    public static XVisualInfo glXChooseVisual(@NativeType("Display *") long display, int screen, @NativeType("int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -222,7 +227,8 @@ public class GLX {
      * @param share_list the GLXContext to share objects with
      * @param direct     whether direct rendering is requested
      */
-    public static long glXCreateContext(long display, XVisualInfo visual, long share_list, boolean direct) {
+    @NativeType("GLXContext")
+    public static long glXCreateContext(@NativeType("Display *") long display, @NativeType("XVisualInfo *") XVisualInfo visual, @NativeType("GLXContext") long share_list, @NativeType("Bool") boolean direct) {
         return nglXCreateContext(display, visual.address(), share_list, direct ? 1 : 0);
     }
 
@@ -235,7 +241,8 @@ public class GLX {
      * @param draw    the draw GLXdrawable
      * @param ctx     the GLXContext to make current
      */
-    public static boolean glXMakeCurrent(long display, long draw, long ctx) {
+    @NativeType("Bool")
+    public static boolean glXMakeCurrent(@NativeType("Display *") long display, @NativeType("GLXDrawable") long draw, @NativeType("GLXContext") long ctx) {
         long __functionAddress = Functions.MakeCurrent;
         if (CHECKS) {
             check(display);
@@ -253,7 +260,7 @@ public class GLX {
      * @param dest    the destination GLXContext
      * @param mask    indicates which groups of state variables are to be copied; it contains the bitwise OR of the symbolic names for the attribute groups
      */
-    public static void glXCopyContext(long display, long source, long dest, long mask) {
+    public static void glXCopyContext(@NativeType("Display *") long display, @NativeType("GLXContext") long source, @NativeType("GLXContext") long dest, @NativeType("unsigned long") long mask) {
         long __functionAddress = Functions.CopyContext;
         if (CHECKS) {
             check(display);
@@ -271,7 +278,8 @@ public class GLX {
      * @param display the connection to the X server
      * @param ctx     the GLXContext to query
      */
-    public static boolean glXIsDirect(long display, long ctx) {
+    @NativeType("Bool")
+    public static boolean glXIsDirect(@NativeType("Display *") long display, @NativeType("GLXContext") long ctx) {
         long __functionAddress = Functions.IsDirect;
         if (CHECKS) {
             check(display);
@@ -291,7 +299,7 @@ public class GLX {
      * @param display the connection to the X server
      * @param ctx     the GLXContext to destroy
      */
-    public static void glXDestroyContext(long display, long ctx) {
+    public static void glXDestroyContext(@NativeType("Display *") long display, @NativeType("GLXContext") long ctx) {
         long __functionAddress = Functions.DestroyContext;
         if (CHECKS) {
             check(display);
@@ -303,6 +311,7 @@ public class GLX {
     // --- [ glXGetCurrentContext ] ---
 
     /** Returns the GLXContext that is current in the current thread. */
+    @NativeType("GLXContext")
     public static long glXGetCurrentContext() {
         long __functionAddress = Functions.GetCurrentContext;
         return callP(__functionAddress);
@@ -311,6 +320,7 @@ public class GLX {
     // --- [ glXGetCurrentDrawable ] ---
 
     /** Returns the XID of the current drawable used for rendering. */
+    @NativeType("GLXDrawable")
     public static long glXGetCurrentDrawable() {
         long __functionAddress = Functions.GetCurrentDrawable;
         return callP(__functionAddress);
@@ -354,7 +364,7 @@ public class GLX {
      * @param display the connection to the X server
      * @param draw    a double buffered GLXDrawable
      */
-    public static void glXSwapBuffers(long display, long draw) {
+    public static void glXSwapBuffers(@NativeType("Display *") long display, @NativeType("GLXDrawable") long draw) {
         long __functionAddress = Functions.SwapBuffers;
         if (CHECKS) {
             check(display);
@@ -373,7 +383,7 @@ public class GLX {
      * @param count     the number of display lists to define
      * @param list_base the base list number
      */
-    public static void glXUseXFont(long font, int first, int count, int list_base) {
+    public static void glXUseXFont(@NativeType("Font") long font, int first, int count, int list_base) {
         long __functionAddress = Functions.UseXFont;
         callPV(__functionAddress, font, first, count, list_base);
     }
@@ -397,7 +407,8 @@ public class GLX {
      * @param visual  a pointer to a {@link XVisualInfo} structure
      * @param pixmap  the Pixmap
      */
-    public static long glXCreateGLXPixmap(long display, XVisualInfo visual, long pixmap) {
+    @NativeType("GLXPixmap")
+    public static long glXCreateGLXPixmap(@NativeType("Display *") long display, @NativeType("XVisualInfo *") XVisualInfo visual, @NativeType("Pixmap") long pixmap) {
         return nglXCreateGLXPixmap(display, visual.address(), pixmap);
     }
 
@@ -409,7 +420,7 @@ public class GLX {
      * @param display the connection to the X server
      * @param pixmap  the GLXPixmap to destroy.
      */
-    public static void glXDestroyGLXPixmap(long display, long pixmap) {
+    public static void glXDestroyGLXPixmap(@NativeType("Display *") long display, @NativeType("GLXPixmap") long pixmap) {
         long __functionAddress = Functions.DestroyGLXPixmap;
         if (CHECKS) {
             check(display);
@@ -419,7 +430,8 @@ public class GLX {
     }
 
     /** Array version of: {@link #glXQueryExtension QueryExtension} */
-    public static boolean glXQueryExtension(long display, int[] error_base, int[] event_base) {
+    @NativeType("Bool")
+    public static boolean glXQueryExtension(@NativeType("Display *") long display, @NativeType("int *") int[] error_base, @NativeType("int *") int[] event_base) {
         long __functionAddress = Functions.QueryExtension;
         if (CHECKS) {
             check(display);
@@ -430,7 +442,8 @@ public class GLX {
     }
 
     /** Array version of: {@link #glXQueryVersion QueryVersion} */
-    public static boolean glXQueryVersion(long display, int[] major, int[] minor) {
+    @NativeType("Bool")
+    public static boolean glXQueryVersion(@NativeType("Display *") long display, @NativeType("int *") int[] major, @NativeType("int *") int[] minor) {
         long __functionAddress = Functions.QueryVersion;
         if (CHECKS) {
             check(display);
@@ -441,7 +454,7 @@ public class GLX {
     }
 
     /** Array version of: {@link #glXGetConfig GetConfig} */
-    public static int glXGetConfig(long display, XVisualInfo visual, int attribute, int[] value) {
+    public static int glXGetConfig(@NativeType("Display *") long display, @NativeType("XVisualInfo *") XVisualInfo visual, int attribute, @NativeType("int *") int[] value) {
         long __functionAddress = Functions.GetConfig;
         if (CHECKS) {
             check(display);
@@ -452,7 +465,8 @@ public class GLX {
     }
 
     /** Array version of: {@link #glXChooseVisual ChooseVisual} */
-    public static XVisualInfo glXChooseVisual(long display, int screen, int[] attrib_list) {
+    @NativeType("XVisualInfo *")
+    public static XVisualInfo glXChooseVisual(@NativeType("Display *") long display, int screen, @NativeType("int *") int[] attrib_list) {
         long __functionAddress = Functions.ChooseVisual;
         if (CHECKS) {
             check(display);

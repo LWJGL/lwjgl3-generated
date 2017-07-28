@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float m[12];
  * }</pre></code>
  */
+@NativeType("struct HmdMatrix34_t")
 public class HmdMatrix34 extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -62,12 +63,13 @@ public class HmdMatrix34 extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code m} field. */
+    @NativeType("float[12]")
     public FloatBuffer m() { return nm(address()); }
     /** Returns the value at the specified index of the {@code m} field. */
     public float m(int index) { return nm(address(), index); }
 
     /** Copies the specified {@link FloatBuffer} to the {@code m} field. */
-    public HmdMatrix34 m(FloatBuffer value) { nm(address(), value); return this; }
+    public HmdMatrix34 m(@NativeType("float[12]") FloatBuffer value) { nm(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code m} field. */
     public HmdMatrix34 m(int index, float value) { nm(address(), index, value); return this; }
 
@@ -274,12 +276,13 @@ public class HmdMatrix34 extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code m} field. */
+        @NativeType("float[12]")
         public FloatBuffer m() { return HmdMatrix34.nm(address()); }
         /** Returns the value at the specified index of the {@code m} field. */
         public float m(int index) { return HmdMatrix34.nm(address(), index); }
 
         /** Copies the specified {@link FloatBuffer} to the {@code m} field. */
-        public HmdMatrix34.Buffer m(FloatBuffer value) { HmdMatrix34.nm(address(), value); return this; }
+        public HmdMatrix34.Buffer m(@NativeType("float[12]") FloatBuffer value) { HmdMatrix34.nm(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code m} field. */
         public HmdMatrix34.Buffer m(int index, float value) { HmdMatrix34.nm(address(), index, value); return this; }
 

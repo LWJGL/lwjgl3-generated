@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -140,7 +142,8 @@ public class KHRExternalSemaphoreFd {
      * @param device                 the logical device that created the semaphore.
      * @param pImportSemaphoreFdInfo points to a {@link VkImportSemaphoreFdInfoKHR} structure specifying the semaphore and import parameters.
      */
-    public static int vkImportSemaphoreFdKHR(VkDevice device, VkImportSemaphoreFdInfoKHR pImportSemaphoreFdInfo) {
+    @NativeType("VkResult")
+    public static int vkImportSemaphoreFdKHR(VkDevice device, @NativeType("const VkImportSemaphoreFdInfoKHR *") VkImportSemaphoreFdInfoKHR pImportSemaphoreFdInfo) {
         return nvkImportSemaphoreFdKHR(device, pImportSemaphoreFdInfo.address());
     }
 
@@ -211,7 +214,8 @@ public class KHRExternalSemaphoreFd {
      * @param pGetFdInfo a pointer to an instance of the {@link VkSemaphoreGetFdInfoKHR} structure containing parameters of the export operation.
      * @param pFd        will return the file descriptor representing the semaphore payload.
      */
-    public static int vkGetSemaphoreFdKHR(VkDevice device, VkSemaphoreGetFdInfoKHR pGetFdInfo, IntBuffer pFd) {
+    @NativeType("VkResult")
+    public static int vkGetSemaphoreFdKHR(VkDevice device, @NativeType("const VkSemaphoreGetFdInfoKHR *") VkSemaphoreGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
         if (CHECKS) {
             check(pFd, 1);
         }
@@ -219,7 +223,8 @@ public class KHRExternalSemaphoreFd {
     }
 
     /** Array version of: {@link #vkGetSemaphoreFdKHR GetSemaphoreFdKHR} */
-    public static int vkGetSemaphoreFdKHR(VkDevice device, VkSemaphoreGetFdInfoKHR pGetFdInfo, int[] pFd) {
+    @NativeType("VkResult")
+    public static int vkGetSemaphoreFdKHR(VkDevice device, @NativeType("const VkSemaphoreGetFdInfoKHR *") VkSemaphoreGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
         long __functionAddress = device.getCapabilities().vkGetSemaphoreFdKHR;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -37,7 +39,7 @@ public class GLXNVCopyBuffer {
      * @param writeOffset 
      * @param size        
      */
-    public static void glXCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readTarget, int writeTarget, long readOffset, long writeOffset, long size) {
+    public static void glXCopyBufferSubDataNV(@NativeType("Display *") long display, @NativeType("GLXContext") long readCtx, @NativeType("GLXContext") long writeCtx, @NativeType("GLenum") int readTarget, @NativeType("GLenum") int writeTarget, @NativeType("GLintptr") long readOffset, @NativeType("GLintptr") long writeOffset, @NativeType("GLsizeiptr") long size) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCopyBufferSubDataNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -60,7 +62,7 @@ public class GLXNVCopyBuffer {
      * @param writeOffset 
      * @param size        
      */
-    public static void glXNamedCopyBufferSubDataNV(long display, long readCtx, long writeCtx, int readBuffer, int writeBuffer, long readOffset, long writeOffset, long size) {
+    public static void glXNamedCopyBufferSubDataNV(@NativeType("Display *") long display, @NativeType("GLXContext") long readCtx, @NativeType("GLXContext") long writeCtx, @NativeType("GLuint") int readBuffer, @NativeType("GLuint") int writeBuffer, @NativeType("GLintptr") long readOffset, @NativeType("GLintptr") long writeOffset, @NativeType("GLsizeiptr") long size) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXNamedCopyBufferSubDataNV;
         if (CHECKS) {
             check(__functionAddress);

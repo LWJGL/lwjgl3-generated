@@ -25,6 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned short region[4];
  * }</pre></code>
  */
+@NativeType("struct nk_image")
 public class NkImage extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -74,26 +75,31 @@ public class NkImage extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkHandle} view of the {@code handle} field. */
+    @NativeType("nk_handle")
     public NkHandle handle() { return nhandle(address()); }
     /** Returns the value of the {@code w} field. */
+    @NativeType("unsigned short")
     public short w() { return nw(address()); }
     /** Returns the value of the {@code h} field. */
+    @NativeType("unsigned short")
     public short h() { return nh(address()); }
     /** Returns a {@link ShortBuffer} view of the {@code region} field. */
+    @NativeType("unsigned short[4]")
     public ShortBuffer region() { return nregion(address()); }
     /** Returns the value at the specified index of the {@code region} field. */
+    @NativeType("unsigned short")
     public short region(int index) { return nregion(address(), index); }
 
     /** Copies the specified {@link NkHandle} to the {@code handle} field. */
-    public NkImage handle(NkHandle value) { nhandle(address(), value); return this; }
+    public NkImage handle(@NativeType("nk_handle") NkHandle value) { nhandle(address(), value); return this; }
     /** Sets the specified value to the {@code w} field. */
-    public NkImage w(short value) { nw(address(), value); return this; }
+    public NkImage w(@NativeType("unsigned short") short value) { nw(address(), value); return this; }
     /** Sets the specified value to the {@code h} field. */
-    public NkImage h(short value) { nh(address(), value); return this; }
+    public NkImage h(@NativeType("unsigned short") short value) { nh(address(), value); return this; }
     /** Copies the specified {@link ShortBuffer} to the {@code region} field. */
-    public NkImage region(ShortBuffer value) { nregion(address(), value); return this; }
+    public NkImage region(@NativeType("unsigned short[4]") ShortBuffer value) { nregion(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code region} field. */
-    public NkImage region(int index, short value) { nregion(address(), index, value); return this; }
+    public NkImage region(int index, @NativeType("unsigned short") short value) { nregion(address(), index, value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkImage set(
@@ -325,26 +331,31 @@ public class NkImage extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkHandle} view of the {@code handle} field. */
+        @NativeType("nk_handle")
         public NkHandle handle() { return NkImage.nhandle(address()); }
         /** Returns the value of the {@code w} field. */
+        @NativeType("unsigned short")
         public short w() { return NkImage.nw(address()); }
         /** Returns the value of the {@code h} field. */
+        @NativeType("unsigned short")
         public short h() { return NkImage.nh(address()); }
         /** Returns a {@link ShortBuffer} view of the {@code region} field. */
+        @NativeType("unsigned short[4]")
         public ShortBuffer region() { return NkImage.nregion(address()); }
         /** Returns the value at the specified index of the {@code region} field. */
+        @NativeType("unsigned short")
         public short region(int index) { return NkImage.nregion(address(), index); }
 
         /** Copies the specified {@link NkHandle} to the {@code handle} field. */
-        public NkImage.Buffer handle(NkHandle value) { NkImage.nhandle(address(), value); return this; }
+        public NkImage.Buffer handle(@NativeType("nk_handle") NkHandle value) { NkImage.nhandle(address(), value); return this; }
         /** Sets the specified value to the {@code w} field. */
-        public NkImage.Buffer w(short value) { NkImage.nw(address(), value); return this; }
+        public NkImage.Buffer w(@NativeType("unsigned short") short value) { NkImage.nw(address(), value); return this; }
         /** Sets the specified value to the {@code h} field. */
-        public NkImage.Buffer h(short value) { NkImage.nh(address(), value); return this; }
+        public NkImage.Buffer h(@NativeType("unsigned short") short value) { NkImage.nh(address(), value); return this; }
         /** Copies the specified {@link ShortBuffer} to the {@code region} field. */
-        public NkImage.Buffer region(ShortBuffer value) { NkImage.nregion(address(), value); return this; }
+        public NkImage.Buffer region(@NativeType("unsigned short[4]") ShortBuffer value) { NkImage.nregion(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code region} field. */
-        public NkImage.Buffer region(int index, short value) { NkImage.nregion(address(), index, value); return this; }
+        public NkImage.Buffer region(int index, @NativeType("unsigned short") short value) { NkImage.nregion(address(), index, value); return this; }
 
     }
 

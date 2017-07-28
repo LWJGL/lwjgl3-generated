@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -61,7 +63,8 @@ public class KHRFenceSync {
         return callPPP(__functionAddress, dpy, type, attrib_list);
     }
 
-    public static long eglCreateSyncKHR(long dpy, int type, IntBuffer attrib_list) {
+    @NativeType("EGLSyncKHR")
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }
@@ -70,7 +73,8 @@ public class KHRFenceSync {
 
     // --- [ eglDestroySyncKHR ] ---
 
-    public static boolean eglDestroySyncKHR(long dpy, long sync) {
+    @NativeType("EGLBoolean")
+    public static boolean eglDestroySyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSyncKHR") long sync) {
         long __functionAddress = EGL.getCapabilities().eglDestroySyncKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -82,7 +86,8 @@ public class KHRFenceSync {
 
     // --- [ eglClientWaitSyncKHR ] ---
 
-    public static int eglClientWaitSyncKHR(long dpy, long sync, int flags, long timeout) {
+    @NativeType("EGLint")
+    public static int eglClientWaitSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSyncKHR") long sync, @NativeType("EGLint") int flags, @NativeType("EGLTimeKHR") long timeout) {
         long __functionAddress = EGL.getCapabilities().eglClientWaitSyncKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -104,7 +109,8 @@ public class KHRFenceSync {
         return callPPPI(__functionAddress, dpy, sync, attribute, value);
     }
 
-    public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, IntBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglGetSyncAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSyncKHR") long sync, @NativeType("EGLint") int attribute, @NativeType("EGLint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -112,7 +118,8 @@ public class KHRFenceSync {
     }
 
     /** Array version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
-    public static long eglCreateSyncKHR(long dpy, int type, int[] attrib_list) {
+    @NativeType("EGLSyncKHR")
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -123,7 +130,8 @@ public class KHRFenceSync {
     }
 
     /** Array version of: {@link #eglGetSyncAttribKHR GetSyncAttribKHR} */
-    public static boolean eglGetSyncAttribKHR(long dpy, long sync, int attribute, int[] value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglGetSyncAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSyncKHR") long sync, @NativeType("EGLint") int attribute, @NativeType("EGLint *") int[] value) {
         long __functionAddress = EGL.getCapabilities().eglGetSyncAttribKHR;
         if (CHECKS) {
             check(__functionAddress);

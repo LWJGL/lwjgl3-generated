@@ -125,6 +125,7 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct implements NativeResou
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code supportedAlpha} field. */
+    @NativeType("VkDisplayPlaneAlphaFlagsKHR")
     public int supportedAlpha() { return nsupportedAlpha(address()); }
     /** Returns a {@link VkOffset2D} view of the {@code minSrcPosition} field. */
     public VkOffset2D minSrcPosition() { return nminSrcPosition(address()); }
@@ -334,6 +335,7 @@ public class VkDisplayPlaneCapabilitiesKHR extends Struct implements NativeResou
         }
 
         /** Returns the value of the {@code supportedAlpha} field. */
+        @NativeType("VkDisplayPlaneAlphaFlagsKHR")
         public int supportedAlpha() { return VkDisplayPlaneCapabilitiesKHR.nsupportedAlpha(address()); }
         /** Returns a {@link VkOffset2D} view of the {@code minSrcPosition} field. */
         public VkOffset2D minSrcPosition() { return VkDisplayPlaneCapabilitiesKHR.nminSrcPosition(address()); }

@@ -115,28 +115,34 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code objectType} field. */
+    @NativeType("VkDebugReportObjectTypeEXT")
     public int objectType() { return nobjectType(address()); }
     /** Returns the value of the {@code object} field. */
+    @NativeType("uint64_t")
     public long object() { return nobject(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pObjectName} field. */
+    @NativeType("const char *")
     public ByteBuffer pObjectName() { return npObjectName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pObjectName} field. */
+    @NativeType("const char *")
     public String pObjectNameString() { return npObjectNameString(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDebugMarkerObjectNameInfoEXT sType(int value) { nsType(address(), value); return this; }
+    public VkDebugMarkerObjectNameInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDebugMarkerObjectNameInfoEXT pNext(long value) { npNext(address(), value); return this; }
+    public VkDebugMarkerObjectNameInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code objectType} field. */
-    public VkDebugMarkerObjectNameInfoEXT objectType(int value) { nobjectType(address(), value); return this; }
+    public VkDebugMarkerObjectNameInfoEXT objectType(@NativeType("VkDebugReportObjectTypeEXT") int value) { nobjectType(address(), value); return this; }
     /** Sets the specified value to the {@code object} field. */
-    public VkDebugMarkerObjectNameInfoEXT object(long value) { nobject(address(), value); return this; }
+    public VkDebugMarkerObjectNameInfoEXT object(@NativeType("uint64_t") long value) { nobject(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code pObjectName} field. */
-    public VkDebugMarkerObjectNameInfoEXT pObjectName(ByteBuffer value) { npObjectName(address(), value); return this; }
+    public VkDebugMarkerObjectNameInfoEXT pObjectName(@NativeType("const char *") ByteBuffer value) { npObjectName(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDebugMarkerObjectNameInfoEXT set(
@@ -387,28 +393,34 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDebugMarkerObjectNameInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDebugMarkerObjectNameInfoEXT.npNext(address()); }
         /** Returns the value of the {@code objectType} field. */
+        @NativeType("VkDebugReportObjectTypeEXT")
         public int objectType() { return VkDebugMarkerObjectNameInfoEXT.nobjectType(address()); }
         /** Returns the value of the {@code object} field. */
+        @NativeType("uint64_t")
         public long object() { return VkDebugMarkerObjectNameInfoEXT.nobject(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pObjectName} field. */
+        @NativeType("const char *")
         public ByteBuffer pObjectName() { return VkDebugMarkerObjectNameInfoEXT.npObjectName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pObjectName} field. */
+        @NativeType("const char *")
         public String pObjectNameString() { return VkDebugMarkerObjectNameInfoEXT.npObjectNameString(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDebugMarkerObjectNameInfoEXT.Buffer sType(int value) { VkDebugMarkerObjectNameInfoEXT.nsType(address(), value); return this; }
+        public VkDebugMarkerObjectNameInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkDebugMarkerObjectNameInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDebugMarkerObjectNameInfoEXT.Buffer pNext(long value) { VkDebugMarkerObjectNameInfoEXT.npNext(address(), value); return this; }
+        public VkDebugMarkerObjectNameInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkDebugMarkerObjectNameInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code objectType} field. */
-        public VkDebugMarkerObjectNameInfoEXT.Buffer objectType(int value) { VkDebugMarkerObjectNameInfoEXT.nobjectType(address(), value); return this; }
+        public VkDebugMarkerObjectNameInfoEXT.Buffer objectType(@NativeType("VkDebugReportObjectTypeEXT") int value) { VkDebugMarkerObjectNameInfoEXT.nobjectType(address(), value); return this; }
         /** Sets the specified value to the {@code object} field. */
-        public VkDebugMarkerObjectNameInfoEXT.Buffer object(long value) { VkDebugMarkerObjectNameInfoEXT.nobject(address(), value); return this; }
+        public VkDebugMarkerObjectNameInfoEXT.Buffer object(@NativeType("uint64_t") long value) { VkDebugMarkerObjectNameInfoEXT.nobject(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code pObjectName} field. */
-        public VkDebugMarkerObjectNameInfoEXT.Buffer pObjectName(ByteBuffer value) { VkDebugMarkerObjectNameInfoEXT.npObjectName(address(), value); return this; }
+        public VkDebugMarkerObjectNameInfoEXT.Buffer pObjectName(@NativeType("const char *") ByteBuffer value) { VkDebugMarkerObjectNameInfoEXT.npObjectName(address(), value); return this; }
 
     }
 

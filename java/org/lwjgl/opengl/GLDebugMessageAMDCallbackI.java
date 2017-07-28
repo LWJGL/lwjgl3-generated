@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method. */
 @FunctionalInterface
+@NativeType("GLDEBUGPROCAMD")
 public interface GLDebugMessageAMDCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(iiiipp)v");
@@ -40,6 +41,6 @@ public interface GLDebugMessageAMDCallbackI extends CallbackI.V {
      * @param message   a pointer to the message string representation
      * @param userParam the user-specified value that was passed when calling {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD}
      */
-    void invoke(int id, int category, int severity, int length, long message, long userParam);
+    void invoke(@NativeType("GLuint") int id, @NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("GLsizei") int length, @NativeType("const GLchar *") long message, @NativeType("void *") long userParam);
 
 }

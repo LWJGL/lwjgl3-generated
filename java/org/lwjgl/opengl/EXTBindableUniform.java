@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -48,14 +50,16 @@ public class EXTBindableUniform {
 
     // --- [ glUniformBufferEXT ] ---
 
-    public static native void glUniformBufferEXT(int program, int location, int buffer);
+    public static native void glUniformBufferEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint") int buffer);
 
     // --- [ glGetUniformBufferSizeEXT ] ---
 
-    public static native int glGetUniformBufferSizeEXT(int program, int location);
+    @NativeType("GLint")
+    public static native int glGetUniformBufferSizeEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location);
 
     // --- [ glGetUniformOffsetEXT ] ---
 
-    public static native long glGetUniformOffsetEXT(int program, int location);
+    @NativeType("GLintptr")
+    public static native long glGetUniformOffsetEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location);
 
 }

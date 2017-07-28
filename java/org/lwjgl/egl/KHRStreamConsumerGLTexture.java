@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -33,7 +35,8 @@ public class KHRStreamConsumerGLTexture {
 
     // --- [ eglStreamConsumerGLTextureExternalKHR ] ---
 
-    public static boolean eglStreamConsumerGLTextureExternalKHR(long dpy, long stream) {
+    @NativeType("EGLBoolean")
+    public static boolean eglStreamConsumerGLTextureExternalKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream) {
         long __functionAddress = EGL.getCapabilities().eglStreamConsumerGLTextureExternalKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -45,7 +48,8 @@ public class KHRStreamConsumerGLTexture {
 
     // --- [ eglStreamConsumerAcquireKHR ] ---
 
-    public static boolean eglStreamConsumerAcquireKHR(long dpy, long stream) {
+    @NativeType("EGLBoolean")
+    public static boolean eglStreamConsumerAcquireKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream) {
         long __functionAddress = EGL.getCapabilities().eglStreamConsumerAcquireKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -57,7 +61,8 @@ public class KHRStreamConsumerGLTexture {
 
     // --- [ eglStreamConsumerReleaseKHR ] ---
 
-    public static boolean eglStreamConsumerReleaseKHR(long dpy, long stream) {
+    @NativeType("EGLBoolean")
+    public static boolean eglStreamConsumerReleaseKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream) {
         long __functionAddress = EGL.getCapabilities().eglStreamConsumerReleaseKHR;
         if (CHECKS) {
             check(__functionAddress);

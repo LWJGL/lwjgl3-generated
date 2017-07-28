@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -51,7 +53,7 @@ public class ALTERALiveObjectTracking {
      *
      * @param platform the platform ID
      */
-    public static void clTrackLiveObjectsAltera(long platform) {
+    public static void clTrackLiveObjectsAltera(@NativeType("cl_platform_id") long platform) {
         long __functionAddress = CL.getICD().clTrackLiveObjectsAltera;
         if (CHECKS) {
             check(__functionAddress);
@@ -81,7 +83,7 @@ public class ALTERALiveObjectTracking {
      * @param report_fn the callback function
      * @param user_data a pointer to user data that will be passed to {@code report_fn}
      */
-    public static void clReportLiveObjectsAltera(long platform, CLReportLiveObjectsAlteraCallbackI report_fn, long user_data) {
+    public static void clReportLiveObjectsAltera(@NativeType("cl_platform_id") long platform, @NativeType("cl_report_live_objects_altera") CLReportLiveObjectsAlteraCallbackI report_fn, @NativeType("void *") long user_data) {
         nclReportLiveObjectsAltera(platform, report_fn.address(), user_data);
     }
 

@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t nVisualMode;
  * }</pre></code>
  */
+@NativeType("struct VREvent_EditingCameraSurface_t")
 public class VREventEditingCameraSurface extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class VREventEditingCameraSurface extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code overlayHandle} field. */
+    @NativeType("uint64_t")
     public long overlayHandle() { return noverlayHandle(address()); }
     /** Returns the value of the {@code nVisualMode} field. */
+    @NativeType("uint32_t")
     public int nVisualMode() { return nnVisualMode(address()); }
 
     /** Sets the specified value to the {@code overlayHandle} field. */
-    public VREventEditingCameraSurface overlayHandle(long value) { noverlayHandle(address(), value); return this; }
+    public VREventEditingCameraSurface overlayHandle(@NativeType("uint64_t") long value) { noverlayHandle(address(), value); return this; }
     /** Sets the specified value to the {@code nVisualMode} field. */
-    public VREventEditingCameraSurface nVisualMode(int value) { nnVisualMode(address(), value); return this; }
+    public VREventEditingCameraSurface nVisualMode(@NativeType("uint32_t") int value) { nnVisualMode(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventEditingCameraSurface set(
@@ -279,14 +282,16 @@ public class VREventEditingCameraSurface extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code overlayHandle} field. */
+        @NativeType("uint64_t")
         public long overlayHandle() { return VREventEditingCameraSurface.noverlayHandle(address()); }
         /** Returns the value of the {@code nVisualMode} field. */
+        @NativeType("uint32_t")
         public int nVisualMode() { return VREventEditingCameraSurface.nnVisualMode(address()); }
 
         /** Sets the specified value to the {@code overlayHandle} field. */
-        public VREventEditingCameraSurface.Buffer overlayHandle(long value) { VREventEditingCameraSurface.noverlayHandle(address(), value); return this; }
+        public VREventEditingCameraSurface.Buffer overlayHandle(@NativeType("uint64_t") long value) { VREventEditingCameraSurface.noverlayHandle(address(), value); return this; }
         /** Sets the specified value to the {@code nVisualMode} field. */
-        public VREventEditingCameraSurface.Buffer nVisualMode(int value) { VREventEditingCameraSurface.nnVisualMode(address(), value); return this; }
+        public VREventEditingCameraSurface.Buffer nVisualMode(@NativeType("uint32_t") int value) { VREventEditingCameraSurface.nnVisualMode(address(), value); return this; }
 
     }
 

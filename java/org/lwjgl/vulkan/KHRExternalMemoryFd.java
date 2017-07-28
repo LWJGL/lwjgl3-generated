@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -135,7 +137,8 @@ public class KHRExternalMemoryFd {
      * @param pGetFdInfo a pointer to an instance of the {@link VkMemoryGetFdInfoKHR} structure containing parameters of the export operation.
      * @param pFd        will return a file descriptor representing the underlying resources of the device memory object.
      */
-    public static int vkGetMemoryFdKHR(VkDevice device, VkMemoryGetFdInfoKHR pGetFdInfo, IntBuffer pFd) {
+    @NativeType("VkResult")
+    public static int vkGetMemoryFdKHR(VkDevice device, @NativeType("const VkMemoryGetFdInfoKHR *") VkMemoryGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
         if (CHECKS) {
             check(pFd, 1);
         }
@@ -204,12 +207,14 @@ public class KHRExternalMemoryFd {
      * @param fd                  the handle which will be imported.
      * @param pMemoryFdProperties will return properties of the handle {@code fd}.
      */
-    public static int vkGetMemoryFdPropertiesKHR(VkDevice device, int handleType, int fd, VkMemoryFdPropertiesKHR pMemoryFdProperties) {
+    @NativeType("VkResult")
+    public static int vkGetMemoryFdPropertiesKHR(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int handleType, int fd, @NativeType("VkMemoryFdPropertiesKHR *") VkMemoryFdPropertiesKHR pMemoryFdProperties) {
         return nvkGetMemoryFdPropertiesKHR(device, handleType, fd, pMemoryFdProperties.address());
     }
 
     /** Array version of: {@link #vkGetMemoryFdKHR GetMemoryFdKHR} */
-    public static int vkGetMemoryFdKHR(VkDevice device, VkMemoryGetFdInfoKHR pGetFdInfo, int[] pFd) {
+    @NativeType("VkResult")
+    public static int vkGetMemoryFdKHR(VkDevice device, @NativeType("const VkMemoryGetFdInfoKHR *") VkMemoryGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
         long __functionAddress = device.getCapabilities().vkGetMemoryFdKHR;
         if (CHECKS) {
             check(__functionAddress);

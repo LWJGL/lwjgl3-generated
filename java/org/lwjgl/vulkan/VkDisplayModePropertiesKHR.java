@@ -74,6 +74,7 @@ public class VkDisplayModePropertiesKHR extends Struct implements NativeResource
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code displayMode} field. */
+    @NativeType("VkDisplayModeKHR")
     public long displayMode() { return ndisplayMode(address()); }
     /** Returns a {@link VkDisplayModeParametersKHR} view of the {@code parameters} field. */
     public VkDisplayModeParametersKHR parameters() { return nparameters(address()); }
@@ -255,6 +256,7 @@ public class VkDisplayModePropertiesKHR extends Struct implements NativeResource
         }
 
         /** Returns the value of the {@code displayMode} field. */
+        @NativeType("VkDisplayModeKHR")
         public long displayMode() { return VkDisplayModePropertiesKHR.ndisplayMode(address()); }
         /** Returns a {@link VkDisplayModeParametersKHR} view of the {@code parameters} field. */
         public VkDisplayModeParametersKHR parameters() { return VkDisplayModePropertiesKHR.nparameters(address()); }

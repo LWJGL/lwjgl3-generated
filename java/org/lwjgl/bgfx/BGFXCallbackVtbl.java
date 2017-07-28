@@ -46,6 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link BGFXCaptureFrameCallbackI capture_frame} capture_frame;
  * }</pre></code>
  */
+@NativeType("struct bgfx_callback_vtbl_t")
 public class BGFXCallbackVtbl extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -110,42 +111,51 @@ public class BGFXCallbackVtbl extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code fatal} field. */
+    @NativeType("fatal")
     public BGFXFatalCallback fatal() { return nfatal(address()); }
     /** Returns the value of the {@code trace_vargs} field. */
+    @NativeType("trace_vargs")
     public BGFXTraceVarArgsCallback trace_vargs() { return ntrace_vargs(address()); }
     /** Returns the value of the {@code cache_read_size} field. */
+    @NativeType("cache_read_size")
     public BGFXCacheReadSizeCallback cache_read_size() { return ncache_read_size(address()); }
     /** Returns the value of the {@code cache_read} field. */
+    @NativeType("cache_read")
     public BGFXCacheReadCallback cache_read() { return ncache_read(address()); }
     /** Returns the value of the {@code cache_write} field. */
+    @NativeType("cache_write")
     public BGFXCacheWriteCallback cache_write() { return ncache_write(address()); }
     /** Returns the value of the {@code screen_shot} field. */
+    @NativeType("screen_shot")
     public BGFXScreenShotCallback screen_shot() { return nscreen_shot(address()); }
     /** Returns the value of the {@code capture_begin} field. */
+    @NativeType("capture_begin")
     public BGFXCaptureBeginCallback capture_begin() { return ncapture_begin(address()); }
     /** Returns the value of the {@code capture_end} field. */
+    @NativeType("capture_end")
     public BGFXCaptureEndCallback capture_end() { return ncapture_end(address()); }
     /** Returns the value of the {@code capture_frame} field. */
+    @NativeType("capture_frame")
     public BGFXCaptureFrameCallback capture_frame() { return ncapture_frame(address()); }
 
     /** Sets the specified value to the {@code fatal} field. */
-    public BGFXCallbackVtbl fatal(BGFXFatalCallbackI value) { nfatal(address(), value); return this; }
+    public BGFXCallbackVtbl fatal(@NativeType("fatal") BGFXFatalCallbackI value) { nfatal(address(), value); return this; }
     /** Sets the specified value to the {@code trace_vargs} field. */
-    public BGFXCallbackVtbl trace_vargs(BGFXTraceVarArgsCallbackI value) { ntrace_vargs(address(), value); return this; }
+    public BGFXCallbackVtbl trace_vargs(@NativeType("trace_vargs") BGFXTraceVarArgsCallbackI value) { ntrace_vargs(address(), value); return this; }
     /** Sets the specified value to the {@code cache_read_size} field. */
-    public BGFXCallbackVtbl cache_read_size(BGFXCacheReadSizeCallbackI value) { ncache_read_size(address(), value); return this; }
+    public BGFXCallbackVtbl cache_read_size(@NativeType("cache_read_size") BGFXCacheReadSizeCallbackI value) { ncache_read_size(address(), value); return this; }
     /** Sets the specified value to the {@code cache_read} field. */
-    public BGFXCallbackVtbl cache_read(BGFXCacheReadCallbackI value) { ncache_read(address(), value); return this; }
+    public BGFXCallbackVtbl cache_read(@NativeType("cache_read") BGFXCacheReadCallbackI value) { ncache_read(address(), value); return this; }
     /** Sets the specified value to the {@code cache_write} field. */
-    public BGFXCallbackVtbl cache_write(BGFXCacheWriteCallbackI value) { ncache_write(address(), value); return this; }
+    public BGFXCallbackVtbl cache_write(@NativeType("cache_write") BGFXCacheWriteCallbackI value) { ncache_write(address(), value); return this; }
     /** Sets the specified value to the {@code screen_shot} field. */
-    public BGFXCallbackVtbl screen_shot(BGFXScreenShotCallbackI value) { nscreen_shot(address(), value); return this; }
+    public BGFXCallbackVtbl screen_shot(@NativeType("screen_shot") BGFXScreenShotCallbackI value) { nscreen_shot(address(), value); return this; }
     /** Sets the specified value to the {@code capture_begin} field. */
-    public BGFXCallbackVtbl capture_begin(BGFXCaptureBeginCallbackI value) { ncapture_begin(address(), value); return this; }
+    public BGFXCallbackVtbl capture_begin(@NativeType("capture_begin") BGFXCaptureBeginCallbackI value) { ncapture_begin(address(), value); return this; }
     /** Sets the specified value to the {@code capture_end} field. */
-    public BGFXCallbackVtbl capture_end(BGFXCaptureEndCallbackI value) { ncapture_end(address(), value); return this; }
+    public BGFXCallbackVtbl capture_end(@NativeType("capture_end") BGFXCaptureEndCallbackI value) { ncapture_end(address(), value); return this; }
     /** Sets the specified value to the {@code capture_frame} field. */
-    public BGFXCallbackVtbl capture_frame(BGFXCaptureFrameCallbackI value) { ncapture_frame(address(), value); return this; }
+    public BGFXCallbackVtbl capture_frame(@NativeType("capture_frame") BGFXCaptureFrameCallbackI value) { ncapture_frame(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public BGFXCallbackVtbl set(
@@ -423,42 +433,51 @@ public class BGFXCallbackVtbl extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code fatal} field. */
+        @NativeType("fatal")
         public BGFXFatalCallback fatal() { return BGFXCallbackVtbl.nfatal(address()); }
         /** Returns the value of the {@code trace_vargs} field. */
+        @NativeType("trace_vargs")
         public BGFXTraceVarArgsCallback trace_vargs() { return BGFXCallbackVtbl.ntrace_vargs(address()); }
         /** Returns the value of the {@code cache_read_size} field. */
+        @NativeType("cache_read_size")
         public BGFXCacheReadSizeCallback cache_read_size() { return BGFXCallbackVtbl.ncache_read_size(address()); }
         /** Returns the value of the {@code cache_read} field. */
+        @NativeType("cache_read")
         public BGFXCacheReadCallback cache_read() { return BGFXCallbackVtbl.ncache_read(address()); }
         /** Returns the value of the {@code cache_write} field. */
+        @NativeType("cache_write")
         public BGFXCacheWriteCallback cache_write() { return BGFXCallbackVtbl.ncache_write(address()); }
         /** Returns the value of the {@code screen_shot} field. */
+        @NativeType("screen_shot")
         public BGFXScreenShotCallback screen_shot() { return BGFXCallbackVtbl.nscreen_shot(address()); }
         /** Returns the value of the {@code capture_begin} field. */
+        @NativeType("capture_begin")
         public BGFXCaptureBeginCallback capture_begin() { return BGFXCallbackVtbl.ncapture_begin(address()); }
         /** Returns the value of the {@code capture_end} field. */
+        @NativeType("capture_end")
         public BGFXCaptureEndCallback capture_end() { return BGFXCallbackVtbl.ncapture_end(address()); }
         /** Returns the value of the {@code capture_frame} field. */
+        @NativeType("capture_frame")
         public BGFXCaptureFrameCallback capture_frame() { return BGFXCallbackVtbl.ncapture_frame(address()); }
 
         /** Sets the specified value to the {@code fatal} field. */
-        public BGFXCallbackVtbl.Buffer fatal(BGFXFatalCallbackI value) { BGFXCallbackVtbl.nfatal(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer fatal(@NativeType("fatal") BGFXFatalCallbackI value) { BGFXCallbackVtbl.nfatal(address(), value); return this; }
         /** Sets the specified value to the {@code trace_vargs} field. */
-        public BGFXCallbackVtbl.Buffer trace_vargs(BGFXTraceVarArgsCallbackI value) { BGFXCallbackVtbl.ntrace_vargs(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer trace_vargs(@NativeType("trace_vargs") BGFXTraceVarArgsCallbackI value) { BGFXCallbackVtbl.ntrace_vargs(address(), value); return this; }
         /** Sets the specified value to the {@code cache_read_size} field. */
-        public BGFXCallbackVtbl.Buffer cache_read_size(BGFXCacheReadSizeCallbackI value) { BGFXCallbackVtbl.ncache_read_size(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer cache_read_size(@NativeType("cache_read_size") BGFXCacheReadSizeCallbackI value) { BGFXCallbackVtbl.ncache_read_size(address(), value); return this; }
         /** Sets the specified value to the {@code cache_read} field. */
-        public BGFXCallbackVtbl.Buffer cache_read(BGFXCacheReadCallbackI value) { BGFXCallbackVtbl.ncache_read(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer cache_read(@NativeType("cache_read") BGFXCacheReadCallbackI value) { BGFXCallbackVtbl.ncache_read(address(), value); return this; }
         /** Sets the specified value to the {@code cache_write} field. */
-        public BGFXCallbackVtbl.Buffer cache_write(BGFXCacheWriteCallbackI value) { BGFXCallbackVtbl.ncache_write(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer cache_write(@NativeType("cache_write") BGFXCacheWriteCallbackI value) { BGFXCallbackVtbl.ncache_write(address(), value); return this; }
         /** Sets the specified value to the {@code screen_shot} field. */
-        public BGFXCallbackVtbl.Buffer screen_shot(BGFXScreenShotCallbackI value) { BGFXCallbackVtbl.nscreen_shot(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer screen_shot(@NativeType("screen_shot") BGFXScreenShotCallbackI value) { BGFXCallbackVtbl.nscreen_shot(address(), value); return this; }
         /** Sets the specified value to the {@code capture_begin} field. */
-        public BGFXCallbackVtbl.Buffer capture_begin(BGFXCaptureBeginCallbackI value) { BGFXCallbackVtbl.ncapture_begin(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer capture_begin(@NativeType("capture_begin") BGFXCaptureBeginCallbackI value) { BGFXCallbackVtbl.ncapture_begin(address(), value); return this; }
         /** Sets the specified value to the {@code capture_end} field. */
-        public BGFXCallbackVtbl.Buffer capture_end(BGFXCaptureEndCallbackI value) { BGFXCallbackVtbl.ncapture_end(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer capture_end(@NativeType("capture_end") BGFXCaptureEndCallbackI value) { BGFXCallbackVtbl.ncapture_end(address(), value); return this; }
         /** Sets the specified value to the {@code capture_frame} field. */
-        public BGFXCallbackVtbl.Buffer capture_frame(BGFXCaptureFrameCallbackI value) { BGFXCallbackVtbl.ncapture_frame(address(), value); return this; }
+        public BGFXCallbackVtbl.Buffer capture_frame(@NativeType("capture_frame") BGFXCaptureFrameCallbackI value) { BGFXCallbackVtbl.ncapture_frame(address(), value); return this; }
 
     }
 

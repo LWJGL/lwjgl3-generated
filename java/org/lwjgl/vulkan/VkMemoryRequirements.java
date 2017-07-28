@@ -79,10 +79,13 @@ public class VkMemoryRequirements extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code size} field. */
+    @NativeType("VkDeviceSize")
     public long size() { return nsize(address()); }
     /** Returns the value of the {@code alignment} field. */
+    @NativeType("VkDeviceSize")
     public long alignment() { return nalignment(address()); }
     /** Returns the value of the {@code memoryTypeBits} field. */
+    @NativeType("uint32_t")
     public int memoryTypeBits() { return nmemoryTypeBits(address()); }
 
     // -----------------------------------
@@ -264,10 +267,13 @@ public class VkMemoryRequirements extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code size} field. */
+        @NativeType("VkDeviceSize")
         public long size() { return VkMemoryRequirements.nsize(address()); }
         /** Returns the value of the {@code alignment} field. */
+        @NativeType("VkDeviceSize")
         public long alignment() { return VkMemoryRequirements.nalignment(address()); }
         /** Returns the value of the {@code memoryTypeBits} field. */
+        @NativeType("uint32_t")
         public int memoryTypeBits() { return VkMemoryRequirements.nmemoryTypeBits(address()); }
 
     }

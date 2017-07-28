@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -55,10 +57,10 @@ public class IMGMultisampledRenderToTexture {
 
     // --- [ glRenderbufferStorageMultisampleIMG ] ---
 
-    public static native void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleIMG(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glFramebufferTexture2DMultisampleIMG ] ---
 
-    public static native void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, int texture, int level, int samples);
+    public static native void glFramebufferTexture2DMultisampleIMG(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLsizei") int samples);
 
 }

@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char sentinel;
  * }</pre></code>
  */
+@NativeType("struct aiPropertyStore")
 public class AIPropertyStore extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -63,10 +64,11 @@ public class AIPropertyStore extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sentinel} field. */
+    @NativeType("char")
     public byte sentinel() { return nsentinel(address()); }
 
     /** Sets the specified value to the {@code sentinel} field. */
-    public AIPropertyStore sentinel(byte value) { nsentinel(address(), value); return this; }
+    public AIPropertyStore sentinel(@NativeType("char") byte value) { nsentinel(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -258,10 +260,11 @@ public class AIPropertyStore extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sentinel} field. */
+        @NativeType("char")
         public byte sentinel() { return AIPropertyStore.nsentinel(address()); }
 
         /** Sets the specified value to the {@code sentinel} field. */
-        public AIPropertyStore.Buffer sentinel(byte value) { AIPropertyStore.nsentinel(address(), value); return this; }
+        public AIPropertyStore.Buffer sentinel(@NativeType("char") byte value) { AIPropertyStore.nsentinel(address(), value); return this; }
 
     }
 

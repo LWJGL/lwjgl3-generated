@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     int active;
  * }</pre></code>
  */
+@NativeType("struct nk_popup_buffer")
 public class NkPopupBuffer extends Struct {
 
     /** The struct size in bytes. */
@@ -75,12 +76,16 @@ public class NkPopupBuffer extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code begin} field. */
+    @NativeType("nk_size")
     public long begin() { return nbegin(address()); }
     /** Returns the value of the {@code parent} field. */
+    @NativeType("nk_size")
     public long parent() { return nparent(address()); }
     /** Returns the value of the {@code last} field. */
+    @NativeType("nk_size")
     public long last() { return nlast(address()); }
     /** Returns the value of the {@code end} field. */
+    @NativeType("nk_size")
     public long end() { return nend(address()); }
     /** Returns the value of the {@code active} field. */
     public int active() { return nactive(address()); }
@@ -158,12 +163,16 @@ public class NkPopupBuffer extends Struct {
         }
 
         /** Returns the value of the {@code begin} field. */
+        @NativeType("nk_size")
         public long begin() { return NkPopupBuffer.nbegin(address()); }
         /** Returns the value of the {@code parent} field. */
+        @NativeType("nk_size")
         public long parent() { return NkPopupBuffer.nparent(address()); }
         /** Returns the value of the {@code last} field. */
+        @NativeType("nk_size")
         public long last() { return NkPopupBuffer.nlast(address()); }
         /** Returns the value of the {@code end} field. */
+        @NativeType("nk_size")
         public long end() { return NkPopupBuffer.nend(address()); }
         /** Returns the value of the {@code active} field. */
         public int active() { return NkPopupBuffer.nactive(address()); }

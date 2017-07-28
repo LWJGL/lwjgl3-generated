@@ -62,7 +62,7 @@ public class NVDrawVulkanImage {
      * @param s1      the right texture coordinate
      * @param t1      the top texture coordinate
      */
-    public static native void glDrawVkImageNV(long vkImage, int sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
+    public static native void glDrawVkImageNV(@NativeType("GLuint64") long vkImage, @NativeType("GLuint") int sampler, @NativeType("GLfloat") float x0, @NativeType("GLfloat") float y0, @NativeType("GLfloat") float x1, @NativeType("GLfloat") float y1, @NativeType("GLfloat") float z, @NativeType("GLfloat") float s0, @NativeType("GLfloat") float t0, @NativeType("GLfloat") float s1, @NativeType("GLfloat") float t1);
 
     // --- [ glGetVkProcAddrNV ] ---
 
@@ -74,7 +74,8 @@ public class NVDrawVulkanImage {
      *
      * @param name name of the Vulkan function
      */
-    public static long glGetVkProcAddrNV(ByteBuffer name) {
+    @NativeType("VULKANPROCNV")
+    public static long glGetVkProcAddrNV(@NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -86,7 +87,8 @@ public class NVDrawVulkanImage {
      *
      * @param name name of the Vulkan function
      */
-    public static long glGetVkProcAddrNV(CharSequence name) {
+    @NativeType("VULKANPROCNV")
+    public static long glGetVkProcAddrNV(@NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -104,7 +106,7 @@ public class NVDrawVulkanImage {
      *
      * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
      */
-    public static native void glWaitVkSemaphoreNV(long vkSemaphore);
+    public static native void glWaitVkSemaphoreNV(@NativeType("GLuint64") long vkSemaphore);
 
     // --- [ glSignalVkSemaphoreNV ] ---
 
@@ -114,7 +116,7 @@ public class NVDrawVulkanImage {
      *
      * @param vkSemaphore a valid Vulkan {@code VkSemaphore} non-dispatchable handle otherwise the operation is undefined
      */
-    public static native void glSignalVkSemaphoreNV(long vkSemaphore);
+    public static native void glSignalVkSemaphoreNV(@NativeType("GLuint64") long vkSemaphore);
 
     // --- [ glSignalVkFenceNV ] ---
 
@@ -124,6 +126,6 @@ public class NVDrawVulkanImage {
      *
      * @param vkFence a valid Vulkan VkFence non-dispatcable handle otherwise the operation is undefined
      */
-    public static native void glSignalVkFenceNV(long vkFence);
+    public static native void glSignalVkFenceNV(@NativeType("GLuint64") long vkFence);
 
 }

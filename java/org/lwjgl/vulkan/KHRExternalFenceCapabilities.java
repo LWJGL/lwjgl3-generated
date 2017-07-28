@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -158,7 +160,7 @@ public class KHRExternalFenceCapabilities {
      * @param pExternalFenceInfo       points to an instance of the {@link VkPhysicalDeviceExternalFenceInfoKHR} structure, describing the parameters that would be consumed by {@link VK10#vkCreateFence CreateFence}.
      * @param pExternalFenceProperties points to an instance of the {@link VkExternalFencePropertiesKHR} structure in which capabilities are returned.
      */
-    public static void vkGetPhysicalDeviceExternalFencePropertiesKHR(VkPhysicalDevice physicalDevice, VkPhysicalDeviceExternalFenceInfoKHR pExternalFenceInfo, VkExternalFencePropertiesKHR pExternalFenceProperties) {
+    public static void vkGetPhysicalDeviceExternalFencePropertiesKHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceExternalFenceInfoKHR *") VkPhysicalDeviceExternalFenceInfoKHR pExternalFenceInfo, @NativeType("VkExternalFencePropertiesKHR *") VkExternalFencePropertiesKHR pExternalFenceProperties) {
         nvkGetPhysicalDeviceExternalFencePropertiesKHR(physicalDevice, pExternalFenceInfo.address(), pExternalFenceProperties.address());
     }
 

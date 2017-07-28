@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -102,10 +104,10 @@ public class QCOMTiledRendering {
 
     // --- [ glStartTilingQCOM ] ---
 
-    public static native void glStartTilingQCOM(int x, int y, int width, int height, int preserveMask);
+    public static native void glStartTilingQCOM(@NativeType("GLuint") int x, @NativeType("GLuint") int y, @NativeType("GLuint") int width, @NativeType("GLuint") int height, @NativeType("GLbitfield") int preserveMask);
 
     // --- [ glEndTilingQCOM ] ---
 
-    public static native void glEndTilingQCOM(int preserveMask);
+    public static native void glEndTilingQCOM(@NativeType("GLbitfield") int preserveMask);
 
 }

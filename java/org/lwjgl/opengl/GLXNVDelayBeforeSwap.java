@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -55,7 +57,8 @@ public class GLXNVDelayBeforeSwap {
      * @param drawable the window drawable
      * @param seconds  the delay, in seconds
      */
-    public static boolean glXDelayBeforeSwapNV(long display, long drawable, float seconds) {
+    @NativeType("Bool")
+    public static boolean glXDelayBeforeSwapNV(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, @NativeType("GLfloat") float seconds) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXDelayBeforeSwapNV;
         if (CHECKS) {
             check(__functionAddress);

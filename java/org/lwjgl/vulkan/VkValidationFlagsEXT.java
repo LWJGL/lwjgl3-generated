@@ -94,20 +94,24 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code disabledValidationCheckCount} field. */
+    @NativeType("uint32_t")
     public int disabledValidationCheckCount() { return ndisabledValidationCheckCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDisabledValidationChecks} field. */
+    @NativeType("VkValidationCheckEXT *")
     public IntBuffer pDisabledValidationChecks() { return npDisabledValidationChecks(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkValidationFlagsEXT sType(int value) { nsType(address(), value); return this; }
+    public VkValidationFlagsEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkValidationFlagsEXT pNext(long value) { npNext(address(), value); return this; }
+    public VkValidationFlagsEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pDisabledValidationChecks} field. */
-    public VkValidationFlagsEXT pDisabledValidationChecks(IntBuffer value) { npDisabledValidationChecks(address(), value); return this; }
+    public VkValidationFlagsEXT pDisabledValidationChecks(@NativeType("VkValidationCheckEXT *") IntBuffer value) { npDisabledValidationChecks(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkValidationFlagsEXT set(
@@ -345,20 +349,24 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkValidationFlagsEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkValidationFlagsEXT.npNext(address()); }
         /** Returns the value of the {@code disabledValidationCheckCount} field. */
+        @NativeType("uint32_t")
         public int disabledValidationCheckCount() { return VkValidationFlagsEXT.ndisabledValidationCheckCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDisabledValidationChecks} field. */
+        @NativeType("VkValidationCheckEXT *")
         public IntBuffer pDisabledValidationChecks() { return VkValidationFlagsEXT.npDisabledValidationChecks(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkValidationFlagsEXT.Buffer sType(int value) { VkValidationFlagsEXT.nsType(address(), value); return this; }
+        public VkValidationFlagsEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkValidationFlagsEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkValidationFlagsEXT.Buffer pNext(long value) { VkValidationFlagsEXT.npNext(address(), value); return this; }
+        public VkValidationFlagsEXT.Buffer pNext(@NativeType("const void *") long value) { VkValidationFlagsEXT.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pDisabledValidationChecks} field. */
-        public VkValidationFlagsEXT.Buffer pDisabledValidationChecks(IntBuffer value) { VkValidationFlagsEXT.npDisabledValidationChecks(address(), value); return this; }
+        public VkValidationFlagsEXT.Buffer pDisabledValidationChecks(@NativeType("VkValidationCheckEXT *") IntBuffer value) { VkValidationFlagsEXT.npDisabledValidationChecks(address(), value); return this; }
 
     }
 

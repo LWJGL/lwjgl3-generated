@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -62,6 +64,6 @@ public class NVViewportSwizzle {
      * @param swizzlez the z swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
      * @param swizzlew the w swizzle state. One of:<br><table><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV VIEWPORT_SWIZZLE_POSITIVE_X_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV VIEWPORT_SWIZZLE_NEGATIVE_X_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV VIEWPORT_SWIZZLE_POSITIVE_Y_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV VIEWPORT_SWIZZLE_NEGATIVE_Y_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV VIEWPORT_SWIZZLE_POSITIVE_Z_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV VIEWPORT_SWIZZLE_NEGATIVE_Z_NV}</td></tr><tr><td>{@link #GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV VIEWPORT_SWIZZLE_POSITIVE_W_NV}</td><td>{@link #GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV VIEWPORT_SWIZZLE_NEGATIVE_W_NV}</td></tr></table>
      */
-    public static native void glViewportSwizzleNV(int index, int swizzlex, int swizzley, int swizzlez, int swizzlew);
+    public static native void glViewportSwizzleNV(@NativeType("GLuint") int index, @NativeType("GLenum") int swizzlex, @NativeType("GLenum") int swizzley, @NativeType("GLenum") int swizzlez, @NativeType("GLenum") int swizzlew);
 
 }

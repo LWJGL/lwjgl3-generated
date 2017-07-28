@@ -7,6 +7,8 @@ package org.lwjgl.openal;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -50,7 +52,8 @@ public class AL11 {
      * @param value2    the second value
      * @param value3    the third value
      */
-    public static void alListener3i(int paramName, float value1, float value2, float value3) {
+    @NativeType("ALvoid")
+    public static void alListener3i(@NativeType("ALenum") int paramName, @NativeType("ALfloat") float value1, @NativeType("ALfloat") float value2, @NativeType("ALfloat") float value3) {
         long __functionAddress = AL.getICD().alListener3i;
         if (CHECKS) {
             check(__functionAddress);
@@ -75,7 +78,8 @@ public class AL11 {
      * @param param  the parameter to query
      * @param values the parameter values
      */
-    public static void alGetListeneriv(int param, IntBuffer values) {
+    @NativeType("ALvoid")
+    public static void alGetListeneriv(@NativeType("ALenum") int param, @NativeType("ALint *") IntBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -93,7 +97,8 @@ public class AL11 {
      * @param value2    the second value
      * @param value3    the third value
      */
-    public static void alSource3i(int source, int paramName, int value1, int value2, int value3) {
+    @NativeType("ALvoid")
+    public static void alSource3i(@NativeType("ALuint") int source, @NativeType("ALenum") int paramName, @NativeType("ALint") int value1, @NativeType("ALint") int value2, @NativeType("ALint") int value3) {
         long __functionAddress = AL.getICD().alSource3i;
         if (CHECKS) {
             check(__functionAddress);
@@ -118,7 +123,8 @@ public class AL11 {
      * @param listener the parameter to modify
      * @param value    the parameter values
      */
-    public static void alListeneriv(int listener, IntBuffer value) {
+    @NativeType("ALvoid")
+    public static void alListeneriv(@NativeType("ALenum") int listener, @NativeType("const ALint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -143,7 +149,8 @@ public class AL11 {
      * @param paramName the parameter to modify
      * @param value     the parameter values
      */
-    public static void alSourceiv(int source, int paramName, IntBuffer value) {
+    @NativeType("ALvoid")
+    public static void alSourceiv(@NativeType("ALuint") int source, @NativeType("ALenum") int paramName, @NativeType("const ALint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -159,7 +166,8 @@ public class AL11 {
      * @param paramName the parameter to modify
      * @param value     the value
      */
-    public static void alBufferf(int buffer, int paramName, float value) {
+    @NativeType("ALvoid")
+    public static void alBufferf(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("ALfloat") float value) {
         long __functionAddress = AL.getICD().alBufferf;
         if (CHECKS) {
             check(__functionAddress);
@@ -178,7 +186,8 @@ public class AL11 {
      * @param value2    the second value
      * @param value3    the third value
      */
-    public static void alBuffer3f(int buffer, int paramName, float value1, float value2, float value3) {
+    @NativeType("ALvoid")
+    public static void alBuffer3f(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("ALfloat") float value1, @NativeType("ALfloat") float value2, @NativeType("ALfloat") float value3) {
         long __functionAddress = AL.getICD().alBuffer3f;
         if (CHECKS) {
             check(__functionAddress);
@@ -204,7 +213,8 @@ public class AL11 {
      * @param paramName the parameter to modify
      * @param value     the parameter values
      */
-    public static void alBufferfv(int buffer, int paramName, FloatBuffer value) {
+    @NativeType("ALvoid")
+    public static void alBufferfv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("const ALfloat *") FloatBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -220,7 +230,8 @@ public class AL11 {
      * @param paramName the parameter to modify
      * @param value     the value
      */
-    public static void alBufferi(int buffer, int paramName, int value) {
+    @NativeType("ALvoid")
+    public static void alBufferi(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("ALint") int value) {
         long __functionAddress = AL.getICD().alBufferi;
         if (CHECKS) {
             check(__functionAddress);
@@ -239,7 +250,8 @@ public class AL11 {
      * @param value2    the second value
      * @param value3    the third value
      */
-    public static void alBuffer3i(int buffer, int paramName, int value1, int value2, int value3) {
+    @NativeType("ALvoid")
+    public static void alBuffer3i(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("ALint") int value1, @NativeType("ALint") int value2, @NativeType("ALint") int value3) {
         long __functionAddress = AL.getICD().alBuffer3i;
         if (CHECKS) {
             check(__functionAddress);
@@ -265,7 +277,8 @@ public class AL11 {
      * @param paramName the parameter to modify
      * @param value     the parameter values
      */
-    public static void alBufferiv(int buffer, int paramName, IntBuffer value) {
+    @NativeType("ALvoid")
+    public static void alBufferiv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("const ALint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -290,7 +303,8 @@ public class AL11 {
      * @param param  the parameter to query
      * @param values the parameter values
      */
-    public static void alGetBufferiv(int buffer, int param, IntBuffer values) {
+    @NativeType("ALvoid")
+    public static void alGetBufferiv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int param, @NativeType("ALint *") IntBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -315,7 +329,8 @@ public class AL11 {
      * @param param  the parameter to query
      * @param values the parameter values
      */
-    public static void alGetBufferfv(int buffer, int param, FloatBuffer values) {
+    @NativeType("ALvoid")
+    public static void alGetBufferfv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int param, @NativeType("ALfloat *") FloatBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -329,7 +344,8 @@ public class AL11 {
      *
      * @param value the speed of sound
      */
-    public static void alSpeedOfSound(float value) {
+    @NativeType("ALvoid")
+    public static void alSpeedOfSound(@NativeType("ALfloat") float value) {
         long __functionAddress = AL.getICD().alSpeedOfSound;
         if (CHECKS) {
             check(__functionAddress);
@@ -338,7 +354,8 @@ public class AL11 {
     }
 
     /** Array version of: {@link #alGetListeneriv GetListeneriv} */
-    public static void alGetListeneriv(int param, int[] values) {
+    @NativeType("ALvoid")
+    public static void alGetListeneriv(@NativeType("ALenum") int param, @NativeType("ALint *") int[] values) {
         long __functionAddress = AL.getICD().alGetListeneriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -348,7 +365,8 @@ public class AL11 {
     }
 
     /** Array version of: {@link #alListeneriv Listeneriv} */
-    public static void alListeneriv(int listener, int[] value) {
+    @NativeType("ALvoid")
+    public static void alListeneriv(@NativeType("ALenum") int listener, @NativeType("const ALint *") int[] value) {
         long __functionAddress = AL.getICD().alListeneriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -358,7 +376,8 @@ public class AL11 {
     }
 
     /** Array version of: {@link #alSourceiv Sourceiv} */
-    public static void alSourceiv(int source, int paramName, int[] value) {
+    @NativeType("ALvoid")
+    public static void alSourceiv(@NativeType("ALuint") int source, @NativeType("ALenum") int paramName, @NativeType("const ALint *") int[] value) {
         long __functionAddress = AL.getICD().alSourceiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -368,7 +387,8 @@ public class AL11 {
     }
 
     /** Array version of: {@link #alBufferfv Bufferfv} */
-    public static void alBufferfv(int buffer, int paramName, float[] value) {
+    @NativeType("ALvoid")
+    public static void alBufferfv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("const ALfloat *") float[] value) {
         long __functionAddress = AL.getICD().alBufferfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -378,7 +398,8 @@ public class AL11 {
     }
 
     /** Array version of: {@link #alBufferiv Bufferiv} */
-    public static void alBufferiv(int buffer, int paramName, int[] value) {
+    @NativeType("ALvoid")
+    public static void alBufferiv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int paramName, @NativeType("const ALint *") int[] value) {
         long __functionAddress = AL.getICD().alBufferiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -388,7 +409,8 @@ public class AL11 {
     }
 
     /** Array version of: {@link #alGetBufferiv GetBufferiv} */
-    public static void alGetBufferiv(int buffer, int param, int[] values) {
+    @NativeType("ALvoid")
+    public static void alGetBufferiv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int param, @NativeType("ALint *") int[] values) {
         long __functionAddress = AL.getICD().alGetBufferiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -398,7 +420,8 @@ public class AL11 {
     }
 
     /** Array version of: {@link #alGetBufferfv GetBufferfv} */
-    public static void alGetBufferfv(int buffer, int param, float[] values) {
+    @NativeType("ALvoid")
+    public static void alGetBufferfv(@NativeType("ALuint") int buffer, @NativeType("ALenum") int param, @NativeType("ALfloat *") float[] values) {
         long __functionAddress = AL.getICD().alGetBufferfv;
         if (CHECKS) {
             check(__functionAddress);

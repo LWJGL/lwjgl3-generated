@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char Reserved[8];
  * }</pre></code>
  */
+@NativeType("struct ovrGraphicsLuid")
 public class OVRGraphicsLuid extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -72,8 +73,10 @@ public class OVRGraphicsLuid extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code Reserved} field. */
+    @NativeType("char[8]")
     public ByteBuffer Reserved() { return nReserved(address()); }
     /** Returns the value at the specified index of the {@code Reserved} field. */
+    @NativeType("char")
     public byte Reserved(int index) { return nReserved(address(), index); }
 
     // -----------------------------------
@@ -256,8 +259,10 @@ public class OVRGraphicsLuid extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code Reserved} field. */
+        @NativeType("char[8]")
         public ByteBuffer Reserved() { return OVRGraphicsLuid.nReserved(address()); }
         /** Returns the value at the specified index of the {@code Reserved} field. */
+        @NativeType("char")
         public byte Reserved(int index) { return OVRGraphicsLuid.nReserved(address(), index); }
 
     }

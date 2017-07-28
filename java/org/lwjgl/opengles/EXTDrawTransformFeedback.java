@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -33,10 +35,10 @@ public class EXTDrawTransformFeedback {
 
     // --- [ glDrawTransformFeedbackEXT ] ---
 
-    public static native void glDrawTransformFeedbackEXT(int mode, int id);
+    public static native void glDrawTransformFeedbackEXT(@NativeType("GLenum") int mode, @NativeType("GLuint") int id);
 
     // --- [ glDrawTransformFeedbackInstancedEXT ] ---
 
-    public static native void glDrawTransformFeedbackInstancedEXT(int mode, int id, int instancecount);
+    public static native void glDrawTransformFeedbackInstancedEXT(@NativeType("GLenum") int mode, @NativeType("GLuint") int id, @NativeType("GLsizei") int instancecount);
 
 }

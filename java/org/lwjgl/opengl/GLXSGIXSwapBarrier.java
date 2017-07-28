@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -40,7 +42,7 @@ public class GLXSGIXSwapBarrier {
      * @param drawable the swap group GLXDrawable
      * @param barrier  the swap barrier
      */
-    public static void glXBindSwapBarrierSGIX(long display, long drawable, int barrier) {
+    public static void glXBindSwapBarrierSGIX(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int barrier) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXBindSwapBarrierSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -69,7 +71,8 @@ public class GLXSGIXSwapBarrier {
      * @param screen  the screen
      * @param max     returns the maximum number of barriers
      */
-    public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, IntBuffer max) {
+    @NativeType("Bool")
+    public static boolean glXQueryMaxSwapBarriersSGIX(@NativeType("Display *") long display, int screen, @NativeType("int *") IntBuffer max) {
         if (CHECKS) {
             check(max, 1);
         }
@@ -77,7 +80,8 @@ public class GLXSGIXSwapBarrier {
     }
 
     /** Array version of: {@link #glXQueryMaxSwapBarriersSGIX QueryMaxSwapBarriersSGIX} */
-    public static boolean glXQueryMaxSwapBarriersSGIX(long display, int screen, int[] max) {
+    @NativeType("Bool")
+    public static boolean glXQueryMaxSwapBarriersSGIX(@NativeType("Display *") long display, int screen, @NativeType("int *") int[] max) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryMaxSwapBarriersSGIX;
         if (CHECKS) {
             check(__functionAddress);

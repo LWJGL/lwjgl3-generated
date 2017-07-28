@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -60,7 +62,7 @@ public class QCOMFramebufferFoveated {
 
     public static native void nglFramebufferFoveationConfigQCOM(int fbo, int numLayers, int focalPointsPerLayer, int requestedFeatures, long providedFeatures);
 
-    public static void glFramebufferFoveationConfigQCOM(int fbo, int numLayers, int focalPointsPerLayer, int requestedFeatures, IntBuffer providedFeatures) {
+    public static void glFramebufferFoveationConfigQCOM(@NativeType("GLuint") int fbo, @NativeType("GLuint") int numLayers, @NativeType("GLuint") int focalPointsPerLayer, @NativeType("GLuint") int requestedFeatures, @NativeType("GLuint *") IntBuffer providedFeatures) {
         if (CHECKS) {
             check(providedFeatures, 1);
         }
@@ -69,10 +71,10 @@ public class QCOMFramebufferFoveated {
 
     // --- [ glFramebufferFoveationParametersQCOM ] ---
 
-    public static native void glFramebufferFoveationParametersQCOM(int fbo, int layer, int focalPoint, float focalX, float focalY, float gainX, float gainY, float foveaArea);
+    public static native void glFramebufferFoveationParametersQCOM(@NativeType("GLuint") int fbo, @NativeType("GLuint") int layer, @NativeType("GLuint") int focalPoint, @NativeType("GLfloat") float focalX, @NativeType("GLfloat") float focalY, @NativeType("GLfloat") float gainX, @NativeType("GLfloat") float gainY, @NativeType("GLfloat") float foveaArea);
 
     /** Array version of: {@link #glFramebufferFoveationConfigQCOM FramebufferFoveationConfigQCOM} */
-    public static void glFramebufferFoveationConfigQCOM(int fbo, int numLayers, int focalPointsPerLayer, int requestedFeatures, int[] providedFeatures) {
+    public static void glFramebufferFoveationConfigQCOM(@NativeType("GLuint") int fbo, @NativeType("GLuint") int numLayers, @NativeType("GLuint") int focalPointsPerLayer, @NativeType("GLuint") int requestedFeatures, @NativeType("GLuint *") int[] providedFeatures) {
         long __functionAddress = GLES.getICD().glFramebufferFoveationConfigQCOM;
         if (CHECKS) {
             check(__functionAddress);

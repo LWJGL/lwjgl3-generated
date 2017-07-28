@@ -84,22 +84,26 @@ public class RECT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code left} field. */
+    @NativeType("LONG")
     public int left() { return nleft(address()); }
     /** Returns the value of the {@code top} field. */
+    @NativeType("LONG")
     public int top() { return ntop(address()); }
     /** Returns the value of the {@code right} field. */
+    @NativeType("LONG")
     public int right() { return nright(address()); }
     /** Returns the value of the {@code bottom} field. */
+    @NativeType("LONG")
     public int bottom() { return nbottom(address()); }
 
     /** Sets the specified value to the {@code left} field. */
-    public RECT left(int value) { nleft(address(), value); return this; }
+    public RECT left(@NativeType("LONG") int value) { nleft(address(), value); return this; }
     /** Sets the specified value to the {@code top} field. */
-    public RECT top(int value) { ntop(address(), value); return this; }
+    public RECT top(@NativeType("LONG") int value) { ntop(address(), value); return this; }
     /** Sets the specified value to the {@code right} field. */
-    public RECT right(int value) { nright(address(), value); return this; }
+    public RECT right(@NativeType("LONG") int value) { nright(address(), value); return this; }
     /** Sets the specified value to the {@code bottom} field. */
-    public RECT bottom(int value) { nbottom(address(), value); return this; }
+    public RECT bottom(@NativeType("LONG") int value) { nbottom(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public RECT set(
@@ -318,22 +322,26 @@ public class RECT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code left} field. */
+        @NativeType("LONG")
         public int left() { return RECT.nleft(address()); }
         /** Returns the value of the {@code top} field. */
+        @NativeType("LONG")
         public int top() { return RECT.ntop(address()); }
         /** Returns the value of the {@code right} field. */
+        @NativeType("LONG")
         public int right() { return RECT.nright(address()); }
         /** Returns the value of the {@code bottom} field. */
+        @NativeType("LONG")
         public int bottom() { return RECT.nbottom(address()); }
 
         /** Sets the specified value to the {@code left} field. */
-        public RECT.Buffer left(int value) { RECT.nleft(address(), value); return this; }
+        public RECT.Buffer left(@NativeType("LONG") int value) { RECT.nleft(address(), value); return this; }
         /** Sets the specified value to the {@code top} field. */
-        public RECT.Buffer top(int value) { RECT.ntop(address(), value); return this; }
+        public RECT.Buffer top(@NativeType("LONG") int value) { RECT.ntop(address(), value); return this; }
         /** Sets the specified value to the {@code right} field. */
-        public RECT.Buffer right(int value) { RECT.nright(address(), value); return this; }
+        public RECT.Buffer right(@NativeType("LONG") int value) { RECT.nright(address(), value); return this; }
         /** Sets the specified value to the {@code bottom} field. */
-        public RECT.Buffer bottom(int value) { RECT.nbottom(address(), value); return this; }
+        public RECT.Buffer bottom(@NativeType("LONG") int value) { RECT.nbottom(address(), value); return this; }
 
     }
 

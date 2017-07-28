@@ -34,6 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned int Flags;
  * }</pre></code>
  */
+@NativeType("struct ovrLayerHeader")
 public class OVRLayerHeader extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -77,14 +78,16 @@ public class OVRLayerHeader extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code Type} field. */
+    @NativeType("ovrLayerType")
     public int Type() { return nType(address()); }
     /** Returns the value of the {@code Flags} field. */
+    @NativeType("unsigned int")
     public int Flags() { return nFlags(address()); }
 
     /** Sets the specified value to the {@code Type} field. */
-    public OVRLayerHeader Type(int value) { nType(address(), value); return this; }
+    public OVRLayerHeader Type(@NativeType("ovrLayerType") int value) { nType(address(), value); return this; }
     /** Sets the specified value to the {@code Flags} field. */
-    public OVRLayerHeader Flags(int value) { nFlags(address(), value); return this; }
+    public OVRLayerHeader Flags(@NativeType("unsigned int") int value) { nFlags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public OVRLayerHeader set(
@@ -291,14 +294,16 @@ public class OVRLayerHeader extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code Type} field. */
+        @NativeType("ovrLayerType")
         public int Type() { return OVRLayerHeader.nType(address()); }
         /** Returns the value of the {@code Flags} field. */
+        @NativeType("unsigned int")
         public int Flags() { return OVRLayerHeader.nFlags(address()); }
 
         /** Sets the specified value to the {@code Type} field. */
-        public OVRLayerHeader.Buffer Type(int value) { OVRLayerHeader.nType(address(), value); return this; }
+        public OVRLayerHeader.Buffer Type(@NativeType("ovrLayerType") int value) { OVRLayerHeader.nType(address(), value); return this; }
         /** Sets the specified value to the {@code Flags} field. */
-        public OVRLayerHeader.Buffer Flags(int value) { OVRLayerHeader.nFlags(address(), value); return this; }
+        public OVRLayerHeader.Buffer Flags(@NativeType("unsigned int") int value) { OVRLayerHeader.nFlags(address(), value); return this; }
 
     }
 

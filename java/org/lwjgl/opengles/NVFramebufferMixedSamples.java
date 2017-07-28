@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -79,13 +81,13 @@ public class NVFramebufferMixedSamples {
 
     // --- [ glRasterSamplesEXT ] ---
 
-    public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
+    public static native void glRasterSamplesEXT(@NativeType("GLuint") int samples, @NativeType("GLboolean") boolean fixedsamplelocations);
 
     // --- [ glCoverageModulationTableNV ] ---
 
     public static native void nglCoverageModulationTableNV(int n, long v);
 
-    public static void glCoverageModulationTableNV(FloatBuffer v) {
+    public static void glCoverageModulationTableNV(@NativeType("const GLfloat *") FloatBuffer v) {
         nglCoverageModulationTableNV(v.remaining(), memAddress(v));
     }
 
@@ -93,16 +95,16 @@ public class NVFramebufferMixedSamples {
 
     public static native void nglGetCoverageModulationTableNV(int bufsize, long v);
 
-    public static void glGetCoverageModulationTableNV(FloatBuffer v) {
+    public static void glGetCoverageModulationTableNV(@NativeType("GLfloat *") FloatBuffer v) {
         nglGetCoverageModulationTableNV(v.remaining(), memAddress(v));
     }
 
     // --- [ glCoverageModulationNV ] ---
 
-    public static native void glCoverageModulationNV(int components);
+    public static native void glCoverageModulationNV(@NativeType("GLenum") int components);
 
     /** Array version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
-    public static void glCoverageModulationTableNV(float[] v) {
+    public static void glCoverageModulationTableNV(@NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GLES.getICD().glCoverageModulationTableNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -111,7 +113,7 @@ public class NVFramebufferMixedSamples {
     }
 
     /** Array version of: {@link #glGetCoverageModulationTableNV GetCoverageModulationTableNV} */
-    public static void glGetCoverageModulationTableNV(float[] v) {
+    public static void glGetCoverageModulationTableNV(@NativeType("GLfloat *") float[] v) {
         long __functionAddress = GLES.getICD().glGetCoverageModulationTableNV;
         if (CHECKS) {
             check(__functionAddress);

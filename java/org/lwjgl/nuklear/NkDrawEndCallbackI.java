@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code nk_style_*} structs. */
 @FunctionalInterface
+@NativeType("nk_draw_end")
 public interface NkDrawEndCallbackI extends CallbackI.F {
 
     String SIGNATURE = "(pp)f";
@@ -26,7 +27,6 @@ public interface NkDrawEndCallbackI extends CallbackI.F {
         );
     }
 
-
-    float invoke(long buffer, long userdata);
+    float invoke(@NativeType("struct nk_command_buffer *") long buffer, @NativeType("nk_handle") long userdata);
 
 }

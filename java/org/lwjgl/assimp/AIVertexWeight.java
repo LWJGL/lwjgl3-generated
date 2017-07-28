@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float mWeight;
  * }</pre></code>
  */
+@NativeType("struct aiVertexWeight")
 public class AIVertexWeight extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -74,12 +75,13 @@ public class AIVertexWeight extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code mVertexId} field. */
+    @NativeType("unsigned int")
     public int mVertexId() { return nmVertexId(address()); }
     /** Returns the value of the {@code mWeight} field. */
     public float mWeight() { return nmWeight(address()); }
 
     /** Sets the specified value to the {@code mVertexId} field. */
-    public AIVertexWeight mVertexId(int value) { nmVertexId(address(), value); return this; }
+    public AIVertexWeight mVertexId(@NativeType("unsigned int") int value) { nmVertexId(address(), value); return this; }
     /** Sets the specified value to the {@code mWeight} field. */
     public AIVertexWeight mWeight(float value) { nmWeight(address(), value); return this; }
 
@@ -288,12 +290,13 @@ public class AIVertexWeight extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code mVertexId} field. */
+        @NativeType("unsigned int")
         public int mVertexId() { return AIVertexWeight.nmVertexId(address()); }
         /** Returns the value of the {@code mWeight} field. */
         public float mWeight() { return AIVertexWeight.nmWeight(address()); }
 
         /** Sets the specified value to the {@code mVertexId} field. */
-        public AIVertexWeight.Buffer mVertexId(int value) { AIVertexWeight.nmVertexId(address(), value); return this; }
+        public AIVertexWeight.Buffer mVertexId(@NativeType("unsigned int") int value) { AIVertexWeight.nmVertexId(address(), value); return this; }
         /** Sets the specified value to the {@code mWeight} field. */
         public AIVertexWeight.Buffer mWeight(float value) { AIVertexWeight.nmWeight(address(), value); return this; }
 

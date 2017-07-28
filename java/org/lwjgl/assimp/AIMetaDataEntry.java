@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     void * mData;
  * }</pre></code>
  */
+@NativeType("struct aiMetadataEntry")
 public class AIMetaDataEntry extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -66,18 +67,20 @@ public class AIMetaDataEntry extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code mType} field. */
+    @NativeType("aiMetadataType")
     public int mType() { return nmType(address()); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code mData} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("void *")
     public ByteBuffer mData(int capacity) { return nmData(address(), capacity); }
 
     /** Sets the specified value to the {@code mType} field. */
-    public AIMetaDataEntry mType(int value) { nmType(address(), value); return this; }
+    public AIMetaDataEntry mType(@NativeType("aiMetadataType") int value) { nmType(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code mData} field. */
-    public AIMetaDataEntry mData(ByteBuffer value) { nmData(address(), value); return this; }
+    public AIMetaDataEntry mData(@NativeType("void *") ByteBuffer value) { nmData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIMetaDataEntry set(
@@ -305,18 +308,20 @@ public class AIMetaDataEntry extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code mType} field. */
+        @NativeType("aiMetadataType")
         public int mType() { return AIMetaDataEntry.nmType(address()); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code mData} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("void *")
         public ByteBuffer mData(int capacity) { return AIMetaDataEntry.nmData(address(), capacity); }
 
         /** Sets the specified value to the {@code mType} field. */
-        public AIMetaDataEntry.Buffer mType(int value) { AIMetaDataEntry.nmType(address(), value); return this; }
+        public AIMetaDataEntry.Buffer mType(@NativeType("aiMetadataType") int value) { AIMetaDataEntry.nmType(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code mData} field. */
-        public AIMetaDataEntry.Buffer mData(ByteBuffer value) { AIMetaDataEntry.nmData(address(), value); return this; }
+        public AIMetaDataEntry.Buffer mData(@NativeType("void *") ByteBuffer value) { AIMetaDataEntry.nmData(address(), value); return this; }
 
     }
 

@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char * value;
  * }</pre></code>
  */
+@NativeType("struct objc_property_attribute_t")
 public class ObjCPropertyAttribute extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -75,18 +76,22 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("char *")
     public ByteBuffer name() { return nname(address()); }
     /** Decodes the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("char *")
     public String nameString() { return nnameString(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code value} field. */
+    @NativeType("char *")
     public ByteBuffer value() { return nvalue(address()); }
     /** Decodes the null-terminated string pointed to by the {@code value} field. */
+    @NativeType("char *")
     public String valueString() { return nvalueString(address()); }
 
     /** Sets the address of the specified encoded string to the {@code name} field. */
-    public ObjCPropertyAttribute name(ByteBuffer value) { nname(address(), value); return this; }
+    public ObjCPropertyAttribute name(@NativeType("char *") ByteBuffer value) { nname(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code value} field. */
-    public ObjCPropertyAttribute value(ByteBuffer value) { nvalue(address(), value); return this; }
+    public ObjCPropertyAttribute value(@NativeType("char *") ByteBuffer value) { nvalue(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public ObjCPropertyAttribute set(
@@ -325,18 +330,22 @@ public class ObjCPropertyAttribute extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("char *")
         public ByteBuffer name() { return ObjCPropertyAttribute.nname(address()); }
         /** Decodes the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("char *")
         public String nameString() { return ObjCPropertyAttribute.nnameString(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code value} field. */
+        @NativeType("char *")
         public ByteBuffer value() { return ObjCPropertyAttribute.nvalue(address()); }
         /** Decodes the null-terminated string pointed to by the {@code value} field. */
+        @NativeType("char *")
         public String valueString() { return ObjCPropertyAttribute.nvalueString(address()); }
 
         /** Sets the address of the specified encoded string to the {@code name} field. */
-        public ObjCPropertyAttribute.Buffer name(ByteBuffer value) { ObjCPropertyAttribute.nname(address(), value); return this; }
+        public ObjCPropertyAttribute.Buffer name(@NativeType("char *") ByteBuffer value) { ObjCPropertyAttribute.nname(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code value} field. */
-        public ObjCPropertyAttribute.Buffer value(ByteBuffer value) { ObjCPropertyAttribute.nvalue(address(), value); return this; }
+        public ObjCPropertyAttribute.Buffer value(@NativeType("char *") ByteBuffer value) { ObjCPropertyAttribute.nvalue(address(), value); return this; }
 
     }
 

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL22#clSetProgramReleaseCallback SetProgramReleaseCallback} method. */
 @FunctionalInterface
+@NativeType("cl_program_release_callback")
 public interface CLProgramReleaseCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pp)v");
@@ -33,6 +34,6 @@ public interface CLProgramReleaseCallbackI extends CallbackI.V {
      *                  {@code program} is only provided for reference purposes.
      * @param user_data the user-specified value that was passed when calling {@link CL22#clSetProgramReleaseCallback SetProgramReleaseCallback}
      */
-    void invoke(long program, long user_data);
+    void invoke(@NativeType("cl_program") long program, @NativeType("void *") long user_data);
 
 }

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWerrorfun")
 public interface GLFWErrorCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ip)v";
@@ -32,6 +33,6 @@ public interface GLFWErrorCallbackI extends CallbackI.V {
      * @param error       the error code
      * @param description a pointer to a UTF-8 encoded string describing the error
      */
-    void invoke(int error, long description);
+    void invoke(int error, @NativeType("char *") long description);
 
 }

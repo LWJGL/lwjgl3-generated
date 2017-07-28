@@ -97,22 +97,26 @@ public class VkViewportSwizzleNV extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("VkViewportCoordinateSwizzleNV")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("VkViewportCoordinateSwizzleNV")
     public int y() { return ny(address()); }
     /** Returns the value of the {@code z} field. */
+    @NativeType("VkViewportCoordinateSwizzleNV")
     public int z() { return nz(address()); }
     /** Returns the value of the {@code w} field. */
+    @NativeType("VkViewportCoordinateSwizzleNV")
     public int w() { return nw(address()); }
 
     /** Sets the specified value to the {@code x} field. */
-    public VkViewportSwizzleNV x(int value) { nx(address(), value); return this; }
+    public VkViewportSwizzleNV x(@NativeType("VkViewportCoordinateSwizzleNV") int value) { nx(address(), value); return this; }
     /** Sets the specified value to the {@code y} field. */
-    public VkViewportSwizzleNV y(int value) { ny(address(), value); return this; }
+    public VkViewportSwizzleNV y(@NativeType("VkViewportCoordinateSwizzleNV") int value) { ny(address(), value); return this; }
     /** Sets the specified value to the {@code z} field. */
-    public VkViewportSwizzleNV z(int value) { nz(address(), value); return this; }
+    public VkViewportSwizzleNV z(@NativeType("VkViewportCoordinateSwizzleNV") int value) { nz(address(), value); return this; }
     /** Sets the specified value to the {@code w} field. */
-    public VkViewportSwizzleNV w(int value) { nw(address(), value); return this; }
+    public VkViewportSwizzleNV w(@NativeType("VkViewportCoordinateSwizzleNV") int value) { nw(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkViewportSwizzleNV set(
@@ -331,22 +335,26 @@ public class VkViewportSwizzleNV extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("VkViewportCoordinateSwizzleNV")
         public int x() { return VkViewportSwizzleNV.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("VkViewportCoordinateSwizzleNV")
         public int y() { return VkViewportSwizzleNV.ny(address()); }
         /** Returns the value of the {@code z} field. */
+        @NativeType("VkViewportCoordinateSwizzleNV")
         public int z() { return VkViewportSwizzleNV.nz(address()); }
         /** Returns the value of the {@code w} field. */
+        @NativeType("VkViewportCoordinateSwizzleNV")
         public int w() { return VkViewportSwizzleNV.nw(address()); }
 
         /** Sets the specified value to the {@code x} field. */
-        public VkViewportSwizzleNV.Buffer x(int value) { VkViewportSwizzleNV.nx(address(), value); return this; }
+        public VkViewportSwizzleNV.Buffer x(@NativeType("VkViewportCoordinateSwizzleNV") int value) { VkViewportSwizzleNV.nx(address(), value); return this; }
         /** Sets the specified value to the {@code y} field. */
-        public VkViewportSwizzleNV.Buffer y(int value) { VkViewportSwizzleNV.ny(address(), value); return this; }
+        public VkViewportSwizzleNV.Buffer y(@NativeType("VkViewportCoordinateSwizzleNV") int value) { VkViewportSwizzleNV.ny(address(), value); return this; }
         /** Sets the specified value to the {@code z} field. */
-        public VkViewportSwizzleNV.Buffer z(int value) { VkViewportSwizzleNV.nz(address(), value); return this; }
+        public VkViewportSwizzleNV.Buffer z(@NativeType("VkViewportCoordinateSwizzleNV") int value) { VkViewportSwizzleNV.nz(address(), value); return this; }
         /** Sets the specified value to the {@code w} field. */
-        public VkViewportSwizzleNV.Buffer w(int value) { VkViewportSwizzleNV.nw(address(), value); return this; }
+        public VkViewportSwizzleNV.Buffer w(@NativeType("VkViewportCoordinateSwizzleNV") int value) { VkViewportSwizzleNV.nw(address(), value); return this; }
 
     }
 

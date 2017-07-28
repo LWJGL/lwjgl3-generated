@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -56,7 +58,8 @@ public class EXTImageDMABufImportModifiers {
         return callPPPI(__functionAddress, dpy, max_formats, formats, num_formats);
     }
 
-    public static boolean eglQueryDmaBufFormatsEXT(long dpy, IntBuffer formats, IntBuffer num_formats) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDmaBufFormatsEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint *") IntBuffer formats, @NativeType("EGLint *") IntBuffer num_formats) {
         if (CHECKS) {
             check(num_formats, 1);
         }
@@ -74,7 +77,8 @@ public class EXTImageDMABufImportModifiers {
         return callPPPPI(__functionAddress, dpy, format, max_modifiers, modifiers, external_only, num_modifiers);
     }
 
-    public static boolean eglQueryDmaBufModifiersEXT(long dpy, int format, LongBuffer modifiers, IntBuffer external_only, IntBuffer num_modifiers) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDmaBufModifiersEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint") int format, @NativeType("EGLuint64KHR *") LongBuffer modifiers, @NativeType("EGLBoolean *") IntBuffer external_only, @NativeType("EGLint *") IntBuffer num_modifiers) {
         if (CHECKS) {
             checkSafe(external_only, remainingSafe(modifiers));
             check(num_modifiers, 1);
@@ -83,7 +87,8 @@ public class EXTImageDMABufImportModifiers {
     }
 
     /** Array version of: {@link #eglQueryDmaBufFormatsEXT QueryDmaBufFormatsEXT} */
-    public static boolean eglQueryDmaBufFormatsEXT(long dpy, int[] formats, int[] num_formats) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDmaBufFormatsEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint *") int[] formats, @NativeType("EGLint *") int[] num_formats) {
         long __functionAddress = EGL.getCapabilities().eglQueryDmaBufFormatsEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -94,7 +99,8 @@ public class EXTImageDMABufImportModifiers {
     }
 
     /** Array version of: {@link #eglQueryDmaBufModifiersEXT QueryDmaBufModifiersEXT} */
-    public static boolean eglQueryDmaBufModifiersEXT(long dpy, int format, long[] modifiers, int[] external_only, int[] num_modifiers) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDmaBufModifiersEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint") int format, @NativeType("EGLuint64KHR *") long[] modifiers, @NativeType("EGLBoolean *") int[] external_only, @NativeType("EGLint *") int[] num_modifiers) {
         long __functionAddress = EGL.getCapabilities().eglQueryDmaBufModifiersEXT;
         if (CHECKS) {
             check(__functionAddress);

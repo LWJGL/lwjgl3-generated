@@ -34,6 +34,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkRect struct nk_rect} header;
  * }</pre></code>
  */
+@NativeType("struct nk_popup_state")
 public class NkPopupState extends Struct {
 
     /** The struct size in bytes. */
@@ -101,24 +102,33 @@ public class NkPopupState extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkWindow} view of the struct pointed to by the {@code win} field. */
+    @NativeType("struct nk_window *")
     public NkWindow win() { return nwin(address()); }
     /** Returns the value of the {@code type} field. */
+    @NativeType("enum nk_panel_type")
     public int type() { return ntype(address()); }
     /** Returns a {@link NkPopupBuffer} view of the {@code buf} field. */
+    @NativeType("struct nk_popup_buffer")
     public NkPopupBuffer buf() { return nbuf(address()); }
     /** Returns the value of the {@code name} field. */
+    @NativeType("nk_hash")
     public int name() { return nname(address()); }
     /** Returns the value of the {@code active} field. */
     public int active() { return nactive(address()); }
     /** Returns the value of the {@code combo_count} field. */
+    @NativeType("unsigned")
     public int combo_count() { return ncombo_count(address()); }
     /** Returns the value of the {@code con_count} field. */
+    @NativeType("unsigned")
     public int con_count() { return ncon_count(address()); }
     /** Returns the value of the {@code con_old} field. */
+    @NativeType("unsigned")
     public int con_old() { return ncon_old(address()); }
     /** Returns the value of the {@code active_con} field. */
+    @NativeType("unsigned")
     public int active_con() { return nactive_con(address()); }
     /** Returns a {@link NkRect} view of the {@code header} field. */
+    @NativeType("struct nk_rect")
     public NkRect header() { return nheader(address()); }
 
     // -----------------------------------
@@ -204,24 +214,33 @@ public class NkPopupState extends Struct {
         }
 
         /** Returns a {@link NkWindow} view of the struct pointed to by the {@code win} field. */
+        @NativeType("struct nk_window *")
         public NkWindow win() { return NkPopupState.nwin(address()); }
         /** Returns the value of the {@code type} field. */
+        @NativeType("enum nk_panel_type")
         public int type() { return NkPopupState.ntype(address()); }
         /** Returns a {@link NkPopupBuffer} view of the {@code buf} field. */
+        @NativeType("struct nk_popup_buffer")
         public NkPopupBuffer buf() { return NkPopupState.nbuf(address()); }
         /** Returns the value of the {@code name} field. */
+        @NativeType("nk_hash")
         public int name() { return NkPopupState.nname(address()); }
         /** Returns the value of the {@code active} field. */
         public int active() { return NkPopupState.nactive(address()); }
         /** Returns the value of the {@code combo_count} field. */
+        @NativeType("unsigned")
         public int combo_count() { return NkPopupState.ncombo_count(address()); }
         /** Returns the value of the {@code con_count} field. */
+        @NativeType("unsigned")
         public int con_count() { return NkPopupState.ncon_count(address()); }
         /** Returns the value of the {@code con_old} field. */
+        @NativeType("unsigned")
         public int con_old() { return NkPopupState.ncon_old(address()); }
         /** Returns the value of the {@code active_con} field. */
+        @NativeType("unsigned")
         public int active_con() { return NkPopupState.nactive_con(address()); }
         /** Returns a {@link NkRect} view of the {@code header} field. */
+        @NativeType("struct nk_rect")
         public NkRect header() { return NkPopupState.nheader(address()); }
 
     }

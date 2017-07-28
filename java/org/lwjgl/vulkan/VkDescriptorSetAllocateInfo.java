@@ -105,24 +105,29 @@ public class VkDescriptorSetAllocateInfo extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code descriptorPool} field. */
+    @NativeType("VkDescriptorPool")
     public long descriptorPool() { return ndescriptorPool(address()); }
     /** Returns the value of the {@code descriptorSetCount} field. */
+    @NativeType("uint32_t")
     public int descriptorSetCount() { return ndescriptorSetCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSetLayouts} field. */
+    @NativeType("const VkDescriptorSetLayout *")
     public LongBuffer pSetLayouts() { return npSetLayouts(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDescriptorSetAllocateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkDescriptorSetAllocateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDescriptorSetAllocateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkDescriptorSetAllocateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorPool} field. */
-    public VkDescriptorSetAllocateInfo descriptorPool(long value) { ndescriptorPool(address(), value); return this; }
+    public VkDescriptorSetAllocateInfo descriptorPool(@NativeType("VkDescriptorPool") long value) { ndescriptorPool(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pSetLayouts} field. */
-    public VkDescriptorSetAllocateInfo pSetLayouts(LongBuffer value) { npSetLayouts(address(), value); return this; }
+    public VkDescriptorSetAllocateInfo pSetLayouts(@NativeType("const VkDescriptorSetLayout *") LongBuffer value) { npSetLayouts(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorSetAllocateInfo set(
@@ -366,24 +371,29 @@ public class VkDescriptorSetAllocateInfo extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDescriptorSetAllocateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDescriptorSetAllocateInfo.npNext(address()); }
         /** Returns the value of the {@code descriptorPool} field. */
+        @NativeType("VkDescriptorPool")
         public long descriptorPool() { return VkDescriptorSetAllocateInfo.ndescriptorPool(address()); }
         /** Returns the value of the {@code descriptorSetCount} field. */
+        @NativeType("uint32_t")
         public int descriptorSetCount() { return VkDescriptorSetAllocateInfo.ndescriptorSetCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSetLayouts} field. */
+        @NativeType("const VkDescriptorSetLayout *")
         public LongBuffer pSetLayouts() { return VkDescriptorSetAllocateInfo.npSetLayouts(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDescriptorSetAllocateInfo.Buffer sType(int value) { VkDescriptorSetAllocateInfo.nsType(address(), value); return this; }
+        public VkDescriptorSetAllocateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkDescriptorSetAllocateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDescriptorSetAllocateInfo.Buffer pNext(long value) { VkDescriptorSetAllocateInfo.npNext(address(), value); return this; }
+        public VkDescriptorSetAllocateInfo.Buffer pNext(@NativeType("const void *") long value) { VkDescriptorSetAllocateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorPool} field. */
-        public VkDescriptorSetAllocateInfo.Buffer descriptorPool(long value) { VkDescriptorSetAllocateInfo.ndescriptorPool(address(), value); return this; }
+        public VkDescriptorSetAllocateInfo.Buffer descriptorPool(@NativeType("VkDescriptorPool") long value) { VkDescriptorSetAllocateInfo.ndescriptorPool(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pSetLayouts} field. */
-        public VkDescriptorSetAllocateInfo.Buffer pSetLayouts(LongBuffer value) { VkDescriptorSetAllocateInfo.npSetLayouts(address(), value); return this; }
+        public VkDescriptorSetAllocateInfo.Buffer pSetLayouts(@NativeType("const VkDescriptorSetLayout *") LongBuffer value) { VkDescriptorSetAllocateInfo.npSetLayouts(address(), value); return this; }
 
     }
 

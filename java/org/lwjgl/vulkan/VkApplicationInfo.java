@@ -113,38 +113,47 @@ public class VkApplicationInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pApplicationName} field. */
+    @NativeType("const char *")
     public ByteBuffer pApplicationName() { return npApplicationName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pApplicationName} field. */
+    @NativeType("const char *")
     public String pApplicationNameString() { return npApplicationNameString(address()); }
     /** Returns the value of the {@code applicationVersion} field. */
+    @NativeType("uint32_t")
     public int applicationVersion() { return napplicationVersion(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pEngineName} field. */
+    @NativeType("const char *")
     public ByteBuffer pEngineName() { return npEngineName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pEngineName} field. */
+    @NativeType("const char *")
     public String pEngineNameString() { return npEngineNameString(address()); }
     /** Returns the value of the {@code engineVersion} field. */
+    @NativeType("uint32_t")
     public int engineVersion() { return nengineVersion(address()); }
     /** Returns the value of the {@code apiVersion} field. */
+    @NativeType("uint32_t")
     public int apiVersion() { return napiVersion(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkApplicationInfo sType(int value) { nsType(address(), value); return this; }
+    public VkApplicationInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkApplicationInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkApplicationInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code pApplicationName} field. */
-    public VkApplicationInfo pApplicationName(ByteBuffer value) { npApplicationName(address(), value); return this; }
+    public VkApplicationInfo pApplicationName(@NativeType("const char *") ByteBuffer value) { npApplicationName(address(), value); return this; }
     /** Sets the specified value to the {@code applicationVersion} field. */
-    public VkApplicationInfo applicationVersion(int value) { napplicationVersion(address(), value); return this; }
+    public VkApplicationInfo applicationVersion(@NativeType("uint32_t") int value) { napplicationVersion(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code pEngineName} field. */
-    public VkApplicationInfo pEngineName(ByteBuffer value) { npEngineName(address(), value); return this; }
+    public VkApplicationInfo pEngineName(@NativeType("const char *") ByteBuffer value) { npEngineName(address(), value); return this; }
     /** Sets the specified value to the {@code engineVersion} field. */
-    public VkApplicationInfo engineVersion(int value) { nengineVersion(address(), value); return this; }
+    public VkApplicationInfo engineVersion(@NativeType("uint32_t") int value) { nengineVersion(address(), value); return this; }
     /** Sets the specified value to the {@code apiVersion} field. */
-    public VkApplicationInfo apiVersion(int value) { napiVersion(address(), value); return this; }
+    public VkApplicationInfo apiVersion(@NativeType("uint32_t") int value) { napiVersion(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkApplicationInfo set(
@@ -391,38 +400,47 @@ public class VkApplicationInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkApplicationInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkApplicationInfo.npNext(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pApplicationName} field. */
+        @NativeType("const char *")
         public ByteBuffer pApplicationName() { return VkApplicationInfo.npApplicationName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pApplicationName} field. */
+        @NativeType("const char *")
         public String pApplicationNameString() { return VkApplicationInfo.npApplicationNameString(address()); }
         /** Returns the value of the {@code applicationVersion} field. */
+        @NativeType("uint32_t")
         public int applicationVersion() { return VkApplicationInfo.napplicationVersion(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pEngineName} field. */
+        @NativeType("const char *")
         public ByteBuffer pEngineName() { return VkApplicationInfo.npEngineName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pEngineName} field. */
+        @NativeType("const char *")
         public String pEngineNameString() { return VkApplicationInfo.npEngineNameString(address()); }
         /** Returns the value of the {@code engineVersion} field. */
+        @NativeType("uint32_t")
         public int engineVersion() { return VkApplicationInfo.nengineVersion(address()); }
         /** Returns the value of the {@code apiVersion} field. */
+        @NativeType("uint32_t")
         public int apiVersion() { return VkApplicationInfo.napiVersion(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkApplicationInfo.Buffer sType(int value) { VkApplicationInfo.nsType(address(), value); return this; }
+        public VkApplicationInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkApplicationInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkApplicationInfo.Buffer pNext(long value) { VkApplicationInfo.npNext(address(), value); return this; }
+        public VkApplicationInfo.Buffer pNext(@NativeType("const void *") long value) { VkApplicationInfo.npNext(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code pApplicationName} field. */
-        public VkApplicationInfo.Buffer pApplicationName(ByteBuffer value) { VkApplicationInfo.npApplicationName(address(), value); return this; }
+        public VkApplicationInfo.Buffer pApplicationName(@NativeType("const char *") ByteBuffer value) { VkApplicationInfo.npApplicationName(address(), value); return this; }
         /** Sets the specified value to the {@code applicationVersion} field. */
-        public VkApplicationInfo.Buffer applicationVersion(int value) { VkApplicationInfo.napplicationVersion(address(), value); return this; }
+        public VkApplicationInfo.Buffer applicationVersion(@NativeType("uint32_t") int value) { VkApplicationInfo.napplicationVersion(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code pEngineName} field. */
-        public VkApplicationInfo.Buffer pEngineName(ByteBuffer value) { VkApplicationInfo.npEngineName(address(), value); return this; }
+        public VkApplicationInfo.Buffer pEngineName(@NativeType("const char *") ByteBuffer value) { VkApplicationInfo.npEngineName(address(), value); return this; }
         /** Sets the specified value to the {@code engineVersion} field. */
-        public VkApplicationInfo.Buffer engineVersion(int value) { VkApplicationInfo.nengineVersion(address(), value); return this; }
+        public VkApplicationInfo.Buffer engineVersion(@NativeType("uint32_t") int value) { VkApplicationInfo.nengineVersion(address(), value); return this; }
         /** Sets the specified value to the {@code apiVersion} field. */
-        public VkApplicationInfo.Buffer apiVersion(int value) { VkApplicationInfo.napiVersion(address(), value); return this; }
+        public VkApplicationInfo.Buffer apiVersion(@NativeType("uint32_t") int value) { VkApplicationInfo.napiVersion(address(), value); return this; }
 
     }
 

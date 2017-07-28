@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -56,6 +58,6 @@ public class ARBSampleShading {
      *
      * @param value the minimum sample shading fraction
      */
-    public static native void glMinSampleShadingARB(float value);
+    public static native void glMinSampleShadingARB(@NativeType("GLfloat") float value);
 
 }

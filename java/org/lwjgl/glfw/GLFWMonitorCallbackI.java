@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWmonitorfun")
 public interface GLFWMonitorCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";
@@ -32,6 +33,6 @@ public interface GLFWMonitorCallbackI extends CallbackI.V {
      * @param monitor the monitor that was connected or disconnected
      * @param event   one of {@link GLFW#GLFW_CONNECTED CONNECTED} or {@link GLFW#GLFW_DISCONNECTED DISCONNECTED}
      */
-    void invoke(long monitor, int event);
+    void invoke(@NativeType("GLFWmonitor *") long monitor, int event);
 
 }

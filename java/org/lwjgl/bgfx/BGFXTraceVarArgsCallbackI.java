@@ -15,6 +15,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <p>Not thread safe and it can be called from any thread.</p>
  */
 @FunctionalInterface
+@NativeType("trace_vargs")
 public interface BGFXTraceVarArgsCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ppspp)v";
@@ -42,6 +43,6 @@ public interface BGFXTraceVarArgsCallbackI extends CallbackI.V {
      * @param _format   {@code printf} style format
      * @param _argList  variable arguments list initialized with {@code va_start}
      */
-    void invoke(long _this, long _filePath, short _line, long _format, long _argList);
+    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("char *") long _filePath, @NativeType("uint16_t") short _line, @NativeType("char *") long _format, @NativeType("va_list *") long _argList);
 
 }

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} method. */
 @FunctionalInterface
+@NativeType("cl_mem_object_destructor_callback")
 public interface CLMemObjectDestructorCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pp)v");
@@ -32,6 +33,6 @@ public interface CLMemObjectDestructorCallbackI extends CallbackI.V {
      * @param memobj    the memory object that was deleted
      * @param user_data the user-specified value that was passed when calling {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback}
      */
-    void invoke(long memobj, long user_data);
+    void invoke(@NativeType("cl_mem") long memobj, @NativeType("void *") long user_data);
 
 }

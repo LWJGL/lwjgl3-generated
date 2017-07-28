@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned int mStorageAllocated;
  * }</pre></code>
  */
+@NativeType("struct aiMaterial")
 public class AIMaterial extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -84,16 +85,19 @@ public class AIMaterial extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mProperties} field. */
+    @NativeType("struct aiMaterialProperty **")
     public PointerBuffer mProperties() { return nmProperties(address()); }
     /** Returns the value of the {@code mNumProperties} field. */
+    @NativeType("unsigned int")
     public int mNumProperties() { return nmNumProperties(address()); }
     /** Returns the value of the {@code mStorageAllocated} field. */
+    @NativeType("unsigned int")
     public int mStorageAllocated() { return nmStorageAllocated(address()); }
 
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mProperties} field. */
-    public AIMaterial mProperties(PointerBuffer value) { nmProperties(address(), value); return this; }
+    public AIMaterial mProperties(@NativeType("struct aiMaterialProperty **") PointerBuffer value) { nmProperties(address(), value); return this; }
     /** Sets the specified value to the {@code mStorageAllocated} field. */
-    public AIMaterial mStorageAllocated(int value) { nmStorageAllocated(address(), value); return this; }
+    public AIMaterial mStorageAllocated(@NativeType("unsigned int") int value) { nmStorageAllocated(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIMaterial set(
@@ -325,16 +329,19 @@ public class AIMaterial extends Struct implements NativeResource {
         }
 
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mProperties} field. */
+        @NativeType("struct aiMaterialProperty **")
         public PointerBuffer mProperties() { return AIMaterial.nmProperties(address()); }
         /** Returns the value of the {@code mNumProperties} field. */
+        @NativeType("unsigned int")
         public int mNumProperties() { return AIMaterial.nmNumProperties(address()); }
         /** Returns the value of the {@code mStorageAllocated} field. */
+        @NativeType("unsigned int")
         public int mStorageAllocated() { return AIMaterial.nmStorageAllocated(address()); }
 
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mProperties} field. */
-        public AIMaterial.Buffer mProperties(PointerBuffer value) { AIMaterial.nmProperties(address(), value); return this; }
+        public AIMaterial.Buffer mProperties(@NativeType("struct aiMaterialProperty **") PointerBuffer value) { AIMaterial.nmProperties(address(), value); return this; }
         /** Sets the specified value to the {@code mStorageAllocated} field. */
-        public AIMaterial.Buffer mStorageAllocated(int value) { AIMaterial.nmStorageAllocated(address(), value); return this; }
+        public AIMaterial.Buffer mStorageAllocated(@NativeType("unsigned int") int value) { AIMaterial.nmStorageAllocated(address(), value); return this; }
 
     }
 

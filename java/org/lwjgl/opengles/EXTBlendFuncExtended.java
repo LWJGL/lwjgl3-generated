@@ -66,14 +66,14 @@ public class EXTBlendFuncExtended {
 
     public static native void nglBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, long name);
 
-    public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, ByteBuffer name) {
+    public static void glBindFragDataLocationIndexedEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         nglBindFragDataLocationIndexedEXT(program, colorNumber, index, memAddress(name));
     }
 
-    public static void glBindFragDataLocationIndexedEXT(int program, int colorNumber, int index, CharSequence name) {
+    public static void glBindFragDataLocationIndexedEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -87,14 +87,16 @@ public class EXTBlendFuncExtended {
 
     public static native int nglGetFragDataIndexEXT(int program, long name);
 
-    public static int glGetFragDataIndexEXT(int program, ByteBuffer name) {
+    @NativeType("GLint")
+    public static int glGetFragDataIndexEXT(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         return nglGetFragDataIndexEXT(program, memAddress(name));
     }
 
-    public static int glGetFragDataIndexEXT(int program, CharSequence name) {
+    @NativeType("GLint")
+    public static int glGetFragDataIndexEXT(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -108,14 +110,14 @@ public class EXTBlendFuncExtended {
 
     public static native void nglBindFragDataLocationEXT(int program, int colorNumber, long name);
 
-    public static void glBindFragDataLocationEXT(int program, int colorNumber, ByteBuffer name) {
+    public static void glBindFragDataLocationEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         nglBindFragDataLocationEXT(program, colorNumber, memAddress(name));
     }
 
-    public static void glBindFragDataLocationEXT(int program, int colorNumber, CharSequence name) {
+    public static void glBindFragDataLocationEXT(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -129,14 +131,16 @@ public class EXTBlendFuncExtended {
 
     public static native int nglGetProgramResourceLocationIndexEXT(int program, int programInterface, long name);
 
-    public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, ByteBuffer name) {
+    @NativeType("GLint")
+    public static int glGetProgramResourceLocationIndexEXT(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         return nglGetProgramResourceLocationIndexEXT(program, programInterface, memAddress(name));
     }
 
-    public static int glGetProgramResourceLocationIndexEXT(int program, int programInterface, CharSequence name) {
+    @NativeType("GLint")
+    public static int glGetProgramResourceLocationIndexEXT(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);

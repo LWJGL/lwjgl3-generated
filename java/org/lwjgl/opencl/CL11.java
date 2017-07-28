@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -145,7 +147,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateSubBuffer(long buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateSubBuffer(@NativeType("cl_mem") long buffer, @NativeType("cl_mem_flags") long flags, @NativeType("cl_buffer_create_type") int buffer_create_type, @NativeType("const void *") ByteBuffer buffer_create_info, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -187,7 +190,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetMemObjectDestructorCallback(long memobj, CLMemObjectDestructorCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_int")
+    public static int clSetMemObjectDestructorCallback(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_object_destructor_callback") CLMemObjectDestructorCallbackI pfn_notify, @NativeType("void *") long user_data) {
         return nclSetMemObjectDestructorCallback(memobj, pfn_notify.address(), user_data);
     }
 
@@ -288,7 +292,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") ByteBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -378,7 +383,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") ShortBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -468,7 +474,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") IntBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -558,7 +565,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") FloatBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -648,7 +656,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") DoubleBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -755,7 +764,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ByteBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") ByteBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -845,7 +855,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, ShortBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") ShortBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -935,7 +946,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, IntBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") IntBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -1025,7 +1037,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, FloatBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") FloatBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -1115,7 +1128,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, DoubleBuffer ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") DoubleBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(buffer_offset, 3);
             check(host_offset, 3);
@@ -1216,7 +1230,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueCopyBufferRect(long command_queue, long src_buffer, long dst_buffer, PointerBuffer src_origin, PointerBuffer dst_origin, PointerBuffer region, long src_row_pitch, long src_slice_pitch, long dst_row_pitch, long dst_slice_pitch, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueCopyBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_buffer, @NativeType("cl_mem") long dst_buffer, @NativeType("size_t *") PointerBuffer src_origin, @NativeType("size_t *") PointerBuffer dst_origin, @NativeType("size_t *") PointerBuffer region, @NativeType("size_t") long src_row_pitch, @NativeType("size_t") long src_slice_pitch, @NativeType("size_t") long dst_row_pitch, @NativeType("size_t") long dst_slice_pitch, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(src_origin, 3);
             check(dst_origin, 3);
@@ -1258,7 +1273,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateUserEvent(long context, IntBuffer errcode_ret) {
+    @NativeType("cl_event")
+    public static long clCreateUserEvent(@NativeType("cl_context") long context, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1309,7 +1325,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetUserEventStatus(long event, int execution_status) {
+    @NativeType("cl_int")
+    public static int clSetUserEventStatus(@NativeType("cl_event") long event, @NativeType("cl_int") int execution_status) {
         long __functionAddress = CL.getICD().clSetUserEventStatus;
         if (CHECKS) {
             check(__functionAddress);
@@ -1379,7 +1396,8 @@ public class CL11 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetEventCallback(long event, int command_exec_callback_type, CLEventCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_int")
+    public static int clSetEventCallback(@NativeType("cl_event") long event, @NativeType("cl_int") int command_exec_callback_type, @NativeType("cl_event_callback") CLEventCallbackI pfn_notify, @NativeType("void *") long user_data) {
         return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.address(), user_data);
     }
 
@@ -1388,7 +1406,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clCreateSubBuffer CreateSubBuffer}
      */
-    public static long clCreateSubBuffer(long buffer, long flags, int buffer_create_type, ByteBuffer buffer_create_info, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateSubBuffer(@NativeType("cl_mem") long buffer, @NativeType("cl_mem_flags") long flags, @NativeType("cl_buffer_create_type") int buffer_create_type, @NativeType("const void *") ByteBuffer buffer_create_info, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateSubBuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -1403,7 +1422,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") short[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1422,7 +1442,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") int[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1441,7 +1462,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") float[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1460,7 +1482,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueReadBufferRect EnqueueReadBufferRect}
      */
-    public static int clEnqueueReadBufferRect(long command_queue, long buffer, boolean blocking_read, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueReadBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("void *") double[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1479,7 +1502,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, short[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") short[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1498,7 +1522,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, int[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") int[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1517,7 +1542,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, float[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") float[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1536,7 +1562,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clEnqueueWriteBufferRect EnqueueWriteBufferRect}
      */
-    public static int clEnqueueWriteBufferRect(long command_queue, long buffer, boolean blocking_write, PointerBuffer buffer_offset, PointerBuffer host_offset, PointerBuffer region, long buffer_row_pitch, long buffer_slice_pitch, long host_row_pitch, long host_slice_pitch, double[] ptr, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteBufferRect(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer buffer_offset, @NativeType("const size_t *") PointerBuffer host_offset, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long buffer_row_pitch, @NativeType("size_t") long buffer_slice_pitch, @NativeType("size_t") long host_row_pitch, @NativeType("size_t") long host_slice_pitch, @NativeType("const void *") double[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBufferRect;
         if (CHECKS) {
             check(__functionAddress);
@@ -1555,7 +1582,8 @@ public class CL11 {
      * 
      * Array version of: {@link #clCreateUserEvent CreateUserEvent}
      */
-    public static long clCreateUserEvent(long context, int[] errcode_ret) {
+    @NativeType("cl_event")
+    public static long clCreateUserEvent(@NativeType("cl_context") long context, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateUserEvent;
         if (CHECKS) {
             check(__functionAddress);

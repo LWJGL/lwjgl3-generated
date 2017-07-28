@@ -103,20 +103,23 @@ public class VkDisplayModeCreateInfoKHR extends Struct implements NativeResource
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkDisplayModeCreateFlagsKHR")
     public int flags() { return nflags(address()); }
     /** Returns a {@link VkDisplayModeParametersKHR} view of the {@code parameters} field. */
     public VkDisplayModeParametersKHR parameters() { return nparameters(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDisplayModeCreateInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkDisplayModeCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDisplayModeCreateInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkDisplayModeCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkDisplayModeCreateInfoKHR flags(int value) { nflags(address(), value); return this; }
+    public VkDisplayModeCreateInfoKHR flags(@NativeType("VkDisplayModeCreateFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Copies the specified {@link VkDisplayModeParametersKHR} to the {@code parameters} field. */
     public VkDisplayModeCreateInfoKHR parameters(VkDisplayModeParametersKHR value) { nparameters(address(), value); return this; }
 
@@ -337,20 +340,23 @@ public class VkDisplayModeCreateInfoKHR extends Struct implements NativeResource
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDisplayModeCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDisplayModeCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkDisplayModeCreateFlagsKHR")
         public int flags() { return VkDisplayModeCreateInfoKHR.nflags(address()); }
         /** Returns a {@link VkDisplayModeParametersKHR} view of the {@code parameters} field. */
         public VkDisplayModeParametersKHR parameters() { return VkDisplayModeCreateInfoKHR.nparameters(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDisplayModeCreateInfoKHR.Buffer sType(int value) { VkDisplayModeCreateInfoKHR.nsType(address(), value); return this; }
+        public VkDisplayModeCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkDisplayModeCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDisplayModeCreateInfoKHR.Buffer pNext(long value) { VkDisplayModeCreateInfoKHR.npNext(address(), value); return this; }
+        public VkDisplayModeCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkDisplayModeCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkDisplayModeCreateInfoKHR.Buffer flags(int value) { VkDisplayModeCreateInfoKHR.nflags(address(), value); return this; }
+        public VkDisplayModeCreateInfoKHR.Buffer flags(@NativeType("VkDisplayModeCreateFlagsKHR") int value) { VkDisplayModeCreateInfoKHR.nflags(address(), value); return this; }
         /** Copies the specified {@link VkDisplayModeParametersKHR} to the {@code parameters} field. */
         public VkDisplayModeCreateInfoKHR.Buffer parameters(VkDisplayModeParametersKHR value) { VkDisplayModeCreateInfoKHR.nparameters(address(), value); return this; }
 

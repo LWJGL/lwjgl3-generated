@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -64,7 +66,8 @@ public class KHRStreamFIFO {
         return callPPPI(__functionAddress, dpy, stream, attribute, value);
     }
 
-    public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, LongBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryStreamTimeKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int attribute, @NativeType("EGLTimeKHR *") LongBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -72,7 +75,8 @@ public class KHRStreamFIFO {
     }
 
     /** Array version of: {@link #eglQueryStreamTimeKHR QueryStreamTimeKHR} */
-    public static boolean eglQueryStreamTimeKHR(long dpy, long stream, int attribute, long[] value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryStreamTimeKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int attribute, @NativeType("EGLTimeKHR *") long[] value) {
         long __functionAddress = EGL.getCapabilities().eglQueryStreamTimeKHR;
         if (CHECKS) {
             check(__functionAddress);

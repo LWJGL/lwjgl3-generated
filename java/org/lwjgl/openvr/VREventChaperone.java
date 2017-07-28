@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint64_t m_nCurrentUniverse;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Chaperone_t")
 public class VREventChaperone extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class VREventChaperone extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code m_nPreviousUniverse} field. */
+    @NativeType("uint64_t")
     public long m_nPreviousUniverse() { return nm_nPreviousUniverse(address()); }
     /** Returns the value of the {@code m_nCurrentUniverse} field. */
+    @NativeType("uint64_t")
     public long m_nCurrentUniverse() { return nm_nCurrentUniverse(address()); }
 
     /** Sets the specified value to the {@code m_nPreviousUniverse} field. */
-    public VREventChaperone m_nPreviousUniverse(long value) { nm_nPreviousUniverse(address(), value); return this; }
+    public VREventChaperone m_nPreviousUniverse(@NativeType("uint64_t") long value) { nm_nPreviousUniverse(address(), value); return this; }
     /** Sets the specified value to the {@code m_nCurrentUniverse} field. */
-    public VREventChaperone m_nCurrentUniverse(long value) { nm_nCurrentUniverse(address(), value); return this; }
+    public VREventChaperone m_nCurrentUniverse(@NativeType("uint64_t") long value) { nm_nCurrentUniverse(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventChaperone set(
@@ -279,14 +282,16 @@ public class VREventChaperone extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code m_nPreviousUniverse} field. */
+        @NativeType("uint64_t")
         public long m_nPreviousUniverse() { return VREventChaperone.nm_nPreviousUniverse(address()); }
         /** Returns the value of the {@code m_nCurrentUniverse} field. */
+        @NativeType("uint64_t")
         public long m_nCurrentUniverse() { return VREventChaperone.nm_nCurrentUniverse(address()); }
 
         /** Sets the specified value to the {@code m_nPreviousUniverse} field. */
-        public VREventChaperone.Buffer m_nPreviousUniverse(long value) { VREventChaperone.nm_nPreviousUniverse(address(), value); return this; }
+        public VREventChaperone.Buffer m_nPreviousUniverse(@NativeType("uint64_t") long value) { VREventChaperone.nm_nPreviousUniverse(address(), value); return this; }
         /** Sets the specified value to the {@code m_nCurrentUniverse} field. */
-        public VREventChaperone.Buffer m_nCurrentUniverse(long value) { VREventChaperone.nm_nCurrentUniverse(address(), value); return this; }
+        public VREventChaperone.Buffer m_nCurrentUniverse(@NativeType("uint64_t") long value) { VREventChaperone.nm_nCurrentUniverse(address(), value); return this; }
 
     }
 

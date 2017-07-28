@@ -40,17 +40,17 @@ public class OESVertexArrayObject {
 
     // --- [ glBindVertexArrayOES ] ---
 
-    public static native void glBindVertexArrayOES(int array);
+    public static native void glBindVertexArrayOES(@NativeType("GLuint") int array);
 
     // --- [ glDeleteVertexArraysOES ] ---
 
     public static native void nglDeleteVertexArraysOES(int n, long arrays);
 
-    public static void glDeleteVertexArraysOES(IntBuffer arrays) {
+    public static void glDeleteVertexArraysOES(@NativeType("const GLuint *") IntBuffer arrays) {
         nglDeleteVertexArraysOES(arrays.remaining(), memAddress(arrays));
     }
 
-    public static void glDeleteVertexArraysOES(int array) {
+    public static void glDeleteVertexArraysOES(@NativeType("const GLuint *") int array) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer arrays = stack.ints(array);
@@ -64,13 +64,14 @@ public class OESVertexArrayObject {
 
     public static native void nglGenVertexArraysOES(int n, long arrays);
 
-    public static void glGenVertexArraysOES(IntBuffer arrays) {
+    public static void glGenVertexArraysOES(@NativeType("GLuint *") IntBuffer arrays) {
         if (CHECKS) {
             check(arrays, 1);
         }
         nglGenVertexArraysOES(arrays.remaining(), memAddress(arrays));
     }
 
+    @NativeType("void")
     public static int glGenVertexArraysOES() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -84,10 +85,11 @@ public class OESVertexArrayObject {
 
     // --- [ glIsVertexArrayOES ] ---
 
-    public static native boolean glIsVertexArrayOES(int array);
+    @NativeType("GLboolean")
+    public static native boolean glIsVertexArrayOES(@NativeType("GLuint") int array);
 
     /** Array version of: {@link #glDeleteVertexArraysOES DeleteVertexArraysOES} */
-    public static void glDeleteVertexArraysOES(int[] arrays) {
+    public static void glDeleteVertexArraysOES(@NativeType("const GLuint *") int[] arrays) {
         long __functionAddress = GLES.getICD().glDeleteVertexArraysOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -96,7 +98,7 @@ public class OESVertexArrayObject {
     }
 
     /** Array version of: {@link #glGenVertexArraysOES GenVertexArraysOES} */
-    public static void glGenVertexArraysOES(int[] arrays) {
+    public static void glGenVertexArraysOES(@NativeType("GLuint *") int[] arrays) {
         long __functionAddress = GLES.getICD().glGenVertexArraysOES;
         if (CHECKS) {
             check(__functionAddress);

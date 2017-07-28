@@ -74,14 +74,16 @@ public class VkPresentTimeGOOGLE extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code presentID} field. */
+    @NativeType("uint32_t")
     public int presentID() { return npresentID(address()); }
     /** Returns the value of the {@code desiredPresentTime} field. */
+    @NativeType("uint64_t")
     public long desiredPresentTime() { return ndesiredPresentTime(address()); }
 
     /** Sets the specified value to the {@code presentID} field. */
-    public VkPresentTimeGOOGLE presentID(int value) { npresentID(address(), value); return this; }
+    public VkPresentTimeGOOGLE presentID(@NativeType("uint32_t") int value) { npresentID(address(), value); return this; }
     /** Sets the specified value to the {@code desiredPresentTime} field. */
-    public VkPresentTimeGOOGLE desiredPresentTime(long value) { ndesiredPresentTime(address(), value); return this; }
+    public VkPresentTimeGOOGLE desiredPresentTime(@NativeType("uint64_t") long value) { ndesiredPresentTime(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPresentTimeGOOGLE set(
@@ -288,14 +290,16 @@ public class VkPresentTimeGOOGLE extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code presentID} field. */
+        @NativeType("uint32_t")
         public int presentID() { return VkPresentTimeGOOGLE.npresentID(address()); }
         /** Returns the value of the {@code desiredPresentTime} field. */
+        @NativeType("uint64_t")
         public long desiredPresentTime() { return VkPresentTimeGOOGLE.ndesiredPresentTime(address()); }
 
         /** Sets the specified value to the {@code presentID} field. */
-        public VkPresentTimeGOOGLE.Buffer presentID(int value) { VkPresentTimeGOOGLE.npresentID(address(), value); return this; }
+        public VkPresentTimeGOOGLE.Buffer presentID(@NativeType("uint32_t") int value) { VkPresentTimeGOOGLE.npresentID(address(), value); return this; }
         /** Sets the specified value to the {@code desiredPresentTime} field. */
-        public VkPresentTimeGOOGLE.Buffer desiredPresentTime(long value) { VkPresentTimeGOOGLE.ndesiredPresentTime(address(), value); return this; }
+        public VkPresentTimeGOOGLE.Buffer desiredPresentTime(@NativeType("uint64_t") long value) { VkPresentTimeGOOGLE.ndesiredPresentTime(address(), value); return this; }
 
     }
 

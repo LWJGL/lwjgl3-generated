@@ -90,14 +90,16 @@ public class VkDescriptorPoolSize extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("VkDescriptorType")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code descriptorCount} field. */
+    @NativeType("uint32_t")
     public int descriptorCount() { return ndescriptorCount(address()); }
 
     /** Sets the specified value to the {@code type} field. */
-    public VkDescriptorPoolSize type(int value) { ntype(address(), value); return this; }
+    public VkDescriptorPoolSize type(@NativeType("VkDescriptorType") int value) { ntype(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorCount} field. */
-    public VkDescriptorPoolSize descriptorCount(int value) { ndescriptorCount(address(), value); return this; }
+    public VkDescriptorPoolSize descriptorCount(@NativeType("uint32_t") int value) { ndescriptorCount(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorPoolSize set(
@@ -304,14 +306,16 @@ public class VkDescriptorPoolSize extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("VkDescriptorType")
         public int type() { return VkDescriptorPoolSize.ntype(address()); }
         /** Returns the value of the {@code descriptorCount} field. */
+        @NativeType("uint32_t")
         public int descriptorCount() { return VkDescriptorPoolSize.ndescriptorCount(address()); }
 
         /** Sets the specified value to the {@code type} field. */
-        public VkDescriptorPoolSize.Buffer type(int value) { VkDescriptorPoolSize.ntype(address(), value); return this; }
+        public VkDescriptorPoolSize.Buffer type(@NativeType("VkDescriptorType") int value) { VkDescriptorPoolSize.ntype(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorCount} field. */
-        public VkDescriptorPoolSize.Buffer descriptorCount(int value) { VkDescriptorPoolSize.ndescriptorCount(address(), value); return this; }
+        public VkDescriptorPoolSize.Buffer descriptorCount(@NativeType("uint32_t") int value) { VkDescriptorPoolSize.ndescriptorCount(address(), value); return this; }
 
     }
 

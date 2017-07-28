@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -119,7 +121,8 @@ public class KHRGLSharing {
      *         OpenCL implementation on the device, or {@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the
      *         host.</p>
      */
-    public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetGLContextInfoKHR(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_gl_context_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(param_value_size_ret, 1);
@@ -181,7 +184,8 @@ public class KHRGLSharing {
      *         OpenCL implementation on the device, or {@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the
      *         host.</p>
      */
-    public static int clGetGLContextInfoKHR(PointerBuffer properties, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetGLContextInfoKHR(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_gl_context_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(param_value_size_ret, 1);

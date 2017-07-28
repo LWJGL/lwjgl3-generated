@@ -217,7 +217,7 @@ public class GL32 {
      * @param pname  the symbolic name of a buffer object parameter. One of:<br><table><tr><td>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}</td><td>{@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}</td><td>{@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}</td><td>{@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}</td></tr><tr><td>{@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}</td><td>{@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}</td><td>{@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}</td><td>{@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}</td></tr><tr><td>{@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}</td></tr></table>
      * @param params the requested parameter
      */
-    public static void glGetBufferParameteri64v(int target, int pname, LongBuffer params) {
+    public static void glGetBufferParameteri64v(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -232,7 +232,8 @@ public class GL32 {
      * @param target the target buffer object. One of:<br><table><tr><td>{@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link GL15#GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
      * @param pname  the symbolic name of a buffer object parameter. One of:<br><table><tr><td>{@link GL15#GL_BUFFER_SIZE BUFFER_SIZE}</td><td>{@link GL15#GL_BUFFER_USAGE BUFFER_USAGE}</td><td>{@link GL15#GL_BUFFER_ACCESS BUFFER_ACCESS}</td><td>{@link GL15#GL_BUFFER_MAPPED BUFFER_MAPPED}</td></tr><tr><td>{@link GL30#GL_BUFFER_ACCESS_FLAGS BUFFER_ACCESS_FLAGS}</td><td>{@link GL30#GL_BUFFER_MAP_LENGTH BUFFER_MAP_LENGTH}</td><td>{@link GL30#GL_BUFFER_MAP_OFFSET BUFFER_MAP_OFFSET}</td><td>{@link GL44#GL_BUFFER_IMMUTABLE_STORAGE BUFFER_IMMUTABLE_STORAGE}</td></tr><tr><td>{@link GL44#GL_BUFFER_STORAGE_FLAGS BUFFER_STORAGE_FLAGS}</td></tr></table>
      */
-    public static long glGetBufferParameteri64(int target, int pname) {
+    @NativeType("void")
+    public static long glGetBufferParameteri64(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -264,7 +265,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(int mode, int count, int type, long indices, int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
     }
 
@@ -278,7 +279,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(int mode, int type, ByteBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
     }
 
@@ -291,7 +292,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(int mode, ByteBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
     }
 
@@ -304,7 +305,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(int mode, ShortBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
     }
 
@@ -317,7 +318,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(int mode, IntBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
     }
 
@@ -344,7 +345,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int count, int type, long indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
     }
 
@@ -360,7 +361,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
     }
 
@@ -375,7 +376,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ByteBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
     }
 
@@ -390,7 +391,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, ShortBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
     }
 
@@ -405,7 +406,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(int mode, int start, int end, IntBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") IntBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
     }
 
@@ -431,7 +432,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(int mode, int count, int type, long indices, int primcount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
     }
 
@@ -446,7 +447,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(int mode, int type, ByteBuffer indices, int primcount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex);
     }
 
@@ -460,7 +461,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(int mode, ByteBuffer indices, int primcount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex);
     }
 
@@ -474,7 +475,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(int mode, ShortBuffer indices, int primcount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex);
     }
 
@@ -488,7 +489,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(int mode, IntBuffer indices, int primcount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex);
     }
 
@@ -514,7 +515,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a pointer to the location where the base vertices are stored
      */
-    public static void glMultiDrawElementsBaseVertex(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
+    public static void glMultiDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("const void **") PointerBuffer indices, @NativeType("GLint *") IntBuffer basevertex) {
         if (CHECKS) {
             check(indices, count.remaining());
             check(basevertex, count.remaining());
@@ -531,7 +532,7 @@ public class GL32 {
      *
      * @param mode the provoking vertex mode. One of:<br><table><tr><td>{@link #GL_FIRST_VERTEX_CONVENTION FIRST_VERTEX_CONVENTION}</td><td>{@link #GL_LAST_VERTEX_CONVENTION LAST_VERTEX_CONVENTION}</td></tr></table>
      */
-    public static native void glProvokingVertex(int mode);
+    public static native void glProvokingVertex(@NativeType("GLenum") int mode);
 
     // --- [ glTexImage2DMultisample ] ---
 
@@ -549,7 +550,7 @@ public class GL32 {
      * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
      *                             depend on the internal format or size of the image
      */
-    public static native void glTexImage2DMultisample(int target, int samples, int internalformat, int width, int height, boolean fixedsamplelocations);
+    public static native void glTexImage2DMultisample(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLboolean") boolean fixedsamplelocations);
 
     // --- [ glTexImage3DMultisample ] ---
 
@@ -568,7 +569,7 @@ public class GL32 {
      * @param fixedsamplelocations whether the image will use identical sample locations and the same number of samples for all texels in the image, and the sample locations will not
      *                             depend on the internal format or size of the image
      */
-    public static native void glTexImage3DMultisample(int target, int samples, int internalformat, int width, int height, int depth, boolean fixedsamplelocations);
+    public static native void glTexImage3DMultisample(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLboolean") boolean fixedsamplelocations);
 
     // --- [ glGetMultisamplefv ] ---
 
@@ -584,7 +585,7 @@ public class GL32 {
      * @param index the index of the sample whose position to query
      * @param val   an array to receive the position of the sample
      */
-    public static void glGetMultisamplefv(int pname, int index, FloatBuffer val) {
+    public static void glGetMultisamplefv(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("GLfloat *") FloatBuffer val) {
         if (CHECKS) {
             check(val, 1);
         }
@@ -599,7 +600,8 @@ public class GL32 {
      * @param pname the sample parameter name. Must be:<br><table><tr><td>{@link #GL_SAMPLE_POSITION SAMPLE_POSITION}</td></tr></table>
      * @param index the index of the sample whose position to query
      */
-    public static float glGetMultisamplef(int pname, int index) {
+    @NativeType("void")
+    public static float glGetMultisamplef(@NativeType("GLenum") int pname, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer val = stack.callocFloat(1);
@@ -620,7 +622,7 @@ public class GL32 {
      * @param index which 32-bit sub-word of the sample mask to update
      * @param mask  the new value of the mask sub-word
      */
-    public static native void glSampleMaski(int index, int mask);
+    public static native void glSampleMaski(@NativeType("GLuint") int index, @NativeType("GLbitfield") int mask);
 
     // --- [ glFramebufferTexture ] ---
 
@@ -634,7 +636,7 @@ public class GL32 {
      * @param texture    the texture object to attach to the framebuffer attachment point named by {@code attachment}
      * @param level      the mipmap level of {@code texture} to attach
      */
-    public static native void glFramebufferTexture(int target, int attachment, int texture, int level);
+    public static native void glFramebufferTexture(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glFenceSync ] ---
 
@@ -647,7 +649,8 @@ public class GL32 {
      * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
      *                  be zero.
      */
-    public static native long glFenceSync(int condition, int flags);
+    @NativeType("GLsync")
+    public static native long glFenceSync(@NativeType("GLenum") int condition, @NativeType("GLbitfield") int flags);
 
     // --- [ glIsSync ] ---
 
@@ -661,7 +664,8 @@ public class GL32 {
      *
      * @param sync a value that may be the name of a sync object
      */
-    public static boolean glIsSync(long sync) {
+    @NativeType("GLboolean")
+    public static boolean glIsSync(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -680,7 +684,7 @@ public class GL32 {
      *
      * @param sync the sync object to be deleted
      */
-    public static void glDeleteSync(long sync) {
+    public static void glDeleteSync(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -711,7 +715,8 @@ public class GL32 {
      * @param flags   a bitfield controlling the command flushing behavior. One or more of:<br><table><tr><td>0</td><td>{@link #GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}</td></tr></table>
      * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
      */
-    public static int glClientWaitSync(long sync, int flags, long timeout) {
+    @NativeType("GLenum")
+    public static int glClientWaitSync(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -738,7 +743,7 @@ public class GL32 {
      * @param flags   a bitfield controlling the command flushing behavior. Must be:<br><table><tr><td>0</td></tr></table>
      * @param timeout the timeout that the server should wait before continuing. Must be:<br><table><tr><td>{@link #GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}</td></tr></table>
      */
-    public static void glWaitSync(long sync, int flags, long timeout) {
+    public static void glWaitSync(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -758,7 +763,7 @@ public class GL32 {
      * @param pname  the parameter value to be returned
      * @param params the value or values of the specified parameter
      */
-    public static void glGetInteger64v(int pname, LongBuffer params) {
+    public static void glGetInteger64v(@NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -772,7 +777,8 @@ public class GL32 {
      *
      * @param pname the parameter value to be returned
      */
-    public static long glGetInteger64(int pname) {
+    @NativeType("void")
+    public static long glGetInteger64(@NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -797,7 +803,7 @@ public class GL32 {
      * @param index  the index of the element being queried
      * @param params the value or values of the specified parameter
      */
-    public static void glGetInteger64i_v(int pname, int index, LongBuffer params) {
+    public static void glGetInteger64i_v(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -812,7 +818,8 @@ public class GL32 {
      * @param pname the indexed state to query
      * @param index the index of the element being queried
      */
-    public static long glGetInteger64i(int pname, int index) {
+    @NativeType("void")
+    public static long glGetInteger64i(@NativeType("GLenum") int pname, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -842,7 +849,7 @@ public class GL32 {
      * @param length the address of an variable to receive the number of integers placed in {@code values}
      * @param values the address of an array to receive the values of the queried parameter
      */
-    public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer values) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -859,7 +866,8 @@ public class GL32 {
      * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link #GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link #GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link #GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link #GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
      * @param length the address of an variable to receive the number of integers placed in {@code values}
      */
-    public static int glGetSynci(long sync, int pname, IntBuffer length) {
+    @NativeType("void")
+    public static int glGetSynci(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -879,7 +887,7 @@ public class GL32 {
      * 
      * Array version of: {@link #glGetBufferParameteri64v GetBufferParameteri64v}
      */
-    public static void glGetBufferParameteri64v(int target, int pname, long[] params) {
+    public static void glGetBufferParameteri64v(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetBufferParameteri64v;
         if (CHECKS) {
             check(__functionAddress);
@@ -893,7 +901,7 @@ public class GL32 {
      * 
      * Array version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex}
      */
-    public static void glMultiDrawElementsBaseVertex(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
+    public static void glMultiDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") int[] count, @NativeType("GLenum") int type, @NativeType("const void **") PointerBuffer indices, @NativeType("GLint *") int[] basevertex) {
         long __functionAddress = GL.getICD().glMultiDrawElementsBaseVertex;
         if (CHECKS) {
             check(__functionAddress);
@@ -908,7 +916,7 @@ public class GL32 {
      * 
      * Array version of: {@link #glGetMultisamplefv GetMultisamplefv}
      */
-    public static void glGetMultisamplefv(int pname, int index, float[] val) {
+    public static void glGetMultisamplefv(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("GLfloat *") float[] val) {
         long __functionAddress = GL.getICD().glGetMultisamplefv;
         if (CHECKS) {
             check(__functionAddress);
@@ -922,7 +930,7 @@ public class GL32 {
      * 
      * Array version of: {@link #glGetInteger64v GetInteger64v}
      */
-    public static void glGetInteger64v(int pname, long[] params) {
+    public static void glGetInteger64v(@NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetInteger64v;
         if (CHECKS) {
             check(__functionAddress);
@@ -936,7 +944,7 @@ public class GL32 {
      * 
      * Array version of: {@link #glGetInteger64i_v GetInteger64i_v}
      */
-    public static void glGetInteger64i_v(int pname, int index, long[] params) {
+    public static void glGetInteger64i_v(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetInteger64i_v;
         if (CHECKS) {
             check(__functionAddress);
@@ -950,7 +958,7 @@ public class GL32 {
      * 
      * Array version of: {@link #glGetSynciv GetSynciv}
      */
-    public static void glGetSynciv(long sync, int pname, int[] length, int[] values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] values) {
         long __functionAddress = GL.getICD().glGetSynciv;
         if (CHECKS) {
             check(__functionAddress);

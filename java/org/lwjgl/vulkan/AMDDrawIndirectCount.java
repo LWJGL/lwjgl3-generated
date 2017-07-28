@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -152,7 +154,7 @@ public class AMDDrawIndirectCount {
      * @param maxDrawCount      specifies the maximum number of draws that will be executed. The actual number of executed draw calls is the minimum of the count specified in {@code countBuffer} and {@code maxDrawCount}.
      * @param stride            the byte stride between successive sets of draw parameters.
      */
-    public static void vkCmdDrawIndirectCountAMD(VkCommandBuffer commandBuffer, long buffer, long offset, long countBuffer, long countBufferOffset, int maxDrawCount, int stride) {
+    public static void vkCmdDrawIndirectCountAMD(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long buffer, @NativeType("VkDeviceSize") long offset, @NativeType("VkBuffer") long countBuffer, @NativeType("VkDeviceSize") long countBufferOffset, @NativeType("uint32_t") int maxDrawCount, @NativeType("uint32_t") int stride) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndirectCountAMD;
         if (CHECKS) {
             check(__functionAddress);
@@ -252,7 +254,7 @@ public class AMDDrawIndirectCount {
      * @param maxDrawCount      specifies the maximum number of draws that will be executed. The actual number of executed draw calls is the minimum of the count specified in {@code countBuffer} and {@code maxDrawCount}.
      * @param stride            the byte stride between successive sets of draw parameters.
      */
-    public static void vkCmdDrawIndexedIndirectCountAMD(VkCommandBuffer commandBuffer, long buffer, long offset, long countBuffer, long countBufferOffset, int maxDrawCount, int stride) {
+    public static void vkCmdDrawIndexedIndirectCountAMD(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long buffer, @NativeType("VkDeviceSize") long offset, @NativeType("VkBuffer") long countBuffer, @NativeType("VkDeviceSize") long countBufferOffset, @NativeType("uint32_t") int maxDrawCount, @NativeType("uint32_t") int stride) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDrawIndexedIndirectCountAMD;
         if (CHECKS) {
             check(__functionAddress);

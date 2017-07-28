@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -138,7 +140,8 @@ public class KHRExternalFenceWin32 {
      * @param device                      the logical device that created the fence.
      * @param pImportFenceWin32HandleInfo points to a {@link VkImportFenceWin32HandleInfoKHR} structure specifying the fence and import parameters.
      */
-    public static int vkImportFenceWin32HandleKHR(VkDevice device, VkImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo) {
+    @NativeType("VkResult")
+    public static int vkImportFenceWin32HandleKHR(VkDevice device, @NativeType("const VkImportFenceWin32HandleInfoKHR *") VkImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo) {
         return nvkImportFenceWin32HandleKHR(device, pImportFenceWin32HandleInfo.address());
     }
 
@@ -202,7 +205,8 @@ public class KHRExternalFenceWin32 {
      * @param pGetWin32HandleInfo a pointer to an instance of the {@link VkFenceGetWin32HandleInfoKHR} structure containing parameters of the export operation.
      * @param pHandle             will return the Windows handle representing the fence state.
      */
-    public static int vkGetFenceWin32HandleKHR(VkDevice device, VkFenceGetWin32HandleInfoKHR pGetWin32HandleInfo, PointerBuffer pHandle) {
+    @NativeType("VkResult")
+    public static int vkGetFenceWin32HandleKHR(VkDevice device, @NativeType("const VkFenceGetWin32HandleInfoKHR *") VkFenceGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
         if (CHECKS) {
             check(pHandle, 1);
         }

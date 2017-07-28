@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     cl_channel_type image_channel_data_type;
  * }</pre></code>
  */
+@NativeType("struct cl_image_format")
 public class CLImageFormat extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -76,14 +77,16 @@ public class CLImageFormat extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code image_channel_order} field. */
+    @NativeType("cl_channel_order")
     public int image_channel_order() { return nimage_channel_order(address()); }
     /** Returns the value of the {@code image_channel_data_type} field. */
+    @NativeType("cl_channel_type")
     public int image_channel_data_type() { return nimage_channel_data_type(address()); }
 
     /** Sets the specified value to the {@code image_channel_order} field. */
-    public CLImageFormat image_channel_order(int value) { nimage_channel_order(address(), value); return this; }
+    public CLImageFormat image_channel_order(@NativeType("cl_channel_order") int value) { nimage_channel_order(address(), value); return this; }
     /** Sets the specified value to the {@code image_channel_data_type} field. */
-    public CLImageFormat image_channel_data_type(int value) { nimage_channel_data_type(address(), value); return this; }
+    public CLImageFormat image_channel_data_type(@NativeType("cl_channel_type") int value) { nimage_channel_data_type(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public CLImageFormat set(
@@ -290,14 +293,16 @@ public class CLImageFormat extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code image_channel_order} field. */
+        @NativeType("cl_channel_order")
         public int image_channel_order() { return CLImageFormat.nimage_channel_order(address()); }
         /** Returns the value of the {@code image_channel_data_type} field. */
+        @NativeType("cl_channel_type")
         public int image_channel_data_type() { return CLImageFormat.nimage_channel_data_type(address()); }
 
         /** Sets the specified value to the {@code image_channel_order} field. */
-        public CLImageFormat.Buffer image_channel_order(int value) { CLImageFormat.nimage_channel_order(address(), value); return this; }
+        public CLImageFormat.Buffer image_channel_order(@NativeType("cl_channel_order") int value) { CLImageFormat.nimage_channel_order(address(), value); return this; }
         /** Sets the specified value to the {@code image_channel_data_type} field. */
-        public CLImageFormat.Buffer image_channel_data_type(int value) { CLImageFormat.nimage_channel_data_type(address(), value); return this; }
+        public CLImageFormat.Buffer image_channel_data_type(@NativeType("cl_channel_type") int value) { CLImageFormat.nimage_channel_data_type(address(), value); return this; }
 
     }
 

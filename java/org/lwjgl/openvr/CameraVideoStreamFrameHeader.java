@@ -26,6 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link TrackedDevicePose TrackedDevicePose_t} standingTrackedDevicePose;
  * }</pre></code>
  */
+@NativeType("struct CameraVideoStreamFrameHeader_t")
 public class CameraVideoStreamFrameHeader extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -81,30 +82,36 @@ public class CameraVideoStreamFrameHeader extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code eFrameType} field. */
+    @NativeType("EVRTrackedCameraFrameType")
     public int eFrameType() { return neFrameType(address()); }
     /** Returns the value of the {@code nWidth} field. */
+    @NativeType("uint32_t")
     public int nWidth() { return nnWidth(address()); }
     /** Returns the value of the {@code nHeight} field. */
+    @NativeType("uint32_t")
     public int nHeight() { return nnHeight(address()); }
     /** Returns the value of the {@code nBytesPerPixel} field. */
+    @NativeType("uint32_t")
     public int nBytesPerPixel() { return nnBytesPerPixel(address()); }
     /** Returns the value of the {@code nFrameSequence} field. */
+    @NativeType("uint32_t")
     public int nFrameSequence() { return nnFrameSequence(address()); }
     /** Returns a {@link TrackedDevicePose} view of the {@code standingTrackedDevicePose} field. */
+    @NativeType("TrackedDevicePose_t")
     public TrackedDevicePose standingTrackedDevicePose() { return nstandingTrackedDevicePose(address()); }
 
     /** Sets the specified value to the {@code eFrameType} field. */
-    public CameraVideoStreamFrameHeader eFrameType(int value) { neFrameType(address(), value); return this; }
+    public CameraVideoStreamFrameHeader eFrameType(@NativeType("EVRTrackedCameraFrameType") int value) { neFrameType(address(), value); return this; }
     /** Sets the specified value to the {@code nWidth} field. */
-    public CameraVideoStreamFrameHeader nWidth(int value) { nnWidth(address(), value); return this; }
+    public CameraVideoStreamFrameHeader nWidth(@NativeType("uint32_t") int value) { nnWidth(address(), value); return this; }
     /** Sets the specified value to the {@code nHeight} field. */
-    public CameraVideoStreamFrameHeader nHeight(int value) { nnHeight(address(), value); return this; }
+    public CameraVideoStreamFrameHeader nHeight(@NativeType("uint32_t") int value) { nnHeight(address(), value); return this; }
     /** Sets the specified value to the {@code nBytesPerPixel} field. */
-    public CameraVideoStreamFrameHeader nBytesPerPixel(int value) { nnBytesPerPixel(address(), value); return this; }
+    public CameraVideoStreamFrameHeader nBytesPerPixel(@NativeType("uint32_t") int value) { nnBytesPerPixel(address(), value); return this; }
     /** Sets the specified value to the {@code nFrameSequence} field. */
-    public CameraVideoStreamFrameHeader nFrameSequence(int value) { nnFrameSequence(address(), value); return this; }
+    public CameraVideoStreamFrameHeader nFrameSequence(@NativeType("uint32_t") int value) { nnFrameSequence(address(), value); return this; }
     /** Copies the specified {@link TrackedDevicePose} to the {@code standingTrackedDevicePose} field. */
-    public CameraVideoStreamFrameHeader standingTrackedDevicePose(TrackedDevicePose value) { nstandingTrackedDevicePose(address(), value); return this; }
+    public CameraVideoStreamFrameHeader standingTrackedDevicePose(@NativeType("TrackedDevicePose_t") TrackedDevicePose value) { nstandingTrackedDevicePose(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public CameraVideoStreamFrameHeader set(
@@ -335,30 +342,36 @@ public class CameraVideoStreamFrameHeader extends Struct implements NativeResour
         }
 
         /** Returns the value of the {@code eFrameType} field. */
+        @NativeType("EVRTrackedCameraFrameType")
         public int eFrameType() { return CameraVideoStreamFrameHeader.neFrameType(address()); }
         /** Returns the value of the {@code nWidth} field. */
+        @NativeType("uint32_t")
         public int nWidth() { return CameraVideoStreamFrameHeader.nnWidth(address()); }
         /** Returns the value of the {@code nHeight} field. */
+        @NativeType("uint32_t")
         public int nHeight() { return CameraVideoStreamFrameHeader.nnHeight(address()); }
         /** Returns the value of the {@code nBytesPerPixel} field. */
+        @NativeType("uint32_t")
         public int nBytesPerPixel() { return CameraVideoStreamFrameHeader.nnBytesPerPixel(address()); }
         /** Returns the value of the {@code nFrameSequence} field. */
+        @NativeType("uint32_t")
         public int nFrameSequence() { return CameraVideoStreamFrameHeader.nnFrameSequence(address()); }
         /** Returns a {@link TrackedDevicePose} view of the {@code standingTrackedDevicePose} field. */
+        @NativeType("TrackedDevicePose_t")
         public TrackedDevicePose standingTrackedDevicePose() { return CameraVideoStreamFrameHeader.nstandingTrackedDevicePose(address()); }
 
         /** Sets the specified value to the {@code eFrameType} field. */
-        public CameraVideoStreamFrameHeader.Buffer eFrameType(int value) { CameraVideoStreamFrameHeader.neFrameType(address(), value); return this; }
+        public CameraVideoStreamFrameHeader.Buffer eFrameType(@NativeType("EVRTrackedCameraFrameType") int value) { CameraVideoStreamFrameHeader.neFrameType(address(), value); return this; }
         /** Sets the specified value to the {@code nWidth} field. */
-        public CameraVideoStreamFrameHeader.Buffer nWidth(int value) { CameraVideoStreamFrameHeader.nnWidth(address(), value); return this; }
+        public CameraVideoStreamFrameHeader.Buffer nWidth(@NativeType("uint32_t") int value) { CameraVideoStreamFrameHeader.nnWidth(address(), value); return this; }
         /** Sets the specified value to the {@code nHeight} field. */
-        public CameraVideoStreamFrameHeader.Buffer nHeight(int value) { CameraVideoStreamFrameHeader.nnHeight(address(), value); return this; }
+        public CameraVideoStreamFrameHeader.Buffer nHeight(@NativeType("uint32_t") int value) { CameraVideoStreamFrameHeader.nnHeight(address(), value); return this; }
         /** Sets the specified value to the {@code nBytesPerPixel} field. */
-        public CameraVideoStreamFrameHeader.Buffer nBytesPerPixel(int value) { CameraVideoStreamFrameHeader.nnBytesPerPixel(address(), value); return this; }
+        public CameraVideoStreamFrameHeader.Buffer nBytesPerPixel(@NativeType("uint32_t") int value) { CameraVideoStreamFrameHeader.nnBytesPerPixel(address(), value); return this; }
         /** Sets the specified value to the {@code nFrameSequence} field. */
-        public CameraVideoStreamFrameHeader.Buffer nFrameSequence(int value) { CameraVideoStreamFrameHeader.nnFrameSequence(address(), value); return this; }
+        public CameraVideoStreamFrameHeader.Buffer nFrameSequence(@NativeType("uint32_t") int value) { CameraVideoStreamFrameHeader.nnFrameSequence(address(), value); return this; }
         /** Copies the specified {@link TrackedDevicePose} to the {@code standingTrackedDevicePose} field. */
-        public CameraVideoStreamFrameHeader.Buffer standingTrackedDevicePose(TrackedDevicePose value) { CameraVideoStreamFrameHeader.nstandingTrackedDevicePose(address(), value); return this; }
+        public CameraVideoStreamFrameHeader.Buffer standingTrackedDevicePose(@NativeType("TrackedDevicePose_t") TrackedDevicePose value) { CameraVideoStreamFrameHeader.nstandingTrackedDevicePose(address(), value); return this; }
 
     }
 

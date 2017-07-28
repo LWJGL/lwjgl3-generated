@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -159,7 +161,8 @@ public class KHRDisplaySwapchain {
      * @param pAllocator   the allocator used for host memory allocated for the swapchain objects when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
      * @param pSwapchains  a pointer to an array of {@code VkSwapchainKHR} handles in which the created swapchain objects will be returned.
      */
-    public static int vkCreateSharedSwapchainsKHR(VkDevice device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, LongBuffer pSwapchains) {
+    @NativeType("VkResult")
+    public static int vkCreateSharedSwapchainsKHR(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchains) {
         if (CHECKS) {
             check(pSwapchains, pCreateInfos.remaining());
         }
@@ -167,7 +170,8 @@ public class KHRDisplaySwapchain {
     }
 
     /** Array version of: {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
-    public static int vkCreateSharedSwapchainsKHR(VkDevice device, VkSwapchainCreateInfoKHR.Buffer pCreateInfos, VkAllocationCallbacks pAllocator, long[] pSwapchains) {
+    @NativeType("VkResult")
+    public static int vkCreateSharedSwapchainsKHR(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchains) {
         long __functionAddress = device.getCapabilities().vkCreateSharedSwapchainsKHR;
         if (CHECKS) {
             check(__functionAddress);

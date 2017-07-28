@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -41,6 +43,6 @@ public class NVConservativeRasterDilate {
 
     // --- [ glConservativeRasterParameterfNV ] ---
 
-    public static native void glConservativeRasterParameterfNV(int pname, float value);
+    public static native void glConservativeRasterParameterfNV(@NativeType("GLenum") int pname, @NativeType("GLfloat") float value);
 
 }

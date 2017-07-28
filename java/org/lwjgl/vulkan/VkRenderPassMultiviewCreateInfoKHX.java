@@ -146,32 +146,40 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code subpassCount} field. */
+    @NativeType("uint32_t")
     public int subpassCount() { return nsubpassCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewMasks} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pViewMasks() { return npViewMasks(address()); }
     /** Returns the value of the {@code dependencyCount} field. */
+    @NativeType("uint32_t")
     public int dependencyCount() { return ndependencyCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewOffsets} field. */
+    @NativeType("const int32_t *")
     public IntBuffer pViewOffsets() { return npViewOffsets(address()); }
     /** Returns the value of the {@code correlationMaskCount} field. */
+    @NativeType("uint32_t")
     public int correlationMaskCount() { return ncorrelationMaskCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pCorrelationMasks} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pCorrelationMasks() { return npCorrelationMasks(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkRenderPassMultiviewCreateInfoKHX sType(int value) { nsType(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkRenderPassMultiviewCreateInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pViewMasks} field. */
-    public VkRenderPassMultiviewCreateInfoKHX pViewMasks(IntBuffer value) { npViewMasks(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX pViewMasks(@NativeType("const uint32_t *") IntBuffer value) { npViewMasks(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pViewOffsets} field. */
-    public VkRenderPassMultiviewCreateInfoKHX pViewOffsets(IntBuffer value) { npViewOffsets(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX pViewOffsets(@NativeType("const int32_t *") IntBuffer value) { npViewOffsets(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pCorrelationMasks} field. */
-    public VkRenderPassMultiviewCreateInfoKHX pCorrelationMasks(IntBuffer value) { npCorrelationMasks(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX pCorrelationMasks(@NativeType("const uint32_t *") IntBuffer value) { npCorrelationMasks(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkRenderPassMultiviewCreateInfoKHX set(
@@ -437,32 +445,40 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkRenderPassMultiviewCreateInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkRenderPassMultiviewCreateInfoKHX.npNext(address()); }
         /** Returns the value of the {@code subpassCount} field. */
+        @NativeType("uint32_t")
         public int subpassCount() { return VkRenderPassMultiviewCreateInfoKHX.nsubpassCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewMasks} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pViewMasks() { return VkRenderPassMultiviewCreateInfoKHX.npViewMasks(address()); }
         /** Returns the value of the {@code dependencyCount} field. */
+        @NativeType("uint32_t")
         public int dependencyCount() { return VkRenderPassMultiviewCreateInfoKHX.ndependencyCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewOffsets} field. */
+        @NativeType("const int32_t *")
         public IntBuffer pViewOffsets() { return VkRenderPassMultiviewCreateInfoKHX.npViewOffsets(address()); }
         /** Returns the value of the {@code correlationMaskCount} field. */
+        @NativeType("uint32_t")
         public int correlationMaskCount() { return VkRenderPassMultiviewCreateInfoKHX.ncorrelationMaskCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pCorrelationMasks} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pCorrelationMasks() { return VkRenderPassMultiviewCreateInfoKHX.npCorrelationMasks(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer sType(int value) { VkRenderPassMultiviewCreateInfoKHX.nsType(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkRenderPassMultiviewCreateInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer pNext(long value) { VkRenderPassMultiviewCreateInfoKHX.npNext(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkRenderPassMultiviewCreateInfoKHX.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pViewMasks} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewMasks(IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewMasks(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewMasks(@NativeType("const uint32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewMasks(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pViewOffsets} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewOffsets(IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewOffsets(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewOffsets(@NativeType("const int32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewOffsets(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pCorrelationMasks} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer pCorrelationMasks(IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npCorrelationMasks(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer pCorrelationMasks(@NativeType("const uint32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npCorrelationMasks(address(), value); return this; }
 
     }
 

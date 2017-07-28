@@ -69,8 +69,10 @@ public class VkSparseImageMemoryRequirements2KHR extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkSparseImageMemoryRequirements} view of the {@code memoryRequirements} field. */
     public VkSparseImageMemoryRequirements memoryRequirements() { return nmemoryRequirements(address()); }
@@ -254,8 +256,10 @@ public class VkSparseImageMemoryRequirements2KHR extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSparseImageMemoryRequirements2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkSparseImageMemoryRequirements2KHR.npNext(address()); }
         /** Returns a {@link VkSparseImageMemoryRequirements} view of the {@code memoryRequirements} field. */
         public VkSparseImageMemoryRequirements memoryRequirements() { return VkSparseImageMemoryRequirements2KHR.nmemoryRequirements(address()); }

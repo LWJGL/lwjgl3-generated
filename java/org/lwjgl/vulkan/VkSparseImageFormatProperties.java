@@ -79,10 +79,12 @@ public class VkSparseImageFormatProperties extends Struct implements NativeResou
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code aspectMask} field. */
+    @NativeType("VkImageAspectFlags")
     public int aspectMask() { return naspectMask(address()); }
     /** Returns a {@link VkExtent3D} view of the {@code imageGranularity} field. */
     public VkExtent3D imageGranularity() { return nimageGranularity(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkSparseImageFormatFlags")
     public int flags() { return nflags(address()); }
 
     // -----------------------------------
@@ -264,10 +266,12 @@ public class VkSparseImageFormatProperties extends Struct implements NativeResou
         }
 
         /** Returns the value of the {@code aspectMask} field. */
+        @NativeType("VkImageAspectFlags")
         public int aspectMask() { return VkSparseImageFormatProperties.naspectMask(address()); }
         /** Returns a {@link VkExtent3D} view of the {@code imageGranularity} field. */
         public VkExtent3D imageGranularity() { return VkSparseImageFormatProperties.nimageGranularity(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkSparseImageFormatFlags")
         public int flags() { return VkSparseImageFormatProperties.nflags(address()); }
 
     }

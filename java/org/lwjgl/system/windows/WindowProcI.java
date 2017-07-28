@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** An application-defined function that processes messages sent to a window. */
 @FunctionalInterface
+@NativeType("WNDPROC")
 public interface WindowProcI extends CallbackI.P {
 
     String SIGNATURE = Callback.__stdcall("(pipp)p");
@@ -36,6 +37,6 @@ public interface WindowProcI extends CallbackI.P {
      * @param wParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
      * @param lParam additional message information. The content of this parameter depends on the value of the {@code uMsg} parameter.
      */
-    long invoke(long hwnd, int uMsg, long wParam, long lParam);
+    @NativeType("LRESULT") long invoke(@NativeType("HWND") long hwnd, @NativeType("UINT") int uMsg, @NativeType("WPARAM") long wParam, @NativeType("LPARAM") long lParam);
 
 }

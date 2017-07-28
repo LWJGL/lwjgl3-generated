@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -178,7 +180,8 @@ public class KHXDeviceGroupCreation {
      * @param pPhysicalDeviceGroupCount      a pointer to an integer related to the number of device groups available or queried, as described below.
      * @param pPhysicalDeviceGroupProperties either {@code NULL} or a pointer to an array of {@link VkPhysicalDeviceGroupPropertiesKHX} structures.
      */
-    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, IntBuffer pPhysicalDeviceGroupCount, VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, @NativeType("uint32_t *") IntBuffer pPhysicalDeviceGroupCount, @NativeType("VkPhysicalDeviceGroupPropertiesKHX *") VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
         if (CHECKS) {
             check(pPhysicalDeviceGroupCount, 1);
             checkSafe(pPhysicalDeviceGroupProperties, pPhysicalDeviceGroupCount.get(pPhysicalDeviceGroupCount.position()));
@@ -187,7 +190,8 @@ public class KHXDeviceGroupCreation {
     }
 
     /** Array version of: {@link #vkEnumeratePhysicalDeviceGroupsKHX EnumeratePhysicalDeviceGroupsKHX} */
-    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, int[] pPhysicalDeviceGroupCount, VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
+    @NativeType("VkResult")
+    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, @NativeType("uint32_t *") int[] pPhysicalDeviceGroupCount, @NativeType("VkPhysicalDeviceGroupPropertiesKHX *") VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
         long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDeviceGroupsKHX;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -58,14 +60,14 @@ public class NVDepthBufferFloat {
 
     // --- [ glDepthRangedNV ] ---
 
-    public static native void glDepthRangedNV(double zNear, double zFar);
+    public static native void glDepthRangedNV(@NativeType("GLdouble") double zNear, @NativeType("GLdouble") double zFar);
 
     // --- [ glClearDepthdNV ] ---
 
-    public static native void glClearDepthdNV(double depth);
+    public static native void glClearDepthdNV(@NativeType("GLdouble") double depth);
 
     // --- [ glDepthBoundsdNV ] ---
 
-    public static native void glDepthBoundsdNV(double zmin, double zmax);
+    public static native void glDepthBoundsdNV(@NativeType("GLdouble") double zmin, @NativeType("GLdouble") double zmax);
 
 }

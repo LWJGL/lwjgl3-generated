@@ -111,22 +111,26 @@ public class VkFenceGetWin32HandleInfoKHR extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code fence} field. */
+    @NativeType("VkFence")
     public long fence() { return nfence(address()); }
     /** Returns the value of the {@code handleType} field. */
+    @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
     public int handleType() { return nhandleType(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkFenceGetWin32HandleInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkFenceGetWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkFenceGetWin32HandleInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkFenceGetWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code fence} field. */
-    public VkFenceGetWin32HandleInfoKHR fence(long value) { nfence(address(), value); return this; }
+    public VkFenceGetWin32HandleInfoKHR fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkFenceGetWin32HandleInfoKHR handleType(int value) { nhandleType(address(), value); return this; }
+    public VkFenceGetWin32HandleInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkFenceGetWin32HandleInfoKHR set(
@@ -345,22 +349,26 @@ public class VkFenceGetWin32HandleInfoKHR extends Struct implements NativeResour
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkFenceGetWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkFenceGetWin32HandleInfoKHR.npNext(address()); }
         /** Returns the value of the {@code fence} field. */
+        @NativeType("VkFence")
         public long fence() { return VkFenceGetWin32HandleInfoKHR.nfence(address()); }
         /** Returns the value of the {@code handleType} field. */
+        @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
         public int handleType() { return VkFenceGetWin32HandleInfoKHR.nhandleType(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkFenceGetWin32HandleInfoKHR.Buffer sType(int value) { VkFenceGetWin32HandleInfoKHR.nsType(address(), value); return this; }
+        public VkFenceGetWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkFenceGetWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkFenceGetWin32HandleInfoKHR.Buffer pNext(long value) { VkFenceGetWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkFenceGetWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkFenceGetWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code fence} field. */
-        public VkFenceGetWin32HandleInfoKHR.Buffer fence(long value) { VkFenceGetWin32HandleInfoKHR.nfence(address(), value); return this; }
+        public VkFenceGetWin32HandleInfoKHR.Buffer fence(@NativeType("VkFence") long value) { VkFenceGetWin32HandleInfoKHR.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkFenceGetWin32HandleInfoKHR.Buffer handleType(int value) { VkFenceGetWin32HandleInfoKHR.nhandleType(address(), value); return this; }
+        public VkFenceGetWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { VkFenceGetWin32HandleInfoKHR.nhandleType(address(), value); return this; }
 
     }
 

@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t size;
  * }</pre></code>
  */
+@NativeType("struct bgfx_memory_t")
 public class BGFXMemory extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -75,12 +76,14 @@ public class BGFXMemory extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field. */
+    @NativeType("uint8_t *")
     public ByteBuffer data() { return ndata(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("uint32_t")
     public int size() { return nsize(address()); }
 
     /** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
-    public BGFXMemory data(ByteBuffer value) { ndata(address(), value); return this; }
+    public BGFXMemory data(@NativeType("uint8_t *") ByteBuffer value) { ndata(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -297,12 +300,14 @@ public class BGFXMemory extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field. */
+        @NativeType("uint8_t *")
         public ByteBuffer data() { return BGFXMemory.ndata(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("uint32_t")
         public int size() { return BGFXMemory.nsize(address()); }
 
         /** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
-        public BGFXMemory.Buffer data(ByteBuffer value) { BGFXMemory.ndata(address(), value); return this; }
+        public BGFXMemory.Buffer data(@NativeType("uint8_t *") ByteBuffer value) { BGFXMemory.ndata(address(), value); return this; }
 
     }
 

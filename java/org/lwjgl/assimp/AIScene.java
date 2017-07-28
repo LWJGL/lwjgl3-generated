@@ -72,6 +72,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char * mPrivate;
  * }</pre></code>
  */
+@NativeType("struct aiScene")
 public class AIScene extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -154,50 +155,64 @@ public class AIScene extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code mFlags} field. */
+    @NativeType("unsigned int")
     public int mFlags() { return nmFlags(address()); }
     /** Returns a {@link AINode} view of the struct pointed to by the {@code mRootNode} field. */
+    @NativeType("struct aiNode *")
     public AINode mRootNode() { return nmRootNode(address()); }
     /** Returns the value of the {@code mNumMeshes} field. */
+    @NativeType("unsigned int")
     public int mNumMeshes() { return nmNumMeshes(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mMeshes} field. */
+    @NativeType("struct aiMesh **")
     public PointerBuffer mMeshes() { return nmMeshes(address()); }
     /** Returns the value of the {@code mNumMaterials} field. */
+    @NativeType("unsigned int")
     public int mNumMaterials() { return nmNumMaterials(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mMaterials} field. */
+    @NativeType("struct aiMaterial **")
     public PointerBuffer mMaterials() { return nmMaterials(address()); }
     /** Returns the value of the {@code mNumAnimations} field. */
+    @NativeType("unsigned int")
     public int mNumAnimations() { return nmNumAnimations(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimations} field. */
+    @NativeType("struct aiAnimation **")
     public PointerBuffer mAnimations() { return nmAnimations(address()); }
     /** Returns the value of the {@code mNumTextures} field. */
+    @NativeType("unsigned int")
     public int mNumTextures() { return nmNumTextures(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mTextures} field. */
+    @NativeType("struct aiTexture **")
     public PointerBuffer mTextures() { return nmTextures(address()); }
     /** Returns the value of the {@code mNumLights} field. */
+    @NativeType("unsigned int")
     public int mNumLights() { return nmNumLights(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mLights} field. */
+    @NativeType("struct aiLight **")
     public PointerBuffer mLights() { return nmLights(address()); }
     /** Returns the value of the {@code mNumCameras} field. */
+    @NativeType("unsigned int")
     public int mNumCameras() { return nmNumCameras(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mCameras} field. */
+    @NativeType("struct aiCamera **")
     public PointerBuffer mCameras() { return nmCameras(address()); }
 
     /** Sets the specified value to the {@code mFlags} field. */
-    public AIScene mFlags(int value) { nmFlags(address(), value); return this; }
+    public AIScene mFlags(@NativeType("unsigned int") int value) { nmFlags(address(), value); return this; }
     /** Sets the address of the specified {@link AINode} to the {@code mRootNode} field. */
-    public AIScene mRootNode(AINode value) { nmRootNode(address(), value); return this; }
+    public AIScene mRootNode(@NativeType("struct aiNode *") AINode value) { nmRootNode(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mMeshes} field. */
-    public AIScene mMeshes(PointerBuffer value) { nmMeshes(address(), value); return this; }
+    public AIScene mMeshes(@NativeType("struct aiMesh **") PointerBuffer value) { nmMeshes(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mMaterials} field. */
-    public AIScene mMaterials(PointerBuffer value) { nmMaterials(address(), value); return this; }
+    public AIScene mMaterials(@NativeType("struct aiMaterial **") PointerBuffer value) { nmMaterials(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimations} field. */
-    public AIScene mAnimations(PointerBuffer value) { nmAnimations(address(), value); return this; }
+    public AIScene mAnimations(@NativeType("struct aiAnimation **") PointerBuffer value) { nmAnimations(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mTextures} field. */
-    public AIScene mTextures(PointerBuffer value) { nmTextures(address(), value); return this; }
+    public AIScene mTextures(@NativeType("struct aiTexture **") PointerBuffer value) { nmTextures(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mLights} field. */
-    public AIScene mLights(PointerBuffer value) { nmLights(address(), value); return this; }
+    public AIScene mLights(@NativeType("struct aiLight **") PointerBuffer value) { nmLights(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mCameras} field. */
-    public AIScene mCameras(PointerBuffer value) { nmCameras(address(), value); return this; }
+    public AIScene mCameras(@NativeType("struct aiCamera **") PointerBuffer value) { nmCameras(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIScene set(
@@ -504,50 +519,64 @@ public class AIScene extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code mFlags} field. */
+        @NativeType("unsigned int")
         public int mFlags() { return AIScene.nmFlags(address()); }
         /** Returns a {@link AINode} view of the struct pointed to by the {@code mRootNode} field. */
+        @NativeType("struct aiNode *")
         public AINode mRootNode() { return AIScene.nmRootNode(address()); }
         /** Returns the value of the {@code mNumMeshes} field. */
+        @NativeType("unsigned int")
         public int mNumMeshes() { return AIScene.nmNumMeshes(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mMeshes} field. */
+        @NativeType("struct aiMesh **")
         public PointerBuffer mMeshes() { return AIScene.nmMeshes(address()); }
         /** Returns the value of the {@code mNumMaterials} field. */
+        @NativeType("unsigned int")
         public int mNumMaterials() { return AIScene.nmNumMaterials(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mMaterials} field. */
+        @NativeType("struct aiMaterial **")
         public PointerBuffer mMaterials() { return AIScene.nmMaterials(address()); }
         /** Returns the value of the {@code mNumAnimations} field. */
+        @NativeType("unsigned int")
         public int mNumAnimations() { return AIScene.nmNumAnimations(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimations} field. */
+        @NativeType("struct aiAnimation **")
         public PointerBuffer mAnimations() { return AIScene.nmAnimations(address()); }
         /** Returns the value of the {@code mNumTextures} field. */
+        @NativeType("unsigned int")
         public int mNumTextures() { return AIScene.nmNumTextures(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mTextures} field. */
+        @NativeType("struct aiTexture **")
         public PointerBuffer mTextures() { return AIScene.nmTextures(address()); }
         /** Returns the value of the {@code mNumLights} field. */
+        @NativeType("unsigned int")
         public int mNumLights() { return AIScene.nmNumLights(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mLights} field. */
+        @NativeType("struct aiLight **")
         public PointerBuffer mLights() { return AIScene.nmLights(address()); }
         /** Returns the value of the {@code mNumCameras} field. */
+        @NativeType("unsigned int")
         public int mNumCameras() { return AIScene.nmNumCameras(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mCameras} field. */
+        @NativeType("struct aiCamera **")
         public PointerBuffer mCameras() { return AIScene.nmCameras(address()); }
 
         /** Sets the specified value to the {@code mFlags} field. */
-        public AIScene.Buffer mFlags(int value) { AIScene.nmFlags(address(), value); return this; }
+        public AIScene.Buffer mFlags(@NativeType("unsigned int") int value) { AIScene.nmFlags(address(), value); return this; }
         /** Sets the address of the specified {@link AINode} to the {@code mRootNode} field. */
-        public AIScene.Buffer mRootNode(AINode value) { AIScene.nmRootNode(address(), value); return this; }
+        public AIScene.Buffer mRootNode(@NativeType("struct aiNode *") AINode value) { AIScene.nmRootNode(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mMeshes} field. */
-        public AIScene.Buffer mMeshes(PointerBuffer value) { AIScene.nmMeshes(address(), value); return this; }
+        public AIScene.Buffer mMeshes(@NativeType("struct aiMesh **") PointerBuffer value) { AIScene.nmMeshes(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mMaterials} field. */
-        public AIScene.Buffer mMaterials(PointerBuffer value) { AIScene.nmMaterials(address(), value); return this; }
+        public AIScene.Buffer mMaterials(@NativeType("struct aiMaterial **") PointerBuffer value) { AIScene.nmMaterials(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimations} field. */
-        public AIScene.Buffer mAnimations(PointerBuffer value) { AIScene.nmAnimations(address(), value); return this; }
+        public AIScene.Buffer mAnimations(@NativeType("struct aiAnimation **") PointerBuffer value) { AIScene.nmAnimations(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mTextures} field. */
-        public AIScene.Buffer mTextures(PointerBuffer value) { AIScene.nmTextures(address(), value); return this; }
+        public AIScene.Buffer mTextures(@NativeType("struct aiTexture **") PointerBuffer value) { AIScene.nmTextures(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mLights} field. */
-        public AIScene.Buffer mLights(PointerBuffer value) { AIScene.nmLights(address(), value); return this; }
+        public AIScene.Buffer mLights(@NativeType("struct aiLight **") PointerBuffer value) { AIScene.nmLights(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mCameras} field. */
-        public AIScene.Buffer mCameras(PointerBuffer value) { AIScene.nmCameras(address(), value); return this; }
+        public AIScene.Buffer mCameras(@NativeType("struct aiCamera **") PointerBuffer value) { AIScene.nmCameras(address(), value); return this; }
 
     }
 

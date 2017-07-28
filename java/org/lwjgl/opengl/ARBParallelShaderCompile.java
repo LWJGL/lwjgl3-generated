@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -50,6 +52,6 @@ public class ARBParallelShaderCompile {
      * @param count the number of background threads. A {@code count} of zero specifies a request for no parallel compiling or linking and a {@code count} of
      *              {@code 0xFFFFFFFF} requests an implementation-specific maximum.
      */
-    public static native void glMaxShaderCompilerThreadsARB(int count);
+    public static native void glMaxShaderCompilerThreadsARB(@NativeType("GLuint") int count);
 
 }

@@ -97,22 +97,26 @@ public class VkPhysicalDeviceVariablePointerFeaturesKHR extends Struct implement
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code variablePointersStorageBuffer} field. */
+    @NativeType("VkBool32")
     public boolean variablePointersStorageBuffer() { return nvariablePointersStorageBuffer(address()) != 0; }
     /** Returns the value of the {@code variablePointers} field. */
+    @NativeType("VkBool32")
     public boolean variablePointers() { return nvariablePointers(address()) != 0; }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPhysicalDeviceVariablePointerFeaturesKHR sType(int value) { nsType(address(), value); return this; }
+    public VkPhysicalDeviceVariablePointerFeaturesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceVariablePointerFeaturesKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceVariablePointerFeaturesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code variablePointersStorageBuffer} field. */
-    public VkPhysicalDeviceVariablePointerFeaturesKHR variablePointersStorageBuffer(boolean value) { nvariablePointersStorageBuffer(address(), value ? 1 : 0); return this; }
+    public VkPhysicalDeviceVariablePointerFeaturesKHR variablePointersStorageBuffer(@NativeType("VkBool32") boolean value) { nvariablePointersStorageBuffer(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code variablePointers} field. */
-    public VkPhysicalDeviceVariablePointerFeaturesKHR variablePointers(boolean value) { nvariablePointers(address(), value ? 1 : 0); return this; }
+    public VkPhysicalDeviceVariablePointerFeaturesKHR variablePointers(@NativeType("VkBool32") boolean value) { nvariablePointers(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPhysicalDeviceVariablePointerFeaturesKHR set(
@@ -331,22 +335,26 @@ public class VkPhysicalDeviceVariablePointerFeaturesKHR extends Struct implement
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceVariablePointerFeaturesKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceVariablePointerFeaturesKHR.npNext(address()); }
         /** Returns the value of the {@code variablePointersStorageBuffer} field. */
+        @NativeType("VkBool32")
         public boolean variablePointersStorageBuffer() { return VkPhysicalDeviceVariablePointerFeaturesKHR.nvariablePointersStorageBuffer(address()) != 0; }
         /** Returns the value of the {@code variablePointers} field. */
+        @NativeType("VkBool32")
         public boolean variablePointers() { return VkPhysicalDeviceVariablePointerFeaturesKHR.nvariablePointers(address()) != 0; }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer sType(int value) { VkPhysicalDeviceVariablePointerFeaturesKHR.nsType(address(), value); return this; }
+        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceVariablePointerFeaturesKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer pNext(long value) { VkPhysicalDeviceVariablePointerFeaturesKHR.npNext(address(), value); return this; }
+        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceVariablePointerFeaturesKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code variablePointersStorageBuffer} field. */
-        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer variablePointersStorageBuffer(boolean value) { VkPhysicalDeviceVariablePointerFeaturesKHR.nvariablePointersStorageBuffer(address(), value ? 1 : 0); return this; }
+        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer variablePointersStorageBuffer(@NativeType("VkBool32") boolean value) { VkPhysicalDeviceVariablePointerFeaturesKHR.nvariablePointersStorageBuffer(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code variablePointers} field. */
-        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer variablePointers(boolean value) { VkPhysicalDeviceVariablePointerFeaturesKHR.nvariablePointers(address(), value ? 1 : 0); return this; }
+        public VkPhysicalDeviceVariablePointerFeaturesKHR.Buffer variablePointers(@NativeType("VkBool32") boolean value) { VkPhysicalDeviceVariablePointerFeaturesKHR.nvariablePointers(address(), value ? 1 : 0); return this; }
 
     }
 

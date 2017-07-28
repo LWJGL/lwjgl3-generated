@@ -26,6 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float vMax;
  * }</pre></code>
  */
+@NativeType("struct VRTextureBounds_t")
 public class VRTextureBounds extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     TextureID_t diffuseTextureId;
  * }</pre></code>
  */
+@NativeType("struct RenderModel_t")
 public class RenderModel extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -88,22 +89,27 @@ public class RenderModel extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link RenderModelVertex.Buffer} view of the struct array pointed to by the {@code rVertexData} field. */
+    @NativeType("const RenderModel_Vertex_t *")
     public RenderModelVertex.Buffer rVertexData() { return nrVertexData(address()); }
     /** Returns the value of the {@code unVertexCount} field. */
+    @NativeType("uint32_t")
     public int unVertexCount() { return nunVertexCount(address()); }
     /** Returns a {@link ShortBuffer} view of the data pointed to by the {@code IndexData} field. */
+    @NativeType("const uint16_t *")
     public ShortBuffer IndexData() { return nIndexData(address()); }
     /** Returns the value of the {@code unTriangleCount} field. */
+    @NativeType("uint32_t")
     public int unTriangleCount() { return nunTriangleCount(address()); }
     /** Returns the value of the {@code diffuseTextureId} field. */
+    @NativeType("TextureID_t")
     public int diffuseTextureId() { return ndiffuseTextureId(address()); }
 
     /** Sets the address of the specified {@link RenderModelVertex.Buffer} to the {@code rVertexData} field. */
-    public RenderModel rVertexData(RenderModelVertex.Buffer value) { nrVertexData(address(), value); return this; }
+    public RenderModel rVertexData(@NativeType("const RenderModel_Vertex_t *") RenderModelVertex.Buffer value) { nrVertexData(address(), value); return this; }
     /** Sets the address of the specified {@link ShortBuffer} to the {@code IndexData} field. */
-    public RenderModel IndexData(ShortBuffer value) { nIndexData(address(), value); return this; }
+    public RenderModel IndexData(@NativeType("const uint16_t *") ShortBuffer value) { nIndexData(address(), value); return this; }
     /** Sets the specified value to the {@code diffuseTextureId} field. */
-    public RenderModel diffuseTextureId(int value) { ndiffuseTextureId(address(), value); return this; }
+    public RenderModel diffuseTextureId(@NativeType("TextureID_t") int value) { ndiffuseTextureId(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public RenderModel set(
@@ -346,22 +352,27 @@ public class RenderModel extends Struct implements NativeResource {
         }
 
         /** Returns a {@link RenderModelVertex.Buffer} view of the struct array pointed to by the {@code rVertexData} field. */
+        @NativeType("const RenderModel_Vertex_t *")
         public RenderModelVertex.Buffer rVertexData() { return RenderModel.nrVertexData(address()); }
         /** Returns the value of the {@code unVertexCount} field. */
+        @NativeType("uint32_t")
         public int unVertexCount() { return RenderModel.nunVertexCount(address()); }
         /** Returns a {@link ShortBuffer} view of the data pointed to by the {@code IndexData} field. */
+        @NativeType("const uint16_t *")
         public ShortBuffer IndexData() { return RenderModel.nIndexData(address()); }
         /** Returns the value of the {@code unTriangleCount} field. */
+        @NativeType("uint32_t")
         public int unTriangleCount() { return RenderModel.nunTriangleCount(address()); }
         /** Returns the value of the {@code diffuseTextureId} field. */
+        @NativeType("TextureID_t")
         public int diffuseTextureId() { return RenderModel.ndiffuseTextureId(address()); }
 
         /** Sets the address of the specified {@link RenderModelVertex.Buffer} to the {@code rVertexData} field. */
-        public RenderModel.Buffer rVertexData(RenderModelVertex.Buffer value) { RenderModel.nrVertexData(address(), value); return this; }
+        public RenderModel.Buffer rVertexData(@NativeType("const RenderModel_Vertex_t *") RenderModelVertex.Buffer value) { RenderModel.nrVertexData(address(), value); return this; }
         /** Sets the address of the specified {@link ShortBuffer} to the {@code IndexData} field. */
-        public RenderModel.Buffer IndexData(ShortBuffer value) { RenderModel.nIndexData(address(), value); return this; }
+        public RenderModel.Buffer IndexData(@NativeType("const uint16_t *") ShortBuffer value) { RenderModel.nIndexData(address(), value); return this; }
         /** Sets the specified value to the {@code diffuseTextureId} field. */
-        public RenderModel.Buffer diffuseTextureId(int value) { RenderModel.ndiffuseTextureId(address(), value); return this; }
+        public RenderModel.Buffer diffuseTextureId(@NativeType("TextureID_t") int value) { RenderModel.ndiffuseTextureId(address(), value); return this; }
 
     }
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import org.lwjgl.system.*;
+
 
 /**
  * Native bindings to stb_rect_pack.h from the <a target="_blank" href="https://github.com/nothings/stb">stb library</a>.
@@ -67,7 +69,7 @@ public class STBRectPack {
      *
      * @return 1 if all of the rectangles were successfully packed and 0 otherwise
      */
-    public static int stbrp_pack_rects(STBRPContext context, STBRPRect.Buffer rects) {
+    public static int stbrp_pack_rects(@NativeType("stbrp_context *") STBRPContext context, @NativeType("stbrp_rect *") STBRPRect.Buffer rects) {
         return nstbrp_pack_rects(context.address(), rects.address(), rects.remaining());
     }
 
@@ -106,7 +108,7 @@ public class STBRectPack {
      * @param height  the rectangle height
      * @param nodes   an array of {@link STBRPNode} structs
      */
-    public static void stbrp_init_target(STBRPContext context, int width, int height, STBRPNode.Buffer nodes) {
+    public static void stbrp_init_target(@NativeType("stbrp_context *") STBRPContext context, @NativeType("int") int width, @NativeType("int") int height, @NativeType("stbrp_node *") STBRPNode.Buffer nodes) {
         nstbrp_init_target(context.address(), width, height, nodes.address(), nodes.remaining());
     }
 
@@ -122,7 +124,7 @@ public class STBRectPack {
      * @param context          an {@link STBRPContext} struct
      * @param allow_out_of_mem 1 to allow running out of temporary storage
      */
-    public static void stbrp_setup_allow_out_of_mem(STBRPContext context, boolean allow_out_of_mem) {
+    public static void stbrp_setup_allow_out_of_mem(@NativeType("stbrp_context *") STBRPContext context, @NativeType("int") boolean allow_out_of_mem) {
         nstbrp_setup_allow_out_of_mem(context.address(), allow_out_of_mem ? 1 : 0);
     }
 
@@ -138,7 +140,7 @@ public class STBRectPack {
      * @param context   an {@link STBRPContext} struct
      * @param heuristic the packing heuristic
      */
-    public static void stbrp_setup_heuristic(STBRPContext context, int heuristic) {
+    public static void stbrp_setup_heuristic(@NativeType("stbrp_context *") STBRPContext context, int heuristic) {
         nstbrp_setup_heuristic(context.address(), heuristic);
     }
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -50,7 +52,7 @@ public class ARBTextureBufferRange {
      * @param offset         the offset of the start of the range of the buffer's data store to attach
      * @param size           the size of the range of the buffer's data store to attach
      */
-    public static native void glTexBufferRange(int target, int internalformat, int buffer, long offset, long size);
+    public static native void glTexBufferRange(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size);
 
     // --- [ glTextureBufferRangeEXT ] ---
 
@@ -64,6 +66,6 @@ public class ARBTextureBufferRange {
      * @param offset         the offset of the start of the range of the buffer's data store to attach
      * @param size           the size of the range of the buffer's data store to attach
      */
-    public static native void glTextureBufferRangeEXT(int texture, int target, int internalformat, int buffer, long offset, long size);
+    public static native void glTextureBufferRangeEXT(@NativeType("GLuint") int texture, @NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size);
 
 }

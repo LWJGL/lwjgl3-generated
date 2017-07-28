@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -84,7 +86,8 @@ public class NVBindlessTexture {
      *
      * @param texture the texture object
      */
-    public static native long glGetTextureHandleNV(int texture);
+    @NativeType("GLuint64")
+    public static native long glGetTextureHandleNV(@NativeType("GLuint") int texture);
 
     // --- [ glGetTextureSamplerHandleNV ] ---
 
@@ -119,7 +122,8 @@ public class NVBindlessTexture {
      * @param texture the texture object
      * @param sampler the sampler object
      */
-    public static native long glGetTextureSamplerHandleNV(int texture, int sampler);
+    @NativeType("GLuint64")
+    public static native long glGetTextureSamplerHandleNV(@NativeType("GLuint") int texture, @NativeType("GLuint") int sampler);
 
     // --- [ glMakeTextureHandleResidentNV ] ---
 
@@ -133,7 +137,7 @@ public class NVBindlessTexture {
      *
      * @param handle the texture handle
      */
-    public static native void glMakeTextureHandleResidentNV(long handle);
+    public static native void glMakeTextureHandleResidentNV(@NativeType("GLuint64") long handle);
 
     // --- [ glMakeTextureHandleNonResidentNV ] ---
 
@@ -145,7 +149,7 @@ public class NVBindlessTexture {
      *
      * @param handle the texture handle
      */
-    public static native void glMakeTextureHandleNonResidentNV(long handle);
+    public static native void glMakeTextureHandleNonResidentNV(@NativeType("GLuint64") long handle);
 
     // --- [ glGetImageHandleNV ] ---
 
@@ -191,7 +195,8 @@ public class NVBindlessTexture {
      * @param layer   the texture layer
      * @param format  the texture format
      */
-    public static native long glGetImageHandleNV(int texture, int level, boolean layered, int layer, int format);
+    @NativeType("GLuint64")
+    public static native long glGetImageHandleNV(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLboolean") boolean layered, @NativeType("GLint") int layer, @NativeType("GLenum") int format);
 
     // --- [ glMakeImageHandleResidentNV ] ---
 
@@ -210,7 +215,7 @@ public class NVBindlessTexture {
      * @param handle the image handle
      * @param access the access type. One of:<br><table><tr><td>{@link GL15#GL_READ_ONLY READ_ONLY}</td><td>{@link GL15#GL_WRITE_ONLY WRITE_ONLY}</td><td>{@link GL15#GL_READ_WRITE READ_WRITE}</td></tr></table>
      */
-    public static native void glMakeImageHandleResidentNV(long handle, int access);
+    public static native void glMakeImageHandleResidentNV(@NativeType("GLuint64") long handle, @NativeType("GLenum") int access);
 
     // --- [ glMakeImageHandleNonResidentNV ] ---
 
@@ -219,7 +224,7 @@ public class NVBindlessTexture {
      *
      * @param handle the image handle
      */
-    public static native void glMakeImageHandleNonResidentNV(long handle);
+    public static native void glMakeImageHandleNonResidentNV(@NativeType("GLuint64") long handle);
 
     // --- [ glUniformHandleui64NV ] ---
 
@@ -229,7 +234,7 @@ public class NVBindlessTexture {
      * @param location the uniform location
      * @param value    the handle value
      */
-    public static native void glUniformHandleui64NV(int location, long value);
+    public static native void glUniformHandleui64NV(@NativeType("GLint") int location, @NativeType("GLuint64") long value);
 
     // --- [ glUniformHandleui64vNV ] ---
 
@@ -246,7 +251,7 @@ public class NVBindlessTexture {
      * @param location the uniform location
      * @param values   a buffer from which to load the handles
      */
-    public static void glUniformHandleui64vNV(int location, LongBuffer values) {
+    public static void glUniformHandleui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64 *") LongBuffer values) {
         nglUniformHandleui64vNV(location, values.remaining(), memAddress(values));
     }
 
@@ -259,7 +264,7 @@ public class NVBindlessTexture {
      * @param location the uniform location
      * @param value    the handle value
      */
-    public static native void glProgramUniformHandleui64NV(int program, int location, long value);
+    public static native void glProgramUniformHandleui64NV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64") long value);
 
     // --- [ glProgramUniformHandleui64vNV ] ---
 
@@ -277,7 +282,7 @@ public class NVBindlessTexture {
      * @param location the uniform location
      * @param values   a buffer from which to load the handles
      */
-    public static void glProgramUniformHandleui64vNV(int program, int location, LongBuffer values) {
+    public static void glProgramUniformHandleui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64 *") LongBuffer values) {
         nglProgramUniformHandleui64vNV(program, location, values.remaining(), memAddress(values));
     }
 
@@ -288,7 +293,8 @@ public class NVBindlessTexture {
      *
      * @param handle the texture handle
      */
-    public static native boolean glIsTextureHandleResidentNV(long handle);
+    @NativeType("GLboolean")
+    public static native boolean glIsTextureHandleResidentNV(@NativeType("GLuint64") long handle);
 
     // --- [ glIsImageHandleResidentNV ] ---
 
@@ -297,10 +303,11 @@ public class NVBindlessTexture {
      *
      * @param handle the image handle
      */
-    public static native boolean glIsImageHandleResidentNV(long handle);
+    @NativeType("GLboolean")
+    public static native boolean glIsImageHandleResidentNV(@NativeType("GLuint64") long handle);
 
     /** Array version of: {@link #glUniformHandleui64vNV UniformHandleui64vNV} */
-    public static void glUniformHandleui64vNV(int location, long[] values) {
+    public static void glUniformHandleui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64 *") long[] values) {
         long __functionAddress = GL.getICD().glUniformHandleui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -309,7 +316,7 @@ public class NVBindlessTexture {
     }
 
     /** Array version of: {@link #glProgramUniformHandleui64vNV ProgramUniformHandleui64vNV} */
-    public static void glProgramUniformHandleui64vNV(int program, int location, long[] values) {
+    public static void glProgramUniformHandleui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64 *") long[] values) {
         long __functionAddress = GL.getICD().glProgramUniformHandleui64vNV;
         if (CHECKS) {
             check(__functionAddress);

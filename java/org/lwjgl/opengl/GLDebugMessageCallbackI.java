@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GL43#glDebugMessageCallback} and {@link KHRDebug#glDebugMessageCallback} methods. */
 @FunctionalInterface
+@NativeType("GLDEBUGPROC")
 public interface GLDebugMessageCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(iiiiipp)v");
@@ -42,6 +43,6 @@ public interface GLDebugMessageCallbackI extends CallbackI.V {
      * @param message   a pointer to the message string representation
      * @param userParam the user-specified value that was passed when calling {@link GL43#glDebugMessageCallback} or {@link KHRDebug#glDebugMessageCallback}
      */
-    void invoke(int source, int type, int id, int severity, int length, long message, long userParam);
+    void invoke(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLsizei") int length, @NativeType("const GLchar *") long message, @NativeType("const void *") long userParam);
 
 }

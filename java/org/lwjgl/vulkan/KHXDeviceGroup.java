@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -247,7 +249,7 @@ public class KHXDeviceGroup {
      * @param remoteDeviceIndex   the device index of the physical device that the memory is allocated for.
      * @param pPeerMemoryFeatures a pointer to a bitmask of {@code VkPeerMemoryFeatureFlagBitsKHX} indicating which types of memory accesses are supported for the combination of heap, local, and remote devices.
      */
-    public static void vkGetDeviceGroupPeerMemoryFeaturesKHX(VkDevice device, int heapIndex, int localDeviceIndex, int remoteDeviceIndex, IntBuffer pPeerMemoryFeatures) {
+    public static void vkGetDeviceGroupPeerMemoryFeaturesKHX(VkDevice device, @NativeType("uint32_t") int heapIndex, @NativeType("uint32_t") int localDeviceIndex, @NativeType("uint32_t") int remoteDeviceIndex, @NativeType("VkPeerMemoryFeatureFlagsKHX *") IntBuffer pPeerMemoryFeatures) {
         if (CHECKS) {
             check(pPeerMemoryFeatures, 1);
         }
@@ -316,7 +318,8 @@ public class KHXDeviceGroup {
      * @param device     the logical device that owns the buffers and memory.
      * @param pBindInfos a pointer to an array of structures of type {@link VkBindBufferMemoryInfoKHX}, describing buffers and memory to bind.
      */
-    public static int vkBindBufferMemory2KHX(VkDevice device, VkBindBufferMemoryInfoKHX.Buffer pBindInfos) {
+    @NativeType("VkResult")
+    public static int vkBindBufferMemory2KHX(@NativeType("VkDevice") VkDevice device, @NativeType("const VkBindBufferMemoryInfoKHX *") VkBindBufferMemoryInfoKHX.Buffer pBindInfos) {
         return nvkBindBufferMemory2KHX(device, pBindInfos.remaining(), pBindInfos.address());
     }
 
@@ -382,7 +385,8 @@ public class KHXDeviceGroup {
      * @param device     the logical device that owns the images and memory.
      * @param pBindInfos a pointer to an array of structures of type {@link VkBindImageMemoryInfoKHX}, describing images and memory to bind.
      */
-    public static int vkBindImageMemory2KHX(VkDevice device, VkBindImageMemoryInfoKHX.Buffer pBindInfos) {
+    @NativeType("VkResult")
+    public static int vkBindImageMemory2KHX(@NativeType("VkDevice") VkDevice device, @NativeType("const VkBindImageMemoryInfoKHX *") VkBindImageMemoryInfoKHX.Buffer pBindInfos) {
         return nvkBindImageMemory2KHX(device, pBindInfos.remaining(), pBindInfos.address());
     }
 
@@ -438,7 +442,7 @@ public class KHXDeviceGroup {
      * @param commandBuffer command buffer whose current device mask is modified.
      * @param deviceMask    the new value of the current device mask.
      */
-    public static void vkCmdSetDeviceMaskKHX(VkCommandBuffer commandBuffer, int deviceMask) {
+    public static void vkCmdSetDeviceMaskKHX(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int deviceMask) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdSetDeviceMaskKHX;
         if (CHECKS) {
             check(__functionAddress);
@@ -499,7 +503,8 @@ public class KHXDeviceGroup {
      * @param device                          the logical device.
      * @param pDeviceGroupPresentCapabilities a pointer to a structure of type {@link VkDeviceGroupPresentCapabilitiesKHX} that is filled with the logical device&#8217;s capabilities.
      */
-    public static int vkGetDeviceGroupPresentCapabilitiesKHX(VkDevice device, VkDeviceGroupPresentCapabilitiesKHX pDeviceGroupPresentCapabilities) {
+    @NativeType("VkResult")
+    public static int vkGetDeviceGroupPresentCapabilitiesKHX(VkDevice device, @NativeType("VkDeviceGroupPresentCapabilitiesKHX *") VkDeviceGroupPresentCapabilitiesKHX pDeviceGroupPresentCapabilities) {
         return nvkGetDeviceGroupPresentCapabilitiesKHX(device, pDeviceGroupPresentCapabilities.address());
     }
 
@@ -567,7 +572,8 @@ public class KHXDeviceGroup {
      * @param surface the surface.
      * @param pModes  a pointer to a value of type {@code VkDeviceGroupPresentModeFlagsKHX} that is filled with the supported device group present modes for the surface.
      */
-    public static int vkGetDeviceGroupSurfacePresentModesKHX(VkDevice device, long surface, IntBuffer pModes) {
+    @NativeType("VkResult")
+    public static int vkGetDeviceGroupSurfacePresentModesKHX(VkDevice device, @NativeType("VkSurfaceKHR") long surface, @NativeType("VkDeviceGroupPresentModeFlagsKHX *") IntBuffer pModes) {
         if (CHECKS) {
             check(pModes, 1);
         }
@@ -634,7 +640,8 @@ public class KHXDeviceGroup {
      * @param pAcquireInfo a pointer to a structure of type {@link VkAcquireNextImageInfoKHX} containing parameters of the acquire.
      * @param pImageIndex  a pointer to a {@code uint32_t} that is set to the index of the next image to use.
      */
-    public static int vkAcquireNextImage2KHX(VkDevice device, VkAcquireNextImageInfoKHX pAcquireInfo, IntBuffer pImageIndex) {
+    @NativeType("VkResult")
+    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") IntBuffer pImageIndex) {
         if (CHECKS) {
             check(pImageIndex, 1);
         }
@@ -712,7 +719,7 @@ public class KHXDeviceGroup {
      * @param groupCountY   the number of local workgroups to dispatch in the Y dimension.
      * @param groupCountZ   the number of local workgroups to dispatch in the Z dimension.
      */
-    public static void vkCmdDispatchBaseKHX(VkCommandBuffer commandBuffer, int baseGroupX, int baseGroupY, int baseGroupZ, int groupCountX, int groupCountY, int groupCountZ) {
+    public static void vkCmdDispatchBaseKHX(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int baseGroupX, @NativeType("uint32_t") int baseGroupY, @NativeType("uint32_t") int baseGroupZ, @NativeType("uint32_t") int groupCountX, @NativeType("uint32_t") int groupCountY, @NativeType("uint32_t") int groupCountZ) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatchBaseKHX;
         if (CHECKS) {
             check(__functionAddress);
@@ -798,7 +805,8 @@ public class KHXDeviceGroup {
      * @param pRectCount     a pointer to an integer related to the number of rectangles available or queried, as described below.
      * @param pRects         either {@code NULL} or a pointer to an array of {@link VkRect2D} structures.
      */
-    public static int vkGetPhysicalDevicePresentRectanglesKHX(VkPhysicalDevice physicalDevice, long surface, IntBuffer pRectCount, VkRect2D.Buffer pRects) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDevicePresentRectanglesKHX(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("uint32_t *") IntBuffer pRectCount, @NativeType("VkRect2D *") VkRect2D.Buffer pRects) {
         if (CHECKS) {
             check(pRectCount, 1);
             checkSafe(pRects, pRectCount.get(pRectCount.position()));
@@ -807,7 +815,7 @@ public class KHXDeviceGroup {
     }
 
     /** Array version of: {@link #vkGetDeviceGroupPeerMemoryFeaturesKHX GetDeviceGroupPeerMemoryFeaturesKHX} */
-    public static void vkGetDeviceGroupPeerMemoryFeaturesKHX(VkDevice device, int heapIndex, int localDeviceIndex, int remoteDeviceIndex, int[] pPeerMemoryFeatures) {
+    public static void vkGetDeviceGroupPeerMemoryFeaturesKHX(VkDevice device, @NativeType("uint32_t") int heapIndex, @NativeType("uint32_t") int localDeviceIndex, @NativeType("uint32_t") int remoteDeviceIndex, @NativeType("VkPeerMemoryFeatureFlagsKHX *") int[] pPeerMemoryFeatures) {
         long __functionAddress = device.getCapabilities().vkGetDeviceGroupPeerMemoryFeaturesKHX;
         if (CHECKS) {
             check(__functionAddress);
@@ -817,7 +825,8 @@ public class KHXDeviceGroup {
     }
 
     /** Array version of: {@link #vkGetDeviceGroupSurfacePresentModesKHX GetDeviceGroupSurfacePresentModesKHX} */
-    public static int vkGetDeviceGroupSurfacePresentModesKHX(VkDevice device, long surface, int[] pModes) {
+    @NativeType("VkResult")
+    public static int vkGetDeviceGroupSurfacePresentModesKHX(VkDevice device, @NativeType("VkSurfaceKHR") long surface, @NativeType("VkDeviceGroupPresentModeFlagsKHX *") int[] pModes) {
         long __functionAddress = device.getCapabilities().vkGetDeviceGroupSurfacePresentModesKHX;
         if (CHECKS) {
             check(__functionAddress);
@@ -827,7 +836,8 @@ public class KHXDeviceGroup {
     }
 
     /** Array version of: {@link #vkAcquireNextImage2KHX AcquireNextImage2KHX} */
-    public static int vkAcquireNextImage2KHX(VkDevice device, VkAcquireNextImageInfoKHX pAcquireInfo, int[] pImageIndex) {
+    @NativeType("VkResult")
+    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") int[] pImageIndex) {
         long __functionAddress = device.getCapabilities().vkAcquireNextImage2KHX;
         if (CHECKS) {
             check(__functionAddress);
@@ -837,7 +847,8 @@ public class KHXDeviceGroup {
     }
 
     /** Array version of: {@link #vkGetPhysicalDevicePresentRectanglesKHX GetPhysicalDevicePresentRectanglesKHX} */
-    public static int vkGetPhysicalDevicePresentRectanglesKHX(VkPhysicalDevice physicalDevice, long surface, int[] pRectCount, VkRect2D.Buffer pRects) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDevicePresentRectanglesKHX(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("uint32_t *") int[] pRectCount, @NativeType("VkRect2D *") VkRect2D.Buffer pRects) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDevicePresentRectanglesKHX;
         if (CHECKS) {
             check(__functionAddress);

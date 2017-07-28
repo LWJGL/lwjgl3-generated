@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("YGBaselineFunc")
 public interface YGBaselineFuncI extends CallbackI.F {
 
     String SIGNATURE = "(pff)f";
@@ -27,7 +28,6 @@ public interface YGBaselineFuncI extends CallbackI.F {
         );
     }
 
-
-    float invoke(long node, float width, float height);
+    float invoke(@NativeType("YGNodeRef") long node, float width, float height);
 
 }

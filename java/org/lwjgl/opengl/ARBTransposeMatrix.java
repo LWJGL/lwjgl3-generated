@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -64,7 +66,7 @@ public class ARBTransposeMatrix {
      *
      * @param m the matrix data
      */
-    public static void glLoadTransposeMatrixfARB(FloatBuffer m) {
+    public static void glLoadTransposeMatrixfARB(@NativeType("const GLfloat *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -81,7 +83,7 @@ public class ARBTransposeMatrix {
      *
      * @param m the matrix data
      */
-    public static void glLoadTransposeMatrixdARB(DoubleBuffer m) {
+    public static void glLoadTransposeMatrixdARB(@NativeType("const GLdouble *") DoubleBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -98,7 +100,7 @@ public class ARBTransposeMatrix {
      *
      * @param m the matrix data
      */
-    public static void glMultTransposeMatrixfARB(FloatBuffer m) {
+    public static void glMultTransposeMatrixfARB(@NativeType("const GLfloat *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -115,7 +117,7 @@ public class ARBTransposeMatrix {
      *
      * @param m the matrix data
      */
-    public static void glMultTransposeMatrixdARB(DoubleBuffer m) {
+    public static void glMultTransposeMatrixdARB(@NativeType("const GLdouble *") DoubleBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -123,7 +125,7 @@ public class ARBTransposeMatrix {
     }
 
     /** Array version of: {@link #glLoadTransposeMatrixfARB LoadTransposeMatrixfARB} */
-    public static void glLoadTransposeMatrixfARB(float[] m) {
+    public static void glLoadTransposeMatrixfARB(@NativeType("const GLfloat *") float[] m) {
         long __functionAddress = GL.getICD().glLoadTransposeMatrixfARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -133,7 +135,7 @@ public class ARBTransposeMatrix {
     }
 
     /** Array version of: {@link #glLoadTransposeMatrixdARB LoadTransposeMatrixdARB} */
-    public static void glLoadTransposeMatrixdARB(double[] m) {
+    public static void glLoadTransposeMatrixdARB(@NativeType("const GLdouble *") double[] m) {
         long __functionAddress = GL.getICD().glLoadTransposeMatrixdARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -143,7 +145,7 @@ public class ARBTransposeMatrix {
     }
 
     /** Array version of: {@link #glMultTransposeMatrixfARB MultTransposeMatrixfARB} */
-    public static void glMultTransposeMatrixfARB(float[] m) {
+    public static void glMultTransposeMatrixfARB(@NativeType("const GLfloat *") float[] m) {
         long __functionAddress = GL.getICD().glMultTransposeMatrixfARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -153,7 +155,7 @@ public class ARBTransposeMatrix {
     }
 
     /** Array version of: {@link #glMultTransposeMatrixdARB MultTransposeMatrixdARB} */
-    public static void glMultTransposeMatrixdARB(double[] m) {
+    public static void glMultTransposeMatrixdARB(@NativeType("const GLdouble *") double[] m) {
         long __functionAddress = GL.getICD().glMultTransposeMatrixdARB;
         if (CHECKS) {
             check(__functionAddress);

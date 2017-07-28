@@ -143,44 +143,54 @@ public class VkDescriptorUpdateTemplateCreateInfoKHR extends Struct implements N
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkDescriptorUpdateTemplateCreateFlagsKHR")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code descriptorUpdateEntryCount} field. */
+    @NativeType("uint32_t")
     public int descriptorUpdateEntryCount() { return ndescriptorUpdateEntryCount(address()); }
     /** Returns a {@link VkDescriptorUpdateTemplateEntryKHR.Buffer} view of the struct array pointed to by the {@code pDescriptorUpdateEntries} field. */
+    @NativeType("const VkDescriptorUpdateTemplateEntryKHR *")
     public VkDescriptorUpdateTemplateEntryKHR.Buffer pDescriptorUpdateEntries() { return npDescriptorUpdateEntries(address()); }
     /** Returns the value of the {@code templateType} field. */
+    @NativeType("VkDescriptorUpdateTemplateTypeKHR")
     public int templateType() { return ntemplateType(address()); }
     /** Returns the value of the {@code descriptorSetLayout} field. */
+    @NativeType("VkDescriptorSetLayout")
     public long descriptorSetLayout() { return ndescriptorSetLayout(address()); }
     /** Returns the value of the {@code pipelineBindPoint} field. */
+    @NativeType("VkPipelineBindPoint")
     public int pipelineBindPoint() { return npipelineBindPoint(address()); }
     /** Returns the value of the {@code pipelineLayout} field. */
+    @NativeType("VkPipelineLayout")
     public long pipelineLayout() { return npipelineLayout(address()); }
     /** Returns the value of the {@code set} field. */
+    @NativeType("uint32_t")
     public int set() { return nset(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR flags(int value) { nflags(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR flags(@NativeType("VkDescriptorUpdateTemplateCreateFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link VkDescriptorUpdateTemplateEntryKHR.Buffer} to the {@code pDescriptorUpdateEntries} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR pDescriptorUpdateEntries(VkDescriptorUpdateTemplateEntryKHR.Buffer value) { npDescriptorUpdateEntries(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR pDescriptorUpdateEntries(@NativeType("const VkDescriptorUpdateTemplateEntryKHR *") VkDescriptorUpdateTemplateEntryKHR.Buffer value) { npDescriptorUpdateEntries(address(), value); return this; }
     /** Sets the specified value to the {@code templateType} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR templateType(int value) { ntemplateType(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR templateType(@NativeType("VkDescriptorUpdateTemplateTypeKHR") int value) { ntemplateType(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorSetLayout} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR descriptorSetLayout(long value) { ndescriptorSetLayout(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR descriptorSetLayout(@NativeType("VkDescriptorSetLayout") long value) { ndescriptorSetLayout(address(), value); return this; }
     /** Sets the specified value to the {@code pipelineBindPoint} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR pipelineBindPoint(int value) { npipelineBindPoint(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR pipelineBindPoint(@NativeType("VkPipelineBindPoint") int value) { npipelineBindPoint(address(), value); return this; }
     /** Sets the specified value to the {@code pipelineLayout} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR pipelineLayout(long value) { npipelineLayout(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR pipelineLayout(@NativeType("VkPipelineLayout") long value) { npipelineLayout(address(), value); return this; }
     /** Sets the specified value to the {@code set} field. */
-    public VkDescriptorUpdateTemplateCreateInfoKHR set(int value) { nset(address(), value); return this; }
+    public VkDescriptorUpdateTemplateCreateInfoKHR set(@NativeType("uint32_t") int value) { nset(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorUpdateTemplateCreateInfoKHR set(
@@ -454,44 +464,54 @@ public class VkDescriptorUpdateTemplateCreateInfoKHR extends Struct implements N
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDescriptorUpdateTemplateCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkDescriptorUpdateTemplateCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkDescriptorUpdateTemplateCreateFlagsKHR")
         public int flags() { return VkDescriptorUpdateTemplateCreateInfoKHR.nflags(address()); }
         /** Returns the value of the {@code descriptorUpdateEntryCount} field. */
+        @NativeType("uint32_t")
         public int descriptorUpdateEntryCount() { return VkDescriptorUpdateTemplateCreateInfoKHR.ndescriptorUpdateEntryCount(address()); }
         /** Returns a {@link VkDescriptorUpdateTemplateEntryKHR.Buffer} view of the struct array pointed to by the {@code pDescriptorUpdateEntries} field. */
+        @NativeType("const VkDescriptorUpdateTemplateEntryKHR *")
         public VkDescriptorUpdateTemplateEntryKHR.Buffer pDescriptorUpdateEntries() { return VkDescriptorUpdateTemplateCreateInfoKHR.npDescriptorUpdateEntries(address()); }
         /** Returns the value of the {@code templateType} field. */
+        @NativeType("VkDescriptorUpdateTemplateTypeKHR")
         public int templateType() { return VkDescriptorUpdateTemplateCreateInfoKHR.ntemplateType(address()); }
         /** Returns the value of the {@code descriptorSetLayout} field. */
+        @NativeType("VkDescriptorSetLayout")
         public long descriptorSetLayout() { return VkDescriptorUpdateTemplateCreateInfoKHR.ndescriptorSetLayout(address()); }
         /** Returns the value of the {@code pipelineBindPoint} field. */
+        @NativeType("VkPipelineBindPoint")
         public int pipelineBindPoint() { return VkDescriptorUpdateTemplateCreateInfoKHR.npipelineBindPoint(address()); }
         /** Returns the value of the {@code pipelineLayout} field. */
+        @NativeType("VkPipelineLayout")
         public long pipelineLayout() { return VkDescriptorUpdateTemplateCreateInfoKHR.npipelineLayout(address()); }
         /** Returns the value of the {@code set} field. */
+        @NativeType("uint32_t")
         public int set() { return VkDescriptorUpdateTemplateCreateInfoKHR.nset(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer sType(int value) { VkDescriptorUpdateTemplateCreateInfoKHR.nsType(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkDescriptorUpdateTemplateCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pNext(long value) { VkDescriptorUpdateTemplateCreateInfoKHR.npNext(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pNext(@NativeType("void *") long value) { VkDescriptorUpdateTemplateCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer flags(int value) { VkDescriptorUpdateTemplateCreateInfoKHR.nflags(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer flags(@NativeType("VkDescriptorUpdateTemplateCreateFlagsKHR") int value) { VkDescriptorUpdateTemplateCreateInfoKHR.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link VkDescriptorUpdateTemplateEntryKHR.Buffer} to the {@code pDescriptorUpdateEntries} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pDescriptorUpdateEntries(VkDescriptorUpdateTemplateEntryKHR.Buffer value) { VkDescriptorUpdateTemplateCreateInfoKHR.npDescriptorUpdateEntries(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pDescriptorUpdateEntries(@NativeType("const VkDescriptorUpdateTemplateEntryKHR *") VkDescriptorUpdateTemplateEntryKHR.Buffer value) { VkDescriptorUpdateTemplateCreateInfoKHR.npDescriptorUpdateEntries(address(), value); return this; }
         /** Sets the specified value to the {@code templateType} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer templateType(int value) { VkDescriptorUpdateTemplateCreateInfoKHR.ntemplateType(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer templateType(@NativeType("VkDescriptorUpdateTemplateTypeKHR") int value) { VkDescriptorUpdateTemplateCreateInfoKHR.ntemplateType(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorSetLayout} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer descriptorSetLayout(long value) { VkDescriptorUpdateTemplateCreateInfoKHR.ndescriptorSetLayout(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer descriptorSetLayout(@NativeType("VkDescriptorSetLayout") long value) { VkDescriptorUpdateTemplateCreateInfoKHR.ndescriptorSetLayout(address(), value); return this; }
         /** Sets the specified value to the {@code pipelineBindPoint} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pipelineBindPoint(int value) { VkDescriptorUpdateTemplateCreateInfoKHR.npipelineBindPoint(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pipelineBindPoint(@NativeType("VkPipelineBindPoint") int value) { VkDescriptorUpdateTemplateCreateInfoKHR.npipelineBindPoint(address(), value); return this; }
         /** Sets the specified value to the {@code pipelineLayout} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pipelineLayout(long value) { VkDescriptorUpdateTemplateCreateInfoKHR.npipelineLayout(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer pipelineLayout(@NativeType("VkPipelineLayout") long value) { VkDescriptorUpdateTemplateCreateInfoKHR.npipelineLayout(address(), value); return this; }
         /** Sets the specified value to the {@code set} field. */
-        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer set(int value) { VkDescriptorUpdateTemplateCreateInfoKHR.nset(address(), value); return this; }
+        public VkDescriptorUpdateTemplateCreateInfoKHR.Buffer set(@NativeType("uint32_t") int value) { VkDescriptorUpdateTemplateCreateInfoKHR.nset(address(), value); return this; }
 
     }
 

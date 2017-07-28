@@ -215,76 +215,93 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkSwapchainCreateFlagsKHR")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code surface} field. */
+    @NativeType("VkSurfaceKHR")
     public long surface() { return nsurface(address()); }
     /** Returns the value of the {@code minImageCount} field. */
+    @NativeType("uint32_t")
     public int minImageCount() { return nminImageCount(address()); }
     /** Returns the value of the {@code imageFormat} field. */
+    @NativeType("VkFormat")
     public int imageFormat() { return nimageFormat(address()); }
     /** Returns the value of the {@code imageColorSpace} field. */
+    @NativeType("VkColorSpaceKHR")
     public int imageColorSpace() { return nimageColorSpace(address()); }
     /** Returns a {@link VkExtent2D} view of the {@code imageExtent} field. */
     public VkExtent2D imageExtent() { return nimageExtent(address()); }
     /** Returns the value of the {@code imageArrayLayers} field. */
+    @NativeType("uint32_t")
     public int imageArrayLayers() { return nimageArrayLayers(address()); }
     /** Returns the value of the {@code imageUsage} field. */
+    @NativeType("VkImageUsageFlags")
     public int imageUsage() { return nimageUsage(address()); }
     /** Returns the value of the {@code imageSharingMode} field. */
+    @NativeType("VkSharingMode")
     public int imageSharingMode() { return nimageSharingMode(address()); }
     /** Returns the value of the {@code queueFamilyIndexCount} field. */
+    @NativeType("uint32_t")
     public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
     /** Returns the value of the {@code preTransform} field. */
+    @NativeType("VkSurfaceTransformFlagBitsKHR")
     public int preTransform() { return npreTransform(address()); }
     /** Returns the value of the {@code compositeAlpha} field. */
+    @NativeType("VkCompositeAlphaFlagBitsKHR")
     public int compositeAlpha() { return ncompositeAlpha(address()); }
     /** Returns the value of the {@code presentMode} field. */
+    @NativeType("VkPresentModeKHR")
     public int presentMode() { return npresentMode(address()); }
     /** Returns the value of the {@code clipped} field. */
+    @NativeType("VkBool32")
     public boolean clipped() { return nclipped(address()) != 0; }
     /** Returns the value of the {@code oldSwapchain} field. */
+    @NativeType("VkSwapchainKHR")
     public long oldSwapchain() { return noldSwapchain(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkSwapchainCreateInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSwapchainCreateInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkSwapchainCreateInfoKHR flags(int value) { nflags(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR flags(@NativeType("VkSwapchainCreateFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code surface} field. */
-    public VkSwapchainCreateInfoKHR surface(long value) { nsurface(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR surface(@NativeType("VkSurfaceKHR") long value) { nsurface(address(), value); return this; }
     /** Sets the specified value to the {@code minImageCount} field. */
-    public VkSwapchainCreateInfoKHR minImageCount(int value) { nminImageCount(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR minImageCount(@NativeType("uint32_t") int value) { nminImageCount(address(), value); return this; }
     /** Sets the specified value to the {@code imageFormat} field. */
-    public VkSwapchainCreateInfoKHR imageFormat(int value) { nimageFormat(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR imageFormat(@NativeType("VkFormat") int value) { nimageFormat(address(), value); return this; }
     /** Sets the specified value to the {@code imageColorSpace} field. */
-    public VkSwapchainCreateInfoKHR imageColorSpace(int value) { nimageColorSpace(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR imageColorSpace(@NativeType("VkColorSpaceKHR") int value) { nimageColorSpace(address(), value); return this; }
     /** Copies the specified {@link VkExtent2D} to the {@code imageExtent} field. */
     public VkSwapchainCreateInfoKHR imageExtent(VkExtent2D value) { nimageExtent(address(), value); return this; }
     /** Sets the specified value to the {@code imageArrayLayers} field. */
-    public VkSwapchainCreateInfoKHR imageArrayLayers(int value) { nimageArrayLayers(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR imageArrayLayers(@NativeType("uint32_t") int value) { nimageArrayLayers(address(), value); return this; }
     /** Sets the specified value to the {@code imageUsage} field. */
-    public VkSwapchainCreateInfoKHR imageUsage(int value) { nimageUsage(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR imageUsage(@NativeType("VkImageUsageFlags") int value) { nimageUsage(address(), value); return this; }
     /** Sets the specified value to the {@code imageSharingMode} field. */
-    public VkSwapchainCreateInfoKHR imageSharingMode(int value) { nimageSharingMode(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR imageSharingMode(@NativeType("VkSharingMode") int value) { nimageSharingMode(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-    public VkSwapchainCreateInfoKHR pQueueFamilyIndices(IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR pQueueFamilyIndices(@NativeType("const uint32_t *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
     /** Sets the specified value to the {@code preTransform} field. */
-    public VkSwapchainCreateInfoKHR preTransform(int value) { npreTransform(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR preTransform(@NativeType("VkSurfaceTransformFlagBitsKHR") int value) { npreTransform(address(), value); return this; }
     /** Sets the specified value to the {@code compositeAlpha} field. */
-    public VkSwapchainCreateInfoKHR compositeAlpha(int value) { ncompositeAlpha(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR compositeAlpha(@NativeType("VkCompositeAlphaFlagBitsKHR") int value) { ncompositeAlpha(address(), value); return this; }
     /** Sets the specified value to the {@code presentMode} field. */
-    public VkSwapchainCreateInfoKHR presentMode(int value) { npresentMode(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR presentMode(@NativeType("VkPresentModeKHR") int value) { npresentMode(address(), value); return this; }
     /** Sets the specified value to the {@code clipped} field. */
-    public VkSwapchainCreateInfoKHR clipped(boolean value) { nclipped(address(), value ? 1 : 0); return this; }
+    public VkSwapchainCreateInfoKHR clipped(@NativeType("VkBool32") boolean value) { nclipped(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code oldSwapchain} field. */
-    public VkSwapchainCreateInfoKHR oldSwapchain(long value) { noldSwapchain(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR oldSwapchain(@NativeType("VkSwapchainKHR") long value) { noldSwapchain(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSwapchainCreateInfoKHR set(
@@ -608,76 +625,93 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSwapchainCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkSwapchainCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkSwapchainCreateFlagsKHR")
         public int flags() { return VkSwapchainCreateInfoKHR.nflags(address()); }
         /** Returns the value of the {@code surface} field. */
+        @NativeType("VkSurfaceKHR")
         public long surface() { return VkSwapchainCreateInfoKHR.nsurface(address()); }
         /** Returns the value of the {@code minImageCount} field. */
+        @NativeType("uint32_t")
         public int minImageCount() { return VkSwapchainCreateInfoKHR.nminImageCount(address()); }
         /** Returns the value of the {@code imageFormat} field. */
+        @NativeType("VkFormat")
         public int imageFormat() { return VkSwapchainCreateInfoKHR.nimageFormat(address()); }
         /** Returns the value of the {@code imageColorSpace} field. */
+        @NativeType("VkColorSpaceKHR")
         public int imageColorSpace() { return VkSwapchainCreateInfoKHR.nimageColorSpace(address()); }
         /** Returns a {@link VkExtent2D} view of the {@code imageExtent} field. */
         public VkExtent2D imageExtent() { return VkSwapchainCreateInfoKHR.nimageExtent(address()); }
         /** Returns the value of the {@code imageArrayLayers} field. */
+        @NativeType("uint32_t")
         public int imageArrayLayers() { return VkSwapchainCreateInfoKHR.nimageArrayLayers(address()); }
         /** Returns the value of the {@code imageUsage} field. */
+        @NativeType("VkImageUsageFlags")
         public int imageUsage() { return VkSwapchainCreateInfoKHR.nimageUsage(address()); }
         /** Returns the value of the {@code imageSharingMode} field. */
+        @NativeType("VkSharingMode")
         public int imageSharingMode() { return VkSwapchainCreateInfoKHR.nimageSharingMode(address()); }
         /** Returns the value of the {@code queueFamilyIndexCount} field. */
+        @NativeType("uint32_t")
         public int queueFamilyIndexCount() { return VkSwapchainCreateInfoKHR.nqueueFamilyIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pQueueFamilyIndices() { return VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address()); }
         /** Returns the value of the {@code preTransform} field. */
+        @NativeType("VkSurfaceTransformFlagBitsKHR")
         public int preTransform() { return VkSwapchainCreateInfoKHR.npreTransform(address()); }
         /** Returns the value of the {@code compositeAlpha} field. */
+        @NativeType("VkCompositeAlphaFlagBitsKHR")
         public int compositeAlpha() { return VkSwapchainCreateInfoKHR.ncompositeAlpha(address()); }
         /** Returns the value of the {@code presentMode} field. */
+        @NativeType("VkPresentModeKHR")
         public int presentMode() { return VkSwapchainCreateInfoKHR.npresentMode(address()); }
         /** Returns the value of the {@code clipped} field. */
+        @NativeType("VkBool32")
         public boolean clipped() { return VkSwapchainCreateInfoKHR.nclipped(address()) != 0; }
         /** Returns the value of the {@code oldSwapchain} field. */
+        @NativeType("VkSwapchainKHR")
         public long oldSwapchain() { return VkSwapchainCreateInfoKHR.noldSwapchain(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkSwapchainCreateInfoKHR.Buffer sType(int value) { VkSwapchainCreateInfoKHR.nsType(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSwapchainCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSwapchainCreateInfoKHR.Buffer pNext(long value) { VkSwapchainCreateInfoKHR.npNext(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkSwapchainCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkSwapchainCreateInfoKHR.Buffer flags(int value) { VkSwapchainCreateInfoKHR.nflags(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer flags(@NativeType("VkSwapchainCreateFlagsKHR") int value) { VkSwapchainCreateInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code surface} field. */
-        public VkSwapchainCreateInfoKHR.Buffer surface(long value) { VkSwapchainCreateInfoKHR.nsurface(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer surface(@NativeType("VkSurfaceKHR") long value) { VkSwapchainCreateInfoKHR.nsurface(address(), value); return this; }
         /** Sets the specified value to the {@code minImageCount} field. */
-        public VkSwapchainCreateInfoKHR.Buffer minImageCount(int value) { VkSwapchainCreateInfoKHR.nminImageCount(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer minImageCount(@NativeType("uint32_t") int value) { VkSwapchainCreateInfoKHR.nminImageCount(address(), value); return this; }
         /** Sets the specified value to the {@code imageFormat} field. */
-        public VkSwapchainCreateInfoKHR.Buffer imageFormat(int value) { VkSwapchainCreateInfoKHR.nimageFormat(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer imageFormat(@NativeType("VkFormat") int value) { VkSwapchainCreateInfoKHR.nimageFormat(address(), value); return this; }
         /** Sets the specified value to the {@code imageColorSpace} field. */
-        public VkSwapchainCreateInfoKHR.Buffer imageColorSpace(int value) { VkSwapchainCreateInfoKHR.nimageColorSpace(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer imageColorSpace(@NativeType("VkColorSpaceKHR") int value) { VkSwapchainCreateInfoKHR.nimageColorSpace(address(), value); return this; }
         /** Copies the specified {@link VkExtent2D} to the {@code imageExtent} field. */
         public VkSwapchainCreateInfoKHR.Buffer imageExtent(VkExtent2D value) { VkSwapchainCreateInfoKHR.nimageExtent(address(), value); return this; }
         /** Sets the specified value to the {@code imageArrayLayers} field. */
-        public VkSwapchainCreateInfoKHR.Buffer imageArrayLayers(int value) { VkSwapchainCreateInfoKHR.nimageArrayLayers(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer imageArrayLayers(@NativeType("uint32_t") int value) { VkSwapchainCreateInfoKHR.nimageArrayLayers(address(), value); return this; }
         /** Sets the specified value to the {@code imageUsage} field. */
-        public VkSwapchainCreateInfoKHR.Buffer imageUsage(int value) { VkSwapchainCreateInfoKHR.nimageUsage(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer imageUsage(@NativeType("VkImageUsageFlags") int value) { VkSwapchainCreateInfoKHR.nimageUsage(address(), value); return this; }
         /** Sets the specified value to the {@code imageSharingMode} field. */
-        public VkSwapchainCreateInfoKHR.Buffer imageSharingMode(int value) { VkSwapchainCreateInfoKHR.nimageSharingMode(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer imageSharingMode(@NativeType("VkSharingMode") int value) { VkSwapchainCreateInfoKHR.nimageSharingMode(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-        public VkSwapchainCreateInfoKHR.Buffer pQueueFamilyIndices(IntBuffer value) { VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer pQueueFamilyIndices(@NativeType("const uint32_t *") IntBuffer value) { VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address(), value); return this; }
         /** Sets the specified value to the {@code preTransform} field. */
-        public VkSwapchainCreateInfoKHR.Buffer preTransform(int value) { VkSwapchainCreateInfoKHR.npreTransform(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer preTransform(@NativeType("VkSurfaceTransformFlagBitsKHR") int value) { VkSwapchainCreateInfoKHR.npreTransform(address(), value); return this; }
         /** Sets the specified value to the {@code compositeAlpha} field. */
-        public VkSwapchainCreateInfoKHR.Buffer compositeAlpha(int value) { VkSwapchainCreateInfoKHR.ncompositeAlpha(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer compositeAlpha(@NativeType("VkCompositeAlphaFlagBitsKHR") int value) { VkSwapchainCreateInfoKHR.ncompositeAlpha(address(), value); return this; }
         /** Sets the specified value to the {@code presentMode} field. */
-        public VkSwapchainCreateInfoKHR.Buffer presentMode(int value) { VkSwapchainCreateInfoKHR.npresentMode(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer presentMode(@NativeType("VkPresentModeKHR") int value) { VkSwapchainCreateInfoKHR.npresentMode(address(), value); return this; }
         /** Sets the specified value to the {@code clipped} field. */
-        public VkSwapchainCreateInfoKHR.Buffer clipped(boolean value) { VkSwapchainCreateInfoKHR.nclipped(address(), value ? 1 : 0); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer clipped(@NativeType("VkBool32") boolean value) { VkSwapchainCreateInfoKHR.nclipped(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code oldSwapchain} field. */
-        public VkSwapchainCreateInfoKHR.Buffer oldSwapchain(long value) { VkSwapchainCreateInfoKHR.noldSwapchain(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer oldSwapchain(@NativeType("VkSwapchainKHR") long value) { VkSwapchainCreateInfoKHR.noldSwapchain(address(), value); return this; }
 
     }
 

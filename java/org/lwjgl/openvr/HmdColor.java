@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float a;
  * }</pre></code>
  */
+@NativeType("struct HmdColor_t")
 public class HmdColor extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -68,6 +70,6 @@ public class ARBComputeVariableGroupSize {
      * @param group_size_y the group size in the Y dimension
      * @param group_size_z the group size in the Z dimension
      */
-    public static native void glDispatchComputeGroupSizeARB(int num_groups_x, int num_groups_y, int num_groups_z, int group_size_x, int group_size_y, int group_size_z);
+    public static native void glDispatchComputeGroupSizeARB(@NativeType("GLuint") int num_groups_x, @NativeType("GLuint") int num_groups_y, @NativeType("GLuint") int num_groups_z, @NativeType("GLuint") int group_size_x, @NativeType("GLuint") int group_size_y, @NativeType("GLuint") int group_size_z);
 
 }

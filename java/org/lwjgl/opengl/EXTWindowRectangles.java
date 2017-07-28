@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -102,12 +104,12 @@ public class EXTWindowRectangles {
      * @param mode the rectangle mode. One of:<br><table><tr><td>{@link #GL_INCLUSIVE_EXT INCLUSIVE_EXT}</td><td>{@link #GL_EXCLUSIVE_EXT EXCLUSIVE_EXT}</td></tr></table>
      * @param box  an array of {@code 4*count} window rectangle coordinates
      */
-    public static void glWindowRectanglesEXT(int mode, IntBuffer box) {
+    public static void glWindowRectanglesEXT(@NativeType("GLenum") int mode, @NativeType("const GLint *") IntBuffer box) {
         nglWindowRectanglesEXT(mode, remainingSafe(box) >> 2, memAddressSafe(box));
     }
 
     /** Array version of: {@link #glWindowRectanglesEXT WindowRectanglesEXT} */
-    public static void glWindowRectanglesEXT(int mode, int[] box) {
+    public static void glWindowRectanglesEXT(@NativeType("GLenum") int mode, @NativeType("const GLint *") int[] box) {
         long __functionAddress = GL.getICD().glWindowRectanglesEXT;
         if (CHECKS) {
             check(__functionAddress);

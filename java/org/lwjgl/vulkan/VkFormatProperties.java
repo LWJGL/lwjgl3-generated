@@ -92,10 +92,13 @@ public class VkFormatProperties extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code linearTilingFeatures} field. */
+    @NativeType("VkFormatFeatureFlags")
     public int linearTilingFeatures() { return nlinearTilingFeatures(address()); }
     /** Returns the value of the {@code optimalTilingFeatures} field. */
+    @NativeType("VkFormatFeatureFlags")
     public int optimalTilingFeatures() { return noptimalTilingFeatures(address()); }
     /** Returns the value of the {@code bufferFeatures} field. */
+    @NativeType("VkFormatFeatureFlags")
     public int bufferFeatures() { return nbufferFeatures(address()); }
 
     // -----------------------------------
@@ -277,10 +280,13 @@ public class VkFormatProperties extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code linearTilingFeatures} field. */
+        @NativeType("VkFormatFeatureFlags")
         public int linearTilingFeatures() { return VkFormatProperties.nlinearTilingFeatures(address()); }
         /** Returns the value of the {@code optimalTilingFeatures} field. */
+        @NativeType("VkFormatFeatureFlags")
         public int optimalTilingFeatures() { return VkFormatProperties.noptimalTilingFeatures(address()); }
         /** Returns the value of the {@code bufferFeatures} field. */
+        @NativeType("VkFormatFeatureFlags")
         public int bufferFeatures() { return VkFormatProperties.nbufferFeatures(address()); }
 
     }

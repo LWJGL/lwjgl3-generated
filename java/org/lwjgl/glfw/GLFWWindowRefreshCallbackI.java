@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowRefreshCallback SetWindowRefreshCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWwindowrefreshfun")
 public interface GLFWWindowRefreshCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";
@@ -31,6 +32,6 @@ public interface GLFWWindowRefreshCallbackI extends CallbackI.V {
      *
      * @param window the window whose content needs to be refreshed
      */
-    void invoke(long window);
+    void invoke(@NativeType("GLFWwindow *") long window);
 
 }

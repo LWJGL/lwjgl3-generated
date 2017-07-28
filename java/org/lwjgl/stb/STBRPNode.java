@@ -14,6 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /** The opaque {@code stbrp_node} struct. */
+@NativeType("struct stbrp_node")
 public class STBRPNode extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

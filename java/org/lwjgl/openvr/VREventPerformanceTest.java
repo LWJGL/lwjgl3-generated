@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t m_nFidelityLevel;
  * }</pre></code>
  */
+@NativeType("struct VREvent_PerformanceTest_t")
 public class VREventPerformanceTest extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -61,10 +62,11 @@ public class VREventPerformanceTest extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code m_nFidelityLevel} field. */
+    @NativeType("uint32_t")
     public int m_nFidelityLevel() { return nm_nFidelityLevel(address()); }
 
     /** Sets the specified value to the {@code m_nFidelityLevel} field. */
-    public VREventPerformanceTest m_nFidelityLevel(int value) { nm_nFidelityLevel(address(), value); return this; }
+    public VREventPerformanceTest m_nFidelityLevel(@NativeType("uint32_t") int value) { nm_nFidelityLevel(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -256,10 +258,11 @@ public class VREventPerformanceTest extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code m_nFidelityLevel} field. */
+        @NativeType("uint32_t")
         public int m_nFidelityLevel() { return VREventPerformanceTest.nm_nFidelityLevel(address()); }
 
         /** Sets the specified value to the {@code m_nFidelityLevel} field. */
-        public VREventPerformanceTest.Buffer m_nFidelityLevel(int value) { VREventPerformanceTest.nm_nFidelityLevel(address(), value); return this; }
+        public VREventPerformanceTest.Buffer m_nFidelityLevel(@NativeType("uint32_t") int value) { VREventPerformanceTest.nm_nFidelityLevel(address(), value); return this; }
 
     }
 

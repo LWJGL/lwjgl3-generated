@@ -103,22 +103,26 @@ public class VkDeviceGroupBindSparseInfoKHX extends Struct implements NativeReso
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code resourceDeviceIndex} field. */
+    @NativeType("uint32_t")
     public int resourceDeviceIndex() { return nresourceDeviceIndex(address()); }
     /** Returns the value of the {@code memoryDeviceIndex} field. */
+    @NativeType("uint32_t")
     public int memoryDeviceIndex() { return nmemoryDeviceIndex(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDeviceGroupBindSparseInfoKHX sType(int value) { nsType(address(), value); return this; }
+    public VkDeviceGroupBindSparseInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGroupBindSparseInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkDeviceGroupBindSparseInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code resourceDeviceIndex} field. */
-    public VkDeviceGroupBindSparseInfoKHX resourceDeviceIndex(int value) { nresourceDeviceIndex(address(), value); return this; }
+    public VkDeviceGroupBindSparseInfoKHX resourceDeviceIndex(@NativeType("uint32_t") int value) { nresourceDeviceIndex(address(), value); return this; }
     /** Sets the specified value to the {@code memoryDeviceIndex} field. */
-    public VkDeviceGroupBindSparseInfoKHX memoryDeviceIndex(int value) { nmemoryDeviceIndex(address(), value); return this; }
+    public VkDeviceGroupBindSparseInfoKHX memoryDeviceIndex(@NativeType("uint32_t") int value) { nmemoryDeviceIndex(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceGroupBindSparseInfoKHX set(
@@ -337,22 +341,26 @@ public class VkDeviceGroupBindSparseInfoKHX extends Struct implements NativeReso
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDeviceGroupBindSparseInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDeviceGroupBindSparseInfoKHX.npNext(address()); }
         /** Returns the value of the {@code resourceDeviceIndex} field. */
+        @NativeType("uint32_t")
         public int resourceDeviceIndex() { return VkDeviceGroupBindSparseInfoKHX.nresourceDeviceIndex(address()); }
         /** Returns the value of the {@code memoryDeviceIndex} field. */
+        @NativeType("uint32_t")
         public int memoryDeviceIndex() { return VkDeviceGroupBindSparseInfoKHX.nmemoryDeviceIndex(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDeviceGroupBindSparseInfoKHX.Buffer sType(int value) { VkDeviceGroupBindSparseInfoKHX.nsType(address(), value); return this; }
+        public VkDeviceGroupBindSparseInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGroupBindSparseInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGroupBindSparseInfoKHX.Buffer pNext(long value) { VkDeviceGroupBindSparseInfoKHX.npNext(address(), value); return this; }
+        public VkDeviceGroupBindSparseInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGroupBindSparseInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code resourceDeviceIndex} field. */
-        public VkDeviceGroupBindSparseInfoKHX.Buffer resourceDeviceIndex(int value) { VkDeviceGroupBindSparseInfoKHX.nresourceDeviceIndex(address(), value); return this; }
+        public VkDeviceGroupBindSparseInfoKHX.Buffer resourceDeviceIndex(@NativeType("uint32_t") int value) { VkDeviceGroupBindSparseInfoKHX.nresourceDeviceIndex(address(), value); return this; }
         /** Sets the specified value to the {@code memoryDeviceIndex} field. */
-        public VkDeviceGroupBindSparseInfoKHX.Buffer memoryDeviceIndex(int value) { VkDeviceGroupBindSparseInfoKHX.nmemoryDeviceIndex(address(), value); return this; }
+        public VkDeviceGroupBindSparseInfoKHX.Buffer memoryDeviceIndex(@NativeType("uint32_t") int value) { VkDeviceGroupBindSparseInfoKHX.nmemoryDeviceIndex(address(), value); return this; }
 
     }
 

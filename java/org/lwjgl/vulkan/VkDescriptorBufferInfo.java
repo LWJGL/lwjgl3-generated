@@ -106,18 +106,21 @@ public class VkDescriptorBufferInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("VkBuffer")
     public long buffer() { return nbuffer(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("VkDeviceSize")
     public long offset() { return noffset(address()); }
     /** Returns the value of the {@code range} field. */
+    @NativeType("VkDeviceSize")
     public long range() { return nrange(address()); }
 
     /** Sets the specified value to the {@code buffer} field. */
-    public VkDescriptorBufferInfo buffer(long value) { nbuffer(address(), value); return this; }
+    public VkDescriptorBufferInfo buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkDescriptorBufferInfo offset(long value) { noffset(address(), value); return this; }
+    public VkDescriptorBufferInfo offset(@NativeType("VkDeviceSize") long value) { noffset(address(), value); return this; }
     /** Sets the specified value to the {@code range} field. */
-    public VkDescriptorBufferInfo range(long value) { nrange(address(), value); return this; }
+    public VkDescriptorBufferInfo range(@NativeType("VkDeviceSize") long value) { nrange(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorBufferInfo set(
@@ -330,18 +333,21 @@ public class VkDescriptorBufferInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("VkBuffer")
         public long buffer() { return VkDescriptorBufferInfo.nbuffer(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("VkDeviceSize")
         public long offset() { return VkDescriptorBufferInfo.noffset(address()); }
         /** Returns the value of the {@code range} field. */
+        @NativeType("VkDeviceSize")
         public long range() { return VkDescriptorBufferInfo.nrange(address()); }
 
         /** Sets the specified value to the {@code buffer} field. */
-        public VkDescriptorBufferInfo.Buffer buffer(long value) { VkDescriptorBufferInfo.nbuffer(address(), value); return this; }
+        public VkDescriptorBufferInfo.Buffer buffer(@NativeType("VkBuffer") long value) { VkDescriptorBufferInfo.nbuffer(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkDescriptorBufferInfo.Buffer offset(long value) { VkDescriptorBufferInfo.noffset(address(), value); return this; }
+        public VkDescriptorBufferInfo.Buffer offset(@NativeType("VkDeviceSize") long value) { VkDescriptorBufferInfo.noffset(address(), value); return this; }
         /** Sets the specified value to the {@code range} field. */
-        public VkDescriptorBufferInfo.Buffer range(long value) { VkDescriptorBufferInfo.nrange(address(), value); return this; }
+        public VkDescriptorBufferInfo.Buffer range(@NativeType("VkDeviceSize") long value) { VkDescriptorBufferInfo.nrange(address(), value); return this; }
 
     }
 

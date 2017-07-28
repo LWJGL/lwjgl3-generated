@@ -147,42 +147,51 @@ public class VkBufferMemoryBarrier extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code srcAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int srcAccessMask() { return nsrcAccessMask(address()); }
     /** Returns the value of the {@code dstAccessMask} field. */
+    @NativeType("VkAccessFlags")
     public int dstAccessMask() { return ndstAccessMask(address()); }
     /** Returns the value of the {@code srcQueueFamilyIndex} field. */
+    @NativeType("uint32_t")
     public int srcQueueFamilyIndex() { return nsrcQueueFamilyIndex(address()); }
     /** Returns the value of the {@code dstQueueFamilyIndex} field. */
+    @NativeType("uint32_t")
     public int dstQueueFamilyIndex() { return ndstQueueFamilyIndex(address()); }
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("VkBuffer")
     public long buffer() { return nbuffer(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("VkDeviceSize")
     public long offset() { return noffset(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("VkDeviceSize")
     public long size() { return nsize(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkBufferMemoryBarrier sType(int value) { nsType(address(), value); return this; }
+    public VkBufferMemoryBarrier sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBufferMemoryBarrier pNext(long value) { npNext(address(), value); return this; }
+    public VkBufferMemoryBarrier pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code srcAccessMask} field. */
-    public VkBufferMemoryBarrier srcAccessMask(int value) { nsrcAccessMask(address(), value); return this; }
+    public VkBufferMemoryBarrier srcAccessMask(@NativeType("VkAccessFlags") int value) { nsrcAccessMask(address(), value); return this; }
     /** Sets the specified value to the {@code dstAccessMask} field. */
-    public VkBufferMemoryBarrier dstAccessMask(int value) { ndstAccessMask(address(), value); return this; }
+    public VkBufferMemoryBarrier dstAccessMask(@NativeType("VkAccessFlags") int value) { ndstAccessMask(address(), value); return this; }
     /** Sets the specified value to the {@code srcQueueFamilyIndex} field. */
-    public VkBufferMemoryBarrier srcQueueFamilyIndex(int value) { nsrcQueueFamilyIndex(address(), value); return this; }
+    public VkBufferMemoryBarrier srcQueueFamilyIndex(@NativeType("uint32_t") int value) { nsrcQueueFamilyIndex(address(), value); return this; }
     /** Sets the specified value to the {@code dstQueueFamilyIndex} field. */
-    public VkBufferMemoryBarrier dstQueueFamilyIndex(int value) { ndstQueueFamilyIndex(address(), value); return this; }
+    public VkBufferMemoryBarrier dstQueueFamilyIndex(@NativeType("uint32_t") int value) { ndstQueueFamilyIndex(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
-    public VkBufferMemoryBarrier buffer(long value) { nbuffer(address(), value); return this; }
+    public VkBufferMemoryBarrier buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkBufferMemoryBarrier offset(long value) { noffset(address(), value); return this; }
+    public VkBufferMemoryBarrier offset(@NativeType("VkDeviceSize") long value) { noffset(address(), value); return this; }
     /** Sets the specified value to the {@code size} field. */
-    public VkBufferMemoryBarrier size(long value) { nsize(address(), value); return this; }
+    public VkBufferMemoryBarrier size(@NativeType("VkDeviceSize") long value) { nsize(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBufferMemoryBarrier set(
@@ -431,42 +440,51 @@ public class VkBufferMemoryBarrier extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkBufferMemoryBarrier.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkBufferMemoryBarrier.npNext(address()); }
         /** Returns the value of the {@code srcAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int srcAccessMask() { return VkBufferMemoryBarrier.nsrcAccessMask(address()); }
         /** Returns the value of the {@code dstAccessMask} field. */
+        @NativeType("VkAccessFlags")
         public int dstAccessMask() { return VkBufferMemoryBarrier.ndstAccessMask(address()); }
         /** Returns the value of the {@code srcQueueFamilyIndex} field. */
+        @NativeType("uint32_t")
         public int srcQueueFamilyIndex() { return VkBufferMemoryBarrier.nsrcQueueFamilyIndex(address()); }
         /** Returns the value of the {@code dstQueueFamilyIndex} field. */
+        @NativeType("uint32_t")
         public int dstQueueFamilyIndex() { return VkBufferMemoryBarrier.ndstQueueFamilyIndex(address()); }
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("VkBuffer")
         public long buffer() { return VkBufferMemoryBarrier.nbuffer(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("VkDeviceSize")
         public long offset() { return VkBufferMemoryBarrier.noffset(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("VkDeviceSize")
         public long size() { return VkBufferMemoryBarrier.nsize(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkBufferMemoryBarrier.Buffer sType(int value) { VkBufferMemoryBarrier.nsType(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer sType(@NativeType("VkStructureType") int value) { VkBufferMemoryBarrier.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBufferMemoryBarrier.Buffer pNext(long value) { VkBufferMemoryBarrier.npNext(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer pNext(@NativeType("const void *") long value) { VkBufferMemoryBarrier.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code srcAccessMask} field. */
-        public VkBufferMemoryBarrier.Buffer srcAccessMask(int value) { VkBufferMemoryBarrier.nsrcAccessMask(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer srcAccessMask(@NativeType("VkAccessFlags") int value) { VkBufferMemoryBarrier.nsrcAccessMask(address(), value); return this; }
         /** Sets the specified value to the {@code dstAccessMask} field. */
-        public VkBufferMemoryBarrier.Buffer dstAccessMask(int value) { VkBufferMemoryBarrier.ndstAccessMask(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer dstAccessMask(@NativeType("VkAccessFlags") int value) { VkBufferMemoryBarrier.ndstAccessMask(address(), value); return this; }
         /** Sets the specified value to the {@code srcQueueFamilyIndex} field. */
-        public VkBufferMemoryBarrier.Buffer srcQueueFamilyIndex(int value) { VkBufferMemoryBarrier.nsrcQueueFamilyIndex(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer srcQueueFamilyIndex(@NativeType("uint32_t") int value) { VkBufferMemoryBarrier.nsrcQueueFamilyIndex(address(), value); return this; }
         /** Sets the specified value to the {@code dstQueueFamilyIndex} field. */
-        public VkBufferMemoryBarrier.Buffer dstQueueFamilyIndex(int value) { VkBufferMemoryBarrier.ndstQueueFamilyIndex(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer dstQueueFamilyIndex(@NativeType("uint32_t") int value) { VkBufferMemoryBarrier.ndstQueueFamilyIndex(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
-        public VkBufferMemoryBarrier.Buffer buffer(long value) { VkBufferMemoryBarrier.nbuffer(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer buffer(@NativeType("VkBuffer") long value) { VkBufferMemoryBarrier.nbuffer(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkBufferMemoryBarrier.Buffer offset(long value) { VkBufferMemoryBarrier.noffset(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer offset(@NativeType("VkDeviceSize") long value) { VkBufferMemoryBarrier.noffset(address(), value); return this; }
         /** Sets the specified value to the {@code size} field. */
-        public VkBufferMemoryBarrier.Buffer size(long value) { VkBufferMemoryBarrier.nsize(address(), value); return this; }
+        public VkBufferMemoryBarrier.Buffer size(@NativeType("VkDeviceSize") long value) { VkBufferMemoryBarrier.nsize(address(), value); return this; }
 
     }
 

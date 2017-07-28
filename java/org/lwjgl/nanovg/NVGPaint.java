@@ -42,6 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int image;
  * }</pre></code>
  */
+@NativeType("struct NVGpaint")
 public class NVGPaint extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -100,10 +101,12 @@ public class NVGPaint extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code xform} field. */
+    @NativeType("float[6]")
     public FloatBuffer xform() { return nxform(address()); }
     /** Returns the value at the specified index of the {@code xform} field. */
     public float xform(int index) { return nxform(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code extent} field. */
+    @NativeType("float[2]")
     public FloatBuffer extent() { return nextent(address()); }
     /** Returns the value at the specified index of the {@code extent} field. */
     public float extent(int index) { return nextent(address(), index); }
@@ -112,18 +115,20 @@ public class NVGPaint extends Struct implements NativeResource {
     /** Returns the value of the {@code feather} field. */
     public float feather() { return nfeather(address()); }
     /** Returns a {@link NVGColor} view of the {@code innerColor} field. */
+    @NativeType("NVGcolor")
     public NVGColor innerColor() { return ninnerColor(address()); }
     /** Returns a {@link NVGColor} view of the {@code outerColor} field. */
+    @NativeType("NVGcolor")
     public NVGColor outerColor() { return nouterColor(address()); }
     /** Returns the value of the {@code image} field. */
     public int image() { return nimage(address()); }
 
     /** Copies the specified {@link FloatBuffer} to the {@code xform} field. */
-    public NVGPaint xform(FloatBuffer value) { nxform(address(), value); return this; }
+    public NVGPaint xform(@NativeType("float[6]") FloatBuffer value) { nxform(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code xform} field. */
     public NVGPaint xform(int index, float value) { nxform(address(), index, value); return this; }
     /** Copies the specified {@link FloatBuffer} to the {@code extent} field. */
-    public NVGPaint extent(FloatBuffer value) { nextent(address(), value); return this; }
+    public NVGPaint extent(@NativeType("float[2]") FloatBuffer value) { nextent(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code extent} field. */
     public NVGPaint extent(int index, float value) { nextent(address(), index, value); return this; }
     /** Sets the specified value to the {@code radius} field. */
@@ -131,9 +136,9 @@ public class NVGPaint extends Struct implements NativeResource {
     /** Sets the specified value to the {@code feather} field. */
     public NVGPaint feather(float value) { nfeather(address(), value); return this; }
     /** Copies the specified {@link NVGColor} to the {@code innerColor} field. */
-    public NVGPaint innerColor(NVGColor value) { ninnerColor(address(), value); return this; }
+    public NVGPaint innerColor(@NativeType("NVGcolor") NVGColor value) { ninnerColor(address(), value); return this; }
     /** Copies the specified {@link NVGColor} to the {@code outerColor} field. */
-    public NVGPaint outerColor(NVGColor value) { nouterColor(address(), value); return this; }
+    public NVGPaint outerColor(@NativeType("NVGcolor") NVGColor value) { nouterColor(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
     public NVGPaint image(int value) { nimage(address(), value); return this; }
 
@@ -398,10 +403,12 @@ public class NVGPaint extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code xform} field. */
+        @NativeType("float[6]")
         public FloatBuffer xform() { return NVGPaint.nxform(address()); }
         /** Returns the value at the specified index of the {@code xform} field. */
         public float xform(int index) { return NVGPaint.nxform(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code extent} field. */
+        @NativeType("float[2]")
         public FloatBuffer extent() { return NVGPaint.nextent(address()); }
         /** Returns the value at the specified index of the {@code extent} field. */
         public float extent(int index) { return NVGPaint.nextent(address(), index); }
@@ -410,18 +417,20 @@ public class NVGPaint extends Struct implements NativeResource {
         /** Returns the value of the {@code feather} field. */
         public float feather() { return NVGPaint.nfeather(address()); }
         /** Returns a {@link NVGColor} view of the {@code innerColor} field. */
+        @NativeType("NVGcolor")
         public NVGColor innerColor() { return NVGPaint.ninnerColor(address()); }
         /** Returns a {@link NVGColor} view of the {@code outerColor} field. */
+        @NativeType("NVGcolor")
         public NVGColor outerColor() { return NVGPaint.nouterColor(address()); }
         /** Returns the value of the {@code image} field. */
         public int image() { return NVGPaint.nimage(address()); }
 
         /** Copies the specified {@link FloatBuffer} to the {@code xform} field. */
-        public NVGPaint.Buffer xform(FloatBuffer value) { NVGPaint.nxform(address(), value); return this; }
+        public NVGPaint.Buffer xform(@NativeType("float[6]") FloatBuffer value) { NVGPaint.nxform(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code xform} field. */
         public NVGPaint.Buffer xform(int index, float value) { NVGPaint.nxform(address(), index, value); return this; }
         /** Copies the specified {@link FloatBuffer} to the {@code extent} field. */
-        public NVGPaint.Buffer extent(FloatBuffer value) { NVGPaint.nextent(address(), value); return this; }
+        public NVGPaint.Buffer extent(@NativeType("float[2]") FloatBuffer value) { NVGPaint.nextent(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code extent} field. */
         public NVGPaint.Buffer extent(int index, float value) { NVGPaint.nextent(address(), index, value); return this; }
         /** Sets the specified value to the {@code radius} field. */
@@ -429,9 +438,9 @@ public class NVGPaint extends Struct implements NativeResource {
         /** Sets the specified value to the {@code feather} field. */
         public NVGPaint.Buffer feather(float value) { NVGPaint.nfeather(address(), value); return this; }
         /** Copies the specified {@link NVGColor} to the {@code innerColor} field. */
-        public NVGPaint.Buffer innerColor(NVGColor value) { NVGPaint.ninnerColor(address(), value); return this; }
+        public NVGPaint.Buffer innerColor(@NativeType("NVGcolor") NVGColor value) { NVGPaint.ninnerColor(address(), value); return this; }
         /** Copies the specified {@link NVGColor} to the {@code outerColor} field. */
-        public NVGPaint.Buffer outerColor(NVGColor value) { NVGPaint.nouterColor(address(), value); return this; }
+        public NVGPaint.Buffer outerColor(@NativeType("NVGcolor") NVGColor value) { NVGPaint.nouterColor(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
         public NVGPaint.Buffer image(int value) { NVGPaint.nimage(address(), value); return this; }
 

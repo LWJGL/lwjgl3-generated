@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -50,7 +52,8 @@ public class SOFTSourceResampler {
         return invokeP(__functionAddress, pname, index);
     }
 
-    public static String alGetStringiSOFT(int pname, int index) {
+    @NativeType("const ALchar *")
+    public static String alGetStringiSOFT(@NativeType("ALenum") int pname, @NativeType("ALsizei") int index) {
         long __result = nalGetStringiSOFT(pname, index);
         return memUTF8(__result);
     }

@@ -67,6 +67,7 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  *     double SensorSampleTime;
  * }</pre></code>
  */
+@NativeType("struct ovrLayerEyeMatrix")
 public class OVRLayerEyeMatrix extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -122,44 +123,53 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+    @NativeType("ovrLayerHeader")
     public OVRLayerHeader Header() { return nHeader(address()); }
     /** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
+    @NativeType("ovrTextureSwapChain[ovrEye_Count]")
     public PointerBuffer ColorTexture() { return nColorTexture(address()); }
     /** Returns the value at the specified index of the {@code ColorTexture} field. */
+    @NativeType("ovrTextureSwapChain")
     public long ColorTexture(int index) { return nColorTexture(address(), index); }
     /** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
+    @NativeType("ovrRecti[ovrEye_Count]")
     public OVRRecti.Buffer Viewport() { return nViewport(address()); }
     /** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
+    @NativeType("ovrRecti")
     public OVRRecti Viewport(int index) { return nViewport(address(), index); }
     /** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
+    @NativeType("ovrPosef[ovrEye_Count]")
     public OVRPosef.Buffer RenderPose() { return nRenderPose(address()); }
     /** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
+    @NativeType("ovrPosef")
     public OVRPosef RenderPose(int index) { return nRenderPose(address(), index); }
     /** Returns a {@link OVRMatrix4f}.Buffer view of the {@code Matrix} field. */
+    @NativeType("ovrMatrix4f[ovrEye_Count]")
     public OVRMatrix4f.Buffer Matrix() { return nMatrix(address()); }
     /** Returns a {@link OVRMatrix4f} view of the struct at the specified index of the {@code Matrix} field. */
+    @NativeType("ovrMatrix4f")
     public OVRMatrix4f Matrix(int index) { return nMatrix(address(), index); }
     /** Returns the value of the {@code SensorSampleTime} field. */
     public double SensorSampleTime() { return nSensorSampleTime(address()); }
 
     /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-    public OVRLayerEyeMatrix Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+    public OVRLayerEyeMatrix Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { nHeader(address(), value); return this; }
     /** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
-    public OVRLayerEyeMatrix ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
+    public OVRLayerEyeMatrix ColorTexture(@NativeType("ovrTextureSwapChain[ovrEye_Count]") PointerBuffer value) { nColorTexture(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code ColorTexture} field. */
-    public OVRLayerEyeMatrix ColorTexture(int index, long value) { nColorTexture(address(), index, value); return this; }
+    public OVRLayerEyeMatrix ColorTexture(int index, @NativeType("ovrTextureSwapChain") long value) { nColorTexture(address(), index, value); return this; }
     /** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
-    public OVRLayerEyeMatrix Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
+    public OVRLayerEyeMatrix Viewport(@NativeType("ovrRecti[ovrEye_Count]") OVRRecti.Buffer value) { nViewport(address(), value); return this; }
     /** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
-    public OVRLayerEyeMatrix Viewport(int index, OVRRecti value) { nViewport(address(), index, value); return this; }
+    public OVRLayerEyeMatrix Viewport(int index, @NativeType("ovrRecti") OVRRecti value) { nViewport(address(), index, value); return this; }
     /** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
-    public OVRLayerEyeMatrix RenderPose(OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
+    public OVRLayerEyeMatrix RenderPose(@NativeType("ovrPosef[ovrEye_Count]") OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
     /** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
-    public OVRLayerEyeMatrix RenderPose(int index, OVRPosef value) { nRenderPose(address(), index, value); return this; }
+    public OVRLayerEyeMatrix RenderPose(int index, @NativeType("ovrPosef") OVRPosef value) { nRenderPose(address(), index, value); return this; }
     /** Copies the specified {@link OVRMatrix4f.Buffer} to the {@code Matrix} field. */
-    public OVRLayerEyeMatrix Matrix(OVRMatrix4f.Buffer value) { nMatrix(address(), value); return this; }
+    public OVRLayerEyeMatrix Matrix(@NativeType("ovrMatrix4f[ovrEye_Count]") OVRMatrix4f.Buffer value) { nMatrix(address(), value); return this; }
     /** Copies the specified {@link OVRMatrix4f} at the specified index of the {@code Matrix} field. */
-    public OVRLayerEyeMatrix Matrix(int index, OVRMatrix4f value) { nMatrix(address(), index, value); return this; }
+    public OVRLayerEyeMatrix Matrix(int index, @NativeType("ovrMatrix4f") OVRMatrix4f value) { nMatrix(address(), index, value); return this; }
     /** Sets the specified value to the {@code SensorSampleTime} field. */
     public OVRLayerEyeMatrix SensorSampleTime(double value) { nSensorSampleTime(address(), value); return this; }
 
@@ -465,44 +475,53 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+        @NativeType("ovrLayerHeader")
         public OVRLayerHeader Header() { return OVRLayerEyeMatrix.nHeader(address()); }
         /** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
+        @NativeType("ovrTextureSwapChain[ovrEye_Count]")
         public PointerBuffer ColorTexture() { return OVRLayerEyeMatrix.nColorTexture(address()); }
         /** Returns the value at the specified index of the {@code ColorTexture} field. */
+        @NativeType("ovrTextureSwapChain")
         public long ColorTexture(int index) { return OVRLayerEyeMatrix.nColorTexture(address(), index); }
         /** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
+        @NativeType("ovrRecti[ovrEye_Count]")
         public OVRRecti.Buffer Viewport() { return OVRLayerEyeMatrix.nViewport(address()); }
         /** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
+        @NativeType("ovrRecti")
         public OVRRecti Viewport(int index) { return OVRLayerEyeMatrix.nViewport(address(), index); }
         /** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
+        @NativeType("ovrPosef[ovrEye_Count]")
         public OVRPosef.Buffer RenderPose() { return OVRLayerEyeMatrix.nRenderPose(address()); }
         /** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
+        @NativeType("ovrPosef")
         public OVRPosef RenderPose(int index) { return OVRLayerEyeMatrix.nRenderPose(address(), index); }
         /** Returns a {@link OVRMatrix4f}.Buffer view of the {@code Matrix} field. */
+        @NativeType("ovrMatrix4f[ovrEye_Count]")
         public OVRMatrix4f.Buffer Matrix() { return OVRLayerEyeMatrix.nMatrix(address()); }
         /** Returns a {@link OVRMatrix4f} view of the struct at the specified index of the {@code Matrix} field. */
+        @NativeType("ovrMatrix4f")
         public OVRMatrix4f Matrix(int index) { return OVRLayerEyeMatrix.nMatrix(address(), index); }
         /** Returns the value of the {@code SensorSampleTime} field. */
         public double SensorSampleTime() { return OVRLayerEyeMatrix.nSensorSampleTime(address()); }
 
         /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-        public OVRLayerEyeMatrix.Buffer Header(OVRLayerHeader value) { OVRLayerEyeMatrix.nHeader(address(), value); return this; }
+        public OVRLayerEyeMatrix.Buffer Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { OVRLayerEyeMatrix.nHeader(address(), value); return this; }
         /** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
-        public OVRLayerEyeMatrix.Buffer ColorTexture(PointerBuffer value) { OVRLayerEyeMatrix.nColorTexture(address(), value); return this; }
+        public OVRLayerEyeMatrix.Buffer ColorTexture(@NativeType("ovrTextureSwapChain[ovrEye_Count]") PointerBuffer value) { OVRLayerEyeMatrix.nColorTexture(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code ColorTexture} field. */
-        public OVRLayerEyeMatrix.Buffer ColorTexture(int index, long value) { OVRLayerEyeMatrix.nColorTexture(address(), index, value); return this; }
+        public OVRLayerEyeMatrix.Buffer ColorTexture(int index, @NativeType("ovrTextureSwapChain") long value) { OVRLayerEyeMatrix.nColorTexture(address(), index, value); return this; }
         /** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
-        public OVRLayerEyeMatrix.Buffer Viewport(OVRRecti.Buffer value) { OVRLayerEyeMatrix.nViewport(address(), value); return this; }
+        public OVRLayerEyeMatrix.Buffer Viewport(@NativeType("ovrRecti[ovrEye_Count]") OVRRecti.Buffer value) { OVRLayerEyeMatrix.nViewport(address(), value); return this; }
         /** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
-        public OVRLayerEyeMatrix.Buffer Viewport(int index, OVRRecti value) { OVRLayerEyeMatrix.nViewport(address(), index, value); return this; }
+        public OVRLayerEyeMatrix.Buffer Viewport(int index, @NativeType("ovrRecti") OVRRecti value) { OVRLayerEyeMatrix.nViewport(address(), index, value); return this; }
         /** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
-        public OVRLayerEyeMatrix.Buffer RenderPose(OVRPosef.Buffer value) { OVRLayerEyeMatrix.nRenderPose(address(), value); return this; }
+        public OVRLayerEyeMatrix.Buffer RenderPose(@NativeType("ovrPosef[ovrEye_Count]") OVRPosef.Buffer value) { OVRLayerEyeMatrix.nRenderPose(address(), value); return this; }
         /** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
-        public OVRLayerEyeMatrix.Buffer RenderPose(int index, OVRPosef value) { OVRLayerEyeMatrix.nRenderPose(address(), index, value); return this; }
+        public OVRLayerEyeMatrix.Buffer RenderPose(int index, @NativeType("ovrPosef") OVRPosef value) { OVRLayerEyeMatrix.nRenderPose(address(), index, value); return this; }
         /** Copies the specified {@link OVRMatrix4f.Buffer} to the {@code Matrix} field. */
-        public OVRLayerEyeMatrix.Buffer Matrix(OVRMatrix4f.Buffer value) { OVRLayerEyeMatrix.nMatrix(address(), value); return this; }
+        public OVRLayerEyeMatrix.Buffer Matrix(@NativeType("ovrMatrix4f[ovrEye_Count]") OVRMatrix4f.Buffer value) { OVRLayerEyeMatrix.nMatrix(address(), value); return this; }
         /** Copies the specified {@link OVRMatrix4f} at the specified index of the {@code Matrix} field. */
-        public OVRLayerEyeMatrix.Buffer Matrix(int index, OVRMatrix4f value) { OVRLayerEyeMatrix.nMatrix(address(), index, value); return this; }
+        public OVRLayerEyeMatrix.Buffer Matrix(int index, @NativeType("ovrMatrix4f") OVRMatrix4f value) { OVRLayerEyeMatrix.nMatrix(address(), index, value); return this; }
         /** Sets the specified value to the {@code SensorSampleTime} field. */
         public OVRLayerEyeMatrix.Buffer SensorSampleTime(double value) { OVRLayerEyeMatrix.nSensorSampleTime(address(), value); return this; }
 

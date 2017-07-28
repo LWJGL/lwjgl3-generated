@@ -92,14 +92,16 @@ public class VkObjectTableEntryNVX extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("VkObjectEntryTypeNVX")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkObjectEntryUsageFlagsNVX")
     public int flags() { return nflags(address()); }
 
     /** Sets the specified value to the {@code type} field. */
-    public VkObjectTableEntryNVX type(int value) { ntype(address(), value); return this; }
+    public VkObjectTableEntryNVX type(@NativeType("VkObjectEntryTypeNVX") int value) { ntype(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkObjectTableEntryNVX flags(int value) { nflags(address(), value); return this; }
+    public VkObjectTableEntryNVX flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { nflags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkObjectTableEntryNVX set(
@@ -306,14 +308,16 @@ public class VkObjectTableEntryNVX extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("VkObjectEntryTypeNVX")
         public int type() { return VkObjectTableEntryNVX.ntype(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkObjectEntryUsageFlagsNVX")
         public int flags() { return VkObjectTableEntryNVX.nflags(address()); }
 
         /** Sets the specified value to the {@code type} field. */
-        public VkObjectTableEntryNVX.Buffer type(int value) { VkObjectTableEntryNVX.ntype(address(), value); return this; }
+        public VkObjectTableEntryNVX.Buffer type(@NativeType("VkObjectEntryTypeNVX") int value) { VkObjectTableEntryNVX.ntype(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkObjectTableEntryNVX.Buffer flags(int value) { VkObjectTableEntryNVX.nflags(address(), value); return this; }
+        public VkObjectTableEntryNVX.Buffer flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { VkObjectTableEntryNVX.nflags(address(), value); return this; }
 
     }
 

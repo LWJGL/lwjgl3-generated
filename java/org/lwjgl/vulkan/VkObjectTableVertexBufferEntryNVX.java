@@ -92,18 +92,21 @@ public class VkObjectTableVertexBufferEntryNVX extends Struct implements NativeR
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("VkObjectEntryTypeNVX")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkObjectEntryUsageFlagsNVX")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("VkBuffer")
     public long buffer() { return nbuffer(address()); }
 
     /** Sets the specified value to the {@code type} field. */
-    public VkObjectTableVertexBufferEntryNVX type(int value) { ntype(address(), value); return this; }
+    public VkObjectTableVertexBufferEntryNVX type(@NativeType("VkObjectEntryTypeNVX") int value) { ntype(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkObjectTableVertexBufferEntryNVX flags(int value) { nflags(address(), value); return this; }
+    public VkObjectTableVertexBufferEntryNVX flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
-    public VkObjectTableVertexBufferEntryNVX buffer(long value) { nbuffer(address(), value); return this; }
+    public VkObjectTableVertexBufferEntryNVX buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkObjectTableVertexBufferEntryNVX set(
@@ -316,18 +319,21 @@ public class VkObjectTableVertexBufferEntryNVX extends Struct implements NativeR
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("VkObjectEntryTypeNVX")
         public int type() { return VkObjectTableVertexBufferEntryNVX.ntype(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkObjectEntryUsageFlagsNVX")
         public int flags() { return VkObjectTableVertexBufferEntryNVX.nflags(address()); }
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("VkBuffer")
         public long buffer() { return VkObjectTableVertexBufferEntryNVX.nbuffer(address()); }
 
         /** Sets the specified value to the {@code type} field. */
-        public VkObjectTableVertexBufferEntryNVX.Buffer type(int value) { VkObjectTableVertexBufferEntryNVX.ntype(address(), value); return this; }
+        public VkObjectTableVertexBufferEntryNVX.Buffer type(@NativeType("VkObjectEntryTypeNVX") int value) { VkObjectTableVertexBufferEntryNVX.ntype(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkObjectTableVertexBufferEntryNVX.Buffer flags(int value) { VkObjectTableVertexBufferEntryNVX.nflags(address(), value); return this; }
+        public VkObjectTableVertexBufferEntryNVX.Buffer flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { VkObjectTableVertexBufferEntryNVX.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
-        public VkObjectTableVertexBufferEntryNVX.Buffer buffer(long value) { VkObjectTableVertexBufferEntryNVX.nbuffer(address(), value); return this; }
+        public VkObjectTableVertexBufferEntryNVX.Buffer buffer(@NativeType("VkBuffer") long value) { VkObjectTableVertexBufferEntryNVX.nbuffer(address(), value); return this; }
 
     }
 

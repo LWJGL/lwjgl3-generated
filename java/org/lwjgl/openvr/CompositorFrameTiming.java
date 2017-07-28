@@ -68,6 +68,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link TrackedDevicePose TrackedDevicePose_t} m_HmdPose;
  * }</pre></code>
  */
+@NativeType("struct Compositor_FrameTiming")
 public class CompositorFrameTiming extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -177,16 +178,22 @@ public class CompositorFrameTiming extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code m_nSize} field. */
+    @NativeType("uint32_t")
     public int m_nSize() { return nm_nSize(address()); }
     /** Returns the value of the {@code m_nFrameIndex} field. */
+    @NativeType("uint32_t")
     public int m_nFrameIndex() { return nm_nFrameIndex(address()); }
     /** Returns the value of the {@code m_nNumFramePresents} field. */
+    @NativeType("uint32_t")
     public int m_nNumFramePresents() { return nm_nNumFramePresents(address()); }
     /** Returns the value of the {@code m_nNumMisPresented} field. */
+    @NativeType("uint32_t")
     public int m_nNumMisPresented() { return nm_nNumMisPresented(address()); }
     /** Returns the value of the {@code m_nNumDroppedFrames} field. */
+    @NativeType("uint32_t")
     public int m_nNumDroppedFrames() { return nm_nNumDroppedFrames(address()); }
     /** Returns the value of the {@code m_nReprojectionFlags} field. */
+    @NativeType("uint32_t")
     public int m_nReprojectionFlags() { return nm_nReprojectionFlags(address()); }
     /** Returns the value of the {@code m_flSystemTimeInSeconds} field. */
     public double m_flSystemTimeInSeconds() { return nm_flSystemTimeInSeconds(address()); }
@@ -223,20 +230,21 @@ public class CompositorFrameTiming extends Struct implements NativeResource {
     /** Returns the value of the {@code m_flCompositorRenderStartMs} field. */
     public float m_flCompositorRenderStartMs() { return nm_flCompositorRenderStartMs(address()); }
     /** Returns a {@link TrackedDevicePose} view of the {@code m_HmdPose} field. */
+    @NativeType("TrackedDevicePose_t")
     public TrackedDevicePose m_HmdPose() { return nm_HmdPose(address()); }
 
     /** Sets the specified value to the {@code m_nSize} field. */
-    public CompositorFrameTiming m_nSize(int value) { nm_nSize(address(), value); return this; }
+    public CompositorFrameTiming m_nSize(@NativeType("uint32_t") int value) { nm_nSize(address(), value); return this; }
     /** Sets the specified value to the {@code m_nFrameIndex} field. */
-    public CompositorFrameTiming m_nFrameIndex(int value) { nm_nFrameIndex(address(), value); return this; }
+    public CompositorFrameTiming m_nFrameIndex(@NativeType("uint32_t") int value) { nm_nFrameIndex(address(), value); return this; }
     /** Sets the specified value to the {@code m_nNumFramePresents} field. */
-    public CompositorFrameTiming m_nNumFramePresents(int value) { nm_nNumFramePresents(address(), value); return this; }
+    public CompositorFrameTiming m_nNumFramePresents(@NativeType("uint32_t") int value) { nm_nNumFramePresents(address(), value); return this; }
     /** Sets the specified value to the {@code m_nNumMisPresented} field. */
-    public CompositorFrameTiming m_nNumMisPresented(int value) { nm_nNumMisPresented(address(), value); return this; }
+    public CompositorFrameTiming m_nNumMisPresented(@NativeType("uint32_t") int value) { nm_nNumMisPresented(address(), value); return this; }
     /** Sets the specified value to the {@code m_nNumDroppedFrames} field. */
-    public CompositorFrameTiming m_nNumDroppedFrames(int value) { nm_nNumDroppedFrames(address(), value); return this; }
+    public CompositorFrameTiming m_nNumDroppedFrames(@NativeType("uint32_t") int value) { nm_nNumDroppedFrames(address(), value); return this; }
     /** Sets the specified value to the {@code m_nReprojectionFlags} field. */
-    public CompositorFrameTiming m_nReprojectionFlags(int value) { nm_nReprojectionFlags(address(), value); return this; }
+    public CompositorFrameTiming m_nReprojectionFlags(@NativeType("uint32_t") int value) { nm_nReprojectionFlags(address(), value); return this; }
     /** Sets the specified value to the {@code m_flSystemTimeInSeconds} field. */
     public CompositorFrameTiming m_flSystemTimeInSeconds(double value) { nm_flSystemTimeInSeconds(address(), value); return this; }
     /** Sets the specified value to the {@code m_flPreSubmitGpuMs} field. */
@@ -272,7 +280,7 @@ public class CompositorFrameTiming extends Struct implements NativeResource {
     /** Sets the specified value to the {@code m_flCompositorRenderStartMs} field. */
     public CompositorFrameTiming m_flCompositorRenderStartMs(float value) { nm_flCompositorRenderStartMs(address(), value); return this; }
     /** Copies the specified {@link TrackedDevicePose} to the {@code m_HmdPose} field. */
-    public CompositorFrameTiming m_HmdPose(TrackedDevicePose value) { nm_HmdPose(address(), value); return this; }
+    public CompositorFrameTiming m_HmdPose(@NativeType("TrackedDevicePose_t") TrackedDevicePose value) { nm_HmdPose(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public CompositorFrameTiming set(
@@ -611,16 +619,22 @@ public class CompositorFrameTiming extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code m_nSize} field. */
+        @NativeType("uint32_t")
         public int m_nSize() { return CompositorFrameTiming.nm_nSize(address()); }
         /** Returns the value of the {@code m_nFrameIndex} field. */
+        @NativeType("uint32_t")
         public int m_nFrameIndex() { return CompositorFrameTiming.nm_nFrameIndex(address()); }
         /** Returns the value of the {@code m_nNumFramePresents} field. */
+        @NativeType("uint32_t")
         public int m_nNumFramePresents() { return CompositorFrameTiming.nm_nNumFramePresents(address()); }
         /** Returns the value of the {@code m_nNumMisPresented} field. */
+        @NativeType("uint32_t")
         public int m_nNumMisPresented() { return CompositorFrameTiming.nm_nNumMisPresented(address()); }
         /** Returns the value of the {@code m_nNumDroppedFrames} field. */
+        @NativeType("uint32_t")
         public int m_nNumDroppedFrames() { return CompositorFrameTiming.nm_nNumDroppedFrames(address()); }
         /** Returns the value of the {@code m_nReprojectionFlags} field. */
+        @NativeType("uint32_t")
         public int m_nReprojectionFlags() { return CompositorFrameTiming.nm_nReprojectionFlags(address()); }
         /** Returns the value of the {@code m_flSystemTimeInSeconds} field. */
         public double m_flSystemTimeInSeconds() { return CompositorFrameTiming.nm_flSystemTimeInSeconds(address()); }
@@ -657,20 +671,21 @@ public class CompositorFrameTiming extends Struct implements NativeResource {
         /** Returns the value of the {@code m_flCompositorRenderStartMs} field. */
         public float m_flCompositorRenderStartMs() { return CompositorFrameTiming.nm_flCompositorRenderStartMs(address()); }
         /** Returns a {@link TrackedDevicePose} view of the {@code m_HmdPose} field. */
+        @NativeType("TrackedDevicePose_t")
         public TrackedDevicePose m_HmdPose() { return CompositorFrameTiming.nm_HmdPose(address()); }
 
         /** Sets the specified value to the {@code m_nSize} field. */
-        public CompositorFrameTiming.Buffer m_nSize(int value) { CompositorFrameTiming.nm_nSize(address(), value); return this; }
+        public CompositorFrameTiming.Buffer m_nSize(@NativeType("uint32_t") int value) { CompositorFrameTiming.nm_nSize(address(), value); return this; }
         /** Sets the specified value to the {@code m_nFrameIndex} field. */
-        public CompositorFrameTiming.Buffer m_nFrameIndex(int value) { CompositorFrameTiming.nm_nFrameIndex(address(), value); return this; }
+        public CompositorFrameTiming.Buffer m_nFrameIndex(@NativeType("uint32_t") int value) { CompositorFrameTiming.nm_nFrameIndex(address(), value); return this; }
         /** Sets the specified value to the {@code m_nNumFramePresents} field. */
-        public CompositorFrameTiming.Buffer m_nNumFramePresents(int value) { CompositorFrameTiming.nm_nNumFramePresents(address(), value); return this; }
+        public CompositorFrameTiming.Buffer m_nNumFramePresents(@NativeType("uint32_t") int value) { CompositorFrameTiming.nm_nNumFramePresents(address(), value); return this; }
         /** Sets the specified value to the {@code m_nNumMisPresented} field. */
-        public CompositorFrameTiming.Buffer m_nNumMisPresented(int value) { CompositorFrameTiming.nm_nNumMisPresented(address(), value); return this; }
+        public CompositorFrameTiming.Buffer m_nNumMisPresented(@NativeType("uint32_t") int value) { CompositorFrameTiming.nm_nNumMisPresented(address(), value); return this; }
         /** Sets the specified value to the {@code m_nNumDroppedFrames} field. */
-        public CompositorFrameTiming.Buffer m_nNumDroppedFrames(int value) { CompositorFrameTiming.nm_nNumDroppedFrames(address(), value); return this; }
+        public CompositorFrameTiming.Buffer m_nNumDroppedFrames(@NativeType("uint32_t") int value) { CompositorFrameTiming.nm_nNumDroppedFrames(address(), value); return this; }
         /** Sets the specified value to the {@code m_nReprojectionFlags} field. */
-        public CompositorFrameTiming.Buffer m_nReprojectionFlags(int value) { CompositorFrameTiming.nm_nReprojectionFlags(address(), value); return this; }
+        public CompositorFrameTiming.Buffer m_nReprojectionFlags(@NativeType("uint32_t") int value) { CompositorFrameTiming.nm_nReprojectionFlags(address(), value); return this; }
         /** Sets the specified value to the {@code m_flSystemTimeInSeconds} field. */
         public CompositorFrameTiming.Buffer m_flSystemTimeInSeconds(double value) { CompositorFrameTiming.nm_flSystemTimeInSeconds(address(), value); return this; }
         /** Sets the specified value to the {@code m_flPreSubmitGpuMs} field. */
@@ -706,7 +721,7 @@ public class CompositorFrameTiming extends Struct implements NativeResource {
         /** Sets the specified value to the {@code m_flCompositorRenderStartMs} field. */
         public CompositorFrameTiming.Buffer m_flCompositorRenderStartMs(float value) { CompositorFrameTiming.nm_flCompositorRenderStartMs(address(), value); return this; }
         /** Copies the specified {@link TrackedDevicePose} to the {@code m_HmdPose} field. */
-        public CompositorFrameTiming.Buffer m_HmdPose(TrackedDevicePose value) { CompositorFrameTiming.nm_HmdPose(address(), value); return this; }
+        public CompositorFrameTiming.Buffer m_HmdPose(@NativeType("TrackedDevicePose_t") TrackedDevicePose value) { CompositorFrameTiming.nm_HmdPose(address(), value); return this; }
 
     }
 

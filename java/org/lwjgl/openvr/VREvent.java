@@ -37,6 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link VREventData VREvent_Data_t} data;
  * }</pre></code>
  */
+@NativeType("struct VREvent_t")
 public class VREvent extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -86,22 +87,25 @@ public class VREvent extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code eventType} field. */
+    @NativeType("uint32_t")
     public int eventType() { return neventType(address()); }
     /** Returns the value of the {@code trackedDeviceIndex} field. */
+    @NativeType("TrackedDeviceIndex_t")
     public int trackedDeviceIndex() { return ntrackedDeviceIndex(address()); }
     /** Returns the value of the {@code eventAgeSeconds} field. */
     public float eventAgeSeconds() { return neventAgeSeconds(address()); }
     /** Returns a {@link VREventData} view of the {@code data} field. */
+    @NativeType("VREvent_Data_t")
     public VREventData data() { return ndata(address()); }
 
     /** Sets the specified value to the {@code eventType} field. */
-    public VREvent eventType(int value) { neventType(address(), value); return this; }
+    public VREvent eventType(@NativeType("uint32_t") int value) { neventType(address(), value); return this; }
     /** Sets the specified value to the {@code trackedDeviceIndex} field. */
-    public VREvent trackedDeviceIndex(int value) { ntrackedDeviceIndex(address(), value); return this; }
+    public VREvent trackedDeviceIndex(@NativeType("TrackedDeviceIndex_t") int value) { ntrackedDeviceIndex(address(), value); return this; }
     /** Sets the specified value to the {@code eventAgeSeconds} field. */
     public VREvent eventAgeSeconds(float value) { neventAgeSeconds(address(), value); return this; }
     /** Copies the specified {@link VREventData} to the {@code data} field. */
-    public VREvent data(VREventData value) { ndata(address(), value); return this; }
+    public VREvent data(@NativeType("VREvent_Data_t") VREventData value) { ndata(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREvent set(
@@ -320,22 +324,25 @@ public class VREvent extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code eventType} field. */
+        @NativeType("uint32_t")
         public int eventType() { return VREvent.neventType(address()); }
         /** Returns the value of the {@code trackedDeviceIndex} field. */
+        @NativeType("TrackedDeviceIndex_t")
         public int trackedDeviceIndex() { return VREvent.ntrackedDeviceIndex(address()); }
         /** Returns the value of the {@code eventAgeSeconds} field. */
         public float eventAgeSeconds() { return VREvent.neventAgeSeconds(address()); }
         /** Returns a {@link VREventData} view of the {@code data} field. */
+        @NativeType("VREvent_Data_t")
         public VREventData data() { return VREvent.ndata(address()); }
 
         /** Sets the specified value to the {@code eventType} field. */
-        public VREvent.Buffer eventType(int value) { VREvent.neventType(address(), value); return this; }
+        public VREvent.Buffer eventType(@NativeType("uint32_t") int value) { VREvent.neventType(address(), value); return this; }
         /** Sets the specified value to the {@code trackedDeviceIndex} field. */
-        public VREvent.Buffer trackedDeviceIndex(int value) { VREvent.ntrackedDeviceIndex(address(), value); return this; }
+        public VREvent.Buffer trackedDeviceIndex(@NativeType("TrackedDeviceIndex_t") int value) { VREvent.ntrackedDeviceIndex(address(), value); return this; }
         /** Sets the specified value to the {@code eventAgeSeconds} field. */
         public VREvent.Buffer eventAgeSeconds(float value) { VREvent.neventAgeSeconds(address(), value); return this; }
         /** Copies the specified {@link VREventData} to the {@code data} field. */
-        public VREvent.Buffer data(VREventData value) { VREvent.ndata(address(), value); return this; }
+        public VREvent.Buffer data(@NativeType("VREvent_Data_t") VREventData value) { VREvent.ndata(address(), value); return this; }
 
     }
 

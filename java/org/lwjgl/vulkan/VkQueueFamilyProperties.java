@@ -156,10 +156,13 @@ public class VkQueueFamilyProperties extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code queueFlags} field. */
+    @NativeType("VkQueueFlags")
     public int queueFlags() { return nqueueFlags(address()); }
     /** Returns the value of the {@code queueCount} field. */
+    @NativeType("uint32_t")
     public int queueCount() { return nqueueCount(address()); }
     /** Returns the value of the {@code timestampValidBits} field. */
+    @NativeType("uint32_t")
     public int timestampValidBits() { return ntimestampValidBits(address()); }
     /** Returns a {@link VkExtent3D} view of the {@code minImageTransferGranularity} field. */
     public VkExtent3D minImageTransferGranularity() { return nminImageTransferGranularity(address()); }
@@ -345,10 +348,13 @@ public class VkQueueFamilyProperties extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code queueFlags} field. */
+        @NativeType("VkQueueFlags")
         public int queueFlags() { return VkQueueFamilyProperties.nqueueFlags(address()); }
         /** Returns the value of the {@code queueCount} field. */
+        @NativeType("uint32_t")
         public int queueCount() { return VkQueueFamilyProperties.nqueueCount(address()); }
         /** Returns the value of the {@code timestampValidBits} field. */
+        @NativeType("uint32_t")
         public int timestampValidBits() { return VkQueueFamilyProperties.ntimestampValidBits(address()); }
         /** Returns a {@link VkExtent3D} view of the {@code minImageTransferGranularity} field. */
         public VkExtent3D minImageTransferGranularity() { return VkQueueFamilyProperties.nminImageTransferGranularity(address()); }

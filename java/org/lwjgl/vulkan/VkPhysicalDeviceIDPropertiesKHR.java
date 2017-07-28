@@ -125,24 +125,34 @@ public class VkPhysicalDeviceIDPropertiesKHR extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code deviceUUID} field. */
+    @NativeType("uint8_t[VK_UUID_SIZE]")
     public ByteBuffer deviceUUID() { return ndeviceUUID(address()); }
     /** Returns the value at the specified index of the {@code deviceUUID} field. */
+    @NativeType("uint8_t")
     public byte deviceUUID(int index) { return ndeviceUUID(address(), index); }
     /** Returns a {@link ByteBuffer} view of the {@code driverUUID} field. */
+    @NativeType("uint8_t[VK_UUID_SIZE]")
     public ByteBuffer driverUUID() { return ndriverUUID(address()); }
     /** Returns the value at the specified index of the {@code driverUUID} field. */
+    @NativeType("uint8_t")
     public byte driverUUID(int index) { return ndriverUUID(address(), index); }
     /** Returns a {@link ByteBuffer} view of the {@code deviceLUID} field. */
+    @NativeType("uint8_t[VK_LUID_SIZE_KHR]")
     public ByteBuffer deviceLUID() { return ndeviceLUID(address()); }
     /** Returns the value at the specified index of the {@code deviceLUID} field. */
+    @NativeType("uint8_t")
     public byte deviceLUID(int index) { return ndeviceLUID(address(), index); }
     /** Returns the value of the {@code deviceNodeMask} field. */
+    @NativeType("uint32_t")
     public int deviceNodeMask() { return ndeviceNodeMask(address()); }
     /** Returns the value of the {@code deviceLUIDValid} field. */
+    @NativeType("VkBool32")
     public boolean deviceLUIDValid() { return ndeviceLUIDValid(address()) != 0; }
 
     // -----------------------------------
@@ -237,24 +247,34 @@ public class VkPhysicalDeviceIDPropertiesKHR extends Struct {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceIDPropertiesKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceIDPropertiesKHR.npNext(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code deviceUUID} field. */
+        @NativeType("uint8_t[VK_UUID_SIZE]")
         public ByteBuffer deviceUUID() { return VkPhysicalDeviceIDPropertiesKHR.ndeviceUUID(address()); }
         /** Returns the value at the specified index of the {@code deviceUUID} field. */
+        @NativeType("uint8_t")
         public byte deviceUUID(int index) { return VkPhysicalDeviceIDPropertiesKHR.ndeviceUUID(address(), index); }
         /** Returns a {@link ByteBuffer} view of the {@code driverUUID} field. */
+        @NativeType("uint8_t[VK_UUID_SIZE]")
         public ByteBuffer driverUUID() { return VkPhysicalDeviceIDPropertiesKHR.ndriverUUID(address()); }
         /** Returns the value at the specified index of the {@code driverUUID} field. */
+        @NativeType("uint8_t")
         public byte driverUUID(int index) { return VkPhysicalDeviceIDPropertiesKHR.ndriverUUID(address(), index); }
         /** Returns a {@link ByteBuffer} view of the {@code deviceLUID} field. */
+        @NativeType("uint8_t[VK_LUID_SIZE_KHR]")
         public ByteBuffer deviceLUID() { return VkPhysicalDeviceIDPropertiesKHR.ndeviceLUID(address()); }
         /** Returns the value at the specified index of the {@code deviceLUID} field. */
+        @NativeType("uint8_t")
         public byte deviceLUID(int index) { return VkPhysicalDeviceIDPropertiesKHR.ndeviceLUID(address(), index); }
         /** Returns the value of the {@code deviceNodeMask} field. */
+        @NativeType("uint32_t")
         public int deviceNodeMask() { return VkPhysicalDeviceIDPropertiesKHR.ndeviceNodeMask(address()); }
         /** Returns the value of the {@code deviceLUIDValid} field. */
+        @NativeType("VkBool32")
         public boolean deviceLUIDValid() { return VkPhysicalDeviceIDPropertiesKHR.ndeviceLUIDValid(address()) != 0; }
 
     }

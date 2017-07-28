@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL11#clSetEventCallback SetEventCallback} method. */
 @FunctionalInterface
+@NativeType("cl_event_callback")
 public interface CLEventCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pip)v");
@@ -37,6 +38,6 @@ public interface CLEventCallbackI extends CallbackI.V {
      *                                  {@code event_command_exec_status} instead.
      * @param user_data                 the user-specified value that was passed when calling {@link CL11#clSetEventCallback SetEventCallback}
      */
-    void invoke(long event, int event_command_exec_status, long user_data);
+    void invoke(@NativeType("cl_event") long event, @NativeType("cl_int") int event_command_exec_status, @NativeType("void *") long user_data);
 
 }

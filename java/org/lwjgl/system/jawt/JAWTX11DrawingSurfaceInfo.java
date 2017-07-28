@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     int depth;
  * }</pre></code>
  */
+@NativeType("struct JAWT_X11DrawingSurfaceInfo")
 public class JAWTX11DrawingSurfaceInfo extends Struct {
 
     /** The struct size in bytes. */
@@ -87,12 +88,16 @@ public class JAWTX11DrawingSurfaceInfo extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code drawable} field. */
+    @NativeType("Drawable")
     public long drawable() { return ndrawable(address()); }
     /** Returns the value of the {@code display} field. */
+    @NativeType("Display *")
     public long display() { return ndisplay(address()); }
     /** Returns the value of the {@code visualID} field. */
+    @NativeType("VisualID")
     public long visualID() { return nvisualID(address()); }
     /** Returns the value of the {@code colormapID} field. */
+    @NativeType("Colormap")
     public long colormapID() { return ncolormapID(address()); }
     /** Returns the value of the {@code depth} field. */
     public int depth() { return ndepth(address()); }
@@ -170,12 +175,16 @@ public class JAWTX11DrawingSurfaceInfo extends Struct {
         }
 
         /** Returns the value of the {@code drawable} field. */
+        @NativeType("Drawable")
         public long drawable() { return JAWTX11DrawingSurfaceInfo.ndrawable(address()); }
         /** Returns the value of the {@code display} field. */
+        @NativeType("Display *")
         public long display() { return JAWTX11DrawingSurfaceInfo.ndisplay(address()); }
         /** Returns the value of the {@code visualID} field. */
+        @NativeType("VisualID")
         public long visualID() { return JAWTX11DrawingSurfaceInfo.nvisualID(address()); }
         /** Returns the value of the {@code colormapID} field. */
+        @NativeType("Colormap")
         public long colormapID() { return JAWTX11DrawingSurfaceInfo.ncolormapID(address()); }
         /** Returns the value of the {@code depth} field. */
         public int depth() { return JAWTX11DrawingSurfaceInfo.ndepth(address()); }

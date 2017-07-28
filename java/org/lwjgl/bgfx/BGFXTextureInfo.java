@@ -45,6 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     bool cubeMap;
  * }</pre></code>
  */
+@NativeType("struct bgfx_texture_info_t")
 public class BGFXTextureInfo extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -109,22 +110,31 @@ public class BGFXTextureInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code format} field. */
+    @NativeType("bgfx_texture_format_t")
     public int format() { return nformat(address()); }
     /** Returns the value of the {@code storageSize} field. */
+    @NativeType("uint32_t")
     public int storageSize() { return nstorageSize(address()); }
     /** Returns the value of the {@code width} field. */
+    @NativeType("uint16_t")
     public short width() { return nwidth(address()); }
     /** Returns the value of the {@code height} field. */
+    @NativeType("uint16_t")
     public short height() { return nheight(address()); }
     /** Returns the value of the {@code depth} field. */
+    @NativeType("uint16_t")
     public short depth() { return ndepth(address()); }
     /** Returns the value of the {@code numLayers} field. */
+    @NativeType("uint16_t")
     public short numLayers() { return nnumLayers(address()); }
     /** Returns the value of the {@code numMips} field. */
+    @NativeType("uint8_t")
     public byte numMips() { return nnumMips(address()); }
     /** Returns the value of the {@code bitsPerPixel} field. */
+    @NativeType("uint8_t")
     public byte bitsPerPixel() { return nbitsPerPixel(address()); }
     /** Returns the value of the {@code cubeMap} field. */
+    @NativeType("bool")
     public boolean cubeMap() { return ncubeMap(address()); }
 
     // -----------------------------------
@@ -318,22 +328,31 @@ public class BGFXTextureInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code format} field. */
+        @NativeType("bgfx_texture_format_t")
         public int format() { return BGFXTextureInfo.nformat(address()); }
         /** Returns the value of the {@code storageSize} field. */
+        @NativeType("uint32_t")
         public int storageSize() { return BGFXTextureInfo.nstorageSize(address()); }
         /** Returns the value of the {@code width} field. */
+        @NativeType("uint16_t")
         public short width() { return BGFXTextureInfo.nwidth(address()); }
         /** Returns the value of the {@code height} field. */
+        @NativeType("uint16_t")
         public short height() { return BGFXTextureInfo.nheight(address()); }
         /** Returns the value of the {@code depth} field. */
+        @NativeType("uint16_t")
         public short depth() { return BGFXTextureInfo.ndepth(address()); }
         /** Returns the value of the {@code numLayers} field. */
+        @NativeType("uint16_t")
         public short numLayers() { return BGFXTextureInfo.nnumLayers(address()); }
         /** Returns the value of the {@code numMips} field. */
+        @NativeType("uint8_t")
         public byte numMips() { return BGFXTextureInfo.nnumMips(address()); }
         /** Returns the value of the {@code bitsPerPixel} field. */
+        @NativeType("uint8_t")
         public byte bitsPerPixel() { return BGFXTextureInfo.nbitsPerPixel(address()); }
         /** Returns the value of the {@code cubeMap} field. */
+        @NativeType("bool")
         public boolean cubeMap() { return BGFXTextureInfo.ncubeMap(address()); }
 
     }

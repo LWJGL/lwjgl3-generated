@@ -44,6 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link AIMeshAnim struct aiMeshAnim} ** mMeshChannels;
  * }</pre></code>
  */
+@NativeType("struct aiAnimation")
 public class AIAnimation extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -102,30 +103,35 @@ public class AIAnimation extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIString} view of the {@code mName} field. */
+    @NativeType("struct aiString")
     public AIString mName() { return nmName(address()); }
     /** Returns the value of the {@code mDuration} field. */
     public double mDuration() { return nmDuration(address()); }
     /** Returns the value of the {@code mTicksPerSecond} field. */
     public double mTicksPerSecond() { return nmTicksPerSecond(address()); }
     /** Returns the value of the {@code mNumChannels} field. */
+    @NativeType("unsigned int")
     public int mNumChannels() { return nmNumChannels(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mChannels} field. */
+    @NativeType("struct aiNodeAnim **")
     public PointerBuffer mChannels() { return nmChannels(address()); }
     /** Returns the value of the {@code mNumMeshChannels} field. */
+    @NativeType("unsigned int")
     public int mNumMeshChannels() { return nmNumMeshChannels(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mMeshChannels} field. */
+    @NativeType("struct aiMeshAnim **")
     public PointerBuffer mMeshChannels() { return nmMeshChannels(address()); }
 
     /** Copies the specified {@link AIString} to the {@code mName} field. */
-    public AIAnimation mName(AIString value) { nmName(address(), value); return this; }
+    public AIAnimation mName(@NativeType("struct aiString") AIString value) { nmName(address(), value); return this; }
     /** Sets the specified value to the {@code mDuration} field. */
     public AIAnimation mDuration(double value) { nmDuration(address(), value); return this; }
     /** Sets the specified value to the {@code mTicksPerSecond} field. */
     public AIAnimation mTicksPerSecond(double value) { nmTicksPerSecond(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mChannels} field. */
-    public AIAnimation mChannels(PointerBuffer value) { nmChannels(address(), value); return this; }
+    public AIAnimation mChannels(@NativeType("struct aiNodeAnim **") PointerBuffer value) { nmChannels(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mMeshChannels} field. */
-    public AIAnimation mMeshChannels(PointerBuffer value) { nmMeshChannels(address(), value); return this; }
+    public AIAnimation mMeshChannels(@NativeType("struct aiMeshAnim **") PointerBuffer value) { nmMeshChannels(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIAnimation set(
@@ -380,30 +386,35 @@ public class AIAnimation extends Struct implements NativeResource {
         }
 
         /** Returns a {@link AIString} view of the {@code mName} field. */
+        @NativeType("struct aiString")
         public AIString mName() { return AIAnimation.nmName(address()); }
         /** Returns the value of the {@code mDuration} field. */
         public double mDuration() { return AIAnimation.nmDuration(address()); }
         /** Returns the value of the {@code mTicksPerSecond} field. */
         public double mTicksPerSecond() { return AIAnimation.nmTicksPerSecond(address()); }
         /** Returns the value of the {@code mNumChannels} field. */
+        @NativeType("unsigned int")
         public int mNumChannels() { return AIAnimation.nmNumChannels(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mChannels} field. */
+        @NativeType("struct aiNodeAnim **")
         public PointerBuffer mChannels() { return AIAnimation.nmChannels(address()); }
         /** Returns the value of the {@code mNumMeshChannels} field. */
+        @NativeType("unsigned int")
         public int mNumMeshChannels() { return AIAnimation.nmNumMeshChannels(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mMeshChannels} field. */
+        @NativeType("struct aiMeshAnim **")
         public PointerBuffer mMeshChannels() { return AIAnimation.nmMeshChannels(address()); }
 
         /** Copies the specified {@link AIString} to the {@code mName} field. */
-        public AIAnimation.Buffer mName(AIString value) { AIAnimation.nmName(address(), value); return this; }
+        public AIAnimation.Buffer mName(@NativeType("struct aiString") AIString value) { AIAnimation.nmName(address(), value); return this; }
         /** Sets the specified value to the {@code mDuration} field. */
         public AIAnimation.Buffer mDuration(double value) { AIAnimation.nmDuration(address(), value); return this; }
         /** Sets the specified value to the {@code mTicksPerSecond} field. */
         public AIAnimation.Buffer mTicksPerSecond(double value) { AIAnimation.nmTicksPerSecond(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mChannels} field. */
-        public AIAnimation.Buffer mChannels(PointerBuffer value) { AIAnimation.nmChannels(address(), value); return this; }
+        public AIAnimation.Buffer mChannels(@NativeType("struct aiNodeAnim **") PointerBuffer value) { AIAnimation.nmChannels(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mMeshChannels} field. */
-        public AIAnimation.Buffer mMeshChannels(PointerBuffer value) { AIAnimation.nmMeshChannels(address(), value); return this; }
+        public AIAnimation.Buffer mMeshChannels(@NativeType("struct aiMeshAnim **") PointerBuffer value) { AIAnimation.nmMeshChannels(address(), value); return this; }
 
     }
 

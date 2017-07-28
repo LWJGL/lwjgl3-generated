@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint16_t layer;
  * }</pre></code>
  */
+@NativeType("struct bgfx_attachment_t")
 public class BGFXAttachment extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -79,18 +80,21 @@ public class BGFXAttachment extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code handle} field. */
+    @NativeType("bgfx_texture_handle_t")
     public short handle() { return nhandle(address()); }
     /** Returns the value of the {@code mip} field. */
+    @NativeType("uint16_t")
     public short mip() { return nmip(address()); }
     /** Returns the value of the {@code layer} field. */
+    @NativeType("uint16_t")
     public short layer() { return nlayer(address()); }
 
     /** Sets the specified value to the {@code handle} field. */
-    public BGFXAttachment handle(short value) { nhandle(address(), value); return this; }
+    public BGFXAttachment handle(@NativeType("bgfx_texture_handle_t") short value) { nhandle(address(), value); return this; }
     /** Sets the specified value to the {@code mip} field. */
-    public BGFXAttachment mip(short value) { nmip(address(), value); return this; }
+    public BGFXAttachment mip(@NativeType("uint16_t") short value) { nmip(address(), value); return this; }
     /** Sets the specified value to the {@code layer} field. */
-    public BGFXAttachment layer(short value) { nlayer(address(), value); return this; }
+    public BGFXAttachment layer(@NativeType("uint16_t") short value) { nlayer(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public BGFXAttachment set(
@@ -303,18 +307,21 @@ public class BGFXAttachment extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code handle} field. */
+        @NativeType("bgfx_texture_handle_t")
         public short handle() { return BGFXAttachment.nhandle(address()); }
         /** Returns the value of the {@code mip} field. */
+        @NativeType("uint16_t")
         public short mip() { return BGFXAttachment.nmip(address()); }
         /** Returns the value of the {@code layer} field. */
+        @NativeType("uint16_t")
         public short layer() { return BGFXAttachment.nlayer(address()); }
 
         /** Sets the specified value to the {@code handle} field. */
-        public BGFXAttachment.Buffer handle(short value) { BGFXAttachment.nhandle(address(), value); return this; }
+        public BGFXAttachment.Buffer handle(@NativeType("bgfx_texture_handle_t") short value) { BGFXAttachment.nhandle(address(), value); return this; }
         /** Sets the specified value to the {@code mip} field. */
-        public BGFXAttachment.Buffer mip(short value) { BGFXAttachment.nmip(address(), value); return this; }
+        public BGFXAttachment.Buffer mip(@NativeType("uint16_t") short value) { BGFXAttachment.nmip(address(), value); return this; }
         /** Sets the specified value to the {@code layer} field. */
-        public BGFXAttachment.Buffer layer(short value) { BGFXAttachment.nlayer(address(), value); return this; }
+        public BGFXAttachment.Buffer layer(@NativeType("uint16_t") short value) { BGFXAttachment.nlayer(address(), value); return this; }
 
     }
 

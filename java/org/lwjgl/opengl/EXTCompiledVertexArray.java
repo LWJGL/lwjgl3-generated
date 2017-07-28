@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -40,7 +42,7 @@ public class EXTCompiledVertexArray {
 
     // --- [ glLockArraysEXT ] ---
 
-    public static native void glLockArraysEXT(int first, int count);
+    public static native void glLockArraysEXT(@NativeType("GLint") int first, @NativeType("GLsizei") int count);
 
     // --- [ glUnlockArraysEXT ] ---
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -141,6 +143,6 @@ public class EXTTessellationShader {
 
     // --- [ glPatchParameteriEXT ] ---
 
-    public static native void glPatchParameteriEXT(int pname, int value);
+    public static native void glPatchParameteriEXT(@NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
 }

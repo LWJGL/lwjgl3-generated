@@ -99,20 +99,24 @@ public class MONITORINFOEX extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code cbSize} field. */
+    @NativeType("DWORD")
     public int cbSize() { return ncbSize(address()); }
     /** Returns a {@link RECT} view of the {@code rcMonitor} field. */
     public RECT rcMonitor() { return nrcMonitor(address()); }
     /** Returns a {@link RECT} view of the {@code rcWork} field. */
     public RECT rcWork() { return nrcWork(address()); }
     /** Returns the value of the {@code dwFlags} field. */
+    @NativeType("DWORD")
     public int dwFlags() { return ndwFlags(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code szDevice} field. */
+    @NativeType("TCHAR[32]")
     public ByteBuffer szDevice() { return nszDevice(address()); }
     /** Decodes the null-terminated string stored in the {@code szDevice} field. */
+    @NativeType("TCHAR[32]")
     public String szDeviceString() { return nszDeviceString(address()); }
 
     /** Sets the specified value to the {@code cbSize} field. */
-    public MONITORINFOEX cbSize(int value) { ncbSize(address(), value); return this; }
+    public MONITORINFOEX cbSize(@NativeType("DWORD") int value) { ncbSize(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -314,20 +318,24 @@ public class MONITORINFOEX extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code cbSize} field. */
+        @NativeType("DWORD")
         public int cbSize() { return MONITORINFOEX.ncbSize(address()); }
         /** Returns a {@link RECT} view of the {@code rcMonitor} field. */
         public RECT rcMonitor() { return MONITORINFOEX.nrcMonitor(address()); }
         /** Returns a {@link RECT} view of the {@code rcWork} field. */
         public RECT rcWork() { return MONITORINFOEX.nrcWork(address()); }
         /** Returns the value of the {@code dwFlags} field. */
+        @NativeType("DWORD")
         public int dwFlags() { return MONITORINFOEX.ndwFlags(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code szDevice} field. */
+        @NativeType("TCHAR[32]")
         public ByteBuffer szDevice() { return MONITORINFOEX.nszDevice(address()); }
         /** Decodes the null-terminated string stored in the {@code szDevice} field. */
+        @NativeType("TCHAR[32]")
         public String szDeviceString() { return MONITORINFOEX.nszDeviceString(address()); }
 
         /** Sets the specified value to the {@code cbSize} field. */
-        public MONITORINFOEX.Buffer cbSize(int value) { MONITORINFOEX.ncbSize(address(), value); return this; }
+        public MONITORINFOEX.Buffer cbSize(@NativeType("DWORD") int value) { MONITORINFOEX.ncbSize(address(), value); return this; }
 
     }
 

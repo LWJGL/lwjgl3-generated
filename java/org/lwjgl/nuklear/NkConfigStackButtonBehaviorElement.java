@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     enum nk_button_behavior old_value;
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_button_behavior_element")
 class NkConfigStackButtonBehaviorElement extends Struct {
 
     /** The struct size in bytes. */
@@ -67,8 +68,10 @@ class NkConfigStackButtonBehaviorElement extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("enum nk_button_behavior *")
     public IntBuffer pValues(int capacity) { return npValues(address(), capacity); }
     /** Returns the value of the {@code old_value} field. */
+    @NativeType("enum nk_button_behavior")
     public int old_value() { return nold_value(address()); }
 
     // -----------------------------------
@@ -142,8 +145,10 @@ class NkConfigStackButtonBehaviorElement extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("enum nk_button_behavior *")
         public IntBuffer pValues(int capacity) { return NkConfigStackButtonBehaviorElement.npValues(address(), capacity); }
         /** Returns the value of the {@code old_value} field. */
+        @NativeType("enum nk_button_behavior")
         public int old_value() { return NkConfigStackButtonBehaviorElement.nold_value(address()); }
 
     }

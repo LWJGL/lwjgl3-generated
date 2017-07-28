@@ -102,22 +102,26 @@ public class VkExportMemoryWin32HandleInfoNV extends Struct implements NativeRes
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+    @NativeType("const SECURITY_ATTRIBUTES *")
     public SECURITY_ATTRIBUTES pAttributes() { return npAttributes(address()); }
     /** Returns the value of the {@code dwAccess} field. */
+    @NativeType("DWORD")
     public int dwAccess() { return ndwAccess(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkExportMemoryWin32HandleInfoNV sType(int value) { nsType(address(), value); return this; }
+    public VkExportMemoryWin32HandleInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkExportMemoryWin32HandleInfoNV pNext(long value) { npNext(address(), value); return this; }
+    public VkExportMemoryWin32HandleInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-    public VkExportMemoryWin32HandleInfoNV pAttributes(SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
+    public VkExportMemoryWin32HandleInfoNV pAttributes(@NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
     /** Sets the specified value to the {@code dwAccess} field. */
-    public VkExportMemoryWin32HandleInfoNV dwAccess(int value) { ndwAccess(address(), value); return this; }
+    public VkExportMemoryWin32HandleInfoNV dwAccess(@NativeType("DWORD") int value) { ndwAccess(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkExportMemoryWin32HandleInfoNV set(
@@ -360,22 +364,26 @@ public class VkExportMemoryWin32HandleInfoNV extends Struct implements NativeRes
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkExportMemoryWin32HandleInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkExportMemoryWin32HandleInfoNV.npNext(address()); }
         /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+        @NativeType("const SECURITY_ATTRIBUTES *")
         public SECURITY_ATTRIBUTES pAttributes() { return VkExportMemoryWin32HandleInfoNV.npAttributes(address()); }
         /** Returns the value of the {@code dwAccess} field. */
+        @NativeType("DWORD")
         public int dwAccess() { return VkExportMemoryWin32HandleInfoNV.ndwAccess(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkExportMemoryWin32HandleInfoNV.Buffer sType(int value) { VkExportMemoryWin32HandleInfoNV.nsType(address(), value); return this; }
+        public VkExportMemoryWin32HandleInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkExportMemoryWin32HandleInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkExportMemoryWin32HandleInfoNV.Buffer pNext(long value) { VkExportMemoryWin32HandleInfoNV.npNext(address(), value); return this; }
+        public VkExportMemoryWin32HandleInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkExportMemoryWin32HandleInfoNV.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-        public VkExportMemoryWin32HandleInfoNV.Buffer pAttributes(SECURITY_ATTRIBUTES value) { VkExportMemoryWin32HandleInfoNV.npAttributes(address(), value); return this; }
+        public VkExportMemoryWin32HandleInfoNV.Buffer pAttributes(@NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { VkExportMemoryWin32HandleInfoNV.npAttributes(address(), value); return this; }
         /** Sets the specified value to the {@code dwAccess} field. */
-        public VkExportMemoryWin32HandleInfoNV.Buffer dwAccess(int value) { VkExportMemoryWin32HandleInfoNV.ndwAccess(address(), value); return this; }
+        public VkExportMemoryWin32HandleInfoNV.Buffer dwAccess(@NativeType("DWORD") int value) { VkExportMemoryWin32HandleInfoNV.ndwAccess(address(), value); return this; }
 
     }
 

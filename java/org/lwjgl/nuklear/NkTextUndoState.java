@@ -25,6 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     short redo_char_point;
  * }</pre></code>
  */
+@NativeType("struct nk_text_undo_state")
 class NkTextUndoState extends Struct {
 
     /** The struct size in bytes. */
@@ -80,12 +81,16 @@ class NkTextUndoState extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkTextUndoRecord}.Buffer view of the {@code undo_rec} field. */
+    @NativeType("struct nk_text_undo_record[99]")
     public NkTextUndoRecord.Buffer undo_rec() { return nundo_rec(address()); }
     /** Returns a {@link NkTextUndoRecord} view of the struct at the specified index of the {@code undo_rec} field. */
+    @NativeType("struct nk_text_undo_record")
     public NkTextUndoRecord undo_rec(int index) { return nundo_rec(address(), index); }
     /** Returns a {@link IntBuffer} view of the {@code undo_char} field. */
+    @NativeType("nk_rune[999]")
     public IntBuffer undo_char() { return nundo_char(address()); }
     /** Returns the value at the specified index of the {@code undo_char} field. */
+    @NativeType("nk_rune")
     public int undo_char(int index) { return nundo_char(address(), index); }
     /** Returns the value of the {@code undo_point} field. */
     public short undo_point() { return nundo_point(address()); }
@@ -181,12 +186,16 @@ class NkTextUndoState extends Struct {
         }
 
         /** Returns a {@link NkTextUndoRecord}.Buffer view of the {@code undo_rec} field. */
+        @NativeType("struct nk_text_undo_record[99]")
         public NkTextUndoRecord.Buffer undo_rec() { return NkTextUndoState.nundo_rec(address()); }
         /** Returns a {@link NkTextUndoRecord} view of the struct at the specified index of the {@code undo_rec} field. */
+        @NativeType("struct nk_text_undo_record")
         public NkTextUndoRecord undo_rec(int index) { return NkTextUndoState.nundo_rec(address(), index); }
         /** Returns a {@link IntBuffer} view of the {@code undo_char} field. */
+        @NativeType("nk_rune[999]")
         public IntBuffer undo_char() { return NkTextUndoState.nundo_char(address()); }
         /** Returns the value at the specified index of the {@code undo_char} field. */
+        @NativeType("nk_rune")
         public int undo_char(int index) { return NkTextUndoState.nundo_char(address(), index); }
         /** Returns the value of the {@code undo_point} field. */
         public short undo_point() { return NkTextUndoState.nundo_point(address()); }

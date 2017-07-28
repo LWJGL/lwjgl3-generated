@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("aiFileWriteProc")
 public interface AIFileWriteProcI extends CallbackI.P {
 
     String SIGNATURE = "(pppp)p";
@@ -36,6 +37,6 @@ public interface AIFileWriteProcI extends CallbackI.P {
      * @param memB    Size of the individual element to be written
      * @param count   Number of elements to be written
      */
-    long invoke(long pFile, long pBuffer, long memB, long count);
+    @NativeType("size_t") long invoke(@NativeType("struct aiFile *") long pFile, @NativeType("const char *") long pBuffer, @NativeType("size_t") long memB, @NativeType("size_t") long count);
 
 }

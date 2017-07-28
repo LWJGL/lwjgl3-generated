@@ -77,10 +77,13 @@ public class VkTextureLODGatherFormatPropertiesAMD extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code supportsTextureGatherLODBiasAMD} field. */
+    @NativeType("VkBool32")
     public boolean supportsTextureGatherLODBiasAMD() { return nsupportsTextureGatherLODBiasAMD(address()) != 0; }
 
     // -----------------------------------
@@ -152,10 +155,13 @@ public class VkTextureLODGatherFormatPropertiesAMD extends Struct {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkTextureLODGatherFormatPropertiesAMD.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkTextureLODGatherFormatPropertiesAMD.npNext(address()); }
         /** Returns the value of the {@code supportsTextureGatherLODBiasAMD} field. */
+        @NativeType("VkBool32")
         public boolean supportsTextureGatherLODBiasAMD() { return VkTextureLODGatherFormatPropertiesAMD.nsupportsTextureGatherLODBiasAMD(address()) != 0; }
 
     }

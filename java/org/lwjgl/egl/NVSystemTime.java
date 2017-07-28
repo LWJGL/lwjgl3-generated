@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -29,6 +31,7 @@ public class NVSystemTime {
 
     // --- [ eglGetSystemTimeFrequencyNV ] ---
 
+    @NativeType("EGLuint64NV")
     public static long eglGetSystemTimeFrequencyNV() {
         long __functionAddress = EGL.getCapabilities().eglGetSystemTimeFrequencyNV;
         if (CHECKS) {
@@ -39,6 +42,7 @@ public class NVSystemTime {
 
     // --- [ eglGetSystemTimeNV ] ---
 
+    @NativeType("EGLuint64NV")
     public static long eglGetSystemTimeNV() {
         long __functionAddress = EGL.getCapabilities().eglGetSystemTimeNV;
         if (CHECKS) {

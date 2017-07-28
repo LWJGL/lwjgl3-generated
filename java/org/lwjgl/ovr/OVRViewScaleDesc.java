@@ -43,6 +43,7 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  *     float HmdSpaceToWorldScaleInMeters;
  * }</pre></code>
  */
+@NativeType("struct ovrViewScaleDesc")
 public class OVRViewScaleDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -86,16 +87,18 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeOffset} field. */
+    @NativeType("ovrVector3f[ovrEye_Count]")
     public OVRVector3f.Buffer HmdToEyeOffset() { return nHmdToEyeOffset(address()); }
     /** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeOffset} field. */
+    @NativeType("ovrVector3f")
     public OVRVector3f HmdToEyeOffset(int index) { return nHmdToEyeOffset(address(), index); }
     /** Returns the value of the {@code HmdSpaceToWorldScaleInMeters} field. */
     public float HmdSpaceToWorldScaleInMeters() { return nHmdSpaceToWorldScaleInMeters(address()); }
 
     /** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeOffset} field. */
-    public OVRViewScaleDesc HmdToEyeOffset(OVRVector3f.Buffer value) { nHmdToEyeOffset(address(), value); return this; }
+    public OVRViewScaleDesc HmdToEyeOffset(@NativeType("ovrVector3f[ovrEye_Count]") OVRVector3f.Buffer value) { nHmdToEyeOffset(address(), value); return this; }
     /** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeOffset} field. */
-    public OVRViewScaleDesc HmdToEyeOffset(int index, OVRVector3f value) { nHmdToEyeOffset(address(), index, value); return this; }
+    public OVRViewScaleDesc HmdToEyeOffset(int index, @NativeType("ovrVector3f") OVRVector3f value) { nHmdToEyeOffset(address(), index, value); return this; }
     /** Sets the specified value to the {@code HmdSpaceToWorldScaleInMeters} field. */
     public OVRViewScaleDesc HmdSpaceToWorldScaleInMeters(float value) { nHmdSpaceToWorldScaleInMeters(address(), value); return this; }
 
@@ -317,16 +320,18 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeOffset} field. */
+        @NativeType("ovrVector3f[ovrEye_Count]")
         public OVRVector3f.Buffer HmdToEyeOffset() { return OVRViewScaleDesc.nHmdToEyeOffset(address()); }
         /** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeOffset} field. */
+        @NativeType("ovrVector3f")
         public OVRVector3f HmdToEyeOffset(int index) { return OVRViewScaleDesc.nHmdToEyeOffset(address(), index); }
         /** Returns the value of the {@code HmdSpaceToWorldScaleInMeters} field. */
         public float HmdSpaceToWorldScaleInMeters() { return OVRViewScaleDesc.nHmdSpaceToWorldScaleInMeters(address()); }
 
         /** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeOffset} field. */
-        public OVRViewScaleDesc.Buffer HmdToEyeOffset(OVRVector3f.Buffer value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), value); return this; }
+        public OVRViewScaleDesc.Buffer HmdToEyeOffset(@NativeType("ovrVector3f[ovrEye_Count]") OVRVector3f.Buffer value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), value); return this; }
         /** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeOffset} field. */
-        public OVRViewScaleDesc.Buffer HmdToEyeOffset(int index, OVRVector3f value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), index, value); return this; }
+        public OVRViewScaleDesc.Buffer HmdToEyeOffset(int index, @NativeType("ovrVector3f") OVRVector3f value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), index, value); return this; }
         /** Sets the specified value to the {@code HmdSpaceToWorldScaleInMeters} field. */
         public OVRViewScaleDesc.Buffer HmdSpaceToWorldScaleInMeters(float value) { OVRViewScaleDesc.nHmdSpaceToWorldScaleInMeters(address(), value); return this; }
 

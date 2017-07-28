@@ -42,6 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     };
  * }</pre></code>
  */
+@NativeType("struct NVGcolor")
 public class NVGColor extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -98,6 +99,7 @@ public class NVGColor extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code rgba} field. */
+    @NativeType("float[4]")
     public FloatBuffer rgba() { return nrgba(address()); }
     /** Returns the value at the specified index of the {@code rgba} field. */
     public float rgba(int index) { return nrgba(address(), index); }
@@ -111,7 +113,7 @@ public class NVGColor extends Struct implements NativeResource {
     public float a() { return na(address()); }
 
     /** Copies the specified {@link FloatBuffer} to the {@code rgba} field. */
-    public NVGColor rgba(FloatBuffer value) { nrgba(address(), value); return this; }
+    public NVGColor rgba(@NativeType("float[4]") FloatBuffer value) { nrgba(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code rgba} field. */
     public NVGColor rgba(int index, float value) { nrgba(address(), index, value); return this; }
     /** Sets the specified value to the {@code r} field. */
@@ -342,6 +344,7 @@ public class NVGColor extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code rgba} field. */
+        @NativeType("float[4]")
         public FloatBuffer rgba() { return NVGColor.nrgba(address()); }
         /** Returns the value at the specified index of the {@code rgba} field. */
         public float rgba(int index) { return NVGColor.nrgba(address(), index); }
@@ -355,7 +358,7 @@ public class NVGColor extends Struct implements NativeResource {
         public float a() { return NVGColor.na(address()); }
 
         /** Copies the specified {@link FloatBuffer} to the {@code rgba} field. */
-        public NVGColor.Buffer rgba(FloatBuffer value) { NVGColor.nrgba(address(), value); return this; }
+        public NVGColor.Buffer rgba(@NativeType("float[4]") FloatBuffer value) { NVGColor.nrgba(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code rgba} field. */
         public NVGColor.Buffer rgba(int index, float value) { NVGColor.nrgba(address(), index, value); return this; }
         /** Sets the specified value to the {@code r} field. */

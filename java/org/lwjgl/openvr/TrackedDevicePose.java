@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     bool bDeviceIsConnected;
  * }</pre></code>
  */
+@NativeType("struct TrackedDevicePose_t")
 public class TrackedDevicePose extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -91,30 +92,36 @@ public class TrackedDevicePose extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdMatrix34} view of the {@code mDeviceToAbsoluteTracking} field. */
+    @NativeType("HmdMatrix34_t")
     public HmdMatrix34 mDeviceToAbsoluteTracking() { return nmDeviceToAbsoluteTracking(address()); }
     /** Returns a {@link HmdVector3} view of the {@code vVelocity} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vVelocity() { return nvVelocity(address()); }
     /** Returns a {@link HmdVector3} view of the {@code vAngularVelocity} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vAngularVelocity() { return nvAngularVelocity(address()); }
     /** Returns the value of the {@code eTrackingResult} field. */
+    @NativeType("ETrackingResult")
     public int eTrackingResult() { return neTrackingResult(address()); }
     /** Returns the value of the {@code bPoseIsValid} field. */
+    @NativeType("bool")
     public boolean bPoseIsValid() { return nbPoseIsValid(address()); }
     /** Returns the value of the {@code bDeviceIsConnected} field. */
+    @NativeType("bool")
     public boolean bDeviceIsConnected() { return nbDeviceIsConnected(address()); }
 
     /** Copies the specified {@link HmdMatrix34} to the {@code mDeviceToAbsoluteTracking} field. */
-    public TrackedDevicePose mDeviceToAbsoluteTracking(HmdMatrix34 value) { nmDeviceToAbsoluteTracking(address(), value); return this; }
+    public TrackedDevicePose mDeviceToAbsoluteTracking(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { nmDeviceToAbsoluteTracking(address(), value); return this; }
     /** Copies the specified {@link HmdVector3} to the {@code vVelocity} field. */
-    public TrackedDevicePose vVelocity(HmdVector3 value) { nvVelocity(address(), value); return this; }
+    public TrackedDevicePose vVelocity(@NativeType("HmdVector3_t") HmdVector3 value) { nvVelocity(address(), value); return this; }
     /** Copies the specified {@link HmdVector3} to the {@code vAngularVelocity} field. */
-    public TrackedDevicePose vAngularVelocity(HmdVector3 value) { nvAngularVelocity(address(), value); return this; }
+    public TrackedDevicePose vAngularVelocity(@NativeType("HmdVector3_t") HmdVector3 value) { nvAngularVelocity(address(), value); return this; }
     /** Sets the specified value to the {@code eTrackingResult} field. */
-    public TrackedDevicePose eTrackingResult(int value) { neTrackingResult(address(), value); return this; }
+    public TrackedDevicePose eTrackingResult(@NativeType("ETrackingResult") int value) { neTrackingResult(address(), value); return this; }
     /** Sets the specified value to the {@code bPoseIsValid} field. */
-    public TrackedDevicePose bPoseIsValid(boolean value) { nbPoseIsValid(address(), value); return this; }
+    public TrackedDevicePose bPoseIsValid(@NativeType("bool") boolean value) { nbPoseIsValid(address(), value); return this; }
     /** Sets the specified value to the {@code bDeviceIsConnected} field. */
-    public TrackedDevicePose bDeviceIsConnected(boolean value) { nbDeviceIsConnected(address(), value); return this; }
+    public TrackedDevicePose bDeviceIsConnected(@NativeType("bool") boolean value) { nbDeviceIsConnected(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public TrackedDevicePose set(
@@ -345,30 +352,36 @@ public class TrackedDevicePose extends Struct implements NativeResource {
         }
 
         /** Returns a {@link HmdMatrix34} view of the {@code mDeviceToAbsoluteTracking} field. */
+        @NativeType("HmdMatrix34_t")
         public HmdMatrix34 mDeviceToAbsoluteTracking() { return TrackedDevicePose.nmDeviceToAbsoluteTracking(address()); }
         /** Returns a {@link HmdVector3} view of the {@code vVelocity} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vVelocity() { return TrackedDevicePose.nvVelocity(address()); }
         /** Returns a {@link HmdVector3} view of the {@code vAngularVelocity} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vAngularVelocity() { return TrackedDevicePose.nvAngularVelocity(address()); }
         /** Returns the value of the {@code eTrackingResult} field. */
+        @NativeType("ETrackingResult")
         public int eTrackingResult() { return TrackedDevicePose.neTrackingResult(address()); }
         /** Returns the value of the {@code bPoseIsValid} field. */
+        @NativeType("bool")
         public boolean bPoseIsValid() { return TrackedDevicePose.nbPoseIsValid(address()); }
         /** Returns the value of the {@code bDeviceIsConnected} field. */
+        @NativeType("bool")
         public boolean bDeviceIsConnected() { return TrackedDevicePose.nbDeviceIsConnected(address()); }
 
         /** Copies the specified {@link HmdMatrix34} to the {@code mDeviceToAbsoluteTracking} field. */
-        public TrackedDevicePose.Buffer mDeviceToAbsoluteTracking(HmdMatrix34 value) { TrackedDevicePose.nmDeviceToAbsoluteTracking(address(), value); return this; }
+        public TrackedDevicePose.Buffer mDeviceToAbsoluteTracking(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { TrackedDevicePose.nmDeviceToAbsoluteTracking(address(), value); return this; }
         /** Copies the specified {@link HmdVector3} to the {@code vVelocity} field. */
-        public TrackedDevicePose.Buffer vVelocity(HmdVector3 value) { TrackedDevicePose.nvVelocity(address(), value); return this; }
+        public TrackedDevicePose.Buffer vVelocity(@NativeType("HmdVector3_t") HmdVector3 value) { TrackedDevicePose.nvVelocity(address(), value); return this; }
         /** Copies the specified {@link HmdVector3} to the {@code vAngularVelocity} field. */
-        public TrackedDevicePose.Buffer vAngularVelocity(HmdVector3 value) { TrackedDevicePose.nvAngularVelocity(address(), value); return this; }
+        public TrackedDevicePose.Buffer vAngularVelocity(@NativeType("HmdVector3_t") HmdVector3 value) { TrackedDevicePose.nvAngularVelocity(address(), value); return this; }
         /** Sets the specified value to the {@code eTrackingResult} field. */
-        public TrackedDevicePose.Buffer eTrackingResult(int value) { TrackedDevicePose.neTrackingResult(address(), value); return this; }
+        public TrackedDevicePose.Buffer eTrackingResult(@NativeType("ETrackingResult") int value) { TrackedDevicePose.neTrackingResult(address(), value); return this; }
         /** Sets the specified value to the {@code bPoseIsValid} field. */
-        public TrackedDevicePose.Buffer bPoseIsValid(boolean value) { TrackedDevicePose.nbPoseIsValid(address(), value); return this; }
+        public TrackedDevicePose.Buffer bPoseIsValid(@NativeType("bool") boolean value) { TrackedDevicePose.nbPoseIsValid(address(), value); return this; }
         /** Sets the specified value to the {@code bDeviceIsConnected} field. */
-        public TrackedDevicePose.Buffer bDeviceIsConnected(boolean value) { TrackedDevicePose.nbDeviceIsConnected(address(), value); return this; }
+        public TrackedDevicePose.Buffer bDeviceIsConnected(@NativeType("bool") boolean value) { TrackedDevicePose.nbDeviceIsConnected(address(), value); return this; }
 
     }
 

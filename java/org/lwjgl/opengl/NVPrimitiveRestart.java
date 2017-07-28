@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -53,6 +55,6 @@ public class NVPrimitiveRestart {
 
     // --- [ glPrimitiveRestartIndexNV ] ---
 
-    public static native void glPrimitiveRestartIndexNV(int index);
+    public static native void glPrimitiveRestartIndexNV(@NativeType("GLuint") int index);
 
 }

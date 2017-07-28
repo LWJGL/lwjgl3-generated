@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -46,7 +48,8 @@ public class KHRStreamProducerEGLSurface {
         return callPPPPP(__functionAddress, dpy, config, stream, attrib_list);
     }
 
-    public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, IntBuffer attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreateStreamProducerSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("EGLStreamKHR") long stream, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -54,7 +57,8 @@ public class KHRStreamProducerEGLSurface {
     }
 
     /** Array version of: {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
-    public static long eglCreateStreamProducerSurfaceKHR(long dpy, long config, long stream, int[] attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreateStreamProducerSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("EGLStreamKHR") long stream, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);

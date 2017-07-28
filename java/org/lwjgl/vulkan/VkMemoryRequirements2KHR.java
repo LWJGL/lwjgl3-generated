@@ -90,8 +90,10 @@ public class VkMemoryRequirements2KHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkMemoryRequirements} view of the {@code memoryRequirements} field. */
     public VkMemoryRequirements memoryRequirements() { return nmemoryRequirements(address()); }
@@ -275,8 +277,10 @@ public class VkMemoryRequirements2KHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkMemoryRequirements2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkMemoryRequirements2KHR.npNext(address()); }
         /** Returns a {@link VkMemoryRequirements} view of the {@code memoryRequirements} field. */
         public VkMemoryRequirements memoryRequirements() { return VkMemoryRequirements2KHR.nmemoryRequirements(address()); }

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.simd;
 
+import org.lwjgl.system.*;
+
 
 /** Bindings to SSE3 macros. */
 public class SSE3 {
@@ -33,11 +35,12 @@ public class SSE3 {
      *
      * @param mode the denormals are zero mode. One of:<br><table><tr><td>{@link #_MM_DENORMALS_ZERO_MASK DENORMALS_ZERO_MASK}</td><td>{@link #_MM_DENORMALS_ZERO_ON DENORMALS_ZERO_ON}</td><td>{@link #_MM_DENORMALS_ZERO_OFF DENORMALS_ZERO_OFF}</td></tr></table>
      */
-    public static native void _MM_SET_DENORMALS_ZERO_MODE(int mode);
+    public static native void _MM_SET_DENORMALS_ZERO_MODE(@NativeType("unsigned int") int mode);
 
     // --- [ _MM_GET_DENORMALS_ZERO_MODE ] ---
 
     /** Returns the current value of the "denormals are zero mode" bit of the control register. */
+    @NativeType("unsigned int")
     public static native int _MM_GET_DENORMALS_ZERO_MODE();
 
 }

@@ -30,6 +30,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <p>{@link VkAllocationCallbacks}</p>
  */
 @FunctionalInterface
+@NativeType("PFN_vkFreeFunction")
 public interface VkFreeFunctionI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pp)v");
@@ -51,6 +52,6 @@ public interface VkFreeFunctionI extends CallbackI.V {
      * @param pUserData the value specified for {@link VkAllocationCallbacks}{@code ::pUserData} in the allocator specified by the application.
      * @param pMemory   the allocation to be freed.
      */
-    void invoke(long pUserData, long pMemory);
+    void invoke(@NativeType("void *") long pUserData, @NativeType("void *") long pMemory);
 
 }

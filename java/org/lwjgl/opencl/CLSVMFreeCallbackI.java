@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method. */
 @FunctionalInterface
+@NativeType("cl_svmfree_callback")
 public interface CLSVMFreeCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pipp)v");
@@ -36,6 +37,6 @@ public interface CLSVMFreeCallbackI extends CallbackI.V {
      * @param svm_pointers     an array of shared virtual memory pointers to be freed
      * @param user_data        the user-specified value that was passed when calling {@link CL20#clEnqueueSVMFree EnqueueSVMFree}
      */
-    void invoke(long queue, int num_svm_pointers, long svm_pointers, long user_data);
+    void invoke(@NativeType("cl_command_queue") long queue, @NativeType("cl_uint") int num_svm_pointers, @NativeType("void **") long svm_pointers, @NativeType("void *") long user_data);
 
 }

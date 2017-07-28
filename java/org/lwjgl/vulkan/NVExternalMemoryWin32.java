@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -274,7 +276,8 @@ public class NVExternalMemoryWin32 {
      * @param handleType a bitmask of {@code VkExternalMemoryHandleTypeFlagBitsNV} containing a single bit specifying the type of handle requested.
      * @param pHandle    
      */
-    public static int vkGetMemoryWin32HandleNV(VkDevice device, long memory, int handleType, PointerBuffer pHandle) {
+    @NativeType("VkResult")
+    public static int vkGetMemoryWin32HandleNV(VkDevice device, @NativeType("VkDeviceMemory") long memory, @NativeType("VkExternalMemoryHandleTypeFlagsNV") int handleType, @NativeType("HANDLE *") PointerBuffer pHandle) {
         if (CHECKS) {
             check(pHandle, 1);
         }

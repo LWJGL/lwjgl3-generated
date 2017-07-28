@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t unVRMessageOverlayResponse;
  * }</pre></code>
  */
+@NativeType("struct VREvent_MessageOverlay_t")
 public class VREventMessageOverlay extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -67,10 +68,11 @@ public class VREventMessageOverlay extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code unVRMessageOverlayResponse} field. */
+    @NativeType("uint32_t")
     public int unVRMessageOverlayResponse() { return nunVRMessageOverlayResponse(address()); }
 
     /** Sets the specified value to the {@code unVRMessageOverlayResponse} field. */
-    public VREventMessageOverlay unVRMessageOverlayResponse(int value) { nunVRMessageOverlayResponse(address(), value); return this; }
+    public VREventMessageOverlay unVRMessageOverlayResponse(@NativeType("uint32_t") int value) { nunVRMessageOverlayResponse(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -262,10 +264,11 @@ public class VREventMessageOverlay extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code unVRMessageOverlayResponse} field. */
+        @NativeType("uint32_t")
         public int unVRMessageOverlayResponse() { return VREventMessageOverlay.nunVRMessageOverlayResponse(address()); }
 
         /** Sets the specified value to the {@code unVRMessageOverlayResponse} field. */
-        public VREventMessageOverlay.Buffer unVRMessageOverlayResponse(int value) { VREventMessageOverlay.nunVRMessageOverlayResponse(address(), value); return this; }
+        public VREventMessageOverlay.Buffer unVRMessageOverlayResponse(@NativeType("uint32_t") int value) { VREventMessageOverlay.nunVRMessageOverlayResponse(address(), value); return this; }
 
     }
 

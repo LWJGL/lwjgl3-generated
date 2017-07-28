@@ -119,12 +119,16 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code background_pixmap} field. */
+    @NativeType("Pixmap")
     public long background_pixmap() { return nbackground_pixmap(address()); }
     /** Returns the value of the {@code background_pixel} field. */
+    @NativeType("unsigned long")
     public long background_pixel() { return nbackground_pixel(address()); }
     /** Returns the value of the {@code border_pixmap} field. */
+    @NativeType("Pixmap")
     public long border_pixmap() { return nborder_pixmap(address()); }
     /** Returns the value of the {@code border_pixel} field. */
+    @NativeType("unsigned long")
     public long border_pixel() { return nborder_pixel(address()); }
     /** Returns the value of the {@code bit_gravity} field. */
     public int bit_gravity() { return nbit_gravity(address()); }
@@ -133,30 +137,36 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
     /** Returns the value of the {@code backing_store} field. */
     public int backing_store() { return nbacking_store(address()); }
     /** Returns the value of the {@code backing_planes} field. */
+    @NativeType("unsigned long")
     public long backing_planes() { return nbacking_planes(address()); }
     /** Returns the value of the {@code backing_pixel} field. */
+    @NativeType("unsigned long")
     public long backing_pixel() { return nbacking_pixel(address()); }
     /** Returns the value of the {@code save_under} field. */
+    @NativeType("Bool")
     public boolean save_under() { return nsave_under(address()) != 0; }
     /** Returns the value of the {@code event_mask} field. */
     public long event_mask() { return nevent_mask(address()); }
     /** Returns the value of the {@code do_not_propagate_mask} field. */
     public long do_not_propagate_mask() { return ndo_not_propagate_mask(address()); }
     /** Returns the value of the {@code override_redirect} field. */
+    @NativeType("Bool")
     public boolean override_redirect() { return noverride_redirect(address()) != 0; }
     /** Returns the value of the {@code colormap} field. */
+    @NativeType("Colormap")
     public long colormap() { return ncolormap(address()); }
     /** Returns the value of the {@code cursor} field. */
+    @NativeType("Cursor")
     public long cursor() { return ncursor(address()); }
 
     /** Sets the specified value to the {@code background_pixmap} field. */
-    public XSetWindowAttributes background_pixmap(long value) { nbackground_pixmap(address(), value); return this; }
+    public XSetWindowAttributes background_pixmap(@NativeType("Pixmap") long value) { nbackground_pixmap(address(), value); return this; }
     /** Sets the specified value to the {@code background_pixel} field. */
-    public XSetWindowAttributes background_pixel(long value) { nbackground_pixel(address(), value); return this; }
+    public XSetWindowAttributes background_pixel(@NativeType("unsigned long") long value) { nbackground_pixel(address(), value); return this; }
     /** Sets the specified value to the {@code border_pixmap} field. */
-    public XSetWindowAttributes border_pixmap(long value) { nborder_pixmap(address(), value); return this; }
+    public XSetWindowAttributes border_pixmap(@NativeType("Pixmap") long value) { nborder_pixmap(address(), value); return this; }
     /** Sets the specified value to the {@code border_pixel} field. */
-    public XSetWindowAttributes border_pixel(long value) { nborder_pixel(address(), value); return this; }
+    public XSetWindowAttributes border_pixel(@NativeType("unsigned long") long value) { nborder_pixel(address(), value); return this; }
     /** Sets the specified value to the {@code bit_gravity} field. */
     public XSetWindowAttributes bit_gravity(int value) { nbit_gravity(address(), value); return this; }
     /** Sets the specified value to the {@code win_gravity} field. */
@@ -164,21 +174,21 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
     /** Sets the specified value to the {@code backing_store} field. */
     public XSetWindowAttributes backing_store(int value) { nbacking_store(address(), value); return this; }
     /** Sets the specified value to the {@code backing_planes} field. */
-    public XSetWindowAttributes backing_planes(long value) { nbacking_planes(address(), value); return this; }
+    public XSetWindowAttributes backing_planes(@NativeType("unsigned long") long value) { nbacking_planes(address(), value); return this; }
     /** Sets the specified value to the {@code backing_pixel} field. */
-    public XSetWindowAttributes backing_pixel(long value) { nbacking_pixel(address(), value); return this; }
+    public XSetWindowAttributes backing_pixel(@NativeType("unsigned long") long value) { nbacking_pixel(address(), value); return this; }
     /** Sets the specified value to the {@code save_under} field. */
-    public XSetWindowAttributes save_under(boolean value) { nsave_under(address(), value ? 1 : 0); return this; }
+    public XSetWindowAttributes save_under(@NativeType("Bool") boolean value) { nsave_under(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code event_mask} field. */
     public XSetWindowAttributes event_mask(long value) { nevent_mask(address(), value); return this; }
     /** Sets the specified value to the {@code do_not_propagate_mask} field. */
     public XSetWindowAttributes do_not_propagate_mask(long value) { ndo_not_propagate_mask(address(), value); return this; }
     /** Sets the specified value to the {@code override_redirect} field. */
-    public XSetWindowAttributes override_redirect(boolean value) { noverride_redirect(address(), value ? 1 : 0); return this; }
+    public XSetWindowAttributes override_redirect(@NativeType("Bool") boolean value) { noverride_redirect(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code colormap} field. */
-    public XSetWindowAttributes colormap(long value) { ncolormap(address(), value); return this; }
+    public XSetWindowAttributes colormap(@NativeType("Colormap") long value) { ncolormap(address(), value); return this; }
     /** Sets the specified value to the {@code cursor} field. */
-    public XSetWindowAttributes cursor(long value) { ncursor(address(), value); return this; }
+    public XSetWindowAttributes cursor(@NativeType("Cursor") long value) { ncursor(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public XSetWindowAttributes set(
@@ -463,12 +473,16 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code background_pixmap} field. */
+        @NativeType("Pixmap")
         public long background_pixmap() { return XSetWindowAttributes.nbackground_pixmap(address()); }
         /** Returns the value of the {@code background_pixel} field. */
+        @NativeType("unsigned long")
         public long background_pixel() { return XSetWindowAttributes.nbackground_pixel(address()); }
         /** Returns the value of the {@code border_pixmap} field. */
+        @NativeType("Pixmap")
         public long border_pixmap() { return XSetWindowAttributes.nborder_pixmap(address()); }
         /** Returns the value of the {@code border_pixel} field. */
+        @NativeType("unsigned long")
         public long border_pixel() { return XSetWindowAttributes.nborder_pixel(address()); }
         /** Returns the value of the {@code bit_gravity} field. */
         public int bit_gravity() { return XSetWindowAttributes.nbit_gravity(address()); }
@@ -477,30 +491,36 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
         /** Returns the value of the {@code backing_store} field. */
         public int backing_store() { return XSetWindowAttributes.nbacking_store(address()); }
         /** Returns the value of the {@code backing_planes} field. */
+        @NativeType("unsigned long")
         public long backing_planes() { return XSetWindowAttributes.nbacking_planes(address()); }
         /** Returns the value of the {@code backing_pixel} field. */
+        @NativeType("unsigned long")
         public long backing_pixel() { return XSetWindowAttributes.nbacking_pixel(address()); }
         /** Returns the value of the {@code save_under} field. */
+        @NativeType("Bool")
         public boolean save_under() { return XSetWindowAttributes.nsave_under(address()) != 0; }
         /** Returns the value of the {@code event_mask} field. */
         public long event_mask() { return XSetWindowAttributes.nevent_mask(address()); }
         /** Returns the value of the {@code do_not_propagate_mask} field. */
         public long do_not_propagate_mask() { return XSetWindowAttributes.ndo_not_propagate_mask(address()); }
         /** Returns the value of the {@code override_redirect} field. */
+        @NativeType("Bool")
         public boolean override_redirect() { return XSetWindowAttributes.noverride_redirect(address()) != 0; }
         /** Returns the value of the {@code colormap} field. */
+        @NativeType("Colormap")
         public long colormap() { return XSetWindowAttributes.ncolormap(address()); }
         /** Returns the value of the {@code cursor} field. */
+        @NativeType("Cursor")
         public long cursor() { return XSetWindowAttributes.ncursor(address()); }
 
         /** Sets the specified value to the {@code background_pixmap} field. */
-        public XSetWindowAttributes.Buffer background_pixmap(long value) { XSetWindowAttributes.nbackground_pixmap(address(), value); return this; }
+        public XSetWindowAttributes.Buffer background_pixmap(@NativeType("Pixmap") long value) { XSetWindowAttributes.nbackground_pixmap(address(), value); return this; }
         /** Sets the specified value to the {@code background_pixel} field. */
-        public XSetWindowAttributes.Buffer background_pixel(long value) { XSetWindowAttributes.nbackground_pixel(address(), value); return this; }
+        public XSetWindowAttributes.Buffer background_pixel(@NativeType("unsigned long") long value) { XSetWindowAttributes.nbackground_pixel(address(), value); return this; }
         /** Sets the specified value to the {@code border_pixmap} field. */
-        public XSetWindowAttributes.Buffer border_pixmap(long value) { XSetWindowAttributes.nborder_pixmap(address(), value); return this; }
+        public XSetWindowAttributes.Buffer border_pixmap(@NativeType("Pixmap") long value) { XSetWindowAttributes.nborder_pixmap(address(), value); return this; }
         /** Sets the specified value to the {@code border_pixel} field. */
-        public XSetWindowAttributes.Buffer border_pixel(long value) { XSetWindowAttributes.nborder_pixel(address(), value); return this; }
+        public XSetWindowAttributes.Buffer border_pixel(@NativeType("unsigned long") long value) { XSetWindowAttributes.nborder_pixel(address(), value); return this; }
         /** Sets the specified value to the {@code bit_gravity} field. */
         public XSetWindowAttributes.Buffer bit_gravity(int value) { XSetWindowAttributes.nbit_gravity(address(), value); return this; }
         /** Sets the specified value to the {@code win_gravity} field. */
@@ -508,21 +528,21 @@ public class XSetWindowAttributes extends Struct implements NativeResource {
         /** Sets the specified value to the {@code backing_store} field. */
         public XSetWindowAttributes.Buffer backing_store(int value) { XSetWindowAttributes.nbacking_store(address(), value); return this; }
         /** Sets the specified value to the {@code backing_planes} field. */
-        public XSetWindowAttributes.Buffer backing_planes(long value) { XSetWindowAttributes.nbacking_planes(address(), value); return this; }
+        public XSetWindowAttributes.Buffer backing_planes(@NativeType("unsigned long") long value) { XSetWindowAttributes.nbacking_planes(address(), value); return this; }
         /** Sets the specified value to the {@code backing_pixel} field. */
-        public XSetWindowAttributes.Buffer backing_pixel(long value) { XSetWindowAttributes.nbacking_pixel(address(), value); return this; }
+        public XSetWindowAttributes.Buffer backing_pixel(@NativeType("unsigned long") long value) { XSetWindowAttributes.nbacking_pixel(address(), value); return this; }
         /** Sets the specified value to the {@code save_under} field. */
-        public XSetWindowAttributes.Buffer save_under(boolean value) { XSetWindowAttributes.nsave_under(address(), value ? 1 : 0); return this; }
+        public XSetWindowAttributes.Buffer save_under(@NativeType("Bool") boolean value) { XSetWindowAttributes.nsave_under(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code event_mask} field. */
         public XSetWindowAttributes.Buffer event_mask(long value) { XSetWindowAttributes.nevent_mask(address(), value); return this; }
         /** Sets the specified value to the {@code do_not_propagate_mask} field. */
         public XSetWindowAttributes.Buffer do_not_propagate_mask(long value) { XSetWindowAttributes.ndo_not_propagate_mask(address(), value); return this; }
         /** Sets the specified value to the {@code override_redirect} field. */
-        public XSetWindowAttributes.Buffer override_redirect(boolean value) { XSetWindowAttributes.noverride_redirect(address(), value ? 1 : 0); return this; }
+        public XSetWindowAttributes.Buffer override_redirect(@NativeType("Bool") boolean value) { XSetWindowAttributes.noverride_redirect(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code colormap} field. */
-        public XSetWindowAttributes.Buffer colormap(long value) { XSetWindowAttributes.ncolormap(address(), value); return this; }
+        public XSetWindowAttributes.Buffer colormap(@NativeType("Colormap") long value) { XSetWindowAttributes.ncolormap(address(), value); return this; }
         /** Sets the specified value to the {@code cursor} field. */
-        public XSetWindowAttributes.Buffer cursor(long value) { XSetWindowAttributes.ncursor(address(), value); return this; }
+        public XSetWindowAttributes.Buffer cursor(@NativeType("Cursor") long value) { XSetWindowAttributes.ncursor(address(), value); return this; }
 
     }
 

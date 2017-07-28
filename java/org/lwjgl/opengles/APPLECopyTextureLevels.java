@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -44,6 +46,6 @@ public class APPLECopyTextureLevels {
 
     // --- [ glCopyTextureLevelsAPPLE ] ---
 
-    public static native void glCopyTextureLevelsAPPLE(int destinationTexture, int sourceTexture, int sourceBaseLevel, int sourceLevelCount);
+    public static native void glCopyTextureLevelsAPPLE(@NativeType("GLuint") int destinationTexture, @NativeType("GLuint") int sourceTexture, @NativeType("GLint") int sourceBaseLevel, @NativeType("GLsizei") int sourceLevelCount);
 
 }

@@ -200,110 +200,136 @@ public class PIXELFORMATDESCRIPTOR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code nSize} field. */
+    @NativeType("WORD")
     public short nSize() { return nnSize(address()); }
     /** Returns the value of the {@code nVersion} field. */
+    @NativeType("WORD")
     public short nVersion() { return nnVersion(address()); }
     /** Returns the value of the {@code dwFlags} field. */
+    @NativeType("DWORD")
     public int dwFlags() { return ndwFlags(address()); }
     /** Returns the value of the {@code iPixelType} field. */
+    @NativeType("BYTE")
     public byte iPixelType() { return niPixelType(address()); }
     /** Returns the value of the {@code cColorBits} field. */
+    @NativeType("BYTE")
     public byte cColorBits() { return ncColorBits(address()); }
     /** Returns the value of the {@code cRedBits} field. */
+    @NativeType("BYTE")
     public byte cRedBits() { return ncRedBits(address()); }
     /** Returns the value of the {@code cRedShift} field. */
+    @NativeType("BYTE")
     public byte cRedShift() { return ncRedShift(address()); }
     /** Returns the value of the {@code cGreenBits} field. */
+    @NativeType("BYTE")
     public byte cGreenBits() { return ncGreenBits(address()); }
     /** Returns the value of the {@code cGreenShift} field. */
+    @NativeType("BYTE")
     public byte cGreenShift() { return ncGreenShift(address()); }
     /** Returns the value of the {@code cBlueBits} field. */
+    @NativeType("BYTE")
     public byte cBlueBits() { return ncBlueBits(address()); }
     /** Returns the value of the {@code cBlueShift} field. */
+    @NativeType("BYTE")
     public byte cBlueShift() { return ncBlueShift(address()); }
     /** Returns the value of the {@code cAlphaBits} field. */
+    @NativeType("BYTE")
     public byte cAlphaBits() { return ncAlphaBits(address()); }
     /** Returns the value of the {@code cAlphaShift} field. */
+    @NativeType("BYTE")
     public byte cAlphaShift() { return ncAlphaShift(address()); }
     /** Returns the value of the {@code cAccumBits} field. */
+    @NativeType("BYTE")
     public byte cAccumBits() { return ncAccumBits(address()); }
     /** Returns the value of the {@code cAccumRedBits} field. */
+    @NativeType("BYTE")
     public byte cAccumRedBits() { return ncAccumRedBits(address()); }
     /** Returns the value of the {@code cAccumGreenBits} field. */
+    @NativeType("BYTE")
     public byte cAccumGreenBits() { return ncAccumGreenBits(address()); }
     /** Returns the value of the {@code cAccumBlueBits} field. */
+    @NativeType("BYTE")
     public byte cAccumBlueBits() { return ncAccumBlueBits(address()); }
     /** Returns the value of the {@code cAccumAlphaBits} field. */
+    @NativeType("BYTE")
     public byte cAccumAlphaBits() { return ncAccumAlphaBits(address()); }
     /** Returns the value of the {@code cDepthBits} field. */
+    @NativeType("BYTE")
     public byte cDepthBits() { return ncDepthBits(address()); }
     /** Returns the value of the {@code cStencilBits} field. */
+    @NativeType("BYTE")
     public byte cStencilBits() { return ncStencilBits(address()); }
     /** Returns the value of the {@code cAuxBuffers} field. */
+    @NativeType("BYTE")
     public byte cAuxBuffers() { return ncAuxBuffers(address()); }
     /** Returns the value of the {@code iLayerType} field. */
+    @NativeType("BYTE")
     public byte iLayerType() { return niLayerType(address()); }
     /** Returns the value of the {@code bReserved} field. */
+    @NativeType("BYTE")
     public byte bReserved() { return nbReserved(address()); }
     /** Returns the value of the {@code dwLayerMask} field. */
+    @NativeType("DWORD")
     public int dwLayerMask() { return ndwLayerMask(address()); }
     /** Returns the value of the {@code dwVisibleMask} field. */
+    @NativeType("DWORD")
     public int dwVisibleMask() { return ndwVisibleMask(address()); }
     /** Returns the value of the {@code dwDamageMask} field. */
+    @NativeType("DWORD")
     public int dwDamageMask() { return ndwDamageMask(address()); }
 
     /** Sets the specified value to the {@code nSize} field. */
-    public PIXELFORMATDESCRIPTOR nSize(short value) { nnSize(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR nSize(@NativeType("WORD") short value) { nnSize(address(), value); return this; }
     /** Sets the specified value to the {@code nVersion} field. */
-    public PIXELFORMATDESCRIPTOR nVersion(short value) { nnVersion(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR nVersion(@NativeType("WORD") short value) { nnVersion(address(), value); return this; }
     /** Sets the specified value to the {@code dwFlags} field. */
-    public PIXELFORMATDESCRIPTOR dwFlags(int value) { ndwFlags(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR dwFlags(@NativeType("DWORD") int value) { ndwFlags(address(), value); return this; }
     /** Sets the specified value to the {@code iPixelType} field. */
-    public PIXELFORMATDESCRIPTOR iPixelType(byte value) { niPixelType(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR iPixelType(@NativeType("BYTE") byte value) { niPixelType(address(), value); return this; }
     /** Sets the specified value to the {@code cColorBits} field. */
-    public PIXELFORMATDESCRIPTOR cColorBits(byte value) { ncColorBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cColorBits(@NativeType("BYTE") byte value) { ncColorBits(address(), value); return this; }
     /** Sets the specified value to the {@code cRedBits} field. */
-    public PIXELFORMATDESCRIPTOR cRedBits(byte value) { ncRedBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cRedBits(@NativeType("BYTE") byte value) { ncRedBits(address(), value); return this; }
     /** Sets the specified value to the {@code cRedShift} field. */
-    public PIXELFORMATDESCRIPTOR cRedShift(byte value) { ncRedShift(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cRedShift(@NativeType("BYTE") byte value) { ncRedShift(address(), value); return this; }
     /** Sets the specified value to the {@code cGreenBits} field. */
-    public PIXELFORMATDESCRIPTOR cGreenBits(byte value) { ncGreenBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cGreenBits(@NativeType("BYTE") byte value) { ncGreenBits(address(), value); return this; }
     /** Sets the specified value to the {@code cGreenShift} field. */
-    public PIXELFORMATDESCRIPTOR cGreenShift(byte value) { ncGreenShift(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cGreenShift(@NativeType("BYTE") byte value) { ncGreenShift(address(), value); return this; }
     /** Sets the specified value to the {@code cBlueBits} field. */
-    public PIXELFORMATDESCRIPTOR cBlueBits(byte value) { ncBlueBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cBlueBits(@NativeType("BYTE") byte value) { ncBlueBits(address(), value); return this; }
     /** Sets the specified value to the {@code cBlueShift} field. */
-    public PIXELFORMATDESCRIPTOR cBlueShift(byte value) { ncBlueShift(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cBlueShift(@NativeType("BYTE") byte value) { ncBlueShift(address(), value); return this; }
     /** Sets the specified value to the {@code cAlphaBits} field. */
-    public PIXELFORMATDESCRIPTOR cAlphaBits(byte value) { ncAlphaBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAlphaBits(@NativeType("BYTE") byte value) { ncAlphaBits(address(), value); return this; }
     /** Sets the specified value to the {@code cAlphaShift} field. */
-    public PIXELFORMATDESCRIPTOR cAlphaShift(byte value) { ncAlphaShift(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAlphaShift(@NativeType("BYTE") byte value) { ncAlphaShift(address(), value); return this; }
     /** Sets the specified value to the {@code cAccumBits} field. */
-    public PIXELFORMATDESCRIPTOR cAccumBits(byte value) { ncAccumBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAccumBits(@NativeType("BYTE") byte value) { ncAccumBits(address(), value); return this; }
     /** Sets the specified value to the {@code cAccumRedBits} field. */
-    public PIXELFORMATDESCRIPTOR cAccumRedBits(byte value) { ncAccumRedBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAccumRedBits(@NativeType("BYTE") byte value) { ncAccumRedBits(address(), value); return this; }
     /** Sets the specified value to the {@code cAccumGreenBits} field. */
-    public PIXELFORMATDESCRIPTOR cAccumGreenBits(byte value) { ncAccumGreenBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAccumGreenBits(@NativeType("BYTE") byte value) { ncAccumGreenBits(address(), value); return this; }
     /** Sets the specified value to the {@code cAccumBlueBits} field. */
-    public PIXELFORMATDESCRIPTOR cAccumBlueBits(byte value) { ncAccumBlueBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAccumBlueBits(@NativeType("BYTE") byte value) { ncAccumBlueBits(address(), value); return this; }
     /** Sets the specified value to the {@code cAccumAlphaBits} field. */
-    public PIXELFORMATDESCRIPTOR cAccumAlphaBits(byte value) { ncAccumAlphaBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAccumAlphaBits(@NativeType("BYTE") byte value) { ncAccumAlphaBits(address(), value); return this; }
     /** Sets the specified value to the {@code cDepthBits} field. */
-    public PIXELFORMATDESCRIPTOR cDepthBits(byte value) { ncDepthBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cDepthBits(@NativeType("BYTE") byte value) { ncDepthBits(address(), value); return this; }
     /** Sets the specified value to the {@code cStencilBits} field. */
-    public PIXELFORMATDESCRIPTOR cStencilBits(byte value) { ncStencilBits(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cStencilBits(@NativeType("BYTE") byte value) { ncStencilBits(address(), value); return this; }
     /** Sets the specified value to the {@code cAuxBuffers} field. */
-    public PIXELFORMATDESCRIPTOR cAuxBuffers(byte value) { ncAuxBuffers(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR cAuxBuffers(@NativeType("BYTE") byte value) { ncAuxBuffers(address(), value); return this; }
     /** Sets the specified value to the {@code iLayerType} field. */
-    public PIXELFORMATDESCRIPTOR iLayerType(byte value) { niLayerType(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR iLayerType(@NativeType("BYTE") byte value) { niLayerType(address(), value); return this; }
     /** Sets the specified value to the {@code bReserved} field. */
-    public PIXELFORMATDESCRIPTOR bReserved(byte value) { nbReserved(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR bReserved(@NativeType("BYTE") byte value) { nbReserved(address(), value); return this; }
     /** Sets the specified value to the {@code dwLayerMask} field. */
-    public PIXELFORMATDESCRIPTOR dwLayerMask(int value) { ndwLayerMask(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR dwLayerMask(@NativeType("DWORD") int value) { ndwLayerMask(address(), value); return this; }
     /** Sets the specified value to the {@code dwVisibleMask} field. */
-    public PIXELFORMATDESCRIPTOR dwVisibleMask(int value) { ndwVisibleMask(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR dwVisibleMask(@NativeType("DWORD") int value) { ndwVisibleMask(address(), value); return this; }
     /** Sets the specified value to the {@code dwDamageMask} field. */
-    public PIXELFORMATDESCRIPTOR dwDamageMask(int value) { ndwDamageMask(address(), value); return this; }
+    public PIXELFORMATDESCRIPTOR dwDamageMask(@NativeType("DWORD") int value) { ndwDamageMask(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public PIXELFORMATDESCRIPTOR set(
@@ -654,110 +680,136 @@ public class PIXELFORMATDESCRIPTOR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code nSize} field. */
+        @NativeType("WORD")
         public short nSize() { return PIXELFORMATDESCRIPTOR.nnSize(address()); }
         /** Returns the value of the {@code nVersion} field. */
+        @NativeType("WORD")
         public short nVersion() { return PIXELFORMATDESCRIPTOR.nnVersion(address()); }
         /** Returns the value of the {@code dwFlags} field. */
+        @NativeType("DWORD")
         public int dwFlags() { return PIXELFORMATDESCRIPTOR.ndwFlags(address()); }
         /** Returns the value of the {@code iPixelType} field. */
+        @NativeType("BYTE")
         public byte iPixelType() { return PIXELFORMATDESCRIPTOR.niPixelType(address()); }
         /** Returns the value of the {@code cColorBits} field. */
+        @NativeType("BYTE")
         public byte cColorBits() { return PIXELFORMATDESCRIPTOR.ncColorBits(address()); }
         /** Returns the value of the {@code cRedBits} field. */
+        @NativeType("BYTE")
         public byte cRedBits() { return PIXELFORMATDESCRIPTOR.ncRedBits(address()); }
         /** Returns the value of the {@code cRedShift} field. */
+        @NativeType("BYTE")
         public byte cRedShift() { return PIXELFORMATDESCRIPTOR.ncRedShift(address()); }
         /** Returns the value of the {@code cGreenBits} field. */
+        @NativeType("BYTE")
         public byte cGreenBits() { return PIXELFORMATDESCRIPTOR.ncGreenBits(address()); }
         /** Returns the value of the {@code cGreenShift} field. */
+        @NativeType("BYTE")
         public byte cGreenShift() { return PIXELFORMATDESCRIPTOR.ncGreenShift(address()); }
         /** Returns the value of the {@code cBlueBits} field. */
+        @NativeType("BYTE")
         public byte cBlueBits() { return PIXELFORMATDESCRIPTOR.ncBlueBits(address()); }
         /** Returns the value of the {@code cBlueShift} field. */
+        @NativeType("BYTE")
         public byte cBlueShift() { return PIXELFORMATDESCRIPTOR.ncBlueShift(address()); }
         /** Returns the value of the {@code cAlphaBits} field. */
+        @NativeType("BYTE")
         public byte cAlphaBits() { return PIXELFORMATDESCRIPTOR.ncAlphaBits(address()); }
         /** Returns the value of the {@code cAlphaShift} field. */
+        @NativeType("BYTE")
         public byte cAlphaShift() { return PIXELFORMATDESCRIPTOR.ncAlphaShift(address()); }
         /** Returns the value of the {@code cAccumBits} field. */
+        @NativeType("BYTE")
         public byte cAccumBits() { return PIXELFORMATDESCRIPTOR.ncAccumBits(address()); }
         /** Returns the value of the {@code cAccumRedBits} field. */
+        @NativeType("BYTE")
         public byte cAccumRedBits() { return PIXELFORMATDESCRIPTOR.ncAccumRedBits(address()); }
         /** Returns the value of the {@code cAccumGreenBits} field. */
+        @NativeType("BYTE")
         public byte cAccumGreenBits() { return PIXELFORMATDESCRIPTOR.ncAccumGreenBits(address()); }
         /** Returns the value of the {@code cAccumBlueBits} field. */
+        @NativeType("BYTE")
         public byte cAccumBlueBits() { return PIXELFORMATDESCRIPTOR.ncAccumBlueBits(address()); }
         /** Returns the value of the {@code cAccumAlphaBits} field. */
+        @NativeType("BYTE")
         public byte cAccumAlphaBits() { return PIXELFORMATDESCRIPTOR.ncAccumAlphaBits(address()); }
         /** Returns the value of the {@code cDepthBits} field. */
+        @NativeType("BYTE")
         public byte cDepthBits() { return PIXELFORMATDESCRIPTOR.ncDepthBits(address()); }
         /** Returns the value of the {@code cStencilBits} field. */
+        @NativeType("BYTE")
         public byte cStencilBits() { return PIXELFORMATDESCRIPTOR.ncStencilBits(address()); }
         /** Returns the value of the {@code cAuxBuffers} field. */
+        @NativeType("BYTE")
         public byte cAuxBuffers() { return PIXELFORMATDESCRIPTOR.ncAuxBuffers(address()); }
         /** Returns the value of the {@code iLayerType} field. */
+        @NativeType("BYTE")
         public byte iLayerType() { return PIXELFORMATDESCRIPTOR.niLayerType(address()); }
         /** Returns the value of the {@code bReserved} field. */
+        @NativeType("BYTE")
         public byte bReserved() { return PIXELFORMATDESCRIPTOR.nbReserved(address()); }
         /** Returns the value of the {@code dwLayerMask} field. */
+        @NativeType("DWORD")
         public int dwLayerMask() { return PIXELFORMATDESCRIPTOR.ndwLayerMask(address()); }
         /** Returns the value of the {@code dwVisibleMask} field. */
+        @NativeType("DWORD")
         public int dwVisibleMask() { return PIXELFORMATDESCRIPTOR.ndwVisibleMask(address()); }
         /** Returns the value of the {@code dwDamageMask} field. */
+        @NativeType("DWORD")
         public int dwDamageMask() { return PIXELFORMATDESCRIPTOR.ndwDamageMask(address()); }
 
         /** Sets the specified value to the {@code nSize} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer nSize(short value) { PIXELFORMATDESCRIPTOR.nnSize(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer nSize(@NativeType("WORD") short value) { PIXELFORMATDESCRIPTOR.nnSize(address(), value); return this; }
         /** Sets the specified value to the {@code nVersion} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer nVersion(short value) { PIXELFORMATDESCRIPTOR.nnVersion(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer nVersion(@NativeType("WORD") short value) { PIXELFORMATDESCRIPTOR.nnVersion(address(), value); return this; }
         /** Sets the specified value to the {@code dwFlags} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer dwFlags(int value) { PIXELFORMATDESCRIPTOR.ndwFlags(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer dwFlags(@NativeType("DWORD") int value) { PIXELFORMATDESCRIPTOR.ndwFlags(address(), value); return this; }
         /** Sets the specified value to the {@code iPixelType} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer iPixelType(byte value) { PIXELFORMATDESCRIPTOR.niPixelType(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer iPixelType(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.niPixelType(address(), value); return this; }
         /** Sets the specified value to the {@code cColorBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cColorBits(byte value) { PIXELFORMATDESCRIPTOR.ncColorBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cColorBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncColorBits(address(), value); return this; }
         /** Sets the specified value to the {@code cRedBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cRedBits(byte value) { PIXELFORMATDESCRIPTOR.ncRedBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cRedBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncRedBits(address(), value); return this; }
         /** Sets the specified value to the {@code cRedShift} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cRedShift(byte value) { PIXELFORMATDESCRIPTOR.ncRedShift(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cRedShift(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncRedShift(address(), value); return this; }
         /** Sets the specified value to the {@code cGreenBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cGreenBits(byte value) { PIXELFORMATDESCRIPTOR.ncGreenBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cGreenBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncGreenBits(address(), value); return this; }
         /** Sets the specified value to the {@code cGreenShift} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cGreenShift(byte value) { PIXELFORMATDESCRIPTOR.ncGreenShift(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cGreenShift(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncGreenShift(address(), value); return this; }
         /** Sets the specified value to the {@code cBlueBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cBlueBits(byte value) { PIXELFORMATDESCRIPTOR.ncBlueBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cBlueBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncBlueBits(address(), value); return this; }
         /** Sets the specified value to the {@code cBlueShift} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cBlueShift(byte value) { PIXELFORMATDESCRIPTOR.ncBlueShift(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cBlueShift(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncBlueShift(address(), value); return this; }
         /** Sets the specified value to the {@code cAlphaBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAlphaBits(byte value) { PIXELFORMATDESCRIPTOR.ncAlphaBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAlphaBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAlphaBits(address(), value); return this; }
         /** Sets the specified value to the {@code cAlphaShift} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAlphaShift(byte value) { PIXELFORMATDESCRIPTOR.ncAlphaShift(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAlphaShift(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAlphaShift(address(), value); return this; }
         /** Sets the specified value to the {@code cAccumBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAccumBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAccumBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAccumBits(address(), value); return this; }
         /** Sets the specified value to the {@code cAccumRedBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAccumRedBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumRedBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAccumRedBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAccumRedBits(address(), value); return this; }
         /** Sets the specified value to the {@code cAccumGreenBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAccumGreenBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumGreenBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAccumGreenBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAccumGreenBits(address(), value); return this; }
         /** Sets the specified value to the {@code cAccumBlueBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAccumBlueBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumBlueBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAccumBlueBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAccumBlueBits(address(), value); return this; }
         /** Sets the specified value to the {@code cAccumAlphaBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAccumAlphaBits(byte value) { PIXELFORMATDESCRIPTOR.ncAccumAlphaBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAccumAlphaBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAccumAlphaBits(address(), value); return this; }
         /** Sets the specified value to the {@code cDepthBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cDepthBits(byte value) { PIXELFORMATDESCRIPTOR.ncDepthBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cDepthBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncDepthBits(address(), value); return this; }
         /** Sets the specified value to the {@code cStencilBits} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cStencilBits(byte value) { PIXELFORMATDESCRIPTOR.ncStencilBits(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cStencilBits(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncStencilBits(address(), value); return this; }
         /** Sets the specified value to the {@code cAuxBuffers} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer cAuxBuffers(byte value) { PIXELFORMATDESCRIPTOR.ncAuxBuffers(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer cAuxBuffers(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.ncAuxBuffers(address(), value); return this; }
         /** Sets the specified value to the {@code iLayerType} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer iLayerType(byte value) { PIXELFORMATDESCRIPTOR.niLayerType(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer iLayerType(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.niLayerType(address(), value); return this; }
         /** Sets the specified value to the {@code bReserved} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer bReserved(byte value) { PIXELFORMATDESCRIPTOR.nbReserved(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer bReserved(@NativeType("BYTE") byte value) { PIXELFORMATDESCRIPTOR.nbReserved(address(), value); return this; }
         /** Sets the specified value to the {@code dwLayerMask} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer dwLayerMask(int value) { PIXELFORMATDESCRIPTOR.ndwLayerMask(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer dwLayerMask(@NativeType("DWORD") int value) { PIXELFORMATDESCRIPTOR.ndwLayerMask(address(), value); return this; }
         /** Sets the specified value to the {@code dwVisibleMask} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer dwVisibleMask(int value) { PIXELFORMATDESCRIPTOR.ndwVisibleMask(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer dwVisibleMask(@NativeType("DWORD") int value) { PIXELFORMATDESCRIPTOR.ndwVisibleMask(address(), value); return this; }
         /** Sets the specified value to the {@code dwDamageMask} field. */
-        public PIXELFORMATDESCRIPTOR.Buffer dwDamageMask(int value) { PIXELFORMATDESCRIPTOR.ndwDamageMask(address(), value); return this; }
+        public PIXELFORMATDESCRIPTOR.Buffer dwDamageMask(@NativeType("DWORD") int value) { PIXELFORMATDESCRIPTOR.ndwDamageMask(address(), value); return this; }
 
     }
 

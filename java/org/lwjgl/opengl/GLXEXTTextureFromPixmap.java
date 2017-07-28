@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -109,7 +111,7 @@ public class GLXEXTTextureFromPixmap {
      * @param buffer      the buffer
      * @param attrib_list an optional null-terminated list of attributes
      */
-    public static void glXBindTexImageEXT(long display, long drawable, int buffer, IntBuffer attrib_list) {
+    public static void glXBindTexImageEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int buffer, @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -125,7 +127,7 @@ public class GLXEXTTextureFromPixmap {
      * @param drawable the drawable
      * @param buffer   the buffer
      */
-    public static void glXReleaseTexImageEXT(long display, long drawable, int buffer) {
+    public static void glXReleaseTexImageEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int buffer) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXReleaseTexImageEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -136,7 +138,7 @@ public class GLXEXTTextureFromPixmap {
     }
 
     /** Array version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
-    public static void glXBindTexImageEXT(long display, long drawable, int buffer, int[] attrib_list) {
+    public static void glXBindTexImageEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int buffer, @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
         if (CHECKS) {
             check(__functionAddress);

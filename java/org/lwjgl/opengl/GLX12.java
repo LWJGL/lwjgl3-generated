@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -24,6 +26,7 @@ public class GLX12 {
     // --- [ glXGetCurrentDisplay ] ---
 
     /** Returns the display associated with the current context and drawable. */
+    @NativeType("Display *")
     public static long glXGetCurrentDisplay() {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentDisplay;
         if (CHECKS) {

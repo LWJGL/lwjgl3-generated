@@ -104,6 +104,7 @@ public class JNINativeInterface {
      *
      * @return the major version number in the higher 16 bits and the minor version number in the lower 16 bits
      */
+    @NativeType("jint")
     public static native int GetVersion();
 
     // --- [ FromReflectedMethod ] ---
@@ -113,7 +114,8 @@ public class JNINativeInterface {
      *
      * @param method 
      */
-    public static native long FromReflectedMethod(Method method);
+    @NativeType("jmethodID")
+    public static native long FromReflectedMethod(@NativeType("jobject") Method method);
 
     // --- [ FromReflectedField ] ---
 
@@ -122,7 +124,8 @@ public class JNINativeInterface {
      *
      * @param field 
      */
-    public static native long FromReflectedField(Field field);
+    @NativeType("jfieldID")
+    public static native long FromReflectedField(@NativeType("jobject") Field field);
 
     // --- [ ToReflectedMethod ] ---
 
@@ -136,7 +139,8 @@ public class JNINativeInterface {
      * @param methodID 
      * @param isStatic must be set to {@link #JNI_TRUE TRUE} if the method ID refers to a static field, and # FALSE otherwise
      */
-    public static Method ToReflectedMethod(Class<?> cls, long methodID, boolean isStatic) {
+    @NativeType("jobject")
+    public static Method ToReflectedMethod(@NativeType("jclass") Class<?> cls, @NativeType("jmethodID") long methodID, @NativeType("jboolean") boolean isStatic) {
         if (CHECKS) {
             check(methodID);
         }
@@ -155,7 +159,8 @@ public class JNINativeInterface {
      * @param fieldID  
      * @param isStatic must be set to {@link #JNI_TRUE TRUE} if {@code fieldID} refers to a static field, and {@link #JNI_FALSE FALSE} otherwise
      */
-    public static Method ToReflectedField(Class<?> cls, long fieldID, boolean isStatic) {
+    @NativeType("jobject")
+    public static Method ToReflectedField(@NativeType("jclass") Class<?> cls, @NativeType("jfieldID") long fieldID, @NativeType("jboolean") boolean isStatic) {
         if (CHECKS) {
             check(fieldID);
         }
@@ -172,7 +177,8 @@ public class JNINativeInterface {
      *
      * @return a global reference, or {@code NULL} if the system runs out of memory
      */
-    public static native long NewGlobalRef(Object obj);
+    @NativeType("void *")
+    public static native long NewGlobalRef(@NativeType("jobject") Object obj);
 
     // --- [ DeleteGlobalRef ] ---
 
@@ -184,7 +190,7 @@ public class JNINativeInterface {
      *
      * @param globalRef a global reference
      */
-    public static void DeleteGlobalRef(long globalRef) {
+    public static void DeleteGlobalRef(@NativeType("void *") long globalRef) {
         if (CHECKS) {
             check(globalRef);
         }
@@ -208,7 +214,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static ByteBuffer GetBooleanArrayElements(byte[] array, ByteBuffer isCopy) {
+    @NativeType("jboolean *")
+    public static ByteBuffer GetBooleanArrayElements(@NativeType("jbooleanArray") byte[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -242,7 +249,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseBooleanArrayElements(byte[] array, ByteBuffer elems, int mode) {
+    public static void ReleaseBooleanArrayElements(@NativeType("jbooleanArray") byte[] array, @NativeType("jboolean *") ByteBuffer elems, @NativeType("jint") int mode) {
         nReleaseBooleanArrayElements(array, memAddress(elems), mode);
     }
 
@@ -263,7 +270,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static ByteBuffer GetByteArrayElements(byte[] array, ByteBuffer isCopy) {
+    @NativeType("jbyte *")
+    public static ByteBuffer GetByteArrayElements(@NativeType("jbyteArray") byte[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -297,7 +305,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseByteArrayElements(byte[] array, ByteBuffer elems, int mode) {
+    public static void ReleaseByteArrayElements(@NativeType("jbyteArray") byte[] array, @NativeType("jbyte *") ByteBuffer elems, @NativeType("jint") int mode) {
         nReleaseByteArrayElements(array, memAddress(elems), mode);
     }
 
@@ -318,7 +326,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static ShortBuffer GetCharArrayElements(char[] array, ByteBuffer isCopy) {
+    @NativeType("jchar *")
+    public static ShortBuffer GetCharArrayElements(@NativeType("jcharArray") char[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -352,7 +361,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseCharArrayElements(char[] array, ShortBuffer elems, int mode) {
+    public static void ReleaseCharArrayElements(@NativeType("jcharArray") char[] array, @NativeType("jchar *") ShortBuffer elems, @NativeType("jint") int mode) {
         nReleaseCharArrayElements(array, memAddress(elems), mode);
     }
 
@@ -373,7 +382,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static ShortBuffer GetShortArrayElements(short[] array, ByteBuffer isCopy) {
+    @NativeType("jshort *")
+    public static ShortBuffer GetShortArrayElements(@NativeType("jshortArray") short[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -407,7 +417,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseShortArrayElements(short[] array, ShortBuffer elems, int mode) {
+    public static void ReleaseShortArrayElements(@NativeType("jshortArray") short[] array, @NativeType("jshort *") ShortBuffer elems, @NativeType("jint") int mode) {
         nReleaseShortArrayElements(array, memAddress(elems), mode);
     }
 
@@ -428,7 +438,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static IntBuffer GetIntArrayElements(int[] array, ByteBuffer isCopy) {
+    @NativeType("jint *")
+    public static IntBuffer GetIntArrayElements(@NativeType("jintArray") int[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -462,7 +473,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseIntArrayElements(int[] array, IntBuffer elems, int mode) {
+    public static void ReleaseIntArrayElements(@NativeType("jintArray") int[] array, @NativeType("jint *") IntBuffer elems, @NativeType("jint") int mode) {
         nReleaseIntArrayElements(array, memAddress(elems), mode);
     }
 
@@ -483,7 +494,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static LongBuffer GetLongArrayElements(long[] array, ByteBuffer isCopy) {
+    @NativeType("jlong *")
+    public static LongBuffer GetLongArrayElements(@NativeType("jlongArray") long[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -517,7 +529,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseLongArrayElements(long[] array, LongBuffer elems, int mode) {
+    public static void ReleaseLongArrayElements(@NativeType("jlongArray") long[] array, @NativeType("jlong *") LongBuffer elems, @NativeType("jint") int mode) {
         nReleaseLongArrayElements(array, memAddress(elems), mode);
     }
 
@@ -538,7 +550,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static FloatBuffer GetFloatArrayElements(float[] array, ByteBuffer isCopy) {
+    @NativeType("jfloat *")
+    public static FloatBuffer GetFloatArrayElements(@NativeType("jfloatArray") float[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -572,7 +585,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseFloatArrayElements(float[] array, FloatBuffer elems, int mode) {
+    public static void ReleaseFloatArrayElements(@NativeType("jfloatArray") float[] array, @NativeType("jfloat *") FloatBuffer elems, @NativeType("jint") int mode) {
         nReleaseFloatArrayElements(array, memAddress(elems), mode);
     }
 
@@ -593,7 +606,8 @@ public class JNINativeInterface {
      *
      * @return a pointer to the array elements, or {@code NULL} if the operation fails
      */
-    public static DoubleBuffer GetDoubleArrayElements(double[] array, ByteBuffer isCopy) {
+    @NativeType("jdouble *")
+    public static DoubleBuffer GetDoubleArrayElements(@NativeType("jdoubleArray") double[] array, @NativeType("jboolean *") ByteBuffer isCopy) {
         if (CHECKS) {
             checkSafe(isCopy, 1);
         }
@@ -627,7 +641,7 @@ public class JNINativeInterface {
      * @param elems a pointer to array elements
      * @param mode  the release mode. One of:<br><table><tr><td>0</td><td>{@link #JNI_COMMIT COMMIT}</td><td>{@link #JNI_ABORT ABORT}</td></tr></table>
      */
-    public static void ReleaseDoubleArrayElements(double[] array, DoubleBuffer elems, int mode) {
+    public static void ReleaseDoubleArrayElements(@NativeType("jdoubleArray") double[] array, @NativeType("jdouble *") DoubleBuffer elems, @NativeType("jint") int mode) {
         nReleaseDoubleArrayElements(array, memAddress(elems), mode);
     }
 
@@ -647,7 +661,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetBooleanArrayRegion(byte[] array, int start, ByteBuffer buf) {
+    public static void GetBooleanArrayRegion(@NativeType("jbooleanArray") byte[] array, @NativeType("jsize") int start, @NativeType("jboolean *") ByteBuffer buf) {
         nGetBooleanArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -667,7 +681,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetBooleanArrayRegion(byte[] array, int start, ByteBuffer buf) {
+    public static void SetBooleanArrayRegion(@NativeType("jbooleanArray") byte[] array, @NativeType("jsize") int start, @NativeType("const jboolean *") ByteBuffer buf) {
         nSetBooleanArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -687,7 +701,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetByteArrayRegion(byte[] array, int start, ByteBuffer buf) {
+    public static void GetByteArrayRegion(@NativeType("jbyteArray") byte[] array, @NativeType("jsize") int start, @NativeType("jbyte *") ByteBuffer buf) {
         nGetByteArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -707,7 +721,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetByteArrayRegion(byte[] array, int start, ByteBuffer buf) {
+    public static void SetByteArrayRegion(@NativeType("jbyteArray") byte[] array, @NativeType("jsize") int start, @NativeType("const jbyte *") ByteBuffer buf) {
         nSetByteArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -727,7 +741,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetCharArrayRegion(char[] array, int start, ShortBuffer buf) {
+    public static void GetCharArrayRegion(@NativeType("jcharArray") char[] array, @NativeType("jsize") int start, @NativeType("jchar *") ShortBuffer buf) {
         nGetCharArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -747,7 +761,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetCharArrayRegion(char[] array, int start, ShortBuffer buf) {
+    public static void SetCharArrayRegion(@NativeType("jcharArray") char[] array, @NativeType("jsize") int start, @NativeType("const jchar *") ShortBuffer buf) {
         nSetCharArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -767,7 +781,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetShortArrayRegion(short[] array, int start, ShortBuffer buf) {
+    public static void GetShortArrayRegion(@NativeType("jshortArray") short[] array, @NativeType("jsize") int start, @NativeType("jshort *") ShortBuffer buf) {
         nGetShortArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -787,7 +801,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetShortArrayRegion(short[] array, int start, ShortBuffer buf) {
+    public static void SetShortArrayRegion(@NativeType("jshortArray") short[] array, @NativeType("jsize") int start, @NativeType("const jshort *") ShortBuffer buf) {
         nSetShortArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -807,7 +821,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetIntArrayRegion(int[] array, int start, IntBuffer buf) {
+    public static void GetIntArrayRegion(@NativeType("jintArray") int[] array, @NativeType("jsize") int start, @NativeType("jint *") IntBuffer buf) {
         nGetIntArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -827,7 +841,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetIntArrayRegion(int[] array, int start, IntBuffer buf) {
+    public static void SetIntArrayRegion(@NativeType("jintArray") int[] array, @NativeType("jsize") int start, @NativeType("const jint *") IntBuffer buf) {
         nSetIntArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -847,7 +861,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetLongArrayRegion(long[] array, int start, LongBuffer buf) {
+    public static void GetLongArrayRegion(@NativeType("jlongArray") long[] array, @NativeType("jsize") int start, @NativeType("jlong *") LongBuffer buf) {
         nGetLongArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -867,7 +881,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetLongArrayRegion(long[] array, int start, LongBuffer buf) {
+    public static void SetLongArrayRegion(@NativeType("jlongArray") long[] array, @NativeType("jsize") int start, @NativeType("const jlong *") LongBuffer buf) {
         nSetLongArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -887,7 +901,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetFloatArrayRegion(float[] array, int start, FloatBuffer buf) {
+    public static void GetFloatArrayRegion(@NativeType("jfloatArray") float[] array, @NativeType("jsize") int start, @NativeType("jfloat *") FloatBuffer buf) {
         nGetFloatArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -907,7 +921,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetFloatArrayRegion(float[] array, int start, FloatBuffer buf) {
+    public static void SetFloatArrayRegion(@NativeType("jfloatArray") float[] array, @NativeType("jsize") int start, @NativeType("const jfloat *") FloatBuffer buf) {
         nSetFloatArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -927,7 +941,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the destination buffer
      */
-    public static void GetDoubleArrayRegion(double[] array, int start, DoubleBuffer buf) {
+    public static void GetDoubleArrayRegion(@NativeType("jdoubleArray") double[] array, @NativeType("jsize") int start, @NativeType("jdouble *") DoubleBuffer buf) {
         nGetDoubleArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -947,7 +961,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetDoubleArrayRegion(double[] array, int start, DoubleBuffer buf) {
+    public static void SetDoubleArrayRegion(@NativeType("jdoubleArray") double[] array, @NativeType("jsize") int start, @NativeType("const jdouble *") DoubleBuffer buf) {
         nSetDoubleArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -970,7 +984,8 @@ public class JNINativeInterface {
      *
      * @return “0” on success; returns a negative value on failure
      */
-    public static int RegisterNatives(Class<?> targetClass, JNINativeMethod.Buffer methods) {
+    @NativeType("jint")
+    public static int RegisterNatives(@NativeType("jclass") Class<?> targetClass, @NativeType("const JNINativeMethod *") JNINativeMethod.Buffer methods) {
         if (CHECKS) {
             JNINativeMethod.validate(methods.address(), methods.remaining());
         }
@@ -988,7 +1003,8 @@ public class JNINativeInterface {
      *
      * @return “0” on success; returns a negative value on failure
      */
-    public static native int UnregisterNatives(Class<?> targetClass);
+    @NativeType("jint")
+    public static native int UnregisterNatives(@NativeType("jclass") Class<?> targetClass);
 
     // --- [ GetJavaVM ] ---
 
@@ -1001,7 +1017,8 @@ public class JNINativeInterface {
      *
      * @param vm a pointer to where the result should be placed
      */
-    public static int GetJavaVM(PointerBuffer vm) {
+    @NativeType("jint")
+    public static int GetJavaVM(@NativeType("JavaVM **") PointerBuffer vm) {
         if (CHECKS) {
             check(vm, 1);
         }
@@ -1020,7 +1037,7 @@ public class JNINativeInterface {
      * @param start 
      * @param buf   
      */
-    public static void GetStringRegion(String str, int start, ByteBuffer buf) {
+    public static void GetStringRegion(@NativeType("jstring") String str, @NativeType("jsize") int start, @NativeType("jchar *") ByteBuffer buf) {
         nGetStringRegion(str, start, buf.remaining() >> 1, memAddress(buf));
     }
 
@@ -1038,7 +1055,7 @@ public class JNINativeInterface {
      * @param len   
      * @param buf   
      */
-    public static void GetStringUTFRegion(String str, int start, int len, ByteBuffer buf) {
+    public static void GetStringUTFRegion(@NativeType("jstring") String str, @NativeType("jsize") int start, @NativeType("jsize") int len, @NativeType("char *") ByteBuffer buf) {
         if (CHECKS) {
             check(buf, len);
         }
@@ -1053,7 +1070,8 @@ public class JNINativeInterface {
      *
      * @param obj 
      */
-    public static native long NewWeakGlobalRef(Object obj);
+    @NativeType("void *")
+    public static native long NewWeakGlobalRef(@NativeType("jobject") Object obj);
 
     // --- [ DeleteWeakGlobalRef ] ---
 
@@ -1065,7 +1083,7 @@ public class JNINativeInterface {
      *
      * @param weakGlobalRef 
      */
-    public static void DeleteWeakGlobalRef(long weakGlobalRef) {
+    public static void DeleteWeakGlobalRef(@NativeType("void *") long weakGlobalRef) {
         if (CHECKS) {
             check(weakGlobalRef);
         }
@@ -1091,7 +1109,8 @@ public class JNINativeInterface {
      * @return a local reference to the newly-instantiated {@code java.nio.ByteBuffer} object. Returns {@code NULL} if an exception occurs, or if JNI access to direct
      *         buffers is not supported by this virtual machine.
      */
-    public static ByteBuffer NewDirectByteBuffer(long address, long capacity) {
+    @NativeType("jobject")
+    public static ByteBuffer NewDirectByteBuffer(@NativeType("void *") long address, @NativeType("jlong") long capacity) {
         if (CHECKS) {
             check(address);
         }
@@ -1110,7 +1129,8 @@ public class JNINativeInterface {
      * @return the starting address of the memory region referenced by the buffer. Returns {@code NULL} if the memory region is undefined, if the given object is not a
      *         direct {@code java.nio.Buffer}, or if JNI access to direct buffers is not supported by this virtual machine.
      */
-    public static native long GetDirectBufferAddress(Buffer buf);
+    @NativeType("void *")
+    public static native long GetDirectBufferAddress(@NativeType("jobject") Buffer buf);
 
     // --- [ GetObjectRefType ] ---
 
@@ -1120,6 +1140,7 @@ public class JNINativeInterface {
      *
      * @param obj a local, global or weak global reference
      */
-    public static native int GetObjectRefType(Object obj);
+    @NativeType("jobjectRefType")
+    public static native int GetObjectRefType(@NativeType("jobject") Object obj);
 
 }

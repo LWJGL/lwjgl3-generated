@@ -300,18 +300,25 @@ public class DEVMODE extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code dmDeviceName} field. */
+    @NativeType("TCHAR[32]")
     public ByteBuffer dmDeviceName() { return ndmDeviceName(address()); }
     /** Decodes the null-terminated string stored in the {@code dmDeviceName} field. */
+    @NativeType("TCHAR[32]")
     public String dmDeviceNameString() { return ndmDeviceNameString(address()); }
     /** Returns the value of the {@code dmSpecVersion} field. */
+    @NativeType("WORD")
     public short dmSpecVersion() { return ndmSpecVersion(address()); }
     /** Returns the value of the {@code dmDriverVersion} field. */
+    @NativeType("WORD")
     public short dmDriverVersion() { return ndmDriverVersion(address()); }
     /** Returns the value of the {@code dmSize} field. */
+    @NativeType("WORD")
     public short dmSize() { return ndmSize(address()); }
     /** Returns the value of the {@code dmDriverExtra} field. */
+    @NativeType("WORD")
     public short dmDriverExtra() { return ndmDriverExtra(address()); }
     /** Returns the value of the {@code dmFields} field. */
+    @NativeType("DWORD")
     public int dmFields() { return ndmFields(address()); }
     /** Returns the value of the {@code dmOrientation} field. */
     public short dmOrientation() { return ndmOrientation(address()); }
@@ -332,8 +339,10 @@ public class DEVMODE extends Struct implements NativeResource {
     /** Returns a {@link POINTL} view of the {@code dmPosition} field. */
     public POINTL dmPosition() { return ndmPosition(address()); }
     /** Returns the value of the {@code dmDisplayOrientation} field. */
+    @NativeType("DWORD")
     public int dmDisplayOrientation() { return ndmDisplayOrientation(address()); }
     /** Returns the value of the {@code dmDisplayFixedOutput} field. */
+    @NativeType("DWORD")
     public int dmDisplayFixedOutput() { return ndmDisplayFixedOutput(address()); }
     /** Returns the value of the {@code dmColor} field. */
     public short dmColor() { return ndmColor(address()); }
@@ -346,46 +355,63 @@ public class DEVMODE extends Struct implements NativeResource {
     /** Returns the value of the {@code dmCollate} field. */
     public short dmCollate() { return ndmCollate(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code dmFormName} field. */
+    @NativeType("TCHAR[32]")
     public ByteBuffer dmFormName() { return ndmFormName(address()); }
     /** Decodes the null-terminated string stored in the {@code dmFormName} field. */
+    @NativeType("TCHAR[32]")
     public String dmFormNameString() { return ndmFormNameString(address()); }
     /** Returns the value of the {@code dmLogPixels} field. */
+    @NativeType("WORD")
     public short dmLogPixels() { return ndmLogPixels(address()); }
     /** Returns the value of the {@code dmBitsPerPel} field. */
+    @NativeType("DWORD")
     public int dmBitsPerPel() { return ndmBitsPerPel(address()); }
     /** Returns the value of the {@code dmPelsWidth} field. */
+    @NativeType("DWORD")
     public int dmPelsWidth() { return ndmPelsWidth(address()); }
     /** Returns the value of the {@code dmPelsHeight} field. */
+    @NativeType("DWORD")
     public int dmPelsHeight() { return ndmPelsHeight(address()); }
     /** Returns the value of the {@code dmDisplayFlags} field. */
+    @NativeType("DWORD")
     public int dmDisplayFlags() { return ndmDisplayFlags(address()); }
     /** Returns the value of the {@code dmNup} field. */
+    @NativeType("DWORD")
     public int dmNup() { return ndmNup(address()); }
     /** Returns the value of the {@code dmDisplayFrequency} field. */
+    @NativeType("DWORD")
     public int dmDisplayFrequency() { return ndmDisplayFrequency(address()); }
     /** Returns the value of the {@code dmICMMethod} field. */
+    @NativeType("DWORD")
     public int dmICMMethod() { return ndmICMMethod(address()); }
     /** Returns the value of the {@code dmICMIntent} field. */
+    @NativeType("DWORD")
     public int dmICMIntent() { return ndmICMIntent(address()); }
     /** Returns the value of the {@code dmMediaType} field. */
+    @NativeType("DWORD")
     public int dmMediaType() { return ndmMediaType(address()); }
     /** Returns the value of the {@code dmDitherType} field. */
+    @NativeType("DWORD")
     public int dmDitherType() { return ndmDitherType(address()); }
     /** Returns the value of the {@code dmReserved1} field. */
+    @NativeType("DWORD")
     public int dmReserved1() { return ndmReserved1(address()); }
     /** Returns the value of the {@code dmReserved2} field. */
+    @NativeType("DWORD")
     public int dmReserved2() { return ndmReserved2(address()); }
     /** Returns the value of the {@code dmPanningWidth} field. */
+    @NativeType("DWORD")
     public int dmPanningWidth() { return ndmPanningWidth(address()); }
     /** Returns the value of the {@code dmPanningHeight} field. */
+    @NativeType("DWORD")
     public int dmPanningHeight() { return ndmPanningHeight(address()); }
 
     /** Sets the specified value to the {@code dmSpecVersion} field. */
-    public DEVMODE dmSpecVersion(short value) { ndmSpecVersion(address(), value); return this; }
+    public DEVMODE dmSpecVersion(@NativeType("WORD") short value) { ndmSpecVersion(address(), value); return this; }
     /** Sets the specified value to the {@code dmSize} field. */
-    public DEVMODE dmSize(short value) { ndmSize(address(), value); return this; }
+    public DEVMODE dmSize(@NativeType("WORD") short value) { ndmSize(address(), value); return this; }
     /** Sets the specified value to the {@code dmDriverExtra} field. */
-    public DEVMODE dmDriverExtra(short value) { ndmDriverExtra(address(), value); return this; }
+    public DEVMODE dmDriverExtra(@NativeType("WORD") short value) { ndmDriverExtra(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -659,18 +685,25 @@ public class DEVMODE extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code dmDeviceName} field. */
+        @NativeType("TCHAR[32]")
         public ByteBuffer dmDeviceName() { return DEVMODE.ndmDeviceName(address()); }
         /** Decodes the null-terminated string stored in the {@code dmDeviceName} field. */
+        @NativeType("TCHAR[32]")
         public String dmDeviceNameString() { return DEVMODE.ndmDeviceNameString(address()); }
         /** Returns the value of the {@code dmSpecVersion} field. */
+        @NativeType("WORD")
         public short dmSpecVersion() { return DEVMODE.ndmSpecVersion(address()); }
         /** Returns the value of the {@code dmDriverVersion} field. */
+        @NativeType("WORD")
         public short dmDriverVersion() { return DEVMODE.ndmDriverVersion(address()); }
         /** Returns the value of the {@code dmSize} field. */
+        @NativeType("WORD")
         public short dmSize() { return DEVMODE.ndmSize(address()); }
         /** Returns the value of the {@code dmDriverExtra} field. */
+        @NativeType("WORD")
         public short dmDriverExtra() { return DEVMODE.ndmDriverExtra(address()); }
         /** Returns the value of the {@code dmFields} field. */
+        @NativeType("DWORD")
         public int dmFields() { return DEVMODE.ndmFields(address()); }
         /** Returns the value of the {@code dmOrientation} field. */
         public short dmOrientation() { return DEVMODE.ndmOrientation(address()); }
@@ -691,8 +724,10 @@ public class DEVMODE extends Struct implements NativeResource {
         /** Returns a {@link POINTL} view of the {@code dmPosition} field. */
         public POINTL dmPosition() { return DEVMODE.ndmPosition(address()); }
         /** Returns the value of the {@code dmDisplayOrientation} field. */
+        @NativeType("DWORD")
         public int dmDisplayOrientation() { return DEVMODE.ndmDisplayOrientation(address()); }
         /** Returns the value of the {@code dmDisplayFixedOutput} field. */
+        @NativeType("DWORD")
         public int dmDisplayFixedOutput() { return DEVMODE.ndmDisplayFixedOutput(address()); }
         /** Returns the value of the {@code dmColor} field. */
         public short dmColor() { return DEVMODE.ndmColor(address()); }
@@ -705,46 +740,63 @@ public class DEVMODE extends Struct implements NativeResource {
         /** Returns the value of the {@code dmCollate} field. */
         public short dmCollate() { return DEVMODE.ndmCollate(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code dmFormName} field. */
+        @NativeType("TCHAR[32]")
         public ByteBuffer dmFormName() { return DEVMODE.ndmFormName(address()); }
         /** Decodes the null-terminated string stored in the {@code dmFormName} field. */
+        @NativeType("TCHAR[32]")
         public String dmFormNameString() { return DEVMODE.ndmFormNameString(address()); }
         /** Returns the value of the {@code dmLogPixels} field. */
+        @NativeType("WORD")
         public short dmLogPixels() { return DEVMODE.ndmLogPixels(address()); }
         /** Returns the value of the {@code dmBitsPerPel} field. */
+        @NativeType("DWORD")
         public int dmBitsPerPel() { return DEVMODE.ndmBitsPerPel(address()); }
         /** Returns the value of the {@code dmPelsWidth} field. */
+        @NativeType("DWORD")
         public int dmPelsWidth() { return DEVMODE.ndmPelsWidth(address()); }
         /** Returns the value of the {@code dmPelsHeight} field. */
+        @NativeType("DWORD")
         public int dmPelsHeight() { return DEVMODE.ndmPelsHeight(address()); }
         /** Returns the value of the {@code dmDisplayFlags} field. */
+        @NativeType("DWORD")
         public int dmDisplayFlags() { return DEVMODE.ndmDisplayFlags(address()); }
         /** Returns the value of the {@code dmNup} field. */
+        @NativeType("DWORD")
         public int dmNup() { return DEVMODE.ndmNup(address()); }
         /** Returns the value of the {@code dmDisplayFrequency} field. */
+        @NativeType("DWORD")
         public int dmDisplayFrequency() { return DEVMODE.ndmDisplayFrequency(address()); }
         /** Returns the value of the {@code dmICMMethod} field. */
+        @NativeType("DWORD")
         public int dmICMMethod() { return DEVMODE.ndmICMMethod(address()); }
         /** Returns the value of the {@code dmICMIntent} field. */
+        @NativeType("DWORD")
         public int dmICMIntent() { return DEVMODE.ndmICMIntent(address()); }
         /** Returns the value of the {@code dmMediaType} field. */
+        @NativeType("DWORD")
         public int dmMediaType() { return DEVMODE.ndmMediaType(address()); }
         /** Returns the value of the {@code dmDitherType} field. */
+        @NativeType("DWORD")
         public int dmDitherType() { return DEVMODE.ndmDitherType(address()); }
         /** Returns the value of the {@code dmReserved1} field. */
+        @NativeType("DWORD")
         public int dmReserved1() { return DEVMODE.ndmReserved1(address()); }
         /** Returns the value of the {@code dmReserved2} field. */
+        @NativeType("DWORD")
         public int dmReserved2() { return DEVMODE.ndmReserved2(address()); }
         /** Returns the value of the {@code dmPanningWidth} field. */
+        @NativeType("DWORD")
         public int dmPanningWidth() { return DEVMODE.ndmPanningWidth(address()); }
         /** Returns the value of the {@code dmPanningHeight} field. */
+        @NativeType("DWORD")
         public int dmPanningHeight() { return DEVMODE.ndmPanningHeight(address()); }
 
         /** Sets the specified value to the {@code dmSpecVersion} field. */
-        public DEVMODE.Buffer dmSpecVersion(short value) { DEVMODE.ndmSpecVersion(address(), value); return this; }
+        public DEVMODE.Buffer dmSpecVersion(@NativeType("WORD") short value) { DEVMODE.ndmSpecVersion(address(), value); return this; }
         /** Sets the specified value to the {@code dmSize} field. */
-        public DEVMODE.Buffer dmSize(short value) { DEVMODE.ndmSize(address(), value); return this; }
+        public DEVMODE.Buffer dmSize(@NativeType("WORD") short value) { DEVMODE.ndmSize(address(), value); return this; }
         /** Sets the specified value to the {@code dmDriverExtra} field. */
-        public DEVMODE.Buffer dmDriverExtra(short value) { DEVMODE.ndmDriverExtra(address(), value); return this; }
+        public DEVMODE.Buffer dmDriverExtra(@NativeType("WORD") short value) { DEVMODE.ndmDriverExtra(address(), value); return this; }
 
     }
 

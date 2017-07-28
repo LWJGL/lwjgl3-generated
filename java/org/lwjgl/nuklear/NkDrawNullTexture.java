@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkVec2 struct nk_vec2} uv;
  * }</pre></code>
  */
+@NativeType("struct nk_draw_null_texture")
 public class NkDrawNullTexture extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -72,14 +73,16 @@ public class NkDrawNullTexture extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkHandle} view of the {@code texture} field. */
+    @NativeType("nk_handle")
     public NkHandle texture() { return ntexture(address()); }
     /** Returns a {@link NkVec2} view of the {@code uv} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 uv() { return nuv(address()); }
 
     /** Copies the specified {@link NkHandle} to the {@code texture} field. */
-    public NkDrawNullTexture texture(NkHandle value) { ntexture(address(), value); return this; }
+    public NkDrawNullTexture texture(@NativeType("nk_handle") NkHandle value) { ntexture(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code uv} field. */
-    public NkDrawNullTexture uv(NkVec2 value) { nuv(address(), value); return this; }
+    public NkDrawNullTexture uv(@NativeType("struct nk_vec2") NkVec2 value) { nuv(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkDrawNullTexture set(
@@ -286,14 +289,16 @@ public class NkDrawNullTexture extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkHandle} view of the {@code texture} field. */
+        @NativeType("nk_handle")
         public NkHandle texture() { return NkDrawNullTexture.ntexture(address()); }
         /** Returns a {@link NkVec2} view of the {@code uv} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 uv() { return NkDrawNullTexture.nuv(address()); }
 
         /** Copies the specified {@link NkHandle} to the {@code texture} field. */
-        public NkDrawNullTexture.Buffer texture(NkHandle value) { NkDrawNullTexture.ntexture(address(), value); return this; }
+        public NkDrawNullTexture.Buffer texture(@NativeType("nk_handle") NkHandle value) { NkDrawNullTexture.ntexture(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code uv} field. */
-        public NkDrawNullTexture.Buffer uv(NkVec2 value) { NkDrawNullTexture.nuv(address(), value); return this; }
+        public NkDrawNullTexture.Buffer uv(@NativeType("struct nk_vec2") NkVec2 value) { NkDrawNullTexture.nuv(address(), value); return this; }
 
     }
 

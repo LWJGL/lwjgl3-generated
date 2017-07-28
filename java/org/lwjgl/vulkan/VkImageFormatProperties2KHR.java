@@ -95,8 +95,10 @@ public class VkImageFormatProperties2KHR extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkImageFormatProperties} view of the {@code imageFormatProperties} field. */
     public VkImageFormatProperties imageFormatProperties() { return nimageFormatProperties(address()); }
@@ -280,8 +282,10 @@ public class VkImageFormatProperties2KHR extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkImageFormatProperties2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkImageFormatProperties2KHR.npNext(address()); }
         /** Returns a {@link VkImageFormatProperties} view of the {@code imageFormatProperties} field. */
         public VkImageFormatProperties imageFormatProperties() { return VkImageFormatProperties2KHR.nimageFormatProperties(address()); }

@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned int mValue;
  * }</pre></code>
  */
+@NativeType("struct aiMeshKey")
 public class AIMeshKey extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -78,12 +79,13 @@ public class AIMeshKey extends Struct implements NativeResource {
     /** Returns the value of the {@code mTime} field. */
     public double mTime() { return nmTime(address()); }
     /** Returns the value of the {@code mValue} field. */
+    @NativeType("unsigned int")
     public int mValue() { return nmValue(address()); }
 
     /** Sets the specified value to the {@code mTime} field. */
     public AIMeshKey mTime(double value) { nmTime(address(), value); return this; }
     /** Sets the specified value to the {@code mValue} field. */
-    public AIMeshKey mValue(int value) { nmValue(address(), value); return this; }
+    public AIMeshKey mValue(@NativeType("unsigned int") int value) { nmValue(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIMeshKey set(
@@ -292,12 +294,13 @@ public class AIMeshKey extends Struct implements NativeResource {
         /** Returns the value of the {@code mTime} field. */
         public double mTime() { return AIMeshKey.nmTime(address()); }
         /** Returns the value of the {@code mValue} field. */
+        @NativeType("unsigned int")
         public int mValue() { return AIMeshKey.nmValue(address()); }
 
         /** Sets the specified value to the {@code mTime} field. */
         public AIMeshKey.Buffer mTime(double value) { AIMeshKey.nmTime(address(), value); return this; }
         /** Sets the specified value to the {@code mValue} field. */
-        public AIMeshKey.Buffer mValue(int value) { AIMeshKey.nmValue(address(), value); return this; }
+        public AIMeshKey.Buffer mValue(@NativeType("unsigned int") int value) { AIMeshKey.nmValue(address(), value); return this; }
 
     }
 

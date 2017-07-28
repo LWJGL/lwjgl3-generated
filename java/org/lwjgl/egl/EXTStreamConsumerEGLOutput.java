@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -36,7 +38,8 @@ public class EXTStreamConsumerEGLOutput {
 
     // --- [ eglStreamConsumerOutputEXT ] ---
 
-    public static boolean eglStreamConsumerOutputEXT(long dpy, long stream, long layer) {
+    @NativeType("EGLBoolean")
+    public static boolean eglStreamConsumerOutputEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLOutputLayerEXT") long layer) {
         long __functionAddress = EGL.getCapabilities().eglStreamConsumerOutputEXT;
         if (CHECKS) {
             check(__functionAddress);

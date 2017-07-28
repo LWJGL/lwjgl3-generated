@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkVec2 struct nk_vec2} clicked_pos;
  * }</pre></code>
  */
+@NativeType("struct nk_mouse_button")
 public class NkMouseButton extends Struct {
 
     /** The struct size in bytes. */
@@ -69,8 +70,10 @@ public class NkMouseButton extends Struct {
     /** Returns the value of the {@code down} field. */
     public int down() { return ndown(address()); }
     /** Returns the value of the {@code clicked} field. */
+    @NativeType("unsigned int")
     public int clicked() { return nclicked(address()); }
     /** Returns a {@link NkVec2} view of the {@code clicked_pos} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 clicked_pos() { return nclicked_pos(address()); }
 
     // -----------------------------------
@@ -144,8 +147,10 @@ public class NkMouseButton extends Struct {
         /** Returns the value of the {@code down} field. */
         public int down() { return NkMouseButton.ndown(address()); }
         /** Returns the value of the {@code clicked} field. */
+        @NativeType("unsigned int")
         public int clicked() { return NkMouseButton.nclicked(address()); }
         /** Returns a {@link NkVec2} view of the {@code clicked_pos} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 clicked_pos() { return NkMouseButton.nclicked_pos(address()); }
 
     }

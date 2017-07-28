@@ -50,7 +50,7 @@ public class ARBVertexArrayObject {
      *
      * @param array the name of the vertex array to bind
      */
-    public static native void glBindVertexArray(int array);
+    public static native void glBindVertexArray(@NativeType("GLuint") int array);
 
     // --- [ glDeleteVertexArrays ] ---
 
@@ -66,12 +66,12 @@ public class ARBVertexArrayObject {
      *
      * @param arrays an array containing the n names of the objects to be deleted
      */
-    public static void glDeleteVertexArrays(IntBuffer arrays) {
+    public static void glDeleteVertexArrays(@NativeType("const GLuint *") IntBuffer arrays) {
         nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
     }
 
     /** Deletes vertex array objects. */
-    public static void glDeleteVertexArrays(int array) {
+    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int array) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer arrays = stack.ints(array);
@@ -95,11 +95,12 @@ public class ARBVertexArrayObject {
      *
      * @param arrays a buffer in which the generated vertex array object names are stored
      */
-    public static void glGenVertexArrays(IntBuffer arrays) {
+    public static void glGenVertexArrays(@NativeType("GLuint *") IntBuffer arrays) {
         nglGenVertexArrays(arrays.remaining(), memAddress(arrays));
     }
 
     /** Generates vertex array object names. */
+    @NativeType("void")
     public static int glGenVertexArrays() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -118,10 +119,11 @@ public class ARBVertexArrayObject {
      *
      * @param array a value that may be the name of a vertex array object
      */
-    public static native boolean glIsVertexArray(int array);
+    @NativeType("GLboolean")
+    public static native boolean glIsVertexArray(@NativeType("GLuint") int array);
 
     /** Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
-    public static void glDeleteVertexArrays(int[] arrays) {
+    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int[] arrays) {
         long __functionAddress = GL.getICD().glDeleteVertexArrays;
         if (CHECKS) {
             check(__functionAddress);
@@ -130,7 +132,7 @@ public class ARBVertexArrayObject {
     }
 
     /** Array version of: {@link #glGenVertexArrays GenVertexArrays} */
-    public static void glGenVertexArrays(int[] arrays) {
+    public static void glGenVertexArrays(@NativeType("GLuint *") int[] arrays) {
         long __functionAddress = GL.getICD().glGenVertexArrays;
         if (CHECKS) {
             check(__functionAddress);

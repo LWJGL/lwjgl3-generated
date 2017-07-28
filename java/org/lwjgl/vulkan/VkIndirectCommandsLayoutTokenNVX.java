@@ -101,22 +101,26 @@ public class VkIndirectCommandsLayoutTokenNVX extends Struct implements NativeRe
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code tokenType} field. */
+    @NativeType("VkIndirectCommandsTokenTypeNVX")
     public int tokenType() { return ntokenType(address()); }
     /** Returns the value of the {@code bindingUnit} field. */
+    @NativeType("uint32_t")
     public int bindingUnit() { return nbindingUnit(address()); }
     /** Returns the value of the {@code dynamicCount} field. */
+    @NativeType("uint32_t")
     public int dynamicCount() { return ndynamicCount(address()); }
     /** Returns the value of the {@code divisor} field. */
+    @NativeType("uint32_t")
     public int divisor() { return ndivisor(address()); }
 
     /** Sets the specified value to the {@code tokenType} field. */
-    public VkIndirectCommandsLayoutTokenNVX tokenType(int value) { ntokenType(address(), value); return this; }
+    public VkIndirectCommandsLayoutTokenNVX tokenType(@NativeType("VkIndirectCommandsTokenTypeNVX") int value) { ntokenType(address(), value); return this; }
     /** Sets the specified value to the {@code bindingUnit} field. */
-    public VkIndirectCommandsLayoutTokenNVX bindingUnit(int value) { nbindingUnit(address(), value); return this; }
+    public VkIndirectCommandsLayoutTokenNVX bindingUnit(@NativeType("uint32_t") int value) { nbindingUnit(address(), value); return this; }
     /** Sets the specified value to the {@code dynamicCount} field. */
-    public VkIndirectCommandsLayoutTokenNVX dynamicCount(int value) { ndynamicCount(address(), value); return this; }
+    public VkIndirectCommandsLayoutTokenNVX dynamicCount(@NativeType("uint32_t") int value) { ndynamicCount(address(), value); return this; }
     /** Sets the specified value to the {@code divisor} field. */
-    public VkIndirectCommandsLayoutTokenNVX divisor(int value) { ndivisor(address(), value); return this; }
+    public VkIndirectCommandsLayoutTokenNVX divisor(@NativeType("uint32_t") int value) { ndivisor(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkIndirectCommandsLayoutTokenNVX set(
@@ -335,22 +339,26 @@ public class VkIndirectCommandsLayoutTokenNVX extends Struct implements NativeRe
         }
 
         /** Returns the value of the {@code tokenType} field. */
+        @NativeType("VkIndirectCommandsTokenTypeNVX")
         public int tokenType() { return VkIndirectCommandsLayoutTokenNVX.ntokenType(address()); }
         /** Returns the value of the {@code bindingUnit} field. */
+        @NativeType("uint32_t")
         public int bindingUnit() { return VkIndirectCommandsLayoutTokenNVX.nbindingUnit(address()); }
         /** Returns the value of the {@code dynamicCount} field. */
+        @NativeType("uint32_t")
         public int dynamicCount() { return VkIndirectCommandsLayoutTokenNVX.ndynamicCount(address()); }
         /** Returns the value of the {@code divisor} field. */
+        @NativeType("uint32_t")
         public int divisor() { return VkIndirectCommandsLayoutTokenNVX.ndivisor(address()); }
 
         /** Sets the specified value to the {@code tokenType} field. */
-        public VkIndirectCommandsLayoutTokenNVX.Buffer tokenType(int value) { VkIndirectCommandsLayoutTokenNVX.ntokenType(address(), value); return this; }
+        public VkIndirectCommandsLayoutTokenNVX.Buffer tokenType(@NativeType("VkIndirectCommandsTokenTypeNVX") int value) { VkIndirectCommandsLayoutTokenNVX.ntokenType(address(), value); return this; }
         /** Sets the specified value to the {@code bindingUnit} field. */
-        public VkIndirectCommandsLayoutTokenNVX.Buffer bindingUnit(int value) { VkIndirectCommandsLayoutTokenNVX.nbindingUnit(address(), value); return this; }
+        public VkIndirectCommandsLayoutTokenNVX.Buffer bindingUnit(@NativeType("uint32_t") int value) { VkIndirectCommandsLayoutTokenNVX.nbindingUnit(address(), value); return this; }
         /** Sets the specified value to the {@code dynamicCount} field. */
-        public VkIndirectCommandsLayoutTokenNVX.Buffer dynamicCount(int value) { VkIndirectCommandsLayoutTokenNVX.ndynamicCount(address(), value); return this; }
+        public VkIndirectCommandsLayoutTokenNVX.Buffer dynamicCount(@NativeType("uint32_t") int value) { VkIndirectCommandsLayoutTokenNVX.ndynamicCount(address(), value); return this; }
         /** Sets the specified value to the {@code divisor} field. */
-        public VkIndirectCommandsLayoutTokenNVX.Buffer divisor(int value) { VkIndirectCommandsLayoutTokenNVX.ndivisor(address(), value); return this; }
+        public VkIndirectCommandsLayoutTokenNVX.Buffer divisor(@NativeType("uint32_t") int value) { VkIndirectCommandsLayoutTokenNVX.ndivisor(address(), value); return this; }
 
     }
 

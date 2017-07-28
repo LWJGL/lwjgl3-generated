@@ -42,6 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float row_padding;
  * }</pre></code>
  */
+@NativeType("struct nk_style_edit")
 public class NkStyleEdit extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -145,36 +146,52 @@ public class NkStyleEdit extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem normal() { return nnormal(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem hover() { return nhover(address()); }
     /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem active() { return nactive(address()); }
     /** Returns a {@link NkColor} view of the {@code border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor border_color() { return nborder_color(address()); }
     /** Returns a {@link NkStyleScrollbar} view of the {@code scrollbar} field. */
+    @NativeType("struct nk_style_scrollbar")
     public NkStyleScrollbar scrollbar() { return nscrollbar(address()); }
     /** Returns a {@link NkColor} view of the {@code cursor_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor cursor_normal() { return ncursor_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code cursor_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor cursor_hover() { return ncursor_hover(address()); }
     /** Returns a {@link NkColor} view of the {@code cursor_text_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor cursor_text_normal() { return ncursor_text_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code cursor_text_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor cursor_text_hover() { return ncursor_text_hover(address()); }
     /** Returns a {@link NkColor} view of the {@code text_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor text_normal() { return ntext_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code text_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor text_hover() { return ntext_hover(address()); }
     /** Returns a {@link NkColor} view of the {@code text_active} field. */
+    @NativeType("struct nk_color")
     public NkColor text_active() { return ntext_active(address()); }
     /** Returns a {@link NkColor} view of the {@code selected_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor selected_normal() { return nselected_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code selected_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor selected_hover() { return nselected_hover(address()); }
     /** Returns a {@link NkColor} view of the {@code selected_text_normal} field. */
+    @NativeType("struct nk_color")
     public NkColor selected_text_normal() { return nselected_text_normal(address()); }
     /** Returns a {@link NkColor} view of the {@code selected_text_hover} field. */
+    @NativeType("struct nk_color")
     public NkColor selected_text_hover() { return nselected_text_hover(address()); }
     /** Returns the value of the {@code border} field. */
     public float border() { return nborder(address()); }
@@ -183,44 +200,46 @@ public class NkStyleEdit extends Struct implements NativeResource {
     /** Returns the value of the {@code cursor_size} field. */
     public float cursor_size() { return ncursor_size(address()); }
     /** Returns a {@link NkVec2} view of the {@code scrollbar_size} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 scrollbar_size() { return nscrollbar_size(address()); }
     /** Returns a {@link NkVec2} view of the {@code padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 padding() { return npadding(address()); }
     /** Returns the value of the {@code row_padding} field. */
     public float row_padding() { return nrow_padding(address()); }
 
     /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-    public NkStyleEdit normal(NkStyleItem value) { nnormal(address(), value); return this; }
+    public NkStyleEdit normal(@NativeType("struct nk_style_item") NkStyleItem value) { nnormal(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-    public NkStyleEdit hover(NkStyleItem value) { nhover(address(), value); return this; }
+    public NkStyleEdit hover(@NativeType("struct nk_style_item") NkStyleItem value) { nhover(address(), value); return this; }
     /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-    public NkStyleEdit active(NkStyleItem value) { nactive(address(), value); return this; }
+    public NkStyleEdit active(@NativeType("struct nk_style_item") NkStyleItem value) { nactive(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-    public NkStyleEdit border_color(NkColor value) { nborder_color(address(), value); return this; }
+    public NkStyleEdit border_color(@NativeType("struct nk_color") NkColor value) { nborder_color(address(), value); return this; }
     /** Copies the specified {@link NkStyleScrollbar} to the {@code scrollbar} field. */
-    public NkStyleEdit scrollbar(NkStyleScrollbar value) { nscrollbar(address(), value); return this; }
+    public NkStyleEdit scrollbar(@NativeType("struct nk_style_scrollbar") NkStyleScrollbar value) { nscrollbar(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code cursor_normal} field. */
-    public NkStyleEdit cursor_normal(NkColor value) { ncursor_normal(address(), value); return this; }
+    public NkStyleEdit cursor_normal(@NativeType("struct nk_color") NkColor value) { ncursor_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code cursor_hover} field. */
-    public NkStyleEdit cursor_hover(NkColor value) { ncursor_hover(address(), value); return this; }
+    public NkStyleEdit cursor_hover(@NativeType("struct nk_color") NkColor value) { ncursor_hover(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code cursor_text_normal} field. */
-    public NkStyleEdit cursor_text_normal(NkColor value) { ncursor_text_normal(address(), value); return this; }
+    public NkStyleEdit cursor_text_normal(@NativeType("struct nk_color") NkColor value) { ncursor_text_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code cursor_text_hover} field. */
-    public NkStyleEdit cursor_text_hover(NkColor value) { ncursor_text_hover(address(), value); return this; }
+    public NkStyleEdit cursor_text_hover(@NativeType("struct nk_color") NkColor value) { ncursor_text_hover(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code text_normal} field. */
-    public NkStyleEdit text_normal(NkColor value) { ntext_normal(address(), value); return this; }
+    public NkStyleEdit text_normal(@NativeType("struct nk_color") NkColor value) { ntext_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code text_hover} field. */
-    public NkStyleEdit text_hover(NkColor value) { ntext_hover(address(), value); return this; }
+    public NkStyleEdit text_hover(@NativeType("struct nk_color") NkColor value) { ntext_hover(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code text_active} field. */
-    public NkStyleEdit text_active(NkColor value) { ntext_active(address(), value); return this; }
+    public NkStyleEdit text_active(@NativeType("struct nk_color") NkColor value) { ntext_active(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code selected_normal} field. */
-    public NkStyleEdit selected_normal(NkColor value) { nselected_normal(address(), value); return this; }
+    public NkStyleEdit selected_normal(@NativeType("struct nk_color") NkColor value) { nselected_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code selected_hover} field. */
-    public NkStyleEdit selected_hover(NkColor value) { nselected_hover(address(), value); return this; }
+    public NkStyleEdit selected_hover(@NativeType("struct nk_color") NkColor value) { nselected_hover(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code selected_text_normal} field. */
-    public NkStyleEdit selected_text_normal(NkColor value) { nselected_text_normal(address(), value); return this; }
+    public NkStyleEdit selected_text_normal(@NativeType("struct nk_color") NkColor value) { nselected_text_normal(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code selected_text_hover} field. */
-    public NkStyleEdit selected_text_hover(NkColor value) { nselected_text_hover(address(), value); return this; }
+    public NkStyleEdit selected_text_hover(@NativeType("struct nk_color") NkColor value) { nselected_text_hover(address(), value); return this; }
     /** Sets the specified value to the {@code border} field. */
     public NkStyleEdit border(float value) { nborder(address(), value); return this; }
     /** Sets the specified value to the {@code rounding} field. */
@@ -228,9 +247,9 @@ public class NkStyleEdit extends Struct implements NativeResource {
     /** Sets the specified value to the {@code cursor_size} field. */
     public NkStyleEdit cursor_size(float value) { ncursor_size(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code scrollbar_size} field. */
-    public NkStyleEdit scrollbar_size(NkVec2 value) { nscrollbar_size(address(), value); return this; }
+    public NkStyleEdit scrollbar_size(@NativeType("struct nk_vec2") NkVec2 value) { nscrollbar_size(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-    public NkStyleEdit padding(NkVec2 value) { npadding(address(), value); return this; }
+    public NkStyleEdit padding(@NativeType("struct nk_vec2") NkVec2 value) { npadding(address(), value); return this; }
     /** Sets the specified value to the {@code row_padding} field. */
     public NkStyleEdit row_padding(float value) { nrow_padding(address(), value); return this; }
 
@@ -559,36 +578,52 @@ public class NkStyleEdit extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkStyleItem} view of the {@code normal} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem normal() { return NkStyleEdit.nnormal(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code hover} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem hover() { return NkStyleEdit.nhover(address()); }
         /** Returns a {@link NkStyleItem} view of the {@code active} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem active() { return NkStyleEdit.nactive(address()); }
         /** Returns a {@link NkColor} view of the {@code border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor border_color() { return NkStyleEdit.nborder_color(address()); }
         /** Returns a {@link NkStyleScrollbar} view of the {@code scrollbar} field. */
+        @NativeType("struct nk_style_scrollbar")
         public NkStyleScrollbar scrollbar() { return NkStyleEdit.nscrollbar(address()); }
         /** Returns a {@link NkColor} view of the {@code cursor_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor cursor_normal() { return NkStyleEdit.ncursor_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code cursor_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor cursor_hover() { return NkStyleEdit.ncursor_hover(address()); }
         /** Returns a {@link NkColor} view of the {@code cursor_text_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor cursor_text_normal() { return NkStyleEdit.ncursor_text_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code cursor_text_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor cursor_text_hover() { return NkStyleEdit.ncursor_text_hover(address()); }
         /** Returns a {@link NkColor} view of the {@code text_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor text_normal() { return NkStyleEdit.ntext_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code text_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor text_hover() { return NkStyleEdit.ntext_hover(address()); }
         /** Returns a {@link NkColor} view of the {@code text_active} field. */
+        @NativeType("struct nk_color")
         public NkColor text_active() { return NkStyleEdit.ntext_active(address()); }
         /** Returns a {@link NkColor} view of the {@code selected_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor selected_normal() { return NkStyleEdit.nselected_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code selected_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor selected_hover() { return NkStyleEdit.nselected_hover(address()); }
         /** Returns a {@link NkColor} view of the {@code selected_text_normal} field. */
+        @NativeType("struct nk_color")
         public NkColor selected_text_normal() { return NkStyleEdit.nselected_text_normal(address()); }
         /** Returns a {@link NkColor} view of the {@code selected_text_hover} field. */
+        @NativeType("struct nk_color")
         public NkColor selected_text_hover() { return NkStyleEdit.nselected_text_hover(address()); }
         /** Returns the value of the {@code border} field. */
         public float border() { return NkStyleEdit.nborder(address()); }
@@ -597,44 +632,46 @@ public class NkStyleEdit extends Struct implements NativeResource {
         /** Returns the value of the {@code cursor_size} field. */
         public float cursor_size() { return NkStyleEdit.ncursor_size(address()); }
         /** Returns a {@link NkVec2} view of the {@code scrollbar_size} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 scrollbar_size() { return NkStyleEdit.nscrollbar_size(address()); }
         /** Returns a {@link NkVec2} view of the {@code padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 padding() { return NkStyleEdit.npadding(address()); }
         /** Returns the value of the {@code row_padding} field. */
         public float row_padding() { return NkStyleEdit.nrow_padding(address()); }
 
         /** Copies the specified {@link NkStyleItem} to the {@code normal} field. */
-        public NkStyleEdit.Buffer normal(NkStyleItem value) { NkStyleEdit.nnormal(address(), value); return this; }
+        public NkStyleEdit.Buffer normal(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleEdit.nnormal(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code hover} field. */
-        public NkStyleEdit.Buffer hover(NkStyleItem value) { NkStyleEdit.nhover(address(), value); return this; }
+        public NkStyleEdit.Buffer hover(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleEdit.nhover(address(), value); return this; }
         /** Copies the specified {@link NkStyleItem} to the {@code active} field. */
-        public NkStyleEdit.Buffer active(NkStyleItem value) { NkStyleEdit.nactive(address(), value); return this; }
+        public NkStyleEdit.Buffer active(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleEdit.nactive(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-        public NkStyleEdit.Buffer border_color(NkColor value) { NkStyleEdit.nborder_color(address(), value); return this; }
+        public NkStyleEdit.Buffer border_color(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.nborder_color(address(), value); return this; }
         /** Copies the specified {@link NkStyleScrollbar} to the {@code scrollbar} field. */
-        public NkStyleEdit.Buffer scrollbar(NkStyleScrollbar value) { NkStyleEdit.nscrollbar(address(), value); return this; }
+        public NkStyleEdit.Buffer scrollbar(@NativeType("struct nk_style_scrollbar") NkStyleScrollbar value) { NkStyleEdit.nscrollbar(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code cursor_normal} field. */
-        public NkStyleEdit.Buffer cursor_normal(NkColor value) { NkStyleEdit.ncursor_normal(address(), value); return this; }
+        public NkStyleEdit.Buffer cursor_normal(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.ncursor_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code cursor_hover} field. */
-        public NkStyleEdit.Buffer cursor_hover(NkColor value) { NkStyleEdit.ncursor_hover(address(), value); return this; }
+        public NkStyleEdit.Buffer cursor_hover(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.ncursor_hover(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code cursor_text_normal} field. */
-        public NkStyleEdit.Buffer cursor_text_normal(NkColor value) { NkStyleEdit.ncursor_text_normal(address(), value); return this; }
+        public NkStyleEdit.Buffer cursor_text_normal(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.ncursor_text_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code cursor_text_hover} field. */
-        public NkStyleEdit.Buffer cursor_text_hover(NkColor value) { NkStyleEdit.ncursor_text_hover(address(), value); return this; }
+        public NkStyleEdit.Buffer cursor_text_hover(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.ncursor_text_hover(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code text_normal} field. */
-        public NkStyleEdit.Buffer text_normal(NkColor value) { NkStyleEdit.ntext_normal(address(), value); return this; }
+        public NkStyleEdit.Buffer text_normal(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.ntext_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code text_hover} field. */
-        public NkStyleEdit.Buffer text_hover(NkColor value) { NkStyleEdit.ntext_hover(address(), value); return this; }
+        public NkStyleEdit.Buffer text_hover(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.ntext_hover(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code text_active} field. */
-        public NkStyleEdit.Buffer text_active(NkColor value) { NkStyleEdit.ntext_active(address(), value); return this; }
+        public NkStyleEdit.Buffer text_active(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.ntext_active(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code selected_normal} field. */
-        public NkStyleEdit.Buffer selected_normal(NkColor value) { NkStyleEdit.nselected_normal(address(), value); return this; }
+        public NkStyleEdit.Buffer selected_normal(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.nselected_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code selected_hover} field. */
-        public NkStyleEdit.Buffer selected_hover(NkColor value) { NkStyleEdit.nselected_hover(address(), value); return this; }
+        public NkStyleEdit.Buffer selected_hover(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.nselected_hover(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code selected_text_normal} field. */
-        public NkStyleEdit.Buffer selected_text_normal(NkColor value) { NkStyleEdit.nselected_text_normal(address(), value); return this; }
+        public NkStyleEdit.Buffer selected_text_normal(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.nselected_text_normal(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code selected_text_hover} field. */
-        public NkStyleEdit.Buffer selected_text_hover(NkColor value) { NkStyleEdit.nselected_text_hover(address(), value); return this; }
+        public NkStyleEdit.Buffer selected_text_hover(@NativeType("struct nk_color") NkColor value) { NkStyleEdit.nselected_text_hover(address(), value); return this; }
         /** Sets the specified value to the {@code border} field. */
         public NkStyleEdit.Buffer border(float value) { NkStyleEdit.nborder(address(), value); return this; }
         /** Sets the specified value to the {@code rounding} field. */
@@ -642,9 +679,9 @@ public class NkStyleEdit extends Struct implements NativeResource {
         /** Sets the specified value to the {@code cursor_size} field. */
         public NkStyleEdit.Buffer cursor_size(float value) { NkStyleEdit.ncursor_size(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code scrollbar_size} field. */
-        public NkStyleEdit.Buffer scrollbar_size(NkVec2 value) { NkStyleEdit.nscrollbar_size(address(), value); return this; }
+        public NkStyleEdit.Buffer scrollbar_size(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleEdit.nscrollbar_size(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-        public NkStyleEdit.Buffer padding(NkVec2 value) { NkStyleEdit.npadding(address(), value); return this; }
+        public NkStyleEdit.Buffer padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleEdit.npadding(address(), value); return this; }
         /** Sets the specified value to the {@code row_padding} field. */
         public NkStyleEdit.Buffer row_padding(float value) { NkStyleEdit.nrow_padding(address(), value); return this; }
 

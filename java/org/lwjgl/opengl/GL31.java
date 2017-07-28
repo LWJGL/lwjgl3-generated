@@ -186,7 +186,7 @@ public class GL31 {
      * @param count     the number of vertices to be rendered
      * @param primcount the number of instances of the specified range of vertices to be rendered
      */
-    public static native void glDrawArraysInstanced(int mode, int first, int count, int primcount);
+    public static native void glDrawArraysInstanced(@NativeType("GLenum") int mode, @NativeType("GLint") int first, @NativeType("GLsizei") int count, @NativeType("GLsizei") int primcount);
 
     // --- [ glDrawElementsInstanced ] ---
 
@@ -209,7 +209,7 @@ public class GL31 {
      * @param indices   the ByteBuffer containing the indices to be rendered
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstanced(int mode, int count, int type, long indices, int primcount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstanced(mode, count, type, indices, primcount);
     }
 
@@ -223,7 +223,7 @@ public class GL31 {
      * @param indices   the ByteBuffer containing the indices to be rendered
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstanced(int mode, int type, ByteBuffer indices, int primcount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstanced(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
     }
 
@@ -236,7 +236,7 @@ public class GL31 {
      * @param indices   the ByteBuffer containing the indices to be rendered
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstanced(int mode, ByteBuffer indices, int primcount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
     }
 
@@ -249,7 +249,7 @@ public class GL31 {
      * @param indices   the ByteBuffer containing the indices to be rendered
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstanced(int mode, ShortBuffer indices, int primcount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
     }
 
@@ -262,7 +262,7 @@ public class GL31 {
      * @param indices   the ByteBuffer containing the indices to be rendered
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstanced(int mode, IntBuffer indices, int primcount) {
+    public static void glDrawElementsInstanced(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstanced(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount);
     }
 
@@ -289,7 +289,7 @@ public class GL31 {
      * @param writeOffset the destination buffer object offset, in bytes
      * @param size        the number of bytes to copy
      */
-    public static native void glCopyBufferSubData(int readTarget, int writeTarget, long readOffset, long writeOffset, long size);
+    public static native void glCopyBufferSubData(@NativeType("GLenum") int readTarget, @NativeType("GLenum") int writeTarget, @NativeType("GLintptr") long readOffset, @NativeType("GLintptr") long writeOffset, @NativeType("GLsizeiptr") long size);
 
     // --- [ glPrimitiveRestartIndex ] ---
 
@@ -300,7 +300,7 @@ public class GL31 {
      *
      * @param index the value to be interpreted as the primitive restart index
      */
-    public static native void glPrimitiveRestartIndex(int index);
+    public static native void glPrimitiveRestartIndex(@NativeType("GLuint") int index);
 
     // --- [ glTexBuffer ] ---
 
@@ -335,7 +335,7 @@ public class GL31 {
      * @param internalformat the sized internal format of the data in the store belonging to {@code buffer}
      * @param buffer         the name of the buffer object whose storage to attach to the active buffer texture
      */
-    public static native void glTexBuffer(int target, int internalformat, int buffer);
+    public static native void glTexBuffer(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLuint") int buffer);
 
     // --- [ glGetUniformIndices ] ---
 
@@ -355,7 +355,7 @@ public class GL31 {
      * @param uniformNames   an array of pointers to buffers containing the names of the queried uniforms
      * @param uniformIndices an array that will receive the indices of the uniforms
      */
-    public static void glGetUniformIndices(int program, PointerBuffer uniformNames, IntBuffer uniformIndices) {
+    public static void glGetUniformIndices(@NativeType("GLuint") int program, @NativeType("const GLchar **") PointerBuffer uniformNames, @NativeType("GLuint *") IntBuffer uniformIndices) {
         if (CHECKS) {
             check(uniformIndices, uniformNames.remaining());
         }
@@ -371,7 +371,7 @@ public class GL31 {
      * @param uniformNames   an array of pointers to buffers containing the names of the queried uniforms
      * @param uniformIndices an array that will receive the indices of the uniforms
      */
-    public static void glGetUniformIndices(int program, CharSequence[] uniformNames, IntBuffer uniformIndices) {
+    public static void glGetUniformIndices(@NativeType("GLuint") int program, @NativeType("const GLchar **") CharSequence[] uniformNames, @NativeType("GLuint *") IntBuffer uniformIndices) {
         if (CHECKS) {
             check(uniformIndices, uniformNames.length);
         }
@@ -392,7 +392,8 @@ public class GL31 {
      *
      * @param program the name of a program containing uniforms whose indices to query
      */
-    public static int glGetUniformIndices(int program, CharSequence uniformName) {
+    @NativeType("void")
+    public static int glGetUniformIndices(@NativeType("GLuint") int program, @NativeType("const GLchar **") CharSequence uniformName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long uniformNamesAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, uniformName);
@@ -424,7 +425,7 @@ public class GL31 {
      * @param pname          the property of the each uniform in {@code uniformIndices} that should be written into the corresponding element of {@code params}
      * @param params         an array of {@code uniformCount} integers which are to receive the value of {@code pname} for each uniform in {@code uniformIndices}
      */
-    public static void glGetActiveUniformsiv(int program, IntBuffer uniformIndices, int pname, IntBuffer params) {
+    public static void glGetActiveUniformsiv(@NativeType("GLuint") int program, @NativeType("const GLuint *") IntBuffer uniformIndices, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, uniformIndices.remaining());
         }
@@ -439,7 +440,8 @@ public class GL31 {
      * @param program the program object to be queried
      * @param pname   the property of the each uniform in {@code uniformIndices} that should be written into the corresponding element of {@code params}
      */
-    public static int glGetActiveUniformsi(int program, int uniformIndex, int pname) {
+    @NativeType("void")
+    public static int glGetActiveUniformsi(@NativeType("GLuint") int program, @NativeType("const GLuint *") int uniformIndex, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -470,7 +472,7 @@ public class GL31 {
      * @param length       the address of a variable that will receive the number of characters that were or would have been written to the buffer addressed by {@code uniformName}
      * @param uniformName  the address of a buffer into which the GL will place the name of the active uniform at {@code uniformIndex} within {@code program}
      */
-    public static void glGetActiveUniformName(int program, int uniformIndex, IntBuffer length, ByteBuffer uniformName) {
+    public static void glGetActiveUniformName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformIndex, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer uniformName) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -486,7 +488,8 @@ public class GL31 {
      * @param uniformIndex the index of the active uniform whose name to query
      * @param bufSize      the size of the buffer, in units of {@code GLchar}, of the buffer whose address is specified in {@code uniformName}
      */
-    public static String glGetActiveUniformName(int program, int uniformIndex, int bufSize) {
+    @NativeType("void")
+    public static String glGetActiveUniformName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformIndex, @NativeType("GLsizei") int bufSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer length = stack.ints(0);
@@ -506,7 +509,8 @@ public class GL31 {
      * @param program      the program containing the active uniform index {@code uniformIndex}
      * @param uniformIndex the index of the active uniform whose name to query
      */
-    public static String glGetActiveUniformName(int program, int uniformIndex) {
+    @NativeType("void")
+    public static String glGetActiveUniformName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformIndex) {
         return glGetActiveUniformName(program, uniformIndex, glGetActiveUniformsi(program, uniformIndex, GL_UNIFORM_NAME_LENGTH));
     }
 
@@ -523,7 +527,8 @@ public class GL31 {
      * @param program          the name of a program containing the uniform block
      * @param uniformBlockName an array of characters to containing the name of the uniform block whose index to retrieve
      */
-    public static int glGetUniformBlockIndex(int program, ByteBuffer uniformBlockName) {
+    @NativeType("GLuint")
+    public static int glGetUniformBlockIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer uniformBlockName) {
         if (CHECKS) {
             checkNT1(uniformBlockName);
         }
@@ -538,7 +543,8 @@ public class GL31 {
      * @param program          the name of a program containing the uniform block
      * @param uniformBlockName an array of characters to containing the name of the uniform block whose index to retrieve
      */
-    public static int glGetUniformBlockIndex(int program, CharSequence uniformBlockName) {
+    @NativeType("GLuint")
+    public static int glGetUniformBlockIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence uniformBlockName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer uniformBlockNameEncoded = stack.ASCII(uniformBlockName);
@@ -563,7 +569,7 @@ public class GL31 {
      * @param pname             the name of the parameter to query. One of:<br><table><tr><td>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}</td><td>{@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}</td><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
      * @param params            the address of a variable to receive the result of the query
      */
-    public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, IntBuffer params) {
+    public static void glGetActiveUniformBlockiv(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -579,7 +585,8 @@ public class GL31 {
      * @param uniformBlockIndex the index of the uniform block within {@code program}
      * @param pname             the name of the parameter to query. One of:<br><table><tr><td>{@link #GL_UNIFORM_BLOCK_BINDING UNIFORM_BLOCK_BINDING}</td><td>{@link #GL_UNIFORM_BLOCK_DATA_SIZE UNIFORM_BLOCK_DATA_SIZE}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_NAME_LENGTH UNIFORM_BLOCK_NAME_LENGTH}</td><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS UNIFORM_BLOCK_ACTIVE_UNIFORMS}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER}</td></tr><tr><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER}</td><td>{@link #GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER}</td></tr></table>
      */
-    public static int glGetActiveUniformBlocki(int program, int uniformBlockIndex, int pname) {
+    @NativeType("void")
+    public static int glGetActiveUniformBlocki(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -609,7 +616,7 @@ public class GL31 {
      * @param length            the address of a variable to receive the number of characters that were written to {@code uniformBlockName}
      * @param uniformBlockName  an array of characters to receive the name of the uniform block at {@code uniformBlockIndex}
      */
-    public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, IntBuffer length, ByteBuffer uniformBlockName) {
+    public static void glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer uniformBlockName) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -625,7 +632,8 @@ public class GL31 {
      * @param uniformBlockIndex the index of the uniform block within {@code program}
      * @param bufSize           the size of the buffer addressed by {@code uniformBlockName}
      */
-    public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex, int bufSize) {
+    @NativeType("void")
+    public static String glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLsizei") int bufSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer length = stack.ints(0);
@@ -645,7 +653,8 @@ public class GL31 {
      * @param program           the name of a program containing the uniform block
      * @param uniformBlockIndex the index of the uniform block within {@code program}
      */
-    public static String glGetActiveUniformBlockName(int program, int uniformBlockIndex) {
+    @NativeType("void")
+    public static String glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex) {
         return glGetActiveUniformBlockName(program, uniformBlockIndex, glGetActiveUniformBlocki(program, uniformBlockIndex, GL_UNIFORM_BLOCK_NAME_LENGTH));
     }
 
@@ -660,14 +669,14 @@ public class GL31 {
      * @param uniformBlockIndex   the index of the active uniform block within {@code program} whose binding to assign
      * @param uniformBlockBinding the binding point to which to bind the uniform block with index {@code uniformBlockIndex} within {@code program}
      */
-    public static native void glUniformBlockBinding(int program, int uniformBlockIndex, int uniformBlockBinding);
+    public static native void glUniformBlockBinding(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLuint") int uniformBlockBinding);
 
     /**
      * <p><a target="_blank" href="http://docs.gl/gl4/glGetUniformIndices">Reference Page</a></p>
      * 
      * Array version of: {@link #glGetUniformIndices GetUniformIndices}
      */
-    public static void glGetUniformIndices(int program, PointerBuffer uniformNames, int[] uniformIndices) {
+    public static void glGetUniformIndices(@NativeType("GLuint") int program, @NativeType("const GLchar **") PointerBuffer uniformNames, @NativeType("GLuint *") int[] uniformIndices) {
         long __functionAddress = GL.getICD().glGetUniformIndices;
         if (CHECKS) {
             check(__functionAddress);
@@ -681,7 +690,7 @@ public class GL31 {
      * 
      * Array version of: {@link #glGetActiveUniformsiv GetActiveUniformsiv}
      */
-    public static void glGetActiveUniformsiv(int program, int[] uniformIndices, int pname, int[] params) {
+    public static void glGetActiveUniformsiv(@NativeType("GLuint") int program, @NativeType("const GLuint *") int[] uniformIndices, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetActiveUniformsiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -695,7 +704,7 @@ public class GL31 {
      * 
      * Array version of: {@link #glGetActiveUniformName GetActiveUniformName}
      */
-    public static void glGetActiveUniformName(int program, int uniformIndex, int[] length, ByteBuffer uniformName) {
+    public static void glGetActiveUniformName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformIndex, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer uniformName) {
         long __functionAddress = GL.getICD().glGetActiveUniformName;
         if (CHECKS) {
             check(__functionAddress);
@@ -709,7 +718,7 @@ public class GL31 {
      * 
      * Array version of: {@link #glGetActiveUniformBlockiv GetActiveUniformBlockiv}
      */
-    public static void glGetActiveUniformBlockiv(int program, int uniformBlockIndex, int pname, int[] params) {
+    public static void glGetActiveUniformBlockiv(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetActiveUniformBlockiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -723,7 +732,7 @@ public class GL31 {
      * 
      * Array version of: {@link #glGetActiveUniformBlockName GetActiveUniformBlockName}
      */
-    public static void glGetActiveUniformBlockName(int program, int uniformBlockIndex, int[] length, ByteBuffer uniformBlockName) {
+    public static void glGetActiveUniformBlockName(@NativeType("GLuint") int program, @NativeType("GLuint") int uniformBlockIndex, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer uniformBlockName) {
         long __functionAddress = GL.getICD().glGetActiveUniformBlockName;
         if (CHECKS) {
             check(__functionAddress);

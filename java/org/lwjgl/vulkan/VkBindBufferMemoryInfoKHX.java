@@ -136,32 +136,39 @@ public class VkBindBufferMemoryInfoKHX extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("VkBuffer")
     public long buffer() { return nbuffer(address()); }
     /** Returns the value of the {@code memory} field. */
+    @NativeType("VkDeviceMemory")
     public long memory() { return nmemory(address()); }
     /** Returns the value of the {@code memoryOffset} field. */
+    @NativeType("VkDeviceSize")
     public long memoryOffset() { return nmemoryOffset(address()); }
     /** Returns the value of the {@code deviceIndexCount} field. */
+    @NativeType("uint32_t")
     public int deviceIndexCount() { return ndeviceIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pDeviceIndices() { return npDeviceIndices(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkBindBufferMemoryInfoKHX sType(int value) { nsType(address(), value); return this; }
+    public VkBindBufferMemoryInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBindBufferMemoryInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkBindBufferMemoryInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
-    public VkBindBufferMemoryInfoKHX buffer(long value) { nbuffer(address(), value); return this; }
+    public VkBindBufferMemoryInfoKHX buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
     /** Sets the specified value to the {@code memory} field. */
-    public VkBindBufferMemoryInfoKHX memory(long value) { nmemory(address(), value); return this; }
+    public VkBindBufferMemoryInfoKHX memory(@NativeType("VkDeviceMemory") long value) { nmemory(address(), value); return this; }
     /** Sets the specified value to the {@code memoryOffset} field. */
-    public VkBindBufferMemoryInfoKHX memoryOffset(long value) { nmemoryOffset(address(), value); return this; }
+    public VkBindBufferMemoryInfoKHX memoryOffset(@NativeType("VkDeviceSize") long value) { nmemoryOffset(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-    public VkBindBufferMemoryInfoKHX pDeviceIndices(IntBuffer value) { npDeviceIndices(address(), value); return this; }
+    public VkBindBufferMemoryInfoKHX pDeviceIndices(@NativeType("const uint32_t *") IntBuffer value) { npDeviceIndices(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBindBufferMemoryInfoKHX set(
@@ -419,32 +426,39 @@ public class VkBindBufferMemoryInfoKHX extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkBindBufferMemoryInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkBindBufferMemoryInfoKHX.npNext(address()); }
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("VkBuffer")
         public long buffer() { return VkBindBufferMemoryInfoKHX.nbuffer(address()); }
         /** Returns the value of the {@code memory} field. */
+        @NativeType("VkDeviceMemory")
         public long memory() { return VkBindBufferMemoryInfoKHX.nmemory(address()); }
         /** Returns the value of the {@code memoryOffset} field. */
+        @NativeType("VkDeviceSize")
         public long memoryOffset() { return VkBindBufferMemoryInfoKHX.nmemoryOffset(address()); }
         /** Returns the value of the {@code deviceIndexCount} field. */
+        @NativeType("uint32_t")
         public int deviceIndexCount() { return VkBindBufferMemoryInfoKHX.ndeviceIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pDeviceIndices() { return VkBindBufferMemoryInfoKHX.npDeviceIndices(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkBindBufferMemoryInfoKHX.Buffer sType(int value) { VkBindBufferMemoryInfoKHX.nsType(address(), value); return this; }
+        public VkBindBufferMemoryInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkBindBufferMemoryInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBindBufferMemoryInfoKHX.Buffer pNext(long value) { VkBindBufferMemoryInfoKHX.npNext(address(), value); return this; }
+        public VkBindBufferMemoryInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkBindBufferMemoryInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
-        public VkBindBufferMemoryInfoKHX.Buffer buffer(long value) { VkBindBufferMemoryInfoKHX.nbuffer(address(), value); return this; }
+        public VkBindBufferMemoryInfoKHX.Buffer buffer(@NativeType("VkBuffer") long value) { VkBindBufferMemoryInfoKHX.nbuffer(address(), value); return this; }
         /** Sets the specified value to the {@code memory} field. */
-        public VkBindBufferMemoryInfoKHX.Buffer memory(long value) { VkBindBufferMemoryInfoKHX.nmemory(address(), value); return this; }
+        public VkBindBufferMemoryInfoKHX.Buffer memory(@NativeType("VkDeviceMemory") long value) { VkBindBufferMemoryInfoKHX.nmemory(address(), value); return this; }
         /** Sets the specified value to the {@code memoryOffset} field. */
-        public VkBindBufferMemoryInfoKHX.Buffer memoryOffset(long value) { VkBindBufferMemoryInfoKHX.nmemoryOffset(address(), value); return this; }
+        public VkBindBufferMemoryInfoKHX.Buffer memoryOffset(@NativeType("VkDeviceSize") long value) { VkBindBufferMemoryInfoKHX.nmemoryOffset(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-        public VkBindBufferMemoryInfoKHX.Buffer pDeviceIndices(IntBuffer value) { VkBindBufferMemoryInfoKHX.npDeviceIndices(address(), value); return this; }
+        public VkBindBufferMemoryInfoKHX.Buffer pDeviceIndices(@NativeType("const uint32_t *") IntBuffer value) { VkBindBufferMemoryInfoKHX.npDeviceIndices(address(), value); return this; }
 
     }
 

@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -42,7 +44,7 @@ public class AMDSamplePositions {
 
     public static native void nglSetMultisamplefvAMD(int pname, int index, long val);
 
-    public static void glSetMultisamplefvAMD(int pname, int index, FloatBuffer val) {
+    public static void glSetMultisamplefvAMD(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer val) {
         if (CHECKS) {
             check(val, 2);
         }
@@ -50,7 +52,7 @@ public class AMDSamplePositions {
     }
 
     /** Array version of: {@link #glSetMultisamplefvAMD SetMultisamplefvAMD} */
-    public static void glSetMultisamplefvAMD(int pname, int index, float[] val) {
+    public static void glSetMultisamplefvAMD(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] val) {
         long __functionAddress = GL.getICD().glSetMultisamplefvAMD;
         if (CHECKS) {
             check(__functionAddress);

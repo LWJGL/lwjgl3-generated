@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkVec2 struct nk_vec2} offset;
  * }</pre></code>
  */
+@NativeType("struct nk_cursor")
 public class NkCursor extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,18 +70,21 @@ public class NkCursor extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkImage} view of the {@code img} field. */
+    @NativeType("struct nk_image")
     public NkImage img() { return nimg(address()); }
     /** Returns a {@link NkVec2} view of the {@code size} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 size() { return nsize(address()); }
     /** Returns a {@link NkVec2} view of the {@code offset} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 offset() { return noffset(address()); }
 
     /** Copies the specified {@link NkImage} to the {@code img} field. */
-    public NkCursor img(NkImage value) { nimg(address(), value); return this; }
+    public NkCursor img(@NativeType("struct nk_image") NkImage value) { nimg(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code size} field. */
-    public NkCursor size(NkVec2 value) { nsize(address(), value); return this; }
+    public NkCursor size(@NativeType("struct nk_vec2") NkVec2 value) { nsize(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code offset} field. */
-    public NkCursor offset(NkVec2 value) { noffset(address(), value); return this; }
+    public NkCursor offset(@NativeType("struct nk_vec2") NkVec2 value) { noffset(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkCursor set(
@@ -293,18 +297,21 @@ public class NkCursor extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkImage} view of the {@code img} field. */
+        @NativeType("struct nk_image")
         public NkImage img() { return NkCursor.nimg(address()); }
         /** Returns a {@link NkVec2} view of the {@code size} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 size() { return NkCursor.nsize(address()); }
         /** Returns a {@link NkVec2} view of the {@code offset} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 offset() { return NkCursor.noffset(address()); }
 
         /** Copies the specified {@link NkImage} to the {@code img} field. */
-        public NkCursor.Buffer img(NkImage value) { NkCursor.nimg(address(), value); return this; }
+        public NkCursor.Buffer img(@NativeType("struct nk_image") NkImage value) { NkCursor.nimg(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code size} field. */
-        public NkCursor.Buffer size(NkVec2 value) { NkCursor.nsize(address(), value); return this; }
+        public NkCursor.Buffer size(@NativeType("struct nk_vec2") NkVec2 value) { NkCursor.nsize(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code offset} field. */
-        public NkCursor.Buffer offset(NkVec2 value) { NkCursor.noffset(address(), value); return this; }
+        public NkCursor.Buffer offset(@NativeType("struct nk_vec2") NkVec2 value) { NkCursor.noffset(address(), value); return this; }
 
     }
 

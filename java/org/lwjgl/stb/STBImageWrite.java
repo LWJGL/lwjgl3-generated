@@ -83,7 +83,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_png(ByteBuffer filename, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
+    @NativeType("int")
+    public static boolean stbi_write_png(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const void *") ByteBuffer data, int stride_in_bytes) {
         if (CHECKS) {
             checkNT1(filename);
             check(data, w * h * comp);
@@ -109,7 +110,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_png(CharSequence filename, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
+    @NativeType("int")
+    public static boolean stbi_write_png(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const void *") ByteBuffer data, @NativeType("int") int stride_in_bytes) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -140,7 +142,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_bmp(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_bmp(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             checkNT1(filename);
             check(data, w * h * comp);
@@ -161,7 +164,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_bmp(CharSequence filename, int w, int h, int comp, ByteBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_bmp(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -193,7 +197,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_tga(ByteBuffer filename, int w, int h, int comp, ByteBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_tga(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             checkNT1(filename);
             check(data, w * h * comp);
@@ -215,7 +220,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_tga(CharSequence filename, int w, int h, int comp, ByteBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_tga(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -232,6 +238,7 @@ public class STBImageWrite {
 
     private static native long nstbi_write_tga_with_rle();
 
+    @NativeType("int *")
     private static IntBuffer stbi_write_tga_with_rle() {
         long __result = nstbi_write_tga_with_rle();
         return memIntBuffer(__result, 1);
@@ -259,7 +266,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_hdr(ByteBuffer filename, int w, int h, int comp, FloatBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_hdr(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const float *") FloatBuffer data) {
         if (CHECKS) {
             checkNT1(filename);
             check(data, w * h * comp);
@@ -281,7 +289,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_hdr(CharSequence filename, int w, int h, int comp, FloatBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_hdr(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") FloatBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -314,7 +323,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_jpg(ByteBuffer filename, int w, int h, int comp, FloatBuffer data, int quality) {
+    @NativeType("int")
+    public static boolean stbi_write_jpg(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const float *") FloatBuffer data, int quality) {
         if (CHECKS) {
             checkNT1(filename);
             check(data, w * h * comp);
@@ -337,7 +347,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_jpg(CharSequence filename, int w, int h, int comp, FloatBuffer data, int quality) {
+    @NativeType("int")
+    public static boolean stbi_write_jpg(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") FloatBuffer data, @NativeType("int") int quality) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -368,7 +379,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_png_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data, int stride_in_bytes) {
+    @NativeType("int")
+    public static boolean stbi_write_png_to_func(@NativeType("stbi_write_func *") STBIWriteCallbackI func, @NativeType("void *") long context, int w, int h, int comp, @NativeType("const void *") ByteBuffer data, int stride_in_bytes) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -392,7 +404,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_bmp_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_bmp_to_func(@NativeType("stbi_write_func *") STBIWriteCallbackI func, @NativeType("void *") long context, int w, int h, int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -416,7 +429,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_tga_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_tga_to_func(@NativeType("stbi_write_func *") STBIWriteCallbackI func, @NativeType("void *") long context, int w, int h, int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -440,7 +454,8 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbi_write_hdr_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, FloatBuffer data) {
+    @NativeType("int")
+    public static boolean stbi_write_hdr_to_func(@NativeType("stbi_write_func *") STBIWriteCallbackI func, @NativeType("void *") long context, int w, int h, int comp, @NativeType("const float *") FloatBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -465,7 +480,7 @@ public class STBImageWrite {
      *
      * @return 1 on success, 0 on failure
      */
-    public static int stbi_write_jpg_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, ByteBuffer data, int quality) {
+    public static int stbi_write_jpg_to_func(@NativeType("stbi_write_func *") STBIWriteCallbackI func, @NativeType("void *") long context, int w, int h, int comp, @NativeType("const void *") ByteBuffer data, int quality) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -476,7 +491,8 @@ public class STBImageWrite {
     public static native int nstbi_write_hdr(long filename, int w, int h, int comp, float[] data);
 
     /** Array version of: {@link #stbi_write_hdr write_hdr} */
-    public static boolean stbi_write_hdr(ByteBuffer filename, int w, int h, int comp, float[] data) {
+    @NativeType("int")
+    public static boolean stbi_write_hdr(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const float *") float[] data) {
         if (CHECKS) {
             checkNT1(filename);
             check(data, w * h * comp);
@@ -485,7 +501,8 @@ public class STBImageWrite {
     }
 
     /** Array version of: {@link #stbi_write_hdr write_hdr} */
-    public static boolean stbi_write_hdr(CharSequence filename, int w, int h, int comp, float[] data) {
+    @NativeType("int")
+    public static boolean stbi_write_hdr(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") float[] data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -502,7 +519,8 @@ public class STBImageWrite {
     public static native int nstbi_write_jpg(long filename, int w, int h, int comp, float[] data, int quality);
 
     /** Array version of: {@link #stbi_write_jpg write_jpg} */
-    public static boolean stbi_write_jpg(ByteBuffer filename, int w, int h, int comp, float[] data, int quality) {
+    @NativeType("int")
+    public static boolean stbi_write_jpg(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const float *") float[] data, int quality) {
         if (CHECKS) {
             checkNT1(filename);
             check(data, w * h * comp);
@@ -511,7 +529,8 @@ public class STBImageWrite {
     }
 
     /** Array version of: {@link #stbi_write_jpg write_jpg} */
-    public static boolean stbi_write_jpg(CharSequence filename, int w, int h, int comp, float[] data, int quality) {
+    @NativeType("int")
+    public static boolean stbi_write_jpg(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") float[] data, @NativeType("int") int quality) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -528,7 +547,8 @@ public class STBImageWrite {
     public static native int nstbi_write_hdr_to_func(long func, long context, int w, int h, int comp, float[] data);
 
     /** Array version of: {@link #stbi_write_hdr_to_func write_hdr_to_func} */
-    public static boolean stbi_write_hdr_to_func(STBIWriteCallbackI func, long context, int w, int h, int comp, float[] data) {
+    @NativeType("int")
+    public static boolean stbi_write_hdr_to_func(@NativeType("stbi_write_func *") STBIWriteCallbackI func, @NativeType("void *") long context, int w, int h, int comp, @NativeType("const float *") float[] data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }

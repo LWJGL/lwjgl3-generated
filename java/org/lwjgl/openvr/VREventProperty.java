@@ -28,6 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     ETrackedDeviceProperty prop;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Property_t")
 public class VREventProperty extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -71,14 +72,16 @@ public class VREventProperty extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code container} field. */
+    @NativeType("PropertyContainerHandle_t")
     public long container() { return ncontainer(address()); }
     /** Returns the value of the {@code prop} field. */
+    @NativeType("ETrackedDeviceProperty")
     public int prop() { return nprop(address()); }
 
     /** Sets the specified value to the {@code container} field. */
-    public VREventProperty container(long value) { ncontainer(address(), value); return this; }
+    public VREventProperty container(@NativeType("PropertyContainerHandle_t") long value) { ncontainer(address(), value); return this; }
     /** Sets the specified value to the {@code prop} field. */
-    public VREventProperty prop(int value) { nprop(address(), value); return this; }
+    public VREventProperty prop(@NativeType("ETrackedDeviceProperty") int value) { nprop(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventProperty set(
@@ -285,14 +288,16 @@ public class VREventProperty extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code container} field. */
+        @NativeType("PropertyContainerHandle_t")
         public long container() { return VREventProperty.ncontainer(address()); }
         /** Returns the value of the {@code prop} field. */
+        @NativeType("ETrackedDeviceProperty")
         public int prop() { return VREventProperty.nprop(address()); }
 
         /** Sets the specified value to the {@code container} field. */
-        public VREventProperty.Buffer container(long value) { VREventProperty.ncontainer(address(), value); return this; }
+        public VREventProperty.Buffer container(@NativeType("PropertyContainerHandle_t") long value) { VREventProperty.ncontainer(address(), value); return this; }
         /** Sets the specified value to the {@code prop} field. */
-        public VREventProperty.Buffer prop(int value) { VREventProperty.nprop(address(), value); return this; }
+        public VREventProperty.Buffer prop(@NativeType("ETrackedDeviceProperty") int value) { VREventProperty.nprop(address(), value); return this; }
 
     }
 

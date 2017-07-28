@@ -48,6 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRPosef ovrPosef} CalibratedOrigin;
  * }</pre></code>
  */
+@NativeType("struct ovrTrackingState")
 public class OVRTrackingState extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -100,18 +101,25 @@ public class OVRTrackingState extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRPoseStatef} view of the {@code HeadPose} field. */
+    @NativeType("ovrPoseStatef")
     public OVRPoseStatef HeadPose() { return nHeadPose(address()); }
     /** Returns the value of the {@code StatusFlags} field. */
+    @NativeType("unsigned int")
     public int StatusFlags() { return nStatusFlags(address()); }
     /** Returns a {@link OVRPoseStatef}.Buffer view of the {@code HandPoses} field. */
+    @NativeType("ovrPoseStatef[2]")
     public OVRPoseStatef.Buffer HandPoses() { return nHandPoses(address()); }
     /** Returns a {@link OVRPoseStatef} view of the struct at the specified index of the {@code HandPoses} field. */
+    @NativeType("ovrPoseStatef")
     public OVRPoseStatef HandPoses(int index) { return nHandPoses(address(), index); }
     /** Returns a {@link IntBuffer} view of the {@code HandStatusFlags} field. */
+    @NativeType("unsigned int[2]")
     public IntBuffer HandStatusFlags() { return nHandStatusFlags(address()); }
     /** Returns the value at the specified index of the {@code HandStatusFlags} field. */
+    @NativeType("unsigned int")
     public int HandStatusFlags(int index) { return nHandStatusFlags(address(), index); }
     /** Returns a {@link OVRPosef} view of the {@code CalibratedOrigin} field. */
+    @NativeType("ovrPosef")
     public OVRPosef CalibratedOrigin() { return nCalibratedOrigin(address()); }
 
     // -----------------------------------
@@ -307,18 +315,25 @@ public class OVRTrackingState extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRPoseStatef} view of the {@code HeadPose} field. */
+        @NativeType("ovrPoseStatef")
         public OVRPoseStatef HeadPose() { return OVRTrackingState.nHeadPose(address()); }
         /** Returns the value of the {@code StatusFlags} field. */
+        @NativeType("unsigned int")
         public int StatusFlags() { return OVRTrackingState.nStatusFlags(address()); }
         /** Returns a {@link OVRPoseStatef}.Buffer view of the {@code HandPoses} field. */
+        @NativeType("ovrPoseStatef[2]")
         public OVRPoseStatef.Buffer HandPoses() { return OVRTrackingState.nHandPoses(address()); }
         /** Returns a {@link OVRPoseStatef} view of the struct at the specified index of the {@code HandPoses} field. */
+        @NativeType("ovrPoseStatef")
         public OVRPoseStatef HandPoses(int index) { return OVRTrackingState.nHandPoses(address(), index); }
         /** Returns a {@link IntBuffer} view of the {@code HandStatusFlags} field. */
+        @NativeType("unsigned int[2]")
         public IntBuffer HandStatusFlags() { return OVRTrackingState.nHandStatusFlags(address()); }
         /** Returns the value at the specified index of the {@code HandStatusFlags} field. */
+        @NativeType("unsigned int")
         public int HandStatusFlags(int index) { return OVRTrackingState.nHandStatusFlags(address(), index); }
         /** Returns a {@link OVRPosef} view of the {@code CalibratedOrigin} field. */
+        @NativeType("ovrPosef")
         public OVRPosef CalibratedOrigin() { return OVRTrackingState.nCalibratedOrigin(address()); }
 
     }

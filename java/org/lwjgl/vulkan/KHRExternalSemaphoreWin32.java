@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -138,7 +140,8 @@ public class KHRExternalSemaphoreWin32 {
      * @param device                          the logical device that created the semaphore.
      * @param pImportSemaphoreWin32HandleInfo points to a {@link VkImportSemaphoreWin32HandleInfoKHR} structure specifying the semaphore and import parameters.
      */
-    public static int vkImportSemaphoreWin32HandleKHR(VkDevice device, VkImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo) {
+    @NativeType("VkResult")
+    public static int vkImportSemaphoreWin32HandleKHR(VkDevice device, @NativeType("const VkImportSemaphoreWin32HandleInfoKHR *") VkImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo) {
         return nvkImportSemaphoreWin32HandleKHR(device, pImportSemaphoreWin32HandleInfo.address());
     }
 
@@ -202,7 +205,8 @@ public class KHRExternalSemaphoreWin32 {
      * @param pGetWin32HandleInfo a pointer to an instance of the {@link VkSemaphoreGetWin32HandleInfoKHR} structure containing parameters of the export operation.
      * @param pHandle             will return the Windows handle representing the semaphore state.
      */
-    public static int vkGetSemaphoreWin32HandleKHR(VkDevice device, VkSemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, PointerBuffer pHandle) {
+    @NativeType("VkResult")
+    public static int vkGetSemaphoreWin32HandleKHR(VkDevice device, @NativeType("const VkSemaphoreGetWin32HandleInfoKHR *") VkSemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
         if (CHECKS) {
             check(pHandle, 1);
         }

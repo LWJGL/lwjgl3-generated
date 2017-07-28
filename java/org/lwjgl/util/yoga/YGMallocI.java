@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("YGMalloc")
 public interface YGMallocI extends CallbackI.P {
 
     String SIGNATURE = "(p)p";
@@ -25,7 +26,6 @@ public interface YGMallocI extends CallbackI.P {
         );
     }
 
-
-    long invoke(long size);
+    @NativeType("void *") long invoke(@NativeType("size_t") long size);
 
 }

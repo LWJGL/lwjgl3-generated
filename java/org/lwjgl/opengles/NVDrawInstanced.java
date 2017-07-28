@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -44,7 +46,7 @@ public class NVDrawInstanced {
 
     // --- [ glDrawArraysInstancedNV ] ---
 
-    public static native void glDrawArraysInstancedNV(int mode, int first, int count, int primcount);
+    public static native void glDrawArraysInstancedNV(@NativeType("GLenum") int mode, @NativeType("GLint") int first, @NativeType("GLsizei") int count, @NativeType("GLsizei") int primcount);
 
     // --- [ glDrawElementsInstancedNV ] ---
 
@@ -62,7 +64,7 @@ public class NVDrawInstanced {
      * @param indices   
      * @param primcount 
      */
-    public static void glDrawElementsInstancedNV(int mode, int count, int type, long indices, int primcount) {
+    public static void glDrawElementsInstancedNV(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedNV(mode, count, type, indices, primcount);
     }
 
@@ -72,19 +74,19 @@ public class NVDrawInstanced {
      * @param indices   
      * @param primcount 
      */
-    public static void glDrawElementsInstancedNV(int mode, int type, ByteBuffer indices, int primcount) {
+    public static void glDrawElementsInstancedNV(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedNV(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), primcount);
     }
 
-    public static void glDrawElementsInstancedNV(int mode, ByteBuffer indices, int primcount) {
+    public static void glDrawElementsInstancedNV(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
     }
 
-    public static void glDrawElementsInstancedNV(int mode, ShortBuffer indices, int primcount) {
+    public static void glDrawElementsInstancedNV(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
     }
 
-    public static void glDrawElementsInstancedNV(int mode, IntBuffer indices, int primcount) {
+    public static void glDrawElementsInstancedNV(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedNV(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), primcount);
     }
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -58,6 +60,6 @@ public class ARBClipControl {
      * @param origin the clip origin. One of:<br><table><tr><td>{@link GL20#GL_LOWER_LEFT LOWER_LEFT}</td><td>{@link GL20#GL_UPPER_LEFT UPPER_LEFT}</td></tr></table>
      * @param depth  the clip depth mode. One of:<br><table><tr><td>{@link GL45#GL_NEGATIVE_ONE_TO_ONE NEGATIVE_ONE_TO_ONE}</td><td>{@link GL45#GL_ZERO_TO_ONE ZERO_TO_ONE}</td></tr></table>
      */
-    public static native void glClipControl(int origin, int depth);
+    public static native void glClipControl(@NativeType("GLenum") int origin, @NativeType("GLenum") int depth);
 
 }

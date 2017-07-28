@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -32,7 +34,8 @@ public class KHRWaitSync {
 
     // --- [ eglWaitSyncKHR ] ---
 
-    public static int eglWaitSyncKHR(long dpy, long sync, int flags) {
+    @NativeType("EGLint")
+    public static int eglWaitSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSyncKHR") long sync, @NativeType("EGLint") int flags) {
         long __functionAddress = EGL.getCapabilities().eglWaitSyncKHR;
         if (CHECKS) {
             check(__functionAddress);

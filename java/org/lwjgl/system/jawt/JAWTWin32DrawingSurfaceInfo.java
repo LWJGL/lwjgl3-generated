@@ -39,6 +39,7 @@ import org.lwjgl.system.windows.User32;
  *     HPALETTE hpalette;
  * }</pre></code>
  */
+@NativeType("struct JAWT_Win32DrawingSurfaceInfo")
 public class JAWTWin32DrawingSurfaceInfo extends Struct {
 
     /** The struct size in bytes. */
@@ -93,18 +94,23 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code hwnd} field. */
+    @NativeType("HWND")
     public long hwnd() { return nhwnd(address()); }
     /** Returns the value of the {@code hbitmap} field. */
+    @NativeType("HBITMAP")
     public long hbitmap() { return nhbitmap(address()); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pbits} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("void *")
     public ByteBuffer pbits(int capacity) { return npbits(address(), capacity); }
     /** Returns the value of the {@code hdc} field. */
+    @NativeType("HDC")
     public long hdc() { return nhdc(address()); }
     /** Returns the value of the {@code hpalette} field. */
+    @NativeType("HPALETTE")
     public long hpalette() { return nhpalette(address()); }
 
     // -----------------------------------
@@ -180,18 +186,23 @@ public class JAWTWin32DrawingSurfaceInfo extends Struct {
         }
 
         /** Returns the value of the {@code hwnd} field. */
+        @NativeType("HWND")
         public long hwnd() { return JAWTWin32DrawingSurfaceInfo.nhwnd(address()); }
         /** Returns the value of the {@code hbitmap} field. */
+        @NativeType("HBITMAP")
         public long hbitmap() { return JAWTWin32DrawingSurfaceInfo.nhbitmap(address()); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pbits} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("void *")
         public ByteBuffer pbits(int capacity) { return JAWTWin32DrawingSurfaceInfo.npbits(address(), capacity); }
         /** Returns the value of the {@code hdc} field. */
+        @NativeType("HDC")
         public long hdc() { return JAWTWin32DrawingSurfaceInfo.nhdc(address()); }
         /** Returns the value of the {@code hpalette} field. */
+        @NativeType("HPALETTE")
         public long hpalette() { return JAWTWin32DrawingSurfaceInfo.nhpalette(address()); }
 
     }

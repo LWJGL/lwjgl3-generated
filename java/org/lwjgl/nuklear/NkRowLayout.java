@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float templates[16];
  * }</pre></code>
  */
+@NativeType("struct nk_row_layout")
 public class NkRowLayout extends Struct {
 
     /** The struct size in bytes. */
@@ -114,6 +115,7 @@ public class NkRowLayout extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("enum nk_panel_row_layout_type")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code index} field. */
     public int index() { return nindex(address()); }
@@ -128,6 +130,7 @@ public class NkRowLayout extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("const float *")
     public FloatBuffer ratio(int capacity) { return nratio(address(), capacity); }
     /** Returns the value of the {@code item_width} field. */
     public float item_width() { return nitem_width(address()); }
@@ -138,10 +141,12 @@ public class NkRowLayout extends Struct {
     /** Returns the value of the {@code filled} field. */
     public float filled() { return nfilled(address()); }
     /** Returns a {@link NkRect} view of the {@code item} field. */
+    @NativeType("struct nk_rect")
     public NkRect item() { return nitem(address()); }
     /** Returns the value of the {@code tree_depth} field. */
     public int tree_depth() { return ntree_depth(address()); }
     /** Returns a {@link FloatBuffer} view of the {@code templates} field. */
+    @NativeType("float[16]")
     public FloatBuffer templates() { return ntemplates(address()); }
     /** Returns the value at the specified index of the {@code templates} field. */
     public float templates(int index) { return ntemplates(address(), index); }
@@ -240,6 +245,7 @@ public class NkRowLayout extends Struct {
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("enum nk_panel_row_layout_type")
         public int type() { return NkRowLayout.ntype(address()); }
         /** Returns the value of the {@code index} field. */
         public int index() { return NkRowLayout.nindex(address()); }
@@ -254,6 +260,7 @@ public class NkRowLayout extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("const float *")
         public FloatBuffer ratio(int capacity) { return NkRowLayout.nratio(address(), capacity); }
         /** Returns the value of the {@code item_width} field. */
         public float item_width() { return NkRowLayout.nitem_width(address()); }
@@ -264,10 +271,12 @@ public class NkRowLayout extends Struct {
         /** Returns the value of the {@code filled} field. */
         public float filled() { return NkRowLayout.nfilled(address()); }
         /** Returns a {@link NkRect} view of the {@code item} field. */
+        @NativeType("struct nk_rect")
         public NkRect item() { return NkRowLayout.nitem(address()); }
         /** Returns the value of the {@code tree_depth} field. */
         public int tree_depth() { return NkRowLayout.ntree_depth(address()); }
         /** Returns a {@link FloatBuffer} view of the {@code templates} field. */
+        @NativeType("float[16]")
         public FloatBuffer templates() { return NkRowLayout.ntemplates(address()); }
         /** Returns the value at the specified index of the {@code templates} field. */
         public float templates(int index) { return NkRowLayout.ntemplates(address(), index); }

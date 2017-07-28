@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned char a;
  * }</pre></code>
  */
+@NativeType("struct aiTexel")
 public class AITexel extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -84,12 +85,16 @@ public class AITexel extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code b} field. */
+    @NativeType("unsigned char")
     public byte b() { return nb(address()); }
     /** Returns the value of the {@code g} field. */
+    @NativeType("unsigned char")
     public byte g() { return ng(address()); }
     /** Returns the value of the {@code r} field. */
+    @NativeType("unsigned char")
     public byte r() { return nr(address()); }
     /** Returns the value of the {@code a} field. */
+    @NativeType("unsigned char")
     public byte a() { return na(address()); }
 
     // -----------------------------------
@@ -273,12 +278,16 @@ public class AITexel extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code b} field. */
+        @NativeType("unsigned char")
         public byte b() { return AITexel.nb(address()); }
         /** Returns the value of the {@code g} field. */
+        @NativeType("unsigned char")
         public byte g() { return AITexel.ng(address()); }
         /** Returns the value of the {@code r} field. */
+        @NativeType("unsigned char")
         public byte r() { return AITexel.nr(address()); }
         /** Returns the value of the {@code a} field. */
+        @NativeType("unsigned char")
         public byte a() { return AITexel.na(address()); }
 
     }

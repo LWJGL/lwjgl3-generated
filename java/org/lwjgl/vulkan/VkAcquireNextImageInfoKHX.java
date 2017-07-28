@@ -139,34 +139,41 @@ public class VkAcquireNextImageInfoKHX extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code swapchain} field. */
+    @NativeType("VkSwapchainKHR")
     public long swapchain() { return nswapchain(address()); }
     /** Returns the value of the {@code timeout} field. */
+    @NativeType("uint64_t")
     public long timeout() { return ntimeout(address()); }
     /** Returns the value of the {@code semaphore} field. */
+    @NativeType("VkSemaphore")
     public long semaphore() { return nsemaphore(address()); }
     /** Returns the value of the {@code fence} field. */
+    @NativeType("VkFence")
     public long fence() { return nfence(address()); }
     /** Returns the value of the {@code deviceMask} field. */
+    @NativeType("uint32_t")
     public int deviceMask() { return ndeviceMask(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkAcquireNextImageInfoKHX sType(int value) { nsType(address(), value); return this; }
+    public VkAcquireNextImageInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkAcquireNextImageInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkAcquireNextImageInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code swapchain} field. */
-    public VkAcquireNextImageInfoKHX swapchain(long value) { nswapchain(address(), value); return this; }
+    public VkAcquireNextImageInfoKHX swapchain(@NativeType("VkSwapchainKHR") long value) { nswapchain(address(), value); return this; }
     /** Sets the specified value to the {@code timeout} field. */
-    public VkAcquireNextImageInfoKHX timeout(long value) { ntimeout(address(), value); return this; }
+    public VkAcquireNextImageInfoKHX timeout(@NativeType("uint64_t") long value) { ntimeout(address(), value); return this; }
     /** Sets the specified value to the {@code semaphore} field. */
-    public VkAcquireNextImageInfoKHX semaphore(long value) { nsemaphore(address(), value); return this; }
+    public VkAcquireNextImageInfoKHX semaphore(@NativeType("VkSemaphore") long value) { nsemaphore(address(), value); return this; }
     /** Sets the specified value to the {@code fence} field. */
-    public VkAcquireNextImageInfoKHX fence(long value) { nfence(address(), value); return this; }
+    public VkAcquireNextImageInfoKHX fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code deviceMask} field. */
-    public VkAcquireNextImageInfoKHX deviceMask(int value) { ndeviceMask(address(), value); return this; }
+    public VkAcquireNextImageInfoKHX deviceMask(@NativeType("uint32_t") int value) { ndeviceMask(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkAcquireNextImageInfoKHX set(
@@ -403,34 +410,41 @@ public class VkAcquireNextImageInfoKHX extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkAcquireNextImageInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkAcquireNextImageInfoKHX.npNext(address()); }
         /** Returns the value of the {@code swapchain} field. */
+        @NativeType("VkSwapchainKHR")
         public long swapchain() { return VkAcquireNextImageInfoKHX.nswapchain(address()); }
         /** Returns the value of the {@code timeout} field. */
+        @NativeType("uint64_t")
         public long timeout() { return VkAcquireNextImageInfoKHX.ntimeout(address()); }
         /** Returns the value of the {@code semaphore} field. */
+        @NativeType("VkSemaphore")
         public long semaphore() { return VkAcquireNextImageInfoKHX.nsemaphore(address()); }
         /** Returns the value of the {@code fence} field. */
+        @NativeType("VkFence")
         public long fence() { return VkAcquireNextImageInfoKHX.nfence(address()); }
         /** Returns the value of the {@code deviceMask} field. */
+        @NativeType("uint32_t")
         public int deviceMask() { return VkAcquireNextImageInfoKHX.ndeviceMask(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkAcquireNextImageInfoKHX.Buffer sType(int value) { VkAcquireNextImageInfoKHX.nsType(address(), value); return this; }
+        public VkAcquireNextImageInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkAcquireNextImageInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkAcquireNextImageInfoKHX.Buffer pNext(long value) { VkAcquireNextImageInfoKHX.npNext(address(), value); return this; }
+        public VkAcquireNextImageInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkAcquireNextImageInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code swapchain} field. */
-        public VkAcquireNextImageInfoKHX.Buffer swapchain(long value) { VkAcquireNextImageInfoKHX.nswapchain(address(), value); return this; }
+        public VkAcquireNextImageInfoKHX.Buffer swapchain(@NativeType("VkSwapchainKHR") long value) { VkAcquireNextImageInfoKHX.nswapchain(address(), value); return this; }
         /** Sets the specified value to the {@code timeout} field. */
-        public VkAcquireNextImageInfoKHX.Buffer timeout(long value) { VkAcquireNextImageInfoKHX.ntimeout(address(), value); return this; }
+        public VkAcquireNextImageInfoKHX.Buffer timeout(@NativeType("uint64_t") long value) { VkAcquireNextImageInfoKHX.ntimeout(address(), value); return this; }
         /** Sets the specified value to the {@code semaphore} field. */
-        public VkAcquireNextImageInfoKHX.Buffer semaphore(long value) { VkAcquireNextImageInfoKHX.nsemaphore(address(), value); return this; }
+        public VkAcquireNextImageInfoKHX.Buffer semaphore(@NativeType("VkSemaphore") long value) { VkAcquireNextImageInfoKHX.nsemaphore(address(), value); return this; }
         /** Sets the specified value to the {@code fence} field. */
-        public VkAcquireNextImageInfoKHX.Buffer fence(long value) { VkAcquireNextImageInfoKHX.nfence(address(), value); return this; }
+        public VkAcquireNextImageInfoKHX.Buffer fence(@NativeType("VkFence") long value) { VkAcquireNextImageInfoKHX.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code deviceMask} field. */
-        public VkAcquireNextImageInfoKHX.Buffer deviceMask(int value) { VkAcquireNextImageInfoKHX.ndeviceMask(address(), value); return this; }
+        public VkAcquireNextImageInfoKHX.Buffer deviceMask(@NativeType("uint32_t") int value) { VkAcquireNextImageInfoKHX.ndeviceMask(address(), value); return this; }
 
     }
 

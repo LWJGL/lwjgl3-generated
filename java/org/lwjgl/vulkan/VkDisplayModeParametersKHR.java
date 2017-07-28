@@ -87,12 +87,13 @@ public class VkDisplayModeParametersKHR extends Struct implements NativeResource
     /** Returns a {@link VkExtent2D} view of the {@code visibleRegion} field. */
     public VkExtent2D visibleRegion() { return nvisibleRegion(address()); }
     /** Returns the value of the {@code refreshRate} field. */
+    @NativeType("uint32_t")
     public int refreshRate() { return nrefreshRate(address()); }
 
     /** Copies the specified {@link VkExtent2D} to the {@code visibleRegion} field. */
     public VkDisplayModeParametersKHR visibleRegion(VkExtent2D value) { nvisibleRegion(address(), value); return this; }
     /** Sets the specified value to the {@code refreshRate} field. */
-    public VkDisplayModeParametersKHR refreshRate(int value) { nrefreshRate(address(), value); return this; }
+    public VkDisplayModeParametersKHR refreshRate(@NativeType("uint32_t") int value) { nrefreshRate(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDisplayModeParametersKHR set(
@@ -301,12 +302,13 @@ public class VkDisplayModeParametersKHR extends Struct implements NativeResource
         /** Returns a {@link VkExtent2D} view of the {@code visibleRegion} field. */
         public VkExtent2D visibleRegion() { return VkDisplayModeParametersKHR.nvisibleRegion(address()); }
         /** Returns the value of the {@code refreshRate} field. */
+        @NativeType("uint32_t")
         public int refreshRate() { return VkDisplayModeParametersKHR.nrefreshRate(address()); }
 
         /** Copies the specified {@link VkExtent2D} to the {@code visibleRegion} field. */
         public VkDisplayModeParametersKHR.Buffer visibleRegion(VkExtent2D value) { VkDisplayModeParametersKHR.nvisibleRegion(address(), value); return this; }
         /** Sets the specified value to the {@code refreshRate} field. */
-        public VkDisplayModeParametersKHR.Buffer refreshRate(int value) { VkDisplayModeParametersKHR.nrefreshRate(address(), value); return this; }
+        public VkDisplayModeParametersKHR.Buffer refreshRate(@NativeType("uint32_t") int value) { VkDisplayModeParametersKHR.nrefreshRate(address(), value); return this; }
 
     }
 

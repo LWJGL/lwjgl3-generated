@@ -36,7 +36,8 @@ public class DynLoad {
      *
      * @param libpath the dynamic library path
      */
-    public static long dlLoadLibrary(ByteBuffer libpath) {
+    @NativeType("DLLib *")
+    public static long dlLoadLibrary(@NativeType("const char *") ByteBuffer libpath) {
         if (CHECKS) {
             checkNT1(libpath);
         }
@@ -48,7 +49,8 @@ public class DynLoad {
      *
      * @param libpath the dynamic library path
      */
-    public static long dlLoadLibrary(CharSequence libpath) {
+    @NativeType("DLLib *")
+    public static long dlLoadLibrary(@NativeType("const char *") CharSequence libpath) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer libpathEncoded = stack.ASCII(libpath);
@@ -68,7 +70,7 @@ public class DynLoad {
      *
      * @param pLib the dynamic library to free
      */
-    public static void dlFreeLibrary(long pLib) {
+    public static void dlFreeLibrary(@NativeType("DLLib *") long pLib) {
         if (CHECKS) {
             check(pLib);
         }
@@ -87,7 +89,8 @@ public class DynLoad {
      * @param pLib        the dynamic library
      * @param pSymbolName the symbol name
      */
-    public static long dlFindSymbol(long pLib, ByteBuffer pSymbolName) {
+    @NativeType("void *")
+    public static long dlFindSymbol(@NativeType("DLLib *") long pLib, @NativeType("const char *") ByteBuffer pSymbolName) {
         if (CHECKS) {
             check(pLib);
             checkNT1(pSymbolName);
@@ -102,7 +105,8 @@ public class DynLoad {
      * @param pLib        the dynamic library
      * @param pSymbolName the symbol name
      */
-    public static long dlFindSymbol(long pLib, CharSequence pSymbolName) {
+    @NativeType("void *")
+    public static long dlFindSymbol(@NativeType("DLLib *") long pLib, @NativeType("const char *") CharSequence pSymbolName) {
         if (CHECKS) {
             check(pLib);
         }
@@ -125,7 +129,8 @@ public class DynLoad {
      *
      * @param libPath the dynamic library path
      */
-    public static long dlSymsInit(ByteBuffer libPath) {
+    @NativeType("DLSyms *")
+    public static long dlSymsInit(@NativeType("const char *") ByteBuffer libPath) {
         if (CHECKS) {
             checkNT1(libPath);
         }
@@ -137,7 +142,8 @@ public class DynLoad {
      *
      * @param libPath the dynamic library path
      */
-    public static long dlSymsInit(CharSequence libPath) {
+    @NativeType("DLSyms *")
+    public static long dlSymsInit(@NativeType("const char *") CharSequence libPath) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer libPathEncoded = stack.ASCII(libPath);
@@ -157,7 +163,7 @@ public class DynLoad {
      *
      * @param pSyms the {@code DLSyms} object to free
      */
-    public static void dlSymsCleanup(long pSyms) {
+    public static void dlSymsCleanup(@NativeType("DLSyms *") long pSyms) {
         if (CHECKS) {
             check(pSyms);
         }
@@ -174,7 +180,7 @@ public class DynLoad {
      *
      * @param pSyms a {@code DLSyms} object
      */
-    public static int dlSymsCount(long pSyms) {
+    public static int dlSymsCount(@NativeType("DLSyms *") long pSyms) {
         if (CHECKS) {
             check(pSyms);
         }
@@ -192,7 +198,8 @@ public class DynLoad {
      * @param pSyms a {@code DLSyms} object
      * @param index 
      */
-    public static String dlSymsName(long pSyms, int index) {
+    @NativeType("const char *")
+    public static String dlSymsName(@NativeType("DLSyms *") long pSyms, @NativeType("int") int index) {
         if (CHECKS) {
             check(pSyms);
         }
@@ -211,7 +218,8 @@ public class DynLoad {
      * @param pSyms a {@code DLSyms} object
      * @param value the symbol address
      */
-    public static String dlSymsNameFromValue(long pSyms, long value) {
+    @NativeType("const char *")
+    public static String dlSymsNameFromValue(@NativeType("DLSyms *") long pSyms, @NativeType("void *") long value) {
         if (CHECKS) {
             check(pSyms);
             check(value);

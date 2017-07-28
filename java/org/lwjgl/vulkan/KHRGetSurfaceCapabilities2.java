@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -137,7 +139,8 @@ public class KHRGetSurfaceCapabilities2 {
      * @param pSurfaceInfo         points to an instance of the {@link VkPhysicalDeviceSurfaceInfo2KHR} structure, describing the surface and other fixed parameters that would be consumed by {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR}.
      * @param pSurfaceCapabilities points to an instance of the {@link VkSurfaceCapabilities2KHR} structure in which the capabilities are returned.
      */
-    public static int vkGetPhysicalDeviceSurfaceCapabilities2KHR(VkPhysicalDevice physicalDevice, VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, VkSurfaceCapabilities2KHR pSurfaceCapabilities) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceCapabilities2KHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceSurfaceInfo2KHR *") VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, @NativeType("VkSurfaceCapabilities2KHR *") VkSurfaceCapabilities2KHR pSurfaceCapabilities) {
         return nvkGetPhysicalDeviceSurfaceCapabilities2KHR(physicalDevice, pSurfaceInfo.address(), pSurfaceCapabilities.address());
     }
 
@@ -208,7 +211,8 @@ public class KHRGetSurfaceCapabilities2 {
      * @param pSurfaceFormatCount a pointer to an integer related to the number of format tuples available or queried, as described below.
      * @param pSurfaceFormats     either {@code NULL} or a pointer to an array of {@link VkSurfaceFormat2KHR} structures.
      */
-    public static int vkGetPhysicalDeviceSurfaceFormats2KHR(VkPhysicalDevice physicalDevice, VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, IntBuffer pSurfaceFormatCount, VkSurfaceFormat2KHR.Buffer pSurfaceFormats) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceFormats2KHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceSurfaceInfo2KHR *") VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, @NativeType("uint32_t *") IntBuffer pSurfaceFormatCount, @NativeType("VkSurfaceFormat2KHR *") VkSurfaceFormat2KHR.Buffer pSurfaceFormats) {
         if (CHECKS) {
             check(pSurfaceFormatCount, 1);
             checkSafe(pSurfaceFormats, pSurfaceFormatCount.get(pSurfaceFormatCount.position()));
@@ -217,7 +221,8 @@ public class KHRGetSurfaceCapabilities2 {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceSurfaceFormats2KHR GetPhysicalDeviceSurfaceFormats2KHR} */
-    public static int vkGetPhysicalDeviceSurfaceFormats2KHR(VkPhysicalDevice physicalDevice, VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, int[] pSurfaceFormatCount, VkSurfaceFormat2KHR.Buffer pSurfaceFormats) {
+    @NativeType("VkResult")
+    public static int vkGetPhysicalDeviceSurfaceFormats2KHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceSurfaceInfo2KHR *") VkPhysicalDeviceSurfaceInfo2KHR pSurfaceInfo, @NativeType("uint32_t *") int[] pSurfaceFormatCount, @NativeType("VkSurfaceFormat2KHR *") VkSurfaceFormat2KHR.Buffer pSurfaceFormats) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSurfaceFormats2KHR;
         if (CHECKS) {
             check(__functionAddress);

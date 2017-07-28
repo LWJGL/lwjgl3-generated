@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -49,6 +51,6 @@ public class EXTTextureFilterMinmax {
 
     // --- [ glRasterSamplesEXT ] ---
 
-    public static native void glRasterSamplesEXT(int samples, boolean fixedsamplelocations);
+    public static native void glRasterSamplesEXT(@NativeType("GLuint") int samples, @NativeType("GLboolean") boolean fixedsamplelocations);
 
 }

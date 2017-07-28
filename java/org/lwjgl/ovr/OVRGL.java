@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -47,7 +49,8 @@ public class OVRGL {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_CreateTextureSwapChainGL(long session, OVRTextureSwapChainDesc desc, PointerBuffer out_TextureSwapChain) {
+    @NativeType("ovrResult")
+    public static int ovr_CreateTextureSwapChainGL(@NativeType("ovrSession") long session, @NativeType("const ovrTextureSwapChainDesc *") OVRTextureSwapChainDesc desc, @NativeType("ovrTextureSwapChain *") PointerBuffer out_TextureSwapChain) {
         if (CHECKS) {
             check(session);
             check(out_TextureSwapChain, 1);
@@ -71,7 +74,8 @@ public class OVRGL {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_GetTextureSwapChainBufferGL(long session, long chain, int index, IntBuffer out_TexId) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainBufferGL(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, int index, @NativeType("unsigned int *") IntBuffer out_TexId) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -101,7 +105,8 @@ public class OVRGL {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_CreateMirrorTextureGL(long session, OVRMirrorTextureDesc desc, PointerBuffer out_MirrorTexture) {
+    @NativeType("ovrResult")
+    public static int ovr_CreateMirrorTextureGL(@NativeType("ovrSession") long session, @NativeType("const ovrMirrorTextureDesc *") OVRMirrorTextureDesc desc, @NativeType("ovrMirrorTexture *") PointerBuffer out_MirrorTexture) {
         if (CHECKS) {
             check(session);
             check(out_MirrorTexture, 1);
@@ -123,7 +128,8 @@ public class OVRGL {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_GetMirrorTextureBufferGL(long session, long mirrorTexture, IntBuffer out_TexId) {
+    @NativeType("ovrResult")
+    public static int ovr_GetMirrorTextureBufferGL(@NativeType("ovrSession") long session, @NativeType("ovrMirrorTexture") long mirrorTexture, @NativeType("unsigned int *") IntBuffer out_TexId) {
         if (CHECKS) {
             check(session);
             check(mirrorTexture);
@@ -136,7 +142,8 @@ public class OVRGL {
     public static native int novr_GetTextureSwapChainBufferGL(long session, long chain, int index, int[] out_TexId);
 
     /** Array version of: {@link #ovr_GetTextureSwapChainBufferGL GetTextureSwapChainBufferGL} */
-    public static int ovr_GetTextureSwapChainBufferGL(long session, long chain, int index, int[] out_TexId) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainBufferGL(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, int index, @NativeType("unsigned int *") int[] out_TexId) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -149,7 +156,8 @@ public class OVRGL {
     public static native int novr_GetMirrorTextureBufferGL(long session, long mirrorTexture, int[] out_TexId);
 
     /** Array version of: {@link #ovr_GetMirrorTextureBufferGL GetMirrorTextureBufferGL} */
-    public static int ovr_GetMirrorTextureBufferGL(long session, long mirrorTexture, int[] out_TexId) {
+    @NativeType("ovrResult")
+    public static int ovr_GetMirrorTextureBufferGL(@NativeType("ovrSession") long session, @NativeType("ovrMirrorTexture") long mirrorTexture, @NativeType("unsigned int *") int[] out_TexId) {
         if (CHECKS) {
             check(session);
             check(mirrorTexture);

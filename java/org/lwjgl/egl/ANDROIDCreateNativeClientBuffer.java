@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -63,7 +65,8 @@ public class ANDROIDCreateNativeClientBuffer {
      * @param attrib_list a list of attribute-value pairs which is used to specify the dimensions, format, and usage of the underlying buffer structure. If it is non-{@code NULL},
      *                    the last attribute specified in the list must be {@link EGL10#EGL_NONE NONE}.
      */
-    public static long eglCreateNativeClientBufferANDROID(IntBuffer attrib_list) {
+    @NativeType("EGLClientBuffer")
+    public static long eglCreateNativeClientBufferANDROID(@NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -71,7 +74,8 @@ public class ANDROIDCreateNativeClientBuffer {
     }
 
     /** Array version of: {@link #eglCreateNativeClientBufferANDROID CreateNativeClientBufferANDROID} */
-    public static long eglCreateNativeClientBufferANDROID(int[] attrib_list) {
+    @NativeType("EGLClientBuffer")
+    public static long eglCreateNativeClientBufferANDROID(@NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateNativeClientBufferANDROID;
         if (CHECKS) {
             check(__functionAddress);

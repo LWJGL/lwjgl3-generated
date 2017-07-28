@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -82,7 +84,8 @@ public class QCOMEXTHostPtr {
      * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
      * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
      */
-    public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetDeviceImageInfoQCOM(@NativeType("cl_device_id") long device, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("cl_image_pitch_info_qcom") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -101,7 +104,8 @@ public class QCOMEXTHostPtr {
      * @param param_value          a pointer to memory where the appropriate result being queried is returned. If {@code param_value} is {@code NULL}, it is ignored.
      * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
      */
-    public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetDeviceImageInfoQCOM(@NativeType("cl_device_id") long device, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("cl_image_pitch_info_qcom") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -109,7 +113,8 @@ public class QCOMEXTHostPtr {
     }
 
     /** Array version of: {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
-    public static int clGetDeviceImageInfoQCOM(long device, long image_width, long image_height, CLImageFormat image_format, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetDeviceImageInfoQCOM(@NativeType("cl_device_id") long device, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("cl_image_pitch_info_qcom") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetDeviceImageInfoQCOM;
         if (CHECKS) {
             check(__functionAddress);

@@ -57,7 +57,8 @@ public class DynamicLinkLoader {
      * @param filename the name of the dynamic library to open, or {@code NULL}
      * @param mode     a bitfield. One or more of:<br><table><tr><td>{@link #RTLD_LAZY}</td><td>{@link #RTLD_NOW}</td><td>{@link #RTLD_BINDING_MASK}</td><td>{@link #RTLD_NOLOAD}</td><td>{@link #RTLD_DEEPBIND}</td><td>{@link #RTLD_GLOBAL}</td></tr><tr><td>{@link #RTLD_LOCAL}</td><td>{@link #RTLD_NODELETE}</td></tr></table>
      */
-    public static long dlopen(ByteBuffer filename, int mode) {
+    @NativeType("void *")
+    public static long dlopen(@NativeType("const char *") ByteBuffer filename, int mode) {
         if (CHECKS) {
             checkNT1Safe(filename);
         }
@@ -71,7 +72,8 @@ public class DynamicLinkLoader {
      * @param filename the name of the dynamic library to open, or {@code NULL}
      * @param mode     a bitfield. One or more of:<br><table><tr><td>{@link #RTLD_LAZY}</td><td>{@link #RTLD_NOW}</td><td>{@link #RTLD_BINDING_MASK}</td><td>{@link #RTLD_NOLOAD}</td><td>{@link #RTLD_DEEPBIND}</td><td>{@link #RTLD_GLOBAL}</td></tr><tr><td>{@link #RTLD_LOCAL}</td><td>{@link #RTLD_NODELETE}</td></tr></table>
      */
-    public static long dlopen(CharSequence filename, int mode) {
+    @NativeType("void *")
+    public static long dlopen(@NativeType("const char *") CharSequence filename, @NativeType("int") int mode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
@@ -90,6 +92,7 @@ public class DynamicLinkLoader {
      * Returns a human readable string describing the most recent error that occurred from {@link #dlopen}, {@link #dlsym} or {@link #dlclose} since
      * the last call to {@code dlerror()}. It returns {@code NULL} if no errors have occurred since initialization or since it was last called.
      */
+    @NativeType("char *")
     public static String dlerror() {
         long __result = ndlerror();
         return memASCII(__result);
@@ -108,7 +111,8 @@ public class DynamicLinkLoader {
      * @param handle the dynamic library handle
      * @param name   the symbol name
      */
-    public static long dlsym(long handle, ByteBuffer name) {
+    @NativeType("void *")
+    public static long dlsym(@NativeType("void *") long handle, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             check(handle);
             checkNT1(name);
@@ -124,7 +128,8 @@ public class DynamicLinkLoader {
      * @param handle the dynamic library handle
      * @param name   the symbol name
      */
-    public static long dlsym(long handle, CharSequence name) {
+    @NativeType("void *")
+    public static long dlsym(@NativeType("void *") long handle, @NativeType("const char *") CharSequence name) {
         if (CHECKS) {
             check(handle);
         }
@@ -148,7 +153,7 @@ public class DynamicLinkLoader {
      *
      * @param handle the dynamic library to close
      */
-    public static int dlclose(long handle) {
+    public static int dlclose(@NativeType("void *") long handle) {
         if (CHECKS) {
             check(handle);
         }

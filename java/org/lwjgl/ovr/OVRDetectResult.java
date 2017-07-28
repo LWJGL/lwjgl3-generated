@@ -40,6 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char[6];
  * }</pre></code>
  */
+@NativeType("struct ovrDetectResult")
 public class OVRDetectResult extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -84,8 +85,10 @@ public class OVRDetectResult extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code IsOculusServiceRunning} field. */
+    @NativeType("ovrBool")
     public boolean IsOculusServiceRunning() { return nIsOculusServiceRunning(address()); }
     /** Returns the value of the {@code IsOculusHMDConnected} field. */
+    @NativeType("ovrBool")
     public boolean IsOculusHMDConnected() { return nIsOculusHMDConnected(address()); }
 
     // -----------------------------------
@@ -265,8 +268,10 @@ public class OVRDetectResult extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code IsOculusServiceRunning} field. */
+        @NativeType("ovrBool")
         public boolean IsOculusServiceRunning() { return OVRDetectResult.nIsOculusServiceRunning(address()); }
         /** Returns the value of the {@code IsOculusHMDConnected} field. */
+        @NativeType("ovrBool")
         public boolean IsOculusHMDConnected() { return OVRDetectResult.nIsOculusHMDConnected(address()); }
 
     }

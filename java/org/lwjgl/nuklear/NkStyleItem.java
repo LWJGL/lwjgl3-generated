@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkStyleItemData union nk_style_item_data} data;
  * }</pre></code>
  */
+@NativeType("struct nk_style_item")
 public class NkStyleItem extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -72,14 +73,16 @@ public class NkStyleItem extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("enum nk_style_item_type")
     public int type() { return ntype(address()); }
     /** Returns a {@link NkStyleItemData} view of the {@code data} field. */
+    @NativeType("union nk_style_item_data")
     public NkStyleItemData data() { return ndata(address()); }
 
     /** Sets the specified value to the {@code type} field. */
-    public NkStyleItem type(int value) { ntype(address(), value); return this; }
+    public NkStyleItem type(@NativeType("enum nk_style_item_type") int value) { ntype(address(), value); return this; }
     /** Copies the specified {@link NkStyleItemData} to the {@code data} field. */
-    public NkStyleItem data(NkStyleItemData value) { ndata(address(), value); return this; }
+    public NkStyleItem data(@NativeType("union nk_style_item_data") NkStyleItemData value) { ndata(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleItem set(
@@ -286,14 +289,16 @@ public class NkStyleItem extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("enum nk_style_item_type")
         public int type() { return NkStyleItem.ntype(address()); }
         /** Returns a {@link NkStyleItemData} view of the {@code data} field. */
+        @NativeType("union nk_style_item_data")
         public NkStyleItemData data() { return NkStyleItem.ndata(address()); }
 
         /** Sets the specified value to the {@code type} field. */
-        public NkStyleItem.Buffer type(int value) { NkStyleItem.ntype(address(), value); return this; }
+        public NkStyleItem.Buffer type(@NativeType("enum nk_style_item_type") int value) { NkStyleItem.ntype(address(), value); return this; }
         /** Copies the specified {@link NkStyleItemData} to the {@code data} field. */
-        public NkStyleItem.Buffer data(NkStyleItemData value) { NkStyleItem.ndata(address(), value); return this; }
+        public NkStyleItem.Buffer data(@NativeType("union nk_style_item_data") NkStyleItemData value) { NkStyleItem.ndata(address(), value); return this; }
 
     }
 

@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkColor struct nk_color} color;
  * }</pre></code>
  */
+@NativeType("union nk_style_item_data")
 public class NkStyleItemData extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class NkStyleItemData extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkImage} view of the {@code image} field. */
+    @NativeType("struct nk_image")
     public NkImage image() { return nimage(address()); }
     /** Returns a {@link NkColor} view of the {@code color} field. */
+    @NativeType("struct nk_color")
     public NkColor color() { return ncolor(address()); }
 
     /** Copies the specified {@link NkImage} to the {@code image} field. */
-    public NkStyleItemData image(NkImage value) { nimage(address(), value); return this; }
+    public NkStyleItemData image(@NativeType("struct nk_image") NkImage value) { nimage(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code color} field. */
-    public NkStyleItemData color(NkColor value) { ncolor(address(), value); return this; }
+    public NkStyleItemData color(@NativeType("struct nk_color") NkColor value) { ncolor(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -268,14 +271,16 @@ public class NkStyleItemData extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkImage} view of the {@code image} field. */
+        @NativeType("struct nk_image")
         public NkImage image() { return NkStyleItemData.nimage(address()); }
         /** Returns a {@link NkColor} view of the {@code color} field. */
+        @NativeType("struct nk_color")
         public NkColor color() { return NkStyleItemData.ncolor(address()); }
 
         /** Copies the specified {@link NkImage} to the {@code image} field. */
-        public NkStyleItemData.Buffer image(NkImage value) { NkStyleItemData.nimage(address(), value); return this; }
+        public NkStyleItemData.Buffer image(@NativeType("struct nk_image") NkImage value) { NkStyleItemData.nimage(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code color} field. */
-        public NkStyleItemData.Buffer color(NkColor value) { NkStyleItemData.ncolor(address(), value); return this; }
+        public NkStyleItemData.Buffer color(@NativeType("struct nk_color") NkColor value) { NkStyleItemData.ncolor(address(), value); return this; }
 
     }
 

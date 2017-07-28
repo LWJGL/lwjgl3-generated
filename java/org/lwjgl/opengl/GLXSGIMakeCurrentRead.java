@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -37,7 +39,8 @@ public class GLXSGIMakeCurrentRead {
      * @param read    the read drawable
      * @param ctx     the current context
      */
-    public static boolean glXMakeCurrentReadSGI(long display, long draw, long read, long ctx) {
+    @NativeType("Bool")
+    public static boolean glXMakeCurrentReadSGI(@NativeType("Display *") long display, @NativeType("GLXDrawable") long draw, @NativeType("GLXDrawable") long read, @NativeType("GLXContext") long ctx) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXMakeCurrentReadSGI;
         if (CHECKS) {
             check(__functionAddress);
@@ -49,6 +52,7 @@ public class GLXSGIMakeCurrentRead {
     // --- [ glXGetCurrentReadDrawableSGI ] ---
 
     /** Returns the name of the {@code GLXDrawable} currently being used as a pixel query source. */
+    @NativeType("GLXDrawable")
     public static long glXGetCurrentReadDrawableSGI() {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentReadDrawableSGI;
         if (CHECKS) {

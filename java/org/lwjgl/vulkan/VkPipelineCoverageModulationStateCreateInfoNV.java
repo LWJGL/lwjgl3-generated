@@ -161,34 +161,41 @@ public class VkPipelineCoverageModulationStateCreateInfoNV extends Struct implem
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkPipelineCoverageModulationStateCreateFlagsNV")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code coverageModulationMode} field. */
+    @NativeType("VkCoverageModulationModeNV")
     public int coverageModulationMode() { return ncoverageModulationMode(address()); }
     /** Returns the value of the {@code coverageModulationTableEnable} field. */
+    @NativeType("VkBool32")
     public boolean coverageModulationTableEnable() { return ncoverageModulationTableEnable(address()) != 0; }
     /** Returns the value of the {@code coverageModulationTableCount} field. */
+    @NativeType("uint32_t")
     public int coverageModulationTableCount() { return ncoverageModulationTableCount(address()); }
     /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code pCoverageModulationTable} field. */
+    @NativeType("const float *")
     public FloatBuffer pCoverageModulationTable() { return npCoverageModulationTable(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineCoverageModulationStateCreateInfoNV sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineCoverageModulationStateCreateInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineCoverageModulationStateCreateInfoNV pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineCoverageModulationStateCreateInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkPipelineCoverageModulationStateCreateInfoNV flags(int value) { nflags(address(), value); return this; }
+    public VkPipelineCoverageModulationStateCreateInfoNV flags(@NativeType("VkPipelineCoverageModulationStateCreateFlagsNV") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code coverageModulationMode} field. */
-    public VkPipelineCoverageModulationStateCreateInfoNV coverageModulationMode(int value) { ncoverageModulationMode(address(), value); return this; }
+    public VkPipelineCoverageModulationStateCreateInfoNV coverageModulationMode(@NativeType("VkCoverageModulationModeNV") int value) { ncoverageModulationMode(address(), value); return this; }
     /** Sets the specified value to the {@code coverageModulationTableEnable} field. */
-    public VkPipelineCoverageModulationStateCreateInfoNV coverageModulationTableEnable(boolean value) { ncoverageModulationTableEnable(address(), value ? 1 : 0); return this; }
+    public VkPipelineCoverageModulationStateCreateInfoNV coverageModulationTableEnable(@NativeType("VkBool32") boolean value) { ncoverageModulationTableEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code coverageModulationTableCount} field. */
-    public VkPipelineCoverageModulationStateCreateInfoNV coverageModulationTableCount(int value) { ncoverageModulationTableCount(address(), value); return this; }
+    public VkPipelineCoverageModulationStateCreateInfoNV coverageModulationTableCount(@NativeType("uint32_t") int value) { ncoverageModulationTableCount(address(), value); return this; }
     /** Sets the address of the specified {@link FloatBuffer} to the {@code pCoverageModulationTable} field. */
-    public VkPipelineCoverageModulationStateCreateInfoNV pCoverageModulationTable(FloatBuffer value) { npCoverageModulationTable(address(), value); return this; }
+    public VkPipelineCoverageModulationStateCreateInfoNV pCoverageModulationTable(@NativeType("const float *") FloatBuffer value) { npCoverageModulationTable(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineCoverageModulationStateCreateInfoNV set(
@@ -425,34 +432,41 @@ public class VkPipelineCoverageModulationStateCreateInfoNV extends Struct implem
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineCoverageModulationStateCreateInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineCoverageModulationStateCreateInfoNV.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkPipelineCoverageModulationStateCreateFlagsNV")
         public int flags() { return VkPipelineCoverageModulationStateCreateInfoNV.nflags(address()); }
         /** Returns the value of the {@code coverageModulationMode} field. */
+        @NativeType("VkCoverageModulationModeNV")
         public int coverageModulationMode() { return VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationMode(address()); }
         /** Returns the value of the {@code coverageModulationTableEnable} field. */
+        @NativeType("VkBool32")
         public boolean coverageModulationTableEnable() { return VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationTableEnable(address()) != 0; }
         /** Returns the value of the {@code coverageModulationTableCount} field. */
+        @NativeType("uint32_t")
         public int coverageModulationTableCount() { return VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationTableCount(address()); }
         /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code pCoverageModulationTable} field. */
+        @NativeType("const float *")
         public FloatBuffer pCoverageModulationTable() { return VkPipelineCoverageModulationStateCreateInfoNV.npCoverageModulationTable(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer sType(int value) { VkPipelineCoverageModulationStateCreateInfoNV.nsType(address(), value); return this; }
+        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineCoverageModulationStateCreateInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer pNext(long value) { VkPipelineCoverageModulationStateCreateInfoNV.npNext(address(), value); return this; }
+        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkPipelineCoverageModulationStateCreateInfoNV.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer flags(int value) { VkPipelineCoverageModulationStateCreateInfoNV.nflags(address(), value); return this; }
+        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer flags(@NativeType("VkPipelineCoverageModulationStateCreateFlagsNV") int value) { VkPipelineCoverageModulationStateCreateInfoNV.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code coverageModulationMode} field. */
-        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer coverageModulationMode(int value) { VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationMode(address(), value); return this; }
+        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer coverageModulationMode(@NativeType("VkCoverageModulationModeNV") int value) { VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationMode(address(), value); return this; }
         /** Sets the specified value to the {@code coverageModulationTableEnable} field. */
-        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer coverageModulationTableEnable(boolean value) { VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationTableEnable(address(), value ? 1 : 0); return this; }
+        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer coverageModulationTableEnable(@NativeType("VkBool32") boolean value) { VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationTableEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code coverageModulationTableCount} field. */
-        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer coverageModulationTableCount(int value) { VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationTableCount(address(), value); return this; }
+        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer coverageModulationTableCount(@NativeType("uint32_t") int value) { VkPipelineCoverageModulationStateCreateInfoNV.ncoverageModulationTableCount(address(), value); return this; }
         /** Sets the address of the specified {@link FloatBuffer} to the {@code pCoverageModulationTable} field. */
-        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer pCoverageModulationTable(FloatBuffer value) { VkPipelineCoverageModulationStateCreateInfoNV.npCoverageModulationTable(address(), value); return this; }
+        public VkPipelineCoverageModulationStateCreateInfoNV.Buffer pCoverageModulationTable(@NativeType("const float *") FloatBuffer value) { VkPipelineCoverageModulationStateCreateInfoNV.npCoverageModulationTable(address(), value); return this; }
 
     }
 

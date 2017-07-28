@@ -106,16 +106,18 @@ public class VkClearAttachment extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code aspectMask} field. */
+    @NativeType("VkImageAspectFlags")
     public int aspectMask() { return naspectMask(address()); }
     /** Returns the value of the {@code colorAttachment} field. */
+    @NativeType("uint32_t")
     public int colorAttachment() { return ncolorAttachment(address()); }
     /** Returns a {@link VkClearValue} view of the {@code clearValue} field. */
     public VkClearValue clearValue() { return nclearValue(address()); }
 
     /** Sets the specified value to the {@code aspectMask} field. */
-    public VkClearAttachment aspectMask(int value) { naspectMask(address(), value); return this; }
+    public VkClearAttachment aspectMask(@NativeType("VkImageAspectFlags") int value) { naspectMask(address(), value); return this; }
     /** Sets the specified value to the {@code colorAttachment} field. */
-    public VkClearAttachment colorAttachment(int value) { ncolorAttachment(address(), value); return this; }
+    public VkClearAttachment colorAttachment(@NativeType("uint32_t") int value) { ncolorAttachment(address(), value); return this; }
     /** Copies the specified {@link VkClearValue} to the {@code clearValue} field. */
     public VkClearAttachment clearValue(VkClearValue value) { nclearValue(address(), value); return this; }
 
@@ -330,16 +332,18 @@ public class VkClearAttachment extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code aspectMask} field. */
+        @NativeType("VkImageAspectFlags")
         public int aspectMask() { return VkClearAttachment.naspectMask(address()); }
         /** Returns the value of the {@code colorAttachment} field. */
+        @NativeType("uint32_t")
         public int colorAttachment() { return VkClearAttachment.ncolorAttachment(address()); }
         /** Returns a {@link VkClearValue} view of the {@code clearValue} field. */
         public VkClearValue clearValue() { return VkClearAttachment.nclearValue(address()); }
 
         /** Sets the specified value to the {@code aspectMask} field. */
-        public VkClearAttachment.Buffer aspectMask(int value) { VkClearAttachment.naspectMask(address(), value); return this; }
+        public VkClearAttachment.Buffer aspectMask(@NativeType("VkImageAspectFlags") int value) { VkClearAttachment.naspectMask(address(), value); return this; }
         /** Sets the specified value to the {@code colorAttachment} field. */
-        public VkClearAttachment.Buffer colorAttachment(int value) { VkClearAttachment.ncolorAttachment(address(), value); return this; }
+        public VkClearAttachment.Buffer colorAttachment(@NativeType("uint32_t") int value) { VkClearAttachment.ncolorAttachment(address(), value); return this; }
         /** Copies the specified {@link VkClearValue} to the {@code clearValue} field. */
         public VkClearAttachment.Buffer clearValue(VkClearValue value) { VkClearAttachment.nclearValue(address(), value); return this; }
 

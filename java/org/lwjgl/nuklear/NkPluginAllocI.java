@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("nk_plugin_alloc")
 public interface NkPluginAllocI extends CallbackI.P {
 
     String SIGNATURE = "(ppp)p";
@@ -27,7 +28,6 @@ public interface NkPluginAllocI extends CallbackI.P {
         );
     }
 
-
-    long invoke(long handle, long old, long size);
+    @NativeType("void *") long invoke(@NativeType("nk_handle") long handle, @NativeType("void *") long old, @NativeType("nk_size") long size);
 
 }

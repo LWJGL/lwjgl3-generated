@@ -108,26 +108,31 @@ public class VkPipelineViewportSwizzleStateCreateInfoNV extends Struct implement
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkPipelineViewportSwizzleStateCreateFlagsNV")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code viewportCount} field. */
+    @NativeType("uint32_t")
     public int viewportCount() { return nviewportCount(address()); }
     /** Returns a {@link VkViewportSwizzleNV.Buffer} view of the struct array pointed to by the {@code pViewportSwizzles} field. */
+    @NativeType("const VkViewportSwizzleNV *")
     public VkViewportSwizzleNV.Buffer pViewportSwizzles() { return npViewportSwizzles(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineViewportSwizzleStateCreateInfoNV sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineViewportSwizzleStateCreateInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineViewportSwizzleStateCreateInfoNV pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineViewportSwizzleStateCreateInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkPipelineViewportSwizzleStateCreateInfoNV flags(int value) { nflags(address(), value); return this; }
+    public VkPipelineViewportSwizzleStateCreateInfoNV flags(@NativeType("VkPipelineViewportSwizzleStateCreateFlagsNV") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code viewportCount} field. */
-    public VkPipelineViewportSwizzleStateCreateInfoNV viewportCount(int value) { nviewportCount(address(), value); return this; }
+    public VkPipelineViewportSwizzleStateCreateInfoNV viewportCount(@NativeType("uint32_t") int value) { nviewportCount(address(), value); return this; }
     /** Sets the address of the specified {@link VkViewportSwizzleNV.Buffer} to the {@code pViewportSwizzles} field. */
-    public VkPipelineViewportSwizzleStateCreateInfoNV pViewportSwizzles(VkViewportSwizzleNV.Buffer value) { npViewportSwizzles(address(), value); return this; }
+    public VkPipelineViewportSwizzleStateCreateInfoNV pViewportSwizzles(@NativeType("const VkViewportSwizzleNV *") VkViewportSwizzleNV.Buffer value) { npViewportSwizzles(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineViewportSwizzleStateCreateInfoNV set(
@@ -352,26 +357,31 @@ public class VkPipelineViewportSwizzleStateCreateInfoNV extends Struct implement
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineViewportSwizzleStateCreateInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineViewportSwizzleStateCreateInfoNV.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkPipelineViewportSwizzleStateCreateFlagsNV")
         public int flags() { return VkPipelineViewportSwizzleStateCreateInfoNV.nflags(address()); }
         /** Returns the value of the {@code viewportCount} field. */
+        @NativeType("uint32_t")
         public int viewportCount() { return VkPipelineViewportSwizzleStateCreateInfoNV.nviewportCount(address()); }
         /** Returns a {@link VkViewportSwizzleNV.Buffer} view of the struct array pointed to by the {@code pViewportSwizzles} field. */
+        @NativeType("const VkViewportSwizzleNV *")
         public VkViewportSwizzleNV.Buffer pViewportSwizzles() { return VkPipelineViewportSwizzleStateCreateInfoNV.npViewportSwizzles(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer sType(int value) { VkPipelineViewportSwizzleStateCreateInfoNV.nsType(address(), value); return this; }
+        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineViewportSwizzleStateCreateInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer pNext(long value) { VkPipelineViewportSwizzleStateCreateInfoNV.npNext(address(), value); return this; }
+        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkPipelineViewportSwizzleStateCreateInfoNV.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer flags(int value) { VkPipelineViewportSwizzleStateCreateInfoNV.nflags(address(), value); return this; }
+        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer flags(@NativeType("VkPipelineViewportSwizzleStateCreateFlagsNV") int value) { VkPipelineViewportSwizzleStateCreateInfoNV.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code viewportCount} field. */
-        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer viewportCount(int value) { VkPipelineViewportSwizzleStateCreateInfoNV.nviewportCount(address(), value); return this; }
+        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer viewportCount(@NativeType("uint32_t") int value) { VkPipelineViewportSwizzleStateCreateInfoNV.nviewportCount(address(), value); return this; }
         /** Sets the address of the specified {@link VkViewportSwizzleNV.Buffer} to the {@code pViewportSwizzles} field. */
-        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer pViewportSwizzles(VkViewportSwizzleNV.Buffer value) { VkPipelineViewportSwizzleStateCreateInfoNV.npViewportSwizzles(address(), value); return this; }
+        public VkPipelineViewportSwizzleStateCreateInfoNV.Buffer pViewportSwizzles(@NativeType("const VkViewportSwizzleNV *") VkViewportSwizzleNV.Buffer value) { VkPipelineViewportSwizzleStateCreateInfoNV.npViewportSwizzles(address(), value); return this; }
 
     }
 

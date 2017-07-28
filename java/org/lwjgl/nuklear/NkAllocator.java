@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkPluginFreeI nk_plugin_free} mfree;
  * }</pre></code>
  */
+@NativeType("struct nk_allocator")
 public class NkAllocator extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,18 +70,21 @@ public class NkAllocator extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+    @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code alloc} field. */
+    @NativeType("nk_plugin_alloc")
     public NkPluginAlloc alloc() { return nalloc(address()); }
     /** Returns the value of the {@code mfree} field. */
+    @NativeType("nk_plugin_free")
     public NkPluginFree mfree() { return nmfree(address()); }
 
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-    public NkAllocator userdata(NkHandle value) { nuserdata(address(), value); return this; }
+    public NkAllocator userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code alloc} field. */
-    public NkAllocator alloc(NkPluginAllocI value) { nalloc(address(), value); return this; }
+    public NkAllocator alloc(@NativeType("nk_plugin_alloc") NkPluginAllocI value) { nalloc(address(), value); return this; }
     /** Sets the specified value to the {@code mfree} field. */
-    public NkAllocator mfree(NkPluginFreeI value) { nmfree(address(), value); return this; }
+    public NkAllocator mfree(@NativeType("nk_plugin_free") NkPluginFreeI value) { nmfree(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkAllocator set(
@@ -293,18 +297,21 @@ public class NkAllocator extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+        @NativeType("nk_handle")
         public NkHandle userdata() { return NkAllocator.nuserdata(address()); }
         /** Returns the value of the {@code alloc} field. */
+        @NativeType("nk_plugin_alloc")
         public NkPluginAlloc alloc() { return NkAllocator.nalloc(address()); }
         /** Returns the value of the {@code mfree} field. */
+        @NativeType("nk_plugin_free")
         public NkPluginFree mfree() { return NkAllocator.nmfree(address()); }
 
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
-        public NkAllocator.Buffer userdata(NkHandle value) { NkAllocator.nuserdata(address(), value); return this; }
+        public NkAllocator.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkAllocator.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code alloc} field. */
-        public NkAllocator.Buffer alloc(NkPluginAllocI value) { NkAllocator.nalloc(address(), value); return this; }
+        public NkAllocator.Buffer alloc(@NativeType("nk_plugin_alloc") NkPluginAllocI value) { NkAllocator.nalloc(address(), value); return this; }
         /** Sets the specified value to the {@code mfree} field. */
-        public NkAllocator.Buffer mfree(NkPluginFreeI value) { NkAllocator.nmfree(address(), value); return this; }
+        public NkAllocator.Buffer mfree(@NativeType("nk_plugin_free") NkPluginFreeI value) { NkAllocator.nmfree(address(), value); return this; }
 
     }
 

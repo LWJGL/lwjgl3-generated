@@ -93,18 +93,21 @@ public class VkSpecializationMapEntry extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code constantID} field. */
+    @NativeType("uint32_t")
     public int constantID() { return nconstantID(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("uint32_t")
     public int offset() { return noffset(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("size_t")
     public long size() { return nsize(address()); }
 
     /** Sets the specified value to the {@code constantID} field. */
-    public VkSpecializationMapEntry constantID(int value) { nconstantID(address(), value); return this; }
+    public VkSpecializationMapEntry constantID(@NativeType("uint32_t") int value) { nconstantID(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkSpecializationMapEntry offset(int value) { noffset(address(), value); return this; }
+    public VkSpecializationMapEntry offset(@NativeType("uint32_t") int value) { noffset(address(), value); return this; }
     /** Sets the specified value to the {@code size} field. */
-    public VkSpecializationMapEntry size(long value) { nsize(address(), value); return this; }
+    public VkSpecializationMapEntry size(@NativeType("size_t") long value) { nsize(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSpecializationMapEntry set(
@@ -317,18 +320,21 @@ public class VkSpecializationMapEntry extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code constantID} field. */
+        @NativeType("uint32_t")
         public int constantID() { return VkSpecializationMapEntry.nconstantID(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("uint32_t")
         public int offset() { return VkSpecializationMapEntry.noffset(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("size_t")
         public long size() { return VkSpecializationMapEntry.nsize(address()); }
 
         /** Sets the specified value to the {@code constantID} field. */
-        public VkSpecializationMapEntry.Buffer constantID(int value) { VkSpecializationMapEntry.nconstantID(address(), value); return this; }
+        public VkSpecializationMapEntry.Buffer constantID(@NativeType("uint32_t") int value) { VkSpecializationMapEntry.nconstantID(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkSpecializationMapEntry.Buffer offset(int value) { VkSpecializationMapEntry.noffset(address(), value); return this; }
+        public VkSpecializationMapEntry.Buffer offset(@NativeType("uint32_t") int value) { VkSpecializationMapEntry.noffset(address(), value); return this; }
         /** Sets the specified value to the {@code size} field. */
-        public VkSpecializationMapEntry.Buffer size(long value) { VkSpecializationMapEntry.nsize(address(), value); return this; }
+        public VkSpecializationMapEntry.Buffer size(@NativeType("size_t") long value) { VkSpecializationMapEntry.nsize(address(), value); return this; }
 
     }
 

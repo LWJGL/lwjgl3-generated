@@ -42,20 +42,21 @@ public class EXTDrawBuffers2 {
 
     // --- [ glColorMaskIndexedEXT ] ---
 
-    public static native void glColorMaskIndexedEXT(int index, boolean r, boolean g, boolean b, boolean a);
+    public static native void glColorMaskIndexedEXT(@NativeType("GLuint") int index, @NativeType("GLboolean") boolean r, @NativeType("GLboolean") boolean g, @NativeType("GLboolean") boolean b, @NativeType("GLboolean") boolean a);
 
     // --- [ glGetBooleanIndexedvEXT ] ---
 
     public static native void nglGetBooleanIndexedvEXT(int target, int index, long data);
 
-    public static void glGetBooleanIndexedvEXT(int target, int index, ByteBuffer data) {
+    public static void glGetBooleanIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLboolean *") ByteBuffer data) {
         if (CHECKS) {
             check(data, 1);
         }
         nglGetBooleanIndexedvEXT(target, index, memAddress(data));
     }
 
-    public static boolean glGetBooleanIndexedEXT(int target, int index) {
+    @NativeType("void")
+    public static boolean glGetBooleanIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer data = stack.calloc(1);
@@ -70,14 +71,15 @@ public class EXTDrawBuffers2 {
 
     public static native void nglGetIntegerIndexedvEXT(int target, int index, long data);
 
-    public static void glGetIntegerIndexedvEXT(int target, int index, IntBuffer data) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer data) {
         if (CHECKS) {
             check(data, 1);
         }
         nglGetIntegerIndexedvEXT(target, index, memAddress(data));
     }
 
-    public static int glGetIntegerIndexedEXT(int target, int index) {
+    @NativeType("void")
+    public static int glGetIntegerIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer data = stack.callocInt(1);
@@ -90,18 +92,19 @@ public class EXTDrawBuffers2 {
 
     // --- [ glEnableIndexedEXT ] ---
 
-    public static native void glEnableIndexedEXT(int target, int index);
+    public static native void glEnableIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glDisableIndexedEXT ] ---
 
-    public static native void glDisableIndexedEXT(int target, int index);
+    public static native void glDisableIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glIsEnabledIndexedEXT ] ---
 
-    public static native boolean glIsEnabledIndexedEXT(int target, int index);
+    @NativeType("GLboolean")
+    public static native boolean glIsEnabledIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     /** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-    public static void glGetIntegerIndexedvEXT(int target, int index, int[] data) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") int[] data) {
         long __functionAddress = GL.getICD().glGetIntegerIndexedvEXT;
         if (CHECKS) {
             check(__functionAddress);

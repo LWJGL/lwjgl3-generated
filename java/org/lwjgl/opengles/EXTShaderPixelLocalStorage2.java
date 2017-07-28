@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -52,22 +54,23 @@ public class EXTShaderPixelLocalStorage2 {
 
     // --- [ glFramebufferPixelLocalStorageSizeEXT ] ---
 
-    public static native void glFramebufferPixelLocalStorageSizeEXT(int target, int size);
+    public static native void glFramebufferPixelLocalStorageSizeEXT(@NativeType("GLuint") int target, @NativeType("GLsizei") int size);
 
     // --- [ glGetFramebufferPixelLocalStorageSizeEXT ] ---
 
-    public static native int glGetFramebufferPixelLocalStorageSizeEXT(int target);
+    @NativeType("GLsizei")
+    public static native int glGetFramebufferPixelLocalStorageSizeEXT(@NativeType("GLuint") int target);
 
     // --- [ glClearPixelLocalStorageuiEXT ] ---
 
     public static native void nglClearPixelLocalStorageuiEXT(int offset, int n, long values);
 
-    public static void glClearPixelLocalStorageuiEXT(int offset, IntBuffer values) {
+    public static void glClearPixelLocalStorageuiEXT(@NativeType("GLsizei") int offset, @NativeType("const GLuint *") IntBuffer values) {
         nglClearPixelLocalStorageuiEXT(offset, values.remaining(), memAddress(values));
     }
 
     /** Array version of: {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
-    public static void glClearPixelLocalStorageuiEXT(int offset, int[] values) {
+    public static void glClearPixelLocalStorageuiEXT(@NativeType("GLsizei") int offset, @NativeType("const GLuint *") int[] values) {
         long __functionAddress = GLES.getICD().glClearPixelLocalStorageuiEXT;
         if (CHECKS) {
             check(__functionAddress);

@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float y;
  * }</pre></code>
  */
+@NativeType("struct VRControllerAxis_t")
 public class VRControllerAxis extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowFocusCallback SetWindowFocusCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWwindowfocusfun")
 public interface GLFWWindowFocusCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";
@@ -32,6 +33,6 @@ public interface GLFWWindowFocusCallbackI extends CallbackI.V {
      * @param window  the window that was focused or defocused
      * @param focused {@link GLFW#GLFW_TRUE TRUE} if the window was focused, or {@link GLFW#GLFW_FALSE FALSE} if it was defocused
      */
-    void invoke(long window, boolean focused);
+    void invoke(@NativeType("GLFWwindow *") long window, @NativeType("int") boolean focused);
 
 }

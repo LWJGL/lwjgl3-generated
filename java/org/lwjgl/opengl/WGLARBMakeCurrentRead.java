@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -62,7 +64,8 @@ public class WGLARBMakeCurrentRead {
      * @param readDC the "read" device context
      * @param hglrc  the OpenGL context
      */
-    public static boolean wglMakeContextCurrentARB(long drawDC, long readDC, long hglrc) {
+    @NativeType("BOOL")
+    public static boolean wglMakeContextCurrentARB(@NativeType("HDC") long drawDC, @NativeType("HDC") long readDC, @NativeType("HGLRC") long hglrc) {
         long __functionAddress = GL.getCapabilitiesWGL().wglMakeContextCurrentARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -76,6 +79,7 @@ public class WGLARBMakeCurrentRead {
     // --- [ wglGetCurrentReadDCARB ] ---
 
     /** Returns the "read" device context for the current OpenGL context. */
+    @NativeType("HDC")
     public static long wglGetCurrentReadDCARB() {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetCurrentReadDCARB;
         if (CHECKS) {

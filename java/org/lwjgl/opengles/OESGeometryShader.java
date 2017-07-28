@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -119,6 +121,6 @@ public class OESGeometryShader {
 
     // --- [ glFramebufferTextureOES ] ---
 
-    public static native void glFramebufferTextureOES(int target, int attachment, int texture, int level);
+    public static native void glFramebufferTextureOES(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
 }

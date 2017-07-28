@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("YGMeasureFunc")
 public interface YGMeasureFuncI extends CallbackI.J {
 
     String SIGNATURE = "(pfifi)l";
@@ -38,6 +39,6 @@ public interface YGMeasureFuncI extends CallbackI.J {
      * @param height     
      * @param heightMode 
      */
-    long invoke(long node, float width, int widthMode, float height, int heightMode);
+    @NativeType("uint64_t") long invoke(@NativeType("YGNodeRef") long node, float width, @NativeType("YGMeasureMode") int widthMode, float height, @NativeType("YGMeasureMode") int heightMode);
 
 }

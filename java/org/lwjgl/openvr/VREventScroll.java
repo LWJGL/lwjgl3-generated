@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t repeatCount;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Scroll_t")
 public class VREventScroll extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -81,6 +82,7 @@ public class VREventScroll extends Struct implements NativeResource {
     /** Returns the value of the {@code ydelta} field. */
     public float ydelta() { return nydelta(address()); }
     /** Returns the value of the {@code repeatCount} field. */
+    @NativeType("uint32_t")
     public int repeatCount() { return nrepeatCount(address()); }
 
     /** Sets the specified value to the {@code xdelta} field. */
@@ -88,7 +90,7 @@ public class VREventScroll extends Struct implements NativeResource {
     /** Sets the specified value to the {@code ydelta} field. */
     public VREventScroll ydelta(float value) { nydelta(address(), value); return this; }
     /** Sets the specified value to the {@code repeatCount} field. */
-    public VREventScroll repeatCount(int value) { nrepeatCount(address(), value); return this; }
+    public VREventScroll repeatCount(@NativeType("uint32_t") int value) { nrepeatCount(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventScroll set(
@@ -305,6 +307,7 @@ public class VREventScroll extends Struct implements NativeResource {
         /** Returns the value of the {@code ydelta} field. */
         public float ydelta() { return VREventScroll.nydelta(address()); }
         /** Returns the value of the {@code repeatCount} field. */
+        @NativeType("uint32_t")
         public int repeatCount() { return VREventScroll.nrepeatCount(address()); }
 
         /** Sets the specified value to the {@code xdelta} field. */
@@ -312,7 +315,7 @@ public class VREventScroll extends Struct implements NativeResource {
         /** Sets the specified value to the {@code ydelta} field. */
         public VREventScroll.Buffer ydelta(float value) { VREventScroll.nydelta(address(), value); return this; }
         /** Sets the specified value to the {@code repeatCount} field. */
-        public VREventScroll.Buffer repeatCount(int value) { VREventScroll.nrepeatCount(address(), value); return this; }
+        public VREventScroll.Buffer repeatCount(@NativeType("uint32_t") int value) { VREventScroll.nrepeatCount(address(), value); return this; }
 
     }
 

@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkVec2 struct nk_vec2} padding;
  * }</pre></code>
  */
+@NativeType("struct nk_style_chart")
 public class NkStyleChart extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -85,34 +86,39 @@ public class NkStyleChart extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the {@code background} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem background() { return nbackground(address()); }
     /** Returns a {@link NkColor} view of the {@code border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor border_color() { return nborder_color(address()); }
     /** Returns a {@link NkColor} view of the {@code selected_color} field. */
+    @NativeType("struct nk_color")
     public NkColor selected_color() { return nselected_color(address()); }
     /** Returns a {@link NkColor} view of the {@code color} field. */
+    @NativeType("struct nk_color")
     public NkColor color() { return ncolor(address()); }
     /** Returns the value of the {@code border} field. */
     public float border() { return nborder(address()); }
     /** Returns the value of the {@code rounding} field. */
     public float rounding() { return nrounding(address()); }
     /** Returns a {@link NkVec2} view of the {@code padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 padding() { return npadding(address()); }
 
     /** Copies the specified {@link NkStyleItem} to the {@code background} field. */
-    public NkStyleChart background(NkStyleItem value) { nbackground(address(), value); return this; }
+    public NkStyleChart background(@NativeType("struct nk_style_item") NkStyleItem value) { nbackground(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-    public NkStyleChart border_color(NkColor value) { nborder_color(address(), value); return this; }
+    public NkStyleChart border_color(@NativeType("struct nk_color") NkColor value) { nborder_color(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code selected_color} field. */
-    public NkStyleChart selected_color(NkColor value) { nselected_color(address(), value); return this; }
+    public NkStyleChart selected_color(@NativeType("struct nk_color") NkColor value) { nselected_color(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code color} field. */
-    public NkStyleChart color(NkColor value) { ncolor(address(), value); return this; }
+    public NkStyleChart color(@NativeType("struct nk_color") NkColor value) { ncolor(address(), value); return this; }
     /** Sets the specified value to the {@code border} field. */
     public NkStyleChart border(float value) { nborder(address(), value); return this; }
     /** Sets the specified value to the {@code rounding} field. */
     public NkStyleChart rounding(float value) { nrounding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-    public NkStyleChart padding(NkVec2 value) { npadding(address(), value); return this; }
+    public NkStyleChart padding(@NativeType("struct nk_vec2") NkVec2 value) { npadding(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleChart set(
@@ -349,34 +355,39 @@ public class NkStyleChart extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkStyleItem} view of the {@code background} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem background() { return NkStyleChart.nbackground(address()); }
         /** Returns a {@link NkColor} view of the {@code border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor border_color() { return NkStyleChart.nborder_color(address()); }
         /** Returns a {@link NkColor} view of the {@code selected_color} field. */
+        @NativeType("struct nk_color")
         public NkColor selected_color() { return NkStyleChart.nselected_color(address()); }
         /** Returns a {@link NkColor} view of the {@code color} field. */
+        @NativeType("struct nk_color")
         public NkColor color() { return NkStyleChart.ncolor(address()); }
         /** Returns the value of the {@code border} field. */
         public float border() { return NkStyleChart.nborder(address()); }
         /** Returns the value of the {@code rounding} field. */
         public float rounding() { return NkStyleChart.nrounding(address()); }
         /** Returns a {@link NkVec2} view of the {@code padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 padding() { return NkStyleChart.npadding(address()); }
 
         /** Copies the specified {@link NkStyleItem} to the {@code background} field. */
-        public NkStyleChart.Buffer background(NkStyleItem value) { NkStyleChart.nbackground(address(), value); return this; }
+        public NkStyleChart.Buffer background(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleChart.nbackground(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-        public NkStyleChart.Buffer border_color(NkColor value) { NkStyleChart.nborder_color(address(), value); return this; }
+        public NkStyleChart.Buffer border_color(@NativeType("struct nk_color") NkColor value) { NkStyleChart.nborder_color(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code selected_color} field. */
-        public NkStyleChart.Buffer selected_color(NkColor value) { NkStyleChart.nselected_color(address(), value); return this; }
+        public NkStyleChart.Buffer selected_color(@NativeType("struct nk_color") NkColor value) { NkStyleChart.nselected_color(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code color} field. */
-        public NkStyleChart.Buffer color(NkColor value) { NkStyleChart.ncolor(address(), value); return this; }
+        public NkStyleChart.Buffer color(@NativeType("struct nk_color") NkColor value) { NkStyleChart.ncolor(address(), value); return this; }
         /** Sets the specified value to the {@code border} field. */
         public NkStyleChart.Buffer border(float value) { NkStyleChart.nborder(address(), value); return this; }
         /** Sets the specified value to the {@code rounding} field. */
         public NkStyleChart.Buffer rounding(float value) { NkStyleChart.nrounding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-        public NkStyleChart.Buffer padding(NkVec2 value) { NkStyleChart.npadding(address(), value); return this; }
+        public NkStyleChart.Buffer padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleChart.npadding(address(), value); return this; }
 
     }
 

@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -56,18 +58,20 @@ public class EXTMapBufferRange {
 
     public static native long nglMapBufferRangeEXT(int target, long offset, long length, int access);
 
-    public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access) {
+    @NativeType("void *")
+    public static ByteBuffer glMapBufferRangeEXT(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length, @NativeType("GLbitfield") int access) {
         long __result = nglMapBufferRangeEXT(target, offset, length, access);
         return memByteBuffer(__result, (int)length);
     }
 
-    public static ByteBuffer glMapBufferRangeEXT(int target, long offset, long length, int access, ByteBuffer old_buffer) {
+    @NativeType("void *")
+    public static ByteBuffer glMapBufferRangeEXT(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length, @NativeType("GLbitfield") int access, ByteBuffer old_buffer) {
         long __result = nglMapBufferRangeEXT(target, offset, length, access);
         return apiGetMappedBuffer(old_buffer, __result, (int)length);
     }
 
     // --- [ glFlushMappedBufferRangeEXT ] ---
 
-    public static native void glFlushMappedBufferRangeEXT(int target, long offset, long length);
+    public static native void glFlushMappedBufferRangeEXT(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length);
 
 }

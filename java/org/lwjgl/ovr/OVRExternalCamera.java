@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRCameraExtrinsics ovrCameraExtrinsics} Extrinsics;
  * }</pre></code>
  */
+@NativeType("struct ovrExternalCamera")
 public class OVRExternalCamera extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,12 +70,16 @@ public class OVRExternalCamera extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code Name} field. */
+    @NativeType("char[32]")
     public ByteBuffer Name() { return nName(address()); }
     /** Decodes the null-terminated string stored in the {@code Name} field. */
+    @NativeType("char[32]")
     public String NameString() { return nNameString(address()); }
     /** Returns a {@link OVRCameraIntrinsics} view of the {@code Intrinsics} field. */
+    @NativeType("ovrCameraIntrinsics")
     public OVRCameraIntrinsics Intrinsics() { return nIntrinsics(address()); }
     /** Returns a {@link OVRCameraExtrinsics} view of the {@code Extrinsics} field. */
+    @NativeType("ovrCameraExtrinsics")
     public OVRCameraExtrinsics Extrinsics() { return nExtrinsics(address()); }
 
     // -----------------------------------
@@ -258,12 +263,16 @@ public class OVRExternalCamera extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code Name} field. */
+        @NativeType("char[32]")
         public ByteBuffer Name() { return OVRExternalCamera.nName(address()); }
         /** Decodes the null-terminated string stored in the {@code Name} field. */
+        @NativeType("char[32]")
         public String NameString() { return OVRExternalCamera.nNameString(address()); }
         /** Returns a {@link OVRCameraIntrinsics} view of the {@code Intrinsics} field. */
+        @NativeType("ovrCameraIntrinsics")
         public OVRCameraIntrinsics Intrinsics() { return OVRExternalCamera.nIntrinsics(address()); }
         /** Returns a {@link OVRCameraExtrinsics} view of the {@code Extrinsics} field. */
+        @NativeType("ovrCameraExtrinsics")
         public OVRCameraExtrinsics Extrinsics() { return OVRExternalCamera.nExtrinsics(address()); }
 
     }

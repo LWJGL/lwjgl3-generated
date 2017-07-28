@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -34,7 +36,8 @@ public class EXTThreadLocalContext {
      *
      * @param context the context to make current
      */
-    public static boolean alcSetThreadContext(long context) {
+    @NativeType("ALCboolean")
+    public static boolean alcSetThreadContext(@NativeType("ALCcontext *") long context) {
 		long __functionAddress = ALC.getICD().alcSetThreadContext;
         if (CHECKS) {
             check(__functionAddress);
@@ -45,6 +48,7 @@ public class EXTThreadLocalContext {
     // --- [ alcGetThreadContext ] ---
 
     /** Retrieves a handle to the thread-specific context of the calling thread. This function will return {@code NULL} if no thread-specific context is set. */
+    @NativeType("ALCcontext *")
     public static long alcGetThreadContext() {
 		long __functionAddress = ALC.getICD().alcGetThreadContext;
         if (CHECKS) {

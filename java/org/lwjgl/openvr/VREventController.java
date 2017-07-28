@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t button;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Controller_t")
 public class VREventController extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,10 +70,11 @@ public class VREventController extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code button} field. */
+    @NativeType("uint32_t")
     public int button() { return nbutton(address()); }
 
     /** Sets the specified value to the {@code button} field. */
-    public VREventController button(int value) { nbutton(address(), value); return this; }
+    public VREventController button(@NativeType("uint32_t") int value) { nbutton(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -264,10 +266,11 @@ public class VREventController extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code button} field. */
+        @NativeType("uint32_t")
         public int button() { return VREventController.nbutton(address()); }
 
         /** Sets the specified value to the {@code button} field. */
-        public VREventController.Buffer button(int value) { VREventController.nbutton(address(), value); return this; }
+        public VREventController.Buffer button(@NativeType("uint32_t") int value) { VREventController.nbutton(address(), value); return this; }
 
     }
 

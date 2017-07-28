@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -116,7 +118,8 @@ public class EXTAcquireXlibDisplay {
      * @param dpy            A connection to the X11 server that currently owns {@code display}.
      * @param display        The display the caller wishes to control in Vulkan.
      */
-    public static int vkAcquireXlibDisplayEXT(VkPhysicalDevice physicalDevice, long dpy, long display) {
+    @NativeType("VkResult")
+    public static int vkAcquireXlibDisplayEXT(VkPhysicalDevice physicalDevice, @NativeType("Display *") long dpy, @NativeType("VkDisplayKHR") long display) {
         long __functionAddress = physicalDevice.getCapabilities().vkAcquireXlibDisplayEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -177,7 +180,8 @@ public class EXTAcquireXlibDisplay {
      * @param rrOutput       An X11 RandR output ID.
      * @param pDisplay       The corresponding VkDisplayKHR handle will be returned here.
      */
-    public static int vkGetRandROutputDisplayEXT(VkPhysicalDevice physicalDevice, long dpy, long rrOutput, LongBuffer pDisplay) {
+    @NativeType("VkResult")
+    public static int vkGetRandROutputDisplayEXT(VkPhysicalDevice physicalDevice, @NativeType("Display *") long dpy, @NativeType("RROutput") long rrOutput, @NativeType("VkDisplayKHR *") LongBuffer pDisplay) {
         if (CHECKS) {
             check(pDisplay, 1);
         }
@@ -185,7 +189,8 @@ public class EXTAcquireXlibDisplay {
     }
 
     /** Array version of: {@link #vkGetRandROutputDisplayEXT GetRandROutputDisplayEXT} */
-    public static int vkGetRandROutputDisplayEXT(VkPhysicalDevice physicalDevice, long dpy, long rrOutput, long[] pDisplay) {
+    @NativeType("VkResult")
+    public static int vkGetRandROutputDisplayEXT(VkPhysicalDevice physicalDevice, @NativeType("Display *") long dpy, @NativeType("RROutput") long rrOutput, @NativeType("VkDisplayKHR *") long[] pDisplay) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetRandROutputDisplayEXT;
         if (CHECKS) {
             check(__functionAddress);

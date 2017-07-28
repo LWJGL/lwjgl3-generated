@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -138,7 +140,8 @@ public class KHRExternalMemoryWin32 {
      * @param pGetWin32HandleInfo a pointer to an instance of the {@link VkMemoryGetWin32HandleInfoKHR} structure containing parameters of the export operation.
      * @param pHandle             will return the Windows handle representing the underlying resources of the device memory object.
      */
-    public static int vkGetMemoryWin32HandleKHR(VkDevice device, VkMemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, PointerBuffer pHandle) {
+    @NativeType("VkResult")
+    public static int vkGetMemoryWin32HandleKHR(VkDevice device, @NativeType("const VkMemoryGetWin32HandleInfoKHR *") VkMemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
         if (CHECKS) {
             check(pHandle, 1);
         }
@@ -208,7 +211,8 @@ public class KHRExternalMemoryWin32 {
      * @param handle                       the handle which will be imported.
      * @param pMemoryWin32HandleProperties will return properties of {@code handle}.
      */
-    public static int vkGetMemoryWin32HandlePropertiesKHR(VkDevice device, int handleType, long handle, VkMemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties) {
+    @NativeType("VkResult")
+    public static int vkGetMemoryWin32HandlePropertiesKHR(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int handleType, @NativeType("HANDLE") long handle, @NativeType("VkMemoryWin32HandlePropertiesKHR *") VkMemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties) {
         return nvkGetMemoryWin32HandlePropertiesKHR(device, handleType, handle, pMemoryWin32HandleProperties.address());
     }
 

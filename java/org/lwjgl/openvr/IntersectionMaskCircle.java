@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float m_flRadius;
  * }</pre></code>
  */
+@NativeType("struct IntersectionMaskCircle_t")
 public class IntersectionMaskCircle extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

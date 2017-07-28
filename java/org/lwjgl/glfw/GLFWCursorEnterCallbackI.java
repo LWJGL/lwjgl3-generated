@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWcursorenterfun")
 public interface GLFWCursorEnterCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";
@@ -32,6 +33,6 @@ public interface GLFWCursorEnterCallbackI extends CallbackI.V {
      * @param window  the window that received the event
      * @param entered {@link GLFW#GLFW_TRUE TRUE} if the cursor entered the window's client area, or {@link GLFW#GLFW_FALSE FALSE} if it left it
      */
-    void invoke(long window, boolean entered);
+    void invoke(@NativeType("GLFWwindow *") long window, @NativeType("int") boolean entered);
 
 }

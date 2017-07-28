@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -81,12 +83,12 @@ public class NVPixelDataRange {
 
     public static native void nglPixelDataRangeNV(int target, int length, long pointer);
 
-    public static void glPixelDataRangeNV(int target, ByteBuffer pointer) {
+    public static void glPixelDataRangeNV(@NativeType("GLenum") int target, @NativeType("const void *") ByteBuffer pointer) {
         nglPixelDataRangeNV(target, pointer.remaining(), memAddress(pointer));
     }
 
     // --- [ glFlushPixelDataRangeNV ] ---
 
-    public static native void glFlushPixelDataRangeNV(int target);
+    public static native void glFlushPixelDataRangeNV(@NativeType("GLenum") int target);
 
 }

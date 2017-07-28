@@ -48,6 +48,7 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  *     double SensorSampleTime;
  * }</pre></code>
  */
+@NativeType("struct ovrLayerEyeFov")
 public class OVRLayerEyeFov extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -103,44 +104,53 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+    @NativeType("ovrLayerHeader")
     public OVRLayerHeader Header() { return nHeader(address()); }
     /** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
+    @NativeType("ovrTextureSwapChain[ovrEye_Count]")
     public PointerBuffer ColorTexture() { return nColorTexture(address()); }
     /** Returns the value at the specified index of the {@code ColorTexture} field. */
+    @NativeType("ovrTextureSwapChain")
     public long ColorTexture(int index) { return nColorTexture(address(), index); }
     /** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
+    @NativeType("ovrRecti[ovrEye_Count]")
     public OVRRecti.Buffer Viewport() { return nViewport(address()); }
     /** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
+    @NativeType("ovrRecti")
     public OVRRecti Viewport(int index) { return nViewport(address(), index); }
     /** Returns a {@link OVRFovPort}.Buffer view of the {@code Fov} field. */
+    @NativeType("ovrFovPort[ovrEye_Count]")
     public OVRFovPort.Buffer Fov() { return nFov(address()); }
     /** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code Fov} field. */
+    @NativeType("ovrFovPort")
     public OVRFovPort Fov(int index) { return nFov(address(), index); }
     /** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
+    @NativeType("ovrPosef[ovrEye_Count]")
     public OVRPosef.Buffer RenderPose() { return nRenderPose(address()); }
     /** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
+    @NativeType("ovrPosef")
     public OVRPosef RenderPose(int index) { return nRenderPose(address(), index); }
     /** Returns the value of the {@code SensorSampleTime} field. */
     public double SensorSampleTime() { return nSensorSampleTime(address()); }
 
     /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-    public OVRLayerEyeFov Header(OVRLayerHeader value) { nHeader(address(), value); return this; }
+    public OVRLayerEyeFov Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { nHeader(address(), value); return this; }
     /** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
-    public OVRLayerEyeFov ColorTexture(PointerBuffer value) { nColorTexture(address(), value); return this; }
+    public OVRLayerEyeFov ColorTexture(@NativeType("ovrTextureSwapChain[ovrEye_Count]") PointerBuffer value) { nColorTexture(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code ColorTexture} field. */
-    public OVRLayerEyeFov ColorTexture(int index, long value) { nColorTexture(address(), index, value); return this; }
+    public OVRLayerEyeFov ColorTexture(int index, @NativeType("ovrTextureSwapChain") long value) { nColorTexture(address(), index, value); return this; }
     /** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
-    public OVRLayerEyeFov Viewport(OVRRecti.Buffer value) { nViewport(address(), value); return this; }
+    public OVRLayerEyeFov Viewport(@NativeType("ovrRecti[ovrEye_Count]") OVRRecti.Buffer value) { nViewport(address(), value); return this; }
     /** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
-    public OVRLayerEyeFov Viewport(int index, OVRRecti value) { nViewport(address(), index, value); return this; }
+    public OVRLayerEyeFov Viewport(int index, @NativeType("ovrRecti") OVRRecti value) { nViewport(address(), index, value); return this; }
     /** Copies the specified {@link OVRFovPort.Buffer} to the {@code Fov} field. */
-    public OVRLayerEyeFov Fov(OVRFovPort.Buffer value) { nFov(address(), value); return this; }
+    public OVRLayerEyeFov Fov(@NativeType("ovrFovPort[ovrEye_Count]") OVRFovPort.Buffer value) { nFov(address(), value); return this; }
     /** Copies the specified {@link OVRFovPort} at the specified index of the {@code Fov} field. */
-    public OVRLayerEyeFov Fov(int index, OVRFovPort value) { nFov(address(), index, value); return this; }
+    public OVRLayerEyeFov Fov(int index, @NativeType("ovrFovPort") OVRFovPort value) { nFov(address(), index, value); return this; }
     /** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
-    public OVRLayerEyeFov RenderPose(OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
+    public OVRLayerEyeFov RenderPose(@NativeType("ovrPosef[ovrEye_Count]") OVRPosef.Buffer value) { nRenderPose(address(), value); return this; }
     /** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
-    public OVRLayerEyeFov RenderPose(int index, OVRPosef value) { nRenderPose(address(), index, value); return this; }
+    public OVRLayerEyeFov RenderPose(int index, @NativeType("ovrPosef") OVRPosef value) { nRenderPose(address(), index, value); return this; }
     /** Sets the specified value to the {@code SensorSampleTime} field. */
     public OVRLayerEyeFov SensorSampleTime(double value) { nSensorSampleTime(address(), value); return this; }
 
@@ -446,44 +456,53 @@ public class OVRLayerEyeFov extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRLayerHeader} view of the {@code Header} field. */
+        @NativeType("ovrLayerHeader")
         public OVRLayerHeader Header() { return OVRLayerEyeFov.nHeader(address()); }
         /** Returns a {@link PointerBuffer} view of the {@code ColorTexture} field. */
+        @NativeType("ovrTextureSwapChain[ovrEye_Count]")
         public PointerBuffer ColorTexture() { return OVRLayerEyeFov.nColorTexture(address()); }
         /** Returns the value at the specified index of the {@code ColorTexture} field. */
+        @NativeType("ovrTextureSwapChain")
         public long ColorTexture(int index) { return OVRLayerEyeFov.nColorTexture(address(), index); }
         /** Returns a {@link OVRRecti}.Buffer view of the {@code Viewport} field. */
+        @NativeType("ovrRecti[ovrEye_Count]")
         public OVRRecti.Buffer Viewport() { return OVRLayerEyeFov.nViewport(address()); }
         /** Returns a {@link OVRRecti} view of the struct at the specified index of the {@code Viewport} field. */
+        @NativeType("ovrRecti")
         public OVRRecti Viewport(int index) { return OVRLayerEyeFov.nViewport(address(), index); }
         /** Returns a {@link OVRFovPort}.Buffer view of the {@code Fov} field. */
+        @NativeType("ovrFovPort[ovrEye_Count]")
         public OVRFovPort.Buffer Fov() { return OVRLayerEyeFov.nFov(address()); }
         /** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code Fov} field. */
+        @NativeType("ovrFovPort")
         public OVRFovPort Fov(int index) { return OVRLayerEyeFov.nFov(address(), index); }
         /** Returns a {@link OVRPosef}.Buffer view of the {@code RenderPose} field. */
+        @NativeType("ovrPosef[ovrEye_Count]")
         public OVRPosef.Buffer RenderPose() { return OVRLayerEyeFov.nRenderPose(address()); }
         /** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code RenderPose} field. */
+        @NativeType("ovrPosef")
         public OVRPosef RenderPose(int index) { return OVRLayerEyeFov.nRenderPose(address(), index); }
         /** Returns the value of the {@code SensorSampleTime} field. */
         public double SensorSampleTime() { return OVRLayerEyeFov.nSensorSampleTime(address()); }
 
         /** Copies the specified {@link OVRLayerHeader} to the {@code Header} field. */
-        public OVRLayerEyeFov.Buffer Header(OVRLayerHeader value) { OVRLayerEyeFov.nHeader(address(), value); return this; }
+        public OVRLayerEyeFov.Buffer Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { OVRLayerEyeFov.nHeader(address(), value); return this; }
         /** Copies the specified {@link PointerBuffer} to the {@code ColorTexture} field. */
-        public OVRLayerEyeFov.Buffer ColorTexture(PointerBuffer value) { OVRLayerEyeFov.nColorTexture(address(), value); return this; }
+        public OVRLayerEyeFov.Buffer ColorTexture(@NativeType("ovrTextureSwapChain[ovrEye_Count]") PointerBuffer value) { OVRLayerEyeFov.nColorTexture(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code ColorTexture} field. */
-        public OVRLayerEyeFov.Buffer ColorTexture(int index, long value) { OVRLayerEyeFov.nColorTexture(address(), index, value); return this; }
+        public OVRLayerEyeFov.Buffer ColorTexture(int index, @NativeType("ovrTextureSwapChain") long value) { OVRLayerEyeFov.nColorTexture(address(), index, value); return this; }
         /** Copies the specified {@link OVRRecti.Buffer} to the {@code Viewport} field. */
-        public OVRLayerEyeFov.Buffer Viewport(OVRRecti.Buffer value) { OVRLayerEyeFov.nViewport(address(), value); return this; }
+        public OVRLayerEyeFov.Buffer Viewport(@NativeType("ovrRecti[ovrEye_Count]") OVRRecti.Buffer value) { OVRLayerEyeFov.nViewport(address(), value); return this; }
         /** Copies the specified {@link OVRRecti} at the specified index of the {@code Viewport} field. */
-        public OVRLayerEyeFov.Buffer Viewport(int index, OVRRecti value) { OVRLayerEyeFov.nViewport(address(), index, value); return this; }
+        public OVRLayerEyeFov.Buffer Viewport(int index, @NativeType("ovrRecti") OVRRecti value) { OVRLayerEyeFov.nViewport(address(), index, value); return this; }
         /** Copies the specified {@link OVRFovPort.Buffer} to the {@code Fov} field. */
-        public OVRLayerEyeFov.Buffer Fov(OVRFovPort.Buffer value) { OVRLayerEyeFov.nFov(address(), value); return this; }
+        public OVRLayerEyeFov.Buffer Fov(@NativeType("ovrFovPort[ovrEye_Count]") OVRFovPort.Buffer value) { OVRLayerEyeFov.nFov(address(), value); return this; }
         /** Copies the specified {@link OVRFovPort} at the specified index of the {@code Fov} field. */
-        public OVRLayerEyeFov.Buffer Fov(int index, OVRFovPort value) { OVRLayerEyeFov.nFov(address(), index, value); return this; }
+        public OVRLayerEyeFov.Buffer Fov(int index, @NativeType("ovrFovPort") OVRFovPort value) { OVRLayerEyeFov.nFov(address(), index, value); return this; }
         /** Copies the specified {@link OVRPosef.Buffer} to the {@code RenderPose} field. */
-        public OVRLayerEyeFov.Buffer RenderPose(OVRPosef.Buffer value) { OVRLayerEyeFov.nRenderPose(address(), value); return this; }
+        public OVRLayerEyeFov.Buffer RenderPose(@NativeType("ovrPosef[ovrEye_Count]") OVRPosef.Buffer value) { OVRLayerEyeFov.nRenderPose(address(), value); return this; }
         /** Copies the specified {@link OVRPosef} at the specified index of the {@code RenderPose} field. */
-        public OVRLayerEyeFov.Buffer RenderPose(int index, OVRPosef value) { OVRLayerEyeFov.nRenderPose(address(), index, value); return this; }
+        public OVRLayerEyeFov.Buffer RenderPose(int index, @NativeType("ovrPosef") OVRPosef value) { OVRLayerEyeFov.nRenderPose(address(), index, value); return this; }
         /** Sets the specified value to the {@code SensorSampleTime} field. */
         public OVRLayerEyeFov.Buffer SensorSampleTime(double value) { OVRLayerEyeFov.nSensorSampleTime(address(), value); return this; }
 

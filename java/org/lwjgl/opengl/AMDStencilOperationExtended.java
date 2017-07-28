@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -45,6 +47,6 @@ public class AMDStencilOperationExtended {
 
     // --- [ glStencilOpValueAMD ] ---
 
-    public static native void glStencilOpValueAMD(int face, int value);
+    public static native void glStencilOpValueAMD(@NativeType("GLenum") int face, @NativeType("GLuint") int value);
 
 }

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -53,6 +55,7 @@ public class EXTX11SyncObject {
      * @param external_sync      the external sync object. Must be the XID of a valid X11 Synchronization Fence object
      * @param flags              Must be 0.
      */
-    public static native long glImportSyncEXT(int external_sync_type, long external_sync, int flags);
+    @NativeType("GLsync")
+    public static native long glImportSyncEXT(@NativeType("GLenum") int external_sync_type, @NativeType("GLintptr") long external_sync, @NativeType("GLbitfield") int flags);
 
 }

@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -36,7 +38,8 @@ public class KHRStreamAttrib {
         return callPPP(__functionAddress, dpy, attrib_list);
     }
 
-    public static long eglCreateStreamAttribKHR(long dpy, PointerBuffer attrib_list) {
+    @NativeType("EGLStreamKHR")
+    public static long eglCreateStreamAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -45,7 +48,8 @@ public class KHRStreamAttrib {
 
     // --- [ eglSetStreamAttribKHR ] ---
 
-    public static boolean eglSetStreamAttribKHR(long dpy, long stream, int attribute, long value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglSetStreamAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int attribute, @NativeType("EGLAttrib") long value) {
         long __functionAddress = EGL.getCapabilities().eglSetStreamAttribKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -67,7 +71,8 @@ public class KHRStreamAttrib {
         return callPPPI(__functionAddress, dpy, stream, attribute, value);
     }
 
-    public static boolean eglQueryStreamAttribKHR(long dpy, long stream, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryStreamAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -86,7 +91,8 @@ public class KHRStreamAttrib {
         return callPPPI(__functionAddress, dpy, stream, attrib_list);
     }
 
-    public static boolean eglStreamConsumerAcquireAttribKHR(long dpy, long stream, PointerBuffer attrib_list) {
+    @NativeType("EGLBoolean")
+    public static boolean eglStreamConsumerAcquireAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -105,7 +111,8 @@ public class KHRStreamAttrib {
         return callPPPI(__functionAddress, dpy, stream, attrib_list);
     }
 
-    public static boolean eglStreamConsumerReleaseAttribKHR(long dpy, long stream, PointerBuffer attrib_list) {
+    @NativeType("EGLBoolean")
+    public static boolean eglStreamConsumerReleaseAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }

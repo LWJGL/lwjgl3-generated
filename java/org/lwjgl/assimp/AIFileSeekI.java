@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("aiFileSeek")
 public interface AIFileSeekI extends CallbackI.I {
 
     String SIGNATURE = "(ppi)i";
@@ -34,6 +35,6 @@ public interface AIFileSeekI extends CallbackI.I {
      * @param offset Number of bytes to shift from origin
      * @param origin Position used as reference for the offset.
      */
-    int invoke(long pFile, long offset, int origin);
+    @NativeType("aiReturn") int invoke(@NativeType("struct aiFile *") long pFile, @NativeType("size_t") long offset, @NativeType("aiOrigin") int origin);
 
 }

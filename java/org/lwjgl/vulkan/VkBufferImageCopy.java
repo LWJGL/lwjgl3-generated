@@ -164,10 +164,13 @@ public class VkBufferImageCopy extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code bufferOffset} field. */
+    @NativeType("VkDeviceSize")
     public long bufferOffset() { return nbufferOffset(address()); }
     /** Returns the value of the {@code bufferRowLength} field. */
+    @NativeType("uint32_t")
     public int bufferRowLength() { return nbufferRowLength(address()); }
     /** Returns the value of the {@code bufferImageHeight} field. */
+    @NativeType("uint32_t")
     public int bufferImageHeight() { return nbufferImageHeight(address()); }
     /** Returns a {@link VkImageSubresourceLayers} view of the {@code imageSubresource} field. */
     public VkImageSubresourceLayers imageSubresource() { return nimageSubresource(address()); }
@@ -177,11 +180,11 @@ public class VkBufferImageCopy extends Struct implements NativeResource {
     public VkExtent3D imageExtent() { return nimageExtent(address()); }
 
     /** Sets the specified value to the {@code bufferOffset} field. */
-    public VkBufferImageCopy bufferOffset(long value) { nbufferOffset(address(), value); return this; }
+    public VkBufferImageCopy bufferOffset(@NativeType("VkDeviceSize") long value) { nbufferOffset(address(), value); return this; }
     /** Sets the specified value to the {@code bufferRowLength} field. */
-    public VkBufferImageCopy bufferRowLength(int value) { nbufferRowLength(address(), value); return this; }
+    public VkBufferImageCopy bufferRowLength(@NativeType("uint32_t") int value) { nbufferRowLength(address(), value); return this; }
     /** Sets the specified value to the {@code bufferImageHeight} field. */
-    public VkBufferImageCopy bufferImageHeight(int value) { nbufferImageHeight(address(), value); return this; }
+    public VkBufferImageCopy bufferImageHeight(@NativeType("uint32_t") int value) { nbufferImageHeight(address(), value); return this; }
     /** Copies the specified {@link VkImageSubresourceLayers} to the {@code imageSubresource} field. */
     public VkBufferImageCopy imageSubresource(VkImageSubresourceLayers value) { nimageSubresource(address(), value); return this; }
     /** Copies the specified {@link VkOffset3D} to the {@code imageOffset} field. */
@@ -418,10 +421,13 @@ public class VkBufferImageCopy extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code bufferOffset} field. */
+        @NativeType("VkDeviceSize")
         public long bufferOffset() { return VkBufferImageCopy.nbufferOffset(address()); }
         /** Returns the value of the {@code bufferRowLength} field. */
+        @NativeType("uint32_t")
         public int bufferRowLength() { return VkBufferImageCopy.nbufferRowLength(address()); }
         /** Returns the value of the {@code bufferImageHeight} field. */
+        @NativeType("uint32_t")
         public int bufferImageHeight() { return VkBufferImageCopy.nbufferImageHeight(address()); }
         /** Returns a {@link VkImageSubresourceLayers} view of the {@code imageSubresource} field. */
         public VkImageSubresourceLayers imageSubresource() { return VkBufferImageCopy.nimageSubresource(address()); }
@@ -431,11 +437,11 @@ public class VkBufferImageCopy extends Struct implements NativeResource {
         public VkExtent3D imageExtent() { return VkBufferImageCopy.nimageExtent(address()); }
 
         /** Sets the specified value to the {@code bufferOffset} field. */
-        public VkBufferImageCopy.Buffer bufferOffset(long value) { VkBufferImageCopy.nbufferOffset(address(), value); return this; }
+        public VkBufferImageCopy.Buffer bufferOffset(@NativeType("VkDeviceSize") long value) { VkBufferImageCopy.nbufferOffset(address(), value); return this; }
         /** Sets the specified value to the {@code bufferRowLength} field. */
-        public VkBufferImageCopy.Buffer bufferRowLength(int value) { VkBufferImageCopy.nbufferRowLength(address(), value); return this; }
+        public VkBufferImageCopy.Buffer bufferRowLength(@NativeType("uint32_t") int value) { VkBufferImageCopy.nbufferRowLength(address(), value); return this; }
         /** Sets the specified value to the {@code bufferImageHeight} field. */
-        public VkBufferImageCopy.Buffer bufferImageHeight(int value) { VkBufferImageCopy.nbufferImageHeight(address(), value); return this; }
+        public VkBufferImageCopy.Buffer bufferImageHeight(@NativeType("uint32_t") int value) { VkBufferImageCopy.nbufferImageHeight(address(), value); return this; }
         /** Copies the specified {@link VkImageSubresourceLayers} to the {@code imageSubresource} field. */
         public VkBufferImageCopy.Buffer imageSubresource(VkImageSubresourceLayers value) { VkBufferImageCopy.nimageSubresource(address(), value); return this; }
         /** Copies the specified {@link VkOffset3D} to the {@code imageOffset} field. */

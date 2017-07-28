@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
 @FunctionalInterface
+@NativeType("stbi_io_callbacks.read")
 public interface STBIReadCallbackI extends CallbackI.I {
 
     String SIGNATURE = "(ppi)i";
@@ -36,6 +37,6 @@ public interface STBIReadCallbackI extends CallbackI.I {
      *
      * @return the number of bytes actually read
      */
-    int invoke(long user, long data, int size);
+    int invoke(@NativeType("void *") long user, @NativeType("char *") long data, int size);
 
 }

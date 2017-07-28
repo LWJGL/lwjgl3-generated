@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link IntersectionMaskCircle IntersectionMaskCircle_t} m_Circle;
  * }</pre></code>
  */
+@NativeType("union VROverlayIntersectionMaskPrimitive_Data_t")
 public class VROverlayIntersectionMaskPrimitiveData extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class VROverlayIntersectionMaskPrimitiveData extends Struct implements Na
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link IntersectionMaskRectangle} view of the {@code m_Rectangle} field. */
+    @NativeType("IntersectionMaskRectangle_t")
     public IntersectionMaskRectangle m_Rectangle() { return nm_Rectangle(address()); }
     /** Returns a {@link IntersectionMaskCircle} view of the {@code m_Circle} field. */
+    @NativeType("IntersectionMaskCircle_t")
     public IntersectionMaskCircle m_Circle() { return nm_Circle(address()); }
 
     /** Copies the specified {@link IntersectionMaskRectangle} to the {@code m_Rectangle} field. */
-    public VROverlayIntersectionMaskPrimitiveData m_Rectangle(IntersectionMaskRectangle value) { nm_Rectangle(address(), value); return this; }
+    public VROverlayIntersectionMaskPrimitiveData m_Rectangle(@NativeType("IntersectionMaskRectangle_t") IntersectionMaskRectangle value) { nm_Rectangle(address(), value); return this; }
     /** Copies the specified {@link IntersectionMaskCircle} to the {@code m_Circle} field. */
-    public VROverlayIntersectionMaskPrimitiveData m_Circle(IntersectionMaskCircle value) { nm_Circle(address(), value); return this; }
+    public VROverlayIntersectionMaskPrimitiveData m_Circle(@NativeType("IntersectionMaskCircle_t") IntersectionMaskCircle value) { nm_Circle(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -268,14 +271,16 @@ public class VROverlayIntersectionMaskPrimitiveData extends Struct implements Na
         }
 
         /** Returns a {@link IntersectionMaskRectangle} view of the {@code m_Rectangle} field. */
+        @NativeType("IntersectionMaskRectangle_t")
         public IntersectionMaskRectangle m_Rectangle() { return VROverlayIntersectionMaskPrimitiveData.nm_Rectangle(address()); }
         /** Returns a {@link IntersectionMaskCircle} view of the {@code m_Circle} field. */
+        @NativeType("IntersectionMaskCircle_t")
         public IntersectionMaskCircle m_Circle() { return VROverlayIntersectionMaskPrimitiveData.nm_Circle(address()); }
 
         /** Copies the specified {@link IntersectionMaskRectangle} to the {@code m_Rectangle} field. */
-        public VROverlayIntersectionMaskPrimitiveData.Buffer m_Rectangle(IntersectionMaskRectangle value) { VROverlayIntersectionMaskPrimitiveData.nm_Rectangle(address(), value); return this; }
+        public VROverlayIntersectionMaskPrimitiveData.Buffer m_Rectangle(@NativeType("IntersectionMaskRectangle_t") IntersectionMaskRectangle value) { VROverlayIntersectionMaskPrimitiveData.nm_Rectangle(address(), value); return this; }
         /** Copies the specified {@link IntersectionMaskCircle} to the {@code m_Circle} field. */
-        public VROverlayIntersectionMaskPrimitiveData.Buffer m_Circle(IntersectionMaskCircle value) { VROverlayIntersectionMaskPrimitiveData.nm_Circle(address(), value); return this; }
+        public VROverlayIntersectionMaskPrimitiveData.Buffer m_Circle(@NativeType("IntersectionMaskCircle_t") IntersectionMaskCircle value) { VROverlayIntersectionMaskPrimitiveData.nm_Circle(address(), value); return this; }
 
     }
 

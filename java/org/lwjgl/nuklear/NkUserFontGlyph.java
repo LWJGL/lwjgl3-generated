@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float xadvance;
  * }</pre></code>
  */
+@NativeType("struct nk_user_font_glyph")
 public class NkUserFontGlyph extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -88,10 +89,13 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkVec2}.Buffer view of the {@code uv} field. */
+    @NativeType("struct nk_vec2[2]")
     public NkVec2.Buffer uv() { return nuv(address()); }
     /** Returns a {@link NkVec2} view of the struct at the specified index of the {@code uv} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 uv(int index) { return nuv(address(), index); }
     /** Returns a {@link NkVec2} view of the {@code offset} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 offset() { return noffset(address()); }
     /** Returns the value of the {@code width} field. */
     public float width() { return nwidth(address()); }
@@ -101,11 +105,11 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
     public float xadvance() { return nxadvance(address()); }
 
     /** Copies the specified {@link NkVec2.Buffer} to the {@code uv} field. */
-    public NkUserFontGlyph uv(NkVec2.Buffer value) { nuv(address(), value); return this; }
+    public NkUserFontGlyph uv(@NativeType("struct nk_vec2[2]") NkVec2.Buffer value) { nuv(address(), value); return this; }
     /** Copies the specified {@link NkVec2} at the specified index of the {@code uv} field. */
-    public NkUserFontGlyph uv(int index, NkVec2 value) { nuv(address(), index, value); return this; }
+    public NkUserFontGlyph uv(int index, @NativeType("struct nk_vec2") NkVec2 value) { nuv(address(), index, value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code offset} field. */
-    public NkUserFontGlyph offset(NkVec2 value) { noffset(address(), value); return this; }
+    public NkUserFontGlyph offset(@NativeType("struct nk_vec2") NkVec2 value) { noffset(address(), value); return this; }
     /** Sets the specified value to the {@code width} field. */
     public NkUserFontGlyph width(float value) { nwidth(address(), value); return this; }
     /** Sets the specified value to the {@code height} field. */
@@ -349,10 +353,13 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkVec2}.Buffer view of the {@code uv} field. */
+        @NativeType("struct nk_vec2[2]")
         public NkVec2.Buffer uv() { return NkUserFontGlyph.nuv(address()); }
         /** Returns a {@link NkVec2} view of the struct at the specified index of the {@code uv} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 uv(int index) { return NkUserFontGlyph.nuv(address(), index); }
         /** Returns a {@link NkVec2} view of the {@code offset} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 offset() { return NkUserFontGlyph.noffset(address()); }
         /** Returns the value of the {@code width} field. */
         public float width() { return NkUserFontGlyph.nwidth(address()); }
@@ -362,11 +369,11 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
         public float xadvance() { return NkUserFontGlyph.nxadvance(address()); }
 
         /** Copies the specified {@link NkVec2.Buffer} to the {@code uv} field. */
-        public NkUserFontGlyph.Buffer uv(NkVec2.Buffer value) { NkUserFontGlyph.nuv(address(), value); return this; }
+        public NkUserFontGlyph.Buffer uv(@NativeType("struct nk_vec2[2]") NkVec2.Buffer value) { NkUserFontGlyph.nuv(address(), value); return this; }
         /** Copies the specified {@link NkVec2} at the specified index of the {@code uv} field. */
-        public NkUserFontGlyph.Buffer uv(int index, NkVec2 value) { NkUserFontGlyph.nuv(address(), index, value); return this; }
+        public NkUserFontGlyph.Buffer uv(int index, @NativeType("struct nk_vec2") NkVec2 value) { NkUserFontGlyph.nuv(address(), index, value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code offset} field. */
-        public NkUserFontGlyph.Buffer offset(NkVec2 value) { NkUserFontGlyph.noffset(address(), value); return this; }
+        public NkUserFontGlyph.Buffer offset(@NativeType("struct nk_vec2") NkVec2 value) { NkUserFontGlyph.noffset(address(), value); return this; }
         /** Sets the specified value to the {@code width} field. */
         public NkUserFontGlyph.Buffer width(float value) { NkUserFontGlyph.nwidth(address(), value); return this; }
         /** Sets the specified value to the {@code height} field. */

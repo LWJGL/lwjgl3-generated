@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowPosCallback SetWindowPosCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWwindowposfun")
 public interface GLFWWindowPosCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pii)v";
@@ -34,6 +35,6 @@ public interface GLFWWindowPosCallbackI extends CallbackI.V {
      * @param xpos   the new x-coordinate, in pixels, of the upper-left corner of the client area of the window
      * @param ypos   the new y-coordinate, in pixels, of the upper-left corner of the client area of the window
      */
-    void invoke(long window, int xpos, int ypos);
+    void invoke(@NativeType("GLFWwindow *") long window, int xpos, int ypos);
 
 }

@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float maxx;
  * }</pre></code>
  */
+@NativeType("struct NVGglyphPosition")
 public class NVGGlyphPosition extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -84,6 +85,7 @@ public class NVGGlyphPosition extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code str} field. */
+    @NativeType("char *")
     public long str() { return nstr(address()); }
     /** Returns the value of the {@code x} field. */
     public float x() { return nx(address()); }
@@ -273,6 +275,7 @@ public class NVGGlyphPosition extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code str} field. */
+        @NativeType("char *")
         public long str() { return NVGGlyphPosition.nstr(address()); }
         /** Returns the value of the {@code x} field. */
         public float x() { return NVGGlyphPosition.nx(address()); }

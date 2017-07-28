@@ -111,30 +111,36 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code dstBinding} field. */
+    @NativeType("uint32_t")
     public int dstBinding() { return ndstBinding(address()); }
     /** Returns the value of the {@code dstArrayElement} field. */
+    @NativeType("uint32_t")
     public int dstArrayElement() { return ndstArrayElement(address()); }
     /** Returns the value of the {@code descriptorCount} field. */
+    @NativeType("uint32_t")
     public int descriptorCount() { return ndescriptorCount(address()); }
     /** Returns the value of the {@code descriptorType} field. */
+    @NativeType("VkDescriptorType")
     public int descriptorType() { return ndescriptorType(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("size_t")
     public long offset() { return noffset(address()); }
     /** Returns the value of the {@code stride} field. */
+    @NativeType("size_t")
     public long stride() { return nstride(address()); }
 
     /** Sets the specified value to the {@code dstBinding} field. */
-    public VkDescriptorUpdateTemplateEntryKHR dstBinding(int value) { ndstBinding(address(), value); return this; }
+    public VkDescriptorUpdateTemplateEntryKHR dstBinding(@NativeType("uint32_t") int value) { ndstBinding(address(), value); return this; }
     /** Sets the specified value to the {@code dstArrayElement} field. */
-    public VkDescriptorUpdateTemplateEntryKHR dstArrayElement(int value) { ndstArrayElement(address(), value); return this; }
+    public VkDescriptorUpdateTemplateEntryKHR dstArrayElement(@NativeType("uint32_t") int value) { ndstArrayElement(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorCount} field. */
-    public VkDescriptorUpdateTemplateEntryKHR descriptorCount(int value) { ndescriptorCount(address(), value); return this; }
+    public VkDescriptorUpdateTemplateEntryKHR descriptorCount(@NativeType("uint32_t") int value) { ndescriptorCount(address(), value); return this; }
     /** Sets the specified value to the {@code descriptorType} field. */
-    public VkDescriptorUpdateTemplateEntryKHR descriptorType(int value) { ndescriptorType(address(), value); return this; }
+    public VkDescriptorUpdateTemplateEntryKHR descriptorType(@NativeType("VkDescriptorType") int value) { ndescriptorType(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkDescriptorUpdateTemplateEntryKHR offset(long value) { noffset(address(), value); return this; }
+    public VkDescriptorUpdateTemplateEntryKHR offset(@NativeType("size_t") long value) { noffset(address(), value); return this; }
     /** Sets the specified value to the {@code stride} field. */
-    public VkDescriptorUpdateTemplateEntryKHR stride(long value) { nstride(address(), value); return this; }
+    public VkDescriptorUpdateTemplateEntryKHR stride(@NativeType("size_t") long value) { nstride(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorUpdateTemplateEntryKHR set(
@@ -365,30 +371,36 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
         }
 
         /** Returns the value of the {@code dstBinding} field. */
+        @NativeType("uint32_t")
         public int dstBinding() { return VkDescriptorUpdateTemplateEntryKHR.ndstBinding(address()); }
         /** Returns the value of the {@code dstArrayElement} field. */
+        @NativeType("uint32_t")
         public int dstArrayElement() { return VkDescriptorUpdateTemplateEntryKHR.ndstArrayElement(address()); }
         /** Returns the value of the {@code descriptorCount} field. */
+        @NativeType("uint32_t")
         public int descriptorCount() { return VkDescriptorUpdateTemplateEntryKHR.ndescriptorCount(address()); }
         /** Returns the value of the {@code descriptorType} field. */
+        @NativeType("VkDescriptorType")
         public int descriptorType() { return VkDescriptorUpdateTemplateEntryKHR.ndescriptorType(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("size_t")
         public long offset() { return VkDescriptorUpdateTemplateEntryKHR.noffset(address()); }
         /** Returns the value of the {@code stride} field. */
+        @NativeType("size_t")
         public long stride() { return VkDescriptorUpdateTemplateEntryKHR.nstride(address()); }
 
         /** Sets the specified value to the {@code dstBinding} field. */
-        public VkDescriptorUpdateTemplateEntryKHR.Buffer dstBinding(int value) { VkDescriptorUpdateTemplateEntryKHR.ndstBinding(address(), value); return this; }
+        public VkDescriptorUpdateTemplateEntryKHR.Buffer dstBinding(@NativeType("uint32_t") int value) { VkDescriptorUpdateTemplateEntryKHR.ndstBinding(address(), value); return this; }
         /** Sets the specified value to the {@code dstArrayElement} field. */
-        public VkDescriptorUpdateTemplateEntryKHR.Buffer dstArrayElement(int value) { VkDescriptorUpdateTemplateEntryKHR.ndstArrayElement(address(), value); return this; }
+        public VkDescriptorUpdateTemplateEntryKHR.Buffer dstArrayElement(@NativeType("uint32_t") int value) { VkDescriptorUpdateTemplateEntryKHR.ndstArrayElement(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorCount} field. */
-        public VkDescriptorUpdateTemplateEntryKHR.Buffer descriptorCount(int value) { VkDescriptorUpdateTemplateEntryKHR.ndescriptorCount(address(), value); return this; }
+        public VkDescriptorUpdateTemplateEntryKHR.Buffer descriptorCount(@NativeType("uint32_t") int value) { VkDescriptorUpdateTemplateEntryKHR.ndescriptorCount(address(), value); return this; }
         /** Sets the specified value to the {@code descriptorType} field. */
-        public VkDescriptorUpdateTemplateEntryKHR.Buffer descriptorType(int value) { VkDescriptorUpdateTemplateEntryKHR.ndescriptorType(address(), value); return this; }
+        public VkDescriptorUpdateTemplateEntryKHR.Buffer descriptorType(@NativeType("VkDescriptorType") int value) { VkDescriptorUpdateTemplateEntryKHR.ndescriptorType(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkDescriptorUpdateTemplateEntryKHR.Buffer offset(long value) { VkDescriptorUpdateTemplateEntryKHR.noffset(address(), value); return this; }
+        public VkDescriptorUpdateTemplateEntryKHR.Buffer offset(@NativeType("size_t") long value) { VkDescriptorUpdateTemplateEntryKHR.noffset(address(), value); return this; }
         /** Sets the specified value to the {@code stride} field. */
-        public VkDescriptorUpdateTemplateEntryKHR.Buffer stride(long value) { VkDescriptorUpdateTemplateEntryKHR.nstride(address(), value); return this; }
+        public VkDescriptorUpdateTemplateEntryKHR.Buffer stride(@NativeType("size_t") long value) { VkDescriptorUpdateTemplateEntryKHR.nstride(address(), value); return this; }
 
     }
 

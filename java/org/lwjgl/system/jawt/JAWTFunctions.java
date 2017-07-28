@@ -101,7 +101,8 @@ public class JAWTFunctions {
      *
      * @return {@code JNI_FALSE} if an error occurs
      */
-    public static boolean JAWT_GetAWT(JAWT awt) {
+    @NativeType("jboolean")
+    public static boolean JAWT_GetAWT(@NativeType("JAWT *") JAWT awt) {
         return nJAWT_GetAWT(awt.address());
     }
 
@@ -130,7 +131,8 @@ public class JAWTFunctions {
      *         <li>{@link #JAWT_LOCK_SURFACE_CHANGED LOCK_SURFACE_CHANGED} - When the surface itself has changed</li>
      *         </ul>
      */
-    public static int JAWT_DrawingSurface_Lock(long __functionAddress, JAWTDrawingSurface ds) {
+    @NativeType("jint")
+    public static int JAWT_DrawingSurface_Lock(@NativeType("void *") long __functionAddress, @NativeType("JAWT_DrawingSurface *") JAWTDrawingSurface ds) {
         return nJAWT_DrawingSurface_Lock(__functionAddress, ds.address());
     }
 
@@ -157,7 +159,8 @@ public class JAWTFunctions {
      *
      * @return {@code NULL} if an error has occurred.
      */
-    public static JAWTDrawingSurfaceInfo JAWT_DrawingSurface_GetDrawingSurfaceInfo(long __functionAddress, JAWTDrawingSurface ds) {
+    @NativeType("JAWT_DrawingSurfaceInfo *")
+    public static JAWTDrawingSurfaceInfo JAWT_DrawingSurface_GetDrawingSurfaceInfo(@NativeType("void *") long __functionAddress, @NativeType("JAWT_DrawingSurface *") JAWTDrawingSurface ds) {
         long __result = nJAWT_DrawingSurface_GetDrawingSurfaceInfo(__functionAddress, ds.address());
         return JAWTDrawingSurfaceInfo.create(__result);
     }
@@ -178,7 +181,7 @@ public class JAWTFunctions {
      * @param __functionAddress the function address
      * @param dsi               the {@link JAWTDrawingSurfaceInfo} to free
      */
-    public static void JAWT_DrawingSurface_FreeDrawingSurfaceInfo(long __functionAddress, JAWTDrawingSurfaceInfo dsi) {
+    public static void JAWT_DrawingSurface_FreeDrawingSurfaceInfo(@NativeType("void *") long __functionAddress, @NativeType("JAWT_DrawingSurfaceInfo *") JAWTDrawingSurfaceInfo dsi) {
         nJAWT_DrawingSurface_FreeDrawingSurfaceInfo(__functionAddress, dsi.address());
     }
 
@@ -198,7 +201,7 @@ public class JAWTFunctions {
      * @param __functionAddress the function address
      * @param ds                the surface to unlock
      */
-    public static void JAWT_DrawingSurface_Unlock(long __functionAddress, JAWTDrawingSurface ds) {
+    public static void JAWT_DrawingSurface_Unlock(@NativeType("void *") long __functionAddress, @NativeType("JAWT_DrawingSurface *") JAWTDrawingSurface ds) {
         nJAWT_DrawingSurface_Unlock(__functionAddress, ds.address());
     }
 
@@ -217,7 +220,8 @@ public class JAWTFunctions {
      *
      * @return {@code NULL} if an error has occurred
      */
-    public static JAWTDrawingSurface JAWT_GetDrawingSurface(long __functionAddress, Object target) {
+    @NativeType("JAWT_DrawingSurface *")
+    public static JAWTDrawingSurface JAWT_GetDrawingSurface(@NativeType("void *") long __functionAddress, @NativeType("jobject") Object target) {
         if (CHECKS) {
             check(__functionAddress);
         }
@@ -241,7 +245,7 @@ public class JAWTFunctions {
      * @param __functionAddress the function address
      * @param ds                the {@link JAWTDrawingSurface} to free
      */
-    public static void JAWT_FreeDrawingSurface(long __functionAddress, JAWTDrawingSurface ds) {
+    public static void JAWT_FreeDrawingSurface(@NativeType("void *") long __functionAddress, @NativeType("JAWT_DrawingSurface *") JAWTDrawingSurface ds) {
         nJAWT_FreeDrawingSurface(__functionAddress, ds.address());
     }
 
@@ -255,7 +259,7 @@ public class JAWTFunctions {
      *
      * @param __functionAddress the function address
      */
-    public static void JAWT_Lock(long __functionAddress) {
+    public static void JAWT_Lock(@NativeType("void *") long __functionAddress) {
         if (CHECKS) {
             check(__functionAddress);
         }
@@ -272,7 +276,7 @@ public class JAWTFunctions {
      *
      * @param __functionAddress the function address
      */
-    public static void JAWT_Unlock(long __functionAddress) {
+    public static void JAWT_Unlock(@NativeType("void *") long __functionAddress) {
         if (CHECKS) {
             check(__functionAddress);
         }
@@ -293,7 +297,8 @@ public class JAWTFunctions {
      * @param __functionAddress the function address
      * @param platformInfo      the native platform handle
      */
-    public static Component JAWT_GetComponent(long __functionAddress, long platformInfo) {
+    @NativeType("jobject")
+    public static Component JAWT_GetComponent(@NativeType("void *") long __functionAddress, @NativeType("void *") long platformInfo) {
         if (CHECKS) {
             check(__functionAddress);
             check(platformInfo);
@@ -317,7 +322,8 @@ public class JAWTFunctions {
      *
      * @since Java 9
      */
-    public static Frame JAWT_CreateEmbeddedFrame(long __functionAddress, long platformInfo) {
+    @NativeType("jobject")
+    public static Frame JAWT_CreateEmbeddedFrame(@NativeType("void *") long __functionAddress, @NativeType("void *") long platformInfo) {
         if (CHECKS) {
             check(__functionAddress);
             check(platformInfo);
@@ -351,7 +357,7 @@ public class JAWTFunctions {
      *
      * @since Java 9
      */
-    public static void JAWT_SetBounds(long __functionAddress, Frame embeddedFrame, int x, int y, int w, int h) {
+    public static void JAWT_SetBounds(@NativeType("void *") long __functionAddress, @NativeType("jobject") Frame embeddedFrame, @NativeType("jint") int x, @NativeType("jint") int y, @NativeType("jint") int w, @NativeType("jint") int h) {
         if (CHECKS) {
             check(__functionAddress);
         }
@@ -374,7 +380,7 @@ public class JAWTFunctions {
      *
      * @since Java 9
      */
-    public static void JAWT_SynthesizeWindowActivation(long __functionAddress, Frame embeddedFrame, boolean doActivate) {
+    public static void JAWT_SynthesizeWindowActivation(@NativeType("void *") long __functionAddress, @NativeType("jobject") Frame embeddedFrame, @NativeType("jboolean") boolean doActivate) {
         if (CHECKS) {
             check(__functionAddress);
         }

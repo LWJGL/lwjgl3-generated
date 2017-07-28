@@ -125,42 +125,51 @@ public class VkWin32KeyedMutexAcquireReleaseInfoKHR extends Struct implements Na
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code acquireCount} field. */
+    @NativeType("uint32_t")
     public int acquireCount() { return nacquireCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAcquireSyncs} field. */
+    @NativeType("const VkDeviceMemory *")
     public LongBuffer pAcquireSyncs() { return npAcquireSyncs(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAcquireKeys} field. */
+    @NativeType("const uint64_t *")
     public LongBuffer pAcquireKeys() { return npAcquireKeys(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pAcquireTimeouts} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pAcquireTimeouts() { return npAcquireTimeouts(address()); }
     /** Returns the value of the {@code releaseCount} field. */
+    @NativeType("uint32_t")
     public int releaseCount() { return nreleaseCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pReleaseSyncs} field. */
+    @NativeType("const VkDeviceMemory *")
     public LongBuffer pReleaseSyncs() { return npReleaseSyncs(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pReleaseKeys} field. */
+    @NativeType("const uint64_t *")
     public LongBuffer pReleaseKeys() { return npReleaseKeys(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code acquireCount} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR acquireCount(int value) { nacquireCount(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR acquireCount(@NativeType("uint32_t") int value) { nacquireCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pAcquireSyncs} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR pAcquireSyncs(LongBuffer value) { npAcquireSyncs(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR pAcquireSyncs(@NativeType("const VkDeviceMemory *") LongBuffer value) { npAcquireSyncs(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pAcquireKeys} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR pAcquireKeys(LongBuffer value) { npAcquireKeys(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR pAcquireKeys(@NativeType("const uint64_t *") LongBuffer value) { npAcquireKeys(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pAcquireTimeouts} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR pAcquireTimeouts(IntBuffer value) { npAcquireTimeouts(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR pAcquireTimeouts(@NativeType("const uint32_t *") IntBuffer value) { npAcquireTimeouts(address(), value); return this; }
     /** Sets the specified value to the {@code releaseCount} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR releaseCount(int value) { nreleaseCount(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR releaseCount(@NativeType("uint32_t") int value) { nreleaseCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pReleaseSyncs} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR pReleaseSyncs(LongBuffer value) { npReleaseSyncs(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR pReleaseSyncs(@NativeType("const VkDeviceMemory *") LongBuffer value) { npReleaseSyncs(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pReleaseKeys} field. */
-    public VkWin32KeyedMutexAcquireReleaseInfoKHR pReleaseKeys(LongBuffer value) { npReleaseKeys(address(), value); return this; }
+    public VkWin32KeyedMutexAcquireReleaseInfoKHR pReleaseKeys(@NativeType("const uint64_t *") LongBuffer value) { npReleaseKeys(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkWin32KeyedMutexAcquireReleaseInfoKHR set(
@@ -438,42 +447,51 @@ public class VkWin32KeyedMutexAcquireReleaseInfoKHR extends Struct implements Na
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.npNext(address()); }
         /** Returns the value of the {@code acquireCount} field. */
+        @NativeType("uint32_t")
         public int acquireCount() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.nacquireCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAcquireSyncs} field. */
+        @NativeType("const VkDeviceMemory *")
         public LongBuffer pAcquireSyncs() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireSyncs(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAcquireKeys} field. */
+        @NativeType("const uint64_t *")
         public LongBuffer pAcquireKeys() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireKeys(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pAcquireTimeouts} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pAcquireTimeouts() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireTimeouts(address()); }
         /** Returns the value of the {@code releaseCount} field. */
+        @NativeType("uint32_t")
         public int releaseCount() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.nreleaseCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pReleaseSyncs} field. */
+        @NativeType("const VkDeviceMemory *")
         public LongBuffer pReleaseSyncs() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.npReleaseSyncs(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pReleaseKeys} field. */
+        @NativeType("const uint64_t *")
         public LongBuffer pReleaseKeys() { return VkWin32KeyedMutexAcquireReleaseInfoKHR.npReleaseKeys(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer sType(int value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.nsType(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pNext(long value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npNext(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code acquireCount} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer acquireCount(int value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.nacquireCount(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer acquireCount(@NativeType("uint32_t") int value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.nacquireCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pAcquireSyncs} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pAcquireSyncs(LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireSyncs(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pAcquireSyncs(@NativeType("const VkDeviceMemory *") LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireSyncs(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pAcquireKeys} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pAcquireKeys(LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireKeys(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pAcquireKeys(@NativeType("const uint64_t *") LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireKeys(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pAcquireTimeouts} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pAcquireTimeouts(IntBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireTimeouts(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pAcquireTimeouts(@NativeType("const uint32_t *") IntBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npAcquireTimeouts(address(), value); return this; }
         /** Sets the specified value to the {@code releaseCount} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer releaseCount(int value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.nreleaseCount(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer releaseCount(@NativeType("uint32_t") int value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.nreleaseCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pReleaseSyncs} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pReleaseSyncs(LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npReleaseSyncs(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pReleaseSyncs(@NativeType("const VkDeviceMemory *") LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npReleaseSyncs(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pReleaseKeys} field. */
-        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pReleaseKeys(LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npReleaseKeys(address(), value); return this; }
+        public VkWin32KeyedMutexAcquireReleaseInfoKHR.Buffer pReleaseKeys(@NativeType("const uint64_t *") LongBuffer value) { VkWin32KeyedMutexAcquireReleaseInfoKHR.npReleaseKeys(address(), value); return this; }
 
     }
 

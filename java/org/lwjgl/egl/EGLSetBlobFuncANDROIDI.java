@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link ANDROIDBlobCache#eglSetBlobCacheFuncsANDROID SetBlobCacheFuncsANDROID} method. */
 @FunctionalInterface
+@NativeType("EGLSetBlobFuncANDROID")
 public interface EGLSetBlobFuncANDROIDI extends CallbackI.V {
 
     String SIGNATURE = "(pppp)v";
@@ -28,7 +29,6 @@ public interface EGLSetBlobFuncANDROIDI extends CallbackI.V {
         );
     }
 
-
-    void invoke(long key, long keySize, long value, long valueSize);
+    void invoke(@NativeType("const void *") long key, @NativeType("EGLsizeiANDROID") long keySize, @NativeType("const void *") long value, @NativeType("EGLsizeiANDROID") long valueSize);
 
 }

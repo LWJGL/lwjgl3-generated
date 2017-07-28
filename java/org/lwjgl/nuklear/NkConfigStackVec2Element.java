@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkVec2 struct nk_vec2} old_value;
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_vec2_element")
 class NkConfigStackVec2Element extends Struct {
 
     /** The struct size in bytes. */
@@ -63,8 +64,10 @@ class NkConfigStackVec2Element extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkVec2} view of the struct pointed to by the {@code pValues} field. */
+    @NativeType("struct nk_vec2 *")
     public NkVec2 pValues() { return npValues(address()); }
     /** Returns a {@link NkVec2} view of the {@code old_value} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 old_value() { return nold_value(address()); }
 
     // -----------------------------------
@@ -134,8 +137,10 @@ class NkConfigStackVec2Element extends Struct {
         }
 
         /** Returns a {@link NkVec2} view of the struct pointed to by the {@code pValues} field. */
+        @NativeType("struct nk_vec2 *")
         public NkVec2 pValues() { return NkConfigStackVec2Element.npValues(address()); }
         /** Returns a {@link NkVec2} view of the {@code old_value} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 old_value() { return NkConfigStackVec2Element.nold_value(address()); }
 
     }

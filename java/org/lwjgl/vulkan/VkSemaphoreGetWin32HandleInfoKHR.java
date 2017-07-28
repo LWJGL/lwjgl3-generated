@@ -112,22 +112,26 @@ public class VkSemaphoreGetWin32HandleInfoKHR extends Struct implements NativeRe
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code semaphore} field. */
+    @NativeType("VkSemaphore")
     public long semaphore() { return nsemaphore(address()); }
     /** Returns the value of the {@code handleType} field. */
+    @NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR")
     public int handleType() { return nhandleType(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkSemaphoreGetWin32HandleInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkSemaphoreGetWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSemaphoreGetWin32HandleInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkSemaphoreGetWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code semaphore} field. */
-    public VkSemaphoreGetWin32HandleInfoKHR semaphore(long value) { nsemaphore(address(), value); return this; }
+    public VkSemaphoreGetWin32HandleInfoKHR semaphore(@NativeType("VkSemaphore") long value) { nsemaphore(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkSemaphoreGetWin32HandleInfoKHR handleType(int value) { nhandleType(address(), value); return this; }
+    public VkSemaphoreGetWin32HandleInfoKHR handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSemaphoreGetWin32HandleInfoKHR set(
@@ -346,22 +350,26 @@ public class VkSemaphoreGetWin32HandleInfoKHR extends Struct implements NativeRe
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSemaphoreGetWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkSemaphoreGetWin32HandleInfoKHR.npNext(address()); }
         /** Returns the value of the {@code semaphore} field. */
+        @NativeType("VkSemaphore")
         public long semaphore() { return VkSemaphoreGetWin32HandleInfoKHR.nsemaphore(address()); }
         /** Returns the value of the {@code handleType} field. */
+        @NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR")
         public int handleType() { return VkSemaphoreGetWin32HandleInfoKHR.nhandleType(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkSemaphoreGetWin32HandleInfoKHR.Buffer sType(int value) { VkSemaphoreGetWin32HandleInfoKHR.nsType(address(), value); return this; }
+        public VkSemaphoreGetWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSemaphoreGetWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSemaphoreGetWin32HandleInfoKHR.Buffer pNext(long value) { VkSemaphoreGetWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkSemaphoreGetWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkSemaphoreGetWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code semaphore} field. */
-        public VkSemaphoreGetWin32HandleInfoKHR.Buffer semaphore(long value) { VkSemaphoreGetWin32HandleInfoKHR.nsemaphore(address(), value); return this; }
+        public VkSemaphoreGetWin32HandleInfoKHR.Buffer semaphore(@NativeType("VkSemaphore") long value) { VkSemaphoreGetWin32HandleInfoKHR.nsemaphore(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkSemaphoreGetWin32HandleInfoKHR.Buffer handleType(int value) { VkSemaphoreGetWin32HandleInfoKHR.nhandleType(address(), value); return this; }
+        public VkSemaphoreGetWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR") int value) { VkSemaphoreGetWin32HandleInfoKHR.nhandleType(address(), value); return this; }
 
     }
 

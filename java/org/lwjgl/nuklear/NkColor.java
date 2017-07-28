@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     nk_byte a;
  * }</pre></code>
  */
+@NativeType("struct nk_color")
 public class NkColor extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -73,22 +74,26 @@ public class NkColor extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code r} field. */
+    @NativeType("nk_byte")
     public byte r() { return nr(address()); }
     /** Returns the value of the {@code g} field. */
+    @NativeType("nk_byte")
     public byte g() { return ng(address()); }
     /** Returns the value of the {@code b} field. */
+    @NativeType("nk_byte")
     public byte b() { return nb(address()); }
     /** Returns the value of the {@code a} field. */
+    @NativeType("nk_byte")
     public byte a() { return na(address()); }
 
     /** Sets the specified value to the {@code r} field. */
-    public NkColor r(byte value) { nr(address(), value); return this; }
+    public NkColor r(@NativeType("nk_byte") byte value) { nr(address(), value); return this; }
     /** Sets the specified value to the {@code g} field. */
-    public NkColor g(byte value) { ng(address(), value); return this; }
+    public NkColor g(@NativeType("nk_byte") byte value) { ng(address(), value); return this; }
     /** Sets the specified value to the {@code b} field. */
-    public NkColor b(byte value) { nb(address(), value); return this; }
+    public NkColor b(@NativeType("nk_byte") byte value) { nb(address(), value); return this; }
     /** Sets the specified value to the {@code a} field. */
-    public NkColor a(byte value) { na(address(), value); return this; }
+    public NkColor a(@NativeType("nk_byte") byte value) { na(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkColor set(
@@ -307,22 +312,26 @@ public class NkColor extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code r} field. */
+        @NativeType("nk_byte")
         public byte r() { return NkColor.nr(address()); }
         /** Returns the value of the {@code g} field. */
+        @NativeType("nk_byte")
         public byte g() { return NkColor.ng(address()); }
         /** Returns the value of the {@code b} field. */
+        @NativeType("nk_byte")
         public byte b() { return NkColor.nb(address()); }
         /** Returns the value of the {@code a} field. */
+        @NativeType("nk_byte")
         public byte a() { return NkColor.na(address()); }
 
         /** Sets the specified value to the {@code r} field. */
-        public NkColor.Buffer r(byte value) { NkColor.nr(address(), value); return this; }
+        public NkColor.Buffer r(@NativeType("nk_byte") byte value) { NkColor.nr(address(), value); return this; }
         /** Sets the specified value to the {@code g} field. */
-        public NkColor.Buffer g(byte value) { NkColor.ng(address(), value); return this; }
+        public NkColor.Buffer g(@NativeType("nk_byte") byte value) { NkColor.ng(address(), value); return this; }
         /** Sets the specified value to the {@code b} field. */
-        public NkColor.Buffer b(byte value) { NkColor.nb(address(), value); return this; }
+        public NkColor.Buffer b(@NativeType("nk_byte") byte value) { NkColor.nb(address(), value); return this; }
         /** Sets the specified value to the {@code a} field. */
-        public NkColor.Buffer a(byte value) { NkColor.na(address(), value); return this; }
+        public NkColor.Buffer a(@NativeType("nk_byte") byte value) { NkColor.na(address(), value); return this; }
 
     }
 

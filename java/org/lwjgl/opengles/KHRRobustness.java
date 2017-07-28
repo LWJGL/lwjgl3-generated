@@ -121,6 +121,7 @@ public class KHRRobustness {
      * indicating completion to the application.</li>
      * </ul>
      */
+    @NativeType("GLenum")
     public static native int glGetGraphicsResetStatusKHR();
 
     // --- [ glReadnPixelsKHR ] ---
@@ -144,7 +145,7 @@ public class KHRRobustness {
      * @param bufSize the maximum number of bytes to write into {@code data}
      * @param pixels  a buffer in which to place the returned pixel data
      */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int bufSize, long pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("GLsizei") int bufSize, @NativeType("void *") long pixels) {
         nglReadnPixelsKHR(x, y, width, height, format, type, bufSize, pixels);
     }
 
@@ -159,7 +160,7 @@ public class KHRRobustness {
      * @param type   the pixel type
      * @param pixels a buffer in which to place the returned pixel data
      */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ByteBuffer pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer pixels) {
         nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining(), memAddress(pixels));
     }
 
@@ -174,7 +175,7 @@ public class KHRRobustness {
      * @param type   the pixel type
      * @param pixels a buffer in which to place the returned pixel data
      */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, ShortBuffer pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ShortBuffer pixels) {
         nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 1, memAddress(pixels));
     }
 
@@ -189,7 +190,7 @@ public class KHRRobustness {
      * @param type   the pixel type
      * @param pixels a buffer in which to place the returned pixel data
      */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, IntBuffer pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") IntBuffer pixels) {
         nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
     }
 
@@ -204,7 +205,7 @@ public class KHRRobustness {
      * @param type   the pixel type
      * @param pixels a buffer in which to place the returned pixel data
      */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, FloatBuffer pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") FloatBuffer pixels) {
         nglReadnPixelsKHR(x, y, width, height, format, type, pixels.remaining() << 2, memAddress(pixels));
     }
 
@@ -224,7 +225,7 @@ public class KHRRobustness {
      * @param location the uniform location
      * @param params   the buffer in which to place the returned data
      */
-    public static void glGetnUniformfvKHR(int program, int location, FloatBuffer params) {
+    public static void glGetnUniformfvKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") FloatBuffer params) {
         nglGetnUniformfvKHR(program, location, params.remaining(), memAddress(params));
     }
 
@@ -234,7 +235,8 @@ public class KHRRobustness {
      * @param program  the program object
      * @param location the uniform location
      */
-    public static float glGetnUniformfKHR(int program, int location) {
+    @NativeType("void")
+    public static float glGetnUniformfKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -261,7 +263,7 @@ public class KHRRobustness {
      * @param location the uniform location
      * @param params   the buffer in which to place the returned data
      */
-    public static void glGetnUniformivKHR(int program, int location, FloatBuffer params) {
+    public static void glGetnUniformivKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") FloatBuffer params) {
         nglGetnUniformivKHR(program, location, params.remaining(), memAddress(params));
     }
 
@@ -271,7 +273,8 @@ public class KHRRobustness {
      * @param program  the program object
      * @param location the uniform location
      */
-    public static float glGetnUniformiKHR(int program, int location) {
+    @NativeType("void")
+    public static float glGetnUniformiKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -298,7 +301,7 @@ public class KHRRobustness {
      * @param location the uniform location
      * @param params   the buffer in which to place the returned data
      */
-    public static void glGetnUniformuivKHR(int program, int location, FloatBuffer params) {
+    public static void glGetnUniformuivKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") FloatBuffer params) {
         nglGetnUniformuivKHR(program, location, params.remaining(), memAddress(params));
     }
 
@@ -308,7 +311,8 @@ public class KHRRobustness {
      * @param program  the program object
      * @param location the uniform location
      */
-    public static float glGetnUniformuiKHR(int program, int location) {
+    @NativeType("void")
+    public static float glGetnUniformuiKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -320,7 +324,7 @@ public class KHRRobustness {
     }
 
     /** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, short[] pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") short[] pixels) {
         long __functionAddress = GLES.getICD().glReadnPixelsKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -329,7 +333,7 @@ public class KHRRobustness {
     }
 
     /** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, int[] pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") int[] pixels) {
         long __functionAddress = GLES.getICD().glReadnPixelsKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -338,7 +342,7 @@ public class KHRRobustness {
     }
 
     /** Array version of: {@link #glReadnPixelsKHR ReadnPixelsKHR} */
-    public static void glReadnPixelsKHR(int x, int y, int width, int height, int format, int type, float[] pixels) {
+    public static void glReadnPixelsKHR(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") float[] pixels) {
         long __functionAddress = GLES.getICD().glReadnPixelsKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -347,7 +351,7 @@ public class KHRRobustness {
     }
 
     /** Array version of: {@link #glGetnUniformfvKHR GetnUniformfvKHR} */
-    public static void glGetnUniformfvKHR(int program, int location, float[] params) {
+    public static void glGetnUniformfvKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GLES.getICD().glGetnUniformfvKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -356,7 +360,7 @@ public class KHRRobustness {
     }
 
     /** Array version of: {@link #glGetnUniformivKHR GetnUniformivKHR} */
-    public static void glGetnUniformivKHR(int program, int location, float[] params) {
+    public static void glGetnUniformivKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GLES.getICD().glGetnUniformivKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -365,7 +369,7 @@ public class KHRRobustness {
     }
 
     /** Array version of: {@link #glGetnUniformuivKHR GetnUniformuivKHR} */
-    public static void glGetnUniformuivKHR(int program, int location, float[] params) {
+    public static void glGetnUniformuivKHR(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GLES.getICD().glGetnUniformuivKHR;
         if (CHECKS) {
             check(__functionAddress);

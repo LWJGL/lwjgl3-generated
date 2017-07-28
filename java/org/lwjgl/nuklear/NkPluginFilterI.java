@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be set to the {@link NkTextEdit} struct. */
 @FunctionalInterface
+@NativeType("nk_plugin_filter")
 public interface NkPluginFilterI extends CallbackI.I {
 
     String SIGNATURE = "(pi)i";
@@ -26,7 +27,6 @@ public interface NkPluginFilterI extends CallbackI.I {
         );
     }
 
-
-    int invoke(long edit, int unicode);
+    int invoke(@NativeType("const struct nk_text_edit *") long edit, @NativeType("nk_rune") int unicode);
 
 }

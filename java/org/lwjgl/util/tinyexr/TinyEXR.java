@@ -85,7 +85,7 @@ public class TinyEXR {
      *
      * @param exr_header 
      */
-    public static void InitEXRHeader(EXRHeader exr_header) {
+    public static void InitEXRHeader(@NativeType("EXRHeader *") EXRHeader exr_header) {
         nInitEXRHeader(exr_header.address());
     }
 
@@ -99,7 +99,7 @@ public class TinyEXR {
      *
      * @param exr_image 
      */
-    public static void InitEXRImage(EXRImage exr_image) {
+    public static void InitEXRImage(@NativeType("EXRImage *") EXRImage exr_image) {
         nInitEXRImage(exr_image.address());
     }
 
@@ -113,7 +113,7 @@ public class TinyEXR {
      *
      * @param exr_header 
      */
-    public static int FreeEXRHeader(EXRHeader exr_header) {
+    public static int FreeEXRHeader(@NativeType("EXRHeader *") EXRHeader exr_header) {
         return nFreeEXRHeader(exr_header.address());
     }
 
@@ -127,7 +127,7 @@ public class TinyEXR {
      *
      * @param exr_image 
      */
-    public static int FreeEXRImage(EXRImage exr_image) {
+    public static int FreeEXRImage(@NativeType("EXRImage *") EXRImage exr_image) {
         if (CHECKS) {
             EXRImage.validate(exr_image.address());
         }
@@ -145,7 +145,7 @@ public class TinyEXR {
      * @param version  
      * @param filename 
      */
-    public static int ParseEXRVersionFromFile(EXRVersion version, ByteBuffer filename) {
+    public static int ParseEXRVersionFromFile(@NativeType("EXRVersion *") EXRVersion version, @NativeType("const char *") ByteBuffer filename) {
         if (CHECKS) {
             checkNT1(filename);
         }
@@ -158,7 +158,7 @@ public class TinyEXR {
      * @param version  
      * @param filename 
      */
-    public static int ParseEXRVersionFromFile(EXRVersion version, CharSequence filename) {
+    public static int ParseEXRVersionFromFile(@NativeType("EXRVersion *") EXRVersion version, @NativeType("const char *") CharSequence filename) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
@@ -179,7 +179,7 @@ public class TinyEXR {
      * @param version 
      * @param memory  
      */
-    public static int ParseEXRVersionFromMemory(EXRVersion version, ByteBuffer memory) {
+    public static int ParseEXRVersionFromMemory(@NativeType("EXRVersion *") EXRVersion version, @NativeType("const unsigned char *") ByteBuffer memory) {
         return nParseEXRVersionFromMemory(version.address(), memAddress(memory), memory.remaining());
     }
 
@@ -196,7 +196,7 @@ public class TinyEXR {
      * @param filename 
      * @param err      
      */
-    public static int ParseEXRHeaderFromFile(EXRHeader header, EXRVersion version, ByteBuffer filename, PointerBuffer err) {
+    public static int ParseEXRHeaderFromFile(@NativeType("EXRHeader *") EXRHeader header, @NativeType("const EXRVersion *") EXRVersion version, @NativeType("const char *") ByteBuffer filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             checkNT1(filename);
             check(err, 1);
@@ -212,7 +212,7 @@ public class TinyEXR {
      * @param filename 
      * @param err      
      */
-    public static int ParseEXRHeaderFromFile(EXRHeader header, EXRVersion version, CharSequence filename, PointerBuffer err) {
+    public static int ParseEXRHeaderFromFile(@NativeType("EXRHeader *") EXRHeader header, @NativeType("const EXRVersion *") EXRVersion version, @NativeType("const char *") CharSequence filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(err, 1);
         }
@@ -238,7 +238,7 @@ public class TinyEXR {
      * @param memory  
      * @param err     
      */
-    public static int ParseEXRHeaderFromMemory(EXRHeader header, EXRVersion version, ByteBuffer memory, PointerBuffer err) {
+    public static int ParseEXRHeaderFromMemory(@NativeType("EXRHeader *") EXRHeader header, @NativeType("const EXRVersion *") EXRVersion version, @NativeType("const unsigned char *") ByteBuffer memory, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(err, 1);
         }
@@ -259,7 +259,7 @@ public class TinyEXR {
      * @param filename    
      * @param err         
      */
-    public static int ParseEXRMultipartHeaderFromFile(PointerBuffer headers, IntBuffer num_headers, EXRVersion version, ByteBuffer filename, PointerBuffer err) {
+    public static int ParseEXRMultipartHeaderFromFile(@NativeType("EXRHeader ***") PointerBuffer headers, @NativeType("int *") IntBuffer num_headers, @NativeType("const EXRVersion *") EXRVersion version, @NativeType("const char *") ByteBuffer filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(headers, 1);
             check(num_headers, 1);
@@ -278,7 +278,7 @@ public class TinyEXR {
      * @param filename    
      * @param err         
      */
-    public static int ParseEXRMultipartHeaderFromFile(PointerBuffer headers, IntBuffer num_headers, EXRVersion version, CharSequence filename, PointerBuffer err) {
+    public static int ParseEXRMultipartHeaderFromFile(@NativeType("EXRHeader ***") PointerBuffer headers, @NativeType("int *") IntBuffer num_headers, @NativeType("const EXRVersion *") EXRVersion version, @NativeType("const char *") CharSequence filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(headers, 1);
             check(num_headers, 1);
@@ -307,7 +307,7 @@ public class TinyEXR {
      * @param memory      
      * @param err         
      */
-    public static int ParseEXRMultipartHeaderFromMemory(PointerBuffer headers, IntBuffer num_headers, EXRVersion version, ByteBuffer memory, PointerBuffer err) {
+    public static int ParseEXRMultipartHeaderFromMemory(@NativeType("EXRHeader ***") PointerBuffer headers, @NativeType("int *") IntBuffer num_headers, @NativeType("const EXRVersion *") EXRVersion version, @NativeType("const unsigned char *") ByteBuffer memory, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(headers, 1);
             check(num_headers, 1);
@@ -335,7 +335,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadEXRImageFromFile(EXRImage image, EXRHeader header, ByteBuffer filename, PointerBuffer err) {
+    public static int LoadEXRImageFromFile(@NativeType("EXRImage *") EXRImage image, @NativeType("const EXRHeader *") EXRHeader header, @NativeType("const char *") ByteBuffer filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             checkNT1(filename);
             check(err, 1);
@@ -358,7 +358,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadEXRImageFromFile(EXRImage image, EXRHeader header, CharSequence filename, PointerBuffer err) {
+    public static int LoadEXRImageFromFile(@NativeType("EXRImage *") EXRImage image, @NativeType("const EXRHeader *") EXRHeader header, @NativeType("const char *") CharSequence filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(err, 1);
             EXRHeader.validate(header.address());
@@ -391,7 +391,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadEXRImageFromMemory(EXRImage image, EXRHeader header, ByteBuffer memory, PointerBuffer err) {
+    public static int LoadEXRImageFromMemory(@NativeType("EXRImage *") EXRImage image, @NativeType("const EXRHeader *") EXRHeader header, @NativeType("const unsigned char *") ByteBuffer memory, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(err, 1);
             EXRHeader.validate(header.address());
@@ -418,7 +418,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadEXRMultipartImageFromFile(EXRImage.Buffer images, PointerBuffer headers, ByteBuffer filename, PointerBuffer err) {
+    public static int LoadEXRMultipartImageFromFile(@NativeType("EXRImage *") EXRImage.Buffer images, @NativeType("const EXRHeader **") PointerBuffer headers, @NativeType("const char *") ByteBuffer filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(headers, images.remaining());
             checkNT1(filename);
@@ -441,7 +441,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadEXRMultipartImageFromFile(EXRImage.Buffer images, PointerBuffer headers, CharSequence filename, PointerBuffer err) {
+    public static int LoadEXRMultipartImageFromFile(@NativeType("EXRImage *") EXRImage.Buffer images, @NativeType("const EXRHeader **") PointerBuffer headers, @NativeType("const char *") CharSequence filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(headers, images.remaining());
             check(err, 1);
@@ -474,7 +474,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadEXRMultipartImageFromMemory(EXRImage.Buffer images, PointerBuffer headers, ByteBuffer memory, PointerBuffer err) {
+    public static int LoadEXRMultipartImageFromMemory(@NativeType("EXRImage *") EXRImage.Buffer images, @NativeType("const EXRHeader **") PointerBuffer headers, @NativeType("const unsigned char *") ByteBuffer memory, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(headers, images.remaining());
             check(err, 1);
@@ -497,7 +497,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int SaveEXRImageToFile(EXRImage image, EXRHeader exr_header, ByteBuffer filename, PointerBuffer err) {
+    public static int SaveEXRImageToFile(@NativeType("const EXRImage *") EXRImage image, @NativeType("const EXRHeader *") EXRHeader exr_header, @NativeType("const char *") ByteBuffer filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             checkNT1(filename);
             check(err, 1);
@@ -517,7 +517,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int SaveEXRImageToFile(EXRImage image, EXRHeader exr_header, CharSequence filename, PointerBuffer err) {
+    public static int SaveEXRImageToFile(@NativeType("const EXRImage *") EXRImage image, @NativeType("const EXRHeader *") EXRHeader exr_header, @NativeType("const char *") CharSequence filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(err, 1);
             EXRImage.validate(image.address());
@@ -549,7 +549,8 @@ public class TinyEXR {
      *
      * @return the number of bytes if success or negative value and may set error string in {@code err} when there's an error
      */
-    public static long SaveEXRImageToMemory(EXRImage image, EXRHeader exr_header, PointerBuffer memory, PointerBuffer err) {
+    @NativeType("size_t")
+    public static long SaveEXRImageToMemory(@NativeType("const EXRImage *") EXRImage image, @NativeType("const EXRHeader *") EXRHeader exr_header, @NativeType("unsigned char **") PointerBuffer memory, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(memory, 1);
             check(err, 1);
@@ -575,7 +576,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadDeepEXR(DeepImage out_image, ByteBuffer filename, PointerBuffer err) {
+    public static int LoadDeepEXR(@NativeType("DeepImage *") DeepImage out_image, @NativeType("const char *") ByteBuffer filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             checkNT1(filename);
             check(err, 1);
@@ -594,7 +595,7 @@ public class TinyEXR {
      *
      * @return negative value and may set error string in {@code err} when there's an error
      */
-    public static int LoadDeepEXR(DeepImage out_image, CharSequence filename, PointerBuffer err) {
+    public static int LoadDeepEXR(@NativeType("DeepImage *") DeepImage out_image, @NativeType("const char *") CharSequence filename, @NativeType("const char **") PointerBuffer err) {
         if (CHECKS) {
             check(err, 1);
         }

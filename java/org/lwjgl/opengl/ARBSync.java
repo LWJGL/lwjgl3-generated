@@ -88,7 +88,8 @@ public class ARBSync {
      * @param flags     a bitwise combination of flags controlling the behavior of the sync object. No flags are presently defined for this operation and {@code flags} must
      *                  be zero.
      */
-    public static native long glFenceSync(int condition, int flags);
+    @NativeType("GLsync")
+    public static native long glFenceSync(@NativeType("GLenum") int condition, @NativeType("GLbitfield") int flags);
 
     // --- [ glIsSync ] ---
 
@@ -100,7 +101,8 @@ public class ARBSync {
      *
      * @param sync a value that may be the name of a sync object
      */
-    public static boolean glIsSync(long sync) {
+    @NativeType("GLboolean")
+    public static boolean glIsSync(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -117,7 +119,7 @@ public class ARBSync {
      *
      * @param sync the sync object to be deleted
      */
-    public static void glDeleteSync(long sync) {
+    public static void glDeleteSync(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -146,7 +148,8 @@ public class ARBSync {
      * @param flags   a bitfield controlling the command flushing behavior. One or more of:<br><table><tr><td>0</td><td>{@link GL32#GL_SYNC_FLUSH_COMMANDS_BIT SYNC_FLUSH_COMMANDS_BIT}</td></tr></table>
      * @param timeout the timeout, specified in nanoseconds, for which the implementation should wait for {@code sync} to become signaled
      */
-    public static int glClientWaitSync(long sync, int flags, long timeout) {
+    @NativeType("GLenum")
+    public static int glClientWaitSync(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -171,7 +174,7 @@ public class ARBSync {
      * @param flags   a bitfield controlling the command flushing behavior. Must be:<br><table><tr><td>0</td></tr></table>
      * @param timeout the timeout that the server should wait before continuing. Must be:<br><table><tr><td>{@link GL32#GL_TIMEOUT_IGNORED TIMEOUT_IGNORED}</td></tr></table>
      */
-    public static void glWaitSync(long sync, int flags, long timeout) {
+    public static void glWaitSync(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -189,7 +192,7 @@ public class ARBSync {
      * @param pname  the parameter value to be returned
      * @param params the value or values of the specified parameter
      */
-    public static void glGetInteger64v(int pname, LongBuffer params) {
+    public static void glGetInteger64v(@NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -201,7 +204,8 @@ public class ARBSync {
      *
      * @param pname the parameter value to be returned
      */
-    public static long glGetInteger64(int pname) {
+    @NativeType("void")
+    public static long glGetInteger64(@NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -229,7 +233,7 @@ public class ARBSync {
      * @param length the address of an variable to receive the number of integers placed in {@code values}
      * @param values the address of an array to receive the values of the queried parameter
      */
-    public static void glGetSynciv(long sync, int pname, IntBuffer length, IntBuffer values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer values) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -244,7 +248,8 @@ public class ARBSync {
      * @param pname  the parameter whose value to retrieve from the sync object specified in {@code sync}. One of:<br><table><tr><td>{@link GL32#GL_OBJECT_TYPE OBJECT_TYPE}</td><td>{@link GL32#GL_SYNC_CONDITION SYNC_CONDITION}</td><td>{@link GL32#GL_SYNC_STATUS SYNC_STATUS}</td><td>{@link GL32#GL_SYNC_FLAGS SYNC_FLAGS}</td></tr></table>
      * @param length the address of an variable to receive the number of integers placed in {@code values}
      */
-    public static int glGetSynci(long sync, int pname, IntBuffer length) {
+    @NativeType("void")
+    public static int glGetSynci(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -260,7 +265,7 @@ public class ARBSync {
     }
 
     /** Array version of: {@link #glGetInteger64v GetInteger64v} */
-    public static void glGetInteger64v(int pname, long[] params) {
+    public static void glGetInteger64v(@NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetInteger64v;
         if (CHECKS) {
             check(__functionAddress);
@@ -270,7 +275,7 @@ public class ARBSync {
     }
 
     /** Array version of: {@link #glGetSynciv GetSynciv} */
-    public static void glGetSynciv(long sync, int pname, int[] length, int[] values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] values) {
         long __functionAddress = GL.getICD().glGetSynciv;
         if (CHECKS) {
             check(__functionAddress);

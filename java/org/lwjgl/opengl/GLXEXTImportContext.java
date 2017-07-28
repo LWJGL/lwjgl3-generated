@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -39,6 +41,7 @@ public class GLXEXTImportContext {
     // --- [ glXGetCurrentDisplayEXT ] ---
 
     /** Returns the display associated with the current context. */
+    @NativeType("Display *")
     public static long glXGetCurrentDisplayEXT() {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXGetCurrentDisplayEXT;
         if (CHECKS) {
@@ -68,7 +71,7 @@ public class GLXEXTImportContext {
      * @param attribute the attribute to query
      * @param value     returns the attribute value
      */
-    public static int glXQueryContextInfoEXT(long display, long context, int attribute, IntBuffer value) {
+    public static int glXQueryContextInfoEXT(@NativeType("Display *") long display, @NativeType("GLXContext") long context, int attribute, @NativeType("int *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -82,7 +85,8 @@ public class GLXEXTImportContext {
      *
      * @param context the context
      */
-    public static long glXGetContextIDEXT(long context) {
+    @NativeType("GLXContextID")
+    public static long glXGetContextIDEXT(@NativeType("const GLXContext") long context) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXGetContextIDEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -99,7 +103,8 @@ public class GLXEXTImportContext {
      * @param display   the connection to the X server
      * @param contextID the context XID
      */
-    public static long glXImportContextEXT(long display, long contextID) {
+    @NativeType("GLXContext")
+    public static long glXImportContextEXT(@NativeType("Display *") long display, @NativeType("GLXContextID") long contextID) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXImportContextEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -116,7 +121,7 @@ public class GLXEXTImportContext {
      * @param display the connection to the X server
      * @param context the context to free
      */
-    public static void glXFreeContextEXT(long display, long context) {
+    public static void glXFreeContextEXT(@NativeType("Display *") long display, @NativeType("GLXContext") long context) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXFreeContextEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -127,7 +132,7 @@ public class GLXEXTImportContext {
     }
 
     /** Array version of: {@link #glXQueryContextInfoEXT QueryContextInfoEXT} */
-    public static int glXQueryContextInfoEXT(long display, long context, int attribute, int[] value) {
+    public static int glXQueryContextInfoEXT(@NativeType("Display *") long display, @NativeType("GLXContext") long context, int attribute, @NativeType("int *") int[] value) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryContextInfoEXT;
         if (CHECKS) {
             check(__functionAddress);

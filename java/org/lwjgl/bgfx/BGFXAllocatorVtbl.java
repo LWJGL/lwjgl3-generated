@@ -30,6 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link BGFXReallocCallbackI realloc} realloc;
  * }</pre></code>
  */
+@NativeType("struct bgfx_allocator_vtbl_t")
 public class BGFXAllocatorVtbl extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -70,10 +71,11 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code realloc} field. */
+    @NativeType("realloc")
     public BGFXReallocCallback realloc() { return nrealloc(address()); }
 
     /** Sets the specified value to the {@code realloc} field. */
-    public BGFXAllocatorVtbl realloc(BGFXReallocCallbackI value) { nrealloc(address(), value); return this; }
+    public BGFXAllocatorVtbl realloc(@NativeType("realloc") BGFXReallocCallbackI value) { nrealloc(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -286,10 +288,11 @@ public class BGFXAllocatorVtbl extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code realloc} field. */
+        @NativeType("realloc")
         public BGFXReallocCallback realloc() { return BGFXAllocatorVtbl.nrealloc(address()); }
 
         /** Sets the specified value to the {@code realloc} field. */
-        public BGFXAllocatorVtbl.Buffer realloc(BGFXReallocCallbackI value) { BGFXAllocatorVtbl.nrealloc(address(), value); return this; }
+        public BGFXAllocatorVtbl.Buffer realloc(@NativeType("realloc") BGFXReallocCallbackI value) { BGFXAllocatorVtbl.nrealloc(address(), value); return this; }
 
     }
 

@@ -64,6 +64,7 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  *     char[4];
  * }</pre></code>
  */
+@NativeType("struct ovrHmdDesc")
 public class OVRHmdDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -151,44 +152,60 @@ public class OVRHmdDesc extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code Type} field. */
+    @NativeType("ovrHmdType")
     public int Type() { return nType(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code ProductName} field. */
+    @NativeType("char[64]")
     public ByteBuffer ProductName() { return nProductName(address()); }
     /** Decodes the null-terminated string stored in the {@code ProductName} field. */
+    @NativeType("char[64]")
     public String ProductNameString() { return nProductNameString(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code Manufacturer} field. */
+    @NativeType("char[64]")
     public ByteBuffer Manufacturer() { return nManufacturer(address()); }
     /** Decodes the null-terminated string stored in the {@code Manufacturer} field. */
+    @NativeType("char[64]")
     public String ManufacturerString() { return nManufacturerString(address()); }
     /** Returns the value of the {@code VendorId} field. */
     public short VendorId() { return nVendorId(address()); }
     /** Returns the value of the {@code ProductId} field. */
     public short ProductId() { return nProductId(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code SerialNumber} field. */
+    @NativeType("char[24]")
     public ByteBuffer SerialNumber() { return nSerialNumber(address()); }
     /** Decodes the null-terminated string stored in the {@code SerialNumber} field. */
+    @NativeType("char[24]")
     public String SerialNumberString() { return nSerialNumberString(address()); }
     /** Returns the value of the {@code FirmwareMajor} field. */
     public short FirmwareMajor() { return nFirmwareMajor(address()); }
     /** Returns the value of the {@code FirmwareMinor} field. */
     public short FirmwareMinor() { return nFirmwareMinor(address()); }
     /** Returns the value of the {@code AvailableHmdCaps} field. */
+    @NativeType("unsigned int")
     public int AvailableHmdCaps() { return nAvailableHmdCaps(address()); }
     /** Returns the value of the {@code DefaultHmdCaps} field. */
+    @NativeType("unsigned int")
     public int DefaultHmdCaps() { return nDefaultHmdCaps(address()); }
     /** Returns the value of the {@code AvailableTrackingCaps} field. */
+    @NativeType("unsigned int")
     public int AvailableTrackingCaps() { return nAvailableTrackingCaps(address()); }
     /** Returns the value of the {@code DefaultTrackingCaps} field. */
+    @NativeType("unsigned int")
     public int DefaultTrackingCaps() { return nDefaultTrackingCaps(address()); }
     /** Returns a {@link OVRFovPort}.Buffer view of the {@code DefaultEyeFov} field. */
+    @NativeType("ovrFovPort[ovrEye_Count]")
     public OVRFovPort.Buffer DefaultEyeFov() { return nDefaultEyeFov(address()); }
     /** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code DefaultEyeFov} field. */
+    @NativeType("ovrFovPort")
     public OVRFovPort DefaultEyeFov(int index) { return nDefaultEyeFov(address(), index); }
     /** Returns a {@link OVRFovPort}.Buffer view of the {@code MaxEyeFov} field. */
+    @NativeType("ovrFovPort[ovrEye_Count]")
     public OVRFovPort.Buffer MaxEyeFov() { return nMaxEyeFov(address()); }
     /** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code MaxEyeFov} field. */
+    @NativeType("ovrFovPort")
     public OVRFovPort MaxEyeFov(int index) { return nMaxEyeFov(address(), index); }
     /** Returns a {@link OVRSizei} view of the {@code Resolution} field. */
+    @NativeType("ovrSizei")
     public OVRSizei Resolution() { return nResolution(address()); }
     /** Returns the value of the {@code DisplayRefreshRate} field. */
     public float DisplayRefreshRate() { return nDisplayRefreshRate(address()); }
@@ -414,44 +431,60 @@ public class OVRHmdDesc extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code Type} field. */
+        @NativeType("ovrHmdType")
         public int Type() { return OVRHmdDesc.nType(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code ProductName} field. */
+        @NativeType("char[64]")
         public ByteBuffer ProductName() { return OVRHmdDesc.nProductName(address()); }
         /** Decodes the null-terminated string stored in the {@code ProductName} field. */
+        @NativeType("char[64]")
         public String ProductNameString() { return OVRHmdDesc.nProductNameString(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code Manufacturer} field. */
+        @NativeType("char[64]")
         public ByteBuffer Manufacturer() { return OVRHmdDesc.nManufacturer(address()); }
         /** Decodes the null-terminated string stored in the {@code Manufacturer} field. */
+        @NativeType("char[64]")
         public String ManufacturerString() { return OVRHmdDesc.nManufacturerString(address()); }
         /** Returns the value of the {@code VendorId} field. */
         public short VendorId() { return OVRHmdDesc.nVendorId(address()); }
         /** Returns the value of the {@code ProductId} field. */
         public short ProductId() { return OVRHmdDesc.nProductId(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code SerialNumber} field. */
+        @NativeType("char[24]")
         public ByteBuffer SerialNumber() { return OVRHmdDesc.nSerialNumber(address()); }
         /** Decodes the null-terminated string stored in the {@code SerialNumber} field. */
+        @NativeType("char[24]")
         public String SerialNumberString() { return OVRHmdDesc.nSerialNumberString(address()); }
         /** Returns the value of the {@code FirmwareMajor} field. */
         public short FirmwareMajor() { return OVRHmdDesc.nFirmwareMajor(address()); }
         /** Returns the value of the {@code FirmwareMinor} field. */
         public short FirmwareMinor() { return OVRHmdDesc.nFirmwareMinor(address()); }
         /** Returns the value of the {@code AvailableHmdCaps} field. */
+        @NativeType("unsigned int")
         public int AvailableHmdCaps() { return OVRHmdDesc.nAvailableHmdCaps(address()); }
         /** Returns the value of the {@code DefaultHmdCaps} field. */
+        @NativeType("unsigned int")
         public int DefaultHmdCaps() { return OVRHmdDesc.nDefaultHmdCaps(address()); }
         /** Returns the value of the {@code AvailableTrackingCaps} field. */
+        @NativeType("unsigned int")
         public int AvailableTrackingCaps() { return OVRHmdDesc.nAvailableTrackingCaps(address()); }
         /** Returns the value of the {@code DefaultTrackingCaps} field. */
+        @NativeType("unsigned int")
         public int DefaultTrackingCaps() { return OVRHmdDesc.nDefaultTrackingCaps(address()); }
         /** Returns a {@link OVRFovPort}.Buffer view of the {@code DefaultEyeFov} field. */
+        @NativeType("ovrFovPort[ovrEye_Count]")
         public OVRFovPort.Buffer DefaultEyeFov() { return OVRHmdDesc.nDefaultEyeFov(address()); }
         /** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code DefaultEyeFov} field. */
+        @NativeType("ovrFovPort")
         public OVRFovPort DefaultEyeFov(int index) { return OVRHmdDesc.nDefaultEyeFov(address(), index); }
         /** Returns a {@link OVRFovPort}.Buffer view of the {@code MaxEyeFov} field. */
+        @NativeType("ovrFovPort[ovrEye_Count]")
         public OVRFovPort.Buffer MaxEyeFov() { return OVRHmdDesc.nMaxEyeFov(address()); }
         /** Returns a {@link OVRFovPort} view of the struct at the specified index of the {@code MaxEyeFov} field. */
+        @NativeType("ovrFovPort")
         public OVRFovPort MaxEyeFov(int index) { return OVRHmdDesc.nMaxEyeFov(address(), index); }
         /** Returns a {@link OVRSizei} view of the {@code Resolution} field. */
+        @NativeType("ovrSizei")
         public OVRSizei Resolution() { return OVRHmdDesc.nResolution(address()); }
         /** Returns the value of the {@code DisplayRefreshRate} field. */
         public float DisplayRefreshRate() { return OVRHmdDesc.nDisplayRefreshRate(address()); }

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -40,7 +42,8 @@ public class HIClientpixmap {
         return callPPPP(__functionAddress, dpy, config, pixmap);
     }
 
-    public static long eglCreatePixmapSurfaceHI(long dpy, long config, EGLClientPixmapHI pixmap) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePixmapSurfaceHI(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("struct EGLClientPixmapHI *") EGLClientPixmapHI pixmap) {
         return neglCreatePixmapSurfaceHI(dpy, config, pixmap.address());
     }
 

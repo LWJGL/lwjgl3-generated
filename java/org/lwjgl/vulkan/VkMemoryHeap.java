@@ -72,8 +72,10 @@ public class VkMemoryHeap extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code size} field. */
+    @NativeType("VkDeviceSize")
     public long size() { return nsize(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkMemoryHeapFlags")
     public int flags() { return nflags(address()); }
 
     // -----------------------------------
@@ -143,8 +145,10 @@ public class VkMemoryHeap extends Struct {
         }
 
         /** Returns the value of the {@code size} field. */
+        @NativeType("VkDeviceSize")
         public long size() { return VkMemoryHeap.nsize(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkMemoryHeapFlags")
         public int flags() { return VkMemoryHeap.nflags(address()); }
 
     }

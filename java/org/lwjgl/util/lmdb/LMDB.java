@@ -344,7 +344,8 @@ public class LMDB {
      *
      * @return the library version as a string
      */
-    public static String mdb_version(IntBuffer major, IntBuffer minor, IntBuffer patch) {
+    @NativeType("char *")
+    public static String mdb_version(@NativeType("int *") IntBuffer major, @NativeType("int *") IntBuffer minor, @NativeType("int *") IntBuffer patch) {
         if (CHECKS) {
             checkSafe(major, 1);
             checkSafe(minor, 1);
@@ -370,7 +371,8 @@ public class LMDB {
      *
      * @return the description of the error
      */
-    public static String mdb_strerror(int err) {
+    @NativeType("char *")
+    public static String mdb_strerror(@NativeType("int") int err) {
         long __result = nmdb_strerror(err);
         return memASCII(__result);
     }
@@ -391,7 +393,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_create(PointerBuffer env) {
+    public static int mdb_env_create(@NativeType("MDB_env **") PointerBuffer env) {
         if (CHECKS) {
             check(env, 1);
         }
@@ -504,7 +506,7 @@ public class LMDB {
      *         <li>{@code EAGAIN} - the environment was locked by another process.</li>
      *         </ul>
      */
-    public static int mdb_env_open(long env, ByteBuffer path, int flags, int mode) {
+    public static int mdb_env_open(@NativeType("MDB_env *") long env, @NativeType("const char *") ByteBuffer path, @NativeType("unsigned int") int flags, @NativeType("mdb_mode_t") int mode) {
         if (CHECKS) {
             check(env);
             checkNT1(path);
@@ -613,7 +615,7 @@ public class LMDB {
      *         <li>{@code EAGAIN} - the environment was locked by another process.</li>
      *         </ul>
      */
-    public static int mdb_env_open(long env, CharSequence path, int flags, int mode) {
+    public static int mdb_env_open(@NativeType("MDB_env *") long env, @NativeType("const char *") CharSequence path, @NativeType("unsigned int") int flags, @NativeType("mdb_mode_t") int mode) {
         if (CHECKS) {
             check(env);
         }
@@ -643,7 +645,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_copy(long env, ByteBuffer path) {
+    public static int mdb_env_copy(@NativeType("MDB_env *") long env, @NativeType("const char *") ByteBuffer path) {
         if (CHECKS) {
             check(env);
             checkNT1(path);
@@ -663,7 +665,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_copy(long env, CharSequence path) {
+    public static int mdb_env_copy(@NativeType("MDB_env *") long env, @NativeType("const char *") CharSequence path) {
         if (CHECKS) {
             check(env);
         }
@@ -697,7 +699,7 @@ public class LMDB {
      *              and runs more slowly than the default.</li>
      *              </ul>
      */
-    public static int mdb_env_copy2(long env, ByteBuffer path, int flags) {
+    public static int mdb_env_copy2(@NativeType("MDB_env *") long env, @NativeType("const char *") ByteBuffer path, @NativeType("unsigned int") int flags) {
         if (CHECKS) {
             check(env);
             checkNT1(path);
@@ -721,7 +723,7 @@ public class LMDB {
      *              and runs more slowly than the default.</li>
      *              </ul>
      */
-    public static int mdb_env_copy2(long env, CharSequence path, int flags) {
+    public static int mdb_env_copy2(@NativeType("MDB_env *") long env, @NativeType("const char *") CharSequence path, @NativeType("unsigned int") int flags) {
         if (CHECKS) {
             check(env);
         }
@@ -747,7 +749,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_stat(long env, MDBStat stat) {
+    public static int mdb_env_stat(@NativeType("MDB_env *") long env, @NativeType("MDB_stat *") MDBStat stat) {
         if (CHECKS) {
             check(env);
         }
@@ -767,7 +769,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_info(long env, MDBEnvInfo stat) {
+    public static int mdb_env_info(@NativeType("MDB_env *") long env, @NativeType("MDB_envinfo *") MDBEnvInfo stat) {
         if (CHECKS) {
             check(env);
         }
@@ -798,7 +800,7 @@ public class LMDB {
      *         <li>{@code EIO} - an error occurred during synchronization.</li>
      *         </ul>
      */
-    public static int mdb_env_sync(long env, boolean force) {
+    public static int mdb_env_sync(@NativeType("MDB_env *") long env, @NativeType("int") boolean force) {
         if (CHECKS) {
             check(env);
         }
@@ -818,7 +820,7 @@ public class LMDB {
      *
      * @param env an environment handle returned by {@link #mdb_env_create env_create}
      */
-    public static void mdb_env_close(long env) {
+    public static void mdb_env_close(@NativeType("MDB_env *") long env) {
         if (CHECKS) {
             check(env);
         }
@@ -846,7 +848,7 @@ public class LMDB {
      *         <li>{@code EINVAL} - an invalid parameter was specified.</li>
      *         </ul>
      */
-    public static int mdb_env_set_flags(long env, int flags, boolean onoff) {
+    public static int mdb_env_set_flags(@NativeType("MDB_env *") long env, @NativeType("unsigned int") int flags, @NativeType("int") boolean onoff) {
         if (CHECKS) {
             check(env);
         }
@@ -866,7 +868,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_get_flags(long env, IntBuffer flags) {
+    public static int mdb_env_get_flags(@NativeType("MDB_env *") long env, @NativeType("unsigned int *") IntBuffer flags) {
         if (CHECKS) {
             check(env);
             check(flags, 1);
@@ -887,7 +889,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_get_path(long env, PointerBuffer path) {
+    public static int mdb_env_get_path(@NativeType("MDB_env *") long env, @NativeType("const char **") PointerBuffer path) {
         if (CHECKS) {
             check(env);
             check(path, 1);
@@ -926,7 +928,7 @@ public class LMDB {
      *         <li>{@code EINVAL} - an invalid parameter was specified, or the environment has an active write transaction.</li>
      *         </ul>
      */
-    public static int mdb_env_set_mapsize(long env, long size) {
+    public static int mdb_env_set_mapsize(@NativeType("MDB_env *") long env, @NativeType("mdb_size_t") long size) {
         if (CHECKS) {
             check(env);
         }
@@ -957,7 +959,7 @@ public class LMDB {
      *         <li>{@code EINVAL} - an invalid parameter was specified, or the environment is already open.</li>
      *         </ul>
      */
-    public static int mdb_env_set_maxreaders(long env, int readers) {
+    public static int mdb_env_set_maxreaders(@NativeType("MDB_env *") long env, @NativeType("unsigned int") int readers) {
         if (CHECKS) {
             check(env);
         }
@@ -977,7 +979,7 @@ public class LMDB {
      *
      * @return a non-zero error value on failure and 0 on success
      */
-    public static int mdb_env_get_maxreaders(long env, IntBuffer readers) {
+    public static int mdb_env_get_maxreaders(@NativeType("MDB_env *") long env, @NativeType("unsigned int *") IntBuffer readers) {
         if (CHECKS) {
             check(env);
             check(readers, 1);
@@ -1010,7 +1012,7 @@ public class LMDB {
      *         <li>{@code EINVAL} - an invalid parameter was specified, or the environment is already open.</li>
      *         </ul>
      */
-    public static int mdb_env_set_maxdbs(long env, int dbs) {
+    public static int mdb_env_set_maxdbs(@NativeType("MDB_env *") long env, @NativeType("MDB_dbi") int dbs) {
         if (CHECKS) {
             check(env);
         }
@@ -1029,7 +1031,7 @@ public class LMDB {
      *
      * @param env an environment handle returned by {@link #mdb_env_create env_create}
      */
-    public static int mdb_env_get_maxkeysize(long env) {
+    public static int mdb_env_get_maxkeysize(@NativeType("MDB_env *") long env) {
         if (CHECKS) {
             check(env);
         }
@@ -1047,7 +1049,7 @@ public class LMDB {
      * @param env an environment handle returned by {@link #mdb_env_create env_create}
      * @param ctx an arbitrary pointer for whatever the application needs
      */
-    public static int mdb_env_set_userctx(long env, long ctx) {
+    public static int mdb_env_set_userctx(@NativeType("MDB_env *") long env, @NativeType("void *") long ctx) {
         if (CHECKS) {
             check(env);
             check(ctx);
@@ -1065,7 +1067,8 @@ public class LMDB {
      *
      * @param env an environment handle returned by {@link #mdb_env_create env_create}
      */
-    public static long mdb_env_get_userctx(long env) {
+    @NativeType("void *")
+    public static long mdb_env_get_userctx(@NativeType("MDB_env *") long env) {
         if (CHECKS) {
             check(env);
         }
@@ -1110,7 +1113,7 @@ public class LMDB {
      *         <li>{@code ENOMEM} - out of memory.</li>
      *         </ul>
      */
-    public static int mdb_txn_begin(long env, long parent, int flags, PointerBuffer txn) {
+    public static int mdb_txn_begin(@NativeType("MDB_env *") long env, @NativeType("MDB_txn *") long parent, @NativeType("unsigned int") int flags, @NativeType("MDB_txn **") PointerBuffer txn) {
         if (CHECKS) {
             check(env);
             check(txn, 1);
@@ -1128,7 +1131,8 @@ public class LMDB {
      *
      * @param txn a transaction handle returned by {@link #mdb_txn_begin txn_begin}.
      */
-    public static long mdb_txn_env(long txn) {
+    @NativeType("MDB_env *")
+    public static long mdb_txn_env(@NativeType("MDB_txn *") long txn) {
         if (CHECKS) {
             check(txn);
         }
@@ -1150,7 +1154,8 @@ public class LMDB {
      *
      * @return a transaction ID, valid if input is an active transaction
      */
-    public static long mdb_txn_id(long txn) {
+    @NativeType("mdb_size_t")
+    public static long mdb_txn_id(@NativeType("MDB_txn *") long txn) {
         if (CHECKS) {
             check(txn);
         }
@@ -1180,7 +1185,7 @@ public class LMDB {
      *         <li>{@code ENOMEM} - out of memory.</li>
      *         </ul>
      */
-    public static int mdb_txn_commit(long txn) {
+    public static int mdb_txn_commit(@NativeType("MDB_txn *") long txn) {
         if (CHECKS) {
             check(txn);
         }
@@ -1202,7 +1207,7 @@ public class LMDB {
      *
      * @param txn a transaction handle returned by {@link #mdb_txn_begin txn_begin}.
      */
-    public static void mdb_txn_abort(long txn) {
+    public static void mdb_txn_abort(@NativeType("MDB_txn *") long txn) {
         if (CHECKS) {
             check(txn);
         }
@@ -1228,7 +1233,7 @@ public class LMDB {
      *
      * @param txn a transaction handle returned by {@link #mdb_txn_begin txn_begin}.
      */
-    public static void mdb_txn_reset(long txn) {
+    public static void mdb_txn_reset(@NativeType("MDB_txn *") long txn) {
         if (CHECKS) {
             check(txn);
         }
@@ -1248,7 +1253,7 @@ public class LMDB {
      *
      * @param txn a transaction handle returned by {@link #mdb_txn_begin txn_begin}.
      */
-    public static int mdb_txn_renew(long txn) {
+    public static int mdb_txn_renew(@NativeType("MDB_txn *") long txn) {
         if (CHECKS) {
             check(txn);
         }
@@ -1316,7 +1321,7 @@ public class LMDB {
      *         <li>{@link #MDB_DBS_FULL DBS_FULL} - too many databases have been opened. See {@link #mdb_env_set_maxdbs env_set_maxdbs}.</li>
      *         </ul>
      */
-    public static int mdb_dbi_open(long txn, ByteBuffer name, int flags, IntBuffer dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") ByteBuffer name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") IntBuffer dbi) {
         if (CHECKS) {
             check(txn);
             checkNT1Safe(name);
@@ -1381,7 +1386,7 @@ public class LMDB {
      *         <li>{@link #MDB_DBS_FULL DBS_FULL} - too many databases have been opened. See {@link #mdb_env_set_maxdbs env_set_maxdbs}.</li>
      *         </ul>
      */
-    public static int mdb_dbi_open(long txn, CharSequence name, int flags, IntBuffer dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") CharSequence name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") IntBuffer dbi) {
         if (CHECKS) {
             check(txn);
             check(dbi, 1);
@@ -1407,7 +1412,7 @@ public class LMDB {
      * @param dbi  a database handle returned by {@link #mdb_dbi_open dbi_open}
      * @param stat the address of an {@link MDBStat} structure where the statistics will be copied
      */
-    public static int mdb_stat(long txn, int dbi, MDBStat stat) {
+    public static int mdb_stat(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_stat *") MDBStat stat) {
         if (CHECKS) {
             check(txn);
         }
@@ -1426,7 +1431,7 @@ public class LMDB {
      * @param dbi   a database handle returned by {@link #mdb_dbi_open dbi_open}
      * @param flags address where the flags will be returned
      */
-    public static int mdb_dbi_flags(long txn, int dbi, IntBuffer flags) {
+    public static int mdb_dbi_flags(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("unsigned int *") IntBuffer flags) {
         if (CHECKS) {
             check(txn);
             check(flags, 1);
@@ -1452,7 +1457,7 @@ public class LMDB {
      * @param env an environment handle returned by {@link #mdb_env_create env_create}
      * @param dbi a database handle returned by {@link #mdb_dbi_open dbi_open}
      */
-    public static void mdb_dbi_close(long env, int dbi) {
+    public static void mdb_dbi_close(@NativeType("MDB_env *") long env, @NativeType("MDB_dbi") int dbi) {
         if (CHECKS) {
             check(env);
         }
@@ -1473,7 +1478,7 @@ public class LMDB {
      * @param dbi a database handle returned by {@link #mdb_dbi_open dbi_open}
      * @param del 0 to empty the DB, 1 to delete it from the environment and close the DB handle
      */
-    public static int mdb_drop(long txn, int dbi, boolean del) {
+    public static int mdb_drop(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("int") boolean del) {
         if (CHECKS) {
             check(txn);
         }
@@ -1499,7 +1504,7 @@ public class LMDB {
      * @param dbi a database handle returned by {@link #mdb_dbi_open dbi_open}
      * @param cmp an {@link MDBCmpFunc} function
      */
-    public static int mdb_set_compare(long txn, int dbi, MDBCmpFuncI cmp) {
+    public static int mdb_set_compare(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_cmp_func *") MDBCmpFuncI cmp) {
         if (CHECKS) {
             check(txn);
         }
@@ -1529,7 +1534,7 @@ public class LMDB {
      * @param dbi a database handle returned by {@link #mdb_dbi_open dbi_open}
      * @param cmp an {@link MDBCmpFunc} function
      */
-    public static int mdb_set_dupsort(long txn, int dbi, MDBCmpFuncI cmp) {
+    public static int mdb_set_dupsort(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_cmp_func *") MDBCmpFuncI cmp) {
         if (CHECKS) {
             check(txn);
         }
@@ -1554,7 +1559,7 @@ public class LMDB {
      * @param dbi a database handle returned by {@link #mdb_dbi_open dbi_open}
      * @param rel an {@link MDBRelFunc} function
      */
-    public static int mdb_set_relfunc(long txn, int dbi, MDBRelFuncI rel) {
+    public static int mdb_set_relfunc(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_rel_func *") MDBRelFuncI rel) {
         if (CHECKS) {
             check(txn);
         }
@@ -1576,7 +1581,7 @@ public class LMDB {
      * @param ctx an arbitrary pointer for whatever the application needs. It will be passed to the callback function set by {@link MDBRelFunc} as its {@code relctx}
      *            parameter whenever the callback is invoked.
      */
-    public static int mdb_set_relctx(long txn, int dbi, long ctx) {
+    public static int mdb_set_relctx(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("void *") long ctx) {
         if (CHECKS) {
             check(txn);
             check(ctx);
@@ -1608,7 +1613,7 @@ public class LMDB {
      * @param key  the key to search for in the database
      * @param data the data corresponding to the key
      */
-    public static int mdb_get(long txn, int dbi, MDBVal key, MDBVal data) {
+    public static int mdb_get(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_val *") MDBVal key, @NativeType("MDB_val *") MDBVal data) {
         if (CHECKS) {
             check(txn);
         }
@@ -1649,7 +1654,7 @@ public class LMDB {
      *              <li>{@link #MDB_APPENDDUP APPENDDUP} - as above, but for sorted dup data.</li>
      *              </ul>
      */
-    public static int mdb_put(long txn, int dbi, MDBVal key, MDBVal data, int flags) {
+    public static int mdb_put(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_val *") MDBVal key, @NativeType("MDB_val *") MDBVal data, @NativeType("unsigned int") int flags) {
         if (CHECKS) {
             check(txn);
         }
@@ -1677,7 +1682,7 @@ public class LMDB {
      * @param key  the key to delete from the database
      * @param data the data to delete
      */
-    public static int mdb_del(long txn, int dbi, MDBVal key, MDBVal data) {
+    public static int mdb_del(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_val *") MDBVal key, @NativeType("MDB_val *") MDBVal data) {
         if (CHECKS) {
             check(txn);
         }
@@ -1708,7 +1713,7 @@ public class LMDB {
      * @param dbi    a database handle returned by {@link #mdb_dbi_open dbi_open}
      * @param cursor address where the new {@code MDB_cursor} handle will be stored
      */
-    public static int mdb_cursor_open(long txn, int dbi, PointerBuffer cursor) {
+    public static int mdb_cursor_open(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_cursor **") PointerBuffer cursor) {
         if (CHECKS) {
             check(txn);
             check(cursor, 1);
@@ -1728,7 +1733,7 @@ public class LMDB {
      *
      * @param cursor a cursor handle returned by {@link #mdb_cursor_open cursor_open}
      */
-    public static void mdb_cursor_close(long cursor) {
+    public static void mdb_cursor_close(@NativeType("MDB_cursor *") long cursor) {
         if (CHECKS) {
             check(cursor);
         }
@@ -1750,7 +1755,7 @@ public class LMDB {
      * @param txn    a transaction handle returned by {@link #mdb_txn_begin txn_begin}.
      * @param cursor a cursor handle returned by {@link #mdb_cursor_open cursor_open}
      */
-    public static int mdb_cursor_renew(long txn, long cursor) {
+    public static int mdb_cursor_renew(@NativeType("MDB_txn *") long txn, @NativeType("MDB_cursor *") long cursor) {
         if (CHECKS) {
             check(txn);
             check(cursor);
@@ -1768,7 +1773,8 @@ public class LMDB {
      *
      * @param cursor a cursor handle returned by {@link #mdb_cursor_open cursor_open}
      */
-    public static long mdb_cursor_txn(long cursor) {
+    @NativeType("MDB_txn *")
+    public static long mdb_cursor_txn(@NativeType("MDB_cursor *") long cursor) {
         if (CHECKS) {
             check(cursor);
         }
@@ -1785,7 +1791,8 @@ public class LMDB {
      *
      * @param cursor a cursor handle returned by {@link #mdb_cursor_open cursor_open}
      */
-    public static int mdb_cursor_dbi(long cursor) {
+    @NativeType("MDB_dbi")
+    public static int mdb_cursor_dbi(@NativeType("MDB_cursor *") long cursor) {
         if (CHECKS) {
             check(cursor);
         }
@@ -1811,7 +1818,7 @@ public class LMDB {
      * @param data   the data of a retrieved item
      * @param op     a cursor operation {@code MDB_cursor_op}. One of:<br><table><tr><td>{@link #MDB_FIRST FIRST}</td><td>{@link #MDB_FIRST_DUP FIRST_DUP}</td><td>{@link #MDB_GET_BOTH GET_BOTH}</td><td>{@link #MDB_GET_BOTH_RANGE GET_BOTH_RANGE}</td><td>{@link #MDB_GET_CURRENT GET_CURRENT}</td><td>{@link #MDB_GET_MULTIPLE GET_MULTIPLE}</td><td>{@link #MDB_LAST LAST}</td><td>{@link #MDB_LAST_DUP LAST_DUP}</td><td>{@link #MDB_NEXT NEXT}</td><td>{@link #MDB_NEXT_DUP NEXT_DUP}</td></tr><tr><td>{@link #MDB_NEXT_MULTIPLE NEXT_MULTIPLE}</td><td>{@link #MDB_NEXT_NODUP NEXT_NODUP}</td><td>{@link #MDB_PREV PREV}</td><td>{@link #MDB_PREV_DUP PREV_DUP}</td><td>{@link #MDB_PREV_NODUP PREV_NODUP}</td><td>{@link #MDB_SET SET}</td><td>{@link #MDB_SET_KEY SET_KEY}</td><td>{@link #MDB_SET_RANGE SET_RANGE}</td><td>{@link #MDB_PREV_MULTIPLE PREV_MULTIPLE}</td></tr></table>
      */
-    public static int mdb_cursor_get(long cursor, MDBVal key, MDBVal data, int op) {
+    public static int mdb_cursor_get(@NativeType("MDB_cursor *") long cursor, @NativeType("MDB_val *") MDBVal key, @NativeType("MDB_val *") MDBVal data, @NativeType("MDB_cursor_op") int op) {
         if (CHECKS) {
             check(cursor);
         }
@@ -1856,7 +1863,7 @@ public class LMDB {
      *               count of the number of elements actually written. The {@code mv_data} of the second {@code MDBVal} is unused.</li>
      *               </ul>
      */
-    public static int mdb_cursor_put(long cursor, MDBVal key, MDBVal data, int flags) {
+    public static int mdb_cursor_put(@NativeType("MDB_cursor *") long cursor, @NativeType("MDB_val *") MDBVal key, @NativeType("MDB_val *") MDBVal data, @NativeType("unsigned int") int flags) {
         if (CHECKS) {
             check(cursor);
         }
@@ -1880,7 +1887,7 @@ public class LMDB {
      *               <li>{@link #MDB_NODUPDATA NODUPDATA} - delete all of the data items for the current key. This flag may only be specified if the database was opened with {@link #MDB_DUPSORT DUPSORT}.</li>
      *               </ul>
      */
-    public static int mdb_cursor_del(long cursor, int flags) {
+    public static int mdb_cursor_del(@NativeType("MDB_cursor *") long cursor, @NativeType("unsigned int") int flags) {
         if (CHECKS) {
             check(cursor);
         }
@@ -1900,7 +1907,7 @@ public class LMDB {
      * @param cursor a cursor handle returned by {@link #mdb_cursor_open cursor_open}
      * @param countp address where the count will be stored
      */
-    public static int mdb_cursor_count(long cursor, PointerBuffer countp) {
+    public static int mdb_cursor_count(@NativeType("MDB_cursor *") long cursor, @NativeType("mdb_size_t *") PointerBuffer countp) {
         if (CHECKS) {
             check(cursor);
             check(countp, 1);
@@ -1925,7 +1932,7 @@ public class LMDB {
      *
      * @return &lt; 0 if a &lt; b, 0 if a == b, &gt; 0 if a &gt; b
      */
-    public static int mdb_cmp(long txn, int dbi, MDBVal a, MDBVal b) {
+    public static int mdb_cmp(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("const MDB_val *") MDBVal a, @NativeType("const MDB_val *") MDBVal b) {
         if (CHECKS) {
             check(txn);
         }
@@ -1949,7 +1956,7 @@ public class LMDB {
      *
      * @return &lt; 0 if a &lt; b, 0 if a == b, &gt; 0 if a &gt; b
      */
-    public static int mdb_dcmp(long txn, int dbi, MDBVal a, MDBVal b) {
+    public static int mdb_dcmp(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("const MDB_val *") MDBVal a, @NativeType("const MDB_val *") MDBVal b) {
         if (CHECKS) {
             check(txn);
         }
@@ -1968,7 +1975,7 @@ public class LMDB {
      * @param func an {@link MDBMsgFunc} function
      * @param ctx  anything the message function needs
      */
-    public static int mdb_reader_list(long env, MDBMsgFuncI func, long ctx) {
+    public static int mdb_reader_list(@NativeType("MDB_env *") long env, @NativeType("MDB_msg_func *") MDBMsgFuncI func, @NativeType("void *") long ctx) {
         if (CHECKS) {
             check(env);
             check(ctx);
@@ -1987,7 +1994,7 @@ public class LMDB {
      * @param env  an environment handle returned by {@link #mdb_env_create env_create}
      * @param dead number of stale slots that were cleared
      */
-    public static int mdb_reader_check(long env, IntBuffer dead) {
+    public static int mdb_reader_check(@NativeType("MDB_env *") long env, @NativeType("int *") IntBuffer dead) {
         if (CHECKS) {
             check(env);
             check(dead, 1);
@@ -1999,7 +2006,8 @@ public class LMDB {
     public static native long nmdb_version(int[] major, int[] minor, int[] patch);
 
     /** Array version of: {@link #mdb_version version} */
-    public static String mdb_version(int[] major, int[] minor, int[] patch) {
+    @NativeType("char *")
+    public static String mdb_version(@NativeType("int *") int[] major, @NativeType("int *") int[] minor, @NativeType("int *") int[] patch) {
         if (CHECKS) {
             checkSafe(major, 1);
             checkSafe(minor, 1);
@@ -2013,7 +2021,7 @@ public class LMDB {
     public static native int nmdb_env_get_flags(long env, int[] flags);
 
     /** Array version of: {@link #mdb_env_get_flags env_get_flags} */
-    public static int mdb_env_get_flags(long env, int[] flags) {
+    public static int mdb_env_get_flags(@NativeType("MDB_env *") long env, @NativeType("unsigned int *") int[] flags) {
         if (CHECKS) {
             check(env);
             check(flags, 1);
@@ -2025,7 +2033,7 @@ public class LMDB {
     public static native int nmdb_env_get_maxreaders(long env, int[] readers);
 
     /** Array version of: {@link #mdb_env_get_maxreaders env_get_maxreaders} */
-    public static int mdb_env_get_maxreaders(long env, int[] readers) {
+    public static int mdb_env_get_maxreaders(@NativeType("MDB_env *") long env, @NativeType("unsigned int *") int[] readers) {
         if (CHECKS) {
             check(env);
             check(readers, 1);
@@ -2037,7 +2045,7 @@ public class LMDB {
     public static native int nmdb_dbi_open(long txn, long name, int flags, int[] dbi);
 
     /** Array version of: {@link #mdb_dbi_open dbi_open} */
-    public static int mdb_dbi_open(long txn, ByteBuffer name, int flags, int[] dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") ByteBuffer name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") int[] dbi) {
         if (CHECKS) {
             check(txn);
             checkNT1Safe(name);
@@ -2047,7 +2055,7 @@ public class LMDB {
     }
 
     /** Array version of: {@link #mdb_dbi_open dbi_open} */
-    public static int mdb_dbi_open(long txn, CharSequence name, int flags, int[] dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") CharSequence name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") int[] dbi) {
         if (CHECKS) {
             check(txn);
             check(dbi, 1);
@@ -2065,7 +2073,7 @@ public class LMDB {
     public static native int nmdb_dbi_flags(long txn, int dbi, int[] flags);
 
     /** Array version of: {@link #mdb_dbi_flags dbi_flags} */
-    public static int mdb_dbi_flags(long txn, int dbi, int[] flags) {
+    public static int mdb_dbi_flags(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("unsigned int *") int[] flags) {
         if (CHECKS) {
             check(txn);
             check(flags, 1);
@@ -2077,7 +2085,7 @@ public class LMDB {
     public static native int nmdb_reader_check(long env, int[] dead);
 
     /** Array version of: {@link #mdb_reader_check reader_check} */
-    public static int mdb_reader_check(long env, int[] dead) {
+    public static int mdb_reader_check(@NativeType("MDB_env *") long env, @NativeType("int *") int[] dead) {
         if (CHECKS) {
             check(env);
             check(dead, 1);

@@ -30,6 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned char digest[4];
  * }</pre></code>
  */
+@NativeType("struct XXH32_canonical_t")
 public class XXH32Canonical extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -70,8 +71,10 @@ public class XXH32Canonical extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code digest} field. */
+    @NativeType("unsigned char[4]")
     public ByteBuffer digest() { return ndigest(address()); }
     /** Returns the value at the specified index of the {@code digest} field. */
+    @NativeType("unsigned char")
     public byte digest(int index) { return ndigest(address(), index); }
 
     // -----------------------------------
@@ -254,8 +257,10 @@ public class XXH32Canonical extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code digest} field. */
+        @NativeType("unsigned char[4]")
         public ByteBuffer digest() { return XXH32Canonical.ndigest(address()); }
         /** Returns the value at the specified index of the {@code digest} field. */
+        @NativeType("unsigned char")
         public byte digest(int index) { return XXH32Canonical.ndigest(address(), index); }
 
     }

@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -81,7 +83,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetDefaultDeviceCommandQueue(long context, long device, long command_queue) {
+    @NativeType("cl_int")
+    public static int clSetDefaultDeviceCommandQueue(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("cl_command_queue") long command_queue) {
         long __functionAddress = CL.getICD().clSetDefaultDeviceCommandQueue;
         if (CHECKS) {
             check(__functionAddress);
@@ -128,7 +131,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetDeviceAndHostTimer(long device, LongBuffer device_timestamp, LongBuffer host_timestamp) {
+    @NativeType("cl_int")
+    public static int clGetDeviceAndHostTimer(@NativeType("cl_device_id") long device, @NativeType("cl_ulong *") LongBuffer device_timestamp, @NativeType("cl_ulong *") LongBuffer host_timestamp) {
         if (CHECKS) {
             check(device_timestamp, 1);
             check(host_timestamp, 1);
@@ -170,7 +174,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetHostTimer(long device, LongBuffer host_timestamp) {
+    @NativeType("cl_int")
+    public static int clGetHostTimer(@NativeType("cl_device_id") long device, @NativeType("cl_ulong *") LongBuffer host_timestamp) {
         if (CHECKS) {
             check(host_timestamp, 1);
         }
@@ -214,7 +219,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateProgramWithIL(long context, ByteBuffer il, IntBuffer errcode_ret) {
+    @NativeType("cl_program")
+    public static long clCreateProgramWithIL(@NativeType("cl_context") long context, @NativeType("const void *") ByteBuffer il, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -264,7 +270,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCloneKernel(long source_kernel, IntBuffer errcode_ret) {
+    @NativeType("cl_kernel")
+    public static long clCloneKernel(@NativeType("cl_kernel") long source_kernel, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -315,7 +322,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelSubGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -349,7 +357,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetKernelSubGroupInfo(long kernel, long device, int param_name, ByteBuffer input_value, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetKernelSubGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -414,7 +423,8 @@ public class CL21 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clEnqueueSVMMigrateMem(long command_queue, PointerBuffer svm_pointers, PointerBuffer sizes, long flags, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueSVMMigrateMem(@NativeType("cl_command_queue") long command_queue, @NativeType("const void **") PointerBuffer svm_pointers, @NativeType("const size_t *") PointerBuffer sizes, @NativeType("cl_mem_migration_flags") long flags, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(sizes, svm_pointers.remaining());
             checkSafe(event, 1);
@@ -427,7 +437,8 @@ public class CL21 {
      * 
      * Array version of: {@link #clGetDeviceAndHostTimer GetDeviceAndHostTimer}
      */
-    public static int clGetDeviceAndHostTimer(long device, long[] device_timestamp, long[] host_timestamp) {
+    @NativeType("cl_int")
+    public static int clGetDeviceAndHostTimer(@NativeType("cl_device_id") long device, @NativeType("cl_ulong *") long[] device_timestamp, @NativeType("cl_ulong *") long[] host_timestamp) {
         long __functionAddress = CL.getICD().clGetDeviceAndHostTimer;
         if (CHECKS) {
             check(__functionAddress);
@@ -443,7 +454,8 @@ public class CL21 {
      * 
      * Array version of: {@link #clGetHostTimer GetHostTimer}
      */
-    public static int clGetHostTimer(long device, long[] host_timestamp) {
+    @NativeType("cl_int")
+    public static int clGetHostTimer(@NativeType("cl_device_id") long device, @NativeType("cl_ulong *") long[] host_timestamp) {
         long __functionAddress = CL.getICD().clGetHostTimer;
         if (CHECKS) {
             check(__functionAddress);
@@ -458,7 +470,8 @@ public class CL21 {
      * 
      * Array version of: {@link #clCreateProgramWithIL CreateProgramWithIL}
      */
-    public static long clCreateProgramWithIL(long context, ByteBuffer il, int[] errcode_ret) {
+    @NativeType("cl_program")
+    public static long clCreateProgramWithIL(@NativeType("cl_context") long context, @NativeType("const void *") ByteBuffer il, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateProgramWithIL;
         if (CHECKS) {
             check(__functionAddress);
@@ -473,7 +486,8 @@ public class CL21 {
      * 
      * Array version of: {@link #clCloneKernel CloneKernel}
      */
-    public static long clCloneKernel(long source_kernel, int[] errcode_ret) {
+    @NativeType("cl_kernel")
+    public static long clCloneKernel(@NativeType("cl_kernel") long source_kernel, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCloneKernel;
         if (CHECKS) {
             check(__functionAddress);

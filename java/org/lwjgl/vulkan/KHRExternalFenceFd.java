@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -141,7 +143,8 @@ public class KHRExternalFenceFd {
      * @param device             the logical device that created the fence.
      * @param pImportFenceFdInfo points to a {@link VkImportFenceFdInfoKHR} structure specifying the fence and import parameters.
      */
-    public static int vkImportFenceFdKHR(VkDevice device, VkImportFenceFdInfoKHR pImportFenceFdInfo) {
+    @NativeType("VkResult")
+    public static int vkImportFenceFdKHR(VkDevice device, @NativeType("const VkImportFenceFdInfoKHR *") VkImportFenceFdInfoKHR pImportFenceFdInfo) {
         return nvkImportFenceFdKHR(device, pImportFenceFdInfo.address());
     }
 
@@ -214,7 +217,8 @@ public class KHRExternalFenceFd {
      * @param pGetFdInfo a pointer to an instance of the {@link VkFenceGetFdInfoKHR} structure containing parameters of the export operation.
      * @param pFd        will return the file descriptor representing the fence payload.
      */
-    public static int vkGetFenceFdKHR(VkDevice device, VkFenceGetFdInfoKHR pGetFdInfo, IntBuffer pFd) {
+    @NativeType("VkResult")
+    public static int vkGetFenceFdKHR(VkDevice device, @NativeType("const VkFenceGetFdInfoKHR *") VkFenceGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
         if (CHECKS) {
             check(pFd, 1);
         }
@@ -222,7 +226,8 @@ public class KHRExternalFenceFd {
     }
 
     /** Array version of: {@link #vkGetFenceFdKHR GetFenceFdKHR} */
-    public static int vkGetFenceFdKHR(VkDevice device, VkFenceGetFdInfoKHR pGetFdInfo, int[] pFd) {
+    @NativeType("VkResult")
+    public static int vkGetFenceFdKHR(VkDevice device, @NativeType("const VkFenceGetFdInfoKHR *") VkFenceGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
         long __functionAddress = device.getCapabilities().vkGetFenceFdKHR;
         if (CHECKS) {
             check(__functionAddress);

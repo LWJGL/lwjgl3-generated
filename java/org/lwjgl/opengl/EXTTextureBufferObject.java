@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -60,6 +62,6 @@ public class EXTTextureBufferObject {
 
     // --- [ glTexBufferEXT ] ---
 
-    public static native void glTexBufferEXT(int target, int internalformat, int buffer);
+    public static native void glTexBufferEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLuint") int buffer);
 
 }

@@ -772,6 +772,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
+    @NativeType("int")
     public static boolean glfwInit() {
         long __functionAddress = Functions.Init;
         return invokeI(__functionAddress) != 0;
@@ -859,7 +860,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwGetVersion(IntBuffer major, IntBuffer minor, IntBuffer rev) {
+    public static void glfwGetVersion(@NativeType("int *") IntBuffer major, @NativeType("int *") IntBuffer minor, @NativeType("int *") IntBuffer rev) {
         if (CHECKS) {
             checkSafe(major, 1);
             checkSafe(minor, 1);
@@ -896,6 +897,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
+    @NativeType("const char *")
     public static String glfwGetVersionString() {
         long __result = nglfwGetVersionString();
         return memASCII(__result);
@@ -930,7 +932,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static int glfwGetError(PointerBuffer description) {
+    public static int glfwGetError(@NativeType("const char **") PointerBuffer description) {
         if (CHECKS) {
             checkSafe(description, 1);
         }
@@ -971,7 +973,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWErrorCallback glfwSetErrorCallback(GLFWErrorCallbackI cbfun) {
+    @NativeType("GLFWerrorfun")
+    public static GLFWErrorCallback glfwSetErrorCallback(@NativeType("GLFWerrorfun") GLFWErrorCallbackI cbfun) {
         return GLFWErrorCallback.create(nglfwSetErrorCallback(memAddressSafe(cbfun)));
     }
 
@@ -1000,6 +1003,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
+    @NativeType("GLFWmonitor **")
     public static PointerBuffer glfwGetMonitors() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -1024,6 +1028,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
+    @NativeType("GLFWmonitor *")
     public static long glfwGetPrimaryMonitor() {
         long __functionAddress = Functions.GetPrimaryMonitor;
         return invokeP(__functionAddress);
@@ -1053,7 +1058,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwGetMonitorPos(long monitor, IntBuffer xpos, IntBuffer ypos) {
+    public static void glfwGetMonitorPos(@NativeType("GLFWmonitor *") long monitor, @NativeType("int *") IntBuffer xpos, @NativeType("int *") IntBuffer ypos) {
         if (CHECKS) {
             checkSafe(xpos, 1);
             checkSafe(ypos, 1);
@@ -1094,7 +1099,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwGetMonitorPhysicalSize(long monitor, IntBuffer widthMM, IntBuffer heightMM) {
+    public static void glfwGetMonitorPhysicalSize(@NativeType("GLFWmonitor *") long monitor, @NativeType("int *") IntBuffer widthMM, @NativeType("int *") IntBuffer heightMM) {
         if (CHECKS) {
             checkSafe(widthMM, 1);
             checkSafe(heightMM, 1);
@@ -1128,7 +1133,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static String glfwGetMonitorName(long monitor) {
+    @NativeType("const char *")
+    public static String glfwGetMonitorName(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetMonitorName(monitor);
         return memUTF8(__result);
     }
@@ -1153,7 +1159,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWMonitorCallback glfwSetMonitorCallback(GLFWMonitorCallbackI cbfun) {
+    @NativeType("GLFWmonitorfun")
+    public static GLFWMonitorCallback glfwSetMonitorCallback(@NativeType("GLFWmonitorfun") GLFWMonitorCallbackI cbfun) {
         return GLFWMonitorCallback.create(nglfwSetMonitorCallback(memAddressSafe(cbfun)));
     }
 
@@ -1187,7 +1194,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static GLFWVidMode.Buffer glfwGetVideoModes(long monitor) {
+    @NativeType("const GLFWvidmode *")
+    public static GLFWVidMode.Buffer glfwGetVideoModes(@NativeType("GLFWmonitor *") long monitor) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
         try {
@@ -1224,7 +1232,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWVidMode glfwGetVideoMode(long monitor) {
+    @NativeType("const GLFWvidmode *")
+    public static GLFWVidMode glfwGetVideoMode(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetVideoMode(monitor);
         return GLFWVidMode.create(__result);
     }
@@ -1247,7 +1256,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetGamma(long monitor, float gamma) {
+    public static void glfwSetGamma(@NativeType("GLFWmonitor *") long monitor, float gamma) {
         long __functionAddress = Functions.SetGamma;
         if (CHECKS) {
             check(monitor);
@@ -1280,7 +1289,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWGammaRamp glfwGetGammaRamp(long monitor) {
+    @NativeType("const GLFWgammaramp *")
+    public static GLFWGammaRamp glfwGetGammaRamp(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetGammaRamp(monitor);
         return GLFWGammaRamp.create(__result);
     }
@@ -1320,7 +1330,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetGammaRamp(long monitor, GLFWGammaRamp ramp) {
+    public static void glfwSetGammaRamp(@NativeType("GLFWmonitor *") long monitor, @NativeType("const GLFWgammaramp *") GLFWGammaRamp ramp) {
         nglfwSetGammaRamp(monitor, ramp.address());
     }
 
@@ -1482,7 +1492,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static long glfwCreateWindow(int width, int height, ByteBuffer title, long monitor, long share) {
+    @NativeType("GLFWwindow *")
+    public static long glfwCreateWindow(int width, int height, @NativeType("const char *") ByteBuffer title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
         EventLoop.OffScreen.check();
         if (CHECKS) {
             checkNT1(title);
@@ -1562,7 +1573,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static long glfwCreateWindow(int width, int height, CharSequence title, long monitor, long share) {
+    @NativeType("GLFWwindow *")
+    public static long glfwCreateWindow(@NativeType("int") int width, @NativeType("int") int height, @NativeType("const char *") CharSequence title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
         EventLoop.OffScreen.check();
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -1592,7 +1604,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwDestroyWindow(long window) {
+    public static void glfwDestroyWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.DestroyWindow;
         invokePV(__functionAddress, window);
     }
@@ -1610,7 +1622,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static boolean glfwWindowShouldClose(long window) {
+    @NativeType("int")
+    public static boolean glfwWindowShouldClose(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.WindowShouldClose;
         if (CHECKS) {
             check(window);
@@ -1631,7 +1644,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetWindowShouldClose(long window, boolean value) {
+    public static void glfwSetWindowShouldClose(@NativeType("GLFWwindow *") long window, @NativeType("int") boolean value) {
         long __functionAddress = Functions.SetWindowShouldClose;
         if (CHECKS) {
             check(window);
@@ -1662,7 +1675,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSetWindowTitle(long window, ByteBuffer title) {
+    public static void glfwSetWindowTitle(@NativeType("GLFWwindow *") long window, @NativeType("const char *") ByteBuffer title) {
         if (CHECKS) {
             checkNT1(title);
         }
@@ -1681,7 +1694,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSetWindowTitle(long window, CharSequence title) {
+    public static void glfwSetWindowTitle(@NativeType("GLFWwindow *") long window, @NativeType("const char *") CharSequence title) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
@@ -1733,7 +1746,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static void glfwSetWindowIcon(long window, GLFWImage.Buffer images) {
+    public static void glfwSetWindowIcon(@NativeType("GLFWwindow *") long window, @NativeType("const GLFWimage *") GLFWImage.Buffer images) {
         nglfwSetWindowIcon(window, remainingSafe(images), memAddressSafe(images));
     }
 
@@ -1761,7 +1774,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwGetWindowPos(long window, IntBuffer xpos, IntBuffer ypos) {
+    public static void glfwGetWindowPos(@NativeType("GLFWwindow *") long window, @NativeType("int *") IntBuffer xpos, @NativeType("int *") IntBuffer ypos) {
         if (CHECKS) {
             checkSafe(xpos, 1);
             checkSafe(ypos, 1);
@@ -1788,7 +1801,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSetWindowPos(long window, int xpos, int ypos) {
+    public static void glfwSetWindowPos(@NativeType("GLFWwindow *") long window, int xpos, int ypos) {
         long __functionAddress = Functions.SetWindowPos;
         if (CHECKS) {
             check(window);
@@ -1821,7 +1834,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwGetWindowSize(long window, IntBuffer width, IntBuffer height) {
+    public static void glfwGetWindowSize(@NativeType("GLFWwindow *") long window, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height) {
         if (CHECKS) {
             checkSafe(width, 1);
             checkSafe(height, 1);
@@ -1849,7 +1862,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static void glfwSetWindowSizeLimits(long window, int minwidth, int minheight, int maxwidth, int maxheight) {
+    public static void glfwSetWindowSizeLimits(@NativeType("GLFWwindow *") long window, int minwidth, int minheight, int maxwidth, int maxheight) {
         long __functionAddress = Functions.SetWindowSizeLimits;
         if (CHECKS) {
             check(window);
@@ -1878,7 +1891,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static void glfwSetWindowAspectRatio(long window, int numer, int denom) {
+    public static void glfwSetWindowAspectRatio(@NativeType("GLFWwindow *") long window, int numer, int denom) {
         long __functionAddress = Functions.SetWindowAspectRatio;
         if (CHECKS) {
             check(window);
@@ -1906,7 +1919,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSetWindowSize(long window, int width, int height) {
+    public static void glfwSetWindowSize(@NativeType("GLFWwindow *") long window, int width, int height) {
         long __functionAddress = Functions.SetWindowSize;
         if (CHECKS) {
             check(window);
@@ -1939,7 +1952,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwGetFramebufferSize(long window, IntBuffer width, IntBuffer height) {
+    public static void glfwGetFramebufferSize(@NativeType("GLFWwindow *") long window, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height) {
         if (CHECKS) {
             checkSafe(width, 1);
             checkSafe(height, 1);
@@ -1978,7 +1991,7 @@ public class GLFW {
      *
      * @since version 3.1
      */
-    public static void glfwGetWindowFrameSize(long window, IntBuffer left, IntBuffer top, IntBuffer right, IntBuffer bottom) {
+    public static void glfwGetWindowFrameSize(@NativeType("GLFWwindow *") long window, @NativeType("int *") IntBuffer left, @NativeType("int *") IntBuffer top, @NativeType("int *") IntBuffer right, @NativeType("int *") IntBuffer bottom) {
         if (CHECKS) {
             checkSafe(left, 1);
             checkSafe(top, 1);
@@ -2001,7 +2014,7 @@ public class GLFW {
      *
      * @since version 2.1
      */
-    public static void glfwIconifyWindow(long window) {
+    public static void glfwIconifyWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.IconifyWindow;
         if (CHECKS) {
             check(window);
@@ -2022,7 +2035,7 @@ public class GLFW {
      *
      * @since version 2.1
      */
-    public static void glfwRestoreWindow(long window) {
+    public static void glfwRestoreWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.RestoreWindow;
         if (CHECKS) {
             check(window);
@@ -2043,7 +2056,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static void glfwMaximizeWindow(long window) {
+    public static void glfwMaximizeWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.MaximizeWindow;
         if (CHECKS) {
             check(window);
@@ -2062,7 +2075,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwShowWindow(long window) {
+    public static void glfwShowWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.ShowWindow;
         EventLoop.OnScreen.check();
         if (CHECKS) {
@@ -2082,7 +2095,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwHideWindow(long window) {
+    public static void glfwHideWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.HideWindow;
         if (CHECKS) {
             check(window);
@@ -2108,7 +2121,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static void glfwFocusWindow(long window) {
+    public static void glfwFocusWindow(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.FocusWindow;
         if (CHECKS) {
             check(window);
@@ -2137,7 +2150,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static void glfwRequestWindowAttention(long window) {
+    public static void glfwRequestWindowAttention(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.RequestWindowAttention;
         if (CHECKS) {
             check(window);
@@ -2158,7 +2171,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static long glfwGetWindowMonitor(long window) {
+    @NativeType("GLFWmonitor *")
+    public static long glfwGetWindowMonitor(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetWindowMonitor;
         if (CHECKS) {
             check(window);
@@ -2196,7 +2210,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static void glfwSetWindowMonitor(long window, long monitor, int xpos, int ypos, int width, int height, int refreshRate) {
+    public static void glfwSetWindowMonitor(@NativeType("GLFWwindow *") long window, @NativeType("GLFWmonitor *") long monitor, int xpos, int ypos, int width, int height, int refreshRate) {
         long __functionAddress = Functions.SetWindowMonitor;
         if (CHECKS) {
             check(window);
@@ -2223,7 +2237,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static int glfwGetWindowAttrib(long window, int attrib) {
+    public static int glfwGetWindowAttrib(@NativeType("GLFWwindow *") long window, int attrib) {
         long __functionAddress = Functions.GetWindowAttrib;
         if (CHECKS) {
             check(window);
@@ -2250,7 +2264,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static void glfwSetWindowAttrib(long window, int attrib, int value) {
+    public static void glfwSetWindowAttrib(@NativeType("GLFWwindow *") long window, int attrib, int value) {
         long __functionAddress = Functions.SetWindowAttrib;
         if (CHECKS) {
             check(window);
@@ -2270,7 +2284,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetWindowUserPointer(long window, long pointer) {
+    public static void glfwSetWindowUserPointer(@NativeType("GLFWwindow *") long window, @NativeType("void *") long pointer) {
         long __functionAddress = Functions.SetWindowUserPointer;
         if (CHECKS) {
             check(window);
@@ -2289,7 +2303,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static long glfwGetWindowUserPointer(long window) {
+    @NativeType("void *")
+    public static long glfwGetWindowUserPointer(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetWindowUserPointer;
         if (CHECKS) {
             check(window);
@@ -2322,7 +2337,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static GLFWWindowPosCallback glfwSetWindowPosCallback(long window, GLFWWindowPosCallbackI cbfun) {
+    @NativeType("GLFWwindowposfun")
+    public static GLFWWindowPosCallback glfwSetWindowPosCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowposfun") GLFWWindowPosCallbackI cbfun) {
         return GLFWWindowPosCallback.create(nglfwSetWindowPosCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2351,7 +2367,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(long window, GLFWWindowSizeCallbackI cbfun) {
+    @NativeType("GLFWwindowsizefun")
+    public static GLFWWindowSizeCallback glfwSetWindowSizeCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowsizefun") GLFWWindowSizeCallbackI cbfun) {
         return GLFWWindowSizeCallback.create(nglfwSetWindowSizeCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2389,7 +2406,8 @@ public class GLFW {
      *
      * @since version 2.5
      */
-    public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(long window, GLFWWindowCloseCallbackI cbfun) {
+    @NativeType("GLFWwindowclosefun")
+    public static GLFWWindowCloseCallback glfwSetWindowCloseCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowclosefun") GLFWWindowCloseCallbackI cbfun) {
         return GLFWWindowCloseCallback.create(nglfwSetWindowCloseCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2421,7 +2439,8 @@ public class GLFW {
      *
      * @since version 2.5
      */
-    public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(long window, GLFWWindowRefreshCallbackI cbfun) {
+    @NativeType("GLFWwindowrefreshfun")
+    public static GLFWWindowRefreshCallback glfwSetWindowRefreshCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowrefreshfun") GLFWWindowRefreshCallbackI cbfun) {
         return GLFWWindowRefreshCallback.create(nglfwSetWindowRefreshCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2452,7 +2471,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(long window, GLFWWindowFocusCallbackI cbfun) {
+    @NativeType("GLFWwindowfocusfun")
+    public static GLFWWindowFocusCallback glfwSetWindowFocusCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowfocusfun") GLFWWindowFocusCallbackI cbfun) {
         return GLFWWindowFocusCallback.create(nglfwSetWindowFocusCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2480,7 +2500,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(long window, GLFWWindowIconifyCallbackI cbfun) {
+    @NativeType("GLFWwindowiconifyfun")
+    public static GLFWWindowIconifyCallback glfwSetWindowIconifyCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowiconifyfun") GLFWWindowIconifyCallbackI cbfun) {
         return GLFWWindowIconifyCallback.create(nglfwSetWindowIconifyCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2508,7 +2529,8 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static GLFWWindowMaximizeCallback glfwSetWindowMaximizeCallback(long window, GLFWWindowMaximizeCallbackI cbfun) {
+    @NativeType("GLFWwindowmaximizefun")
+    public static GLFWWindowMaximizeCallback glfwSetWindowMaximizeCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowmaximizefun") GLFWWindowMaximizeCallbackI cbfun) {
         return GLFWWindowMaximizeCallback.create(nglfwSetWindowMaximizeCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2536,7 +2558,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(long window, GLFWFramebufferSizeCallbackI cbfun) {
+    @NativeType("GLFWframebuffersizefun")
+    public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWframebuffersizefun") GLFWFramebufferSizeCallbackI cbfun) {
         return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -2682,7 +2705,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static int glfwGetInputMode(long window, int mode) {
+    public static int glfwGetInputMode(@NativeType("GLFWwindow *") long window, int mode) {
         long __functionAddress = Functions.GetInputMode;
         if (CHECKS) {
             check(window);
@@ -2721,7 +2744,7 @@ public class GLFW {
      *
      * @since GFLW 3.0
      */
-    public static void glfwSetInputMode(long window, int mode, int value) {
+    public static void glfwSetInputMode(@NativeType("GLFWwindow *") long window, int mode, int value) {
         long __functionAddress = Functions.SetInputMode;
         if (CHECKS) {
             check(window);
@@ -2791,7 +2814,8 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static String glfwGetKeyName(int key, int scancode) {
+    @NativeType("const char *")
+    public static String glfwGetKeyName(@NativeType("int") int key, @NativeType("int") int scancode) {
         long __result = nglfwGetKeyName(key, scancode);
         return memUTF8(__result);
     }
@@ -2848,7 +2872,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static int glfwGetKey(long window, int key) {
+    public static int glfwGetKey(@NativeType("GLFWwindow *") long window, int key) {
         long __functionAddress = Functions.GetKey;
         if (CHECKS) {
             check(window);
@@ -2874,7 +2898,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static int glfwGetMouseButton(long window, int button) {
+    public static int glfwGetMouseButton(@NativeType("GLFWwindow *") long window, int button) {
         long __functionAddress = Functions.GetMouseButton;
         if (CHECKS) {
             check(window);
@@ -2912,7 +2936,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwGetCursorPos(long window, DoubleBuffer xpos, DoubleBuffer ypos) {
+    public static void glfwGetCursorPos(@NativeType("GLFWwindow *") long window, @NativeType("double *") DoubleBuffer xpos, @NativeType("double *") DoubleBuffer ypos) {
         if (CHECKS) {
             checkSafe(xpos, 1);
             checkSafe(ypos, 1);
@@ -2939,7 +2963,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSetCursorPos(long window, double xpos, double ypos) {
+    public static void glfwSetCursorPos(@NativeType("GLFWwindow *") long window, double xpos, double ypos) {
         long __functionAddress = Functions.SetCursorPos;
         if (CHECKS) {
             check(window);
@@ -2983,7 +3007,8 @@ public class GLFW {
      *
      * @since version 3.1
      */
-    public static long glfwCreateCursor(GLFWImage image, int xhot, int yhot) {
+    @NativeType("GLFWcursor *")
+    public static long glfwCreateCursor(@NativeType("const GLFWimage *") GLFWImage image, int xhot, int yhot) {
         return nglfwCreateCursor(image.address(), xhot, yhot);
     }
 
@@ -3005,6 +3030,7 @@ public class GLFW {
      *
      * @since version 3.1
      */
+    @NativeType("GLFWcursor *")
     public static long glfwCreateStandardCursor(int shape) {
         long __functionAddress = Functions.CreateStandardCursor;
         return invokeP(__functionAddress, shape);
@@ -3026,7 +3052,7 @@ public class GLFW {
      *
      * @since version 3.1
      */
-    public static void glfwDestroyCursor(long cursor) {
+    public static void glfwDestroyCursor(@NativeType("GLFWcursor *") long cursor) {
         long __functionAddress = Functions.DestroyCursor;
         if (CHECKS) {
             check(cursor);
@@ -3049,7 +3075,7 @@ public class GLFW {
      *
      * @since version 3.1
      */
-    public static void glfwSetCursor(long window, long cursor) {
+    public static void glfwSetCursor(@NativeType("GLFWwindow *") long window, @NativeType("GLFWcursor *") long cursor) {
         long __functionAddress = Functions.SetCursor;
         if (CHECKS) {
             check(window);
@@ -3092,7 +3118,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static GLFWKeyCallback glfwSetKeyCallback(long window, GLFWKeyCallbackI cbfun) {
+    @NativeType("GLFWkeyfun")
+    public static GLFWKeyCallback glfwSetKeyCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWkeyfun") GLFWKeyCallbackI cbfun) {
         return GLFWKeyCallback.create(nglfwSetKeyCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3126,7 +3153,8 @@ public class GLFW {
      *
      * @since version 2.4
      */
-    public static GLFWCharCallback glfwSetCharCallback(long window, GLFWCharCallbackI cbfun) {
+    @NativeType("GLFWcharfun")
+    public static GLFWCharCallback glfwSetCharCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWcharfun") GLFWCharCallbackI cbfun) {
         return GLFWCharCallback.create(nglfwSetCharCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3159,7 +3187,8 @@ public class GLFW {
      *
      * @since version 3.1
      */
-    public static GLFWCharModsCallback glfwSetCharModsCallback(long window, GLFWCharModsCallbackI cbfun) {
+    @NativeType("GLFWcharmodsfun")
+    public static GLFWCharModsCallback glfwSetCharModsCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWcharmodsfun") GLFWCharModsCallbackI cbfun) {
         return GLFWCharModsCallback.create(nglfwSetCharModsCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3190,7 +3219,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(long window, GLFWMouseButtonCallbackI cbfun) {
+    @NativeType("GLFWmousebuttonfun")
+    public static GLFWMouseButtonCallback glfwSetMouseButtonCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWmousebuttonfun") GLFWMouseButtonCallbackI cbfun) {
         return GLFWMouseButtonCallback.create(nglfwSetMouseButtonCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3218,7 +3248,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static GLFWCursorPosCallback glfwSetCursorPosCallback(long window, GLFWCursorPosCallbackI cbfun) {
+    @NativeType("GLFWcursorposfun")
+    public static GLFWCursorPosCallback glfwSetCursorPosCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWcursorposfun") GLFWCursorPosCallbackI cbfun) {
         return GLFWCursorPosCallback.create(nglfwSetCursorPosCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3245,7 +3276,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(long window, GLFWCursorEnterCallbackI cbfun) {
+    @NativeType("GLFWcursorenterfun")
+    public static GLFWCursorEnterCallback glfwSetCursorEnterCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWcursorenterfun") GLFWCursorEnterCallbackI cbfun) {
         return GLFWCursorEnterCallback.create(nglfwSetCursorEnterCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3274,7 +3306,8 @@ public class GLFW {
      *
      * @since version 2.1
      */
-    public static GLFWScrollCallback glfwSetScrollCallback(long window, GLFWScrollCallbackI cbfun) {
+    @NativeType("GLFWscrollfun")
+    public static GLFWScrollCallback glfwSetScrollCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWscrollfun") GLFWScrollCallbackI cbfun) {
         return GLFWScrollCallback.create(nglfwSetScrollCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3304,7 +3337,8 @@ public class GLFW {
      *
      * @since version 3.1
      */
-    public static GLFWDropCallback glfwSetDropCallback(long window, GLFWDropCallbackI cbfun) {
+    @NativeType("GLFWdropfun")
+    public static GLFWDropCallback glfwSetDropCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWdropfun") GLFWDropCallbackI cbfun) {
         return GLFWDropCallback.create(nglfwSetDropCallback(window, memAddressSafe(cbfun)));
     }
 
@@ -3321,6 +3355,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
+    @NativeType("int")
     public static boolean glfwJoystickPresent(int jid) {
         long __functionAddress = Functions.JoystickPresent;
         return invokeI(__functionAddress, jid) != 0;
@@ -3355,6 +3390,7 @@ public class GLFW {
      *
      * @since version 2.2
      */
+    @NativeType("const float *")
     public static FloatBuffer glfwGetJoystickAxes(int jid) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -3399,6 +3435,7 @@ public class GLFW {
      *
      * @since version 2.2
      */
+    @NativeType("const unsigned char *")
     public static ByteBuffer glfwGetJoystickButtons(int jid) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -3466,6 +3503,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
+    @NativeType("const unsigned char *")
     public static ByteBuffer glfwGetJoystickHats(int jid) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -3502,7 +3540,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static String glfwGetJoystickName(int jid) {
+    @NativeType("const char *")
+    public static String glfwGetJoystickName(@NativeType("int") int jid) {
         long __result = nglfwGetJoystickName(jid);
         return memUTF8(__result);
     }
@@ -3523,6 +3562,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
+    @NativeType("int")
     public static boolean glfwJoystickIsGamepad(int jid) {
         long __functionAddress = Functions.JoystickIsGamepad;
         return invokeI(__functionAddress, jid) != 0;
@@ -3552,7 +3592,8 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static GLFWJoystickCallback glfwSetJoystickCallback(GLFWJoystickCallbackI cbfun) {
+    @NativeType("GLFWjoystickfun")
+    public static GLFWJoystickCallback glfwSetJoystickCallback(@NativeType("GLFWjoystickfun") GLFWJoystickCallbackI cbfun) {
         return GLFWJoystickCallback.create(nglfwSetJoystickCallback(memAddressSafe(cbfun)));
     }
 
@@ -3584,7 +3625,8 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static boolean glfwUpdateGamepadMappings(ByteBuffer string) {
+    @NativeType("int")
+    public static boolean glfwUpdateGamepadMappings(@NativeType("const char *") ByteBuffer string) {
         if (CHECKS) {
             checkNT1(string);
         }
@@ -3611,7 +3653,8 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static boolean glfwUpdateGamepadMappings(CharSequence string) {
+    @NativeType("int")
+    public static boolean glfwUpdateGamepadMappings(@NativeType("const char *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.ASCII(string);
@@ -3646,7 +3689,8 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static String glfwGetGamepadName(int jid) {
+    @NativeType("const char *")
+    public static String glfwGetGamepadName(@NativeType("int") int jid) {
         long __result = nglfwGetGamepadName(jid);
         return memUTF8(__result);
     }
@@ -3677,7 +3721,8 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static boolean glfwGetGamepadState(int jid, GLFWGamepadState state) {
+    @NativeType("int")
+    public static boolean glfwGetGamepadState(int jid, @NativeType("GLFWgamepadstate *") GLFWGamepadState state) {
         return nglfwGetGamepadState(jid, state.address()) != 0;
     }
 
@@ -3704,7 +3749,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetClipboardString(long window, ByteBuffer string) {
+    public static void glfwSetClipboardString(@NativeType("GLFWwindow *") long window, @NativeType("const char *") ByteBuffer string) {
         if (CHECKS) {
             checkNT1(string);
         }
@@ -3723,7 +3768,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetClipboardString(long window, CharSequence string) {
+    public static void glfwSetClipboardString(@NativeType("GLFWwindow *") long window, @NativeType("const char *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.UTF8(string);
@@ -3765,7 +3810,8 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static String glfwGetClipboardString(long window) {
+    @NativeType("const char *")
+    public static String glfwGetClipboardString(@NativeType("GLFWwindow *") long window) {
         long __result = nglfwGetClipboardString(window);
         return memUTF8(__result);
     }
@@ -3826,6 +3872,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
+    @NativeType("uint64_t")
     public static long glfwGetTimerValue() {
         long __functionAddress = Functions.GetTimerValue;
         return invokeJ(__functionAddress);
@@ -3842,6 +3889,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
+    @NativeType("uint64_t")
     public static long glfwGetTimerFrequency() {
         long __functionAddress = Functions.GetTimerFrequency;
         return invokeJ(__functionAddress);
@@ -3865,7 +3913,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwMakeContextCurrent(long window) {
+    public static void glfwMakeContextCurrent(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.MakeContextCurrent;
         invokePV(__functionAddress, window);
     }
@@ -3881,6 +3929,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
+    @NativeType("GLFWwindow *")
     public static long glfwGetCurrentContext() {
         long __functionAddress = Functions.GetCurrentContext;
         return invokeP(__functionAddress);
@@ -3904,7 +3953,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSwapBuffers(long window) {
+    public static void glfwSwapBuffers(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.SwapBuffers;
         if (CHECKS) {
             check(window);
@@ -3975,7 +4024,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static boolean glfwExtensionSupported(ByteBuffer extension) {
+    @NativeType("int")
+    public static boolean glfwExtensionSupported(@NativeType("const char *") ByteBuffer extension) {
         if (CHECKS) {
             checkNT1(extension);
         }
@@ -4002,7 +4052,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static boolean glfwExtensionSupported(CharSequence extension) {
+    @NativeType("int")
+    public static boolean glfwExtensionSupported(@NativeType("const char *") CharSequence extension) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer extensionEncoded = stack.ASCII(extension);
@@ -4044,7 +4095,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static long glfwGetProcAddress(ByteBuffer procname) {
+    @NativeType("GLFWglproc *")
+    public static long glfwGetProcAddress(@NativeType("const char *") ByteBuffer procname) {
         if (CHECKS) {
             checkNT1(procname);
         }
@@ -4075,7 +4127,8 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static long glfwGetProcAddress(CharSequence procname) {
+    @NativeType("GLFWglproc *")
+    public static long glfwGetProcAddress(@NativeType("const char *") CharSequence procname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer procnameEncoded = stack.ASCII(procname);
@@ -4086,7 +4139,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetVersion GetVersion} */
-    public static void glfwGetVersion(int[] major, int[] minor, int[] rev) {
+    public static void glfwGetVersion(@NativeType("int *") int[] major, @NativeType("int *") int[] minor, @NativeType("int *") int[] rev) {
         long __functionAddress = Functions.GetVersion;
         if (CHECKS) {
             checkSafe(major, 1);
@@ -4097,7 +4150,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetMonitorPos GetMonitorPos} */
-    public static void glfwGetMonitorPos(long monitor, int[] xpos, int[] ypos) {
+    public static void glfwGetMonitorPos(@NativeType("GLFWmonitor *") long monitor, @NativeType("int *") int[] xpos, @NativeType("int *") int[] ypos) {
         long __functionAddress = Functions.GetMonitorPos;
         if (CHECKS) {
             check(monitor);
@@ -4108,7 +4161,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetMonitorPhysicalSize GetMonitorPhysicalSize} */
-    public static void glfwGetMonitorPhysicalSize(long monitor, int[] widthMM, int[] heightMM) {
+    public static void glfwGetMonitorPhysicalSize(@NativeType("GLFWmonitor *") long monitor, @NativeType("int *") int[] widthMM, @NativeType("int *") int[] heightMM) {
         long __functionAddress = Functions.GetMonitorPhysicalSize;
         if (CHECKS) {
             check(monitor);
@@ -4119,7 +4172,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetWindowPos GetWindowPos} */
-    public static void glfwGetWindowPos(long window, int[] xpos, int[] ypos) {
+    public static void glfwGetWindowPos(@NativeType("GLFWwindow *") long window, @NativeType("int *") int[] xpos, @NativeType("int *") int[] ypos) {
         long __functionAddress = Functions.GetWindowPos;
         if (CHECKS) {
             check(window);
@@ -4130,7 +4183,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetWindowSize GetWindowSize} */
-    public static void glfwGetWindowSize(long window, int[] width, int[] height) {
+    public static void glfwGetWindowSize(@NativeType("GLFWwindow *") long window, @NativeType("int *") int[] width, @NativeType("int *") int[] height) {
         long __functionAddress = Functions.GetWindowSize;
         if (CHECKS) {
             check(window);
@@ -4141,7 +4194,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetFramebufferSize GetFramebufferSize} */
-    public static void glfwGetFramebufferSize(long window, int[] width, int[] height) {
+    public static void glfwGetFramebufferSize(@NativeType("GLFWwindow *") long window, @NativeType("int *") int[] width, @NativeType("int *") int[] height) {
         long __functionAddress = Functions.GetFramebufferSize;
         if (CHECKS) {
             check(window);
@@ -4152,7 +4205,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetWindowFrameSize GetWindowFrameSize} */
-    public static void glfwGetWindowFrameSize(long window, int[] left, int[] top, int[] right, int[] bottom) {
+    public static void glfwGetWindowFrameSize(@NativeType("GLFWwindow *") long window, @NativeType("int *") int[] left, @NativeType("int *") int[] top, @NativeType("int *") int[] right, @NativeType("int *") int[] bottom) {
         long __functionAddress = Functions.GetWindowFrameSize;
         if (CHECKS) {
             check(window);
@@ -4165,7 +4218,7 @@ public class GLFW {
     }
 
     /** Array version of: {@link #glfwGetCursorPos GetCursorPos} */
-    public static void glfwGetCursorPos(long window, double[] xpos, double[] ypos) {
+    public static void glfwGetCursorPos(@NativeType("GLFWwindow *") long window, @NativeType("double *") double[] xpos, @NativeType("double *") double[] ypos) {
         long __functionAddress = Functions.GetCursorPos;
         if (CHECKS) {
             check(window);

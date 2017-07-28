@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float mRotation;
  * }</pre></code>
  */
+@NativeType("struct aiUVTransform")
 public class AIUVTransform extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -84,8 +85,10 @@ public class AIUVTransform extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIVector2D} view of the {@code mTranslation} field. */
+    @NativeType("struct aiVector2D")
     public AIVector2D mTranslation() { return nmTranslation(address()); }
     /** Returns a {@link AIVector2D} view of the {@code mScaling} field. */
+    @NativeType("struct aiVector2D")
     public AIVector2D mScaling() { return nmScaling(address()); }
     /** Returns the value of the {@code mRotation} field. */
     public float mRotation() { return nmRotation(address()); }
@@ -269,8 +272,10 @@ public class AIUVTransform extends Struct implements NativeResource {
         }
 
         /** Returns a {@link AIVector2D} view of the {@code mTranslation} field. */
+        @NativeType("struct aiVector2D")
         public AIVector2D mTranslation() { return AIUVTransform.nmTranslation(address()); }
         /** Returns a {@link AIVector2D} view of the {@code mScaling} field. */
+        @NativeType("struct aiVector2D")
         public AIVector2D mScaling() { return AIUVTransform.nmScaling(address()); }
         /** Returns the value of the {@code mRotation} field. */
         public float mRotation() { return AIUVTransform.nmRotation(address()); }

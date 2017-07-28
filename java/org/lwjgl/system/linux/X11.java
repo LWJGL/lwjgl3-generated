@@ -444,7 +444,8 @@ public class X11 {
      * @param display_name the hardware display name, which determines the display and communications domain to be used. On a POSIX-conformant system, if the
      *                     {@code display_name} is {@code NULL}, it defaults to the value of the DISPLAY environment variable.
      */
-    public static long XOpenDisplay(ByteBuffer display_name) {
+    @NativeType("Display *")
+    public static long XOpenDisplay(@NativeType("const char *") ByteBuffer display_name) {
         if (CHECKS) {
             checkNT1Safe(display_name);
         }
@@ -462,7 +463,8 @@ public class X11 {
      * @param display_name the hardware display name, which determines the display and communications domain to be used. On a POSIX-conformant system, if the
      *                     {@code display_name} is {@code NULL}, it defaults to the value of the DISPLAY environment variable.
      */
-    public static long XOpenDisplay(CharSequence display_name) {
+    @NativeType("Display *")
+    public static long XOpenDisplay(@NativeType("const char *") CharSequence display_name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer display_nameEncoded = stack.ASCII(display_name);
@@ -483,7 +485,7 @@ public class X11 {
      *
      * @param display the connection to the X server
      */
-    public static void XCloseDisplay(long display) {
+    public static void XCloseDisplay(@NativeType("Display *") long display) {
         long __functionAddress = Functions.XCloseDisplay;
         if (CHECKS) {
             check(display);
@@ -498,7 +500,7 @@ public class X11 {
      *
      * @param display the connection to the X server
      */
-    public static int XDefaultScreen(long display) {
+    public static int XDefaultScreen(@NativeType("Display *") long display) {
         long __functionAddress = Functions.XDefaultScreen;
         if (CHECKS) {
             check(display);
@@ -514,7 +516,8 @@ public class X11 {
      * @param display       the connection to the X server
      * @param screen_number the appropriate screen number on the host server
      */
-    public static long XRootWindow(long display, int screen_number) {
+    @NativeType("Window")
+    public static long XRootWindow(@NativeType("Display *") long display, int screen_number) {
         long __functionAddress = Functions.XRootWindow;
         if (CHECKS) {
             check(display);
@@ -542,7 +545,8 @@ public class X11 {
      * @param visual  a visual type supported on the screen. If the visual type is not one supported by the screen, a {@code BadMatch} error results.
      * @param alloc   the colormap entries to be allocated. You can pass AllocNone or AllocAll.
      */
-    public static long XCreateColormap(long display, long w, Visual visual, int alloc) {
+    @NativeType("Colormap")
+    public static long XCreateColormap(@NativeType("Display *") long display, @NativeType("Window") long w, @NativeType("Visual *") Visual visual, int alloc) {
         return nXCreateColormap(display, w, visual.address(), alloc);
     }
 
@@ -557,7 +561,7 @@ public class X11 {
      * @param display  the connection to the X server
      * @param colormap the colormap to destroy
      */
-    public static int XFreeColormap(long display, long colormap) {
+    public static int XFreeColormap(@NativeType("Display *") long display, @NativeType("Colormap") long colormap) {
         long __functionAddress = Functions.XFreeColormap;
         if (CHECKS) {
             check(display);
@@ -602,7 +606,8 @@ public class X11 {
      *                     {@code valuemask} is zero, the attributes are ignored and are not referenced.
      * @param attributes   the structure from which the values (as specified by the value mask) are to be taken
      */
-    public static long XCreateWindow(long display, long parent, int x, int y, int width, int height, int border_width, int depth, int windowClass, Visual visual, long valuemask, XSetWindowAttributes attributes) {
+    @NativeType("Window")
+    public static long XCreateWindow(@NativeType("Display *") long display, @NativeType("Window") long parent, int x, int y, @NativeType("unsigned int") int width, @NativeType("unsigned int") int height, @NativeType("unsigned int") int border_width, int depth, @NativeType("unsigned int") int windowClass, @NativeType("Visual *") Visual visual, @NativeType("unsigned long") long valuemask, @NativeType("XSetWindowAttributes *") XSetWindowAttributes attributes) {
         return nXCreateWindow(display, parent, x, y, width, height, border_width, depth, windowClass, visual.address(), valuemask, attributes.address());
     }
 
@@ -619,7 +624,7 @@ public class X11 {
      * @param display the connection to the X server
      * @param w       the window
      */
-    public static int XDestroyWindow(long display, long w) {
+    public static int XDestroyWindow(@NativeType("Display *") long display, @NativeType("Window") long w) {
         long __functionAddress = Functions.XDestroyWindow;
         if (CHECKS) {
             check(display);
@@ -640,7 +645,7 @@ public class X11 {
      *
      * @param data the data that is to be freed
      */
-    public static int XFree(ByteBuffer data) {
+    public static int XFree(@NativeType("void *") ByteBuffer data) {
         return nXFree(memAddress(data));
     }
 
@@ -649,7 +654,7 @@ public class X11 {
      *
      * @param data the data that is to be freed
      */
-    public static int XFree(PointerBuffer data) {
+    public static int XFree(@NativeType("void *") PointerBuffer data) {
         return nXFree(memAddress(data));
     }
 

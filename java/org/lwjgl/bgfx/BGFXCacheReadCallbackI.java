@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Reads cached item. */
 @FunctionalInterface
+@NativeType("cache_read")
 public interface BGFXCacheReadCallbackI extends CallbackI.Z {
 
     String SIGNATURE = "(plpi)B";
@@ -38,6 +39,6 @@ public interface BGFXCacheReadCallbackI extends CallbackI.Z {
      *
      * @return true if data is read
      */
-    boolean invoke(long _this, long _id, long _data, int _size);
+    @NativeType("bool") boolean invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("uint64_t") long _id, @NativeType("void *") long _data, @NativeType("uint32_t") int _size);
 
 }

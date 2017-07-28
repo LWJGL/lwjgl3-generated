@@ -74,14 +74,16 @@ public class VkExtent2D extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code width} field. */
+    @NativeType("uint32_t")
     public int width() { return nwidth(address()); }
     /** Returns the value of the {@code height} field. */
+    @NativeType("uint32_t")
     public int height() { return nheight(address()); }
 
     /** Sets the specified value to the {@code width} field. */
-    public VkExtent2D width(int value) { nwidth(address(), value); return this; }
+    public VkExtent2D width(@NativeType("uint32_t") int value) { nwidth(address(), value); return this; }
     /** Sets the specified value to the {@code height} field. */
-    public VkExtent2D height(int value) { nheight(address(), value); return this; }
+    public VkExtent2D height(@NativeType("uint32_t") int value) { nheight(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkExtent2D set(
@@ -288,14 +290,16 @@ public class VkExtent2D extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code width} field. */
+        @NativeType("uint32_t")
         public int width() { return VkExtent2D.nwidth(address()); }
         /** Returns the value of the {@code height} field. */
+        @NativeType("uint32_t")
         public int height() { return VkExtent2D.nheight(address()); }
 
         /** Sets the specified value to the {@code width} field. */
-        public VkExtent2D.Buffer width(int value) { VkExtent2D.nwidth(address(), value); return this; }
+        public VkExtent2D.Buffer width(@NativeType("uint32_t") int value) { VkExtent2D.nwidth(address(), value); return this; }
         /** Sets the specified value to the {@code height} field. */
-        public VkExtent2D.Buffer height(int value) { VkExtent2D.nheight(address(), value); return this; }
+        public VkExtent2D.Buffer height(@NativeType("uint32_t") int value) { VkExtent2D.nheight(address(), value); return this; }
 
     }
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -60,7 +62,8 @@ public class WGLNVDelayBeforeSwap {
      * @param hDC     a handle to the DC
      * @param seconds the delay, in seconds
      */
-    public static boolean wglDelayBeforeSwapNV(long hDC, float seconds) {
+    @NativeType("BOOL")
+    public static boolean wglDelayBeforeSwapNV(@NativeType("HDC") long hDC, @NativeType("GLfloat") float seconds) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDelayBeforeSwapNV;
         if (CHECKS) {
             check(__functionAddress);

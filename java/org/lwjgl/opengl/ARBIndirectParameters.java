@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -67,7 +69,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCountARB(int mode, ByteBuffer indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
         }
@@ -86,7 +88,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCountARB(int mode, long indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride);
     }
 
@@ -102,7 +104,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCountARB(int mode, IntBuffer indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
         }
@@ -127,7 +129,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCountARB(int mode, int type, ByteBuffer indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
         }
@@ -147,7 +149,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCountARB(int mode, int type, long indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride);
     }
 
@@ -164,7 +166,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCountARB(int mode, int type, IntBuffer indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
         }
@@ -172,7 +174,7 @@ public class ARBIndirectParameters {
     }
 
     /** Array version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
-    public static void glMultiDrawArraysIndirectCountARB(int mode, int[] indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawArraysIndirectCountARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -182,7 +184,7 @@ public class ARBIndirectParameters {
     }
 
     /** Array version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
-    public static void glMultiDrawElementsIndirectCountARB(int mode, int type, int[] indirect, long drawcount, int maxdrawcount, int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawElementsIndirectCountARB;
         if (CHECKS) {
             check(__functionAddress);

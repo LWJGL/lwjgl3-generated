@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -72,7 +74,7 @@ public class NVExplicitMultisample {
 
     public static native void nglGetMultisamplefvNV(int pname, int index, long val);
 
-    public static void glGetMultisamplefvNV(int pname, int index, FloatBuffer val) {
+    public static void glGetMultisamplefvNV(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("GLfloat *") FloatBuffer val) {
         if (CHECKS) {
             check(val, 2);
         }
@@ -81,14 +83,14 @@ public class NVExplicitMultisample {
 
     // --- [ glSampleMaskIndexedNV ] ---
 
-    public static native void glSampleMaskIndexedNV(int index, int mask);
+    public static native void glSampleMaskIndexedNV(@NativeType("GLuint") int index, @NativeType("GLbitfield") int mask);
 
     // --- [ glTexRenderbufferNV ] ---
 
-    public static native void glTexRenderbufferNV(int target, int renderbuffer);
+    public static native void glTexRenderbufferNV(@NativeType("GLenum") int target, @NativeType("GLuint") int renderbuffer);
 
     /** Array version of: {@link #glGetMultisamplefvNV GetMultisamplefvNV} */
-    public static void glGetMultisamplefvNV(int pname, int index, float[] val) {
+    public static void glGetMultisamplefvNV(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("GLfloat *") float[] val) {
         long __functionAddress = GL.getICD().glGetMultisamplefvNV;
         if (CHECKS) {
             check(__functionAddress);

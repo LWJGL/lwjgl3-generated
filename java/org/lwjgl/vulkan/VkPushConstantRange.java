@@ -100,18 +100,21 @@ public class VkPushConstantRange extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code stageFlags} field. */
+    @NativeType("VkShaderStageFlags")
     public int stageFlags() { return nstageFlags(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("uint32_t")
     public int offset() { return noffset(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("uint32_t")
     public int size() { return nsize(address()); }
 
     /** Sets the specified value to the {@code stageFlags} field. */
-    public VkPushConstantRange stageFlags(int value) { nstageFlags(address(), value); return this; }
+    public VkPushConstantRange stageFlags(@NativeType("VkShaderStageFlags") int value) { nstageFlags(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkPushConstantRange offset(int value) { noffset(address(), value); return this; }
+    public VkPushConstantRange offset(@NativeType("uint32_t") int value) { noffset(address(), value); return this; }
     /** Sets the specified value to the {@code size} field. */
-    public VkPushConstantRange size(int value) { nsize(address(), value); return this; }
+    public VkPushConstantRange size(@NativeType("uint32_t") int value) { nsize(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPushConstantRange set(
@@ -324,18 +327,21 @@ public class VkPushConstantRange extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code stageFlags} field. */
+        @NativeType("VkShaderStageFlags")
         public int stageFlags() { return VkPushConstantRange.nstageFlags(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("uint32_t")
         public int offset() { return VkPushConstantRange.noffset(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("uint32_t")
         public int size() { return VkPushConstantRange.nsize(address()); }
 
         /** Sets the specified value to the {@code stageFlags} field. */
-        public VkPushConstantRange.Buffer stageFlags(int value) { VkPushConstantRange.nstageFlags(address(), value); return this; }
+        public VkPushConstantRange.Buffer stageFlags(@NativeType("VkShaderStageFlags") int value) { VkPushConstantRange.nstageFlags(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkPushConstantRange.Buffer offset(int value) { VkPushConstantRange.noffset(address(), value); return this; }
+        public VkPushConstantRange.Buffer offset(@NativeType("uint32_t") int value) { VkPushConstantRange.noffset(address(), value); return this; }
         /** Sets the specified value to the {@code size} field. */
-        public VkPushConstantRange.Buffer size(int value) { VkPushConstantRange.nsize(address(), value); return this; }
+        public VkPushConstantRange.Buffer size(@NativeType("uint32_t") int value) { VkPushConstantRange.nsize(address(), value); return this; }
 
     }
 

@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkMouse struct nk_mouse} mouse;
  * }</pre></code>
  */
+@NativeType("struct nk_input")
 public class NkInput extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,8 +66,10 @@ public class NkInput extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkKeyboard} view of the {@code keyboard} field. */
+    @NativeType("struct nk_keyboard")
     public NkKeyboard keyboard() { return nkeyboard(address()); }
     /** Returns a {@link NkMouse} view of the {@code mouse} field. */
+    @NativeType("struct nk_mouse")
     public NkMouse mouse() { return nmouse(address()); }
 
     // -----------------------------------
@@ -246,8 +249,10 @@ public class NkInput extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkKeyboard} view of the {@code keyboard} field. */
+        @NativeType("struct nk_keyboard")
         public NkKeyboard keyboard() { return NkInput.nkeyboard(address()); }
         /** Returns a {@link NkMouse} view of the {@code mouse} field. */
+        @NativeType("struct nk_mouse")
         public NkMouse mouse() { return NkInput.nmouse(address()); }
 
     }

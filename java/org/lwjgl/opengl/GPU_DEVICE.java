@@ -98,16 +98,22 @@ public class GPU_DEVICE extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code cb} field. */
+    @NativeType("DWORD")
     public int cb() { return ncb(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code DeviceName} field. */
+    @NativeType("CHAR[32]")
     public ByteBuffer DeviceName() { return nDeviceName(address()); }
     /** Decodes the null-terminated string stored in the {@code DeviceName} field. */
+    @NativeType("CHAR[32]")
     public String DeviceNameString() { return nDeviceNameString(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code DeviceString} field. */
+    @NativeType("CHAR[128]")
     public ByteBuffer DeviceString() { return nDeviceString(address()); }
     /** Decodes the null-terminated string stored in the {@code DeviceString} field. */
+    @NativeType("CHAR[128]")
     public String DeviceStringString() { return nDeviceStringString(address()); }
     /** Returns the value of the {@code Flags} field. */
+    @NativeType("DWORD")
     public int Flags() { return nFlags(address()); }
     /** Returns a {@link RECT} view of the {@code rcVirtualScreen} field. */
     public RECT rcVirtualScreen() { return nrcVirtualScreen(address()); }
@@ -299,16 +305,22 @@ public class GPU_DEVICE extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code cb} field. */
+        @NativeType("DWORD")
         public int cb() { return GPU_DEVICE.ncb(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code DeviceName} field. */
+        @NativeType("CHAR[32]")
         public ByteBuffer DeviceName() { return GPU_DEVICE.nDeviceName(address()); }
         /** Decodes the null-terminated string stored in the {@code DeviceName} field. */
+        @NativeType("CHAR[32]")
         public String DeviceNameString() { return GPU_DEVICE.nDeviceNameString(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code DeviceString} field. */
+        @NativeType("CHAR[128]")
         public ByteBuffer DeviceString() { return GPU_DEVICE.nDeviceString(address()); }
         /** Decodes the null-terminated string stored in the {@code DeviceString} field. */
+        @NativeType("CHAR[128]")
         public String DeviceStringString() { return GPU_DEVICE.nDeviceStringString(address()); }
         /** Returns the value of the {@code Flags} field. */
+        @NativeType("DWORD")
         public int Flags() { return GPU_DEVICE.nFlags(address()); }
         /** Returns a {@link RECT} view of the {@code rcVirtualScreen} field. */
         public RECT rcVirtualScreen() { return GPU_DEVICE.nrcVirtualScreen(address()); }

@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -47,7 +49,8 @@ public class NVStreamSync {
         return callPPPP(__functionAddress, dpy, stream, type, attrib_list);
     }
 
-    public static long eglCreateStreamSyncNV(long dpy, long stream, int type, IntBuffer attrib_list) {
+    @NativeType("EGLSyncKHR")
+    public static long eglCreateStreamSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int type, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }
@@ -55,7 +58,8 @@ public class NVStreamSync {
     }
 
     /** Array version of: {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
-    public static long eglCreateStreamSyncNV(long dpy, long stream, int type, int[] attrib_list) {
+    @NativeType("EGLSyncKHR")
+    public static long eglCreateStreamSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int type, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
         if (CHECKS) {
             check(__functionAddress);

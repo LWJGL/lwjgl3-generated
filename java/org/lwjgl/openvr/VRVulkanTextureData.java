@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint32_t m_nSampleCount;
  * }</pre></code>
  */
+@NativeType("struct VRVulkanTextureData_t")
 public class VRVulkanTextureData extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -106,62 +107,72 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code m_nImage} field. */
+    @NativeType("uint64_t")
     public long m_nImage() { return nm_nImage(address()); }
     /**
      * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pDevice} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("VkDevice_T *")
     public PointerBuffer m_pDevice(int capacity) { return nm_pDevice(address(), capacity); }
     /**
      * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pPhysicalDevice} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("VkPhysicalDevice_T *")
     public PointerBuffer m_pPhysicalDevice(int capacity) { return nm_pPhysicalDevice(address(), capacity); }
     /**
      * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pInstance} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("VkInstance_T *")
     public PointerBuffer m_pInstance(int capacity) { return nm_pInstance(address(), capacity); }
     /**
      * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pQueue} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("VkQueue_T *")
     public PointerBuffer m_pQueue(int capacity) { return nm_pQueue(address(), capacity); }
     /** Returns the value of the {@code m_nQueueFamilyIndex} field. */
+    @NativeType("uint32_t")
     public int m_nQueueFamilyIndex() { return nm_nQueueFamilyIndex(address()); }
     /** Returns the value of the {@code m_nWidth} field. */
+    @NativeType("uint32_t")
     public int m_nWidth() { return nm_nWidth(address()); }
     /** Returns the value of the {@code m_nHeight} field. */
+    @NativeType("uint32_t")
     public int m_nHeight() { return nm_nHeight(address()); }
     /** Returns the value of the {@code m_nFormat} field. */
+    @NativeType("uint32_t")
     public int m_nFormat() { return nm_nFormat(address()); }
     /** Returns the value of the {@code m_nSampleCount} field. */
+    @NativeType("uint32_t")
     public int m_nSampleCount() { return nm_nSampleCount(address()); }
 
     /** Sets the specified value to the {@code m_nImage} field. */
-    public VRVulkanTextureData m_nImage(long value) { nm_nImage(address(), value); return this; }
+    public VRVulkanTextureData m_nImage(@NativeType("uint64_t") long value) { nm_nImage(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pDevice} field. */
-    public VRVulkanTextureData m_pDevice(PointerBuffer value) { nm_pDevice(address(), value); return this; }
+    public VRVulkanTextureData m_pDevice(@NativeType("VkDevice_T *") PointerBuffer value) { nm_pDevice(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pPhysicalDevice} field. */
-    public VRVulkanTextureData m_pPhysicalDevice(PointerBuffer value) { nm_pPhysicalDevice(address(), value); return this; }
+    public VRVulkanTextureData m_pPhysicalDevice(@NativeType("VkPhysicalDevice_T *") PointerBuffer value) { nm_pPhysicalDevice(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pInstance} field. */
-    public VRVulkanTextureData m_pInstance(PointerBuffer value) { nm_pInstance(address(), value); return this; }
+    public VRVulkanTextureData m_pInstance(@NativeType("VkInstance_T *") PointerBuffer value) { nm_pInstance(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pQueue} field. */
-    public VRVulkanTextureData m_pQueue(PointerBuffer value) { nm_pQueue(address(), value); return this; }
+    public VRVulkanTextureData m_pQueue(@NativeType("VkQueue_T *") PointerBuffer value) { nm_pQueue(address(), value); return this; }
     /** Sets the specified value to the {@code m_nQueueFamilyIndex} field. */
-    public VRVulkanTextureData m_nQueueFamilyIndex(int value) { nm_nQueueFamilyIndex(address(), value); return this; }
+    public VRVulkanTextureData m_nQueueFamilyIndex(@NativeType("uint32_t") int value) { nm_nQueueFamilyIndex(address(), value); return this; }
     /** Sets the specified value to the {@code m_nWidth} field. */
-    public VRVulkanTextureData m_nWidth(int value) { nm_nWidth(address(), value); return this; }
+    public VRVulkanTextureData m_nWidth(@NativeType("uint32_t") int value) { nm_nWidth(address(), value); return this; }
     /** Sets the specified value to the {@code m_nHeight} field. */
-    public VRVulkanTextureData m_nHeight(int value) { nm_nHeight(address(), value); return this; }
+    public VRVulkanTextureData m_nHeight(@NativeType("uint32_t") int value) { nm_nHeight(address(), value); return this; }
     /** Sets the specified value to the {@code m_nFormat} field. */
-    public VRVulkanTextureData m_nFormat(int value) { nm_nFormat(address(), value); return this; }
+    public VRVulkanTextureData m_nFormat(@NativeType("uint32_t") int value) { nm_nFormat(address(), value); return this; }
     /** Sets the specified value to the {@code m_nSampleCount} field. */
-    public VRVulkanTextureData m_nSampleCount(int value) { nm_nSampleCount(address(), value); return this; }
+    public VRVulkanTextureData m_nSampleCount(@NativeType("uint32_t") int value) { nm_nSampleCount(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VRVulkanTextureData set(
@@ -440,62 +451,72 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code m_nImage} field. */
+        @NativeType("uint64_t")
         public long m_nImage() { return VRVulkanTextureData.nm_nImage(address()); }
         /**
          * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pDevice} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("VkDevice_T *")
         public PointerBuffer m_pDevice(int capacity) { return VRVulkanTextureData.nm_pDevice(address(), capacity); }
         /**
          * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pPhysicalDevice} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("VkPhysicalDevice_T *")
         public PointerBuffer m_pPhysicalDevice(int capacity) { return VRVulkanTextureData.nm_pPhysicalDevice(address(), capacity); }
         /**
          * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pInstance} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("VkInstance_T *")
         public PointerBuffer m_pInstance(int capacity) { return VRVulkanTextureData.nm_pInstance(address(), capacity); }
         /**
          * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pQueue} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("VkQueue_T *")
         public PointerBuffer m_pQueue(int capacity) { return VRVulkanTextureData.nm_pQueue(address(), capacity); }
         /** Returns the value of the {@code m_nQueueFamilyIndex} field. */
+        @NativeType("uint32_t")
         public int m_nQueueFamilyIndex() { return VRVulkanTextureData.nm_nQueueFamilyIndex(address()); }
         /** Returns the value of the {@code m_nWidth} field. */
+        @NativeType("uint32_t")
         public int m_nWidth() { return VRVulkanTextureData.nm_nWidth(address()); }
         /** Returns the value of the {@code m_nHeight} field. */
+        @NativeType("uint32_t")
         public int m_nHeight() { return VRVulkanTextureData.nm_nHeight(address()); }
         /** Returns the value of the {@code m_nFormat} field. */
+        @NativeType("uint32_t")
         public int m_nFormat() { return VRVulkanTextureData.nm_nFormat(address()); }
         /** Returns the value of the {@code m_nSampleCount} field. */
+        @NativeType("uint32_t")
         public int m_nSampleCount() { return VRVulkanTextureData.nm_nSampleCount(address()); }
 
         /** Sets the specified value to the {@code m_nImage} field. */
-        public VRVulkanTextureData.Buffer m_nImage(long value) { VRVulkanTextureData.nm_nImage(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_nImage(@NativeType("uint64_t") long value) { VRVulkanTextureData.nm_nImage(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pDevice} field. */
-        public VRVulkanTextureData.Buffer m_pDevice(PointerBuffer value) { VRVulkanTextureData.nm_pDevice(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_pDevice(@NativeType("VkDevice_T *") PointerBuffer value) { VRVulkanTextureData.nm_pDevice(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pPhysicalDevice} field. */
-        public VRVulkanTextureData.Buffer m_pPhysicalDevice(PointerBuffer value) { VRVulkanTextureData.nm_pPhysicalDevice(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_pPhysicalDevice(@NativeType("VkPhysicalDevice_T *") PointerBuffer value) { VRVulkanTextureData.nm_pPhysicalDevice(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pInstance} field. */
-        public VRVulkanTextureData.Buffer m_pInstance(PointerBuffer value) { VRVulkanTextureData.nm_pInstance(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_pInstance(@NativeType("VkInstance_T *") PointerBuffer value) { VRVulkanTextureData.nm_pInstance(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pQueue} field. */
-        public VRVulkanTextureData.Buffer m_pQueue(PointerBuffer value) { VRVulkanTextureData.nm_pQueue(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_pQueue(@NativeType("VkQueue_T *") PointerBuffer value) { VRVulkanTextureData.nm_pQueue(address(), value); return this; }
         /** Sets the specified value to the {@code m_nQueueFamilyIndex} field. */
-        public VRVulkanTextureData.Buffer m_nQueueFamilyIndex(int value) { VRVulkanTextureData.nm_nQueueFamilyIndex(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_nQueueFamilyIndex(@NativeType("uint32_t") int value) { VRVulkanTextureData.nm_nQueueFamilyIndex(address(), value); return this; }
         /** Sets the specified value to the {@code m_nWidth} field. */
-        public VRVulkanTextureData.Buffer m_nWidth(int value) { VRVulkanTextureData.nm_nWidth(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_nWidth(@NativeType("uint32_t") int value) { VRVulkanTextureData.nm_nWidth(address(), value); return this; }
         /** Sets the specified value to the {@code m_nHeight} field. */
-        public VRVulkanTextureData.Buffer m_nHeight(int value) { VRVulkanTextureData.nm_nHeight(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_nHeight(@NativeType("uint32_t") int value) { VRVulkanTextureData.nm_nHeight(address(), value); return this; }
         /** Sets the specified value to the {@code m_nFormat} field. */
-        public VRVulkanTextureData.Buffer m_nFormat(int value) { VRVulkanTextureData.nm_nFormat(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_nFormat(@NativeType("uint32_t") int value) { VRVulkanTextureData.nm_nFormat(address(), value); return this; }
         /** Sets the specified value to the {@code m_nSampleCount} field. */
-        public VRVulkanTextureData.Buffer m_nSampleCount(int value) { VRVulkanTextureData.nm_nSampleCount(address(), value); return this; }
+        public VRVulkanTextureData.Buffer m_nSampleCount(@NativeType("uint32_t") int value) { VRVulkanTextureData.nm_nSampleCount(address(), value); return this; }
 
     }
 

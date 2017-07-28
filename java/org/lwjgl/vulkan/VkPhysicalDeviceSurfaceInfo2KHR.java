@@ -95,18 +95,21 @@ public class VkPhysicalDeviceSurfaceInfo2KHR extends Struct implements NativeRes
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code surface} field. */
+    @NativeType("VkSurfaceKHR")
     public long surface() { return nsurface(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPhysicalDeviceSurfaceInfo2KHR sType(int value) { nsType(address(), value); return this; }
+    public VkPhysicalDeviceSurfaceInfo2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceSurfaceInfo2KHR pNext(long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceSurfaceInfo2KHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code surface} field. */
-    public VkPhysicalDeviceSurfaceInfo2KHR surface(long value) { nsurface(address(), value); return this; }
+    public VkPhysicalDeviceSurfaceInfo2KHR surface(@NativeType("VkSurfaceKHR") long value) { nsurface(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPhysicalDeviceSurfaceInfo2KHR set(
@@ -319,18 +322,21 @@ public class VkPhysicalDeviceSurfaceInfo2KHR extends Struct implements NativeRes
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceSurfaceInfo2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPhysicalDeviceSurfaceInfo2KHR.npNext(address()); }
         /** Returns the value of the {@code surface} field. */
+        @NativeType("VkSurfaceKHR")
         public long surface() { return VkPhysicalDeviceSurfaceInfo2KHR.nsurface(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPhysicalDeviceSurfaceInfo2KHR.Buffer sType(int value) { VkPhysicalDeviceSurfaceInfo2KHR.nsType(address(), value); return this; }
+        public VkPhysicalDeviceSurfaceInfo2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceSurfaceInfo2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceSurfaceInfo2KHR.Buffer pNext(long value) { VkPhysicalDeviceSurfaceInfo2KHR.npNext(address(), value); return this; }
+        public VkPhysicalDeviceSurfaceInfo2KHR.Buffer pNext(@NativeType("const void *") long value) { VkPhysicalDeviceSurfaceInfo2KHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code surface} field. */
-        public VkPhysicalDeviceSurfaceInfo2KHR.Buffer surface(long value) { VkPhysicalDeviceSurfaceInfo2KHR.nsurface(address(), value); return this; }
+        public VkPhysicalDeviceSurfaceInfo2KHR.Buffer surface(@NativeType("VkSurfaceKHR") long value) { VkPhysicalDeviceSurfaceInfo2KHR.nsurface(address(), value); return this; }
 
     }
 

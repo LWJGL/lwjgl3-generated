@@ -236,78 +236,92 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkSamplerCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code magFilter} field. */
+    @NativeType("VkFilter")
     public int magFilter() { return nmagFilter(address()); }
     /** Returns the value of the {@code minFilter} field. */
+    @NativeType("VkFilter")
     public int minFilter() { return nminFilter(address()); }
     /** Returns the value of the {@code mipmapMode} field. */
+    @NativeType("VkSamplerMipmapMode")
     public int mipmapMode() { return nmipmapMode(address()); }
     /** Returns the value of the {@code addressModeU} field. */
+    @NativeType("VkSamplerAddressMode")
     public int addressModeU() { return naddressModeU(address()); }
     /** Returns the value of the {@code addressModeV} field. */
+    @NativeType("VkSamplerAddressMode")
     public int addressModeV() { return naddressModeV(address()); }
     /** Returns the value of the {@code addressModeW} field. */
+    @NativeType("VkSamplerAddressMode")
     public int addressModeW() { return naddressModeW(address()); }
     /** Returns the value of the {@code mipLodBias} field. */
     public float mipLodBias() { return nmipLodBias(address()); }
     /** Returns the value of the {@code anisotropyEnable} field. */
+    @NativeType("VkBool32")
     public boolean anisotropyEnable() { return nanisotropyEnable(address()) != 0; }
     /** Returns the value of the {@code maxAnisotropy} field. */
     public float maxAnisotropy() { return nmaxAnisotropy(address()); }
     /** Returns the value of the {@code compareEnable} field. */
+    @NativeType("VkBool32")
     public boolean compareEnable() { return ncompareEnable(address()) != 0; }
     /** Returns the value of the {@code compareOp} field. */
+    @NativeType("VkCompareOp")
     public int compareOp() { return ncompareOp(address()); }
     /** Returns the value of the {@code minLod} field. */
     public float minLod() { return nminLod(address()); }
     /** Returns the value of the {@code maxLod} field. */
     public float maxLod() { return nmaxLod(address()); }
     /** Returns the value of the {@code borderColor} field. */
+    @NativeType("VkBorderColor")
     public int borderColor() { return nborderColor(address()); }
     /** Returns the value of the {@code unnormalizedCoordinates} field. */
+    @NativeType("VkBool32")
     public boolean unnormalizedCoordinates() { return nunnormalizedCoordinates(address()) != 0; }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkSamplerCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkSamplerCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSamplerCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkSamplerCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkSamplerCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkSamplerCreateInfo flags(@NativeType("VkSamplerCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code magFilter} field. */
-    public VkSamplerCreateInfo magFilter(int value) { nmagFilter(address(), value); return this; }
+    public VkSamplerCreateInfo magFilter(@NativeType("VkFilter") int value) { nmagFilter(address(), value); return this; }
     /** Sets the specified value to the {@code minFilter} field. */
-    public VkSamplerCreateInfo minFilter(int value) { nminFilter(address(), value); return this; }
+    public VkSamplerCreateInfo minFilter(@NativeType("VkFilter") int value) { nminFilter(address(), value); return this; }
     /** Sets the specified value to the {@code mipmapMode} field. */
-    public VkSamplerCreateInfo mipmapMode(int value) { nmipmapMode(address(), value); return this; }
+    public VkSamplerCreateInfo mipmapMode(@NativeType("VkSamplerMipmapMode") int value) { nmipmapMode(address(), value); return this; }
     /** Sets the specified value to the {@code addressModeU} field. */
-    public VkSamplerCreateInfo addressModeU(int value) { naddressModeU(address(), value); return this; }
+    public VkSamplerCreateInfo addressModeU(@NativeType("VkSamplerAddressMode") int value) { naddressModeU(address(), value); return this; }
     /** Sets the specified value to the {@code addressModeV} field. */
-    public VkSamplerCreateInfo addressModeV(int value) { naddressModeV(address(), value); return this; }
+    public VkSamplerCreateInfo addressModeV(@NativeType("VkSamplerAddressMode") int value) { naddressModeV(address(), value); return this; }
     /** Sets the specified value to the {@code addressModeW} field. */
-    public VkSamplerCreateInfo addressModeW(int value) { naddressModeW(address(), value); return this; }
+    public VkSamplerCreateInfo addressModeW(@NativeType("VkSamplerAddressMode") int value) { naddressModeW(address(), value); return this; }
     /** Sets the specified value to the {@code mipLodBias} field. */
     public VkSamplerCreateInfo mipLodBias(float value) { nmipLodBias(address(), value); return this; }
     /** Sets the specified value to the {@code anisotropyEnable} field. */
-    public VkSamplerCreateInfo anisotropyEnable(boolean value) { nanisotropyEnable(address(), value ? 1 : 0); return this; }
+    public VkSamplerCreateInfo anisotropyEnable(@NativeType("VkBool32") boolean value) { nanisotropyEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code maxAnisotropy} field. */
     public VkSamplerCreateInfo maxAnisotropy(float value) { nmaxAnisotropy(address(), value); return this; }
     /** Sets the specified value to the {@code compareEnable} field. */
-    public VkSamplerCreateInfo compareEnable(boolean value) { ncompareEnable(address(), value ? 1 : 0); return this; }
+    public VkSamplerCreateInfo compareEnable(@NativeType("VkBool32") boolean value) { ncompareEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code compareOp} field. */
-    public VkSamplerCreateInfo compareOp(int value) { ncompareOp(address(), value); return this; }
+    public VkSamplerCreateInfo compareOp(@NativeType("VkCompareOp") int value) { ncompareOp(address(), value); return this; }
     /** Sets the specified value to the {@code minLod} field. */
     public VkSamplerCreateInfo minLod(float value) { nminLod(address(), value); return this; }
     /** Sets the specified value to the {@code maxLod} field. */
     public VkSamplerCreateInfo maxLod(float value) { nmaxLod(address(), value); return this; }
     /** Sets the specified value to the {@code borderColor} field. */
-    public VkSamplerCreateInfo borderColor(int value) { nborderColor(address(), value); return this; }
+    public VkSamplerCreateInfo borderColor(@NativeType("VkBorderColor") int value) { nborderColor(address(), value); return this; }
     /** Sets the specified value to the {@code unnormalizedCoordinates} field. */
-    public VkSamplerCreateInfo unnormalizedCoordinates(boolean value) { nunnormalizedCoordinates(address(), value ? 1 : 0); return this; }
+    public VkSamplerCreateInfo unnormalizedCoordinates(@NativeType("VkBool32") boolean value) { nunnormalizedCoordinates(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSamplerCreateInfo set(
@@ -610,78 +624,92 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSamplerCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkSamplerCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkSamplerCreateFlags")
         public int flags() { return VkSamplerCreateInfo.nflags(address()); }
         /** Returns the value of the {@code magFilter} field. */
+        @NativeType("VkFilter")
         public int magFilter() { return VkSamplerCreateInfo.nmagFilter(address()); }
         /** Returns the value of the {@code minFilter} field. */
+        @NativeType("VkFilter")
         public int minFilter() { return VkSamplerCreateInfo.nminFilter(address()); }
         /** Returns the value of the {@code mipmapMode} field. */
+        @NativeType("VkSamplerMipmapMode")
         public int mipmapMode() { return VkSamplerCreateInfo.nmipmapMode(address()); }
         /** Returns the value of the {@code addressModeU} field. */
+        @NativeType("VkSamplerAddressMode")
         public int addressModeU() { return VkSamplerCreateInfo.naddressModeU(address()); }
         /** Returns the value of the {@code addressModeV} field. */
+        @NativeType("VkSamplerAddressMode")
         public int addressModeV() { return VkSamplerCreateInfo.naddressModeV(address()); }
         /** Returns the value of the {@code addressModeW} field. */
+        @NativeType("VkSamplerAddressMode")
         public int addressModeW() { return VkSamplerCreateInfo.naddressModeW(address()); }
         /** Returns the value of the {@code mipLodBias} field. */
         public float mipLodBias() { return VkSamplerCreateInfo.nmipLodBias(address()); }
         /** Returns the value of the {@code anisotropyEnable} field. */
+        @NativeType("VkBool32")
         public boolean anisotropyEnable() { return VkSamplerCreateInfo.nanisotropyEnable(address()) != 0; }
         /** Returns the value of the {@code maxAnisotropy} field. */
         public float maxAnisotropy() { return VkSamplerCreateInfo.nmaxAnisotropy(address()); }
         /** Returns the value of the {@code compareEnable} field. */
+        @NativeType("VkBool32")
         public boolean compareEnable() { return VkSamplerCreateInfo.ncompareEnable(address()) != 0; }
         /** Returns the value of the {@code compareOp} field. */
+        @NativeType("VkCompareOp")
         public int compareOp() { return VkSamplerCreateInfo.ncompareOp(address()); }
         /** Returns the value of the {@code minLod} field. */
         public float minLod() { return VkSamplerCreateInfo.nminLod(address()); }
         /** Returns the value of the {@code maxLod} field. */
         public float maxLod() { return VkSamplerCreateInfo.nmaxLod(address()); }
         /** Returns the value of the {@code borderColor} field. */
+        @NativeType("VkBorderColor")
         public int borderColor() { return VkSamplerCreateInfo.nborderColor(address()); }
         /** Returns the value of the {@code unnormalizedCoordinates} field. */
+        @NativeType("VkBool32")
         public boolean unnormalizedCoordinates() { return VkSamplerCreateInfo.nunnormalizedCoordinates(address()) != 0; }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkSamplerCreateInfo.Buffer sType(int value) { VkSamplerCreateInfo.nsType(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkSamplerCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSamplerCreateInfo.Buffer pNext(long value) { VkSamplerCreateInfo.npNext(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkSamplerCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkSamplerCreateInfo.Buffer flags(int value) { VkSamplerCreateInfo.nflags(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer flags(@NativeType("VkSamplerCreateFlags") int value) { VkSamplerCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code magFilter} field. */
-        public VkSamplerCreateInfo.Buffer magFilter(int value) { VkSamplerCreateInfo.nmagFilter(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer magFilter(@NativeType("VkFilter") int value) { VkSamplerCreateInfo.nmagFilter(address(), value); return this; }
         /** Sets the specified value to the {@code minFilter} field. */
-        public VkSamplerCreateInfo.Buffer minFilter(int value) { VkSamplerCreateInfo.nminFilter(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer minFilter(@NativeType("VkFilter") int value) { VkSamplerCreateInfo.nminFilter(address(), value); return this; }
         /** Sets the specified value to the {@code mipmapMode} field. */
-        public VkSamplerCreateInfo.Buffer mipmapMode(int value) { VkSamplerCreateInfo.nmipmapMode(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer mipmapMode(@NativeType("VkSamplerMipmapMode") int value) { VkSamplerCreateInfo.nmipmapMode(address(), value); return this; }
         /** Sets the specified value to the {@code addressModeU} field. */
-        public VkSamplerCreateInfo.Buffer addressModeU(int value) { VkSamplerCreateInfo.naddressModeU(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer addressModeU(@NativeType("VkSamplerAddressMode") int value) { VkSamplerCreateInfo.naddressModeU(address(), value); return this; }
         /** Sets the specified value to the {@code addressModeV} field. */
-        public VkSamplerCreateInfo.Buffer addressModeV(int value) { VkSamplerCreateInfo.naddressModeV(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer addressModeV(@NativeType("VkSamplerAddressMode") int value) { VkSamplerCreateInfo.naddressModeV(address(), value); return this; }
         /** Sets the specified value to the {@code addressModeW} field. */
-        public VkSamplerCreateInfo.Buffer addressModeW(int value) { VkSamplerCreateInfo.naddressModeW(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer addressModeW(@NativeType("VkSamplerAddressMode") int value) { VkSamplerCreateInfo.naddressModeW(address(), value); return this; }
         /** Sets the specified value to the {@code mipLodBias} field. */
         public VkSamplerCreateInfo.Buffer mipLodBias(float value) { VkSamplerCreateInfo.nmipLodBias(address(), value); return this; }
         /** Sets the specified value to the {@code anisotropyEnable} field. */
-        public VkSamplerCreateInfo.Buffer anisotropyEnable(boolean value) { VkSamplerCreateInfo.nanisotropyEnable(address(), value ? 1 : 0); return this; }
+        public VkSamplerCreateInfo.Buffer anisotropyEnable(@NativeType("VkBool32") boolean value) { VkSamplerCreateInfo.nanisotropyEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code maxAnisotropy} field. */
         public VkSamplerCreateInfo.Buffer maxAnisotropy(float value) { VkSamplerCreateInfo.nmaxAnisotropy(address(), value); return this; }
         /** Sets the specified value to the {@code compareEnable} field. */
-        public VkSamplerCreateInfo.Buffer compareEnable(boolean value) { VkSamplerCreateInfo.ncompareEnable(address(), value ? 1 : 0); return this; }
+        public VkSamplerCreateInfo.Buffer compareEnable(@NativeType("VkBool32") boolean value) { VkSamplerCreateInfo.ncompareEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code compareOp} field. */
-        public VkSamplerCreateInfo.Buffer compareOp(int value) { VkSamplerCreateInfo.ncompareOp(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer compareOp(@NativeType("VkCompareOp") int value) { VkSamplerCreateInfo.ncompareOp(address(), value); return this; }
         /** Sets the specified value to the {@code minLod} field. */
         public VkSamplerCreateInfo.Buffer minLod(float value) { VkSamplerCreateInfo.nminLod(address(), value); return this; }
         /** Sets the specified value to the {@code maxLod} field. */
         public VkSamplerCreateInfo.Buffer maxLod(float value) { VkSamplerCreateInfo.nmaxLod(address(), value); return this; }
         /** Sets the specified value to the {@code borderColor} field. */
-        public VkSamplerCreateInfo.Buffer borderColor(int value) { VkSamplerCreateInfo.nborderColor(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer borderColor(@NativeType("VkBorderColor") int value) { VkSamplerCreateInfo.nborderColor(address(), value); return this; }
         /** Sets the specified value to the {@code unnormalizedCoordinates} field. */
-        public VkSamplerCreateInfo.Buffer unnormalizedCoordinates(boolean value) { VkSamplerCreateInfo.nunnormalizedCoordinates(address(), value ? 1 : 0); return this; }
+        public VkSamplerCreateInfo.Buffer unnormalizedCoordinates(@NativeType("VkBool32") boolean value) { VkSamplerCreateInfo.nunnormalizedCoordinates(address(), value ? 1 : 0); return this; }
 
     }
 

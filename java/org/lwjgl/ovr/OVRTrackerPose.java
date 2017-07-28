@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char[4];
  * }</pre></code>
  */
+@NativeType("struct ovrTrackerPose")
 public class OVRTrackerPose extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -83,10 +84,13 @@ public class OVRTrackerPose extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code TrackerFlags} field. */
+    @NativeType("unsigned int")
     public int TrackerFlags() { return nTrackerFlags(address()); }
     /** Returns a {@link OVRPosef} view of the {@code Pose} field. */
+    @NativeType("ovrPosef")
     public OVRPosef Pose() { return nPose(address()); }
     /** Returns a {@link OVRPosef} view of the {@code LeveledPose} field. */
+    @NativeType("ovrPosef")
     public OVRPosef LeveledPose() { return nLeveledPose(address()); }
 
     // -----------------------------------
@@ -268,10 +272,13 @@ public class OVRTrackerPose extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code TrackerFlags} field. */
+        @NativeType("unsigned int")
         public int TrackerFlags() { return OVRTrackerPose.nTrackerFlags(address()); }
         /** Returns a {@link OVRPosef} view of the {@code Pose} field. */
+        @NativeType("ovrPosef")
         public OVRPosef Pose() { return OVRTrackerPose.nPose(address()); }
         /** Returns a {@link OVRPosef} view of the {@code LeveledPose} field. */
+        @NativeType("ovrPosef")
         public OVRPosef LeveledPose() { return OVRTrackerPose.nLeveledPose(address()); }
 
     }

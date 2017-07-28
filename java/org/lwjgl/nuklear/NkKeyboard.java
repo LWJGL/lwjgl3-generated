@@ -24,6 +24,7 @@ import static org.lwjgl.nuklear.Nuklear.*;
  *     int text_len;
  * }</pre></code>
  */
+@NativeType("struct nk_keyboard")
 public class NkKeyboard extends Struct {
 
     /** The struct size in bytes. */
@@ -70,12 +71,16 @@ public class NkKeyboard extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkKey}.Buffer view of the {@code keys} field. */
+    @NativeType("struct nk_key[NK_KEY_MAX]")
     public NkKey.Buffer keys() { return nkeys(address()); }
     /** Returns a {@link NkKey} view of the struct at the specified index of the {@code keys} field. */
+    @NativeType("struct nk_key")
     public NkKey keys(int index) { return nkeys(address(), index); }
     /** Returns a {@link ByteBuffer} view of the {@code text} field. */
+    @NativeType("char[NK_INPUT_MAX]")
     public ByteBuffer text() { return ntext(address()); }
     /** Returns the value at the specified index of the {@code text} field. */
+    @NativeType("char")
     public byte text(int index) { return ntext(address(), index); }
     /** Returns the value of the {@code text_len} field. */
     public int text_len() { return ntext_len(address()); }
@@ -159,12 +164,16 @@ public class NkKeyboard extends Struct {
         }
 
         /** Returns a {@link NkKey}.Buffer view of the {@code keys} field. */
+        @NativeType("struct nk_key[NK_KEY_MAX]")
         public NkKey.Buffer keys() { return NkKeyboard.nkeys(address()); }
         /** Returns a {@link NkKey} view of the struct at the specified index of the {@code keys} field. */
+        @NativeType("struct nk_key")
         public NkKey keys(int index) { return NkKeyboard.nkeys(address(), index); }
         /** Returns a {@link ByteBuffer} view of the {@code text} field. */
+        @NativeType("char[NK_INPUT_MAX]")
         public ByteBuffer text() { return NkKeyboard.ntext(address()); }
         /** Returns the value at the specified index of the {@code text} field. */
+        @NativeType("char")
         public byte text(int index) { return NkKeyboard.ntext(address(), index); }
         /** Returns the value of the {@code text_len} field. */
         public int text_len() { return NkKeyboard.ntext_len(address()); }

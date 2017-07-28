@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char data[Assimp.MAXLEN];
  * }</pre></code>
  */
+@NativeType("struct aiString")
 public class AIString extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -75,14 +76,17 @@ public class AIString extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code length} field. */
+    @NativeType("size_t")
     public long length() { return nlength(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code data} field. */
+    @NativeType("char[Assimp.MAXLEN]")
     public ByteBuffer data() { return ndata(address()); }
     /** Decodes the null-terminated string stored in the {@code data} field. */
+    @NativeType("char[Assimp.MAXLEN]")
     public String dataString() { return ndataString(address()); }
 
     /** Copies the specified encoded string to the {@code data} field. */
-    public AIString data(ByteBuffer value) { ndata(address(), value); return this; }
+    public AIString data(@NativeType("char[Assimp.MAXLEN]") ByteBuffer value) { ndata(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -287,14 +291,17 @@ public class AIString extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code length} field. */
+        @NativeType("size_t")
         public long length() { return AIString.nlength(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code data} field. */
+        @NativeType("char[Assimp.MAXLEN]")
         public ByteBuffer data() { return AIString.ndata(address()); }
         /** Decodes the null-terminated string stored in the {@code data} field. */
+        @NativeType("char[Assimp.MAXLEN]")
         public String dataString() { return AIString.ndataString(address()); }
 
         /** Copies the specified encoded string to the {@code data} field. */
-        public AIString.Buffer data(ByteBuffer value) { AIString.ndata(address(), value); return this; }
+        public AIString.Buffer data(@NativeType("char[Assimp.MAXLEN]") ByteBuffer value) { AIString.ndata(address(), value); return this; }
 
     }
 

@@ -224,7 +224,8 @@ public class ObjCRuntime {
      *
      * @return a copy of obj
      */
-    public static long object_copy(long obj, long size) {
+    @NativeType("id")
+    public static long object_copy(@NativeType("id") long obj, @NativeType("size_t") long size) {
         long __functionAddress = Functions.object_copy;
         if (CHECKS) {
             check(obj);
@@ -241,7 +242,8 @@ public class ObjCRuntime {
      *
      * @return {@link #nil}
      */
-    public static long object_dispose(long obj) {
+    @NativeType("id")
+    public static long object_dispose(@NativeType("id") long obj) {
         long __functionAddress = Functions.object_dispose;
         if (CHECKS) {
             check(obj);
@@ -258,7 +260,8 @@ public class ObjCRuntime {
      *
      * @return the class object of which object is an instance, or Nil if {@code obj} is {@link #nil}
      */
-    public static long object_getClass(long obj) {
+    @NativeType("Class")
+    public static long object_getClass(@NativeType("id") long obj) {
         long __functionAddress = Functions.object_getClass;
         return invokePP(__functionAddress, obj);
     }
@@ -273,7 +276,8 @@ public class ObjCRuntime {
      *
      * @return the previous value of object's class, or Nil if {@code obj} is {@link #nil}
      */
-    public static long object_setClass(long obj, long cls) {
+    @NativeType("Class")
+    public static long object_setClass(@NativeType("id") long obj, @NativeType("Class") long cls) {
         long __functionAddress = Functions.object_setClass;
         if (CHECKS) {
             check(cls);
@@ -296,7 +300,8 @@ public class ObjCRuntime {
      *
      * @return the name of the class of which {@code obj} is an instance
      */
-    public static String object_getClassName(long obj) {
+    @NativeType("const char *")
+    public static String object_getClassName(@NativeType("id") long obj) {
         long __result = nobject_getClassName(obj);
         return memUTF8(__result);
     }
@@ -317,7 +322,8 @@ public class ObjCRuntime {
      * @return a pointer to any extra bytes allocated with {@code obj}. If {@code obj} was not allocated with any extra bytes, then dereferencing the returned pointer
      *         is undefined.
      */
-    public static long object_getIndexedIvars(long obj) {
+    @NativeType("void *")
+    public static long object_getIndexedIvars(@NativeType("id") long obj) {
         long __functionAddress = Functions.object_getIndexedIvars;
         if (CHECKS) {
             check(obj);
@@ -335,7 +341,8 @@ public class ObjCRuntime {
      *
      * @return the value of the instance variable specified by {@code ivar}, or {@link #nil} if {@code obj} is {@link #nil}
      */
-    public static long object_getIvar(long obj, long ivar) {
+    @NativeType("id")
+    public static long object_getIvar(@NativeType("id") long obj, @NativeType("Ivar") long ivar) {
         long __functionAddress = Functions.object_getIvar;
         if (CHECKS) {
             check(ivar);
@@ -354,7 +361,7 @@ public class ObjCRuntime {
      * @param ivar  the Ivar describing the instance variable whose value you want to set
      * @param value the new value for the instance variable
      */
-    public static void object_setIvar(long obj, long ivar, long value) {
+    public static void object_setIvar(@NativeType("id") long obj, @NativeType("Ivar") long ivar, @NativeType("id") long value) {
         long __functionAddress = Functions.object_setIvar;
         if (CHECKS) {
             check(obj);
@@ -384,7 +391,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
      */
-    public static long object_setInstanceVariable(long obj, ByteBuffer name, ByteBuffer value) {
+    @NativeType("Ivar")
+    public static long object_setInstanceVariable(@NativeType("id") long obj, @NativeType("const char *") ByteBuffer name, @NativeType("void *") ByteBuffer value) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -400,7 +408,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
      */
-    public static long object_setInstanceVariable(long obj, CharSequence name, ByteBuffer value) {
+    @NativeType("Ivar")
+    public static long object_setInstanceVariable(@NativeType("id") long obj, @NativeType("const char *") CharSequence name, @NativeType("void *") ByteBuffer value) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -430,7 +439,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
      */
-    public static long object_getInstanceVariable(long obj, ByteBuffer name, PointerBuffer outValue) {
+    @NativeType("Ivar")
+    public static long object_getInstanceVariable(@NativeType("id") long obj, @NativeType("const char *") ByteBuffer name, @NativeType("void **") PointerBuffer outValue) {
         if (CHECKS) {
             checkNT1(name);
             check(outValue, 1);
@@ -447,7 +457,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to the Ivar data structure that defines the type and name of the instance variable specified by name
      */
-    public static long object_getInstanceVariable(long obj, CharSequence name, PointerBuffer outValue) {
+    @NativeType("Ivar")
+    public static long object_getInstanceVariable(@NativeType("id") long obj, @NativeType("const char *") CharSequence name, @NativeType("void **") PointerBuffer outValue) {
         if (CHECKS) {
             check(outValue, 1);
         }
@@ -478,7 +489,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the named class, or {@link #nil} if the class is not registered with the Objective-C runtime
      */
-    public static long objc_getClass(ByteBuffer name) {
+    @NativeType("Class")
+    public static long objc_getClass(@NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -495,7 +507,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the named class, or {@link #nil} if the class is not registered with the Objective-C runtime
      */
-    public static long objc_getClass(CharSequence name) {
+    @NativeType("Class")
+    public static long objc_getClass(@NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -524,7 +537,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the metaclass of the named class, or {@link #nil} if the class is not registered with the Objective-C runtime
      */
-    public static long objc_getMetaClass(ByteBuffer name) {
+    @NativeType("Class")
+    public static long objc_getMetaClass(@NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -542,7 +556,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the metaclass of the named class, or {@link #nil} if the class is not registered with the Objective-C runtime
      */
-    public static long objc_getMetaClass(CharSequence name) {
+    @NativeType("Class")
+    public static long objc_getMetaClass(@NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -570,7 +585,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the named class, or {@link #nil} if the class is not registered with the Objective-C runtime
      */
-    public static long objc_lookUpClass(ByteBuffer name) {
+    @NativeType("Class")
+    public static long objc_lookUpClass(@NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -587,7 +603,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the named class, or {@link #nil} if the class is not registered with the Objective-C runtime
      */
-    public static long objc_lookUpClass(CharSequence name) {
+    @NativeType("Class")
+    public static long objc_lookUpClass(@NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -616,7 +633,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the named class
      */
-    public static long objc_getRequiredClass(ByteBuffer name) {
+    @NativeType("Class")
+    public static long objc_getRequiredClass(@NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -634,7 +652,8 @@ public class ObjCRuntime {
      *
      * @return the Class object for the named class
      */
-    public static long objc_getRequiredClass(CharSequence name) {
+    @NativeType("Class")
+    public static long objc_getRequiredClass(@NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -674,7 +693,7 @@ public class ObjCRuntime {
      *
      * @return an integer value indicating the total number of registered classes
      */
-    public static int objc_getClassList(PointerBuffer buffer) {
+    public static int objc_getClassList(@NativeType("Class *") PointerBuffer buffer) {
         return nobjc_getClassList(memAddressSafe(buffer), remainingSafe(buffer));
     }
 
@@ -695,6 +714,7 @@ public class ObjCRuntime {
      *
      * @return a {@link #nil} terminated array of classes. You must free the array with free()
      */
+    @NativeType("Class *")
     public static PointerBuffer objc_copyClassList() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
@@ -721,7 +741,8 @@ public class ObjCRuntime {
      *
      * @return the name of the class, or the empty string if cls is Nil
      */
-    public static String class_getName(long cls) {
+    @NativeType("const char *")
+    public static String class_getName(@NativeType("Class") long cls) {
         long __result = nclass_getName(cls);
         return memUTF8(__result);
     }
@@ -735,7 +756,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if cls is a metaclass, {@link #NO} if cls is a non-meta class, {@link #NO} if cls is Nil
      */
-    public static boolean class_isMetaClass(long cls) {
+    @NativeType("BOOL")
+    public static boolean class_isMetaClass(@NativeType("Class") long cls) {
         long __functionAddress = Functions.class_isMetaClass;
         return invokePZ(__functionAddress, cls);
     }
@@ -749,7 +771,8 @@ public class ObjCRuntime {
      *
      * @return the superclass of the class, or Nil if cls is a root class, or Nil if cls is Nil
      */
-    public static long class_getSuperclass(long cls) {
+    @NativeType("Class")
+    public static long class_getSuperclass(@NativeType("Class") long cls) {
         long __functionAddress = Functions.class_getSuperclass;
         return invokePP(__functionAddress, cls);
     }
@@ -770,7 +793,7 @@ public class ObjCRuntime {
      *
      * @return an integer indicating the version number of the class definition
      */
-    public static int class_getVersion(long cls) {
+    public static int class_getVersion(@NativeType("Class") long cls) {
         long __functionAddress = Functions.class_getVersion;
         if (CHECKS) {
             check(cls);
@@ -793,7 +816,7 @@ public class ObjCRuntime {
      * @param cls     a pointer to an Class data structure. Pass the class definition for which you wish to set the version
      * @param version the new version number of the class definition
      */
-    public static void class_setVersion(long cls, int version) {
+    public static void class_setVersion(@NativeType("Class") long cls, int version) {
         long __functionAddress = Functions.class_setVersion;
         if (CHECKS) {
             check(cls);
@@ -810,7 +833,8 @@ public class ObjCRuntime {
      *
      * @return the size in bytes of instances of the class {@code cls}, or 0 if {@code cls} is Nil
      */
-    public static long class_getInstanceSize(long cls) {
+    @NativeType("size_t")
+    public static long class_getInstanceSize(@NativeType("Class") long cls) {
         long __functionAddress = Functions.class_getInstanceSize;
         return invokePP(__functionAddress, cls);
     }
@@ -834,7 +858,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to an Ivar data structure containing information about the instance variable specified by name
      */
-    public static long class_getInstanceVariable(long cls, ByteBuffer name) {
+    @NativeType("Ivar")
+    public static long class_getInstanceVariable(@NativeType("Class") long cls, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -849,7 +874,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to an Ivar data structure containing information about the instance variable specified by name
      */
-    public static long class_getInstanceVariable(long cls, CharSequence name) {
+    @NativeType("Ivar")
+    public static long class_getInstanceVariable(@NativeType("Class") long cls, @NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -878,7 +904,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to an Ivar data structure containing information about the class variable specified by name
      */
-    public static long class_getClassVariable(long cls, ByteBuffer name) {
+    @NativeType("Ivar")
+    public static long class_getClassVariable(@NativeType("Class") long cls, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -893,7 +920,8 @@ public class ObjCRuntime {
      *
      * @return a pointer to an Ivar data structure containing information about the class variable specified by name
      */
-    public static long class_getClassVariable(long cls, CharSequence name) {
+    @NativeType("Ivar")
+    public static long class_getClassVariable(@NativeType("Class") long cls, @NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -925,7 +953,8 @@ public class ObjCRuntime {
      *         
      *         <p>If the class declares no instance variables, or {@code cls} is Nil, {@code NULL} is returned and {@code *outCount} is 0.</p>
      */
-    public static PointerBuffer class_copyIvarList(long cls) {
+    @NativeType("Ivar *")
+    public static PointerBuffer class_copyIvarList(@NativeType("Class") long cls) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -949,7 +978,8 @@ public class ObjCRuntime {
      * @return the method that corresponds to the implementation of the selector specified by aSelector for the class specified by {@code cls}, or {@code NULL} if the
      *         specified class or its superclasses do not contain an instance method with the specified selector.
      */
-    public static long class_getInstanceMethod(long cls, long name) {
+    @NativeType("Method")
+    public static long class_getInstanceMethod(@NativeType("Class") long cls, @NativeType("SEL") long name) {
         long __functionAddress = Functions.class_getInstanceMethod;
         if (CHECKS) {
             check(cls);
@@ -971,7 +1001,8 @@ public class ObjCRuntime {
      * @return a pointer to the Method data structure that corresponds to the implementation of the selector specified by {@code name} for the class specified by
      *         {@code cls}, or {@code NULL} if the specified class or its superclasses do not contain a class method with the specified selector.
      */
-    public static long class_getClassMethod(long cls, long name) {
+    @NativeType("Method")
+    public static long class_getClassMethod(@NativeType("Class") long cls, @NativeType("SEL") long name) {
         long __functionAddress = Functions.class_getClassMethod;
         if (CHECKS) {
             check(cls);
@@ -999,7 +1030,8 @@ public class ObjCRuntime {
      *         
      *         <p>were called with an instance of the class, or {@code NULL} if {@code cls} is Nil</p>
      */
-    public static long class_getMethodImplementation(long cls, long name) {
+    @NativeType("IMP")
+    public static long class_getMethodImplementation(@NativeType("Class") long cls, @NativeType("SEL") long name) {
         long __functionAddress = Functions.class_getMethodImplementation;
         if (CHECKS) {
             check(name);
@@ -1019,7 +1051,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if instances of the class respond to the selector, otherwise {@link #NO}
      */
-    public static boolean class_respondsToSelector(long cls, long name) {
+    @NativeType("BOOL")
+    public static boolean class_respondsToSelector(@NativeType("Class") long cls, @NativeType("SEL") long name) {
         long __functionAddress = Functions.class_respondsToSelector;
         if (CHECKS) {
             check(cls);
@@ -1050,7 +1083,8 @@ public class ObjCRuntime {
      *         
      *         <p>If {@code cls} implements no instance methods, or {@code cls} is Nil, returns {@code NULL} and {@code *outCount} is 0.</p>
      */
-    public static PointerBuffer class_copyMethodList(long cls) {
+    @NativeType("Method *")
+    public static PointerBuffer class_copyMethodList(@NativeType("Class") long cls) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -1073,7 +1107,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if {@code cls} conforms to {@code protocol}, otherwise {@link #NO}
      */
-    public static boolean class_conformsToProtocol(long cls, long protocol) {
+    @NativeType("BOOL")
+    public static boolean class_conformsToProtocol(@NativeType("Class") long cls, @NativeType("Protocol *") long protocol) {
         long __functionAddress = Functions.class_conformsToProtocol;
         if (CHECKS) {
             check(cls);
@@ -1104,7 +1139,8 @@ public class ObjCRuntime {
      *         
      *         <p>If {@code cls} adopts no protocols, or {@code cls} is Nil, returns {@code NULL} and {@code *outCount} is 0.</p>
      */
-    public static PointerBuffer class_copyProtocolList(long cls) {
+    @NativeType("Protocol **")
+    public static PointerBuffer class_copyProtocolList(@NativeType("Class") long cls) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -1132,7 +1168,8 @@ public class ObjCRuntime {
      * @return a pointer of type {@code objc_property_t} describing the property, or {@code NULL} if the class does not declare a property with that name, or {@code NULL} if
      *         {@code cls} is Nil.
      */
-    public static long class_getProperty(long cls, ByteBuffer name) {
+    @NativeType("objc_property_t")
+    public static long class_getProperty(@NativeType("Class") long cls, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1148,7 +1185,8 @@ public class ObjCRuntime {
      * @return a pointer of type {@code objc_property_t} describing the property, or {@code NULL} if the class does not declare a property with that name, or {@code NULL} if
      *         {@code cls} is Nil.
      */
-    public static long class_getProperty(long cls, CharSequence name) {
+    @NativeType("objc_property_t")
+    public static long class_getProperty(@NativeType("Class") long cls, @NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1180,7 +1218,8 @@ public class ObjCRuntime {
      *         
      *         <p>If {@code cls} declares no properties, or {@code cls} is Nil, returns {@code NULL} and {@code *outCount} is 0.</p>
      */
-    public static PointerBuffer class_copyPropertyList(long cls) {
+    @NativeType("objc_property_t *")
+    public static PointerBuffer class_copyPropertyList(@NativeType("Class") long cls) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -1209,7 +1248,8 @@ public class ObjCRuntime {
      *
      * @return a description of the Ivar layout for {@code cls}
      */
-    public static String class_getIvarLayout(long cls) {
+    @NativeType("const uint8_t *")
+    public static String class_getIvarLayout(@NativeType("Class") long cls) {
         long __result = nclass_getIvarLayout(cls);
         return memASCII(__result);
     }
@@ -1232,7 +1272,8 @@ public class ObjCRuntime {
      *
      * @return a description of the layout of the weak Ivars for {@code cls}
      */
-    public static String class_getWeakIvarLayout(long cls) {
+    @NativeType("const uint8_t *")
+    public static String class_getWeakIvarLayout(@NativeType("Class") long cls) {
         long __result = nclass_getWeakIvarLayout(cls);
         return memASCII(__result);
     }
@@ -1281,7 +1322,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if the method was added successfully, otherwise {@link #NO} (for example, the class already contains a method implementation with that name)
      */
-    public static boolean class_addMethod(long cls, long name, long imp, ByteBuffer types) {
+    @NativeType("BOOL")
+    public static boolean class_addMethod(@NativeType("Class") long cls, @NativeType("SEL") long name, @NativeType("IMP") long imp, @NativeType("const char *") ByteBuffer types) {
         if (CHECKS) {
             checkNT1(types);
         }
@@ -1319,7 +1361,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if the method was added successfully, otherwise {@link #NO} (for example, the class already contains a method implementation with that name)
      */
-    public static boolean class_addMethod(long cls, long name, long imp, CharSequence types) {
+    @NativeType("BOOL")
+    public static boolean class_addMethod(@NativeType("Class") long cls, @NativeType("SEL") long name, @NativeType("IMP") long imp, @NativeType("const char *") CharSequence types) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer typesEncoded = stack.UTF8(types);
@@ -1365,7 +1408,8 @@ public class ObjCRuntime {
      *
      * @return the previous implementation of the method identified by {@code name} for the class identified by {@code cls}
      */
-    public static long class_replaceMethod(long cls, long name, long imp, ByteBuffer types) {
+    @NativeType("IMP")
+    public static long class_replaceMethod(@NativeType("Class") long cls, @NativeType("SEL") long name, @NativeType("IMP") long imp, @NativeType("const char *") ByteBuffer types) {
         if (CHECKS) {
             checkNT1(types);
         }
@@ -1395,7 +1439,8 @@ public class ObjCRuntime {
      *
      * @return the previous implementation of the method identified by {@code name} for the class identified by {@code cls}
      */
-    public static long class_replaceMethod(long cls, long name, long imp, CharSequence types) {
+    @NativeType("IMP")
+    public static long class_replaceMethod(@NativeType("Class") long cls, @NativeType("SEL") long name, @NativeType("IMP") long imp, @NativeType("const char *") CharSequence types) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer typesEncoded = stack.UTF8(types);
@@ -1439,7 +1484,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if the instance variable was added successfully, otherwise {@link #NO} (for example, the class already contains an instance variable with that name)
      */
-    public static boolean class_addIvar(long cls, ByteBuffer name, long size, byte alignment, ByteBuffer types) {
+    @NativeType("BOOL")
+    public static boolean class_addIvar(@NativeType("Class") long cls, @NativeType("const char *") ByteBuffer name, @NativeType("size_t") long size, @NativeType("uint8_t") byte alignment, @NativeType("const char *") ByteBuffer types) {
         if (CHECKS) {
             checkNT1(name);
             checkNT1(types);
@@ -1470,7 +1516,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if the instance variable was added successfully, otherwise {@link #NO} (for example, the class already contains an instance variable with that name)
      */
-    public static boolean class_addIvar(long cls, CharSequence name, long size, byte alignment, CharSequence types) {
+    @NativeType("BOOL")
+    public static boolean class_addIvar(@NativeType("Class") long cls, @NativeType("const char *") CharSequence name, @NativeType("size_t") long size, @NativeType("uint8_t") byte alignment, @NativeType("const char *") CharSequence types) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1491,7 +1538,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if the protocol was added successfully, otherwise {@link #NO} (for example, the class already conforms to that protocol)
      */
-    public static boolean class_addProtocol(long cls, long protocol) {
+    @NativeType("BOOL")
+    public static boolean class_addProtocol(@NativeType("Class") long cls, @NativeType("Protocol *") long protocol) {
         long __functionAddress = Functions.class_addProtocol;
         if (CHECKS) {
             check(cls);
@@ -1525,7 +1573,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if the property was added successfully; otherwise {@link #NO} (for example, this function returns {@link #NO} if the class already has that property)
      */
-    public static boolean class_addProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
+    @NativeType("BOOL")
+    public static boolean class_addProperty(@NativeType("Class") long cls, @NativeType("const char *") ByteBuffer name, @NativeType("const objc_property_attribute_t *") ObjCPropertyAttribute.Buffer attributes) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1541,7 +1590,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if the property was added successfully; otherwise {@link #NO} (for example, this function returns {@link #NO} if the class already has that property)
      */
-    public static boolean class_addProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
+    @NativeType("BOOL")
+    public static boolean class_addProperty(@NativeType("Class") long cls, @NativeType("const char *") CharSequence name, @NativeType("const objc_property_attribute_t *") ObjCPropertyAttribute.Buffer attributes) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1574,7 +1624,7 @@ public class ObjCRuntime {
      * @param name       the name of the property
      * @param attributes an array of property attributes
      */
-    public static void class_replaceProperty(long cls, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes) {
+    public static void class_replaceProperty(@NativeType("Class") long cls, @NativeType("const char *") ByteBuffer name, @NativeType("const objc_property_attribute_t *") ObjCPropertyAttribute.Buffer attributes) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1588,7 +1638,7 @@ public class ObjCRuntime {
      * @param name       the name of the property
      * @param attributes an array of property attributes
      */
-    public static void class_replaceProperty(long cls, CharSequence name, ObjCPropertyAttribute.Buffer attributes) {
+    public static void class_replaceProperty(@NativeType("Class") long cls, @NativeType("const char *") CharSequence name, @NativeType("const objc_property_attribute_t *") ObjCPropertyAttribute.Buffer attributes) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1615,7 +1665,7 @@ public class ObjCRuntime {
      * @param cls    the class to modify
      * @param layout the layout of the Ivars for {@code cls}
      */
-    public static void class_setIvarLayout(long cls, ByteBuffer layout) {
+    public static void class_setIvarLayout(@NativeType("Class") long cls, @NativeType("const uint8_t *") ByteBuffer layout) {
         if (CHECKS) {
             checkNT1(layout);
         }
@@ -1628,7 +1678,7 @@ public class ObjCRuntime {
      * @param cls    the class to modify
      * @param layout the layout of the Ivars for {@code cls}
      */
-    public static void class_setIvarLayout(long cls, CharSequence layout) {
+    public static void class_setIvarLayout(@NativeType("Class") long cls, @NativeType("const uint8_t *") CharSequence layout) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer layoutEncoded = stack.ASCII(layout);
@@ -1655,7 +1705,7 @@ public class ObjCRuntime {
      * @param cls    the class to modify
      * @param layout the layout of the weak Ivars for {@code cls}
      */
-    public static void class_setWeakIvarLayout(long cls, ByteBuffer layout) {
+    public static void class_setWeakIvarLayout(@NativeType("Class") long cls, @NativeType("const uint8_t *") ByteBuffer layout) {
         if (CHECKS) {
             checkNT1(layout);
         }
@@ -1668,7 +1718,7 @@ public class ObjCRuntime {
      * @param cls    the class to modify
      * @param layout the layout of the weak Ivars for {@code cls}
      */
-    public static void class_setWeakIvarLayout(long cls, CharSequence layout) {
+    public static void class_setWeakIvarLayout(@NativeType("Class") long cls, @NativeType("const uint8_t *") CharSequence layout) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer layoutEncoded = stack.ASCII(layout);
@@ -1689,7 +1739,8 @@ public class ObjCRuntime {
      *
      * @return an instance of the class {@code cls}
      */
-    public static long class_createInstance(long cls, long extraBytes) {
+    @NativeType("id")
+    public static long class_createInstance(@NativeType("Class") long cls, @NativeType("size_t") long extraBytes) {
         long __functionAddress = Functions.class_createInstance;
         if (CHECKS) {
             check(cls);
@@ -1715,7 +1766,8 @@ public class ObjCRuntime {
      *
      * @return an instance of the class {@code cls} at {@code bytes}, if successful; otherwise {@link #nil} (for example, if {@code cls} or {@code bytes} are themselves {@link #nil})
      */
-    public static long objc_constructInstance(long cls, ByteBuffer bytes) {
+    @NativeType("id")
+    public static long objc_constructInstance(@NativeType("Class") long cls, @NativeType("void *") ByteBuffer bytes) {
         if (CHECKS) {
             if (DEBUG) {
                 checkSafe(bytes, class_getInstanceSize(cls));
@@ -1738,7 +1790,8 @@ public class ObjCRuntime {
      *
      * @param obj the instance to destroy
      */
-    public static long objc_destructInstance(long obj) {
+    @NativeType("void *")
+    public static long objc_destructInstance(@NativeType("id") long obj) {
         long __functionAddress = Functions.objc_destructInstance;
         if (CHECKS) {
             check(obj);
@@ -1772,7 +1825,8 @@ public class ObjCRuntime {
      *
      * @return the new class, or Nil if the class could not be created (for example, the desired name is already in use)
      */
-    public static long objc_allocateClassPair(long superclass, ByteBuffer name, long extraBytes) {
+    @NativeType("Class")
+    public static long objc_allocateClassPair(@NativeType("Class") long superclass, @NativeType("const char *") ByteBuffer name, @NativeType("size_t") long extraBytes) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1797,7 +1851,8 @@ public class ObjCRuntime {
      *
      * @return the new class, or Nil if the class could not be created (for example, the desired name is already in use)
      */
-    public static long objc_allocateClassPair(long superclass, CharSequence name, long extraBytes) {
+    @NativeType("Class")
+    public static long objc_allocateClassPair(@NativeType("Class") long superclass, @NativeType("const char *") CharSequence name, @NativeType("size_t") long extraBytes) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1814,7 +1869,7 @@ public class ObjCRuntime {
      *
      * @param cls the class you want to register
      */
-    public static void objc_registerClassPair(long cls) {
+    public static void objc_registerClassPair(@NativeType("Class") long cls) {
         long __functionAddress = Functions.objc_registerClassPair;
         if (CHECKS) {
             check(cls);
@@ -1831,7 +1886,7 @@ public class ObjCRuntime {
      *
      * @param cls the class to be destroyed. This class must have been allocated using {@link #objc_allocateClassPair}.
      */
-    public static void objc_disposeClassPair(long cls) {
+    public static void objc_disposeClassPair(@NativeType("Class") long cls) {
         long __functionAddress = Functions.objc_disposeClassPair;
         if (CHECKS) {
             check(cls);
@@ -1852,7 +1907,8 @@ public class ObjCRuntime {
      *
      * @return a pointer of type SEL
      */
-    public static long method_getName(long m) {
+    @NativeType("SEL")
+    public static long method_getName(@NativeType("Method") long m) {
         long __functionAddress = Functions.method_getName;
         if (CHECKS) {
             check(m);
@@ -1869,7 +1925,8 @@ public class ObjCRuntime {
      *
      * @return a function pointer of type IMP
      */
-    public static long method_getImplementation(long m) {
+    @NativeType("IMP")
+    public static long method_getImplementation(@NativeType("Method") long m) {
         long __functionAddress = Functions.method_getImplementation;
         if (CHECKS) {
             check(m);
@@ -1895,7 +1952,8 @@ public class ObjCRuntime {
      *
      * @return a C string. The string may be {@code NULL}
      */
-    public static String method_getTypeEncoding(long m) {
+    @NativeType("const char *")
+    public static String method_getTypeEncoding(@NativeType("Method") long m) {
         long __result = nmethod_getTypeEncoding(m);
         return memUTF8(__result);
     }
@@ -1909,7 +1967,8 @@ public class ObjCRuntime {
      *
      * @return an integer containing the number of arguments accepted by the given method
      */
-    public static int method_getNumberOfArguments(long m) {
+    @NativeType("unsigned int")
+    public static int method_getNumberOfArguments(@NativeType("Method") long m) {
         long __functionAddress = Functions.method_getNumberOfArguments;
         if (CHECKS) {
             check(m);
@@ -1935,7 +1994,8 @@ public class ObjCRuntime {
      *
      * @return a C string describing the return type. You must free the string with free().
      */
-    public static String method_copyReturnType(long m) {
+    @NativeType("char *")
+    public static String method_copyReturnType(@NativeType("Method") long m) {
         long __result = nmethod_copyReturnType(m);
         return memUTF8(__result);
     }
@@ -1960,7 +2020,8 @@ public class ObjCRuntime {
      * @return a C string describing the type of the parameter at index {@code index}, or {@code NULL} if method has no parameter index {@code index}. You must free the
      *         string with free().
      */
-    public static String method_copyArgumentType(long m, int index) {
+    @NativeType("char *")
+    public static String method_copyArgumentType(@NativeType("Method") long m, @NativeType("unsigned int") int index) {
         long __result = nmethod_copyArgumentType(m, index);
         return memUTF8(__result);
     }
@@ -1990,7 +2051,7 @@ public class ObjCRuntime {
      * @param m   the method to inspect
      * @param dst the reference string to store the description
      */
-    public static void method_getReturnType(long m, ByteBuffer dst) {
+    public static void method_getReturnType(@NativeType("Method") long m, @NativeType("char *") ByteBuffer dst) {
         nmethod_getReturnType(m, memAddress(dst), dst.remaining());
     }
 
@@ -2004,7 +2065,8 @@ public class ObjCRuntime {
      * @param m       the method to inspect
      * @param dst_len the maximum number of characters that can be stored in {@code dst}
      */
-    public static String method_getReturnType(long m, long dst_len) {
+    @NativeType("void")
+    public static String method_getReturnType(@NativeType("Method") long m, @NativeType("size_t") long dst_len) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer dst = stack.malloc((int)dst_len);
@@ -2044,7 +2106,7 @@ public class ObjCRuntime {
      * @param index the index of the parameter you want to inquire about
      * @param dst   the reference string to store the description
      */
-    public static void method_getArgumentType(long m, int index, ByteBuffer dst) {
+    public static void method_getArgumentType(@NativeType("Method") long m, @NativeType("unsigned int") int index, @NativeType("char *") ByteBuffer dst) {
         nmethod_getArgumentType(m, index, memAddress(dst), dst.remaining());
     }
 
@@ -2062,7 +2124,8 @@ public class ObjCRuntime {
      * @param index   the index of the parameter you want to inquire about
      * @param dst_len the maximum number of characters that can be stored in {@code dst}
      */
-    public static String method_getArgumentType(long m, int index, long dst_len) {
+    @NativeType("void")
+    public static String method_getArgumentType(@NativeType("Method") long m, @NativeType("unsigned int") int index, @NativeType("size_t") long dst_len) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer dst = stack.malloc((int)dst_len);
@@ -2083,7 +2146,8 @@ public class ObjCRuntime {
      *
      * @return the previous implementation of the method
      */
-    public static long method_setImplementation(long m, long imp) {
+    @NativeType("IMP")
+    public static long method_setImplementation(@NativeType("Method") long m, @NativeType("IMP") long imp) {
         long __functionAddress = Functions.method_setImplementation;
         if (CHECKS) {
             check(m);
@@ -2100,7 +2164,7 @@ public class ObjCRuntime {
      * @param m1 the method to exchange with second method
      * @param m2 the method to exchange with first method
      */
-    public static void method_exchangeImplementations(long m1, long m2) {
+    public static void method_exchangeImplementations(@NativeType("Method") long m1, @NativeType("Method") long m2) {
         long __functionAddress = Functions.method_exchangeImplementations;
         if (CHECKS) {
             check(m1);
@@ -2127,7 +2191,8 @@ public class ObjCRuntime {
      *
      * @return a C string containing the instance variable's name
      */
-    public static String ivar_getName(long v) {
+    @NativeType("const char *")
+    public static String ivar_getName(@NativeType("Ivar") long v) {
         long __result = nivar_getName(v);
         return memUTF8(__result);
     }
@@ -2150,7 +2215,8 @@ public class ObjCRuntime {
      *
      * @return a C string containing the instance variable's type encoding
      */
-    public static String ivar_getTypeEncoding(long v) {
+    @NativeType("const char *")
+    public static String ivar_getTypeEncoding(@NativeType("Ivar") long v) {
         long __result = nivar_getTypeEncoding(v);
         return memUTF8(__result);
     }
@@ -2167,7 +2233,8 @@ public class ObjCRuntime {
      *
      * @return the offset of {@code v}
      */
-    public static long ivar_getOffset(long v) {
+    @NativeType("ptrdiff_t")
+    public static long ivar_getOffset(@NativeType("Ivar") long v) {
         long __functionAddress = Functions.ivar_getOffset;
         if (CHECKS) {
             check(v);
@@ -2193,7 +2260,8 @@ public class ObjCRuntime {
      *
      * @return a C string containing the property's name
      */
-    public static String property_getName(long property) {
+    @NativeType("const char *")
+    public static String property_getName(@NativeType("objc_property_t") long property) {
         long __result = nproperty_getName(property);
         return memUTF8(__result);
     }
@@ -2216,7 +2284,8 @@ public class ObjCRuntime {
      *
      * @return a C string containing the property's attributes
      */
-    public static String property_getAttributes(long property) {
+    @NativeType("const char *")
+    public static String property_getAttributes(@NativeType("objc_property_t") long property) {
         long __result = nproperty_getAttributes(property);
         return memUTF8(__result);
     }
@@ -2243,7 +2312,8 @@ public class ObjCRuntime {
      *
      * @return an array of property attributes. You must free the array with free().
      */
-    public static ObjCPropertyAttribute.Buffer property_copyAttributeList(long property) {
+    @NativeType("objc_property_attribute_t *")
+    public static ObjCPropertyAttribute.Buffer property_copyAttributeList(@NativeType("objc_property_t") long property) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -2274,7 +2344,8 @@ public class ObjCRuntime {
      * @return The value string of the {@code attributeName} attribute, if one exists in {@code property}; otherwise, {@link #nil}. You must free the returned value string
      *         with free().
      */
-    public static String property_copyAttributeValue(long property, ByteBuffer attributeName) {
+    @NativeType("char *")
+    public static String property_copyAttributeValue(@NativeType("objc_property_t") long property, @NativeType("const char *") ByteBuffer attributeName) {
         if (CHECKS) {
             checkNT1(attributeName);
         }
@@ -2291,7 +2362,8 @@ public class ObjCRuntime {
      * @return The value string of the {@code attributeName} attribute, if one exists in {@code property}; otherwise, {@link #nil}. You must free the returned value string
      *         with free().
      */
-    public static String property_copyAttributeValue(long property, CharSequence attributeName) {
+    @NativeType("char *")
+    public static String property_copyAttributeValue(@NativeType("objc_property_t") long property, @NativeType("const char *") CharSequence attributeName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer attributeNameEncoded = stack.UTF8(attributeName);
@@ -2319,7 +2391,8 @@ public class ObjCRuntime {
      *
      * @return the protocol named {@code name}{, or {@code NULL} if no protocol named name could be found
      */
-    public static long objc_getProtocol(ByteBuffer name) {
+    @NativeType("Protocol *")
+    public static long objc_getProtocol(@NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -2335,7 +2408,8 @@ public class ObjCRuntime {
      *
      * @return the protocol named {@code name}{, or {@code NULL} if no protocol named name could be found
      */
-    public static long objc_getProtocol(CharSequence name) {
+    @NativeType("Protocol *")
+    public static long objc_getProtocol(@NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -2363,6 +2437,7 @@ public class ObjCRuntime {
      * @return a C array of all the protocols known to the runtime. The array contains {@code *outCount} pointers followed by a {@code NULL} terminator. You must free the
      *         list with free().
      */
+    @NativeType("Protocol **")
     public static PointerBuffer objc_copyProtocolList() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
@@ -2392,7 +2467,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if {@code proto} conforms to {@code other}, otherwise {@link #NO}
      */
-    public static boolean protocol_conformsToProtocol(long proto, long other) {
+    @NativeType("BOOL")
+    public static boolean protocol_conformsToProtocol(@NativeType("Protocol *") long proto, @NativeType("Protocol *") long other) {
         long __functionAddress = Functions.protocol_conformsToProtocol;
         if (CHECKS) {
             check(proto);
@@ -2411,7 +2487,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if proto is the same as other, otherwise {@link #NO}
      */
-    public static boolean protocol_isEqual(long proto, long other) {
+    @NativeType("BOOL")
+    public static boolean protocol_isEqual(@NativeType("Protocol *") long proto, @NativeType("Protocol *") long other) {
         long __functionAddress = Functions.protocol_isEqual;
         if (CHECKS) {
             check(proto);
@@ -2438,7 +2515,8 @@ public class ObjCRuntime {
      *
      * @return the name of the protocol {@code p} as a C string
      */
-    public static String protocol_getName(long p) {
+    @NativeType("const char *")
+    public static String protocol_getName(@NativeType("Protocol *") long p) {
         long __result = nprotocol_getName(p);
         return memUTF8(__result);
     }
@@ -2472,7 +2550,8 @@ public class ObjCRuntime {
      *                         
      *                         <p>.</p>
      */
-    public static ObjCMethodDescription protocol_getMethodDescription(long p, long aSel, boolean isRequiredMethod, boolean isInstanceMethod, ObjCMethodDescription __result) {
+    @NativeType("struct objc_method_description")
+    public static ObjCMethodDescription protocol_getMethodDescription(@NativeType("Protocol *") long p, @NativeType("SEL") long aSel, @NativeType("BOOL") boolean isRequiredMethod, @NativeType("BOOL") boolean isInstanceMethod, ObjCMethodDescription __result) {
         nprotocol_getMethodDescription(p, aSel, isRequiredMethod, isInstanceMethod, __result.address());
         return __result;
     }
@@ -2506,7 +2585,8 @@ public class ObjCRuntime {
      *         
      *         <p>If the protocol declares no methods that meet the specification, {@code NULL} is returned and {@code *outCount} is 0.</p>
      */
-    public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(long p, boolean isRequiredMethod, boolean isInstanceMethod) {
+    @NativeType("struct objc_method_description *")
+    public static ObjCMethodDescription.Buffer protocol_copyMethodDescriptionList(@NativeType("Protocol *") long p, @NativeType("BOOL") boolean isRequiredMethod, @NativeType("BOOL") boolean isInstanceMethod) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -2539,7 +2619,8 @@ public class ObjCRuntime {
      * @return the property specified by {@code name}, {@code isRequiredProperty}, and {@code isInstanceProperty} for {@code proto}, or {@code NULL} if none of
      *         {@code proto}'s properties meets the specification
      */
-    public static long protocol_getProperty(long proto, ByteBuffer name, boolean isRequiredProperty, boolean isInstanceProperty) {
+    @NativeType("objc_property_t")
+    public static long protocol_getProperty(@NativeType("Protocol *") long proto, @NativeType("const char *") ByteBuffer name, @NativeType("BOOL") boolean isRequiredProperty, @NativeType("BOOL") boolean isInstanceProperty) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -2557,7 +2638,8 @@ public class ObjCRuntime {
      * @return the property specified by {@code name}, {@code isRequiredProperty}, and {@code isInstanceProperty} for {@code proto}, or {@code NULL} if none of
      *         {@code proto}'s properties meets the specification
      */
-    public static long protocol_getProperty(long proto, CharSequence name, boolean isRequiredProperty, boolean isInstanceProperty) {
+    @NativeType("objc_property_t")
+    public static long protocol_getProperty(@NativeType("Protocol *") long proto, @NativeType("const char *") CharSequence name, @NativeType("BOOL") boolean isRequiredProperty, @NativeType("BOOL") boolean isInstanceProperty) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -2592,7 +2674,8 @@ public class ObjCRuntime {
      *         
      *         <p>If the protocol declares no properties, {@code NULL} is returned and {@code *outCount} is 0.</p>
      */
-    public static PointerBuffer protocol_copyPropertyList(long proto) {
+    @NativeType("objc_property_t *")
+    public static PointerBuffer protocol_copyPropertyList(@NativeType("Protocol *") long proto) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -2628,7 +2711,8 @@ public class ObjCRuntime {
      *         
      *         <p>If the protocol declares no properties, {@code NULL} is returned and {@code *outCount} is 0.</p>
      */
-    public static PointerBuffer protocol_copyProtocolList(long proto) {
+    @NativeType("Protocol **")
+    public static PointerBuffer protocol_copyProtocolList(@NativeType("Protocol *") long proto) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
         try {
@@ -2658,7 +2742,8 @@ public class ObjCRuntime {
      *
      * @return a new protocol instance or {@link #nil} if a protocol with the same name as {@code name} already exists
      */
-    public static long objc_allocateProtocol(ByteBuffer name) {
+    @NativeType("Protocol *")
+    public static long objc_allocateProtocol(@NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -2676,7 +2761,8 @@ public class ObjCRuntime {
      *
      * @return a new protocol instance or {@link #nil} if a protocol with the same name as {@code name} already exists
      */
-    public static long objc_allocateProtocol(CharSequence name) {
+    @NativeType("Protocol *")
+    public static long objc_allocateProtocol(@NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -2696,7 +2782,7 @@ public class ObjCRuntime {
      *
      * @param proto the protocol you want to register with the Objective-C runtime
      */
-    public static void objc_registerProtocol(long proto) {
+    public static void objc_registerProtocol(@NativeType("Protocol *") long proto) {
         long __functionAddress = Functions.objc_registerProtocol;
         if (CHECKS) {
             check(proto);
@@ -2729,7 +2815,7 @@ public class ObjCRuntime {
      *                         method is an optional method.
      * @param isInstanceMethod a Boolean indicating whether the method is an instance method. If {@link #YES}, the method is an instance method; if {@link #NO}, the method is a class method.
      */
-    public static void protocol_addMethodDescription(long proto, long name, ByteBuffer types, boolean isRequiredMethod, boolean isInstanceMethod) {
+    public static void protocol_addMethodDescription(@NativeType("Protocol *") long proto, @NativeType("SEL") long name, @NativeType("const char *") ByteBuffer types, @NativeType("BOOL") boolean isRequiredMethod, @NativeType("BOOL") boolean isInstanceMethod) {
         if (CHECKS) {
             checkNT1(types);
         }
@@ -2749,7 +2835,7 @@ public class ObjCRuntime {
      *                         method is an optional method.
      * @param isInstanceMethod a Boolean indicating whether the method is an instance method. If {@link #YES}, the method is an instance method; if {@link #NO}, the method is a class method.
      */
-    public static void protocol_addMethodDescription(long proto, long name, CharSequence types, boolean isRequiredMethod, boolean isInstanceMethod) {
+    public static void protocol_addMethodDescription(@NativeType("Protocol *") long proto, @NativeType("SEL") long name, @NativeType("const char *") CharSequence types, @NativeType("BOOL") boolean isRequiredMethod, @NativeType("BOOL") boolean isInstanceMethod) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer typesEncoded = stack.UTF8(types);
@@ -2770,7 +2856,7 @@ public class ObjCRuntime {
      * @param proto    the protocol you want to add the registered protocol to
      * @param addition the registered protocol you want to add to {@code proto}
      */
-    public static void protocol_addProtocol(long proto, long addition) {
+    public static void protocol_addProtocol(@NativeType("Protocol *") long proto, @NativeType("Protocol *") long addition) {
         long __functionAddress = Functions.protocol_addProtocol;
         if (CHECKS) {
             check(proto);
@@ -2809,7 +2895,7 @@ public class ObjCRuntime {
      * @param isInstanceProperty a Boolean indicating whether the property's accessor methods are instance methods. If {@link #YES}, the property's accessor methods are instance methods.
      *                           {@link #YES} is the only value allowed for a property. As a result, if you set this value to {@link #NO}, the property will not be added to the protocol.
      */
-    public static void protocol_addProperty(long proto, ByteBuffer name, ObjCPropertyAttribute.Buffer attributes, boolean isRequiredProperty, boolean isInstanceProperty) {
+    public static void protocol_addProperty(@NativeType("Protocol *") long proto, @NativeType("const char *") ByteBuffer name, @NativeType("const objc_property_attribute_t *") ObjCPropertyAttribute.Buffer attributes, @NativeType("BOOL") boolean isRequiredProperty, @NativeType("BOOL") boolean isInstanceProperty) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -2830,7 +2916,7 @@ public class ObjCRuntime {
      * @param isInstanceProperty a Boolean indicating whether the property's accessor methods are instance methods. If {@link #YES}, the property's accessor methods are instance methods.
      *                           {@link #YES} is the only value allowed for a property. As a result, if you set this value to {@link #NO}, the property will not be added to the protocol.
      */
-    public static void protocol_addProperty(long proto, CharSequence name, ObjCPropertyAttribute.Buffer attributes, boolean isRequiredProperty, boolean isInstanceProperty) {
+    public static void protocol_addProperty(@NativeType("Protocol *") long proto, @NativeType("const char *") CharSequence name, @NativeType("const objc_property_attribute_t *") ObjCPropertyAttribute.Buffer attributes, @NativeType("BOOL") boolean isRequiredProperty, @NativeType("BOOL") boolean isInstanceProperty) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -2857,6 +2943,7 @@ public class ObjCRuntime {
      *
      * @return an array of C strings representing the names of all the loaded Objective-C frameworks and dynamic libraries
      */
+    @NativeType("const char **")
     public static PointerBuffer objc_copyImageNames() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer outCount = stack.callocInt(1);
@@ -2886,7 +2973,8 @@ public class ObjCRuntime {
      *
      * @return a C string representing the name of the library containing the {@code cls} class.
      */
-    public static String class_getImageName(long cls) {
+    @NativeType("const char *")
+    public static String class_getImageName(@NativeType("Class") long cls) {
         long __result = nclass_getImageName(cls);
         return memUTF8(__result);
     }
@@ -2910,7 +2998,8 @@ public class ObjCRuntime {
      *
      * @return an array of C strings representing all of the class names within the specified library or framework
      */
-    public static PointerBuffer objc_copyClassNamesForImage(ByteBuffer image) {
+    @NativeType("const char **")
+    public static PointerBuffer objc_copyClassNamesForImage(@NativeType("const char *") ByteBuffer image) {
         if (CHECKS) {
             checkNT1(image);
         }
@@ -2931,7 +3020,8 @@ public class ObjCRuntime {
      *
      * @return an array of C strings representing all of the class names within the specified library or framework
      */
-    public static PointerBuffer objc_copyClassNamesForImage(CharSequence image) {
+    @NativeType("const char **")
+    public static PointerBuffer objc_copyClassNamesForImage(@NativeType("const char *") CharSequence image) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer outCount = stack.callocInt(1);
@@ -2961,7 +3051,8 @@ public class ObjCRuntime {
      *
      * @return a C string indicating the name of the selector
      */
-    public static String sel_getName(long sel) {
+    @NativeType("const char *")
+    public static String sel_getName(@NativeType("SEL") long sel) {
         long __result = nsel_getName(sel);
         return memUTF8(__result);
     }
@@ -2983,7 +3074,8 @@ public class ObjCRuntime {
      *
      * @return a pointer of type SEL specifying the selector for the named method
      */
-    public static long sel_getUid(ByteBuffer str) {
+    @NativeType("SEL")
+    public static long sel_getUid(@NativeType("const char *") ByteBuffer str) {
         if (CHECKS) {
             checkNT1(str);
         }
@@ -2999,7 +3091,8 @@ public class ObjCRuntime {
      *
      * @return a pointer of type SEL specifying the selector for the named method
      */
-    public static long sel_getUid(CharSequence str) {
+    @NativeType("SEL")
+    public static long sel_getUid(@NativeType("const char *") CharSequence str) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer strEncoded = stack.UTF8(str);
@@ -3027,7 +3120,8 @@ public class ObjCRuntime {
      *
      * @return a pointer of type SEL specifying the selector for the named method
      */
-    public static long sel_registerName(ByteBuffer str) {
+    @NativeType("SEL")
+    public static long sel_registerName(@NativeType("const char *") ByteBuffer str) {
         if (CHECKS) {
             checkNT1(str);
         }
@@ -3044,7 +3138,8 @@ public class ObjCRuntime {
      *
      * @return a pointer of type SEL specifying the selector for the named method
      */
-    public static long sel_registerName(CharSequence str) {
+    @NativeType("SEL")
+    public static long sel_registerName(@NativeType("const char *") CharSequence str) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer strEncoded = stack.UTF8(str);
@@ -3066,7 +3161,8 @@ public class ObjCRuntime {
      *
      * @return {@link #YES} if rhs and rhs are equal, otherwise {@link #NO}
      */
-    public static boolean sel_isEqual(long lhs, long rhs) {
+    @NativeType("BOOL")
+    public static boolean sel_isEqual(@NativeType("SEL") long lhs, @NativeType("SEL") long rhs) {
         long __functionAddress = Functions.sel_isEqual;
         if (CHECKS) {
             check(lhs);
@@ -3086,7 +3182,7 @@ public class ObjCRuntime {
      *
      * @param obj the object being mutated
      */
-    public static void objc_enumerationMutation(long obj) {
+    public static void objc_enumerationMutation(@NativeType("id") long obj) {
         long __functionAddress = Functions.objc_enumerationMutation;
         if (CHECKS) {
             check(obj);
@@ -3107,7 +3203,7 @@ public class ObjCRuntime {
      *
      * @param handler a function pointer to the new mutation handler
      */
-    public static void objc_setEnumerationMutationHandler(EnumerationMutationHandlerI handler) {
+    public static void objc_setEnumerationMutationHandler(@NativeType("EnumerationMutationHandler") EnumerationMutationHandlerI handler) {
         nobjc_setEnumerationMutationHandler(handler.address());
     }
 
@@ -3125,7 +3221,8 @@ public class ObjCRuntime {
      *
      * @return the IMP that calls {@code block}. You must dispose of the returned IMP using the function.
      */
-    public static long imp_implementationWithBlock(long block) {
+    @NativeType("IMP")
+    public static long imp_implementationWithBlock(@NativeType("id") long block) {
         long __functionAddress = Functions.imp_implementationWithBlock;
         if (CHECKS) {
             check(block);
@@ -3142,7 +3239,8 @@ public class ObjCRuntime {
      *
      * @return the block called by {@code anImp}
      */
-    public static long imp_getBlock(long anImp) {
+    @NativeType("id")
+    public static long imp_getBlock(@NativeType("IMP") long anImp) {
         long __functionAddress = Functions.imp_getBlock;
         if (CHECKS) {
             check(anImp);
@@ -3160,7 +3258,8 @@ public class ObjCRuntime {
      * @return {@link #YES} if the block was released successfully; otherwise, {@link #NO} (for example, the function returns {@link #NO} if the block was not used to create {@code anImp}
      *         previously).
      */
-    public static boolean imp_removeBlock(long anImp) {
+    @NativeType("BOOL")
+    public static boolean imp_removeBlock(@NativeType("IMP") long anImp) {
         long __functionAddress = Functions.imp_removeBlock;
         if (CHECKS) {
             check(anImp);
@@ -3186,7 +3285,8 @@ public class ObjCRuntime {
      *
      * @return the object pointed to by location, or {@link #nil} if location is {@link #nil}
      */
-    public static long objc_loadWeak(PointerBuffer location) {
+    @NativeType("id")
+    public static long objc_loadWeak(@NativeType("id *") PointerBuffer location) {
         if (CHECKS) {
             checkSafe(location, 1);
         }
@@ -3214,7 +3314,8 @@ public class ObjCRuntime {
      *
      * @return the value stored in location (that is, {@code obj})
      */
-    public static long objc_storeWeak(PointerBuffer location, long obj) {
+    @NativeType("id")
+    public static long objc_storeWeak(@NativeType("id *") PointerBuffer location, @NativeType("id") long obj) {
         if (CHECKS) {
             check(location, 1);
         }
@@ -3231,7 +3332,7 @@ public class ObjCRuntime {
      * @param value  the value to associate with the key {@code key} for {@code object}. Pass {@link #nil} to clear an existing association.
      * @param policy the policy for the association. One of:<br><table><tr><td>{@link #OBJC_ASSOCIATION_ASSIGN}</td><td>{@link #OBJC_ASSOCIATION_RETAIN_NONATOMIC}</td><td>{@link #OBJC_ASSOCIATION_COPY_NONATOMIC}</td></tr><tr><td>{@link #OBJC_ASSOCIATION_RETAIN}</td><td>{@link #OBJC_ASSOCIATION_COPY}</td></tr></table>
      */
-    public static void objc_setAssociatedObject(long object, long key, long value, long policy) {
+    public static void objc_setAssociatedObject(@NativeType("id") long object, @NativeType("const void *") long key, @NativeType("id") long value, @NativeType("objc_AssociationPolicy") long policy) {
         long __functionAddress = Functions.objc_setAssociatedObject;
         if (CHECKS) {
             check(object);
@@ -3251,7 +3352,8 @@ public class ObjCRuntime {
      *
      * @return the value associated with the key {@code key} for {@code object}.
      */
-    public static long objc_getAssociatedObject(long object, long key) {
+    @NativeType("id")
+    public static long objc_getAssociatedObject(@NativeType("id") long object, @NativeType("const void *") long key) {
         long __functionAddress = Functions.objc_getAssociatedObject;
         if (CHECKS) {
             check(object);
@@ -3271,7 +3373,7 @@ public class ObjCRuntime {
      *
      * @param object an object that maintains associated objects
      */
-    public static void objc_removeAssociatedObjects(long object) {
+    public static void objc_removeAssociatedObjects(@NativeType("id") long object) {
         long __functionAddress = Functions.objc_removeAssociatedObjects;
         if (CHECKS) {
             check(object);

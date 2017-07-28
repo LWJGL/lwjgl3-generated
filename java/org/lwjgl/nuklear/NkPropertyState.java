@@ -32,6 +32,7 @@ import static org.lwjgl.nuklear.Nuklear.NK_MAX_NUMBER_BUFFER;
  *     int state;
  * }</pre></code>
  */
+@NativeType("struct nk_property_state")
 public class NkPropertyState extends Struct {
 
     /** The struct size in bytes. */
@@ -106,8 +107,10 @@ public class NkPropertyState extends Struct {
     /** Returns the value of the {@code prev} field. */
     public int prev() { return nprev(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code buffer} field. */
+    @NativeType("char[NK_MAX_NUMBER_BUFFER]")
     public ByteBuffer buffer() { return nbuffer(address()); }
     /** Returns the value at the specified index of the {@code buffer} field. */
+    @NativeType("char")
     public byte buffer(int index) { return nbuffer(address(), index); }
     /** Returns the value of the {@code length} field. */
     public int length() { return nlength(address()); }
@@ -118,10 +121,13 @@ public class NkPropertyState extends Struct {
     /** Returns the value of the {@code select_end} field. */
     public int select_end() { return nselect_end(address()); }
     /** Returns the value of the {@code name} field. */
+    @NativeType("nk_hash")
     public int name() { return nname(address()); }
     /** Returns the value of the {@code seq} field. */
+    @NativeType("unsigned int")
     public int seq() { return nseq(address()); }
     /** Returns the value of the {@code old} field. */
+    @NativeType("unsigned int")
     public int old() { return nold(address()); }
     /** Returns the value of the {@code state} field. */
     public int state() { return nstate(address()); }
@@ -220,8 +226,10 @@ public class NkPropertyState extends Struct {
         /** Returns the value of the {@code prev} field. */
         public int prev() { return NkPropertyState.nprev(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code buffer} field. */
+        @NativeType("char[NK_MAX_NUMBER_BUFFER]")
         public ByteBuffer buffer() { return NkPropertyState.nbuffer(address()); }
         /** Returns the value at the specified index of the {@code buffer} field. */
+        @NativeType("char")
         public byte buffer(int index) { return NkPropertyState.nbuffer(address(), index); }
         /** Returns the value of the {@code length} field. */
         public int length() { return NkPropertyState.nlength(address()); }
@@ -232,10 +240,13 @@ public class NkPropertyState extends Struct {
         /** Returns the value of the {@code select_end} field. */
         public int select_end() { return NkPropertyState.nselect_end(address()); }
         /** Returns the value of the {@code name} field. */
+        @NativeType("nk_hash")
         public int name() { return NkPropertyState.nname(address()); }
         /** Returns the value of the {@code seq} field. */
+        @NativeType("unsigned int")
         public int seq() { return NkPropertyState.nseq(address()); }
         /** Returns the value of the {@code old} field. */
+        @NativeType("unsigned int")
         public int old() { return NkPropertyState.nold(address()); }
         /** Returns the value of the {@code state} field. */
         public int state() { return NkPropertyState.nstate(address()); }

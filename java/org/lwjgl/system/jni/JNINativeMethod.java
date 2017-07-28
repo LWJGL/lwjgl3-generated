@@ -70,22 +70,27 @@ public class JNINativeMethod extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("char *")
     public ByteBuffer name() { return nname(address()); }
     /** Decodes the null-terminated string pointed to by the {@code name} field. */
+    @NativeType("char *")
     public String nameString() { return nnameString(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code signature} field. */
+    @NativeType("char *")
     public ByteBuffer signature() { return nsignature(address()); }
     /** Decodes the null-terminated string pointed to by the {@code signature} field. */
+    @NativeType("char *")
     public String signatureString() { return nsignatureString(address()); }
     /** Returns the value of the {@code fnPtr} field. */
+    @NativeType("void *")
     public long fnPtr() { return nfnPtr(address()); }
 
     /** Sets the address of the specified encoded string to the {@code name} field. */
-    public JNINativeMethod name(ByteBuffer value) { nname(address(), value); return this; }
+    public JNINativeMethod name(@NativeType("char *") ByteBuffer value) { nname(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code signature} field. */
-    public JNINativeMethod signature(ByteBuffer value) { nsignature(address(), value); return this; }
+    public JNINativeMethod signature(@NativeType("char *") ByteBuffer value) { nsignature(address(), value); return this; }
     /** Sets the specified value to the {@code fnPtr} field. */
-    public JNINativeMethod fnPtr(long value) { nfnPtr(address(), value); return this; }
+    public JNINativeMethod fnPtr(@NativeType("void *") long value) { nfnPtr(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public JNINativeMethod set(
@@ -331,22 +336,27 @@ public class JNINativeMethod extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("char *")
         public ByteBuffer name() { return JNINativeMethod.nname(address()); }
         /** Decodes the null-terminated string pointed to by the {@code name} field. */
+        @NativeType("char *")
         public String nameString() { return JNINativeMethod.nnameString(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code signature} field. */
+        @NativeType("char *")
         public ByteBuffer signature() { return JNINativeMethod.nsignature(address()); }
         /** Decodes the null-terminated string pointed to by the {@code signature} field. */
+        @NativeType("char *")
         public String signatureString() { return JNINativeMethod.nsignatureString(address()); }
         /** Returns the value of the {@code fnPtr} field. */
+        @NativeType("void *")
         public long fnPtr() { return JNINativeMethod.nfnPtr(address()); }
 
         /** Sets the address of the specified encoded string to the {@code name} field. */
-        public JNINativeMethod.Buffer name(ByteBuffer value) { JNINativeMethod.nname(address(), value); return this; }
+        public JNINativeMethod.Buffer name(@NativeType("char *") ByteBuffer value) { JNINativeMethod.nname(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code signature} field. */
-        public JNINativeMethod.Buffer signature(ByteBuffer value) { JNINativeMethod.nsignature(address(), value); return this; }
+        public JNINativeMethod.Buffer signature(@NativeType("char *") ByteBuffer value) { JNINativeMethod.nsignature(address(), value); return this; }
         /** Sets the specified value to the {@code fnPtr} field. */
-        public JNINativeMethod.Buffer fnPtr(long value) { JNINativeMethod.nfnPtr(address(), value); return this; }
+        public JNINativeMethod.Buffer fnPtr(@NativeType("void *") long value) { JNINativeMethod.nfnPtr(address(), value); return this; }
 
     }
 

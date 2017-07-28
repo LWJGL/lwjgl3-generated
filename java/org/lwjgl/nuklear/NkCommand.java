@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkHandle nk_handle} userdata;
  * }</pre></code>
  */
+@NativeType("struct nk_command")
 public class NkCommand extends Struct {
 
     /** The struct size in bytes. */
@@ -67,10 +68,13 @@ public class NkCommand extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("enum nk_command_type")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code next} field. */
+    @NativeType("nk_size")
     public long next() { return nnext(address()); }
     /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+    @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
 
     // -----------------------------------
@@ -142,10 +146,13 @@ public class NkCommand extends Struct {
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("enum nk_command_type")
         public int type() { return NkCommand.ntype(address()); }
         /** Returns the value of the {@code next} field. */
+        @NativeType("nk_size")
         public long next() { return NkCommand.nnext(address()); }
         /** Returns a {@link NkHandle} view of the {@code userdata} field. */
+        @NativeType("nk_handle")
         public NkHandle userdata() { return NkCommand.nuserdata(address()); }
 
     }

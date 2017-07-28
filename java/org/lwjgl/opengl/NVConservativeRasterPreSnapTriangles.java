@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -57,6 +59,6 @@ public class NVConservativeRasterPreSnapTriangles {
      * @param pname the parameter to set. Must be:<br><table><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_NV CONSERVATIVE_RASTER_MODE_NV}</td></tr></table>
      * @param param specifies the conservative raster mode to be used. One of:<br><table><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV CONSERVATIVE_RASTER_MODE_POST_SNAP_NV}</td></tr><tr><td>{@link #GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV}</td></tr></table>
      */
-    public static native void glConservativeRasterParameteriNV(int pname, int param);
+    public static native void glConservativeRasterParameteriNV(@NativeType("GLenum") int pname, @NativeType("GLint") int param);
 
 }

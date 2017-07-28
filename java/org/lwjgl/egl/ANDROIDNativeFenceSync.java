@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -41,7 +43,8 @@ public class ANDROIDNativeFenceSync {
 
     // --- [ eglDupNativeFenceFDANDROID ] ---
 
-    public static int eglDupNativeFenceFDANDROID(long dpy, long sync) {
+    @NativeType("EGLint")
+    public static int eglDupNativeFenceFDANDROID(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSyncKHR") long sync) {
         long __functionAddress = EGL.getCapabilities().eglDupNativeFenceFDANDROID;
         if (CHECKS) {
             check(__functionAddress);

@@ -90,14 +90,16 @@ public class VkAttachmentReference extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code attachment} field. */
+    @NativeType("uint32_t")
     public int attachment() { return nattachment(address()); }
     /** Returns the value of the {@code layout} field. */
+    @NativeType("VkImageLayout")
     public int layout() { return nlayout(address()); }
 
     /** Sets the specified value to the {@code attachment} field. */
-    public VkAttachmentReference attachment(int value) { nattachment(address(), value); return this; }
+    public VkAttachmentReference attachment(@NativeType("uint32_t") int value) { nattachment(address(), value); return this; }
     /** Sets the specified value to the {@code layout} field. */
-    public VkAttachmentReference layout(int value) { nlayout(address(), value); return this; }
+    public VkAttachmentReference layout(@NativeType("VkImageLayout") int value) { nlayout(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkAttachmentReference set(
@@ -304,14 +306,16 @@ public class VkAttachmentReference extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code attachment} field. */
+        @NativeType("uint32_t")
         public int attachment() { return VkAttachmentReference.nattachment(address()); }
         /** Returns the value of the {@code layout} field. */
+        @NativeType("VkImageLayout")
         public int layout() { return VkAttachmentReference.nlayout(address()); }
 
         /** Sets the specified value to the {@code attachment} field. */
-        public VkAttachmentReference.Buffer attachment(int value) { VkAttachmentReference.nattachment(address(), value); return this; }
+        public VkAttachmentReference.Buffer attachment(@NativeType("uint32_t") int value) { VkAttachmentReference.nattachment(address(), value); return this; }
         /** Sets the specified value to the {@code layout} field. */
-        public VkAttachmentReference.Buffer layout(int value) { VkAttachmentReference.nlayout(address(), value); return this; }
+        public VkAttachmentReference.Buffer layout(@NativeType("VkImageLayout") int value) { VkAttachmentReference.nlayout(address(), value); return this; }
 
     }
 

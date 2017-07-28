@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -54,6 +56,6 @@ public class EXTProvokingVertex {
 
     // --- [ glProvokingVertexEXT ] ---
 
-    public static native void glProvokingVertexEXT(int mode);
+    public static native void glProvokingVertexEXT(@NativeType("GLenum") int mode);
 
 }

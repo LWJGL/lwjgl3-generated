@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     nk_size size;
  * }</pre></code>
  */
+@NativeType("struct nk_memory")
 public class NkMemory extends Struct {
 
     /** The struct size in bytes. */
@@ -63,8 +64,10 @@ public class NkMemory extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code ptr} field. */
+    @NativeType("void *")
     public ByteBuffer ptr() { return nptr(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("nk_size")
     public long size() { return nsize(address()); }
 
     // -----------------------------------
@@ -134,8 +137,10 @@ public class NkMemory extends Struct {
         }
 
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code ptr} field. */
+        @NativeType("void *")
         public ByteBuffer ptr() { return NkMemory.nptr(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("nk_size")
         public long size() { return NkMemory.nsize(address()); }
 
     }

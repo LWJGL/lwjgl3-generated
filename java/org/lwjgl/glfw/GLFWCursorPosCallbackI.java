@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorPosCallback SetCursorPosCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWcursorposfun")
 public interface GLFWCursorPosCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pdd)v";
@@ -37,6 +38,6 @@ public interface GLFWCursorPosCallbackI extends CallbackI.V {
      * @param xpos   the new cursor x-coordinate, relative to the left edge of the client area
      * @param ypos   the new cursor y-coordinate, relative to the top edge of the client area
      */
-    void invoke(long window, double xpos, double ypos);
+    void invoke(@NativeType("GLFWwindow *") long window, double xpos, double ypos);
 
 }

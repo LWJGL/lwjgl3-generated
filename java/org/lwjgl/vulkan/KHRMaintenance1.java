@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -155,7 +157,7 @@ public class KHRMaintenance1 {
      * @param commandPool the command pool to trim.
      * @param flags       reserved for future use.
      */
-    public static void vkTrimCommandPoolKHR(VkDevice device, long commandPool, int flags) {
+    public static void vkTrimCommandPoolKHR(VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("VkCommandPoolTrimFlagsKHR") int flags) {
         long __functionAddress = device.getCapabilities().vkTrimCommandPoolKHR;
         if (CHECKS) {
             check(__functionAddress);

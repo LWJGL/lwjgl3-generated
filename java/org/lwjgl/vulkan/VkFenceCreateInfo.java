@@ -92,18 +92,21 @@ public class VkFenceCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkFenceCreateFlags")
     public int flags() { return nflags(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkFenceCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkFenceCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkFenceCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkFenceCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkFenceCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkFenceCreateInfo flags(@NativeType("VkFenceCreateFlags") int value) { nflags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkFenceCreateInfo set(
@@ -316,18 +319,21 @@ public class VkFenceCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkFenceCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkFenceCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkFenceCreateFlags")
         public int flags() { return VkFenceCreateInfo.nflags(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkFenceCreateInfo.Buffer sType(int value) { VkFenceCreateInfo.nsType(address(), value); return this; }
+        public VkFenceCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkFenceCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkFenceCreateInfo.Buffer pNext(long value) { VkFenceCreateInfo.npNext(address(), value); return this; }
+        public VkFenceCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkFenceCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkFenceCreateInfo.Buffer flags(int value) { VkFenceCreateInfo.nflags(address(), value); return this; }
+        public VkFenceCreateInfo.Buffer flags(@NativeType("VkFenceCreateFlags") int value) { VkFenceCreateInfo.nflags(address(), value); return this; }
 
     }
 

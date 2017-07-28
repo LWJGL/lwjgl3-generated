@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float a;
  * }</pre></code>
  */
+@NativeType("struct ovrColorf")
 public class OVRColorf extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

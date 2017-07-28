@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     EColorSpace eColorSpace;
  * }</pre></code>
  */
+@NativeType("struct Texture_t")
 public class Texture extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -70,18 +71,21 @@ public class Texture extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code handle} field. */
+    @NativeType("void *")
     public long handle() { return nhandle(address()); }
     /** Returns the value of the {@code eType} field. */
+    @NativeType("ETextureType")
     public int eType() { return neType(address()); }
     /** Returns the value of the {@code eColorSpace} field. */
+    @NativeType("EColorSpace")
     public int eColorSpace() { return neColorSpace(address()); }
 
     /** Sets the specified value to the {@code handle} field. */
-    public Texture handle(long value) { nhandle(address(), value); return this; }
+    public Texture handle(@NativeType("void *") long value) { nhandle(address(), value); return this; }
     /** Sets the specified value to the {@code eType} field. */
-    public Texture eType(int value) { neType(address(), value); return this; }
+    public Texture eType(@NativeType("ETextureType") int value) { neType(address(), value); return this; }
     /** Sets the specified value to the {@code eColorSpace} field. */
-    public Texture eColorSpace(int value) { neColorSpace(address(), value); return this; }
+    public Texture eColorSpace(@NativeType("EColorSpace") int value) { neColorSpace(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public Texture set(
@@ -315,18 +319,21 @@ public class Texture extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code handle} field. */
+        @NativeType("void *")
         public long handle() { return Texture.nhandle(address()); }
         /** Returns the value of the {@code eType} field. */
+        @NativeType("ETextureType")
         public int eType() { return Texture.neType(address()); }
         /** Returns the value of the {@code eColorSpace} field. */
+        @NativeType("EColorSpace")
         public int eColorSpace() { return Texture.neColorSpace(address()); }
 
         /** Sets the specified value to the {@code handle} field. */
-        public Texture.Buffer handle(long value) { Texture.nhandle(address(), value); return this; }
+        public Texture.Buffer handle(@NativeType("void *") long value) { Texture.nhandle(address(), value); return this; }
         /** Sets the specified value to the {@code eType} field. */
-        public Texture.Buffer eType(int value) { Texture.neType(address(), value); return this; }
+        public Texture.Buffer eType(@NativeType("ETextureType") int value) { Texture.neType(address(), value); return this; }
         /** Sets the specified value to the {@code eColorSpace} field. */
-        public Texture.Buffer eColorSpace(int value) { Texture.neColorSpace(address(), value); return this; }
+        public Texture.Buffer eColorSpace(@NativeType("EColorSpace") int value) { Texture.neColorSpace(address(), value); return this; }
 
     }
 

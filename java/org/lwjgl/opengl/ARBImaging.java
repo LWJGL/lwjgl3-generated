@@ -234,7 +234,7 @@ public class ARBImaging {
      * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table          the color table data
      */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, ByteBuffer table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer table) {
         nglColorTable(target, internalformat, width, format, type, memAddress(table));
     }
 
@@ -248,7 +248,7 @@ public class ARBImaging {
      * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table          the color table data
      */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, long table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long table) {
         nglColorTable(target, internalformat, width, format, type, table);
     }
 
@@ -262,7 +262,7 @@ public class ARBImaging {
      * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table          the color table data
      */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, ShortBuffer table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer table) {
         nglColorTable(target, internalformat, width, format, type, memAddress(table));
     }
 
@@ -276,7 +276,7 @@ public class ARBImaging {
      * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table          the color table data
      */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, IntBuffer table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer table) {
         nglColorTable(target, internalformat, width, format, type, memAddress(table));
     }
 
@@ -290,7 +290,7 @@ public class ARBImaging {
      * @param type           the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table          the color table data
      */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, FloatBuffer table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer table) {
         nglColorTable(target, internalformat, width, format, type, memAddress(table));
     }
 
@@ -305,7 +305,7 @@ public class ARBImaging {
      * @param y              the lower framebuffer pixel coordinate
      * @param width          the color table width
      */
-    public static native void glCopyColorTable(int target, int internalformat, int x, int y, int width);
+    public static native void glCopyColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width);
 
     // --- [ glColorTableParameteriv ] ---
 
@@ -319,7 +319,7 @@ public class ARBImaging {
      * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE_SCALE COLOR_TABLE_SCALE}</td><td>{@link #GL_COLOR_TABLE_BIAS COLOR_TABLE_BIAS}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glColorTableParameteriv(int target, int pname, IntBuffer params) {
+    public static void glColorTableParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -338,7 +338,7 @@ public class ARBImaging {
      * @param pname  the parameter to set
      * @param params the parameter value
      */
-    public static void glColorTableParameterfv(int target, int pname, FloatBuffer params) {
+    public static void glColorTableParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -358,7 +358,7 @@ public class ARBImaging {
      * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table  the color table data
      */
-    public static void glGetColorTable(int target, int format, int type, ByteBuffer table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer table) {
         nglGetColorTable(target, format, type, memAddress(table));
     }
 
@@ -370,7 +370,7 @@ public class ARBImaging {
      * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table  the color table data
      */
-    public static void glGetColorTable(int target, int format, int type, long table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") long table) {
         nglGetColorTable(target, format, type, table);
     }
 
@@ -382,7 +382,7 @@ public class ARBImaging {
      * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table  the color table data
      */
-    public static void glGetColorTable(int target, int format, int type, ShortBuffer table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ShortBuffer table) {
         nglGetColorTable(target, format, type, memAddress(table));
     }
 
@@ -394,7 +394,7 @@ public class ARBImaging {
      * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table  the color table data
      */
-    public static void glGetColorTable(int target, int format, int type, IntBuffer table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") IntBuffer table) {
         nglGetColorTable(target, format, type, memAddress(table));
     }
 
@@ -406,7 +406,7 @@ public class ARBImaging {
      * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param table  the color table data
      */
-    public static void glGetColorTable(int target, int format, int type, FloatBuffer table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") FloatBuffer table) {
         nglGetColorTable(target, format, type, memAddress(table));
     }
 
@@ -422,7 +422,7 @@ public class ARBImaging {
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE_SCALE COLOR_TABLE_SCALE}</td><td>{@link #GL_COLOR_TABLE_BIAS COLOR_TABLE_BIAS}</td><td>{@link #GL_COLOR_TABLE_FORMAT COLOR_TABLE_FORMAT}</td></tr><tr><td>{@link #GL_COLOR_TABLE_WIDTH COLOR_TABLE_WIDTH}</td><td>{@link #GL_COLOR_TABLE_RED_SIZE COLOR_TABLE_RED_SIZE}</td><td>{@link #GL_COLOR_TABLE_GREEN_SIZE COLOR_TABLE_GREEN_SIZE}</td></tr><tr><td>{@link #GL_COLOR_TABLE_BLUE_SIZE COLOR_TABLE_BLUE_SIZE}</td><td>{@link #GL_COLOR_TABLE_ALPHA_SIZE COLOR_TABLE_ALPHA_SIZE}</td><td>{@link #GL_COLOR_TABLE_LUMINANCE_SIZE COLOR_TABLE_LUMINANCE_SIZE}</td></tr><tr><td>{@link #GL_COLOR_TABLE_INTENSITY_SIZE COLOR_TABLE_INTENSITY_SIZE}</td></tr></table>
      * @param params a buffer in which to place the returned value
      */
-    public static void glGetColorTableParameteriv(int target, int pname, IntBuffer params) {
+    public static void glGetColorTableParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -435,7 +435,8 @@ public class ARBImaging {
      * @param target the color table target. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE COLOR_TABLE}</td><td>{@link #GL_POST_CONVOLUTION_COLOR_TABLE POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_POST_COLOR_MATRIX_COLOR_TABLE POST_COLOR_MATRIX_COLOR_TABLE}</td></tr><tr><td>{@link #GL_PROXY_COLOR_TABLE PROXY_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_CONVOLUTION_COLOR_TABLE PROXY_POST_CONVOLUTION_COLOR_TABLE}</td><td>{@link #GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE PROXY_POST_COLOR_MATRIX_COLOR_TABLE}</td></tr></table>
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_COLOR_TABLE_SCALE COLOR_TABLE_SCALE}</td><td>{@link #GL_COLOR_TABLE_BIAS COLOR_TABLE_BIAS}</td><td>{@link #GL_COLOR_TABLE_FORMAT COLOR_TABLE_FORMAT}</td></tr><tr><td>{@link #GL_COLOR_TABLE_WIDTH COLOR_TABLE_WIDTH}</td><td>{@link #GL_COLOR_TABLE_RED_SIZE COLOR_TABLE_RED_SIZE}</td><td>{@link #GL_COLOR_TABLE_GREEN_SIZE COLOR_TABLE_GREEN_SIZE}</td></tr><tr><td>{@link #GL_COLOR_TABLE_BLUE_SIZE COLOR_TABLE_BLUE_SIZE}</td><td>{@link #GL_COLOR_TABLE_ALPHA_SIZE COLOR_TABLE_ALPHA_SIZE}</td><td>{@link #GL_COLOR_TABLE_LUMINANCE_SIZE COLOR_TABLE_LUMINANCE_SIZE}</td></tr><tr><td>{@link #GL_COLOR_TABLE_INTENSITY_SIZE COLOR_TABLE_INTENSITY_SIZE}</td></tr></table>
      */
-    public static int glGetColorTableParameteri(int target, int pname) {
+    @NativeType("void")
+    public static int glGetColorTableParameteri(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -458,7 +459,7 @@ public class ARBImaging {
      * @param pname  the parameter to query
      * @param params a buffer in which to place the returned value
      */
-    public static void glGetColorTableParameterfv(int target, int pname, FloatBuffer params) {
+    public static void glGetColorTableParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -471,7 +472,8 @@ public class ARBImaging {
      * @param target the color table target
      * @param pname  the parameter to query
      */
-    public static float glGetColorTableParameterf(int target, int pname) {
+    @NativeType("void")
+    public static float glGetColorTableParameterf(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -497,7 +499,7 @@ public class ARBImaging {
      * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param data   the color table data
      */
-    public static void glColorSubTable(int target, int start, int count, int format, int type, ByteBuffer data) {
+    public static void glColorSubTable(@NativeType("GLenum") int target, @NativeType("GLsizei") int start, @NativeType("GLsizei") int count, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer data) {
         nglColorSubTable(target, start, count, format, type, memAddress(data));
     }
 
@@ -511,7 +513,7 @@ public class ARBImaging {
      * @param type   the color data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param data   the color table data
      */
-    public static void glColorSubTable(int target, int start, int count, int format, int type, long data) {
+    public static void glColorSubTable(@NativeType("GLenum") int target, @NativeType("GLsizei") int start, @NativeType("GLsizei") int count, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long data) {
         nglColorSubTable(target, start, count, format, type, data);
     }
 
@@ -526,7 +528,7 @@ public class ARBImaging {
      * @param y      the lower framebuffer pixel coordinate
      * @param width  the number of colors in the subregion to respecify
      */
-    public static native void glCopyColorSubTable(int target, int start, int x, int y, int width);
+    public static native void glCopyColorSubTable(@NativeType("GLenum") int target, @NativeType("GLsizei") int start, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width);
 
     // --- [ glConvolutionFilter1D ] ---
 
@@ -543,7 +545,7 @@ public class ARBImaging {
      * @param type           the filter data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param data           the filter data
      */
-    public static void glConvolutionFilter1D(int target, int internalformat, int width, int format, int type, ByteBuffer data) {
+    public static void glConvolutionFilter1D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer data) {
         nglConvolutionFilter1D(target, internalformat, width, format, type, memAddress(data));
     }
 
@@ -557,7 +559,7 @@ public class ARBImaging {
      * @param type           the filter data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param data           the filter data
      */
-    public static void glConvolutionFilter1D(int target, int internalformat, int width, int format, int type, long data) {
+    public static void glConvolutionFilter1D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long data) {
         nglConvolutionFilter1D(target, internalformat, width, format, type, data);
     }
 
@@ -577,7 +579,7 @@ public class ARBImaging {
      * @param type           the filter data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param data           the filter data
      */
-    public static void glConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer data) {
+    public static void glConvolutionFilter2D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer data) {
         nglConvolutionFilter2D(target, internalformat, width, height, format, type, memAddress(data));
     }
 
@@ -592,7 +594,7 @@ public class ARBImaging {
      * @param type           the filter data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param data           the filter data
      */
-    public static void glConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, long data) {
+    public static void glConvolutionFilter2D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long data) {
         nglConvolutionFilter2D(target, internalformat, width, height, format, type, data);
     }
 
@@ -608,7 +610,7 @@ public class ARBImaging {
      * @param y              the lower framebuffer pixel coordinate
      * @param width          the filter width
      */
-    public static native void glCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width);
+    public static native void glCopyConvolutionFilter1D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width);
 
     // --- [ glCopyConvolutionFilter2D ] ---
 
@@ -623,7 +625,7 @@ public class ARBImaging {
      * @param width          the filter width
      * @param height         the filter height
      */
-    public static native void glCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height);
+    public static native void glCopyConvolutionFilter2D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
     // --- [ glGetConvolutionFilter ] ---
 
@@ -638,7 +640,7 @@ public class ARBImaging {
      * @param type   the filter data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param image  the filter data
      */
-    public static void glGetConvolutionFilter(int target, int format, int type, ByteBuffer image) {
+    public static void glGetConvolutionFilter(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer image) {
         nglGetConvolutionFilter(target, format, type, memAddress(image));
     }
 
@@ -650,7 +652,7 @@ public class ARBImaging {
      * @param type   the filter data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param image  the filter data
      */
-    public static void glGetConvolutionFilter(int target, int format, int type, long image) {
+    public static void glGetConvolutionFilter(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") long image) {
         nglGetConvolutionFilter(target, format, type, image);
     }
 
@@ -671,7 +673,7 @@ public class ARBImaging {
      * @param row            the horizontal filter data
      * @param column         the vertical filter data
      */
-    public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, ByteBuffer row, ByteBuffer column) {
+    public static void glSeparableFilter2D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer row, @NativeType("const void *") ByteBuffer column) {
         nglSeparableFilter2D(target, internalformat, width, height, format, type, memAddress(row), memAddress(column));
     }
 
@@ -687,7 +689,7 @@ public class ARBImaging {
      * @param row            the horizontal filter data
      * @param column         the vertical filter data
      */
-    public static void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, long row, long column) {
+    public static void glSeparableFilter2D(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long row, @NativeType("const void *") long column) {
         nglSeparableFilter2D(target, internalformat, width, height, format, type, row, column);
     }
 
@@ -706,7 +708,7 @@ public class ARBImaging {
      * @param column a buffer in which to return the filter column
      * @param span   unused
      */
-    public static void glGetSeparableFilter(int target, int format, int type, ByteBuffer row, ByteBuffer column, ByteBuffer span) {
+    public static void glGetSeparableFilter(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer row, @NativeType("void *") ByteBuffer column, @NativeType("void *") ByteBuffer span) {
         nglGetSeparableFilter(target, format, type, memAddress(row), memAddress(column), memAddressSafe(span));
     }
 
@@ -720,7 +722,7 @@ public class ARBImaging {
      * @param column a buffer in which to return the filter column
      * @param span   unused
      */
-    public static void glGetSeparableFilter(int target, int format, int type, long row, long column, ByteBuffer span) {
+    public static void glGetSeparableFilter(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") long row, @NativeType("void *") long column, @NativeType("void *") ByteBuffer span) {
         nglGetSeparableFilter(target, format, type, row, column, memAddressSafe(span));
     }
 
@@ -733,7 +735,7 @@ public class ARBImaging {
      * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_CONVOLUTION_BORDER_MODE CONVOLUTION_BORDER_MODE}</td></tr></table>
      * @param param  the parameter value
      */
-    public static native void glConvolutionParameteri(int target, int pname, int param);
+    public static native void glConvolutionParameteri(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint") int param);
 
     // --- [ glConvolutionParameteriv ] ---
 
@@ -747,7 +749,7 @@ public class ARBImaging {
      * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_CONVOLUTION_FILTER_SCALE CONVOLUTION_FILTER_SCALE}</td><td>{@link #GL_CONVOLUTION_FILTER_BIAS CONVOLUTION_FILTER_BIAS}</td><td>{@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glConvolutionParameteriv(int target, int pname, IntBuffer params) {
+    public static void glConvolutionParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -763,7 +765,7 @@ public class ARBImaging {
      * @param pname  the parameter to set
      * @param param  the parameter value
      */
-    public static native void glConvolutionParameterf(int target, int pname, float param);
+    public static native void glConvolutionParameterf(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat") float param);
 
     // --- [ glConvolutionParameterfv ] ---
 
@@ -777,7 +779,7 @@ public class ARBImaging {
      * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_CONVOLUTION_FILTER_SCALE CONVOLUTION_FILTER_SCALE}</td><td>{@link #GL_CONVOLUTION_FILTER_BIAS CONVOLUTION_FILTER_BIAS}</td><td>{@link #GL_CONVOLUTION_BORDER_COLOR CONVOLUTION_BORDER_COLOR}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glConvolutionParameterfv(int target, int pname, FloatBuffer params) {
+    public static void glConvolutionParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -796,7 +798,7 @@ public class ARBImaging {
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_CONVOLUTION_FORMAT CONVOLUTION_FORMAT}</td><td>{@link #GL_CONVOLUTION_WIDTH CONVOLUTION_WIDTH}</td><td>{@link #GL_CONVOLUTION_HEIGHT CONVOLUTION_HEIGHT}</td><td>{@link #GL_MAX_CONVOLUTION_WIDTH MAX_CONVOLUTION_WIDTH}</td></tr><tr><td>{@link #GL_MAX_CONVOLUTION_HEIGHT MAX_CONVOLUTION_HEIGHT}</td></tr></table>
      * @param params a buffer in which to return the parameter value
      */
-    public static void glGetConvolutionParameteriv(int target, int pname, IntBuffer params) {
+    public static void glGetConvolutionParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -809,7 +811,8 @@ public class ARBImaging {
      * @param target the filter target. One of:<br><table><tr><td>{@link #GL_CONVOLUTION_1D CONVOLUTION_1D}</td><td>{@link #GL_CONVOLUTION_2D CONVOLUTION_2D}</td><td>{@link #GL_SEPARABLE_2D SEPARABLE_2D}</td></tr></table>
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_CONVOLUTION_FORMAT CONVOLUTION_FORMAT}</td><td>{@link #GL_CONVOLUTION_WIDTH CONVOLUTION_WIDTH}</td><td>{@link #GL_CONVOLUTION_HEIGHT CONVOLUTION_HEIGHT}</td><td>{@link #GL_MAX_CONVOLUTION_WIDTH MAX_CONVOLUTION_WIDTH}</td></tr><tr><td>{@link #GL_MAX_CONVOLUTION_HEIGHT MAX_CONVOLUTION_HEIGHT}</td></tr></table>
      */
-    public static int glGetConvolutionParameteri(int target, int pname) {
+    @NativeType("void")
+    public static int glGetConvolutionParameteri(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -832,7 +835,7 @@ public class ARBImaging {
      * @param pname  the parameter to query
      * @param params a buffer in which to return the parameter value
      */
-    public static void glGetConvolutionParameterfv(int target, int pname, FloatBuffer params) {
+    public static void glGetConvolutionParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -845,7 +848,8 @@ public class ARBImaging {
      * @param target the filter target
      * @param pname  the parameter to query
      */
-    public static float glGetConvolutionParameterf(int target, int pname) {
+    @NativeType("void")
+    public static float glGetConvolutionParameterf(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -866,7 +870,7 @@ public class ARBImaging {
      * @param internalformat the histogram internal format. One of:<br><table><tr><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td><td>{@link GL11#GL_R3_G3_B2 R3_G3_B2}</td><td>{@link GL11#GL_RGB4 RGB4}</td><td>{@link GL11#GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link GL11#GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link GL11#GL_RGB10 RGB10}</td><td>{@link GL11#GL_RGB12 RGB12}</td><td>{@link GL11#GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td><td>{@link GL11#GL_RGBA2 RGBA2}</td><td>{@link GL11#GL_RGBA4 RGBA4}</td></tr><tr><td>{@link GL11#GL_RGB5_A1 RGB5_A1}</td><td>{@link GL11#GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link GL11#GL_RGB10_A2 RGB10_A2}</td><td>{@link GL11#GL_RGBA12 RGBA12}</td><td>{@link GL11#GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td></tr><tr><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td></tr><tr><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL11#GL_INTENSITY INTENSITY}</td><td>{@link GL11#GL_ALPHA4 ALPHA4}</td><td>{@link GL11#GL_ALPHA8 ALPHA8}</td><td>{@link GL11#GL_ALPHA12 ALPHA12}</td><td>{@link GL11#GL_ALPHA16 ALPHA16}</td><td>{@link GL11#GL_LUMINANCE4 LUMINANCE4}</td><td>{@link GL11#GL_LUMINANCE8 LUMINANCE8}</td></tr><tr><td>{@link GL11#GL_LUMINANCE12 LUMINANCE12}</td><td>{@link GL11#GL_LUMINANCE16 LUMINANCE16}</td><td>{@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}</td><td>{@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}</td><td>{@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}</td></tr><tr><td>{@link GL11#GL_INTENSITY4 INTENSITY4}</td><td>{@link GL11#GL_INTENSITY8 INTENSITY8}</td><td>{@link GL11#GL_INTENSITY12 INTENSITY12}</td><td>{@link GL11#GL_INTENSITY16 INTENSITY16}</td><td>{@link GL21#GL_SLUMINANCE SLUMINANCE}</td><td>{@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}</td></tr></table>
      * @param sink           whether pixel groups will be consumed by the histogram operation ({@link GL11#GL_TRUE TRUE}) or passed on to the minmax operation ({@link GL11#GL_FALSE FALSE})
      */
-    public static native void glHistogram(int target, int width, int internalformat, boolean sink);
+    public static native void glHistogram(@NativeType("GLenum") int target, @NativeType("GLsizei") int width, @NativeType("GLenum") int internalformat, @NativeType("GLboolean") boolean sink);
 
     // --- [ glResetHistogram ] ---
 
@@ -875,7 +879,7 @@ public class ARBImaging {
      *
      * @param target the histogram target. Must be:<br><table><tr><td>{@link #GL_HISTOGRAM HISTOGRAM}</td></tr></table>
      */
-    public static native void glResetHistogram(int target);
+    public static native void glResetHistogram(@NativeType("GLenum") int target);
 
     // --- [ glGetHistogram ] ---
 
@@ -891,7 +895,7 @@ public class ARBImaging {
      * @param type   the pixel data types. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param values the pixel data
      */
-    public static void glGetHistogram(int target, boolean reset, int format, int type, ByteBuffer values) {
+    public static void glGetHistogram(@NativeType("GLenum") int target, @NativeType("GLboolean") boolean reset, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer values) {
         nglGetHistogram(target, reset, format, type, memAddress(values));
     }
 
@@ -904,7 +908,7 @@ public class ARBImaging {
      * @param type   the pixel data types. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param values the pixel data
      */
-    public static void glGetHistogram(int target, boolean reset, int format, int type, long values) {
+    public static void glGetHistogram(@NativeType("GLenum") int target, @NativeType("GLboolean") boolean reset, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") long values) {
         nglGetHistogram(target, reset, format, type, values);
     }
 
@@ -920,7 +924,7 @@ public class ARBImaging {
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_HISTOGRAM_WIDTH HISTOGRAM_WIDTH}</td><td>{@link #GL_HISTOGRAM_FORMAT HISTOGRAM_FORMAT}</td><td>{@link #GL_HISTOGRAM_RED_SIZE HISTOGRAM_RED_SIZE}</td><td>{@link #GL_HISTOGRAM_GREEN_SIZE HISTOGRAM_GREEN_SIZE}</td></tr><tr><td>{@link #GL_HISTOGRAM_BLUE_SIZE HISTOGRAM_BLUE_SIZE}</td><td>{@link #GL_HISTOGRAM_ALPHA_SIZE HISTOGRAM_ALPHA_SIZE}</td><td>{@link #GL_HISTOGRAM_LUMINANCE_SIZE HISTOGRAM_LUMINANCE_SIZE}</td><td>{@link #GL_HISTOGRAM_SINK HISTOGRAM_SINK}</td></tr></table>
      * @param params a buffer in which to return the parameter values
      */
-    public static void glGetHistogramParameteriv(int target, int pname, IntBuffer params) {
+    public static void glGetHistogramParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -933,7 +937,8 @@ public class ARBImaging {
      * @param target the histogram target. Must be:<br><table><tr><td>{@link #GL_HISTOGRAM HISTOGRAM}</td></tr></table>
      * @param pname  the parameter to query. One of:<br><table><tr><td>{@link #GL_HISTOGRAM_WIDTH HISTOGRAM_WIDTH}</td><td>{@link #GL_HISTOGRAM_FORMAT HISTOGRAM_FORMAT}</td><td>{@link #GL_HISTOGRAM_RED_SIZE HISTOGRAM_RED_SIZE}</td><td>{@link #GL_HISTOGRAM_GREEN_SIZE HISTOGRAM_GREEN_SIZE}</td></tr><tr><td>{@link #GL_HISTOGRAM_BLUE_SIZE HISTOGRAM_BLUE_SIZE}</td><td>{@link #GL_HISTOGRAM_ALPHA_SIZE HISTOGRAM_ALPHA_SIZE}</td><td>{@link #GL_HISTOGRAM_LUMINANCE_SIZE HISTOGRAM_LUMINANCE_SIZE}</td><td>{@link #GL_HISTOGRAM_SINK HISTOGRAM_SINK}</td></tr></table>
      */
-    public static int glGetHistogramParameteri(int target, int pname) {
+    @NativeType("void")
+    public static int glGetHistogramParameteri(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -956,7 +961,7 @@ public class ARBImaging {
      * @param pname  the parameter to query
      * @param params a buffer in which to place the returned value
      */
-    public static void glGetHistogramParameterfv(int target, int pname, FloatBuffer params) {
+    public static void glGetHistogramParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -969,7 +974,8 @@ public class ARBImaging {
      * @param target the histogram target
      * @param pname  the parameter to query
      */
-    public static float glGetHistogramParameterf(int target, int pname) {
+    @NativeType("void")
+    public static float glGetHistogramParameterf(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -989,7 +995,7 @@ public class ARBImaging {
      * @param internalformat the minmax table internal format. One of:<br><table><tr><td>{@link GL11#GL_RGB RGB}</td><td>{@link GL11#GL_RGBA RGBA}</td><td>{@link GL30#GL_RG8 RG8}</td><td>{@link GL31#GL_RG8_SNORM RG8_SNORM}</td><td>{@link GL11#GL_R3_G3_B2 R3_G3_B2}</td><td>{@link GL11#GL_RGB4 RGB4}</td><td>{@link GL11#GL_RGB5 RGB5}</td><td>{@link GL41#GL_RGB565 RGB565}</td></tr><tr><td>{@link GL11#GL_RGB8 RGB8}</td><td>{@link GL31#GL_RGB8_SNORM RGB8_SNORM}</td><td>{@link GL11#GL_RGB10 RGB10}</td><td>{@link GL11#GL_RGB12 RGB12}</td><td>{@link GL11#GL_RGB16 RGB16}</td><td>{@link GL31#GL_RGB16_SNORM RGB16_SNORM}</td><td>{@link GL11#GL_RGBA2 RGBA2}</td><td>{@link GL11#GL_RGBA4 RGBA4}</td></tr><tr><td>{@link GL11#GL_RGB5_A1 RGB5_A1}</td><td>{@link GL11#GL_RGBA8 RGBA8}</td><td>{@link GL31#GL_RGBA8_SNORM RGBA8_SNORM}</td><td>{@link GL11#GL_RGB10_A2 RGB10_A2}</td><td>{@link GL11#GL_RGBA12 RGBA12}</td><td>{@link GL11#GL_RGBA16 RGBA16}</td><td>{@link GL31#GL_RGBA16_SNORM RGBA16_SNORM}</td><td>{@link GL21#GL_SRGB8 SRGB8}</td></tr><tr><td>{@link GL21#GL_SRGB8_ALPHA8 SRGB8_ALPHA8}</td><td>{@link GL30#GL_RGB16F RGB16F}</td><td>{@link GL30#GL_RGBA16F RGBA16F}</td><td>{@link GL30#GL_RGB32F RGB32F}</td><td>{@link GL30#GL_RGBA32F RGBA32F}</td><td>{@link GL30#GL_R11F_G11F_B10F R11F_G11F_B10F}</td><td>{@link GL11#GL_ALPHA ALPHA}</td><td>{@link GL11#GL_LUMINANCE LUMINANCE}</td></tr><tr><td>{@link GL11#GL_LUMINANCE_ALPHA LUMINANCE_ALPHA}</td><td>{@link GL11#GL_INTENSITY INTENSITY}</td><td>{@link GL11#GL_ALPHA4 ALPHA4}</td><td>{@link GL11#GL_ALPHA8 ALPHA8}</td><td>{@link GL11#GL_ALPHA12 ALPHA12}</td><td>{@link GL11#GL_ALPHA16 ALPHA16}</td><td>{@link GL11#GL_LUMINANCE4 LUMINANCE4}</td><td>{@link GL11#GL_LUMINANCE8 LUMINANCE8}</td></tr><tr><td>{@link GL11#GL_LUMINANCE12 LUMINANCE12}</td><td>{@link GL11#GL_LUMINANCE16 LUMINANCE16}</td><td>{@link GL11#GL_LUMINANCE4_ALPHA4 LUMINANCE4_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE6_ALPHA2 LUMINANCE6_ALPHA2}</td><td>{@link GL11#GL_LUMINANCE8_ALPHA8 LUMINANCE8_ALPHA8}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA4 LUMINANCE12_ALPHA4}</td><td>{@link GL11#GL_LUMINANCE12_ALPHA12 LUMINANCE12_ALPHA12}</td><td>{@link GL11#GL_LUMINANCE16_ALPHA16 LUMINANCE16_ALPHA16}</td></tr><tr><td>{@link GL11#GL_INTENSITY4 INTENSITY4}</td><td>{@link GL11#GL_INTENSITY8 INTENSITY8}</td><td>{@link GL11#GL_INTENSITY12 INTENSITY12}</td><td>{@link GL11#GL_INTENSITY16 INTENSITY16}</td><td>{@link GL21#GL_SLUMINANCE SLUMINANCE}</td><td>{@link GL21#GL_SLUMINANCE8_ALPHA8 SLUMINANCE8_ALPHA8}</td></tr></table>
      * @param sink           whether pixel groups will be consumed by the minmax operation ({@link GL11#GL_TRUE TRUE}) or passed on to final conversion ({@link GL11#GL_FALSE FALSE})
      */
-    public static native void glMinmax(int target, int internalformat, boolean sink);
+    public static native void glMinmax(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLboolean") boolean sink);
 
     // --- [ glResetMinmax ] ---
 
@@ -998,7 +1004,7 @@ public class ARBImaging {
      *
      * @param target the minmax target. Must be:<br><table><tr><td>{@link #GL_MINMAX MINMAX}</td></tr></table>
      */
-    public static native void glResetMinmax(int target);
+    public static native void glResetMinmax(@NativeType("GLenum") int target);
 
     // --- [ glGetMinmax ] ---
 
@@ -1015,7 +1021,7 @@ public class ARBImaging {
      * @param type   the pixel data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param values a buffer in which to place the minmax values
      */
-    public static void glGetMinmax(int target, boolean reset, int format, int type, ByteBuffer values) {
+    public static void glGetMinmax(@NativeType("GLenum") int target, @NativeType("GLboolean") boolean reset, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer values) {
         nglGetMinmax(target, reset, format, type, memAddress(values));
     }
 
@@ -1029,7 +1035,7 @@ public class ARBImaging {
      * @param type   the pixel data type. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_BYTE BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_SHORT SHORT}</td></tr><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param values a buffer in which to place the minmax values
      */
-    public static void glGetMinmax(int target, boolean reset, int format, int type, long values) {
+    public static void glGetMinmax(@NativeType("GLenum") int target, @NativeType("GLboolean") boolean reset, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") long values) {
         nglGetMinmax(target, reset, format, type, values);
     }
 
@@ -1045,7 +1051,7 @@ public class ARBImaging {
      * @param pname  the parameter to query
      * @param params a buffer in which to place the returned value
      */
-    public static void glGetMinmaxParameteriv(int target, int pname, IntBuffer params) {
+    public static void glGetMinmaxParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1058,7 +1064,8 @@ public class ARBImaging {
      * @param target the minmax target. Must be:<br><table><tr><td>{@link #GL_MINMAX MINMAX}</td></tr></table>
      * @param pname  the parameter to query
      */
-    public static int glGetMinmaxParameteri(int target, int pname) {
+    @NativeType("void")
+    public static int glGetMinmaxParameteri(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -1081,7 +1088,7 @@ public class ARBImaging {
      * @param pname  the parameter to query
      * @param params a buffer in which to place the returned value
      */
-    public static void glGetMinmaxParameterfv(int target, int pname, FloatBuffer params) {
+    public static void glGetMinmaxParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1094,7 +1101,8 @@ public class ARBImaging {
      * @param target the minmax target. Must be:<br><table><tr><td>{@link #GL_MINMAX MINMAX}</td></tr></table>
      * @param pname  the parameter to query
      */
-    public static float glGetMinmaxParameterf(int target, int pname) {
+    @NativeType("void")
+    public static float glGetMinmaxParameterf(@NativeType("GLenum") int target, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -1115,7 +1123,7 @@ public class ARBImaging {
      * @param blue  the blue color component
      * @param alpha the alpha color component
      */
-    public static native void glBlendColor(float red, float green, float blue, float alpha);
+    public static native void glBlendColor(@NativeType("GLfloat") float red, @NativeType("GLfloat") float green, @NativeType("GLfloat") float blue, @NativeType("GLfloat") float alpha);
 
     // --- [ glBlendEquation ] ---
 
@@ -1124,10 +1132,10 @@ public class ARBImaging {
      *
      * @param mode the blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
      */
-    public static native void glBlendEquation(int mode);
+    public static native void glBlendEquation(@NativeType("GLenum") int mode);
 
     /** Array version of: {@link #glColorTable ColorTable} */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, short[] table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") short[] table) {
         long __functionAddress = GL.getICD().glColorTable;
         if (CHECKS) {
             check(__functionAddress);
@@ -1136,7 +1144,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glColorTable ColorTable} */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, int[] table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") int[] table) {
         long __functionAddress = GL.getICD().glColorTable;
         if (CHECKS) {
             check(__functionAddress);
@@ -1145,7 +1153,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glColorTable ColorTable} */
-    public static void glColorTable(int target, int internalformat, int width, int format, int type, float[] table) {
+    public static void glColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") float[] table) {
         long __functionAddress = GL.getICD().glColorTable;
         if (CHECKS) {
             check(__functionAddress);
@@ -1154,7 +1162,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glColorTableParameteriv ColorTableParameteriv} */
-    public static void glColorTableParameteriv(int target, int pname, int[] params) {
+    public static void glColorTableParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
         long __functionAddress = GL.getICD().glColorTableParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1164,7 +1172,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glColorTableParameterfv ColorTableParameterfv} */
-    public static void glColorTableParameterfv(int target, int pname, float[] params) {
+    public static void glColorTableParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glColorTableParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1174,7 +1182,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetColorTable GetColorTable} */
-    public static void glGetColorTable(int target, int format, int type, short[] table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") short[] table) {
         long __functionAddress = GL.getICD().glGetColorTable;
         if (CHECKS) {
             check(__functionAddress);
@@ -1183,7 +1191,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetColorTable GetColorTable} */
-    public static void glGetColorTable(int target, int format, int type, int[] table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") int[] table) {
         long __functionAddress = GL.getICD().glGetColorTable;
         if (CHECKS) {
             check(__functionAddress);
@@ -1192,7 +1200,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetColorTable GetColorTable} */
-    public static void glGetColorTable(int target, int format, int type, float[] table) {
+    public static void glGetColorTable(@NativeType("GLenum") int target, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") float[] table) {
         long __functionAddress = GL.getICD().glGetColorTable;
         if (CHECKS) {
             check(__functionAddress);
@@ -1201,7 +1209,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetColorTableParameteriv GetColorTableParameteriv} */
-    public static void glGetColorTableParameteriv(int target, int pname, int[] params) {
+    public static void glGetColorTableParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetColorTableParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1211,7 +1219,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetColorTableParameterfv GetColorTableParameterfv} */
-    public static void glGetColorTableParameterfv(int target, int pname, float[] params) {
+    public static void glGetColorTableParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glGetColorTableParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1221,7 +1229,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glConvolutionParameteriv ConvolutionParameteriv} */
-    public static void glConvolutionParameteriv(int target, int pname, int[] params) {
+    public static void glConvolutionParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
         long __functionAddress = GL.getICD().glConvolutionParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1231,7 +1239,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glConvolutionParameterfv ConvolutionParameterfv} */
-    public static void glConvolutionParameterfv(int target, int pname, float[] params) {
+    public static void glConvolutionParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glConvolutionParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1241,7 +1249,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetConvolutionParameteriv GetConvolutionParameteriv} */
-    public static void glGetConvolutionParameteriv(int target, int pname, int[] params) {
+    public static void glGetConvolutionParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetConvolutionParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1251,7 +1259,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetConvolutionParameterfv GetConvolutionParameterfv} */
-    public static void glGetConvolutionParameterfv(int target, int pname, float[] params) {
+    public static void glGetConvolutionParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glGetConvolutionParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1261,7 +1269,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetHistogramParameteriv GetHistogramParameteriv} */
-    public static void glGetHistogramParameteriv(int target, int pname, int[] params) {
+    public static void glGetHistogramParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetHistogramParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1271,7 +1279,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetHistogramParameterfv GetHistogramParameterfv} */
-    public static void glGetHistogramParameterfv(int target, int pname, float[] params) {
+    public static void glGetHistogramParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glGetHistogramParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1281,7 +1289,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetMinmaxParameteriv GetMinmaxParameteriv} */
-    public static void glGetMinmaxParameteriv(int target, int pname, int[] params) {
+    public static void glGetMinmaxParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetMinmaxParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1291,7 +1299,7 @@ public class ARBImaging {
     }
 
     /** Array version of: {@link #glGetMinmaxParameterfv GetMinmaxParameterfv} */
-    public static void glGetMinmaxParameterfv(int target, int pname, float[] params) {
+    public static void glGetMinmaxParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GL.getICD().glGetMinmaxParameterfv;
         if (CHECKS) {
             check(__functionAddress);

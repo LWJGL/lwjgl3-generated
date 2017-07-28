@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkConfigStackColorElement struct nk_config_stack_color_element} elements[32];
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_color")
 class NkConfigStackColor extends Struct {
 
     /** The struct size in bytes. */
@@ -66,8 +67,10 @@ class NkConfigStackColor extends Struct {
     /** Returns the value of the {@code head} field. */
     public int head() { return nhead(address()); }
     /** Returns a {@link NkConfigStackColorElement}.Buffer view of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_color_element[32]")
     public NkConfigStackColorElement.Buffer elements() { return nelements(address()); }
     /** Returns a {@link NkConfigStackColorElement} view of the struct at the specified index of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_color_element")
     public NkConfigStackColorElement elements(int index) { return nelements(address(), index); }
 
     // -----------------------------------
@@ -144,8 +147,10 @@ class NkConfigStackColor extends Struct {
         /** Returns the value of the {@code head} field. */
         public int head() { return NkConfigStackColor.nhead(address()); }
         /** Returns a {@link NkConfigStackColorElement}.Buffer view of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_color_element[32]")
         public NkConfigStackColorElement.Buffer elements() { return NkConfigStackColor.nelements(address()); }
         /** Returns a {@link NkConfigStackColorElement} view of the struct at the specified index of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_color_element")
         public NkConfigStackColorElement elements(int index) { return NkConfigStackColor.nelements(address(), index); }
 
     }

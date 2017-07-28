@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char * pchValue;
  * }</pre></code>
  */
+@NativeType("struct AppOverrideKeys_t")
 public class AppOverrideKeys extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -66,20 +67,23 @@ public class AppOverrideKeys extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pchKey} field. */
+    @NativeType("char *")
     public ByteBuffer pchKey() { return npchKey(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pchKey} field. */
+    @NativeType("char *")
     public String pchKeyString() { return npchKeyString(address()); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pchValue} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("char *")
     public ByteBuffer pchValue(int capacity) { return npchValue(address(), capacity); }
 
     /** Sets the address of the specified encoded string to the {@code pchKey} field. */
-    public AppOverrideKeys pchKey(ByteBuffer value) { npchKey(address(), value); return this; }
+    public AppOverrideKeys pchKey(@NativeType("char *") ByteBuffer value) { npchKey(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pchValue} field. */
-    public AppOverrideKeys pchValue(ByteBuffer value) { npchValue(address(), value); return this; }
+    public AppOverrideKeys pchValue(@NativeType("char *") ByteBuffer value) { npchValue(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AppOverrideKeys set(
@@ -313,20 +317,23 @@ public class AppOverrideKeys extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pchKey} field. */
+        @NativeType("char *")
         public ByteBuffer pchKey() { return AppOverrideKeys.npchKey(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pchKey} field. */
+        @NativeType("char *")
         public String pchKeyString() { return AppOverrideKeys.npchKeyString(address()); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pchValue} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("char *")
         public ByteBuffer pchValue(int capacity) { return AppOverrideKeys.npchValue(address(), capacity); }
 
         /** Sets the address of the specified encoded string to the {@code pchKey} field. */
-        public AppOverrideKeys.Buffer pchKey(ByteBuffer value) { AppOverrideKeys.npchKey(address(), value); return this; }
+        public AppOverrideKeys.Buffer pchKey(@NativeType("char *") ByteBuffer value) { AppOverrideKeys.npchKey(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pchValue} field. */
-        public AppOverrideKeys.Buffer pchValue(ByteBuffer value) { AppOverrideKeys.npchValue(address(), value); return this; }
+        public AppOverrideKeys.Buffer pchValue(@NativeType("char *") ByteBuffer value) { AppOverrideKeys.npchValue(address(), value); return this; }
 
     }
 

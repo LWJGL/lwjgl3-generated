@@ -34,6 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     } pcie;
  * }</pre></code>
  */
+@NativeType("union cl_device_topology_amd")
 public class CLDeviceTopologyAMD extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -98,18 +99,25 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code raw_type} field. */
+    @NativeType("cl_uint")
     public int raw_type() { return nraw_type(address()); }
     /** Returns a {@link IntBuffer} view of the {@code raw_data} field. */
+    @NativeType("cl_uint[5]")
     public IntBuffer raw_data() { return nraw_data(address()); }
     /** Returns the value at the specified index of the {@code raw_data} field. */
+    @NativeType("cl_uint")
     public int raw_data(int index) { return nraw_data(address(), index); }
     /** Returns the value of the {@code pcie_type} field. */
+    @NativeType("cl_uint")
     public int pcie_type() { return npcie_type(address()); }
     /** Returns the value of the {@code pcie_bus} field. */
+    @NativeType("cl_char")
     public byte pcie_bus() { return npcie_bus(address()); }
     /** Returns the value of the {@code pcie_device} field. */
+    @NativeType("cl_char")
     public byte pcie_device() { return npcie_device(address()); }
     /** Returns the value of the {@code pcie_function} field. */
+    @NativeType("cl_char")
     public byte pcie_function() { return npcie_function(address()); }
 
     // -----------------------------------
@@ -302,18 +310,25 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code raw_type} field. */
+        @NativeType("cl_uint")
         public int raw_type() { return CLDeviceTopologyAMD.nraw_type(address()); }
         /** Returns a {@link IntBuffer} view of the {@code raw_data} field. */
+        @NativeType("cl_uint[5]")
         public IntBuffer raw_data() { return CLDeviceTopologyAMD.nraw_data(address()); }
         /** Returns the value at the specified index of the {@code raw_data} field. */
+        @NativeType("cl_uint")
         public int raw_data(int index) { return CLDeviceTopologyAMD.nraw_data(address(), index); }
         /** Returns the value of the {@code pcie_type} field. */
+        @NativeType("cl_uint")
         public int pcie_type() { return CLDeviceTopologyAMD.npcie_type(address()); }
         /** Returns the value of the {@code pcie_bus} field. */
+        @NativeType("cl_char")
         public byte pcie_bus() { return CLDeviceTopologyAMD.npcie_bus(address()); }
         /** Returns the value of the {@code pcie_device} field. */
+        @NativeType("cl_char")
         public byte pcie_device() { return CLDeviceTopologyAMD.npcie_device(address()); }
         /** Returns the value of the {@code pcie_function} field. */
+        @NativeType("cl_char")
         public byte pcie_function() { return CLDeviceTopologyAMD.npcie_function(address()); }
 
     }

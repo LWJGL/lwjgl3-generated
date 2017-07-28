@@ -14,6 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /** An opaque data structure to be used with {@link NativeFileDialog#NFD_OpenDialogMultiple OpenDialogMultiple}. */
+@NativeType("struct nfdpathset_t")
 public class NFDPathSet extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

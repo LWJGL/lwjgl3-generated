@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -40,6 +42,6 @@ public class QCOMAlphaTest {
 
     // --- [ glAlphaFuncQCOM ] ---
 
-    public static native void glAlphaFuncQCOM(int func, float ref);
+    public static native void glAlphaFuncQCOM(@NativeType("GLenum") int func, @NativeType("GLfloat") float ref);
 
 }

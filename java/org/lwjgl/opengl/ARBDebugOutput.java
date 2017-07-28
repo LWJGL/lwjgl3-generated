@@ -183,7 +183,7 @@ public class ARBDebugOutput {
      * @param ids      the message IDs to enable or disable
      * @param enabled  whether to enable or disable the references subset of messages
      */
-    public static void glDebugMessageControlARB(int source, int type, int severity, IntBuffer ids, boolean enabled) {
+    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
         nglDebugMessageControlARB(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
     }
 
@@ -213,7 +213,7 @@ public class ARBDebugOutput {
      * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
      * @param enabled  whether to enable or disable the references subset of messages
      */
-    public static void glDebugMessageControlARB(int source, int type, int severity, int id, boolean enabled) {
+    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -245,7 +245,7 @@ public class ARBDebugOutput {
      * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
      * @param buf      the string representation of the message
      */
-    public static void glDebugMessageInsertARB(int source, int type, int id, int severity, ByteBuffer buf) {
+    public static void glDebugMessageInsertARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") ByteBuffer buf) {
         nglDebugMessageInsertARB(source, type, id, severity, buf.remaining(), memAddress(buf));
     }
 
@@ -262,7 +262,7 @@ public class ARBDebugOutput {
      * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
      * @param buf      the string representation of the message
      */
-    public static void glDebugMessageInsertARB(int source, int type, int id, int severity, CharSequence buf) {
+    public static void glDebugMessageInsertARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") CharSequence buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer bufEncoded = stack.UTF8(buf, false);
@@ -315,7 +315,7 @@ public class ARBDebugOutput {
      * @param callback  a callback function that will be called when a debug message is generated
      * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
      */
-    public static void glDebugMessageCallbackARB(GLDebugMessageARBCallbackI callback, long userParam) {
+    public static void glDebugMessageCallbackARB(@NativeType("GLDEBUGPROCARB") GLDebugMessageARBCallbackI callback, @NativeType("const void *") long userParam) {
         nglDebugMessageCallbackARB(memAddressSafe(callback), userParam);
     }
 
@@ -357,7 +357,8 @@ public class ARBDebugOutput {
      * @param lengths    a buffer in which to place the returned message lengths
      * @param messageLog a buffer in which to place the returned messages
      */
-    public static int glGetDebugMessageLogARB(int count, IntBuffer sources, IntBuffer types, IntBuffer ids, IntBuffer severities, IntBuffer lengths, ByteBuffer messageLog) {
+    @NativeType("GLuint")
+    public static int glGetDebugMessageLogARB(@NativeType("GLuint") int count, @NativeType("GLenum *") IntBuffer sources, @NativeType("GLenum *") IntBuffer types, @NativeType("GLuint *") IntBuffer ids, @NativeType("GLenum *") IntBuffer severities, @NativeType("GLsizei *") IntBuffer lengths, @NativeType("GLchar *") ByteBuffer messageLog) {
         if (CHECKS) {
             checkSafe(sources, count);
             checkSafe(types, count);
@@ -369,7 +370,7 @@ public class ARBDebugOutput {
     }
 
     /** Array version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
-    public static void glDebugMessageControlARB(int source, int type, int severity, int[] ids, boolean enabled) {
+    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
         long __functionAddress = GL.getICD().glDebugMessageControlARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -378,7 +379,8 @@ public class ARBDebugOutput {
     }
 
     /** Array version of: {@link #glGetDebugMessageLogARB GetDebugMessageLogARB} */
-    public static int glGetDebugMessageLogARB(int count, int[] sources, int[] types, int[] ids, int[] severities, int[] lengths, ByteBuffer messageLog) {
+    @NativeType("GLuint")
+    public static int glGetDebugMessageLogARB(@NativeType("GLuint") int count, @NativeType("GLenum *") int[] sources, @NativeType("GLenum *") int[] types, @NativeType("GLuint *") int[] ids, @NativeType("GLenum *") int[] severities, @NativeType("GLsizei *") int[] lengths, @NativeType("GLchar *") ByteBuffer messageLog) {
         long __functionAddress = GL.getICD().glGetDebugMessageLogARB;
         if (CHECKS) {
             check(__functionAddress);

@@ -118,20 +118,26 @@ public class VkDisplayPropertiesKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code display} field. */
+    @NativeType("VkDisplayKHR")
     public long display() { return ndisplay(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code displayName} field. */
+    @NativeType("const char *")
     public ByteBuffer displayName() { return ndisplayName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code displayName} field. */
+    @NativeType("const char *")
     public String displayNameString() { return ndisplayNameString(address()); }
     /** Returns a {@link VkExtent2D} view of the {@code physicalDimensions} field. */
     public VkExtent2D physicalDimensions() { return nphysicalDimensions(address()); }
     /** Returns a {@link VkExtent2D} view of the {@code physicalResolution} field. */
     public VkExtent2D physicalResolution() { return nphysicalResolution(address()); }
     /** Returns the value of the {@code supportedTransforms} field. */
+    @NativeType("VkSurfaceTransformFlagsKHR")
     public int supportedTransforms() { return nsupportedTransforms(address()); }
     /** Returns the value of the {@code planeReorderPossible} field. */
+    @NativeType("VkBool32")
     public boolean planeReorderPossible() { return nplaneReorderPossible(address()) != 0; }
     /** Returns the value of the {@code persistentContent} field. */
+    @NativeType("VkBool32")
     public boolean persistentContent() { return npersistentContent(address()) != 0; }
 
     // -----------------------------------
@@ -323,20 +329,26 @@ public class VkDisplayPropertiesKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code display} field. */
+        @NativeType("VkDisplayKHR")
         public long display() { return VkDisplayPropertiesKHR.ndisplay(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code displayName} field. */
+        @NativeType("const char *")
         public ByteBuffer displayName() { return VkDisplayPropertiesKHR.ndisplayName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code displayName} field. */
+        @NativeType("const char *")
         public String displayNameString() { return VkDisplayPropertiesKHR.ndisplayNameString(address()); }
         /** Returns a {@link VkExtent2D} view of the {@code physicalDimensions} field. */
         public VkExtent2D physicalDimensions() { return VkDisplayPropertiesKHR.nphysicalDimensions(address()); }
         /** Returns a {@link VkExtent2D} view of the {@code physicalResolution} field. */
         public VkExtent2D physicalResolution() { return VkDisplayPropertiesKHR.nphysicalResolution(address()); }
         /** Returns the value of the {@code supportedTransforms} field. */
+        @NativeType("VkSurfaceTransformFlagsKHR")
         public int supportedTransforms() { return VkDisplayPropertiesKHR.nsupportedTransforms(address()); }
         /** Returns the value of the {@code planeReorderPossible} field. */
+        @NativeType("VkBool32")
         public boolean planeReorderPossible() { return VkDisplayPropertiesKHR.nplaneReorderPossible(address()) != 0; }
         /** Returns the value of the {@code persistentContent} field. */
+        @NativeType("VkBool32")
         public boolean persistentContent() { return VkDisplayPropertiesKHR.npersistentContent(address()) != 0; }
 
     }

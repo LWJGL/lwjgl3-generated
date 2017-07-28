@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -44,6 +46,7 @@ public class WGLEXTSwapControl {
      *
      * @param interval the minimum number of video frames that are displayed before a buffer swap will occur
      */
+    @NativeType("BOOL")
     public static boolean wglSwapIntervalEXT(int interval) {
         long __functionAddress = GL.getCapabilitiesWGL().wglSwapIntervalEXT;
         if (CHECKS) {

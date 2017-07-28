@@ -134,10 +134,13 @@ public class VkSparseImageMemoryBind extends Struct implements NativeResource {
     /** Returns a {@link VkExtent3D} view of the {@code extent} field. */
     public VkExtent3D extent() { return nextent(address()); }
     /** Returns the value of the {@code memory} field. */
+    @NativeType("VkDeviceMemory")
     public long memory() { return nmemory(address()); }
     /** Returns the value of the {@code memoryOffset} field. */
+    @NativeType("VkDeviceSize")
     public long memoryOffset() { return nmemoryOffset(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkSparseMemoryBindFlags")
     public int flags() { return nflags(address()); }
 
     /** Copies the specified {@link VkImageSubresource} to the {@code subresource} field. */
@@ -147,11 +150,11 @@ public class VkSparseImageMemoryBind extends Struct implements NativeResource {
     /** Copies the specified {@link VkExtent3D} to the {@code extent} field. */
     public VkSparseImageMemoryBind extent(VkExtent3D value) { nextent(address(), value); return this; }
     /** Sets the specified value to the {@code memory} field. */
-    public VkSparseImageMemoryBind memory(long value) { nmemory(address(), value); return this; }
+    public VkSparseImageMemoryBind memory(@NativeType("VkDeviceMemory") long value) { nmemory(address(), value); return this; }
     /** Sets the specified value to the {@code memoryOffset} field. */
-    public VkSparseImageMemoryBind memoryOffset(long value) { nmemoryOffset(address(), value); return this; }
+    public VkSparseImageMemoryBind memoryOffset(@NativeType("VkDeviceSize") long value) { nmemoryOffset(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkSparseImageMemoryBind flags(int value) { nflags(address(), value); return this; }
+    public VkSparseImageMemoryBind flags(@NativeType("VkSparseMemoryBindFlags") int value) { nflags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSparseImageMemoryBind set(
@@ -388,10 +391,13 @@ public class VkSparseImageMemoryBind extends Struct implements NativeResource {
         /** Returns a {@link VkExtent3D} view of the {@code extent} field. */
         public VkExtent3D extent() { return VkSparseImageMemoryBind.nextent(address()); }
         /** Returns the value of the {@code memory} field. */
+        @NativeType("VkDeviceMemory")
         public long memory() { return VkSparseImageMemoryBind.nmemory(address()); }
         /** Returns the value of the {@code memoryOffset} field. */
+        @NativeType("VkDeviceSize")
         public long memoryOffset() { return VkSparseImageMemoryBind.nmemoryOffset(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkSparseMemoryBindFlags")
         public int flags() { return VkSparseImageMemoryBind.nflags(address()); }
 
         /** Copies the specified {@link VkImageSubresource} to the {@code subresource} field. */
@@ -401,11 +407,11 @@ public class VkSparseImageMemoryBind extends Struct implements NativeResource {
         /** Copies the specified {@link VkExtent3D} to the {@code extent} field. */
         public VkSparseImageMemoryBind.Buffer extent(VkExtent3D value) { VkSparseImageMemoryBind.nextent(address(), value); return this; }
         /** Sets the specified value to the {@code memory} field. */
-        public VkSparseImageMemoryBind.Buffer memory(long value) { VkSparseImageMemoryBind.nmemory(address(), value); return this; }
+        public VkSparseImageMemoryBind.Buffer memory(@NativeType("VkDeviceMemory") long value) { VkSparseImageMemoryBind.nmemory(address(), value); return this; }
         /** Sets the specified value to the {@code memoryOffset} field. */
-        public VkSparseImageMemoryBind.Buffer memoryOffset(long value) { VkSparseImageMemoryBind.nmemoryOffset(address(), value); return this; }
+        public VkSparseImageMemoryBind.Buffer memoryOffset(@NativeType("VkDeviceSize") long value) { VkSparseImageMemoryBind.nmemoryOffset(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkSparseImageMemoryBind.Buffer flags(int value) { VkSparseImageMemoryBind.nflags(address(), value); return this; }
+        public VkSparseImageMemoryBind.Buffer flags(@NativeType("VkSparseMemoryBindFlags") int value) { VkSparseImageMemoryBind.nflags(address(), value); return this; }
 
     }
 

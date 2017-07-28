@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     ETrackingUniverseOrigin eOrigin;
  * }</pre></code>
  */
+@NativeType("struct VROverlayIntersectionParams_t")
 public class VROverlayIntersectionParams extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,18 +70,21 @@ public class VROverlayIntersectionParams extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdVector3} view of the {@code vSource} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vSource() { return nvSource(address()); }
     /** Returns a {@link HmdVector3} view of the {@code vDirection} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vDirection() { return nvDirection(address()); }
     /** Returns the value of the {@code eOrigin} field. */
+    @NativeType("ETrackingUniverseOrigin")
     public int eOrigin() { return neOrigin(address()); }
 
     /** Copies the specified {@link HmdVector3} to the {@code vSource} field. */
-    public VROverlayIntersectionParams vSource(HmdVector3 value) { nvSource(address(), value); return this; }
+    public VROverlayIntersectionParams vSource(@NativeType("HmdVector3_t") HmdVector3 value) { nvSource(address(), value); return this; }
     /** Copies the specified {@link HmdVector3} to the {@code vDirection} field. */
-    public VROverlayIntersectionParams vDirection(HmdVector3 value) { nvDirection(address(), value); return this; }
+    public VROverlayIntersectionParams vDirection(@NativeType("HmdVector3_t") HmdVector3 value) { nvDirection(address(), value); return this; }
     /** Sets the specified value to the {@code eOrigin} field. */
-    public VROverlayIntersectionParams eOrigin(int value) { neOrigin(address(), value); return this; }
+    public VROverlayIntersectionParams eOrigin(@NativeType("ETrackingUniverseOrigin") int value) { neOrigin(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VROverlayIntersectionParams set(
@@ -293,18 +297,21 @@ public class VROverlayIntersectionParams extends Struct implements NativeResourc
         }
 
         /** Returns a {@link HmdVector3} view of the {@code vSource} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vSource() { return VROverlayIntersectionParams.nvSource(address()); }
         /** Returns a {@link HmdVector3} view of the {@code vDirection} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vDirection() { return VROverlayIntersectionParams.nvDirection(address()); }
         /** Returns the value of the {@code eOrigin} field. */
+        @NativeType("ETrackingUniverseOrigin")
         public int eOrigin() { return VROverlayIntersectionParams.neOrigin(address()); }
 
         /** Copies the specified {@link HmdVector3} to the {@code vSource} field. */
-        public VROverlayIntersectionParams.Buffer vSource(HmdVector3 value) { VROverlayIntersectionParams.nvSource(address(), value); return this; }
+        public VROverlayIntersectionParams.Buffer vSource(@NativeType("HmdVector3_t") HmdVector3 value) { VROverlayIntersectionParams.nvSource(address(), value); return this; }
         /** Copies the specified {@link HmdVector3} to the {@code vDirection} field. */
-        public VROverlayIntersectionParams.Buffer vDirection(HmdVector3 value) { VROverlayIntersectionParams.nvDirection(address(), value); return this; }
+        public VROverlayIntersectionParams.Buffer vDirection(@NativeType("HmdVector3_t") HmdVector3 value) { VROverlayIntersectionParams.nvDirection(address(), value); return this; }
         /** Sets the specified value to the {@code eOrigin} field. */
-        public VROverlayIntersectionParams.Buffer eOrigin(int value) { VROverlayIntersectionParams.neOrigin(address(), value); return this; }
+        public VROverlayIntersectionParams.Buffer eOrigin(@NativeType("ETrackingUniverseOrigin") int value) { VROverlayIntersectionParams.neOrigin(address(), value); return this; }
 
     }
 

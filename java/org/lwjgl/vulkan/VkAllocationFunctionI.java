@@ -43,6 +43,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <p>{@link VkAllocationCallbacks}</p>
  */
 @FunctionalInterface
+@NativeType("PFN_vkAllocationFunction")
 public interface VkAllocationFunctionI extends CallbackI.P {
 
     String SIGNATURE = Callback.__stdcall("(pppi)p");
@@ -68,6 +69,6 @@ public interface VkAllocationFunctionI extends CallbackI.P {
      * @param alignment       the requested alignment of the allocation in bytes and <b>must</b> be a power of two.
      * @param allocationScope a {@code VkSystemAllocationScope} value specifying the allocation scope of the lifetime of the allocation, as described <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-host-allocation-scope">here</a>.
      */
-    long invoke(long pUserData, long size, long alignment, int allocationScope);
+    @NativeType("void *") long invoke(@NativeType("void *") long pUserData, @NativeType("size_t") long size, @NativeType("size_t") long alignment, @NativeType("VkSystemAllocationScope") int allocationScope);
 
 }

@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -74,7 +76,8 @@ public class NVStreamMetadata {
         return callPPI(__functionAddress, dpy, attribute, value);
     }
 
-    public static boolean eglQueryDisplayAttribNV(long dpy, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDisplayAttribNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -93,7 +96,8 @@ public class NVStreamMetadata {
         return callPPPI(__functionAddress, dpy, stream, n, offset, size, data);
     }
 
-    public static boolean eglSetStreamMetadataNV(long dpy, long stream, int n, int offset, ByteBuffer data) {
+    @NativeType("EGLBoolean")
+    public static boolean eglSetStreamMetadataNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLint") int n, @NativeType("EGLint") int offset, @NativeType("const void *") ByteBuffer data) {
         return neglSetStreamMetadataNV(dpy, stream, n, offset, data.remaining(), memAddress(data)) != 0;
     }
 
@@ -109,7 +113,8 @@ public class NVStreamMetadata {
         return callPPPI(__functionAddress, dpy, stream, name, n, offset, size, data);
     }
 
-    public static boolean eglQueryStreamMetadataNV(long dpy, long stream, int name, int n, int offset, ByteBuffer data) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryStreamMetadataNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int name, @NativeType("EGLint") int n, @NativeType("EGLint") int offset, @NativeType("void *") ByteBuffer data) {
         return neglQueryStreamMetadataNV(dpy, stream, name, n, offset, data.remaining(), memAddress(data)) != 0;
     }
 

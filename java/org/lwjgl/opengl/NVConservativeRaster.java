@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -58,6 +60,6 @@ public class NVConservativeRaster {
      * @param xbits the {@link #GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV SUBPIXEL_PRECISION_BIAS_X_BITS_NV} value. The initial value is zero.
      * @param ybits the {@link #GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV SUBPIXEL_PRECISION_BIAS_Y_BITS_NV} value. The initial value is zero.
      */
-    public static native void glSubpixelPrecisionBiasNV(int xbits, int ybits);
+    public static native void glSubpixelPrecisionBiasNV(@NativeType("GLuint") int xbits, @NativeType("GLuint") int ybits);
 
 }

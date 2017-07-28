@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned reserved[2];
  * }</pre></code>
  */
+@NativeType("struct XXH64_state_t")
 public class XXH64State extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -92,46 +93,56 @@ public class XXH64State extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code total_len} field. */
+    @NativeType("long long")
     public long total_len() { return ntotal_len(address()); }
     /** Returns the value of the {@code v1} field. */
+    @NativeType("long long")
     public long v1() { return nv1(address()); }
     /** Returns the value of the {@code v2} field. */
+    @NativeType("long long")
     public long v2() { return nv2(address()); }
     /** Returns the value of the {@code v3} field. */
+    @NativeType("long long")
     public long v3() { return nv3(address()); }
     /** Returns the value of the {@code v4} field. */
+    @NativeType("long long")
     public long v4() { return nv4(address()); }
     /** Returns a {@link LongBuffer} view of the {@code mem64} field. */
+    @NativeType("long long[4]")
     public LongBuffer mem64() { return nmem64(address()); }
     /** Returns the value at the specified index of the {@code mem64} field. */
+    @NativeType("long long")
     public long mem64(int index) { return nmem64(address(), index); }
     /** Returns the value of the {@code memsize} field. */
+    @NativeType("unsigned")
     public int memsize() { return nmemsize(address()); }
     /** Returns a {@link IntBuffer} view of the {@code reserved} field. */
+    @NativeType("unsigned[2]")
     public IntBuffer reserved() { return nreserved(address()); }
     /** Returns the value at the specified index of the {@code reserved} field. */
+    @NativeType("unsigned")
     public int reserved(int index) { return nreserved(address(), index); }
 
     /** Sets the specified value to the {@code total_len} field. */
-    public XXH64State total_len(long value) { ntotal_len(address(), value); return this; }
+    public XXH64State total_len(@NativeType("long long") long value) { ntotal_len(address(), value); return this; }
     /** Sets the specified value to the {@code v1} field. */
-    public XXH64State v1(long value) { nv1(address(), value); return this; }
+    public XXH64State v1(@NativeType("long long") long value) { nv1(address(), value); return this; }
     /** Sets the specified value to the {@code v2} field. */
-    public XXH64State v2(long value) { nv2(address(), value); return this; }
+    public XXH64State v2(@NativeType("long long") long value) { nv2(address(), value); return this; }
     /** Sets the specified value to the {@code v3} field. */
-    public XXH64State v3(long value) { nv3(address(), value); return this; }
+    public XXH64State v3(@NativeType("long long") long value) { nv3(address(), value); return this; }
     /** Sets the specified value to the {@code v4} field. */
-    public XXH64State v4(long value) { nv4(address(), value); return this; }
+    public XXH64State v4(@NativeType("long long") long value) { nv4(address(), value); return this; }
     /** Copies the specified {@link LongBuffer} to the {@code mem64} field. */
-    public XXH64State mem64(LongBuffer value) { nmem64(address(), value); return this; }
+    public XXH64State mem64(@NativeType("long long[4]") LongBuffer value) { nmem64(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code mem64} field. */
-    public XXH64State mem64(int index, long value) { nmem64(address(), index, value); return this; }
+    public XXH64State mem64(int index, @NativeType("long long") long value) { nmem64(address(), index, value); return this; }
     /** Sets the specified value to the {@code memsize} field. */
-    public XXH64State memsize(int value) { nmemsize(address(), value); return this; }
+    public XXH64State memsize(@NativeType("unsigned") int value) { nmemsize(address(), value); return this; }
     /** Copies the specified {@link IntBuffer} to the {@code reserved} field. */
-    public XXH64State reserved(IntBuffer value) { nreserved(address(), value); return this; }
+    public XXH64State reserved(@NativeType("unsigned[2]") IntBuffer value) { nreserved(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code reserved} field. */
-    public XXH64State reserved(int index, int value) { nreserved(address(), index, value); return this; }
+    public XXH64State reserved(int index, @NativeType("unsigned") int value) { nreserved(address(), index, value); return this; }
 
     /** Initializes this struct with the specified values. */
     public XXH64State set(
@@ -400,46 +411,56 @@ public class XXH64State extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code total_len} field. */
+        @NativeType("long long")
         public long total_len() { return XXH64State.ntotal_len(address()); }
         /** Returns the value of the {@code v1} field. */
+        @NativeType("long long")
         public long v1() { return XXH64State.nv1(address()); }
         /** Returns the value of the {@code v2} field. */
+        @NativeType("long long")
         public long v2() { return XXH64State.nv2(address()); }
         /** Returns the value of the {@code v3} field. */
+        @NativeType("long long")
         public long v3() { return XXH64State.nv3(address()); }
         /** Returns the value of the {@code v4} field. */
+        @NativeType("long long")
         public long v4() { return XXH64State.nv4(address()); }
         /** Returns a {@link LongBuffer} view of the {@code mem64} field. */
+        @NativeType("long long[4]")
         public LongBuffer mem64() { return XXH64State.nmem64(address()); }
         /** Returns the value at the specified index of the {@code mem64} field. */
+        @NativeType("long long")
         public long mem64(int index) { return XXH64State.nmem64(address(), index); }
         /** Returns the value of the {@code memsize} field. */
+        @NativeType("unsigned")
         public int memsize() { return XXH64State.nmemsize(address()); }
         /** Returns a {@link IntBuffer} view of the {@code reserved} field. */
+        @NativeType("unsigned[2]")
         public IntBuffer reserved() { return XXH64State.nreserved(address()); }
         /** Returns the value at the specified index of the {@code reserved} field. */
+        @NativeType("unsigned")
         public int reserved(int index) { return XXH64State.nreserved(address(), index); }
 
         /** Sets the specified value to the {@code total_len} field. */
-        public XXH64State.Buffer total_len(long value) { XXH64State.ntotal_len(address(), value); return this; }
+        public XXH64State.Buffer total_len(@NativeType("long long") long value) { XXH64State.ntotal_len(address(), value); return this; }
         /** Sets the specified value to the {@code v1} field. */
-        public XXH64State.Buffer v1(long value) { XXH64State.nv1(address(), value); return this; }
+        public XXH64State.Buffer v1(@NativeType("long long") long value) { XXH64State.nv1(address(), value); return this; }
         /** Sets the specified value to the {@code v2} field. */
-        public XXH64State.Buffer v2(long value) { XXH64State.nv2(address(), value); return this; }
+        public XXH64State.Buffer v2(@NativeType("long long") long value) { XXH64State.nv2(address(), value); return this; }
         /** Sets the specified value to the {@code v3} field. */
-        public XXH64State.Buffer v3(long value) { XXH64State.nv3(address(), value); return this; }
+        public XXH64State.Buffer v3(@NativeType("long long") long value) { XXH64State.nv3(address(), value); return this; }
         /** Sets the specified value to the {@code v4} field. */
-        public XXH64State.Buffer v4(long value) { XXH64State.nv4(address(), value); return this; }
+        public XXH64State.Buffer v4(@NativeType("long long") long value) { XXH64State.nv4(address(), value); return this; }
         /** Copies the specified {@link LongBuffer} to the {@code mem64} field. */
-        public XXH64State.Buffer mem64(LongBuffer value) { XXH64State.nmem64(address(), value); return this; }
+        public XXH64State.Buffer mem64(@NativeType("long long[4]") LongBuffer value) { XXH64State.nmem64(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code mem64} field. */
-        public XXH64State.Buffer mem64(int index, long value) { XXH64State.nmem64(address(), index, value); return this; }
+        public XXH64State.Buffer mem64(int index, @NativeType("long long") long value) { XXH64State.nmem64(address(), index, value); return this; }
         /** Sets the specified value to the {@code memsize} field. */
-        public XXH64State.Buffer memsize(int value) { XXH64State.nmemsize(address(), value); return this; }
+        public XXH64State.Buffer memsize(@NativeType("unsigned") int value) { XXH64State.nmemsize(address(), value); return this; }
         /** Copies the specified {@link IntBuffer} to the {@code reserved} field. */
-        public XXH64State.Buffer reserved(IntBuffer value) { XXH64State.nreserved(address(), value); return this; }
+        public XXH64State.Buffer reserved(@NativeType("unsigned[2]") IntBuffer value) { XXH64State.nreserved(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code reserved} field. */
-        public XXH64State.Buffer reserved(int index, int value) { XXH64State.nreserved(address(), index, value); return this; }
+        public XXH64State.Buffer reserved(int index, @NativeType("unsigned") int value) { XXH64State.nreserved(address(), index, value); return this; }
 
     }
 

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera} method. */
 @FunctionalInterface
+@NativeType("cl_report_live_objects_altera")
 public interface CLReportLiveObjectsAlteraCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pppi)v");
@@ -36,6 +37,6 @@ public interface CLReportLiveObjectsAlteraCallbackI extends CallbackI.V {
      * @param type_name a C string corresponding to the OpenCL API object type. For example, a leaked {@code cl_mem} object will have "cl_mem" as its type string.
      * @param refcount  an instantaneous reference count for the object. Consider it to be immediately stale.
      */
-    void invoke(long user_data, long obj_ptr, long type_name, int refcount);
+    void invoke(@NativeType("void *") long user_data, @NativeType("void *") long obj_ptr, @NativeType("const char *") long type_name, @NativeType("cl_uint") int refcount);
 
 }

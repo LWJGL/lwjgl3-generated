@@ -118,24 +118,29 @@ public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code deviceMask} field. */
+    @NativeType("uint32_t")
     public int deviceMask() { return ndeviceMask(address()); }
     /** Returns the value of the {@code deviceRenderAreaCount} field. */
+    @NativeType("uint32_t")
     public int deviceRenderAreaCount() { return ndeviceRenderAreaCount(address()); }
     /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pDeviceRenderAreas} field. */
+    @NativeType("const VkRect2D *")
     public VkRect2D.Buffer pDeviceRenderAreas() { return npDeviceRenderAreas(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDeviceGroupRenderPassBeginInfoKHX sType(int value) { nsType(address(), value); return this; }
+    public VkDeviceGroupRenderPassBeginInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGroupRenderPassBeginInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkDeviceGroupRenderPassBeginInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code deviceMask} field. */
-    public VkDeviceGroupRenderPassBeginInfoKHX deviceMask(int value) { ndeviceMask(address(), value); return this; }
+    public VkDeviceGroupRenderPassBeginInfoKHX deviceMask(@NativeType("uint32_t") int value) { ndeviceMask(address(), value); return this; }
     /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pDeviceRenderAreas} field. */
-    public VkDeviceGroupRenderPassBeginInfoKHX pDeviceRenderAreas(VkRect2D.Buffer value) { npDeviceRenderAreas(address(), value); return this; }
+    public VkDeviceGroupRenderPassBeginInfoKHX pDeviceRenderAreas(@NativeType("const VkRect2D *") VkRect2D.Buffer value) { npDeviceRenderAreas(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceGroupRenderPassBeginInfoKHX set(
@@ -381,24 +386,29 @@ public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDeviceGroupRenderPassBeginInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDeviceGroupRenderPassBeginInfoKHX.npNext(address()); }
         /** Returns the value of the {@code deviceMask} field. */
+        @NativeType("uint32_t")
         public int deviceMask() { return VkDeviceGroupRenderPassBeginInfoKHX.ndeviceMask(address()); }
         /** Returns the value of the {@code deviceRenderAreaCount} field. */
+        @NativeType("uint32_t")
         public int deviceRenderAreaCount() { return VkDeviceGroupRenderPassBeginInfoKHX.ndeviceRenderAreaCount(address()); }
         /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pDeviceRenderAreas} field. */
+        @NativeType("const VkRect2D *")
         public VkRect2D.Buffer pDeviceRenderAreas() { return VkDeviceGroupRenderPassBeginInfoKHX.npDeviceRenderAreas(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer sType(int value) { VkDeviceGroupRenderPassBeginInfoKHX.nsType(address(), value); return this; }
+        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGroupRenderPassBeginInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer pNext(long value) { VkDeviceGroupRenderPassBeginInfoKHX.npNext(address(), value); return this; }
+        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGroupRenderPassBeginInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code deviceMask} field. */
-        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer deviceMask(int value) { VkDeviceGroupRenderPassBeginInfoKHX.ndeviceMask(address(), value); return this; }
+        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer deviceMask(@NativeType("uint32_t") int value) { VkDeviceGroupRenderPassBeginInfoKHX.ndeviceMask(address(), value); return this; }
         /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pDeviceRenderAreas} field. */
-        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer pDeviceRenderAreas(VkRect2D.Buffer value) { VkDeviceGroupRenderPassBeginInfoKHX.npDeviceRenderAreas(address(), value); return this; }
+        public VkDeviceGroupRenderPassBeginInfoKHX.Buffer pDeviceRenderAreas(@NativeType("const VkRect2D *") VkRect2D.Buffer value) { VkDeviceGroupRenderPassBeginInfoKHX.npDeviceRenderAreas(address(), value); return this; }
 
     }
 

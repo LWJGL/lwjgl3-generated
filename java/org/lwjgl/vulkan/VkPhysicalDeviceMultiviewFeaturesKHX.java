@@ -102,26 +102,31 @@ public class VkPhysicalDeviceMultiviewFeaturesKHX extends Struct implements Nati
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code multiview} field. */
+    @NativeType("VkBool32")
     public boolean multiview() { return nmultiview(address()) != 0; }
     /** Returns the value of the {@code multiviewGeometryShader} field. */
+    @NativeType("VkBool32")
     public boolean multiviewGeometryShader() { return nmultiviewGeometryShader(address()) != 0; }
     /** Returns the value of the {@code multiviewTessellationShader} field. */
+    @NativeType("VkBool32")
     public boolean multiviewTessellationShader() { return nmultiviewTessellationShader(address()) != 0; }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPhysicalDeviceMultiviewFeaturesKHX sType(int value) { nsType(address(), value); return this; }
+    public VkPhysicalDeviceMultiviewFeaturesKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceMultiviewFeaturesKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceMultiviewFeaturesKHX pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code multiview} field. */
-    public VkPhysicalDeviceMultiviewFeaturesKHX multiview(boolean value) { nmultiview(address(), value ? 1 : 0); return this; }
+    public VkPhysicalDeviceMultiviewFeaturesKHX multiview(@NativeType("VkBool32") boolean value) { nmultiview(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code multiviewGeometryShader} field. */
-    public VkPhysicalDeviceMultiviewFeaturesKHX multiviewGeometryShader(boolean value) { nmultiviewGeometryShader(address(), value ? 1 : 0); return this; }
+    public VkPhysicalDeviceMultiviewFeaturesKHX multiviewGeometryShader(@NativeType("VkBool32") boolean value) { nmultiviewGeometryShader(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code multiviewTessellationShader} field. */
-    public VkPhysicalDeviceMultiviewFeaturesKHX multiviewTessellationShader(boolean value) { nmultiviewTessellationShader(address(), value ? 1 : 0); return this; }
+    public VkPhysicalDeviceMultiviewFeaturesKHX multiviewTessellationShader(@NativeType("VkBool32") boolean value) { nmultiviewTessellationShader(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPhysicalDeviceMultiviewFeaturesKHX set(
@@ -346,26 +351,31 @@ public class VkPhysicalDeviceMultiviewFeaturesKHX extends Struct implements Nati
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceMultiviewFeaturesKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceMultiviewFeaturesKHX.npNext(address()); }
         /** Returns the value of the {@code multiview} field. */
+        @NativeType("VkBool32")
         public boolean multiview() { return VkPhysicalDeviceMultiviewFeaturesKHX.nmultiview(address()) != 0; }
         /** Returns the value of the {@code multiviewGeometryShader} field. */
+        @NativeType("VkBool32")
         public boolean multiviewGeometryShader() { return VkPhysicalDeviceMultiviewFeaturesKHX.nmultiviewGeometryShader(address()) != 0; }
         /** Returns the value of the {@code multiviewTessellationShader} field. */
+        @NativeType("VkBool32")
         public boolean multiviewTessellationShader() { return VkPhysicalDeviceMultiviewFeaturesKHX.nmultiviewTessellationShader(address()) != 0; }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer sType(int value) { VkPhysicalDeviceMultiviewFeaturesKHX.nsType(address(), value); return this; }
+        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceMultiviewFeaturesKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer pNext(long value) { VkPhysicalDeviceMultiviewFeaturesKHX.npNext(address(), value); return this; }
+        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceMultiviewFeaturesKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code multiview} field. */
-        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer multiview(boolean value) { VkPhysicalDeviceMultiviewFeaturesKHX.nmultiview(address(), value ? 1 : 0); return this; }
+        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer multiview(@NativeType("VkBool32") boolean value) { VkPhysicalDeviceMultiviewFeaturesKHX.nmultiview(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code multiviewGeometryShader} field. */
-        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer multiviewGeometryShader(boolean value) { VkPhysicalDeviceMultiviewFeaturesKHX.nmultiviewGeometryShader(address(), value ? 1 : 0); return this; }
+        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer multiviewGeometryShader(@NativeType("VkBool32") boolean value) { VkPhysicalDeviceMultiviewFeaturesKHX.nmultiviewGeometryShader(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code multiviewTessellationShader} field. */
-        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer multiviewTessellationShader(boolean value) { VkPhysicalDeviceMultiviewFeaturesKHX.nmultiviewTessellationShader(address(), value ? 1 : 0); return this; }
+        public VkPhysicalDeviceMultiviewFeaturesKHX.Buffer multiviewTessellationShader(@NativeType("VkBool32") boolean value) { VkPhysicalDeviceMultiviewFeaturesKHX.nmultiviewTessellationShader(address(), value ? 1 : 0); return this; }
 
     }
 

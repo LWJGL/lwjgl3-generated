@@ -7,6 +7,8 @@ package org.lwjgl.opencl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -65,7 +67,8 @@ public class CL22 {
      * @param user_data  a pointer to user supplied data. {@code user_data} will be passed as the {@code user_data} argument when {@code pfn_notify} is called.
      *                   {@code user_data} can be {@code NULL}.
      */
-    public static int clSetProgramReleaseCallback(long program, CLProgramReleaseCallbackI pfn_notify, long user_data) {
+    @NativeType("cl_int")
+    public static int clSetProgramReleaseCallback(@NativeType("cl_program") long program, @NativeType("cl_program_release_callback") CLProgramReleaseCallbackI pfn_notify, @NativeType("void *") long user_data) {
         return nclSetProgramReleaseCallback(program, pfn_notify.address(), user_data);
     }
 
@@ -116,7 +119,8 @@ public class CL22 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, ByteBuffer spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") ByteBuffer spec_value) {
         return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining(), memAddress(spec_value));
     }
 
@@ -150,7 +154,8 @@ public class CL22 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, ShortBuffer spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") ShortBuffer spec_value) {
         return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 1, memAddress(spec_value));
     }
 
@@ -184,7 +189,8 @@ public class CL22 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, IntBuffer spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") IntBuffer spec_value) {
         return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 2, memAddress(spec_value));
     }
 
@@ -218,7 +224,8 @@ public class CL22 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, LongBuffer spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") LongBuffer spec_value) {
         return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 3, memAddress(spec_value));
     }
 
@@ -252,7 +259,8 @@ public class CL22 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, FloatBuffer spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") FloatBuffer spec_value) {
         return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 2, memAddress(spec_value));
     }
 
@@ -286,7 +294,8 @@ public class CL22 {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, DoubleBuffer spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") DoubleBuffer spec_value) {
         return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 3, memAddress(spec_value));
     }
 
@@ -295,7 +304,8 @@ public class CL22 {
      * 
      * Array version of: {@link #clSetProgramSpecializationConstant SetProgramSpecializationConstant}
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, short[] spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") short[] spec_value) {
         long __functionAddress = CL.getICD().clSetProgramSpecializationConstant;
         if (CHECKS) {
             check(__functionAddress);
@@ -309,7 +319,8 @@ public class CL22 {
      * 
      * Array version of: {@link #clSetProgramSpecializationConstant SetProgramSpecializationConstant}
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, int[] spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") int[] spec_value) {
         long __functionAddress = CL.getICD().clSetProgramSpecializationConstant;
         if (CHECKS) {
             check(__functionAddress);
@@ -323,7 +334,8 @@ public class CL22 {
      * 
      * Array version of: {@link #clSetProgramSpecializationConstant SetProgramSpecializationConstant}
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, long[] spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") long[] spec_value) {
         long __functionAddress = CL.getICD().clSetProgramSpecializationConstant;
         if (CHECKS) {
             check(__functionAddress);
@@ -337,7 +349,8 @@ public class CL22 {
      * 
      * Array version of: {@link #clSetProgramSpecializationConstant SetProgramSpecializationConstant}
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, float[] spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") float[] spec_value) {
         long __functionAddress = CL.getICD().clSetProgramSpecializationConstant;
         if (CHECKS) {
             check(__functionAddress);
@@ -351,7 +364,8 @@ public class CL22 {
      * 
      * Array version of: {@link #clSetProgramSpecializationConstant SetProgramSpecializationConstant}
      */
-    public static int clSetProgramSpecializationConstant(long program, int spec_id, double[] spec_value) {
+    @NativeType("cl_int")
+    public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") double[] spec_value) {
         long __functionAddress = CL.getICD().clSetProgramSpecializationConstant;
         if (CHECKS) {
             check(__functionAddress);

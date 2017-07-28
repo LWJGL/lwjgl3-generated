@@ -147,50 +147,61 @@ public class VkObjectTableCreateInfoNVX extends Struct implements NativeResource
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code objectCount} field. */
+    @NativeType("uint32_t")
     public int objectCount() { return nobjectCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pObjectEntryTypes} field. */
+    @NativeType("const VkObjectEntryTypeNVX *")
     public IntBuffer pObjectEntryTypes() { return npObjectEntryTypes(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pObjectEntryCounts} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pObjectEntryCounts() { return npObjectEntryCounts(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pObjectEntryUsageFlags} field. */
+    @NativeType("const VkObjectEntryUsageFlagsNVX *")
     public IntBuffer pObjectEntryUsageFlags() { return npObjectEntryUsageFlags(address()); }
     /** Returns the value of the {@code maxUniformBuffersPerDescriptor} field. */
+    @NativeType("uint32_t")
     public int maxUniformBuffersPerDescriptor() { return nmaxUniformBuffersPerDescriptor(address()); }
     /** Returns the value of the {@code maxStorageBuffersPerDescriptor} field. */
+    @NativeType("uint32_t")
     public int maxStorageBuffersPerDescriptor() { return nmaxStorageBuffersPerDescriptor(address()); }
     /** Returns the value of the {@code maxStorageImagesPerDescriptor} field. */
+    @NativeType("uint32_t")
     public int maxStorageImagesPerDescriptor() { return nmaxStorageImagesPerDescriptor(address()); }
     /** Returns the value of the {@code maxSampledImagesPerDescriptor} field. */
+    @NativeType("uint32_t")
     public int maxSampledImagesPerDescriptor() { return nmaxSampledImagesPerDescriptor(address()); }
     /** Returns the value of the {@code maxPipelineLayouts} field. */
+    @NativeType("uint32_t")
     public int maxPipelineLayouts() { return nmaxPipelineLayouts(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkObjectTableCreateInfoNVX sType(int value) { nsType(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkObjectTableCreateInfoNVX pNext(long value) { npNext(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code objectCount} field. */
-    public VkObjectTableCreateInfoNVX objectCount(int value) { nobjectCount(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX objectCount(@NativeType("uint32_t") int value) { nobjectCount(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pObjectEntryTypes} field. */
-    public VkObjectTableCreateInfoNVX pObjectEntryTypes(IntBuffer value) { npObjectEntryTypes(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX pObjectEntryTypes(@NativeType("const VkObjectEntryTypeNVX *") IntBuffer value) { npObjectEntryTypes(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pObjectEntryCounts} field. */
-    public VkObjectTableCreateInfoNVX pObjectEntryCounts(IntBuffer value) { npObjectEntryCounts(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX pObjectEntryCounts(@NativeType("const uint32_t *") IntBuffer value) { npObjectEntryCounts(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pObjectEntryUsageFlags} field. */
-    public VkObjectTableCreateInfoNVX pObjectEntryUsageFlags(IntBuffer value) { npObjectEntryUsageFlags(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX pObjectEntryUsageFlags(@NativeType("const VkObjectEntryUsageFlagsNVX *") IntBuffer value) { npObjectEntryUsageFlags(address(), value); return this; }
     /** Sets the specified value to the {@code maxUniformBuffersPerDescriptor} field. */
-    public VkObjectTableCreateInfoNVX maxUniformBuffersPerDescriptor(int value) { nmaxUniformBuffersPerDescriptor(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX maxUniformBuffersPerDescriptor(@NativeType("uint32_t") int value) { nmaxUniformBuffersPerDescriptor(address(), value); return this; }
     /** Sets the specified value to the {@code maxStorageBuffersPerDescriptor} field. */
-    public VkObjectTableCreateInfoNVX maxStorageBuffersPerDescriptor(int value) { nmaxStorageBuffersPerDescriptor(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX maxStorageBuffersPerDescriptor(@NativeType("uint32_t") int value) { nmaxStorageBuffersPerDescriptor(address(), value); return this; }
     /** Sets the specified value to the {@code maxStorageImagesPerDescriptor} field. */
-    public VkObjectTableCreateInfoNVX maxStorageImagesPerDescriptor(int value) { nmaxStorageImagesPerDescriptor(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX maxStorageImagesPerDescriptor(@NativeType("uint32_t") int value) { nmaxStorageImagesPerDescriptor(address(), value); return this; }
     /** Sets the specified value to the {@code maxSampledImagesPerDescriptor} field. */
-    public VkObjectTableCreateInfoNVX maxSampledImagesPerDescriptor(int value) { nmaxSampledImagesPerDescriptor(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX maxSampledImagesPerDescriptor(@NativeType("uint32_t") int value) { nmaxSampledImagesPerDescriptor(address(), value); return this; }
     /** Sets the specified value to the {@code maxPipelineLayouts} field. */
-    public VkObjectTableCreateInfoNVX maxPipelineLayouts(int value) { nmaxPipelineLayouts(address(), value); return this; }
+    public VkObjectTableCreateInfoNVX maxPipelineLayouts(@NativeType("uint32_t") int value) { nmaxPipelineLayouts(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkObjectTableCreateInfoNVX set(
@@ -474,50 +485,61 @@ public class VkObjectTableCreateInfoNVX extends Struct implements NativeResource
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkObjectTableCreateInfoNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkObjectTableCreateInfoNVX.npNext(address()); }
         /** Returns the value of the {@code objectCount} field. */
+        @NativeType("uint32_t")
         public int objectCount() { return VkObjectTableCreateInfoNVX.nobjectCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pObjectEntryTypes} field. */
+        @NativeType("const VkObjectEntryTypeNVX *")
         public IntBuffer pObjectEntryTypes() { return VkObjectTableCreateInfoNVX.npObjectEntryTypes(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pObjectEntryCounts} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pObjectEntryCounts() { return VkObjectTableCreateInfoNVX.npObjectEntryCounts(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pObjectEntryUsageFlags} field. */
+        @NativeType("const VkObjectEntryUsageFlagsNVX *")
         public IntBuffer pObjectEntryUsageFlags() { return VkObjectTableCreateInfoNVX.npObjectEntryUsageFlags(address()); }
         /** Returns the value of the {@code maxUniformBuffersPerDescriptor} field. */
+        @NativeType("uint32_t")
         public int maxUniformBuffersPerDescriptor() { return VkObjectTableCreateInfoNVX.nmaxUniformBuffersPerDescriptor(address()); }
         /** Returns the value of the {@code maxStorageBuffersPerDescriptor} field. */
+        @NativeType("uint32_t")
         public int maxStorageBuffersPerDescriptor() { return VkObjectTableCreateInfoNVX.nmaxStorageBuffersPerDescriptor(address()); }
         /** Returns the value of the {@code maxStorageImagesPerDescriptor} field. */
+        @NativeType("uint32_t")
         public int maxStorageImagesPerDescriptor() { return VkObjectTableCreateInfoNVX.nmaxStorageImagesPerDescriptor(address()); }
         /** Returns the value of the {@code maxSampledImagesPerDescriptor} field. */
+        @NativeType("uint32_t")
         public int maxSampledImagesPerDescriptor() { return VkObjectTableCreateInfoNVX.nmaxSampledImagesPerDescriptor(address()); }
         /** Returns the value of the {@code maxPipelineLayouts} field. */
+        @NativeType("uint32_t")
         public int maxPipelineLayouts() { return VkObjectTableCreateInfoNVX.nmaxPipelineLayouts(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkObjectTableCreateInfoNVX.Buffer sType(int value) { VkObjectTableCreateInfoNVX.nsType(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkObjectTableCreateInfoNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkObjectTableCreateInfoNVX.Buffer pNext(long value) { VkObjectTableCreateInfoNVX.npNext(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer pNext(@NativeType("const void *") long value) { VkObjectTableCreateInfoNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code objectCount} field. */
-        public VkObjectTableCreateInfoNVX.Buffer objectCount(int value) { VkObjectTableCreateInfoNVX.nobjectCount(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer objectCount(@NativeType("uint32_t") int value) { VkObjectTableCreateInfoNVX.nobjectCount(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pObjectEntryTypes} field. */
-        public VkObjectTableCreateInfoNVX.Buffer pObjectEntryTypes(IntBuffer value) { VkObjectTableCreateInfoNVX.npObjectEntryTypes(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer pObjectEntryTypes(@NativeType("const VkObjectEntryTypeNVX *") IntBuffer value) { VkObjectTableCreateInfoNVX.npObjectEntryTypes(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pObjectEntryCounts} field. */
-        public VkObjectTableCreateInfoNVX.Buffer pObjectEntryCounts(IntBuffer value) { VkObjectTableCreateInfoNVX.npObjectEntryCounts(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer pObjectEntryCounts(@NativeType("const uint32_t *") IntBuffer value) { VkObjectTableCreateInfoNVX.npObjectEntryCounts(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pObjectEntryUsageFlags} field. */
-        public VkObjectTableCreateInfoNVX.Buffer pObjectEntryUsageFlags(IntBuffer value) { VkObjectTableCreateInfoNVX.npObjectEntryUsageFlags(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer pObjectEntryUsageFlags(@NativeType("const VkObjectEntryUsageFlagsNVX *") IntBuffer value) { VkObjectTableCreateInfoNVX.npObjectEntryUsageFlags(address(), value); return this; }
         /** Sets the specified value to the {@code maxUniformBuffersPerDescriptor} field. */
-        public VkObjectTableCreateInfoNVX.Buffer maxUniformBuffersPerDescriptor(int value) { VkObjectTableCreateInfoNVX.nmaxUniformBuffersPerDescriptor(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer maxUniformBuffersPerDescriptor(@NativeType("uint32_t") int value) { VkObjectTableCreateInfoNVX.nmaxUniformBuffersPerDescriptor(address(), value); return this; }
         /** Sets the specified value to the {@code maxStorageBuffersPerDescriptor} field. */
-        public VkObjectTableCreateInfoNVX.Buffer maxStorageBuffersPerDescriptor(int value) { VkObjectTableCreateInfoNVX.nmaxStorageBuffersPerDescriptor(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer maxStorageBuffersPerDescriptor(@NativeType("uint32_t") int value) { VkObjectTableCreateInfoNVX.nmaxStorageBuffersPerDescriptor(address(), value); return this; }
         /** Sets the specified value to the {@code maxStorageImagesPerDescriptor} field. */
-        public VkObjectTableCreateInfoNVX.Buffer maxStorageImagesPerDescriptor(int value) { VkObjectTableCreateInfoNVX.nmaxStorageImagesPerDescriptor(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer maxStorageImagesPerDescriptor(@NativeType("uint32_t") int value) { VkObjectTableCreateInfoNVX.nmaxStorageImagesPerDescriptor(address(), value); return this; }
         /** Sets the specified value to the {@code maxSampledImagesPerDescriptor} field. */
-        public VkObjectTableCreateInfoNVX.Buffer maxSampledImagesPerDescriptor(int value) { VkObjectTableCreateInfoNVX.nmaxSampledImagesPerDescriptor(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer maxSampledImagesPerDescriptor(@NativeType("uint32_t") int value) { VkObjectTableCreateInfoNVX.nmaxSampledImagesPerDescriptor(address(), value); return this; }
         /** Sets the specified value to the {@code maxPipelineLayouts} field. */
-        public VkObjectTableCreateInfoNVX.Buffer maxPipelineLayouts(int value) { VkObjectTableCreateInfoNVX.nmaxPipelineLayouts(address(), value); return this; }
+        public VkObjectTableCreateInfoNVX.Buffer maxPipelineLayouts(@NativeType("uint32_t") int value) { VkObjectTableCreateInfoNVX.nmaxPipelineLayouts(address(), value); return this; }
 
     }
 

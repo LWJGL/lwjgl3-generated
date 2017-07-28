@@ -638,212 +638,309 @@ public class VkPhysicalDeviceLimits extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code maxImageDimension1D} field. */
+    @NativeType("uint32_t")
     public int maxImageDimension1D() { return nmaxImageDimension1D(address()); }
     /** Returns the value of the {@code maxImageDimension2D} field. */
+    @NativeType("uint32_t")
     public int maxImageDimension2D() { return nmaxImageDimension2D(address()); }
     /** Returns the value of the {@code maxImageDimension3D} field. */
+    @NativeType("uint32_t")
     public int maxImageDimension3D() { return nmaxImageDimension3D(address()); }
     /** Returns the value of the {@code maxImageDimensionCube} field. */
+    @NativeType("uint32_t")
     public int maxImageDimensionCube() { return nmaxImageDimensionCube(address()); }
     /** Returns the value of the {@code maxImageArrayLayers} field. */
+    @NativeType("uint32_t")
     public int maxImageArrayLayers() { return nmaxImageArrayLayers(address()); }
     /** Returns the value of the {@code maxTexelBufferElements} field. */
+    @NativeType("uint32_t")
     public int maxTexelBufferElements() { return nmaxTexelBufferElements(address()); }
     /** Returns the value of the {@code maxUniformBufferRange} field. */
+    @NativeType("uint32_t")
     public int maxUniformBufferRange() { return nmaxUniformBufferRange(address()); }
     /** Returns the value of the {@code maxStorageBufferRange} field. */
+    @NativeType("uint32_t")
     public int maxStorageBufferRange() { return nmaxStorageBufferRange(address()); }
     /** Returns the value of the {@code maxPushConstantsSize} field. */
+    @NativeType("uint32_t")
     public int maxPushConstantsSize() { return nmaxPushConstantsSize(address()); }
     /** Returns the value of the {@code maxMemoryAllocationCount} field. */
+    @NativeType("uint32_t")
     public int maxMemoryAllocationCount() { return nmaxMemoryAllocationCount(address()); }
     /** Returns the value of the {@code maxSamplerAllocationCount} field. */
+    @NativeType("uint32_t")
     public int maxSamplerAllocationCount() { return nmaxSamplerAllocationCount(address()); }
     /** Returns the value of the {@code bufferImageGranularity} field. */
+    @NativeType("VkDeviceSize")
     public long bufferImageGranularity() { return nbufferImageGranularity(address()); }
     /** Returns the value of the {@code sparseAddressSpaceSize} field. */
+    @NativeType("VkDeviceSize")
     public long sparseAddressSpaceSize() { return nsparseAddressSpaceSize(address()); }
     /** Returns the value of the {@code maxBoundDescriptorSets} field. */
+    @NativeType("uint32_t")
     public int maxBoundDescriptorSets() { return nmaxBoundDescriptorSets(address()); }
     /** Returns the value of the {@code maxPerStageDescriptorSamplers} field. */
+    @NativeType("uint32_t")
     public int maxPerStageDescriptorSamplers() { return nmaxPerStageDescriptorSamplers(address()); }
     /** Returns the value of the {@code maxPerStageDescriptorUniformBuffers} field. */
+    @NativeType("uint32_t")
     public int maxPerStageDescriptorUniformBuffers() { return nmaxPerStageDescriptorUniformBuffers(address()); }
     /** Returns the value of the {@code maxPerStageDescriptorStorageBuffers} field. */
+    @NativeType("uint32_t")
     public int maxPerStageDescriptorStorageBuffers() { return nmaxPerStageDescriptorStorageBuffers(address()); }
     /** Returns the value of the {@code maxPerStageDescriptorSampledImages} field. */
+    @NativeType("uint32_t")
     public int maxPerStageDescriptorSampledImages() { return nmaxPerStageDescriptorSampledImages(address()); }
     /** Returns the value of the {@code maxPerStageDescriptorStorageImages} field. */
+    @NativeType("uint32_t")
     public int maxPerStageDescriptorStorageImages() { return nmaxPerStageDescriptorStorageImages(address()); }
     /** Returns the value of the {@code maxPerStageDescriptorInputAttachments} field. */
+    @NativeType("uint32_t")
     public int maxPerStageDescriptorInputAttachments() { return nmaxPerStageDescriptorInputAttachments(address()); }
     /** Returns the value of the {@code maxPerStageResources} field. */
+    @NativeType("uint32_t")
     public int maxPerStageResources() { return nmaxPerStageResources(address()); }
     /** Returns the value of the {@code maxDescriptorSetSamplers} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetSamplers() { return nmaxDescriptorSetSamplers(address()); }
     /** Returns the value of the {@code maxDescriptorSetUniformBuffers} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetUniformBuffers() { return nmaxDescriptorSetUniformBuffers(address()); }
     /** Returns the value of the {@code maxDescriptorSetUniformBuffersDynamic} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetUniformBuffersDynamic() { return nmaxDescriptorSetUniformBuffersDynamic(address()); }
     /** Returns the value of the {@code maxDescriptorSetStorageBuffers} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetStorageBuffers() { return nmaxDescriptorSetStorageBuffers(address()); }
     /** Returns the value of the {@code maxDescriptorSetStorageBuffersDynamic} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetStorageBuffersDynamic() { return nmaxDescriptorSetStorageBuffersDynamic(address()); }
     /** Returns the value of the {@code maxDescriptorSetSampledImages} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetSampledImages() { return nmaxDescriptorSetSampledImages(address()); }
     /** Returns the value of the {@code maxDescriptorSetStorageImages} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetStorageImages() { return nmaxDescriptorSetStorageImages(address()); }
     /** Returns the value of the {@code maxDescriptorSetInputAttachments} field. */
+    @NativeType("uint32_t")
     public int maxDescriptorSetInputAttachments() { return nmaxDescriptorSetInputAttachments(address()); }
     /** Returns the value of the {@code maxVertexInputAttributes} field. */
+    @NativeType("uint32_t")
     public int maxVertexInputAttributes() { return nmaxVertexInputAttributes(address()); }
     /** Returns the value of the {@code maxVertexInputBindings} field. */
+    @NativeType("uint32_t")
     public int maxVertexInputBindings() { return nmaxVertexInputBindings(address()); }
     /** Returns the value of the {@code maxVertexInputAttributeOffset} field. */
+    @NativeType("uint32_t")
     public int maxVertexInputAttributeOffset() { return nmaxVertexInputAttributeOffset(address()); }
     /** Returns the value of the {@code maxVertexInputBindingStride} field. */
+    @NativeType("uint32_t")
     public int maxVertexInputBindingStride() { return nmaxVertexInputBindingStride(address()); }
     /** Returns the value of the {@code maxVertexOutputComponents} field. */
+    @NativeType("uint32_t")
     public int maxVertexOutputComponents() { return nmaxVertexOutputComponents(address()); }
     /** Returns the value of the {@code maxTessellationGenerationLevel} field. */
+    @NativeType("uint32_t")
     public int maxTessellationGenerationLevel() { return nmaxTessellationGenerationLevel(address()); }
     /** Returns the value of the {@code maxTessellationPatchSize} field. */
+    @NativeType("uint32_t")
     public int maxTessellationPatchSize() { return nmaxTessellationPatchSize(address()); }
     /** Returns the value of the {@code maxTessellationControlPerVertexInputComponents} field. */
+    @NativeType("uint32_t")
     public int maxTessellationControlPerVertexInputComponents() { return nmaxTessellationControlPerVertexInputComponents(address()); }
     /** Returns the value of the {@code maxTessellationControlPerVertexOutputComponents} field. */
+    @NativeType("uint32_t")
     public int maxTessellationControlPerVertexOutputComponents() { return nmaxTessellationControlPerVertexOutputComponents(address()); }
     /** Returns the value of the {@code maxTessellationControlPerPatchOutputComponents} field. */
+    @NativeType("uint32_t")
     public int maxTessellationControlPerPatchOutputComponents() { return nmaxTessellationControlPerPatchOutputComponents(address()); }
     /** Returns the value of the {@code maxTessellationControlTotalOutputComponents} field. */
+    @NativeType("uint32_t")
     public int maxTessellationControlTotalOutputComponents() { return nmaxTessellationControlTotalOutputComponents(address()); }
     /** Returns the value of the {@code maxTessellationEvaluationInputComponents} field. */
+    @NativeType("uint32_t")
     public int maxTessellationEvaluationInputComponents() { return nmaxTessellationEvaluationInputComponents(address()); }
     /** Returns the value of the {@code maxTessellationEvaluationOutputComponents} field. */
+    @NativeType("uint32_t")
     public int maxTessellationEvaluationOutputComponents() { return nmaxTessellationEvaluationOutputComponents(address()); }
     /** Returns the value of the {@code maxGeometryShaderInvocations} field. */
+    @NativeType("uint32_t")
     public int maxGeometryShaderInvocations() { return nmaxGeometryShaderInvocations(address()); }
     /** Returns the value of the {@code maxGeometryInputComponents} field. */
+    @NativeType("uint32_t")
     public int maxGeometryInputComponents() { return nmaxGeometryInputComponents(address()); }
     /** Returns the value of the {@code maxGeometryOutputComponents} field. */
+    @NativeType("uint32_t")
     public int maxGeometryOutputComponents() { return nmaxGeometryOutputComponents(address()); }
     /** Returns the value of the {@code maxGeometryOutputVertices} field. */
+    @NativeType("uint32_t")
     public int maxGeometryOutputVertices() { return nmaxGeometryOutputVertices(address()); }
     /** Returns the value of the {@code maxGeometryTotalOutputComponents} field. */
+    @NativeType("uint32_t")
     public int maxGeometryTotalOutputComponents() { return nmaxGeometryTotalOutputComponents(address()); }
     /** Returns the value of the {@code maxFragmentInputComponents} field. */
+    @NativeType("uint32_t")
     public int maxFragmentInputComponents() { return nmaxFragmentInputComponents(address()); }
     /** Returns the value of the {@code maxFragmentOutputAttachments} field. */
+    @NativeType("uint32_t")
     public int maxFragmentOutputAttachments() { return nmaxFragmentOutputAttachments(address()); }
     /** Returns the value of the {@code maxFragmentDualSrcAttachments} field. */
+    @NativeType("uint32_t")
     public int maxFragmentDualSrcAttachments() { return nmaxFragmentDualSrcAttachments(address()); }
     /** Returns the value of the {@code maxFragmentCombinedOutputResources} field. */
+    @NativeType("uint32_t")
     public int maxFragmentCombinedOutputResources() { return nmaxFragmentCombinedOutputResources(address()); }
     /** Returns the value of the {@code maxComputeSharedMemorySize} field. */
+    @NativeType("uint32_t")
     public int maxComputeSharedMemorySize() { return nmaxComputeSharedMemorySize(address()); }
     /** Returns a {@link IntBuffer} view of the {@code maxComputeWorkGroupCount} field. */
+    @NativeType("uint32_t[3]")
     public IntBuffer maxComputeWorkGroupCount() { return nmaxComputeWorkGroupCount(address()); }
     /** Returns the value at the specified index of the {@code maxComputeWorkGroupCount} field. */
+    @NativeType("uint32_t")
     public int maxComputeWorkGroupCount(int index) { return nmaxComputeWorkGroupCount(address(), index); }
     /** Returns the value of the {@code maxComputeWorkGroupInvocations} field. */
+    @NativeType("uint32_t")
     public int maxComputeWorkGroupInvocations() { return nmaxComputeWorkGroupInvocations(address()); }
     /** Returns a {@link IntBuffer} view of the {@code maxComputeWorkGroupSize} field. */
+    @NativeType("uint32_t[3]")
     public IntBuffer maxComputeWorkGroupSize() { return nmaxComputeWorkGroupSize(address()); }
     /** Returns the value at the specified index of the {@code maxComputeWorkGroupSize} field. */
+    @NativeType("uint32_t")
     public int maxComputeWorkGroupSize(int index) { return nmaxComputeWorkGroupSize(address(), index); }
     /** Returns the value of the {@code subPixelPrecisionBits} field. */
+    @NativeType("uint32_t")
     public int subPixelPrecisionBits() { return nsubPixelPrecisionBits(address()); }
     /** Returns the value of the {@code subTexelPrecisionBits} field. */
+    @NativeType("uint32_t")
     public int subTexelPrecisionBits() { return nsubTexelPrecisionBits(address()); }
     /** Returns the value of the {@code mipmapPrecisionBits} field. */
+    @NativeType("uint32_t")
     public int mipmapPrecisionBits() { return nmipmapPrecisionBits(address()); }
     /** Returns the value of the {@code maxDrawIndexedIndexValue} field. */
+    @NativeType("uint32_t")
     public int maxDrawIndexedIndexValue() { return nmaxDrawIndexedIndexValue(address()); }
     /** Returns the value of the {@code maxDrawIndirectCount} field. */
+    @NativeType("uint32_t")
     public int maxDrawIndirectCount() { return nmaxDrawIndirectCount(address()); }
     /** Returns the value of the {@code maxSamplerLodBias} field. */
     public float maxSamplerLodBias() { return nmaxSamplerLodBias(address()); }
     /** Returns the value of the {@code maxSamplerAnisotropy} field. */
     public float maxSamplerAnisotropy() { return nmaxSamplerAnisotropy(address()); }
     /** Returns the value of the {@code maxViewports} field. */
+    @NativeType("uint32_t")
     public int maxViewports() { return nmaxViewports(address()); }
     /** Returns a {@link IntBuffer} view of the {@code maxViewportDimensions} field. */
+    @NativeType("uint32_t[2]")
     public IntBuffer maxViewportDimensions() { return nmaxViewportDimensions(address()); }
     /** Returns the value at the specified index of the {@code maxViewportDimensions} field. */
+    @NativeType("uint32_t")
     public int maxViewportDimensions(int index) { return nmaxViewportDimensions(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code viewportBoundsRange} field. */
+    @NativeType("float[2]")
     public FloatBuffer viewportBoundsRange() { return nviewportBoundsRange(address()); }
     /** Returns the value at the specified index of the {@code viewportBoundsRange} field. */
     public float viewportBoundsRange(int index) { return nviewportBoundsRange(address(), index); }
     /** Returns the value of the {@code viewportSubPixelBits} field. */
+    @NativeType("uint32_t")
     public int viewportSubPixelBits() { return nviewportSubPixelBits(address()); }
     /** Returns the value of the {@code minMemoryMapAlignment} field. */
+    @NativeType("size_t")
     public long minMemoryMapAlignment() { return nminMemoryMapAlignment(address()); }
     /** Returns the value of the {@code minTexelBufferOffsetAlignment} field. */
+    @NativeType("VkDeviceSize")
     public long minTexelBufferOffsetAlignment() { return nminTexelBufferOffsetAlignment(address()); }
     /** Returns the value of the {@code minUniformBufferOffsetAlignment} field. */
+    @NativeType("VkDeviceSize")
     public long minUniformBufferOffsetAlignment() { return nminUniformBufferOffsetAlignment(address()); }
     /** Returns the value of the {@code minStorageBufferOffsetAlignment} field. */
+    @NativeType("VkDeviceSize")
     public long minStorageBufferOffsetAlignment() { return nminStorageBufferOffsetAlignment(address()); }
     /** Returns the value of the {@code minTexelOffset} field. */
+    @NativeType("int32_t")
     public int minTexelOffset() { return nminTexelOffset(address()); }
     /** Returns the value of the {@code maxTexelOffset} field. */
+    @NativeType("uint32_t")
     public int maxTexelOffset() { return nmaxTexelOffset(address()); }
     /** Returns the value of the {@code minTexelGatherOffset} field. */
+    @NativeType("int32_t")
     public int minTexelGatherOffset() { return nminTexelGatherOffset(address()); }
     /** Returns the value of the {@code maxTexelGatherOffset} field. */
+    @NativeType("uint32_t")
     public int maxTexelGatherOffset() { return nmaxTexelGatherOffset(address()); }
     /** Returns the value of the {@code minInterpolationOffset} field. */
     public float minInterpolationOffset() { return nminInterpolationOffset(address()); }
     /** Returns the value of the {@code maxInterpolationOffset} field. */
     public float maxInterpolationOffset() { return nmaxInterpolationOffset(address()); }
     /** Returns the value of the {@code subPixelInterpolationOffsetBits} field. */
+    @NativeType("uint32_t")
     public int subPixelInterpolationOffsetBits() { return nsubPixelInterpolationOffsetBits(address()); }
     /** Returns the value of the {@code maxFramebufferWidth} field. */
+    @NativeType("uint32_t")
     public int maxFramebufferWidth() { return nmaxFramebufferWidth(address()); }
     /** Returns the value of the {@code maxFramebufferHeight} field. */
+    @NativeType("uint32_t")
     public int maxFramebufferHeight() { return nmaxFramebufferHeight(address()); }
     /** Returns the value of the {@code maxFramebufferLayers} field. */
+    @NativeType("uint32_t")
     public int maxFramebufferLayers() { return nmaxFramebufferLayers(address()); }
     /** Returns the value of the {@code framebufferColorSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int framebufferColorSampleCounts() { return nframebufferColorSampleCounts(address()); }
     /** Returns the value of the {@code framebufferDepthSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int framebufferDepthSampleCounts() { return nframebufferDepthSampleCounts(address()); }
     /** Returns the value of the {@code framebufferStencilSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int framebufferStencilSampleCounts() { return nframebufferStencilSampleCounts(address()); }
     /** Returns the value of the {@code framebufferNoAttachmentsSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int framebufferNoAttachmentsSampleCounts() { return nframebufferNoAttachmentsSampleCounts(address()); }
     /** Returns the value of the {@code maxColorAttachments} field. */
+    @NativeType("uint32_t")
     public int maxColorAttachments() { return nmaxColorAttachments(address()); }
     /** Returns the value of the {@code sampledImageColorSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int sampledImageColorSampleCounts() { return nsampledImageColorSampleCounts(address()); }
     /** Returns the value of the {@code sampledImageIntegerSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int sampledImageIntegerSampleCounts() { return nsampledImageIntegerSampleCounts(address()); }
     /** Returns the value of the {@code sampledImageDepthSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int sampledImageDepthSampleCounts() { return nsampledImageDepthSampleCounts(address()); }
     /** Returns the value of the {@code sampledImageStencilSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int sampledImageStencilSampleCounts() { return nsampledImageStencilSampleCounts(address()); }
     /** Returns the value of the {@code storageImageSampleCounts} field. */
+    @NativeType("VkSampleCountFlags")
     public int storageImageSampleCounts() { return nstorageImageSampleCounts(address()); }
     /** Returns the value of the {@code maxSampleMaskWords} field. */
+    @NativeType("uint32_t")
     public int maxSampleMaskWords() { return nmaxSampleMaskWords(address()); }
     /** Returns the value of the {@code timestampComputeAndGraphics} field. */
+    @NativeType("VkBool32")
     public boolean timestampComputeAndGraphics() { return ntimestampComputeAndGraphics(address()) != 0; }
     /** Returns the value of the {@code timestampPeriod} field. */
     public float timestampPeriod() { return ntimestampPeriod(address()); }
     /** Returns the value of the {@code maxClipDistances} field. */
+    @NativeType("uint32_t")
     public int maxClipDistances() { return nmaxClipDistances(address()); }
     /** Returns the value of the {@code maxCullDistances} field. */
+    @NativeType("uint32_t")
     public int maxCullDistances() { return nmaxCullDistances(address()); }
     /** Returns the value of the {@code maxCombinedClipAndCullDistances} field. */
+    @NativeType("uint32_t")
     public int maxCombinedClipAndCullDistances() { return nmaxCombinedClipAndCullDistances(address()); }
     /** Returns the value of the {@code discreteQueuePriorities} field. */
+    @NativeType("uint32_t")
     public int discreteQueuePriorities() { return ndiscreteQueuePriorities(address()); }
     /** Returns a {@link FloatBuffer} view of the {@code pointSizeRange} field. */
+    @NativeType("float[2]")
     public FloatBuffer pointSizeRange() { return npointSizeRange(address()); }
     /** Returns the value at the specified index of the {@code pointSizeRange} field. */
     public float pointSizeRange(int index) { return npointSizeRange(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code lineWidthRange} field. */
+    @NativeType("float[2]")
     public FloatBuffer lineWidthRange() { return nlineWidthRange(address()); }
     /** Returns the value at the specified index of the {@code lineWidthRange} field. */
     public float lineWidthRange(int index) { return nlineWidthRange(address(), index); }
@@ -852,14 +949,19 @@ public class VkPhysicalDeviceLimits extends Struct {
     /** Returns the value of the {@code lineWidthGranularity} field. */
     public float lineWidthGranularity() { return nlineWidthGranularity(address()); }
     /** Returns the value of the {@code strictLines} field. */
+    @NativeType("VkBool32")
     public boolean strictLines() { return nstrictLines(address()) != 0; }
     /** Returns the value of the {@code standardSampleLocations} field. */
+    @NativeType("VkBool32")
     public boolean standardSampleLocations() { return nstandardSampleLocations(address()) != 0; }
     /** Returns the value of the {@code optimalBufferCopyOffsetAlignment} field. */
+    @NativeType("VkDeviceSize")
     public long optimalBufferCopyOffsetAlignment() { return noptimalBufferCopyOffsetAlignment(address()); }
     /** Returns the value of the {@code optimalBufferCopyRowPitchAlignment} field. */
+    @NativeType("VkDeviceSize")
     public long optimalBufferCopyRowPitchAlignment() { return noptimalBufferCopyRowPitchAlignment(address()); }
     /** Returns the value of the {@code nonCoherentAtomSize} field. */
+    @NativeType("VkDeviceSize")
     public long nonCoherentAtomSize() { return nnonCoherentAtomSize(address()); }
 
     // -----------------------------------
@@ -1167,212 +1269,309 @@ public class VkPhysicalDeviceLimits extends Struct {
         }
 
         /** Returns the value of the {@code maxImageDimension1D} field. */
+        @NativeType("uint32_t")
         public int maxImageDimension1D() { return VkPhysicalDeviceLimits.nmaxImageDimension1D(address()); }
         /** Returns the value of the {@code maxImageDimension2D} field. */
+        @NativeType("uint32_t")
         public int maxImageDimension2D() { return VkPhysicalDeviceLimits.nmaxImageDimension2D(address()); }
         /** Returns the value of the {@code maxImageDimension3D} field. */
+        @NativeType("uint32_t")
         public int maxImageDimension3D() { return VkPhysicalDeviceLimits.nmaxImageDimension3D(address()); }
         /** Returns the value of the {@code maxImageDimensionCube} field. */
+        @NativeType("uint32_t")
         public int maxImageDimensionCube() { return VkPhysicalDeviceLimits.nmaxImageDimensionCube(address()); }
         /** Returns the value of the {@code maxImageArrayLayers} field. */
+        @NativeType("uint32_t")
         public int maxImageArrayLayers() { return VkPhysicalDeviceLimits.nmaxImageArrayLayers(address()); }
         /** Returns the value of the {@code maxTexelBufferElements} field. */
+        @NativeType("uint32_t")
         public int maxTexelBufferElements() { return VkPhysicalDeviceLimits.nmaxTexelBufferElements(address()); }
         /** Returns the value of the {@code maxUniformBufferRange} field. */
+        @NativeType("uint32_t")
         public int maxUniformBufferRange() { return VkPhysicalDeviceLimits.nmaxUniformBufferRange(address()); }
         /** Returns the value of the {@code maxStorageBufferRange} field. */
+        @NativeType("uint32_t")
         public int maxStorageBufferRange() { return VkPhysicalDeviceLimits.nmaxStorageBufferRange(address()); }
         /** Returns the value of the {@code maxPushConstantsSize} field. */
+        @NativeType("uint32_t")
         public int maxPushConstantsSize() { return VkPhysicalDeviceLimits.nmaxPushConstantsSize(address()); }
         /** Returns the value of the {@code maxMemoryAllocationCount} field. */
+        @NativeType("uint32_t")
         public int maxMemoryAllocationCount() { return VkPhysicalDeviceLimits.nmaxMemoryAllocationCount(address()); }
         /** Returns the value of the {@code maxSamplerAllocationCount} field. */
+        @NativeType("uint32_t")
         public int maxSamplerAllocationCount() { return VkPhysicalDeviceLimits.nmaxSamplerAllocationCount(address()); }
         /** Returns the value of the {@code bufferImageGranularity} field. */
+        @NativeType("VkDeviceSize")
         public long bufferImageGranularity() { return VkPhysicalDeviceLimits.nbufferImageGranularity(address()); }
         /** Returns the value of the {@code sparseAddressSpaceSize} field. */
+        @NativeType("VkDeviceSize")
         public long sparseAddressSpaceSize() { return VkPhysicalDeviceLimits.nsparseAddressSpaceSize(address()); }
         /** Returns the value of the {@code maxBoundDescriptorSets} field. */
+        @NativeType("uint32_t")
         public int maxBoundDescriptorSets() { return VkPhysicalDeviceLimits.nmaxBoundDescriptorSets(address()); }
         /** Returns the value of the {@code maxPerStageDescriptorSamplers} field. */
+        @NativeType("uint32_t")
         public int maxPerStageDescriptorSamplers() { return VkPhysicalDeviceLimits.nmaxPerStageDescriptorSamplers(address()); }
         /** Returns the value of the {@code maxPerStageDescriptorUniformBuffers} field. */
+        @NativeType("uint32_t")
         public int maxPerStageDescriptorUniformBuffers() { return VkPhysicalDeviceLimits.nmaxPerStageDescriptorUniformBuffers(address()); }
         /** Returns the value of the {@code maxPerStageDescriptorStorageBuffers} field. */
+        @NativeType("uint32_t")
         public int maxPerStageDescriptorStorageBuffers() { return VkPhysicalDeviceLimits.nmaxPerStageDescriptorStorageBuffers(address()); }
         /** Returns the value of the {@code maxPerStageDescriptorSampledImages} field. */
+        @NativeType("uint32_t")
         public int maxPerStageDescriptorSampledImages() { return VkPhysicalDeviceLimits.nmaxPerStageDescriptorSampledImages(address()); }
         /** Returns the value of the {@code maxPerStageDescriptorStorageImages} field. */
+        @NativeType("uint32_t")
         public int maxPerStageDescriptorStorageImages() { return VkPhysicalDeviceLimits.nmaxPerStageDescriptorStorageImages(address()); }
         /** Returns the value of the {@code maxPerStageDescriptorInputAttachments} field. */
+        @NativeType("uint32_t")
         public int maxPerStageDescriptorInputAttachments() { return VkPhysicalDeviceLimits.nmaxPerStageDescriptorInputAttachments(address()); }
         /** Returns the value of the {@code maxPerStageResources} field. */
+        @NativeType("uint32_t")
         public int maxPerStageResources() { return VkPhysicalDeviceLimits.nmaxPerStageResources(address()); }
         /** Returns the value of the {@code maxDescriptorSetSamplers} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetSamplers() { return VkPhysicalDeviceLimits.nmaxDescriptorSetSamplers(address()); }
         /** Returns the value of the {@code maxDescriptorSetUniformBuffers} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetUniformBuffers() { return VkPhysicalDeviceLimits.nmaxDescriptorSetUniformBuffers(address()); }
         /** Returns the value of the {@code maxDescriptorSetUniformBuffersDynamic} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetUniformBuffersDynamic() { return VkPhysicalDeviceLimits.nmaxDescriptorSetUniformBuffersDynamic(address()); }
         /** Returns the value of the {@code maxDescriptorSetStorageBuffers} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetStorageBuffers() { return VkPhysicalDeviceLimits.nmaxDescriptorSetStorageBuffers(address()); }
         /** Returns the value of the {@code maxDescriptorSetStorageBuffersDynamic} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetStorageBuffersDynamic() { return VkPhysicalDeviceLimits.nmaxDescriptorSetStorageBuffersDynamic(address()); }
         /** Returns the value of the {@code maxDescriptorSetSampledImages} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetSampledImages() { return VkPhysicalDeviceLimits.nmaxDescriptorSetSampledImages(address()); }
         /** Returns the value of the {@code maxDescriptorSetStorageImages} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetStorageImages() { return VkPhysicalDeviceLimits.nmaxDescriptorSetStorageImages(address()); }
         /** Returns the value of the {@code maxDescriptorSetInputAttachments} field. */
+        @NativeType("uint32_t")
         public int maxDescriptorSetInputAttachments() { return VkPhysicalDeviceLimits.nmaxDescriptorSetInputAttachments(address()); }
         /** Returns the value of the {@code maxVertexInputAttributes} field. */
+        @NativeType("uint32_t")
         public int maxVertexInputAttributes() { return VkPhysicalDeviceLimits.nmaxVertexInputAttributes(address()); }
         /** Returns the value of the {@code maxVertexInputBindings} field. */
+        @NativeType("uint32_t")
         public int maxVertexInputBindings() { return VkPhysicalDeviceLimits.nmaxVertexInputBindings(address()); }
         /** Returns the value of the {@code maxVertexInputAttributeOffset} field. */
+        @NativeType("uint32_t")
         public int maxVertexInputAttributeOffset() { return VkPhysicalDeviceLimits.nmaxVertexInputAttributeOffset(address()); }
         /** Returns the value of the {@code maxVertexInputBindingStride} field. */
+        @NativeType("uint32_t")
         public int maxVertexInputBindingStride() { return VkPhysicalDeviceLimits.nmaxVertexInputBindingStride(address()); }
         /** Returns the value of the {@code maxVertexOutputComponents} field. */
+        @NativeType("uint32_t")
         public int maxVertexOutputComponents() { return VkPhysicalDeviceLimits.nmaxVertexOutputComponents(address()); }
         /** Returns the value of the {@code maxTessellationGenerationLevel} field. */
+        @NativeType("uint32_t")
         public int maxTessellationGenerationLevel() { return VkPhysicalDeviceLimits.nmaxTessellationGenerationLevel(address()); }
         /** Returns the value of the {@code maxTessellationPatchSize} field. */
+        @NativeType("uint32_t")
         public int maxTessellationPatchSize() { return VkPhysicalDeviceLimits.nmaxTessellationPatchSize(address()); }
         /** Returns the value of the {@code maxTessellationControlPerVertexInputComponents} field. */
+        @NativeType("uint32_t")
         public int maxTessellationControlPerVertexInputComponents() { return VkPhysicalDeviceLimits.nmaxTessellationControlPerVertexInputComponents(address()); }
         /** Returns the value of the {@code maxTessellationControlPerVertexOutputComponents} field. */
+        @NativeType("uint32_t")
         public int maxTessellationControlPerVertexOutputComponents() { return VkPhysicalDeviceLimits.nmaxTessellationControlPerVertexOutputComponents(address()); }
         /** Returns the value of the {@code maxTessellationControlPerPatchOutputComponents} field. */
+        @NativeType("uint32_t")
         public int maxTessellationControlPerPatchOutputComponents() { return VkPhysicalDeviceLimits.nmaxTessellationControlPerPatchOutputComponents(address()); }
         /** Returns the value of the {@code maxTessellationControlTotalOutputComponents} field. */
+        @NativeType("uint32_t")
         public int maxTessellationControlTotalOutputComponents() { return VkPhysicalDeviceLimits.nmaxTessellationControlTotalOutputComponents(address()); }
         /** Returns the value of the {@code maxTessellationEvaluationInputComponents} field. */
+        @NativeType("uint32_t")
         public int maxTessellationEvaluationInputComponents() { return VkPhysicalDeviceLimits.nmaxTessellationEvaluationInputComponents(address()); }
         /** Returns the value of the {@code maxTessellationEvaluationOutputComponents} field. */
+        @NativeType("uint32_t")
         public int maxTessellationEvaluationOutputComponents() { return VkPhysicalDeviceLimits.nmaxTessellationEvaluationOutputComponents(address()); }
         /** Returns the value of the {@code maxGeometryShaderInvocations} field. */
+        @NativeType("uint32_t")
         public int maxGeometryShaderInvocations() { return VkPhysicalDeviceLimits.nmaxGeometryShaderInvocations(address()); }
         /** Returns the value of the {@code maxGeometryInputComponents} field. */
+        @NativeType("uint32_t")
         public int maxGeometryInputComponents() { return VkPhysicalDeviceLimits.nmaxGeometryInputComponents(address()); }
         /** Returns the value of the {@code maxGeometryOutputComponents} field. */
+        @NativeType("uint32_t")
         public int maxGeometryOutputComponents() { return VkPhysicalDeviceLimits.nmaxGeometryOutputComponents(address()); }
         /** Returns the value of the {@code maxGeometryOutputVertices} field. */
+        @NativeType("uint32_t")
         public int maxGeometryOutputVertices() { return VkPhysicalDeviceLimits.nmaxGeometryOutputVertices(address()); }
         /** Returns the value of the {@code maxGeometryTotalOutputComponents} field. */
+        @NativeType("uint32_t")
         public int maxGeometryTotalOutputComponents() { return VkPhysicalDeviceLimits.nmaxGeometryTotalOutputComponents(address()); }
         /** Returns the value of the {@code maxFragmentInputComponents} field. */
+        @NativeType("uint32_t")
         public int maxFragmentInputComponents() { return VkPhysicalDeviceLimits.nmaxFragmentInputComponents(address()); }
         /** Returns the value of the {@code maxFragmentOutputAttachments} field. */
+        @NativeType("uint32_t")
         public int maxFragmentOutputAttachments() { return VkPhysicalDeviceLimits.nmaxFragmentOutputAttachments(address()); }
         /** Returns the value of the {@code maxFragmentDualSrcAttachments} field. */
+        @NativeType("uint32_t")
         public int maxFragmentDualSrcAttachments() { return VkPhysicalDeviceLimits.nmaxFragmentDualSrcAttachments(address()); }
         /** Returns the value of the {@code maxFragmentCombinedOutputResources} field. */
+        @NativeType("uint32_t")
         public int maxFragmentCombinedOutputResources() { return VkPhysicalDeviceLimits.nmaxFragmentCombinedOutputResources(address()); }
         /** Returns the value of the {@code maxComputeSharedMemorySize} field. */
+        @NativeType("uint32_t")
         public int maxComputeSharedMemorySize() { return VkPhysicalDeviceLimits.nmaxComputeSharedMemorySize(address()); }
         /** Returns a {@link IntBuffer} view of the {@code maxComputeWorkGroupCount} field. */
+        @NativeType("uint32_t[3]")
         public IntBuffer maxComputeWorkGroupCount() { return VkPhysicalDeviceLimits.nmaxComputeWorkGroupCount(address()); }
         /** Returns the value at the specified index of the {@code maxComputeWorkGroupCount} field. */
+        @NativeType("uint32_t")
         public int maxComputeWorkGroupCount(int index) { return VkPhysicalDeviceLimits.nmaxComputeWorkGroupCount(address(), index); }
         /** Returns the value of the {@code maxComputeWorkGroupInvocations} field. */
+        @NativeType("uint32_t")
         public int maxComputeWorkGroupInvocations() { return VkPhysicalDeviceLimits.nmaxComputeWorkGroupInvocations(address()); }
         /** Returns a {@link IntBuffer} view of the {@code maxComputeWorkGroupSize} field. */
+        @NativeType("uint32_t[3]")
         public IntBuffer maxComputeWorkGroupSize() { return VkPhysicalDeviceLimits.nmaxComputeWorkGroupSize(address()); }
         /** Returns the value at the specified index of the {@code maxComputeWorkGroupSize} field. */
+        @NativeType("uint32_t")
         public int maxComputeWorkGroupSize(int index) { return VkPhysicalDeviceLimits.nmaxComputeWorkGroupSize(address(), index); }
         /** Returns the value of the {@code subPixelPrecisionBits} field. */
+        @NativeType("uint32_t")
         public int subPixelPrecisionBits() { return VkPhysicalDeviceLimits.nsubPixelPrecisionBits(address()); }
         /** Returns the value of the {@code subTexelPrecisionBits} field. */
+        @NativeType("uint32_t")
         public int subTexelPrecisionBits() { return VkPhysicalDeviceLimits.nsubTexelPrecisionBits(address()); }
         /** Returns the value of the {@code mipmapPrecisionBits} field. */
+        @NativeType("uint32_t")
         public int mipmapPrecisionBits() { return VkPhysicalDeviceLimits.nmipmapPrecisionBits(address()); }
         /** Returns the value of the {@code maxDrawIndexedIndexValue} field. */
+        @NativeType("uint32_t")
         public int maxDrawIndexedIndexValue() { return VkPhysicalDeviceLimits.nmaxDrawIndexedIndexValue(address()); }
         /** Returns the value of the {@code maxDrawIndirectCount} field. */
+        @NativeType("uint32_t")
         public int maxDrawIndirectCount() { return VkPhysicalDeviceLimits.nmaxDrawIndirectCount(address()); }
         /** Returns the value of the {@code maxSamplerLodBias} field. */
         public float maxSamplerLodBias() { return VkPhysicalDeviceLimits.nmaxSamplerLodBias(address()); }
         /** Returns the value of the {@code maxSamplerAnisotropy} field. */
         public float maxSamplerAnisotropy() { return VkPhysicalDeviceLimits.nmaxSamplerAnisotropy(address()); }
         /** Returns the value of the {@code maxViewports} field. */
+        @NativeType("uint32_t")
         public int maxViewports() { return VkPhysicalDeviceLimits.nmaxViewports(address()); }
         /** Returns a {@link IntBuffer} view of the {@code maxViewportDimensions} field. */
+        @NativeType("uint32_t[2]")
         public IntBuffer maxViewportDimensions() { return VkPhysicalDeviceLimits.nmaxViewportDimensions(address()); }
         /** Returns the value at the specified index of the {@code maxViewportDimensions} field. */
+        @NativeType("uint32_t")
         public int maxViewportDimensions(int index) { return VkPhysicalDeviceLimits.nmaxViewportDimensions(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code viewportBoundsRange} field. */
+        @NativeType("float[2]")
         public FloatBuffer viewportBoundsRange() { return VkPhysicalDeviceLimits.nviewportBoundsRange(address()); }
         /** Returns the value at the specified index of the {@code viewportBoundsRange} field. */
         public float viewportBoundsRange(int index) { return VkPhysicalDeviceLimits.nviewportBoundsRange(address(), index); }
         /** Returns the value of the {@code viewportSubPixelBits} field. */
+        @NativeType("uint32_t")
         public int viewportSubPixelBits() { return VkPhysicalDeviceLimits.nviewportSubPixelBits(address()); }
         /** Returns the value of the {@code minMemoryMapAlignment} field. */
+        @NativeType("size_t")
         public long minMemoryMapAlignment() { return VkPhysicalDeviceLimits.nminMemoryMapAlignment(address()); }
         /** Returns the value of the {@code minTexelBufferOffsetAlignment} field. */
+        @NativeType("VkDeviceSize")
         public long minTexelBufferOffsetAlignment() { return VkPhysicalDeviceLimits.nminTexelBufferOffsetAlignment(address()); }
         /** Returns the value of the {@code minUniformBufferOffsetAlignment} field. */
+        @NativeType("VkDeviceSize")
         public long minUniformBufferOffsetAlignment() { return VkPhysicalDeviceLimits.nminUniformBufferOffsetAlignment(address()); }
         /** Returns the value of the {@code minStorageBufferOffsetAlignment} field. */
+        @NativeType("VkDeviceSize")
         public long minStorageBufferOffsetAlignment() { return VkPhysicalDeviceLimits.nminStorageBufferOffsetAlignment(address()); }
         /** Returns the value of the {@code minTexelOffset} field. */
+        @NativeType("int32_t")
         public int minTexelOffset() { return VkPhysicalDeviceLimits.nminTexelOffset(address()); }
         /** Returns the value of the {@code maxTexelOffset} field. */
+        @NativeType("uint32_t")
         public int maxTexelOffset() { return VkPhysicalDeviceLimits.nmaxTexelOffset(address()); }
         /** Returns the value of the {@code minTexelGatherOffset} field. */
+        @NativeType("int32_t")
         public int minTexelGatherOffset() { return VkPhysicalDeviceLimits.nminTexelGatherOffset(address()); }
         /** Returns the value of the {@code maxTexelGatherOffset} field. */
+        @NativeType("uint32_t")
         public int maxTexelGatherOffset() { return VkPhysicalDeviceLimits.nmaxTexelGatherOffset(address()); }
         /** Returns the value of the {@code minInterpolationOffset} field. */
         public float minInterpolationOffset() { return VkPhysicalDeviceLimits.nminInterpolationOffset(address()); }
         /** Returns the value of the {@code maxInterpolationOffset} field. */
         public float maxInterpolationOffset() { return VkPhysicalDeviceLimits.nmaxInterpolationOffset(address()); }
         /** Returns the value of the {@code subPixelInterpolationOffsetBits} field. */
+        @NativeType("uint32_t")
         public int subPixelInterpolationOffsetBits() { return VkPhysicalDeviceLimits.nsubPixelInterpolationOffsetBits(address()); }
         /** Returns the value of the {@code maxFramebufferWidth} field. */
+        @NativeType("uint32_t")
         public int maxFramebufferWidth() { return VkPhysicalDeviceLimits.nmaxFramebufferWidth(address()); }
         /** Returns the value of the {@code maxFramebufferHeight} field. */
+        @NativeType("uint32_t")
         public int maxFramebufferHeight() { return VkPhysicalDeviceLimits.nmaxFramebufferHeight(address()); }
         /** Returns the value of the {@code maxFramebufferLayers} field. */
+        @NativeType("uint32_t")
         public int maxFramebufferLayers() { return VkPhysicalDeviceLimits.nmaxFramebufferLayers(address()); }
         /** Returns the value of the {@code framebufferColorSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int framebufferColorSampleCounts() { return VkPhysicalDeviceLimits.nframebufferColorSampleCounts(address()); }
         /** Returns the value of the {@code framebufferDepthSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int framebufferDepthSampleCounts() { return VkPhysicalDeviceLimits.nframebufferDepthSampleCounts(address()); }
         /** Returns the value of the {@code framebufferStencilSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int framebufferStencilSampleCounts() { return VkPhysicalDeviceLimits.nframebufferStencilSampleCounts(address()); }
         /** Returns the value of the {@code framebufferNoAttachmentsSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int framebufferNoAttachmentsSampleCounts() { return VkPhysicalDeviceLimits.nframebufferNoAttachmentsSampleCounts(address()); }
         /** Returns the value of the {@code maxColorAttachments} field. */
+        @NativeType("uint32_t")
         public int maxColorAttachments() { return VkPhysicalDeviceLimits.nmaxColorAttachments(address()); }
         /** Returns the value of the {@code sampledImageColorSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int sampledImageColorSampleCounts() { return VkPhysicalDeviceLimits.nsampledImageColorSampleCounts(address()); }
         /** Returns the value of the {@code sampledImageIntegerSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int sampledImageIntegerSampleCounts() { return VkPhysicalDeviceLimits.nsampledImageIntegerSampleCounts(address()); }
         /** Returns the value of the {@code sampledImageDepthSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int sampledImageDepthSampleCounts() { return VkPhysicalDeviceLimits.nsampledImageDepthSampleCounts(address()); }
         /** Returns the value of the {@code sampledImageStencilSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int sampledImageStencilSampleCounts() { return VkPhysicalDeviceLimits.nsampledImageStencilSampleCounts(address()); }
         /** Returns the value of the {@code storageImageSampleCounts} field. */
+        @NativeType("VkSampleCountFlags")
         public int storageImageSampleCounts() { return VkPhysicalDeviceLimits.nstorageImageSampleCounts(address()); }
         /** Returns the value of the {@code maxSampleMaskWords} field. */
+        @NativeType("uint32_t")
         public int maxSampleMaskWords() { return VkPhysicalDeviceLimits.nmaxSampleMaskWords(address()); }
         /** Returns the value of the {@code timestampComputeAndGraphics} field. */
+        @NativeType("VkBool32")
         public boolean timestampComputeAndGraphics() { return VkPhysicalDeviceLimits.ntimestampComputeAndGraphics(address()) != 0; }
         /** Returns the value of the {@code timestampPeriod} field. */
         public float timestampPeriod() { return VkPhysicalDeviceLimits.ntimestampPeriod(address()); }
         /** Returns the value of the {@code maxClipDistances} field. */
+        @NativeType("uint32_t")
         public int maxClipDistances() { return VkPhysicalDeviceLimits.nmaxClipDistances(address()); }
         /** Returns the value of the {@code maxCullDistances} field. */
+        @NativeType("uint32_t")
         public int maxCullDistances() { return VkPhysicalDeviceLimits.nmaxCullDistances(address()); }
         /** Returns the value of the {@code maxCombinedClipAndCullDistances} field. */
+        @NativeType("uint32_t")
         public int maxCombinedClipAndCullDistances() { return VkPhysicalDeviceLimits.nmaxCombinedClipAndCullDistances(address()); }
         /** Returns the value of the {@code discreteQueuePriorities} field. */
+        @NativeType("uint32_t")
         public int discreteQueuePriorities() { return VkPhysicalDeviceLimits.ndiscreteQueuePriorities(address()); }
         /** Returns a {@link FloatBuffer} view of the {@code pointSizeRange} field. */
+        @NativeType("float[2]")
         public FloatBuffer pointSizeRange() { return VkPhysicalDeviceLimits.npointSizeRange(address()); }
         /** Returns the value at the specified index of the {@code pointSizeRange} field. */
         public float pointSizeRange(int index) { return VkPhysicalDeviceLimits.npointSizeRange(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code lineWidthRange} field. */
+        @NativeType("float[2]")
         public FloatBuffer lineWidthRange() { return VkPhysicalDeviceLimits.nlineWidthRange(address()); }
         /** Returns the value at the specified index of the {@code lineWidthRange} field. */
         public float lineWidthRange(int index) { return VkPhysicalDeviceLimits.nlineWidthRange(address(), index); }
@@ -1381,14 +1580,19 @@ public class VkPhysicalDeviceLimits extends Struct {
         /** Returns the value of the {@code lineWidthGranularity} field. */
         public float lineWidthGranularity() { return VkPhysicalDeviceLimits.nlineWidthGranularity(address()); }
         /** Returns the value of the {@code strictLines} field. */
+        @NativeType("VkBool32")
         public boolean strictLines() { return VkPhysicalDeviceLimits.nstrictLines(address()) != 0; }
         /** Returns the value of the {@code standardSampleLocations} field. */
+        @NativeType("VkBool32")
         public boolean standardSampleLocations() { return VkPhysicalDeviceLimits.nstandardSampleLocations(address()) != 0; }
         /** Returns the value of the {@code optimalBufferCopyOffsetAlignment} field. */
+        @NativeType("VkDeviceSize")
         public long optimalBufferCopyOffsetAlignment() { return VkPhysicalDeviceLimits.noptimalBufferCopyOffsetAlignment(address()); }
         /** Returns the value of the {@code optimalBufferCopyRowPitchAlignment} field. */
+        @NativeType("VkDeviceSize")
         public long optimalBufferCopyRowPitchAlignment() { return VkPhysicalDeviceLimits.noptimalBufferCopyRowPitchAlignment(address()); }
         /** Returns the value of the {@code nonCoherentAtomSize} field. */
+        @NativeType("VkDeviceSize")
         public long nonCoherentAtomSize() { return VkPhysicalDeviceLimits.nnonCoherentAtomSize(address()); }
 
     }

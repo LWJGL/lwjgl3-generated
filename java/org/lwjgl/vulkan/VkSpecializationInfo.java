@@ -107,18 +107,22 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code mapEntryCount} field. */
+    @NativeType("uint32_t")
     public int mapEntryCount() { return nmapEntryCount(address()); }
     /** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
+    @NativeType("const VkSpecializationMapEntry *")
     public VkSpecializationMapEntry.Buffer pMapEntries() { return npMapEntries(address()); }
     /** Returns the value of the {@code dataSize} field. */
+    @NativeType("size_t")
     public long dataSize() { return ndataSize(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
+    @NativeType("const void *")
     public ByteBuffer pData() { return npData(address()); }
 
     /** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
-    public VkSpecializationInfo pMapEntries(VkSpecializationMapEntry.Buffer value) { npMapEntries(address(), value); return this; }
+    public VkSpecializationInfo pMapEntries(@NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { npMapEntries(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
-    public VkSpecializationInfo pData(ByteBuffer value) { npData(address(), value); return this; }
+    public VkSpecializationInfo pData(@NativeType("const void *") ByteBuffer value) { npData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSpecializationInfo set(
@@ -359,18 +363,22 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code mapEntryCount} field. */
+        @NativeType("uint32_t")
         public int mapEntryCount() { return VkSpecializationInfo.nmapEntryCount(address()); }
         /** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
+        @NativeType("const VkSpecializationMapEntry *")
         public VkSpecializationMapEntry.Buffer pMapEntries() { return VkSpecializationInfo.npMapEntries(address()); }
         /** Returns the value of the {@code dataSize} field. */
+        @NativeType("size_t")
         public long dataSize() { return VkSpecializationInfo.ndataSize(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
+        @NativeType("const void *")
         public ByteBuffer pData() { return VkSpecializationInfo.npData(address()); }
 
         /** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
-        public VkSpecializationInfo.Buffer pMapEntries(VkSpecializationMapEntry.Buffer value) { VkSpecializationInfo.npMapEntries(address(), value); return this; }
+        public VkSpecializationInfo.Buffer pMapEntries(@NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { VkSpecializationInfo.npMapEntries(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
-        public VkSpecializationInfo.Buffer pData(ByteBuffer value) { VkSpecializationInfo.npData(address(), value); return this; }
+        public VkSpecializationInfo.Buffer pData(@NativeType("const void *") ByteBuffer value) { VkSpecializationInfo.npData(address(), value); return this; }
 
     }
 

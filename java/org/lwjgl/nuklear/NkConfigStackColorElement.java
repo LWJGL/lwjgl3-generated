@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkColor struct nk_color} old_value;
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_color_element")
 class NkConfigStackColorElement extends Struct {
 
     /** The struct size in bytes. */
@@ -63,8 +64,10 @@ class NkConfigStackColorElement extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkColor} view of the struct pointed to by the {@code pValues} field. */
+    @NativeType("struct nk_color *")
     public NkColor pValues() { return npValues(address()); }
     /** Returns a {@link NkColor} view of the {@code old_value} field. */
+    @NativeType("struct nk_color")
     public NkColor old_value() { return nold_value(address()); }
 
     // -----------------------------------
@@ -134,8 +137,10 @@ class NkConfigStackColorElement extends Struct {
         }
 
         /** Returns a {@link NkColor} view of the struct pointed to by the {@code pValues} field. */
+        @NativeType("struct nk_color *")
         public NkColor pValues() { return NkConfigStackColorElement.npValues(address()); }
         /** Returns a {@link NkColor} view of the {@code old_value} field. */
+        @NativeType("struct nk_color")
         public NkColor old_value() { return NkConfigStackColorElement.nold_value(address()); }
 
     }

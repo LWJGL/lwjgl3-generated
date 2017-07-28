@@ -36,6 +36,7 @@ import static org.lwjgl.bgfx.BGFX.BGFX_ATTRIB_COUNT;
  *     uint16_t attributes[BGFX_ATTRIB_COUNT];
  * }</pre></code>
  */
+@NativeType("struct bgfx_vertex_decl_t")
 public class BGFXVertexDecl extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -85,30 +86,36 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code hash} field. */
+    @NativeType("uint32_t")
     public int hash() { return nhash(address()); }
     /** Returns the value of the {@code stride} field. */
+    @NativeType("uint16_t")
     public short stride() { return nstride(address()); }
     /** Returns a {@link ShortBuffer} view of the {@code offset} field. */
+    @NativeType("uint16_t[BGFX_ATTRIB_COUNT]")
     public ShortBuffer offset() { return noffset(address()); }
     /** Returns the value at the specified index of the {@code offset} field. */
+    @NativeType("uint16_t")
     public short offset(int index) { return noffset(address(), index); }
     /** Returns a {@link ShortBuffer} view of the {@code attributes} field. */
+    @NativeType("uint16_t[BGFX_ATTRIB_COUNT]")
     public ShortBuffer attributes() { return nattributes(address()); }
     /** Returns the value at the specified index of the {@code attributes} field. */
+    @NativeType("uint16_t")
     public short attributes(int index) { return nattributes(address(), index); }
 
     /** Sets the specified value to the {@code hash} field. */
-    public BGFXVertexDecl hash(int value) { nhash(address(), value); return this; }
+    public BGFXVertexDecl hash(@NativeType("uint32_t") int value) { nhash(address(), value); return this; }
     /** Sets the specified value to the {@code stride} field. */
-    public BGFXVertexDecl stride(short value) { nstride(address(), value); return this; }
+    public BGFXVertexDecl stride(@NativeType("uint16_t") short value) { nstride(address(), value); return this; }
     /** Copies the specified {@link ShortBuffer} to the {@code offset} field. */
-    public BGFXVertexDecl offset(ShortBuffer value) { noffset(address(), value); return this; }
+    public BGFXVertexDecl offset(@NativeType("uint16_t[BGFX_ATTRIB_COUNT]") ShortBuffer value) { noffset(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code offset} field. */
-    public BGFXVertexDecl offset(int index, short value) { noffset(address(), index, value); return this; }
+    public BGFXVertexDecl offset(int index, @NativeType("uint16_t") short value) { noffset(address(), index, value); return this; }
     /** Copies the specified {@link ShortBuffer} to the {@code attributes} field. */
-    public BGFXVertexDecl attributes(ShortBuffer value) { nattributes(address(), value); return this; }
+    public BGFXVertexDecl attributes(@NativeType("uint16_t[BGFX_ATTRIB_COUNT]") ShortBuffer value) { nattributes(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code attributes} field. */
-    public BGFXVertexDecl attributes(int index, short value) { nattributes(address(), index, value); return this; }
+    public BGFXVertexDecl attributes(int index, @NativeType("uint16_t") short value) { nattributes(address(), index, value); return this; }
 
     /** Initializes this struct with the specified values. */
     public BGFXVertexDecl set(
@@ -353,30 +360,36 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code hash} field. */
+        @NativeType("uint32_t")
         public int hash() { return BGFXVertexDecl.nhash(address()); }
         /** Returns the value of the {@code stride} field. */
+        @NativeType("uint16_t")
         public short stride() { return BGFXVertexDecl.nstride(address()); }
         /** Returns a {@link ShortBuffer} view of the {@code offset} field. */
+        @NativeType("uint16_t[BGFX_ATTRIB_COUNT]")
         public ShortBuffer offset() { return BGFXVertexDecl.noffset(address()); }
         /** Returns the value at the specified index of the {@code offset} field. */
+        @NativeType("uint16_t")
         public short offset(int index) { return BGFXVertexDecl.noffset(address(), index); }
         /** Returns a {@link ShortBuffer} view of the {@code attributes} field. */
+        @NativeType("uint16_t[BGFX_ATTRIB_COUNT]")
         public ShortBuffer attributes() { return BGFXVertexDecl.nattributes(address()); }
         /** Returns the value at the specified index of the {@code attributes} field. */
+        @NativeType("uint16_t")
         public short attributes(int index) { return BGFXVertexDecl.nattributes(address(), index); }
 
         /** Sets the specified value to the {@code hash} field. */
-        public BGFXVertexDecl.Buffer hash(int value) { BGFXVertexDecl.nhash(address(), value); return this; }
+        public BGFXVertexDecl.Buffer hash(@NativeType("uint32_t") int value) { BGFXVertexDecl.nhash(address(), value); return this; }
         /** Sets the specified value to the {@code stride} field. */
-        public BGFXVertexDecl.Buffer stride(short value) { BGFXVertexDecl.nstride(address(), value); return this; }
+        public BGFXVertexDecl.Buffer stride(@NativeType("uint16_t") short value) { BGFXVertexDecl.nstride(address(), value); return this; }
         /** Copies the specified {@link ShortBuffer} to the {@code offset} field. */
-        public BGFXVertexDecl.Buffer offset(ShortBuffer value) { BGFXVertexDecl.noffset(address(), value); return this; }
+        public BGFXVertexDecl.Buffer offset(@NativeType("uint16_t[BGFX_ATTRIB_COUNT]") ShortBuffer value) { BGFXVertexDecl.noffset(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code offset} field. */
-        public BGFXVertexDecl.Buffer offset(int index, short value) { BGFXVertexDecl.noffset(address(), index, value); return this; }
+        public BGFXVertexDecl.Buffer offset(int index, @NativeType("uint16_t") short value) { BGFXVertexDecl.noffset(address(), index, value); return this; }
         /** Copies the specified {@link ShortBuffer} to the {@code attributes} field. */
-        public BGFXVertexDecl.Buffer attributes(ShortBuffer value) { BGFXVertexDecl.nattributes(address(), value); return this; }
+        public BGFXVertexDecl.Buffer attributes(@NativeType("uint16_t[BGFX_ATTRIB_COUNT]") ShortBuffer value) { BGFXVertexDecl.nattributes(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code attributes} field. */
-        public BGFXVertexDecl.Buffer attributes(int index, short value) { BGFXVertexDecl.nattributes(address(), index, value); return this; }
+        public BGFXVertexDecl.Buffer attributes(int index, @NativeType("uint16_t") short value) { BGFXVertexDecl.nattributes(address(), index, value); return this; }
 
     }
 

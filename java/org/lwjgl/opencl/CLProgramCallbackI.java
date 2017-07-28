@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} and {@link CL12#clLinkProgram LinkProgram} methods. */
 @FunctionalInterface
+@NativeType("cl_program_callback")
 public interface CLProgramCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pp)v");
@@ -32,6 +33,6 @@ public interface CLProgramCallbackI extends CallbackI.V {
      * @param program   the program that was built, compiled or linked
      * @param user_data the user-specified value that was passed when calling {@link CL10#clBuildProgram BuildProgram}, {@link CL12#clCompileProgram CompileProgram} or {@link CL12#clLinkProgram LinkProgram}
      */
-    void invoke(long program, long user_data);
+    void invoke(@NativeType("cl_program") long program, @NativeType("void *") long user_data);
 
 }

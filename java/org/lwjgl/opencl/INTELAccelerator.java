@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -108,7 +110,8 @@ public class INTELAccelerator {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateAcceleratorINTEL(long context, int accelerator_type, ByteBuffer descriptor, IntBuffer errcode_ret) {
+    @NativeType("cl_accelerator_intel")
+    public static long clCreateAcceleratorINTEL(@NativeType("cl_context") long context, @NativeType("cl_accelerator_type_intel") int accelerator_type, @NativeType("const void *") ByteBuffer descriptor, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -130,7 +133,8 @@ public class INTELAccelerator {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clRetainAcceleratorINTEL(long accelerator) {
+    @NativeType("cl_int")
+    public static int clRetainAcceleratorINTEL(@NativeType("cl_accelerator_intel") long accelerator) {
         long __functionAddress = CL.getICD().clRetainAcceleratorINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -155,7 +159,8 @@ public class INTELAccelerator {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clReleaseAcceleratorINTEL(long accelerator) {
+    @NativeType("cl_int")
+    public static int clReleaseAcceleratorINTEL(@NativeType("cl_accelerator_intel") long accelerator) {
         long __functionAddress = CL.getICD().clReleaseAcceleratorINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -198,7 +203,8 @@ public class INTELAccelerator {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, ByteBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetAcceleratorInfoINTEL(@NativeType("cl_accelerator_intel") long accelerator, @NativeType("cl_accelerator_info_intel") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -223,7 +229,8 @@ public class INTELAccelerator {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, IntBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetAcceleratorInfoINTEL(@NativeType("cl_accelerator_intel") long accelerator, @NativeType("cl_accelerator_info_intel") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -248,7 +255,8 @@ public class INTELAccelerator {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, PointerBuffer param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetAcceleratorInfoINTEL(@NativeType("cl_accelerator_intel") long accelerator, @NativeType("cl_accelerator_info_intel") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -256,7 +264,8 @@ public class INTELAccelerator {
     }
 
     /** Array version of: {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
-    public static long clCreateAcceleratorINTEL(long context, int accelerator_type, ByteBuffer descriptor, int[] errcode_ret) {
+    @NativeType("cl_accelerator_intel")
+    public static long clCreateAcceleratorINTEL(@NativeType("cl_context") long context, @NativeType("cl_accelerator_type_intel") int accelerator_type, @NativeType("const void *") ByteBuffer descriptor, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateAcceleratorINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -267,7 +276,8 @@ public class INTELAccelerator {
     }
 
     /** Array version of: {@link #clGetAcceleratorInfoINTEL GetAcceleratorInfoINTEL} */
-    public static int clGetAcceleratorInfoINTEL(long accelerator, int param_name, int[] param_value, PointerBuffer param_value_size_ret) {
+    @NativeType("cl_int")
+    public static int clGetAcceleratorInfoINTEL(@NativeType("cl_accelerator_intel") long accelerator, @NativeType("cl_accelerator_info_intel") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetAcceleratorInfoINTEL;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nanovg;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -63,7 +65,7 @@ public class NanoVGGL3 {
      *
      * @return a handle to the image
      */
-    public static int nvglCreateImageFromHandle(long ctx, int textureId, int w, int h, int flags) {
+    public static int nvglCreateImageFromHandle(@NativeType("NVGcontext *") long ctx, @NativeType("GLuint") int textureId, int w, int h, int flags) {
         if (CHECKS) {
             check(ctx);
         }
@@ -81,7 +83,8 @@ public class NanoVGGL3 {
      * @param ctx   the NanoVG context
      * @param image the image handle
      */
-    public static int nvglImageHandle(long ctx, int image) {
+    @NativeType("GLuint")
+    public static int nvglImageHandle(@NativeType("NVGcontext *") long ctx, int image) {
         if (CHECKS) {
             check(ctx);
         }
@@ -101,6 +104,7 @@ public class NanoVGGL3 {
      *
      * @param flags the context flags. One of:<br><table><tr><td>{@link #NVG_ANTIALIAS ANTIALIAS}</td><td>{@link #NVG_STENCIL_STROKES STENCIL_STROKES}</td><td>{@link #NVG_DEBUG DEBUG}</td></tr></table>
      */
+    @NativeType("NVGcontext *")
     public static long nvgCreate(int flags) {
         return nnvgCreateGL3(flags);
     }
@@ -115,7 +119,7 @@ public class NanoVGGL3 {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgDelete(long ctx) {
+    public static void nvgDelete(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -135,7 +139,8 @@ public class NanoVGGL3 {
      * @param h          the framebuffer height
      * @param imageFlags the image flags
      */
-    public static NVGLUFramebuffer nvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags) {
+    @NativeType("NVGLUframebuffer *")
+    public static NVGLUFramebuffer nvgluCreateFramebuffer(@NativeType("NVGcontext *") long ctx, int w, int h, int imageFlags) {
         if (CHECKS) {
             check(ctx);
         }
@@ -154,7 +159,7 @@ public class NanoVGGL3 {
      * @param ctx the NanoVG context
      * @param fb  the framebuffer to bind
      */
-    public static void nvgluBindFramebuffer(long ctx, NVGLUFramebuffer fb) {
+    public static void nvgluBindFramebuffer(@NativeType("NVGcontext *") long ctx, @NativeType("NVGLUframebuffer *") NVGLUFramebuffer fb) {
         if (CHECKS) {
             check(ctx);
         }
@@ -172,7 +177,7 @@ public class NanoVGGL3 {
      * @param ctx the NanoVG context
      * @param fb  the framebuffer to delete
      */
-    public static void nvgluDeleteFramebuffer(long ctx, NVGLUFramebuffer fb) {
+    public static void nvgluDeleteFramebuffer(@NativeType("NVGcontext *") long ctx, @NativeType("NVGLUframebuffer *") NVGLUFramebuffer fb) {
         if (CHECKS) {
             check(ctx);
         }

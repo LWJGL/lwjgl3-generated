@@ -34,6 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link STBIEOFCallbackI stbi_io_callbacks.eof} eof;
  * }</pre></code>
  */
+@NativeType("struct stbi_io_callbacks")
 public class STBIIOCallbacks extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -80,18 +81,21 @@ public class STBIIOCallbacks extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code read} field. */
+    @NativeType("stbi_io_callbacks.read")
     public STBIReadCallback read() { return nread(address()); }
     /** Returns the value of the {@code skip} field. */
+    @NativeType("stbi_io_callbacks.skip")
     public STBISkipCallback skip() { return nskip(address()); }
     /** Returns the value of the {@code eof} field. */
+    @NativeType("stbi_io_callbacks.eof")
     public STBIEOFCallback eof() { return neof(address()); }
 
     /** Sets the specified value to the {@code read} field. */
-    public STBIIOCallbacks read(STBIReadCallbackI value) { nread(address(), value); return this; }
+    public STBIIOCallbacks read(@NativeType("stbi_io_callbacks.read") STBIReadCallbackI value) { nread(address(), value); return this; }
     /** Sets the specified value to the {@code skip} field. */
-    public STBIIOCallbacks skip(STBISkipCallbackI value) { nskip(address(), value); return this; }
+    public STBIIOCallbacks skip(@NativeType("stbi_io_callbacks.skip") STBISkipCallbackI value) { nskip(address(), value); return this; }
     /** Sets the specified value to the {@code eof} field. */
-    public STBIIOCallbacks eof(STBIEOFCallbackI value) { neof(address(), value); return this; }
+    public STBIIOCallbacks eof(@NativeType("stbi_io_callbacks.eof") STBIEOFCallbackI value) { neof(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public STBIIOCallbacks set(
@@ -327,18 +331,21 @@ public class STBIIOCallbacks extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code read} field. */
+        @NativeType("stbi_io_callbacks.read")
         public STBIReadCallback read() { return STBIIOCallbacks.nread(address()); }
         /** Returns the value of the {@code skip} field. */
+        @NativeType("stbi_io_callbacks.skip")
         public STBISkipCallback skip() { return STBIIOCallbacks.nskip(address()); }
         /** Returns the value of the {@code eof} field. */
+        @NativeType("stbi_io_callbacks.eof")
         public STBIEOFCallback eof() { return STBIIOCallbacks.neof(address()); }
 
         /** Sets the specified value to the {@code read} field. */
-        public STBIIOCallbacks.Buffer read(STBIReadCallbackI value) { STBIIOCallbacks.nread(address(), value); return this; }
+        public STBIIOCallbacks.Buffer read(@NativeType("stbi_io_callbacks.read") STBIReadCallbackI value) { STBIIOCallbacks.nread(address(), value); return this; }
         /** Sets the specified value to the {@code skip} field. */
-        public STBIIOCallbacks.Buffer skip(STBISkipCallbackI value) { STBIIOCallbacks.nskip(address(), value); return this; }
+        public STBIIOCallbacks.Buffer skip(@NativeType("stbi_io_callbacks.skip") STBISkipCallbackI value) { STBIIOCallbacks.nskip(address(), value); return this; }
         /** Sets the specified value to the {@code eof} field. */
-        public STBIIOCallbacks.Buffer eof(STBIEOFCallbackI value) { STBIIOCallbacks.neof(address(), value); return this; }
+        public STBIIOCallbacks.Buffer eof(@NativeType("stbi_io_callbacks.eof") STBIEOFCallbackI value) { STBIIOCallbacks.neof(address(), value); return this; }
 
     }
 

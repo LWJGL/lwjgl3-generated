@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -46,10 +48,10 @@ public class IMGFramebufferDownsample {
 
     // --- [ glFramebufferTexture2DDownsampleIMG ] ---
 
-    public static native void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, int texture, int level, int xscale, int yscale);
+    public static native void glFramebufferTexture2DDownsampleIMG(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLenum") int textarget, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xscale, @NativeType("GLint") int yscale);
 
     // --- [ glFramebufferTextureLayerDownsampleIMG ] ---
 
-    public static native void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, int texture, int level, int layer, int xscale, int yscale);
+    public static native void glFramebufferTextureLayerDownsampleIMG(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int layer, @NativeType("GLint") int xscale, @NativeType("GLint") int yscale);
 
 }

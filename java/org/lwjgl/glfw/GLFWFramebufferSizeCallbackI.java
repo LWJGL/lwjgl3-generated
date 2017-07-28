@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWframebuffersizefun")
 public interface GLFWFramebufferSizeCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pii)v";
@@ -34,6 +35,6 @@ public interface GLFWFramebufferSizeCallbackI extends CallbackI.V {
      * @param width  the new width, in pixels, of the framebuffer
      * @param height the new height, in pixels, of the framebuffer
      */
-    void invoke(long window, int width, int height);
+    void invoke(@NativeType("GLFWwindow *") long window, int width, int height);
 
 }

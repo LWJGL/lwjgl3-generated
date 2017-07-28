@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link AIVector3D struct aiVector3D} mValue;
  * }</pre></code>
  */
+@NativeType("struct aiVectorKey")
 public class AIVectorKey extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -76,12 +77,13 @@ public class AIVectorKey extends Struct implements NativeResource {
     /** Returns the value of the {@code mTime} field. */
     public double mTime() { return nmTime(address()); }
     /** Returns a {@link AIVector3D} view of the {@code mValue} field. */
+    @NativeType("struct aiVector3D")
     public AIVector3D mValue() { return nmValue(address()); }
 
     /** Sets the specified value to the {@code mTime} field. */
     public AIVectorKey mTime(double value) { nmTime(address(), value); return this; }
     /** Copies the specified {@link AIVector3D} to the {@code mValue} field. */
-    public AIVectorKey mValue(AIVector3D value) { nmValue(address(), value); return this; }
+    public AIVectorKey mValue(@NativeType("struct aiVector3D") AIVector3D value) { nmValue(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIVectorKey set(
@@ -290,12 +292,13 @@ public class AIVectorKey extends Struct implements NativeResource {
         /** Returns the value of the {@code mTime} field. */
         public double mTime() { return AIVectorKey.nmTime(address()); }
         /** Returns a {@link AIVector3D} view of the {@code mValue} field. */
+        @NativeType("struct aiVector3D")
         public AIVector3D mValue() { return AIVectorKey.nmValue(address()); }
 
         /** Sets the specified value to the {@code mTime} field. */
         public AIVectorKey.Buffer mTime(double value) { AIVectorKey.nmTime(address(), value); return this; }
         /** Copies the specified {@link AIVector3D} to the {@code mValue} field. */
-        public AIVectorKey.Buffer mValue(AIVector3D value) { AIVectorKey.nmValue(address(), value); return this; }
+        public AIVectorKey.Buffer mValue(@NativeType("struct aiVector3D") AIVector3D value) { AIVectorKey.nmValue(address(), value); return this; }
 
     }
 

@@ -46,6 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link AIExportDataBlob struct aiExportDataBlob} * next;
  * }</pre></code>
  */
+@NativeType("struct aiExportDataBlob")
 public class AIExportDataBlob extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -95,20 +96,24 @@ public class AIExportDataBlob extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code size} field. */
+    @NativeType("size_t")
     public long size() { return nsize(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field. */
+    @NativeType("void *")
     public ByteBuffer data() { return ndata(address()); }
     /** Returns a {@link AIString} view of the {@code name} field. */
+    @NativeType("struct aiString")
     public AIString name() { return nname(address()); }
     /** Returns a {@link AIExportDataBlob} view of the struct pointed to by the {@code next} field. */
+    @NativeType("struct aiExportDataBlob *")
     public AIExportDataBlob next() { return nnext(address()); }
 
     /** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
-    public AIExportDataBlob data(ByteBuffer value) { ndata(address(), value); return this; }
+    public AIExportDataBlob data(@NativeType("void *") ByteBuffer value) { ndata(address(), value); return this; }
     /** Copies the specified {@link AIString} to the {@code name} field. */
-    public AIExportDataBlob name(AIString value) { nname(address(), value); return this; }
+    public AIExportDataBlob name(@NativeType("struct aiString") AIString value) { nname(address(), value); return this; }
     /** Sets the address of the specified {@link AIExportDataBlob} to the {@code next} field. */
-    public AIExportDataBlob next(AIExportDataBlob value) { nnext(address(), value); return this; }
+    public AIExportDataBlob next(@NativeType("struct aiExportDataBlob *") AIExportDataBlob value) { nnext(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIExportDataBlob set(
@@ -346,20 +351,24 @@ public class AIExportDataBlob extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code size} field. */
+        @NativeType("size_t")
         public long size() { return AIExportDataBlob.nsize(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code data} field. */
+        @NativeType("void *")
         public ByteBuffer data() { return AIExportDataBlob.ndata(address()); }
         /** Returns a {@link AIString} view of the {@code name} field. */
+        @NativeType("struct aiString")
         public AIString name() { return AIExportDataBlob.nname(address()); }
         /** Returns a {@link AIExportDataBlob} view of the struct pointed to by the {@code next} field. */
+        @NativeType("struct aiExportDataBlob *")
         public AIExportDataBlob next() { return AIExportDataBlob.nnext(address()); }
 
         /** Sets the address of the specified {@link ByteBuffer} to the {@code data} field. */
-        public AIExportDataBlob.Buffer data(ByteBuffer value) { AIExportDataBlob.ndata(address(), value); return this; }
+        public AIExportDataBlob.Buffer data(@NativeType("void *") ByteBuffer value) { AIExportDataBlob.ndata(address(), value); return this; }
         /** Copies the specified {@link AIString} to the {@code name} field. */
-        public AIExportDataBlob.Buffer name(AIString value) { AIExportDataBlob.nname(address(), value); return this; }
+        public AIExportDataBlob.Buffer name(@NativeType("struct aiString") AIString value) { AIExportDataBlob.nname(address(), value); return this; }
         /** Sets the address of the specified {@link AIExportDataBlob} to the {@code next} field. */
-        public AIExportDataBlob.Buffer next(AIExportDataBlob value) { AIExportDataBlob.nnext(address(), value); return this; }
+        public AIExportDataBlob.Buffer next(@NativeType("struct aiExportDataBlob *") AIExportDataBlob value) { AIExportDataBlob.nnext(address(), value); return this; }
 
     }
 

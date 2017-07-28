@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float RightTan;
  * }</pre></code>
  */
+@NativeType("struct ovrFovPort")
 public class OVRFovPort extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
@@ -42,6 +44,7 @@ public class GLFWNativeEGL {
      *
      * @since version 3.0
      */
+    @NativeType("EGLDisplay")
     public static long glfwGetEGLDisplay() {
         long __functionAddress = Functions.GetEGLDisplay;
         return invokeP(__functionAddress);
@@ -60,7 +63,8 @@ public class GLFWNativeEGL {
      *
      * @since version 3.0
      */
-    public static long glfwGetEGLContext(long window) {
+    @NativeType("EGLContext")
+    public static long glfwGetEGLContext(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetEGLContext;
         if (CHECKS) {
             check(window);
@@ -81,7 +85,8 @@ public class GLFWNativeEGL {
      *
      * @since version 3.0
      */
-    public static long glfwGetEGLSurface(long window) {
+    @NativeType("EGLSurface")
+    public static long glfwGetEGLSurface(@NativeType("GLFWwindow *") long window) {
         long __functionAddress = Functions.GetEGLSurface;
         if (CHECKS) {
             check(window);

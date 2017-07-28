@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkVec2 struct nk_vec2} padding;
  * }</pre></code>
  */
+@NativeType("struct nk_style_text")
 public class NkStyleText extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class NkStyleText extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkColor} view of the {@code color} field. */
+    @NativeType("struct nk_color")
     public NkColor color() { return ncolor(address()); }
     /** Returns a {@link NkVec2} view of the {@code padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 padding() { return npadding(address()); }
 
     /** Copies the specified {@link NkColor} to the {@code color} field. */
-    public NkStyleText color(NkColor value) { ncolor(address(), value); return this; }
+    public NkStyleText color(@NativeType("struct nk_color") NkColor value) { ncolor(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-    public NkStyleText padding(NkVec2 value) { npadding(address(), value); return this; }
+    public NkStyleText padding(@NativeType("struct nk_vec2") NkVec2 value) { npadding(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleText set(
@@ -279,14 +282,16 @@ public class NkStyleText extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkColor} view of the {@code color} field. */
+        @NativeType("struct nk_color")
         public NkColor color() { return NkStyleText.ncolor(address()); }
         /** Returns a {@link NkVec2} view of the {@code padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 padding() { return NkStyleText.npadding(address()); }
 
         /** Copies the specified {@link NkColor} to the {@code color} field. */
-        public NkStyleText.Buffer color(NkColor value) { NkStyleText.ncolor(address(), value); return this; }
+        public NkStyleText.Buffer color(@NativeType("struct nk_color") NkColor value) { NkStyleText.ncolor(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-        public NkStyleText.Buffer padding(NkVec2 value) { NkStyleText.npadding(address(), value); return this; }
+        public NkStyleText.Buffer padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleText.npadding(address(), value); return this; }
 
     }
 

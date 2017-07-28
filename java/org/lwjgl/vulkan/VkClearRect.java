@@ -91,16 +91,18 @@ public class VkClearRect extends Struct implements NativeResource {
     /** Returns a {@link VkRect2D} view of the {@code rect} field. */
     public VkRect2D rect() { return nrect(address()); }
     /** Returns the value of the {@code baseArrayLayer} field. */
+    @NativeType("uint32_t")
     public int baseArrayLayer() { return nbaseArrayLayer(address()); }
     /** Returns the value of the {@code layerCount} field. */
+    @NativeType("uint32_t")
     public int layerCount() { return nlayerCount(address()); }
 
     /** Copies the specified {@link VkRect2D} to the {@code rect} field. */
     public VkClearRect rect(VkRect2D value) { nrect(address(), value); return this; }
     /** Sets the specified value to the {@code baseArrayLayer} field. */
-    public VkClearRect baseArrayLayer(int value) { nbaseArrayLayer(address(), value); return this; }
+    public VkClearRect baseArrayLayer(@NativeType("uint32_t") int value) { nbaseArrayLayer(address(), value); return this; }
     /** Sets the specified value to the {@code layerCount} field. */
-    public VkClearRect layerCount(int value) { nlayerCount(address(), value); return this; }
+    public VkClearRect layerCount(@NativeType("uint32_t") int value) { nlayerCount(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkClearRect set(
@@ -315,16 +317,18 @@ public class VkClearRect extends Struct implements NativeResource {
         /** Returns a {@link VkRect2D} view of the {@code rect} field. */
         public VkRect2D rect() { return VkClearRect.nrect(address()); }
         /** Returns the value of the {@code baseArrayLayer} field. */
+        @NativeType("uint32_t")
         public int baseArrayLayer() { return VkClearRect.nbaseArrayLayer(address()); }
         /** Returns the value of the {@code layerCount} field. */
+        @NativeType("uint32_t")
         public int layerCount() { return VkClearRect.nlayerCount(address()); }
 
         /** Copies the specified {@link VkRect2D} to the {@code rect} field. */
         public VkClearRect.Buffer rect(VkRect2D value) { VkClearRect.nrect(address(), value); return this; }
         /** Sets the specified value to the {@code baseArrayLayer} field. */
-        public VkClearRect.Buffer baseArrayLayer(int value) { VkClearRect.nbaseArrayLayer(address(), value); return this; }
+        public VkClearRect.Buffer baseArrayLayer(@NativeType("uint32_t") int value) { VkClearRect.nbaseArrayLayer(address(), value); return this; }
         /** Sets the specified value to the {@code layerCount} field. */
-        public VkClearRect.Buffer layerCount(int value) { VkClearRect.nlayerCount(address(), value); return this; }
+        public VkClearRect.Buffer layerCount(@NativeType("uint32_t") int value) { VkClearRect.nlayerCount(address(), value); return this; }
 
     }
 

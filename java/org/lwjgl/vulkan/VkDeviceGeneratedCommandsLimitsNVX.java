@@ -110,34 +110,41 @@ public class VkDeviceGeneratedCommandsLimitsNVX extends Struct implements Native
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code maxIndirectCommandsLayoutTokenCount} field. */
+    @NativeType("uint32_t")
     public int maxIndirectCommandsLayoutTokenCount() { return nmaxIndirectCommandsLayoutTokenCount(address()); }
     /** Returns the value of the {@code maxObjectEntryCounts} field. */
+    @NativeType("uint32_t")
     public int maxObjectEntryCounts() { return nmaxObjectEntryCounts(address()); }
     /** Returns the value of the {@code minSequenceCountBufferOffsetAlignment} field. */
+    @NativeType("uint32_t")
     public int minSequenceCountBufferOffsetAlignment() { return nminSequenceCountBufferOffsetAlignment(address()); }
     /** Returns the value of the {@code minSequenceIndexBufferOffsetAlignment} field. */
+    @NativeType("uint32_t")
     public int minSequenceIndexBufferOffsetAlignment() { return nminSequenceIndexBufferOffsetAlignment(address()); }
     /** Returns the value of the {@code minCommandsTokenBufferOffsetAlignment} field. */
+    @NativeType("uint32_t")
     public int minCommandsTokenBufferOffsetAlignment() { return nminCommandsTokenBufferOffsetAlignment(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX sType(int value) { nsType(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX pNext(long value) { npNext(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code maxIndirectCommandsLayoutTokenCount} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX maxIndirectCommandsLayoutTokenCount(int value) { nmaxIndirectCommandsLayoutTokenCount(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX maxIndirectCommandsLayoutTokenCount(@NativeType("uint32_t") int value) { nmaxIndirectCommandsLayoutTokenCount(address(), value); return this; }
     /** Sets the specified value to the {@code maxObjectEntryCounts} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX maxObjectEntryCounts(int value) { nmaxObjectEntryCounts(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX maxObjectEntryCounts(@NativeType("uint32_t") int value) { nmaxObjectEntryCounts(address(), value); return this; }
     /** Sets the specified value to the {@code minSequenceCountBufferOffsetAlignment} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX minSequenceCountBufferOffsetAlignment(int value) { nminSequenceCountBufferOffsetAlignment(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX minSequenceCountBufferOffsetAlignment(@NativeType("uint32_t") int value) { nminSequenceCountBufferOffsetAlignment(address(), value); return this; }
     /** Sets the specified value to the {@code minSequenceIndexBufferOffsetAlignment} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX minSequenceIndexBufferOffsetAlignment(int value) { nminSequenceIndexBufferOffsetAlignment(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX minSequenceIndexBufferOffsetAlignment(@NativeType("uint32_t") int value) { nminSequenceIndexBufferOffsetAlignment(address(), value); return this; }
     /** Sets the specified value to the {@code minCommandsTokenBufferOffsetAlignment} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX minCommandsTokenBufferOffsetAlignment(int value) { nminCommandsTokenBufferOffsetAlignment(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX minCommandsTokenBufferOffsetAlignment(@NativeType("uint32_t") int value) { nminCommandsTokenBufferOffsetAlignment(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceGeneratedCommandsLimitsNVX set(
@@ -374,34 +381,41 @@ public class VkDeviceGeneratedCommandsLimitsNVX extends Struct implements Native
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDeviceGeneratedCommandsLimitsNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDeviceGeneratedCommandsLimitsNVX.npNext(address()); }
         /** Returns the value of the {@code maxIndirectCommandsLayoutTokenCount} field. */
+        @NativeType("uint32_t")
         public int maxIndirectCommandsLayoutTokenCount() { return VkDeviceGeneratedCommandsLimitsNVX.nmaxIndirectCommandsLayoutTokenCount(address()); }
         /** Returns the value of the {@code maxObjectEntryCounts} field. */
+        @NativeType("uint32_t")
         public int maxObjectEntryCounts() { return VkDeviceGeneratedCommandsLimitsNVX.nmaxObjectEntryCounts(address()); }
         /** Returns the value of the {@code minSequenceCountBufferOffsetAlignment} field. */
+        @NativeType("uint32_t")
         public int minSequenceCountBufferOffsetAlignment() { return VkDeviceGeneratedCommandsLimitsNVX.nminSequenceCountBufferOffsetAlignment(address()); }
         /** Returns the value of the {@code minSequenceIndexBufferOffsetAlignment} field. */
+        @NativeType("uint32_t")
         public int minSequenceIndexBufferOffsetAlignment() { return VkDeviceGeneratedCommandsLimitsNVX.nminSequenceIndexBufferOffsetAlignment(address()); }
         /** Returns the value of the {@code minCommandsTokenBufferOffsetAlignment} field. */
+        @NativeType("uint32_t")
         public int minCommandsTokenBufferOffsetAlignment() { return VkDeviceGeneratedCommandsLimitsNVX.nminCommandsTokenBufferOffsetAlignment(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer sType(int value) { VkDeviceGeneratedCommandsLimitsNVX.nsType(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGeneratedCommandsLimitsNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer pNext(long value) { VkDeviceGeneratedCommandsLimitsNVX.npNext(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGeneratedCommandsLimitsNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code maxIndirectCommandsLayoutTokenCount} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer maxIndirectCommandsLayoutTokenCount(int value) { VkDeviceGeneratedCommandsLimitsNVX.nmaxIndirectCommandsLayoutTokenCount(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer maxIndirectCommandsLayoutTokenCount(@NativeType("uint32_t") int value) { VkDeviceGeneratedCommandsLimitsNVX.nmaxIndirectCommandsLayoutTokenCount(address(), value); return this; }
         /** Sets the specified value to the {@code maxObjectEntryCounts} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer maxObjectEntryCounts(int value) { VkDeviceGeneratedCommandsLimitsNVX.nmaxObjectEntryCounts(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer maxObjectEntryCounts(@NativeType("uint32_t") int value) { VkDeviceGeneratedCommandsLimitsNVX.nmaxObjectEntryCounts(address(), value); return this; }
         /** Sets the specified value to the {@code minSequenceCountBufferOffsetAlignment} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer minSequenceCountBufferOffsetAlignment(int value) { VkDeviceGeneratedCommandsLimitsNVX.nminSequenceCountBufferOffsetAlignment(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer minSequenceCountBufferOffsetAlignment(@NativeType("uint32_t") int value) { VkDeviceGeneratedCommandsLimitsNVX.nminSequenceCountBufferOffsetAlignment(address(), value); return this; }
         /** Sets the specified value to the {@code minSequenceIndexBufferOffsetAlignment} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer minSequenceIndexBufferOffsetAlignment(int value) { VkDeviceGeneratedCommandsLimitsNVX.nminSequenceIndexBufferOffsetAlignment(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer minSequenceIndexBufferOffsetAlignment(@NativeType("uint32_t") int value) { VkDeviceGeneratedCommandsLimitsNVX.nminSequenceIndexBufferOffsetAlignment(address(), value); return this; }
         /** Sets the specified value to the {@code minCommandsTokenBufferOffsetAlignment} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer minCommandsTokenBufferOffsetAlignment(int value) { VkDeviceGeneratedCommandsLimitsNVX.nminCommandsTokenBufferOffsetAlignment(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer minCommandsTokenBufferOffsetAlignment(@NativeType("uint32_t") int value) { VkDeviceGeneratedCommandsLimitsNVX.nminCommandsTokenBufferOffsetAlignment(address(), value); return this; }
 
     }
 

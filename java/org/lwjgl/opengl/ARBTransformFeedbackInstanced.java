@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -42,7 +44,7 @@ public class ARBTransformFeedbackInstanced {
      * @param id        the name of a transform feedback object from which to retrieve a primitive count
      * @param primcount the number of instances of the geometry to render
      */
-    public static native void glDrawTransformFeedbackInstanced(int mode, int id, int primcount);
+    public static native void glDrawTransformFeedbackInstanced(@NativeType("GLenum") int mode, @NativeType("GLuint") int id, @NativeType("GLsizei") int primcount);
 
     // --- [ glDrawTransformFeedbackStreamInstanced ] ---
 
@@ -54,6 +56,6 @@ public class ARBTransformFeedbackInstanced {
      * @param stream    the index of the transform feedback stream from which to retrieve a primitive count
      * @param primcount the number of instances of the geometry to render
      */
-    public static native void glDrawTransformFeedbackStreamInstanced(int mode, int id, int stream, int primcount);
+    public static native void glDrawTransformFeedbackStreamInstanced(@NativeType("GLenum") int mode, @NativeType("GLuint") int id, @NativeType("GLuint") int stream, @NativeType("GLsizei") int primcount);
 
 }

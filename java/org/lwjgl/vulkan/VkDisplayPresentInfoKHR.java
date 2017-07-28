@@ -111,26 +111,29 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkRect2D} view of the {@code srcRect} field. */
     public VkRect2D srcRect() { return nsrcRect(address()); }
     /** Returns a {@link VkRect2D} view of the {@code dstRect} field. */
     public VkRect2D dstRect() { return ndstRect(address()); }
     /** Returns the value of the {@code persistent} field. */
+    @NativeType("VkBool32")
     public boolean persistent() { return npersistent(address()) != 0; }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDisplayPresentInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkDisplayPresentInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDisplayPresentInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkDisplayPresentInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Copies the specified {@link VkRect2D} to the {@code srcRect} field. */
     public VkDisplayPresentInfoKHR srcRect(VkRect2D value) { nsrcRect(address(), value); return this; }
     /** Copies the specified {@link VkRect2D} to the {@code dstRect} field. */
     public VkDisplayPresentInfoKHR dstRect(VkRect2D value) { ndstRect(address(), value); return this; }
     /** Sets the specified value to the {@code persistent} field. */
-    public VkDisplayPresentInfoKHR persistent(boolean value) { npersistent(address(), value ? 1 : 0); return this; }
+    public VkDisplayPresentInfoKHR persistent(@NativeType("VkBool32") boolean value) { npersistent(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDisplayPresentInfoKHR set(
@@ -355,26 +358,29 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDisplayPresentInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDisplayPresentInfoKHR.npNext(address()); }
         /** Returns a {@link VkRect2D} view of the {@code srcRect} field. */
         public VkRect2D srcRect() { return VkDisplayPresentInfoKHR.nsrcRect(address()); }
         /** Returns a {@link VkRect2D} view of the {@code dstRect} field. */
         public VkRect2D dstRect() { return VkDisplayPresentInfoKHR.ndstRect(address()); }
         /** Returns the value of the {@code persistent} field. */
+        @NativeType("VkBool32")
         public boolean persistent() { return VkDisplayPresentInfoKHR.npersistent(address()) != 0; }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDisplayPresentInfoKHR.Buffer sType(int value) { VkDisplayPresentInfoKHR.nsType(address(), value); return this; }
+        public VkDisplayPresentInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkDisplayPresentInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDisplayPresentInfoKHR.Buffer pNext(long value) { VkDisplayPresentInfoKHR.npNext(address(), value); return this; }
+        public VkDisplayPresentInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkDisplayPresentInfoKHR.npNext(address(), value); return this; }
         /** Copies the specified {@link VkRect2D} to the {@code srcRect} field. */
         public VkDisplayPresentInfoKHR.Buffer srcRect(VkRect2D value) { VkDisplayPresentInfoKHR.nsrcRect(address(), value); return this; }
         /** Copies the specified {@link VkRect2D} to the {@code dstRect} field. */
         public VkDisplayPresentInfoKHR.Buffer dstRect(VkRect2D value) { VkDisplayPresentInfoKHR.ndstRect(address(), value); return this; }
         /** Sets the specified value to the {@code persistent} field. */
-        public VkDisplayPresentInfoKHR.Buffer persistent(boolean value) { VkDisplayPresentInfoKHR.npersistent(address(), value ? 1 : 0); return this; }
+        public VkDisplayPresentInfoKHR.Buffer persistent(@NativeType("VkBool32") boolean value) { VkDisplayPresentInfoKHR.npersistent(address(), value ? 1 : 0); return this; }
 
     }
 

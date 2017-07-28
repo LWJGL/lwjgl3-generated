@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -72,10 +74,10 @@ public class NVCoverageSample {
 
     // --- [ glCoverageMaskNV ] ---
 
-    public static native void glCoverageMaskNV(boolean mask);
+    public static native void glCoverageMaskNV(@NativeType("GLboolean") boolean mask);
 
     // --- [ glCoverageOperationNV ] ---
 
-    public static native void glCoverageOperationNV(int operation);
+    public static native void glCoverageOperationNV(@NativeType("GLenum") int operation);
 
 }

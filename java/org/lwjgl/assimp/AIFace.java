@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned int * mIndices;
  * }</pre></code>
  */
+@NativeType("struct aiFace")
 public class AIFace extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -82,12 +83,14 @@ public class AIFace extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code mNumIndices} field. */
+    @NativeType("unsigned int")
     public int mNumIndices() { return nmNumIndices(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code mIndices} field. */
+    @NativeType("unsigned int *")
     public IntBuffer mIndices() { return nmIndices(address()); }
 
     /** Sets the address of the specified {@link IntBuffer} to the {@code mIndices} field. */
-    public AIFace mIndices(IntBuffer value) { nmIndices(address(), value); return this; }
+    public AIFace mIndices(@NativeType("unsigned int *") IntBuffer value) { nmIndices(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -304,12 +307,14 @@ public class AIFace extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code mNumIndices} field. */
+        @NativeType("unsigned int")
         public int mNumIndices() { return AIFace.nmNumIndices(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code mIndices} field. */
+        @NativeType("unsigned int *")
         public IntBuffer mIndices() { return AIFace.nmIndices(address()); }
 
         /** Sets the address of the specified {@link IntBuffer} to the {@code mIndices} field. */
-        public AIFace.Buffer mIndices(IntBuffer value) { AIFace.nmIndices(address(), value); return this; }
+        public AIFace.Buffer mIndices(@NativeType("unsigned int *") IntBuffer value) { AIFace.nmIndices(address(), value); return this; }
 
     }
 

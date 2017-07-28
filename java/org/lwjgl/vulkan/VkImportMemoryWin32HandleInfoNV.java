@@ -106,22 +106,26 @@ public class VkImportMemoryWin32HandleInfoNV extends Struct implements NativeRes
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code handleType} field. */
+    @NativeType("VkExternalMemoryHandleTypeFlagsNV")
     public int handleType() { return nhandleType(address()); }
     /** Returns the value of the {@code handle} field. */
+    @NativeType("HANDLE")
     public long handle() { return nhandle(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkImportMemoryWin32HandleInfoNV sType(int value) { nsType(address(), value); return this; }
+    public VkImportMemoryWin32HandleInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImportMemoryWin32HandleInfoNV pNext(long value) { npNext(address(), value); return this; }
+    public VkImportMemoryWin32HandleInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkImportMemoryWin32HandleInfoNV handleType(int value) { nhandleType(address(), value); return this; }
+    public VkImportMemoryWin32HandleInfoNV handleType(@NativeType("VkExternalMemoryHandleTypeFlagsNV") int value) { nhandleType(address(), value); return this; }
     /** Sets the specified value to the {@code handle} field. */
-    public VkImportMemoryWin32HandleInfoNV handle(long value) { nhandle(address(), value); return this; }
+    public VkImportMemoryWin32HandleInfoNV handle(@NativeType("HANDLE") long value) { nhandle(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkImportMemoryWin32HandleInfoNV set(
@@ -361,22 +365,26 @@ public class VkImportMemoryWin32HandleInfoNV extends Struct implements NativeRes
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkImportMemoryWin32HandleInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkImportMemoryWin32HandleInfoNV.npNext(address()); }
         /** Returns the value of the {@code handleType} field. */
+        @NativeType("VkExternalMemoryHandleTypeFlagsNV")
         public int handleType() { return VkImportMemoryWin32HandleInfoNV.nhandleType(address()); }
         /** Returns the value of the {@code handle} field. */
+        @NativeType("HANDLE")
         public long handle() { return VkImportMemoryWin32HandleInfoNV.nhandle(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkImportMemoryWin32HandleInfoNV.Buffer sType(int value) { VkImportMemoryWin32HandleInfoNV.nsType(address(), value); return this; }
+        public VkImportMemoryWin32HandleInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkImportMemoryWin32HandleInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImportMemoryWin32HandleInfoNV.Buffer pNext(long value) { VkImportMemoryWin32HandleInfoNV.npNext(address(), value); return this; }
+        public VkImportMemoryWin32HandleInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkImportMemoryWin32HandleInfoNV.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkImportMemoryWin32HandleInfoNV.Buffer handleType(int value) { VkImportMemoryWin32HandleInfoNV.nhandleType(address(), value); return this; }
+        public VkImportMemoryWin32HandleInfoNV.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagsNV") int value) { VkImportMemoryWin32HandleInfoNV.nhandleType(address(), value); return this; }
         /** Sets the specified value to the {@code handle} field. */
-        public VkImportMemoryWin32HandleInfoNV.Buffer handle(long value) { VkImportMemoryWin32HandleInfoNV.nhandle(address(), value); return this; }
+        public VkImportMemoryWin32HandleInfoNV.Buffer handle(@NativeType("HANDLE") long value) { VkImportMemoryWin32HandleInfoNV.nhandle(address(), value); return this; }
 
     }
 

@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float maxx;
  * }</pre></code>
  */
+@NativeType("struct NVGtextRow")
 public class NVGTextRow extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -94,10 +95,13 @@ public class NVGTextRow extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code start} field. */
+    @NativeType("char *")
     public long start() { return nstart(address()); }
     /** Returns the value of the {@code end} field. */
+    @NativeType("char *")
     public long end() { return nend(address()); }
     /** Returns the value of the {@code next} field. */
+    @NativeType("char *")
     public long next() { return nnext(address()); }
     /** Returns the value of the {@code width} field. */
     public float width() { return nwidth(address()); }
@@ -291,10 +295,13 @@ public class NVGTextRow extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code start} field. */
+        @NativeType("char *")
         public long start() { return NVGTextRow.nstart(address()); }
         /** Returns the value of the {@code end} field. */
+        @NativeType("char *")
         public long end() { return NVGTextRow.nend(address()); }
         /** Returns the value of the {@code next} field. */
+        @NativeType("char *")
         public long next() { return NVGTextRow.nnext(address()); }
         /** Returns the value of the {@code width} field. */
         public float width() { return NVGTextRow.nwidth(address()); }

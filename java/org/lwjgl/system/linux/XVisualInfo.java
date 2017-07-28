@@ -100,8 +100,10 @@ public class XVisualInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link Visual} view of the struct pointed to by the {@code visual} field. */
+    @NativeType("Visual *")
     public Visual visual() { return nvisual(address()); }
     /** Returns the value of the {@code visualid} field. */
+    @NativeType("VisualID")
     public long visualid() { return nvisualid(address()); }
     /** Returns the value of the {@code screen} field. */
     public int screen() { return nscreen(address()); }
@@ -110,10 +112,13 @@ public class XVisualInfo extends Struct implements NativeResource {
     /** Returns the value of the {@code class$} field. */
     public int class$() { return nclass$(address()); }
     /** Returns the value of the {@code red_mask} field. */
+    @NativeType("unsigned long")
     public long red_mask() { return nred_mask(address()); }
     /** Returns the value of the {@code green_mask} field. */
+    @NativeType("unsigned long")
     public long green_mask() { return ngreen_mask(address()); }
     /** Returns the value of the {@code blue_mask} field. */
+    @NativeType("unsigned long")
     public long blue_mask() { return nblue_mask(address()); }
     /** Returns the value of the {@code colormap_size} field. */
     public int colormap_size() { return ncolormap_size(address()); }
@@ -121,9 +126,9 @@ public class XVisualInfo extends Struct implements NativeResource {
     public int bits_per_rgb() { return nbits_per_rgb(address()); }
 
     /** Sets the address of the specified {@link Visual} to the {@code visual} field. */
-    public XVisualInfo visual(Visual value) { nvisual(address(), value); return this; }
+    public XVisualInfo visual(@NativeType("Visual *") Visual value) { nvisual(address(), value); return this; }
     /** Sets the specified value to the {@code visualid} field. */
-    public XVisualInfo visualid(long value) { nvisualid(address(), value); return this; }
+    public XVisualInfo visualid(@NativeType("VisualID") long value) { nvisualid(address(), value); return this; }
     /** Sets the specified value to the {@code screen} field. */
     public XVisualInfo screen(int value) { nscreen(address(), value); return this; }
     /** Sets the specified value to the {@code depth} field. */
@@ -131,11 +136,11 @@ public class XVisualInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code class} field. */
     public XVisualInfo class$(int value) { nclass$(address(), value); return this; }
     /** Sets the specified value to the {@code red_mask} field. */
-    public XVisualInfo red_mask(long value) { nred_mask(address(), value); return this; }
+    public XVisualInfo red_mask(@NativeType("unsigned long") long value) { nred_mask(address(), value); return this; }
     /** Sets the specified value to the {@code green_mask} field. */
-    public XVisualInfo green_mask(long value) { ngreen_mask(address(), value); return this; }
+    public XVisualInfo green_mask(@NativeType("unsigned long") long value) { ngreen_mask(address(), value); return this; }
     /** Sets the specified value to the {@code blue_mask} field. */
-    public XVisualInfo blue_mask(long value) { nblue_mask(address(), value); return this; }
+    public XVisualInfo blue_mask(@NativeType("unsigned long") long value) { nblue_mask(address(), value); return this; }
     /** Sets the specified value to the {@code colormap_size} field. */
     public XVisualInfo colormap_size(int value) { ncolormap_size(address(), value); return this; }
     /** Sets the specified value to the {@code bits_per_rgb} field. */
@@ -415,8 +420,10 @@ public class XVisualInfo extends Struct implements NativeResource {
         }
 
         /** Returns a {@link Visual} view of the struct pointed to by the {@code visual} field. */
+        @NativeType("Visual *")
         public Visual visual() { return XVisualInfo.nvisual(address()); }
         /** Returns the value of the {@code visualid} field. */
+        @NativeType("VisualID")
         public long visualid() { return XVisualInfo.nvisualid(address()); }
         /** Returns the value of the {@code screen} field. */
         public int screen() { return XVisualInfo.nscreen(address()); }
@@ -425,10 +432,13 @@ public class XVisualInfo extends Struct implements NativeResource {
         /** Returns the value of the {@code class$} field. */
         public int class$() { return XVisualInfo.nclass$(address()); }
         /** Returns the value of the {@code red_mask} field. */
+        @NativeType("unsigned long")
         public long red_mask() { return XVisualInfo.nred_mask(address()); }
         /** Returns the value of the {@code green_mask} field. */
+        @NativeType("unsigned long")
         public long green_mask() { return XVisualInfo.ngreen_mask(address()); }
         /** Returns the value of the {@code blue_mask} field. */
+        @NativeType("unsigned long")
         public long blue_mask() { return XVisualInfo.nblue_mask(address()); }
         /** Returns the value of the {@code colormap_size} field. */
         public int colormap_size() { return XVisualInfo.ncolormap_size(address()); }
@@ -436,9 +446,9 @@ public class XVisualInfo extends Struct implements NativeResource {
         public int bits_per_rgb() { return XVisualInfo.nbits_per_rgb(address()); }
 
         /** Sets the address of the specified {@link Visual} to the {@code visual} field. */
-        public XVisualInfo.Buffer visual(Visual value) { XVisualInfo.nvisual(address(), value); return this; }
+        public XVisualInfo.Buffer visual(@NativeType("Visual *") Visual value) { XVisualInfo.nvisual(address(), value); return this; }
         /** Sets the specified value to the {@code visualid} field. */
-        public XVisualInfo.Buffer visualid(long value) { XVisualInfo.nvisualid(address(), value); return this; }
+        public XVisualInfo.Buffer visualid(@NativeType("VisualID") long value) { XVisualInfo.nvisualid(address(), value); return this; }
         /** Sets the specified value to the {@code screen} field. */
         public XVisualInfo.Buffer screen(int value) { XVisualInfo.nscreen(address(), value); return this; }
         /** Sets the specified value to the {@code depth} field. */
@@ -446,11 +456,11 @@ public class XVisualInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code class} field. */
         public XVisualInfo.Buffer class$(int value) { XVisualInfo.nclass$(address(), value); return this; }
         /** Sets the specified value to the {@code red_mask} field. */
-        public XVisualInfo.Buffer red_mask(long value) { XVisualInfo.nred_mask(address(), value); return this; }
+        public XVisualInfo.Buffer red_mask(@NativeType("unsigned long") long value) { XVisualInfo.nred_mask(address(), value); return this; }
         /** Sets the specified value to the {@code green_mask} field. */
-        public XVisualInfo.Buffer green_mask(long value) { XVisualInfo.ngreen_mask(address(), value); return this; }
+        public XVisualInfo.Buffer green_mask(@NativeType("unsigned long") long value) { XVisualInfo.ngreen_mask(address(), value); return this; }
         /** Sets the specified value to the {@code blue_mask} field. */
-        public XVisualInfo.Buffer blue_mask(long value) { XVisualInfo.nblue_mask(address(), value); return this; }
+        public XVisualInfo.Buffer blue_mask(@NativeType("unsigned long") long value) { XVisualInfo.nblue_mask(address(), value); return this; }
         /** Sets the specified value to the {@code colormap_size} field. */
         public XVisualInfo.Buffer colormap_size(int value) { XVisualInfo.ncolormap_size(address(), value); return this; }
         /** Sets the specified value to the {@code bits_per_rgb} field. */

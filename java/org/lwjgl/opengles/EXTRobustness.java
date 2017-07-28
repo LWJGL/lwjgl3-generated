@@ -81,29 +81,30 @@ public class EXTRobustness {
 
     // --- [ glGetGraphicsResetStatusEXT ] ---
 
+    @NativeType("GLenum")
     public static native int glGetGraphicsResetStatusEXT();
 
     // --- [ glReadnPixelsEXT ] ---
 
     public static native void nglReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data);
 
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int bufSize, long data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("GLsizei") int bufSize, @NativeType("void *") long data) {
         nglReadnPixelsEXT(x, y, width, height, format, type, bufSize, data);
     }
 
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ByteBuffer data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer data) {
         nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining(), memAddress(data));
     }
 
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, ShortBuffer data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ShortBuffer data) {
         nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 1, memAddress(data));
     }
 
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, IntBuffer data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") IntBuffer data) {
         nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
     }
 
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, FloatBuffer data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") FloatBuffer data) {
         nglReadnPixelsEXT(x, y, width, height, format, type, data.remaining() << 2, memAddress(data));
     }
 
@@ -111,11 +112,12 @@ public class EXTRobustness {
 
     public static native void nglGetnUniformfvEXT(int program, int location, int bufSize, long params);
 
-    public static void glGetnUniformfvEXT(int program, int location, FloatBuffer params) {
+    public static void glGetnUniformfvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") FloatBuffer params) {
         nglGetnUniformfvEXT(program, location, params.remaining(), memAddress(params));
     }
 
-    public static float glGetnUniformfEXT(int program, int location) {
+    @NativeType("void")
+    public static float glGetnUniformfEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             FloatBuffer params = stack.callocFloat(1);
@@ -130,11 +132,12 @@ public class EXTRobustness {
 
     public static native void nglGetnUniformivEXT(int program, int location, int bufSize, long params);
 
-    public static void glGetnUniformivEXT(int program, int location, IntBuffer params) {
+    public static void glGetnUniformivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint *") IntBuffer params) {
         nglGetnUniformivEXT(program, location, params.remaining(), memAddress(params));
     }
 
-    public static int glGetnUniformiEXT(int program, int location) {
+    @NativeType("void")
+    public static int glGetnUniformiEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -146,7 +149,7 @@ public class EXTRobustness {
     }
 
     /** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, short[] data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") short[] data) {
         long __functionAddress = GLES.getICD().glReadnPixelsEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -155,7 +158,7 @@ public class EXTRobustness {
     }
 
     /** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, int[] data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") int[] data) {
         long __functionAddress = GLES.getICD().glReadnPixelsEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -164,7 +167,7 @@ public class EXTRobustness {
     }
 
     /** Array version of: {@link #glReadnPixelsEXT ReadnPixelsEXT} */
-    public static void glReadnPixelsEXT(int x, int y, int width, int height, int format, int type, float[] data) {
+    public static void glReadnPixelsEXT(@NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") float[] data) {
         long __functionAddress = GLES.getICD().glReadnPixelsEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -173,7 +176,7 @@ public class EXTRobustness {
     }
 
     /** Array version of: {@link #glGetnUniformfvEXT GetnUniformfvEXT} */
-    public static void glGetnUniformfvEXT(int program, int location, float[] params) {
+    public static void glGetnUniformfvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GLES.getICD().glGetnUniformfvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -182,7 +185,7 @@ public class EXTRobustness {
     }
 
     /** Array version of: {@link #glGetnUniformivEXT GetnUniformivEXT} */
-    public static void glGetnUniformivEXT(int program, int location, int[] params) {
+    public static void glGetnUniformivEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glGetnUniformivEXT;
         if (CHECKS) {
             check(__functionAddress);

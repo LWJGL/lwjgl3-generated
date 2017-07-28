@@ -133,58 +133,70 @@ public class WNDCLASSEX extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code cbSize} field. */
+    @NativeType("UINT")
     public int cbSize() { return ncbSize(address()); }
     /** Returns the value of the {@code style} field. */
+    @NativeType("UINT")
     public int style() { return nstyle(address()); }
     /** Returns the value of the {@code lpfnWndProc} field. */
+    @NativeType("WNDPROC")
     public WindowProc lpfnWndProc() { return nlpfnWndProc(address()); }
     /** Returns the value of the {@code cbClsExtra} field. */
     public int cbClsExtra() { return ncbClsExtra(address()); }
     /** Returns the value of the {@code cbWndExtra} field. */
     public int cbWndExtra() { return ncbWndExtra(address()); }
     /** Returns the value of the {@code hInstance} field. */
+    @NativeType("HINSTANCE")
     public long hInstance() { return nhInstance(address()); }
     /** Returns the value of the {@code hIcon} field. */
+    @NativeType("HICON")
     public long hIcon() { return nhIcon(address()); }
     /** Returns the value of the {@code hCursor} field. */
+    @NativeType("HCURSOR")
     public long hCursor() { return nhCursor(address()); }
     /** Returns the value of the {@code hbrBackground} field. */
+    @NativeType("HBRUSH")
     public long hbrBackground() { return nhbrBackground(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszMenuName} field. */
+    @NativeType("LPCTSTR")
     public ByteBuffer lpszMenuName() { return nlpszMenuName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code lpszMenuName} field. */
+    @NativeType("LPCTSTR")
     public String lpszMenuNameString() { return nlpszMenuNameString(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszClassName} field. */
+    @NativeType("LPCTSTR")
     public ByteBuffer lpszClassName() { return nlpszClassName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code lpszClassName} field. */
+    @NativeType("LPCTSTR")
     public String lpszClassNameString() { return nlpszClassNameString(address()); }
     /** Returns the value of the {@code hIconSm} field. */
+    @NativeType("HICON")
     public long hIconSm() { return nhIconSm(address()); }
 
     /** Sets the specified value to the {@code cbSize} field. */
-    public WNDCLASSEX cbSize(int value) { ncbSize(address(), value); return this; }
+    public WNDCLASSEX cbSize(@NativeType("UINT") int value) { ncbSize(address(), value); return this; }
     /** Sets the specified value to the {@code style} field. */
-    public WNDCLASSEX style(int value) { nstyle(address(), value); return this; }
+    public WNDCLASSEX style(@NativeType("UINT") int value) { nstyle(address(), value); return this; }
     /** Sets the specified value to the {@code lpfnWndProc} field. */
-    public WNDCLASSEX lpfnWndProc(WindowProcI value) { nlpfnWndProc(address(), value); return this; }
+    public WNDCLASSEX lpfnWndProc(@NativeType("WNDPROC") WindowProcI value) { nlpfnWndProc(address(), value); return this; }
     /** Sets the specified value to the {@code cbClsExtra} field. */
     public WNDCLASSEX cbClsExtra(int value) { ncbClsExtra(address(), value); return this; }
     /** Sets the specified value to the {@code cbWndExtra} field. */
     public WNDCLASSEX cbWndExtra(int value) { ncbWndExtra(address(), value); return this; }
     /** Sets the specified value to the {@code hInstance} field. */
-    public WNDCLASSEX hInstance(long value) { nhInstance(address(), value); return this; }
+    public WNDCLASSEX hInstance(@NativeType("HINSTANCE") long value) { nhInstance(address(), value); return this; }
     /** Sets the specified value to the {@code hIcon} field. */
-    public WNDCLASSEX hIcon(long value) { nhIcon(address(), value); return this; }
+    public WNDCLASSEX hIcon(@NativeType("HICON") long value) { nhIcon(address(), value); return this; }
     /** Sets the specified value to the {@code hCursor} field. */
-    public WNDCLASSEX hCursor(long value) { nhCursor(address(), value); return this; }
+    public WNDCLASSEX hCursor(@NativeType("HCURSOR") long value) { nhCursor(address(), value); return this; }
     /** Sets the specified value to the {@code hbrBackground} field. */
-    public WNDCLASSEX hbrBackground(long value) { nhbrBackground(address(), value); return this; }
+    public WNDCLASSEX hbrBackground(@NativeType("HBRUSH") long value) { nhbrBackground(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code lpszMenuName} field. */
-    public WNDCLASSEX lpszMenuName(ByteBuffer value) { nlpszMenuName(address(), value); return this; }
+    public WNDCLASSEX lpszMenuName(@NativeType("LPCTSTR") ByteBuffer value) { nlpszMenuName(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code lpszClassName} field. */
-    public WNDCLASSEX lpszClassName(ByteBuffer value) { nlpszClassName(address(), value); return this; }
+    public WNDCLASSEX lpszClassName(@NativeType("LPCTSTR") ByteBuffer value) { nlpszClassName(address(), value); return this; }
     /** Sets the specified value to the {@code hIconSm} field. */
-    public WNDCLASSEX hIconSm(long value) { nhIconSm(address(), value); return this; }
+    public WNDCLASSEX hIconSm(@NativeType("HICON") long value) { nhIconSm(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public WNDCLASSEX set(
@@ -484,58 +496,70 @@ public class WNDCLASSEX extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code cbSize} field. */
+        @NativeType("UINT")
         public int cbSize() { return WNDCLASSEX.ncbSize(address()); }
         /** Returns the value of the {@code style} field. */
+        @NativeType("UINT")
         public int style() { return WNDCLASSEX.nstyle(address()); }
         /** Returns the value of the {@code lpfnWndProc} field. */
+        @NativeType("WNDPROC")
         public WindowProc lpfnWndProc() { return WNDCLASSEX.nlpfnWndProc(address()); }
         /** Returns the value of the {@code cbClsExtra} field. */
         public int cbClsExtra() { return WNDCLASSEX.ncbClsExtra(address()); }
         /** Returns the value of the {@code cbWndExtra} field. */
         public int cbWndExtra() { return WNDCLASSEX.ncbWndExtra(address()); }
         /** Returns the value of the {@code hInstance} field. */
+        @NativeType("HINSTANCE")
         public long hInstance() { return WNDCLASSEX.nhInstance(address()); }
         /** Returns the value of the {@code hIcon} field. */
+        @NativeType("HICON")
         public long hIcon() { return WNDCLASSEX.nhIcon(address()); }
         /** Returns the value of the {@code hCursor} field. */
+        @NativeType("HCURSOR")
         public long hCursor() { return WNDCLASSEX.nhCursor(address()); }
         /** Returns the value of the {@code hbrBackground} field. */
+        @NativeType("HBRUSH")
         public long hbrBackground() { return WNDCLASSEX.nhbrBackground(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszMenuName} field. */
+        @NativeType("LPCTSTR")
         public ByteBuffer lpszMenuName() { return WNDCLASSEX.nlpszMenuName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code lpszMenuName} field. */
+        @NativeType("LPCTSTR")
         public String lpszMenuNameString() { return WNDCLASSEX.nlpszMenuNameString(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszClassName} field. */
+        @NativeType("LPCTSTR")
         public ByteBuffer lpszClassName() { return WNDCLASSEX.nlpszClassName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code lpszClassName} field. */
+        @NativeType("LPCTSTR")
         public String lpszClassNameString() { return WNDCLASSEX.nlpszClassNameString(address()); }
         /** Returns the value of the {@code hIconSm} field. */
+        @NativeType("HICON")
         public long hIconSm() { return WNDCLASSEX.nhIconSm(address()); }
 
         /** Sets the specified value to the {@code cbSize} field. */
-        public WNDCLASSEX.Buffer cbSize(int value) { WNDCLASSEX.ncbSize(address(), value); return this; }
+        public WNDCLASSEX.Buffer cbSize(@NativeType("UINT") int value) { WNDCLASSEX.ncbSize(address(), value); return this; }
         /** Sets the specified value to the {@code style} field. */
-        public WNDCLASSEX.Buffer style(int value) { WNDCLASSEX.nstyle(address(), value); return this; }
+        public WNDCLASSEX.Buffer style(@NativeType("UINT") int value) { WNDCLASSEX.nstyle(address(), value); return this; }
         /** Sets the specified value to the {@code lpfnWndProc} field. */
-        public WNDCLASSEX.Buffer lpfnWndProc(WindowProcI value) { WNDCLASSEX.nlpfnWndProc(address(), value); return this; }
+        public WNDCLASSEX.Buffer lpfnWndProc(@NativeType("WNDPROC") WindowProcI value) { WNDCLASSEX.nlpfnWndProc(address(), value); return this; }
         /** Sets the specified value to the {@code cbClsExtra} field. */
         public WNDCLASSEX.Buffer cbClsExtra(int value) { WNDCLASSEX.ncbClsExtra(address(), value); return this; }
         /** Sets the specified value to the {@code cbWndExtra} field. */
         public WNDCLASSEX.Buffer cbWndExtra(int value) { WNDCLASSEX.ncbWndExtra(address(), value); return this; }
         /** Sets the specified value to the {@code hInstance} field. */
-        public WNDCLASSEX.Buffer hInstance(long value) { WNDCLASSEX.nhInstance(address(), value); return this; }
+        public WNDCLASSEX.Buffer hInstance(@NativeType("HINSTANCE") long value) { WNDCLASSEX.nhInstance(address(), value); return this; }
         /** Sets the specified value to the {@code hIcon} field. */
-        public WNDCLASSEX.Buffer hIcon(long value) { WNDCLASSEX.nhIcon(address(), value); return this; }
+        public WNDCLASSEX.Buffer hIcon(@NativeType("HICON") long value) { WNDCLASSEX.nhIcon(address(), value); return this; }
         /** Sets the specified value to the {@code hCursor} field. */
-        public WNDCLASSEX.Buffer hCursor(long value) { WNDCLASSEX.nhCursor(address(), value); return this; }
+        public WNDCLASSEX.Buffer hCursor(@NativeType("HCURSOR") long value) { WNDCLASSEX.nhCursor(address(), value); return this; }
         /** Sets the specified value to the {@code hbrBackground} field. */
-        public WNDCLASSEX.Buffer hbrBackground(long value) { WNDCLASSEX.nhbrBackground(address(), value); return this; }
+        public WNDCLASSEX.Buffer hbrBackground(@NativeType("HBRUSH") long value) { WNDCLASSEX.nhbrBackground(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code lpszMenuName} field. */
-        public WNDCLASSEX.Buffer lpszMenuName(ByteBuffer value) { WNDCLASSEX.nlpszMenuName(address(), value); return this; }
+        public WNDCLASSEX.Buffer lpszMenuName(@NativeType("LPCTSTR") ByteBuffer value) { WNDCLASSEX.nlpszMenuName(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code lpszClassName} field. */
-        public WNDCLASSEX.Buffer lpszClassName(ByteBuffer value) { WNDCLASSEX.nlpszClassName(address(), value); return this; }
+        public WNDCLASSEX.Buffer lpszClassName(@NativeType("LPCTSTR") ByteBuffer value) { WNDCLASSEX.nlpszClassName(address(), value); return this; }
         /** Sets the specified value to the {@code hIconSm} field. */
-        public WNDCLASSEX.Buffer hIconSm(long value) { WNDCLASSEX.nhIconSm(address(), value); return this; }
+        public WNDCLASSEX.Buffer hIconSm(@NativeType("HICON") long value) { WNDCLASSEX.nhIconSm(address(), value); return this; }
 
     }
 

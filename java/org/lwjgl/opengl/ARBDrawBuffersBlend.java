@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -50,7 +52,7 @@ public class ARBDrawBuffersBlend {
      * @param buf  an integer that indicates the {@link GL11#GL_DRAW_BUFFER DRAW_BUFFER} to modify.
      * @param mode determines both the RGB and alpha blend equations. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
      */
-    public static native void glBlendEquationiARB(int buf, int mode);
+    public static native void glBlendEquationiARB(@NativeType("GLuint") int buf, @NativeType("GLenum") int mode);
 
     // --- [ glBlendEquationSeparateiARB ] ---
 
@@ -71,7 +73,7 @@ public class ARBDrawBuffersBlend {
      * @param modeRGB   the RGB blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
      * @param modeAlpha the alpha blend equation. One of:<br><table><tr><td>{@link GL14#GL_FUNC_ADD FUNC_ADD}</td><td>{@link GL14#GL_FUNC_SUBTRACT FUNC_SUBTRACT}</td><td>{@link GL14#GL_FUNC_REVERSE_SUBTRACT FUNC_REVERSE_SUBTRACT}</td><td>{@link GL14#GL_MIN MIN}</td><td>{@link GL14#GL_MAX MAX}</td></tr></table>
      */
-    public static native void glBlendEquationSeparateiARB(int buf, int modeRGB, int modeAlpha);
+    public static native void glBlendEquationSeparateiARB(@NativeType("GLuint") int buf, @NativeType("GLenum") int modeRGB, @NativeType("GLenum") int modeAlpha);
 
     // --- [ glBlendFunciARB ] ---
 
@@ -91,7 +93,7 @@ public class ARBDrawBuffersBlend {
      * @param src determines both RGB and alpha source functions
      * @param dst determines both RGB and alpha destination functions
      */
-    public static native void glBlendFunciARB(int buf, int src, int dst);
+    public static native void glBlendFunciARB(@NativeType("GLuint") int buf, @NativeType("GLenum") int src, @NativeType("GLenum") int dst);
 
     // --- [ glBlendFuncSeparateiARB ] ---
 
@@ -113,6 +115,6 @@ public class ARBDrawBuffersBlend {
      * @param srcAlpha the source alpha blend function
      * @param dstAlpha the destination alpha blend function
      */
-    public static native void glBlendFuncSeparateiARB(int buf, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
+    public static native void glBlendFuncSeparateiARB(@NativeType("GLuint") int buf, @NativeType("GLenum") int srcRGB, @NativeType("GLenum") int dstRGB, @NativeType("GLenum") int srcAlpha, @NativeType("GLenum") int dstAlpha);
 
 }

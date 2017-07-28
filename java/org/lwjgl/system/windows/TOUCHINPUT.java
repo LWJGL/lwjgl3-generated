@@ -128,24 +128,34 @@ public class TOUCHINPUT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("LONG")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("LONG")
     public int y() { return ny(address()); }
     /** Returns the value of the {@code hSource} field. */
+    @NativeType("HANDLE")
     public long hSource() { return nhSource(address()); }
     /** Returns the value of the {@code dwID} field. */
+    @NativeType("DWORD")
     public int dwID() { return ndwID(address()); }
     /** Returns the value of the {@code dwFlags} field. */
+    @NativeType("DWORD")
     public int dwFlags() { return ndwFlags(address()); }
     /** Returns the value of the {@code dwMask} field. */
+    @NativeType("DWORD")
     public int dwMask() { return ndwMask(address()); }
     /** Returns the value of the {@code dwTime} field. */
+    @NativeType("DWORD")
     public int dwTime() { return ndwTime(address()); }
     /** Returns the value of the {@code dwExtraInfo} field. */
+    @NativeType("ULONG_PTR")
     public long dwExtraInfo() { return ndwExtraInfo(address()); }
     /** Returns the value of the {@code cxContact} field. */
+    @NativeType("DWORD")
     public int cxContact() { return ncxContact(address()); }
     /** Returns the value of the {@code cyContact} field. */
+    @NativeType("DWORD")
     public int cyContact() { return ncyContact(address()); }
 
     // -----------------------------------
@@ -341,24 +351,34 @@ public class TOUCHINPUT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("LONG")
         public int x() { return TOUCHINPUT.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("LONG")
         public int y() { return TOUCHINPUT.ny(address()); }
         /** Returns the value of the {@code hSource} field. */
+        @NativeType("HANDLE")
         public long hSource() { return TOUCHINPUT.nhSource(address()); }
         /** Returns the value of the {@code dwID} field. */
+        @NativeType("DWORD")
         public int dwID() { return TOUCHINPUT.ndwID(address()); }
         /** Returns the value of the {@code dwFlags} field. */
+        @NativeType("DWORD")
         public int dwFlags() { return TOUCHINPUT.ndwFlags(address()); }
         /** Returns the value of the {@code dwMask} field. */
+        @NativeType("DWORD")
         public int dwMask() { return TOUCHINPUT.ndwMask(address()); }
         /** Returns the value of the {@code dwTime} field. */
+        @NativeType("DWORD")
         public int dwTime() { return TOUCHINPUT.ndwTime(address()); }
         /** Returns the value of the {@code dwExtraInfo} field. */
+        @NativeType("ULONG_PTR")
         public long dwExtraInfo() { return TOUCHINPUT.ndwExtraInfo(address()); }
         /** Returns the value of the {@code cxContact} field. */
+        @NativeType("DWORD")
         public int cxContact() { return TOUCHINPUT.ncxContact(address()); }
         /** Returns the value of the {@code cyContact} field. */
+        @NativeType("DWORD")
         public int cyContact() { return TOUCHINPUT.ncyContact(address()); }
 
     }

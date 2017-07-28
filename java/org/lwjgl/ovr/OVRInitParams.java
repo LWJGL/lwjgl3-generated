@@ -45,6 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char[4];
  * }</pre></code>
  */
+@NativeType("struct ovrInitParams")
 public class OVRInitParams extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -98,26 +99,31 @@ public class OVRInitParams extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code Flags} field. */
+    @NativeType("uint32_t")
     public int Flags() { return nFlags(address()); }
     /** Returns the value of the {@code RequestedMinorVersion} field. */
+    @NativeType("uint32_t")
     public int RequestedMinorVersion() { return nRequestedMinorVersion(address()); }
     /** Returns the value of the {@code LogCallback} field. */
+    @NativeType("ovrLogCallback")
     public OVRLogCallback LogCallback() { return nLogCallback(address()); }
     /** Returns the value of the {@code UserData} field. */
+    @NativeType("uintptr_t")
     public long UserData() { return nUserData(address()); }
     /** Returns the value of the {@code ConnectionTimeoutMS} field. */
+    @NativeType("uint32_t")
     public int ConnectionTimeoutMS() { return nConnectionTimeoutMS(address()); }
 
     /** Sets the specified value to the {@code Flags} field. */
-    public OVRInitParams Flags(int value) { nFlags(address(), value); return this; }
+    public OVRInitParams Flags(@NativeType("uint32_t") int value) { nFlags(address(), value); return this; }
     /** Sets the specified value to the {@code RequestedMinorVersion} field. */
-    public OVRInitParams RequestedMinorVersion(int value) { nRequestedMinorVersion(address(), value); return this; }
+    public OVRInitParams RequestedMinorVersion(@NativeType("uint32_t") int value) { nRequestedMinorVersion(address(), value); return this; }
     /** Sets the specified value to the {@code LogCallback} field. */
-    public OVRInitParams LogCallback(OVRLogCallbackI value) { nLogCallback(address(), value); return this; }
+    public OVRInitParams LogCallback(@NativeType("ovrLogCallback") OVRLogCallbackI value) { nLogCallback(address(), value); return this; }
     /** Sets the specified value to the {@code UserData} field. */
-    public OVRInitParams UserData(long value) { nUserData(address(), value); return this; }
+    public OVRInitParams UserData(@NativeType("uintptr_t") long value) { nUserData(address(), value); return this; }
     /** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
-    public OVRInitParams ConnectionTimeoutMS(int value) { nConnectionTimeoutMS(address(), value); return this; }
+    public OVRInitParams ConnectionTimeoutMS(@NativeType("uint32_t") int value) { nConnectionTimeoutMS(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public OVRInitParams set(
@@ -342,26 +348,31 @@ public class OVRInitParams extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code Flags} field. */
+        @NativeType("uint32_t")
         public int Flags() { return OVRInitParams.nFlags(address()); }
         /** Returns the value of the {@code RequestedMinorVersion} field. */
+        @NativeType("uint32_t")
         public int RequestedMinorVersion() { return OVRInitParams.nRequestedMinorVersion(address()); }
         /** Returns the value of the {@code LogCallback} field. */
+        @NativeType("ovrLogCallback")
         public OVRLogCallback LogCallback() { return OVRInitParams.nLogCallback(address()); }
         /** Returns the value of the {@code UserData} field. */
+        @NativeType("uintptr_t")
         public long UserData() { return OVRInitParams.nUserData(address()); }
         /** Returns the value of the {@code ConnectionTimeoutMS} field. */
+        @NativeType("uint32_t")
         public int ConnectionTimeoutMS() { return OVRInitParams.nConnectionTimeoutMS(address()); }
 
         /** Sets the specified value to the {@code Flags} field. */
-        public OVRInitParams.Buffer Flags(int value) { OVRInitParams.nFlags(address(), value); return this; }
+        public OVRInitParams.Buffer Flags(@NativeType("uint32_t") int value) { OVRInitParams.nFlags(address(), value); return this; }
         /** Sets the specified value to the {@code RequestedMinorVersion} field. */
-        public OVRInitParams.Buffer RequestedMinorVersion(int value) { OVRInitParams.nRequestedMinorVersion(address(), value); return this; }
+        public OVRInitParams.Buffer RequestedMinorVersion(@NativeType("uint32_t") int value) { OVRInitParams.nRequestedMinorVersion(address(), value); return this; }
         /** Sets the specified value to the {@code LogCallback} field. */
-        public OVRInitParams.Buffer LogCallback(OVRLogCallbackI value) { OVRInitParams.nLogCallback(address(), value); return this; }
+        public OVRInitParams.Buffer LogCallback(@NativeType("ovrLogCallback") OVRLogCallbackI value) { OVRInitParams.nLogCallback(address(), value); return this; }
         /** Sets the specified value to the {@code UserData} field. */
-        public OVRInitParams.Buffer UserData(long value) { OVRInitParams.nUserData(address(), value); return this; }
+        public OVRInitParams.Buffer UserData(@NativeType("uintptr_t") long value) { OVRInitParams.nUserData(address(), value); return this; }
         /** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
-        public OVRInitParams.Buffer ConnectionTimeoutMS(int value) { OVRInitParams.nConnectionTimeoutMS(address(), value); return this; }
+        public OVRInitParams.Buffer ConnectionTimeoutMS(@NativeType("uint32_t") int value) { OVRInitParams.nConnectionTimeoutMS(address(), value); return this; }
 
     }
 

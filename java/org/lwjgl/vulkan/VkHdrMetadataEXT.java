@@ -125,8 +125,10 @@ public class VkHdrMetadataEXT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkXYColorEXT} view of the {@code displayPrimaryRed} field. */
     public VkXYColorEXT displayPrimaryRed() { return ndisplayPrimaryRed(address()); }
@@ -146,9 +148,9 @@ public class VkHdrMetadataEXT extends Struct implements NativeResource {
     public float maxFrameAverageLightLevel() { return nmaxFrameAverageLightLevel(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkHdrMetadataEXT sType(int value) { nsType(address(), value); return this; }
+    public VkHdrMetadataEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkHdrMetadataEXT pNext(long value) { npNext(address(), value); return this; }
+    public VkHdrMetadataEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Copies the specified {@link VkXYColorEXT} to the {@code displayPrimaryRed} field. */
     public VkHdrMetadataEXT displayPrimaryRed(VkXYColorEXT value) { ndisplayPrimaryRed(address(), value); return this; }
     /** Copies the specified {@link VkXYColorEXT} to the {@code displayPrimaryGreen} field. */
@@ -419,8 +421,10 @@ public class VkHdrMetadataEXT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkHdrMetadataEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkHdrMetadataEXT.npNext(address()); }
         /** Returns a {@link VkXYColorEXT} view of the {@code displayPrimaryRed} field. */
         public VkXYColorEXT displayPrimaryRed() { return VkHdrMetadataEXT.ndisplayPrimaryRed(address()); }
@@ -440,9 +444,9 @@ public class VkHdrMetadataEXT extends Struct implements NativeResource {
         public float maxFrameAverageLightLevel() { return VkHdrMetadataEXT.nmaxFrameAverageLightLevel(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkHdrMetadataEXT.Buffer sType(int value) { VkHdrMetadataEXT.nsType(address(), value); return this; }
+        public VkHdrMetadataEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkHdrMetadataEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkHdrMetadataEXT.Buffer pNext(long value) { VkHdrMetadataEXT.npNext(address(), value); return this; }
+        public VkHdrMetadataEXT.Buffer pNext(@NativeType("const void *") long value) { VkHdrMetadataEXT.npNext(address(), value); return this; }
         /** Copies the specified {@link VkXYColorEXT} to the {@code displayPrimaryRed} field. */
         public VkHdrMetadataEXT.Buffer displayPrimaryRed(VkXYColorEXT value) { VkHdrMetadataEXT.ndisplayPrimaryRed(address(), value); return this; }
         /** Copies the specified {@link VkXYColorEXT} to the {@code displayPrimaryGreen} field. */

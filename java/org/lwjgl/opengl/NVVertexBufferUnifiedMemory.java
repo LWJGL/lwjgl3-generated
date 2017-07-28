@@ -78,60 +78,61 @@ public class NVVertexBufferUnifiedMemory {
 
     // --- [ glBufferAddressRangeNV ] ---
 
-    public static native void glBufferAddressRangeNV(int pname, int index, long address, long length);
+    public static native void glBufferAddressRangeNV(@NativeType("GLenum") int pname, @NativeType("GLuint") int index, @NativeType("GLuint64EXT") long address, @NativeType("GLsizeiptr") long length);
 
     // --- [ glVertexFormatNV ] ---
 
-    public static native void glVertexFormatNV(int size, int type, int stride);
+    public static native void glVertexFormatNV(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glNormalFormatNV ] ---
 
-    public static native void glNormalFormatNV(int type, int stride);
+    public static native void glNormalFormatNV(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glColorFormatNV ] ---
 
-    public static native void glColorFormatNV(int size, int type, int stride);
+    public static native void glColorFormatNV(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glIndexFormatNV ] ---
 
-    public static native void glIndexFormatNV(int type, int stride);
+    public static native void glIndexFormatNV(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glTexCoordFormatNV ] ---
 
-    public static native void glTexCoordFormatNV(int size, int type, int stride);
+    public static native void glTexCoordFormatNV(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glEdgeFlagFormatNV ] ---
 
-    public static native void glEdgeFlagFormatNV(int stride);
+    public static native void glEdgeFlagFormatNV(@NativeType("GLsizei") int stride);
 
     // --- [ glSecondaryColorFormatNV ] ---
 
-    public static native void glSecondaryColorFormatNV(int size, int type, int stride);
+    public static native void glSecondaryColorFormatNV(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glFogCoordFormatNV ] ---
 
-    public static native void glFogCoordFormatNV(int type, int stride);
+    public static native void glFogCoordFormatNV(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glVertexAttribFormatNV ] ---
 
-    public static native void glVertexAttribFormatNV(int index, int size, int type, boolean normalized, int stride);
+    public static native void glVertexAttribFormatNV(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride);
 
     // --- [ glVertexAttribIFormatNV ] ---
 
-    public static native void glVertexAttribIFormatNV(int index, int size, int type, int stride);
+    public static native void glVertexAttribIFormatNV(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride);
 
     // --- [ glGetIntegerui64i_vNV ] ---
 
     public static native void nglGetIntegerui64i_vNV(int value, int index, long result);
 
-    public static void glGetIntegerui64i_vNV(int value, int index, LongBuffer result) {
+    public static void glGetIntegerui64i_vNV(@NativeType("GLenum") int value, @NativeType("GLuint") int index, @NativeType("GLuint64EXT *") LongBuffer result) {
         if (CHECKS) {
             check(result, 1);
         }
         nglGetIntegerui64i_vNV(value, index, memAddress(result));
     }
 
-    public static long glGetIntegerui64iNV(int value, int index) {
+    @NativeType("void")
+    public static long glGetIntegerui64iNV(@NativeType("GLenum") int value, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer result = stack.callocLong(1);
@@ -143,7 +144,7 @@ public class NVVertexBufferUnifiedMemory {
     }
 
     /** Array version of: {@link #glGetIntegerui64i_vNV GetIntegerui64i_vNV} */
-    public static void glGetIntegerui64i_vNV(int value, int index, long[] result) {
+    public static void glGetIntegerui64i_vNV(@NativeType("GLenum") int value, @NativeType("GLuint") int index, @NativeType("GLuint64EXT *") long[] result) {
         long __functionAddress = GL.getICD().glGetIntegerui64i_vNV;
         if (CHECKS) {
             check(__functionAddress);

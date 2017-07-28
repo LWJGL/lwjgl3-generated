@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float a;
  * }</pre></code>
  */
+@NativeType("struct aiColor4D")
 public class AIColor4D extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

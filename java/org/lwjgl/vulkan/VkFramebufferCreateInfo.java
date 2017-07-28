@@ -157,40 +157,49 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkFramebufferCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code renderPass} field. */
+    @NativeType("VkRenderPass")
     public long renderPass() { return nrenderPass(address()); }
     /** Returns the value of the {@code attachmentCount} field. */
+    @NativeType("uint32_t")
     public int attachmentCount() { return nattachmentCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field. */
+    @NativeType("const VkImageView *")
     public LongBuffer pAttachments() { return npAttachments(address()); }
     /** Returns the value of the {@code width} field. */
+    @NativeType("uint32_t")
     public int width() { return nwidth(address()); }
     /** Returns the value of the {@code height} field. */
+    @NativeType("uint32_t")
     public int height() { return nheight(address()); }
     /** Returns the value of the {@code layers} field. */
+    @NativeType("uint32_t")
     public int layers() { return nlayers(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkFramebufferCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkFramebufferCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkFramebufferCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkFramebufferCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkFramebufferCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkFramebufferCreateInfo flags(@NativeType("VkFramebufferCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code renderPass} field. */
-    public VkFramebufferCreateInfo renderPass(long value) { nrenderPass(address(), value); return this; }
+    public VkFramebufferCreateInfo renderPass(@NativeType("VkRenderPass") long value) { nrenderPass(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pAttachments} field. */
-    public VkFramebufferCreateInfo pAttachments(LongBuffer value) { npAttachments(address(), value); return this; }
+    public VkFramebufferCreateInfo pAttachments(@NativeType("const VkImageView *") LongBuffer value) { npAttachments(address(), value); return this; }
     /** Sets the specified value to the {@code width} field. */
-    public VkFramebufferCreateInfo width(int value) { nwidth(address(), value); return this; }
+    public VkFramebufferCreateInfo width(@NativeType("uint32_t") int value) { nwidth(address(), value); return this; }
     /** Sets the specified value to the {@code height} field. */
-    public VkFramebufferCreateInfo height(int value) { nheight(address(), value); return this; }
+    public VkFramebufferCreateInfo height(@NativeType("uint32_t") int value) { nheight(address(), value); return this; }
     /** Sets the specified value to the {@code layers} field. */
-    public VkFramebufferCreateInfo layers(int value) { nlayers(address(), value); return this; }
+    public VkFramebufferCreateInfo layers(@NativeType("uint32_t") int value) { nlayers(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkFramebufferCreateInfo set(
@@ -460,40 +469,49 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkFramebufferCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkFramebufferCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkFramebufferCreateFlags")
         public int flags() { return VkFramebufferCreateInfo.nflags(address()); }
         /** Returns the value of the {@code renderPass} field. */
+        @NativeType("VkRenderPass")
         public long renderPass() { return VkFramebufferCreateInfo.nrenderPass(address()); }
         /** Returns the value of the {@code attachmentCount} field. */
+        @NativeType("uint32_t")
         public int attachmentCount() { return VkFramebufferCreateInfo.nattachmentCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field. */
+        @NativeType("const VkImageView *")
         public LongBuffer pAttachments() { return VkFramebufferCreateInfo.npAttachments(address()); }
         /** Returns the value of the {@code width} field. */
+        @NativeType("uint32_t")
         public int width() { return VkFramebufferCreateInfo.nwidth(address()); }
         /** Returns the value of the {@code height} field. */
+        @NativeType("uint32_t")
         public int height() { return VkFramebufferCreateInfo.nheight(address()); }
         /** Returns the value of the {@code layers} field. */
+        @NativeType("uint32_t")
         public int layers() { return VkFramebufferCreateInfo.nlayers(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkFramebufferCreateInfo.Buffer sType(int value) { VkFramebufferCreateInfo.nsType(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkFramebufferCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkFramebufferCreateInfo.Buffer pNext(long value) { VkFramebufferCreateInfo.npNext(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkFramebufferCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkFramebufferCreateInfo.Buffer flags(int value) { VkFramebufferCreateInfo.nflags(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer flags(@NativeType("VkFramebufferCreateFlags") int value) { VkFramebufferCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code renderPass} field. */
-        public VkFramebufferCreateInfo.Buffer renderPass(long value) { VkFramebufferCreateInfo.nrenderPass(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer renderPass(@NativeType("VkRenderPass") long value) { VkFramebufferCreateInfo.nrenderPass(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pAttachments} field. */
-        public VkFramebufferCreateInfo.Buffer pAttachments(LongBuffer value) { VkFramebufferCreateInfo.npAttachments(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer pAttachments(@NativeType("const VkImageView *") LongBuffer value) { VkFramebufferCreateInfo.npAttachments(address(), value); return this; }
         /** Sets the specified value to the {@code width} field. */
-        public VkFramebufferCreateInfo.Buffer width(int value) { VkFramebufferCreateInfo.nwidth(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer width(@NativeType("uint32_t") int value) { VkFramebufferCreateInfo.nwidth(address(), value); return this; }
         /** Sets the specified value to the {@code height} field. */
-        public VkFramebufferCreateInfo.Buffer height(int value) { VkFramebufferCreateInfo.nheight(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer height(@NativeType("uint32_t") int value) { VkFramebufferCreateInfo.nheight(address(), value); return this; }
         /** Sets the specified value to the {@code layers} field. */
-        public VkFramebufferCreateInfo.Buffer layers(int value) { VkFramebufferCreateInfo.nlayers(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer layers(@NativeType("uint32_t") int value) { VkFramebufferCreateInfo.nlayers(address(), value); return this; }
 
     }
 

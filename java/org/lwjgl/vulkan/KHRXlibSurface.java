@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -138,7 +140,8 @@ public class KHRXlibSurface {
      * @param pAllocator  the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
      * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
      */
-    public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, LongBuffer pSurface) {
+    @NativeType("VkResult")
+    public static int vkCreateXlibSurfaceKHR(VkInstance instance, @NativeType("const VkXlibSurfaceCreateInfoKHR *") VkXlibSurfaceCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
         if (CHECKS) {
             check(pSurface, 1);
         }
@@ -183,7 +186,8 @@ public class KHRXlibSurface {
      * @param dpy              a pointer to an Xlib {@code Display} connection to the server.
      * @param visualID         
      */
-    public static boolean vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, int queueFamilyIndex, long dpy, long visualID) {
+    @NativeType("VkBool32")
+    public static boolean vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t") int queueFamilyIndex, @NativeType("Display *") long dpy, @NativeType("VisualID") long visualID) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceXlibPresentationSupportKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -193,7 +197,8 @@ public class KHRXlibSurface {
     }
 
     /** Array version of: {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
-    public static int vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR pCreateInfo, VkAllocationCallbacks pAllocator, long[] pSurface) {
+    @NativeType("VkResult")
+    public static int vkCreateXlibSurfaceKHR(VkInstance instance, @NativeType("const VkXlibSurfaceCreateInfoKHR *") VkXlibSurfaceCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
         long __functionAddress = instance.getCapabilities().vkCreateXlibSurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);

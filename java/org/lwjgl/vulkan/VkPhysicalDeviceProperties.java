@@ -126,22 +126,31 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code apiVersion} field. */
+    @NativeType("uint32_t")
     public int apiVersion() { return napiVersion(address()); }
     /** Returns the value of the {@code driverVersion} field. */
+    @NativeType("uint32_t")
     public int driverVersion() { return ndriverVersion(address()); }
     /** Returns the value of the {@code vendorID} field. */
+    @NativeType("uint32_t")
     public int vendorID() { return nvendorID(address()); }
     /** Returns the value of the {@code deviceID} field. */
+    @NativeType("uint32_t")
     public int deviceID() { return ndeviceID(address()); }
     /** Returns the value of the {@code deviceType} field. */
+    @NativeType("VkPhysicalDeviceType")
     public int deviceType() { return ndeviceType(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code deviceName} field. */
+    @NativeType("char[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]")
     public ByteBuffer deviceName() { return ndeviceName(address()); }
     /** Decodes the null-terminated string stored in the {@code deviceName} field. */
+    @NativeType("char[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]")
     public String deviceNameString() { return ndeviceNameString(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code pipelineCacheUUID} field. */
+    @NativeType("uint8_t[VK_UUID_SIZE]")
     public ByteBuffer pipelineCacheUUID() { return npipelineCacheUUID(address()); }
     /** Returns the value at the specified index of the {@code pipelineCacheUUID} field. */
+    @NativeType("uint8_t")
     public byte pipelineCacheUUID(int index) { return npipelineCacheUUID(address(), index); }
     /** Returns a {@link VkPhysicalDeviceLimits} view of the {@code limits} field. */
     public VkPhysicalDeviceLimits limits() { return nlimits(address()); }
@@ -346,22 +355,31 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
         }
 
         /** Returns the value of the {@code apiVersion} field. */
+        @NativeType("uint32_t")
         public int apiVersion() { return VkPhysicalDeviceProperties.napiVersion(address()); }
         /** Returns the value of the {@code driverVersion} field. */
+        @NativeType("uint32_t")
         public int driverVersion() { return VkPhysicalDeviceProperties.ndriverVersion(address()); }
         /** Returns the value of the {@code vendorID} field. */
+        @NativeType("uint32_t")
         public int vendorID() { return VkPhysicalDeviceProperties.nvendorID(address()); }
         /** Returns the value of the {@code deviceID} field. */
+        @NativeType("uint32_t")
         public int deviceID() { return VkPhysicalDeviceProperties.ndeviceID(address()); }
         /** Returns the value of the {@code deviceType} field. */
+        @NativeType("VkPhysicalDeviceType")
         public int deviceType() { return VkPhysicalDeviceProperties.ndeviceType(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code deviceName} field. */
+        @NativeType("char[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]")
         public ByteBuffer deviceName() { return VkPhysicalDeviceProperties.ndeviceName(address()); }
         /** Decodes the null-terminated string stored in the {@code deviceName} field. */
+        @NativeType("char[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE]")
         public String deviceNameString() { return VkPhysicalDeviceProperties.ndeviceNameString(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code pipelineCacheUUID} field. */
+        @NativeType("uint8_t[VK_UUID_SIZE]")
         public ByteBuffer pipelineCacheUUID() { return VkPhysicalDeviceProperties.npipelineCacheUUID(address()); }
         /** Returns the value at the specified index of the {@code pipelineCacheUUID} field. */
+        @NativeType("uint8_t")
         public byte pipelineCacheUUID(int index) { return VkPhysicalDeviceProperties.npipelineCacheUUID(address(), index); }
         /** Returns a {@link VkPhysicalDeviceLimits} view of the {@code limits} field. */
         public VkPhysicalDeviceLimits limits() { return VkPhysicalDeviceProperties.nlimits(address()); }

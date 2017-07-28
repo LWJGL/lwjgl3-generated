@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -46,12 +48,14 @@ public class KHRSwapBuffersWithDamage {
         return callPPPI(__functionAddress, dpy, surface, rects, n_rects);
     }
 
-    public static boolean eglSwapBuffersWithDamageKHR(long dpy, long surface, IntBuffer rects) {
+    @NativeType("EGLBoolean")
+    public static boolean eglSwapBuffersWithDamageKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLint *") IntBuffer rects) {
         return neglSwapBuffersWithDamageKHR(dpy, surface, memAddressSafe(rects), remainingSafe(rects)) != 0;
     }
 
     /** Array version of: {@link #eglSwapBuffersWithDamageKHR SwapBuffersWithDamageKHR} */
-    public static boolean eglSwapBuffersWithDamageKHR(long dpy, long surface, int[] rects) {
+    @NativeType("EGLBoolean")
+    public static boolean eglSwapBuffersWithDamageKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLint *") int[] rects) {
         long __functionAddress = EGL.getCapabilities().eglSwapBuffersWithDamageKHR;
         if (CHECKS) {
             check(__functionAddress);

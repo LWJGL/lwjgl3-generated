@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float progress;
  * }</pre></code>
  */
+@NativeType("struct VREvent_ScreenshotProgress_t")
 public class VREventScreenshotProgress extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

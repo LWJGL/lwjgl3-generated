@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     bool bResetBySystemMenu;
  * }</pre></code>
  */
+@NativeType("struct VREvent_SeatedZeroPoseReset_t")
 public class VREventSeatedZeroPoseReset extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -61,10 +62,11 @@ public class VREventSeatedZeroPoseReset extends Struct implements NativeResource
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code bResetBySystemMenu} field. */
+    @NativeType("bool")
     public boolean bResetBySystemMenu() { return nbResetBySystemMenu(address()); }
 
     /** Sets the specified value to the {@code bResetBySystemMenu} field. */
-    public VREventSeatedZeroPoseReset bResetBySystemMenu(boolean value) { nbResetBySystemMenu(address(), value); return this; }
+    public VREventSeatedZeroPoseReset bResetBySystemMenu(@NativeType("bool") boolean value) { nbResetBySystemMenu(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -256,10 +258,11 @@ public class VREventSeatedZeroPoseReset extends Struct implements NativeResource
         }
 
         /** Returns the value of the {@code bResetBySystemMenu} field. */
+        @NativeType("bool")
         public boolean bResetBySystemMenu() { return VREventSeatedZeroPoseReset.nbResetBySystemMenu(address()); }
 
         /** Sets the specified value to the {@code bResetBySystemMenu} field. */
-        public VREventSeatedZeroPoseReset.Buffer bResetBySystemMenu(boolean value) { VREventSeatedZeroPoseReset.nbResetBySystemMenu(address(), value); return this; }
+        public VREventSeatedZeroPoseReset.Buffer bResetBySystemMenu(@NativeType("bool") boolean value) { VREventSeatedZeroPoseReset.nbResetBySystemMenu(address(), value); return this; }
 
     }
 

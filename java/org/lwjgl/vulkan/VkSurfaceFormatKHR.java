@@ -74,8 +74,10 @@ public class VkSurfaceFormatKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code format} field. */
+    @NativeType("VkFormat")
     public int format() { return nformat(address()); }
     /** Returns the value of the {@code colorSpace} field. */
+    @NativeType("VkColorSpaceKHR")
     public int colorSpace() { return ncolorSpace(address()); }
 
     // -----------------------------------
@@ -255,8 +257,10 @@ public class VkSurfaceFormatKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code format} field. */
+        @NativeType("VkFormat")
         public int format() { return VkSurfaceFormatKHR.nformat(address()); }
         /** Returns the value of the {@code colorSpace} field. */
+        @NativeType("VkColorSpaceKHR")
         public int colorSpace() { return VkSurfaceFormatKHR.ncolorSpace(address()); }
 
     }

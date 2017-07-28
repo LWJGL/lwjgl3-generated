@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -249,7 +251,7 @@ public class GL13 {
      * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
      * @param data           a pointer to the compressed image data
      */
-    public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, long data) {
+    public static void glCompressedTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
     }
 
@@ -267,7 +269,7 @@ public class GL13 {
      * @param border         must be 0
      * @param data           a pointer to the compressed image data
      */
-    public static void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, ByteBuffer data) {
+    public static void glCompressedTexImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLint") int border, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexImage3D(target, level, internalformat, width, height, depth, border, remainingSafe(data), memAddressSafe(data));
     }
 
@@ -294,7 +296,7 @@ public class GL13 {
      * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
      * @param data           a pointer to the compressed image data
      */
-    public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, long data) {
+    public static void glCompressedTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
     }
 
@@ -311,7 +313,7 @@ public class GL13 {
      * @param border         must be 0
      * @param data           a pointer to the compressed image data
      */
-    public static void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, ByteBuffer data) {
+    public static void glCompressedTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexImage2D(target, level, internalformat, width, height, border, remainingSafe(data), memAddressSafe(data));
     }
 
@@ -337,7 +339,7 @@ public class GL13 {
      * @param imageSize      the number of unsigned bytes of image data starting at the address specified by {@code data}
      * @param data           a pointer to the compressed image data
      */
-    public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, long data) {
+    public static void glCompressedTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
     }
 
@@ -353,7 +355,7 @@ public class GL13 {
      * @param border         must be 0
      * @param data           a pointer to the compressed image data
      */
-    public static void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, ByteBuffer data) {
+    public static void glCompressedTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexImage1D(target, level, internalformat, width, border, remainingSafe(data), memAddressSafe(data));
     }
 
@@ -383,7 +385,7 @@ public class GL13 {
      * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
      * @param data      a pointer to the compressed image data
      */
-    public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, long data) {
+    public static void glCompressedTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
     }
 
@@ -403,7 +405,7 @@ public class GL13 {
      * @param format  the format of the compressed image data stored at address {@code data}. One of:<br><table><tr><td>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}</td></tr><tr><td>{@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}</td></tr><tr><td>{@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}</td><td>{@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}</td></tr><tr><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}</td><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}</td></tr><tr><td>see {@link EXTTextureCompressionS3TC}</td><td>see {@link EXTTextureCompressionLATC}</td></tr><tr><td>see {@link ATITextureCompression3DC}</td><td>see {@link KHRTextureCompressionASTCLDR}</td></tr></table>
      * @param data    a pointer to the compressed image data
      */
-    public static void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, ByteBuffer data) {
+    public static void glCompressedTexSubImage3D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, data.remaining(), memAddress(data));
     }
 
@@ -431,7 +433,7 @@ public class GL13 {
      * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
      * @param data      a pointer to the compressed image data
      */
-    public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, long data) {
+    public static void glCompressedTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
     }
 
@@ -449,7 +451,7 @@ public class GL13 {
      * @param format  the format of the compressed image data stored at address {@code data}. One of:<br><table><tr><td>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}</td></tr><tr><td>{@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}</td></tr><tr><td>{@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}</td><td>{@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}</td></tr><tr><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}</td><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}</td></tr><tr><td>see {@link EXTTextureCompressionS3TC}</td><td>see {@link EXTTextureCompressionLATC}</td></tr><tr><td>see {@link ATITextureCompression3DC}</td><td>see {@link KHRTextureCompressionASTCLDR}</td></tr></table>
      * @param data    a pointer to the compressed image data
      */
-    public static void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, ByteBuffer data) {
+    public static void glCompressedTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, data.remaining(), memAddress(data));
     }
 
@@ -475,7 +477,7 @@ public class GL13 {
      * @param imageSize the number of unsigned bytes of image data starting at the address specified by {@code data}
      * @param data      a pointer to the compressed image data
      */
-    public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, long data) {
+    public static void glCompressedTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLsizei") int imageSize, @NativeType("const void *") long data) {
         nglCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
     }
 
@@ -491,7 +493,7 @@ public class GL13 {
      * @param format  the format of the compressed image data stored at address {@code data}. One of:<br><table><tr><td>{@link GL30#GL_COMPRESSED_RED_RGTC1 COMPRESSED_RED_RGTC1}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RED_RGTC1 COMPRESSED_SIGNED_RED_RGTC1}</td></tr><tr><td>{@link GL30#GL_COMPRESSED_RG_RGTC2 COMPRESSED_RG_RGTC2}</td><td>{@link GL30#GL_COMPRESSED_SIGNED_RG_RGTC2 COMPRESSED_SIGNED_RG_RGTC2}</td></tr><tr><td>{@link GL42#GL_COMPRESSED_RGBA_BPTC_UNORM COMPRESSED_RGBA_BPTC_UNORM}</td><td>{@link GL42#GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM COMPRESSED_SRGB_ALPHA_BPTC_UNORM}</td></tr><tr><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT COMPRESSED_RGB_BPTC_SIGNED_FLOAT}</td><td>{@link GL42#GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGB8_ETC2 COMPRESSED_RGB8_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ETC2 COMPRESSED_SRGB8_ETC2}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RGBA8_ETC2_EAC COMPRESSED_RGBA8_ETC2_EAC}</td><td>{@link GL43#GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC COMPRESSED_SRGB8_ALPHA8_ETC2_EAC}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_R11_EAC COMPRESSED_R11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_R11_EAC COMPRESSED_SIGNED_R11_EAC}</td></tr><tr><td>{@link GL43#GL_COMPRESSED_RG11_EAC COMPRESSED_RG11_EAC}</td><td>{@link GL43#GL_COMPRESSED_SIGNED_RG11_EAC COMPRESSED_SIGNED_RG11_EAC}</td></tr><tr><td>see {@link EXTTextureCompressionS3TC}</td><td>see {@link EXTTextureCompressionLATC}</td></tr><tr><td>see {@link ATITextureCompression3DC}</td><td>see {@link KHRTextureCompressionASTCLDR}</td></tr></table>
      * @param data    a pointer to the compressed image data
      */
-    public static void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, ByteBuffer data) {
+    public static void glCompressedTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("const void *") ByteBuffer data) {
         nglCompressedTexSubImage1D(target, level, xoffset, width, format, data.remaining(), memAddress(data));
     }
 
@@ -509,7 +511,7 @@ public class GL13 {
      * @param level  the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
      * @param pixels a buffer in which to return the compressed texture image
      */
-    public static void glGetCompressedTexImage(int target, int level, ByteBuffer pixels) {
+    public static void glGetCompressedTexImage(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("void *") ByteBuffer pixels) {
         if (CHECKS) {
             if (DEBUG) {
                 check(pixels, GL11.glGetTexLevelParameteri(target, level, GL_TEXTURE_COMPRESSED_IMAGE_SIZE));
@@ -527,7 +529,7 @@ public class GL13 {
      * @param level  the level-of-detail number. Level 0 is the base image level. Level n is the nth mipmap reduction image.
      * @param pixels a buffer in which to return the compressed texture image
      */
-    public static void glGetCompressedTexImage(int target, int level, long pixels) {
+    public static void glGetCompressedTexImage(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("void *") long pixels) {
         nglGetCompressedTexImage(target, level, pixels);
     }
 
@@ -554,7 +556,7 @@ public class GL13 {
      * @param value  a sample coverage value. The value is clamped to the range [0, 1]. The initial value is 1.0.
      * @param invert if the coverage masks should be inverted. The initial value is false.
      */
-    public static native void glSampleCoverage(float value, boolean invert);
+    public static native void glSampleCoverage(@NativeType("GLfloat") float value, @NativeType("GLboolean") boolean invert);
 
     // --- [ glActiveTexture ] ---
 
@@ -566,7 +568,7 @@ public class GL13 {
      *
      * @param texture which texture unit to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0 TEXTURE0}</td><td>GL_TEXTURE[1-31]</td></tr></table>
      */
-    public static native void glActiveTexture(int texture);
+    public static native void glActiveTexture(@NativeType("GLenum") int texture);
 
     // --- [ glClientActiveTexture ] ---
 
@@ -578,7 +580,7 @@ public class GL13 {
      *
      * @param texture which texture coordinate array to make active. One of:<br><table><tr><td>{@link #GL_TEXTURE0 TEXTURE0}</td><td>GL_TEXTURE[1-31]</td></tr></table>
      */
-    public static native void glClientActiveTexture(int texture);
+    public static native void glClientActiveTexture(@NativeType("GLenum") int texture);
 
     // --- [ glMultiTexCoord1f ] ---
 
@@ -590,7 +592,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param s       the s component of the current texture coordinates
      */
-    public static native void glMultiTexCoord1f(int texture, float s);
+    public static native void glMultiTexCoord1f(@NativeType("GLenum") int texture, @NativeType("GLfloat") float s);
 
     // --- [ glMultiTexCoord1s ] ---
 
@@ -602,7 +604,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param s       the s component of the current texture coordinates
      */
-    public static native void glMultiTexCoord1s(int texture, short s);
+    public static native void glMultiTexCoord1s(@NativeType("GLenum") int texture, @NativeType("GLshort") short s);
 
     // --- [ glMultiTexCoord1i ] ---
 
@@ -614,7 +616,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param s       the s component of the current texture coordinates
      */
-    public static native void glMultiTexCoord1i(int texture, int s);
+    public static native void glMultiTexCoord1i(@NativeType("GLenum") int texture, @NativeType("GLint") int s);
 
     // --- [ glMultiTexCoord1d ] ---
 
@@ -626,7 +628,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param s       the s component of the current texture coordinates
      */
-    public static native void glMultiTexCoord1d(int texture, double s);
+    public static native void glMultiTexCoord1d(@NativeType("GLenum") int texture, @NativeType("GLdouble") double s);
 
     // --- [ glMultiTexCoord1fv ] ---
 
@@ -641,7 +643,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord1fv(int texture, FloatBuffer v) {
+    public static void glMultiTexCoord1fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -661,7 +663,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord1sv(int texture, ShortBuffer v) {
+    public static void glMultiTexCoord1sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -681,7 +683,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord1iv(int texture, IntBuffer v) {
+    public static void glMultiTexCoord1iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -701,7 +703,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord1dv(int texture, DoubleBuffer v) {
+    public static void glMultiTexCoord1dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -719,7 +721,7 @@ public class GL13 {
      * @param s       the s component of the current texture coordinates
      * @param t       the t component of the current texture coordinates
      */
-    public static native void glMultiTexCoord2f(int texture, float s, float t);
+    public static native void glMultiTexCoord2f(@NativeType("GLenum") int texture, @NativeType("GLfloat") float s, @NativeType("GLfloat") float t);
 
     // --- [ glMultiTexCoord2s ] ---
 
@@ -732,7 +734,7 @@ public class GL13 {
      * @param s       the s component of the current texture coordinates
      * @param t       the t component of the current texture coordinates
      */
-    public static native void glMultiTexCoord2s(int texture, short s, short t);
+    public static native void glMultiTexCoord2s(@NativeType("GLenum") int texture, @NativeType("GLshort") short s, @NativeType("GLshort") short t);
 
     // --- [ glMultiTexCoord2i ] ---
 
@@ -745,7 +747,7 @@ public class GL13 {
      * @param s       the s component of the current texture coordinates
      * @param t       the t component of the current texture coordinates
      */
-    public static native void glMultiTexCoord2i(int texture, int s, int t);
+    public static native void glMultiTexCoord2i(@NativeType("GLenum") int texture, @NativeType("GLint") int s, @NativeType("GLint") int t);
 
     // --- [ glMultiTexCoord2d ] ---
 
@@ -758,7 +760,7 @@ public class GL13 {
      * @param s       the s component of the current texture coordinates
      * @param t       the t component of the current texture coordinates
      */
-    public static native void glMultiTexCoord2d(int texture, double s, double t);
+    public static native void glMultiTexCoord2d(@NativeType("GLenum") int texture, @NativeType("GLdouble") double s, @NativeType("GLdouble") double t);
 
     // --- [ glMultiTexCoord2fv ] ---
 
@@ -773,7 +775,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord2fv(int texture, FloatBuffer v) {
+    public static void glMultiTexCoord2fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -793,7 +795,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord2sv(int texture, ShortBuffer v) {
+    public static void glMultiTexCoord2sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -813,7 +815,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord2iv(int texture, IntBuffer v) {
+    public static void glMultiTexCoord2iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -833,7 +835,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord2dv(int texture, DoubleBuffer v) {
+    public static void glMultiTexCoord2dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -852,7 +854,7 @@ public class GL13 {
      * @param t       the t component of the current texture coordinates
      * @param r       the r component of the current texture coordinates
      */
-    public static native void glMultiTexCoord3f(int texture, float s, float t, float r);
+    public static native void glMultiTexCoord3f(@NativeType("GLenum") int texture, @NativeType("GLfloat") float s, @NativeType("GLfloat") float t, @NativeType("GLfloat") float r);
 
     // --- [ glMultiTexCoord3s ] ---
 
@@ -866,7 +868,7 @@ public class GL13 {
      * @param t       the t component of the current texture coordinates
      * @param r       the r component of the current texture coordinates
      */
-    public static native void glMultiTexCoord3s(int texture, short s, short t, short r);
+    public static native void glMultiTexCoord3s(@NativeType("GLenum") int texture, @NativeType("GLshort") short s, @NativeType("GLshort") short t, @NativeType("GLshort") short r);
 
     // --- [ glMultiTexCoord3i ] ---
 
@@ -880,7 +882,7 @@ public class GL13 {
      * @param t       the t component of the current texture coordinates
      * @param r       the r component of the current texture coordinates
      */
-    public static native void glMultiTexCoord3i(int texture, int s, int t, int r);
+    public static native void glMultiTexCoord3i(@NativeType("GLenum") int texture, @NativeType("GLint") int s, @NativeType("GLint") int t, @NativeType("GLint") int r);
 
     // --- [ glMultiTexCoord3d ] ---
 
@@ -894,7 +896,7 @@ public class GL13 {
      * @param t       the t component of the current texture coordinates
      * @param r       the r component of the current texture coordinates
      */
-    public static native void glMultiTexCoord3d(int texture, double s, double t, double r);
+    public static native void glMultiTexCoord3d(@NativeType("GLenum") int texture, @NativeType("GLdouble") double s, @NativeType("GLdouble") double t, @NativeType("GLdouble") double r);
 
     // --- [ glMultiTexCoord3fv ] ---
 
@@ -909,7 +911,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord3fv(int texture, FloatBuffer v) {
+    public static void glMultiTexCoord3fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -929,7 +931,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord3sv(int texture, ShortBuffer v) {
+    public static void glMultiTexCoord3sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -949,7 +951,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord3iv(int texture, IntBuffer v) {
+    public static void glMultiTexCoord3iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -969,7 +971,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord3dv(int texture, DoubleBuffer v) {
+    public static void glMultiTexCoord3dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -989,7 +991,7 @@ public class GL13 {
      * @param r       the r component of the current texture coordinates
      * @param q       the q component of the current texture coordinates
      */
-    public static native void glMultiTexCoord4f(int texture, float s, float t, float r, float q);
+    public static native void glMultiTexCoord4f(@NativeType("GLenum") int texture, @NativeType("GLfloat") float s, @NativeType("GLfloat") float t, @NativeType("GLfloat") float r, @NativeType("GLfloat") float q);
 
     // --- [ glMultiTexCoord4s ] ---
 
@@ -1004,7 +1006,7 @@ public class GL13 {
      * @param r       the r component of the current texture coordinates
      * @param q       the q component of the current texture coordinates
      */
-    public static native void glMultiTexCoord4s(int texture, short s, short t, short r, short q);
+    public static native void glMultiTexCoord4s(@NativeType("GLenum") int texture, @NativeType("GLshort") short s, @NativeType("GLshort") short t, @NativeType("GLshort") short r, @NativeType("GLshort") short q);
 
     // --- [ glMultiTexCoord4i ] ---
 
@@ -1019,7 +1021,7 @@ public class GL13 {
      * @param r       the r component of the current texture coordinates
      * @param q       the q component of the current texture coordinates
      */
-    public static native void glMultiTexCoord4i(int texture, int s, int t, int r, int q);
+    public static native void glMultiTexCoord4i(@NativeType("GLenum") int texture, @NativeType("GLint") int s, @NativeType("GLint") int t, @NativeType("GLint") int r, @NativeType("GLint") int q);
 
     // --- [ glMultiTexCoord4d ] ---
 
@@ -1034,7 +1036,7 @@ public class GL13 {
      * @param r       the r component of the current texture coordinates
      * @param q       the q component of the current texture coordinates
      */
-    public static native void glMultiTexCoord4d(int texture, double s, double t, double r, double q);
+    public static native void glMultiTexCoord4d(@NativeType("GLenum") int texture, @NativeType("GLdouble") double s, @NativeType("GLdouble") double t, @NativeType("GLdouble") double r, @NativeType("GLdouble") double q);
 
     // --- [ glMultiTexCoord4fv ] ---
 
@@ -1049,7 +1051,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord4fv(int texture, FloatBuffer v) {
+    public static void glMultiTexCoord4fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1069,7 +1071,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord4sv(int texture, ShortBuffer v) {
+    public static void glMultiTexCoord4sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1089,7 +1091,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord4iv(int texture, IntBuffer v) {
+    public static void glMultiTexCoord4iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1109,7 +1111,7 @@ public class GL13 {
      * @param texture the coordinate set to be modified
      * @param v       the texture coordinate buffer
      */
-    public static void glMultiTexCoord4dv(int texture, DoubleBuffer v) {
+    public static void glMultiTexCoord4dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1137,7 +1139,7 @@ public class GL13 {
      *
      * @param m the matrix data
      */
-    public static void glLoadTransposeMatrixf(FloatBuffer m) {
+    public static void glLoadTransposeMatrixf(@NativeType("const GLfloat *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -1156,7 +1158,7 @@ public class GL13 {
      *
      * @param m the matrix data
      */
-    public static void glLoadTransposeMatrixd(DoubleBuffer m) {
+    public static void glLoadTransposeMatrixd(@NativeType("const GLdouble *") DoubleBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -1175,7 +1177,7 @@ public class GL13 {
      *
      * @param m the matrix data
      */
-    public static void glMultTransposeMatrixf(FloatBuffer m) {
+    public static void glMultTransposeMatrixf(@NativeType("const GLfloat *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -1194,7 +1196,7 @@ public class GL13 {
      *
      * @param m the matrix data
      */
-    public static void glMultTransposeMatrixd(DoubleBuffer m) {
+    public static void glMultTransposeMatrixd(@NativeType("const GLdouble *") DoubleBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -1206,7 +1208,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord1fv MultiTexCoord1fv}
      */
-    public static void glMultiTexCoord1fv(int texture, float[] v) {
+    public static void glMultiTexCoord1fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord1fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1220,7 +1222,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord1sv MultiTexCoord1sv}
      */
-    public static void glMultiTexCoord1sv(int texture, short[] v) {
+    public static void glMultiTexCoord1sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord1sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1234,7 +1236,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord1iv MultiTexCoord1iv}
      */
-    public static void glMultiTexCoord1iv(int texture, int[] v) {
+    public static void glMultiTexCoord1iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord1iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1248,7 +1250,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord1dv MultiTexCoord1dv}
      */
-    public static void glMultiTexCoord1dv(int texture, double[] v) {
+    public static void glMultiTexCoord1dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord1dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1262,7 +1264,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord2fv MultiTexCoord2fv}
      */
-    public static void glMultiTexCoord2fv(int texture, float[] v) {
+    public static void glMultiTexCoord2fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1276,7 +1278,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord2sv MultiTexCoord2sv}
      */
-    public static void glMultiTexCoord2sv(int texture, short[] v) {
+    public static void glMultiTexCoord2sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord2sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1290,7 +1292,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord2iv MultiTexCoord2iv}
      */
-    public static void glMultiTexCoord2iv(int texture, int[] v) {
+    public static void glMultiTexCoord2iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1304,7 +1306,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord2dv MultiTexCoord2dv}
      */
-    public static void glMultiTexCoord2dv(int texture, double[] v) {
+    public static void glMultiTexCoord2dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1318,7 +1320,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord3fv MultiTexCoord3fv}
      */
-    public static void glMultiTexCoord3fv(int texture, float[] v) {
+    public static void glMultiTexCoord3fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1332,7 +1334,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord3sv MultiTexCoord3sv}
      */
-    public static void glMultiTexCoord3sv(int texture, short[] v) {
+    public static void glMultiTexCoord3sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1346,7 +1348,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord3iv MultiTexCoord3iv}
      */
-    public static void glMultiTexCoord3iv(int texture, int[] v) {
+    public static void glMultiTexCoord3iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1360,7 +1362,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord3dv MultiTexCoord3dv}
      */
-    public static void glMultiTexCoord3dv(int texture, double[] v) {
+    public static void glMultiTexCoord3dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1374,7 +1376,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord4fv MultiTexCoord4fv}
      */
-    public static void glMultiTexCoord4fv(int texture, float[] v) {
+    public static void glMultiTexCoord4fv(@NativeType("GLenum") int texture, @NativeType("const GLfloat *") float[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1388,7 +1390,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord4sv MultiTexCoord4sv}
      */
-    public static void glMultiTexCoord4sv(int texture, short[] v) {
+    public static void glMultiTexCoord4sv(@NativeType("GLenum") int texture, @NativeType("const GLshort *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord4sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1402,7 +1404,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord4iv MultiTexCoord4iv}
      */
-    public static void glMultiTexCoord4iv(int texture, int[] v) {
+    public static void glMultiTexCoord4iv(@NativeType("GLenum") int texture, @NativeType("const GLint *") int[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1416,7 +1418,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultiTexCoord4dv MultiTexCoord4dv}
      */
-    public static void glMultiTexCoord4dv(int texture, double[] v) {
+    public static void glMultiTexCoord4dv(@NativeType("GLenum") int texture, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1430,7 +1432,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glLoadTransposeMatrixf LoadTransposeMatrixf}
      */
-    public static void glLoadTransposeMatrixf(float[] m) {
+    public static void glLoadTransposeMatrixf(@NativeType("const GLfloat *") float[] m) {
         long __functionAddress = GL.getICD().glLoadTransposeMatrixf;
         if (CHECKS) {
             check(__functionAddress);
@@ -1444,7 +1446,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glLoadTransposeMatrixd LoadTransposeMatrixd}
      */
-    public static void glLoadTransposeMatrixd(double[] m) {
+    public static void glLoadTransposeMatrixd(@NativeType("const GLdouble *") double[] m) {
         long __functionAddress = GL.getICD().glLoadTransposeMatrixd;
         if (CHECKS) {
             check(__functionAddress);
@@ -1458,7 +1460,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultTransposeMatrixf MultTransposeMatrixf}
      */
-    public static void glMultTransposeMatrixf(float[] m) {
+    public static void glMultTransposeMatrixf(@NativeType("const GLfloat *") float[] m) {
         long __functionAddress = GL.getICD().glMultTransposeMatrixf;
         if (CHECKS) {
             check(__functionAddress);
@@ -1472,7 +1474,7 @@ public class GL13 {
      * 
      * Array version of: {@link #glMultTransposeMatrixd MultTransposeMatrixd}
      */
-    public static void glMultTransposeMatrixd(double[] m) {
+    public static void glMultTransposeMatrixd(@NativeType("const GLdouble *") double[] m) {
         long __functionAddress = GL.getICD().glMultTransposeMatrixd;
         if (CHECKS) {
             check(__functionAddress);

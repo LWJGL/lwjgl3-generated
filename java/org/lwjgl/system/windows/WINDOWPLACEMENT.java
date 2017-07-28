@@ -96,10 +96,13 @@ public class WINDOWPLACEMENT extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code length} field. */
+    @NativeType("UINT")
     public int length() { return nlength(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("UINT")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code showCmd} field. */
+    @NativeType("UINT")
     public int showCmd() { return nshowCmd(address()); }
     /** Returns a {@link POINT} view of the {@code ptMinPosition} field. */
     public POINT ptMinPosition() { return nptMinPosition(address()); }
@@ -109,11 +112,11 @@ public class WINDOWPLACEMENT extends Struct implements NativeResource {
     public RECT rcNormalPosition() { return nrcNormalPosition(address()); }
 
     /** Sets the specified value to the {@code length} field. */
-    public WINDOWPLACEMENT length(int value) { nlength(address(), value); return this; }
+    public WINDOWPLACEMENT length(@NativeType("UINT") int value) { nlength(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public WINDOWPLACEMENT flags(int value) { nflags(address(), value); return this; }
+    public WINDOWPLACEMENT flags(@NativeType("UINT") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code showCmd} field. */
-    public WINDOWPLACEMENT showCmd(int value) { nshowCmd(address(), value); return this; }
+    public WINDOWPLACEMENT showCmd(@NativeType("UINT") int value) { nshowCmd(address(), value); return this; }
     /** Copies the specified {@link POINT} to the {@code ptMinPosition} field. */
     public WINDOWPLACEMENT ptMinPosition(POINT value) { nptMinPosition(address(), value); return this; }
     /** Copies the specified {@link POINT} to the {@code ptMaxPosition} field. */
@@ -350,10 +353,13 @@ public class WINDOWPLACEMENT extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code length} field. */
+        @NativeType("UINT")
         public int length() { return WINDOWPLACEMENT.nlength(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("UINT")
         public int flags() { return WINDOWPLACEMENT.nflags(address()); }
         /** Returns the value of the {@code showCmd} field. */
+        @NativeType("UINT")
         public int showCmd() { return WINDOWPLACEMENT.nshowCmd(address()); }
         /** Returns a {@link POINT} view of the {@code ptMinPosition} field. */
         public POINT ptMinPosition() { return WINDOWPLACEMENT.nptMinPosition(address()); }
@@ -363,11 +369,11 @@ public class WINDOWPLACEMENT extends Struct implements NativeResource {
         public RECT rcNormalPosition() { return WINDOWPLACEMENT.nrcNormalPosition(address()); }
 
         /** Sets the specified value to the {@code length} field. */
-        public WINDOWPLACEMENT.Buffer length(int value) { WINDOWPLACEMENT.nlength(address(), value); return this; }
+        public WINDOWPLACEMENT.Buffer length(@NativeType("UINT") int value) { WINDOWPLACEMENT.nlength(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public WINDOWPLACEMENT.Buffer flags(int value) { WINDOWPLACEMENT.nflags(address(), value); return this; }
+        public WINDOWPLACEMENT.Buffer flags(@NativeType("UINT") int value) { WINDOWPLACEMENT.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code showCmd} field. */
-        public WINDOWPLACEMENT.Buffer showCmd(int value) { WINDOWPLACEMENT.nshowCmd(address(), value); return this; }
+        public WINDOWPLACEMENT.Buffer showCmd(@NativeType("UINT") int value) { WINDOWPLACEMENT.nshowCmd(address(), value); return this; }
         /** Copies the specified {@link POINT} to the {@code ptMinPosition} field. */
         public WINDOWPLACEMENT.Buffer ptMinPosition(POINT value) { WINDOWPLACEMENT.nptMinPosition(address(), value); return this; }
         /** Copies the specified {@link POINT} to the {@code ptMaxPosition} field. */

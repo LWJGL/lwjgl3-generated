@@ -25,6 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     bool bForced;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Process_t")
 public class VREventProcess extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -71,18 +72,21 @@ public class VREventProcess extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code pid} field. */
+    @NativeType("uint32_t")
     public int pid() { return npid(address()); }
     /** Returns the value of the {@code oldPid} field. */
+    @NativeType("uint32_t")
     public int oldPid() { return noldPid(address()); }
     /** Returns the value of the {@code bForced} field. */
+    @NativeType("bool")
     public boolean bForced() { return nbForced(address()); }
 
     /** Sets the specified value to the {@code pid} field. */
-    public VREventProcess pid(int value) { npid(address(), value); return this; }
+    public VREventProcess pid(@NativeType("uint32_t") int value) { npid(address(), value); return this; }
     /** Sets the specified value to the {@code oldPid} field. */
-    public VREventProcess oldPid(int value) { noldPid(address(), value); return this; }
+    public VREventProcess oldPid(@NativeType("uint32_t") int value) { noldPid(address(), value); return this; }
     /** Sets the specified value to the {@code bForced} field. */
-    public VREventProcess bForced(boolean value) { nbForced(address(), value); return this; }
+    public VREventProcess bForced(@NativeType("bool") boolean value) { nbForced(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventProcess set(
@@ -295,18 +299,21 @@ public class VREventProcess extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code pid} field. */
+        @NativeType("uint32_t")
         public int pid() { return VREventProcess.npid(address()); }
         /** Returns the value of the {@code oldPid} field. */
+        @NativeType("uint32_t")
         public int oldPid() { return VREventProcess.noldPid(address()); }
         /** Returns the value of the {@code bForced} field. */
+        @NativeType("bool")
         public boolean bForced() { return VREventProcess.nbForced(address()); }
 
         /** Sets the specified value to the {@code pid} field. */
-        public VREventProcess.Buffer pid(int value) { VREventProcess.npid(address(), value); return this; }
+        public VREventProcess.Buffer pid(@NativeType("uint32_t") int value) { VREventProcess.npid(address(), value); return this; }
         /** Sets the specified value to the {@code oldPid} field. */
-        public VREventProcess.Buffer oldPid(int value) { VREventProcess.noldPid(address(), value); return this; }
+        public VREventProcess.Buffer oldPid(@NativeType("uint32_t") int value) { VREventProcess.noldPid(address(), value); return this; }
         /** Sets the specified value to the {@code bForced} field. */
-        public VREventProcess.Buffer bForced(boolean value) { VREventProcess.nbForced(address(), value); return this; }
+        public VREventProcess.Buffer bForced(@NativeType("bool") boolean value) { VREventProcess.nbForced(address(), value); return this; }
 
     }
 

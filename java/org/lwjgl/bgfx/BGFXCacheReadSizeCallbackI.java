@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Returns size of cached item. Returns 0 if no cached item was found. */
 @FunctionalInterface
+@NativeType("cache_read_size")
 public interface BGFXCacheReadSizeCallbackI extends CallbackI.I {
 
     String SIGNATURE = "(pl)i";
@@ -34,6 +35,6 @@ public interface BGFXCacheReadSizeCallbackI extends CallbackI.I {
      *
      * @return number of bytes to read
      */
-    int invoke(long _this, long _id);
+    @NativeType("uint32_t") int invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("uint64_t") long _id);
 
 }

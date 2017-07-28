@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("YGFree")
 public interface YGFreeI extends CallbackI.P {
 
     String SIGNATURE = "(p)p";
@@ -25,7 +26,6 @@ public interface YGFreeI extends CallbackI.P {
         );
     }
 
-
-    long invoke(long ptr);
+    @NativeType("void *") long invoke(@NativeType("void *") long ptr);
 
 }

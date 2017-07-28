@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -47,7 +49,8 @@ public class OVRVk {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_GetSessionPhysicalDeviceVk(long session, OVRGraphicsLuid luid, VkInstance instance, PointerBuffer out_physicalDevice) {
+    @NativeType("ovrResult")
+    public static int ovr_GetSessionPhysicalDeviceVk(@NativeType("ovrSession") long session, @NativeType("ovrGraphicsLuid") OVRGraphicsLuid luid, VkInstance instance, @NativeType("VkPhysicalDevice *") PointerBuffer out_physicalDevice) {
         if (CHECKS) {
             check(session);
             check(out_physicalDevice, 1);
@@ -74,7 +77,8 @@ public class OVRVk {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_SetSynchonizationQueueVk(long session, VkQueue queue) {
+    @NativeType("ovrResult")
+    public static int ovr_SetSynchonizationQueueVk(@NativeType("ovrSession") long session, VkQueue queue) {
         if (CHECKS) {
             check(session);
         }
@@ -110,7 +114,8 @@ public class OVRVk {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_CreateTextureSwapChainVk(long session, VkDevice device, OVRTextureSwapChainDesc desc, PointerBuffer out_TextureSwapChain) {
+    @NativeType("ovrResult")
+    public static int ovr_CreateTextureSwapChainVk(@NativeType("ovrSession") long session, VkDevice device, @NativeType("const ovrTextureSwapChainDesc *") OVRTextureSwapChainDesc desc, @NativeType("ovrTextureSwapChain *") PointerBuffer out_TextureSwapChain) {
         if (CHECKS) {
             check(session);
             check(out_TextureSwapChain, 1);
@@ -134,7 +139,8 @@ public class OVRVk {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_GetTextureSwapChainBufferVk(long session, long chain, int index, LongBuffer out_Image) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainBufferVk(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, int index, @NativeType("VkImage *") LongBuffer out_Image) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -173,7 +179,8 @@ public class OVRVk {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_CreateMirrorTextureWithOptionsVk(long session, VkDevice device, OVRMirrorTextureDesc desc, PointerBuffer out_MirrorTexture) {
+    @NativeType("ovrResult")
+    public static int ovr_CreateMirrorTextureWithOptionsVk(@NativeType("ovrSession") long session, VkDevice device, @NativeType("const ovrMirrorTextureDesc *") OVRMirrorTextureDesc desc, @NativeType("ovrMirrorTexture *") PointerBuffer out_MirrorTexture) {
         if (CHECKS) {
             check(session);
             check(out_MirrorTexture, 1);
@@ -195,7 +202,8 @@ public class OVRVk {
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
-    public static int ovr_GetMirrorTextureBufferVk(long session, long mirrorTexture, LongBuffer out_Image) {
+    @NativeType("ovrResult")
+    public static int ovr_GetMirrorTextureBufferVk(@NativeType("ovrSession") long session, @NativeType("ovrMirrorTexture") long mirrorTexture, @NativeType("VkImage *") LongBuffer out_Image) {
         if (CHECKS) {
             check(session);
             check(mirrorTexture);
@@ -208,7 +216,8 @@ public class OVRVk {
     public static native int novr_GetTextureSwapChainBufferVk(long session, long chain, int index, long[] out_Image);
 
     /** Array version of: {@link #ovr_GetTextureSwapChainBufferVk GetTextureSwapChainBufferVk} */
-    public static int ovr_GetTextureSwapChainBufferVk(long session, long chain, int index, long[] out_Image) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainBufferVk(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, int index, @NativeType("VkImage *") long[] out_Image) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -221,7 +230,8 @@ public class OVRVk {
     public static native int novr_GetMirrorTextureBufferVk(long session, long mirrorTexture, long[] out_Image);
 
     /** Array version of: {@link #ovr_GetMirrorTextureBufferVk GetMirrorTextureBufferVk} */
-    public static int ovr_GetMirrorTextureBufferVk(long session, long mirrorTexture, long[] out_Image) {
+    @NativeType("ovrResult")
+    public static int ovr_GetMirrorTextureBufferVk(@NativeType("ovrSession") long session, @NativeType("ovrMirrorTexture") long mirrorTexture, @NativeType("VkImage *") long[] out_Image) {
         if (CHECKS) {
             check(session);
             check(mirrorTexture);

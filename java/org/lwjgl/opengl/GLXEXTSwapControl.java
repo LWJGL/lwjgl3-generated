@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -42,7 +44,7 @@ public class GLXEXTSwapControl {
      * @param drawable the drawable
      * @param interval the swap interval
      */
-    public static void glXSwapIntervalEXT(long display, long drawable, int interval) {
+    public static void glXSwapIntervalEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int interval) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXSwapIntervalEXT;
         if (CHECKS) {
             check(__functionAddress);

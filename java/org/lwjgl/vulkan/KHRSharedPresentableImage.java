@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -140,7 +142,8 @@ public class KHRSharedPresentableImage {
      * @param device    the device associated with {@code swapchain}.
      * @param swapchain the swapchain to query.
      */
-    public static int vkGetSwapchainStatusKHR(VkDevice device, long swapchain) {
+    @NativeType("VkResult")
+    public static int vkGetSwapchainStatusKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain) {
         long __functionAddress = device.getCapabilities().vkGetSwapchainStatusKHR;
         if (CHECKS) {
             check(__functionAddress);

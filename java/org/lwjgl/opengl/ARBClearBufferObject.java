@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -55,7 +57,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(int target, int internalformat, int format, int type, ByteBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -70,7 +72,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(int target, int internalformat, int format, int type, ShortBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -85,7 +87,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(int target, int internalformat, int format, int type, IntBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -100,7 +102,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(int target, int internalformat, int format, int type, FloatBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -122,7 +124,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -139,7 +141,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -156,7 +158,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -173,7 +175,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(int target, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -193,7 +195,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, ByteBuffer data) {
+    public static void glClearNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer data) {
         nglClearNamedBufferDataEXT(buffer, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -208,7 +210,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, ShortBuffer data) {
+    public static void glClearNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer data) {
         nglClearNamedBufferDataEXT(buffer, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -223,7 +225,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, IntBuffer data) {
+    public static void glClearNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer data) {
         nglClearNamedBufferDataEXT(buffer, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -238,7 +240,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferDataEXT(int buffer, int internalformat, int format, int type, FloatBuffer data) {
+    public static void glClearNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer data) {
         nglClearNamedBufferDataEXT(buffer, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -260,7 +262,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, ByteBuffer data) {
+    public static void glClearNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer data) {
         nglClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -277,7 +279,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, ShortBuffer data) {
+    public static void glClearNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer data) {
         nglClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -294,7 +296,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, IntBuffer data) {
+    public static void glClearNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer data) {
         nglClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -311,7 +313,7 @@ public class ARBClearBufferObject {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearNamedBufferSubDataEXT(int buffer, int internalformat, long offset, long size, int format, int type, FloatBuffer data) {
+    public static void glClearNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer data) {
         nglClearNamedBufferSubDataEXT(buffer, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 

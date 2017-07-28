@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -130,7 +132,7 @@ public class ARBTessellationShader {
      * @param pname the name of the parameter to set. Must be:<br><table><tr><td>{@link GL40#GL_PATCH_VERTICES PATCH_VERTICES}</td></tr></table>
      * @param value the new value for the parameter given by {@code pname}
      */
-    public static native void glPatchParameteri(int pname, int value);
+    public static native void glPatchParameteri(@NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
     // --- [ glPatchParameterfv ] ---
 
@@ -143,7 +145,7 @@ public class ARBTessellationShader {
      * @param pname  the name of the parameter to set. One of:<br><table><tr><td>{@link GL40#GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}</td><td>{@link GL40#GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}</td></tr></table>
      * @param values an array containing the new values for the parameter given by {@code pname}
      */
-    public static void glPatchParameterfv(int pname, FloatBuffer values) {
+    public static void glPatchParameterfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer values) {
         if (CHECKS) {
             if (DEBUG) {
                 check(values, GL11.glGetInteger(GL_PATCH_VERTICES));
@@ -153,7 +155,7 @@ public class ARBTessellationShader {
     }
 
     /** Array version of: {@link #glPatchParameterfv PatchParameterfv} */
-    public static void glPatchParameterfv(int pname, float[] values) {
+    public static void glPatchParameterfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] values) {
         long __functionAddress = GL.getICD().glPatchParameterfv;
         if (CHECKS) {
             check(__functionAddress);

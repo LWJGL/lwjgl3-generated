@@ -23,6 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float z;
  * }</pre></code>
  */
+@NativeType("struct aiVector3D")
 public class AIVector3D extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

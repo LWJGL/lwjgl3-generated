@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -106,7 +108,7 @@ public class ARBGeometryShader4 {
      * @param pname   the parameter to set. One of:<br><table><tr><td>{@link #GL_GEOMETRY_VERTICES_OUT_ARB GEOMETRY_VERTICES_OUT_ARB}</td><td>{@link #GL_GEOMETRY_INPUT_TYPE_ARB GEOMETRY_INPUT_TYPE_ARB}</td><td>{@link #GL_GEOMETRY_OUTPUT_TYPE_ARB GEOMETRY_OUTPUT_TYPE_ARB}</td></tr></table>
      * @param value   the value being set
      */
-    public static native void glProgramParameteriARB(int program, int pname, int value);
+    public static native void glProgramParameteriARB(@NativeType("GLuint") int program, @NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
     // --- [ glFramebufferTextureARB ] ---
 
@@ -130,7 +132,7 @@ public class ARBGeometryShader4 {
      * @param texture    the texture object name
      * @param level      the texture level
      */
-    public static native void glFramebufferTextureARB(int target, int attachment, int texture, int level);
+    public static native void glFramebufferTextureARB(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glFramebufferTextureLayerARB ] ---
 
@@ -148,7 +150,7 @@ public class ARBGeometryShader4 {
      * @param level      the texture level
      * @param layer      the texture layer
      */
-    public static native void glFramebufferTextureLayerARB(int target, int attachment, int texture, int level, int layer);
+    public static native void glFramebufferTextureLayerARB(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int layer);
 
     // --- [ glFramebufferTextureFaceARB ] ---
 
@@ -165,6 +167,6 @@ public class ARBGeometryShader4 {
      * @param level      the texture level
      * @param face       the cube map face. One of:<br><table><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_X TEXTURE_CUBE_MAP_POSITIVE_X}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_X TEXTURE_CUBE_MAP_NEGATIVE_X}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Y TEXTURE_CUBE_MAP_POSITIVE_Y}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Y TEXTURE_CUBE_MAP_NEGATIVE_Y}</td></tr><tr><td>{@link GL13#GL_TEXTURE_CUBE_MAP_POSITIVE_Z TEXTURE_CUBE_MAP_POSITIVE_Z}</td><td>{@link GL13#GL_TEXTURE_CUBE_MAP_NEGATIVE_Z TEXTURE_CUBE_MAP_NEGATIVE_Z}</td></tr></table>
      */
-    public static native void glFramebufferTextureFaceARB(int target, int attachment, int texture, int level, int face);
+    public static native void glFramebufferTextureFaceARB(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int face);
 
 }

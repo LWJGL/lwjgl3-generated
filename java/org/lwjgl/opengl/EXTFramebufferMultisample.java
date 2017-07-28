@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -77,6 +79,6 @@ public class EXTFramebufferMultisample {
 
     // --- [ glRenderbufferStorageMultisampleEXT ] ---
 
-    public static native void glRenderbufferStorageMultisampleEXT(int target, int samples, int internalformat, int width, int height);
+    public static native void glRenderbufferStorageMultisampleEXT(@NativeType("GLenum") int target, @NativeType("GLsizei") int samples, @NativeType("GLenum") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height);
 
 }

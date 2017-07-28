@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -71,6 +73,6 @@ public class ARBMultisample {
      * @param value  the desired coverage value
      * @param invert if true, the temporary coverage is inverted. One of:<br><table><tr><td>{@link GL11#GL_TRUE TRUE}</td><td>{@link GL11#GL_FALSE FALSE}</td></tr></table>
      */
-    public static native void glSampleCoverageARB(float value, boolean invert);
+    public static native void glSampleCoverageARB(@NativeType("GLfloat") float value, @NativeType("GLboolean") boolean invert);
 
 }

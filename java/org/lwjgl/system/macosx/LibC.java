@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.macosx;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -29,6 +31,7 @@ public class LibC {
     // --- [ getpid ] ---
 
     /** Returns the process ID of the calling process. */
+    @NativeType("pid_t *")
     public static long getpid() {
         long __functionAddress = Functions.getpid;
         return invokeP(__functionAddress);

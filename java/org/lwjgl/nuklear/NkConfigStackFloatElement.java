@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float old_value;
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_float_element")
 class NkConfigStackFloatElement extends Struct {
 
     /** The struct size in bytes. */
@@ -67,6 +68,7 @@ class NkConfigStackFloatElement extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("float *")
     public FloatBuffer pValues(int capacity) { return npValues(address(), capacity); }
     /** Returns the value of the {@code old_value} field. */
     public float old_value() { return nold_value(address()); }
@@ -142,6 +144,7 @@ class NkConfigStackFloatElement extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("float *")
         public FloatBuffer pValues(int capacity) { return NkConfigStackFloatElement.npValues(address(), capacity); }
         /** Returns the value of the {@code old_value} field. */
         public float old_value() { return NkConfigStackFloatElement.nold_value(address()); }

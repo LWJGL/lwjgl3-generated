@@ -728,7 +728,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrError_Reinitialization Error_Reinitialization}: Attempted to re-initialize with a different version.</li>
      *         </ul>
      */
-    public static int ovr_Initialize(OVRInitParams params) {
+    @NativeType("ovrResult")
+    public static int ovr_Initialize(@NativeType("const ovrInitParams *") OVRInitParams params) {
         return novr_Initialize(memAddressSafe(params));
     }
 
@@ -758,7 +759,7 @@ public class OVR {
      *
      * @param errorInfo The last {@link OVRErrorInfo} for the current thread
      */
-    public static void ovr_GetLastErrorInfo(OVRErrorInfo errorInfo) {
+    public static void ovr_GetLastErrorInfo(@NativeType("ovrErrorInfo *") OVRErrorInfo errorInfo) {
         novr_GetLastErrorInfo(errorInfo.address());
     }
 
@@ -779,6 +780,7 @@ public class OVR {
      *
      * @return a UTF8-encoded null-terminated version string
      */
+    @NativeType("const char *")
     public static String ovr_GetVersionString() {
         long __result = novr_GetVersionString();
         return memUTF8(__result);
@@ -799,7 +801,8 @@ public class OVR {
      *
      * @return the {@code strlen} of the message or a negative value if the message is too large
      */
-    public static String ovr_TraceMessage(int level, ByteBuffer message) {
+    @NativeType("const char *")
+    public static String ovr_TraceMessage(@NativeType("int") int level, @NativeType("const char *") ByteBuffer message) {
         if (CHECKS) {
             checkNT1(message);
         }
@@ -817,7 +820,8 @@ public class OVR {
      *
      * @return the {@code strlen} of the message or a negative value if the message is too large
      */
-    public static String ovr_TraceMessage(int level, CharSequence message) {
+    @NativeType("const char *")
+    public static String ovr_TraceMessage(@NativeType("int") int level, @NativeType("const char *") CharSequence message) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer messageEncoded = stack.UTF8(message);
@@ -860,7 +864,8 @@ public class OVR {
      *
      * @param identity specifies one or more newline-delimited lines of optional info
      */
-    public static int ovr_IdentifyClient(ByteBuffer identity) {
+    @NativeType("ovrResult")
+    public static int ovr_IdentifyClient(@NativeType("const char *") ByteBuffer identity) {
         if (CHECKS) {
             checkNT1(identity);
         }
@@ -894,7 +899,8 @@ public class OVR {
      *
      * @param identity specifies one or more newline-delimited lines of optional info
      */
-    public static int ovr_IdentifyClient(CharSequence identity) {
+    @NativeType("ovrResult")
+    public static int ovr_IdentifyClient(@NativeType("const char *") CharSequence identity) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer identityEncoded = stack.UTF8(identity);
@@ -918,7 +924,8 @@ public class OVR {
      * @param session  an {@code ovrSession} previously returned by {@link #ovr_Create Create} or {@code NULL}
      * @param __result an {@link OVRHmdDesc}. If invoked with {@code NULL} session argument, {@code ovrHmdDesc::Type} to {@link #ovrHmd_None Hmd_None} indicates that the HMD is not connected.
      */
-    public static OVRHmdDesc ovr_GetHmdDesc(long session, OVRHmdDesc __result) {
+    @NativeType("ovrHmdDesc")
+    public static OVRHmdDesc ovr_GetHmdDesc(@NativeType("ovrSession") long session, OVRHmdDesc __result) {
         novr_GetHmdDesc(session, __result.address());
         return __result;
     }
@@ -935,7 +942,8 @@ public class OVR {
      *
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      */
-    public static int ovr_GetTrackerCount(long session) {
+    @NativeType("unsigned int")
+    public static int ovr_GetTrackerCount(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -957,7 +965,8 @@ public class OVR {
      * @param trackerDescIndex a tracker index. The valid indexes are in the range of 0 to the tracker count returned by {@link #ovr_GetTrackerCount GetTrackerCount}.
      * @param __result         an {@link OVRTrackerDesc}. An empty {@code OVRTrackerDesc} will be returned if {@code trackerDescIndex} is out of range.
      */
-    public static OVRTrackerDesc ovr_GetTrackerDesc(long session, int trackerDescIndex, OVRTrackerDesc __result) {
+    @NativeType("ovrTrackerDesc")
+    public static OVRTrackerDesc ovr_GetTrackerDesc(@NativeType("ovrSession") long session, @NativeType("unsigned int") int trackerDescIndex, OVRTrackerDesc __result) {
         if (CHECKS) {
             check(session);
         }
@@ -983,7 +992,8 @@ public class OVR {
      *
      * @return an {@code ovrResult} indicating success or failure. Upon failure the returned {@code ovrSession} will be {@code NULL}.
      */
-    public static int ovr_Create(PointerBuffer pSession, OVRGraphicsLuid pLuid) {
+    @NativeType("ovrResult")
+    public static int ovr_Create(@NativeType("ovrSession *") PointerBuffer pSession, @NativeType("ovrGraphicsLuid *") OVRGraphicsLuid pLuid) {
         if (CHECKS) {
             check(pSession, 1);
         }
@@ -1000,7 +1010,7 @@ public class OVR {
      *
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      */
-    public static void ovr_Destroy(long session) {
+    public static void ovr_Destroy(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -1018,7 +1028,8 @@ public class OVR {
      * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param sessionStatus an {@link OVRSessionStatus} that is filled in
      */
-    public static int ovr_GetSessionStatus(long session, OVRSessionStatus sessionStatus) {
+    @NativeType("ovrResult")
+    public static int ovr_GetSessionStatus(@NativeType("ovrSession") long session, @NativeType("ovrSessionStatus *") OVRSessionStatus sessionStatus) {
         if (CHECKS) {
             check(session);
         }
@@ -1038,7 +1049,8 @@ public class OVR {
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param origin  an {@code ovrTrackingOrigin} to be used for all {@link OVRPosef}
      */
-    public static int ovr_SetTrackingOriginType(long session, int origin) {
+    @NativeType("ovrResult")
+    public static int ovr_SetTrackingOriginType(@NativeType("ovrSession") long session, @NativeType("ovrTrackingOrigin") int origin) {
         if (CHECKS) {
             check(session);
         }
@@ -1055,7 +1067,8 @@ public class OVR {
      *
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      */
-    public static int ovr_GetTrackingOriginType(long session) {
+    @NativeType("ovrTrackingOrigin")
+    public static int ovr_GetTrackingOriginType(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -1085,7 +1098,8 @@ public class OVR {
      *
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      */
-    public static int ovr_RecenterTrackingOrigin(long session) {
+    @NativeType("ovrResult")
+    public static int ovr_RecenterTrackingOrigin(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -1127,7 +1141,8 @@ public class OVR {
      * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param originPose specifies a pose that will be used to transform the current tracking origin
      */
-    public static int ovr_SpecifyTrackingOrigin(long session, OVRPosef originPose) {
+    @NativeType("ovrResult")
+    public static int ovr_SpecifyTrackingOrigin(@NativeType("ovrSession") long session, @NativeType("ovrPosef") OVRPosef originPose) {
         if (CHECKS) {
             check(session);
         }
@@ -1147,7 +1162,7 @@ public class OVR {
      *
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      */
-    public static void ovr_ClearShouldRecenterFlag(long session) {
+    public static void ovr_ClearShouldRecenterFlag(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -1175,7 +1190,8 @@ public class OVR {
      *                      "SensorSampleTime", that will override the value stored here.
      * @param __result      the {@link OVRTrackingState} that is predicted for the given {@code absTime}
      */
-    public static OVRTrackingState ovr_GetTrackingState(long session, double absTime, boolean latencyMarker, OVRTrackingState __result) {
+    @NativeType("ovrTrackingState")
+    public static OVRTrackingState ovr_GetTrackingState(@NativeType("ovrSession") long session, double absTime, @NativeType("ovrBool") boolean latencyMarker, OVRTrackingState __result) {
         if (CHECKS) {
             check(session);
         }
@@ -1202,7 +1218,8 @@ public class OVR {
      *
      * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
      */
-    public static int ovr_GetDevicePoses(long session, IntBuffer deviceTypes, double absTime, OVRPoseStatef.Buffer outDevicePoses) {
+    @NativeType("ovrResult")
+    public static int ovr_GetDevicePoses(@NativeType("ovrSession") long session, @NativeType("ovrTrackedDeviceType *") IntBuffer deviceTypes, @NativeType("double") double absTime, @NativeType("ovrPoseStatef *") OVRPoseStatef.Buffer outDevicePoses) {
         if (CHECKS) {
             check(session);
             check(outDevicePoses, deviceTypes.remaining());
@@ -1221,7 +1238,8 @@ public class OVR {
      * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param trackerPoseIndex index of the tracker being requested.
      */
-    public static OVRTrackerPose ovr_GetTrackerPose(long session, int trackerPoseIndex, OVRTrackerPose __result) {
+    @NativeType("ovrTrackerPose")
+    public static OVRTrackerPose ovr_GetTrackerPose(@NativeType("ovrSession") long session, @NativeType("unsigned int") int trackerPoseIndex, OVRTrackerPose __result) {
         if (CHECKS) {
             check(session);
         }
@@ -1244,7 +1262,8 @@ public class OVR {
      *
      * @return {@link OVRErrorCode#ovrSuccess Success} if the new state was successfully obtained
      */
-    public static int ovr_GetInputState(long session, int controllerType, OVRInputState inputState) {
+    @NativeType("ovrResult")
+    public static int ovr_GetInputState(@NativeType("ovrSession") long session, @NativeType("ovrControllerType") int controllerType, @NativeType("ovrInputState *") OVRInputState inputState) {
         if (CHECKS) {
             check(session);
         }
@@ -1261,7 +1280,8 @@ public class OVR {
      *
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      */
-    public static int ovr_GetConnectedControllerTypes(long session) {
+    @NativeType("unsigned int")
+    public static int ovr_GetConnectedControllerTypes(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -1280,7 +1300,8 @@ public class OVR {
      * @param controllerType the controller to retrieve the information from
      * @param __result       an {@link OVRTouchHapticsDesc}
      */
-    public static OVRTouchHapticsDesc ovr_GetTouchHapticsDesc(long session, int controllerType, OVRTouchHapticsDesc __result) {
+    @NativeType("ovrTouchHapticsDesc")
+    public static OVRTouchHapticsDesc ovr_GetTouchHapticsDesc(@NativeType("ovrSession") long session, @NativeType("ovrControllerType") int controllerType, OVRTouchHapticsDesc __result) {
         if (CHECKS) {
             check(session);
         }
@@ -1312,7 +1333,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
      *         </ul>
      */
-    public static int ovr_SetControllerVibration(long session, int controllerType, float frequency, float amplitude) {
+    @NativeType("ovrResult")
+    public static int ovr_SetControllerVibration(@NativeType("ovrSession") long session, @NativeType("ovrControllerType") int controllerType, float frequency, float amplitude) {
         if (CHECKS) {
             check(session);
         }
@@ -1340,7 +1362,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
      *         </ul>
      */
-    public static int ovr_SubmitControllerVibration(long session, int controllerType, OVRHapticsBuffer buffer) {
+    @NativeType("ovrResult")
+    public static int ovr_SubmitControllerVibration(@NativeType("ovrSession") long session, @NativeType("ovrControllerType") int controllerType, @NativeType("const ovrHapticsBuffer *") OVRHapticsBuffer buffer) {
         if (CHECKS) {
             check(session);
             OVRHapticsBuffer.validate(buffer.address());
@@ -1367,7 +1390,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code controllerType} is not available.</li>
      *         </ul>
      */
-    public static int ovr_GetControllerVibrationState(long session, int controllerType, OVRHapticsPlaybackState outState) {
+    @NativeType("ovrResult")
+    public static int ovr_GetControllerVibrationState(@NativeType("ovrSession") long session, @NativeType("ovrControllerType") int controllerType, @NativeType("ovrHapticsPlaybackState *") OVRHapticsPlaybackState outState) {
         if (CHECKS) {
             check(session);
         }
@@ -1397,7 +1421,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_DeviceUnavailable Success_DeviceUnavailable}: The call succeeded but the device referred to by {@code deviceBitmask} is not available.</li>
      *         </ul>
      */
-    public static int ovr_TestBoundary(long session, int deviceBitmask, int boundaryType, OVRBoundaryTestResult outTestResult) {
+    @NativeType("ovrResult")
+    public static int ovr_TestBoundary(@NativeType("ovrSession") long session, @NativeType("ovrTrackedDeviceType") int deviceBitmask, @NativeType("ovrBoundaryType") int boundaryType, @NativeType("ovrBoundaryTestResult *") OVRBoundaryTestResult outTestResult) {
         if (CHECKS) {
             check(session);
         }
@@ -1424,7 +1449,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
      *         </ul>
      */
-    public static int ovr_TestBoundaryPoint(long session, OVRVector3f point, int singleBoundaryType, OVRBoundaryTestResult outTestResult) {
+    @NativeType("ovrResult")
+    public static int ovr_TestBoundaryPoint(@NativeType("ovrSession") long session, @NativeType("const ovrVector3f *") OVRVector3f point, @NativeType("ovrBoundaryType") int singleBoundaryType, @NativeType("ovrBoundaryTestResult *") OVRBoundaryTestResult outTestResult) {
         if (CHECKS) {
             check(session);
         }
@@ -1444,7 +1470,8 @@ public class OVR {
      *
      * @return {@link OVRErrorCode#ovrSuccess Success} upon success
      */
-    public static int ovr_SetBoundaryLookAndFeel(long session, OVRBoundaryLookAndFeel lookAndFeel) {
+    @NativeType("ovrResult")
+    public static int ovr_SetBoundaryLookAndFeel(@NativeType("ovrSession") long session, @NativeType("const ovrBoundaryLookAndFeel *") OVRBoundaryLookAndFeel lookAndFeel) {
         if (CHECKS) {
             check(session);
         }
@@ -1463,7 +1490,8 @@ public class OVR {
      *
      * @return {@link OVRErrorCode#ovrSuccess Success} upon success
      */
-    public static int ovr_ResetBoundaryLookAndFeel(long session) {
+    @NativeType("ovrResult")
+    public static int ovr_ResetBoundaryLookAndFeel(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -1490,7 +1518,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
      *         </ul>
      */
-    public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, IntBuffer outFloorPointsCount) {
+    @NativeType("ovrResult")
+    public static int ovr_GetBoundaryGeometry(@NativeType("ovrSession") long session, @NativeType("ovrBoundaryType") int boundaryType, @NativeType("ovrVector3f *") OVRVector3f outFloorPoints, @NativeType("int *") IntBuffer outFloorPointsCount) {
         if (CHECKS) {
             check(session);
             checkSafe(outFloorPointsCount, 1);
@@ -1517,7 +1546,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
      *         </ul>
      */
-    public static int ovr_GetBoundaryDimensions(long session, int boundaryType, OVRVector3f outDimensions) {
+    @NativeType("ovrResult")
+    public static int ovr_GetBoundaryDimensions(@NativeType("ovrSession") long session, @NativeType("ovrBoundaryType") int boundaryType, @NativeType("ovrVector3f *") OVRVector3f outDimensions) {
         if (CHECKS) {
             check(session);
         }
@@ -1545,7 +1575,8 @@ public class OVR {
      *         <li>{@link OVRErrorCode#ovrSuccess_BoundaryInvalid Success_BoundaryInvalid}: The call succeeded but the result is not a valid boundary due to not being set up.</li>
      *         </ul>
      */
-    public static int ovr_GetBoundaryVisible(long session, ByteBuffer outIsVisible) {
+    @NativeType("ovrResult")
+    public static int ovr_GetBoundaryVisible(@NativeType("ovrSession") long session, @NativeType("ovrBool *") ByteBuffer outIsVisible) {
         if (CHECKS) {
             check(session);
             check(outIsVisible, 1);
@@ -1566,7 +1597,8 @@ public class OVR {
      *
      * @return {@link OVRErrorCode#ovrSuccess Success} upon success
      */
-    public static int ovr_RequestBoundaryVisible(long session, boolean visible) {
+    @NativeType("ovrResult")
+    public static int ovr_RequestBoundaryVisible(@NativeType("ovrSession") long session, @NativeType("ovrBool") boolean visible) {
         if (CHECKS) {
             check(session);
         }
@@ -1585,7 +1617,8 @@ public class OVR {
      * @param chain      the {@code ovrTextureSwapChain} for which the length should be retrieved
      * @param out_Length returns the number of buffers in the specified chain
      */
-    public static int ovr_GetTextureSwapChainLength(long session, long chain, IntBuffer out_Length) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainLength(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, @NativeType("int *") IntBuffer out_Length) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -1606,7 +1639,8 @@ public class OVR {
      * @param chain     the {@code ovrTextureSwapChain} for which the index should be retrieved
      * @param out_Index returns the current (free) index in specified chain
      */
-    public static int ovr_GetTextureSwapChainCurrentIndex(long session, long chain, IntBuffer out_Index) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainCurrentIndex(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, @NativeType("int *") IntBuffer out_Index) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -1627,7 +1661,8 @@ public class OVR {
      * @param chain    the {@code ovrTextureSwapChain} for which the description should be retrieved
      * @param out_Desc returns the description of the specified chain
      */
-    public static int ovr_GetTextureSwapChainDesc(long session, long chain, OVRTextureSwapChainDesc out_Desc) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainDesc(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, @NativeType("ovrTextureSwapChainDesc *") OVRTextureSwapChainDesc out_Desc) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -1650,7 +1685,8 @@ public class OVR {
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param chain   the {@code ovrTextureSwapChain} to commit
      */
-    public static int ovr_CommitTextureSwapChain(long session, long chain) {
+    @NativeType("ovrResult")
+    public static int ovr_CommitTextureSwapChain(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -1669,7 +1705,7 @@ public class OVR {
      * @param session an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param chain   the {@code ovrTextureSwapChain} to destroy. If it is {@code NULL} then this function has no effect.
      */
-    public static void ovr_DestroyTextureSwapChain(long session, long chain) {
+    public static void ovr_DestroyTextureSwapChain(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain) {
         if (CHECKS) {
             check(session);
         }
@@ -1687,7 +1723,7 @@ public class OVR {
      * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param mirrorTexture the {@code ovrTexture} to destroy. If it is {@code NULL} then this function has no effect.
      */
-    public static void ovr_DestroyMirrorTexture(long session, long mirrorTexture) {
+    public static void ovr_DestroyMirrorTexture(@NativeType("ovrSession") long session, @NativeType("ovrMirrorTexture") long mirrorTexture) {
         if (CHECKS) {
             check(session);
         }
@@ -1719,7 +1755,8 @@ public class OVR {
      *                              performance, higher values give improved quality.
      * @param __result              the texture width and height size
      */
-    public static OVRSizei ovr_GetFovTextureSize(long session, int eye, OVRFovPort fov, float pixelsPerDisplayPixel, OVRSizei __result) {
+    @NativeType("ovrSizei")
+    public static OVRSizei ovr_GetFovTextureSize(@NativeType("ovrSession") long session, @NativeType("ovrEyeType") int eye, @NativeType("ovrFovPort") OVRFovPort fov, float pixelsPerDisplayPixel, OVRSizei __result) {
         if (CHECKS) {
             check(session);
         }
@@ -1740,7 +1777,8 @@ public class OVR {
      * @param fov      the {@link OVRFovPort} to use.
      * @param __result the computed {@link OVREyeRenderDesc} for the given {@code eyeType} and field of view
      */
-    public static OVREyeRenderDesc ovr_GetRenderDesc(long session, int eyeType, OVRFovPort fov, OVREyeRenderDesc __result) {
+    @NativeType("ovrEyeRenderDesc")
+    public static OVREyeRenderDesc ovr_GetRenderDesc(@NativeType("ovrSession") long session, @NativeType("ovrEyeType") int eyeType, @NativeType("ovrFovPort") OVRFovPort fov, OVREyeRenderDesc __result) {
         if (CHECKS) {
             check(session);
         }
@@ -1807,7 +1845,8 @@ public class OVR {
      *         {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} was called at least once first.</li>
      *         </ul>
      */
-    public static int ovr_SubmitFrame(long session, long frameIndex, OVRViewScaleDesc viewScaleDesc, PointerBuffer layerPtrList) {
+    @NativeType("ovrResult")
+    public static int ovr_SubmitFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("const ovrViewScaleDesc *") OVRViewScaleDesc viewScaleDesc, @NativeType("const ovrLayerHeader * const *") PointerBuffer layerPtrList) {
         if (CHECKS) {
             check(session);
         }
@@ -1843,7 +1882,8 @@ public class OVR {
      *
      * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
      */
-    public static int ovr_GetPerfStats(long session, OVRPerfStats outStats) {
+    @NativeType("ovrResult")
+    public static int ovr_GetPerfStats(@NativeType("ovrSession") long session, @NativeType("ovrPerfStats *") OVRPerfStats outStats) {
         if (CHECKS) {
             check(session);
         }
@@ -1865,7 +1905,8 @@ public class OVR {
      *
      * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
      */
-    public static int ovr_ResetPerfStats(long session) {
+    @NativeType("ovrResult")
+    public static int ovr_ResetPerfStats(@NativeType("ovrSession") long session) {
         if (CHECKS) {
             check(session);
         }
@@ -1896,7 +1937,7 @@ public class OVR {
      *
      * @return the absolute frame midpoint time for the given {@code frameIndex}
      */
-    public static double ovr_GetPredictedDisplayTime(long session, long frameIndex) {
+    public static double ovr_GetPredictedDisplayTime(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex) {
         if (CHECKS) {
             check(session);
         }
@@ -1932,7 +1973,8 @@ public class OVR {
      *
      * @return the ids of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
      */
-    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, IntBuffer inoutCameraCount) {
+    @NativeType("ovrResult")
+    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") IntBuffer inoutCameraCount) {
         if (CHECKS) {
             check(session);
             check(inoutCameraCount, 1);
@@ -1956,7 +1998,8 @@ public class OVR {
      * @param intrinsics contains the intrinsic parameters to set, can be null
      * @param extrinsics contains the extrinsic parameters to set, can be null
      */
-    public static int ovr_SetExternalCameraProperties(long session, ByteBuffer name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
+    @NativeType("ovrResult")
+    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer name, @NativeType("const ovrCameraIntrinsics *") OVRCameraIntrinsics intrinsics, @NativeType("const ovrCameraExtrinsics *") OVRCameraExtrinsics extrinsics) {
         if (CHECKS) {
             check(session);
             checkNT1(name);
@@ -1974,7 +2017,8 @@ public class OVR {
      * @param intrinsics contains the intrinsic parameters to set, can be null
      * @param extrinsics contains the extrinsic parameters to set, can be null
      */
-    public static int ovr_SetExternalCameraProperties(long session, CharSequence name, OVRCameraIntrinsics intrinsics, OVRCameraExtrinsics extrinsics) {
+    @NativeType("ovrResult")
+    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence name, @NativeType("const ovrCameraIntrinsics *") OVRCameraIntrinsics intrinsics, @NativeType("const ovrCameraExtrinsics *") OVRCameraExtrinsics extrinsics) {
         if (CHECKS) {
             check(session);
         }
@@ -2001,7 +2045,8 @@ public class OVR {
      *
      * @return the property interpreted as a boolean value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static boolean ovr_GetBool(long session, ByteBuffer propertyName, boolean defaultVal) {
+    @NativeType("ovrBool")
+    public static boolean ovr_GetBool(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("ovrBool") boolean defaultVal) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2018,7 +2063,8 @@ public class OVR {
      *
      * @return the property interpreted as a boolean value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static boolean ovr_GetBool(long session, CharSequence propertyName, boolean defaultVal) {
+    @NativeType("ovrBool")
+    public static boolean ovr_GetBool(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("ovrBool") boolean defaultVal) {
         if (CHECKS) {
             check(session);
         }
@@ -2047,7 +2093,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetBool(long session, ByteBuffer propertyName, boolean value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetBool(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("ovrBool") boolean value) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2066,7 +2113,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetBool(long session, CharSequence propertyName, boolean value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetBool(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("ovrBool") boolean value) {
         if (CHECKS) {
             check(session);
         }
@@ -2093,7 +2141,7 @@ public class OVR {
      *
      * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static int ovr_GetInt(long session, ByteBuffer propertyName, int defaultVal) {
+    public static int ovr_GetInt(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, int defaultVal) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2110,7 +2158,7 @@ public class OVR {
      *
      * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static int ovr_GetInt(long session, CharSequence propertyName, int defaultVal) {
+    public static int ovr_GetInt(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("int") int defaultVal) {
         if (CHECKS) {
             check(session);
         }
@@ -2139,7 +2187,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetInt(long session, ByteBuffer propertyName, int value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetInt(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, int value) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2158,7 +2207,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetInt(long session, CharSequence propertyName, int value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetInt(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("int") int value) {
         if (CHECKS) {
             check(session);
         }
@@ -2185,7 +2235,7 @@ public class OVR {
      *
      * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static float ovr_GetFloat(long session, ByteBuffer propertyName, float defaultVal) {
+    public static float ovr_GetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, float defaultVal) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2202,7 +2252,7 @@ public class OVR {
      *
      * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static float ovr_GetFloat(long session, CharSequence propertyName, float defaultVal) {
+    public static float ovr_GetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float") float defaultVal) {
         if (CHECKS) {
             check(session);
         }
@@ -2231,7 +2281,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetFloat(long session, ByteBuffer propertyName, float value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, float value) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2250,7 +2301,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetFloat(long session, CharSequence propertyName, float value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float") float value) {
         if (CHECKS) {
             check(session);
         }
@@ -2281,7 +2333,8 @@ public class OVR {
      *
      * @return the number of elements read, or 0 if property doesn't exist or is empty
      */
-    public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
+    @NativeType("unsigned int")
+    public static int ovr_GetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("float *") FloatBuffer values) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2298,7 +2351,8 @@ public class OVR {
      *
      * @return the number of elements read, or 0 if property doesn't exist or is empty
      */
-    public static int ovr_GetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
+    @NativeType("unsigned int")
+    public static int ovr_GetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float *") FloatBuffer values) {
         if (CHECKS) {
             check(session);
         }
@@ -2329,7 +2383,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, FloatBuffer values) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("float *") FloatBuffer values) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2346,7 +2401,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetFloatArray(long session, CharSequence propertyName, FloatBuffer values) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float *") FloatBuffer values) {
         if (CHECKS) {
             check(session);
         }
@@ -2376,7 +2432,8 @@ public class OVR {
      * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
      *         until next call to {@code ovr_GetString} or until the HMD is destroyed, whichever occurs first.
      */
-    public static String ovr_GetString(long session, ByteBuffer propertyName, ByteBuffer defaultVal) {
+    @NativeType("const char *")
+    public static String ovr_GetString(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("const char *") ByteBuffer defaultVal) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2398,7 +2455,8 @@ public class OVR {
      * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
      *         until next call to {@code ovr_GetString} or until the HMD is destroyed, whichever occurs first.
      */
-    public static String ovr_GetString(long session, CharSequence propertyName, CharSequence defaultVal) {
+    @NativeType("const char *")
+    public static String ovr_GetString(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("const char *") CharSequence defaultVal) {
         if (CHECKS) {
             check(session);
         }
@@ -2429,7 +2487,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetString(long hmddesc, ByteBuffer propertyName, ByteBuffer value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetString(@NativeType("ovrSession") long hmddesc, @NativeType("const char *") ByteBuffer propertyName, @NativeType("const char *") ByteBuffer value) {
         if (CHECKS) {
             check(hmddesc);
             checkNT1(propertyName);
@@ -2449,7 +2508,8 @@ public class OVR {
      *
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
-    public static boolean ovr_SetString(long hmddesc, CharSequence propertyName, CharSequence value) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetString(@NativeType("ovrSession") long hmddesc, @NativeType("const char *") CharSequence propertyName, @NativeType("const char *") CharSequence value) {
         if (CHECKS) {
             check(hmddesc);
         }
@@ -2467,7 +2527,8 @@ public class OVR {
     public static native int novr_GetDevicePoses(long session, int[] deviceTypes, int deviceCount, double absTime, long outDevicePoses);
 
     /** Array version of: {@link #ovr_GetDevicePoses GetDevicePoses} */
-    public static int ovr_GetDevicePoses(long session, int[] deviceTypes, double absTime, OVRPoseStatef.Buffer outDevicePoses) {
+    @NativeType("ovrResult")
+    public static int ovr_GetDevicePoses(@NativeType("ovrSession") long session, @NativeType("ovrTrackedDeviceType *") int[] deviceTypes, @NativeType("double") double absTime, @NativeType("ovrPoseStatef *") OVRPoseStatef.Buffer outDevicePoses) {
         if (CHECKS) {
             check(session);
             check(outDevicePoses, deviceTypes.length);
@@ -2479,7 +2540,8 @@ public class OVR {
     public static native int novr_GetBoundaryGeometry(long session, int boundaryType, long outFloorPoints, int[] outFloorPointsCount);
 
     /** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
-    public static int ovr_GetBoundaryGeometry(long session, int boundaryType, OVRVector3f outFloorPoints, int[] outFloorPointsCount) {
+    @NativeType("ovrResult")
+    public static int ovr_GetBoundaryGeometry(@NativeType("ovrSession") long session, @NativeType("ovrBoundaryType") int boundaryType, @NativeType("ovrVector3f *") OVRVector3f outFloorPoints, @NativeType("int *") int[] outFloorPointsCount) {
         if (CHECKS) {
             check(session);
             checkSafe(outFloorPointsCount, 1);
@@ -2491,7 +2553,8 @@ public class OVR {
     public static native int novr_GetTextureSwapChainLength(long session, long chain, int[] out_Length);
 
     /** Array version of: {@link #ovr_GetTextureSwapChainLength GetTextureSwapChainLength} */
-    public static int ovr_GetTextureSwapChainLength(long session, long chain, int[] out_Length) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainLength(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, @NativeType("int *") int[] out_Length) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -2504,7 +2567,8 @@ public class OVR {
     public static native int novr_GetTextureSwapChainCurrentIndex(long session, long chain, int[] out_Index);
 
     /** Array version of: {@link #ovr_GetTextureSwapChainCurrentIndex GetTextureSwapChainCurrentIndex} */
-    public static int ovr_GetTextureSwapChainCurrentIndex(long session, long chain, int[] out_Index) {
+    @NativeType("ovrResult")
+    public static int ovr_GetTextureSwapChainCurrentIndex(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChain") long chain, @NativeType("int *") int[] out_Index) {
         if (CHECKS) {
             check(session);
             check(chain);
@@ -2517,7 +2581,8 @@ public class OVR {
     public static native int novr_GetExternalCameras(long session, long cameras, int[] inoutCameraCount);
 
     /** Array version of: {@link #ovr_GetExternalCameras GetExternalCameras} */
-    public static int ovr_GetExternalCameras(long session, OVRExternalCamera.Buffer cameras, int[] inoutCameraCount) {
+    @NativeType("ovrResult")
+    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") int[] inoutCameraCount) {
         if (CHECKS) {
             check(session);
             check(inoutCameraCount, 1);
@@ -2530,7 +2595,8 @@ public class OVR {
     public static native int novr_GetFloatArray(long session, long propertyName, float[] values, int valuesCapacity);
 
     /** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
-    public static int ovr_GetFloatArray(long session, ByteBuffer propertyName, float[] values) {
+    @NativeType("unsigned int")
+    public static int ovr_GetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("float *") float[] values) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2539,7 +2605,8 @@ public class OVR {
     }
 
     /** Array version of: {@link #ovr_GetFloatArray GetFloatArray} */
-    public static int ovr_GetFloatArray(long session, CharSequence propertyName, float[] values) {
+    @NativeType("unsigned int")
+    public static int ovr_GetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float *") float[] values) {
         if (CHECKS) {
             check(session);
         }
@@ -2556,7 +2623,8 @@ public class OVR {
     public static native boolean novr_SetFloatArray(long session, long propertyName, float[] values, int valuesSize);
 
     /** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
-    public static boolean ovr_SetFloatArray(long session, ByteBuffer propertyName, float[] values) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("float *") float[] values) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
@@ -2565,7 +2633,8 @@ public class OVR {
     }
 
     /** Array version of: {@link #ovr_SetFloatArray SetFloatArray} */
-    public static boolean ovr_SetFloatArray(long session, CharSequence propertyName, float[] values) {
+    @NativeType("ovrBool")
+    public static boolean ovr_SetFloatArray(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float *") float[] values) {
         if (CHECKS) {
             check(session);
         }

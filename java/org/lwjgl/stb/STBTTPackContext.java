@@ -14,6 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /** An opaque structure which holds all the context needed from {@link STBTruetype#stbtt_PackBegin PackBegin} to {@link STBTruetype#stbtt_PackEnd PackEnd}. */
+@NativeType("struct stbtt_pack_context")
 public class STBTTPackContext extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

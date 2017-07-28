@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be used with the {@link STBImageWrite} {@code write_type_to_func} functions. */
 @FunctionalInterface
+@NativeType("stbi_write_func *")
 public interface STBIWriteCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ppi)v";
@@ -34,6 +35,6 @@ public interface STBIWriteCallbackI extends CallbackI.V {
      * @param data    the data to write
      * @param size    the number of bytes in {@code data}
      */
-    void invoke(long context, long data, int size);
+    void invoke(@NativeType("void *") long context, @NativeType("void *") long data, int size);
 
 }

@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -71,7 +73,8 @@ public class WGLARBCreateContext {
      *                     specified in {@code attribList}, then the default value is used instead. If an attribute is specified more than once, then the last value specified
      *                     is used.
      */
-    public static long wglCreateContextAttribsARB(long hdc, long shareContext, IntBuffer attribList) {
+    @NativeType("HGLRC")
+    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @NativeType("const int *") IntBuffer attribList) {
         if (CHECKS) {
             checkNTSafe(attribList);
         }
@@ -79,7 +82,8 @@ public class WGLARBCreateContext {
     }
 
     /** Array version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
-    public static long wglCreateContextAttribsARB(long hdc, long shareContext, int[] attribList) {
+    @NativeType("HGLRC")
+    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @NativeType("const int *") int[] attribList) {
         long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
         if (CHECKS) {
             check(__functionAddress);

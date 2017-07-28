@@ -7,6 +7,8 @@ package org.lwjgl.opencl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -100,7 +102,8 @@ public class AMDBusAddressableMemory {
      *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} is generated if the signal address used by clEnqueueWaitSignalAMD of {@code bufffer} is invalid (for example 0).</li>
      *         </ul>
      */
-    public static int clEnqueueWaitSignalAMD(long command_queue, long mem_object, int value, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWaitSignalAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long mem_object, @NativeType("cl_uint") int value, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -153,7 +156,8 @@ public class AMDBusAddressableMemory {
      *         <li>{@link CL10#CL_INVALID_VALUE INVALID_VALUE} is generated if the signal address used by clEnqueueWriteSignalAMD of {@code bufffer} is invalid (for example 0).</li>
      *         </ul>
      */
-    public static int clEnqueueWriteSignalAMD(long command_queue, long mem_object, int value, long offset, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueWriteSignalAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long mem_object, @NativeType("cl_uint") int value, @NativeType("cl_ulong") long offset, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -205,7 +209,8 @@ public class AMDBusAddressableMemory {
      *         or signal bus addresses will be returned as 0.</li>
      *         </ul>
      */
-    public static int clEnqueueMakeBuffersResidentAMD(long command_queue, PointerBuffer mem_objects, boolean blocking_make_resident, CLBusAddressAMD.Buffer bus_addresses, PointerBuffer event_wait_list, PointerBuffer event) {
+    @NativeType("cl_int")
+    public static int clEnqueueMakeBuffersResidentAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("cl_bool") boolean blocking_make_resident, @NativeType("cl_bus_address_amd *") CLBusAddressAMD.Buffer bus_addresses, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(bus_addresses, mem_objects.remaining());
             checkSafe(event, 1);

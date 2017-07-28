@@ -69,10 +69,11 @@ public class VkRefreshCycleDurationGOOGLE extends Struct implements NativeResour
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code refreshDuration} field. */
+    @NativeType("uint64_t")
     public long refreshDuration() { return nrefreshDuration(address()); }
 
     /** Sets the specified value to the {@code refreshDuration} field. */
-    public VkRefreshCycleDurationGOOGLE refreshDuration(long value) { nrefreshDuration(address(), value); return this; }
+    public VkRefreshCycleDurationGOOGLE refreshDuration(@NativeType("uint64_t") long value) { nrefreshDuration(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -264,10 +265,11 @@ public class VkRefreshCycleDurationGOOGLE extends Struct implements NativeResour
         }
 
         /** Returns the value of the {@code refreshDuration} field. */
+        @NativeType("uint64_t")
         public long refreshDuration() { return VkRefreshCycleDurationGOOGLE.nrefreshDuration(address()); }
 
         /** Sets the specified value to the {@code refreshDuration} field. */
-        public VkRefreshCycleDurationGOOGLE.Buffer refreshDuration(long value) { VkRefreshCycleDurationGOOGLE.nrefreshDuration(address(), value); return this; }
+        public VkRefreshCycleDurationGOOGLE.Buffer refreshDuration(@NativeType("uint64_t") long value) { VkRefreshCycleDurationGOOGLE.nrefreshDuration(address(), value); return this; }
 
     }
 

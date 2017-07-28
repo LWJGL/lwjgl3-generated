@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -77,6 +79,6 @@ public class NVClipSpaceWScaling {
      * @param xcoeff the x coefficient
      * @param ycoeff the y coefficient
      */
-    public static native void glViewportPositionWScaleNV(int index, float xcoeff, float ycoeff);
+    public static native void glViewportPositionWScaleNV(@NativeType("GLuint") int index, @NativeType("GLfloat") float xcoeff, @NativeType("GLfloat") float ycoeff);
 
 }

@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float b;
  * }</pre></code>
  */
+@NativeType("struct aiColor3D")
 public class AIColor3D extends Struct {
 
     /** The struct size in bytes. */

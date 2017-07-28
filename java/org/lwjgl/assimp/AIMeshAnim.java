@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link AIMeshKey struct aiMeshKey} * mKeys;
  * }</pre></code>
  */
+@NativeType("struct aiMeshAnim")
 public class AIMeshAnim extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -84,16 +85,19 @@ public class AIMeshAnim extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIString} view of the {@code mName} field. */
+    @NativeType("struct aiString")
     public AIString mName() { return nmName(address()); }
     /** Returns the value of the {@code mNumKeys} field. */
+    @NativeType("unsigned int")
     public int mNumKeys() { return nmNumKeys(address()); }
     /** Returns a {@link AIMeshKey.Buffer} view of the struct array pointed to by the {@code mKeys} field. */
+    @NativeType("struct aiMeshKey *")
     public AIMeshKey.Buffer mKeys() { return nmKeys(address()); }
 
     /** Copies the specified {@link AIString} to the {@code mName} field. */
-    public AIMeshAnim mName(AIString value) { nmName(address(), value); return this; }
+    public AIMeshAnim mName(@NativeType("struct aiString") AIString value) { nmName(address(), value); return this; }
     /** Sets the address of the specified {@link AIMeshKey.Buffer} to the {@code mKeys} field. */
-    public AIMeshAnim mKeys(AIMeshKey.Buffer value) { nmKeys(address(), value); return this; }
+    public AIMeshAnim mKeys(@NativeType("struct aiMeshKey *") AIMeshKey.Buffer value) { nmKeys(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIMeshAnim set(
@@ -325,16 +329,19 @@ public class AIMeshAnim extends Struct implements NativeResource {
         }
 
         /** Returns a {@link AIString} view of the {@code mName} field. */
+        @NativeType("struct aiString")
         public AIString mName() { return AIMeshAnim.nmName(address()); }
         /** Returns the value of the {@code mNumKeys} field. */
+        @NativeType("unsigned int")
         public int mNumKeys() { return AIMeshAnim.nmNumKeys(address()); }
         /** Returns a {@link AIMeshKey.Buffer} view of the struct array pointed to by the {@code mKeys} field. */
+        @NativeType("struct aiMeshKey *")
         public AIMeshKey.Buffer mKeys() { return AIMeshAnim.nmKeys(address()); }
 
         /** Copies the specified {@link AIString} to the {@code mName} field. */
-        public AIMeshAnim.Buffer mName(AIString value) { AIMeshAnim.nmName(address(), value); return this; }
+        public AIMeshAnim.Buffer mName(@NativeType("struct aiString") AIString value) { AIMeshAnim.nmName(address(), value); return this; }
         /** Sets the address of the specified {@link AIMeshKey.Buffer} to the {@code mKeys} field. */
-        public AIMeshAnim.Buffer mKeys(AIMeshKey.Buffer value) { AIMeshAnim.nmKeys(address(), value); return this; }
+        public AIMeshAnim.Buffer mKeys(@NativeType("struct aiMeshKey *") AIMeshKey.Buffer value) { AIMeshAnim.nmKeys(address(), value); return this; }
 
     }
 

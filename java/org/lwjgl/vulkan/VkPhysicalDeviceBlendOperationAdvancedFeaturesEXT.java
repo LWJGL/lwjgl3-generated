@@ -85,18 +85,21 @@ public class VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT extends Struct im
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code advancedBlendCoherentOperations} field. */
+    @NativeType("VkBool32")
     public boolean advancedBlendCoherentOperations() { return nadvancedBlendCoherentOperations(address()) != 0; }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT sType(int value) { nsType(address(), value); return this; }
+    public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT pNext(long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code advancedBlendCoherentOperations} field. */
-    public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT advancedBlendCoherentOperations(boolean value) { nadvancedBlendCoherentOperations(address(), value ? 1 : 0); return this; }
+    public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT advancedBlendCoherentOperations(@NativeType("VkBool32") boolean value) { nadvancedBlendCoherentOperations(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT set(
@@ -309,18 +312,21 @@ public class VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT extends Struct im
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.npNext(address()); }
         /** Returns the value of the {@code advancedBlendCoherentOperations} field. */
+        @NativeType("VkBool32")
         public boolean advancedBlendCoherentOperations() { return VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.nadvancedBlendCoherentOperations(address()) != 0; }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.Buffer sType(int value) { VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.nsType(address(), value); return this; }
+        public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.Buffer pNext(long value) { VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.npNext(address(), value); return this; }
+        public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code advancedBlendCoherentOperations} field. */
-        public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.Buffer advancedBlendCoherentOperations(boolean value) { VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.nadvancedBlendCoherentOperations(address(), value ? 1 : 0); return this; }
+        public VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.Buffer advancedBlendCoherentOperations(@NativeType("VkBool32") boolean value) { VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT.nadvancedBlendCoherentOperations(address(), value ? 1 : 0); return this; }
 
     }
 

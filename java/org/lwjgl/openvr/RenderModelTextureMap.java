@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     const uint8_t * rubTextureMapData;
  * }</pre></code>
  */
+@NativeType("struct RenderModel_TextureMap_t")
 public class RenderModelTextureMap extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -79,22 +80,25 @@ public class RenderModelTextureMap extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code unWidth} field. */
+    @NativeType("uint16_t")
     public short unWidth() { return nunWidth(address()); }
     /** Returns the value of the {@code unHeight} field. */
+    @NativeType("uint16_t")
     public short unHeight() { return nunHeight(address()); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code rubTextureMapData} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("const uint8_t *")
     public ByteBuffer rubTextureMapData(int capacity) { return nrubTextureMapData(address(), capacity); }
 
     /** Sets the specified value to the {@code unWidth} field. */
-    public RenderModelTextureMap unWidth(short value) { nunWidth(address(), value); return this; }
+    public RenderModelTextureMap unWidth(@NativeType("uint16_t") short value) { nunWidth(address(), value); return this; }
     /** Sets the specified value to the {@code unHeight} field. */
-    public RenderModelTextureMap unHeight(short value) { nunHeight(address(), value); return this; }
+    public RenderModelTextureMap unHeight(@NativeType("uint16_t") short value) { nunHeight(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code rubTextureMapData} field. */
-    public RenderModelTextureMap rubTextureMapData(ByteBuffer value) { nrubTextureMapData(address(), value); return this; }
+    public RenderModelTextureMap rubTextureMapData(@NativeType("const uint8_t *") ByteBuffer value) { nrubTextureMapData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public RenderModelTextureMap set(
@@ -328,22 +332,25 @@ public class RenderModelTextureMap extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code unWidth} field. */
+        @NativeType("uint16_t")
         public short unWidth() { return RenderModelTextureMap.nunWidth(address()); }
         /** Returns the value of the {@code unHeight} field. */
+        @NativeType("uint16_t")
         public short unHeight() { return RenderModelTextureMap.nunHeight(address()); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code rubTextureMapData} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("const uint8_t *")
         public ByteBuffer rubTextureMapData(int capacity) { return RenderModelTextureMap.nrubTextureMapData(address(), capacity); }
 
         /** Sets the specified value to the {@code unWidth} field. */
-        public RenderModelTextureMap.Buffer unWidth(short value) { RenderModelTextureMap.nunWidth(address(), value); return this; }
+        public RenderModelTextureMap.Buffer unWidth(@NativeType("uint16_t") short value) { RenderModelTextureMap.nunWidth(address(), value); return this; }
         /** Sets the specified value to the {@code unHeight} field. */
-        public RenderModelTextureMap.Buffer unHeight(short value) { RenderModelTextureMap.nunHeight(address(), value); return this; }
+        public RenderModelTextureMap.Buffer unHeight(@NativeType("uint16_t") short value) { RenderModelTextureMap.nunHeight(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code rubTextureMapData} field. */
-        public RenderModelTextureMap.Buffer rubTextureMapData(ByteBuffer value) { RenderModelTextureMap.nrubTextureMapData(address(), value); return this; }
+        public RenderModelTextureMap.Buffer rubTextureMapData(@NativeType("const uint8_t *") ByteBuffer value) { RenderModelTextureMap.nrubTextureMapData(address(), value); return this; }
 
     }
 

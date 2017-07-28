@@ -84,18 +84,21 @@ public class VkPhysicalDevicePushDescriptorPropertiesKHR extends Struct implemen
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code maxPushDescriptors} field. */
+    @NativeType("uint32_t")
     public int maxPushDescriptors() { return nmaxPushDescriptors(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPhysicalDevicePushDescriptorPropertiesKHR sType(int value) { nsType(address(), value); return this; }
+    public VkPhysicalDevicePushDescriptorPropertiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDevicePushDescriptorPropertiesKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkPhysicalDevicePushDescriptorPropertiesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code maxPushDescriptors} field. */
-    public VkPhysicalDevicePushDescriptorPropertiesKHR maxPushDescriptors(int value) { nmaxPushDescriptors(address(), value); return this; }
+    public VkPhysicalDevicePushDescriptorPropertiesKHR maxPushDescriptors(@NativeType("uint32_t") int value) { nmaxPushDescriptors(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPhysicalDevicePushDescriptorPropertiesKHR set(
@@ -308,18 +311,21 @@ public class VkPhysicalDevicePushDescriptorPropertiesKHR extends Struct implemen
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDevicePushDescriptorPropertiesKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDevicePushDescriptorPropertiesKHR.npNext(address()); }
         /** Returns the value of the {@code maxPushDescriptors} field. */
+        @NativeType("uint32_t")
         public int maxPushDescriptors() { return VkPhysicalDevicePushDescriptorPropertiesKHR.nmaxPushDescriptors(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPhysicalDevicePushDescriptorPropertiesKHR.Buffer sType(int value) { VkPhysicalDevicePushDescriptorPropertiesKHR.nsType(address(), value); return this; }
+        public VkPhysicalDevicePushDescriptorPropertiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDevicePushDescriptorPropertiesKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDevicePushDescriptorPropertiesKHR.Buffer pNext(long value) { VkPhysicalDevicePushDescriptorPropertiesKHR.npNext(address(), value); return this; }
+        public VkPhysicalDevicePushDescriptorPropertiesKHR.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDevicePushDescriptorPropertiesKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code maxPushDescriptors} field. */
-        public VkPhysicalDevicePushDescriptorPropertiesKHR.Buffer maxPushDescriptors(int value) { VkPhysicalDevicePushDescriptorPropertiesKHR.nmaxPushDescriptors(address(), value); return this; }
+        public VkPhysicalDevicePushDescriptorPropertiesKHR.Buffer maxPushDescriptors(@NativeType("uint32_t") int value) { VkPhysicalDevicePushDescriptorPropertiesKHR.nmaxPushDescriptors(address(), value); return this; }
 
     }
 

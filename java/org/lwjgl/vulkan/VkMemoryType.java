@@ -72,8 +72,10 @@ public class VkMemoryType extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code propertyFlags} field. */
+    @NativeType("VkMemoryPropertyFlags")
     public int propertyFlags() { return npropertyFlags(address()); }
     /** Returns the value of the {@code heapIndex} field. */
+    @NativeType("uint32_t")
     public int heapIndex() { return nheapIndex(address()); }
 
     // -----------------------------------
@@ -143,8 +145,10 @@ public class VkMemoryType extends Struct {
         }
 
         /** Returns the value of the {@code propertyFlags} field. */
+        @NativeType("VkMemoryPropertyFlags")
         public int propertyFlags() { return VkMemoryType.npropertyFlags(address()); }
         /** Returns the value of the {@code heapIndex} field. */
+        @NativeType("uint32_t")
         public int heapIndex() { return VkMemoryType.nheapIndex(address()); }
 
     }

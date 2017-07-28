@@ -92,18 +92,21 @@ public class VkObjectTablePipelineEntryNVX extends Struct implements NativeResou
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("VkObjectEntryTypeNVX")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkObjectEntryUsageFlagsNVX")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code pipeline} field. */
+    @NativeType("VkPipeline")
     public long pipeline() { return npipeline(address()); }
 
     /** Sets the specified value to the {@code type} field. */
-    public VkObjectTablePipelineEntryNVX type(int value) { ntype(address(), value); return this; }
+    public VkObjectTablePipelineEntryNVX type(@NativeType("VkObjectEntryTypeNVX") int value) { ntype(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkObjectTablePipelineEntryNVX flags(int value) { nflags(address(), value); return this; }
+    public VkObjectTablePipelineEntryNVX flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code pipeline} field. */
-    public VkObjectTablePipelineEntryNVX pipeline(long value) { npipeline(address(), value); return this; }
+    public VkObjectTablePipelineEntryNVX pipeline(@NativeType("VkPipeline") long value) { npipeline(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkObjectTablePipelineEntryNVX set(
@@ -316,18 +319,21 @@ public class VkObjectTablePipelineEntryNVX extends Struct implements NativeResou
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("VkObjectEntryTypeNVX")
         public int type() { return VkObjectTablePipelineEntryNVX.ntype(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkObjectEntryUsageFlagsNVX")
         public int flags() { return VkObjectTablePipelineEntryNVX.nflags(address()); }
         /** Returns the value of the {@code pipeline} field. */
+        @NativeType("VkPipeline")
         public long pipeline() { return VkObjectTablePipelineEntryNVX.npipeline(address()); }
 
         /** Sets the specified value to the {@code type} field. */
-        public VkObjectTablePipelineEntryNVX.Buffer type(int value) { VkObjectTablePipelineEntryNVX.ntype(address(), value); return this; }
+        public VkObjectTablePipelineEntryNVX.Buffer type(@NativeType("VkObjectEntryTypeNVX") int value) { VkObjectTablePipelineEntryNVX.ntype(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkObjectTablePipelineEntryNVX.Buffer flags(int value) { VkObjectTablePipelineEntryNVX.nflags(address(), value); return this; }
+        public VkObjectTablePipelineEntryNVX.Buffer flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { VkObjectTablePipelineEntryNVX.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code pipeline} field. */
-        public VkObjectTablePipelineEntryNVX.Buffer pipeline(long value) { VkObjectTablePipelineEntryNVX.npipeline(address(), value); return this; }
+        public VkObjectTablePipelineEntryNVX.Buffer pipeline(@NativeType("VkPipeline") long value) { VkObjectTablePipelineEntryNVX.npipeline(address(), value); return this; }
 
     }
 

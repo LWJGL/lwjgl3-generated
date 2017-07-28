@@ -7,6 +7,8 @@ package org.lwjgl.opencl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -93,7 +95,8 @@ public class CL12GL {
      *         <li>{@link CL10#CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
-    public static long clCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, IntBuffer errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLTexture(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -105,7 +108,8 @@ public class CL12GL {
      * 
      * Array version of: {@link #clCreateFromGLTexture CreateFromGLTexture}
      */
-    public static long clCreateFromGLTexture(long context, long flags, int texture_target, int miplevel, int texture, int[] errcode_ret) {
+    @NativeType("cl_mem")
+    public static long clCreateFromGLTexture(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLTexture;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -134,7 +136,7 @@ public class NVBlendEquationAdvanced {
 
     // --- [ glBlendParameteriNV ] ---
 
-    public static native void glBlendParameteriNV(int pname, int value);
+    public static native void glBlendParameteriNV(@NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
     // --- [ glBlendBarrierNV ] ---
 

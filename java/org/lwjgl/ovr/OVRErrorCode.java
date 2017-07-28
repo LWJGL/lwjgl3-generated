@@ -5,6 +5,8 @@
  */
 package org.lwjgl.ovr;
 
+import org.lwjgl.system.*;
+
 
 /** LibOVR error code declarations. */
 public class OVRErrorCode {
@@ -173,7 +175,8 @@ public class OVRErrorCode {
      *
      * @param result the {@code ovrResult} to check
      */
-    public static native boolean OVR_SUCCESS(int result);
+    @NativeType("bool")
+    public static native boolean OVR_SUCCESS(@NativeType("ovrResult") int result);
 
     // --- [ OVR_UNQUALIFIED_SUCCESS ] ---
 
@@ -185,7 +188,8 @@ public class OVRErrorCode {
      *
      * @param result the {@code ovrResult} to check
      */
-    public static native boolean OVR_UNQUALIFIED_SUCCESS(int result);
+    @NativeType("bool")
+    public static native boolean OVR_UNQUALIFIED_SUCCESS(@NativeType("ovrResult") int result);
 
     // --- [ OVR_FAILURE ] ---
 
@@ -194,6 +198,7 @@ public class OVRErrorCode {
      *
      * @param result the {@code ovrResult} to check
      */
-    public static native boolean OVR_FAILURE(int result);
+    @NativeType("bool")
+    public static native boolean OVR_FAILURE(@NativeType("ovrResult") int result);
 
 }

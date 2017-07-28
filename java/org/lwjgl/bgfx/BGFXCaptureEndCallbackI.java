@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Called when capture ends. */
 @FunctionalInterface
+@NativeType("capture_end")
 public interface BGFXCaptureEndCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";
@@ -30,6 +31,6 @@ public interface BGFXCaptureEndCallbackI extends CallbackI.V {
      *
      * @param _this the callback interface
      */
-    void invoke(long _this);
+    void invoke(@NativeType("bgfx_callback_interface_t *") long _this);
 
 }

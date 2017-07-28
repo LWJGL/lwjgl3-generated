@@ -111,24 +111,29 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkDescriptorSetLayoutCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code bindingCount} field. */
+    @NativeType("uint32_t")
     public int bindingCount() { return nbindingCount(address()); }
     /** Returns a {@link VkDescriptorSetLayoutBinding.Buffer} view of the struct array pointed to by the {@code pBindings} field. */
+    @NativeType("const VkDescriptorSetLayoutBinding *")
     public VkDescriptorSetLayoutBinding.Buffer pBindings() { return npBindings(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDescriptorSetLayoutCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkDescriptorSetLayoutCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDescriptorSetLayoutCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkDescriptorSetLayoutCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkDescriptorSetLayoutCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkDescriptorSetLayoutCreateInfo flags(@NativeType("VkDescriptorSetLayoutCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link VkDescriptorSetLayoutBinding.Buffer} to the {@code pBindings} field. */
-    public VkDescriptorSetLayoutCreateInfo pBindings(VkDescriptorSetLayoutBinding.Buffer value) { npBindings(address(), value); return this; }
+    public VkDescriptorSetLayoutCreateInfo pBindings(@NativeType("const VkDescriptorSetLayoutBinding *") VkDescriptorSetLayoutBinding.Buffer value) { npBindings(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorSetLayoutCreateInfo set(
@@ -374,24 +379,29 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDescriptorSetLayoutCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDescriptorSetLayoutCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkDescriptorSetLayoutCreateFlags")
         public int flags() { return VkDescriptorSetLayoutCreateInfo.nflags(address()); }
         /** Returns the value of the {@code bindingCount} field. */
+        @NativeType("uint32_t")
         public int bindingCount() { return VkDescriptorSetLayoutCreateInfo.nbindingCount(address()); }
         /** Returns a {@link VkDescriptorSetLayoutBinding.Buffer} view of the struct array pointed to by the {@code pBindings} field. */
+        @NativeType("const VkDescriptorSetLayoutBinding *")
         public VkDescriptorSetLayoutBinding.Buffer pBindings() { return VkDescriptorSetLayoutCreateInfo.npBindings(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDescriptorSetLayoutCreateInfo.Buffer sType(int value) { VkDescriptorSetLayoutCreateInfo.nsType(address(), value); return this; }
+        public VkDescriptorSetLayoutCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkDescriptorSetLayoutCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDescriptorSetLayoutCreateInfo.Buffer pNext(long value) { VkDescriptorSetLayoutCreateInfo.npNext(address(), value); return this; }
+        public VkDescriptorSetLayoutCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkDescriptorSetLayoutCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkDescriptorSetLayoutCreateInfo.Buffer flags(int value) { VkDescriptorSetLayoutCreateInfo.nflags(address(), value); return this; }
+        public VkDescriptorSetLayoutCreateInfo.Buffer flags(@NativeType("VkDescriptorSetLayoutCreateFlags") int value) { VkDescriptorSetLayoutCreateInfo.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link VkDescriptorSetLayoutBinding.Buffer} to the {@code pBindings} field. */
-        public VkDescriptorSetLayoutCreateInfo.Buffer pBindings(VkDescriptorSetLayoutBinding.Buffer value) { VkDescriptorSetLayoutCreateInfo.npBindings(address(), value); return this; }
+        public VkDescriptorSetLayoutCreateInfo.Buffer pBindings(@NativeType("const VkDescriptorSetLayoutBinding *") VkDescriptorSetLayoutBinding.Buffer value) { VkDescriptorSetLayoutCreateInfo.npBindings(address(), value); return this; }
 
     }
 

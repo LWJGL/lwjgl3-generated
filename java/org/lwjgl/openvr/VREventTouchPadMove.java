@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float fValueYRaw;
  * }</pre></code>
  */
+@NativeType("struct VREvent_TouchPadMove_t")
 public class VREventTouchPadMove extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -93,6 +94,7 @@ public class VREventTouchPadMove extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code bFingerDown} field. */
+    @NativeType("bool")
     public boolean bFingerDown() { return nbFingerDown(address()); }
     /** Returns the value of the {@code flSecondsFingerDown} field. */
     public float flSecondsFingerDown() { return nflSecondsFingerDown(address()); }
@@ -106,7 +108,7 @@ public class VREventTouchPadMove extends Struct implements NativeResource {
     public float fValueYRaw() { return nfValueYRaw(address()); }
 
     /** Sets the specified value to the {@code bFingerDown} field. */
-    public VREventTouchPadMove bFingerDown(boolean value) { nbFingerDown(address(), value); return this; }
+    public VREventTouchPadMove bFingerDown(@NativeType("bool") boolean value) { nbFingerDown(address(), value); return this; }
     /** Sets the specified value to the {@code flSecondsFingerDown} field. */
     public VREventTouchPadMove flSecondsFingerDown(float value) { nflSecondsFingerDown(address(), value); return this; }
     /** Sets the specified value to the {@code fValueXFirst} field. */
@@ -347,6 +349,7 @@ public class VREventTouchPadMove extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code bFingerDown} field. */
+        @NativeType("bool")
         public boolean bFingerDown() { return VREventTouchPadMove.nbFingerDown(address()); }
         /** Returns the value of the {@code flSecondsFingerDown} field. */
         public float flSecondsFingerDown() { return VREventTouchPadMove.nflSecondsFingerDown(address()); }
@@ -360,7 +363,7 @@ public class VREventTouchPadMove extends Struct implements NativeResource {
         public float fValueYRaw() { return VREventTouchPadMove.nfValueYRaw(address()); }
 
         /** Sets the specified value to the {@code bFingerDown} field. */
-        public VREventTouchPadMove.Buffer bFingerDown(boolean value) { VREventTouchPadMove.nbFingerDown(address(), value); return this; }
+        public VREventTouchPadMove.Buffer bFingerDown(@NativeType("bool") boolean value) { VREventTouchPadMove.nbFingerDown(address(), value); return this; }
         /** Sets the specified value to the {@code flSecondsFingerDown} field. */
         public VREventTouchPadMove.Buffer flSecondsFingerDown(float value) { VREventTouchPadMove.nflSecondsFingerDown(address(), value); return this; }
         /** Sets the specified value to the {@code fValueXFirst} field. */

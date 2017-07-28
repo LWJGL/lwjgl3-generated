@@ -102,22 +102,26 @@ public class VkCommandPoolCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkCommandPoolCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code queueFamilyIndex} field. */
+    @NativeType("uint32_t")
     public int queueFamilyIndex() { return nqueueFamilyIndex(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkCommandPoolCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkCommandPoolCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCommandPoolCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkCommandPoolCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkCommandPoolCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkCommandPoolCreateInfo flags(@NativeType("VkCommandPoolCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code queueFamilyIndex} field. */
-    public VkCommandPoolCreateInfo queueFamilyIndex(int value) { nqueueFamilyIndex(address(), value); return this; }
+    public VkCommandPoolCreateInfo queueFamilyIndex(@NativeType("uint32_t") int value) { nqueueFamilyIndex(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkCommandPoolCreateInfo set(
@@ -336,22 +340,26 @@ public class VkCommandPoolCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkCommandPoolCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkCommandPoolCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkCommandPoolCreateFlags")
         public int flags() { return VkCommandPoolCreateInfo.nflags(address()); }
         /** Returns the value of the {@code queueFamilyIndex} field. */
+        @NativeType("uint32_t")
         public int queueFamilyIndex() { return VkCommandPoolCreateInfo.nqueueFamilyIndex(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkCommandPoolCreateInfo.Buffer sType(int value) { VkCommandPoolCreateInfo.nsType(address(), value); return this; }
+        public VkCommandPoolCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkCommandPoolCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCommandPoolCreateInfo.Buffer pNext(long value) { VkCommandPoolCreateInfo.npNext(address(), value); return this; }
+        public VkCommandPoolCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkCommandPoolCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkCommandPoolCreateInfo.Buffer flags(int value) { VkCommandPoolCreateInfo.nflags(address(), value); return this; }
+        public VkCommandPoolCreateInfo.Buffer flags(@NativeType("VkCommandPoolCreateFlags") int value) { VkCommandPoolCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code queueFamilyIndex} field. */
-        public VkCommandPoolCreateInfo.Buffer queueFamilyIndex(int value) { VkCommandPoolCreateInfo.nqueueFamilyIndex(address(), value); return this; }
+        public VkCommandPoolCreateInfo.Buffer queueFamilyIndex(@NativeType("uint32_t") int value) { VkCommandPoolCreateInfo.nqueueFamilyIndex(address(), value); return this; }
 
     }
 

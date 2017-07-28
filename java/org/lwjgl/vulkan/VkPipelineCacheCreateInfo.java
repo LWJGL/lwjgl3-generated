@@ -110,24 +110,29 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkPipelineCacheCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code initialDataSize} field. */
+    @NativeType("size_t")
     public long initialDataSize() { return ninitialDataSize(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pInitialData} field. */
+    @NativeType("const void *")
     public ByteBuffer pInitialData() { return npInitialData(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineCacheCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineCacheCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineCacheCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineCacheCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkPipelineCacheCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkPipelineCacheCreateInfo flags(@NativeType("VkPipelineCacheCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pInitialData} field. */
-    public VkPipelineCacheCreateInfo pInitialData(ByteBuffer value) { npInitialData(address(), value); return this; }
+    public VkPipelineCacheCreateInfo pInitialData(@NativeType("const void *") ByteBuffer value) { npInitialData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineCacheCreateInfo set(
@@ -373,24 +378,29 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineCacheCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineCacheCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkPipelineCacheCreateFlags")
         public int flags() { return VkPipelineCacheCreateInfo.nflags(address()); }
         /** Returns the value of the {@code initialDataSize} field. */
+        @NativeType("size_t")
         public long initialDataSize() { return VkPipelineCacheCreateInfo.ninitialDataSize(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pInitialData} field. */
+        @NativeType("const void *")
         public ByteBuffer pInitialData() { return VkPipelineCacheCreateInfo.npInitialData(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineCacheCreateInfo.Buffer sType(int value) { VkPipelineCacheCreateInfo.nsType(address(), value); return this; }
+        public VkPipelineCacheCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineCacheCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineCacheCreateInfo.Buffer pNext(long value) { VkPipelineCacheCreateInfo.npNext(address(), value); return this; }
+        public VkPipelineCacheCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkPipelineCacheCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkPipelineCacheCreateInfo.Buffer flags(int value) { VkPipelineCacheCreateInfo.nflags(address(), value); return this; }
+        public VkPipelineCacheCreateInfo.Buffer flags(@NativeType("VkPipelineCacheCreateFlags") int value) { VkPipelineCacheCreateInfo.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pInitialData} field. */
-        public VkPipelineCacheCreateInfo.Buffer pInitialData(ByteBuffer value) { VkPipelineCacheCreateInfo.npInitialData(address(), value); return this; }
+        public VkPipelineCacheCreateInfo.Buffer pInitialData(@NativeType("const void *") ByteBuffer value) { VkPipelineCacheCreateInfo.npInitialData(address(), value); return this; }
 
     }
 

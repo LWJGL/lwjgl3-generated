@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Allocates memory. */
 @FunctionalInterface
+@NativeType("realloc")
 public interface BGFXReallocCallbackI extends CallbackI.P {
 
     String SIGNATURE = "(pppppi)p";
@@ -40,6 +41,6 @@ public interface BGFXReallocCallbackI extends CallbackI.P {
      * @param _file  file path where allocation was generated
      * @param _line  line where allocation was generated
      */
-    long invoke(long _this, long _ptr, long _size, long _align, long _file, int _line);
+    @NativeType("void *") long invoke(@NativeType("bgfx_allocator_interface_t *") long _this, @NativeType("void *") long _ptr, @NativeType("size_t") long _size, @NativeType("size_t") long _align, @NativeType("char *") long _file, @NativeType("uint32_t") int _line);
 
 }

@@ -99,7 +99,8 @@ public class DynamicLinkLoader {
      *             use the handle returned by this function.</li>
      *             </ul>
      */
-    public static long dlopen(ByteBuffer path, int mode) {
+    @NativeType("void *")
+    public static long dlopen(@NativeType("const char *") ByteBuffer path, int mode) {
         if (CHECKS) {
             checkNT1Safe(path);
         }
@@ -164,7 +165,8 @@ public class DynamicLinkLoader {
      *             use the handle returned by this function.</li>
      *             </ul>
      */
-    public static long dlopen(CharSequence path, int mode) {
+    @NativeType("void *")
+    public static long dlopen(@NativeType("const char *") CharSequence path, @NativeType("int") int mode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pathEncoded = stack.ASCII(path);
@@ -188,6 +190,7 @@ public class DynamicLinkLoader {
      * <p>Each call to {@code dlerror} resets its diagnostic buffer. If a program needs to keep a record of past error messages, it must store them itself.
      * Subsequent calls to {@code dlerror} in the same thread with no calls to {@link #dlopen}, {@link #dlsym}, or {@link #dlclose}, return {@code NULL}.</p>
      */
+    @NativeType("const char *")
     public static String dlerror() {
         long __result = ndlerror();
         return memASCII(__result);
@@ -217,7 +220,8 @@ public class DynamicLinkLoader {
      *               closed with a call to {@link #dlclose}. These are the possible special-handle values: {@link #RTLD_DEFAULT}, and {@link #RTLD_NEXT}.
      * @param name   the null-terminated character string containing the C name of the symbol being sought
      */
-    public static long dlsym(long handle, ByteBuffer name) {
+    @NativeType("void *")
+    public static long dlsym(@NativeType("void *") long handle, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             check(handle);
             checkNT1(name);
@@ -244,7 +248,8 @@ public class DynamicLinkLoader {
      *               closed with a call to {@link #dlclose}. These are the possible special-handle values: {@link #RTLD_DEFAULT}, and {@link #RTLD_NEXT}.
      * @param name   the null-terminated character string containing the C name of the symbol being sought
      */
-    public static long dlsym(long handle, CharSequence name) {
+    @NativeType("void *")
+    public static long dlsym(@NativeType("void *") long handle, @NativeType("const char *") CharSequence name) {
         if (CHECKS) {
             check(handle);
         }
@@ -270,7 +275,7 @@ public class DynamicLinkLoader {
      *
      * @param handle a handle obtained through a call to {@link #dlopen}.
      */
-    public static int dlclose(long handle) {
+    public static int dlclose(@NativeType("void *") long handle) {
         if (CHECKS) {
             check(handle);
         }

@@ -93,16 +93,22 @@ public class VkPhysicalDeviceGroupPropertiesKHX extends Struct implements Native
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code physicalDeviceCount} field. */
+    @NativeType("uint32_t")
     public int physicalDeviceCount() { return nphysicalDeviceCount(address()); }
     /** Returns a {@link PointerBuffer} view of the {@code physicalDevices} field. */
+    @NativeType("VkPhysicalDevice[VK_MAX_DEVICE_GROUP_SIZE_KHX]")
     public PointerBuffer physicalDevices() { return nphysicalDevices(address()); }
     /** Returns the value at the specified index of the {@code physicalDevices} field. */
+    @NativeType("VkPhysicalDevice")
     public long physicalDevices(int index) { return nphysicalDevices(address(), index); }
     /** Returns the value of the {@code subsetAllocation} field. */
+    @NativeType("VkBool32")
     public boolean subsetAllocation() { return nsubsetAllocation(address()) != 0; }
 
     // -----------------------------------
@@ -293,16 +299,22 @@ public class VkPhysicalDeviceGroupPropertiesKHX extends Struct implements Native
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceGroupPropertiesKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceGroupPropertiesKHX.npNext(address()); }
         /** Returns the value of the {@code physicalDeviceCount} field. */
+        @NativeType("uint32_t")
         public int physicalDeviceCount() { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDeviceCount(address()); }
         /** Returns a {@link PointerBuffer} view of the {@code physicalDevices} field. */
+        @NativeType("VkPhysicalDevice[VK_MAX_DEVICE_GROUP_SIZE_KHX]")
         public PointerBuffer physicalDevices() { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDevices(address()); }
         /** Returns the value at the specified index of the {@code physicalDevices} field. */
+        @NativeType("VkPhysicalDevice")
         public long physicalDevices(int index) { return VkPhysicalDeviceGroupPropertiesKHX.nphysicalDevices(address(), index); }
         /** Returns the value of the {@code subsetAllocation} field. */
+        @NativeType("VkBool32")
         public boolean subsetAllocation() { return VkPhysicalDeviceGroupPropertiesKHX.nsubsetAllocation(address()) != 0; }
 
     }

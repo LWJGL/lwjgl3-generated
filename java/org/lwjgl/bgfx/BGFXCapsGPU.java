@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint16_t deviceId;
  * }</pre></code>
  */
+@NativeType("struct bgfx_caps_gpu_t")
 public class BGFXCapsGPU extends Struct {
 
     /** The struct size in bytes. */
@@ -72,8 +73,10 @@ public class BGFXCapsGPU extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code vendorId} field. */
+    @NativeType("uint16_t")
     public short vendorId() { return nvendorId(address()); }
     /** Returns the value of the {@code deviceId} field. */
+    @NativeType("uint16_t")
     public short deviceId() { return ndeviceId(address()); }
 
     // -----------------------------------
@@ -143,8 +146,10 @@ public class BGFXCapsGPU extends Struct {
         }
 
         /** Returns the value of the {@code vendorId} field. */
+        @NativeType("uint16_t")
         public short vendorId() { return BGFXCapsGPU.nvendorId(address()); }
         /** Returns the value of the {@code deviceId} field. */
+        @NativeType("uint16_t")
         public short deviceId() { return BGFXCapsGPU.ndeviceId(address()); }
 
     }

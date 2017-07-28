@@ -95,18 +95,21 @@ public class VkDispatchIndirectCommand extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code x} field. */
+    @NativeType("uint32_t")
     public int x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("uint32_t")
     public int y() { return ny(address()); }
     /** Returns the value of the {@code z} field. */
+    @NativeType("uint32_t")
     public int z() { return nz(address()); }
 
     /** Sets the specified value to the {@code x} field. */
-    public VkDispatchIndirectCommand x(int value) { nx(address(), value); return this; }
+    public VkDispatchIndirectCommand x(@NativeType("uint32_t") int value) { nx(address(), value); return this; }
     /** Sets the specified value to the {@code y} field. */
-    public VkDispatchIndirectCommand y(int value) { ny(address(), value); return this; }
+    public VkDispatchIndirectCommand y(@NativeType("uint32_t") int value) { ny(address(), value); return this; }
     /** Sets the specified value to the {@code z} field. */
-    public VkDispatchIndirectCommand z(int value) { nz(address(), value); return this; }
+    public VkDispatchIndirectCommand z(@NativeType("uint32_t") int value) { nz(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDispatchIndirectCommand set(
@@ -319,18 +322,21 @@ public class VkDispatchIndirectCommand extends Struct implements NativeResource 
         }
 
         /** Returns the value of the {@code x} field. */
+        @NativeType("uint32_t")
         public int x() { return VkDispatchIndirectCommand.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("uint32_t")
         public int y() { return VkDispatchIndirectCommand.ny(address()); }
         /** Returns the value of the {@code z} field. */
+        @NativeType("uint32_t")
         public int z() { return VkDispatchIndirectCommand.nz(address()); }
 
         /** Sets the specified value to the {@code x} field. */
-        public VkDispatchIndirectCommand.Buffer x(int value) { VkDispatchIndirectCommand.nx(address(), value); return this; }
+        public VkDispatchIndirectCommand.Buffer x(@NativeType("uint32_t") int value) { VkDispatchIndirectCommand.nx(address(), value); return this; }
         /** Sets the specified value to the {@code y} field. */
-        public VkDispatchIndirectCommand.Buffer y(int value) { VkDispatchIndirectCommand.ny(address(), value); return this; }
+        public VkDispatchIndirectCommand.Buffer y(@NativeType("uint32_t") int value) { VkDispatchIndirectCommand.ny(address(), value); return this; }
         /** Sets the specified value to the {@code z} field. */
-        public VkDispatchIndirectCommand.Buffer z(int value) { VkDispatchIndirectCommand.nz(address(), value); return this; }
+        public VkDispatchIndirectCommand.Buffer z(@NativeType("uint32_t") int value) { VkDispatchIndirectCommand.nz(address(), value); return this; }
 
     }
 

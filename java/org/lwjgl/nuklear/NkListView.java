@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     nk_uint scroll_value;
  * }</pre></code>
  */
+@NativeType("struct nk_list_view")
 public class NkListView extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

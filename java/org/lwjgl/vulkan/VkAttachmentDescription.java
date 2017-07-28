@@ -149,42 +149,51 @@ public class VkAttachmentDescription extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkAttachmentDescriptionFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code format} field. */
+    @NativeType("VkFormat")
     public int format() { return nformat(address()); }
     /** Returns the value of the {@code samples} field. */
+    @NativeType("VkSampleCountFlagBits")
     public int samples() { return nsamples(address()); }
     /** Returns the value of the {@code loadOp} field. */
+    @NativeType("VkAttachmentLoadOp")
     public int loadOp() { return nloadOp(address()); }
     /** Returns the value of the {@code storeOp} field. */
+    @NativeType("VkAttachmentStoreOp")
     public int storeOp() { return nstoreOp(address()); }
     /** Returns the value of the {@code stencilLoadOp} field. */
+    @NativeType("VkAttachmentLoadOp")
     public int stencilLoadOp() { return nstencilLoadOp(address()); }
     /** Returns the value of the {@code stencilStoreOp} field. */
+    @NativeType("VkAttachmentStoreOp")
     public int stencilStoreOp() { return nstencilStoreOp(address()); }
     /** Returns the value of the {@code initialLayout} field. */
+    @NativeType("VkImageLayout")
     public int initialLayout() { return ninitialLayout(address()); }
     /** Returns the value of the {@code finalLayout} field. */
+    @NativeType("VkImageLayout")
     public int finalLayout() { return nfinalLayout(address()); }
 
     /** Sets the specified value to the {@code flags} field. */
-    public VkAttachmentDescription flags(int value) { nflags(address(), value); return this; }
+    public VkAttachmentDescription flags(@NativeType("VkAttachmentDescriptionFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
-    public VkAttachmentDescription format(int value) { nformat(address(), value); return this; }
+    public VkAttachmentDescription format(@NativeType("VkFormat") int value) { nformat(address(), value); return this; }
     /** Sets the specified value to the {@code samples} field. */
-    public VkAttachmentDescription samples(int value) { nsamples(address(), value); return this; }
+    public VkAttachmentDescription samples(@NativeType("VkSampleCountFlagBits") int value) { nsamples(address(), value); return this; }
     /** Sets the specified value to the {@code loadOp} field. */
-    public VkAttachmentDescription loadOp(int value) { nloadOp(address(), value); return this; }
+    public VkAttachmentDescription loadOp(@NativeType("VkAttachmentLoadOp") int value) { nloadOp(address(), value); return this; }
     /** Sets the specified value to the {@code storeOp} field. */
-    public VkAttachmentDescription storeOp(int value) { nstoreOp(address(), value); return this; }
+    public VkAttachmentDescription storeOp(@NativeType("VkAttachmentStoreOp") int value) { nstoreOp(address(), value); return this; }
     /** Sets the specified value to the {@code stencilLoadOp} field. */
-    public VkAttachmentDescription stencilLoadOp(int value) { nstencilLoadOp(address(), value); return this; }
+    public VkAttachmentDescription stencilLoadOp(@NativeType("VkAttachmentLoadOp") int value) { nstencilLoadOp(address(), value); return this; }
     /** Sets the specified value to the {@code stencilStoreOp} field. */
-    public VkAttachmentDescription stencilStoreOp(int value) { nstencilStoreOp(address(), value); return this; }
+    public VkAttachmentDescription stencilStoreOp(@NativeType("VkAttachmentStoreOp") int value) { nstencilStoreOp(address(), value); return this; }
     /** Sets the specified value to the {@code initialLayout} field. */
-    public VkAttachmentDescription initialLayout(int value) { ninitialLayout(address(), value); return this; }
+    public VkAttachmentDescription initialLayout(@NativeType("VkImageLayout") int value) { ninitialLayout(address(), value); return this; }
     /** Sets the specified value to the {@code finalLayout} field. */
-    public VkAttachmentDescription finalLayout(int value) { nfinalLayout(address(), value); return this; }
+    public VkAttachmentDescription finalLayout(@NativeType("VkImageLayout") int value) { nfinalLayout(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkAttachmentDescription set(
@@ -433,42 +442,51 @@ public class VkAttachmentDescription extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkAttachmentDescriptionFlags")
         public int flags() { return VkAttachmentDescription.nflags(address()); }
         /** Returns the value of the {@code format} field. */
+        @NativeType("VkFormat")
         public int format() { return VkAttachmentDescription.nformat(address()); }
         /** Returns the value of the {@code samples} field. */
+        @NativeType("VkSampleCountFlagBits")
         public int samples() { return VkAttachmentDescription.nsamples(address()); }
         /** Returns the value of the {@code loadOp} field. */
+        @NativeType("VkAttachmentLoadOp")
         public int loadOp() { return VkAttachmentDescription.nloadOp(address()); }
         /** Returns the value of the {@code storeOp} field. */
+        @NativeType("VkAttachmentStoreOp")
         public int storeOp() { return VkAttachmentDescription.nstoreOp(address()); }
         /** Returns the value of the {@code stencilLoadOp} field. */
+        @NativeType("VkAttachmentLoadOp")
         public int stencilLoadOp() { return VkAttachmentDescription.nstencilLoadOp(address()); }
         /** Returns the value of the {@code stencilStoreOp} field. */
+        @NativeType("VkAttachmentStoreOp")
         public int stencilStoreOp() { return VkAttachmentDescription.nstencilStoreOp(address()); }
         /** Returns the value of the {@code initialLayout} field. */
+        @NativeType("VkImageLayout")
         public int initialLayout() { return VkAttachmentDescription.ninitialLayout(address()); }
         /** Returns the value of the {@code finalLayout} field. */
+        @NativeType("VkImageLayout")
         public int finalLayout() { return VkAttachmentDescription.nfinalLayout(address()); }
 
         /** Sets the specified value to the {@code flags} field. */
-        public VkAttachmentDescription.Buffer flags(int value) { VkAttachmentDescription.nflags(address(), value); return this; }
+        public VkAttachmentDescription.Buffer flags(@NativeType("VkAttachmentDescriptionFlags") int value) { VkAttachmentDescription.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
-        public VkAttachmentDescription.Buffer format(int value) { VkAttachmentDescription.nformat(address(), value); return this; }
+        public VkAttachmentDescription.Buffer format(@NativeType("VkFormat") int value) { VkAttachmentDescription.nformat(address(), value); return this; }
         /** Sets the specified value to the {@code samples} field. */
-        public VkAttachmentDescription.Buffer samples(int value) { VkAttachmentDescription.nsamples(address(), value); return this; }
+        public VkAttachmentDescription.Buffer samples(@NativeType("VkSampleCountFlagBits") int value) { VkAttachmentDescription.nsamples(address(), value); return this; }
         /** Sets the specified value to the {@code loadOp} field. */
-        public VkAttachmentDescription.Buffer loadOp(int value) { VkAttachmentDescription.nloadOp(address(), value); return this; }
+        public VkAttachmentDescription.Buffer loadOp(@NativeType("VkAttachmentLoadOp") int value) { VkAttachmentDescription.nloadOp(address(), value); return this; }
         /** Sets the specified value to the {@code storeOp} field. */
-        public VkAttachmentDescription.Buffer storeOp(int value) { VkAttachmentDescription.nstoreOp(address(), value); return this; }
+        public VkAttachmentDescription.Buffer storeOp(@NativeType("VkAttachmentStoreOp") int value) { VkAttachmentDescription.nstoreOp(address(), value); return this; }
         /** Sets the specified value to the {@code stencilLoadOp} field. */
-        public VkAttachmentDescription.Buffer stencilLoadOp(int value) { VkAttachmentDescription.nstencilLoadOp(address(), value); return this; }
+        public VkAttachmentDescription.Buffer stencilLoadOp(@NativeType("VkAttachmentLoadOp") int value) { VkAttachmentDescription.nstencilLoadOp(address(), value); return this; }
         /** Sets the specified value to the {@code stencilStoreOp} field. */
-        public VkAttachmentDescription.Buffer stencilStoreOp(int value) { VkAttachmentDescription.nstencilStoreOp(address(), value); return this; }
+        public VkAttachmentDescription.Buffer stencilStoreOp(@NativeType("VkAttachmentStoreOp") int value) { VkAttachmentDescription.nstencilStoreOp(address(), value); return this; }
         /** Sets the specified value to the {@code initialLayout} field. */
-        public VkAttachmentDescription.Buffer initialLayout(int value) { VkAttachmentDescription.ninitialLayout(address(), value); return this; }
+        public VkAttachmentDescription.Buffer initialLayout(@NativeType("VkImageLayout") int value) { VkAttachmentDescription.ninitialLayout(address(), value); return this; }
         /** Sets the specified value to the {@code finalLayout} field. */
-        public VkAttachmentDescription.Buffer finalLayout(int value) { VkAttachmentDescription.nfinalLayout(address(), value); return this; }
+        public VkAttachmentDescription.Buffer finalLayout(@NativeType("VkImageLayout") int value) { VkAttachmentDescription.nfinalLayout(address(), value); return this; }
 
     }
 

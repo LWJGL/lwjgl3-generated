@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWjoystickfun")
 public interface GLFWJoystickCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ii)v";

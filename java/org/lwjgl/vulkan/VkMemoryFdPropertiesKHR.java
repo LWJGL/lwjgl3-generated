@@ -79,10 +79,13 @@ public class VkMemoryFdPropertiesKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code memoryTypeBits} field. */
+    @NativeType("uint32_t")
     public int memoryTypeBits() { return nmemoryTypeBits(address()); }
 
     // -----------------------------------
@@ -264,10 +267,13 @@ public class VkMemoryFdPropertiesKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkMemoryFdPropertiesKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkMemoryFdPropertiesKHR.npNext(address()); }
         /** Returns the value of the {@code memoryTypeBits} field. */
+        @NativeType("uint32_t")
         public int memoryTypeBits() { return VkMemoryFdPropertiesKHR.nmemoryTypeBits(address()); }
 
     }

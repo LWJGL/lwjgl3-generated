@@ -79,7 +79,8 @@ public class ALC10 {
      *
      * @param deviceSpecifier the requested device or device configuration
      */
-    public static long alcOpenDevice(ByteBuffer deviceSpecifier) {
+    @NativeType("ALCdevice *")
+    public static long alcOpenDevice(@NativeType("const ALCchar *") ByteBuffer deviceSpecifier) {
         if (CHECKS) {
             checkNT1Safe(deviceSpecifier);
         }
@@ -94,7 +95,8 @@ public class ALC10 {
      *
      * @param deviceSpecifier the requested device or device configuration
      */
-    public static long alcOpenDevice(CharSequence deviceSpecifier) {
+    @NativeType("ALCdevice *")
+    public static long alcOpenDevice(@NativeType("const ALCchar *") CharSequence deviceSpecifier) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer deviceSpecifierEncoded = stack.UTF8(deviceSpecifier);
@@ -114,7 +116,8 @@ public class ALC10 {
      *
      * @param deviceHandle the device to close
      */
-    public static boolean alcCloseDevice(long deviceHandle) {
+    @NativeType("ALCboolean")
+    public static boolean alcCloseDevice(@NativeType("const ALCdevice *") long deviceHandle) {
 		long __functionAddress = ALC.getICD().alcCloseDevice;
         if (CHECKS) {
             check(deviceHandle);
@@ -139,7 +142,8 @@ public class ALC10 {
      * @param deviceHandle a valid device
      * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<br><table><tr><td>{@link #ALC_FREQUENCY FREQUENCY}</td><td>{@link #ALC_REFRESH REFRESH}</td><td>{@link #ALC_SYNC SYNC}</td><td>{@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}</td><td>{@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}</td></tr></table>
      */
-    public static long alcCreateContext(long deviceHandle, IntBuffer attrList) {
+    @NativeType("ALCcontext *")
+    public static long alcCreateContext(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCint *") IntBuffer attrList) {
         if (CHECKS) {
             checkNTSafe(attrList);
         }
@@ -159,7 +163,8 @@ public class ALC10 {
      *
      * @param context the context to make current
      */
-    public static boolean alcMakeContextCurrent(long context) {
+    @NativeType("ALCboolean")
+    public static boolean alcMakeContextCurrent(@NativeType("ALCcontext *") long context) {
 		long __functionAddress = ALC.getICD().alcMakeContextCurrent;
         return invokePZ(__functionAddress, context);
     }
@@ -176,7 +181,8 @@ public class ALC10 {
      *
      * @param context the context to mark for processing
      */
-    public static void alcProcessContext(long context) {
+    @NativeType("ALCvoid")
+    public static void alcProcessContext(@NativeType("ALCcontext *") long context) {
 		long __functionAddress = ALC.getICD().alcProcessContext;
         if (CHECKS) {
             check(context);
@@ -194,7 +200,8 @@ public class ALC10 {
      *
      * @param context the context to mark as suspended
      */
-    public static void alcSuspendContext(long context) {
+    @NativeType("ALCvoid")
+    public static void alcSuspendContext(@NativeType("ALCcontext *") long context) {
 		long __functionAddress = ALC.getICD().alcSuspendContext;
         if (CHECKS) {
             check(context);
@@ -213,7 +220,8 @@ public class ALC10 {
      *
      * @param context the context to destroy
      */
-    public static void alcDestroyContext(long context) {
+    @NativeType("ALCvoid")
+    public static void alcDestroyContext(@NativeType("ALCcontext *") long context) {
 		long __functionAddress = ALC.getICD().alcDestroyContext;
         if (CHECKS) {
             check(context);
@@ -224,6 +232,7 @@ public class ALC10 {
     // --- [ alcGetCurrentContext ] ---
 
     /** Queries for, and obtains a handle to, the current context for the application. If there is no current context, {@code NULL} is returned. */
+    @NativeType("ALCcontext *")
     public static long alcGetCurrentContext() {
 		long __functionAddress = ALC.getICD().alcGetCurrentContext;
         return invokeP(__functionAddress);
@@ -236,7 +245,8 @@ public class ALC10 {
      *
      * @param context the context to query
      */
-    public static long alcGetContextsDevice(long context) {
+    @NativeType("ALCdevice *")
+    public static long alcGetContextsDevice(@NativeType("ALCcontext *") long context) {
 		long __functionAddress = ALC.getICD().alcGetContextsDevice;
         if (CHECKS) {
             check(context);
@@ -261,7 +271,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param extName      the extension name
      */
-    public static boolean alcIsExtensionPresent(long deviceHandle, ByteBuffer extName) {
+    @NativeType("ALCboolean")
+    public static boolean alcIsExtensionPresent(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") ByteBuffer extName) {
         if (CHECKS) {
             checkNT1(extName);
         }
@@ -277,7 +288,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param extName      the extension name
      */
-    public static boolean alcIsExtensionPresent(long deviceHandle, CharSequence extName) {
+    @NativeType("ALCboolean")
+    public static boolean alcIsExtensionPresent(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") CharSequence extName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer extNameEncoded = stack.ASCII(extName);
@@ -307,7 +319,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param funcName     the function name
      */
-    public static long alcGetProcAddress(long deviceHandle, ByteBuffer funcName) {
+    @NativeType("void *")
+    public static long alcGetProcAddress(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALchar *") ByteBuffer funcName) {
         if (CHECKS) {
             checkNT1(funcName);
         }
@@ -326,7 +339,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param funcName     the function name
      */
-    public static long alcGetProcAddress(long deviceHandle, CharSequence funcName) {
+    @NativeType("void *")
+    public static long alcGetProcAddress(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALchar *") CharSequence funcName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer funcNameEncoded = stack.ASCII(funcName);
@@ -353,7 +367,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param enumName     the enum name
      */
-    public static int alcGetEnumValue(long deviceHandle, ByteBuffer enumName) {
+    @NativeType("ALCenum")
+    public static int alcGetEnumValue(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") ByteBuffer enumName) {
         if (CHECKS) {
             checkNT1(enumName);
         }
@@ -369,7 +384,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param enumName     the enum name
      */
-    public static int alcGetEnumValue(long deviceHandle, CharSequence enumName) {
+    @NativeType("ALCenum")
+    public static int alcGetEnumValue(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") CharSequence enumName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer enumNameEncoded = stack.ASCII(enumName);
@@ -391,7 +407,8 @@ public class ALC10 {
      *
      * @param deviceHandle the device to query
      */
-    public static int alcGetError(long deviceHandle) {
+    @NativeType("ALCenum")
+    public static int alcGetError(@NativeType("ALCdevice *") long deviceHandle) {
 		long __functionAddress = ALC.getICD().alcGetError;
         return invokePI(__functionAddress, deviceHandle);
     }
@@ -412,7 +429,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param token        the information to query. One of:<br><table><tr><td>{@link #ALC_DEFAULT_DEVICE_SPECIFIER DEFAULT_DEVICE_SPECIFIER}</td><td>{@link #ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER}</td><td>{@link #ALC_EXTENSIONS EXTENSIONS}</td></tr><tr><td>{@link ALC11#ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER CAPTURE_DEFAULT_DEVICE_SPECIFIER}</td><td>{@link ALC11#ALC_CAPTURE_DEVICE_SPECIFIER CAPTURE_DEVICE_SPECIFIER}</td></tr></table>
      */
-    public static String alcGetString(long deviceHandle, int token) {
+    @NativeType("const ALCchar *")
+    public static String alcGetString(@NativeType("ALCdevice *") long deviceHandle, @NativeType("ALCenum") int token) {
         long __result = nalcGetString(deviceHandle, token);
         return memUTF8(__result);
     }
@@ -436,7 +454,8 @@ public class ALC10 {
      * @param token        the information to query. One of:<br><table><tr><td>{@link #ALC_MAJOR_VERSION MAJOR_VERSION}</td><td>{@link #ALC_MINOR_VERSION MINOR_VERSION}</td><td>{@link #ALC_ATTRIBUTES_SIZE ATTRIBUTES_SIZE}</td><td>{@link #ALC_ALL_ATTRIBUTES ALL_ATTRIBUTES}</td><td>{@link ALC11#ALC_CAPTURE_SAMPLES CAPTURE_SAMPLES}</td></tr></table>
      * @param dest         the destination buffer
      */
-    public static void alcGetIntegerv(long deviceHandle, int token, IntBuffer dest) {
+    @NativeType("ALCvoid")
+    public static void alcGetIntegerv(@NativeType("ALCdevice *") long deviceHandle, @NativeType("ALCenum") int token, @NativeType("ALCint *") IntBuffer dest) {
         nalcGetIntegerv(deviceHandle, token, dest.remaining(), memAddress(dest));
     }
 
@@ -446,7 +465,8 @@ public class ALC10 {
      * @param deviceHandle the device to query
      * @param token        the information to query. One of:<br><table><tr><td>{@link #ALC_MAJOR_VERSION MAJOR_VERSION}</td><td>{@link #ALC_MINOR_VERSION MINOR_VERSION}</td><td>{@link #ALC_ATTRIBUTES_SIZE ATTRIBUTES_SIZE}</td><td>{@link #ALC_ALL_ATTRIBUTES ALL_ATTRIBUTES}</td><td>{@link ALC11#ALC_CAPTURE_SAMPLES CAPTURE_SAMPLES}</td></tr></table>
      */
-    public static int alcGetInteger(long deviceHandle, int token) {
+    @NativeType("ALCvoid")
+    public static int alcGetInteger(@NativeType("ALCdevice *") long deviceHandle, @NativeType("ALCenum") int token) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer dest = stack.callocInt(1);
@@ -458,7 +478,8 @@ public class ALC10 {
     }
 
     /** Array version of: {@link #alcCreateContext CreateContext} */
-    public static long alcCreateContext(long deviceHandle, int[] attrList) {
+    @NativeType("ALCcontext *")
+    public static long alcCreateContext(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCint *") int[] attrList) {
 		long __functionAddress = ALC.getICD().alcCreateContext;
         if (CHECKS) {
             check(deviceHandle);
@@ -468,7 +489,8 @@ public class ALC10 {
     }
 
     /** Array version of: {@link #alcGetIntegerv GetIntegerv} */
-    public static void alcGetIntegerv(long deviceHandle, int token, int[] dest) {
+    @NativeType("ALCvoid")
+    public static void alcGetIntegerv(@NativeType("ALCdevice *") long deviceHandle, @NativeType("ALCenum") int token, @NativeType("ALCint *") int[] dest) {
 		long __functionAddress = ALC.getICD().alcGetIntegerv;
         invokePPV(__functionAddress, deviceHandle, token, dest.length, dest);
     }

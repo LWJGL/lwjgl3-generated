@@ -74,8 +74,10 @@ public class VkDisplayPlanePropertiesKHR extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code currentDisplay} field. */
+    @NativeType("VkDisplayKHR")
     public long currentDisplay() { return ncurrentDisplay(address()); }
     /** Returns the value of the {@code currentStackIndex} field. */
+    @NativeType("uint32_t")
     public int currentStackIndex() { return ncurrentStackIndex(address()); }
 
     // -----------------------------------
@@ -255,8 +257,10 @@ public class VkDisplayPlanePropertiesKHR extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code currentDisplay} field. */
+        @NativeType("VkDisplayKHR")
         public long currentDisplay() { return VkDisplayPlanePropertiesKHR.ncurrentDisplay(address()); }
         /** Returns the value of the {@code currentStackIndex} field. */
+        @NativeType("uint32_t")
         public int currentStackIndex() { return VkDisplayPlanePropertiesKHR.ncurrentStackIndex(address()); }
 
     }

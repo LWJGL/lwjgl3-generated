@@ -110,12 +110,16 @@ public class VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code filterMinmaxSingleComponentFormats} field. */
+    @NativeType("VkBool32")
     public boolean filterMinmaxSingleComponentFormats() { return nfilterMinmaxSingleComponentFormats(address()) != 0; }
     /** Returns the value of the {@code filterMinmaxImageComponentMapping} field. */
+    @NativeType("VkBool32")
     public boolean filterMinmaxImageComponentMapping() { return nfilterMinmaxImageComponentMapping(address()) != 0; }
 
     // -----------------------------------
@@ -189,12 +193,16 @@ public class VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT extends Struct {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.npNext(address()); }
         /** Returns the value of the {@code filterMinmaxSingleComponentFormats} field. */
+        @NativeType("VkBool32")
         public boolean filterMinmaxSingleComponentFormats() { return VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.nfilterMinmaxSingleComponentFormats(address()) != 0; }
         /** Returns the value of the {@code filterMinmaxImageComponentMapping} field. */
+        @NativeType("VkBool32")
         public boolean filterMinmaxImageComponentMapping() { return VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.nfilterMinmaxImageComponentMapping(address()) != 0; }
 
     }

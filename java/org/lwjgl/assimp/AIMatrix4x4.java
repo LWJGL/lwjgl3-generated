@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float d4;
  * }</pre></code>
  */
+@NativeType("struct aiMatrix4x4")
 public class AIMatrix4x4 extends Struct implements NativeResource {
 
     /** The struct size in bytes. */

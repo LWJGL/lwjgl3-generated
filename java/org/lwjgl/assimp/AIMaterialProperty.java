@@ -53,6 +53,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     char * mData;
  * }</pre></code>
  */
+@NativeType("struct aiMaterialProperty")
 public class AIMaterialProperty extends Struct {
 
     /** The struct size in bytes. */
@@ -108,16 +109,22 @@ public class AIMaterialProperty extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIString} view of the {@code mKey} field. */
+    @NativeType("struct aiString")
     public AIString mKey() { return nmKey(address()); }
     /** Returns the value of the {@code mSemantic} field. */
+    @NativeType("unsigned int")
     public int mSemantic() { return nmSemantic(address()); }
     /** Returns the value of the {@code mIndex} field. */
+    @NativeType("unsigned int")
     public int mIndex() { return nmIndex(address()); }
     /** Returns the value of the {@code mDataLength} field. */
+    @NativeType("unsigned int")
     public int mDataLength() { return nmDataLength(address()); }
     /** Returns the value of the {@code mType} field. */
+    @NativeType("aiPropertyTypeInfo")
     public int mType() { return nmType(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code mData} field. */
+    @NativeType("char *")
     public ByteBuffer mData() { return nmData(address()); }
 
     // -----------------------------------
@@ -195,16 +202,22 @@ public class AIMaterialProperty extends Struct {
         }
 
         /** Returns a {@link AIString} view of the {@code mKey} field. */
+        @NativeType("struct aiString")
         public AIString mKey() { return AIMaterialProperty.nmKey(address()); }
         /** Returns the value of the {@code mSemantic} field. */
+        @NativeType("unsigned int")
         public int mSemantic() { return AIMaterialProperty.nmSemantic(address()); }
         /** Returns the value of the {@code mIndex} field. */
+        @NativeType("unsigned int")
         public int mIndex() { return AIMaterialProperty.nmIndex(address()); }
         /** Returns the value of the {@code mDataLength} field. */
+        @NativeType("unsigned int")
         public int mDataLength() { return AIMaterialProperty.nmDataLength(address()); }
         /** Returns the value of the {@code mType} field. */
+        @NativeType("aiPropertyTypeInfo")
         public int mType() { return AIMaterialProperty.nmType(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code mData} field. */
+        @NativeType("char *")
         public ByteBuffer mData() { return AIMaterialProperty.nmData(address()); }
 
     }

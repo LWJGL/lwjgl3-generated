@@ -141,38 +141,47 @@ public class VkSubmitInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code waitSemaphoreCount} field. */
+    @NativeType("uint32_t")
     public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+    @NativeType("const VkSemaphore *")
     public LongBuffer pWaitSemaphores() { return npWaitSemaphores(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field. */
+    @NativeType("const VkPipelineStageFlags *")
     public IntBuffer pWaitDstStageMask() { return npWaitDstStageMask(address()); }
     /** Returns the value of the {@code commandBufferCount} field. */
+    @NativeType("uint32_t")
     public int commandBufferCount() { return ncommandBufferCount(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field. */
+    @NativeType("const VkCommandBuffer *")
     public PointerBuffer pCommandBuffers() { return npCommandBuffers(address()); }
     /** Returns the value of the {@code signalSemaphoreCount} field. */
+    @NativeType("uint32_t")
     public int signalSemaphoreCount() { return nsignalSemaphoreCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field. */
+    @NativeType("const VkSemaphore *")
     public LongBuffer pSignalSemaphores() { return npSignalSemaphores(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkSubmitInfo sType(int value) { nsType(address(), value); return this; }
+    public VkSubmitInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSubmitInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkSubmitInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code waitSemaphoreCount} field. */
-    public VkSubmitInfo waitSemaphoreCount(int value) { nwaitSemaphoreCount(address(), value); return this; }
+    public VkSubmitInfo waitSemaphoreCount(@NativeType("uint32_t") int value) { nwaitSemaphoreCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-    public VkSubmitInfo pWaitSemaphores(LongBuffer value) { npWaitSemaphores(address(), value); return this; }
+    public VkSubmitInfo pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { npWaitSemaphores(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */
-    public VkSubmitInfo pWaitDstStageMask(IntBuffer value) { npWaitDstStageMask(address(), value); return this; }
+    public VkSubmitInfo pWaitDstStageMask(@NativeType("const VkPipelineStageFlags *") IntBuffer value) { npWaitDstStageMask(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code pCommandBuffers} field. */
-    public VkSubmitInfo pCommandBuffers(PointerBuffer value) { npCommandBuffers(address(), value); return this; }
+    public VkSubmitInfo pCommandBuffers(@NativeType("const VkCommandBuffer *") PointerBuffer value) { npCommandBuffers(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
-    public VkSubmitInfo pSignalSemaphores(LongBuffer value) { npSignalSemaphores(address(), value); return this; }
+    public VkSubmitInfo pSignalSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { npSignalSemaphores(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSubmitInfo set(
@@ -447,38 +456,47 @@ public class VkSubmitInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSubmitInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkSubmitInfo.npNext(address()); }
         /** Returns the value of the {@code waitSemaphoreCount} field. */
+        @NativeType("uint32_t")
         public int waitSemaphoreCount() { return VkSubmitInfo.nwaitSemaphoreCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+        @NativeType("const VkSemaphore *")
         public LongBuffer pWaitSemaphores() { return VkSubmitInfo.npWaitSemaphores(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field. */
+        @NativeType("const VkPipelineStageFlags *")
         public IntBuffer pWaitDstStageMask() { return VkSubmitInfo.npWaitDstStageMask(address()); }
         /** Returns the value of the {@code commandBufferCount} field. */
+        @NativeType("uint32_t")
         public int commandBufferCount() { return VkSubmitInfo.ncommandBufferCount(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field. */
+        @NativeType("const VkCommandBuffer *")
         public PointerBuffer pCommandBuffers() { return VkSubmitInfo.npCommandBuffers(address()); }
         /** Returns the value of the {@code signalSemaphoreCount} field. */
+        @NativeType("uint32_t")
         public int signalSemaphoreCount() { return VkSubmitInfo.nsignalSemaphoreCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field. */
+        @NativeType("const VkSemaphore *")
         public LongBuffer pSignalSemaphores() { return VkSubmitInfo.npSignalSemaphores(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkSubmitInfo.Buffer sType(int value) { VkSubmitInfo.nsType(address(), value); return this; }
+        public VkSubmitInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkSubmitInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSubmitInfo.Buffer pNext(long value) { VkSubmitInfo.npNext(address(), value); return this; }
+        public VkSubmitInfo.Buffer pNext(@NativeType("const void *") long value) { VkSubmitInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code waitSemaphoreCount} field. */
-        public VkSubmitInfo.Buffer waitSemaphoreCount(int value) { VkSubmitInfo.nwaitSemaphoreCount(address(), value); return this; }
+        public VkSubmitInfo.Buffer waitSemaphoreCount(@NativeType("uint32_t") int value) { VkSubmitInfo.nwaitSemaphoreCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-        public VkSubmitInfo.Buffer pWaitSemaphores(LongBuffer value) { VkSubmitInfo.npWaitSemaphores(address(), value); return this; }
+        public VkSubmitInfo.Buffer pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { VkSubmitInfo.npWaitSemaphores(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */
-        public VkSubmitInfo.Buffer pWaitDstStageMask(IntBuffer value) { VkSubmitInfo.npWaitDstStageMask(address(), value); return this; }
+        public VkSubmitInfo.Buffer pWaitDstStageMask(@NativeType("const VkPipelineStageFlags *") IntBuffer value) { VkSubmitInfo.npWaitDstStageMask(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code pCommandBuffers} field. */
-        public VkSubmitInfo.Buffer pCommandBuffers(PointerBuffer value) { VkSubmitInfo.npCommandBuffers(address(), value); return this; }
+        public VkSubmitInfo.Buffer pCommandBuffers(@NativeType("const VkCommandBuffer *") PointerBuffer value) { VkSubmitInfo.npCommandBuffers(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
-        public VkSubmitInfo.Buffer pSignalSemaphores(LongBuffer value) { VkSubmitInfo.npSignalSemaphores(address(), value); return this; }
+        public VkSubmitInfo.Buffer pSignalSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { VkSubmitInfo.npSignalSemaphores(address(), value); return this; }
 
     }
 

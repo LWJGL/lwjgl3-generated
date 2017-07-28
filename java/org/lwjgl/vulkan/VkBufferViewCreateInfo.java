@@ -128,34 +128,41 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkBufferViewCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("VkBuffer")
     public long buffer() { return nbuffer(address()); }
     /** Returns the value of the {@code format} field. */
+    @NativeType("VkFormat")
     public int format() { return nformat(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("VkDeviceSize")
     public long offset() { return noffset(address()); }
     /** Returns the value of the {@code range} field. */
+    @NativeType("VkDeviceSize")
     public long range() { return nrange(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkBufferViewCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkBufferViewCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBufferViewCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkBufferViewCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkBufferViewCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkBufferViewCreateInfo flags(@NativeType("VkBufferViewCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
-    public VkBufferViewCreateInfo buffer(long value) { nbuffer(address(), value); return this; }
+    public VkBufferViewCreateInfo buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
-    public VkBufferViewCreateInfo format(int value) { nformat(address(), value); return this; }
+    public VkBufferViewCreateInfo format(@NativeType("VkFormat") int value) { nformat(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkBufferViewCreateInfo offset(long value) { noffset(address(), value); return this; }
+    public VkBufferViewCreateInfo offset(@NativeType("VkDeviceSize") long value) { noffset(address(), value); return this; }
     /** Sets the specified value to the {@code range} field. */
-    public VkBufferViewCreateInfo range(long value) { nrange(address(), value); return this; }
+    public VkBufferViewCreateInfo range(@NativeType("VkDeviceSize") long value) { nrange(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBufferViewCreateInfo set(
@@ -392,34 +399,41 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkBufferViewCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkBufferViewCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkBufferViewCreateFlags")
         public int flags() { return VkBufferViewCreateInfo.nflags(address()); }
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("VkBuffer")
         public long buffer() { return VkBufferViewCreateInfo.nbuffer(address()); }
         /** Returns the value of the {@code format} field. */
+        @NativeType("VkFormat")
         public int format() { return VkBufferViewCreateInfo.nformat(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("VkDeviceSize")
         public long offset() { return VkBufferViewCreateInfo.noffset(address()); }
         /** Returns the value of the {@code range} field. */
+        @NativeType("VkDeviceSize")
         public long range() { return VkBufferViewCreateInfo.nrange(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkBufferViewCreateInfo.Buffer sType(int value) { VkBufferViewCreateInfo.nsType(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkBufferViewCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBufferViewCreateInfo.Buffer pNext(long value) { VkBufferViewCreateInfo.npNext(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkBufferViewCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkBufferViewCreateInfo.Buffer flags(int value) { VkBufferViewCreateInfo.nflags(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer flags(@NativeType("VkBufferViewCreateFlags") int value) { VkBufferViewCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
-        public VkBufferViewCreateInfo.Buffer buffer(long value) { VkBufferViewCreateInfo.nbuffer(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer buffer(@NativeType("VkBuffer") long value) { VkBufferViewCreateInfo.nbuffer(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
-        public VkBufferViewCreateInfo.Buffer format(int value) { VkBufferViewCreateInfo.nformat(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer format(@NativeType("VkFormat") int value) { VkBufferViewCreateInfo.nformat(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkBufferViewCreateInfo.Buffer offset(long value) { VkBufferViewCreateInfo.noffset(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer offset(@NativeType("VkDeviceSize") long value) { VkBufferViewCreateInfo.noffset(address(), value); return this; }
         /** Sets the specified value to the {@code range} field. */
-        public VkBufferViewCreateInfo.Buffer range(long value) { VkBufferViewCreateInfo.nrange(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer range(@NativeType("VkDeviceSize") long value) { VkBufferViewCreateInfo.nrange(address(), value); return this; }
 
     }
 

@@ -2021,7 +2021,8 @@ public class VR {
      *
      * @return a VR interface handles token
      */
-    public static int VR_InitInternal(IntBuffer peError, int eType) {
+    @NativeType("uint32_t")
+    public static int VR_InitInternal(@NativeType("EVRInitError *") IntBuffer peError, @NativeType("EVRApplicationType") int eType) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -2048,6 +2049,7 @@ public class VR {
      * <p>This function will return true in situations where {@link #VR_InitInternal InitInternal} will return {@code NULL}. It is a quick way to eliminate users that have no VR hardware,
      * but there are some startup conditions that can only be detected by starting the system.</p>
      */
+    @NativeType("bool")
     public static boolean VR_IsHmdPresent() {
         long __functionAddress = Functions.IsHmdPresent;
         return invokeZ(__functionAddress);
@@ -2068,7 +2070,8 @@ public class VR {
      * @param pchInterfaceVersion the interface name and version
      * @param peError             a buffer in which to store the error code
      */
-    public static long VR_GetGenericInterface(ByteBuffer pchInterfaceVersion, IntBuffer peError) {
+    @NativeType("intptr_t")
+    public static long VR_GetGenericInterface(@NativeType("const char *") ByteBuffer pchInterfaceVersion, @NativeType("EVRInitError *") IntBuffer peError) {
         if (CHECKS) {
             checkNT1(pchInterfaceVersion);
             check(peError, 1);
@@ -2083,7 +2086,8 @@ public class VR {
      * @param pchInterfaceVersion the interface name and version
      * @param peError             a buffer in which to store the error code
      */
-    public static long VR_GetGenericInterface(CharSequence pchInterfaceVersion, IntBuffer peError) {
+    @NativeType("intptr_t")
+    public static long VR_GetGenericInterface(@NativeType("const char *") CharSequence pchInterfaceVersion, @NativeType("EVRInitError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -2099,6 +2103,7 @@ public class VR {
     // --- [ VR_IsRuntimeInstalled ] ---
 
     /** Returns true if the OpenVR runtime is installed on the system. */
+    @NativeType("bool")
     public static boolean VR_IsRuntimeInstalled() {
         long __functionAddress = Functions.IsRuntimeInstalled;
         return invokeZ(__functionAddress);
@@ -2113,6 +2118,7 @@ public class VR {
     }
 
     /** Returns where the OpenVR runtime is installed. */
+    @NativeType("char *")
     public static String VR_RuntimePath() {
         long __result = nVR_RuntimePath();
         return memASCII(__result);
@@ -2131,7 +2137,8 @@ public class VR {
      *
      * @param pchInterfaceVersion the interface name and version
      */
-    public static boolean VR_IsInterfaceVersionValid(ByteBuffer pchInterfaceVersion) {
+    @NativeType("bool")
+    public static boolean VR_IsInterfaceVersionValid(@NativeType("const char *") ByteBuffer pchInterfaceVersion) {
         if (CHECKS) {
             checkNT1(pchInterfaceVersion);
         }
@@ -2143,7 +2150,8 @@ public class VR {
      *
      * @param pchInterfaceVersion the interface name and version
      */
-    public static boolean VR_IsInterfaceVersionValid(CharSequence pchInterfaceVersion) {
+    @NativeType("bool")
+    public static boolean VR_IsInterfaceVersionValid(@NativeType("const char *") CharSequence pchInterfaceVersion) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchInterfaceVersionEncoded = stack.ASCII(pchInterfaceVersion);
@@ -2156,6 +2164,7 @@ public class VR {
     // --- [ VR_GetInitToken ] ---
 
     /** Returns a token that represents whether the VR interface handles need to be reloaded. */
+    @NativeType("uint32_t")
     public static int VR_GetInitToken() {
         long __functionAddress = Functions.GetInitToken;
         return invokeI(__functionAddress);
@@ -2174,7 +2183,8 @@ public class VR {
      *
      * @param error the error code
      */
-    public static String VR_GetVRInitErrorAsSymbol(int error) {
+    @NativeType("const char *")
+    public static String VR_GetVRInitErrorAsSymbol(@NativeType("EVRInitError") int error) {
         long __result = nVR_GetVRInitErrorAsSymbol(error);
         return memASCII(__result);
     }
@@ -2195,7 +2205,8 @@ public class VR {
      *
      * @param error the error code
      */
-    public static String VR_GetVRInitErrorAsEnglishDescription(int error) {
+    @NativeType("const char *")
+    public static String VR_GetVRInitErrorAsEnglishDescription(@NativeType("EVRInitError") int error) {
         long __result = nVR_GetVRInitErrorAsEnglishDescription(error);
         return memASCII(__result);
     }

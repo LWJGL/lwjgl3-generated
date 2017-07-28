@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     bool bScrollWheelVisible;
  * }</pre></code>
  */
+@NativeType("struct RenderModel_ControllerMode_State_t")
 public class RenderModelControllerModeState extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -67,10 +68,11 @@ public class RenderModelControllerModeState extends Struct implements NativeReso
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code bScrollWheelVisible} field. */
+    @NativeType("bool")
     public boolean bScrollWheelVisible() { return nbScrollWheelVisible(address()); }
 
     /** Sets the specified value to the {@code bScrollWheelVisible} field. */
-    public RenderModelControllerModeState bScrollWheelVisible(boolean value) { nbScrollWheelVisible(address(), value); return this; }
+    public RenderModelControllerModeState bScrollWheelVisible(@NativeType("bool") boolean value) { nbScrollWheelVisible(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -262,10 +264,11 @@ public class RenderModelControllerModeState extends Struct implements NativeReso
         }
 
         /** Returns the value of the {@code bScrollWheelVisible} field. */
+        @NativeType("bool")
         public boolean bScrollWheelVisible() { return RenderModelControllerModeState.nbScrollWheelVisible(address()); }
 
         /** Sets the specified value to the {@code bScrollWheelVisible} field. */
-        public RenderModelControllerModeState.Buffer bScrollWheelVisible(boolean value) { RenderModelControllerModeState.nbScrollWheelVisible(address(), value); return this; }
+        public RenderModelControllerModeState.Buffer bScrollWheelVisible(@NativeType("bool") boolean value) { RenderModelControllerModeState.nbScrollWheelVisible(address(), value); return this; }
 
     }
 

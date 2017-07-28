@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCharCallback SetCharCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWcharfun")
 public interface GLFWCharCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";
@@ -32,6 +33,6 @@ public interface GLFWCharCallbackI extends CallbackI.V {
      * @param window    the window that received the event
      * @param codepoint the Unicode code point of the character
      */
-    void invoke(long window, int codepoint);
+    void invoke(@NativeType("GLFWwindow *") long window, @NativeType("unsigned int") int codepoint);
 
 }

@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     char * types;
  * }</pre></code>
  */
+@NativeType("struct objc_method_description")
 public class ObjCMethodDescription extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -74,10 +75,13 @@ public class ObjCMethodDescription extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code name} field. */
+    @NativeType("SEL")
     public long name() { return nname(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code types} field. */
+    @NativeType("char *")
     public ByteBuffer types() { return ntypes(address()); }
     /** Decodes the null-terminated string pointed to by the {@code types} field. */
+    @NativeType("char *")
     public String typesString() { return ntypesString(address()); }
 
     // -----------------------------------
@@ -259,10 +263,13 @@ public class ObjCMethodDescription extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code name} field. */
+        @NativeType("SEL")
         public long name() { return ObjCMethodDescription.nname(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code types} field. */
+        @NativeType("char *")
         public ByteBuffer types() { return ObjCMethodDescription.ntypes(address()); }
         /** Decodes the null-terminated string pointed to by the {@code types} field. */
+        @NativeType("char *")
         public String typesString() { return ObjCMethodDescription.ntypesString(address()); }
 
     }

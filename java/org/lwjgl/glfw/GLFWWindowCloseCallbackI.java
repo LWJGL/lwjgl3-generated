@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWwindowclosefun")
 public interface GLFWWindowCloseCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";
@@ -30,6 +31,6 @@ public interface GLFWWindowCloseCallbackI extends CallbackI.V {
      *
      * @param window the window that the user attempted to close
      */
-    void invoke(long window);
+    void invoke(@NativeType("GLFWwindow *") long window);
 
 }

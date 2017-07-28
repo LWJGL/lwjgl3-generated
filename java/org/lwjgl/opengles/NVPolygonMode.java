@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -46,6 +48,6 @@ public class NVPolygonMode {
 
     // --- [ glPolygonModeNV ] ---
 
-    public static native void glPolygonModeNV(int face, int mode);
+    public static native void glPolygonModeNV(@NativeType("GLenum") int face, @NativeType("GLenum") int mode);
 
 }

@@ -90,8 +90,10 @@ public class VkSparseImageFormatProperties2KHR extends Struct implements NativeR
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkSparseImageFormatProperties} view of the {@code properties} field. */
     public VkSparseImageFormatProperties properties() { return nproperties(address()); }
@@ -275,8 +277,10 @@ public class VkSparseImageFormatProperties2KHR extends Struct implements NativeR
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSparseImageFormatProperties2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkSparseImageFormatProperties2KHR.npNext(address()); }
         /** Returns a {@link VkSparseImageFormatProperties} view of the {@code properties} field. */
         public VkSparseImageFormatProperties properties() { return VkSparseImageFormatProperties2KHR.nproperties(address()); }

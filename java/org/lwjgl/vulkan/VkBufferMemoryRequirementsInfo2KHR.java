@@ -91,18 +91,21 @@ public class VkBufferMemoryRequirementsInfo2KHR extends Struct implements Native
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("VkBuffer")
     public long buffer() { return nbuffer(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkBufferMemoryRequirementsInfo2KHR sType(int value) { nsType(address(), value); return this; }
+    public VkBufferMemoryRequirementsInfo2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBufferMemoryRequirementsInfo2KHR pNext(long value) { npNext(address(), value); return this; }
+    public VkBufferMemoryRequirementsInfo2KHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
-    public VkBufferMemoryRequirementsInfo2KHR buffer(long value) { nbuffer(address(), value); return this; }
+    public VkBufferMemoryRequirementsInfo2KHR buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBufferMemoryRequirementsInfo2KHR set(
@@ -315,18 +318,21 @@ public class VkBufferMemoryRequirementsInfo2KHR extends Struct implements Native
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkBufferMemoryRequirementsInfo2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkBufferMemoryRequirementsInfo2KHR.npNext(address()); }
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("VkBuffer")
         public long buffer() { return VkBufferMemoryRequirementsInfo2KHR.nbuffer(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkBufferMemoryRequirementsInfo2KHR.Buffer sType(int value) { VkBufferMemoryRequirementsInfo2KHR.nsType(address(), value); return this; }
+        public VkBufferMemoryRequirementsInfo2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkBufferMemoryRequirementsInfo2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBufferMemoryRequirementsInfo2KHR.Buffer pNext(long value) { VkBufferMemoryRequirementsInfo2KHR.npNext(address(), value); return this; }
+        public VkBufferMemoryRequirementsInfo2KHR.Buffer pNext(@NativeType("const void *") long value) { VkBufferMemoryRequirementsInfo2KHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
-        public VkBufferMemoryRequirementsInfo2KHR.Buffer buffer(long value) { VkBufferMemoryRequirementsInfo2KHR.nbuffer(address(), value); return this; }
+        public VkBufferMemoryRequirementsInfo2KHR.Buffer buffer(@NativeType("VkBuffer") long value) { VkBufferMemoryRequirementsInfo2KHR.nbuffer(address(), value); return this; }
 
     }
 

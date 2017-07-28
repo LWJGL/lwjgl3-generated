@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 import org.lwjgl.opencl.*;
@@ -59,7 +61,8 @@ public class ARBCLEvent {
      * @param event   a valid OpenCL event
      * @param flags   must be 0 (placeholder for anticipated future extensions of sync object capabilities)
      */
-    public static long glCreateSyncFromCLeventARB(long context, long event, int flags) {
+    @NativeType("GLsync")
+    public static long glCreateSyncFromCLeventARB(@NativeType("cl_context") long context, @NativeType("cl_event") long event, @NativeType("GLbitfield") int flags) {
         if (CHECKS) {
             check(context);
             check(event);

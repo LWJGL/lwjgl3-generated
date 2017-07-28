@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     int image;
  * }</pre></code>
  */
+@NativeType("struct NVGLUframebuffer")
 public class NVGLUFramebuffer extends Struct {
 
     /** The struct size in bytes. */
@@ -82,10 +83,13 @@ public class NVGLUFramebuffer extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code fbo} field. */
+    @NativeType("GLuint")
     public int fbo() { return nfbo(address()); }
     /** Returns the value of the {@code rbo} field. */
+    @NativeType("GLuint")
     public int rbo() { return nrbo(address()); }
     /** Returns the value of the {@code texture} field. */
+    @NativeType("GLuint")
     public int texture() { return ntexture(address()); }
     /** Returns the value of the {@code image} field. */
     public int image() { return nimage(address()); }
@@ -161,10 +165,13 @@ public class NVGLUFramebuffer extends Struct {
         }
 
         /** Returns the value of the {@code fbo} field. */
+        @NativeType("GLuint")
         public int fbo() { return NVGLUFramebuffer.nfbo(address()); }
         /** Returns the value of the {@code rbo} field. */
+        @NativeType("GLuint")
         public int rbo() { return NVGLUFramebuffer.nrbo(address()); }
         /** Returns the value of the {@code texture} field. */
+        @NativeType("GLuint")
         public int texture() { return NVGLUFramebuffer.ntexture(address()); }
         /** Returns the value of the {@code image} field. */
         public int image() { return NVGLUFramebuffer.nimage(address()); }

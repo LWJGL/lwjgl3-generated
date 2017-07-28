@@ -86,16 +86,22 @@ public class VkLayerProperties extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the {@code layerName} field. */
+    @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
     public ByteBuffer layerName() { return nlayerName(address()); }
     /** Decodes the null-terminated string stored in the {@code layerName} field. */
+    @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
     public String layerNameString() { return nlayerNameString(address()); }
     /** Returns the value of the {@code specVersion} field. */
+    @NativeType("uint32_t")
     public int specVersion() { return nspecVersion(address()); }
     /** Returns the value of the {@code implementationVersion} field. */
+    @NativeType("uint32_t")
     public int implementationVersion() { return nimplementationVersion(address()); }
     /** Returns a {@link ByteBuffer} view of the {@code description} field. */
+    @NativeType("char[VK_MAX_DESCRIPTION_SIZE]")
     public ByteBuffer description() { return ndescription(address()); }
     /** Decodes the null-terminated string stored in the {@code description} field. */
+    @NativeType("char[VK_MAX_DESCRIPTION_SIZE]")
     public String descriptionString() { return ndescriptionString(address()); }
 
     // -----------------------------------
@@ -283,16 +289,22 @@ public class VkLayerProperties extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the {@code layerName} field. */
+        @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
         public ByteBuffer layerName() { return VkLayerProperties.nlayerName(address()); }
         /** Decodes the null-terminated string stored in the {@code layerName} field. */
+        @NativeType("char[VK_MAX_EXTENSION_NAME_SIZE]")
         public String layerNameString() { return VkLayerProperties.nlayerNameString(address()); }
         /** Returns the value of the {@code specVersion} field. */
+        @NativeType("uint32_t")
         public int specVersion() { return VkLayerProperties.nspecVersion(address()); }
         /** Returns the value of the {@code implementationVersion} field. */
+        @NativeType("uint32_t")
         public int implementationVersion() { return VkLayerProperties.nimplementationVersion(address()); }
         /** Returns a {@link ByteBuffer} view of the {@code description} field. */
+        @NativeType("char[VK_MAX_DESCRIPTION_SIZE]")
         public ByteBuffer description() { return VkLayerProperties.ndescription(address()); }
         /** Decodes the null-terminated string stored in the {@code description} field. */
+        @NativeType("char[VK_MAX_DESCRIPTION_SIZE]")
         public String descriptionString() { return VkLayerProperties.ndescriptionString(address()); }
 
     }

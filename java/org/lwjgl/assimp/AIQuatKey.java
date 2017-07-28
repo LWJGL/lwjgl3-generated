@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link AIQuaternion struct aiQuaternion} mValue;
  * }</pre></code>
  */
+@NativeType("struct aiQuatKey")
 public class AIQuatKey extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -76,12 +77,13 @@ public class AIQuatKey extends Struct implements NativeResource {
     /** Returns the value of the {@code mTime} field. */
     public double mTime() { return nmTime(address()); }
     /** Returns a {@link AIQuaternion} view of the {@code mValue} field. */
+    @NativeType("struct aiQuaternion")
     public AIQuaternion mValue() { return nmValue(address()); }
 
     /** Sets the specified value to the {@code mTime} field. */
     public AIQuatKey mTime(double value) { nmTime(address(), value); return this; }
     /** Copies the specified {@link AIQuaternion} to the {@code mValue} field. */
-    public AIQuatKey mValue(AIQuaternion value) { nmValue(address(), value); return this; }
+    public AIQuatKey mValue(@NativeType("struct aiQuaternion") AIQuaternion value) { nmValue(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIQuatKey set(
@@ -290,12 +292,13 @@ public class AIQuatKey extends Struct implements NativeResource {
         /** Returns the value of the {@code mTime} field. */
         public double mTime() { return AIQuatKey.nmTime(address()); }
         /** Returns a {@link AIQuaternion} view of the {@code mValue} field. */
+        @NativeType("struct aiQuaternion")
         public AIQuaternion mValue() { return AIQuatKey.nmValue(address()); }
 
         /** Sets the specified value to the {@code mTime} field. */
         public AIQuatKey.Buffer mTime(double value) { AIQuatKey.nmTime(address(), value); return this; }
         /** Copies the specified {@link AIQuaternion} to the {@code mValue} field. */
-        public AIQuatKey.Buffer mValue(AIQuaternion value) { AIQuatKey.nmValue(address(), value); return this; }
+        public AIQuatKey.Buffer mValue(@NativeType("struct aiQuaternion") AIQuaternion value) { AIQuatKey.nmValue(address(), value); return this; }
 
     }
 

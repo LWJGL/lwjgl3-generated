@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -104,7 +106,8 @@ public class GLXSGIXPbuffer {
      * @param height      the pbuffer height
      * @param attrib_list an optional null-terminated list of attributes
      */
-    public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, IntBuffer attrib_list) {
+    @NativeType("GLXPbuffer")
+    public static long glXCreateGLXPbufferSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("unsigned int") int width, @NativeType("unsigned int") int height, @NativeType("int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -119,7 +122,7 @@ public class GLXSGIXPbuffer {
      * @param display the connection to the X server
      * @param pbuf    the pbuffer to destroy
      */
-    public static void glXDestroyGLXPbufferSGIX(long display, long pbuf) {
+    public static void glXDestroyGLXPbufferSGIX(@NativeType("Display *") long display, @NativeType("GLXPbuffer") long pbuf) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXDestroyGLXPbufferSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -150,7 +153,7 @@ public class GLXSGIXPbuffer {
      * @param attribute the attribute to query
      * @param value     returns the attribute value
      */
-    public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, IntBuffer value) {
+    public static void glXQueryGLXPbufferSGIX(@NativeType("Display *") long display, @NativeType("GLXPbuffer") long pbuf, int attribute, @NativeType("unsigned int *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -166,7 +169,7 @@ public class GLXSGIXPbuffer {
      * @param drawable the GLXDrawable
      * @param mask     the selection mask
      */
-    public static void glXSelectEventSGIX(long display, long drawable, long mask) {
+    public static void glXSelectEventSGIX(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, @NativeType("unsigned long") long mask) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXSelectEventSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -196,7 +199,7 @@ public class GLXSGIXPbuffer {
      * @param drawable the GLXDrawable
      * @param mask     returns the selection mask
      */
-    public static void glXGetSelectedEventSGIX(long display, long drawable, PointerBuffer mask) {
+    public static void glXGetSelectedEventSGIX(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, @NativeType("unsigned long *") PointerBuffer mask) {
         if (CHECKS) {
             check(mask, 1);
         }
@@ -204,7 +207,8 @@ public class GLXSGIXPbuffer {
     }
 
     /** Array version of: {@link #glXCreateGLXPbufferSGIX CreateGLXPbufferSGIX} */
-    public static long glXCreateGLXPbufferSGIX(long display, long config, int width, int height, int[] attrib_list) {
+    @NativeType("GLXPbuffer")
+    public static long glXCreateGLXPbufferSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("unsigned int") int width, @NativeType("unsigned int") int height, @NativeType("int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateGLXPbufferSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -216,7 +220,7 @@ public class GLXSGIXPbuffer {
     }
 
     /** Array version of: {@link #glXQueryGLXPbufferSGIX QueryGLXPbufferSGIX} */
-    public static void glXQueryGLXPbufferSGIX(long display, long pbuf, int attribute, int[] value) {
+    public static void glXQueryGLXPbufferSGIX(@NativeType("Display *") long display, @NativeType("GLXPbuffer") long pbuf, int attribute, @NativeType("unsigned int *") int[] value) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXQueryGLXPbufferSGIX;
         if (CHECKS) {
             check(__functionAddress);

@@ -286,6 +286,7 @@ public class CGL {
     // --- [ CGLGetCurrentContext ] ---
 
     /** Returns the current rendering context. If there is none, returns {@code NULL}. */
+    @NativeType("CGLContextObj")
     public static long CGLGetCurrentContext() {
         long __functionAddress = Functions.GetCurrentContext;
         return callP(__functionAddress);
@@ -305,7 +306,8 @@ public class CGL {
      *
      * @param context the rendering context to set as the current rendering context. Pass {@code NULL} to release the current rendering context without assigning a new one.
      */
-    public static int CGLSetCurrentContext(long context) {
+    @NativeType("CGLError")
+    public static int CGLSetCurrentContext(@NativeType("CGLContextObj") long context) {
         long __functionAddress = Functions.SetCurrentContext;
         if (CHECKS) {
             check(context);
@@ -320,7 +322,8 @@ public class CGL {
      *
      * @param ctx a rendering context
      */
-    public static long CGLGetShareGroup(long ctx) {
+    @NativeType("CGLShareGroupObj")
+    public static long CGLGetShareGroup(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.GetShareGroup;
         if (CHECKS) {
             check(ctx);
@@ -347,7 +350,8 @@ public class CGL {
      *                pix is set to {@code NULL}.
      * @param npix    on return, points to the number of virtual screens referenced by pix. If pix is {@code NULL}, the value of {@code npix} is set to 0.
      */
-    public static int CGLChoosePixelFormat(IntBuffer attribs, PointerBuffer pix, IntBuffer npix) {
+    @NativeType("CGLError")
+    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") IntBuffer attribs, @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") IntBuffer npix) {
         if (CHECKS) {
             checkNT(attribs);
             checkSafe(pix, 1);
@@ -363,7 +367,8 @@ public class CGL {
      *
      * @param pix the pixel format object to destroy
      */
-    public static int CGLDestroyPixelFormat(long pix) {
+    @NativeType("CGLError")
+    public static int CGLDestroyPixelFormat(@NativeType("CGLPixelFormatObj") long pix) {
         long __functionAddress = Functions.DestroyPixelFormat;
         if (CHECKS) {
             check(pix);
@@ -390,7 +395,8 @@ public class CGL {
      * @param attrib  the attribute whose value you want to obtain. One of:<br><table><tr><td>{@link #kCGLPFAAllRenderers PFAAllRenderers}</td><td>{@link #kCGLPFATripleBuffer PFATripleBuffer}</td><td>{@link #kCGLPFADoubleBuffer PFADoubleBuffer}</td><td>{@link #kCGLPFAStereo PFAStereo}</td><td>{@link #kCGLPFAColorSize PFAColorSize}</td></tr><tr><td>{@link #kCGLPFAAlphaSize PFAAlphaSize}</td><td>{@link #kCGLPFADepthSize PFADepthSize}</td><td>{@link #kCGLPFAStencilSize PFAStencilSize}</td><td>{@link #kCGLPFAMinimumPolicy PFAMinimumPolicy}</td><td>{@link #kCGLPFAMaximumPolicy PFAMaximumPolicy}</td></tr><tr><td>{@link #kCGLPFASampleBuffers PFASampleBuffers}</td><td>{@link #kCGLPFASamples PFASamples}</td><td>{@link #kCGLPFAColorFloat PFAColorFloat}</td><td>{@link #kCGLPFAMultisample PFAMultisample}</td><td>{@link #kCGLPFASupersample PFASupersample}</td></tr><tr><td>{@link #kCGLPFASampleAlpha PFASampleAlpha}</td><td>{@link #kCGLPFARendererID PFARendererID}</td><td>{@link #kCGLPFASingleRenderer PFASingleRenderer}</td><td>{@link #kCGLPFANoRecovery PFANoRecovery}</td><td>{@link #kCGLPFAAccelerated PFAAccelerated}</td></tr><tr><td>{@link #kCGLPFAClosestPolicy PFAClosestPolicy}</td><td>{@link #kCGLPFABackingStore PFABackingStore}</td><td>{@link #kCGLPFABackingVolatile PFABackingVolatile}</td><td>{@link #kCGLPFADisplayMask PFADisplayMask}</td><td>{@link #kCGLPFAAllowOfflineRenderers PFAAllowOfflineRenderers}</td></tr><tr><td>{@link #kCGLPFAAcceleratedCompute PFAAcceleratedCompute}</td><td>{@link #kCGLPFAOpenGLProfile PFAOpenGLProfile}</td><td>{@link #kCGLPFASupportsAutomaticGraphicsSwitching PFASupportsAutomaticGraphicsSwitching}</td><td>{@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}</td><td>{@link #kCGLPFAAuxBuffers PFAAuxBuffers}</td></tr><tr><td>{@link #kCGLPFAAccumSize PFAAccumSize}</td><td>{@link #kCGLPFAOffScreen PFAOffScreen}</td><td>{@link #kCGLPFAAuxDepthStencil PFAAuxDepthStencil}</td><td>{@link #kCGLPFAWindow PFAWindow}</td><td>{@link #kCGLPFACompliant PFACompliant}</td></tr><tr><td>{@link #kCGLPFAPBuffer PFAPBuffer}</td><td>{@link #kCGLPFARemotePBuffer PFARemotePBuffer}</td><td>{@link #kCGLPFARobust PFARobust}</td><td>{@link #kCGLPFAMPSafe PFAMPSafe}</td><td>{@link #kCGLPFAMultiScreen PFAMultiScreen}</td></tr><tr><td>{@link #kCGLPFAFullScreen PFAFullScreen}</td></tr></table>
      * @param value   on return, points to the value of the attribute
      */
-    public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, IntBuffer value) {
+    @NativeType("CGLError")
+    public static int CGLDescribePixelFormat(@NativeType("CGLPixelFormatObj") long pix, @NativeType("GLint") int pix_num, @NativeType("CGLPixelFormatAttribute") int attrib, @NativeType("GLint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -409,7 +415,7 @@ public class CGL {
      *
      * @param pix the pixel format object whose reference count should be decremented
      */
-    public static void CGLReleasePixelFormat(long pix) {
+    public static void CGLReleasePixelFormat(@NativeType("CGLPixelFormatObj") long pix) {
         long __functionAddress = Functions.ReleasePixelFormat;
         if (CHECKS) {
             check(pix);
@@ -427,7 +433,8 @@ public class CGL {
      *
      * @param pix the pixel format object whose reference count should be incremented
      */
-    public static long CGLRetainPixelFormat(long pix) {
+    @NativeType("CGLPixelFormatObj")
+    public static long CGLRetainPixelFormat(@NativeType("CGLPixelFormatObj") long pix) {
         long __functionAddress = Functions.RetainPixelFormat;
         if (CHECKS) {
             check(pix);
@@ -442,7 +449,8 @@ public class CGL {
      *
      * @param pix a pixel format object
      */
-    public static int CGLGetPixelFormatRetainCount(long pix) {
+    @NativeType("GLuint")
+    public static int CGLGetPixelFormatRetainCount(@NativeType("CGLPixelFormatObj") long pix) {
         long __functionAddress = Functions.GetPixelFormatRetainCount;
         if (CHECKS) {
             check(pix);
@@ -470,7 +478,8 @@ public class CGL {
      * @param nrend        on return, points to the number of renderers described in the renderer information object. If {@code display_mask} does not specify any displays,
      *                     the value of {@code nrend} is set to 0.
      */
-    public static int CGLQueryRendererInfo(int display_mask, PointerBuffer rend, IntBuffer nrend) {
+    @NativeType("CGLError")
+    public static int CGLQueryRendererInfo(@NativeType("GLuint") int display_mask, @NativeType("CGLRendererInfoObj *") PointerBuffer rend, @NativeType("GLint *") IntBuffer nrend) {
         if (CHECKS) {
             check(rend, 1);
             check(nrend, 1);
@@ -485,7 +494,8 @@ public class CGL {
      *
      * @param rend the renderer information object to destroy
      */
-    public static int CGLDestroyRendererInfo(long rend) {
+    @NativeType("CGLError")
+    public static int CGLDestroyRendererInfo(@NativeType("CGLRendererInfoObj") long rend) {
         long __functionAddress = Functions.DestroyRendererInfo;
         if (CHECKS) {
             check(rend);
@@ -516,7 +526,8 @@ public class CGL {
      * @param prop     the renderer property whose value you want to obtain. One of:<br><table><tr><td>{@link #kCGLRPOffScreen RPOffScreen}</td><td>{@link #kCGLRPRendererID RPRendererID}</td><td>{@link #kCGLRPAccelerated RPAccelerated}</td><td>{@link #kCGLRPBackingStore RPBackingStore}</td><td>{@link #kCGLRPWindow RPWindow}</td></tr><tr><td>{@link #kCGLRPCompliant RPCompliant}</td><td>{@link #kCGLRPDisplayMask RPDisplayMask}</td><td>{@link #kCGLRPBufferModes RPBufferModes}</td><td>{@link #kCGLRPColorModes RPColorModes}</td><td>{@link #kCGLRPAccumModes RPAccumModes}</td></tr><tr><td>{@link #kCGLRPDepthModes RPDepthModes}</td><td>{@link #kCGLRPStencilModes RPStencilModes}</td><td>{@link #kCGLRPMaxAuxBuffers RPMaxAuxBuffers}</td><td>{@link #kCGLRPMaxSampleBuffers RPMaxSampleBuffers}</td><td>{@link #kCGLRPMaxSamples RPMaxSamples}</td></tr><tr><td>{@link #kCGLRPSampleModes RPSampleModes}</td><td>{@link #kCGLRPSampleAlpha RPSampleAlpha}</td><td>{@link #kCGLRPVideoMemory RPVideoMemory}</td><td>{@link #kCGLRPTextureMemory RPTextureMemory}</td><td>{@link #kCGLRPGPUVertProcCapable RPGPUVertProcCapable}</td></tr><tr><td>{@link #kCGLRPGPUFragProcCapable RPGPUFragProcCapable}</td><td>{@link #kCGLRPRendererCount RPRendererCount}</td><td>{@link #kCGLRPOnline RPOnline}</td><td>{@link #kCGLRPAcceleratedCompute RPAcceleratedCompute}</td><td>{@link #kCGLRPVideoMemoryMegabytes RPVideoMemoryMegabytes}</td></tr><tr><td>{@link #kCGLRPTextureMemoryMegabytes RPTextureMemoryMegabytes}</td><td>{@link #kCGLRPRobust RPRobust}</td><td>{@link #kCGLRPMPSafe RPMPSafe}</td><td>{@link #kCGLRPMultiScreen RPMultiScreen}</td><td>{@link #kCGLRPFullScreen RPFullScreen}</td></tr></table>
      * @param value    on return, points to the value of the requested property
      */
-    public static int CGLDescribeRenderer(long rend, int rend_num, int prop, IntBuffer value) {
+    @NativeType("CGLError")
+    public static int CGLDescribeRenderer(@NativeType("CGLRendererInfoObj") long rend, @NativeType("GLint") int rend_num, @NativeType("CGLRendererProperty") int prop, @NativeType("GLint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -545,7 +556,8 @@ public class CGL {
      * @param ctx   the memory address of a context object. On return, points to a new context object with the buffers and attributes specified by the {@code pix}
      *              parameter. If the context can not be created as specified, the value of {@code ctx} is set to {@code NULL}.
      */
-    public static int CGLCreateContext(long pix, long share, PointerBuffer ctx) {
+    @NativeType("CGLError")
+    public static int CGLCreateContext(@NativeType("CGLPixelFormatObj") long pix, @NativeType("CGLContextObj") long share, @NativeType("CGLContextObj *") PointerBuffer ctx) {
         if (CHECKS) {
             check(ctx, 1);
         }
@@ -563,7 +575,8 @@ public class CGL {
      *
      * @param ctx the rendering context to destroy
      */
-    public static int CGLDestroyContext(long ctx) {
+    @NativeType("CGLError")
+    public static int CGLDestroyContext(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.DestroyContext;
         if (CHECKS) {
             check(ctx);
@@ -582,7 +595,8 @@ public class CGL {
      *             Use the symbolic mask constants that are passed to the OpenGL function {@link GL11#glPushAttrib PushAttrib}. To copy as many state variables
      *             as possible, supply the constant {@link GL11#GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS}.
      */
-    public static int CGLCopyContext(long src, long dst, int mask) {
+    @NativeType("CGLError")
+    public static int CGLCopyContext(@NativeType("CGLContextObj") long src, @NativeType("CGLContextObj") long dst, @NativeType("GLbitfield") int mask) {
         long __functionAddress = Functions.CopyContext;
         if (CHECKS) {
             check(src);
@@ -603,7 +617,8 @@ public class CGL {
      *
      * @return the same context that was passed into the function.
      */
-    public static long CGLRetainContext(long ctx) {
+    @NativeType("CGLContextObj")
+    public static long CGLRetainContext(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.RetainContext;
         if (CHECKS) {
             check(ctx);
@@ -625,7 +640,7 @@ public class CGL {
      *
      * @param ctx the rendering context to be released
      */
-    public static void CGLReleaseContext(long ctx) {
+    public static void CGLReleaseContext(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.ReleaseContext;
         if (CHECKS) {
             check(ctx);
@@ -640,7 +655,8 @@ public class CGL {
      *
      * @param ctx the CGL rendering context whose retain count you wish to discover
      */
-    public static int CGLGetContextRetainCount(long ctx) {
+    @NativeType("GLuint")
+    public static int CGLGetContextRetainCount(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.GetContextRetainCount;
         if (CHECKS) {
             check(ctx);
@@ -658,7 +674,8 @@ public class CGL {
      *
      * @param ctx the CGL rendering context whose format you want to receive
      */
-    public static long CGLGetPixelFormat(long ctx) {
+    @NativeType("CGLPixelFormatObj")
+    public static long CGLGetPixelFormat(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.GetPixelFormat;
         if (CHECKS) {
             check(ctx);
@@ -702,7 +719,8 @@ public class CGL {
      *                       maximum number of mipmap levels that can be represented with the given width and height.
      * @param pbuffer        on return, points to a new pixel buffer object
      */
-    public static int CGLCreatePBuffer(int width, int height, int target, int internalFormat, int max_level, PointerBuffer pbuffer) {
+    @NativeType("CGLError")
+    public static int CGLCreatePBuffer(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int target, @NativeType("GLenum") int internalFormat, @NativeType("GLint") int max_level, @NativeType("CGLPBufferObj *") PointerBuffer pbuffer) {
         if (CHECKS) {
             check(pbuffer, 1);
         }
@@ -720,7 +738,8 @@ public class CGL {
      *
      * @param pbuffer the pixel buffer object whose resources you want to release
      */
-    public static int CGLDestroyPBuffer(long pbuffer) {
+    @NativeType("CGLError")
+    public static int CGLDestroyPBuffer(@NativeType("CGLPBufferObj") long pbuffer) {
         long __functionAddress = Functions.DestroyPBuffer;
         if (CHECKS) {
             check(pbuffer);
@@ -755,7 +774,8 @@ public class CGL {
      * @param internalFormat on return, points to a constant that specifies the internal color format of the pixel buffer
      * @param mipmap         on return, points to the mipmap level of the pixel buffer or 0 if it doesn't use mipmaps
      */
-    public static int CGLDescribePBuffer(long obj, IntBuffer width, IntBuffer height, IntBuffer target, IntBuffer internalFormat, IntBuffer mipmap) {
+    @NativeType("CGLError")
+    public static int CGLDescribePBuffer(@NativeType("CGLPBufferObj") long obj, @NativeType("GLsizei *") IntBuffer width, @NativeType("GLsizei *") IntBuffer height, @NativeType("GLenum *") IntBuffer target, @NativeType("GLenum *") IntBuffer internalFormat, @NativeType("GLint *") IntBuffer mipmap) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -799,7 +819,8 @@ public class CGL {
      *                buffer and renderer attributes that you used to create the rendering context attached to the pixel buffer. This means that the pixel buffer must
      *                possess the buffer in question for the texturing operation to succeed.
      */
-    public static int CGLTexImagePBuffer(long ctx, long pbuffer, int source) {
+    @NativeType("CGLError")
+    public static int CGLTexImagePBuffer(@NativeType("CGLContextObj") long ctx, @NativeType("CGLPBufferObj") long pbuffer, @NativeType("GLenum") int source) {
         long __functionAddress = Functions.TexImagePBuffer;
         if (CHECKS) {
             check(ctx);
@@ -820,7 +841,8 @@ public class CGL {
      *
      * @param pbuffer the pixel buffer object whose retain count you wish to increment
      */
-    public static long CGLRetainPBuffer(long pbuffer) {
+    @NativeType("CGLPBufferObj")
+    public static long CGLRetainPBuffer(@NativeType("CGLPBufferObj") long pbuffer) {
         long __functionAddress = Functions.RetainPBuffer;
         if (CHECKS) {
             check(pbuffer);
@@ -839,7 +861,7 @@ public class CGL {
      *
      * @param pbuffer the pixel buffer object whose resources you want to release
      */
-    public static void CGLReleasePBuffer(long pbuffer) {
+    public static void CGLReleasePBuffer(@NativeType("CGLPBufferObj") long pbuffer) {
         long __functionAddress = Functions.ReleasePBuffer;
         if (CHECKS) {
             check(pbuffer);
@@ -856,7 +878,8 @@ public class CGL {
      *
      * @param pbuffer the pixel buffer object whose retain count you wish to retrieve
      */
-    public static int CGLGetPBufferRetainCount(long pbuffer) {
+    @NativeType("GLuint")
+    public static int CGLGetPBufferRetainCount(@NativeType("CGLPBufferObj") long pbuffer) {
         long __functionAddress = Functions.GetPBufferRetainCount;
         if (CHECKS) {
             check(pbuffer);
@@ -897,7 +920,8 @@ public class CGL {
      * @param rowbytes the number of bytes per row of the offscreen buffer, which must be greater than or equal to width times bytes per pixel
      * @param baseaddr a pointer to a block of memory to use as the offscreen buffer. The size of the memory must be at least {@code rowbytes*height} bytes.
      */
-    public static int CGLSetOffScreen(long ctx, int width, int height, int rowbytes, ByteBuffer baseaddr) {
+    @NativeType("CGLError")
+    public static int CGLSetOffScreen(@NativeType("CGLContextObj") long ctx, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int rowbytes, @NativeType("void *") ByteBuffer baseaddr) {
         if (CHECKS) {
             check(baseaddr, rowbytes * height);
         }
@@ -930,7 +954,8 @@ public class CGL {
      * @param baseaddr on return, points to the base address of the offscreen buffer. If the context is not attached to an offscreen drawable object, the value of
      *                 {@code baseaddr} is set to {@code NULL}.
      */
-    public static int CGLGetOffScreen(long ctx, IntBuffer width, IntBuffer height, IntBuffer rowbytes, PointerBuffer baseaddr) {
+    @NativeType("CGLError")
+    public static int CGLGetOffScreen(@NativeType("CGLContextObj") long ctx, @NativeType("GLsizei *") IntBuffer width, @NativeType("GLsizei *") IntBuffer height, @NativeType("GLint *") IntBuffer rowbytes, @NativeType("void **") PointerBuffer baseaddr) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -958,7 +983,8 @@ public class CGL {
      *
      * @param ctx a rendering context
      */
-    public static int CGLSetFullScreen(long ctx) {
+    @NativeType("CGLError")
+    public static int CGLSetFullScreen(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.SetFullScreen;
         if (CHECKS) {
             check(ctx);
@@ -991,7 +1017,8 @@ public class CGL {
      * @param ctx          a rendering context
      * @param display_mask a bit field that contains the OpenGL display mask for the screen you wish the context to cover
      */
-    public static int CGLSetFullScreenOnDisplay(long ctx, int display_mask) {
+    @NativeType("CGLError")
+    public static int CGLSetFullScreenOnDisplay(@NativeType("CGLContextObj") long ctx, @NativeType("GLuint") int display_mask) {
         long __functionAddress = Functions.SetFullScreenOnDisplay;
         if (CHECKS) {
             check(ctx);
@@ -1034,7 +1061,8 @@ public class CGL {
      *                pixel buffer used as a texture source, you should supply the virtual screen value that results in using the same renderer used by the context
      *                that's the texturing target.
      */
-    public static int CGLSetPBuffer(long ctx, long pbuffer, int face, int level, int screen) {
+    @NativeType("CGLError")
+    public static int CGLSetPBuffer(@NativeType("CGLContextObj") long ctx, @NativeType("CGLPBufferObj") long pbuffer, @NativeType("GLenum") int face, @NativeType("GLint") int level, @NativeType("GLint") int screen) {
         long __functionAddress = Functions.SetPBuffer;
         if (CHECKS) {
             check(ctx);
@@ -1066,7 +1094,8 @@ public class CGL {
      * @param level   on return, points to the current mipmap level for drawing
      * @param screen  on return, points to the current virtual screen number, as set by the last valid call to {@link #CGLSetPBuffer SetPBuffer}
      */
-    public static int CGLGetPBuffer(long ctx, PointerBuffer pbuffer, IntBuffer face, IntBuffer level, IntBuffer screen) {
+    @NativeType("CGLError")
+    public static int CGLGetPBuffer(@NativeType("CGLContextObj") long ctx, @NativeType("CGLPBufferObj *") PointerBuffer pbuffer, @NativeType("GLenum *") IntBuffer face, @NativeType("GLint *") IntBuffer level, @NativeType("GLint *") IntBuffer screen) {
         if (CHECKS) {
             check(pbuffer, 1);
             check(face, 1);
@@ -1083,7 +1112,8 @@ public class CGL {
      *
      * @param ctx a rendering context
      */
-    public static int CGLClearDrawable(long ctx) {
+    @NativeType("CGLError")
+    public static int CGLClearDrawable(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.ClearDrawable;
         if (CHECKS) {
             check(ctx);
@@ -1107,7 +1137,8 @@ public class CGL {
      *
      * @param ctx the context object
      */
-    public static int CGLFlushDrawable(long ctx) {
+    @NativeType("CGLError")
+    public static int CGLFlushDrawable(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.FlushDrawable;
         if (CHECKS) {
             check(ctx);
@@ -1123,7 +1154,8 @@ public class CGL {
      * @param ctx   a rendering context
      * @param pname the option to enable. One of:<br><table><tr><td>{@link #kCGLCESwapRectangle CESwapRectangle}</td><td>{@link #kCGLCESwapLimit CESwapLimit}</td><td>{@link #kCGLCERasterization CERasterization}</td><td>{@link #kCGLCEStateValidation CEStateValidation}</td><td>{@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}</td></tr><tr><td>{@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}</td><td>{@link #kCGLCEMPEngine CEMPEngine}</td></tr></table>
      */
-    public static int CGLEnable(long ctx, int pname) {
+    @NativeType("CGLError")
+    public static int CGLEnable(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextEnable") int pname) {
         long __functionAddress = Functions.Enable;
         if (CHECKS) {
             check(ctx);
@@ -1139,7 +1171,8 @@ public class CGL {
      * @param ctx   a rendering context
      * @param pname the option to disable. One of:<br><table><tr><td>{@link #kCGLCESwapRectangle CESwapRectangle}</td><td>{@link #kCGLCESwapLimit CESwapLimit}</td><td>{@link #kCGLCERasterization CERasterization}</td><td>{@link #kCGLCEStateValidation CEStateValidation}</td><td>{@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}</td></tr><tr><td>{@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}</td><td>{@link #kCGLCEMPEngine CEMPEngine}</td></tr></table>
      */
-    public static int CGLDisable(long ctx, int pname) {
+    @NativeType("CGLError")
+    public static int CGLDisable(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextEnable") int pname) {
         long __functionAddress = Functions.Disable;
         if (CHECKS) {
             check(ctx);
@@ -1165,7 +1198,8 @@ public class CGL {
      * @param pname  the option to query. One of:<br><table><tr><td>{@link #kCGLCESwapRectangle CESwapRectangle}</td><td>{@link #kCGLCESwapLimit CESwapLimit}</td><td>{@link #kCGLCERasterization CERasterization}</td><td>{@link #kCGLCEStateValidation CEStateValidation}</td><td>{@link #kCGLCESurfaceBackingSize CESurfaceBackingSize}</td></tr><tr><td>{@link #kCGLCEDisplayListOptimization CEDisplayListOptimization}</td><td>{@link #kCGLCEMPEngine CEMPEngine}</td></tr></table>
      * @param enable on return, enable is set to true if the option is enabled
      */
-    public static int CGLIsEnabled(long ctx, int pname, IntBuffer enable) {
+    @NativeType("CGLError")
+    public static int CGLIsEnabled(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextEnable") int pname, @NativeType("GLint *") IntBuffer enable) {
         if (CHECKS) {
             check(enable, 1);
         }
@@ -1190,7 +1224,8 @@ public class CGL {
      * @param pname  the parameter whose value you want to set. One of:<br><table><tr><td>{@link #kCGLCPSwapRectangle CPSwapRectangle}</td><td>{@link #kCGLCPSwapInterval CPSwapInterval}</td><td>{@link #kCGLCPDispatchTableSize CPDispatchTableSize}</td><td>{@link #kCGLCPClientStorage CPClientStorage}</td></tr><tr><td>{@link #kCGLCPSurfaceTexture CPSurfaceTexture}</td><td>{@link #kCGLCPSurfaceOrder CPSurfaceOrder}</td><td>{@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}</td><td>{@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}</td></tr><tr><td>{@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}</td><td>{@link #kCGLCPReclaimResources CPReclaimResources}</td><td>{@link #kCGLCPCurrentRendererID CPCurrentRendererID}</td><td>{@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}</td></tr><tr><td>{@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}</td><td>{@link #kCGLCPHasDrawable CPHasDrawable}</td><td>{@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}</td></tr></table>
      * @param params a pointer to the value to set the parameter to
      */
-    public static int CGLSetParameter(long ctx, int pname, IntBuffer params) {
+    @NativeType("CGLError")
+    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("const GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1203,7 +1238,8 @@ public class CGL {
      * @param ctx   a rendering context
      * @param pname the parameter whose value you want to set. One of:<br><table><tr><td>{@link #kCGLCPSwapRectangle CPSwapRectangle}</td><td>{@link #kCGLCPSwapInterval CPSwapInterval}</td><td>{@link #kCGLCPDispatchTableSize CPDispatchTableSize}</td><td>{@link #kCGLCPClientStorage CPClientStorage}</td></tr><tr><td>{@link #kCGLCPSurfaceTexture CPSurfaceTexture}</td><td>{@link #kCGLCPSurfaceOrder CPSurfaceOrder}</td><td>{@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}</td><td>{@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}</td></tr><tr><td>{@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}</td><td>{@link #kCGLCPReclaimResources CPReclaimResources}</td><td>{@link #kCGLCPCurrentRendererID CPCurrentRendererID}</td><td>{@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}</td></tr><tr><td>{@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}</td><td>{@link #kCGLCPHasDrawable CPHasDrawable}</td><td>{@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}</td></tr></table>
      */
-    public static int CGLSetParameter(long ctx, int pname, int param) {
+    @NativeType("CGLError")
+    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("const GLint *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -1231,7 +1267,8 @@ public class CGL {
      * @param pname  the parameter whose value you want to retrieve. One of:<br><table><tr><td>{@link #kCGLCPSwapRectangle CPSwapRectangle}</td><td>{@link #kCGLCPSwapInterval CPSwapInterval}</td><td>{@link #kCGLCPDispatchTableSize CPDispatchTableSize}</td><td>{@link #kCGLCPClientStorage CPClientStorage}</td></tr><tr><td>{@link #kCGLCPSurfaceTexture CPSurfaceTexture}</td><td>{@link #kCGLCPSurfaceOrder CPSurfaceOrder}</td><td>{@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}</td><td>{@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}</td></tr><tr><td>{@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}</td><td>{@link #kCGLCPReclaimResources CPReclaimResources}</td><td>{@link #kCGLCPCurrentRendererID CPCurrentRendererID}</td><td>{@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}</td></tr><tr><td>{@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}</td><td>{@link #kCGLCPHasDrawable CPHasDrawable}</td><td>{@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}</td></tr></table>
      * @param params on return, points to the value of the parameter
      */
-    public static int CGLGetParameter(long ctx, int pname, IntBuffer params) {
+    @NativeType("CGLError")
+    public static int CGLGetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1253,7 +1290,8 @@ public class CGL {
      *               context can be obtained by calling the function {@link #CGLDescribePixelFormat DescribePixelFormat}, passing in the pixel format object used to create the rendering
      *               context, 0 for the virtual screen number ({@code pix_num} parameter), and the attribute constant {@link #kCGLPFAVirtualScreenCount PFAVirtualScreenCount}.
      */
-    public static int CGLSetVirtualScreen(long ctx, int screen) {
+    @NativeType("CGLError")
+    public static int CGLSetVirtualScreen(@NativeType("CGLContextObj") long ctx, @NativeType("GLint") int screen) {
         long __functionAddress = Functions.SetVirtualScreen;
         if (CHECKS) {
             check(ctx);
@@ -1282,7 +1320,8 @@ public class CGL {
      * @param screen on return, points to the virtual screen associated with the context. The value is always 0 on a single-display system and –1 if the function fails
      *               for any reason.
      */
-    public static int CGLGetVirtualScreen(long ctx, IntBuffer screen) {
+    @NativeType("CGLError")
+    public static int CGLGetVirtualScreen(@NativeType("CGLContextObj") long ctx, @NativeType("GLint *") IntBuffer screen) {
         if (CHECKS) {
             check(screen, 1);
         }
@@ -1296,7 +1335,8 @@ public class CGL {
      *
      * @param ctx a rendering context
      */
-    public static int CGLUpdateContext(long ctx) {
+    @NativeType("CGLError")
+    public static int CGLUpdateContext(@NativeType("CGLContextObj") long ctx) {
         long __functionAddress = Functions.UpdateContext;
         if (CHECKS) {
             check(ctx);
@@ -1318,7 +1358,8 @@ public class CGL {
      * @param pname  the name of the option whose value you want to set. One of:<br><table><tr><td>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}</td><td>{@link #kCGLGOClearFormatCache GOClearFormatCache}</td><td>{@link #kCGLGORetainRenderers GORetainRenderers}</td><td>{@link #kCGLGOResetLibrary GOResetLibrary}</td><td>{@link #kCGLGOUseErrorHandler GOUseErrorHandler}</td></tr><tr><td>{@link #kCGLGOUseBuildCache GOUseBuildCache}</td></tr></table>
      * @param params the value to set the option to
      */
-    public static int CGLSetGlobalOption(int pname, IntBuffer params) {
+    @NativeType("CGLError")
+    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("const GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1330,7 +1371,8 @@ public class CGL {
      *
      * @param pname the name of the option whose value you want to set. One of:<br><table><tr><td>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}</td><td>{@link #kCGLGOClearFormatCache GOClearFormatCache}</td><td>{@link #kCGLGORetainRenderers GORetainRenderers}</td><td>{@link #kCGLGOResetLibrary GOResetLibrary}</td><td>{@link #kCGLGOUseErrorHandler GOUseErrorHandler}</td></tr><tr><td>{@link #kCGLGOUseBuildCache GOUseBuildCache}</td></tr></table>
      */
-    public static int CGLSetGlobalOption(int pname, int param) {
+    @NativeType("CGLError")
+    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("const GLint *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -1354,7 +1396,8 @@ public class CGL {
      * @param pname  the name of the option whose value you want to get. One of:<br><table><tr><td>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}</td><td>{@link #kCGLGOClearFormatCache GOClearFormatCache}</td><td>{@link #kCGLGORetainRenderers GORetainRenderers}</td><td>{@link #kCGLGOResetLibrary GOResetLibrary}</td><td>{@link #kCGLGOUseErrorHandler GOUseErrorHandler}</td></tr><tr><td>{@link #kCGLGOUseBuildCache GOUseBuildCache}</td></tr></table>
      * @param params on return, a pointer to the value of the option
      */
-    public static int CGLGetGlobalOption(int pname, IntBuffer params) {
+    @NativeType("CGLError")
+    public static int CGLGetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1377,7 +1420,8 @@ public class CGL {
      *
      * @param context a rendering context
      */
-    public static int CGLLockContext(long context) {
+    @NativeType("CGLError")
+    public static int CGLLockContext(@NativeType("CGLContextObj") long context) {
         long __functionAddress = Functions.LockContext;
         if (CHECKS) {
             check(context);
@@ -1392,7 +1436,8 @@ public class CGL {
      *
      * @param context the CGL context to unlock
      */
-    public static int CGLUnlockContext(long context) {
+    @NativeType("CGLError")
+    public static int CGLUnlockContext(@NativeType("CGLContextObj") long context) {
         long __functionAddress = Functions.UnlockContext;
         if (CHECKS) {
             check(context);
@@ -1414,7 +1459,7 @@ public class CGL {
      * @param majorvers on return, points to the major version number of the CGL library
      * @param minorvers on return, points to the minor version number of the CGL library
      */
-    public static void CGLGetVersion(IntBuffer majorvers, IntBuffer minorvers) {
+    public static void CGLGetVersion(@NativeType("GLint *") IntBuffer majorvers, @NativeType("GLint *") IntBuffer minorvers) {
         if (CHECKS) {
             check(majorvers, 1);
             check(minorvers, 1);
@@ -1435,13 +1480,15 @@ public class CGL {
      *
      * @param error the CGL result code constant returned from a CGL function. One of:<br><table><tr><td>{@link #kCGLNoError NoError}</td><td>{@link #kCGLBadAttribute BadAttribute}</td><td>{@link #kCGLBadProperty BadProperty}</td><td>{@link #kCGLBadPixelFormat BadPixelFormat}</td><td>{@link #kCGLBadRendererInfo BadRendererInfo}</td><td>{@link #kCGLBadContext BadContext}</td><td>{@link #kCGLBadDrawable BadDrawable}</td></tr><tr><td>{@link #kCGLBadDisplay BadDisplay}</td><td>{@link #kCGLBadState BadState}</td><td>{@link #kCGLBadValue BadValue}</td><td>{@link #kCGLBadMatch BadMatch}</td><td>{@link #kCGLBadEnumeration BadEnumeration}</td><td>{@link #kCGLBadOffScreen BadOffScreen}</td><td>{@link #kCGLBadFullScreen BadFullScreen}</td></tr><tr><td>{@link #kCGLBadWindow BadWindow}</td><td>{@link #kCGLBadAddress BadAddress}</td><td>{@link #kCGLBadCodeModule BadCodeModule}</td><td>{@link #kCGLBadAlloc BadAlloc}</td><td>{@link #kCGLBadConnection BadConnection}</td></tr></table>
      */
-    public static String CGLErrorString(int error) {
+    @NativeType("const char *")
+    public static String CGLErrorString(@NativeType("CGLError") int error) {
         long __result = nCGLErrorString(error);
         return memASCII(__result);
     }
 
     /** Array version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
-    public static int CGLChoosePixelFormat(int[] attribs, PointerBuffer pix, int[] npix) {
+    @NativeType("CGLError")
+    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") int[] attribs, @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") int[] npix) {
         long __functionAddress = Functions.ChoosePixelFormat;
         if (CHECKS) {
             checkNT(attribs);
@@ -1452,7 +1499,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLDescribePixelFormat DescribePixelFormat} */
-    public static int CGLDescribePixelFormat(long pix, int pix_num, int attrib, int[] value) {
+    @NativeType("CGLError")
+    public static int CGLDescribePixelFormat(@NativeType("CGLPixelFormatObj") long pix, @NativeType("GLint") int pix_num, @NativeType("CGLPixelFormatAttribute") int attrib, @NativeType("GLint *") int[] value) {
         long __functionAddress = Functions.DescribePixelFormat;
         if (CHECKS) {
             check(pix);
@@ -1462,7 +1510,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLQueryRendererInfo QueryRendererInfo} */
-    public static int CGLQueryRendererInfo(int display_mask, PointerBuffer rend, int[] nrend) {
+    @NativeType("CGLError")
+    public static int CGLQueryRendererInfo(@NativeType("GLuint") int display_mask, @NativeType("CGLRendererInfoObj *") PointerBuffer rend, @NativeType("GLint *") int[] nrend) {
         long __functionAddress = Functions.QueryRendererInfo;
         if (CHECKS) {
             check(rend, 1);
@@ -1472,7 +1521,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLDescribeRenderer DescribeRenderer} */
-    public static int CGLDescribeRenderer(long rend, int rend_num, int prop, int[] value) {
+    @NativeType("CGLError")
+    public static int CGLDescribeRenderer(@NativeType("CGLRendererInfoObj") long rend, @NativeType("GLint") int rend_num, @NativeType("CGLRendererProperty") int prop, @NativeType("GLint *") int[] value) {
         long __functionAddress = Functions.DescribeRenderer;
         if (CHECKS) {
             check(rend);
@@ -1482,7 +1532,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLDescribePBuffer DescribePBuffer} */
-    public static int CGLDescribePBuffer(long obj, int[] width, int[] height, int[] target, int[] internalFormat, int[] mipmap) {
+    @NativeType("CGLError")
+    public static int CGLDescribePBuffer(@NativeType("CGLPBufferObj") long obj, @NativeType("GLsizei *") int[] width, @NativeType("GLsizei *") int[] height, @NativeType("GLenum *") int[] target, @NativeType("GLenum *") int[] internalFormat, @NativeType("GLint *") int[] mipmap) {
         long __functionAddress = Functions.DescribePBuffer;
         if (CHECKS) {
             check(obj);
@@ -1496,7 +1547,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLGetOffScreen GetOffScreen} */
-    public static int CGLGetOffScreen(long ctx, int[] width, int[] height, int[] rowbytes, PointerBuffer baseaddr) {
+    @NativeType("CGLError")
+    public static int CGLGetOffScreen(@NativeType("CGLContextObj") long ctx, @NativeType("GLsizei *") int[] width, @NativeType("GLsizei *") int[] height, @NativeType("GLint *") int[] rowbytes, @NativeType("void **") PointerBuffer baseaddr) {
         long __functionAddress = Functions.GetOffScreen;
         if (CHECKS) {
             check(ctx);
@@ -1509,7 +1561,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLGetPBuffer GetPBuffer} */
-    public static int CGLGetPBuffer(long ctx, PointerBuffer pbuffer, int[] face, int[] level, int[] screen) {
+    @NativeType("CGLError")
+    public static int CGLGetPBuffer(@NativeType("CGLContextObj") long ctx, @NativeType("CGLPBufferObj *") PointerBuffer pbuffer, @NativeType("GLenum *") int[] face, @NativeType("GLint *") int[] level, @NativeType("GLint *") int[] screen) {
         long __functionAddress = Functions.GetPBuffer;
         if (CHECKS) {
             check(ctx);
@@ -1522,7 +1575,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLIsEnabled IsEnabled} */
-    public static int CGLIsEnabled(long ctx, int pname, int[] enable) {
+    @NativeType("CGLError")
+    public static int CGLIsEnabled(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextEnable") int pname, @NativeType("GLint *") int[] enable) {
         long __functionAddress = Functions.IsEnabled;
         if (CHECKS) {
             check(ctx);
@@ -1532,7 +1586,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLSetParameter SetParameter} */
-    public static int CGLSetParameter(long ctx, int pname, int[] params) {
+    @NativeType("CGLError")
+    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("const GLint *") int[] params) {
         long __functionAddress = Functions.SetParameter;
         if (CHECKS) {
             check(ctx);
@@ -1542,7 +1597,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLGetParameter GetParameter} */
-    public static int CGLGetParameter(long ctx, int pname, int[] params) {
+    @NativeType("CGLError")
+    public static int CGLGetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = Functions.GetParameter;
         if (CHECKS) {
             check(ctx);
@@ -1552,7 +1608,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLGetVirtualScreen GetVirtualScreen} */
-    public static int CGLGetVirtualScreen(long ctx, int[] screen) {
+    @NativeType("CGLError")
+    public static int CGLGetVirtualScreen(@NativeType("CGLContextObj") long ctx, @NativeType("GLint *") int[] screen) {
         long __functionAddress = Functions.GetVirtualScreen;
         if (CHECKS) {
             check(ctx);
@@ -1562,7 +1619,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLSetGlobalOption SetGlobalOption} */
-    public static int CGLSetGlobalOption(int pname, int[] params) {
+    @NativeType("CGLError")
+    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("const GLint *") int[] params) {
         long __functionAddress = Functions.SetGlobalOption;
         if (CHECKS) {
             check(params, 1);
@@ -1571,7 +1629,8 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLGetGlobalOption GetGlobalOption} */
-    public static int CGLGetGlobalOption(int pname, int[] params) {
+    @NativeType("CGLError")
+    public static int CGLGetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = Functions.GetGlobalOption;
         if (CHECKS) {
             check(params, 1);
@@ -1580,7 +1639,7 @@ public class CGL {
     }
 
     /** Array version of: {@link #CGLGetVersion GetVersion} */
-    public static void CGLGetVersion(int[] majorvers, int[] minorvers) {
+    public static void CGLGetVersion(@NativeType("GLint *") int[] majorvers, @NativeType("GLint *") int[] minorvers) {
         long __functionAddress = Functions.GetVersion;
         if (CHECKS) {
             check(majorvers, 1);

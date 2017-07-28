@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -85,18 +87,18 @@ public class EXTGeometryShader4 {
 
     // --- [ glProgramParameteriEXT ] ---
 
-    public static native void glProgramParameteriEXT(int program, int pname, int value);
+    public static native void glProgramParameteriEXT(@NativeType("GLuint") int program, @NativeType("GLenum") int pname, @NativeType("GLint") int value);
 
     // --- [ glFramebufferTextureEXT ] ---
 
-    public static native void glFramebufferTextureEXT(int target, int attachment, int texture, int level);
+    public static native void glFramebufferTextureEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level);
 
     // --- [ glFramebufferTextureLayerEXT ] ---
 
-    public static native void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
+    public static native void glFramebufferTextureLayerEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int layer);
 
     // --- [ glFramebufferTextureFaceEXT ] ---
 
-    public static native void glFramebufferTextureFaceEXT(int target, int attachment, int texture, int level, int face);
+    public static native void glFramebufferTextureFaceEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int face);
 
 }

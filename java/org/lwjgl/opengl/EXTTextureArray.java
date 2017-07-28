@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -89,6 +91,6 @@ public class EXTTextureArray {
 
     // --- [ glFramebufferTextureLayerEXT ] ---
 
-    public static native void glFramebufferTextureLayerEXT(int target, int attachment, int texture, int level, int layer);
+    public static native void glFramebufferTextureLayerEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int attachment, @NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int layer);
 
 }

@@ -133,32 +133,38 @@ public class VkRenderPassBeginInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code renderPass} field. */
+    @NativeType("VkRenderPass")
     public long renderPass() { return nrenderPass(address()); }
     /** Returns the value of the {@code framebuffer} field. */
+    @NativeType("VkFramebuffer")
     public long framebuffer() { return nframebuffer(address()); }
     /** Returns a {@link VkRect2D} view of the {@code renderArea} field. */
     public VkRect2D renderArea() { return nrenderArea(address()); }
     /** Returns the value of the {@code clearValueCount} field. */
+    @NativeType("uint32_t")
     public int clearValueCount() { return nclearValueCount(address()); }
     /** Returns a {@link VkClearValue.Buffer} view of the struct array pointed to by the {@code pClearValues} field. */
+    @NativeType("const VkClearValue *")
     public VkClearValue.Buffer pClearValues() { return npClearValues(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkRenderPassBeginInfo sType(int value) { nsType(address(), value); return this; }
+    public VkRenderPassBeginInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkRenderPassBeginInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkRenderPassBeginInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code renderPass} field. */
-    public VkRenderPassBeginInfo renderPass(long value) { nrenderPass(address(), value); return this; }
+    public VkRenderPassBeginInfo renderPass(@NativeType("VkRenderPass") long value) { nrenderPass(address(), value); return this; }
     /** Sets the specified value to the {@code framebuffer} field. */
-    public VkRenderPassBeginInfo framebuffer(long value) { nframebuffer(address(), value); return this; }
+    public VkRenderPassBeginInfo framebuffer(@NativeType("VkFramebuffer") long value) { nframebuffer(address(), value); return this; }
     /** Copies the specified {@link VkRect2D} to the {@code renderArea} field. */
     public VkRenderPassBeginInfo renderArea(VkRect2D value) { nrenderArea(address(), value); return this; }
     /** Sets the address of the specified {@link VkClearValue.Buffer} to the {@code pClearValues} field. */
-    public VkRenderPassBeginInfo pClearValues(VkClearValue.Buffer value) { npClearValues(address(), value); return this; }
+    public VkRenderPassBeginInfo pClearValues(@NativeType("const VkClearValue *") VkClearValue.Buffer value) { npClearValues(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkRenderPassBeginInfo set(
@@ -416,32 +422,38 @@ public class VkRenderPassBeginInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkRenderPassBeginInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkRenderPassBeginInfo.npNext(address()); }
         /** Returns the value of the {@code renderPass} field. */
+        @NativeType("VkRenderPass")
         public long renderPass() { return VkRenderPassBeginInfo.nrenderPass(address()); }
         /** Returns the value of the {@code framebuffer} field. */
+        @NativeType("VkFramebuffer")
         public long framebuffer() { return VkRenderPassBeginInfo.nframebuffer(address()); }
         /** Returns a {@link VkRect2D} view of the {@code renderArea} field. */
         public VkRect2D renderArea() { return VkRenderPassBeginInfo.nrenderArea(address()); }
         /** Returns the value of the {@code clearValueCount} field. */
+        @NativeType("uint32_t")
         public int clearValueCount() { return VkRenderPassBeginInfo.nclearValueCount(address()); }
         /** Returns a {@link VkClearValue.Buffer} view of the struct array pointed to by the {@code pClearValues} field. */
+        @NativeType("const VkClearValue *")
         public VkClearValue.Buffer pClearValues() { return VkRenderPassBeginInfo.npClearValues(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkRenderPassBeginInfo.Buffer sType(int value) { VkRenderPassBeginInfo.nsType(address(), value); return this; }
+        public VkRenderPassBeginInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkRenderPassBeginInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkRenderPassBeginInfo.Buffer pNext(long value) { VkRenderPassBeginInfo.npNext(address(), value); return this; }
+        public VkRenderPassBeginInfo.Buffer pNext(@NativeType("const void *") long value) { VkRenderPassBeginInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code renderPass} field. */
-        public VkRenderPassBeginInfo.Buffer renderPass(long value) { VkRenderPassBeginInfo.nrenderPass(address(), value); return this; }
+        public VkRenderPassBeginInfo.Buffer renderPass(@NativeType("VkRenderPass") long value) { VkRenderPassBeginInfo.nrenderPass(address(), value); return this; }
         /** Sets the specified value to the {@code framebuffer} field. */
-        public VkRenderPassBeginInfo.Buffer framebuffer(long value) { VkRenderPassBeginInfo.nframebuffer(address(), value); return this; }
+        public VkRenderPassBeginInfo.Buffer framebuffer(@NativeType("VkFramebuffer") long value) { VkRenderPassBeginInfo.nframebuffer(address(), value); return this; }
         /** Copies the specified {@link VkRect2D} to the {@code renderArea} field. */
         public VkRenderPassBeginInfo.Buffer renderArea(VkRect2D value) { VkRenderPassBeginInfo.nrenderArea(address(), value); return this; }
         /** Sets the address of the specified {@link VkClearValue.Buffer} to the {@code pClearValues} field. */
-        public VkRenderPassBeginInfo.Buffer pClearValues(VkClearValue.Buffer value) { VkRenderPassBeginInfo.npClearValues(address(), value); return this; }
+        public VkRenderPassBeginInfo.Buffer pClearValues(@NativeType("const VkClearValue *") VkClearValue.Buffer value) { VkRenderPassBeginInfo.npClearValues(address(), value); return this; }
 
     }
 

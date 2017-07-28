@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -48,7 +50,7 @@ public class ARBSparseBuffer {
      *               the data store in the specified region may be freed and those pages become uncommitted. Newly committed pages have undefined content. However,
      *               redundantly committing pages does not alter their content.
      */
-    public static native void glBufferPageCommitmentARB(int target, long offset, long size, boolean commit);
+    public static native void glBufferPageCommitmentARB(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLboolean") boolean commit);
 
     // --- [ glNamedBufferPageCommitmentEXT ] ---
 
@@ -60,7 +62,7 @@ public class ARBSparseBuffer {
      * @param size   the data size. must either be a multiple of {@link #GL_SPARSE_BUFFER_PAGE_SIZE_ARB SPARSE_BUFFER_PAGE_SIZE_ARB}, or extend to the end of the buffer's data store.
      * @param commit the commit state
      */
-    public static native void glNamedBufferPageCommitmentEXT(int buffer, long offset, long size, boolean commit);
+    public static native void glNamedBufferPageCommitmentEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLboolean") boolean commit);
 
     // --- [ glNamedBufferPageCommitmentARB ] ---
 
@@ -72,6 +74,6 @@ public class ARBSparseBuffer {
      * @param size   the data size. must either be a multiple of {@link #GL_SPARSE_BUFFER_PAGE_SIZE_ARB SPARSE_BUFFER_PAGE_SIZE_ARB}, or extend to the end of the buffer's data store.
      * @param commit the commit state
      */
-    public static native void glNamedBufferPageCommitmentARB(int buffer, long offset, long size, boolean commit);
+    public static native void glNamedBufferPageCommitmentARB(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLboolean") boolean commit);
 
 }

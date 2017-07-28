@@ -120,34 +120,41 @@ public class VkPhysicalDeviceImageFormatInfo2KHR extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code format} field. */
+    @NativeType("VkFormat")
     public int format() { return nformat(address()); }
     /** Returns the value of the {@code type} field. */
+    @NativeType("VkImageType")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code tiling} field. */
+    @NativeType("VkImageTiling")
     public int tiling() { return ntiling(address()); }
     /** Returns the value of the {@code usage} field. */
+    @NativeType("VkImageUsageFlags")
     public int usage() { return nusage(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkImageCreateFlags")
     public int flags() { return nflags(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPhysicalDeviceImageFormatInfo2KHR sType(int value) { nsType(address(), value); return this; }
+    public VkPhysicalDeviceImageFormatInfo2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceImageFormatInfo2KHR pNext(long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceImageFormatInfo2KHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
-    public VkPhysicalDeviceImageFormatInfo2KHR format(int value) { nformat(address(), value); return this; }
+    public VkPhysicalDeviceImageFormatInfo2KHR format(@NativeType("VkFormat") int value) { nformat(address(), value); return this; }
     /** Sets the specified value to the {@code type} field. */
-    public VkPhysicalDeviceImageFormatInfo2KHR type(int value) { ntype(address(), value); return this; }
+    public VkPhysicalDeviceImageFormatInfo2KHR type(@NativeType("VkImageType") int value) { ntype(address(), value); return this; }
     /** Sets the specified value to the {@code tiling} field. */
-    public VkPhysicalDeviceImageFormatInfo2KHR tiling(int value) { ntiling(address(), value); return this; }
+    public VkPhysicalDeviceImageFormatInfo2KHR tiling(@NativeType("VkImageTiling") int value) { ntiling(address(), value); return this; }
     /** Sets the specified value to the {@code usage} field. */
-    public VkPhysicalDeviceImageFormatInfo2KHR usage(int value) { nusage(address(), value); return this; }
+    public VkPhysicalDeviceImageFormatInfo2KHR usage(@NativeType("VkImageUsageFlags") int value) { nusage(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkPhysicalDeviceImageFormatInfo2KHR flags(int value) { nflags(address(), value); return this; }
+    public VkPhysicalDeviceImageFormatInfo2KHR flags(@NativeType("VkImageCreateFlags") int value) { nflags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPhysicalDeviceImageFormatInfo2KHR set(
@@ -384,34 +391,41 @@ public class VkPhysicalDeviceImageFormatInfo2KHR extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceImageFormatInfo2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPhysicalDeviceImageFormatInfo2KHR.npNext(address()); }
         /** Returns the value of the {@code format} field. */
+        @NativeType("VkFormat")
         public int format() { return VkPhysicalDeviceImageFormatInfo2KHR.nformat(address()); }
         /** Returns the value of the {@code type} field. */
+        @NativeType("VkImageType")
         public int type() { return VkPhysicalDeviceImageFormatInfo2KHR.ntype(address()); }
         /** Returns the value of the {@code tiling} field. */
+        @NativeType("VkImageTiling")
         public int tiling() { return VkPhysicalDeviceImageFormatInfo2KHR.ntiling(address()); }
         /** Returns the value of the {@code usage} field. */
+        @NativeType("VkImageUsageFlags")
         public int usage() { return VkPhysicalDeviceImageFormatInfo2KHR.nusage(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkImageCreateFlags")
         public int flags() { return VkPhysicalDeviceImageFormatInfo2KHR.nflags(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer sType(int value) { VkPhysicalDeviceImageFormatInfo2KHR.nsType(address(), value); return this; }
+        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceImageFormatInfo2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer pNext(long value) { VkPhysicalDeviceImageFormatInfo2KHR.npNext(address(), value); return this; }
+        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer pNext(@NativeType("const void *") long value) { VkPhysicalDeviceImageFormatInfo2KHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
-        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer format(int value) { VkPhysicalDeviceImageFormatInfo2KHR.nformat(address(), value); return this; }
+        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer format(@NativeType("VkFormat") int value) { VkPhysicalDeviceImageFormatInfo2KHR.nformat(address(), value); return this; }
         /** Sets the specified value to the {@code type} field. */
-        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer type(int value) { VkPhysicalDeviceImageFormatInfo2KHR.ntype(address(), value); return this; }
+        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer type(@NativeType("VkImageType") int value) { VkPhysicalDeviceImageFormatInfo2KHR.ntype(address(), value); return this; }
         /** Sets the specified value to the {@code tiling} field. */
-        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer tiling(int value) { VkPhysicalDeviceImageFormatInfo2KHR.ntiling(address(), value); return this; }
+        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer tiling(@NativeType("VkImageTiling") int value) { VkPhysicalDeviceImageFormatInfo2KHR.ntiling(address(), value); return this; }
         /** Sets the specified value to the {@code usage} field. */
-        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer usage(int value) { VkPhysicalDeviceImageFormatInfo2KHR.nusage(address(), value); return this; }
+        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer usage(@NativeType("VkImageUsageFlags") int value) { VkPhysicalDeviceImageFormatInfo2KHR.nusage(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer flags(int value) { VkPhysicalDeviceImageFormatInfo2KHR.nflags(address(), value); return this; }
+        public VkPhysicalDeviceImageFormatInfo2KHR.Buffer flags(@NativeType("VkImageCreateFlags") int value) { VkPhysicalDeviceImageFormatInfo2KHR.nflags(address(), value); return this; }
 
     }
 

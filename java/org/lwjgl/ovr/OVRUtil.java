@@ -7,6 +7,8 @@ package org.lwjgl.ovr;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -84,6 +86,7 @@ public class OVRUtil {
      *
      * @param timeoutMilliseconds a timeout to wait for HMD to be attached or 0 to poll
      */
+    @NativeType("ovrDetectResult")
     public static OVRDetectResult ovr_Detect(int timeoutMilliseconds, OVRDetectResult __result) {
         novr_Detect(timeoutMilliseconds, __result.address());
         return __result;
@@ -103,7 +106,8 @@ public class OVRUtil {
      * @param projectionModFlags a combination of the {@code ovrProjectionModifier} flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td></tr><tr><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
      * @param __result           the calculated projection matrix
      */
-    public static OVRMatrix4f ovrMatrix4f_Projection(OVRFovPort fov, float znear, float zfar, int projectionModFlags, OVRMatrix4f __result) {
+    @NativeType("ovrMatrix4f")
+    public static OVRMatrix4f ovrMatrix4f_Projection(@NativeType("ovrFovPort") OVRFovPort fov, float znear, float zfar, @NativeType("unsigned int") int projectionModFlags, OVRMatrix4f __result) {
         novrMatrix4f_Projection(fov.address(), znear, zfar, projectionModFlags, __result.address());
         return __result;
     }
@@ -120,7 +124,8 @@ public class OVRUtil {
      * @param projectionModFlags a combination of the ovrProjectionModifier flags. One or more of:<br><table><tr><td>{@link #ovrProjection_None Projection_None}</td><td>{@link #ovrProjection_LeftHanded Projection_LeftHanded}</td><td>{@link #ovrProjection_FarLessThanNear Projection_FarLessThanNear}</td></tr><tr><td>{@link #ovrProjection_FarClipAtInfinity Projection_FarClipAtInfinity}</td><td>{@link #ovrProjection_ClipRangeOpenGL Projection_ClipRangeOpenGL}</td></tr></table>
      * @param __result           the extracted ovrTimewarpProjectionDesc
      */
-    public static OVRTimewarpProjectionDesc ovrTimewarpProjectionDesc_FromProjection(OVRMatrix4f projection, int projectionModFlags, OVRTimewarpProjectionDesc __result) {
+    @NativeType("ovrTimewarpProjectionDesc")
+    public static OVRTimewarpProjectionDesc ovrTimewarpProjectionDesc_FromProjection(@NativeType("ovrMatrix4f") OVRMatrix4f projection, @NativeType("unsigned int") int projectionModFlags, OVRTimewarpProjectionDesc __result) {
         novrTimewarpProjectionDesc_FromProjection(projection.address(), projectionModFlags, __result.address());
         return __result;
     }
@@ -141,7 +146,8 @@ public class OVRUtil {
      * @param HmdToEyeOffsetX the offset of the eye from the center
      * @param __result        the calculated projection matrix
      */
-    public static OVRMatrix4f ovrMatrix4f_OrthoSubProjection(OVRMatrix4f projection, OVRVector2f orthoScale, float orthoDistance, float HmdToEyeOffsetX, OVRMatrix4f __result) {
+    @NativeType("ovrMatrix4f")
+    public static OVRMatrix4f ovrMatrix4f_OrthoSubProjection(@NativeType("ovrMatrix4f") OVRMatrix4f projection, @NativeType("ovrVector2f") OVRVector2f orthoScale, float orthoDistance, float HmdToEyeOffsetX, OVRMatrix4f __result) {
         novrMatrix4f_OrthoSubProjection(projection.address(), orthoScale.address(), orthoDistance, HmdToEyeOffsetX, __result.address());
         return __result;
     }
@@ -160,7 +166,7 @@ public class OVRUtil {
      * @param outEyePoses    if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
      *                       {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
      */
-    public static void ovr_CalcEyePoses(OVRPosef headPose, OVRVector3f.Buffer HmdToEyeOffset, OVRPosef.Buffer outEyePoses) {
+    public static void ovr_CalcEyePoses(@NativeType("ovrPosef") OVRPosef headPose, @NativeType("const ovrVector3f *") OVRVector3f.Buffer HmdToEyeOffset, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses) {
         if (CHECKS) {
             check(HmdToEyeOffset, 2);
             check(outEyePoses, 2);
@@ -189,7 +195,7 @@ public class OVRUtil {
      * @param outEyePoses         the predicted eye poses
      * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
      */
-    public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeOffset, OVRPosef.Buffer outEyePoses, DoubleBuffer outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrVector3f *") OVRVector3f.Buffer hmdToEyeOffset, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") DoubleBuffer outSensorSampleTime) {
         if (CHECKS) {
             check(session);
             check(hmdToEyeOffset, 2);
@@ -214,7 +220,7 @@ public class OVRUtil {
      * @param inPose  a pose that is right-handed
      * @param outPose the pose that is requested to be left-handed (can be the same pointer to {@code inPose})
      */
-    public static void ovrPosef_FlipHandedness(OVRPosef inPose, OVRPosef outPose) {
+    public static void ovrPosef_FlipHandedness(@NativeType("const ovrPosef *") OVRPosef inPose, @NativeType("ovrPosef *") OVRPosef outPose) {
         novrPosef_FlipHandedness(inPose.address(), outPose.address());
     }
 
@@ -239,7 +245,8 @@ public class OVRUtil {
      * @param inputData          a binary buffer representing a valid Wav file data
      * @param stereoChannelToUse audio channel index to extract (0 for mono)
      */
-    public static int ovr_ReadWavFromBuffer(OVRAudioChannelData outAudioChannel, ByteBuffer inputData, int stereoChannelToUse) {
+    @NativeType("ovrResult")
+    public static int ovr_ReadWavFromBuffer(@NativeType("ovrAudioChannelData *") OVRAudioChannelData outAudioChannel, @NativeType("const void *") ByteBuffer inputData, @NativeType("int") int stereoChannelToUse) {
         return novr_ReadWavFromBuffer(outAudioChannel.address(), memAddress(inputData), inputData.remaining(), stereoChannelToUse);
     }
 
@@ -255,7 +262,8 @@ public class OVRUtil {
      * @param audioChannel   input audio channel data
      * @param genMode        mode used to convert and audio channel data to Haptics data. Must be:<br><table><tr><td>{@link #ovrHapticsGenMode_PointSample HapticsGenMode_PointSample}</td></tr></table>
      */
-    public static int ovr_GenHapticsFromAudioData(OVRHapticsClip outHapticsClip, OVRAudioChannelData audioChannel, int genMode) {
+    @NativeType("ovrResult")
+    public static int ovr_GenHapticsFromAudioData(@NativeType("ovrHapticsClip *") OVRHapticsClip outHapticsClip, @NativeType("const ovrAudioChannelData *") OVRAudioChannelData audioChannel, @NativeType("ovrHapticsGenMode") int genMode) {
         return novr_GenHapticsFromAudioData(outHapticsClip.address(), audioChannel.address(), genMode);
     }
 
@@ -269,7 +277,7 @@ public class OVRUtil {
      *
      * @param audioChannel pointer to an audio channel
      */
-    public static void ovr_ReleaseAudioChannelData(OVRAudioChannelData audioChannel) {
+    public static void ovr_ReleaseAudioChannelData(@NativeType("ovrAudioChannelData *") OVRAudioChannelData audioChannel) {
         novr_ReleaseAudioChannelData(audioChannel.address());
     }
 
@@ -283,7 +291,7 @@ public class OVRUtil {
      *
      * @param hapticsClip pointer to a haptics clip
      */
-    public static void ovr_ReleaseHapticsClip(OVRHapticsClip hapticsClip) {
+    public static void ovr_ReleaseHapticsClip(@NativeType("ovrHapticsClip *") OVRHapticsClip hapticsClip) {
         novr_ReleaseHapticsClip(hapticsClip.address());
     }
 
@@ -291,7 +299,7 @@ public class OVRUtil {
     public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeOffset, long outEyePoses, double[] outSensorSampleTime);
 
     /** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
-    public static void ovr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, OVRVector3f.Buffer hmdToEyeOffset, OVRPosef.Buffer outEyePoses, double[] outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrVector3f *") OVRVector3f.Buffer hmdToEyeOffset, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") double[] outSensorSampleTime) {
         if (CHECKS) {
             check(session);
             check(hmdToEyeOffset, 2);

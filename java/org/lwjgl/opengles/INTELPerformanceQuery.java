@@ -96,20 +96,21 @@ public class INTELPerformanceQuery {
 
     // --- [ glBeginPerfQueryINTEL ] ---
 
-    public static native void glBeginPerfQueryINTEL(int queryHandle);
+    public static native void glBeginPerfQueryINTEL(@NativeType("GLuint") int queryHandle);
 
     // --- [ glCreatePerfQueryINTEL ] ---
 
     public static native void nglCreatePerfQueryINTEL(int queryId, long queryHandle);
 
-    public static void glCreatePerfQueryINTEL(int queryId, IntBuffer queryHandle) {
+    public static void glCreatePerfQueryINTEL(@NativeType("GLuint") int queryId, @NativeType("GLuint *") IntBuffer queryHandle) {
         if (CHECKS) {
             check(queryHandle, 1);
         }
         nglCreatePerfQueryINTEL(queryId, memAddress(queryHandle));
     }
 
-    public static int glCreatePerfQueryINTEL(int queryId) {
+    @NativeType("void")
+    public static int glCreatePerfQueryINTEL(@NativeType("GLuint") int queryId) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer queryHandle = stack.callocInt(1);
@@ -122,23 +123,24 @@ public class INTELPerformanceQuery {
 
     // --- [ glDeletePerfQueryINTEL ] ---
 
-    public static native void glDeletePerfQueryINTEL(int queryHandle);
+    public static native void glDeletePerfQueryINTEL(@NativeType("GLuint") int queryHandle);
 
     // --- [ glEndPerfQueryINTEL ] ---
 
-    public static native void glEndPerfQueryINTEL(int queryHandle);
+    public static native void glEndPerfQueryINTEL(@NativeType("GLuint") int queryHandle);
 
     // --- [ glGetFirstPerfQueryIdINTEL ] ---
 
     public static native void nglGetFirstPerfQueryIdINTEL(long queryId);
 
-    public static void glGetFirstPerfQueryIdINTEL(IntBuffer queryId) {
+    public static void glGetFirstPerfQueryIdINTEL(@NativeType("GLuint *") IntBuffer queryId) {
         if (CHECKS) {
             check(queryId, 1);
         }
         nglGetFirstPerfQueryIdINTEL(memAddress(queryId));
     }
 
+    @NativeType("void")
     public static int glGetFirstPerfQueryIdINTEL() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -154,14 +156,15 @@ public class INTELPerformanceQuery {
 
     public static native void nglGetNextPerfQueryIdINTEL(int queryId, long nextQueryId);
 
-    public static void glGetNextPerfQueryIdINTEL(int queryId, IntBuffer nextQueryId) {
+    public static void glGetNextPerfQueryIdINTEL(@NativeType("GLuint") int queryId, @NativeType("GLuint *") IntBuffer nextQueryId) {
         if (CHECKS) {
             check(nextQueryId, 1);
         }
         nglGetNextPerfQueryIdINTEL(queryId, memAddress(nextQueryId));
     }
 
-    public static int glGetNextPerfQueryIdINTEL(int queryId) {
+    @NativeType("void")
+    public static int glGetNextPerfQueryIdINTEL(@NativeType("GLuint") int queryId) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer nextQueryId = stack.callocInt(1);
@@ -176,7 +179,7 @@ public class INTELPerformanceQuery {
 
     public static native void nglGetPerfCounterInfoINTEL(int queryId, int counterId, int counterNameLength, long counterName, int counterDescLength, long counterDesc, long counterOffset, long counterDataSize, long counterTypeEnum, long counterDataTypeEnum, long rawCounterMaxValue);
 
-    public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, ByteBuffer counterName, ByteBuffer counterDesc, IntBuffer counterOffset, IntBuffer counterDataSize, IntBuffer counterTypeEnum, IntBuffer counterDataTypeEnum, LongBuffer rawCounterMaxValue) {
+    public static void glGetPerfCounterInfoINTEL(@NativeType("GLuint") int queryId, @NativeType("GLuint") int counterId, @NativeType("GLchar *") ByteBuffer counterName, @NativeType("GLchar *") ByteBuffer counterDesc, @NativeType("GLuint *") IntBuffer counterOffset, @NativeType("GLuint *") IntBuffer counterDataSize, @NativeType("GLuint *") IntBuffer counterTypeEnum, @NativeType("GLuint *") IntBuffer counterDataTypeEnum, @NativeType("GLuint64 *") LongBuffer rawCounterMaxValue) {
         if (CHECKS) {
             check(counterOffset, 1);
             check(counterDataSize, 1);
@@ -191,7 +194,7 @@ public class INTELPerformanceQuery {
 
     public static native void nglGetPerfQueryDataINTEL(int queryHandle, int flags, int dataSize, long data, long bytesWritten);
 
-    public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, ByteBuffer data, IntBuffer bytesWritten) {
+    public static void glGetPerfQueryDataINTEL(@NativeType("GLuint") int queryHandle, @NativeType("GLuint") int flags, @NativeType("void *") ByteBuffer data, @NativeType("GLuint *") IntBuffer bytesWritten) {
         if (CHECKS) {
             check(bytesWritten, 1);
         }
@@ -202,7 +205,7 @@ public class INTELPerformanceQuery {
 
     public static native void nglGetPerfQueryIdByNameINTEL(long queryName, long queryId);
 
-    public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, IntBuffer queryId) {
+    public static void glGetPerfQueryIdByNameINTEL(@NativeType("GLchar *") ByteBuffer queryName, @NativeType("GLuint *") IntBuffer queryId) {
         if (CHECKS) {
             checkNT1(queryName);
             check(queryId, 1);
@@ -210,7 +213,7 @@ public class INTELPerformanceQuery {
         nglGetPerfQueryIdByNameINTEL(memAddress(queryName), memAddress(queryId));
     }
 
-    public static void glGetPerfQueryIdByNameINTEL(CharSequence queryName, IntBuffer queryId) {
+    public static void glGetPerfQueryIdByNameINTEL(@NativeType("GLchar *") CharSequence queryName, @NativeType("GLuint *") IntBuffer queryId) {
         if (CHECKS) {
             check(queryId, 1);
         }
@@ -223,7 +226,8 @@ public class INTELPerformanceQuery {
         }
     }
 
-    public static int glGetPerfQueryIdByNameINTEL(CharSequence queryName) {
+    @NativeType("void")
+    public static int glGetPerfQueryIdByNameINTEL(@NativeType("GLchar *") CharSequence queryName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer queryNameEncoded = stack.ASCII(queryName);
@@ -239,7 +243,7 @@ public class INTELPerformanceQuery {
 
     public static native void nglGetPerfQueryInfoINTEL(int queryId, int queryNameLength, long queryName, long dataSize, long noCounters, long noInstances, long capsMask);
 
-    public static void glGetPerfQueryInfoINTEL(int queryId, ByteBuffer queryName, IntBuffer dataSize, IntBuffer noCounters, IntBuffer noInstances, IntBuffer capsMask) {
+    public static void glGetPerfQueryInfoINTEL(@NativeType("GLuint") int queryId, @NativeType("GLchar *") ByteBuffer queryName, @NativeType("GLuint *") IntBuffer dataSize, @NativeType("GLuint *") IntBuffer noCounters, @NativeType("GLuint *") IntBuffer noInstances, @NativeType("GLuint *") IntBuffer capsMask) {
         if (CHECKS) {
             check(dataSize, 1);
             check(noCounters, 1);
@@ -250,7 +254,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glCreatePerfQueryINTEL CreatePerfQueryINTEL} */
-    public static void glCreatePerfQueryINTEL(int queryId, int[] queryHandle) {
+    public static void glCreatePerfQueryINTEL(@NativeType("GLuint") int queryId, @NativeType("GLuint *") int[] queryHandle) {
         long __functionAddress = GLES.getICD().glCreatePerfQueryINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -260,7 +264,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glGetFirstPerfQueryIdINTEL GetFirstPerfQueryIdINTEL} */
-    public static void glGetFirstPerfQueryIdINTEL(int[] queryId) {
+    public static void glGetFirstPerfQueryIdINTEL(@NativeType("GLuint *") int[] queryId) {
         long __functionAddress = GLES.getICD().glGetFirstPerfQueryIdINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -270,7 +274,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glGetNextPerfQueryIdINTEL GetNextPerfQueryIdINTEL} */
-    public static void glGetNextPerfQueryIdINTEL(int queryId, int[] nextQueryId) {
+    public static void glGetNextPerfQueryIdINTEL(@NativeType("GLuint") int queryId, @NativeType("GLuint *") int[] nextQueryId) {
         long __functionAddress = GLES.getICD().glGetNextPerfQueryIdINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -280,7 +284,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glGetPerfCounterInfoINTEL GetPerfCounterInfoINTEL} */
-    public static void glGetPerfCounterInfoINTEL(int queryId, int counterId, ByteBuffer counterName, ByteBuffer counterDesc, int[] counterOffset, int[] counterDataSize, int[] counterTypeEnum, int[] counterDataTypeEnum, long[] rawCounterMaxValue) {
+    public static void glGetPerfCounterInfoINTEL(@NativeType("GLuint") int queryId, @NativeType("GLuint") int counterId, @NativeType("GLchar *") ByteBuffer counterName, @NativeType("GLchar *") ByteBuffer counterDesc, @NativeType("GLuint *") int[] counterOffset, @NativeType("GLuint *") int[] counterDataSize, @NativeType("GLuint *") int[] counterTypeEnum, @NativeType("GLuint *") int[] counterDataTypeEnum, @NativeType("GLuint64 *") long[] rawCounterMaxValue) {
         long __functionAddress = GLES.getICD().glGetPerfCounterInfoINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -294,7 +298,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glGetPerfQueryDataINTEL GetPerfQueryDataINTEL} */
-    public static void glGetPerfQueryDataINTEL(int queryHandle, int flags, ByteBuffer data, int[] bytesWritten) {
+    public static void glGetPerfQueryDataINTEL(@NativeType("GLuint") int queryHandle, @NativeType("GLuint") int flags, @NativeType("void *") ByteBuffer data, @NativeType("GLuint *") int[] bytesWritten) {
         long __functionAddress = GLES.getICD().glGetPerfQueryDataINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -304,7 +308,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
-    public static void glGetPerfQueryIdByNameINTEL(ByteBuffer queryName, int[] queryId) {
+    public static void glGetPerfQueryIdByNameINTEL(@NativeType("GLchar *") ByteBuffer queryName, @NativeType("GLuint *") int[] queryId) {
         long __functionAddress = GLES.getICD().glGetPerfQueryIdByNameINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -315,7 +319,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glGetPerfQueryIdByNameINTEL GetPerfQueryIdByNameINTEL} */
-    public static void glGetPerfQueryIdByNameINTEL(CharSequence queryName, int[] queryId) {
+    public static void glGetPerfQueryIdByNameINTEL(@NativeType("GLchar *") CharSequence queryName, @NativeType("GLuint *") int[] queryId) {
         long __functionAddress = GLES.getICD().glGetPerfQueryIdByNameINTEL;
         if (CHECKS) {
             check(__functionAddress);
@@ -331,7 +335,7 @@ public class INTELPerformanceQuery {
     }
 
     /** Array version of: {@link #glGetPerfQueryInfoINTEL GetPerfQueryInfoINTEL} */
-    public static void glGetPerfQueryInfoINTEL(int queryId, ByteBuffer queryName, int[] dataSize, int[] noCounters, int[] noInstances, int[] capsMask) {
+    public static void glGetPerfQueryInfoINTEL(@NativeType("GLuint") int queryId, @NativeType("GLchar *") ByteBuffer queryName, @NativeType("GLuint *") int[] dataSize, @NativeType("GLuint *") int[] noCounters, @NativeType("GLuint *") int[] noInstances, @NativeType("GLuint *") int[] capsMask) {
         long __functionAddress = GLES.getICD().glGetPerfQueryInfoINTEL;
         if (CHECKS) {
             check(__functionAddress);

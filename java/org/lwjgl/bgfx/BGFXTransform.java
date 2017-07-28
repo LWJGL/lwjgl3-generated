@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint16_t num;
  * }</pre></code>
  */
+@NativeType("struct bgfx_transform_t")
 public class BGFXTransform extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -74,8 +75,10 @@ public class BGFXTransform extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code data} field. */
+    @NativeType("float *")
     public FloatBuffer data() { return ndata(address()); }
     /** Returns the value of the {@code num} field. */
+    @NativeType("uint16_t")
     public short num() { return nnum(address()); }
 
     // -----------------------------------
@@ -255,8 +258,10 @@ public class BGFXTransform extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code data} field. */
+        @NativeType("float *")
         public FloatBuffer data() { return BGFXTransform.ndata(address()); }
         /** Returns the value of the {@code num} field. */
+        @NativeType("uint16_t")
         public short num() { return BGFXTransform.nnum(address()); }
 
     }

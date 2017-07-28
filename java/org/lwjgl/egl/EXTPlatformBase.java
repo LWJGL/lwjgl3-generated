@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -59,7 +61,8 @@ public class EXTPlatformBase {
         return callPPP(__functionAddress, platform, native_display, attrib_list);
     }
 
-    public static long eglGetPlatformDisplayEXT(int platform, long native_display, IntBuffer attrib_list) {
+    @NativeType("EGLDisplay")
+    public static long eglGetPlatformDisplayEXT(@NativeType("EGLenum") int platform, @NativeType("void *") long native_display, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -79,7 +82,8 @@ public class EXTPlatformBase {
         return callPPPPP(__functionAddress, dpy, config, native_window, attrib_list);
     }
 
-    public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, IntBuffer attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePlatformWindowSurfaceEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_window, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -99,7 +103,8 @@ public class EXTPlatformBase {
         return callPPPPP(__functionAddress, dpy, config, native_pixmap, attrib_list);
     }
 
-    public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, IntBuffer attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePlatformPixmapSurfaceEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_pixmap, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -107,7 +112,8 @@ public class EXTPlatformBase {
     }
 
     /** Array version of: {@link #eglGetPlatformDisplayEXT GetPlatformDisplayEXT} */
-    public static long eglGetPlatformDisplayEXT(int platform, long native_display, int[] attrib_list) {
+    @NativeType("EGLDisplay")
+    public static long eglGetPlatformDisplayEXT(@NativeType("EGLenum") int platform, @NativeType("void *") long native_display, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglGetPlatformDisplayEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -118,7 +124,8 @@ public class EXTPlatformBase {
     }
 
     /** Array version of: {@link #eglCreatePlatformWindowSurfaceEXT CreatePlatformWindowSurfaceEXT} */
-    public static long eglCreatePlatformWindowSurfaceEXT(long dpy, long config, long native_window, int[] attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePlatformWindowSurfaceEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_window, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreatePlatformWindowSurfaceEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -131,7 +138,8 @@ public class EXTPlatformBase {
     }
 
     /** Array version of: {@link #eglCreatePlatformPixmapSurfaceEXT CreatePlatformPixmapSurfaceEXT} */
-    public static long eglCreatePlatformPixmapSurfaceEXT(long dpy, long config, long native_pixmap, int[] attrib_list) {
+    @NativeType("EGLSurface")
+    public static long eglCreatePlatformPixmapSurfaceEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_pixmap, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreatePlatformPixmapSurfaceEXT;
         if (CHECKS) {
             check(__functionAddress);

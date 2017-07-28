@@ -180,16 +180,22 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkImageViewCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code image} field. */
+    @NativeType("VkImage")
     public long image() { return nimage(address()); }
     /** Returns the value of the {@code viewType} field. */
+    @NativeType("VkImageViewType")
     public int viewType() { return nviewType(address()); }
     /** Returns the value of the {@code format} field. */
+    @NativeType("VkFormat")
     public int format() { return nformat(address()); }
     /** Returns a {@link VkComponentMapping} view of the {@code components} field. */
     public VkComponentMapping components() { return ncomponents(address()); }
@@ -197,17 +203,17 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
     public VkImageSubresourceRange subresourceRange() { return nsubresourceRange(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkImageViewCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkImageViewCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageViewCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkImageViewCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkImageViewCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkImageViewCreateInfo flags(@NativeType("VkImageViewCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
-    public VkImageViewCreateInfo image(long value) { nimage(address(), value); return this; }
+    public VkImageViewCreateInfo image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
     /** Sets the specified value to the {@code viewType} field. */
-    public VkImageViewCreateInfo viewType(int value) { nviewType(address(), value); return this; }
+    public VkImageViewCreateInfo viewType(@NativeType("VkImageViewType") int value) { nviewType(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
-    public VkImageViewCreateInfo format(int value) { nformat(address(), value); return this; }
+    public VkImageViewCreateInfo format(@NativeType("VkFormat") int value) { nformat(address(), value); return this; }
     /** Copies the specified {@link VkComponentMapping} to the {@code components} field. */
     public VkImageViewCreateInfo components(VkComponentMapping value) { ncomponents(address(), value); return this; }
     /** Copies the specified {@link VkImageSubresourceRange} to the {@code subresourceRange} field. */
@@ -454,16 +460,22 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkImageViewCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkImageViewCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkImageViewCreateFlags")
         public int flags() { return VkImageViewCreateInfo.nflags(address()); }
         /** Returns the value of the {@code image} field. */
+        @NativeType("VkImage")
         public long image() { return VkImageViewCreateInfo.nimage(address()); }
         /** Returns the value of the {@code viewType} field. */
+        @NativeType("VkImageViewType")
         public int viewType() { return VkImageViewCreateInfo.nviewType(address()); }
         /** Returns the value of the {@code format} field. */
+        @NativeType("VkFormat")
         public int format() { return VkImageViewCreateInfo.nformat(address()); }
         /** Returns a {@link VkComponentMapping} view of the {@code components} field. */
         public VkComponentMapping components() { return VkImageViewCreateInfo.ncomponents(address()); }
@@ -471,17 +483,17 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
         public VkImageSubresourceRange subresourceRange() { return VkImageViewCreateInfo.nsubresourceRange(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkImageViewCreateInfo.Buffer sType(int value) { VkImageViewCreateInfo.nsType(address(), value); return this; }
+        public VkImageViewCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkImageViewCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageViewCreateInfo.Buffer pNext(long value) { VkImageViewCreateInfo.npNext(address(), value); return this; }
+        public VkImageViewCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkImageViewCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkImageViewCreateInfo.Buffer flags(int value) { VkImageViewCreateInfo.nflags(address(), value); return this; }
+        public VkImageViewCreateInfo.Buffer flags(@NativeType("VkImageViewCreateFlags") int value) { VkImageViewCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
-        public VkImageViewCreateInfo.Buffer image(long value) { VkImageViewCreateInfo.nimage(address(), value); return this; }
+        public VkImageViewCreateInfo.Buffer image(@NativeType("VkImage") long value) { VkImageViewCreateInfo.nimage(address(), value); return this; }
         /** Sets the specified value to the {@code viewType} field. */
-        public VkImageViewCreateInfo.Buffer viewType(int value) { VkImageViewCreateInfo.nviewType(address(), value); return this; }
+        public VkImageViewCreateInfo.Buffer viewType(@NativeType("VkImageViewType") int value) { VkImageViewCreateInfo.nviewType(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
-        public VkImageViewCreateInfo.Buffer format(int value) { VkImageViewCreateInfo.nformat(address(), value); return this; }
+        public VkImageViewCreateInfo.Buffer format(@NativeType("VkFormat") int value) { VkImageViewCreateInfo.nformat(address(), value); return this; }
         /** Copies the specified {@link VkComponentMapping} to the {@code components} field. */
         public VkImageViewCreateInfo.Buffer components(VkComponentMapping value) { VkImageViewCreateInfo.ncomponents(address(), value); return this; }
         /** Copies the specified {@link VkImageSubresourceRange} to the {@code subresourceRange} field. */

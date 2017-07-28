@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint64_t reserved1;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Reserved_t")
 public class VREventReserved extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -67,14 +68,16 @@ public class VREventReserved extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code reserved0} field. */
+    @NativeType("uint64_t")
     public long reserved0() { return nreserved0(address()); }
     /** Returns the value of the {@code reserved1} field. */
+    @NativeType("uint64_t")
     public long reserved1() { return nreserved1(address()); }
 
     /** Sets the specified value to the {@code reserved0} field. */
-    public VREventReserved reserved0(long value) { nreserved0(address(), value); return this; }
+    public VREventReserved reserved0(@NativeType("uint64_t") long value) { nreserved0(address(), value); return this; }
     /** Sets the specified value to the {@code reserved1} field. */
-    public VREventReserved reserved1(long value) { nreserved1(address(), value); return this; }
+    public VREventReserved reserved1(@NativeType("uint64_t") long value) { nreserved1(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VREventReserved set(
@@ -281,14 +284,16 @@ public class VREventReserved extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code reserved0} field. */
+        @NativeType("uint64_t")
         public long reserved0() { return VREventReserved.nreserved0(address()); }
         /** Returns the value of the {@code reserved1} field. */
+        @NativeType("uint64_t")
         public long reserved1() { return VREventReserved.nreserved1(address()); }
 
         /** Sets the specified value to the {@code reserved0} field. */
-        public VREventReserved.Buffer reserved0(long value) { VREventReserved.nreserved0(address(), value); return this; }
+        public VREventReserved.Buffer reserved0(@NativeType("uint64_t") long value) { VREventReserved.nreserved0(address(), value); return this; }
         /** Sets the specified value to the {@code reserved1} field. */
-        public VREventReserved.Buffer reserved1(long value) { VREventReserved.nreserved1(address(), value); return this; }
+        public VREventReserved.Buffer reserved1(@NativeType("uint64_t") long value) { VREventReserved.nreserved1(address(), value); return this; }
 
     }
 

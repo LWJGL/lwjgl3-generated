@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -75,7 +77,8 @@ public class KHRTerminateContext {
      *         OORE,
      *         OOHME
      */
-    public static int clTerminateContextKHR(long context) {
+    @NativeType("cl_int")
+    public static int clTerminateContextKHR(@NativeType("cl_context") long context) {
         long __functionAddress = CL.getICD().clTerminateContextKHR;
         if (CHECKS) {
             check(__functionAddress);

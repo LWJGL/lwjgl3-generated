@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -73,7 +75,7 @@ public class ARBMultiDrawIndirect {
      * @param primcount the number of elements in the array of draw parameter structures
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirect(int mode, ByteBuffer indirect, int primcount, int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
         }
@@ -110,7 +112,7 @@ public class ARBMultiDrawIndirect {
      * @param primcount the number of elements in the array of draw parameter structures
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirect(int mode, long indirect, int primcount, int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") long indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawArraysIndirect(mode, indirect, primcount, stride);
     }
 
@@ -144,7 +146,7 @@ public class ARBMultiDrawIndirect {
      * @param primcount the number of elements in the array of draw parameter structures
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirect(int mode, IntBuffer indirect, int primcount, int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
         }
@@ -188,7 +190,7 @@ public class ARBMultiDrawIndirect {
      * @param primcount the number of elements in the array addressed by {@code indirect}
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirect(int mode, int type, ByteBuffer indirect, int primcount, int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
         }
@@ -227,7 +229,7 @@ public class ARBMultiDrawIndirect {
      * @param primcount the number of elements in the array addressed by {@code indirect}
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirect(int mode, int type, long indirect, int primcount, int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") long indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawElementsIndirect(mode, type, indirect, primcount, stride);
     }
 
@@ -263,7 +265,7 @@ public class ARBMultiDrawIndirect {
      * @param primcount the number of elements in the array addressed by {@code indirect}
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirect(int mode, int type, IntBuffer indirect, int primcount, int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
         }
@@ -271,7 +273,7 @@ public class ARBMultiDrawIndirect {
     }
 
     /** Array version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect} */
-    public static void glMultiDrawArraysIndirect(int mode, int[] indirect, int primcount, int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") int[] indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawArraysIndirect;
         if (CHECKS) {
             check(__functionAddress);
@@ -281,7 +283,7 @@ public class ARBMultiDrawIndirect {
     }
 
     /** Array version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect} */
-    public static void glMultiDrawElementsIndirect(int mode, int type, int[] indirect, int primcount, int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") int[] indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawElementsIndirect;
         if (CHECKS) {
             check(__functionAddress);

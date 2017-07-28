@@ -63,7 +63,7 @@ public class ARBGLSPIRV {
      * @param pConstantIndex 
      * @param pConstantValue 
      */
-    public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
+    public static void glSpecializeShaderARB(@NativeType("GLuint") int shader, @NativeType("const GLchar *") ByteBuffer pEntryPoint, @NativeType("const GLuint *") IntBuffer pConstantIndex, @NativeType("const GLuint *") IntBuffer pConstantValue) {
         if (CHECKS) {
             checkNT1(pEntryPoint);
             check(pConstantValue, pConstantIndex.remaining());
@@ -79,7 +79,7 @@ public class ARBGLSPIRV {
      * @param pConstantIndex 
      * @param pConstantValue 
      */
-    public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, IntBuffer pConstantIndex, IntBuffer pConstantValue) {
+    public static void glSpecializeShaderARB(@NativeType("GLuint") int shader, @NativeType("const GLchar *") CharSequence pEntryPoint, @NativeType("const GLuint *") IntBuffer pConstantIndex, @NativeType("const GLuint *") IntBuffer pConstantValue) {
         if (CHECKS) {
             check(pConstantValue, pConstantIndex.remaining());
         }
@@ -93,7 +93,7 @@ public class ARBGLSPIRV {
     }
 
     /** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
-    public static void glSpecializeShaderARB(int shader, ByteBuffer pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
+    public static void glSpecializeShaderARB(@NativeType("GLuint") int shader, @NativeType("const GLchar *") ByteBuffer pEntryPoint, @NativeType("const GLuint *") int[] pConstantIndex, @NativeType("const GLuint *") int[] pConstantValue) {
         long __functionAddress = GL.getICD().glSpecializeShaderARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -104,7 +104,7 @@ public class ARBGLSPIRV {
     }
 
     /** Array version of: {@link #glSpecializeShaderARB SpecializeShaderARB} */
-    public static void glSpecializeShaderARB(int shader, CharSequence pEntryPoint, int[] pConstantIndex, int[] pConstantValue) {
+    public static void glSpecializeShaderARB(@NativeType("GLuint") int shader, @NativeType("const GLchar *") CharSequence pEntryPoint, @NativeType("const GLuint *") int[] pConstantIndex, @NativeType("const GLuint *") int[] pConstantValue) {
         long __functionAddress = GL.getICD().glSpecializeShaderARB;
         if (CHECKS) {
             check(__functionAddress);

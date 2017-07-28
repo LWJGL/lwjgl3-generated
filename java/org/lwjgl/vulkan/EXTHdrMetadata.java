@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -109,7 +111,7 @@ public class EXTHdrMetadata {
      * @param pSwapchains a pointer to the array of {@code swapchainCount} {@code VkSwapchainKHR} handles.
      * @param pMetadata   a pointer to the array of {@code swapchainCount} {@link VkHdrMetadataEXT} structures.
      */
-    public static void vkSetHdrMetadataEXT(VkDevice device, LongBuffer pSwapchains, VkHdrMetadataEXT.Buffer pMetadata) {
+    public static void vkSetHdrMetadataEXT(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainKHR *") LongBuffer pSwapchains, @NativeType("const VkHdrMetadataEXT *") VkHdrMetadataEXT.Buffer pMetadata) {
         if (CHECKS) {
             check(pMetadata, pSwapchains.remaining());
         }
@@ -117,7 +119,7 @@ public class EXTHdrMetadata {
     }
 
     /** Array version of: {@link #vkSetHdrMetadataEXT SetHdrMetadataEXT} */
-    public static void vkSetHdrMetadataEXT(VkDevice device, long[] pSwapchains, VkHdrMetadataEXT.Buffer pMetadata) {
+    public static void vkSetHdrMetadataEXT(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainKHR *") long[] pSwapchains, @NativeType("const VkHdrMetadataEXT *") VkHdrMetadataEXT.Buffer pMetadata) {
         long __functionAddress = device.getCapabilities().vkSetHdrMetadataEXT;
         if (CHECKS) {
             check(__functionAddress);

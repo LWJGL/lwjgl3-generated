@@ -92,18 +92,21 @@ public class VkSemaphoreCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkSemaphoreCreateFlags")
     public int flags() { return nflags(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkSemaphoreCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkSemaphoreCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSemaphoreCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkSemaphoreCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkSemaphoreCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkSemaphoreCreateInfo flags(@NativeType("VkSemaphoreCreateFlags") int value) { nflags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSemaphoreCreateInfo set(
@@ -316,18 +319,21 @@ public class VkSemaphoreCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSemaphoreCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkSemaphoreCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkSemaphoreCreateFlags")
         public int flags() { return VkSemaphoreCreateInfo.nflags(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkSemaphoreCreateInfo.Buffer sType(int value) { VkSemaphoreCreateInfo.nsType(address(), value); return this; }
+        public VkSemaphoreCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkSemaphoreCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSemaphoreCreateInfo.Buffer pNext(long value) { VkSemaphoreCreateInfo.npNext(address(), value); return this; }
+        public VkSemaphoreCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkSemaphoreCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkSemaphoreCreateInfo.Buffer flags(int value) { VkSemaphoreCreateInfo.nflags(address(), value); return this; }
+        public VkSemaphoreCreateInfo.Buffer flags(@NativeType("VkSemaphoreCreateFlags") int value) { VkSemaphoreCreateInfo.nflags(address(), value); return this; }
 
     }
 

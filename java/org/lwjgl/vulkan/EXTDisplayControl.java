@@ -7,6 +7,8 @@ package org.lwjgl.vulkan;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -183,7 +185,8 @@ public class EXTDisplayControl {
      * @param display           the display whose power state is modified.
      * @param pDisplayPowerInfo an instance of {@link VkDisplayPowerInfoEXT} specifying the new power state of {@code display}.
      */
-    public static int vkDisplayPowerControlEXT(VkDevice device, long display, VkDisplayPowerInfoEXT pDisplayPowerInfo) {
+    @NativeType("VkResult")
+    public static int vkDisplayPowerControlEXT(VkDevice device, @NativeType("VkDisplayKHR") long display, @NativeType("const VkDisplayPowerInfoEXT *") VkDisplayPowerInfoEXT pDisplayPowerInfo) {
         return nvkDisplayPowerControlEXT(device, display, pDisplayPowerInfo.address());
     }
 
@@ -240,7 +243,8 @@ public class EXTDisplayControl {
      * @param pAllocator       controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pFence           points to a handle in which the resulting fence object is returned.
      */
-    public static int vkRegisterDeviceEventEXT(VkDevice device, VkDeviceEventInfoEXT pDeviceEventInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
+    @NativeType("VkResult")
+    public static int vkRegisterDeviceEventEXT(VkDevice device, @NativeType("const VkDeviceEventInfoEXT *") VkDeviceEventInfoEXT pDeviceEventInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFence *") LongBuffer pFence) {
         if (CHECKS) {
             check(pFence, 1);
         }
@@ -303,7 +307,8 @@ public class EXTDisplayControl {
      * @param pAllocator        controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pFence            points to a handle in which the resulting fence object is returned.
      */
-    public static int vkRegisterDisplayEventEXT(VkDevice device, long display, VkDisplayEventInfoEXT pDisplayEventInfo, VkAllocationCallbacks pAllocator, LongBuffer pFence) {
+    @NativeType("VkResult")
+    public static int vkRegisterDisplayEventEXT(VkDevice device, @NativeType("VkDisplayKHR") long display, @NativeType("const VkDisplayEventInfoEXT *") VkDisplayEventInfoEXT pDisplayEventInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFence *") LongBuffer pFence) {
         if (CHECKS) {
             check(pFence, 1);
         }
@@ -370,7 +375,8 @@ public class EXTDisplayControl {
      * @param counter       the counter to query.
      * @param pCounterValue will return the current value of the counter.
      */
-    public static int vkGetSwapchainCounterEXT(VkDevice device, long swapchain, int counter, LongBuffer pCounterValue) {
+    @NativeType("VkResult")
+    public static int vkGetSwapchainCounterEXT(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("VkSurfaceCounterFlagBitsEXT") int counter, @NativeType("uint64_t *") LongBuffer pCounterValue) {
         if (CHECKS) {
             check(pCounterValue, 1);
         }
@@ -378,7 +384,8 @@ public class EXTDisplayControl {
     }
 
     /** Array version of: {@link #vkRegisterDeviceEventEXT RegisterDeviceEventEXT} */
-    public static int vkRegisterDeviceEventEXT(VkDevice device, VkDeviceEventInfoEXT pDeviceEventInfo, VkAllocationCallbacks pAllocator, long[] pFence) {
+    @NativeType("VkResult")
+    public static int vkRegisterDeviceEventEXT(VkDevice device, @NativeType("const VkDeviceEventInfoEXT *") VkDeviceEventInfoEXT pDeviceEventInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFence *") long[] pFence) {
         long __functionAddress = device.getCapabilities().vkRegisterDeviceEventEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -389,7 +396,8 @@ public class EXTDisplayControl {
     }
 
     /** Array version of: {@link #vkRegisterDisplayEventEXT RegisterDisplayEventEXT} */
-    public static int vkRegisterDisplayEventEXT(VkDevice device, long display, VkDisplayEventInfoEXT pDisplayEventInfo, VkAllocationCallbacks pAllocator, long[] pFence) {
+    @NativeType("VkResult")
+    public static int vkRegisterDisplayEventEXT(VkDevice device, @NativeType("VkDisplayKHR") long display, @NativeType("const VkDisplayEventInfoEXT *") VkDisplayEventInfoEXT pDisplayEventInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkFence *") long[] pFence) {
         long __functionAddress = device.getCapabilities().vkRegisterDisplayEventEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -400,7 +408,8 @@ public class EXTDisplayControl {
     }
 
     /** Array version of: {@link #vkGetSwapchainCounterEXT GetSwapchainCounterEXT} */
-    public static int vkGetSwapchainCounterEXT(VkDevice device, long swapchain, int counter, long[] pCounterValue) {
+    @NativeType("VkResult")
+    public static int vkGetSwapchainCounterEXT(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("VkSurfaceCounterFlagBitsEXT") int counter, @NativeType("uint64_t *") long[] pCounterValue) {
         long __functionAddress = device.getCapabilities().vkGetSwapchainCounterEXT;
         if (CHECKS) {
             check(__functionAddress);

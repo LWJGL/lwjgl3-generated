@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("aiFileOpenProc")
 public interface AIFileOpenProcI extends CallbackI.P {
 
     String SIGNATURE = "(ppp)p";
@@ -34,6 +35,6 @@ public interface AIFileOpenProcI extends CallbackI.P {
      * @param fileName The name of the file to be opened
      * @param openMode The mode in which to open the file
      */
-    long invoke(long pFileIO, long fileName, long openMode);
+    @NativeType("struct aiFile *") long invoke(@NativeType("struct aiFileIO *") long pFileIO, @NativeType("const char *") long fileName, @NativeType("const char *") long openMode);
 
 }

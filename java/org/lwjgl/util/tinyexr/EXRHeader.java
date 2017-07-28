@@ -165,14 +165,17 @@ public class EXRHeader extends Struct implements NativeResource {
     /** Returns the value of the {@code line_order} field. */
     public int line_order() { return nline_order(address()); }
     /** Returns a {@link IntBuffer} view of the {@code data_window} field. */
+    @NativeType("int[4]")
     public IntBuffer data_window() { return ndata_window(address()); }
     /** Returns the value at the specified index of the {@code data_window} field. */
     public int data_window(int index) { return ndata_window(address(), index); }
     /** Returns a {@link IntBuffer} view of the {@code display_window} field. */
+    @NativeType("int[4]")
     public IntBuffer display_window() { return ndisplay_window(address()); }
     /** Returns the value at the specified index of the {@code display_window} field. */
     public int display_window(int index) { return ndisplay_window(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code screen_window_center} field. */
+    @NativeType("float[2]")
     public FloatBuffer screen_window_center() { return nscreen_window_center(address()); }
     /** Returns the value at the specified index of the {@code screen_window_center} field. */
     public float screen_window_center(int index) { return nscreen_window_center(address(), index); }
@@ -181,6 +184,7 @@ public class EXRHeader extends Struct implements NativeResource {
     /** Returns the value of the {@code chunk_count} field. */
     public int chunk_count() { return nchunk_count(address()); }
     /** Returns the value of the {@code tiled} field. */
+    @NativeType("int")
     public boolean tiled() { return ntiled(address()) != 0; }
     /** Returns the value of the {@code tile_size_x} field. */
     public int tile_size_x() { return ntile_size_x(address()); }
@@ -191,28 +195,36 @@ public class EXRHeader extends Struct implements NativeResource {
     /** Returns the value of the {@code tile_rounding_mode} field. */
     public int tile_rounding_mode() { return ntile_rounding_mode(address()); }
     /** Returns the value of the {@code long_name} field. */
+    @NativeType("int")
     public boolean long_name() { return nlong_name(address()) != 0; }
     /** Returns the value of the {@code non_image} field. */
+    @NativeType("int")
     public boolean non_image() { return nnon_image(address()) != 0; }
     /** Returns the value of the {@code multipart} field. */
+    @NativeType("int")
     public boolean multipart() { return nmultipart(address()) != 0; }
     /** Returns the value of the {@code header_len} field. */
+    @NativeType("unsigned int")
     public int header_len() { return nheader_len(address()); }
     /** Returns the value of the {@code num_custom_attributes} field. */
     public int num_custom_attributes() { return nnum_custom_attributes(address()); }
     /** Returns a {@link EXRAttribute}.Buffer view of the {@code custom_attributes} field. */
+    @NativeType("EXRAttribute[TINYEXR_MAX_ATTRIBUTES]")
     public EXRAttribute.Buffer custom_attributes() { return ncustom_attributes(address()); }
     /** Returns a {@link EXRAttribute} view of the struct at the specified index of the {@code custom_attributes} field. */
     public EXRAttribute custom_attributes(int index) { return ncustom_attributes(address(), index); }
     /** Returns a {@link EXRChannelInfo.Buffer} view of the struct array pointed to by the {@code channels} field. */
+    @NativeType("EXRChannelInfo *")
     public EXRChannelInfo.Buffer channels() { return nchannels(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pixel_types} field. */
+    @NativeType("int *")
     public IntBuffer pixel_types() { return npixel_types(address()); }
     /** Returns the value of the {@code num_channels} field. */
     public int num_channels() { return nnum_channels(address()); }
     /** Returns the value of the {@code compression_type} field. */
     public int compression_type() { return ncompression_type(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code requested_pixel_types} field. */
+    @NativeType("int *")
     public IntBuffer requested_pixel_types() { return nrequested_pixel_types(address()); }
 
     /** Sets the specified value to the {@code pixel_aspect_ratio} field. */
@@ -220,15 +232,15 @@ public class EXRHeader extends Struct implements NativeResource {
     /** Sets the specified value to the {@code line_order} field. */
     public EXRHeader line_order(int value) { nline_order(address(), value); return this; }
     /** Copies the specified {@link IntBuffer} to the {@code data_window} field. */
-    public EXRHeader data_window(IntBuffer value) { ndata_window(address(), value); return this; }
+    public EXRHeader data_window(@NativeType("int[4]") IntBuffer value) { ndata_window(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code data_window} field. */
     public EXRHeader data_window(int index, int value) { ndata_window(address(), index, value); return this; }
     /** Copies the specified {@link IntBuffer} to the {@code display_window} field. */
-    public EXRHeader display_window(IntBuffer value) { ndisplay_window(address(), value); return this; }
+    public EXRHeader display_window(@NativeType("int[4]") IntBuffer value) { ndisplay_window(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code display_window} field. */
     public EXRHeader display_window(int index, int value) { ndisplay_window(address(), index, value); return this; }
     /** Copies the specified {@link FloatBuffer} to the {@code screen_window_center} field. */
-    public EXRHeader screen_window_center(FloatBuffer value) { nscreen_window_center(address(), value); return this; }
+    public EXRHeader screen_window_center(@NativeType("float[2]") FloatBuffer value) { nscreen_window_center(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code screen_window_center} field. */
     public EXRHeader screen_window_center(int index, float value) { nscreen_window_center(address(), index, value); return this; }
     /** Sets the specified value to the {@code screen_window_width} field. */
@@ -236,7 +248,7 @@ public class EXRHeader extends Struct implements NativeResource {
     /** Sets the specified value to the {@code chunk_count} field. */
     public EXRHeader chunk_count(int value) { nchunk_count(address(), value); return this; }
     /** Sets the specified value to the {@code tiled} field. */
-    public EXRHeader tiled(boolean value) { ntiled(address(), value ? 1 : 0); return this; }
+    public EXRHeader tiled(@NativeType("int") boolean value) { ntiled(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code tile_size_x} field. */
     public EXRHeader tile_size_x(int value) { ntile_size_x(address(), value); return this; }
     /** Sets the specified value to the {@code tile_size_y} field. */
@@ -246,27 +258,27 @@ public class EXRHeader extends Struct implements NativeResource {
     /** Sets the specified value to the {@code tile_rounding_mode} field. */
     public EXRHeader tile_rounding_mode(int value) { ntile_rounding_mode(address(), value); return this; }
     /** Sets the specified value to the {@code long_name} field. */
-    public EXRHeader long_name(boolean value) { nlong_name(address(), value ? 1 : 0); return this; }
+    public EXRHeader long_name(@NativeType("int") boolean value) { nlong_name(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code non_image} field. */
-    public EXRHeader non_image(boolean value) { nnon_image(address(), value ? 1 : 0); return this; }
+    public EXRHeader non_image(@NativeType("int") boolean value) { nnon_image(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code multipart} field. */
-    public EXRHeader multipart(boolean value) { nmultipart(address(), value ? 1 : 0); return this; }
+    public EXRHeader multipart(@NativeType("int") boolean value) { nmultipart(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code header_len} field. */
-    public EXRHeader header_len(int value) { nheader_len(address(), value); return this; }
+    public EXRHeader header_len(@NativeType("unsigned int") int value) { nheader_len(address(), value); return this; }
     /** Copies the specified {@link EXRAttribute.Buffer} to the {@code custom_attributes} field. */
-    public EXRHeader custom_attributes(EXRAttribute.Buffer value) { ncustom_attributes(address(), value); return this; }
+    public EXRHeader custom_attributes(@NativeType("EXRAttribute[TINYEXR_MAX_ATTRIBUTES]") EXRAttribute.Buffer value) { ncustom_attributes(address(), value); return this; }
     /** Copies the specified {@link EXRAttribute} at the specified index of the {@code custom_attributes} field. */
     public EXRHeader custom_attributes(int index, EXRAttribute value) { ncustom_attributes(address(), index, value); return this; }
     /** Sets the address of the specified {@link EXRChannelInfo.Buffer} to the {@code channels} field. */
-    public EXRHeader channels(EXRChannelInfo.Buffer value) { nchannels(address(), value); return this; }
+    public EXRHeader channels(@NativeType("EXRChannelInfo *") EXRChannelInfo.Buffer value) { nchannels(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pixel_types} field. */
-    public EXRHeader pixel_types(IntBuffer value) { npixel_types(address(), value); return this; }
+    public EXRHeader pixel_types(@NativeType("int *") IntBuffer value) { npixel_types(address(), value); return this; }
     /** Sets the specified value to the {@code num_channels} field. */
     public EXRHeader num_channels(int value) { nnum_channels(address(), value); return this; }
     /** Sets the specified value to the {@code compression_type} field. */
     public EXRHeader compression_type(int value) { ncompression_type(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code requested_pixel_types} field. */
-    public EXRHeader requested_pixel_types(IntBuffer value) { nrequested_pixel_types(address(), value); return this; }
+    public EXRHeader requested_pixel_types(@NativeType("int *") IntBuffer value) { nrequested_pixel_types(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public EXRHeader set(
@@ -683,14 +695,17 @@ public class EXRHeader extends Struct implements NativeResource {
         /** Returns the value of the {@code line_order} field. */
         public int line_order() { return EXRHeader.nline_order(address()); }
         /** Returns a {@link IntBuffer} view of the {@code data_window} field. */
+        @NativeType("int[4]")
         public IntBuffer data_window() { return EXRHeader.ndata_window(address()); }
         /** Returns the value at the specified index of the {@code data_window} field. */
         public int data_window(int index) { return EXRHeader.ndata_window(address(), index); }
         /** Returns a {@link IntBuffer} view of the {@code display_window} field. */
+        @NativeType("int[4]")
         public IntBuffer display_window() { return EXRHeader.ndisplay_window(address()); }
         /** Returns the value at the specified index of the {@code display_window} field. */
         public int display_window(int index) { return EXRHeader.ndisplay_window(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code screen_window_center} field. */
+        @NativeType("float[2]")
         public FloatBuffer screen_window_center() { return EXRHeader.nscreen_window_center(address()); }
         /** Returns the value at the specified index of the {@code screen_window_center} field. */
         public float screen_window_center(int index) { return EXRHeader.nscreen_window_center(address(), index); }
@@ -699,6 +714,7 @@ public class EXRHeader extends Struct implements NativeResource {
         /** Returns the value of the {@code chunk_count} field. */
         public int chunk_count() { return EXRHeader.nchunk_count(address()); }
         /** Returns the value of the {@code tiled} field. */
+        @NativeType("int")
         public boolean tiled() { return EXRHeader.ntiled(address()) != 0; }
         /** Returns the value of the {@code tile_size_x} field. */
         public int tile_size_x() { return EXRHeader.ntile_size_x(address()); }
@@ -709,28 +725,36 @@ public class EXRHeader extends Struct implements NativeResource {
         /** Returns the value of the {@code tile_rounding_mode} field. */
         public int tile_rounding_mode() { return EXRHeader.ntile_rounding_mode(address()); }
         /** Returns the value of the {@code long_name} field. */
+        @NativeType("int")
         public boolean long_name() { return EXRHeader.nlong_name(address()) != 0; }
         /** Returns the value of the {@code non_image} field. */
+        @NativeType("int")
         public boolean non_image() { return EXRHeader.nnon_image(address()) != 0; }
         /** Returns the value of the {@code multipart} field. */
+        @NativeType("int")
         public boolean multipart() { return EXRHeader.nmultipart(address()) != 0; }
         /** Returns the value of the {@code header_len} field. */
+        @NativeType("unsigned int")
         public int header_len() { return EXRHeader.nheader_len(address()); }
         /** Returns the value of the {@code num_custom_attributes} field. */
         public int num_custom_attributes() { return EXRHeader.nnum_custom_attributes(address()); }
         /** Returns a {@link EXRAttribute}.Buffer view of the {@code custom_attributes} field. */
+        @NativeType("EXRAttribute[TINYEXR_MAX_ATTRIBUTES]")
         public EXRAttribute.Buffer custom_attributes() { return EXRHeader.ncustom_attributes(address()); }
         /** Returns a {@link EXRAttribute} view of the struct at the specified index of the {@code custom_attributes} field. */
         public EXRAttribute custom_attributes(int index) { return EXRHeader.ncustom_attributes(address(), index); }
         /** Returns a {@link EXRChannelInfo.Buffer} view of the struct array pointed to by the {@code channels} field. */
+        @NativeType("EXRChannelInfo *")
         public EXRChannelInfo.Buffer channels() { return EXRHeader.nchannels(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pixel_types} field. */
+        @NativeType("int *")
         public IntBuffer pixel_types() { return EXRHeader.npixel_types(address()); }
         /** Returns the value of the {@code num_channels} field. */
         public int num_channels() { return EXRHeader.nnum_channels(address()); }
         /** Returns the value of the {@code compression_type} field. */
         public int compression_type() { return EXRHeader.ncompression_type(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code requested_pixel_types} field. */
+        @NativeType("int *")
         public IntBuffer requested_pixel_types() { return EXRHeader.nrequested_pixel_types(address()); }
 
         /** Sets the specified value to the {@code pixel_aspect_ratio} field. */
@@ -738,15 +762,15 @@ public class EXRHeader extends Struct implements NativeResource {
         /** Sets the specified value to the {@code line_order} field. */
         public EXRHeader.Buffer line_order(int value) { EXRHeader.nline_order(address(), value); return this; }
         /** Copies the specified {@link IntBuffer} to the {@code data_window} field. */
-        public EXRHeader.Buffer data_window(IntBuffer value) { EXRHeader.ndata_window(address(), value); return this; }
+        public EXRHeader.Buffer data_window(@NativeType("int[4]") IntBuffer value) { EXRHeader.ndata_window(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code data_window} field. */
         public EXRHeader.Buffer data_window(int index, int value) { EXRHeader.ndata_window(address(), index, value); return this; }
         /** Copies the specified {@link IntBuffer} to the {@code display_window} field. */
-        public EXRHeader.Buffer display_window(IntBuffer value) { EXRHeader.ndisplay_window(address(), value); return this; }
+        public EXRHeader.Buffer display_window(@NativeType("int[4]") IntBuffer value) { EXRHeader.ndisplay_window(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code display_window} field. */
         public EXRHeader.Buffer display_window(int index, int value) { EXRHeader.ndisplay_window(address(), index, value); return this; }
         /** Copies the specified {@link FloatBuffer} to the {@code screen_window_center} field. */
-        public EXRHeader.Buffer screen_window_center(FloatBuffer value) { EXRHeader.nscreen_window_center(address(), value); return this; }
+        public EXRHeader.Buffer screen_window_center(@NativeType("float[2]") FloatBuffer value) { EXRHeader.nscreen_window_center(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code screen_window_center} field. */
         public EXRHeader.Buffer screen_window_center(int index, float value) { EXRHeader.nscreen_window_center(address(), index, value); return this; }
         /** Sets the specified value to the {@code screen_window_width} field. */
@@ -754,7 +778,7 @@ public class EXRHeader extends Struct implements NativeResource {
         /** Sets the specified value to the {@code chunk_count} field. */
         public EXRHeader.Buffer chunk_count(int value) { EXRHeader.nchunk_count(address(), value); return this; }
         /** Sets the specified value to the {@code tiled} field. */
-        public EXRHeader.Buffer tiled(boolean value) { EXRHeader.ntiled(address(), value ? 1 : 0); return this; }
+        public EXRHeader.Buffer tiled(@NativeType("int") boolean value) { EXRHeader.ntiled(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code tile_size_x} field. */
         public EXRHeader.Buffer tile_size_x(int value) { EXRHeader.ntile_size_x(address(), value); return this; }
         /** Sets the specified value to the {@code tile_size_y} field. */
@@ -764,27 +788,27 @@ public class EXRHeader extends Struct implements NativeResource {
         /** Sets the specified value to the {@code tile_rounding_mode} field. */
         public EXRHeader.Buffer tile_rounding_mode(int value) { EXRHeader.ntile_rounding_mode(address(), value); return this; }
         /** Sets the specified value to the {@code long_name} field. */
-        public EXRHeader.Buffer long_name(boolean value) { EXRHeader.nlong_name(address(), value ? 1 : 0); return this; }
+        public EXRHeader.Buffer long_name(@NativeType("int") boolean value) { EXRHeader.nlong_name(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code non_image} field. */
-        public EXRHeader.Buffer non_image(boolean value) { EXRHeader.nnon_image(address(), value ? 1 : 0); return this; }
+        public EXRHeader.Buffer non_image(@NativeType("int") boolean value) { EXRHeader.nnon_image(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code multipart} field. */
-        public EXRHeader.Buffer multipart(boolean value) { EXRHeader.nmultipart(address(), value ? 1 : 0); return this; }
+        public EXRHeader.Buffer multipart(@NativeType("int") boolean value) { EXRHeader.nmultipart(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code header_len} field. */
-        public EXRHeader.Buffer header_len(int value) { EXRHeader.nheader_len(address(), value); return this; }
+        public EXRHeader.Buffer header_len(@NativeType("unsigned int") int value) { EXRHeader.nheader_len(address(), value); return this; }
         /** Copies the specified {@link EXRAttribute.Buffer} to the {@code custom_attributes} field. */
-        public EXRHeader.Buffer custom_attributes(EXRAttribute.Buffer value) { EXRHeader.ncustom_attributes(address(), value); return this; }
+        public EXRHeader.Buffer custom_attributes(@NativeType("EXRAttribute[TINYEXR_MAX_ATTRIBUTES]") EXRAttribute.Buffer value) { EXRHeader.ncustom_attributes(address(), value); return this; }
         /** Copies the specified {@link EXRAttribute} at the specified index of the {@code custom_attributes} field. */
         public EXRHeader.Buffer custom_attributes(int index, EXRAttribute value) { EXRHeader.ncustom_attributes(address(), index, value); return this; }
         /** Sets the address of the specified {@link EXRChannelInfo.Buffer} to the {@code channels} field. */
-        public EXRHeader.Buffer channels(EXRChannelInfo.Buffer value) { EXRHeader.nchannels(address(), value); return this; }
+        public EXRHeader.Buffer channels(@NativeType("EXRChannelInfo *") EXRChannelInfo.Buffer value) { EXRHeader.nchannels(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pixel_types} field. */
-        public EXRHeader.Buffer pixel_types(IntBuffer value) { EXRHeader.npixel_types(address(), value); return this; }
+        public EXRHeader.Buffer pixel_types(@NativeType("int *") IntBuffer value) { EXRHeader.npixel_types(address(), value); return this; }
         /** Sets the specified value to the {@code num_channels} field. */
         public EXRHeader.Buffer num_channels(int value) { EXRHeader.nnum_channels(address(), value); return this; }
         /** Sets the specified value to the {@code compression_type} field. */
         public EXRHeader.Buffer compression_type(int value) { EXRHeader.ncompression_type(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code requested_pixel_types} field. */
-        public EXRHeader.Buffer requested_pixel_types(IntBuffer value) { EXRHeader.nrequested_pixel_types(address(), value); return this; }
+        public EXRHeader.Buffer requested_pixel_types(@NativeType("int *") IntBuffer value) { EXRHeader.nrequested_pixel_types(address(), value); return this; }
 
     }
 

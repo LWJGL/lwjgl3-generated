@@ -34,6 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkVec2 struct nk_vec2} spacing;
  * }</pre></code>
  */
+@NativeType("struct nk_style_tab")
 public class NkStyleTab extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -113,22 +114,31 @@ public class NkStyleTab extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkStyleItem} view of the {@code background} field. */
+    @NativeType("struct nk_style_item")
     public NkStyleItem background() { return nbackground(address()); }
     /** Returns a {@link NkColor} view of the {@code border_color} field. */
+    @NativeType("struct nk_color")
     public NkColor border_color() { return nborder_color(address()); }
     /** Returns a {@link NkColor} view of the {@code text} field. */
+    @NativeType("struct nk_color")
     public NkColor text() { return ntext(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code tab_maximize_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton tab_maximize_button() { return ntab_maximize_button(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code tab_minimize_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton tab_minimize_button() { return ntab_minimize_button(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code node_maximize_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton node_maximize_button() { return nnode_maximize_button(address()); }
     /** Returns a {@link NkStyleButton} view of the {@code node_minimize_button} field. */
+    @NativeType("struct nk_style_button")
     public NkStyleButton node_minimize_button() { return nnode_minimize_button(address()); }
     /** Returns the value of the {@code sym_minimize} field. */
+    @NativeType("enum nk_symbol_type")
     public int sym_minimize() { return nsym_minimize(address()); }
     /** Returns the value of the {@code sym_maximize} field. */
+    @NativeType("enum nk_symbol_type")
     public int sym_maximize() { return nsym_maximize(address()); }
     /** Returns the value of the {@code border} field. */
     public float border() { return nborder(address()); }
@@ -137,28 +147,30 @@ public class NkStyleTab extends Struct implements NativeResource {
     /** Returns the value of the {@code indent} field. */
     public float indent() { return nindent(address()); }
     /** Returns a {@link NkVec2} view of the {@code padding} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 padding() { return npadding(address()); }
     /** Returns a {@link NkVec2} view of the {@code spacing} field. */
+    @NativeType("struct nk_vec2")
     public NkVec2 spacing() { return nspacing(address()); }
 
     /** Copies the specified {@link NkStyleItem} to the {@code background} field. */
-    public NkStyleTab background(NkStyleItem value) { nbackground(address(), value); return this; }
+    public NkStyleTab background(@NativeType("struct nk_style_item") NkStyleItem value) { nbackground(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-    public NkStyleTab border_color(NkColor value) { nborder_color(address(), value); return this; }
+    public NkStyleTab border_color(@NativeType("struct nk_color") NkColor value) { nborder_color(address(), value); return this; }
     /** Copies the specified {@link NkColor} to the {@code text} field. */
-    public NkStyleTab text(NkColor value) { ntext(address(), value); return this; }
+    public NkStyleTab text(@NativeType("struct nk_color") NkColor value) { ntext(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code tab_maximize_button} field. */
-    public NkStyleTab tab_maximize_button(NkStyleButton value) { ntab_maximize_button(address(), value); return this; }
+    public NkStyleTab tab_maximize_button(@NativeType("struct nk_style_button") NkStyleButton value) { ntab_maximize_button(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code tab_minimize_button} field. */
-    public NkStyleTab tab_minimize_button(NkStyleButton value) { ntab_minimize_button(address(), value); return this; }
+    public NkStyleTab tab_minimize_button(@NativeType("struct nk_style_button") NkStyleButton value) { ntab_minimize_button(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code node_maximize_button} field. */
-    public NkStyleTab node_maximize_button(NkStyleButton value) { nnode_maximize_button(address(), value); return this; }
+    public NkStyleTab node_maximize_button(@NativeType("struct nk_style_button") NkStyleButton value) { nnode_maximize_button(address(), value); return this; }
     /** Copies the specified {@link NkStyleButton} to the {@code node_minimize_button} field. */
-    public NkStyleTab node_minimize_button(NkStyleButton value) { nnode_minimize_button(address(), value); return this; }
+    public NkStyleTab node_minimize_button(@NativeType("struct nk_style_button") NkStyleButton value) { nnode_minimize_button(address(), value); return this; }
     /** Sets the specified value to the {@code sym_minimize} field. */
-    public NkStyleTab sym_minimize(int value) { nsym_minimize(address(), value); return this; }
+    public NkStyleTab sym_minimize(@NativeType("enum nk_symbol_type") int value) { nsym_minimize(address(), value); return this; }
     /** Sets the specified value to the {@code sym_maximize} field. */
-    public NkStyleTab sym_maximize(int value) { nsym_maximize(address(), value); return this; }
+    public NkStyleTab sym_maximize(@NativeType("enum nk_symbol_type") int value) { nsym_maximize(address(), value); return this; }
     /** Sets the specified value to the {@code border} field. */
     public NkStyleTab border(float value) { nborder(address(), value); return this; }
     /** Sets the specified value to the {@code rounding} field. */
@@ -166,9 +178,9 @@ public class NkStyleTab extends Struct implements NativeResource {
     /** Sets the specified value to the {@code indent} field. */
     public NkStyleTab indent(float value) { nindent(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-    public NkStyleTab padding(NkVec2 value) { npadding(address(), value); return this; }
+    public NkStyleTab padding(@NativeType("struct nk_vec2") NkVec2 value) { npadding(address(), value); return this; }
     /** Copies the specified {@link NkVec2} to the {@code spacing} field. */
-    public NkStyleTab spacing(NkVec2 value) { nspacing(address(), value); return this; }
+    public NkStyleTab spacing(@NativeType("struct nk_vec2") NkVec2 value) { nspacing(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleTab set(
@@ -447,22 +459,31 @@ public class NkStyleTab extends Struct implements NativeResource {
         }
 
         /** Returns a {@link NkStyleItem} view of the {@code background} field. */
+        @NativeType("struct nk_style_item")
         public NkStyleItem background() { return NkStyleTab.nbackground(address()); }
         /** Returns a {@link NkColor} view of the {@code border_color} field. */
+        @NativeType("struct nk_color")
         public NkColor border_color() { return NkStyleTab.nborder_color(address()); }
         /** Returns a {@link NkColor} view of the {@code text} field. */
+        @NativeType("struct nk_color")
         public NkColor text() { return NkStyleTab.ntext(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code tab_maximize_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton tab_maximize_button() { return NkStyleTab.ntab_maximize_button(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code tab_minimize_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton tab_minimize_button() { return NkStyleTab.ntab_minimize_button(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code node_maximize_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton node_maximize_button() { return NkStyleTab.nnode_maximize_button(address()); }
         /** Returns a {@link NkStyleButton} view of the {@code node_minimize_button} field. */
+        @NativeType("struct nk_style_button")
         public NkStyleButton node_minimize_button() { return NkStyleTab.nnode_minimize_button(address()); }
         /** Returns the value of the {@code sym_minimize} field. */
+        @NativeType("enum nk_symbol_type")
         public int sym_minimize() { return NkStyleTab.nsym_minimize(address()); }
         /** Returns the value of the {@code sym_maximize} field. */
+        @NativeType("enum nk_symbol_type")
         public int sym_maximize() { return NkStyleTab.nsym_maximize(address()); }
         /** Returns the value of the {@code border} field. */
         public float border() { return NkStyleTab.nborder(address()); }
@@ -471,28 +492,30 @@ public class NkStyleTab extends Struct implements NativeResource {
         /** Returns the value of the {@code indent} field. */
         public float indent() { return NkStyleTab.nindent(address()); }
         /** Returns a {@link NkVec2} view of the {@code padding} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 padding() { return NkStyleTab.npadding(address()); }
         /** Returns a {@link NkVec2} view of the {@code spacing} field. */
+        @NativeType("struct nk_vec2")
         public NkVec2 spacing() { return NkStyleTab.nspacing(address()); }
 
         /** Copies the specified {@link NkStyleItem} to the {@code background} field. */
-        public NkStyleTab.Buffer background(NkStyleItem value) { NkStyleTab.nbackground(address(), value); return this; }
+        public NkStyleTab.Buffer background(@NativeType("struct nk_style_item") NkStyleItem value) { NkStyleTab.nbackground(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code border_color} field. */
-        public NkStyleTab.Buffer border_color(NkColor value) { NkStyleTab.nborder_color(address(), value); return this; }
+        public NkStyleTab.Buffer border_color(@NativeType("struct nk_color") NkColor value) { NkStyleTab.nborder_color(address(), value); return this; }
         /** Copies the specified {@link NkColor} to the {@code text} field. */
-        public NkStyleTab.Buffer text(NkColor value) { NkStyleTab.ntext(address(), value); return this; }
+        public NkStyleTab.Buffer text(@NativeType("struct nk_color") NkColor value) { NkStyleTab.ntext(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code tab_maximize_button} field. */
-        public NkStyleTab.Buffer tab_maximize_button(NkStyleButton value) { NkStyleTab.ntab_maximize_button(address(), value); return this; }
+        public NkStyleTab.Buffer tab_maximize_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleTab.ntab_maximize_button(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code tab_minimize_button} field. */
-        public NkStyleTab.Buffer tab_minimize_button(NkStyleButton value) { NkStyleTab.ntab_minimize_button(address(), value); return this; }
+        public NkStyleTab.Buffer tab_minimize_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleTab.ntab_minimize_button(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code node_maximize_button} field. */
-        public NkStyleTab.Buffer node_maximize_button(NkStyleButton value) { NkStyleTab.nnode_maximize_button(address(), value); return this; }
+        public NkStyleTab.Buffer node_maximize_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleTab.nnode_maximize_button(address(), value); return this; }
         /** Copies the specified {@link NkStyleButton} to the {@code node_minimize_button} field. */
-        public NkStyleTab.Buffer node_minimize_button(NkStyleButton value) { NkStyleTab.nnode_minimize_button(address(), value); return this; }
+        public NkStyleTab.Buffer node_minimize_button(@NativeType("struct nk_style_button") NkStyleButton value) { NkStyleTab.nnode_minimize_button(address(), value); return this; }
         /** Sets the specified value to the {@code sym_minimize} field. */
-        public NkStyleTab.Buffer sym_minimize(int value) { NkStyleTab.nsym_minimize(address(), value); return this; }
+        public NkStyleTab.Buffer sym_minimize(@NativeType("enum nk_symbol_type") int value) { NkStyleTab.nsym_minimize(address(), value); return this; }
         /** Sets the specified value to the {@code sym_maximize} field. */
-        public NkStyleTab.Buffer sym_maximize(int value) { NkStyleTab.nsym_maximize(address(), value); return this; }
+        public NkStyleTab.Buffer sym_maximize(@NativeType("enum nk_symbol_type") int value) { NkStyleTab.nsym_maximize(address(), value); return this; }
         /** Sets the specified value to the {@code border} field. */
         public NkStyleTab.Buffer border(float value) { NkStyleTab.nborder(address(), value); return this; }
         /** Sets the specified value to the {@code rounding} field. */
@@ -500,9 +523,9 @@ public class NkStyleTab extends Struct implements NativeResource {
         /** Sets the specified value to the {@code indent} field. */
         public NkStyleTab.Buffer indent(float value) { NkStyleTab.nindent(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code padding} field. */
-        public NkStyleTab.Buffer padding(NkVec2 value) { NkStyleTab.npadding(address(), value); return this; }
+        public NkStyleTab.Buffer padding(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleTab.npadding(address(), value); return this; }
         /** Copies the specified {@link NkVec2} to the {@code spacing} field. */
-        public NkStyleTab.Buffer spacing(NkVec2 value) { NkStyleTab.nspacing(address(), value); return this; }
+        public NkStyleTab.Buffer spacing(@NativeType("struct nk_vec2") NkVec2 value) { NkStyleTab.nspacing(address(), value); return this; }
 
     }
 

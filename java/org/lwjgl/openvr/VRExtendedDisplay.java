@@ -7,6 +7,8 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -36,7 +38,7 @@ public class VRExtendedDisplay {
      * @param pnWidth  
      * @param pnHeight 
      */
-    public static void VRExtendedDisplay_GetWindowBounds(IntBuffer pnX, IntBuffer pnY, IntBuffer pnWidth, IntBuffer pnHeight) {
+    public static void VRExtendedDisplay_GetWindowBounds(@NativeType("int32_t *") IntBuffer pnX, @NativeType("int32_t *") IntBuffer pnY, @NativeType("uint32_t *") IntBuffer pnWidth, @NativeType("uint32_t *") IntBuffer pnHeight) {
         if (CHECKS) {
             check(pnX, 1);
             check(pnY, 1);
@@ -66,7 +68,7 @@ public class VRExtendedDisplay {
      * @param pnWidth  
      * @param pnHeight 
      */
-    public static void VRExtendedDisplay_GetEyeOutputViewport(int eEye, IntBuffer pnX, IntBuffer pnY, IntBuffer pnWidth, IntBuffer pnHeight) {
+    public static void VRExtendedDisplay_GetEyeOutputViewport(@NativeType("EVREye") int eEye, @NativeType("uint32_t *") IntBuffer pnX, @NativeType("uint32_t *") IntBuffer pnY, @NativeType("uint32_t *") IntBuffer pnWidth, @NativeType("uint32_t *") IntBuffer pnHeight) {
         if (CHECKS) {
             check(pnX, 1);
             check(pnY, 1);
@@ -96,7 +98,7 @@ public class VRExtendedDisplay {
      * @param pnAdapterIndex       
      * @param pnAdapterOutputIndex 
      */
-    public static void VRExtendedDisplay_GetDXGIOutputInfo(IntBuffer pnAdapterIndex, IntBuffer pnAdapterOutputIndex) {
+    public static void VRExtendedDisplay_GetDXGIOutputInfo(@NativeType("int32_t *") IntBuffer pnAdapterIndex, @NativeType("int32_t *") IntBuffer pnAdapterOutputIndex) {
         if (CHECKS) {
             check(pnAdapterIndex, 1);
             check(pnAdapterOutputIndex, 1);

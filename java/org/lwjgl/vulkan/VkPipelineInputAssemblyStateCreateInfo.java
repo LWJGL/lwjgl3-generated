@@ -114,26 +114,31 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements Na
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkPipelineInputAssemblyStateCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code topology} field. */
+    @NativeType("VkPrimitiveTopology")
     public int topology() { return ntopology(address()); }
     /** Returns the value of the {@code primitiveRestartEnable} field. */
+    @NativeType("VkBool32")
     public boolean primitiveRestartEnable() { return nprimitiveRestartEnable(address()) != 0; }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineInputAssemblyStateCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineInputAssemblyStateCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineInputAssemblyStateCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineInputAssemblyStateCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkPipelineInputAssemblyStateCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkPipelineInputAssemblyStateCreateInfo flags(@NativeType("VkPipelineInputAssemblyStateCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code topology} field. */
-    public VkPipelineInputAssemblyStateCreateInfo topology(int value) { ntopology(address(), value); return this; }
+    public VkPipelineInputAssemblyStateCreateInfo topology(@NativeType("VkPrimitiveTopology") int value) { ntopology(address(), value); return this; }
     /** Sets the specified value to the {@code primitiveRestartEnable} field. */
-    public VkPipelineInputAssemblyStateCreateInfo primitiveRestartEnable(boolean value) { nprimitiveRestartEnable(address(), value ? 1 : 0); return this; }
+    public VkPipelineInputAssemblyStateCreateInfo primitiveRestartEnable(@NativeType("VkBool32") boolean value) { nprimitiveRestartEnable(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineInputAssemblyStateCreateInfo set(
@@ -358,26 +363,31 @@ public class VkPipelineInputAssemblyStateCreateInfo extends Struct implements Na
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineInputAssemblyStateCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineInputAssemblyStateCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkPipelineInputAssemblyStateCreateFlags")
         public int flags() { return VkPipelineInputAssemblyStateCreateInfo.nflags(address()); }
         /** Returns the value of the {@code topology} field. */
+        @NativeType("VkPrimitiveTopology")
         public int topology() { return VkPipelineInputAssemblyStateCreateInfo.ntopology(address()); }
         /** Returns the value of the {@code primitiveRestartEnable} field. */
+        @NativeType("VkBool32")
         public boolean primitiveRestartEnable() { return VkPipelineInputAssemblyStateCreateInfo.nprimitiveRestartEnable(address()) != 0; }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineInputAssemblyStateCreateInfo.Buffer sType(int value) { VkPipelineInputAssemblyStateCreateInfo.nsType(address(), value); return this; }
+        public VkPipelineInputAssemblyStateCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineInputAssemblyStateCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineInputAssemblyStateCreateInfo.Buffer pNext(long value) { VkPipelineInputAssemblyStateCreateInfo.npNext(address(), value); return this; }
+        public VkPipelineInputAssemblyStateCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkPipelineInputAssemblyStateCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkPipelineInputAssemblyStateCreateInfo.Buffer flags(int value) { VkPipelineInputAssemblyStateCreateInfo.nflags(address(), value); return this; }
+        public VkPipelineInputAssemblyStateCreateInfo.Buffer flags(@NativeType("VkPipelineInputAssemblyStateCreateFlags") int value) { VkPipelineInputAssemblyStateCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code topology} field. */
-        public VkPipelineInputAssemblyStateCreateInfo.Buffer topology(int value) { VkPipelineInputAssemblyStateCreateInfo.ntopology(address(), value); return this; }
+        public VkPipelineInputAssemblyStateCreateInfo.Buffer topology(@NativeType("VkPrimitiveTopology") int value) { VkPipelineInputAssemblyStateCreateInfo.ntopology(address(), value); return this; }
         /** Sets the specified value to the {@code primitiveRestartEnable} field. */
-        public VkPipelineInputAssemblyStateCreateInfo.Buffer primitiveRestartEnable(boolean value) { VkPipelineInputAssemblyStateCreateInfo.nprimitiveRestartEnable(address(), value ? 1 : 0); return this; }
+        public VkPipelineInputAssemblyStateCreateInfo.Buffer primitiveRestartEnable(@NativeType("VkBool32") boolean value) { VkPipelineInputAssemblyStateCreateInfo.nprimitiveRestartEnable(address(), value ? 1 : 0); return this; }
 
     }
 

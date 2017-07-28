@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -43,6 +45,6 @@ public class EXTBlendMinmax {
 
     // --- [ glBlendEquationEXT ] ---
 
-    public static native void glBlendEquationEXT(int mode);
+    public static native void glBlendEquationEXT(@NativeType("GLenum") int mode);
 
 }

@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link OVRVector3f ovrVector3f} HmdToEyeOffset;
  * }</pre></code>
  */
+@NativeType("struct ovrEyeRenderDesc")
 public class OVREyeRenderDesc extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -90,14 +91,19 @@ public class OVREyeRenderDesc extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code Eye} field. */
+    @NativeType("ovrEyeType")
     public int Eye() { return nEye(address()); }
     /** Returns a {@link OVRFovPort} view of the {@code Fov} field. */
+    @NativeType("ovrFovPort")
     public OVRFovPort Fov() { return nFov(address()); }
     /** Returns a {@link OVRRecti} view of the {@code DistortedViewport} field. */
+    @NativeType("ovrRecti")
     public OVRRecti DistortedViewport() { return nDistortedViewport(address()); }
     /** Returns a {@link OVRVector2f} view of the {@code PixelsPerTanAngleAtCenter} field. */
+    @NativeType("ovrVector2f")
     public OVRVector2f PixelsPerTanAngleAtCenter() { return nPixelsPerTanAngleAtCenter(address()); }
     /** Returns a {@link OVRVector3f} view of the {@code HmdToEyeOffset} field. */
+    @NativeType("ovrVector3f")
     public OVRVector3f HmdToEyeOffset() { return nHmdToEyeOffset(address()); }
 
     // -----------------------------------
@@ -283,14 +289,19 @@ public class OVREyeRenderDesc extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code Eye} field. */
+        @NativeType("ovrEyeType")
         public int Eye() { return OVREyeRenderDesc.nEye(address()); }
         /** Returns a {@link OVRFovPort} view of the {@code Fov} field. */
+        @NativeType("ovrFovPort")
         public OVRFovPort Fov() { return OVREyeRenderDesc.nFov(address()); }
         /** Returns a {@link OVRRecti} view of the {@code DistortedViewport} field. */
+        @NativeType("ovrRecti")
         public OVRRecti DistortedViewport() { return OVREyeRenderDesc.nDistortedViewport(address()); }
         /** Returns a {@link OVRVector2f} view of the {@code PixelsPerTanAngleAtCenter} field. */
+        @NativeType("ovrVector2f")
         public OVRVector2f PixelsPerTanAngleAtCenter() { return OVREyeRenderDesc.nPixelsPerTanAngleAtCenter(address()); }
         /** Returns a {@link OVRVector3f} view of the {@code HmdToEyeOffset} field. */
+        @NativeType("ovrVector3f")
         public OVRVector3f HmdToEyeOffset() { return OVREyeRenderDesc.nHmdToEyeOffset(address()); }
 
     }

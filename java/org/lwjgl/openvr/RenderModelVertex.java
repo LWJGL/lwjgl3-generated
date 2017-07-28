@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float rfTextureCoord[2];
  * }</pre></code>
  */
+@NativeType("struct RenderModel_Vertex_t")
 public class RenderModelVertex extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -78,20 +79,23 @@ public class RenderModelVertex extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdVector3} view of the {@code vPosition} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vPosition() { return nvPosition(address()); }
     /** Returns a {@link HmdVector3} view of the {@code vNormal} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vNormal() { return nvNormal(address()); }
     /** Returns a {@link FloatBuffer} view of the {@code rfTextureCoord} field. */
+    @NativeType("float[2]")
     public FloatBuffer rfTextureCoord() { return nrfTextureCoord(address()); }
     /** Returns the value at the specified index of the {@code rfTextureCoord} field. */
     public float rfTextureCoord(int index) { return nrfTextureCoord(address(), index); }
 
     /** Copies the specified {@link HmdVector3} to the {@code vPosition} field. */
-    public RenderModelVertex vPosition(HmdVector3 value) { nvPosition(address(), value); return this; }
+    public RenderModelVertex vPosition(@NativeType("HmdVector3_t") HmdVector3 value) { nvPosition(address(), value); return this; }
     /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-    public RenderModelVertex vNormal(HmdVector3 value) { nvNormal(address(), value); return this; }
+    public RenderModelVertex vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { nvNormal(address(), value); return this; }
     /** Copies the specified {@link FloatBuffer} to the {@code rfTextureCoord} field. */
-    public RenderModelVertex rfTextureCoord(FloatBuffer value) { nrfTextureCoord(address(), value); return this; }
+    public RenderModelVertex rfTextureCoord(@NativeType("float[2]") FloatBuffer value) { nrfTextureCoord(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code rfTextureCoord} field. */
     public RenderModelVertex rfTextureCoord(int index, float value) { nrfTextureCoord(address(), index, value); return this; }
 
@@ -319,20 +323,23 @@ public class RenderModelVertex extends Struct implements NativeResource {
         }
 
         /** Returns a {@link HmdVector3} view of the {@code vPosition} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vPosition() { return RenderModelVertex.nvPosition(address()); }
         /** Returns a {@link HmdVector3} view of the {@code vNormal} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vNormal() { return RenderModelVertex.nvNormal(address()); }
         /** Returns a {@link FloatBuffer} view of the {@code rfTextureCoord} field. */
+        @NativeType("float[2]")
         public FloatBuffer rfTextureCoord() { return RenderModelVertex.nrfTextureCoord(address()); }
         /** Returns the value at the specified index of the {@code rfTextureCoord} field. */
         public float rfTextureCoord(int index) { return RenderModelVertex.nrfTextureCoord(address(), index); }
 
         /** Copies the specified {@link HmdVector3} to the {@code vPosition} field. */
-        public RenderModelVertex.Buffer vPosition(HmdVector3 value) { RenderModelVertex.nvPosition(address(), value); return this; }
+        public RenderModelVertex.Buffer vPosition(@NativeType("HmdVector3_t") HmdVector3 value) { RenderModelVertex.nvPosition(address(), value); return this; }
         /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-        public RenderModelVertex.Buffer vNormal(HmdVector3 value) { RenderModelVertex.nvNormal(address(), value); return this; }
+        public RenderModelVertex.Buffer vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { RenderModelVertex.nvNormal(address(), value); return this; }
         /** Copies the specified {@link FloatBuffer} to the {@code rfTextureCoord} field. */
-        public RenderModelVertex.Buffer rfTextureCoord(FloatBuffer value) { RenderModelVertex.nrfTextureCoord(address(), value); return this; }
+        public RenderModelVertex.Buffer rfTextureCoord(@NativeType("float[2]") FloatBuffer value) { RenderModelVertex.nrfTextureCoord(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code rfTextureCoord} field. */
         public RenderModelVertex.Buffer rfTextureCoord(int index, float value) { RenderModelVertex.nrfTextureCoord(address(), index, value); return this; }
 

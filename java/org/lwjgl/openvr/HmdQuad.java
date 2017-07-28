@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link HmdVector3 HmdVector3_t} vCorners[4];
  * }</pre></code>
  */
+@NativeType("struct HmdQuad_t")
 public class HmdQuad extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -62,14 +63,16 @@ public class HmdQuad extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdVector3}.Buffer view of the {@code vCorners} field. */
+    @NativeType("HmdVector3_t[4]")
     public HmdVector3.Buffer vCorners() { return nvCorners(address()); }
     /** Returns a {@link HmdVector3} view of the struct at the specified index of the {@code vCorners} field. */
+    @NativeType("HmdVector3_t")
     public HmdVector3 vCorners(int index) { return nvCorners(address(), index); }
 
     /** Copies the specified {@link HmdVector3.Buffer} to the {@code vCorners} field. */
-    public HmdQuad vCorners(HmdVector3.Buffer value) { nvCorners(address(), value); return this; }
+    public HmdQuad vCorners(@NativeType("HmdVector3_t[4]") HmdVector3.Buffer value) { nvCorners(address(), value); return this; }
     /** Copies the specified {@link HmdVector3} at the specified index of the {@code vCorners} field. */
-    public HmdQuad vCorners(int index, HmdVector3 value) { nvCorners(address(), index, value); return this; }
+    public HmdQuad vCorners(int index, @NativeType("HmdVector3_t") HmdVector3 value) { nvCorners(address(), index, value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -274,14 +277,16 @@ public class HmdQuad extends Struct implements NativeResource {
         }
 
         /** Returns a {@link HmdVector3}.Buffer view of the {@code vCorners} field. */
+        @NativeType("HmdVector3_t[4]")
         public HmdVector3.Buffer vCorners() { return HmdQuad.nvCorners(address()); }
         /** Returns a {@link HmdVector3} view of the struct at the specified index of the {@code vCorners} field. */
+        @NativeType("HmdVector3_t")
         public HmdVector3 vCorners(int index) { return HmdQuad.nvCorners(address(), index); }
 
         /** Copies the specified {@link HmdVector3.Buffer} to the {@code vCorners} field. */
-        public HmdQuad.Buffer vCorners(HmdVector3.Buffer value) { HmdQuad.nvCorners(address(), value); return this; }
+        public HmdQuad.Buffer vCorners(@NativeType("HmdVector3_t[4]") HmdVector3.Buffer value) { HmdQuad.nvCorners(address(), value); return this; }
         /** Copies the specified {@link HmdVector3} at the specified index of the {@code vCorners} field. */
-        public HmdQuad.Buffer vCorners(int index, HmdVector3 value) { HmdQuad.nvCorners(address(), index, value); return this; }
+        public HmdQuad.Buffer vCorners(int index, @NativeType("HmdVector3_t") HmdVector3 value) { HmdQuad.nvCorners(address(), index, value); return this; }
 
     }
 

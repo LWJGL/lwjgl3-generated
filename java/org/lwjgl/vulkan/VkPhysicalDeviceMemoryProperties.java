@@ -151,14 +151,18 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code memoryTypeCount} field. */
+    @NativeType("uint32_t")
     public int memoryTypeCount() { return nmemoryTypeCount(address()); }
     /** Returns a {@link VkMemoryType}.Buffer view of the {@code memoryTypes} field. */
+    @NativeType("VkMemoryType[VK_MAX_MEMORY_TYPES]")
     public VkMemoryType.Buffer memoryTypes() { return nmemoryTypes(address()); }
     /** Returns a {@link VkMemoryType} view of the struct at the specified index of the {@code memoryTypes} field. */
     public VkMemoryType memoryTypes(int index) { return nmemoryTypes(address(), index); }
     /** Returns the value of the {@code memoryHeapCount} field. */
+    @NativeType("uint32_t")
     public int memoryHeapCount() { return nmemoryHeapCount(address()); }
     /** Returns a {@link VkMemoryHeap}.Buffer view of the {@code memoryHeaps} field. */
+    @NativeType("VkMemoryHeap[VK_MAX_MEMORY_HEAPS]")
     public VkMemoryHeap.Buffer memoryHeaps() { return nmemoryHeaps(address()); }
     /** Returns a {@link VkMemoryHeap} view of the struct at the specified index of the {@code memoryHeaps} field. */
     public VkMemoryHeap memoryHeaps(int index) { return nmemoryHeaps(address(), index); }
@@ -354,14 +358,18 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
         }
 
         /** Returns the value of the {@code memoryTypeCount} field. */
+        @NativeType("uint32_t")
         public int memoryTypeCount() { return VkPhysicalDeviceMemoryProperties.nmemoryTypeCount(address()); }
         /** Returns a {@link VkMemoryType}.Buffer view of the {@code memoryTypes} field. */
+        @NativeType("VkMemoryType[VK_MAX_MEMORY_TYPES]")
         public VkMemoryType.Buffer memoryTypes() { return VkPhysicalDeviceMemoryProperties.nmemoryTypes(address()); }
         /** Returns a {@link VkMemoryType} view of the struct at the specified index of the {@code memoryTypes} field. */
         public VkMemoryType memoryTypes(int index) { return VkPhysicalDeviceMemoryProperties.nmemoryTypes(address(), index); }
         /** Returns the value of the {@code memoryHeapCount} field. */
+        @NativeType("uint32_t")
         public int memoryHeapCount() { return VkPhysicalDeviceMemoryProperties.nmemoryHeapCount(address()); }
         /** Returns a {@link VkMemoryHeap}.Buffer view of the {@code memoryHeaps} field. */
+        @NativeType("VkMemoryHeap[VK_MAX_MEMORY_HEAPS]")
         public VkMemoryHeap.Buffer memoryHeaps() { return VkPhysicalDeviceMemoryProperties.nmemoryHeaps(address()); }
         /** Returns a {@link VkMemoryHeap} view of the struct at the specified index of the {@code memoryHeaps} field. */
         public VkMemoryHeap memoryHeaps(int index) { return VkPhysicalDeviceMemoryProperties.nmemoryHeaps(address(), index); }

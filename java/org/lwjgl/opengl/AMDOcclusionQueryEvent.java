@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -54,6 +56,6 @@ public class AMDOcclusionQueryEvent {
      * @param pname  the parameter to modify. Must be:<br><table><tr><td>{@link #GL_OCCLUSION_QUERY_EVENT_MASK_AMD OCCLUSION_QUERY_EVENT_MASK_AMD}</td></tr></table>
      * @param param  the new value. One of:<br><table><tr><td>{@link #GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD QUERY_DEPTH_PASS_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD QUERY_DEPTH_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD QUERY_STENCIL_FAIL_EVENT_BIT_AMD}</td><td>{@link #GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD}</td></tr><tr><td>{@link #GL_QUERY_ALL_EVENT_BITS_AMD QUERY_ALL_EVENT_BITS_AMD}</td></tr></table>
      */
-    public static native void glQueryObjectParameteruiAMD(int target, int id, int pname, int param);
+    public static native void glQueryObjectParameteruiAMD(@NativeType("GLenum") int target, @NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint") int param);
 
 }

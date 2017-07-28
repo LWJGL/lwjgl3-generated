@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int was_packed;
  * }</pre></code>
  */
+@NativeType("struct stbrp_rect")
 public class STBRPRect extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -96,12 +97,16 @@ public class STBRPRect extends Struct implements NativeResource {
     /** Returns the value of the {@code id} field. */
     public int id() { return nid(address()); }
     /** Returns the value of the {@code w} field. */
+    @NativeType("stbrp_coord")
     public short w() { return nw(address()); }
     /** Returns the value of the {@code h} field. */
+    @NativeType("stbrp_coord")
     public short h() { return nh(address()); }
     /** Returns the value of the {@code x} field. */
+    @NativeType("stbrp_coord")
     public short x() { return nx(address()); }
     /** Returns the value of the {@code y} field. */
+    @NativeType("stbrp_coord")
     public short y() { return ny(address()); }
     /** Returns the value of the {@code was_packed} field. */
     public int was_packed() { return nwas_packed(address()); }
@@ -109,13 +114,13 @@ public class STBRPRect extends Struct implements NativeResource {
     /** Sets the specified value to the {@code id} field. */
     public STBRPRect id(int value) { nid(address(), value); return this; }
     /** Sets the specified value to the {@code w} field. */
-    public STBRPRect w(short value) { nw(address(), value); return this; }
+    public STBRPRect w(@NativeType("stbrp_coord") short value) { nw(address(), value); return this; }
     /** Sets the specified value to the {@code h} field. */
-    public STBRPRect h(short value) { nh(address(), value); return this; }
+    public STBRPRect h(@NativeType("stbrp_coord") short value) { nh(address(), value); return this; }
     /** Sets the specified value to the {@code x} field. */
-    public STBRPRect x(short value) { nx(address(), value); return this; }
+    public STBRPRect x(@NativeType("stbrp_coord") short value) { nx(address(), value); return this; }
     /** Sets the specified value to the {@code y} field. */
-    public STBRPRect y(short value) { ny(address(), value); return this; }
+    public STBRPRect y(@NativeType("stbrp_coord") short value) { ny(address(), value); return this; }
     /** Sets the specified value to the {@code was_packed} field. */
     public STBRPRect was_packed(int value) { nwas_packed(address(), value); return this; }
 
@@ -350,12 +355,16 @@ public class STBRPRect extends Struct implements NativeResource {
         /** Returns the value of the {@code id} field. */
         public int id() { return STBRPRect.nid(address()); }
         /** Returns the value of the {@code w} field. */
+        @NativeType("stbrp_coord")
         public short w() { return STBRPRect.nw(address()); }
         /** Returns the value of the {@code h} field. */
+        @NativeType("stbrp_coord")
         public short h() { return STBRPRect.nh(address()); }
         /** Returns the value of the {@code x} field. */
+        @NativeType("stbrp_coord")
         public short x() { return STBRPRect.nx(address()); }
         /** Returns the value of the {@code y} field. */
+        @NativeType("stbrp_coord")
         public short y() { return STBRPRect.ny(address()); }
         /** Returns the value of the {@code was_packed} field. */
         public int was_packed() { return STBRPRect.nwas_packed(address()); }
@@ -363,13 +372,13 @@ public class STBRPRect extends Struct implements NativeResource {
         /** Sets the specified value to the {@code id} field. */
         public STBRPRect.Buffer id(int value) { STBRPRect.nid(address(), value); return this; }
         /** Sets the specified value to the {@code w} field. */
-        public STBRPRect.Buffer w(short value) { STBRPRect.nw(address(), value); return this; }
+        public STBRPRect.Buffer w(@NativeType("stbrp_coord") short value) { STBRPRect.nw(address(), value); return this; }
         /** Sets the specified value to the {@code h} field. */
-        public STBRPRect.Buffer h(short value) { STBRPRect.nh(address(), value); return this; }
+        public STBRPRect.Buffer h(@NativeType("stbrp_coord") short value) { STBRPRect.nh(address(), value); return this; }
         /** Sets the specified value to the {@code x} field. */
-        public STBRPRect.Buffer x(short value) { STBRPRect.nx(address(), value); return this; }
+        public STBRPRect.Buffer x(@NativeType("stbrp_coord") short value) { STBRPRect.nx(address(), value); return this; }
         /** Sets the specified value to the {@code y} field. */
-        public STBRPRect.Buffer y(short value) { STBRPRect.ny(address(), value); return this; }
+        public STBRPRect.Buffer y(@NativeType("stbrp_coord") short value) { STBRPRect.ny(address(), value); return this; }
         /** Sets the specified value to the {@code was_packed} field. */
         public STBRPRect.Buffer was_packed(int value) { STBRPRect.nwas_packed(address(), value); return this; }
 

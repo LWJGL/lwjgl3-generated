@@ -7,6 +7,8 @@ package org.lwjgl.egl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -64,7 +66,8 @@ public class NVSync {
         return callPPP(__functionAddress, dpy, condition, attrib_list);
     }
 
-    public static long eglCreateFenceSyncNV(long dpy, int condition, IntBuffer attrib_list) {
+    @NativeType("EGLSyncNV")
+    public static long eglCreateFenceSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int condition, @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }
@@ -73,7 +76,8 @@ public class NVSync {
 
     // --- [ eglDestroySyncNV ] ---
 
-    public static boolean eglDestroySyncNV(long sync) {
+    @NativeType("EGLBoolean")
+    public static boolean eglDestroySyncNV(@NativeType("EGLSyncNV") long sync) {
         long __functionAddress = EGL.getCapabilities().eglDestroySyncNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -84,7 +88,8 @@ public class NVSync {
 
     // --- [ eglFenceNV ] ---
 
-    public static boolean eglFenceNV(long sync) {
+    @NativeType("EGLBoolean")
+    public static boolean eglFenceNV(@NativeType("EGLSyncNV") long sync) {
         long __functionAddress = EGL.getCapabilities().eglFenceNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -95,7 +100,8 @@ public class NVSync {
 
     // --- [ eglClientWaitSyncNV ] ---
 
-    public static int eglClientWaitSyncNV(long sync, int flags, long timeout) {
+    @NativeType("EGLint")
+    public static int eglClientWaitSyncNV(@NativeType("EGLSyncNV") long sync, @NativeType("EGLint") int flags, @NativeType("EGLTimeNV") long timeout) {
         long __functionAddress = EGL.getCapabilities().eglClientWaitSyncNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -106,7 +112,8 @@ public class NVSync {
 
     // --- [ eglSignalSyncNV ] ---
 
-    public static boolean eglSignalSyncNV(long sync, int mode) {
+    @NativeType("EGLBoolean")
+    public static boolean eglSignalSyncNV(@NativeType("EGLSyncNV") long sync, @NativeType("EGLenum") int mode) {
         long __functionAddress = EGL.getCapabilities().eglSignalSyncNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -126,7 +133,8 @@ public class NVSync {
         return callPPI(__functionAddress, sync, attribute, value);
     }
 
-    public static boolean eglGetSyncAttribNV(long sync, int attribute, IntBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglGetSyncAttribNV(@NativeType("EGLSyncNV") long sync, @NativeType("EGLint") int attribute, @NativeType("EGLint *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -134,7 +142,8 @@ public class NVSync {
     }
 
     /** Array version of: {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
-    public static long eglCreateFenceSyncNV(long dpy, int condition, int[] attrib_list) {
+    @NativeType("EGLSyncNV")
+    public static long eglCreateFenceSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int condition, @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateFenceSyncNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -145,7 +154,8 @@ public class NVSync {
     }
 
     /** Array version of: {@link #eglGetSyncAttribNV GetSyncAttribNV} */
-    public static boolean eglGetSyncAttribNV(long sync, int attribute, int[] value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglGetSyncAttribNV(@NativeType("EGLSyncNV") long sync, @NativeType("EGLint") int attribute, @NativeType("EGLint *") int[] value) {
         long __functionAddress = EGL.getCapabilities().eglGetSyncAttribNV;
         if (CHECKS) {
             check(__functionAddress);

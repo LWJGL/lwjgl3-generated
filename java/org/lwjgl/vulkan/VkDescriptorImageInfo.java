@@ -100,18 +100,21 @@ public class VkDescriptorImageInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sampler} field. */
+    @NativeType("VkSampler")
     public long sampler() { return nsampler(address()); }
     /** Returns the value of the {@code imageView} field. */
+    @NativeType("VkImageView")
     public long imageView() { return nimageView(address()); }
     /** Returns the value of the {@code imageLayout} field. */
+    @NativeType("VkImageLayout")
     public int imageLayout() { return nimageLayout(address()); }
 
     /** Sets the specified value to the {@code sampler} field. */
-    public VkDescriptorImageInfo sampler(long value) { nsampler(address(), value); return this; }
+    public VkDescriptorImageInfo sampler(@NativeType("VkSampler") long value) { nsampler(address(), value); return this; }
     /** Sets the specified value to the {@code imageView} field. */
-    public VkDescriptorImageInfo imageView(long value) { nimageView(address(), value); return this; }
+    public VkDescriptorImageInfo imageView(@NativeType("VkImageView") long value) { nimageView(address(), value); return this; }
     /** Sets the specified value to the {@code imageLayout} field. */
-    public VkDescriptorImageInfo imageLayout(int value) { nimageLayout(address(), value); return this; }
+    public VkDescriptorImageInfo imageLayout(@NativeType("VkImageLayout") int value) { nimageLayout(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorImageInfo set(
@@ -324,18 +327,21 @@ public class VkDescriptorImageInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sampler} field. */
+        @NativeType("VkSampler")
         public long sampler() { return VkDescriptorImageInfo.nsampler(address()); }
         /** Returns the value of the {@code imageView} field. */
+        @NativeType("VkImageView")
         public long imageView() { return VkDescriptorImageInfo.nimageView(address()); }
         /** Returns the value of the {@code imageLayout} field. */
+        @NativeType("VkImageLayout")
         public int imageLayout() { return VkDescriptorImageInfo.nimageLayout(address()); }
 
         /** Sets the specified value to the {@code sampler} field. */
-        public VkDescriptorImageInfo.Buffer sampler(long value) { VkDescriptorImageInfo.nsampler(address(), value); return this; }
+        public VkDescriptorImageInfo.Buffer sampler(@NativeType("VkSampler") long value) { VkDescriptorImageInfo.nsampler(address(), value); return this; }
         /** Sets the specified value to the {@code imageView} field. */
-        public VkDescriptorImageInfo.Buffer imageView(long value) { VkDescriptorImageInfo.nimageView(address(), value); return this; }
+        public VkDescriptorImageInfo.Buffer imageView(@NativeType("VkImageView") long value) { VkDescriptorImageInfo.nimageView(address(), value); return this; }
         /** Sets the specified value to the {@code imageLayout} field. */
-        public VkDescriptorImageInfo.Buffer imageLayout(int value) { VkDescriptorImageInfo.nimageLayout(address(), value); return this; }
+        public VkDescriptorImageInfo.Buffer imageLayout(@NativeType("VkImageLayout") int value) { VkDescriptorImageInfo.nimageLayout(address(), value); return this; }
 
     }
 

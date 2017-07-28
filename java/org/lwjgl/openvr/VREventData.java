@@ -40,6 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link VREventProperty VREvent_Property_t} property;
  * }</pre></code>
  */
+@NativeType("union VREvent_Data_t")
 public class VREventData extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -137,86 +138,106 @@ public class VREventData extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link VREventReserved} view of the {@code reserved} field. */
+    @NativeType("VREvent_Reserved_t")
     public VREventReserved reserved() { return nreserved(address()); }
     /** Returns a {@link VREventController} view of the {@code controller} field. */
+    @NativeType("VREvent_Controller_t")
     public VREventController controller() { return ncontroller(address()); }
     /** Returns a {@link VREventMouse} view of the {@code mouse} field. */
+    @NativeType("VREvent_Mouse_t")
     public VREventMouse mouse() { return nmouse(address()); }
     /** Returns a {@link VREventScroll} view of the {@code scroll} field. */
+    @NativeType("VREvent_Scroll_t")
     public VREventScroll scroll() { return nscroll(address()); }
     /** Returns a {@link VREventProcess} view of the {@code process} field. */
+    @NativeType("VREvent_Process_t")
     public VREventProcess process() { return nprocess(address()); }
     /** Returns a {@link VREventNotification} view of the {@code notification} field. */
+    @NativeType("VREvent_Notification_t")
     public VREventNotification notification() { return nnotification(address()); }
     /** Returns a {@link VREventOverlay} view of the {@code overlay} field. */
+    @NativeType("VREvent_Overlay_t")
     public VREventOverlay overlay() { return noverlay(address()); }
     /** Returns a {@link VREventStatus} view of the {@code status} field. */
+    @NativeType("VREvent_Status_t")
     public VREventStatus status() { return nstatus(address()); }
     /** Returns a {@link VREventKeyboard} view of the {@code keyboard} field. */
+    @NativeType("VREvent_Keyboard_t")
     public VREventKeyboard keyboard() { return nkeyboard(address()); }
     /** Returns a {@link VREventIpd} view of the {@code ipd} field. */
+    @NativeType("VREvent_Ipd_t")
     public VREventIpd ipd() { return nipd(address()); }
     /** Returns a {@link VREventChaperone} view of the {@code chaperone} field. */
+    @NativeType("VREvent_Chaperone_t")
     public VREventChaperone chaperone() { return nchaperone(address()); }
     /** Returns a {@link VREventPerformanceTest} view of the {@code performanceTest} field. */
+    @NativeType("VREvent_PerformanceTest_t")
     public VREventPerformanceTest performanceTest() { return nperformanceTest(address()); }
     /** Returns a {@link VREventTouchPadMove} view of the {@code touchPadMove} field. */
+    @NativeType("VREvent_TouchPadMove_t")
     public VREventTouchPadMove touchPadMove() { return ntouchPadMove(address()); }
     /** Returns a {@link VREventSeatedZeroPoseReset} view of the {@code seatedZeroPoseReset} field. */
+    @NativeType("VREvent_SeatedZeroPoseReset_t")
     public VREventSeatedZeroPoseReset seatedZeroPoseReset() { return nseatedZeroPoseReset(address()); }
     /** Returns a {@link VREventScreenshot} view of the {@code screenshot} field. */
+    @NativeType("VREvent_Screenshot_t")
     public VREventScreenshot screenshot() { return nscreenshot(address()); }
     /** Returns a {@link VREventScreenshotProgress} view of the {@code screenshotProgress} field. */
+    @NativeType("VREvent_ScreenshotProgress_t")
     public VREventScreenshotProgress screenshotProgress() { return nscreenshotProgress(address()); }
     /** Returns a {@link VREventApplicationLaunch} view of the {@code applicationLaunch} field. */
+    @NativeType("VREvent_ApplicationLaunch_t")
     public VREventApplicationLaunch applicationLaunch() { return napplicationLaunch(address()); }
     /** Returns a {@link VREventEditingCameraSurface} view of the {@code cameraSurface} field. */
+    @NativeType("VREvent_EditingCameraSurface_t")
     public VREventEditingCameraSurface cameraSurface() { return ncameraSurface(address()); }
     /** Returns a {@link VREventMessageOverlay} view of the {@code messageOverlay} field. */
+    @NativeType("VREvent_MessageOverlay_t")
     public VREventMessageOverlay messageOverlay() { return nmessageOverlay(address()); }
     /** Returns a {@link VREventProperty} view of the {@code property} field. */
+    @NativeType("VREvent_Property_t")
     public VREventProperty property() { return nproperty(address()); }
 
     /** Copies the specified {@link VREventReserved} to the {@code reserved} field. */
-    public VREventData reserved(VREventReserved value) { nreserved(address(), value); return this; }
+    public VREventData reserved(@NativeType("VREvent_Reserved_t") VREventReserved value) { nreserved(address(), value); return this; }
     /** Copies the specified {@link VREventController} to the {@code controller} field. */
-    public VREventData controller(VREventController value) { ncontroller(address(), value); return this; }
+    public VREventData controller(@NativeType("VREvent_Controller_t") VREventController value) { ncontroller(address(), value); return this; }
     /** Copies the specified {@link VREventMouse} to the {@code mouse} field. */
-    public VREventData mouse(VREventMouse value) { nmouse(address(), value); return this; }
+    public VREventData mouse(@NativeType("VREvent_Mouse_t") VREventMouse value) { nmouse(address(), value); return this; }
     /** Copies the specified {@link VREventScroll} to the {@code scroll} field. */
-    public VREventData scroll(VREventScroll value) { nscroll(address(), value); return this; }
+    public VREventData scroll(@NativeType("VREvent_Scroll_t") VREventScroll value) { nscroll(address(), value); return this; }
     /** Copies the specified {@link VREventProcess} to the {@code process} field. */
-    public VREventData process(VREventProcess value) { nprocess(address(), value); return this; }
+    public VREventData process(@NativeType("VREvent_Process_t") VREventProcess value) { nprocess(address(), value); return this; }
     /** Copies the specified {@link VREventNotification} to the {@code notification} field. */
-    public VREventData notification(VREventNotification value) { nnotification(address(), value); return this; }
+    public VREventData notification(@NativeType("VREvent_Notification_t") VREventNotification value) { nnotification(address(), value); return this; }
     /** Copies the specified {@link VREventOverlay} to the {@code overlay} field. */
-    public VREventData overlay(VREventOverlay value) { noverlay(address(), value); return this; }
+    public VREventData overlay(@NativeType("VREvent_Overlay_t") VREventOverlay value) { noverlay(address(), value); return this; }
     /** Copies the specified {@link VREventStatus} to the {@code status} field. */
-    public VREventData status(VREventStatus value) { nstatus(address(), value); return this; }
+    public VREventData status(@NativeType("VREvent_Status_t") VREventStatus value) { nstatus(address(), value); return this; }
     /** Copies the specified {@link VREventKeyboard} to the {@code keyboard} field. */
-    public VREventData keyboard(VREventKeyboard value) { nkeyboard(address(), value); return this; }
+    public VREventData keyboard(@NativeType("VREvent_Keyboard_t") VREventKeyboard value) { nkeyboard(address(), value); return this; }
     /** Copies the specified {@link VREventIpd} to the {@code ipd} field. */
-    public VREventData ipd(VREventIpd value) { nipd(address(), value); return this; }
+    public VREventData ipd(@NativeType("VREvent_Ipd_t") VREventIpd value) { nipd(address(), value); return this; }
     /** Copies the specified {@link VREventChaperone} to the {@code chaperone} field. */
-    public VREventData chaperone(VREventChaperone value) { nchaperone(address(), value); return this; }
+    public VREventData chaperone(@NativeType("VREvent_Chaperone_t") VREventChaperone value) { nchaperone(address(), value); return this; }
     /** Copies the specified {@link VREventPerformanceTest} to the {@code performanceTest} field. */
-    public VREventData performanceTest(VREventPerformanceTest value) { nperformanceTest(address(), value); return this; }
+    public VREventData performanceTest(@NativeType("VREvent_PerformanceTest_t") VREventPerformanceTest value) { nperformanceTest(address(), value); return this; }
     /** Copies the specified {@link VREventTouchPadMove} to the {@code touchPadMove} field. */
-    public VREventData touchPadMove(VREventTouchPadMove value) { ntouchPadMove(address(), value); return this; }
+    public VREventData touchPadMove(@NativeType("VREvent_TouchPadMove_t") VREventTouchPadMove value) { ntouchPadMove(address(), value); return this; }
     /** Copies the specified {@link VREventSeatedZeroPoseReset} to the {@code seatedZeroPoseReset} field. */
-    public VREventData seatedZeroPoseReset(VREventSeatedZeroPoseReset value) { nseatedZeroPoseReset(address(), value); return this; }
+    public VREventData seatedZeroPoseReset(@NativeType("VREvent_SeatedZeroPoseReset_t") VREventSeatedZeroPoseReset value) { nseatedZeroPoseReset(address(), value); return this; }
     /** Copies the specified {@link VREventScreenshot} to the {@code screenshot} field. */
-    public VREventData screenshot(VREventScreenshot value) { nscreenshot(address(), value); return this; }
+    public VREventData screenshot(@NativeType("VREvent_Screenshot_t") VREventScreenshot value) { nscreenshot(address(), value); return this; }
     /** Copies the specified {@link VREventScreenshotProgress} to the {@code screenshotProgress} field. */
-    public VREventData screenshotProgress(VREventScreenshotProgress value) { nscreenshotProgress(address(), value); return this; }
+    public VREventData screenshotProgress(@NativeType("VREvent_ScreenshotProgress_t") VREventScreenshotProgress value) { nscreenshotProgress(address(), value); return this; }
     /** Copies the specified {@link VREventApplicationLaunch} to the {@code applicationLaunch} field. */
-    public VREventData applicationLaunch(VREventApplicationLaunch value) { napplicationLaunch(address(), value); return this; }
+    public VREventData applicationLaunch(@NativeType("VREvent_ApplicationLaunch_t") VREventApplicationLaunch value) { napplicationLaunch(address(), value); return this; }
     /** Copies the specified {@link VREventEditingCameraSurface} to the {@code cameraSurface} field. */
-    public VREventData cameraSurface(VREventEditingCameraSurface value) { ncameraSurface(address(), value); return this; }
+    public VREventData cameraSurface(@NativeType("VREvent_EditingCameraSurface_t") VREventEditingCameraSurface value) { ncameraSurface(address(), value); return this; }
     /** Copies the specified {@link VREventMessageOverlay} to the {@code messageOverlay} field. */
-    public VREventData messageOverlay(VREventMessageOverlay value) { nmessageOverlay(address(), value); return this; }
+    public VREventData messageOverlay(@NativeType("VREvent_MessageOverlay_t") VREventMessageOverlay value) { nmessageOverlay(address(), value); return this; }
     /** Copies the specified {@link VREventProperty} to the {@code property} field. */
-    public VREventData property(VREventProperty value) { nproperty(address(), value); return this; }
+    public VREventData property(@NativeType("VREvent_Property_t") VREventProperty value) { nproperty(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -484,86 +505,106 @@ public class VREventData extends Struct implements NativeResource {
         }
 
         /** Returns a {@link VREventReserved} view of the {@code reserved} field. */
+        @NativeType("VREvent_Reserved_t")
         public VREventReserved reserved() { return VREventData.nreserved(address()); }
         /** Returns a {@link VREventController} view of the {@code controller} field. */
+        @NativeType("VREvent_Controller_t")
         public VREventController controller() { return VREventData.ncontroller(address()); }
         /** Returns a {@link VREventMouse} view of the {@code mouse} field. */
+        @NativeType("VREvent_Mouse_t")
         public VREventMouse mouse() { return VREventData.nmouse(address()); }
         /** Returns a {@link VREventScroll} view of the {@code scroll} field. */
+        @NativeType("VREvent_Scroll_t")
         public VREventScroll scroll() { return VREventData.nscroll(address()); }
         /** Returns a {@link VREventProcess} view of the {@code process} field. */
+        @NativeType("VREvent_Process_t")
         public VREventProcess process() { return VREventData.nprocess(address()); }
         /** Returns a {@link VREventNotification} view of the {@code notification} field. */
+        @NativeType("VREvent_Notification_t")
         public VREventNotification notification() { return VREventData.nnotification(address()); }
         /** Returns a {@link VREventOverlay} view of the {@code overlay} field. */
+        @NativeType("VREvent_Overlay_t")
         public VREventOverlay overlay() { return VREventData.noverlay(address()); }
         /** Returns a {@link VREventStatus} view of the {@code status} field. */
+        @NativeType("VREvent_Status_t")
         public VREventStatus status() { return VREventData.nstatus(address()); }
         /** Returns a {@link VREventKeyboard} view of the {@code keyboard} field. */
+        @NativeType("VREvent_Keyboard_t")
         public VREventKeyboard keyboard() { return VREventData.nkeyboard(address()); }
         /** Returns a {@link VREventIpd} view of the {@code ipd} field. */
+        @NativeType("VREvent_Ipd_t")
         public VREventIpd ipd() { return VREventData.nipd(address()); }
         /** Returns a {@link VREventChaperone} view of the {@code chaperone} field. */
+        @NativeType("VREvent_Chaperone_t")
         public VREventChaperone chaperone() { return VREventData.nchaperone(address()); }
         /** Returns a {@link VREventPerformanceTest} view of the {@code performanceTest} field. */
+        @NativeType("VREvent_PerformanceTest_t")
         public VREventPerformanceTest performanceTest() { return VREventData.nperformanceTest(address()); }
         /** Returns a {@link VREventTouchPadMove} view of the {@code touchPadMove} field. */
+        @NativeType("VREvent_TouchPadMove_t")
         public VREventTouchPadMove touchPadMove() { return VREventData.ntouchPadMove(address()); }
         /** Returns a {@link VREventSeatedZeroPoseReset} view of the {@code seatedZeroPoseReset} field. */
+        @NativeType("VREvent_SeatedZeroPoseReset_t")
         public VREventSeatedZeroPoseReset seatedZeroPoseReset() { return VREventData.nseatedZeroPoseReset(address()); }
         /** Returns a {@link VREventScreenshot} view of the {@code screenshot} field. */
+        @NativeType("VREvent_Screenshot_t")
         public VREventScreenshot screenshot() { return VREventData.nscreenshot(address()); }
         /** Returns a {@link VREventScreenshotProgress} view of the {@code screenshotProgress} field. */
+        @NativeType("VREvent_ScreenshotProgress_t")
         public VREventScreenshotProgress screenshotProgress() { return VREventData.nscreenshotProgress(address()); }
         /** Returns a {@link VREventApplicationLaunch} view of the {@code applicationLaunch} field. */
+        @NativeType("VREvent_ApplicationLaunch_t")
         public VREventApplicationLaunch applicationLaunch() { return VREventData.napplicationLaunch(address()); }
         /** Returns a {@link VREventEditingCameraSurface} view of the {@code cameraSurface} field. */
+        @NativeType("VREvent_EditingCameraSurface_t")
         public VREventEditingCameraSurface cameraSurface() { return VREventData.ncameraSurface(address()); }
         /** Returns a {@link VREventMessageOverlay} view of the {@code messageOverlay} field. */
+        @NativeType("VREvent_MessageOverlay_t")
         public VREventMessageOverlay messageOverlay() { return VREventData.nmessageOverlay(address()); }
         /** Returns a {@link VREventProperty} view of the {@code property} field. */
+        @NativeType("VREvent_Property_t")
         public VREventProperty property() { return VREventData.nproperty(address()); }
 
         /** Copies the specified {@link VREventReserved} to the {@code reserved} field. */
-        public VREventData.Buffer reserved(VREventReserved value) { VREventData.nreserved(address(), value); return this; }
+        public VREventData.Buffer reserved(@NativeType("VREvent_Reserved_t") VREventReserved value) { VREventData.nreserved(address(), value); return this; }
         /** Copies the specified {@link VREventController} to the {@code controller} field. */
-        public VREventData.Buffer controller(VREventController value) { VREventData.ncontroller(address(), value); return this; }
+        public VREventData.Buffer controller(@NativeType("VREvent_Controller_t") VREventController value) { VREventData.ncontroller(address(), value); return this; }
         /** Copies the specified {@link VREventMouse} to the {@code mouse} field. */
-        public VREventData.Buffer mouse(VREventMouse value) { VREventData.nmouse(address(), value); return this; }
+        public VREventData.Buffer mouse(@NativeType("VREvent_Mouse_t") VREventMouse value) { VREventData.nmouse(address(), value); return this; }
         /** Copies the specified {@link VREventScroll} to the {@code scroll} field. */
-        public VREventData.Buffer scroll(VREventScroll value) { VREventData.nscroll(address(), value); return this; }
+        public VREventData.Buffer scroll(@NativeType("VREvent_Scroll_t") VREventScroll value) { VREventData.nscroll(address(), value); return this; }
         /** Copies the specified {@link VREventProcess} to the {@code process} field. */
-        public VREventData.Buffer process(VREventProcess value) { VREventData.nprocess(address(), value); return this; }
+        public VREventData.Buffer process(@NativeType("VREvent_Process_t") VREventProcess value) { VREventData.nprocess(address(), value); return this; }
         /** Copies the specified {@link VREventNotification} to the {@code notification} field. */
-        public VREventData.Buffer notification(VREventNotification value) { VREventData.nnotification(address(), value); return this; }
+        public VREventData.Buffer notification(@NativeType("VREvent_Notification_t") VREventNotification value) { VREventData.nnotification(address(), value); return this; }
         /** Copies the specified {@link VREventOverlay} to the {@code overlay} field. */
-        public VREventData.Buffer overlay(VREventOverlay value) { VREventData.noverlay(address(), value); return this; }
+        public VREventData.Buffer overlay(@NativeType("VREvent_Overlay_t") VREventOverlay value) { VREventData.noverlay(address(), value); return this; }
         /** Copies the specified {@link VREventStatus} to the {@code status} field. */
-        public VREventData.Buffer status(VREventStatus value) { VREventData.nstatus(address(), value); return this; }
+        public VREventData.Buffer status(@NativeType("VREvent_Status_t") VREventStatus value) { VREventData.nstatus(address(), value); return this; }
         /** Copies the specified {@link VREventKeyboard} to the {@code keyboard} field. */
-        public VREventData.Buffer keyboard(VREventKeyboard value) { VREventData.nkeyboard(address(), value); return this; }
+        public VREventData.Buffer keyboard(@NativeType("VREvent_Keyboard_t") VREventKeyboard value) { VREventData.nkeyboard(address(), value); return this; }
         /** Copies the specified {@link VREventIpd} to the {@code ipd} field. */
-        public VREventData.Buffer ipd(VREventIpd value) { VREventData.nipd(address(), value); return this; }
+        public VREventData.Buffer ipd(@NativeType("VREvent_Ipd_t") VREventIpd value) { VREventData.nipd(address(), value); return this; }
         /** Copies the specified {@link VREventChaperone} to the {@code chaperone} field. */
-        public VREventData.Buffer chaperone(VREventChaperone value) { VREventData.nchaperone(address(), value); return this; }
+        public VREventData.Buffer chaperone(@NativeType("VREvent_Chaperone_t") VREventChaperone value) { VREventData.nchaperone(address(), value); return this; }
         /** Copies the specified {@link VREventPerformanceTest} to the {@code performanceTest} field. */
-        public VREventData.Buffer performanceTest(VREventPerformanceTest value) { VREventData.nperformanceTest(address(), value); return this; }
+        public VREventData.Buffer performanceTest(@NativeType("VREvent_PerformanceTest_t") VREventPerformanceTest value) { VREventData.nperformanceTest(address(), value); return this; }
         /** Copies the specified {@link VREventTouchPadMove} to the {@code touchPadMove} field. */
-        public VREventData.Buffer touchPadMove(VREventTouchPadMove value) { VREventData.ntouchPadMove(address(), value); return this; }
+        public VREventData.Buffer touchPadMove(@NativeType("VREvent_TouchPadMove_t") VREventTouchPadMove value) { VREventData.ntouchPadMove(address(), value); return this; }
         /** Copies the specified {@link VREventSeatedZeroPoseReset} to the {@code seatedZeroPoseReset} field. */
-        public VREventData.Buffer seatedZeroPoseReset(VREventSeatedZeroPoseReset value) { VREventData.nseatedZeroPoseReset(address(), value); return this; }
+        public VREventData.Buffer seatedZeroPoseReset(@NativeType("VREvent_SeatedZeroPoseReset_t") VREventSeatedZeroPoseReset value) { VREventData.nseatedZeroPoseReset(address(), value); return this; }
         /** Copies the specified {@link VREventScreenshot} to the {@code screenshot} field. */
-        public VREventData.Buffer screenshot(VREventScreenshot value) { VREventData.nscreenshot(address(), value); return this; }
+        public VREventData.Buffer screenshot(@NativeType("VREvent_Screenshot_t") VREventScreenshot value) { VREventData.nscreenshot(address(), value); return this; }
         /** Copies the specified {@link VREventScreenshotProgress} to the {@code screenshotProgress} field. */
-        public VREventData.Buffer screenshotProgress(VREventScreenshotProgress value) { VREventData.nscreenshotProgress(address(), value); return this; }
+        public VREventData.Buffer screenshotProgress(@NativeType("VREvent_ScreenshotProgress_t") VREventScreenshotProgress value) { VREventData.nscreenshotProgress(address(), value); return this; }
         /** Copies the specified {@link VREventApplicationLaunch} to the {@code applicationLaunch} field. */
-        public VREventData.Buffer applicationLaunch(VREventApplicationLaunch value) { VREventData.napplicationLaunch(address(), value); return this; }
+        public VREventData.Buffer applicationLaunch(@NativeType("VREvent_ApplicationLaunch_t") VREventApplicationLaunch value) { VREventData.napplicationLaunch(address(), value); return this; }
         /** Copies the specified {@link VREventEditingCameraSurface} to the {@code cameraSurface} field. */
-        public VREventData.Buffer cameraSurface(VREventEditingCameraSurface value) { VREventData.ncameraSurface(address(), value); return this; }
+        public VREventData.Buffer cameraSurface(@NativeType("VREvent_EditingCameraSurface_t") VREventEditingCameraSurface value) { VREventData.ncameraSurface(address(), value); return this; }
         /** Copies the specified {@link VREventMessageOverlay} to the {@code messageOverlay} field. */
-        public VREventData.Buffer messageOverlay(VREventMessageOverlay value) { VREventData.nmessageOverlay(address(), value); return this; }
+        public VREventData.Buffer messageOverlay(@NativeType("VREvent_MessageOverlay_t") VREventMessageOverlay value) { VREventData.nmessageOverlay(address(), value); return this; }
         /** Copies the specified {@link VREventProperty} to the {@code property} field. */
-        public VREventData.Buffer property(VREventProperty value) { VREventData.nproperty(address(), value); return this; }
+        public VREventData.Buffer property(@NativeType("VREvent_Property_t") VREventProperty value) { VREventData.nproperty(address(), value); return this; }
 
     }
 

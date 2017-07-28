@@ -46,14 +46,15 @@ public class ANGLETranslatedShaderSource {
 
     public static native void nglGetTranslatedShaderSourceANGLE(int shader, int bufsize, long length, long source);
 
-    public static void glGetTranslatedShaderSourceANGLE(int shader, IntBuffer length, ByteBuffer source) {
+    public static void glGetTranslatedShaderSourceANGLE(@NativeType("GLuint") int shader, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer source) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
         nglGetTranslatedShaderSourceANGLE(shader, source.remaining(), memAddressSafe(length), memAddress(source));
     }
 
-    public static String glGetTranslatedShaderSourceANGLE(int shader, int bufsize) {
+    @NativeType("void")
+    public static String glGetTranslatedShaderSourceANGLE(@NativeType("GLuint") int shader, @NativeType("GLsizei") int bufsize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         ByteBuffer source = memAlloc(bufsize);
         try {
@@ -66,12 +67,13 @@ public class ANGLETranslatedShaderSource {
         }
     }
 
-    public static String glGetTranslatedShaderSourceANGLE(int shader) {
+    @NativeType("void")
+    public static String glGetTranslatedShaderSourceANGLE(@NativeType("GLuint") int shader) {
         return glGetTranslatedShaderSourceANGLE(shader, GLES20.glGetShaderi(shader, GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE));
     }
 
     /** Array version of: {@link #glGetTranslatedShaderSourceANGLE GetTranslatedShaderSourceANGLE} */
-    public static void glGetTranslatedShaderSourceANGLE(int shader, int[] length, ByteBuffer source) {
+    public static void glGetTranslatedShaderSourceANGLE(@NativeType("GLuint") int shader, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer source) {
         long __functionAddress = GLES.getICD().glGetTranslatedShaderSourceANGLE;
         if (CHECKS) {
             check(__functionAddress);

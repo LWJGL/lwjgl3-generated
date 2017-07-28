@@ -105,6 +105,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     int AswFailedFrameCount;
  * }</pre></code>
  */
+@NativeType("struct ovrPerfStatsPerCompositorFrame")
 public class OVRPerfStatsPerCompositorFrame extends Struct {
 
     /** The struct size in bytes. */
@@ -224,6 +225,7 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
     /** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
     public float CompositorGpuEndToVsyncElapsedTime() { return nCompositorGpuEndToVsyncElapsedTime(address()); }
     /** Returns the value of the {@code AswIsActive} field. */
+    @NativeType("ovrBool")
     public boolean AswIsActive() { return nAswIsActive(address()); }
     /** Returns the value of the {@code AswActivatedToggleCount} field. */
     public int AswActivatedToggleCount() { return nAswActivatedToggleCount(address()); }
@@ -359,6 +361,7 @@ public class OVRPerfStatsPerCompositorFrame extends Struct {
         /** Returns the value of the {@code CompositorGpuEndToVsyncElapsedTime} field. */
         public float CompositorGpuEndToVsyncElapsedTime() { return OVRPerfStatsPerCompositorFrame.nCompositorGpuEndToVsyncElapsedTime(address()); }
         /** Returns the value of the {@code AswIsActive} field. */
+        @NativeType("ovrBool")
         public boolean AswIsActive() { return OVRPerfStatsPerCompositorFrame.nAswIsActive(address()); }
         /** Returns the value of the {@code AswActivatedToggleCount} field. */
         public int AswActivatedToggleCount() { return OVRPerfStatsPerCompositorFrame.nAswActivatedToggleCount(address()); }

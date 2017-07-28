@@ -29,6 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     uint64_t overlayHandle;
  * }</pre></code>
  */
+@NativeType("struct VREvent_Overlay_t")
 public class VREventOverlay extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -69,10 +70,11 @@ public class VREventOverlay extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code overlayHandle} field. */
+    @NativeType("uint64_t")
     public long overlayHandle() { return noverlayHandle(address()); }
 
     /** Sets the specified value to the {@code overlayHandle} field. */
-    public VREventOverlay overlayHandle(long value) { noverlayHandle(address(), value); return this; }
+    public VREventOverlay overlayHandle(@NativeType("uint64_t") long value) { noverlayHandle(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -264,10 +266,11 @@ public class VREventOverlay extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code overlayHandle} field. */
+        @NativeType("uint64_t")
         public long overlayHandle() { return VREventOverlay.noverlayHandle(address()); }
 
         /** Sets the specified value to the {@code overlayHandle} field. */
-        public VREventOverlay.Buffer overlayHandle(long value) { VREventOverlay.noverlayHandle(address(), value); return this; }
+        public VREventOverlay.Buffer overlayHandle(@NativeType("uint64_t") long value) { VREventOverlay.noverlayHandle(address(), value); return this; }
 
     }
 

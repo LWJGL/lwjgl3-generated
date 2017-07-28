@@ -92,16 +92,19 @@ public class VkSparseImageMemoryBindInfo extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code image} field. */
+    @NativeType("VkImage")
     public long image() { return nimage(address()); }
     /** Returns the value of the {@code bindCount} field. */
+    @NativeType("uint32_t")
     public int bindCount() { return nbindCount(address()); }
     /** Returns a {@link VkSparseImageMemoryBind.Buffer} view of the struct array pointed to by the {@code pBinds} field. */
+    @NativeType("const VkSparseImageMemoryBind *")
     public VkSparseImageMemoryBind.Buffer pBinds() { return npBinds(address()); }
 
     /** Sets the specified value to the {@code image} field. */
-    public VkSparseImageMemoryBindInfo image(long value) { nimage(address(), value); return this; }
+    public VkSparseImageMemoryBindInfo image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
     /** Sets the address of the specified {@link VkSparseImageMemoryBind.Buffer} to the {@code pBinds} field. */
-    public VkSparseImageMemoryBindInfo pBinds(VkSparseImageMemoryBind.Buffer value) { npBinds(address(), value); return this; }
+    public VkSparseImageMemoryBindInfo pBinds(@NativeType("const VkSparseImageMemoryBind *") VkSparseImageMemoryBind.Buffer value) { npBinds(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSparseImageMemoryBindInfo set(
@@ -333,16 +336,19 @@ public class VkSparseImageMemoryBindInfo extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code image} field. */
+        @NativeType("VkImage")
         public long image() { return VkSparseImageMemoryBindInfo.nimage(address()); }
         /** Returns the value of the {@code bindCount} field. */
+        @NativeType("uint32_t")
         public int bindCount() { return VkSparseImageMemoryBindInfo.nbindCount(address()); }
         /** Returns a {@link VkSparseImageMemoryBind.Buffer} view of the struct array pointed to by the {@code pBinds} field. */
+        @NativeType("const VkSparseImageMemoryBind *")
         public VkSparseImageMemoryBind.Buffer pBinds() { return VkSparseImageMemoryBindInfo.npBinds(address()); }
 
         /** Sets the specified value to the {@code image} field. */
-        public VkSparseImageMemoryBindInfo.Buffer image(long value) { VkSparseImageMemoryBindInfo.nimage(address(), value); return this; }
+        public VkSparseImageMemoryBindInfo.Buffer image(@NativeType("VkImage") long value) { VkSparseImageMemoryBindInfo.nimage(address(), value); return this; }
         /** Sets the address of the specified {@link VkSparseImageMemoryBind.Buffer} to the {@code pBinds} field. */
-        public VkSparseImageMemoryBindInfo.Buffer pBinds(VkSparseImageMemoryBind.Buffer value) { VkSparseImageMemoryBindInfo.npBinds(address(), value); return this; }
+        public VkSparseImageMemoryBindInfo.Buffer pBinds(@NativeType("const VkSparseImageMemoryBind *") VkSparseImageMemoryBind.Buffer value) { VkSparseImageMemoryBindInfo.npBinds(address(), value); return this; }
 
     }
 

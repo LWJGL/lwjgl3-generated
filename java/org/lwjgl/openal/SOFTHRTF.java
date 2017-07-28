@@ -7,6 +7,8 @@ package org.lwjgl.openal;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -84,7 +86,8 @@ public class SOFTHRTF {
      * @param paramName the parameter to query. Must be:<br><table><tr><td>{@link #ALC_HRTF_SPECIFIER_SOFT HRTF_SPECIFIER_SOFT}</td></tr></table>
      * @param index     an index between 0 (inclusive) and the previously-queried HRTF count (exclusive)
      */
-    public static String alcGetStringiSOFT(long device, int paramName, int index) {
+    @NativeType("const ALCchar *")
+    public static String alcGetStringiSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCenum") int paramName, @NativeType("ALCsizei") int index) {
         long __result = nalcGetStringiSOFT(device, paramName, index);
         return memUTF8(__result);
     }
@@ -112,7 +115,8 @@ public class SOFTHRTF {
      *         indicate any attributes were honored, just that the device was successfully reset. If you need to know what the attributes are after a reset, query the
      *         device using {@link ALC10#alcGetIntegerv GetIntegerv} with the relevant attributes.
      */
-    public static boolean alcResetDeviceSOFT(long device, IntBuffer attrList) {
+    @NativeType("ALCboolean")
+    public static boolean alcResetDeviceSOFT(@NativeType("ALCdevice *") long device, @NativeType("const ALCint *") IntBuffer attrList) {
         if (CHECKS) {
             checkNTSafe(attrList);
         }
@@ -120,7 +124,8 @@ public class SOFTHRTF {
     }
 
     /** Array version of: {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
-    public static boolean alcResetDeviceSOFT(long device, int[] attrList) {
+    @NativeType("ALCboolean")
+    public static boolean alcResetDeviceSOFT(@NativeType("ALCdevice *") long device, @NativeType("const ALCint *") int[] attrList) {
 		long __functionAddress = ALC.getICD().alcResetDeviceSOFT;
         if (CHECKS) {
             check(__functionAddress);

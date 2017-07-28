@@ -90,8 +90,10 @@ public class VkSurfaceFormat2KHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkSurfaceFormatKHR} view of the {@code surfaceFormat} field. */
     public VkSurfaceFormatKHR surfaceFormat() { return nsurfaceFormat(address()); }
@@ -275,8 +277,10 @@ public class VkSurfaceFormat2KHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkSurfaceFormat2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkSurfaceFormat2KHR.npNext(address()); }
         /** Returns a {@link VkSurfaceFormatKHR} view of the {@code surfaceFormat} field. */
         public VkSurfaceFormatKHR surfaceFormat() { return VkSurfaceFormat2KHR.nsurfaceFormat(address()); }

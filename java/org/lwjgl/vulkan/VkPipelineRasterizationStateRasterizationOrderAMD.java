@@ -88,18 +88,21 @@ public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct im
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code rasterizationOrder} field. */
+    @NativeType("VkRasterizationOrderAMD")
     public int rasterizationOrder() { return nrasterizationOrder(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkPipelineRasterizationStateRasterizationOrderAMD sType(int value) { nsType(address(), value); return this; }
+    public VkPipelineRasterizationStateRasterizationOrderAMD sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineRasterizationStateRasterizationOrderAMD pNext(long value) { npNext(address(), value); return this; }
+    public VkPipelineRasterizationStateRasterizationOrderAMD pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code rasterizationOrder} field. */
-    public VkPipelineRasterizationStateRasterizationOrderAMD rasterizationOrder(int value) { nrasterizationOrder(address(), value); return this; }
+    public VkPipelineRasterizationStateRasterizationOrderAMD rasterizationOrder(@NativeType("VkRasterizationOrderAMD") int value) { nrasterizationOrder(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineRasterizationStateRasterizationOrderAMD set(
@@ -312,18 +315,21 @@ public class VkPipelineRasterizationStateRasterizationOrderAMD extends Struct im
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPipelineRasterizationStateRasterizationOrderAMD.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkPipelineRasterizationStateRasterizationOrderAMD.npNext(address()); }
         /** Returns the value of the {@code rasterizationOrder} field. */
+        @NativeType("VkRasterizationOrderAMD")
         public int rasterizationOrder() { return VkPipelineRasterizationStateRasterizationOrderAMD.nrasterizationOrder(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkPipelineRasterizationStateRasterizationOrderAMD.Buffer sType(int value) { VkPipelineRasterizationStateRasterizationOrderAMD.nsType(address(), value); return this; }
+        public VkPipelineRasterizationStateRasterizationOrderAMD.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineRasterizationStateRasterizationOrderAMD.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineRasterizationStateRasterizationOrderAMD.Buffer pNext(long value) { VkPipelineRasterizationStateRasterizationOrderAMD.npNext(address(), value); return this; }
+        public VkPipelineRasterizationStateRasterizationOrderAMD.Buffer pNext(@NativeType("const void *") long value) { VkPipelineRasterizationStateRasterizationOrderAMD.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code rasterizationOrder} field. */
-        public VkPipelineRasterizationStateRasterizationOrderAMD.Buffer rasterizationOrder(int value) { VkPipelineRasterizationStateRasterizationOrderAMD.nrasterizationOrder(address(), value); return this; }
+        public VkPipelineRasterizationStateRasterizationOrderAMD.Buffer rasterizationOrder(@NativeType("VkRasterizationOrderAMD") int value) { VkPipelineRasterizationStateRasterizationOrderAMD.nrasterizationOrder(address(), value); return this; }
 
     }
 

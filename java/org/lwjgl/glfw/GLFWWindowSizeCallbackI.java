@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWwindowsizefun")
 public interface GLFWWindowSizeCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pii)v";
@@ -34,6 +35,6 @@ public interface GLFWWindowSizeCallbackI extends CallbackI.V {
      * @param width  the new width, in screen coordinates, of the window
      * @param height the new height, in screen coordinates, of the window
      */
-    void invoke(long window, int width, int height);
+    void invoke(@NativeType("GLFWwindow *") long window, int width, int height);
 
 }

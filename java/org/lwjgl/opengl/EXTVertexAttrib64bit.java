@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -72,25 +74,25 @@ public class EXTVertexAttrib64bit {
 
     // --- [ glVertexAttribL1dEXT ] ---
 
-    public static native void glVertexAttribL1dEXT(int index, double x);
+    public static native void glVertexAttribL1dEXT(@NativeType("GLuint") int index, @NativeType("GLdouble") double x);
 
     // --- [ glVertexAttribL2dEXT ] ---
 
-    public static native void glVertexAttribL2dEXT(int index, double x, double y);
+    public static native void glVertexAttribL2dEXT(@NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y);
 
     // --- [ glVertexAttribL3dEXT ] ---
 
-    public static native void glVertexAttribL3dEXT(int index, double x, double y, double z);
+    public static native void glVertexAttribL3dEXT(@NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y, @NativeType("GLdouble") double z);
 
     // --- [ glVertexAttribL4dEXT ] ---
 
-    public static native void glVertexAttribL4dEXT(int index, double x, double y, double z, double w);
+    public static native void glVertexAttribL4dEXT(@NativeType("GLuint") int index, @NativeType("GLdouble") double x, @NativeType("GLdouble") double y, @NativeType("GLdouble") double z, @NativeType("GLdouble") double w);
 
     // --- [ glVertexAttribL1dvEXT ] ---
 
     public static native void nglVertexAttribL1dvEXT(int index, long v);
 
-    public static void glVertexAttribL1dvEXT(int index, DoubleBuffer v) {
+    public static void glVertexAttribL1dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -101,7 +103,7 @@ public class EXTVertexAttrib64bit {
 
     public static native void nglVertexAttribL2dvEXT(int index, long v);
 
-    public static void glVertexAttribL2dvEXT(int index, DoubleBuffer v) {
+    public static void glVertexAttribL2dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -112,7 +114,7 @@ public class EXTVertexAttrib64bit {
 
     public static native void nglVertexAttribL3dvEXT(int index, long v);
 
-    public static void glVertexAttribL3dvEXT(int index, DoubleBuffer v) {
+    public static void glVertexAttribL3dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -123,7 +125,7 @@ public class EXTVertexAttrib64bit {
 
     public static native void nglVertexAttribL4dvEXT(int index, long v);
 
-    public static void glVertexAttribL4dvEXT(int index, DoubleBuffer v) {
+    public static void glVertexAttribL4dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -134,15 +136,15 @@ public class EXTVertexAttrib64bit {
 
     public static native void nglVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer);
 
-    public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, ByteBuffer pointer) {
+    public static void glVertexAttribLPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
         nglVertexAttribLPointerEXT(index, size, type, stride, memAddress(pointer));
     }
 
-    public static void glVertexAttribLPointerEXT(int index, int size, int type, int stride, long pointer) {
+    public static void glVertexAttribLPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
         nglVertexAttribLPointerEXT(index, size, type, stride, pointer);
     }
 
-    public static void glVertexAttribLPointerEXT(int index, int size, int stride, DoubleBuffer pointer) {
+    public static void glVertexAttribLPointerEXT(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLsizei") int stride, @NativeType("const void *") DoubleBuffer pointer) {
         nglVertexAttribLPointerEXT(index, size, GL11.GL_DOUBLE, stride, memAddress(pointer));
     }
 
@@ -150,7 +152,7 @@ public class EXTVertexAttrib64bit {
 
     public static native void nglGetVertexAttribLdvEXT(int index, int pname, long params);
 
-    public static void glGetVertexAttribLdvEXT(int index, int pname, DoubleBuffer params) {
+    public static void glGetVertexAttribLdvEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLdouble *") DoubleBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -159,10 +161,10 @@ public class EXTVertexAttrib64bit {
 
     // --- [ glVertexArrayVertexAttribLOffsetEXT ] ---
 
-    public static native void glVertexArrayVertexAttribLOffsetEXT(int vaobj, int buffer, int index, int size, int type, int stride, long offset);
+    public static native void glVertexArrayVertexAttribLOffsetEXT(@NativeType("GLuint") int vaobj, @NativeType("GLuint") int buffer, @NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("GLintptr") long offset);
 
     /** Array version of: {@link #glVertexAttribL1dvEXT VertexAttribL1dvEXT} */
-    public static void glVertexAttribL1dvEXT(int index, double[] v) {
+    public static void glVertexAttribL1dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL1dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -172,7 +174,7 @@ public class EXTVertexAttrib64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL2dvEXT VertexAttribL2dvEXT} */
-    public static void glVertexAttribL2dvEXT(int index, double[] v) {
+    public static void glVertexAttribL2dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL2dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -182,7 +184,7 @@ public class EXTVertexAttrib64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL3dvEXT VertexAttribL3dvEXT} */
-    public static void glVertexAttribL3dvEXT(int index, double[] v) {
+    public static void glVertexAttribL3dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL3dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -192,7 +194,7 @@ public class EXTVertexAttrib64bit {
     }
 
     /** Array version of: {@link #glVertexAttribL4dvEXT VertexAttribL4dvEXT} */
-    public static void glVertexAttribL4dvEXT(int index, double[] v) {
+    public static void glVertexAttribL4dvEXT(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL4dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -202,7 +204,7 @@ public class EXTVertexAttrib64bit {
     }
 
     /** Array version of: {@link #glGetVertexAttribLdvEXT GetVertexAttribLdvEXT} */
-    public static void glGetVertexAttribLdvEXT(int index, int pname, double[] params) {
+    public static void glGetVertexAttribLdvEXT(@NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLdouble *") double[] params) {
         long __functionAddress = GL.getICD().glGetVertexAttribLdvEXT;
         if (CHECKS) {
             check(__functionAddress);

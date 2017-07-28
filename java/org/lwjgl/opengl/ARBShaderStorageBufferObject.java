@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -89,6 +91,6 @@ public class ARBShaderStorageBufferObject {
      * @param storageBlockIndex   the index storage block within the program
      * @param storageBlockBinding the index storage block binding to associate with the specified storage block
      */
-    public static native void glShaderStorageBlockBinding(int program, int storageBlockIndex, int storageBlockBinding);
+    public static native void glShaderStorageBlockBinding(@NativeType("GLuint") int program, @NativeType("GLuint") int storageBlockIndex, @NativeType("GLuint") int storageBlockBinding);
 
 }

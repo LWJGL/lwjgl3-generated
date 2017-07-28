@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned char * pixels;
  * }</pre></code>
  */
+@NativeType("struct GLFWimage")
 public class GLFWImage extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -90,6 +91,7 @@ public class GLFWImage extends Struct implements NativeResource {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("unsigned char *")
     public ByteBuffer pixels(int capacity) { return npixels(address(), capacity); }
 
     /** Sets the specified value to the {@code width} field. */
@@ -97,7 +99,7 @@ public class GLFWImage extends Struct implements NativeResource {
     /** Sets the specified value to the {@code height} field. */
     public GLFWImage height(int value) { nheight(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pixels} field. */
-    public GLFWImage pixels(ByteBuffer value) { npixels(address(), value); return this; }
+    public GLFWImage pixels(@NativeType("unsigned char *") ByteBuffer value) { npixels(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public GLFWImage set(
@@ -339,6 +341,7 @@ public class GLFWImage extends Struct implements NativeResource {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("unsigned char *")
         public ByteBuffer pixels(int capacity) { return GLFWImage.npixels(address(), capacity); }
 
         /** Sets the specified value to the {@code width} field. */
@@ -346,7 +349,7 @@ public class GLFWImage extends Struct implements NativeResource {
         /** Sets the specified value to the {@code height} field. */
         public GLFWImage.Buffer height(int value) { GLFWImage.nheight(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pixels} field. */
-        public GLFWImage.Buffer pixels(ByteBuffer value) { GLFWImage.npixels(address(), value); return this; }
+        public GLFWImage.Buffer pixels(@NativeType("unsigned char *") ByteBuffer value) { GLFWImage.npixels(address(), value); return this; }
 
     }
 

@@ -91,18 +91,21 @@ public class VkDeviceGroupSwapchainCreateInfoKHX extends Struct implements Nativ
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code modes} field. */
+    @NativeType("VkDeviceGroupPresentModeFlagsKHX")
     public int modes() { return nmodes(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkDeviceGroupSwapchainCreateInfoKHX sType(int value) { nsType(address(), value); return this; }
+    public VkDeviceGroupSwapchainCreateInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGroupSwapchainCreateInfoKHX pNext(long value) { npNext(address(), value); return this; }
+    public VkDeviceGroupSwapchainCreateInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code modes} field. */
-    public VkDeviceGroupSwapchainCreateInfoKHX modes(int value) { nmodes(address(), value); return this; }
+    public VkDeviceGroupSwapchainCreateInfoKHX modes(@NativeType("VkDeviceGroupPresentModeFlagsKHX") int value) { nmodes(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceGroupSwapchainCreateInfoKHX set(
@@ -315,18 +318,21 @@ public class VkDeviceGroupSwapchainCreateInfoKHX extends Struct implements Nativ
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkDeviceGroupSwapchainCreateInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkDeviceGroupSwapchainCreateInfoKHX.npNext(address()); }
         /** Returns the value of the {@code modes} field. */
+        @NativeType("VkDeviceGroupPresentModeFlagsKHX")
         public int modes() { return VkDeviceGroupSwapchainCreateInfoKHX.nmodes(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkDeviceGroupSwapchainCreateInfoKHX.Buffer sType(int value) { VkDeviceGroupSwapchainCreateInfoKHX.nsType(address(), value); return this; }
+        public VkDeviceGroupSwapchainCreateInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGroupSwapchainCreateInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGroupSwapchainCreateInfoKHX.Buffer pNext(long value) { VkDeviceGroupSwapchainCreateInfoKHX.npNext(address(), value); return this; }
+        public VkDeviceGroupSwapchainCreateInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGroupSwapchainCreateInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code modes} field. */
-        public VkDeviceGroupSwapchainCreateInfoKHX.Buffer modes(int value) { VkDeviceGroupSwapchainCreateInfoKHX.nmodes(address(), value); return this; }
+        public VkDeviceGroupSwapchainCreateInfoKHX.Buffer modes(@NativeType("VkDeviceGroupPresentModeFlagsKHX") int value) { VkDeviceGroupSwapchainCreateInfoKHX.nmodes(address(), value); return this; }
 
     }
 

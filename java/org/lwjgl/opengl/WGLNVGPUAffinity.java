@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -62,7 +64,8 @@ public class WGLNVGPUAffinity {
      * @param gpuIndex an index value that specifies a GPU
      * @param gpu      returns a handle for GPU number {@code gpuIndex}. The first GPU will be index 0.
      */
-    public static boolean wglEnumGpusNV(int gpuIndex, PointerBuffer gpu) {
+    @NativeType("BOOL")
+    public static boolean wglEnumGpusNV(@NativeType("UINT") int gpuIndex, @NativeType("HGPUNV *") PointerBuffer gpu) {
         if (CHECKS) {
             check(gpu, 1);
         }
@@ -88,7 +91,8 @@ public class WGLNVGPUAffinity {
      * @param deviceIndex an index value that specifies a display device, supported by {@code gpu}, to query. The first display device will be index 0.
      * @param gpuDevice   a {@link GPU_DEVICE} structure which will receive information about the display device at index {@code deviceIndex}.
      */
-    public static boolean wglEnumGpuDevicesNV(long gpu, int deviceIndex, GPU_DEVICE gpuDevice) {
+    @NativeType("BOOL")
+    public static boolean wglEnumGpuDevicesNV(@NativeType("HGPUNV") long gpu, @NativeType("UINT") int deviceIndex, @NativeType("PGPU_DEVICE") GPU_DEVICE gpuDevice) {
         return nwglEnumGpuDevicesNV(gpu, deviceIndex, gpuDevice.address()) != 0;
     }
 
@@ -113,7 +117,8 @@ public class WGLNVGPUAffinity {
      *
      * @param gpuList a {@code NULL}-terminated array of GPU handles to which the affinity-DC will be restricted
      */
-    public static long wglCreateAffinityDCNV(PointerBuffer gpuList) {
+    @NativeType("HDC")
+    public static long wglCreateAffinityDCNV(@NativeType("const HGPUNV *") PointerBuffer gpuList) {
         if (CHECKS) {
             checkNT(gpuList);
         }
@@ -143,7 +148,8 @@ public class WGLNVGPUAffinity {
      * @param gpuIndex   an index value of the GPU handle in the affinity mask of {@code affinityDC} to query
      * @param gpu        returns a handle for  GPU number {@code gpuIndex}. The first GPU will be at index 0.
      */
-    public static boolean wglEnumGpusFromAffinityDCNV(long affinityDC, int gpuIndex, PointerBuffer gpu) {
+    @NativeType("BOOL")
+    public static boolean wglEnumGpusFromAffinityDCNV(@NativeType("HDC") long affinityDC, @NativeType("UINT") int gpuIndex, @NativeType("HGPUNV *") PointerBuffer gpu) {
         if (CHECKS) {
             check(gpu, 1);
         }
@@ -157,7 +163,8 @@ public class WGLNVGPUAffinity {
      *
      * @param hdc a handle of an affinity-DC to delete
      */
-    public static boolean wglDeleteDCNV(long hdc) {
+    @NativeType("BOOL")
+    public static boolean wglDeleteDCNV(@NativeType("HDC") long hdc) {
         long __functionAddress = GL.getCapabilitiesWGL().wglDeleteDCNV;
         if (CHECKS) {
             check(__functionAddress);

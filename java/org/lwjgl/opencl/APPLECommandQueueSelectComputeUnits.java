@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -47,7 +49,8 @@ public class APPLECommandQueueSelectComputeUnits {
      * @param properties  
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
-    public static long clCreateCommandQueueWithPropertiesAPPLE(long context, long device, PointerBuffer properties, IntBuffer errcode_ret) {
+    @NativeType("cl_command_queue")
+    public static long clCreateCommandQueueWithPropertiesAPPLE(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("const cl_queue_properties_APPLE *") PointerBuffer properties, @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -56,7 +59,8 @@ public class APPLECommandQueueSelectComputeUnits {
     }
 
     /** Array version of: {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
-    public static long clCreateCommandQueueWithPropertiesAPPLE(long context, long device, PointerBuffer properties, int[] errcode_ret) {
+    @NativeType("cl_command_queue")
+    public static long clCreateCommandQueueWithPropertiesAPPLE(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("const cl_queue_properties_APPLE *") PointerBuffer properties, @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
         if (CHECKS) {
             check(__functionAddress);

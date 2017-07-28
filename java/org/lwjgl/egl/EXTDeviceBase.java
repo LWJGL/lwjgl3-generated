@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -53,7 +55,8 @@ public class EXTDeviceBase {
         return callPPI(__functionAddress, device, attribute, value);
     }
 
-    public static boolean eglQueryDeviceAttribEXT(long device, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDeviceAttribEXT(@NativeType("EGLDeviceEXT") long device, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -71,7 +74,8 @@ public class EXTDeviceBase {
         return callPP(__functionAddress, device, name);
     }
 
-    public static String eglQueryDeviceStringEXT(long device, int name) {
+    @NativeType("char *")
+    public static String eglQueryDeviceStringEXT(@NativeType("EGLDeviceEXT") long device, @NativeType("EGLint") int name) {
         long __result = neglQueryDeviceStringEXT(device, name);
         return memASCII(__result);
     }
@@ -87,7 +91,8 @@ public class EXTDeviceBase {
         return callPPI(__functionAddress, dpy, attribute, value);
     }
 
-    public static boolean eglQueryDisplayAttribEXT(long dpy, int attribute, PointerBuffer value) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDisplayAttribEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -104,7 +109,8 @@ public class EXTDeviceBase {
         return callPPI(__functionAddress, max_devices, devices, num_devices);
     }
 
-    public static boolean eglQueryDevicesEXT(PointerBuffer devices, IntBuffer num_devices) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDevicesEXT(@NativeType("EGLDeviceEXT *") PointerBuffer devices, @NativeType("EGLint *") IntBuffer num_devices) {
         if (CHECKS) {
             check(num_devices, 1);
         }
@@ -112,7 +118,8 @@ public class EXTDeviceBase {
     }
 
     /** Array version of: {@link #eglQueryDevicesEXT QueryDevicesEXT} */
-    public static boolean eglQueryDevicesEXT(PointerBuffer devices, int[] num_devices) {
+    @NativeType("EGLBoolean")
+    public static boolean eglQueryDevicesEXT(@NativeType("EGLDeviceEXT *") PointerBuffer devices, @NativeType("EGLint *") int[] num_devices) {
         long __functionAddress = EGL.getCapabilities().eglQueryDevicesEXT;
         if (CHECKS) {
             check(__functionAddress);

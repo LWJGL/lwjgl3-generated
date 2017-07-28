@@ -65,6 +65,7 @@ import static org.lwjgl.ovr.OVR.ovrMaxProvidedFrameStats;
  *     ovrProcessId VisibleProcessId;
  * }</pre></code>
  */
+@NativeType("struct ovrPerfStats")
 public class OVRPerfStats extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -120,18 +121,23 @@ public class OVRPerfStats extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link OVRPerfStatsPerCompositorFrame}.Buffer view of the {@code FrameStats} field. */
+    @NativeType("ovrPerfStatsPerCompositorFrame[ovrMaxProvidedFrameStats]")
     public OVRPerfStatsPerCompositorFrame.Buffer FrameStats() { return nFrameStats(address()); }
     /** Returns a {@link OVRPerfStatsPerCompositorFrame} view of the struct at the specified index of the {@code FrameStats} field. */
+    @NativeType("ovrPerfStatsPerCompositorFrame")
     public OVRPerfStatsPerCompositorFrame FrameStats(int index) { return nFrameStats(address(), index); }
     /** Returns the value of the {@code FrameStatsCount} field. */
     public int FrameStatsCount() { return nFrameStatsCount(address()); }
     /** Returns the value of the {@code AnyFrameStatsDropped} field. */
+    @NativeType("ovrBool")
     public boolean AnyFrameStatsDropped() { return nAnyFrameStatsDropped(address()); }
     /** Returns the value of the {@code AdaptiveGpuPerformanceScale} field. */
     public float AdaptiveGpuPerformanceScale() { return nAdaptiveGpuPerformanceScale(address()); }
     /** Returns the value of the {@code AswIsAvailable} field. */
+    @NativeType("ovrBool")
     public boolean AswIsAvailable() { return nAswIsAvailable(address()); }
     /** Returns the value of the {@code VisibleProcessId} field. */
+    @NativeType("ovrProcessId")
     public int VisibleProcessId() { return nVisibleProcessId(address()); }
 
     // -----------------------------------
@@ -324,18 +330,23 @@ public class OVRPerfStats extends Struct implements NativeResource {
         }
 
         /** Returns a {@link OVRPerfStatsPerCompositorFrame}.Buffer view of the {@code FrameStats} field. */
+        @NativeType("ovrPerfStatsPerCompositorFrame[ovrMaxProvidedFrameStats]")
         public OVRPerfStatsPerCompositorFrame.Buffer FrameStats() { return OVRPerfStats.nFrameStats(address()); }
         /** Returns a {@link OVRPerfStatsPerCompositorFrame} view of the struct at the specified index of the {@code FrameStats} field. */
+        @NativeType("ovrPerfStatsPerCompositorFrame")
         public OVRPerfStatsPerCompositorFrame FrameStats(int index) { return OVRPerfStats.nFrameStats(address(), index); }
         /** Returns the value of the {@code FrameStatsCount} field. */
         public int FrameStatsCount() { return OVRPerfStats.nFrameStatsCount(address()); }
         /** Returns the value of the {@code AnyFrameStatsDropped} field. */
+        @NativeType("ovrBool")
         public boolean AnyFrameStatsDropped() { return OVRPerfStats.nAnyFrameStatsDropped(address()); }
         /** Returns the value of the {@code AdaptiveGpuPerformanceScale} field. */
         public float AdaptiveGpuPerformanceScale() { return OVRPerfStats.nAdaptiveGpuPerformanceScale(address()); }
         /** Returns the value of the {@code AswIsAvailable} field. */
+        @NativeType("ovrBool")
         public boolean AswIsAvailable() { return OVRPerfStats.nAswIsAvailable(address()); }
         /** Returns the value of the {@code VisibleProcessId} field. */
+        @NativeType("ovrProcessId")
         public int VisibleProcessId() { return OVRPerfStats.nVisibleProcessId(address()); }
 
     }

@@ -32,6 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     VRComponentProperties uProperties;
  * }</pre></code>
  */
+@NativeType("struct RenderModel_ComponentState_t")
 public class RenderModelComponentState extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -78,18 +79,21 @@ public class RenderModelComponentState extends Struct implements NativeResource 
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdMatrix34} view of the {@code mTrackingToComponentRenderModel} field. */
+    @NativeType("HmdMatrix34_t")
     public HmdMatrix34 mTrackingToComponentRenderModel() { return nmTrackingToComponentRenderModel(address()); }
     /** Returns a {@link HmdMatrix34} view of the {@code mTrackingToComponentLocal} field. */
+    @NativeType("HmdMatrix34_t")
     public HmdMatrix34 mTrackingToComponentLocal() { return nmTrackingToComponentLocal(address()); }
     /** Returns the value of the {@code uProperties} field. */
+    @NativeType("VRComponentProperties")
     public int uProperties() { return nuProperties(address()); }
 
     /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentRenderModel} field. */
-    public RenderModelComponentState mTrackingToComponentRenderModel(HmdMatrix34 value) { nmTrackingToComponentRenderModel(address(), value); return this; }
+    public RenderModelComponentState mTrackingToComponentRenderModel(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { nmTrackingToComponentRenderModel(address(), value); return this; }
     /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentLocal} field. */
-    public RenderModelComponentState mTrackingToComponentLocal(HmdMatrix34 value) { nmTrackingToComponentLocal(address(), value); return this; }
+    public RenderModelComponentState mTrackingToComponentLocal(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { nmTrackingToComponentLocal(address(), value); return this; }
     /** Sets the specified value to the {@code uProperties} field. */
-    public RenderModelComponentState uProperties(int value) { nuProperties(address(), value); return this; }
+    public RenderModelComponentState uProperties(@NativeType("VRComponentProperties") int value) { nuProperties(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public RenderModelComponentState set(
@@ -302,18 +306,21 @@ public class RenderModelComponentState extends Struct implements NativeResource 
         }
 
         /** Returns a {@link HmdMatrix34} view of the {@code mTrackingToComponentRenderModel} field. */
+        @NativeType("HmdMatrix34_t")
         public HmdMatrix34 mTrackingToComponentRenderModel() { return RenderModelComponentState.nmTrackingToComponentRenderModel(address()); }
         /** Returns a {@link HmdMatrix34} view of the {@code mTrackingToComponentLocal} field. */
+        @NativeType("HmdMatrix34_t")
         public HmdMatrix34 mTrackingToComponentLocal() { return RenderModelComponentState.nmTrackingToComponentLocal(address()); }
         /** Returns the value of the {@code uProperties} field. */
+        @NativeType("VRComponentProperties")
         public int uProperties() { return RenderModelComponentState.nuProperties(address()); }
 
         /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentRenderModel} field. */
-        public RenderModelComponentState.Buffer mTrackingToComponentRenderModel(HmdMatrix34 value) { RenderModelComponentState.nmTrackingToComponentRenderModel(address(), value); return this; }
+        public RenderModelComponentState.Buffer mTrackingToComponentRenderModel(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { RenderModelComponentState.nmTrackingToComponentRenderModel(address(), value); return this; }
         /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentLocal} field. */
-        public RenderModelComponentState.Buffer mTrackingToComponentLocal(HmdMatrix34 value) { RenderModelComponentState.nmTrackingToComponentLocal(address(), value); return this; }
+        public RenderModelComponentState.Buffer mTrackingToComponentLocal(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { RenderModelComponentState.nmTrackingToComponentLocal(address(), value); return this; }
         /** Sets the specified value to the {@code uProperties} field. */
-        public RenderModelComponentState.Buffer uProperties(int value) { RenderModelComponentState.nuProperties(address(), value); return this; }
+        public RenderModelComponentState.Buffer uProperties(@NativeType("VRComponentProperties") int value) { RenderModelComponentState.nuProperties(address(), value); return this; }
 
     }
 

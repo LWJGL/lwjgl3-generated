@@ -135,36 +135,44 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkBufferCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code size} field. */
+    @NativeType("VkDeviceSize")
     public long size() { return nsize(address()); }
     /** Returns the value of the {@code usage} field. */
+    @NativeType("VkBufferUsageFlags")
     public int usage() { return nusage(address()); }
     /** Returns the value of the {@code sharingMode} field. */
+    @NativeType("VkSharingMode")
     public int sharingMode() { return nsharingMode(address()); }
     /** Returns the value of the {@code queueFamilyIndexCount} field. */
+    @NativeType("uint32_t")
     public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkBufferCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkBufferCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBufferCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkBufferCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkBufferCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkBufferCreateInfo flags(@NativeType("VkBufferCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code size} field. */
-    public VkBufferCreateInfo size(long value) { nsize(address(), value); return this; }
+    public VkBufferCreateInfo size(@NativeType("VkDeviceSize") long value) { nsize(address(), value); return this; }
     /** Sets the specified value to the {@code usage} field. */
-    public VkBufferCreateInfo usage(int value) { nusage(address(), value); return this; }
+    public VkBufferCreateInfo usage(@NativeType("VkBufferUsageFlags") int value) { nusage(address(), value); return this; }
     /** Sets the specified value to the {@code sharingMode} field. */
-    public VkBufferCreateInfo sharingMode(int value) { nsharingMode(address(), value); return this; }
+    public VkBufferCreateInfo sharingMode(@NativeType("VkSharingMode") int value) { nsharingMode(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-    public VkBufferCreateInfo pQueueFamilyIndices(IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
+    public VkBufferCreateInfo pQueueFamilyIndices(@NativeType("const uint32_t *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBufferCreateInfo set(
@@ -428,36 +436,44 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkBufferCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkBufferCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkBufferCreateFlags")
         public int flags() { return VkBufferCreateInfo.nflags(address()); }
         /** Returns the value of the {@code size} field. */
+        @NativeType("VkDeviceSize")
         public long size() { return VkBufferCreateInfo.nsize(address()); }
         /** Returns the value of the {@code usage} field. */
+        @NativeType("VkBufferUsageFlags")
         public int usage() { return VkBufferCreateInfo.nusage(address()); }
         /** Returns the value of the {@code sharingMode} field. */
+        @NativeType("VkSharingMode")
         public int sharingMode() { return VkBufferCreateInfo.nsharingMode(address()); }
         /** Returns the value of the {@code queueFamilyIndexCount} field. */
+        @NativeType("uint32_t")
         public int queueFamilyIndexCount() { return VkBufferCreateInfo.nqueueFamilyIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pQueueFamilyIndices() { return VkBufferCreateInfo.npQueueFamilyIndices(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkBufferCreateInfo.Buffer sType(int value) { VkBufferCreateInfo.nsType(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkBufferCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBufferCreateInfo.Buffer pNext(long value) { VkBufferCreateInfo.npNext(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkBufferCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkBufferCreateInfo.Buffer flags(int value) { VkBufferCreateInfo.nflags(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer flags(@NativeType("VkBufferCreateFlags") int value) { VkBufferCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code size} field. */
-        public VkBufferCreateInfo.Buffer size(long value) { VkBufferCreateInfo.nsize(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer size(@NativeType("VkDeviceSize") long value) { VkBufferCreateInfo.nsize(address(), value); return this; }
         /** Sets the specified value to the {@code usage} field. */
-        public VkBufferCreateInfo.Buffer usage(int value) { VkBufferCreateInfo.nusage(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer usage(@NativeType("VkBufferUsageFlags") int value) { VkBufferCreateInfo.nusage(address(), value); return this; }
         /** Sets the specified value to the {@code sharingMode} field. */
-        public VkBufferCreateInfo.Buffer sharingMode(int value) { VkBufferCreateInfo.nsharingMode(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer sharingMode(@NativeType("VkSharingMode") int value) { VkBufferCreateInfo.nsharingMode(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-        public VkBufferCreateInfo.Buffer pQueueFamilyIndices(IntBuffer value) { VkBufferCreateInfo.npQueueFamilyIndices(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer pQueueFamilyIndices(@NativeType("const uint32_t *") IntBuffer value) { VkBufferCreateInfo.npQueueFamilyIndices(address(), value); return this; }
 
     }
 

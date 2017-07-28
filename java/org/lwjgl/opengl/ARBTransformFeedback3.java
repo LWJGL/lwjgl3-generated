@@ -76,7 +76,7 @@ public class ARBTransformFeedback3 {
      * @param id     the name of a transform feedback object from which to retrieve a primitive count
      * @param stream the index of the transform feedback stream from which to retrieve a primitive count
      */
-    public static native void glDrawTransformFeedbackStream(int mode, int id, int stream);
+    public static native void glDrawTransformFeedbackStream(@NativeType("GLenum") int mode, @NativeType("GLuint") int id, @NativeType("GLuint") int stream);
 
     // --- [ glBeginQueryIndexed ] ---
 
@@ -87,7 +87,7 @@ public class ARBTransformFeedback3 {
      * @param index  the index of the query target upon which to begin the query
      * @param id     the name of a query object
      */
-    public static native void glBeginQueryIndexed(int target, int index, int id);
+    public static native void glBeginQueryIndexed(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLuint") int id);
 
     // --- [ glEndQueryIndexed ] ---
 
@@ -97,7 +97,7 @@ public class ARBTransformFeedback3 {
      * @param target the target type of query object to be concluded. One of:<br><table><tr><td>{@link GL15#GL_SAMPLES_PASSED SAMPLES_PASSED}</td><td>{@link GL30#GL_PRIMITIVES_GENERATED PRIMITIVES_GENERATED}</td><td>{@link GL30#GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN}</td><td>{@link GL33#GL_TIME_ELAPSED TIME_ELAPSED}</td></tr><tr><td>{@link GL33#GL_TIMESTAMP TIMESTAMP}</td><td>{@link GL33#GL_ANY_SAMPLES_PASSED ANY_SAMPLES_PASSED}</td><td>{@link GL43#GL_ANY_SAMPLES_PASSED_CONSERVATIVE ANY_SAMPLES_PASSED_CONSERVATIVE}</td></tr></table>
      * @param index  the index of the query target upon which to end the query
      */
-    public static native void glEndQueryIndexed(int target, int index);
+    public static native void glEndQueryIndexed(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glGetQueryIndexediv ] ---
 
@@ -112,7 +112,7 @@ public class ARBTransformFeedback3 {
      * @param pname  the symbolic name of a query object target parameter
      * @param params the requested data
      */
-    public static void glGetQueryIndexediv(int target, int index, int pname, IntBuffer params) {
+    public static void glGetQueryIndexediv(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -126,7 +126,8 @@ public class ARBTransformFeedback3 {
      * @param index  the index of the query object target
      * @param pname  the symbolic name of a query object target parameter
      */
-    public static int glGetQueryIndexedi(int target, int index, int pname) {
+    @NativeType("void")
+    public static int glGetQueryIndexedi(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -138,7 +139,7 @@ public class ARBTransformFeedback3 {
     }
 
     /** Array version of: {@link #glGetQueryIndexediv GetQueryIndexediv} */
-    public static void glGetQueryIndexediv(int target, int index, int pname, int[] params) {
+    public static void glGetQueryIndexediv(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetQueryIndexediv;
         if (CHECKS) {
             check(__functionAddress);

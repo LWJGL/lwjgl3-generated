@@ -9,6 +9,8 @@ import java.nio.*;
 
 import org.lwjgl.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -87,23 +89,23 @@ public class OESDrawElementsBaseVertex {
 
     public static native void nglDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex);
 
-    public static void glDrawElementsBaseVertexOES(int mode, int count, int type, long indices, int basevertex) {
+    public static void glDrawElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertexOES(mode, count, type, indices, basevertex);
     }
 
-    public static void glDrawElementsBaseVertexOES(int mode, int type, ByteBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertexOES(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
     }
 
-    public static void glDrawElementsBaseVertexOES(int mode, ByteBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
     }
 
-    public static void glDrawElementsBaseVertexOES(int mode, ShortBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
     }
 
-    public static void glDrawElementsBaseVertexOES(int mode, IntBuffer indices, int basevertex) {
+    public static void glDrawElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
     }
 
@@ -111,23 +113,23 @@ public class OESDrawElementsBaseVertex {
 
     public static native void nglDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex);
 
-    public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int count, int type, long indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertexOES(mode, start, end, count, type, indices, basevertex);
     }
 
-    public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, int type, ByteBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
     }
 
-    public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, ByteBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
     }
 
-    public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, ShortBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
     }
 
-    public static void glDrawRangeElementsBaseVertexOES(int mode, int start, int end, IntBuffer indices, int basevertex) {
+    public static void glDrawRangeElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") IntBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertexOES(mode, start, end, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), basevertex);
     }
 
@@ -135,23 +137,23 @@ public class OESDrawElementsBaseVertex {
 
     public static native void nglDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex);
 
-    public static void glDrawElementsInstancedBaseVertexOES(int mode, int count, int type, long indices, int instancecount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertexOES(mode, count, type, indices, instancecount, basevertex);
     }
 
-    public static void glDrawElementsInstancedBaseVertexOES(int mode, int type, ByteBuffer indices, int instancecount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex);
     }
 
-    public static void glDrawElementsInstancedBaseVertexOES(int mode, ByteBuffer indices, int instancecount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex);
     }
 
-    public static void glDrawElementsInstancedBaseVertexOES(int mode, ShortBuffer indices, int instancecount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex);
     }
 
-    public static void glDrawElementsInstancedBaseVertexOES(int mode, IntBuffer indices, int instancecount, int basevertex) {
+    public static void glDrawElementsInstancedBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertexOES(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex);
     }
 
@@ -159,7 +161,7 @@ public class OESDrawElementsBaseVertex {
 
     public static native void nglMultiDrawElementsBaseVertexOES(int mode, long count, int type, long indices, int primcount, long basevertex);
 
-    public static void glMultiDrawElementsBaseVertexOES(int mode, IntBuffer count, int type, PointerBuffer indices, IntBuffer basevertex) {
+    public static void glMultiDrawElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("const void * const *") PointerBuffer indices, @NativeType("const GLint *") IntBuffer basevertex) {
         if (CHECKS) {
             check(indices, count.remaining());
             check(basevertex, count.remaining());
@@ -168,7 +170,7 @@ public class OESDrawElementsBaseVertex {
     }
 
     /** Array version of: {@link #glMultiDrawElementsBaseVertexOES MultiDrawElementsBaseVertexOES} */
-    public static void glMultiDrawElementsBaseVertexOES(int mode, int[] count, int type, PointerBuffer indices, int[] basevertex) {
+    public static void glMultiDrawElementsBaseVertexOES(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") int[] count, @NativeType("GLenum") int type, @NativeType("const void * const *") PointerBuffer indices, @NativeType("const GLint *") int[] basevertex) {
         long __functionAddress = GLES.getICD().glMultiDrawElementsBaseVertexOES;
         if (CHECKS) {
             check(__functionAddress);

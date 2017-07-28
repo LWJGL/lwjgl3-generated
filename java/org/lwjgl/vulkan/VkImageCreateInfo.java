@@ -243,64 +243,78 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkImageCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code imageType} field. */
+    @NativeType("VkImageType")
     public int imageType() { return nimageType(address()); }
     /** Returns the value of the {@code format} field. */
+    @NativeType("VkFormat")
     public int format() { return nformat(address()); }
     /** Returns a {@link VkExtent3D} view of the {@code extent} field. */
     public VkExtent3D extent() { return nextent(address()); }
     /** Returns the value of the {@code mipLevels} field. */
+    @NativeType("uint32_t")
     public int mipLevels() { return nmipLevels(address()); }
     /** Returns the value of the {@code arrayLayers} field. */
+    @NativeType("uint32_t")
     public int arrayLayers() { return narrayLayers(address()); }
     /** Returns the value of the {@code samples} field. */
+    @NativeType("VkSampleCountFlagBits")
     public int samples() { return nsamples(address()); }
     /** Returns the value of the {@code tiling} field. */
+    @NativeType("VkImageTiling")
     public int tiling() { return ntiling(address()); }
     /** Returns the value of the {@code usage} field. */
+    @NativeType("VkImageUsageFlags")
     public int usage() { return nusage(address()); }
     /** Returns the value of the {@code sharingMode} field. */
+    @NativeType("VkSharingMode")
     public int sharingMode() { return nsharingMode(address()); }
     /** Returns the value of the {@code queueFamilyIndexCount} field. */
+    @NativeType("uint32_t")
     public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+    @NativeType("const uint32_t *")
     public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
     /** Returns the value of the {@code initialLayout} field. */
+    @NativeType("VkImageLayout")
     public int initialLayout() { return ninitialLayout(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkImageCreateInfo sType(int value) { nsType(address(), value); return this; }
+    public VkImageCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageCreateInfo pNext(long value) { npNext(address(), value); return this; }
+    public VkImageCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkImageCreateInfo flags(int value) { nflags(address(), value); return this; }
+    public VkImageCreateInfo flags(@NativeType("VkImageCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code imageType} field. */
-    public VkImageCreateInfo imageType(int value) { nimageType(address(), value); return this; }
+    public VkImageCreateInfo imageType(@NativeType("VkImageType") int value) { nimageType(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
-    public VkImageCreateInfo format(int value) { nformat(address(), value); return this; }
+    public VkImageCreateInfo format(@NativeType("VkFormat") int value) { nformat(address(), value); return this; }
     /** Copies the specified {@link VkExtent3D} to the {@code extent} field. */
     public VkImageCreateInfo extent(VkExtent3D value) { nextent(address(), value); return this; }
     /** Sets the specified value to the {@code mipLevels} field. */
-    public VkImageCreateInfo mipLevels(int value) { nmipLevels(address(), value); return this; }
+    public VkImageCreateInfo mipLevels(@NativeType("uint32_t") int value) { nmipLevels(address(), value); return this; }
     /** Sets the specified value to the {@code arrayLayers} field. */
-    public VkImageCreateInfo arrayLayers(int value) { narrayLayers(address(), value); return this; }
+    public VkImageCreateInfo arrayLayers(@NativeType("uint32_t") int value) { narrayLayers(address(), value); return this; }
     /** Sets the specified value to the {@code samples} field. */
-    public VkImageCreateInfo samples(int value) { nsamples(address(), value); return this; }
+    public VkImageCreateInfo samples(@NativeType("VkSampleCountFlagBits") int value) { nsamples(address(), value); return this; }
     /** Sets the specified value to the {@code tiling} field. */
-    public VkImageCreateInfo tiling(int value) { ntiling(address(), value); return this; }
+    public VkImageCreateInfo tiling(@NativeType("VkImageTiling") int value) { ntiling(address(), value); return this; }
     /** Sets the specified value to the {@code usage} field. */
-    public VkImageCreateInfo usage(int value) { nusage(address(), value); return this; }
+    public VkImageCreateInfo usage(@NativeType("VkImageUsageFlags") int value) { nusage(address(), value); return this; }
     /** Sets the specified value to the {@code sharingMode} field. */
-    public VkImageCreateInfo sharingMode(int value) { nsharingMode(address(), value); return this; }
+    public VkImageCreateInfo sharingMode(@NativeType("VkSharingMode") int value) { nsharingMode(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-    public VkImageCreateInfo pQueueFamilyIndices(IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
+    public VkImageCreateInfo pQueueFamilyIndices(@NativeType("const uint32_t *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
     /** Sets the specified value to the {@code initialLayout} field. */
-    public VkImageCreateInfo initialLayout(int value) { ninitialLayout(address(), value); return this; }
+    public VkImageCreateInfo initialLayout(@NativeType("VkImageLayout") int value) { ninitialLayout(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkImageCreateInfo set(
@@ -606,64 +620,78 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkImageCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkImageCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkImageCreateFlags")
         public int flags() { return VkImageCreateInfo.nflags(address()); }
         /** Returns the value of the {@code imageType} field. */
+        @NativeType("VkImageType")
         public int imageType() { return VkImageCreateInfo.nimageType(address()); }
         /** Returns the value of the {@code format} field. */
+        @NativeType("VkFormat")
         public int format() { return VkImageCreateInfo.nformat(address()); }
         /** Returns a {@link VkExtent3D} view of the {@code extent} field. */
         public VkExtent3D extent() { return VkImageCreateInfo.nextent(address()); }
         /** Returns the value of the {@code mipLevels} field. */
+        @NativeType("uint32_t")
         public int mipLevels() { return VkImageCreateInfo.nmipLevels(address()); }
         /** Returns the value of the {@code arrayLayers} field. */
+        @NativeType("uint32_t")
         public int arrayLayers() { return VkImageCreateInfo.narrayLayers(address()); }
         /** Returns the value of the {@code samples} field. */
+        @NativeType("VkSampleCountFlagBits")
         public int samples() { return VkImageCreateInfo.nsamples(address()); }
         /** Returns the value of the {@code tiling} field. */
+        @NativeType("VkImageTiling")
         public int tiling() { return VkImageCreateInfo.ntiling(address()); }
         /** Returns the value of the {@code usage} field. */
+        @NativeType("VkImageUsageFlags")
         public int usage() { return VkImageCreateInfo.nusage(address()); }
         /** Returns the value of the {@code sharingMode} field. */
+        @NativeType("VkSharingMode")
         public int sharingMode() { return VkImageCreateInfo.nsharingMode(address()); }
         /** Returns the value of the {@code queueFamilyIndexCount} field. */
+        @NativeType("uint32_t")
         public int queueFamilyIndexCount() { return VkImageCreateInfo.nqueueFamilyIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
+        @NativeType("const uint32_t *")
         public IntBuffer pQueueFamilyIndices() { return VkImageCreateInfo.npQueueFamilyIndices(address()); }
         /** Returns the value of the {@code initialLayout} field. */
+        @NativeType("VkImageLayout")
         public int initialLayout() { return VkImageCreateInfo.ninitialLayout(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkImageCreateInfo.Buffer sType(int value) { VkImageCreateInfo.nsType(address(), value); return this; }
+        public VkImageCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkImageCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageCreateInfo.Buffer pNext(long value) { VkImageCreateInfo.npNext(address(), value); return this; }
+        public VkImageCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkImageCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkImageCreateInfo.Buffer flags(int value) { VkImageCreateInfo.nflags(address(), value); return this; }
+        public VkImageCreateInfo.Buffer flags(@NativeType("VkImageCreateFlags") int value) { VkImageCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code imageType} field. */
-        public VkImageCreateInfo.Buffer imageType(int value) { VkImageCreateInfo.nimageType(address(), value); return this; }
+        public VkImageCreateInfo.Buffer imageType(@NativeType("VkImageType") int value) { VkImageCreateInfo.nimageType(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
-        public VkImageCreateInfo.Buffer format(int value) { VkImageCreateInfo.nformat(address(), value); return this; }
+        public VkImageCreateInfo.Buffer format(@NativeType("VkFormat") int value) { VkImageCreateInfo.nformat(address(), value); return this; }
         /** Copies the specified {@link VkExtent3D} to the {@code extent} field. */
         public VkImageCreateInfo.Buffer extent(VkExtent3D value) { VkImageCreateInfo.nextent(address(), value); return this; }
         /** Sets the specified value to the {@code mipLevels} field. */
-        public VkImageCreateInfo.Buffer mipLevels(int value) { VkImageCreateInfo.nmipLevels(address(), value); return this; }
+        public VkImageCreateInfo.Buffer mipLevels(@NativeType("uint32_t") int value) { VkImageCreateInfo.nmipLevels(address(), value); return this; }
         /** Sets the specified value to the {@code arrayLayers} field. */
-        public VkImageCreateInfo.Buffer arrayLayers(int value) { VkImageCreateInfo.narrayLayers(address(), value); return this; }
+        public VkImageCreateInfo.Buffer arrayLayers(@NativeType("uint32_t") int value) { VkImageCreateInfo.narrayLayers(address(), value); return this; }
         /** Sets the specified value to the {@code samples} field. */
-        public VkImageCreateInfo.Buffer samples(int value) { VkImageCreateInfo.nsamples(address(), value); return this; }
+        public VkImageCreateInfo.Buffer samples(@NativeType("VkSampleCountFlagBits") int value) { VkImageCreateInfo.nsamples(address(), value); return this; }
         /** Sets the specified value to the {@code tiling} field. */
-        public VkImageCreateInfo.Buffer tiling(int value) { VkImageCreateInfo.ntiling(address(), value); return this; }
+        public VkImageCreateInfo.Buffer tiling(@NativeType("VkImageTiling") int value) { VkImageCreateInfo.ntiling(address(), value); return this; }
         /** Sets the specified value to the {@code usage} field. */
-        public VkImageCreateInfo.Buffer usage(int value) { VkImageCreateInfo.nusage(address(), value); return this; }
+        public VkImageCreateInfo.Buffer usage(@NativeType("VkImageUsageFlags") int value) { VkImageCreateInfo.nusage(address(), value); return this; }
         /** Sets the specified value to the {@code sharingMode} field. */
-        public VkImageCreateInfo.Buffer sharingMode(int value) { VkImageCreateInfo.nsharingMode(address(), value); return this; }
+        public VkImageCreateInfo.Buffer sharingMode(@NativeType("VkSharingMode") int value) { VkImageCreateInfo.nsharingMode(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-        public VkImageCreateInfo.Buffer pQueueFamilyIndices(IntBuffer value) { VkImageCreateInfo.npQueueFamilyIndices(address(), value); return this; }
+        public VkImageCreateInfo.Buffer pQueueFamilyIndices(@NativeType("const uint32_t *") IntBuffer value) { VkImageCreateInfo.npQueueFamilyIndices(address(), value); return this; }
         /** Sets the specified value to the {@code initialLayout} field. */
-        public VkImageCreateInfo.Buffer initialLayout(int value) { VkImageCreateInfo.ninitialLayout(address(), value); return this; }
+        public VkImageCreateInfo.Buffer initialLayout(@NativeType("VkImageLayout") int value) { VkImageCreateInfo.ninitialLayout(address(), value); return this; }
 
     }
 

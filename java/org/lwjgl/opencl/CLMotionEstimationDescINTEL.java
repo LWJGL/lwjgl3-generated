@@ -38,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     cl_uint search_path_type;
  * }</pre></code>
  */
+@NativeType("struct cl_motion_estimation_desc_intel")
 public class CLMotionEstimationDescINTEL extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -87,22 +88,26 @@ public class CLMotionEstimationDescINTEL extends Struct implements NativeResourc
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code mb_block_type} field. */
+    @NativeType("cl_uint")
     public int mb_block_type() { return nmb_block_type(address()); }
     /** Returns the value of the {@code subpixel_mode} field. */
+    @NativeType("cl_uint")
     public int subpixel_mode() { return nsubpixel_mode(address()); }
     /** Returns the value of the {@code sad_adjust_mode} field. */
+    @NativeType("cl_uint")
     public int sad_adjust_mode() { return nsad_adjust_mode(address()); }
     /** Returns the value of the {@code search_path_type} field. */
+    @NativeType("cl_uint")
     public int search_path_type() { return nsearch_path_type(address()); }
 
     /** Sets the specified value to the {@code mb_block_type} field. */
-    public CLMotionEstimationDescINTEL mb_block_type(int value) { nmb_block_type(address(), value); return this; }
+    public CLMotionEstimationDescINTEL mb_block_type(@NativeType("cl_uint") int value) { nmb_block_type(address(), value); return this; }
     /** Sets the specified value to the {@code subpixel_mode} field. */
-    public CLMotionEstimationDescINTEL subpixel_mode(int value) { nsubpixel_mode(address(), value); return this; }
+    public CLMotionEstimationDescINTEL subpixel_mode(@NativeType("cl_uint") int value) { nsubpixel_mode(address(), value); return this; }
     /** Sets the specified value to the {@code sad_adjust_mode} field. */
-    public CLMotionEstimationDescINTEL sad_adjust_mode(int value) { nsad_adjust_mode(address(), value); return this; }
+    public CLMotionEstimationDescINTEL sad_adjust_mode(@NativeType("cl_uint") int value) { nsad_adjust_mode(address(), value); return this; }
     /** Sets the specified value to the {@code search_path_type} field. */
-    public CLMotionEstimationDescINTEL search_path_type(int value) { nsearch_path_type(address(), value); return this; }
+    public CLMotionEstimationDescINTEL search_path_type(@NativeType("cl_uint") int value) { nsearch_path_type(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public CLMotionEstimationDescINTEL set(
@@ -321,22 +326,26 @@ public class CLMotionEstimationDescINTEL extends Struct implements NativeResourc
         }
 
         /** Returns the value of the {@code mb_block_type} field. */
+        @NativeType("cl_uint")
         public int mb_block_type() { return CLMotionEstimationDescINTEL.nmb_block_type(address()); }
         /** Returns the value of the {@code subpixel_mode} field. */
+        @NativeType("cl_uint")
         public int subpixel_mode() { return CLMotionEstimationDescINTEL.nsubpixel_mode(address()); }
         /** Returns the value of the {@code sad_adjust_mode} field. */
+        @NativeType("cl_uint")
         public int sad_adjust_mode() { return CLMotionEstimationDescINTEL.nsad_adjust_mode(address()); }
         /** Returns the value of the {@code search_path_type} field. */
+        @NativeType("cl_uint")
         public int search_path_type() { return CLMotionEstimationDescINTEL.nsearch_path_type(address()); }
 
         /** Sets the specified value to the {@code mb_block_type} field. */
-        public CLMotionEstimationDescINTEL.Buffer mb_block_type(int value) { CLMotionEstimationDescINTEL.nmb_block_type(address(), value); return this; }
+        public CLMotionEstimationDescINTEL.Buffer mb_block_type(@NativeType("cl_uint") int value) { CLMotionEstimationDescINTEL.nmb_block_type(address(), value); return this; }
         /** Sets the specified value to the {@code subpixel_mode} field. */
-        public CLMotionEstimationDescINTEL.Buffer subpixel_mode(int value) { CLMotionEstimationDescINTEL.nsubpixel_mode(address(), value); return this; }
+        public CLMotionEstimationDescINTEL.Buffer subpixel_mode(@NativeType("cl_uint") int value) { CLMotionEstimationDescINTEL.nsubpixel_mode(address(), value); return this; }
         /** Sets the specified value to the {@code sad_adjust_mode} field. */
-        public CLMotionEstimationDescINTEL.Buffer sad_adjust_mode(int value) { CLMotionEstimationDescINTEL.nsad_adjust_mode(address(), value); return this; }
+        public CLMotionEstimationDescINTEL.Buffer sad_adjust_mode(@NativeType("cl_uint") int value) { CLMotionEstimationDescINTEL.nsad_adjust_mode(address(), value); return this; }
         /** Sets the specified value to the {@code search_path_type} field. */
-        public CLMotionEstimationDescINTEL.Buffer search_path_type(int value) { CLMotionEstimationDescINTEL.nsearch_path_type(address(), value); return this; }
+        public CLMotionEstimationDescINTEL.Buffer search_path_type(@NativeType("cl_uint") int value) { CLMotionEstimationDescINTEL.nsearch_path_type(address(), value); return this; }
 
     }
 

@@ -37,6 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float * tcoords;
  * }</pre></code>
  */
+@NativeType("struct par_shapes_mesh")
 public class ParShapesMesh extends Struct {
 
     /** The struct size in bytes. */
@@ -96,6 +97,7 @@ public class ParShapesMesh extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("float *")
     public FloatBuffer points(int capacity) { return npoints(address(), capacity); }
     /** Returns the value of the {@code npoints} field. */
     public int npoints() { return nnpoints(address()); }
@@ -104,6 +106,7 @@ public class ParShapesMesh extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("PAR_SHAPES_T *")
     public ShortBuffer triangles(int capacity) { return ntriangles(address(), capacity); }
     /** Returns the value of the {@code ntriangles} field. */
     public int ntriangles() { return nntriangles(address()); }
@@ -112,12 +115,14 @@ public class ParShapesMesh extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("float *")
     public FloatBuffer normals(int capacity) { return nnormals(address(), capacity); }
     /**
      * Returns a {@link FloatBuffer} view of the data pointed to by the {@code tcoords} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("float *")
     public FloatBuffer tcoords(int capacity) { return ntcoords(address(), capacity); }
 
     // -----------------------------------
@@ -199,6 +204,7 @@ public class ParShapesMesh extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("float *")
         public FloatBuffer points(int capacity) { return ParShapesMesh.npoints(address(), capacity); }
         /** Returns the value of the {@code npoints} field. */
         public int npoints() { return ParShapesMesh.nnpoints(address()); }
@@ -207,6 +213,7 @@ public class ParShapesMesh extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("PAR_SHAPES_T *")
         public ShortBuffer triangles(int capacity) { return ParShapesMesh.ntriangles(address(), capacity); }
         /** Returns the value of the {@code ntriangles} field. */
         public int ntriangles() { return ParShapesMesh.nntriangles(address()); }
@@ -215,12 +222,14 @@ public class ParShapesMesh extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("float *")
         public FloatBuffer normals(int capacity) { return ParShapesMesh.nnormals(address(), capacity); }
         /**
          * Returns a {@link FloatBuffer} view of the data pointed to by the {@code tcoords} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("float *")
         public FloatBuffer tcoords(int capacity) { return ParShapesMesh.ntcoords(address(), capacity); }
 
     }

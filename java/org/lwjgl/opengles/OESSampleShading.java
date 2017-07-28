@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -48,6 +50,6 @@ public class OESSampleShading {
 
     // --- [ glMinSampleShadingOES ] ---
 
-    public static native void glMinSampleShadingOES(float value);
+    public static native void glMinSampleShadingOES(@NativeType("GLfloat") float value);
 
 }

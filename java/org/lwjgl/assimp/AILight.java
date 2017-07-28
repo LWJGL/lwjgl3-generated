@@ -87,6 +87,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link AIVector2D struct aiVector2D} mSize;
  * }</pre></code>
  */
+@NativeType("struct aiLight")
 public class AILight extends Struct {
 
     /** The struct size in bytes. */
@@ -166,14 +167,19 @@ public class AILight extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIString} view of the {@code mName} field. */
+    @NativeType("struct aiString")
     public AIString mName() { return nmName(address()); }
     /** Returns the value of the {@code mType} field. */
+    @NativeType("aiLightSourceType")
     public int mType() { return nmType(address()); }
     /** Returns a {@link AIVector3D} view of the {@code mPosition} field. */
+    @NativeType("struct aiVector3D")
     public AIVector3D mPosition() { return nmPosition(address()); }
     /** Returns a {@link AIVector3D} view of the {@code mDirection} field. */
+    @NativeType("struct aiVector3D")
     public AIVector3D mDirection() { return nmDirection(address()); }
     /** Returns a {@link AIVector3D} view of the {@code mUp} field. */
+    @NativeType("struct aiVector3D")
     public AIVector3D mUp() { return nmUp(address()); }
     /** Returns the value of the {@code mAttenuationConstant} field. */
     public float mAttenuationConstant() { return nmAttenuationConstant(address()); }
@@ -182,16 +188,20 @@ public class AILight extends Struct {
     /** Returns the value of the {@code mAttenuationQuadratic} field. */
     public float mAttenuationQuadratic() { return nmAttenuationQuadratic(address()); }
     /** Returns a {@link AIColor3D} view of the {@code mColorDiffuse} field. */
+    @NativeType("struct aiColor3D")
     public AIColor3D mColorDiffuse() { return nmColorDiffuse(address()); }
     /** Returns a {@link AIColor3D} view of the {@code mColorSpecular} field. */
+    @NativeType("struct aiColor3D")
     public AIColor3D mColorSpecular() { return nmColorSpecular(address()); }
     /** Returns a {@link AIColor3D} view of the {@code mColorAmbient} field. */
+    @NativeType("struct aiColor3D")
     public AIColor3D mColorAmbient() { return nmColorAmbient(address()); }
     /** Returns the value of the {@code mAngleInnerCone} field. */
     public float mAngleInnerCone() { return nmAngleInnerCone(address()); }
     /** Returns the value of the {@code mAngleOuterCone} field. */
     public float mAngleOuterCone() { return nmAngleOuterCone(address()); }
     /** Returns a {@link AIVector2D} view of the {@code mSize} field. */
+    @NativeType("struct aiVector2D")
     public AIVector2D mSize() { return nmSize(address()); }
 
     // -----------------------------------
@@ -285,14 +295,19 @@ public class AILight extends Struct {
         }
 
         /** Returns a {@link AIString} view of the {@code mName} field. */
+        @NativeType("struct aiString")
         public AIString mName() { return AILight.nmName(address()); }
         /** Returns the value of the {@code mType} field. */
+        @NativeType("aiLightSourceType")
         public int mType() { return AILight.nmType(address()); }
         /** Returns a {@link AIVector3D} view of the {@code mPosition} field. */
+        @NativeType("struct aiVector3D")
         public AIVector3D mPosition() { return AILight.nmPosition(address()); }
         /** Returns a {@link AIVector3D} view of the {@code mDirection} field. */
+        @NativeType("struct aiVector3D")
         public AIVector3D mDirection() { return AILight.nmDirection(address()); }
         /** Returns a {@link AIVector3D} view of the {@code mUp} field. */
+        @NativeType("struct aiVector3D")
         public AIVector3D mUp() { return AILight.nmUp(address()); }
         /** Returns the value of the {@code mAttenuationConstant} field. */
         public float mAttenuationConstant() { return AILight.nmAttenuationConstant(address()); }
@@ -301,16 +316,20 @@ public class AILight extends Struct {
         /** Returns the value of the {@code mAttenuationQuadratic} field. */
         public float mAttenuationQuadratic() { return AILight.nmAttenuationQuadratic(address()); }
         /** Returns a {@link AIColor3D} view of the {@code mColorDiffuse} field. */
+        @NativeType("struct aiColor3D")
         public AIColor3D mColorDiffuse() { return AILight.nmColorDiffuse(address()); }
         /** Returns a {@link AIColor3D} view of the {@code mColorSpecular} field. */
+        @NativeType("struct aiColor3D")
         public AIColor3D mColorSpecular() { return AILight.nmColorSpecular(address()); }
         /** Returns a {@link AIColor3D} view of the {@code mColorAmbient} field. */
+        @NativeType("struct aiColor3D")
         public AIColor3D mColorAmbient() { return AILight.nmColorAmbient(address()); }
         /** Returns the value of the {@code mAngleInnerCone} field. */
         public float mAngleInnerCone() { return AILight.nmAngleInnerCone(address()); }
         /** Returns the value of the {@code mAngleOuterCone} field. */
         public float mAngleOuterCone() { return AILight.nmAngleOuterCone(address()); }
         /** Returns a {@link AIVector2D} view of the {@code mSize} field. */
+        @NativeType("struct aiVector2D")
         public AIVector2D mSize() { return AILight.nmSize(address()); }
 
     }

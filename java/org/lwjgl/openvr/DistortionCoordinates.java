@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     float rfBlue[2];
  * }</pre></code>
  */
+@NativeType("struct DistortionCoordinates_t")
 public class DistortionCoordinates extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -82,28 +83,31 @@ public class DistortionCoordinates extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the {@code rfRed} field. */
+    @NativeType("float[2]")
     public FloatBuffer rfRed() { return nrfRed(address()); }
     /** Returns the value at the specified index of the {@code rfRed} field. */
     public float rfRed(int index) { return nrfRed(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code rfGreen} field. */
+    @NativeType("float[2]")
     public FloatBuffer rfGreen() { return nrfGreen(address()); }
     /** Returns the value at the specified index of the {@code rfGreen} field. */
     public float rfGreen(int index) { return nrfGreen(address(), index); }
     /** Returns a {@link FloatBuffer} view of the {@code rfBlue} field. */
+    @NativeType("float[2]")
     public FloatBuffer rfBlue() { return nrfBlue(address()); }
     /** Returns the value at the specified index of the {@code rfBlue} field. */
     public float rfBlue(int index) { return nrfBlue(address(), index); }
 
     /** Copies the specified {@link FloatBuffer} to the {@code rfRed} field. */
-    public DistortionCoordinates rfRed(FloatBuffer value) { nrfRed(address(), value); return this; }
+    public DistortionCoordinates rfRed(@NativeType("float[2]") FloatBuffer value) { nrfRed(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code rfRed} field. */
     public DistortionCoordinates rfRed(int index, float value) { nrfRed(address(), index, value); return this; }
     /** Copies the specified {@link FloatBuffer} to the {@code rfGreen} field. */
-    public DistortionCoordinates rfGreen(FloatBuffer value) { nrfGreen(address(), value); return this; }
+    public DistortionCoordinates rfGreen(@NativeType("float[2]") FloatBuffer value) { nrfGreen(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code rfGreen} field. */
     public DistortionCoordinates rfGreen(int index, float value) { nrfGreen(address(), index, value); return this; }
     /** Copies the specified {@link FloatBuffer} to the {@code rfBlue} field. */
-    public DistortionCoordinates rfBlue(FloatBuffer value) { nrfBlue(address(), value); return this; }
+    public DistortionCoordinates rfBlue(@NativeType("float[2]") FloatBuffer value) { nrfBlue(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code rfBlue} field. */
     public DistortionCoordinates rfBlue(int index, float value) { nrfBlue(address(), index, value); return this; }
 
@@ -357,28 +361,31 @@ public class DistortionCoordinates extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the {@code rfRed} field. */
+        @NativeType("float[2]")
         public FloatBuffer rfRed() { return DistortionCoordinates.nrfRed(address()); }
         /** Returns the value at the specified index of the {@code rfRed} field. */
         public float rfRed(int index) { return DistortionCoordinates.nrfRed(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code rfGreen} field. */
+        @NativeType("float[2]")
         public FloatBuffer rfGreen() { return DistortionCoordinates.nrfGreen(address()); }
         /** Returns the value at the specified index of the {@code rfGreen} field. */
         public float rfGreen(int index) { return DistortionCoordinates.nrfGreen(address(), index); }
         /** Returns a {@link FloatBuffer} view of the {@code rfBlue} field. */
+        @NativeType("float[2]")
         public FloatBuffer rfBlue() { return DistortionCoordinates.nrfBlue(address()); }
         /** Returns the value at the specified index of the {@code rfBlue} field. */
         public float rfBlue(int index) { return DistortionCoordinates.nrfBlue(address(), index); }
 
         /** Copies the specified {@link FloatBuffer} to the {@code rfRed} field. */
-        public DistortionCoordinates.Buffer rfRed(FloatBuffer value) { DistortionCoordinates.nrfRed(address(), value); return this; }
+        public DistortionCoordinates.Buffer rfRed(@NativeType("float[2]") FloatBuffer value) { DistortionCoordinates.nrfRed(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code rfRed} field. */
         public DistortionCoordinates.Buffer rfRed(int index, float value) { DistortionCoordinates.nrfRed(address(), index, value); return this; }
         /** Copies the specified {@link FloatBuffer} to the {@code rfGreen} field. */
-        public DistortionCoordinates.Buffer rfGreen(FloatBuffer value) { DistortionCoordinates.nrfGreen(address(), value); return this; }
+        public DistortionCoordinates.Buffer rfGreen(@NativeType("float[2]") FloatBuffer value) { DistortionCoordinates.nrfGreen(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code rfGreen} field. */
         public DistortionCoordinates.Buffer rfGreen(int index, float value) { DistortionCoordinates.nrfGreen(address(), index, value); return this; }
         /** Copies the specified {@link FloatBuffer} to the {@code rfBlue} field. */
-        public DistortionCoordinates.Buffer rfBlue(FloatBuffer value) { DistortionCoordinates.nrfBlue(address(), value); return this; }
+        public DistortionCoordinates.Buffer rfBlue(@NativeType("float[2]") FloatBuffer value) { DistortionCoordinates.nrfBlue(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code rfBlue} field. */
         public DistortionCoordinates.Buffer rfBlue(int index, float value) { DistortionCoordinates.nrfBlue(address(), index, value); return this; }
 

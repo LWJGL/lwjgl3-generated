@@ -110,6 +110,7 @@ public class EXRTile extends Struct implements NativeResource {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("unsigned char **")
     public PointerBuffer images(int capacity) { return nimages(address(), capacity); }
 
     /** Sets the specified value to the {@code offset_x} field. */
@@ -125,7 +126,7 @@ public class EXRTile extends Struct implements NativeResource {
     /** Sets the specified value to the {@code height} field. */
     public EXRTile height(int value) { nheight(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code images} field. */
-    public EXRTile images(PointerBuffer value) { nimages(address(), value); return this; }
+    public EXRTile images(@NativeType("unsigned char **") PointerBuffer value) { nimages(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public EXRTile set(
@@ -399,6 +400,7 @@ public class EXRTile extends Struct implements NativeResource {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("unsigned char **")
         public PointerBuffer images(int capacity) { return EXRTile.nimages(address(), capacity); }
 
         /** Sets the specified value to the {@code offset_x} field. */
@@ -414,7 +416,7 @@ public class EXRTile extends Struct implements NativeResource {
         /** Sets the specified value to the {@code height} field. */
         public EXRTile.Buffer height(int value) { EXRTile.nheight(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code images} field. */
-        public EXRTile.Buffer images(PointerBuffer value) { EXRTile.nimages(address(), value); return this; }
+        public EXRTile.Buffer images(@NativeType("unsigned char **") PointerBuffer value) { EXRTile.nimages(address(), value); return this; }
 
     }
 

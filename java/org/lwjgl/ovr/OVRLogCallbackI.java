@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
 @FunctionalInterface
+@NativeType("ovrLogCallback")
 public interface OVRLogCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pip)v";
@@ -34,6 +35,6 @@ public interface OVRLogCallbackI extends CallbackI.V {
      * @param level    one of the {@code ovrLogLevel} constants
      * @param message  a UTF8-encoded null-terminated string
      */
-    void invoke(long userData, int level, long message);
+    void invoke(@NativeType("uintptr_t") long userData, int level, @NativeType("const char *") long message);
 
 }

@@ -292,7 +292,7 @@ public class NanoVG {
      * @param windowHeight     the window height
      * @param devicePixelRatio the device pixel ratio
      */
-    public static void nvgBeginFrame(long ctx, int windowWidth, int windowHeight, float devicePixelRatio) {
+    public static void nvgBeginFrame(@NativeType("NVGcontext *") long ctx, int windowWidth, int windowHeight, float devicePixelRatio) {
         if (CHECKS) {
             check(ctx);
         }
@@ -309,7 +309,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgCancelFrame(long ctx) {
+    public static void nvgCancelFrame(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -326,7 +326,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgEndFrame(long ctx) {
+    public static void nvgEndFrame(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -344,7 +344,7 @@ public class NanoVG {
      * @param ctx the NanoVG context
      * @param op  the composite operation. One of:<br><table><tr><td>{@link #NVG_SOURCE_OVER SOURCE_OVER}</td><td>{@link #NVG_SOURCE_IN SOURCE_IN}</td><td>{@link #NVG_SOURCE_OUT SOURCE_OUT}</td><td>{@link #NVG_ATOP ATOP}</td><td>{@link #NVG_DESTINATION_OVER DESTINATION_OVER}</td><td>{@link #NVG_DESTINATION_IN DESTINATION_IN}</td><td>{@link #NVG_DESTINATION_OUT DESTINATION_OUT}</td><td>{@link #NVG_DESTINATION_ATOP DESTINATION_ATOP}</td></tr><tr><td>{@link #NVG_LIGHTER LIGHTER}</td><td>{@link #NVG_COPY COPY}</td><td>{@link #NVG_XOR XOR}</td></tr></table>
      */
-    public static void nvgGlobalCompositeOperation(long ctx, int op) {
+    public static void nvgGlobalCompositeOperation(@NativeType("NVGcontext *") long ctx, int op) {
         if (CHECKS) {
             check(ctx);
         }
@@ -363,7 +363,7 @@ public class NanoVG {
      * @param sfactor the source blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
      * @param dfactor the destination blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
      */
-    public static void nvgGlobalCompositeBlendFunc(long ctx, int sfactor, int dfactor) {
+    public static void nvgGlobalCompositeBlendFunc(@NativeType("NVGcontext *") long ctx, int sfactor, int dfactor) {
         if (CHECKS) {
             check(ctx);
         }
@@ -384,7 +384,7 @@ public class NanoVG {
      * @param srcAlpha the source alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
      * @param dstAlpha the destination alpha blend factor. One of:<br><table><tr><td>{@link #NVG_ZERO ZERO}</td><td>{@link #NVG_ONE ONE}</td><td>{@link #NVG_SRC_COLOR SRC_COLOR}</td><td>{@link #NVG_ONE_MINUS_SRC_COLOR ONE_MINUS_SRC_COLOR}</td><td>{@link #NVG_DST_COLOR DST_COLOR}</td><td>{@link #NVG_ONE_MINUS_DST_COLOR ONE_MINUS_DST_COLOR}</td></tr><tr><td>{@link #NVG_SRC_ALPHA SRC_ALPHA}</td><td>{@link #NVG_ONE_MINUS_SRC_ALPHA ONE_MINUS_SRC_ALPHA}</td><td>{@link #NVG_DST_ALPHA DST_ALPHA}</td><td>{@link #NVG_ONE_MINUS_DST_ALPHA ONE_MINUS_DST_ALPHA}</td><td>{@link #NVG_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE}</td></tr></table>
      */
-    public static void nvgGlobalCompositeBlendFuncSeparate(long ctx, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
+    public static void nvgGlobalCompositeBlendFuncSeparate(@NativeType("NVGcontext *") long ctx, int srcRGB, int dstRGB, int srcAlpha, int dstAlpha) {
         if (CHECKS) {
             check(ctx);
         }
@@ -403,7 +403,8 @@ public class NanoVG {
      * @param g the green value
      * @param b the blue value
      */
-    public static NVGColor nvgRGB(byte r, byte g, byte b, NVGColor __result) {
+    @NativeType("NVGcolor")
+    public static NVGColor nvgRGB(@NativeType("unsigned char") byte r, @NativeType("unsigned char") byte g, @NativeType("unsigned char") byte b, NVGColor __result) {
         nnvgRGB(r, g, b, __result.address());
         return __result;
     }
@@ -420,6 +421,7 @@ public class NanoVG {
      * @param g the green value
      * @param b the blue value
      */
+    @NativeType("NVGcolor")
     public static NVGColor nvgRGBf(float r, float g, float b, NVGColor __result) {
         nnvgRGBf(r, g, b, __result.address());
         return __result;
@@ -438,7 +440,8 @@ public class NanoVG {
      * @param b the blue value
      * @param a the alpha value
      */
-    public static NVGColor nvgRGBA(byte r, byte g, byte b, byte a, NVGColor __result) {
+    @NativeType("NVGcolor")
+    public static NVGColor nvgRGBA(@NativeType("unsigned char") byte r, @NativeType("unsigned char") byte g, @NativeType("unsigned char") byte b, @NativeType("unsigned char") byte a, NVGColor __result) {
         nnvgRGBA(r, g, b, a, __result.address());
         return __result;
     }
@@ -456,6 +459,7 @@ public class NanoVG {
      * @param b the blue value
      * @param a the alpha value
      */
+    @NativeType("NVGcolor")
     public static NVGColor nvgRGBAf(float r, float g, float b, float a, NVGColor __result) {
         nnvgRGBAf(r, g, b, a, __result.address());
         return __result;
@@ -473,7 +477,8 @@ public class NanoVG {
      * @param c1 the second color
      * @param u  the interpolation factor
      */
-    public static NVGColor nvgLerpRGBA(NVGColor c0, NVGColor c1, float u, NVGColor __result) {
+    @NativeType("NVGcolor")
+    public static NVGColor nvgLerpRGBA(@NativeType("NVGcolor") NVGColor c0, @NativeType("NVGcolor") NVGColor c1, float u, NVGColor __result) {
         nnvgLerpRGBA(c0.address(), c1.address(), u, __result.address());
         return __result;
     }
@@ -489,7 +494,8 @@ public class NanoVG {
      * @param c0 the color
      * @param a  the alpha value
      */
-    public static NVGColor nvgTransRGBA(NVGColor c0, byte a, NVGColor __result) {
+    @NativeType("NVGcolor")
+    public static NVGColor nvgTransRGBA(@NativeType("NVGcolor") NVGColor c0, @NativeType("unsigned char") byte a, NVGColor __result) {
         nnvgTransRGBA(c0.address(), a, __result.address());
         return __result;
     }
@@ -505,7 +511,8 @@ public class NanoVG {
      * @param c0 the color
      * @param a  the alpha value
      */
-    public static NVGColor nvgTransRGBAf(NVGColor c0, float a, NVGColor __result) {
+    @NativeType("NVGcolor")
+    public static NVGColor nvgTransRGBAf(@NativeType("NVGcolor") NVGColor c0, float a, NVGColor __result) {
         nnvgTransRGBAf(c0.address(), a, __result.address());
         return __result;
     }
@@ -524,6 +531,7 @@ public class NanoVG {
      * @param s the saturation value
      * @param l the lightness value
      */
+    @NativeType("NVGcolor")
     public static NVGColor nvgHSL(float h, float s, float l, NVGColor __result) {
         nnvgHSL(h, s, l, __result.address());
         return __result;
@@ -544,7 +552,8 @@ public class NanoVG {
      * @param l the lightness value
      * @param a the alpha value
      */
-    public static NVGColor nvgHSLA(float h, float s, float l, byte a, NVGColor __result) {
+    @NativeType("NVGcolor")
+    public static NVGColor nvgHSLA(float h, float s, float l, @NativeType("unsigned char") byte a, NVGColor __result) {
         nnvgHSLA(h, s, l, a, __result.address());
         return __result;
     }
@@ -559,7 +568,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgSave(long ctx) {
+    public static void nvgSave(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -576,7 +585,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgRestore(long ctx) {
+    public static void nvgRestore(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -593,7 +602,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgReset(long ctx) {
+    public static void nvgReset(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -611,7 +620,7 @@ public class NanoVG {
      * @param ctx     the NanoVG context
      * @param enabled the flag to set
      */
-    public static void nvgShapeAntiAlias(long ctx, boolean enabled) {
+    public static void nvgShapeAntiAlias(@NativeType("NVGcontext *") long ctx, @NativeType("int") boolean enabled) {
         if (CHECKS) {
             check(ctx);
         }
@@ -629,7 +638,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param color the color to set
      */
-    public static void nvgStrokeColor(long ctx, NVGColor color) {
+    public static void nvgStrokeColor(@NativeType("NVGcontext *") long ctx, @NativeType("NVGcolor") NVGColor color) {
         if (CHECKS) {
             check(ctx);
         }
@@ -647,7 +656,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param paint the paint to set
      */
-    public static void nvgStrokePaint(long ctx, NVGPaint paint) {
+    public static void nvgStrokePaint(@NativeType("NVGcontext *") long ctx, @NativeType("NVGpaint") NVGPaint paint) {
         if (CHECKS) {
             check(ctx);
         }
@@ -665,7 +674,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param color the color to set
      */
-    public static void nvgFillColor(long ctx, NVGColor color) {
+    public static void nvgFillColor(@NativeType("NVGcontext *") long ctx, @NativeType("NVGcolor") NVGColor color) {
         if (CHECKS) {
             check(ctx);
         }
@@ -683,7 +692,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param paint the paint to set
      */
-    public static void nvgFillPaint(long ctx, NVGPaint paint) {
+    public static void nvgFillPaint(@NativeType("NVGcontext *") long ctx, @NativeType("NVGpaint") NVGPaint paint) {
         if (CHECKS) {
             check(ctx);
         }
@@ -701,7 +710,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param limit the miter limit to set
      */
-    public static void nvgMiterLimit(long ctx, float limit) {
+    public static void nvgMiterLimit(@NativeType("NVGcontext *") long ctx, float limit) {
         if (CHECKS) {
             check(ctx);
         }
@@ -719,7 +728,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param size the stroke width to set
      */
-    public static void nvgStrokeWidth(long ctx, float size) {
+    public static void nvgStrokeWidth(@NativeType("NVGcontext *") long ctx, float size) {
         if (CHECKS) {
             check(ctx);
         }
@@ -739,7 +748,7 @@ public class NanoVG {
      * @param ctx the NanoVG context
      * @param cap the line cap to set. One of:<br><table><tr><td>{@link #NVG_BUTT BUTT}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_SQUARE SQUARE}</td></tr></table>
      */
-    public static void nvgLineCap(long ctx, int cap) {
+    public static void nvgLineCap(@NativeType("NVGcontext *") long ctx, int cap) {
         if (CHECKS) {
             check(ctx);
         }
@@ -759,7 +768,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param join the line join to set. One of:<br><table><tr><td>{@link #NVG_MITER MITER}</td><td>{@link #NVG_ROUND ROUND}</td><td>{@link #NVG_BEVEL BEVEL}</td></tr></table>
      */
-    public static void nvgLineJoin(long ctx, int join) {
+    public static void nvgLineJoin(@NativeType("NVGcontext *") long ctx, int join) {
         if (CHECKS) {
             check(ctx);
         }
@@ -779,7 +788,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param alpha the alpha value to set
      */
-    public static void nvgGlobalAlpha(long ctx, float alpha) {
+    public static void nvgGlobalAlpha(@NativeType("NVGcontext *") long ctx, float alpha) {
         if (CHECKS) {
             check(ctx);
         }
@@ -796,7 +805,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgResetTransform(long ctx) {
+    public static void nvgResetTransform(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -824,7 +833,7 @@ public class NanoVG {
      * @param e   the e value
      * @param f   the f value
      */
-    public static void nvgTransform(long ctx, float a, float b, float c, float d, float e, float f) {
+    public static void nvgTransform(@NativeType("NVGcontext *") long ctx, float a, float b, float c, float d, float e, float f) {
         if (CHECKS) {
             check(ctx);
         }
@@ -843,7 +852,7 @@ public class NanoVG {
      * @param x   the X axis translation amount
      * @param y   the Y axis translation amount
      */
-    public static void nvgTranslate(long ctx, float x, float y) {
+    public static void nvgTranslate(@NativeType("NVGcontext *") long ctx, float x, float y) {
         if (CHECKS) {
             check(ctx);
         }
@@ -861,7 +870,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param angle the rotation angle, in radians
      */
-    public static void nvgRotate(long ctx, float angle) {
+    public static void nvgRotate(@NativeType("NVGcontext *") long ctx, float angle) {
         if (CHECKS) {
             check(ctx);
         }
@@ -879,7 +888,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param angle the skew angle, in radians
      */
-    public static void nvgSkewX(long ctx, float angle) {
+    public static void nvgSkewX(@NativeType("NVGcontext *") long ctx, float angle) {
         if (CHECKS) {
             check(ctx);
         }
@@ -897,7 +906,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param angle the skew angle, in radians
      */
-    public static void nvgSkewY(long ctx, float angle) {
+    public static void nvgSkewY(@NativeType("NVGcontext *") long ctx, float angle) {
         if (CHECKS) {
             check(ctx);
         }
@@ -916,7 +925,7 @@ public class NanoVG {
      * @param x   the X axis scale factor
      * @param y   the Y axis scale factor
      */
-    public static void nvgScale(long ctx, float x, float y) {
+    public static void nvgScale(@NativeType("NVGcontext *") long ctx, float x, float y) {
         if (CHECKS) {
             check(ctx);
         }
@@ -941,7 +950,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param xform the destination buffer
      */
-    public static void nvgCurrentTransform(long ctx, FloatBuffer xform) {
+    public static void nvgCurrentTransform(@NativeType("NVGcontext *") long ctx, @NativeType("float *") FloatBuffer xform) {
         if (CHECKS) {
             check(ctx);
             check(xform, 6);
@@ -959,7 +968,7 @@ public class NanoVG {
      *
      * @param dst the destination buffer
      */
-    public static void nvgTransformIdentity(FloatBuffer dst) {
+    public static void nvgTransformIdentity(@NativeType("float *") FloatBuffer dst) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -978,7 +987,7 @@ public class NanoVG {
      * @param tx  the X axis translation amount
      * @param ty  the Y axis translation amount
      */
-    public static void nvgTransformTranslate(FloatBuffer dst, float tx, float ty) {
+    public static void nvgTransformTranslate(@NativeType("float *") FloatBuffer dst, float tx, float ty) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -997,7 +1006,7 @@ public class NanoVG {
      * @param sx  the X axis scale factor
      * @param sy  the Y axis scale factor
      */
-    public static void nvgTransformScale(FloatBuffer dst, float sx, float sy) {
+    public static void nvgTransformScale(@NativeType("float *") FloatBuffer dst, float sx, float sy) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -1015,7 +1024,7 @@ public class NanoVG {
      * @param dst the destination buffer
      * @param a   the rotation angle, in radians
      */
-    public static void nvgTransformRotate(FloatBuffer dst, float a) {
+    public static void nvgTransformRotate(@NativeType("float *") FloatBuffer dst, float a) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -1033,7 +1042,7 @@ public class NanoVG {
      * @param dst the destination buffer
      * @param a   the skew angle, in radians
      */
-    public static void nvgTransformSkewX(FloatBuffer dst, float a) {
+    public static void nvgTransformSkewX(@NativeType("float *") FloatBuffer dst, float a) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -1051,7 +1060,7 @@ public class NanoVG {
      * @param dst the destination buffer
      * @param a   the skew angle, in radians
      */
-    public static void nvgTransformSkewY(FloatBuffer dst, float a) {
+    public static void nvgTransformSkewY(@NativeType("float *") FloatBuffer dst, float a) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -1069,7 +1078,7 @@ public class NanoVG {
      * @param dst the destination buffer
      * @param src the {@code B} transformation matrix
      */
-    public static void nvgTransformMultiply(FloatBuffer dst, FloatBuffer src) {
+    public static void nvgTransformMultiply(@NativeType("float *") FloatBuffer dst, @NativeType("const float *") FloatBuffer src) {
         if (CHECKS) {
             check(dst, 6);
             check(src, 6);
@@ -1088,7 +1097,7 @@ public class NanoVG {
      * @param dst the destination buffer
      * @param src the {@code B} transformation matrix
      */
-    public static void nvgTransformPremultiply(FloatBuffer dst, FloatBuffer src) {
+    public static void nvgTransformPremultiply(@NativeType("float *") FloatBuffer dst, @NativeType("const float *") FloatBuffer src) {
         if (CHECKS) {
             check(dst, 6);
             check(src, 6);
@@ -1109,7 +1118,8 @@ public class NanoVG {
      *
      * @return 1 if the inverse could be calculated, else 0
      */
-    public static boolean nvgTransformInverse(FloatBuffer dst, FloatBuffer src) {
+    @NativeType("int")
+    public static boolean nvgTransformInverse(@NativeType("float *") FloatBuffer dst, @NativeType("const float *") FloatBuffer src) {
         if (CHECKS) {
             check(dst, 6);
             check(src, 6);
@@ -1131,7 +1141,7 @@ public class NanoVG {
      * @param srcx  the point X axis coordinate
      * @param srcy  the point Y axis coordinate
      */
-    public static void nvgTransformPoint(FloatBuffer dstx, FloatBuffer dsty, FloatBuffer xform, float srcx, float srcy) {
+    public static void nvgTransformPoint(@NativeType("float *") FloatBuffer dstx, @NativeType("float *") FloatBuffer dsty, @NativeType("const float *") FloatBuffer xform, float srcx, float srcy) {
         if (CHECKS) {
             check(dstx, 1);
             check(dsty, 1);
@@ -1172,7 +1182,7 @@ public class NanoVG {
      *
      * @return a handle to the image
      */
-    public static int nvgCreateImage(long ctx, ByteBuffer filename, int imageFlags) {
+    public static int nvgCreateImage(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer filename, int imageFlags) {
         if (CHECKS) {
             check(ctx);
             checkNT1(filename);
@@ -1189,7 +1199,7 @@ public class NanoVG {
      *
      * @return a handle to the image
      */
-    public static int nvgCreateImage(long ctx, CharSequence filename, int imageFlags) {
+    public static int nvgCreateImage(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence filename, @NativeType("int") int imageFlags) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1220,7 +1230,7 @@ public class NanoVG {
      *
      * @return a handle to the image
      */
-    public static int nvgCreateImageMem(long ctx, int imageFlags, ByteBuffer data) {
+    public static int nvgCreateImageMem(@NativeType("NVGcontext *") long ctx, @NativeType("int") int imageFlags, @NativeType("unsigned char *") ByteBuffer data) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1243,7 +1253,7 @@ public class NanoVG {
      *
      * @return a handle to the image
      */
-    public static int nvgCreateImageRGBA(long ctx, int w, int h, int imageFlags, ByteBuffer data) {
+    public static int nvgCreateImageRGBA(@NativeType("NVGcontext *") long ctx, int w, int h, int imageFlags, @NativeType("const unsigned char *") ByteBuffer data) {
         if (CHECKS) {
             check(ctx);
             check(data, w * h * 4);
@@ -1263,7 +1273,7 @@ public class NanoVG {
      * @param image the image handle
      * @param data  the image data
      */
-    public static void nvgUpdateImage(long ctx, int image, ByteBuffer data) {
+    public static void nvgUpdateImage(@NativeType("NVGcontext *") long ctx, int image, @NativeType("const unsigned char *") ByteBuffer data) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1283,7 +1293,7 @@ public class NanoVG {
      * @param w     returns the image width
      * @param h     returns the image height
      */
-    public static void nvgImageSize(long ctx, int image, IntBuffer w, IntBuffer h) {
+    public static void nvgImageSize(@NativeType("NVGcontext *") long ctx, int image, @NativeType("int *") IntBuffer w, @NativeType("int *") IntBuffer h) {
         if (CHECKS) {
             check(ctx);
             check(w, 1);
@@ -1303,7 +1313,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param image the image handle to delete
      */
-    public static void nvgDeleteImage(long ctx, int image) {
+    public static void nvgDeleteImage(@NativeType("NVGcontext *") long ctx, int image) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1328,7 +1338,8 @@ public class NanoVG {
      * @param icol the start color
      * @param ocol the end color
      */
-    public static NVGPaint nvgLinearGradient(long ctx, float sx, float sy, float ex, float ey, NVGColor icol, NVGColor ocol, NVGPaint __result) {
+    @NativeType("NVGpaint")
+    public static NVGPaint nvgLinearGradient(@NativeType("NVGcontext *") long ctx, float sx, float sy, float ex, float ey, @NativeType("NVGcolor") NVGColor icol, @NativeType("NVGcolor") NVGColor ocol, NVGPaint __result) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1356,7 +1367,8 @@ public class NanoVG {
      * @param icol the inner color
      * @param ocol the outer color
      */
-    public static NVGPaint nvgBoxGradient(long ctx, float x, float y, float w, float h, float r, float f, NVGColor icol, NVGColor ocol, NVGPaint __result) {
+    @NativeType("NVGpaint")
+    public static NVGPaint nvgBoxGradient(@NativeType("NVGcontext *") long ctx, float x, float y, float w, float h, float r, float f, @NativeType("NVGcolor") NVGColor icol, @NativeType("NVGcolor") NVGColor ocol, NVGPaint __result) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1382,7 +1394,8 @@ public class NanoVG {
      * @param icol the start color
      * @param ocol the end color
      */
-    public static NVGPaint nvgRadialGradient(long ctx, float cx, float cy, float inr, float outr, NVGColor icol, NVGColor ocol, NVGPaint __result) {
+    @NativeType("NVGpaint")
+    public static NVGPaint nvgRadialGradient(@NativeType("NVGcontext *") long ctx, float cx, float cy, float inr, float outr, @NativeType("NVGcolor") NVGColor icol, @NativeType("NVGcolor") NVGColor ocol, NVGPaint __result) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1409,7 +1422,8 @@ public class NanoVG {
      * @param image the image to render
      * @param alpha the alpha value
      */
-    public static NVGPaint nvgImagePattern(long ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha, NVGPaint __result) {
+    @NativeType("NVGpaint")
+    public static NVGPaint nvgImagePattern(@NativeType("NVGcontext *") long ctx, float ox, float oy, float ex, float ey, float angle, int image, float alpha, NVGPaint __result) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1433,7 +1447,7 @@ public class NanoVG {
      * @param w   the rectangle width
      * @param h   the rectangle height
      */
-    public static void nvgScissor(long ctx, float x, float y, float w, float h) {
+    public static void nvgScissor(@NativeType("NVGcontext *") long ctx, float x, float y, float w, float h) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1459,7 +1473,7 @@ public class NanoVG {
      * @param w   the rectangle width
      * @param h   the rectangle height
      */
-    public static void nvgIntersectScissor(long ctx, float x, float y, float w, float h) {
+    public static void nvgIntersectScissor(@NativeType("NVGcontext *") long ctx, float x, float y, float w, float h) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1476,7 +1490,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgResetScissor(long ctx) {
+    public static void nvgResetScissor(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1493,7 +1507,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgBeginPath(long ctx) {
+    public static void nvgBeginPath(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1512,7 +1526,7 @@ public class NanoVG {
      * @param x   the point X axis coordinate
      * @param y   the point Y axis coordinate
      */
-    public static void nvgMoveTo(long ctx, float x, float y) {
+    public static void nvgMoveTo(@NativeType("NVGcontext *") long ctx, float x, float y) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1531,7 +1545,7 @@ public class NanoVG {
      * @param x   the point X axis coordinate
      * @param y   the point Y axis coordinate
      */
-    public static void nvgLineTo(long ctx, float x, float y) {
+    public static void nvgLineTo(@NativeType("NVGcontext *") long ctx, float x, float y) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1554,7 +1568,7 @@ public class NanoVG {
      * @param x   the point X axis coordinate
      * @param y   the point Y axis coordinate
      */
-    public static void nvgBezierTo(long ctx, float c1x, float c1y, float c2x, float c2y, float x, float y) {
+    public static void nvgBezierTo(@NativeType("NVGcontext *") long ctx, float c1x, float c1y, float c2x, float c2y, float x, float y) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1575,7 +1589,7 @@ public class NanoVG {
      * @param x   the point X axis coordinate
      * @param y   the point Y axis coordinate
      */
-    public static void nvgQuadTo(long ctx, float cx, float cy, float x, float y) {
+    public static void nvgQuadTo(@NativeType("NVGcontext *") long ctx, float cx, float cy, float x, float y) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1597,7 +1611,7 @@ public class NanoVG {
      * @param y2     the second point Y axis coordinate
      * @param radius the arc radius, in radians
      */
-    public static void nvgArcTo(long ctx, float x1, float y1, float x2, float y2, float radius) {
+    public static void nvgArcTo(@NativeType("NVGcontext *") long ctx, float x1, float y1, float x2, float y2, float radius) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1614,7 +1628,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgClosePath(long ctx) {
+    public static void nvgClosePath(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1632,7 +1646,7 @@ public class NanoVG {
      * @param ctx the NanoVG context
      * @param dir the sub-path winding. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
      */
-    public static void nvgPathWinding(long ctx, int dir) {
+    public static void nvgPathWinding(@NativeType("NVGcontext *") long ctx, int dir) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1655,7 +1669,7 @@ public class NanoVG {
      * @param a1  the arc ending angle, in radians
      * @param dir the arc direction. One of:<br><table><tr><td>{@link #NVG_CCW CCW}</td><td>{@link #NVG_CW CW}</td></tr></table>
      */
-    public static void nvgArc(long ctx, float cx, float cy, float r, float a0, float a1, int dir) {
+    public static void nvgArc(@NativeType("NVGcontext *") long ctx, float cx, float cy, float r, float a0, float a1, int dir) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1676,7 +1690,7 @@ public class NanoVG {
      * @param w   the rectangle width
      * @param h   the rectangle height
      */
-    public static void nvgRect(long ctx, float x, float y, float w, float h) {
+    public static void nvgRect(@NativeType("NVGcontext *") long ctx, float x, float y, float w, float h) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1698,7 +1712,7 @@ public class NanoVG {
      * @param h   the rectangle height
      * @param r   the corner radius
      */
-    public static void nvgRoundedRect(long ctx, float x, float y, float w, float h, float r) {
+    public static void nvgRoundedRect(@NativeType("NVGcontext *") long ctx, float x, float y, float w, float h, float r) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1723,7 +1737,7 @@ public class NanoVG {
      * @param radBottomRight the bottom-right corner radius
      * @param radBottomLeft  the bottom-left corner radius
      */
-    public static void nvgRoundedRectVarying(long ctx, float x, float y, float w, float h, float radTopLeft, float radTopRight, float radBottomRight, float radBottomLeft) {
+    public static void nvgRoundedRectVarying(@NativeType("NVGcontext *") long ctx, float x, float y, float w, float h, float radTopLeft, float radTopRight, float radBottomRight, float radBottomLeft) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1744,7 +1758,7 @@ public class NanoVG {
      * @param rx  the ellipse X axis radius
      * @param ry  the ellipse Y axis radius
      */
-    public static void nvgEllipse(long ctx, float cx, float cy, float rx, float ry) {
+    public static void nvgEllipse(@NativeType("NVGcontext *") long ctx, float cx, float cy, float rx, float ry) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1764,7 +1778,7 @@ public class NanoVG {
      * @param cy  the circle center Y axis coordinate
      * @param r   the circle radius
      */
-    public static void nvgCircle(long ctx, float cx, float cy, float r) {
+    public static void nvgCircle(@NativeType("NVGcontext *") long ctx, float cx, float cy, float r) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1781,7 +1795,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgFill(long ctx) {
+    public static void nvgFill(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1798,7 +1812,7 @@ public class NanoVG {
      *
      * @param ctx the NanoVG context
      */
-    public static void nvgStroke(long ctx) {
+    public static void nvgStroke(@NativeType("NVGcontext *") long ctx) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1819,7 +1833,7 @@ public class NanoVG {
      *
      * @return a handle to the font
      */
-    public static int nvgCreateFont(long ctx, ByteBuffer name, ByteBuffer filename) {
+    public static int nvgCreateFont(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer name, @NativeType("const char *") ByteBuffer filename) {
         if (CHECKS) {
             check(ctx);
             checkNT1(name);
@@ -1837,7 +1851,7 @@ public class NanoVG {
      *
      * @return a handle to the font
      */
-    public static int nvgCreateFont(long ctx, CharSequence name, CharSequence filename) {
+    public static int nvgCreateFont(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence name, @NativeType("const char *") CharSequence filename) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1872,7 +1886,7 @@ public class NanoVG {
      *
      * @return a handle to the font
      */
-    public static int nvgCreateFontMem(long ctx, ByteBuffer name, ByteBuffer data, int freeData) {
+    public static int nvgCreateFontMem(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer name, @NativeType("unsigned char *") ByteBuffer data, @NativeType("int") int freeData) {
         if (CHECKS) {
             check(ctx);
             checkNT1(name);
@@ -1892,7 +1906,7 @@ public class NanoVG {
      *
      * @return a handle to the font
      */
-    public static int nvgCreateFontMem(long ctx, CharSequence name, ByteBuffer data, int freeData) {
+    public static int nvgCreateFontMem(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence name, @NativeType("unsigned char *") ByteBuffer data, @NativeType("int") int freeData) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1916,7 +1930,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param name the font name
      */
-    public static int nvgFindFont(long ctx, ByteBuffer name) {
+    public static int nvgFindFont(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             check(ctx);
             checkNT1(name);
@@ -1930,7 +1944,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param name the font name
      */
-    public static int nvgFindFont(long ctx, CharSequence name) {
+    public static int nvgFindFont(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence name) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1955,7 +1969,7 @@ public class NanoVG {
      * @param baseFont     
      * @param fallbackFont 
      */
-    public static int nvgAddFallbackFontId(long ctx, int baseFont, int fallbackFont) {
+    public static int nvgAddFallbackFontId(@NativeType("NVGcontext *") long ctx, int baseFont, int fallbackFont) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1974,7 +1988,7 @@ public class NanoVG {
      * @param baseFont     
      * @param fallbackFont 
      */
-    public static int nvgAddFallbackFont(long ctx, ByteBuffer baseFont, ByteBuffer fallbackFont) {
+    public static int nvgAddFallbackFont(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer baseFont, @NativeType("const char *") ByteBuffer fallbackFont) {
         if (CHECKS) {
             check(ctx);
             checkNT1(baseFont);
@@ -1990,7 +2004,7 @@ public class NanoVG {
      * @param baseFont     
      * @param fallbackFont 
      */
-    public static int nvgAddFallbackFont(long ctx, CharSequence baseFont, CharSequence fallbackFont) {
+    public static int nvgAddFallbackFont(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence baseFont, @NativeType("const char *") CharSequence fallbackFont) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2015,7 +2029,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param size the font size to set
      */
-    public static void nvgFontSize(long ctx, float size) {
+    public static void nvgFontSize(@NativeType("NVGcontext *") long ctx, float size) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2033,7 +2047,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param blur the blur amount to set
      */
-    public static void nvgFontBlur(long ctx, float blur) {
+    public static void nvgFontBlur(@NativeType("NVGcontext *") long ctx, float blur) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2051,7 +2065,7 @@ public class NanoVG {
      * @param ctx     the NanoVG context
      * @param spacing the letter spacing amount to set
      */
-    public static void nvgTextLetterSpacing(long ctx, float spacing) {
+    public static void nvgTextLetterSpacing(@NativeType("NVGcontext *") long ctx, float spacing) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2069,7 +2083,7 @@ public class NanoVG {
      * @param ctx        the NanoVG context
      * @param lineHeight the line height to set
      */
-    public static void nvgTextLineHeight(long ctx, float lineHeight) {
+    public static void nvgTextLineHeight(@NativeType("NVGcontext *") long ctx, float lineHeight) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2087,7 +2101,7 @@ public class NanoVG {
      * @param ctx   the NanoVG context
      * @param align the text align to set. One of:<br><table><tr><td>{@link #NVG_ALIGN_LEFT ALIGN_LEFT}</td><td>{@link #NVG_ALIGN_CENTER ALIGN_CENTER}</td><td>{@link #NVG_ALIGN_RIGHT ALIGN_RIGHT}</td><td>{@link #NVG_ALIGN_TOP ALIGN_TOP}</td><td>{@link #NVG_ALIGN_MIDDLE ALIGN_MIDDLE}</td><td>{@link #NVG_ALIGN_BOTTOM ALIGN_BOTTOM}</td><td>{@link #NVG_ALIGN_BASELINE ALIGN_BASELINE}</td></tr></table>
      */
-    public static void nvgTextAlign(long ctx, int align) {
+    public static void nvgTextAlign(@NativeType("NVGcontext *") long ctx, int align) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2105,7 +2119,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param font the font id
      */
-    public static void nvgFontFaceId(long ctx, int font) {
+    public static void nvgFontFaceId(@NativeType("NVGcontext *") long ctx, int font) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2123,7 +2137,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param font the font name
      */
-    public static void nvgFontFace(long ctx, ByteBuffer font) {
+    public static void nvgFontFace(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer font) {
         if (CHECKS) {
             check(ctx);
             checkNT1(font);
@@ -2137,7 +2151,7 @@ public class NanoVG {
      * @param ctx  the NanoVG context
      * @param font the font name
      */
-    public static void nvgFontFace(long ctx, CharSequence font) {
+    public static void nvgFontFace(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence font) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2167,7 +2181,7 @@ public class NanoVG {
      * @param y      the text Y axis coordinate
      * @param string the text string to draw
      */
-    public static float nvgText(long ctx, float x, float y, ByteBuffer string) {
+    public static float nvgText(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2182,7 +2196,7 @@ public class NanoVG {
      * @param y      the text Y axis coordinate
      * @param string the text string to draw
      */
-    public static float nvgText(long ctx, float x, float y, CharSequence string) {
+    public static float nvgText(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2217,7 +2231,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param string        the text string to draw
      */
-    public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, ByteBuffer string) {
+    public static void nvgTextBox(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") ByteBuffer string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2237,7 +2251,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param string        the text string to draw
      */
-    public static void nvgTextBox(long ctx, float x, float y, float breakRowWidth, CharSequence string) {
+    public static void nvgTextBox(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") CharSequence string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2275,7 +2289,7 @@ public class NanoVG {
      *
      * @return the horizontal advance of the measured text (i.e. where the next character should drawn)
      */
-    public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, FloatBuffer bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string, @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2299,7 +2313,7 @@ public class NanoVG {
      *
      * @return the horizontal advance of the measured text (i.e. where the next character should drawn)
      */
-    public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, FloatBuffer bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string, @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2337,7 +2351,7 @@ public class NanoVG {
      * @param string        the text string to measure
      * @param bounds        returns the bounding box of the text box
      */
-    public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, FloatBuffer bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") ByteBuffer string, @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2360,7 +2374,7 @@ public class NanoVG {
      * @param string        the text string to measure
      * @param bounds        returns the bounding box of the text box
      */
-    public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, FloatBuffer bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") CharSequence string, @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2395,7 +2409,7 @@ public class NanoVG {
      * @param string    the text string to measure
      * @param positions returns the glyph x positions
      */
-    public static int nvgTextGlyphPositions(long ctx, float x, float y, ByteBuffer string, NVGGlyphPosition.Buffer positions) {
+    public static int nvgTextGlyphPositions(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string, @NativeType("NVGglyphPosition *") NVGGlyphPosition.Buffer positions) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2413,7 +2427,7 @@ public class NanoVG {
      * @param string    the text string to measure
      * @param positions returns the glyph x positions
      */
-    public static int nvgTextGlyphPositions(long ctx, float x, float y, CharSequence string, NVGGlyphPosition.Buffer positions) {
+    public static int nvgTextGlyphPositions(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string, @NativeType("NVGglyphPosition *") NVGGlyphPosition.Buffer positions) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2441,7 +2455,7 @@ public class NanoVG {
      * @param descender the line descend
      * @param lineh     the line height
      */
-    public static void nvgTextMetrics(long ctx, FloatBuffer ascender, FloatBuffer descender, FloatBuffer lineh) {
+    public static void nvgTextMetrics(@NativeType("NVGcontext *") long ctx, @NativeType("float *") FloatBuffer ascender, @NativeType("float *") FloatBuffer descender, @NativeType("float *") FloatBuffer lineh) {
         if (CHECKS) {
             check(ctx);
             checkSafe(ascender, 1);
@@ -2472,7 +2486,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param rows          returns the text rows
      */
-    public static int nvgTextBreakLines(long ctx, ByteBuffer string, float breakRowWidth, NVGTextRow.Buffer rows) {
+    public static int nvgTextBreakLines(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer string, @NativeType("float") float breakRowWidth, @NativeType("NVGtextRow *") NVGTextRow.Buffer rows) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2490,7 +2504,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param rows          returns the text rows
      */
-    public static int nvgTextBreakLines(long ctx, CharSequence string, float breakRowWidth, NVGTextRow.Buffer rows) {
+    public static int nvgTextBreakLines(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence string, @NativeType("float") float breakRowWidth, @NativeType("NVGtextRow *") NVGTextRow.Buffer rows) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2507,7 +2521,7 @@ public class NanoVG {
     public static native void nnvgCurrentTransform(long ctx, float[] xform);
 
     /** Array version of: {@link #nvgCurrentTransform CurrentTransform} */
-    public static void nvgCurrentTransform(long ctx, float[] xform) {
+    public static void nvgCurrentTransform(@NativeType("NVGcontext *") long ctx, @NativeType("float *") float[] xform) {
         if (CHECKS) {
             check(ctx);
             check(xform, 6);
@@ -2519,7 +2533,7 @@ public class NanoVG {
     public static native void nnvgTransformIdentity(float[] dst);
 
     /** Array version of: {@link #nvgTransformIdentity TransformIdentity} */
-    public static void nvgTransformIdentity(float[] dst) {
+    public static void nvgTransformIdentity(@NativeType("float *") float[] dst) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -2530,7 +2544,7 @@ public class NanoVG {
     public static native void nnvgTransformTranslate(float[] dst, float tx, float ty);
 
     /** Array version of: {@link #nvgTransformTranslate TransformTranslate} */
-    public static void nvgTransformTranslate(float[] dst, float tx, float ty) {
+    public static void nvgTransformTranslate(@NativeType("float *") float[] dst, float tx, float ty) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -2541,7 +2555,7 @@ public class NanoVG {
     public static native void nnvgTransformScale(float[] dst, float sx, float sy);
 
     /** Array version of: {@link #nvgTransformScale TransformScale} */
-    public static void nvgTransformScale(float[] dst, float sx, float sy) {
+    public static void nvgTransformScale(@NativeType("float *") float[] dst, float sx, float sy) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -2552,7 +2566,7 @@ public class NanoVG {
     public static native void nnvgTransformRotate(float[] dst, float a);
 
     /** Array version of: {@link #nvgTransformRotate TransformRotate} */
-    public static void nvgTransformRotate(float[] dst, float a) {
+    public static void nvgTransformRotate(@NativeType("float *") float[] dst, float a) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -2563,7 +2577,7 @@ public class NanoVG {
     public static native void nnvgTransformSkewX(float[] dst, float a);
 
     /** Array version of: {@link #nvgTransformSkewX TransformSkewX} */
-    public static void nvgTransformSkewX(float[] dst, float a) {
+    public static void nvgTransformSkewX(@NativeType("float *") float[] dst, float a) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -2574,7 +2588,7 @@ public class NanoVG {
     public static native void nnvgTransformSkewY(float[] dst, float a);
 
     /** Array version of: {@link #nvgTransformSkewY TransformSkewY} */
-    public static void nvgTransformSkewY(float[] dst, float a) {
+    public static void nvgTransformSkewY(@NativeType("float *") float[] dst, float a) {
         if (CHECKS) {
             check(dst, 6);
         }
@@ -2585,7 +2599,7 @@ public class NanoVG {
     public static native void nnvgTransformMultiply(float[] dst, float[] src);
 
     /** Array version of: {@link #nvgTransformMultiply TransformMultiply} */
-    public static void nvgTransformMultiply(float[] dst, float[] src) {
+    public static void nvgTransformMultiply(@NativeType("float *") float[] dst, @NativeType("const float *") float[] src) {
         if (CHECKS) {
             check(dst, 6);
             check(src, 6);
@@ -2597,7 +2611,7 @@ public class NanoVG {
     public static native void nnvgTransformPremultiply(float[] dst, float[] src);
 
     /** Array version of: {@link #nvgTransformPremultiply TransformPremultiply} */
-    public static void nvgTransformPremultiply(float[] dst, float[] src) {
+    public static void nvgTransformPremultiply(@NativeType("float *") float[] dst, @NativeType("const float *") float[] src) {
         if (CHECKS) {
             check(dst, 6);
             check(src, 6);
@@ -2609,7 +2623,8 @@ public class NanoVG {
     public static native int nnvgTransformInverse(float[] dst, float[] src);
 
     /** Array version of: {@link #nvgTransformInverse TransformInverse} */
-    public static boolean nvgTransformInverse(float[] dst, float[] src) {
+    @NativeType("int")
+    public static boolean nvgTransformInverse(@NativeType("float *") float[] dst, @NativeType("const float *") float[] src) {
         if (CHECKS) {
             check(dst, 6);
             check(src, 6);
@@ -2621,7 +2636,7 @@ public class NanoVG {
     public static native void nnvgTransformPoint(float[] dstx, float[] dsty, float[] xform, float srcx, float srcy);
 
     /** Array version of: {@link #nvgTransformPoint TransformPoint} */
-    public static void nvgTransformPoint(float[] dstx, float[] dsty, float[] xform, float srcx, float srcy) {
+    public static void nvgTransformPoint(@NativeType("float *") float[] dstx, @NativeType("float *") float[] dsty, @NativeType("const float *") float[] xform, float srcx, float srcy) {
         if (CHECKS) {
             check(dstx, 1);
             check(dsty, 1);
@@ -2634,7 +2649,7 @@ public class NanoVG {
     public static native void nnvgImageSize(long ctx, int image, int[] w, int[] h);
 
     /** Array version of: {@link #nvgImageSize ImageSize} */
-    public static void nvgImageSize(long ctx, int image, int[] w, int[] h) {
+    public static void nvgImageSize(@NativeType("NVGcontext *") long ctx, int image, @NativeType("int *") int[] w, @NativeType("int *") int[] h) {
         if (CHECKS) {
             check(ctx);
             check(w, 1);
@@ -2647,7 +2662,7 @@ public class NanoVG {
     public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, float[] bounds);
 
     /** Array version of: {@link #nvgTextBounds TextBounds} */
-    public static float nvgTextBounds(long ctx, float x, float y, ByteBuffer string, float[] bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string, @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2656,7 +2671,7 @@ public class NanoVG {
     }
 
     /** Array version of: {@link #nvgTextBounds TextBounds} */
-    public static float nvgTextBounds(long ctx, float x, float y, CharSequence string, float[] bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string, @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2674,7 +2689,7 @@ public class NanoVG {
     public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, float[] bounds);
 
     /** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
-    public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, ByteBuffer string, float[] bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") ByteBuffer string, @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2683,7 +2698,7 @@ public class NanoVG {
     }
 
     /** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
-    public static void nvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, CharSequence string, float[] bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") CharSequence string, @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2701,7 +2716,7 @@ public class NanoVG {
     public static native void nnvgTextMetrics(long ctx, float[] ascender, float[] descender, float[] lineh);
 
     /** Array version of: {@link #nvgTextMetrics TextMetrics} */
-    public static void nvgTextMetrics(long ctx, float[] ascender, float[] descender, float[] lineh) {
+    public static void nvgTextMetrics(@NativeType("NVGcontext *") long ctx, @NativeType("float *") float[] ascender, @NativeType("float *") float[] descender, @NativeType("float *") float[] lineh) {
         if (CHECKS) {
             check(ctx);
             checkSafe(ascender, 1);

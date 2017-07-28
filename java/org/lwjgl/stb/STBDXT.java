@@ -7,6 +7,8 @@ package org.lwjgl.stb;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -45,7 +47,7 @@ public class STBDXT {
      * @param alpha                         1 to compress the alpha channel, 0 to ignore it
      * @param mode                          the compression mode. One of:<br><table><tr><td>{@link #STB_DXT_NORMAL DXT_NORMAL}</td><td>{@link #STB_DXT_DITHER DXT_DITHER}</td><td>{@link #STB_DXT_HIGHQUAL DXT_HIGHQUAL}</td></tr></table>
      */
-    public static void stb_compress_dxt_block(ByteBuffer dest, ByteBuffer src_rgba_four_bytes_per_pixel, boolean alpha, int mode) {
+    public static void stb_compress_dxt_block(@NativeType("unsigned char *") ByteBuffer dest, @NativeType("const unsigned char *") ByteBuffer src_rgba_four_bytes_per_pixel, @NativeType("int") boolean alpha, int mode) {
         if (CHECKS) {
             check(dest, alpha ? 16 : 8);
             check(src_rgba_four_bytes_per_pixel, 64);
@@ -64,7 +66,7 @@ public class STBDXT {
      * @param dest                     a buffer in which to store the compressed block
      * @param src_r_one_byte_per_pixel the block to compress
      */
-    public static void stb_compress_bc4_block(ByteBuffer dest, ByteBuffer src_r_one_byte_per_pixel) {
+    public static void stb_compress_bc4_block(@NativeType("unsigned char *") ByteBuffer dest, @NativeType("const unsigned char *") ByteBuffer src_r_one_byte_per_pixel) {
         if (CHECKS) {
             check(dest, 8);
             check(src_r_one_byte_per_pixel, 16);
@@ -83,7 +85,7 @@ public class STBDXT {
      * @param dest                      a buffer in which to store the compressed block
      * @param src_rg_two_byte_per_pixel the block to compress
      */
-    public static void stb_compress_bc5_block(ByteBuffer dest, ByteBuffer src_rg_two_byte_per_pixel) {
+    public static void stb_compress_bc5_block(@NativeType("unsigned char *") ByteBuffer dest, @NativeType("const unsigned char *") ByteBuffer src_rg_two_byte_per_pixel) {
         if (CHECKS) {
             check(dest, 16);
             check(src_rg_two_byte_per_pixel, 32);

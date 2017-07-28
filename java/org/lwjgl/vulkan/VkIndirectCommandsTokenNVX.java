@@ -97,18 +97,21 @@ public class VkIndirectCommandsTokenNVX extends Struct implements NativeResource
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code tokenType} field. */
+    @NativeType("VkIndirectCommandsTokenTypeNVX")
     public int tokenType() { return ntokenType(address()); }
     /** Returns the value of the {@code buffer} field. */
+    @NativeType("VkBuffer")
     public long buffer() { return nbuffer(address()); }
     /** Returns the value of the {@code offset} field. */
+    @NativeType("VkDeviceSize")
     public long offset() { return noffset(address()); }
 
     /** Sets the specified value to the {@code tokenType} field. */
-    public VkIndirectCommandsTokenNVX tokenType(int value) { ntokenType(address(), value); return this; }
+    public VkIndirectCommandsTokenNVX tokenType(@NativeType("VkIndirectCommandsTokenTypeNVX") int value) { ntokenType(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
-    public VkIndirectCommandsTokenNVX buffer(long value) { nbuffer(address(), value); return this; }
+    public VkIndirectCommandsTokenNVX buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
     /** Sets the specified value to the {@code offset} field. */
-    public VkIndirectCommandsTokenNVX offset(long value) { noffset(address(), value); return this; }
+    public VkIndirectCommandsTokenNVX offset(@NativeType("VkDeviceSize") long value) { noffset(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkIndirectCommandsTokenNVX set(
@@ -321,18 +324,21 @@ public class VkIndirectCommandsTokenNVX extends Struct implements NativeResource
         }
 
         /** Returns the value of the {@code tokenType} field. */
+        @NativeType("VkIndirectCommandsTokenTypeNVX")
         public int tokenType() { return VkIndirectCommandsTokenNVX.ntokenType(address()); }
         /** Returns the value of the {@code buffer} field. */
+        @NativeType("VkBuffer")
         public long buffer() { return VkIndirectCommandsTokenNVX.nbuffer(address()); }
         /** Returns the value of the {@code offset} field. */
+        @NativeType("VkDeviceSize")
         public long offset() { return VkIndirectCommandsTokenNVX.noffset(address()); }
 
         /** Sets the specified value to the {@code tokenType} field. */
-        public VkIndirectCommandsTokenNVX.Buffer tokenType(int value) { VkIndirectCommandsTokenNVX.ntokenType(address(), value); return this; }
+        public VkIndirectCommandsTokenNVX.Buffer tokenType(@NativeType("VkIndirectCommandsTokenTypeNVX") int value) { VkIndirectCommandsTokenNVX.ntokenType(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
-        public VkIndirectCommandsTokenNVX.Buffer buffer(long value) { VkIndirectCommandsTokenNVX.nbuffer(address(), value); return this; }
+        public VkIndirectCommandsTokenNVX.Buffer buffer(@NativeType("VkBuffer") long value) { VkIndirectCommandsTokenNVX.nbuffer(address(), value); return this; }
         /** Sets the specified value to the {@code offset} field. */
-        public VkIndirectCommandsTokenNVX.Buffer offset(long value) { VkIndirectCommandsTokenNVX.noffset(address(), value); return this; }
+        public VkIndirectCommandsTokenNVX.Buffer offset(@NativeType("VkDeviceSize") long value) { VkIndirectCommandsTokenNVX.noffset(address(), value); return this; }
 
     }
 

@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkConfigStackButtonBehaviorElement struct nk_config_stack_button_behavior_element} elements[8];
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_button_behavior")
 class NkConfigStackButtonBehavior extends Struct {
 
     /** The struct size in bytes. */
@@ -66,8 +67,10 @@ class NkConfigStackButtonBehavior extends Struct {
     /** Returns the value of the {@code head} field. */
     public int head() { return nhead(address()); }
     /** Returns a {@link NkConfigStackButtonBehaviorElement}.Buffer view of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_button_behavior_element[8]")
     public NkConfigStackButtonBehaviorElement.Buffer elements() { return nelements(address()); }
     /** Returns a {@link NkConfigStackButtonBehaviorElement} view of the struct at the specified index of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_button_behavior_element")
     public NkConfigStackButtonBehaviorElement elements(int index) { return nelements(address(), index); }
 
     // -----------------------------------
@@ -144,8 +147,10 @@ class NkConfigStackButtonBehavior extends Struct {
         /** Returns the value of the {@code head} field. */
         public int head() { return NkConfigStackButtonBehavior.nhead(address()); }
         /** Returns a {@link NkConfigStackButtonBehaviorElement}.Buffer view of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_button_behavior_element[8]")
         public NkConfigStackButtonBehaviorElement.Buffer elements() { return NkConfigStackButtonBehavior.nelements(address()); }
         /** Returns a {@link NkConfigStackButtonBehaviorElement} view of the struct at the specified index of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_button_behavior_element")
         public NkConfigStackButtonBehaviorElement elements(int index) { return NkConfigStackButtonBehavior.nelements(address(), index); }
 
     }

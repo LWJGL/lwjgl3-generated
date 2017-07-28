@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link VROverlayIntersectionMaskPrimitiveData VROverlayIntersectionMaskPrimitive_Data_t} m_Primitive;
  * }</pre></code>
  */
+@NativeType("struct VROverlayIntersectionMaskPrimitive_t")
 public class VROverlayIntersectionMaskPrimitive extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -65,14 +66,16 @@ public class VROverlayIntersectionMaskPrimitive extends Struct implements Native
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code m_nPrimitiveType} field. */
+    @NativeType("EVROverlayIntersectionMaskPrimitiveType")
     public int m_nPrimitiveType() { return nm_nPrimitiveType(address()); }
     /** Returns a {@link VROverlayIntersectionMaskPrimitiveData} view of the {@code m_Primitive} field. */
+    @NativeType("VROverlayIntersectionMaskPrimitive_Data_t")
     public VROverlayIntersectionMaskPrimitiveData m_Primitive() { return nm_Primitive(address()); }
 
     /** Sets the specified value to the {@code m_nPrimitiveType} field. */
-    public VROverlayIntersectionMaskPrimitive m_nPrimitiveType(int value) { nm_nPrimitiveType(address(), value); return this; }
+    public VROverlayIntersectionMaskPrimitive m_nPrimitiveType(@NativeType("EVROverlayIntersectionMaskPrimitiveType") int value) { nm_nPrimitiveType(address(), value); return this; }
     /** Copies the specified {@link VROverlayIntersectionMaskPrimitiveData} to the {@code m_Primitive} field. */
-    public VROverlayIntersectionMaskPrimitive m_Primitive(VROverlayIntersectionMaskPrimitiveData value) { nm_Primitive(address(), value); return this; }
+    public VROverlayIntersectionMaskPrimitive m_Primitive(@NativeType("VROverlayIntersectionMaskPrimitive_Data_t") VROverlayIntersectionMaskPrimitiveData value) { nm_Primitive(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VROverlayIntersectionMaskPrimitive set(
@@ -279,14 +282,16 @@ public class VROverlayIntersectionMaskPrimitive extends Struct implements Native
         }
 
         /** Returns the value of the {@code m_nPrimitiveType} field. */
+        @NativeType("EVROverlayIntersectionMaskPrimitiveType")
         public int m_nPrimitiveType() { return VROverlayIntersectionMaskPrimitive.nm_nPrimitiveType(address()); }
         /** Returns a {@link VROverlayIntersectionMaskPrimitiveData} view of the {@code m_Primitive} field. */
+        @NativeType("VROverlayIntersectionMaskPrimitive_Data_t")
         public VROverlayIntersectionMaskPrimitiveData m_Primitive() { return VROverlayIntersectionMaskPrimitive.nm_Primitive(address()); }
 
         /** Sets the specified value to the {@code m_nPrimitiveType} field. */
-        public VROverlayIntersectionMaskPrimitive.Buffer m_nPrimitiveType(int value) { VROverlayIntersectionMaskPrimitive.nm_nPrimitiveType(address(), value); return this; }
+        public VROverlayIntersectionMaskPrimitive.Buffer m_nPrimitiveType(@NativeType("EVROverlayIntersectionMaskPrimitiveType") int value) { VROverlayIntersectionMaskPrimitive.nm_nPrimitiveType(address(), value); return this; }
         /** Copies the specified {@link VROverlayIntersectionMaskPrimitiveData} to the {@code m_Primitive} field. */
-        public VROverlayIntersectionMaskPrimitive.Buffer m_Primitive(VROverlayIntersectionMaskPrimitiveData value) { VROverlayIntersectionMaskPrimitive.nm_Primitive(address(), value); return this; }
+        public VROverlayIntersectionMaskPrimitive.Buffer m_Primitive(@NativeType("VROverlayIntersectionMaskPrimitive_Data_t") VROverlayIntersectionMaskPrimitiveData value) { VROverlayIntersectionMaskPrimitive.nm_Primitive(address(), value); return this; }
 
     }
 

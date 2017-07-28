@@ -89,12 +89,16 @@ public class VkPhysicalDeviceMultiviewPropertiesKHX extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code maxMultiviewViewCount} field. */
+    @NativeType("uint32_t")
     public int maxMultiviewViewCount() { return nmaxMultiviewViewCount(address()); }
     /** Returns the value of the {@code maxMultiviewInstanceIndex} field. */
+    @NativeType("uint32_t")
     public int maxMultiviewInstanceIndex() { return nmaxMultiviewInstanceIndex(address()); }
 
     // -----------------------------------
@@ -168,12 +172,16 @@ public class VkPhysicalDeviceMultiviewPropertiesKHX extends Struct {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceMultiviewPropertiesKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceMultiviewPropertiesKHX.npNext(address()); }
         /** Returns the value of the {@code maxMultiviewViewCount} field. */
+        @NativeType("uint32_t")
         public int maxMultiviewViewCount() { return VkPhysicalDeviceMultiviewPropertiesKHX.nmaxMultiviewViewCount(address()); }
         /** Returns the value of the {@code maxMultiviewInstanceIndex} field. */
+        @NativeType("uint32_t")
         public int maxMultiviewInstanceIndex() { return VkPhysicalDeviceMultiviewPropertiesKHX.nmaxMultiviewInstanceIndex(address()); }
 
     }

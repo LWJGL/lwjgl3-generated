@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWdropfun")
 public interface GLFWDropCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pip)v";
@@ -34,6 +35,6 @@ public interface GLFWDropCallbackI extends CallbackI.V {
      * @param count  the number of dropped files
      * @param names  pointer to the array of UTF-8 encoded path names of the dropped files
      */
-    void invoke(long window, int count, long names);
+    void invoke(@NativeType("GLFWwindow *") long window, int count, @NativeType("const char **") long names);
 
 }

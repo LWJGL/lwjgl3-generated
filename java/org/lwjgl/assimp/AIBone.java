@@ -39,6 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link AIMatrix4x4 struct aiMatrix4x4} mOffsetMatrix;
  * }</pre></code>
  */
+@NativeType("struct aiBone")
 public class AIBone extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -88,20 +89,24 @@ public class AIBone extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link AIString} view of the {@code mName} field. */
+    @NativeType("struct aiString")
     public AIString mName() { return nmName(address()); }
     /** Returns the value of the {@code mNumWeights} field. */
+    @NativeType("unsigned int")
     public int mNumWeights() { return nmNumWeights(address()); }
     /** Returns a {@link AIVertexWeight.Buffer} view of the struct array pointed to by the {@code mWeights} field. */
+    @NativeType("struct aiVertexWeight *")
     public AIVertexWeight.Buffer mWeights() { return nmWeights(address()); }
     /** Returns a {@link AIMatrix4x4} view of the {@code mOffsetMatrix} field. */
+    @NativeType("struct aiMatrix4x4")
     public AIMatrix4x4 mOffsetMatrix() { return nmOffsetMatrix(address()); }
 
     /** Copies the specified {@link AIString} to the {@code mName} field. */
-    public AIBone mName(AIString value) { nmName(address(), value); return this; }
+    public AIBone mName(@NativeType("struct aiString") AIString value) { nmName(address(), value); return this; }
     /** Sets the address of the specified {@link AIVertexWeight.Buffer} to the {@code mWeights} field. */
-    public AIBone mWeights(AIVertexWeight.Buffer value) { nmWeights(address(), value); return this; }
+    public AIBone mWeights(@NativeType("struct aiVertexWeight *") AIVertexWeight.Buffer value) { nmWeights(address(), value); return this; }
     /** Copies the specified {@link AIMatrix4x4} to the {@code mOffsetMatrix} field. */
-    public AIBone mOffsetMatrix(AIMatrix4x4 value) { nmOffsetMatrix(address(), value); return this; }
+    public AIBone mOffsetMatrix(@NativeType("struct aiMatrix4x4") AIMatrix4x4 value) { nmOffsetMatrix(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIBone set(
@@ -339,20 +344,24 @@ public class AIBone extends Struct implements NativeResource {
         }
 
         /** Returns a {@link AIString} view of the {@code mName} field. */
+        @NativeType("struct aiString")
         public AIString mName() { return AIBone.nmName(address()); }
         /** Returns the value of the {@code mNumWeights} field. */
+        @NativeType("unsigned int")
         public int mNumWeights() { return AIBone.nmNumWeights(address()); }
         /** Returns a {@link AIVertexWeight.Buffer} view of the struct array pointed to by the {@code mWeights} field. */
+        @NativeType("struct aiVertexWeight *")
         public AIVertexWeight.Buffer mWeights() { return AIBone.nmWeights(address()); }
         /** Returns a {@link AIMatrix4x4} view of the {@code mOffsetMatrix} field. */
+        @NativeType("struct aiMatrix4x4")
         public AIMatrix4x4 mOffsetMatrix() { return AIBone.nmOffsetMatrix(address()); }
 
         /** Copies the specified {@link AIString} to the {@code mName} field. */
-        public AIBone.Buffer mName(AIString value) { AIBone.nmName(address(), value); return this; }
+        public AIBone.Buffer mName(@NativeType("struct aiString") AIString value) { AIBone.nmName(address(), value); return this; }
         /** Sets the address of the specified {@link AIVertexWeight.Buffer} to the {@code mWeights} field. */
-        public AIBone.Buffer mWeights(AIVertexWeight.Buffer value) { AIBone.nmWeights(address(), value); return this; }
+        public AIBone.Buffer mWeights(@NativeType("struct aiVertexWeight *") AIVertexWeight.Buffer value) { AIBone.nmWeights(address(), value); return this; }
         /** Copies the specified {@link AIMatrix4x4} to the {@code mOffsetMatrix} field. */
-        public AIBone.Buffer mOffsetMatrix(AIMatrix4x4 value) { AIBone.nmOffsetMatrix(address(), value); return this; }
+        public AIBone.Buffer mOffsetMatrix(@NativeType("struct aiMatrix4x4") AIMatrix4x4 value) { AIBone.nmOffsetMatrix(address(), value); return this; }
 
     }
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -47,6 +49,6 @@ public class NVConservativeRaster {
 
     // --- [ glSubpixelPrecisionBiasNV ] ---
 
-    public static native void glSubpixelPrecisionBiasNV(int xbits, int ybits);
+    public static native void glSubpixelPrecisionBiasNV(@NativeType("GLuint") int xbits, @NativeType("GLuint") int ybits);
 
 }

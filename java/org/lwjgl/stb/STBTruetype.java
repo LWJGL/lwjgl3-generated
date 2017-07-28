@@ -336,7 +336,7 @@ public class STBTruetype {
      * @return if positive, the first unused row of the bitmap. If negative, returns the negative of the number of characters that fit. If 0, no characters fit and no
      *         rows were used.
      */
-    public static int stbtt_BakeFontBitmap(ByteBuffer data, float pixel_height, ByteBuffer pixels, int pw, int ph, int first_char, STBTTBakedChar.Buffer chardata) {
+    public static int stbtt_BakeFontBitmap(@NativeType("const unsigned char *") ByteBuffer data, @NativeType("float") float pixel_height, @NativeType("unsigned char *") ByteBuffer pixels, @NativeType("int") int pw, @NativeType("int") int ph, @NativeType("int") int first_char, @NativeType("stbtt_bakedchar *") STBTTBakedChar.Buffer chardata) {
         if (CHECKS) {
             check(pixels, pw * ph);
         }
@@ -363,7 +363,7 @@ public class STBTruetype {
      * @param q               an {@link STBTTAlignedQuad} struct in which to return the quad to draw
      * @param opengl_fillrule 1 if opengl fill rule; 0 if DX9 or earlier
      */
-    public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, boolean opengl_fillrule) {
+    public static void stbtt_GetBakedQuad(@NativeType("const stbtt_bakedchar *") STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, @NativeType("float *") FloatBuffer xpos, @NativeType("float *") FloatBuffer ypos, @NativeType("stbtt_aligned_quad *") STBTTAlignedQuad q, @NativeType("int") boolean opengl_fillrule) {
         if (CHECKS) {
             check(chardata, char_index + 1);
             check(xpos, 1);
@@ -391,7 +391,8 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, long alloc_context) {
+    @NativeType("int")
+    public static boolean stbtt_PackBegin(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("unsigned char *") ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, @NativeType("void *") long alloc_context) {
         if (CHECKS) {
             checkSafe(pixels, width * height);
         }
@@ -411,7 +412,8 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_PackBegin(STBTTPackContext spc, ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
+    @NativeType("int")
+    public static boolean stbtt_PackBegin(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("unsigned char *") ByteBuffer pixels, @NativeType("int") int width, @NativeType("int") int height, @NativeType("int") int stride_in_bytes, @NativeType("int") int padding) {
         if (CHECKS) {
             checkSafe(pixels, width * height);
         }
@@ -428,7 +430,7 @@ public class STBTruetype {
      *
      * @param spc an {@link STBTTPackContext} struct
      */
-    public static void stbtt_PackEnd(STBTTPackContext spc) {
+    public static void stbtt_PackEnd(@NativeType("stbtt_pack_context *") STBTTPackContext spc) {
         nstbtt_PackEnd(spc.address());
     }
 
@@ -474,7 +476,8 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_PackFontRange(STBTTPackContext spc, ByteBuffer fontdata, int font_index, float font_size, int first_unicode_char_in_range, STBTTPackedchar.Buffer chardata_for_range) {
+    @NativeType("int")
+    public static boolean stbtt_PackFontRange(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("int") int font_index, @NativeType("float") float font_size, @NativeType("int") int first_unicode_char_in_range, @NativeType("stbtt_packedchar *") STBTTPackedchar.Buffer chardata_for_range) {
         return nstbtt_PackFontRange(spc.address(), memAddress(fontdata), font_index, font_size, first_unicode_char_in_range, chardata_for_range.remaining(), chardata_for_range.address()) != 0;
     }
 
@@ -498,7 +501,8 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_PackFontRanges(STBTTPackContext spc, ByteBuffer fontdata, int font_index, STBTTPackRange.Buffer ranges) {
+    @NativeType("int")
+    public static boolean stbtt_PackFontRanges(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("int") int font_index, @NativeType("stbtt_pack_range *") STBTTPackRange.Buffer ranges) {
         if (CHECKS) {
             STBTTPackRange.validate(ranges.address(), ranges.remaining());
         }
@@ -525,7 +529,7 @@ public class STBTruetype {
      * @param h_oversample the horizontal oversampling amount
      * @param v_oversample the vertical oversampling amount
      */
-    public static void stbtt_PackSetOversampling(STBTTPackContext spc, int h_oversample, int v_oversample) {
+    public static void stbtt_PackSetOversampling(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("unsigned int") int h_oversample, @NativeType("unsigned int") int v_oversample) {
         nstbtt_PackSetOversampling(spc.address(), h_oversample, v_oversample);
     }
 
@@ -549,7 +553,7 @@ public class STBTruetype {
      * @param q                an {@link STBTTAlignedQuad} struct in which to return the quad to draw
      * @param align_to_integer 1 to align the quad to integer coordinates
      */
-    public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, FloatBuffer xpos, FloatBuffer ypos, STBTTAlignedQuad q, boolean align_to_integer) {
+    public static void stbtt_GetPackedQuad(@NativeType("const stbtt_packedchar *") STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, @NativeType("float *") FloatBuffer xpos, @NativeType("float *") FloatBuffer ypos, @NativeType("stbtt_aligned_quad *") STBTTAlignedQuad q, @NativeType("int") boolean align_to_integer) {
         if (CHECKS) {
             check(chardata, char_index + 1);
             check(xpos, 1);
@@ -580,7 +584,7 @@ public class STBTruetype {
      *
      * @return the number of structs written in {@code rects}
      */
-    public static int stbtt_PackFontRangesGatherRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect.Buffer rects) {
+    public static int stbtt_PackFontRangesGatherRects(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("stbtt_fontinfo *") STBTTFontinfo info, @NativeType("stbtt_pack_range *") STBTTPackRange.Buffer ranges, @NativeType("stbrp_rect *") STBRPRect.Buffer rects) {
         if (CHECKS) {
             STBTTPackRange.validate(ranges.address(), ranges.remaining());
         }
@@ -602,7 +606,7 @@ public class STBTruetype {
      * @param spc   an {@link STBTTPackContext} struct
      * @param rects an array of {@link STBRPRect} structs
      */
-    public static void stbtt_PackFontRangesPackRects(STBTTPackContext spc, STBRPRect.Buffer rects) {
+    public static void stbtt_PackFontRangesPackRects(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("stbrp_rect *") STBRPRect.Buffer rects) {
         nstbtt_PackFontRangesPackRects(spc.address(), rects.address(), rects.remaining());
     }
 
@@ -625,7 +629,8 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_PackFontRangesRenderIntoRects(STBTTPackContext spc, STBTTFontinfo info, STBTTPackRange.Buffer ranges, STBRPRect.Buffer rects) {
+    @NativeType("int")
+    public static boolean stbtt_PackFontRangesRenderIntoRects(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("stbtt_fontinfo *") STBTTFontinfo info, @NativeType("stbtt_pack_range *") STBTTPackRange.Buffer ranges, @NativeType("stbrp_rect *") STBRPRect.Buffer rects) {
         if (CHECKS) {
             STBTTPackRange.validate(ranges.address(), ranges.remaining());
         }
@@ -645,7 +650,7 @@ public class STBTruetype {
      *
      * @param data the font data
      */
-    public static int stbtt_GetNumberOfFonts(ByteBuffer data) {
+    public static int stbtt_GetNumberOfFonts(@NativeType("const unsigned char *") ByteBuffer data) {
         return nstbtt_GetNumberOfFonts(memAddress(data));
     }
 
@@ -662,7 +667,7 @@ public class STBTruetype {
      * @param data  the font data
      * @param index the font index
      */
-    public static int stbtt_GetFontOffsetForIndex(ByteBuffer data, int index) {
+    public static int stbtt_GetFontOffsetForIndex(@NativeType("const unsigned char *") ByteBuffer data, int index) {
         return nstbtt_GetFontOffsetForIndex(memAddress(data), index);
     }
 
@@ -682,7 +687,8 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_InitFont(STBTTFontinfo info, ByteBuffer data, int offset) {
+    @NativeType("int")
+    public static boolean stbtt_InitFont(@NativeType("stbtt_fontinfo *") STBTTFontinfo info, @NativeType("const unsigned char *") ByteBuffer data, int offset) {
         return nstbtt_InitFont(info.address(), memAddress(data), offset) != 0;
     }
 
@@ -696,7 +702,8 @@ public class STBTruetype {
      *
      * @return 1 on success, 0 on failure
      */
-    public static boolean stbtt_InitFont(STBTTFontinfo info, ByteBuffer data) {
+    @NativeType("int")
+    public static boolean stbtt_InitFont(@NativeType("stbtt_fontinfo *") STBTTFontinfo info, @NativeType("const unsigned char *") ByteBuffer data) {
         return nstbtt_InitFont(info.address(), memAddress(data), 0) != 0;
     }
 
@@ -714,7 +721,7 @@ public class STBTruetype {
      *
      * @return the glyph index
      */
-    public static int stbtt_FindGlyphIndex(STBTTFontinfo info, int unicode_codepoint) {
+    public static int stbtt_FindGlyphIndex(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int unicode_codepoint) {
         return nstbtt_FindGlyphIndex(info.address(), unicode_codepoint);
     }
 
@@ -737,7 +744,7 @@ public class STBTruetype {
      *
      * @return the scale factor
      */
-    public static float stbtt_ScaleForPixelHeight(STBTTFontinfo info, float pixels) {
+    public static float stbtt_ScaleForPixelHeight(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float pixels) {
         return nstbtt_ScaleForPixelHeight(info.address(), pixels);
     }
 
@@ -755,7 +762,7 @@ public class STBTruetype {
      *
      * @return the scale factor
      */
-    public static float stbtt_ScaleForMappingEmToPixels(STBTTFontinfo info, float pixels) {
+    public static float stbtt_ScaleForMappingEmToPixels(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float pixels) {
         return nstbtt_ScaleForMappingEmToPixels(info.address(), pixels);
     }
 
@@ -774,7 +781,7 @@ public class STBTruetype {
      * @param descent returns the coordinate below the baseline the font extends (i.e. it is typically negative)
      * @param lineGap returns the spacing between one row's descent and the next row's ascent
      */
-    public static void stbtt_GetFontVMetrics(STBTTFontinfo info, IntBuffer ascent, IntBuffer descent, IntBuffer lineGap) {
+    public static void stbtt_GetFontVMetrics(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int *") IntBuffer ascent, @NativeType("int *") IntBuffer descent, @NativeType("int *") IntBuffer lineGap) {
         if (CHECKS) {
             checkSafe(ascent, 1);
             checkSafe(descent, 1);
@@ -798,7 +805,8 @@ public class STBTruetype {
      *
      * @return 1 on success (table present), 0 on failure
      */
-    public static boolean stbtt_GetFontVMetricsOS2(STBTTFontinfo info, IntBuffer typoAscent, IntBuffer typoDescent, IntBuffer typoLineGap) {
+    @NativeType("int")
+    public static boolean stbtt_GetFontVMetricsOS2(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int *") IntBuffer typoAscent, @NativeType("int *") IntBuffer typoDescent, @NativeType("int *") IntBuffer typoLineGap) {
         if (CHECKS) {
             checkSafe(typoAscent, 1);
             checkSafe(typoDescent, 1);
@@ -821,7 +829,7 @@ public class STBTruetype {
      * @param x1   the right coordinate
      * @param y1   the top coordinate
      */
-    public static void stbtt_GetFontBoundingBox(STBTTFontinfo info, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
+    public static void stbtt_GetFontBoundingBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int *") IntBuffer x0, @NativeType("int *") IntBuffer y0, @NativeType("int *") IntBuffer x1, @NativeType("int *") IntBuffer y1) {
         if (CHECKS) {
             check(x0, 1);
             check(y0, 1);
@@ -846,7 +854,7 @@ public class STBTruetype {
      * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
      * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
      */
-    public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
+    public static void stbtt_GetCodepointHMetrics(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int codepoint, @NativeType("int *") IntBuffer advanceWidth, @NativeType("int *") IntBuffer leftSideBearing) {
         if (CHECKS) {
             checkSafe(advanceWidth, 1);
             checkSafe(leftSideBearing, 1);
@@ -866,7 +874,7 @@ public class STBTruetype {
      * @param ch1  the first unicode codepoint
      * @param ch2  the second unicode codepoint
      */
-    public static int stbtt_GetCodepointKernAdvance(STBTTFontinfo info, int ch1, int ch2) {
+    public static int stbtt_GetCodepointKernAdvance(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int ch1, int ch2) {
         return nstbtt_GetCodepointKernAdvance(info.address(), ch1, ch2);
     }
 
@@ -885,7 +893,8 @@ public class STBTruetype {
      * @param x1        returns the right coordinate
      * @param y1        returns the top coordinate
      */
-    public static boolean stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
+    @NativeType("int")
+    public static boolean stbtt_GetCodepointBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int codepoint, @NativeType("int *") IntBuffer x0, @NativeType("int *") IntBuffer y0, @NativeType("int *") IntBuffer x1, @NativeType("int *") IntBuffer y1) {
         if (CHECKS) {
             checkSafe(x0, 1);
             checkSafe(y0, 1);
@@ -908,7 +917,7 @@ public class STBTruetype {
      * @param advanceWidth    the offset from the current horizontal position to the next horizontal position
      * @param leftSideBearing the offset from the current horizontal position to the left edge of the character
      */
-    public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, IntBuffer advanceWidth, IntBuffer leftSideBearing) {
+    public static void stbtt_GetGlyphHMetrics(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph_index, @NativeType("int *") IntBuffer advanceWidth, @NativeType("int *") IntBuffer leftSideBearing) {
         if (CHECKS) {
             checkSafe(advanceWidth, 1);
             checkSafe(leftSideBearing, 1);
@@ -928,7 +937,7 @@ public class STBTruetype {
      * @param glyph1 the first glyph index
      * @param glyph2 the second glyph index
      */
-    public static int stbtt_GetGlyphKernAdvance(STBTTFontinfo info, int glyph1, int glyph2) {
+    public static int stbtt_GetGlyphKernAdvance(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph1, int glyph2) {
         return nstbtt_GetGlyphKernAdvance(info.address(), glyph1, glyph2);
     }
 
@@ -947,7 +956,8 @@ public class STBTruetype {
      * @param x1          returns the right coordinate
      * @param y1          returns the top coordinate
      */
-    public static boolean stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, IntBuffer x0, IntBuffer y0, IntBuffer x1, IntBuffer y1) {
+    @NativeType("int")
+    public static boolean stbtt_GetGlyphBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph_index, @NativeType("int *") IntBuffer x0, @NativeType("int *") IntBuffer y0, @NativeType("int *") IntBuffer x1, @NativeType("int *") IntBuffer y1) {
         if (CHECKS) {
             checkSafe(x0, 1);
             checkSafe(y0, 1);
@@ -968,7 +978,8 @@ public class STBTruetype {
      * @param info        an {@link STBTTFontinfo} struct
      * @param glyph_index the glyph index
      */
-    public static boolean stbtt_IsGlyphEmpty(STBTTFontinfo info, int glyph_index) {
+    @NativeType("int")
+    public static boolean stbtt_IsGlyphEmpty(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph_index) {
         return nstbtt_IsGlyphEmpty(info.address(), glyph_index) != 0;
     }
 
@@ -990,7 +1001,7 @@ public class STBTruetype {
      * @param unicode_codepoint the unicode codepoint
      * @param vertices          returns a pointer to an array of {@link STBTTVertex} structs
      */
-    public static int stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint, PointerBuffer vertices) {
+    public static int stbtt_GetCodepointShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int unicode_codepoint, @NativeType("stbtt_vertex **") PointerBuffer vertices) {
         if (CHECKS) {
             check(vertices, 1);
         }
@@ -1009,7 +1020,8 @@ public class STBTruetype {
      * @param info              an {@link STBTTFontinfo} struct
      * @param unicode_codepoint the unicode codepoint
      */
-    public static STBTTVertex.Buffer stbtt_GetCodepointShape(STBTTFontinfo info, int unicode_codepoint) {
+    @NativeType("int")
+    public static STBTTVertex.Buffer stbtt_GetCodepointShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int") int unicode_codepoint) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer vertices = stack.pointers(NULL);
@@ -1032,7 +1044,7 @@ public class STBTruetype {
      * @param glyph_index the unicode codepoint
      * @param vertices    returns a pointer to an array of {@link STBTTVertex} structs
      */
-    public static int stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index, PointerBuffer vertices) {
+    public static int stbtt_GetGlyphShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph_index, @NativeType("stbtt_vertex **") PointerBuffer vertices) {
         if (CHECKS) {
             check(vertices, 1);
         }
@@ -1045,7 +1057,8 @@ public class STBTruetype {
      * @param info        an {@link STBTTFontinfo} struct
      * @param glyph_index the unicode codepoint
      */
-    public static STBTTVertex.Buffer stbtt_GetGlyphShape(STBTTFontinfo info, int glyph_index) {
+    @NativeType("int")
+    public static STBTTVertex.Buffer stbtt_GetGlyphShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int") int glyph_index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer vertices = stack.pointers(NULL);
@@ -1067,7 +1080,7 @@ public class STBTruetype {
      * @param info     an {@link STBTTFontinfo} struct
      * @param vertices the array of {@link STBTTVertex} structs to free
      */
-    public static void stbtt_FreeShape(STBTTFontinfo info, STBTTVertex.Buffer vertices) {
+    public static void stbtt_FreeShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("stbtt_vertex *") STBTTVertex.Buffer vertices) {
         if (CHECKS) {
             check(vertices, 1);
         }
@@ -1085,7 +1098,7 @@ public class STBTruetype {
      * @param bitmap   the bitmap to free
      * @param userdata a pointer to an allocation context
      */
-    public static void stbtt_FreeBitmap(ByteBuffer bitmap, long userdata) {
+    public static void stbtt_FreeBitmap(@NativeType("unsigned char *") ByteBuffer bitmap, @NativeType("void *") long userdata) {
         nstbtt_FreeBitmap(memAddress(bitmap), userdata);
     }
 
@@ -1094,7 +1107,7 @@ public class STBTruetype {
      *
      * @param bitmap the bitmap to free
      */
-    public static void stbtt_FreeBitmap(ByteBuffer bitmap) {
+    public static void stbtt_FreeBitmap(@NativeType("unsigned char *") ByteBuffer bitmap) {
         nstbtt_FreeBitmap(memAddress(bitmap), NULL);
     }
 
@@ -1115,7 +1128,8 @@ public class STBTruetype {
      * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
      * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
      */
-    public static ByteBuffer stbtt_GetCodepointBitmap(STBTTFontinfo info, float scale_x, float scale_y, int codepoint, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetCodepointBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, int codepoint, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height, @NativeType("int *") IntBuffer xoff, @NativeType("int *") IntBuffer yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1145,7 +1159,8 @@ public class STBTruetype {
      * @param xoff      returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
      * @param yoff      returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
      */
-    public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height, @NativeType("int *") IntBuffer xoff, @NativeType("int *") IntBuffer yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1174,7 +1189,7 @@ public class STBTruetype {
      * @param scale_y    the vertical scale
      * @param codepoint  the unicode codepoint to render
      */
-    public static void stbtt_MakeCodepointBitmap(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint) {
+    public static void stbtt_MakeCodepointBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint) {
         if (CHECKS) {
             check(output, out_w * out_h);
         }
@@ -1200,7 +1215,7 @@ public class STBTruetype {
      * @param shift_y    the vertical subpixel shift
      * @param codepoint  the unicode codepoint to render
      */
-    public static void stbtt_MakeCodepointBitmapSubpixel(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint) {
+    public static void stbtt_MakeCodepointBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint) {
         if (CHECKS) {
             check(output, out_w * out_h);
         }
@@ -1230,7 +1245,7 @@ public class STBTruetype {
      * @param sub_y        returns the vertical oversample shift
      * @param codepoint    the unicode codepoint to render
      */
-    public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, FloatBuffer sub_x, FloatBuffer sub_y, int codepoint) {
+    public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") FloatBuffer sub_x, @NativeType("float *") FloatBuffer sub_y, int codepoint) {
         if (CHECKS) {
             check(output, out_w * out_h);
             check(sub_x, 1);
@@ -1259,7 +1274,7 @@ public class STBTruetype {
      * @param ix1       returns the right coordinate
      * @param iy1       returns the top coordinate
      */
-    public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
+    public static void stbtt_GetCodepointBitmapBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int codepoint, float scale_x, float scale_y, @NativeType("int *") IntBuffer ix0, @NativeType("int *") IntBuffer iy0, @NativeType("int *") IntBuffer ix1, @NativeType("int *") IntBuffer iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1288,7 +1303,7 @@ public class STBTruetype {
      * @param ix1       returns the right coordinate
      * @param iy1       returns the top coordinate
      */
-    public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
+    public static void stbtt_GetCodepointBitmapBoxSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, @NativeType("int *") IntBuffer ix0, @NativeType("int *") IntBuffer iy0, @NativeType("int *") IntBuffer ix1, @NativeType("int *") IntBuffer iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1315,7 +1330,8 @@ public class STBTruetype {
      * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
      * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
      */
-    public static ByteBuffer stbtt_GetGlyphBitmap(STBTTFontinfo info, float scale_x, float scale_y, int glyph, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetGlyphBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, int glyph, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height, @NativeType("int *") IntBuffer xoff, @NativeType("int *") IntBuffer yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1345,7 +1361,8 @@ public class STBTruetype {
      * @param xoff    returns the horizontal offset in pixel space from the glyph origin to the left of the bitmap
      * @param yoff    returns the vertical offset in pixel space from the glyph origin to the top of the bitmap
      */
-    public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height, @NativeType("int *") IntBuffer xoff, @NativeType("int *") IntBuffer yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1374,7 +1391,7 @@ public class STBTruetype {
      * @param scale_y    the vertical scale
      * @param glyph      the glyph index to render
      */
-    public static void stbtt_MakeGlyphBitmap(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int glyph) {
+    public static void stbtt_MakeGlyphBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int glyph) {
         if (CHECKS) {
             check(output, out_w * out_h);
         }
@@ -1400,7 +1417,7 @@ public class STBTruetype {
      * @param shift_y    the vertical subpixel shift
      * @param glyph      the glyph index to render
      */
-    public static void stbtt_MakeGlyphBitmapSubpixel(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int glyph) {
+    public static void stbtt_MakeGlyphBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int glyph) {
         if (CHECKS) {
             check(output, out_w * out_h);
         }
@@ -1430,7 +1447,7 @@ public class STBTruetype {
      * @param sub_y        returns the vertical oversample shift
      * @param glyph        the glyph index to render
      */
-    public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, FloatBuffer sub_x, FloatBuffer sub_y, int glyph) {
+    public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") FloatBuffer sub_x, @NativeType("float *") FloatBuffer sub_y, int glyph) {
         if (CHECKS) {
             check(output, out_w * out_h);
             check(sub_x, 1);
@@ -1459,7 +1476,7 @@ public class STBTruetype {
      * @param ix1     returns the right coordinate
      * @param iy1     returns the top coordinate
      */
-    public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
+    public static void stbtt_GetGlyphBitmapBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int glyph, float scale_x, float scale_y, @NativeType("int *") IntBuffer ix0, @NativeType("int *") IntBuffer iy0, @NativeType("int *") IntBuffer ix1, @NativeType("int *") IntBuffer iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1488,7 +1505,7 @@ public class STBTruetype {
      * @param ix1     returns the right coordinate
      * @param iy1     returns the top coordinate
      */
-    public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, IntBuffer ix0, IntBuffer iy0, IntBuffer ix1, IntBuffer iy1) {
+    public static void stbtt_GetGlyphBitmapBoxSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, @NativeType("int *") IntBuffer ix0, @NativeType("int *") IntBuffer iy0, @NativeType("int *") IntBuffer ix1, @NativeType("int *") IntBuffer iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1521,7 +1538,7 @@ public class STBTruetype {
      * @param y_off              another vertical translation applied to input
      * @param invert             if non-zero, vertically flip shape
      */
-    public static void stbtt_Rasterize(STBTTBitmap result, float flatness_in_pixels, STBTTVertex.Buffer vertices, float scale_x, float scale_y, float shift_x, float shift_y, int x_off, int y_off, boolean invert) {
+    public static void stbtt_Rasterize(@NativeType("stbtt__bitmap *") STBTTBitmap result, @NativeType("float") float flatness_in_pixels, @NativeType("stbtt_vertex *") STBTTVertex.Buffer vertices, @NativeType("float") float scale_x, @NativeType("float") float scale_y, @NativeType("float") float shift_x, @NativeType("float") float shift_y, @NativeType("int") int x_off, @NativeType("int") int y_off, @NativeType("int") boolean invert) {
         nstbtt_Rasterize(result.address(), flatness_in_pixels, vertices.address(), vertices.remaining(), scale_x, scale_y, shift_x, shift_y, x_off, y_off, invert ? 1 : 0, NULL);
     }
 
@@ -1536,7 +1553,7 @@ public class STBTruetype {
      * @param bitmap   the SDF bitmap to free
      * @param userdata a pointer to an allocation context
      */
-    public static void stbtt_FreeSDF(ByteBuffer bitmap, long userdata) {
+    public static void stbtt_FreeSDF(@NativeType("unsigned char *") ByteBuffer bitmap, @NativeType("void *") long userdata) {
         nstbtt_FreeSDF(memAddress(bitmap), userdata);
     }
 
@@ -1545,7 +1562,7 @@ public class STBTruetype {
      *
      * @param bitmap the SDF bitmap to free
      */
-    public static void stbtt_FreeSDF(ByteBuffer bitmap) {
+    public static void stbtt_FreeSDF(@NativeType("unsigned char *") ByteBuffer bitmap) {
         nstbtt_FreeSDF(memAddress(bitmap), NULL);
     }
 
@@ -1594,7 +1611,8 @@ public class STBTruetype {
      * @param xoff             output horizontal origin of the character
      * @param yoff             output vertical origin of the character
      */
-    public static ByteBuffer stbtt_GetGlyphSDF(STBTTFontinfo font, float scale, int glyph, int padding, byte onedge_value, float pixel_dist_scale, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetGlyphSDF(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, float scale, int glyph, int padding, @NativeType("unsigned char") byte onedge_value, float pixel_dist_scale, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height, @NativeType("int *") IntBuffer xoff, @NativeType("int *") IntBuffer yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1625,7 +1643,8 @@ public class STBTruetype {
      * @param xoff             output horizontal origin of the character
      * @param yoff             output vertical origin of the character
      */
-    public static ByteBuffer stbtt_GetCodepointSDF(STBTTFontinfo font, float scale, int codepoint, int padding, byte onedge_value, float pixel_dist_scale, IntBuffer width, IntBuffer height, IntBuffer xoff, IntBuffer yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetCodepointSDF(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, float scale, int codepoint, int padding, @NativeType("unsigned char") byte onedge_value, float pixel_dist_scale, @NativeType("int *") IntBuffer width, @NativeType("int *") IntBuffer height, @NativeType("int *") IntBuffer xoff, @NativeType("int *") IntBuffer yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1651,7 +1670,7 @@ public class STBTruetype {
      * @param name     the font name
      * @param flags    the style flags. One of:<br><table><tr><td>{@link #STBTT_MACSTYLE_DONTCARE MACSTYLE_DONTCARE}</td><td>{@link #STBTT_MACSTYLE_BOLD MACSTYLE_BOLD}</td><td>{@link #STBTT_MACSTYLE_ITALIC MACSTYLE_ITALIC}</td><td>{@link #STBTT_MACSTYLE_UNDERSCORE MACSTYLE_UNDERSCORE}</td><td>{@link #STBTT_MACSTYLE_NONE MACSTYLE_NONE}</td></tr></table>
      */
-    public static int stbtt_FindMatchingFont(ByteBuffer fontdata, ByteBuffer name, int flags) {
+    public static int stbtt_FindMatchingFont(@NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("const char *") ByteBuffer name, int flags) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1668,7 +1687,7 @@ public class STBTruetype {
      * @param name     the font name
      * @param flags    the style flags. One of:<br><table><tr><td>{@link #STBTT_MACSTYLE_DONTCARE MACSTYLE_DONTCARE}</td><td>{@link #STBTT_MACSTYLE_BOLD MACSTYLE_BOLD}</td><td>{@link #STBTT_MACSTYLE_ITALIC MACSTYLE_ITALIC}</td><td>{@link #STBTT_MACSTYLE_UNDERSCORE MACSTYLE_UNDERSCORE}</td><td>{@link #STBTT_MACSTYLE_NONE MACSTYLE_NONE}</td></tr></table>
      */
-    public static int stbtt_FindMatchingFont(ByteBuffer fontdata, CharSequence name, int flags) {
+    public static int stbtt_FindMatchingFont(@NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("const char *") CharSequence name, @NativeType("int") int flags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1695,7 +1714,8 @@ public class STBTruetype {
      * @param s1 the first string
      * @param s2 the second string
      */
-    public static boolean stbtt_CompareUTF8toUTF16_bigendian(ByteBuffer s1, ByteBuffer s2) {
+    @NativeType("int")
+    public static boolean stbtt_CompareUTF8toUTF16_bigendian(@NativeType("const char *") ByteBuffer s1, @NativeType("const char *") ByteBuffer s2) {
         return nstbtt_CompareUTF8toUTF16_bigendian(memAddress(s1), s1.remaining(), memAddress(s2), s2.remaining()) != 0;
     }
 
@@ -1724,7 +1744,8 @@ public class STBTruetype {
      * @param languageID the language ID. One of:<br><table><tr><td>{@link #STBTT_MS_LANG_ENGLISH MS_LANG_ENGLISH}</td><td>{@link #STBTT_MS_LANG_CHINESE MS_LANG_CHINESE}</td><td>{@link #STBTT_MS_LANG_DUTCH MS_LANG_DUTCH}</td><td>{@link #STBTT_MS_LANG_FRENCH MS_LANG_FRENCH}</td><td>{@link #STBTT_MS_LANG_GERMAN MS_LANG_GERMAN}</td></tr><tr><td>{@link #STBTT_MS_LANG_HEBREW MS_LANG_HEBREW}</td><td>{@link #STBTT_MS_LANG_ITALIAN MS_LANG_ITALIAN}</td><td>{@link #STBTT_MS_LANG_JAPANESE MS_LANG_JAPANESE}</td><td>{@link #STBTT_MS_LANG_KOREAN MS_LANG_KOREAN}</td><td>{@link #STBTT_MS_LANG_RUSSIAN MS_LANG_RUSSIAN}</td></tr><tr><td>{@link #STBTT_MS_LANG_SPANISH MS_LANG_SPANISH}</td><td>{@link #STBTT_MS_LANG_SWEDISH MS_LANG_SWEDISH}</td><td>{@link #STBTT_MAC_LANG_ENGLISH MAC_LANG_ENGLISH}</td><td>{@link #STBTT_MAC_LANG_ARABIC MAC_LANG_ARABIC}</td><td>{@link #STBTT_MAC_LANG_DUTCH MAC_LANG_DUTCH}</td></tr><tr><td>{@link #STBTT_MAC_LANG_FRENCH MAC_LANG_FRENCH}</td><td>{@link #STBTT_MAC_LANG_GERMAN MAC_LANG_GERMAN}</td><td>{@link #STBTT_MAC_LANG_HEBREW MAC_LANG_HEBREW}</td><td>{@link #STBTT_MAC_LANG_ITALIAN MAC_LANG_ITALIAN}</td><td>{@link #STBTT_MAC_LANG_JAPANESE MAC_LANG_JAPANESE}</td></tr><tr><td>{@link #STBTT_MAC_LANG_KOREAN MAC_LANG_KOREAN}</td><td>{@link #STBTT_MAC_LANG_RUSSIAN MAC_LANG_RUSSIAN}</td><td>{@link #STBTT_MAC_LANG_SPANISH MAC_LANG_SPANISH}</td><td>{@link #STBTT_MAC_LANG_SWEDISH MAC_LANG_SWEDISH}</td><td>{@link #STBTT_MAC_LANG_CHINESE_SIMPLIFIED MAC_LANG_CHINESE_SIMPLIFIED}</td></tr><tr><td>{@link #STBTT_MAC_LANG_CHINESE_TRAD MAC_LANG_CHINESE_TRAD}</td></tr></table>
      * @param nameID     the name ID
      */
-    public static ByteBuffer stbtt_GetFontNameString(STBTTFontinfo font, int platformID, int encodingID, int languageID, int nameID) {
+    @NativeType("const char *")
+    public static ByteBuffer stbtt_GetFontNameString(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int platformID, int encodingID, int languageID, int nameID) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer length = stack.callocInt(1);
         try {
@@ -1739,7 +1760,7 @@ public class STBTruetype {
     public static native void nstbtt_GetBakedQuad(long chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, long q, int opengl_fillrule);
 
     /** Array version of: {@link #stbtt_GetBakedQuad GetBakedQuad} */
-    public static void stbtt_GetBakedQuad(STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, STBTTAlignedQuad q, boolean opengl_fillrule) {
+    public static void stbtt_GetBakedQuad(@NativeType("const stbtt_bakedchar *") STBTTBakedChar.Buffer chardata, int pw, int ph, int char_index, @NativeType("float *") float[] xpos, @NativeType("float *") float[] ypos, @NativeType("stbtt_aligned_quad *") STBTTAlignedQuad q, @NativeType("int") boolean opengl_fillrule) {
         if (CHECKS) {
             check(chardata, char_index + 1);
             check(xpos, 1);
@@ -1752,7 +1773,7 @@ public class STBTruetype {
     public static native void nstbtt_GetPackedQuad(long chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, long q, int align_to_integer);
 
     /** Array version of: {@link #stbtt_GetPackedQuad GetPackedQuad} */
-    public static void stbtt_GetPackedQuad(STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, float[] xpos, float[] ypos, STBTTAlignedQuad q, boolean align_to_integer) {
+    public static void stbtt_GetPackedQuad(@NativeType("const stbtt_packedchar *") STBTTPackedchar.Buffer chardata, int pw, int ph, int char_index, @NativeType("float *") float[] xpos, @NativeType("float *") float[] ypos, @NativeType("stbtt_aligned_quad *") STBTTAlignedQuad q, @NativeType("int") boolean align_to_integer) {
         if (CHECKS) {
             check(chardata, char_index + 1);
             check(xpos, 1);
@@ -1765,7 +1786,7 @@ public class STBTruetype {
     public static native void nstbtt_GetFontVMetrics(long info, int[] ascent, int[] descent, int[] lineGap);
 
     /** Array version of: {@link #stbtt_GetFontVMetrics GetFontVMetrics} */
-    public static void stbtt_GetFontVMetrics(STBTTFontinfo info, int[] ascent, int[] descent, int[] lineGap) {
+    public static void stbtt_GetFontVMetrics(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int *") int[] ascent, @NativeType("int *") int[] descent, @NativeType("int *") int[] lineGap) {
         if (CHECKS) {
             checkSafe(ascent, 1);
             checkSafe(descent, 1);
@@ -1778,7 +1799,8 @@ public class STBTruetype {
     public static native int nstbtt_GetFontVMetricsOS2(long info, int[] typoAscent, int[] typoDescent, int[] typoLineGap);
 
     /** Array version of: {@link #stbtt_GetFontVMetricsOS2 GetFontVMetricsOS2} */
-    public static boolean stbtt_GetFontVMetricsOS2(STBTTFontinfo info, int[] typoAscent, int[] typoDescent, int[] typoLineGap) {
+    @NativeType("int")
+    public static boolean stbtt_GetFontVMetricsOS2(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int *") int[] typoAscent, @NativeType("int *") int[] typoDescent, @NativeType("int *") int[] typoLineGap) {
         if (CHECKS) {
             checkSafe(typoAscent, 1);
             checkSafe(typoDescent, 1);
@@ -1791,7 +1813,7 @@ public class STBTruetype {
     public static native void nstbtt_GetFontBoundingBox(long info, int[] x0, int[] y0, int[] x1, int[] y1);
 
     /** Array version of: {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} */
-    public static void stbtt_GetFontBoundingBox(STBTTFontinfo info, int[] x0, int[] y0, int[] x1, int[] y1) {
+    public static void stbtt_GetFontBoundingBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int *") int[] x0, @NativeType("int *") int[] y0, @NativeType("int *") int[] x1, @NativeType("int *") int[] y1) {
         if (CHECKS) {
             check(x0, 1);
             check(y0, 1);
@@ -1805,7 +1827,7 @@ public class STBTruetype {
     public static native void nstbtt_GetCodepointHMetrics(long info, int codepoint, int[] advanceWidth, int[] leftSideBearing);
 
     /** Array version of: {@link #stbtt_GetCodepointHMetrics GetCodepointHMetrics} */
-    public static void stbtt_GetCodepointHMetrics(STBTTFontinfo info, int codepoint, int[] advanceWidth, int[] leftSideBearing) {
+    public static void stbtt_GetCodepointHMetrics(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int codepoint, @NativeType("int *") int[] advanceWidth, @NativeType("int *") int[] leftSideBearing) {
         if (CHECKS) {
             checkSafe(advanceWidth, 1);
             checkSafe(leftSideBearing, 1);
@@ -1817,7 +1839,8 @@ public class STBTruetype {
     public static native int nstbtt_GetCodepointBox(long info, int codepoint, int[] x0, int[] y0, int[] x1, int[] y1);
 
     /** Array version of: {@link #stbtt_GetCodepointBox GetCodepointBox} */
-    public static boolean stbtt_GetCodepointBox(STBTTFontinfo info, int codepoint, int[] x0, int[] y0, int[] x1, int[] y1) {
+    @NativeType("int")
+    public static boolean stbtt_GetCodepointBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int codepoint, @NativeType("int *") int[] x0, @NativeType("int *") int[] y0, @NativeType("int *") int[] x1, @NativeType("int *") int[] y1) {
         if (CHECKS) {
             checkSafe(x0, 1);
             checkSafe(y0, 1);
@@ -1831,7 +1854,7 @@ public class STBTruetype {
     public static native void nstbtt_GetGlyphHMetrics(long info, int glyph_index, int[] advanceWidth, int[] leftSideBearing);
 
     /** Array version of: {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics} */
-    public static void stbtt_GetGlyphHMetrics(STBTTFontinfo info, int glyph_index, int[] advanceWidth, int[] leftSideBearing) {
+    public static void stbtt_GetGlyphHMetrics(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph_index, @NativeType("int *") int[] advanceWidth, @NativeType("int *") int[] leftSideBearing) {
         if (CHECKS) {
             checkSafe(advanceWidth, 1);
             checkSafe(leftSideBearing, 1);
@@ -1843,7 +1866,8 @@ public class STBTruetype {
     public static native int nstbtt_GetGlyphBox(long info, int glyph_index, int[] x0, int[] y0, int[] x1, int[] y1);
 
     /** Array version of: {@link #stbtt_GetGlyphBox GetGlyphBox} */
-    public static boolean stbtt_GetGlyphBox(STBTTFontinfo info, int glyph_index, int[] x0, int[] y0, int[] x1, int[] y1) {
+    @NativeType("int")
+    public static boolean stbtt_GetGlyphBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph_index, @NativeType("int *") int[] x0, @NativeType("int *") int[] y0, @NativeType("int *") int[] x1, @NativeType("int *") int[] y1) {
         if (CHECKS) {
             checkSafe(x0, 1);
             checkSafe(y0, 1);
@@ -1857,7 +1881,8 @@ public class STBTruetype {
     public static native long nstbtt_GetCodepointBitmap(long info, float scale_x, float scale_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff);
 
     /** Array version of: {@link #stbtt_GetCodepointBitmap GetCodepointBitmap} */
-    public static ByteBuffer stbtt_GetCodepointBitmap(STBTTFontinfo info, float scale_x, float scale_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetCodepointBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, int codepoint, @NativeType("int *") int[] width, @NativeType("int *") int[] height, @NativeType("int *") int[] xoff, @NativeType("int *") int[] yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1872,7 +1897,8 @@ public class STBTruetype {
     public static native long nstbtt_GetCodepointBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff);
 
     /** Array version of: {@link #stbtt_GetCodepointBitmapSubpixel GetCodepointBitmapSubpixel} */
-    public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, int[] width, int[] height, int[] xoff, int[] yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetCodepointBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint, @NativeType("int *") int[] width, @NativeType("int *") int[] height, @NativeType("int *") int[] xoff, @NativeType("int *") int[] yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1887,7 +1913,7 @@ public class STBTruetype {
     public static native void nstbtt_MakeCodepointBitmapSubpixelPrefilter(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int codepoint);
 
     /** Array version of: {@link #stbtt_MakeCodepointBitmapSubpixelPrefilter MakeCodepointBitmapSubpixelPrefilter} */
-    public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int codepoint) {
+    public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") float[] sub_x, @NativeType("float *") float[] sub_y, int codepoint) {
         if (CHECKS) {
             check(output, out_w * out_h);
             check(sub_x, 1);
@@ -1900,7 +1926,7 @@ public class STBTruetype {
     public static native void nstbtt_GetCodepointBitmapBox(long font, int codepoint, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
     /** Array version of: {@link #stbtt_GetCodepointBitmapBox GetCodepointBitmapBox} */
-    public static void stbtt_GetCodepointBitmapBox(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
+    public static void stbtt_GetCodepointBitmapBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int codepoint, float scale_x, float scale_y, @NativeType("int *") int[] ix0, @NativeType("int *") int[] iy0, @NativeType("int *") int[] ix1, @NativeType("int *") int[] iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1914,7 +1940,7 @@ public class STBTruetype {
     public static native void nstbtt_GetCodepointBitmapBoxSubpixel(long font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
     /** Array version of: {@link #stbtt_GetCodepointBitmapBoxSubpixel GetCodepointBitmapBoxSubpixel} */
-    public static void stbtt_GetCodepointBitmapBoxSubpixel(STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
+    public static void stbtt_GetCodepointBitmapBoxSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int codepoint, float scale_x, float scale_y, float shift_x, float shift_y, @NativeType("int *") int[] ix0, @NativeType("int *") int[] iy0, @NativeType("int *") int[] ix1, @NativeType("int *") int[] iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1928,7 +1954,8 @@ public class STBTruetype {
     public static native long nstbtt_GetGlyphBitmap(long info, float scale_x, float scale_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff);
 
     /** Array version of: {@link #stbtt_GetGlyphBitmap GetGlyphBitmap} */
-    public static ByteBuffer stbtt_GetGlyphBitmap(STBTTFontinfo info, float scale_x, float scale_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetGlyphBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, int glyph, @NativeType("int *") int[] width, @NativeType("int *") int[] height, @NativeType("int *") int[] xoff, @NativeType("int *") int[] yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1943,7 +1970,8 @@ public class STBTruetype {
     public static native long nstbtt_GetGlyphBitmapSubpixel(long info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff);
 
     /** Array version of: {@link #stbtt_GetGlyphBitmapSubpixel GetGlyphBitmapSubpixel} */
-    public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, int[] width, int[] height, int[] xoff, int[] yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetGlyphBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, float scale_x, float scale_y, float shift_x, float shift_y, int glyph, @NativeType("int *") int[] width, @NativeType("int *") int[] height, @NativeType("int *") int[] xoff, @NativeType("int *") int[] yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -1958,7 +1986,7 @@ public class STBTruetype {
     public static native void nstbtt_MakeGlyphBitmapSubpixelPrefilter(long info, long output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int glyph);
 
     /** Array version of: {@link #stbtt_MakeGlyphBitmapSubpixelPrefilter MakeGlyphBitmapSubpixelPrefilter} */
-    public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(STBTTFontinfo info, ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, float[] sub_x, float[] sub_y, int glyph) {
+    public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") float[] sub_x, @NativeType("float *") float[] sub_y, int glyph) {
         if (CHECKS) {
             check(output, out_w * out_h);
             check(sub_x, 1);
@@ -1971,7 +1999,7 @@ public class STBTruetype {
     public static native void nstbtt_GetGlyphBitmapBox(long font, int glyph, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
     /** Array version of: {@link #stbtt_GetGlyphBitmapBox GetGlyphBitmapBox} */
-    public static void stbtt_GetGlyphBitmapBox(STBTTFontinfo font, int glyph, float scale_x, float scale_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
+    public static void stbtt_GetGlyphBitmapBox(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int glyph, float scale_x, float scale_y, @NativeType("int *") int[] ix0, @NativeType("int *") int[] iy0, @NativeType("int *") int[] ix1, @NativeType("int *") int[] iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1985,7 +2013,7 @@ public class STBTruetype {
     public static native void nstbtt_GetGlyphBitmapBoxSubpixel(long font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1);
 
     /** Array version of: {@link #stbtt_GetGlyphBitmapBoxSubpixel GetGlyphBitmapBoxSubpixel} */
-    public static void stbtt_GetGlyphBitmapBoxSubpixel(STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, int[] ix0, int[] iy0, int[] ix1, int[] iy1) {
+    public static void stbtt_GetGlyphBitmapBoxSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, int glyph, float scale_x, float scale_y, float shift_x, float shift_y, @NativeType("int *") int[] ix0, @NativeType("int *") int[] iy0, @NativeType("int *") int[] ix1, @NativeType("int *") int[] iy1) {
         if (CHECKS) {
             checkSafe(ix0, 1);
             checkSafe(iy0, 1);
@@ -1999,7 +2027,8 @@ public class STBTruetype {
     public static native long nstbtt_GetGlyphSDF(long font, float scale, int glyph, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff);
 
     /** Array version of: {@link #stbtt_GetGlyphSDF GetGlyphSDF} */
-    public static ByteBuffer stbtt_GetGlyphSDF(STBTTFontinfo font, float scale, int glyph, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetGlyphSDF(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, float scale, int glyph, int padding, @NativeType("unsigned char") byte onedge_value, float pixel_dist_scale, @NativeType("int *") int[] width, @NativeType("int *") int[] height, @NativeType("int *") int[] xoff, @NativeType("int *") int[] yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);
@@ -2014,7 +2043,8 @@ public class STBTruetype {
     public static native long nstbtt_GetCodepointSDF(long font, float scale, int codepoint, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff);
 
     /** Array version of: {@link #stbtt_GetCodepointSDF GetCodepointSDF} */
-    public static ByteBuffer stbtt_GetCodepointSDF(STBTTFontinfo font, float scale, int codepoint, int padding, byte onedge_value, float pixel_dist_scale, int[] width, int[] height, int[] xoff, int[] yoff) {
+    @NativeType("unsigned char *")
+    public static ByteBuffer stbtt_GetCodepointSDF(@NativeType("const stbtt_fontinfo *") STBTTFontinfo font, float scale, int codepoint, int padding, @NativeType("unsigned char") byte onedge_value, float pixel_dist_scale, @NativeType("int *") int[] width, @NativeType("int *") int[] height, @NativeType("int *") int[] xoff, @NativeType("int *") int[] yoff) {
         if (CHECKS) {
             check(width, 1);
             check(height, 1);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -52,7 +54,8 @@ public class WGLNVCopyImage {
      * @param height    the number of texels to copy in the y-dimension
      * @param depth     the number of texels to copy in the z-dimension
      */
-    public static boolean wglCopyImageSubDataNV(long srcRC, int srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, long dstRC, int dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth) {
+    @NativeType("BOOL")
+    public static boolean wglCopyImageSubDataNV(@NativeType("HGLRC") long srcRC, @NativeType("GLuint") int srcName, @NativeType("GLenum") int srcTarget, @NativeType("GLint") int srcLevel, @NativeType("GLint") int srcX, @NativeType("GLint") int srcY, @NativeType("GLint") int srcZ, @NativeType("HGLRC") long dstRC, @NativeType("GLuint") int dstName, @NativeType("GLenum") int dstTarget, @NativeType("GLint") int dstLevel, @NativeType("GLint") int dstX, @NativeType("GLint") int dstY, @NativeType("GLint") int dstZ, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth) {
         long __functionAddress = GL.getCapabilitiesWGL().wglCopyImageSubDataNV;
         if (CHECKS) {
             check(__functionAddress);

@@ -55,7 +55,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetTexturesQCOM(long textures, int maxTextures, long numTextures);
 
-    public static void glExtGetTexturesQCOM(IntBuffer textures, IntBuffer numTextures) {
+    public static void glExtGetTexturesQCOM(@NativeType("GLuint *") IntBuffer textures, @NativeType("GLint *") IntBuffer numTextures) {
         if (CHECKS) {
             checkSafe(numTextures, 1);
         }
@@ -66,7 +66,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetBuffersQCOM(long buffers, int maxBuffers, long numBuffers);
 
-    public static void glExtGetBuffersQCOM(IntBuffer buffers, IntBuffer numBuffers) {
+    public static void glExtGetBuffersQCOM(@NativeType("GLuint *") IntBuffer buffers, @NativeType("GLint *") IntBuffer numBuffers) {
         if (CHECKS) {
             checkSafe(numBuffers, 1);
         }
@@ -77,7 +77,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetRenderbuffersQCOM(long renderbuffers, int maxRenderbuffers, long numRenderbuffers);
 
-    public static void glExtGetRenderbuffersQCOM(IntBuffer renderbuffers, IntBuffer numRenderbuffers) {
+    public static void glExtGetRenderbuffersQCOM(@NativeType("GLuint *") IntBuffer renderbuffers, @NativeType("GLint *") IntBuffer numRenderbuffers) {
         if (CHECKS) {
             checkSafe(numRenderbuffers, 1);
         }
@@ -88,7 +88,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetFramebuffersQCOM(long framebuffers, int maxFramebuffers, long numFramebuffers);
 
-    public static void glExtGetFramebuffersQCOM(IntBuffer framebuffers, IntBuffer numFramebuffers) {
+    public static void glExtGetFramebuffersQCOM(@NativeType("GLuint *") IntBuffer framebuffers, @NativeType("GLint *") IntBuffer numFramebuffers) {
         if (CHECKS) {
             checkSafe(numFramebuffers, 1);
         }
@@ -99,14 +99,15 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, long params);
 
-    public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, IntBuffer params) {
+    public static void glExtGetTexLevelParameterivQCOM(@NativeType("GLuint") int texture, @NativeType("GLenum") int face, @NativeType("GLint") int level, @NativeType("GLenum") int pname, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglExtGetTexLevelParameterivQCOM(texture, face, level, pname, memAddress(params));
     }
 
-    public static int glExtGetTexLevelParameteriQCOM(int texture, int face, int level, int pname) {
+    @NativeType("void")
+    public static int glExtGetTexLevelParameteriQCOM(@NativeType("GLuint") int texture, @NativeType("GLenum") int face, @NativeType("GLint") int level, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.callocInt(1);
@@ -119,13 +120,13 @@ public class QCOMExtendedGet {
 
     // --- [ glExtTexObjectStateOverrideiQCOM ] ---
 
-    public static native void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param);
+    public static native void glExtTexObjectStateOverrideiQCOM(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint") int param);
 
     // --- [ glExtGetTexSubImageQCOM ] ---
 
     public static native void nglExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, long texels);
 
-    public static void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ByteBuffer texels) {
+    public static void glExtGetTexSubImageQCOM(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void *") ByteBuffer texels) {
         nglExtGetTexSubImageQCOM(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddress(texels));
     }
 
@@ -133,14 +134,15 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetBufferPointervQCOM(int target, long params);
 
-    public static void glExtGetBufferPointervQCOM(int target, PointerBuffer params) {
+    public static void glExtGetBufferPointervQCOM(@NativeType("GLenum") int target, @NativeType("void **") PointerBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglExtGetBufferPointervQCOM(target, memAddress(params));
     }
 
-    public static long glExtGetBufferPointerQCOM(int target) {
+    @NativeType("void")
+    public static long glExtGetBufferPointerQCOM(@NativeType("GLenum") int target) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer params = stack.callocPointer(1);
@@ -152,7 +154,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetTexturesQCOM ExtGetTexturesQCOM} */
-    public static void glExtGetTexturesQCOM(int[] textures, int[] numTextures) {
+    public static void glExtGetTexturesQCOM(@NativeType("GLuint *") int[] textures, @NativeType("GLint *") int[] numTextures) {
         long __functionAddress = GLES.getICD().glExtGetTexturesQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -162,7 +164,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
-    public static void glExtGetBuffersQCOM(int[] buffers, int[] numBuffers) {
+    public static void glExtGetBuffersQCOM(@NativeType("GLuint *") int[] buffers, @NativeType("GLint *") int[] numBuffers) {
         long __functionAddress = GLES.getICD().glExtGetBuffersQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -172,7 +174,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
-    public static void glExtGetRenderbuffersQCOM(int[] renderbuffers, int[] numRenderbuffers) {
+    public static void glExtGetRenderbuffersQCOM(@NativeType("GLuint *") int[] renderbuffers, @NativeType("GLint *") int[] numRenderbuffers) {
         long __functionAddress = GLES.getICD().glExtGetRenderbuffersQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -182,7 +184,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
-    public static void glExtGetFramebuffersQCOM(int[] framebuffers, int[] numFramebuffers) {
+    public static void glExtGetFramebuffersQCOM(@NativeType("GLuint *") int[] framebuffers, @NativeType("GLint *") int[] numFramebuffers) {
         long __functionAddress = GLES.getICD().glExtGetFramebuffersQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -192,7 +194,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetTexLevelParameterivQCOM ExtGetTexLevelParameterivQCOM} */
-    public static void glExtGetTexLevelParameterivQCOM(int texture, int face, int level, int pname, int[] params) {
+    public static void glExtGetTexLevelParameterivQCOM(@NativeType("GLuint") int texture, @NativeType("GLenum") int face, @NativeType("GLint") int level, @NativeType("GLenum") int pname, @NativeType("GLint *") int[] params) {
         long __functionAddress = GLES.getICD().glExtGetTexLevelParameterivQCOM;
         if (CHECKS) {
             check(__functionAddress);

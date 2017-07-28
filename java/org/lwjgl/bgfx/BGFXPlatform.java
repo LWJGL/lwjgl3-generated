@@ -5,6 +5,8 @@
  */
 package org.lwjgl.bgfx;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.APIUtil.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -65,7 +67,8 @@ public class BGFXPlatform {
      *
      * @return current renderer state
      */
-    public static int bgfx_render_frame(int _msecs) {
+    @NativeType("bgfx_renderer_frame_t")
+    public static int bgfx_render_frame(@NativeType("int32_t") int _msecs) {
         long __functionAddress = Functions.render_frame;
         return invokeI(__functionAddress, _msecs);
     }
@@ -85,7 +88,7 @@ public class BGFXPlatform {
      *
      * @param _data the platform data to set
      */
-    public static void bgfx_set_platform_data(BGFXPlatformData _data) {
+    public static void bgfx_set_platform_data(@NativeType("const bgfx_platform_data_t *") BGFXPlatformData _data) {
         nbgfx_set_platform_data(_data.address());
     }
 
@@ -98,6 +101,7 @@ public class BGFXPlatform {
     }
 
     /** Gets internal data for interop. */
+    @NativeType("const bgfx_internal_data_t *")
     public static BGFXInternalData bgfx_get_internal_data() {
         long __result = nbgfx_get_internal_data();
         return BGFXInternalData.create(__result);
@@ -117,7 +121,8 @@ public class BGFXPlatform {
      *
      * @return native API pointer to texture. If result is 0, texture is not created yet from the main thread.
      */
-    public static long bgfx_override_internal_texture_ptr(short _handle, long _ptr) {
+    @NativeType("uintptr_t")
+    public static long bgfx_override_internal_texture_ptr(@NativeType("bgfx_texture_handle_t") short _handle, @NativeType("uintptr_t") long _ptr) {
         long __functionAddress = Functions.override_internal_texture_ptr;
         return invokePP(__functionAddress, _handle, _ptr);
     }
@@ -146,7 +151,8 @@ public class BGFXPlatform {
      *
      * @return native API pointer to texture. If result is 0, texture is not created yet from the main thread.
      */
-    public static long bgfx_override_internal_texture(short _handle, int _width, int _height, int _numMips, int _format, int _flags) {
+    @NativeType("uintptr_t")
+    public static long bgfx_override_internal_texture(@NativeType("bgfx_texture_handle_t") short _handle, @NativeType("uint16_t") int _width, @NativeType("uint16_t") int _height, @NativeType("uint8_t") int _numMips, @NativeType("bgfx_texture_format_t") int _format, @NativeType("uint32_t") int _flags) {
         return nbgfx_override_internal_texture(_handle, (short)_width, (short)_height, (byte)_numMips, _format, _flags);
     }
 

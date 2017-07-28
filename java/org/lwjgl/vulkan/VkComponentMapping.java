@@ -96,22 +96,26 @@ public class VkComponentMapping extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code r} field. */
+    @NativeType("VkComponentSwizzle")
     public int r() { return nr(address()); }
     /** Returns the value of the {@code g} field. */
+    @NativeType("VkComponentSwizzle")
     public int g() { return ng(address()); }
     /** Returns the value of the {@code b} field. */
+    @NativeType("VkComponentSwizzle")
     public int b() { return nb(address()); }
     /** Returns the value of the {@code a} field. */
+    @NativeType("VkComponentSwizzle")
     public int a() { return na(address()); }
 
     /** Sets the specified value to the {@code r} field. */
-    public VkComponentMapping r(int value) { nr(address(), value); return this; }
+    public VkComponentMapping r(@NativeType("VkComponentSwizzle") int value) { nr(address(), value); return this; }
     /** Sets the specified value to the {@code g} field. */
-    public VkComponentMapping g(int value) { ng(address(), value); return this; }
+    public VkComponentMapping g(@NativeType("VkComponentSwizzle") int value) { ng(address(), value); return this; }
     /** Sets the specified value to the {@code b} field. */
-    public VkComponentMapping b(int value) { nb(address(), value); return this; }
+    public VkComponentMapping b(@NativeType("VkComponentSwizzle") int value) { nb(address(), value); return this; }
     /** Sets the specified value to the {@code a} field. */
-    public VkComponentMapping a(int value) { na(address(), value); return this; }
+    public VkComponentMapping a(@NativeType("VkComponentSwizzle") int value) { na(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkComponentMapping set(
@@ -330,22 +334,26 @@ public class VkComponentMapping extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code r} field. */
+        @NativeType("VkComponentSwizzle")
         public int r() { return VkComponentMapping.nr(address()); }
         /** Returns the value of the {@code g} field. */
+        @NativeType("VkComponentSwizzle")
         public int g() { return VkComponentMapping.ng(address()); }
         /** Returns the value of the {@code b} field. */
+        @NativeType("VkComponentSwizzle")
         public int b() { return VkComponentMapping.nb(address()); }
         /** Returns the value of the {@code a} field. */
+        @NativeType("VkComponentSwizzle")
         public int a() { return VkComponentMapping.na(address()); }
 
         /** Sets the specified value to the {@code r} field. */
-        public VkComponentMapping.Buffer r(int value) { VkComponentMapping.nr(address(), value); return this; }
+        public VkComponentMapping.Buffer r(@NativeType("VkComponentSwizzle") int value) { VkComponentMapping.nr(address(), value); return this; }
         /** Sets the specified value to the {@code g} field. */
-        public VkComponentMapping.Buffer g(int value) { VkComponentMapping.ng(address(), value); return this; }
+        public VkComponentMapping.Buffer g(@NativeType("VkComponentSwizzle") int value) { VkComponentMapping.ng(address(), value); return this; }
         /** Sets the specified value to the {@code b} field. */
-        public VkComponentMapping.Buffer b(int value) { VkComponentMapping.nb(address(), value); return this; }
+        public VkComponentMapping.Buffer b(@NativeType("VkComponentSwizzle") int value) { VkComponentMapping.nb(address(), value); return this; }
         /** Sets the specified value to the {@code a} field. */
-        public VkComponentMapping.Buffer a(int value) { VkComponentMapping.na(address(), value); return this; }
+        public VkComponentMapping.Buffer a(@NativeType("VkComponentSwizzle") int value) { VkComponentMapping.na(address(), value); return this; }
 
     }
 

@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkConfigStackVec2Element struct nk_config_stack_vec2_element} elements[16];
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_vec2")
 class NkConfigStackVec2 extends Struct {
 
     /** The struct size in bytes. */
@@ -66,8 +67,10 @@ class NkConfigStackVec2 extends Struct {
     /** Returns the value of the {@code head} field. */
     public int head() { return nhead(address()); }
     /** Returns a {@link NkConfigStackVec2Element}.Buffer view of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_vec2_element[16]")
     public NkConfigStackVec2Element.Buffer elements() { return nelements(address()); }
     /** Returns a {@link NkConfigStackVec2Element} view of the struct at the specified index of the {@code elements} field. */
+    @NativeType("struct nk_config_stack_vec2_element")
     public NkConfigStackVec2Element elements(int index) { return nelements(address(), index); }
 
     // -----------------------------------
@@ -144,8 +147,10 @@ class NkConfigStackVec2 extends Struct {
         /** Returns the value of the {@code head} field. */
         public int head() { return NkConfigStackVec2.nhead(address()); }
         /** Returns a {@link NkConfigStackVec2Element}.Buffer view of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_vec2_element[16]")
         public NkConfigStackVec2Element.Buffer elements() { return NkConfigStackVec2.nelements(address()); }
         /** Returns a {@link NkConfigStackVec2Element} view of the struct at the specified index of the {@code elements} field. */
+        @NativeType("struct nk_config_stack_vec2_element")
         public NkConfigStackVec2Element elements(int index) { return NkConfigStackVec2.nelements(address(), index); }
 
     }

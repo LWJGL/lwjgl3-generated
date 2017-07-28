@@ -22,6 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     double v[3];
  * }</pre></code>
  */
+@NativeType("struct HmdVector3d_t")
 public class HmdVector3d extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -62,12 +63,13 @@ public class HmdVector3d extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link DoubleBuffer} view of the {@code v} field. */
+    @NativeType("double[3]")
     public DoubleBuffer v() { return nv(address()); }
     /** Returns the value at the specified index of the {@code v} field. */
     public double v(int index) { return nv(address(), index); }
 
     /** Copies the specified {@link DoubleBuffer} to the {@code v} field. */
-    public HmdVector3d v(DoubleBuffer value) { nv(address(), value); return this; }
+    public HmdVector3d v(@NativeType("double[3]") DoubleBuffer value) { nv(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code v} field. */
     public HmdVector3d v(int index, double value) { nv(address(), index, value); return this; }
 
@@ -274,12 +276,13 @@ public class HmdVector3d extends Struct implements NativeResource {
         }
 
         /** Returns a {@link DoubleBuffer} view of the {@code v} field. */
+        @NativeType("double[3]")
         public DoubleBuffer v() { return HmdVector3d.nv(address()); }
         /** Returns the value at the specified index of the {@code v} field. */
         public double v(int index) { return HmdVector3d.nv(address(), index); }
 
         /** Copies the specified {@link DoubleBuffer} to the {@code v} field. */
-        public HmdVector3d.Buffer v(DoubleBuffer value) { HmdVector3d.nv(address(), value); return this; }
+        public HmdVector3d.Buffer v(@NativeType("double[3]") DoubleBuffer value) { HmdVector3d.nv(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code v} field. */
         public HmdVector3d.Buffer v(int index, double value) { HmdVector3d.nv(address(), index, value); return this; }
 

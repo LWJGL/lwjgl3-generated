@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -50,7 +52,7 @@ public class ARBBaseInstance {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static native void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int primcount, int baseinstance);
+    public static native void glDrawArraysInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLint") int first, @NativeType("GLsizei") int count, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance);
 
     // --- [ glDrawElementsInstancedBaseInstance ] ---
 
@@ -72,7 +74,7 @@ public class ARBBaseInstance {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, int count, int type, long indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
     }
 
@@ -85,7 +87,7 @@ public class ARBBaseInstance {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, baseinstance);
     }
 
@@ -97,7 +99,7 @@ public class ARBBaseInstance {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, ByteBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, baseinstance);
     }
 
@@ -109,7 +111,7 @@ public class ARBBaseInstance {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, ShortBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, baseinstance);
     }
 
@@ -121,7 +123,7 @@ public class ARBBaseInstance {
      * @param primcount    the number of instances of the specified range of indices to be rendered
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseInstance(int mode, IntBuffer indices, int primcount, int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, baseinstance);
     }
 
@@ -146,7 +148,7 @@ public class ARBBaseInstance {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, long indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
     }
 
@@ -160,7 +162,7 @@ public class ARBBaseInstance {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int type, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex, baseinstance);
     }
 
@@ -173,7 +175,7 @@ public class ARBBaseInstance {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ByteBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex, baseinstance);
     }
 
@@ -186,7 +188,7 @@ public class ARBBaseInstance {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, ShortBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex, baseinstance);
     }
 
@@ -199,7 +201,7 @@ public class ARBBaseInstance {
      * @param basevertex   a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      * @param baseinstance the base instance for use in fetching instanced vertex attributes
      */
-    public static void glDrawElementsInstancedBaseVertexBaseInstance(int mode, IntBuffer indices, int primcount, int basevertex, int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstance(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstance(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex, baseinstance);
     }
 

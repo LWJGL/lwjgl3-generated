@@ -108,22 +108,26 @@ public class VkMemoryGetFdInfoKHR extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code memory} field. */
+    @NativeType("VkDeviceMemory")
     public long memory() { return nmemory(address()); }
     /** Returns the value of the {@code handleType} field. */
+    @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
     public int handleType() { return nhandleType(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
-    public VkMemoryGetFdInfoKHR sType(int value) { nsType(address(), value); return this; }
+    public VkMemoryGetFdInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryGetFdInfoKHR pNext(long value) { npNext(address(), value); return this; }
+    public VkMemoryGetFdInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code memory} field. */
-    public VkMemoryGetFdInfoKHR memory(long value) { nmemory(address(), value); return this; }
+    public VkMemoryGetFdInfoKHR memory(@NativeType("VkDeviceMemory") long value) { nmemory(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkMemoryGetFdInfoKHR handleType(int value) { nhandleType(address(), value); return this; }
+    public VkMemoryGetFdInfoKHR handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkMemoryGetFdInfoKHR set(
@@ -342,22 +346,26 @@ public class VkMemoryGetFdInfoKHR extends Struct implements NativeResource {
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkMemoryGetFdInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("const void *")
         public long pNext() { return VkMemoryGetFdInfoKHR.npNext(address()); }
         /** Returns the value of the {@code memory} field. */
+        @NativeType("VkDeviceMemory")
         public long memory() { return VkMemoryGetFdInfoKHR.nmemory(address()); }
         /** Returns the value of the {@code handleType} field. */
+        @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
         public int handleType() { return VkMemoryGetFdInfoKHR.nhandleType(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
-        public VkMemoryGetFdInfoKHR.Buffer sType(int value) { VkMemoryGetFdInfoKHR.nsType(address(), value); return this; }
+        public VkMemoryGetFdInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryGetFdInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryGetFdInfoKHR.Buffer pNext(long value) { VkMemoryGetFdInfoKHR.npNext(address(), value); return this; }
+        public VkMemoryGetFdInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkMemoryGetFdInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code memory} field. */
-        public VkMemoryGetFdInfoKHR.Buffer memory(long value) { VkMemoryGetFdInfoKHR.nmemory(address(), value); return this; }
+        public VkMemoryGetFdInfoKHR.Buffer memory(@NativeType("VkDeviceMemory") long value) { VkMemoryGetFdInfoKHR.nmemory(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkMemoryGetFdInfoKHR.Buffer handleType(int value) { VkMemoryGetFdInfoKHR.nhandleType(address(), value); return this; }
+        public VkMemoryGetFdInfoKHR.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { VkMemoryGetFdInfoKHR.nhandleType(address(), value); return this; }
 
     }
 

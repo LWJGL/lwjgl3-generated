@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -39,6 +41,6 @@ public class EXTStencilTwoSide {
 
     // --- [ glActiveStencilFaceEXT ] ---
 
-    public static native void glActiveStencilFaceEXT(int face);
+    public static native void glActiveStencilFaceEXT(@NativeType("GLenum") int face);
 
 }

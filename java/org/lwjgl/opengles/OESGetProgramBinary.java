@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -55,7 +57,7 @@ public class OESGetProgramBinary {
 
     public static native void nglGetProgramBinaryOES(int program, int bufSize, long length, long binaryFormat, long binary);
 
-    public static void glGetProgramBinaryOES(int program, IntBuffer length, IntBuffer binaryFormat, ByteBuffer binary) {
+    public static void glGetProgramBinaryOES(@NativeType("GLuint") int program, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLenum *") IntBuffer binaryFormat, @NativeType("void *") ByteBuffer binary) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(binaryFormat, 1);
@@ -67,12 +69,12 @@ public class OESGetProgramBinary {
 
     public static native void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length);
 
-    public static void glProgramBinaryOES(int program, int binaryFormat, ByteBuffer binary) {
+    public static void glProgramBinaryOES(@NativeType("GLuint") int program, @NativeType("GLenum") int binaryFormat, @NativeType("const void *") ByteBuffer binary) {
         nglProgramBinaryOES(program, binaryFormat, memAddress(binary), binary.remaining());
     }
 
     /** Array version of: {@link #glGetProgramBinaryOES GetProgramBinaryOES} */
-    public static void glGetProgramBinaryOES(int program, int[] length, int[] binaryFormat, ByteBuffer binary) {
+    public static void glGetProgramBinaryOES(@NativeType("GLuint") int program, @NativeType("GLsizei *") int[] length, @NativeType("GLenum *") int[] binaryFormat, @NativeType("void *") ByteBuffer binary) {
         long __functionAddress = GLES.getICD().glGetProgramBinaryOES;
         if (CHECKS) {
             check(__functionAddress);

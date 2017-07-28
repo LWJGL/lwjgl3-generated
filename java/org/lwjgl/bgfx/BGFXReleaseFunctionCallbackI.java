@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link BGFX#bgfx_make_ref_release make_ref_release} method. */
 @FunctionalInterface
+@NativeType("bgfx_release_fn_t")
 public interface BGFXReleaseFunctionCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pp)v";
@@ -32,6 +33,6 @@ public interface BGFXReleaseFunctionCallbackI extends CallbackI.V {
      * @param _ptr      
      * @param _userData 
      */
-    void invoke(long _ptr, long _userData);
+    void invoke(@NativeType("void *") long _ptr, @NativeType("void *") long _userData);
 
 }

@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link Nuklear#nk_plot_function plot_function} function. */
 @FunctionalInterface
+@NativeType("nk_value_getter")
 public interface NkValueGetterI extends CallbackI.F {
 
     String SIGNATURE = "(pi)f";
@@ -26,7 +27,6 @@ public interface NkValueGetterI extends CallbackI.F {
         );
     }
 
-
-    float invoke(long userdata, int index);
+    float invoke(@NativeType("void *") long userdata, int index);
 
 }

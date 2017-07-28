@@ -7,6 +7,8 @@ package org.lwjgl.opengles;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
@@ -61,28 +63,28 @@ public class EXTBufferStorage {
 
     public static native void nglBufferStorageEXT(int target, long size, long data, int flags);
 
-    public static void glBufferStorageEXT(int target, long size, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("GLsizeiptr") long size, @NativeType("GLbitfield") int flags) {
         nglBufferStorageEXT(target, size, NULL, flags);
     }
 
-    public static void glBufferStorageEXT(int target, ByteBuffer data, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") ByteBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorageEXT(target, data.remaining(), memAddress(data), flags);
     }
 
-    public static void glBufferStorageEXT(int target, ShortBuffer data, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorageEXT(target, data.remaining() << 1, memAddress(data), flags);
     }
 
-    public static void glBufferStorageEXT(int target, IntBuffer data, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
     }
 
-    public static void glBufferStorageEXT(int target, FloatBuffer data, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
     }
 
     /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
-    public static void glBufferStorageEXT(int target, short[] data, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") short[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GLES.getICD().glBufferStorageEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -91,7 +93,7 @@ public class EXTBufferStorage {
     }
 
     /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
-    public static void glBufferStorageEXT(int target, int[] data, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") int[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GLES.getICD().glBufferStorageEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -100,7 +102,7 @@ public class EXTBufferStorage {
     }
 
     /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
-    public static void glBufferStorageEXT(int target, float[] data, int flags) {
+    public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") float[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GLES.getICD().glBufferStorageEXT;
         if (CHECKS) {
             check(__functionAddress);

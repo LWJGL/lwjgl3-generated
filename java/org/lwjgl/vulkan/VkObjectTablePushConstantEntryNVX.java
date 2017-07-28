@@ -92,22 +92,26 @@ public class VkObjectTablePushConstantEntryNVX extends Struct implements NativeR
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code type} field. */
+    @NativeType("VkObjectEntryTypeNVX")
     public int type() { return ntype(address()); }
     /** Returns the value of the {@code flags} field. */
+    @NativeType("VkObjectEntryUsageFlagsNVX")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code pipelineLayout} field. */
+    @NativeType("VkPipelineLayout")
     public long pipelineLayout() { return npipelineLayout(address()); }
     /** Returns the value of the {@code stageFlags} field. */
+    @NativeType("VkShaderStageFlags")
     public int stageFlags() { return nstageFlags(address()); }
 
     /** Sets the specified value to the {@code type} field. */
-    public VkObjectTablePushConstantEntryNVX type(int value) { ntype(address(), value); return this; }
+    public VkObjectTablePushConstantEntryNVX type(@NativeType("VkObjectEntryTypeNVX") int value) { ntype(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkObjectTablePushConstantEntryNVX flags(int value) { nflags(address(), value); return this; }
+    public VkObjectTablePushConstantEntryNVX flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code pipelineLayout} field. */
-    public VkObjectTablePushConstantEntryNVX pipelineLayout(long value) { npipelineLayout(address(), value); return this; }
+    public VkObjectTablePushConstantEntryNVX pipelineLayout(@NativeType("VkPipelineLayout") long value) { npipelineLayout(address(), value); return this; }
     /** Sets the specified value to the {@code stageFlags} field. */
-    public VkObjectTablePushConstantEntryNVX stageFlags(int value) { nstageFlags(address(), value); return this; }
+    public VkObjectTablePushConstantEntryNVX stageFlags(@NativeType("VkShaderStageFlags") int value) { nstageFlags(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkObjectTablePushConstantEntryNVX set(
@@ -326,22 +330,26 @@ public class VkObjectTablePushConstantEntryNVX extends Struct implements NativeR
         }
 
         /** Returns the value of the {@code type} field. */
+        @NativeType("VkObjectEntryTypeNVX")
         public int type() { return VkObjectTablePushConstantEntryNVX.ntype(address()); }
         /** Returns the value of the {@code flags} field. */
+        @NativeType("VkObjectEntryUsageFlagsNVX")
         public int flags() { return VkObjectTablePushConstantEntryNVX.nflags(address()); }
         /** Returns the value of the {@code pipelineLayout} field. */
+        @NativeType("VkPipelineLayout")
         public long pipelineLayout() { return VkObjectTablePushConstantEntryNVX.npipelineLayout(address()); }
         /** Returns the value of the {@code stageFlags} field. */
+        @NativeType("VkShaderStageFlags")
         public int stageFlags() { return VkObjectTablePushConstantEntryNVX.nstageFlags(address()); }
 
         /** Sets the specified value to the {@code type} field. */
-        public VkObjectTablePushConstantEntryNVX.Buffer type(int value) { VkObjectTablePushConstantEntryNVX.ntype(address(), value); return this; }
+        public VkObjectTablePushConstantEntryNVX.Buffer type(@NativeType("VkObjectEntryTypeNVX") int value) { VkObjectTablePushConstantEntryNVX.ntype(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkObjectTablePushConstantEntryNVX.Buffer flags(int value) { VkObjectTablePushConstantEntryNVX.nflags(address(), value); return this; }
+        public VkObjectTablePushConstantEntryNVX.Buffer flags(@NativeType("VkObjectEntryUsageFlagsNVX") int value) { VkObjectTablePushConstantEntryNVX.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code pipelineLayout} field. */
-        public VkObjectTablePushConstantEntryNVX.Buffer pipelineLayout(long value) { VkObjectTablePushConstantEntryNVX.npipelineLayout(address(), value); return this; }
+        public VkObjectTablePushConstantEntryNVX.Buffer pipelineLayout(@NativeType("VkPipelineLayout") long value) { VkObjectTablePushConstantEntryNVX.npipelineLayout(address(), value); return this; }
         /** Sets the specified value to the {@code stageFlags} field. */
-        public VkObjectTablePushConstantEntryNVX.Buffer stageFlags(int value) { VkObjectTablePushConstantEntryNVX.nstageFlags(address(), value); return this; }
+        public VkObjectTablePushConstantEntryNVX.Buffer stageFlags(@NativeType("VkShaderStageFlags") int value) { VkObjectTablePushConstantEntryNVX.nstageFlags(address(), value); return this; }
 
     }
 

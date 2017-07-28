@@ -120,7 +120,8 @@ public class WGLARBPixelFormat {
      * @param attributes  an array of pixel format attribute identifiers which specify the attributes to be queried. One of:<br><table><tr><td>{@link #WGL_NUMBER_PIXEL_FORMATS_ARB NUMBER_PIXEL_FORMATS_ARB}</td><td>{@link #WGL_DRAW_TO_WINDOW_ARB DRAW_TO_WINDOW_ARB}</td><td>{@link #WGL_DRAW_TO_BITMAP_ARB DRAW_TO_BITMAP_ARB}</td><td>{@link #WGL_ACCELERATION_ARB ACCELERATION_ARB}</td></tr><tr><td>{@link #WGL_NEED_PALETTE_ARB NEED_PALETTE_ARB}</td><td>{@link #WGL_NEED_SYSTEM_PALETTE_ARB NEED_SYSTEM_PALETTE_ARB}</td><td>{@link #WGL_SWAP_LAYER_BUFFERS_ARB SWAP_LAYER_BUFFERS_ARB}</td><td>{@link #WGL_SWAP_METHOD_ARB SWAP_METHOD_ARB}</td></tr><tr><td>{@link #WGL_NUMBER_OVERLAYS_ARB NUMBER_OVERLAYS_ARB}</td><td>{@link #WGL_NUMBER_UNDERLAYS_ARB NUMBER_UNDERLAYS_ARB}</td><td>{@link #WGL_TRANSPARENT_ARB TRANSPARENT_ARB}</td><td>{@link #WGL_TRANSPARENT_RED_VALUE_ARB TRANSPARENT_RED_VALUE_ARB}</td></tr><tr><td>{@link #WGL_TRANSPARENT_GREEN_VALUE_ARB TRANSPARENT_GREEN_VALUE_ARB}</td><td>{@link #WGL_TRANSPARENT_BLUE_VALUE_ARB TRANSPARENT_BLUE_VALUE_ARB}</td><td>{@link #WGL_TRANSPARENT_ALPHA_VALUE_ARB TRANSPARENT_ALPHA_VALUE_ARB}</td><td>{@link #WGL_TRANSPARENT_INDEX_VALUE_ARB TRANSPARENT_INDEX_VALUE_ARB}</td></tr><tr><td>{@link #WGL_SHARE_DEPTH_ARB SHARE_DEPTH_ARB}</td><td>{@link #WGL_SHARE_STENCIL_ARB SHARE_STENCIL_ARB}</td><td>{@link #WGL_SHARE_ACCUM_ARB SHARE_ACCUM_ARB}</td><td>{@link #WGL_SUPPORT_GDI_ARB SUPPORT_GDI_ARB}</td></tr><tr><td>{@link #WGL_SUPPORT_OPENGL_ARB SUPPORT_OPENGL_ARB}</td><td>{@link #WGL_DOUBLE_BUFFER_ARB DOUBLE_BUFFER_ARB}</td><td>{@link #WGL_STEREO_ARB STEREO_ARB}</td><td>{@link #WGL_PIXEL_TYPE_ARB PIXEL_TYPE_ARB}</td></tr><tr><td>{@link #WGL_COLOR_BITS_ARB COLOR_BITS_ARB}</td><td>{@link #WGL_RED_BITS_ARB RED_BITS_ARB}</td><td>{@link #WGL_RED_SHIFT_ARB RED_SHIFT_ARB}</td><td>{@link #WGL_GREEN_BITS_ARB GREEN_BITS_ARB}</td></tr><tr><td>{@link #WGL_GREEN_SHIFT_ARB GREEN_SHIFT_ARB}</td><td>{@link #WGL_BLUE_BITS_ARB BLUE_BITS_ARB}</td><td>{@link #WGL_BLUE_SHIFT_ARB BLUE_SHIFT_ARB}</td><td>{@link #WGL_ALPHA_BITS_ARB ALPHA_BITS_ARB}</td></tr><tr><td>{@link #WGL_ALPHA_SHIFT_ARB ALPHA_SHIFT_ARB}</td><td>{@link #WGL_ACCUM_BITS_ARB ACCUM_BITS_ARB}</td><td>{@link #WGL_ACCUM_RED_BITS_ARB ACCUM_RED_BITS_ARB}</td><td>{@link #WGL_ACCUM_GREEN_BITS_ARB ACCUM_GREEN_BITS_ARB}</td></tr><tr><td>{@link #WGL_ACCUM_BLUE_BITS_ARB ACCUM_BLUE_BITS_ARB}</td><td>{@link #WGL_ACCUM_ALPHA_BITS_ARB ACCUM_ALPHA_BITS_ARB}</td><td>{@link #WGL_DEPTH_BITS_ARB DEPTH_BITS_ARB}</td><td>{@link #WGL_STENCIL_BITS_ARB STENCIL_BITS_ARB}</td></tr><tr><td>{@link #WGL_AUX_BUFFERS_ARB AUX_BUFFERS_ARB}</td></tr></table>
      * @param values      a buffer into which the results of the query will be placed
      */
-    public static boolean wglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, IntBuffer values) {
+    @NativeType("BOOL")
+    public static boolean wglGetPixelFormatAttribivARB(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @NativeType("int") int layerPlane, @NativeType("const int *") IntBuffer attributes, @NativeType("int *") IntBuffer values) {
         if (CHECKS) {
             check(values, attributes.remaining());
         }
@@ -133,7 +134,8 @@ public class WGLARBPixelFormat {
      * @param layerPlane  the plane being queried
      * @param values      a buffer into which the results of the query will be placed
      */
-    public static boolean wglGetPixelFormatAttribiARB(long hdc, int pixelFormat, int layerPlane, int attribute, IntBuffer values) {
+    @NativeType("BOOL")
+    public static boolean wglGetPixelFormatAttribiARB(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @NativeType("int") int layerPlane, @NativeType("const int *") int attribute, @NativeType("int *") IntBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -171,7 +173,8 @@ public class WGLARBPixelFormat {
      * @param attributes  an array of pixel format attribute identifiers which specify the attributes to be queried
      * @param values      a buffer into which the results of the query will be placed
      */
-    public static boolean wglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, IntBuffer attributes, FloatBuffer values) {
+    @NativeType("BOOL")
+    public static boolean wglGetPixelFormatAttribfvARB(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @NativeType("int") int layerPlane, @NativeType("const int *") IntBuffer attributes, @NativeType("FLOAT *") FloatBuffer values) {
         if (CHECKS) {
             check(values, attributes.remaining());
         }
@@ -186,7 +189,8 @@ public class WGLARBPixelFormat {
      * @param layerPlane  the plane being queried
      * @param values      a buffer into which the results of the query will be placed
      */
-    public static boolean wglGetPixelFormatAttribfARB(long hdc, int pixelFormat, int layerPlane, int attribute, FloatBuffer values) {
+    @NativeType("BOOL")
+    public static boolean wglGetPixelFormatAttribfARB(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @NativeType("int") int layerPlane, @NativeType("const int *") int attribute, @NativeType("FLOAT *") FloatBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -227,7 +231,8 @@ public class WGLARBPixelFormat {
      *                    head of the list.
      * @param numFormats  returns the number of matching formats
      */
-    public static boolean wglChoosePixelFormatARB(long hdc, IntBuffer attribIList, FloatBuffer attribFList, IntBuffer formats, IntBuffer numFormats) {
+    @NativeType("BOOL")
+    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @NativeType("const int *") IntBuffer attribIList, @NativeType("const FLOAT *") FloatBuffer attribFList, @NativeType("int *") IntBuffer formats, @NativeType("UINT *") IntBuffer numFormats) {
         if (CHECKS) {
             checkNTSafe(attribIList);
             checkNTSafe(attribFList);
@@ -237,7 +242,8 @@ public class WGLARBPixelFormat {
     }
 
     /** Array version of: {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
-    public static boolean wglGetPixelFormatAttribivARB(long hdc, int pixelFormat, int layerPlane, int[] attributes, int[] values) {
+    @NativeType("BOOL")
+    public static boolean wglGetPixelFormatAttribivARB(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @NativeType("int") int layerPlane, @NativeType("const int *") int[] attributes, @NativeType("int *") int[] values) {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -248,7 +254,8 @@ public class WGLARBPixelFormat {
     }
 
     /** Array version of: {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
-    public static boolean wglGetPixelFormatAttribfvARB(long hdc, int pixelFormat, int layerPlane, int[] attributes, float[] values) {
+    @NativeType("BOOL")
+    public static boolean wglGetPixelFormatAttribfvARB(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @NativeType("int") int layerPlane, @NativeType("const int *") int[] attributes, @NativeType("FLOAT *") float[] values) {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribfvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -259,7 +266,8 @@ public class WGLARBPixelFormat {
     }
 
     /** Array version of: {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
-    public static boolean wglChoosePixelFormatARB(long hdc, int[] attribIList, float[] attribFList, int[] formats, int[] numFormats) {
+    @NativeType("BOOL")
+    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @NativeType("const int *") int[] attribIList, @NativeType("const FLOAT *") float[] attribFList, @NativeType("int *") int[] formats, @NativeType("UINT *") int[] numFormats) {
         long __functionAddress = GL.getCapabilitiesWGL().wglChoosePixelFormatARB;
         if (CHECKS) {
             check(__functionAddress);

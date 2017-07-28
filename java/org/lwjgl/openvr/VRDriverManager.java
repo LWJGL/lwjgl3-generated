@@ -22,6 +22,7 @@ public class VRDriverManager {
 
     // --- [ VRDriverManager_GetDriverCount ] ---
 
+    @NativeType("uint32_t")
     public static int VRDriverManager_GetDriverCount() {
         long __functionAddress = OpenVR.VRDriverManager.GetDriverCount;
         if (CHECKS) {
@@ -47,7 +48,8 @@ public class VRDriverManager {
      *
      * @return the length of the number of bytes necessary to hold this string including the trailing null
      */
-    public static int VRDriverManager_GetDriverName(int nDriver, ByteBuffer pchValue) {
+    @NativeType("uint32_t")
+    public static int VRDriverManager_GetDriverName(@NativeType("DriverId_t") int nDriver, @NativeType("char *") ByteBuffer pchValue) {
         return nVRDriverManager_GetDriverName(nDriver, memAddressSafe(pchValue), remainingSafe(pchValue));
     }
 
@@ -57,7 +59,8 @@ public class VRDriverManager {
      *
      * @return the length of the number of bytes necessary to hold this string including the trailing null
      */
-    public static String VRDriverManager_GetDriverName(int nDriver, int unBufferSize) {
+    @NativeType("uint32_t")
+    public static String VRDriverManager_GetDriverName(@NativeType("DriverId_t") int nDriver, @NativeType("uint32_t") int unBufferSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchValue = stack.malloc(unBufferSize);

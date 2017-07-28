@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 
 @FunctionalInterface
+@NativeType("nk_command_custom_callback")
 public interface NkCommandCustomCallbackI extends CallbackI.P {
 
     String SIGNATURE = "(pssssp)p";
@@ -30,7 +31,6 @@ public interface NkCommandCustomCallbackI extends CallbackI.P {
         );
     }
 
-
-    long invoke(long canvas, short x, short y, short w, short h, long callback_data);
+    @NativeType("void *") long invoke(@NativeType("void *") long canvas, short x, short y, @NativeType("unsigned short") short w, @NativeType("unsigned short") short h, @NativeType("nk_handle") long callback_data);
 
 }

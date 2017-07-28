@@ -84,10 +84,13 @@ public class VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX extends Str
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code sType} field. */
+    @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
+    @NativeType("void *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code perViewPositionAllComponents} field. */
+    @NativeType("VkBool32")
     public boolean perViewPositionAllComponents() { return nperViewPositionAllComponents(address()) != 0; }
 
     // -----------------------------------
@@ -159,10 +162,13 @@ public class VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX extends Str
         }
 
         /** Returns the value of the {@code sType} field. */
+        @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
+        @NativeType("void *")
         public long pNext() { return VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX.npNext(address()); }
         /** Returns the value of the {@code perViewPositionAllComponents} field. */
+        @NativeType("VkBool32")
         public boolean perViewPositionAllComponents() { return VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX.nperViewPositionAllComponents(address()) != 0; }
 
     }

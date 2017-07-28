@@ -21,6 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkUserFont struct nk_user_font} * old_value;
  * }</pre></code>
  */
+@NativeType("struct nk_config_stack_user_font_element")
 class NkConfigStackUserFontElement extends Struct {
 
     /** The struct size in bytes. */
@@ -68,8 +69,10 @@ class NkConfigStackUserFontElement extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @NativeType("struct nk_user_font **")
     public PointerBuffer pValues(int capacity) { return npValues(address(), capacity); }
     /** Returns a {@link NkUserFont} view of the struct pointed to by the {@code old_value} field. */
+    @NativeType("struct nk_user_font *")
     public NkUserFont old_value() { return nold_value(address()); }
 
     // -----------------------------------
@@ -143,8 +146,10 @@ class NkConfigStackUserFontElement extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @NativeType("struct nk_user_font **")
         public PointerBuffer pValues(int capacity) { return NkConfigStackUserFontElement.npValues(address(), capacity); }
         /** Returns a {@link NkUserFont} view of the struct pointed to by the {@code old_value} field. */
+        @NativeType("struct nk_user_font *")
         public NkUserFont old_value() { return NkConfigStackUserFontElement.nold_value(address()); }
 
     }

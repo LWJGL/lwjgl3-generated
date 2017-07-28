@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
@@ -34,7 +36,8 @@ public class NVPostSubBuffer {
 
     // --- [ eglPostSubBufferNV ] ---
 
-    public static boolean eglPostSubBufferNV(long dpy, long surface, int x, int y, int width, int height) {
+    @NativeType("EGLBoolean")
+    public static boolean eglPostSubBufferNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("EGLint") int x, @NativeType("EGLint") int y, @NativeType("EGLint") int width, @NativeType("EGLint") int height) {
         long __functionAddress = EGL.getCapabilities().eglPostSubBufferNV;
         if (CHECKS) {
             check(__functionAddress);

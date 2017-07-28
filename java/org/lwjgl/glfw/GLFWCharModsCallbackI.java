@@ -11,6 +11,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /** Instances of this interface may be passed to the {@link GLFW#glfwSetCharModsCallback SetCharModsCallback} method. */
 @FunctionalInterface
+@NativeType("GLFWcharmodsfun")
 public interface GLFWCharModsCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pii)v";
@@ -34,6 +35,6 @@ public interface GLFWCharModsCallbackI extends CallbackI.V {
      * @param codepoint the Unicode code point of the character
      * @param mods      bitfield describing which modifier keys were held down
      */
-    void invoke(long window, int codepoint, int mods);
+    void invoke(@NativeType("GLFWwindow *") long window, @NativeType("unsigned int") int codepoint, int mods);
 
 }

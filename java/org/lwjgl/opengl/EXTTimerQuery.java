@@ -52,14 +52,15 @@ public class EXTTimerQuery {
 
     public static native void nglGetQueryObjecti64vEXT(int id, int pname, long params);
 
-    public static void glGetQueryObjecti64vEXT(int id, int pname, LongBuffer params) {
+    public static void glGetQueryObjecti64vEXT(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetQueryObjecti64vEXT(id, pname, memAddress(params));
     }
 
-    public static long glGetQueryObjecti64EXT(int id, int pname) {
+    @NativeType("void")
+    public static long glGetQueryObjecti64EXT(@NativeType("GLuint") int id, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -74,14 +75,15 @@ public class EXTTimerQuery {
 
     public static native void nglGetQueryObjectui64vEXT(int id, int pname, long params);
 
-    public static void glGetQueryObjectui64vEXT(int id, int pname, LongBuffer params) {
+    public static void glGetQueryObjectui64vEXT(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetQueryObjectui64vEXT(id, pname, memAddress(params));
     }
 
-    public static long glGetQueryObjectui64EXT(int id, int pname) {
+    @NativeType("void")
+    public static long glGetQueryObjectui64EXT(@NativeType("GLuint") int id, @NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -93,7 +95,7 @@ public class EXTTimerQuery {
     }
 
     /** Array version of: {@link #glGetQueryObjecti64vEXT GetQueryObjecti64vEXT} */
-    public static void glGetQueryObjecti64vEXT(int id, int pname, long[] params) {
+    public static void glGetQueryObjecti64vEXT(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetQueryObjecti64vEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -103,7 +105,7 @@ public class EXTTimerQuery {
     }
 
     /** Array version of: {@link #glGetQueryObjectui64vEXT GetQueryObjectui64vEXT} */
-    public static void glGetQueryObjectui64vEXT(int id, int pname, long[] params) {
+    public static void glGetQueryObjectui64vEXT(@NativeType("GLuint") int id, @NativeType("GLenum") int pname, @NativeType("GLuint64 *") long[] params) {
         long __functionAddress = GL.getICD().glGetQueryObjectui64vEXT;
         if (CHECKS) {
             check(__functionAddress);

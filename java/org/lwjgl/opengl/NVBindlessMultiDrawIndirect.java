@@ -7,6 +7,8 @@ package org.lwjgl.opengl;
 
 import java.nio.*;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -68,7 +70,7 @@ public class NVBindlessMultiDrawIndirect {
      * @param stride            the size of one DrawArraysIndirectBindlessCommandNV structure
      * @param vertexBufferCount the number of vertex buffers in the DrawArraysIndirectBindlessCommandNV structure
      */
-    public static void glMultiDrawArraysIndirectBindlessNV(int mode, ByteBuffer indirect, int drawCount, int stride, int vertexBufferCount) {
+    public static void glMultiDrawArraysIndirectBindlessNV(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int drawCount, @NativeType("GLsizei") int stride, @NativeType("GLint") int vertexBufferCount) {
         if (CHECKS) {
             check(indirect, drawCount * (stride == 0 ? (16 + vertexBufferCount * 24) : stride));
         }
@@ -106,7 +108,7 @@ public class NVBindlessMultiDrawIndirect {
      * @param stride            the size of one DrawElementsIndirectBindlessCommandNV structure
      * @param vertexBufferCount the number of vertex buffers in the DrawElementsIndirectBindlessCommandNV structure
      */
-    public static void glMultiDrawElementsIndirectBindlessNV(int mode, int type, ByteBuffer indirect, int drawCount, int stride, int vertexBufferCount) {
+    public static void glMultiDrawElementsIndirectBindlessNV(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int drawCount, @NativeType("GLsizei") int stride, @NativeType("GLint") int vertexBufferCount) {
         if (CHECKS) {
             check(indirect, drawCount * (stride == 0 ? ((vertexBufferCount + 2) * 24) : stride));
         }

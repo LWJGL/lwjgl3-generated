@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -46,6 +48,6 @@ public class NVInstancedArrays {
 
     // --- [ glVertexAttribDivisorNV ] ---
 
-    public static native void glVertexAttribDivisorNV(int index, int divisor);
+    public static native void glVertexAttribDivisorNV(@NativeType("GLuint") int index, @NativeType("GLuint") int divisor);
 
 }

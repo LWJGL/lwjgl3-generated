@@ -85,13 +85,15 @@ public class APPLESync {
 
     // --- [ glFenceSyncAPPLE ] ---
 
-    public static native long glFenceSyncAPPLE(int condition, int flags);
+    @NativeType("GLsync")
+    public static native long glFenceSyncAPPLE(@NativeType("GLenum") int condition, @NativeType("GLbitfield") int flags);
 
     // --- [ glIsSyncAPPLE ] ---
 
     public static native boolean nglIsSyncAPPLE(long sync);
 
-    public static boolean glIsSyncAPPLE(long sync) {
+    @NativeType("GLboolean")
+    public static boolean glIsSyncAPPLE(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -102,7 +104,7 @@ public class APPLESync {
 
     public static native void nglDeleteSyncAPPLE(long sync);
 
-    public static void glDeleteSyncAPPLE(long sync) {
+    public static void glDeleteSyncAPPLE(@NativeType("GLsync") long sync) {
         if (CHECKS) {
             check(sync);
         }
@@ -113,7 +115,8 @@ public class APPLESync {
 
     public static native int nglClientWaitSyncAPPLE(long sync, int flags, long timeout);
 
-    public static int glClientWaitSyncAPPLE(long sync, int flags, long timeout) {
+    @NativeType("GLenum")
+    public static int glClientWaitSyncAPPLE(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -124,7 +127,7 @@ public class APPLESync {
 
     public static native void nglWaitSyncAPPLE(long sync, int flags, long timeout);
 
-    public static void glWaitSyncAPPLE(long sync, int flags, long timeout) {
+    public static void glWaitSyncAPPLE(@NativeType("GLsync") long sync, @NativeType("GLbitfield") int flags, @NativeType("GLuint64") long timeout) {
         if (CHECKS) {
             check(sync);
         }
@@ -135,14 +138,15 @@ public class APPLESync {
 
     public static native void nglGetInteger64vAPPLE(int pname, long params);
 
-    public static void glGetInteger64vAPPLE(int pname, LongBuffer params) {
+    public static void glGetInteger64vAPPLE(@NativeType("GLenum") int pname, @NativeType("GLint64 *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglGetInteger64vAPPLE(pname, memAddress(params));
     }
 
-    public static long glGetInteger64APPLE(int pname) {
+    @NativeType("void")
+    public static long glGetInteger64APPLE(@NativeType("GLenum") int pname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.callocLong(1);
@@ -157,7 +161,7 @@ public class APPLESync {
 
     public static native void nglGetSyncivAPPLE(long sync, int pname, int bufSize, long length, long values);
 
-    public static void glGetSyncivAPPLE(long sync, int pname, IntBuffer length, IntBuffer values) {
+    public static void glGetSyncivAPPLE(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer values) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -165,7 +169,8 @@ public class APPLESync {
         nglGetSyncivAPPLE(sync, pname, values.remaining(), memAddressSafe(length), memAddress(values));
     }
 
-    public static int glGetSynciAPPLE(long sync, int pname, IntBuffer length) {
+    @NativeType("void")
+    public static int glGetSynciAPPLE(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -181,7 +186,7 @@ public class APPLESync {
     }
 
     /** Array version of: {@link #glGetInteger64vAPPLE GetInteger64vAPPLE} */
-    public static void glGetInteger64vAPPLE(int pname, long[] params) {
+    public static void glGetInteger64vAPPLE(@NativeType("GLenum") int pname, @NativeType("GLint64 *") long[] params) {
         long __functionAddress = GLES.getICD().glGetInteger64vAPPLE;
         if (CHECKS) {
             check(__functionAddress);
@@ -191,7 +196,7 @@ public class APPLESync {
     }
 
     /** Array version of: {@link #glGetSyncivAPPLE GetSyncivAPPLE} */
-    public static void glGetSyncivAPPLE(long sync, int pname, int[] length, int[] values) {
+    public static void glGetSyncivAPPLE(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] values) {
         long __functionAddress = GLES.getICD().glGetSyncivAPPLE;
         if (CHECKS) {
             check(__functionAddress);

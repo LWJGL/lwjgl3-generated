@@ -41,6 +41,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     double ExposureDurationSeconds;
  * }</pre></code>
  */
+@NativeType("struct ovrCameraIntrinsics")
 public class OVRCameraIntrinsics extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
@@ -104,14 +105,17 @@ public class OVRCameraIntrinsics extends Struct implements NativeResource {
     /** Returns the value of the {@code LastChangedTime} field. */
     public double LastChangedTime() { return nLastChangedTime(address()); }
     /** Returns a {@link OVRFovPort} view of the {@code FOVPort} field. */
+    @NativeType("ovrFovPort")
     public OVRFovPort FOVPort() { return nFOVPort(address()); }
     /** Returns the value of the {@code VirtualNearPlaneDistanceMeters} field. */
     public float VirtualNearPlaneDistanceMeters() { return nVirtualNearPlaneDistanceMeters(address()); }
     /** Returns the value of the {@code VirtualFarPlaneDistanceMeters} field. */
     public float VirtualFarPlaneDistanceMeters() { return nVirtualFarPlaneDistanceMeters(address()); }
     /** Returns a {@link OVRSizei} view of the {@code ImageSensorPixelResolution} field. */
+    @NativeType("ovrSizei")
     public OVRSizei ImageSensorPixelResolution() { return nImageSensorPixelResolution(address()); }
     /** Returns a {@link OVRMatrix4f} view of the {@code LensDistortionMatrix} field. */
+    @NativeType("ovrMatrix4f")
     public OVRMatrix4f LensDistortionMatrix() { return nLensDistortionMatrix(address()); }
     /** Returns the value of the {@code ExposurePeriodSeconds} field. */
     public double ExposurePeriodSeconds() { return nExposurePeriodSeconds(address()); }
@@ -121,15 +125,15 @@ public class OVRCameraIntrinsics extends Struct implements NativeResource {
     /** Sets the specified value to the {@code LastChangedTime} field. */
     public OVRCameraIntrinsics LastChangedTime(double value) { nLastChangedTime(address(), value); return this; }
     /** Copies the specified {@link OVRFovPort} to the {@code FOVPort} field. */
-    public OVRCameraIntrinsics FOVPort(OVRFovPort value) { nFOVPort(address(), value); return this; }
+    public OVRCameraIntrinsics FOVPort(@NativeType("ovrFovPort") OVRFovPort value) { nFOVPort(address(), value); return this; }
     /** Sets the specified value to the {@code VirtualNearPlaneDistanceMeters} field. */
     public OVRCameraIntrinsics VirtualNearPlaneDistanceMeters(float value) { nVirtualNearPlaneDistanceMeters(address(), value); return this; }
     /** Sets the specified value to the {@code VirtualFarPlaneDistanceMeters} field. */
     public OVRCameraIntrinsics VirtualFarPlaneDistanceMeters(float value) { nVirtualFarPlaneDistanceMeters(address(), value); return this; }
     /** Copies the specified {@link OVRSizei} to the {@code ImageSensorPixelResolution} field. */
-    public OVRCameraIntrinsics ImageSensorPixelResolution(OVRSizei value) { nImageSensorPixelResolution(address(), value); return this; }
+    public OVRCameraIntrinsics ImageSensorPixelResolution(@NativeType("ovrSizei") OVRSizei value) { nImageSensorPixelResolution(address(), value); return this; }
     /** Copies the specified {@link OVRMatrix4f} to the {@code LensDistortionMatrix} field. */
-    public OVRCameraIntrinsics LensDistortionMatrix(OVRMatrix4f value) { nLensDistortionMatrix(address(), value); return this; }
+    public OVRCameraIntrinsics LensDistortionMatrix(@NativeType("ovrMatrix4f") OVRMatrix4f value) { nLensDistortionMatrix(address(), value); return this; }
     /** Sets the specified value to the {@code ExposurePeriodSeconds} field. */
     public OVRCameraIntrinsics ExposurePeriodSeconds(double value) { nExposurePeriodSeconds(address(), value); return this; }
     /** Sets the specified value to the {@code ExposureDurationSeconds} field. */
@@ -378,14 +382,17 @@ public class OVRCameraIntrinsics extends Struct implements NativeResource {
         /** Returns the value of the {@code LastChangedTime} field. */
         public double LastChangedTime() { return OVRCameraIntrinsics.nLastChangedTime(address()); }
         /** Returns a {@link OVRFovPort} view of the {@code FOVPort} field. */
+        @NativeType("ovrFovPort")
         public OVRFovPort FOVPort() { return OVRCameraIntrinsics.nFOVPort(address()); }
         /** Returns the value of the {@code VirtualNearPlaneDistanceMeters} field. */
         public float VirtualNearPlaneDistanceMeters() { return OVRCameraIntrinsics.nVirtualNearPlaneDistanceMeters(address()); }
         /** Returns the value of the {@code VirtualFarPlaneDistanceMeters} field. */
         public float VirtualFarPlaneDistanceMeters() { return OVRCameraIntrinsics.nVirtualFarPlaneDistanceMeters(address()); }
         /** Returns a {@link OVRSizei} view of the {@code ImageSensorPixelResolution} field. */
+        @NativeType("ovrSizei")
         public OVRSizei ImageSensorPixelResolution() { return OVRCameraIntrinsics.nImageSensorPixelResolution(address()); }
         /** Returns a {@link OVRMatrix4f} view of the {@code LensDistortionMatrix} field. */
+        @NativeType("ovrMatrix4f")
         public OVRMatrix4f LensDistortionMatrix() { return OVRCameraIntrinsics.nLensDistortionMatrix(address()); }
         /** Returns the value of the {@code ExposurePeriodSeconds} field. */
         public double ExposurePeriodSeconds() { return OVRCameraIntrinsics.nExposurePeriodSeconds(address()); }
@@ -395,15 +402,15 @@ public class OVRCameraIntrinsics extends Struct implements NativeResource {
         /** Sets the specified value to the {@code LastChangedTime} field. */
         public OVRCameraIntrinsics.Buffer LastChangedTime(double value) { OVRCameraIntrinsics.nLastChangedTime(address(), value); return this; }
         /** Copies the specified {@link OVRFovPort} to the {@code FOVPort} field. */
-        public OVRCameraIntrinsics.Buffer FOVPort(OVRFovPort value) { OVRCameraIntrinsics.nFOVPort(address(), value); return this; }
+        public OVRCameraIntrinsics.Buffer FOVPort(@NativeType("ovrFovPort") OVRFovPort value) { OVRCameraIntrinsics.nFOVPort(address(), value); return this; }
         /** Sets the specified value to the {@code VirtualNearPlaneDistanceMeters} field. */
         public OVRCameraIntrinsics.Buffer VirtualNearPlaneDistanceMeters(float value) { OVRCameraIntrinsics.nVirtualNearPlaneDistanceMeters(address(), value); return this; }
         /** Sets the specified value to the {@code VirtualFarPlaneDistanceMeters} field. */
         public OVRCameraIntrinsics.Buffer VirtualFarPlaneDistanceMeters(float value) { OVRCameraIntrinsics.nVirtualFarPlaneDistanceMeters(address(), value); return this; }
         /** Copies the specified {@link OVRSizei} to the {@code ImageSensorPixelResolution} field. */
-        public OVRCameraIntrinsics.Buffer ImageSensorPixelResolution(OVRSizei value) { OVRCameraIntrinsics.nImageSensorPixelResolution(address(), value); return this; }
+        public OVRCameraIntrinsics.Buffer ImageSensorPixelResolution(@NativeType("ovrSizei") OVRSizei value) { OVRCameraIntrinsics.nImageSensorPixelResolution(address(), value); return this; }
         /** Copies the specified {@link OVRMatrix4f} to the {@code LensDistortionMatrix} field. */
-        public OVRCameraIntrinsics.Buffer LensDistortionMatrix(OVRMatrix4f value) { OVRCameraIntrinsics.nLensDistortionMatrix(address(), value); return this; }
+        public OVRCameraIntrinsics.Buffer LensDistortionMatrix(@NativeType("ovrMatrix4f") OVRMatrix4f value) { OVRCameraIntrinsics.nLensDistortionMatrix(address(), value); return this; }
         /** Sets the specified value to the {@code ExposurePeriodSeconds} field. */
         public OVRCameraIntrinsics.Buffer ExposurePeriodSeconds(double value) { OVRCameraIntrinsics.nExposurePeriodSeconds(address(), value); return this; }
         /** Sets the specified value to the {@code ExposureDurationSeconds} field. */

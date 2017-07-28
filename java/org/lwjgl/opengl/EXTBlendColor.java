@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import org.lwjgl.system.*;
+
 import static org.lwjgl.system.Checks.*;
 
 /**
@@ -41,6 +43,6 @@ public class EXTBlendColor {
 
     // --- [ glBlendColorEXT ] ---
 
-    public static native void glBlendColorEXT(float red, float green, float blue, float alpha);
+    public static native void glBlendColorEXT(@NativeType("GLfloat") float red, @NativeType("GLfloat") float green, @NativeType("GLfloat") float blue, @NativeType("GLfloat") float alpha);
 
 }

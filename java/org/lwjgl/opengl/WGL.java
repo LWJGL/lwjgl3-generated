@@ -90,7 +90,8 @@ public class WGL {
      *
      * @param hdc handle to a device context for which the function creates a suitable OpenGL rendering context
      */
-    public static long wglCreateContext(long hdc) {
+    @NativeType("HGLRC")
+    public static long wglCreateContext(@NativeType("HDC") long hdc) {
         long __functionAddress = Functions.CreateContext;
         if (CHECKS) {
             check(hdc);
@@ -110,7 +111,8 @@ public class WGL {
      *                   underlay plane, and so on. The number of overlay and underlay planes is given in the {@code reserved} member of the {@link PIXELFORMATDESCRIPTOR}
      *                   structure.
      */
-    public static long wglCreateLayerContext(long hdc, int layerPlane) {
+    @NativeType("HGLRC")
+    public static long wglCreateLayerContext(@NativeType("HDC") long hdc, int layerPlane) {
         long __functionAddress = Functions.CreateLayerContext;
         if (CHECKS) {
             check(hdc);
@@ -128,7 +130,8 @@ public class WGL {
      * @param mask which groups of the {@code src} rendering state are to be copied to {@code dst}. It contains the bitwise-OR of the same symbolic names that are
      *             passed to the {@link GL11#glPushAttrib PushAttrib} function. You can use {@link GL11#GL_ALL_ATTRIB_BITS ALL_ATTRIB_BITS} to copy all the rendering state information.
      */
-    public static boolean wglCopyContext(long src, long dst, int mask) {
+    @NativeType("BOOL")
+    public static boolean wglCopyContext(@NativeType("HGLRC") long src, @NativeType("HGLRC") long dst, @NativeType("UINT") int mask) {
         long __functionAddress = Functions.CopyContext;
         if (CHECKS) {
             check(src);
@@ -144,7 +147,8 @@ public class WGL {
      *
      * @param context handle to an OpenGL rendering context that the function will delete
      */
-    public static boolean wglDeleteContext(long context) {
+    @NativeType("BOOL")
+    public static boolean wglDeleteContext(@NativeType("HGLRC") long context) {
         long __functionAddress = Functions.DeleteContext;
         if (CHECKS) {
             check(context);
@@ -155,6 +159,7 @@ public class WGL {
     // --- [ wglGetCurrentContext ] ---
 
     /** Obtains a handle to the current OpenGL rendering context of the calling thread. */
+    @NativeType("HGLRC")
     public static long wglGetCurrentContext() {
         long __functionAddress = Functions.GetCurrentContext;
         return callP(__functionAddress);
@@ -163,6 +168,7 @@ public class WGL {
     // --- [ wglGetCurrentDC ] ---
 
     /** Obtains a handle to the device context that is associated with the current OpenGL rendering context of the calling thread. */
+    @NativeType("HDC")
     public static long wglGetCurrentDC() {
         long __functionAddress = Functions.GetCurrentDC;
         return callP(__functionAddress);
@@ -182,7 +188,8 @@ public class WGL {
      * @param proc points to a null-terminated string that is the name of the extension function. The name of the extension function must be identical to a
      *             corresponding function implemented by OpenGL.
      */
-    public static long wglGetProcAddress(ByteBuffer proc) {
+    @NativeType("PROC")
+    public static long wglGetProcAddress(@NativeType("LPCSTR") ByteBuffer proc) {
         if (CHECKS) {
             checkNT1(proc);
         }
@@ -195,7 +202,8 @@ public class WGL {
      * @param proc points to a null-terminated string that is the name of the extension function. The name of the extension function must be identical to a
      *             corresponding function implemented by OpenGL.
      */
-    public static long wglGetProcAddress(CharSequence proc) {
+    @NativeType("PROC")
+    public static long wglGetProcAddress(@NativeType("LPCSTR") CharSequence proc) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer procEncoded = stack.ASCII(proc);
@@ -216,7 +224,8 @@ public class WGL {
      *              makes the calling thread's current rendering context no longer current, and releases the device context that is used by the rendering context. In
      *              this case, {@code hdc} is ignored.
      */
-    public static boolean wglMakeCurrent(long hdc, long hglrc) {
+    @NativeType("BOOL")
+    public static boolean wglMakeCurrent(@NativeType("HDC") long hdc, @NativeType("HGLRC") long hglrc) {
         long __functionAddress = Functions.MakeCurrent;
         return callPPI(__functionAddress, hdc, hglrc) != 0;
     }
@@ -230,7 +239,8 @@ public class WGL {
      * @param hglrc2 the OpenGL rendering context to share display lists with {@code hglrc1}. The {@code hglrc2} parameter should not contain any existing display lists
      *               when {@code wglShareLists} is called.
      */
-    public static boolean wglShareLists(long hglrc1, long hglrc2) {
+    @NativeType("BOOL")
+    public static boolean wglShareLists(@NativeType("HGLRC") long hglrc1, @NativeType("HGLRC") long hglrc2) {
         long __functionAddress = Functions.ShareLists;
         if (CHECKS) {
             check(hglrc1);
