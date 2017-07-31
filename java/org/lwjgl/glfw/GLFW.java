@@ -728,6 +728,7 @@ public class GLFW {
             GetJoystickButtons         = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
             GetJoystickHats            = apiGetFunctionAddress(GLFW, "glfwGetJoystickHats"),
             GetJoystickName            = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
+            GetJoystickGUID            = apiGetFunctionAddress(GLFW, "glfwGetJoystickGUID"),
             JoystickIsGamepad          = apiGetFunctionAddress(GLFW, "glfwJoystickIsGamepad"),
             SetJoystickCallback        = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
             UpdateGamepadMappings      = apiGetFunctionAddress(GLFW, "glfwUpdateGamepadMappings"),
@@ -3611,6 +3612,41 @@ public class GLFW {
     @NativeType("const char *")
     public static String glfwGetJoystickName(@NativeType("int") int jid) {
         long __result = nglfwGetJoystickName(jid);
+        return memUTF8(__result);
+    }
+
+    // --- [ glfwGetJoystickGUID ] ---
+
+    /** Unsafe version of: {@link #glfwGetJoystickGUID GetJoystickGUID} */
+    public static long nglfwGetJoystickGUID(int jid) {
+        long __functionAddress = Functions.GetJoystickGUID;
+        return invokeP(__functionAddress, jid);
+    }
+
+    /**
+     * Returns the SDL compatible GUID, as a UTF-8 encoded hexadecimal string, of the specified joystick.
+     * 
+     * <p>The GUID uses the format introduced in SDL 2.0.5. This GUID tries to uniquely identify the make and model of a joystick but does not identify a
+     * specific unit, e.g. all wired Xbox 360 controllers will have the same GUID on that platform. The GUID for a unit may vary between platforms depending
+     * on what hardware information the platform specific APIs provide.</p>
+     * 
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
+     * presence.</p>
+     * 
+     * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected or the
+     * library is terminated.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param jid the joystick to query
+     *
+     * @return the UTF-8 encoded GUID of the joystick, or {@code NULL} if the joystick is not present or an error occurred
+     *
+     * @since version 3.3
+     */
+    @NativeType("const char *")
+    public static String glfwGetJoystickGUID(@NativeType("int") int jid) {
+        long __result = nglfwGetJoystickGUID(jid);
         return memUTF8(__result);
     }
 
