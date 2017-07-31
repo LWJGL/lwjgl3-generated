@@ -43,6 +43,7 @@ public final class JNI {
     public static native float invokeF(long __functionAddress, int param0);
     public static native int invokeI(long __functionAddress);
     public static native int invokeI(long __functionAddress, byte param0);
+    public static native int invokeI(long __functionAddress, byte param0, short param1, int param2, int param3, int param4, byte param5);
     public static native int invokeI(long __functionAddress, byte param0, short param1, int param2, boolean param3);
     public static native int invokeI(long __functionAddress, byte param0, short param1, short param2, int param3, boolean param4);
     public static native int invokeI(long __functionAddress, byte param0, short param1, short param2, short param3, short param4, byte param5);

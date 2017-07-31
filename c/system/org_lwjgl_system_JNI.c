@@ -31,6 +31,7 @@ ARITYn(jfloat, invokeF__JF, return ((jfloat (*) (jfloat))(intptr_t)__functionAdd
 ARITYn(jfloat, invokeF__JI, return ((jfloat (*) (jint))(intptr_t)__functionAddress)(param0), jint param0)
 ARITY0(jint, invokeI__J, return ((jint (*) ())(intptr_t)__functionAddress)())
 ARITYn(jint, invokeI__JB, return ((jint (*) (jbyte))(intptr_t)__functionAddress)(param0), jbyte param0)
+ARITYn(jint, invokeI__JBSIIIB, return ((jint (*) (jbyte, jshort, jint, jint, jint, jbyte))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5), jbyte param0, jshort param1, jint param2, jint param3, jint param4, jbyte param5)
 ARITYn(jint, invokeI__JBSIZ, return ((jint (*) (jbyte, jshort, jint, jboolean))(intptr_t)__functionAddress)(param0, param1, param2, param3), jbyte param0, jshort param1, jint param2, jboolean param3)
 ARITYn(jint, invokeI__JBSSIZ, return ((jint (*) (jbyte, jshort, jshort, jint, jboolean))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4), jbyte param0, jshort param1, jshort param2, jint param3, jboolean param4)
 ARITYn(jint, invokeI__JBSSSSB, return ((jint (*) (jbyte, jshort, jshort, jshort, jshort, jbyte))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5), jbyte param0, jshort param1, jshort param2, jshort param3, jshort param4, jbyte param5)

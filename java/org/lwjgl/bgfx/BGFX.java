@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
     /** API version */
-    public static final int BGFX_API_VERSION = 45;
+    public static final int BGFX_API_VERSION = 46;
 
     /** Invalid handle */
     public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -221,8 +221,8 @@ public class BGFX {
         BGFX_BUFFER_COMPUTE_FORMAT_32x4  = 0x9,
         BGFX_BUFFER_COMPUTE_FORMAT_SHIFT = 0,
         BGFX_BUFFER_COMPUTE_FORMAT_MASK  = 0xF,
-        BGFX_BUFFER_COMPUTE_TYPE_UINT    = 0x10,
-        BGFX_BUFFER_COMPUTE_TYPE_INT     = 0x20,
+        BGFX_BUFFER_COMPUTE_TYPE_INT     = 0x10,
+        BGFX_BUFFER_COMPUTE_TYPE_UINT    = 0x20,
         BGFX_BUFFER_COMPUTE_TYPE_FLOAT   = 0x30,
         BGFX_BUFFER_COMPUTE_TYPE_SHIFT   = 4,
         BGFX_BUFFER_COMPUTE_TYPE_MASK    = 0x30;
@@ -4180,7 +4180,7 @@ public class BGFX {
     // --- [ bgfx_dispatch ] ---
 
     /** Unsafe version of: {@link #bgfx_dispatch dispatch} */
-    public static int nbgfx_dispatch(byte _id, short _handle, short _numX, short _numY, short _numZ, byte _flags) {
+    public static int nbgfx_dispatch(byte _id, short _handle, int _numX, int _numY, int _numZ, byte _flags) {
         long __functionAddress = Functions.dispatch;
         return invokeI(__functionAddress, _id, _handle, _numX, _numY, _numZ, _flags);
     }
@@ -4196,8 +4196,8 @@ public class BGFX {
      * @param _flags  view flags. One of:<br><table><tr><td>{@link #BGFX_SUBMIT_EYE_LEFT SUBMIT_EYE_LEFT}</td><td>{@link #BGFX_SUBMIT_EYE_RIGHT SUBMIT_EYE_RIGHT}</td><td>{@link #BGFX_SUBMIT_EYE_FIRST SUBMIT_EYE_FIRST}</td></tr></table>
      */
     @NativeType("uint32_t")
-    public static int bgfx_dispatch(@NativeType("uint8_t") int _id, @NativeType("bgfx_program_handle_t") short _handle, @NativeType("uint16_t") int _numX, @NativeType("uint16_t") int _numY, @NativeType("uint16_t") int _numZ, @NativeType("uint8_t") int _flags) {
-        return nbgfx_dispatch((byte)_id, _handle, (short)_numX, (short)_numY, (short)_numZ, (byte)_flags);
+    public static int bgfx_dispatch(@NativeType("uint8_t") int _id, @NativeType("bgfx_program_handle_t") short _handle, @NativeType("uint32_t") int _numX, @NativeType("uint32_t") int _numY, @NativeType("uint32_t") int _numZ, @NativeType("uint8_t") int _flags) {
+        return nbgfx_dispatch((byte)_id, _handle, _numX, _numY, _numZ, (byte)_flags);
     }
 
     // --- [ bgfx_dispatch_indirect ] ---
