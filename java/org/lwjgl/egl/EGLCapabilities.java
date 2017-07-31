@@ -187,6 +187,8 @@ public class EGLCapabilities {
     public final boolean EGL_ANGLE_window_fixed_size;
     /** When true, {@link ARMPixmapMultisampleDiscard} is supported. */
     public final boolean EGL_ARM_pixmap_multisample_discard;
+    /** When true, {@link EXTBindToFront} is supported. */
+    public final boolean EGL_EXT_bind_to_front;
     /** When true, {@link EXTBufferAge} is supported. */
     public final boolean EGL_EXT_buffer_age;
     /**
@@ -238,12 +240,16 @@ public class EGLCapabilities {
     public final boolean EGL_EXT_gl_colorspace_display_p3;
     /** When true, {@link EXTGLColorspaceDisplayP3Linear} is supported. */
     public final boolean EGL_EXT_gl_colorspace_display_p3_linear;
+    /** When true, {@link EXTGLColorspaceSCRGB} is supported. */
+    public final boolean EGL_EXT_gl_colorspace_scrgb;
     /** When true, {@link EXTGLColorspaceSCRGBLinear} is supported. */
     public final boolean EGL_EXT_gl_colorspace_scrgb_linear;
     /** When true, {@link EXTImageDMABufImport} is supported. */
     public final boolean EGL_EXT_image_dma_buf_import;
     /** When true, {@link EXTImageDMABufImportModifiers} is supported. */
     public final boolean EGL_EXT_image_dma_buf_import_modifiers;
+    /** When true, {@link EXTImageImplicitSyncControl} is supported. */
+    public final boolean EGL_EXT_image_implicit_sync_control;
     /** When true, {@link EXTMultiviewWindow} is supported. */
     public final boolean EGL_EXT_multiview_window;
     /** When true, {@link EXTOutputBase} is supported. */
@@ -937,6 +943,7 @@ public class EGLCapabilities {
         EGL_ANGLE_surface_d3d_texture_2d_share_handle = ext.contains("EGL_ANGLE_surface_d3d_texture_2d_share_handle");
         EGL_ANGLE_window_fixed_size = ext.contains("EGL_ANGLE_window_fixed_size");
         EGL_ARM_pixmap_multisample_discard = ext.contains("EGL_ARM_pixmap_multisample_discard");
+        EGL_EXT_bind_to_front = ext.contains("EGL_EXT_bind_to_front");
         EGL_EXT_buffer_age = ext.contains("EGL_EXT_buffer_age");
         EGL_EXT_client_extensions = ext.contains("EGL_EXT_client_extensions");
         EGL_EXT_compositor = ext.contains("EGL_EXT_compositor") && EGL.checkExtension("EGL_EXT_compositor", EXTCompositor.isAvailable(this));
@@ -950,9 +957,11 @@ public class EGLCapabilities {
         EGL_EXT_gl_colorspace_bt2020_pq = ext.contains("EGL_EXT_gl_colorspace_bt2020_pq");
         EGL_EXT_gl_colorspace_display_p3 = ext.contains("EGL_EXT_gl_colorspace_display_p3");
         EGL_EXT_gl_colorspace_display_p3_linear = ext.contains("EGL_EXT_gl_colorspace_display_p3_linear");
+        EGL_EXT_gl_colorspace_scrgb = ext.contains("EGL_EXT_gl_colorspace_scrgb");
         EGL_EXT_gl_colorspace_scrgb_linear = ext.contains("EGL_EXT_gl_colorspace_scrgb_linear");
         EGL_EXT_image_dma_buf_import = ext.contains("EGL_EXT_image_dma_buf_import");
         EGL_EXT_image_dma_buf_import_modifiers = ext.contains("EGL_EXT_image_dma_buf_import_modifiers") && EGL.checkExtension("EGL_EXT_image_dma_buf_import_modifiers", EXTImageDMABufImportModifiers.isAvailable(this));
+        EGL_EXT_image_implicit_sync_control = ext.contains("EGL_EXT_image_implicit_sync_control");
         EGL_EXT_multiview_window = ext.contains("EGL_EXT_multiview_window");
         EGL_EXT_output_base = ext.contains("EGL_EXT_output_base") && EGL.checkExtension("EGL_EXT_output_base", EXTOutputBase.isAvailable(this));
         EGL_EXT_output_drm = ext.contains("EGL_EXT_output_drm");
