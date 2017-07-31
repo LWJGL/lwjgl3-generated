@@ -20,10 +20,144 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Contains bindings to the <a target="_blank" href="http://www.assimp.org/">Assimp</a> library.
  * 
- * <p>Assimp comes with fairly outdated documentation, which you can read online <a target="_blank" href="http://www.assimp.org/lib_html/">here</a>. The
- * <a target="_blank" href="http://www.assimp.org/FAQ.html">Frequently Asked Questions</a> are also useful.</p>
+ * <h3>General Features</h3>
  * 
- * <p>The bindings only consist of the C API of the Assimp model import library.</p>
+ * <ul>
+ * <li>Written in portable, ISO-compliant C++</li>
+ * <li>Easily configurable and customizable</li>
+ * <li>Core interface / API is provided for both C++ and C</li>
+ * <li>Command-line interface to perform common operations (i.e. quick file stats, convert models, extract embedded textures) from the shell</li>
+ * <li>Imports bones, vertex weights and animations (i.e. skinning, skeletal animations)</li>
+ * <li>Loads multiple UV and vertex color channels (current limit is 8)</li>
+ * <li>Works well with UNICODE input files</li>
+ * <li>Supports complex multi-layer materials</li>
+ * <li>Supports embedded textures, both compressed (e.g. PNG) or just raw color data</li>
+ * <li>No external dependencies except boost (zlib and irrxml are also needed, but they're included in the repository so you don't need to bother). And there's even a workaround to compile Assimp without boost - with some minor limitations.</li>
+ * <li>Due to its export interface, Assimp serves as general-purpose 3D model converter</li>
+ * </ul>
+ * 
+ * <h3>Import Formats</h3>
+ * 
+ * <p>COMMON INTERCHANGE FORMATS (An asterisk indicates limited support)</p>
+ * 
+ * <ul>
+ * <li>Autodesk ( .fbx )</li>
+ * <li>Collada ( .dae )</li>
+ * <li>glTF ( .gltf, .glb )</li>
+ * <li>Blender 3D ( .blend )</li>
+ * <li>3ds Max 3DS ( .3ds )</li>
+ * <li>3ds Max ASE ( .ase )</li>
+ * <li>Wavefront Object ( .obj )</li>
+ * <li>Industry Foundation Classes (IFC/Step) ( .ifc )</li>
+ * <li>XGL ( .xgl,.zgl )</li>
+ * <li>Stanford Polygon Library ( .ply )</li>
+ * <li>*AutoCAD DXF ( .dxf )</li>
+ * <li>LightWave ( .lwo )</li>
+ * <li>LightWave Scene ( .lws )</li>
+ * <li>Modo ( .lxo )</li>
+ * <li>Stereolithography ( .stl )</li>
+ * <li>DirectX X ( .x )</li>
+ * <li>AC3D ( .ac )</li>
+ * <li>Milkshape 3D ( .ms3d )</li>
+ * <li>* TrueSpace ( .cob,.scn )</li>
+ * <li>*OpenGEX ( .ogex )</li>
+ * <li>*X3D ( .x3d )</li>
+ * <li>*3MF ( .3mf )</li>
+ * </ul>
+ * 
+ * <p>MOTION CAPTURE FORMATS</p>
+ * 
+ * <ul>
+ * <li>Biovision BVH ( .bvh )</li>
+ * <li>* CharacterStudio Motion ( .csm )</li>
+ * </ul>
+ * 
+ * <p>GRAPHICS ENGINE FORMATS</p>
+ * 
+ * <ul>
+ * <li>Ogre XML ( .xml )</li>
+ * <li>Irrlicht Mesh ( .irrmesh )</li>
+ * <li>* Irrlicht Scene ( .irr )</li>
+ * </ul>
+ * 
+ * <p>GAME FILE FORMATS</p>
+ * 
+ * <ul>
+ * <li>Quake I ( .mdl )</li>
+ * <li>Quake II ( .md2 )</li>
+ * <li>Quake III Mesh ( .md3 )</li>
+ * <li>Quake III Map/BSP ( .pk3 )</li>
+ * <li>* Return to Castle Wolfenstein ( .mdc )</li>
+ * <li>Doom 3 ( .md5* )</li>
+ * <li>*Valve Model ( .smd,.vta )</li>
+ * <li>*Open Game Engine Exchange ( .ogex )</li>
+ * <li>*Unreal ( .3d )</li>
+ * </ul>
+ * 
+ * <p>OTHER FILE FORMATS</p>
+ * 
+ * <ul>
+ * <li>BlitzBasic 3D ( .b3d )</li>
+ * <li>Quick3D ( .q3d,.q3s )</li>
+ * <li>Neutral File Format ( .nff )</li>
+ * <li>Sense8 WorldToolKit ( .nff )</li>
+ * <li>Object File Format ( .off )</li>
+ * <li>PovRAY Raw ( .raw )</li>
+ * <li>Terragen Terrain ( .ter )</li>
+ * <li>3D GameStudio (3DGS) ( .mdl )</li>
+ * <li>3D GameStudio (3DGS) Terrain ( .hmp )</li>
+ * <li>Izware Nendo ( .ndo )</li>
+ * </ul>
+ * 
+ * <h3>Export Formats</h3>
+ * 
+ * <p>COMMON INTERCHANGE FORMATS</p>
+ * 
+ * <ul>
+ * <li>Collada ( .dae )</li>
+ * <li>Wavefront Object ( .obj )</li>
+ * <li>Stereolithography ( .stl )</li>
+ * <li>Stanford Polygon Library ( .ply )</li>
+ * </ul>
+ * 
+ * <h3>Post-processing</h3>
+ * 
+ * <p>REAL TIME RENDERING</p>
+ * 
+ * <ul>
+ * <li>Improve vertex cache locality</li>
+ * <li>Convert from right-handed to left-handed space</li>
+ * <li>Limit weights affecting a single vertex</li>
+ * <li>Split meshes to avoid exceeding bone count limits</li>
+ * <li>Triangulate arbitrary polygons</li>
+ * <li>Join identical vertices, optimize indexing</li>
+ * <li>Find degenerate polygons</li>
+ * <li>Split large meshes to overcome GPU limitations (i.e. vertex count)</li>
+ * </ul>
+ * 
+ * <p>VERTEX DATA</p>
+ * 
+ * <ul>
+ * <li>Compute "hard" per-face normal vectors</li>
+ * <li>Compute "smooth" per-vertex normal vectors</li>
+ * <li>Compute tangents and bitangents</li>
+ * </ul>
+ * 
+ * <p>SCENEGRAPH</p>
+ * 
+ * <ul>
+ * <li>Collapse the scene graph, transform everything to world coordinates</li>
+ * <li>Optimize meshes & nodes for fewer drawcalls</li>
+ * </ul>
+ * 
+ * <p>OTHER</p>
+ * 
+ * <ul>
+ * <li>Validate the output structure to ensure maximum data integrity</li>
+ * <li>Remove unrequired materials, effectively detect and merge duplicates</li>
+ * <li>Try to correct face winding</li>
+ * <li>Drop dummy bones introduced somewhere in your content pipeline</li>
+ * </ul>
  */
 public class Assimp {
 
