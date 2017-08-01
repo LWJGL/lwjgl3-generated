@@ -11,7 +11,7 @@ typedef void (APIENTRY *glTextureViewPROC) (jint, jint, jint, jint, jint, jint, 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureView_glTextureView(JNIEnv *__env, jclass clazz, jint texture, jint target, jint origtexture, jint internalformat, jint minlevel, jint numlevels, jint minlayer, jint numlayers) {
-    glTextureViewPROC glTextureView = (glTextureViewPROC)tlsGetFunction(1684);
+    glTextureViewPROC glTextureView = (glTextureViewPROC)tlsGetFunction(1724);
     UNUSED_PARAM(clazz)
     glTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 }

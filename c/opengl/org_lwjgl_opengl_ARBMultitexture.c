@@ -44,220 +44,220 @@ typedef void (APIENTRY *glMultiTexCoord4dvARBPROC) (jint, const intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glActiveTextureARB(JNIEnv *__env, jclass clazz, jint texture) {
-    glActiveTextureARBPROC glActiveTextureARB = (glActiveTextureARBPROC)tlsGetFunction(5);
+    glActiveTextureARBPROC glActiveTextureARB = (glActiveTextureARBPROC)tlsGetFunction(6);
     UNUSED_PARAM(clazz)
     glActiveTextureARB(texture);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glClientActiveTextureARB(JNIEnv *__env, jclass clazz, jint texture) {
-    glClientActiveTextureARBPROC glClientActiveTextureARB = (glClientActiveTextureARBPROC)tlsGetFunction(134);
+    glClientActiveTextureARBPROC glClientActiveTextureARB = (glClientActiveTextureARBPROC)tlsGetFunction(137);
     UNUSED_PARAM(clazz)
     glClientActiveTextureARB(texture);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord1fARB(JNIEnv *__env, jclass clazz, jint texture, jfloat s) {
-    glMultiTexCoord1fARBPROC glMultiTexCoord1fARB = (glMultiTexCoord1fARBPROC)tlsGetFunction(1007);
+    glMultiTexCoord1fARBPROC glMultiTexCoord1fARB = (glMultiTexCoord1fARBPROC)tlsGetFunction(1030);
     UNUSED_PARAM(clazz)
     glMultiTexCoord1fARB(texture, s);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord1sARB(JNIEnv *__env, jclass clazz, jint texture, jshort s) {
-    glMultiTexCoord1sARBPROC glMultiTexCoord1sARB = (glMultiTexCoord1sARBPROC)tlsGetFunction(1017);
+    glMultiTexCoord1sARBPROC glMultiTexCoord1sARB = (glMultiTexCoord1sARBPROC)tlsGetFunction(1040);
     UNUSED_PARAM(clazz)
     glMultiTexCoord1sARB(texture, s);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord1iARB(JNIEnv *__env, jclass clazz, jint texture, jint s) {
-    glMultiTexCoord1iARBPROC glMultiTexCoord1iARB = (glMultiTexCoord1iARBPROC)tlsGetFunction(1013);
+    glMultiTexCoord1iARBPROC glMultiTexCoord1iARB = (glMultiTexCoord1iARBPROC)tlsGetFunction(1036);
     UNUSED_PARAM(clazz)
     glMultiTexCoord1iARB(texture, s);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord1dARB(JNIEnv *__env, jclass clazz, jint texture, jdouble s) {
-    glMultiTexCoord1dARBPROC glMultiTexCoord1dARB = (glMultiTexCoord1dARBPROC)tlsGetFunction(1003);
+    glMultiTexCoord1dARBPROC glMultiTexCoord1dARB = (glMultiTexCoord1dARBPROC)tlsGetFunction(1026);
     UNUSED_PARAM(clazz)
     glMultiTexCoord1dARB(texture, s);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord1fvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord1fvARBPROC glMultiTexCoord1fvARB = (glMultiTexCoord1fvARBPROC)tlsGetFunction(1009);
+    glMultiTexCoord1fvARBPROC glMultiTexCoord1fvARB = (glMultiTexCoord1fvARBPROC)tlsGetFunction(1032);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord1fvARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord1svARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord1svARBPROC glMultiTexCoord1svARB = (glMultiTexCoord1svARBPROC)tlsGetFunction(1019);
+    glMultiTexCoord1svARBPROC glMultiTexCoord1svARB = (glMultiTexCoord1svARBPROC)tlsGetFunction(1042);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord1svARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord1ivARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord1ivARBPROC glMultiTexCoord1ivARB = (glMultiTexCoord1ivARBPROC)tlsGetFunction(1015);
+    glMultiTexCoord1ivARBPROC glMultiTexCoord1ivARB = (glMultiTexCoord1ivARBPROC)tlsGetFunction(1038);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord1ivARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord1dvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord1dvARBPROC glMultiTexCoord1dvARB = (glMultiTexCoord1dvARBPROC)tlsGetFunction(1005);
+    glMultiTexCoord1dvARBPROC glMultiTexCoord1dvARB = (glMultiTexCoord1dvARBPROC)tlsGetFunction(1028);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord1dvARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord2fARB(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t) {
-    glMultiTexCoord2fARBPROC glMultiTexCoord2fARB = (glMultiTexCoord2fARBPROC)tlsGetFunction(1025);
+    glMultiTexCoord2fARBPROC glMultiTexCoord2fARB = (glMultiTexCoord2fARBPROC)tlsGetFunction(1048);
     UNUSED_PARAM(clazz)
     glMultiTexCoord2fARB(texture, s, t);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord2sARB(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t) {
-    glMultiTexCoord2sARBPROC glMultiTexCoord2sARB = (glMultiTexCoord2sARBPROC)tlsGetFunction(1035);
+    glMultiTexCoord2sARBPROC glMultiTexCoord2sARB = (glMultiTexCoord2sARBPROC)tlsGetFunction(1058);
     UNUSED_PARAM(clazz)
     glMultiTexCoord2sARB(texture, s, t);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord2iARB(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t) {
-    glMultiTexCoord2iARBPROC glMultiTexCoord2iARB = (glMultiTexCoord2iARBPROC)tlsGetFunction(1031);
+    glMultiTexCoord2iARBPROC glMultiTexCoord2iARB = (glMultiTexCoord2iARBPROC)tlsGetFunction(1054);
     UNUSED_PARAM(clazz)
     glMultiTexCoord2iARB(texture, s, t);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord2dARB(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t) {
-    glMultiTexCoord2dARBPROC glMultiTexCoord2dARB = (glMultiTexCoord2dARBPROC)tlsGetFunction(1021);
+    glMultiTexCoord2dARBPROC glMultiTexCoord2dARB = (glMultiTexCoord2dARBPROC)tlsGetFunction(1044);
     UNUSED_PARAM(clazz)
     glMultiTexCoord2dARB(texture, s, t);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord2fvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord2fvARBPROC glMultiTexCoord2fvARB = (glMultiTexCoord2fvARBPROC)tlsGetFunction(1027);
+    glMultiTexCoord2fvARBPROC glMultiTexCoord2fvARB = (glMultiTexCoord2fvARBPROC)tlsGetFunction(1050);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord2fvARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord2svARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord2svARBPROC glMultiTexCoord2svARB = (glMultiTexCoord2svARBPROC)tlsGetFunction(1037);
+    glMultiTexCoord2svARBPROC glMultiTexCoord2svARB = (glMultiTexCoord2svARBPROC)tlsGetFunction(1060);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord2svARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord2ivARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord2ivARBPROC glMultiTexCoord2ivARB = (glMultiTexCoord2ivARBPROC)tlsGetFunction(1033);
+    glMultiTexCoord2ivARBPROC glMultiTexCoord2ivARB = (glMultiTexCoord2ivARBPROC)tlsGetFunction(1056);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord2ivARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord2dvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord2dvARBPROC glMultiTexCoord2dvARB = (glMultiTexCoord2dvARBPROC)tlsGetFunction(1023);
+    glMultiTexCoord2dvARBPROC glMultiTexCoord2dvARB = (glMultiTexCoord2dvARBPROC)tlsGetFunction(1046);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord2dvARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord3fARB(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r) {
-    glMultiTexCoord3fARBPROC glMultiTexCoord3fARB = (glMultiTexCoord3fARBPROC)tlsGetFunction(1043);
+    glMultiTexCoord3fARBPROC glMultiTexCoord3fARB = (glMultiTexCoord3fARBPROC)tlsGetFunction(1066);
     UNUSED_PARAM(clazz)
     glMultiTexCoord3fARB(texture, s, t, r);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord3sARB(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r) {
-    glMultiTexCoord3sARBPROC glMultiTexCoord3sARB = (glMultiTexCoord3sARBPROC)tlsGetFunction(1053);
+    glMultiTexCoord3sARBPROC glMultiTexCoord3sARB = (glMultiTexCoord3sARBPROC)tlsGetFunction(1076);
     UNUSED_PARAM(clazz)
     glMultiTexCoord3sARB(texture, s, t, r);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord3iARB(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r) {
-    glMultiTexCoord3iARBPROC glMultiTexCoord3iARB = (glMultiTexCoord3iARBPROC)tlsGetFunction(1049);
+    glMultiTexCoord3iARBPROC glMultiTexCoord3iARB = (glMultiTexCoord3iARBPROC)tlsGetFunction(1072);
     UNUSED_PARAM(clazz)
     glMultiTexCoord3iARB(texture, s, t, r);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord3dARB(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r) {
-    glMultiTexCoord3dARBPROC glMultiTexCoord3dARB = (glMultiTexCoord3dARBPROC)tlsGetFunction(1039);
+    glMultiTexCoord3dARBPROC glMultiTexCoord3dARB = (glMultiTexCoord3dARBPROC)tlsGetFunction(1062);
     UNUSED_PARAM(clazz)
     glMultiTexCoord3dARB(texture, s, t, r);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord3fvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord3fvARBPROC glMultiTexCoord3fvARB = (glMultiTexCoord3fvARBPROC)tlsGetFunction(1045);
+    glMultiTexCoord3fvARBPROC glMultiTexCoord3fvARB = (glMultiTexCoord3fvARBPROC)tlsGetFunction(1068);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord3fvARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord3svARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord3svARBPROC glMultiTexCoord3svARB = (glMultiTexCoord3svARBPROC)tlsGetFunction(1055);
+    glMultiTexCoord3svARBPROC glMultiTexCoord3svARB = (glMultiTexCoord3svARBPROC)tlsGetFunction(1078);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord3svARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord3ivARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord3ivARBPROC glMultiTexCoord3ivARB = (glMultiTexCoord3ivARBPROC)tlsGetFunction(1051);
+    glMultiTexCoord3ivARBPROC glMultiTexCoord3ivARB = (glMultiTexCoord3ivARBPROC)tlsGetFunction(1074);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord3ivARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord3dvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord3dvARBPROC glMultiTexCoord3dvARB = (glMultiTexCoord3dvARBPROC)tlsGetFunction(1041);
+    glMultiTexCoord3dvARBPROC glMultiTexCoord3dvARB = (glMultiTexCoord3dvARBPROC)tlsGetFunction(1064);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord3dvARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord4fARB(JNIEnv *__env, jclass clazz, jint texture, jfloat s, jfloat t, jfloat r, jfloat q) {
-    glMultiTexCoord4fARBPROC glMultiTexCoord4fARB = (glMultiTexCoord4fARBPROC)tlsGetFunction(1061);
+    glMultiTexCoord4fARBPROC glMultiTexCoord4fARB = (glMultiTexCoord4fARBPROC)tlsGetFunction(1084);
     UNUSED_PARAM(clazz)
     glMultiTexCoord4fARB(texture, s, t, r, q);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord4sARB(JNIEnv *__env, jclass clazz, jint texture, jshort s, jshort t, jshort r, jshort q) {
-    glMultiTexCoord4sARBPROC glMultiTexCoord4sARB = (glMultiTexCoord4sARBPROC)tlsGetFunction(1071);
+    glMultiTexCoord4sARBPROC glMultiTexCoord4sARB = (glMultiTexCoord4sARBPROC)tlsGetFunction(1094);
     UNUSED_PARAM(clazz)
     glMultiTexCoord4sARB(texture, s, t, r, q);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord4iARB(JNIEnv *__env, jclass clazz, jint texture, jint s, jint t, jint r, jint q) {
-    glMultiTexCoord4iARBPROC glMultiTexCoord4iARB = (glMultiTexCoord4iARBPROC)tlsGetFunction(1067);
+    glMultiTexCoord4iARBPROC glMultiTexCoord4iARB = (glMultiTexCoord4iARBPROC)tlsGetFunction(1090);
     UNUSED_PARAM(clazz)
     glMultiTexCoord4iARB(texture, s, t, r, q);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_glMultiTexCoord4dARB(JNIEnv *__env, jclass clazz, jint texture, jdouble s, jdouble t, jdouble r, jdouble q) {
-    glMultiTexCoord4dARBPROC glMultiTexCoord4dARB = (glMultiTexCoord4dARBPROC)tlsGetFunction(1057);
+    glMultiTexCoord4dARBPROC glMultiTexCoord4dARB = (glMultiTexCoord4dARBPROC)tlsGetFunction(1080);
     UNUSED_PARAM(clazz)
     glMultiTexCoord4dARB(texture, s, t, r, q);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord4fvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord4fvARBPROC glMultiTexCoord4fvARB = (glMultiTexCoord4fvARBPROC)tlsGetFunction(1063);
+    glMultiTexCoord4fvARBPROC glMultiTexCoord4fvARB = (glMultiTexCoord4fvARBPROC)tlsGetFunction(1086);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord4fvARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord4svARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord4svARBPROC glMultiTexCoord4svARB = (glMultiTexCoord4svARBPROC)tlsGetFunction(1073);
+    glMultiTexCoord4svARBPROC glMultiTexCoord4svARB = (glMultiTexCoord4svARBPROC)tlsGetFunction(1096);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord4svARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord4ivARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord4ivARBPROC glMultiTexCoord4ivARB = (glMultiTexCoord4ivARBPROC)tlsGetFunction(1069);
+    glMultiTexCoord4ivARBPROC glMultiTexCoord4ivARB = (glMultiTexCoord4ivARBPROC)tlsGetFunction(1092);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord4ivARB(texture, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMultitexture_nglMultiTexCoord4dvARB__IJ(JNIEnv *__env, jclass clazz, jint texture, jlong vAddress) {
-    glMultiTexCoord4dvARBPROC glMultiTexCoord4dvARB = (glMultiTexCoord4dvARBPROC)tlsGetFunction(1059);
+    glMultiTexCoord4dvARBPROC glMultiTexCoord4dvARB = (glMultiTexCoord4dvARBPROC)tlsGetFunction(1082);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMultiTexCoord4dvARB(texture, v);

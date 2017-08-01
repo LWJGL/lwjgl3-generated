@@ -14,28 +14,28 @@ typedef void (APIENTRY *glMultiDrawElementsBaseVertexEXTPROC) (jint, const intpt
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawElementsBaseVertex_nglDrawElementsBaseVertexEXT(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint basevertex) {
-    glDrawElementsBaseVertexEXTPROC glDrawElementsBaseVertexEXT = (glDrawElementsBaseVertexEXTPROC)tlsGetFunction(168);
+    glDrawElementsBaseVertexEXTPROC glDrawElementsBaseVertexEXT = (glDrawElementsBaseVertexEXTPROC)tlsGetFunction(174);
     const intptr_t indices = (const intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsBaseVertexEXT(mode, count, type, indices, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawElementsBaseVertex_nglDrawRangeElementsBaseVertexEXT(JNIEnv *__env, jclass clazz, jint mode, jint start, jint end, jint count, jint type, jlong indicesAddress, jint basevertex) {
-    glDrawRangeElementsBaseVertexEXTPROC glDrawRangeElementsBaseVertexEXT = (glDrawRangeElementsBaseVertexEXTPROC)tlsGetFunction(182);
+    glDrawRangeElementsBaseVertexEXTPROC glDrawRangeElementsBaseVertexEXT = (glDrawRangeElementsBaseVertexEXTPROC)tlsGetFunction(188);
     const intptr_t indices = (const intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawRangeElementsBaseVertexEXT(mode, start, end, count, type, indices, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawElementsBaseVertex_nglDrawElementsInstancedBaseVertexEXT(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint instancecount, jint basevertex) {
-    glDrawElementsInstancedBaseVertexEXTPROC glDrawElementsInstancedBaseVertexEXT = (glDrawElementsInstancedBaseVertexEXTPROC)tlsGetFunction(176);
+    glDrawElementsInstancedBaseVertexEXTPROC glDrawElementsInstancedBaseVertexEXT = (glDrawElementsInstancedBaseVertexEXTPROC)tlsGetFunction(182);
     const intptr_t indices = (const intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstancedBaseVertexEXT(mode, count, type, indices, instancecount, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDrawElementsBaseVertex_nglMultiDrawElementsBaseVertexEXT__IJIJIJ(JNIEnv *__env, jclass clazz, jint mode, jlong countAddress, jint type, jlong indicesAddress, jint primcount, jlong basevertexAddress) {
-    glMultiDrawElementsBaseVertexEXTPROC glMultiDrawElementsBaseVertexEXT = (glMultiDrawElementsBaseVertexEXTPROC)tlsGetFunction(458);
+    glMultiDrawElementsBaseVertexEXTPROC glMultiDrawElementsBaseVertexEXT = (glMultiDrawElementsBaseVertexEXTPROC)tlsGetFunction(479);
     const intptr_t count = (const intptr_t)countAddress;
     const intptr_t indices = (const intptr_t)indicesAddress;
     const intptr_t basevertex = (const intptr_t)basevertexAddress;

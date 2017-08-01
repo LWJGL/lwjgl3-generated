@@ -53,9 +53,9 @@ public class EXTBufferStorage {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(GLESCapabilities caps) {
+    static boolean isAvailable(GLESCapabilities caps, java.util.Set<String> ext) {
         return checkFunctions(
-            caps.glBufferStorageEXT
+            caps.glBufferStorageEXT, caps.hasDSA(ext) ? caps.glNamedBufferStorageEXT : -1L
         );
     }
 
@@ -83,6 +83,30 @@ public class EXTBufferStorage {
         nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
     }
 
+    // --- [ glNamedBufferStorageEXT ] ---
+
+    public static native void nglNamedBufferStorageEXT(int buffer, long size, long data, int flags);
+
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("GLsizeiptr") long size, @NativeType("GLbitfield") int flags) {
+        nglNamedBufferStorageEXT(buffer, size, NULL, flags);
+    }
+
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") ByteBuffer data, @NativeType("GLbitfield") int flags) {
+        nglNamedBufferStorageEXT(buffer, data.remaining(), memAddress(data), flags);
+    }
+
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
+        nglNamedBufferStorageEXT(buffer, data.remaining() << 1, memAddress(data), flags);
+    }
+
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") IntBuffer data, @NativeType("GLbitfield") int flags) {
+        nglNamedBufferStorageEXT(buffer, data.remaining() << 2, memAddress(data), flags);
+    }
+
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
+        nglNamedBufferStorageEXT(buffer, data.remaining() << 2, memAddress(data), flags);
+    }
+
     /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
     public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") short[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GLES.getICD().glBufferStorageEXT;
@@ -108,6 +132,33 @@ public class EXTBufferStorage {
             check(__functionAddress);
         }
         callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+    }
+
+    /** Array version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") short[] data, @NativeType("GLbitfield") int flags) {
+        long __functionAddress = GLES.getICD().glNamedBufferStorageEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, buffer, (long)(data.length << 1), data, flags);
+    }
+
+    /** Array version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") int[] data, @NativeType("GLbitfield") int flags) {
+        long __functionAddress = GLES.getICD().glNamedBufferStorageEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+    }
+
+    /** Array version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
+    public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") float[] data, @NativeType("GLbitfield") int flags) {
+        long __functionAddress = GLES.getICD().glNamedBufferStorageEXT;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
     }
 
 }

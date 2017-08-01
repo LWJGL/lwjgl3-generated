@@ -16,6 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public final class GLESCapabilities {
 
     public final long
+        glAcquireKeyedMutexWin32EXT,
         glActiveShaderProgram,
         glActiveShaderProgramEXT,
         glActiveTexture,
@@ -72,6 +73,8 @@ public final class GLESCapabilities {
         glBlitFramebufferNV,
         glBufferData,
         glBufferStorageEXT,
+        glBufferStorageExternalEXT,
+        glBufferStorageMemEXT,
         glBufferSubData,
         glCheckFramebufferStatus,
         glClear,
@@ -121,6 +124,7 @@ public final class GLESCapabilities {
         glCoverageModulationNV,
         glCoverageModulationTableNV,
         glCoverageOperationNV,
+        glCreateMemoryObjectsEXT,
         glCreatePerfQueryINTEL,
         glCreateProgram,
         glCreateShader,
@@ -136,6 +140,7 @@ public final class GLESCapabilities {
         glDeleteBuffers,
         glDeleteFencesNV,
         glDeleteFramebuffers,
+        glDeleteMemoryObjectsEXT,
         glDeletePathsNV,
         glDeletePerfMonitorsAMD,
         glDeletePerfQueryINTEL,
@@ -146,6 +151,7 @@ public final class GLESCapabilities {
         glDeleteQueriesEXT,
         glDeleteRenderbuffers,
         glDeleteSamplers,
+        glDeleteSemaphoresEXT,
         glDeleteShader,
         glDeleteSync,
         glDeleteSyncAPPLE,
@@ -271,6 +277,7 @@ public final class GLESCapabilities {
         glGenQueriesEXT,
         glGenRenderbuffers,
         glGenSamplers,
+        glGenSemaphoresEXT,
         glGenTextures,
         glGenTransformFeedbacks,
         glGenVertexArrays,
@@ -317,6 +324,7 @@ public final class GLESCapabilities {
         glGetIntegerv,
         glGetInternalformatSampleivNV,
         glGetInternalformativ,
+        glGetMemoryObjectParameterivEXT,
         glGetMultisamplefv,
         glGetNextPerfQueryIdINTEL,
         glGetObjectLabel,
@@ -376,6 +384,7 @@ public final class GLESCapabilities {
         glGetSamplerParameterIuivOES,
         glGetSamplerParameterfv,
         glGetSamplerParameteriv,
+        glGetSemaphoreParameterui64vEXT,
         glGetShaderInfoLog,
         glGetShaderPrecisionFormat,
         glGetShaderSource,
@@ -406,6 +415,8 @@ public final class GLESCapabilities {
         glGetUniformiv,
         glGetUniformui64vNV,
         glGetUniformuiv,
+        glGetUnsignedBytei_vEXT,
+        glGetUnsignedBytevEXT,
         glGetVertexAttribIiv,
         glGetVertexAttribIuiv,
         glGetVertexAttribPointerv,
@@ -421,6 +432,12 @@ public final class GLESCapabilities {
         glGetnUniformuiv,
         glGetnUniformuivKHR,
         glHint,
+        glImportMemoryFdEXT,
+        glImportMemoryWin32HandleEXT,
+        glImportMemoryWin32NameEXT,
+        glImportSemaphoreFdEXT,
+        glImportSemaphoreWin32HandleEXT,
+        glImportSemaphoreWin32NameEXT,
         glInsertEventMarkerEXT,
         glInterpolatePathsNV,
         glInvalidateFramebuffer,
@@ -434,6 +451,7 @@ public final class GLESCapabilities {
         glIsFenceNV,
         glIsFramebuffer,
         glIsImageHandleResidentNV,
+        glIsMemoryObjectEXT,
         glIsPathNV,
         glIsPointInFillPathNV,
         glIsPointInStrokePathNV,
@@ -444,6 +462,7 @@ public final class GLESCapabilities {
         glIsQueryEXT,
         glIsRenderbuffer,
         glIsSampler,
+        glIsSemaphoreEXT,
         glIsShader,
         glIsSync,
         glIsSyncAPPLE,
@@ -468,8 +487,10 @@ public final class GLESCapabilities {
         glMatrixMult3x2fNV,
         glMatrixMult3x3fNV,
         glMatrixMultTranspose3x3fNV,
+        glMaxShaderCompilerThreadsKHR,
         glMemoryBarrier,
         glMemoryBarrierByRegion,
+        glMemoryObjectParameterivEXT,
         glMinSampleShading,
         glMinSampleShadingOES,
         glMultiDrawArraysEXT,
@@ -478,6 +499,9 @@ public final class GLESCapabilities {
         glMultiDrawElementsBaseVertexOES,
         glMultiDrawElementsEXT,
         glMultiDrawElementsIndirectEXT,
+        glNamedBufferStorageEXT,
+        glNamedBufferStorageExternalEXT,
+        glNamedBufferStorageMemEXT,
         glNamedFramebufferSampleLocationsfvNV,
         glObjectLabel,
         glObjectLabelKHR,
@@ -617,6 +641,7 @@ public final class GLESCapabilities {
         glReadnPixels,
         glReadnPixelsEXT,
         glReadnPixelsKHR,
+        glReleaseKeyedMutexWin32EXT,
         glReleaseShaderCompiler,
         glRenderbufferStorage,
         glRenderbufferStorageMultisample,
@@ -648,9 +673,11 @@ public final class GLESCapabilities {
         glScissorIndexedvNV,
         glScissorIndexedvOES,
         glSelectPerfMonitorCountersAMD,
+        glSemaphoreParameterui64vEXT,
         glSetFenceNV,
         glShaderBinary,
         glShaderSource,
+        glSignalSemaphoreEXT,
         glSignalVkFenceNV,
         glSignalVkSemaphoreNV,
         glStartTilingQCOM,
@@ -699,6 +726,10 @@ public final class GLESCapabilities {
         glTexStorage3DEXT,
         glTexStorage3DMultisample,
         glTexStorage3DMultisampleOES,
+        glTexStorageMem2DEXT,
+        glTexStorageMem2DMultisampleEXT,
+        glTexStorageMem3DEXT,
+        glTexStorageMem3DMultisampleEXT,
         glTexSubImage2D,
         glTexSubImage3D,
         glTexSubImage3DNV,
@@ -707,6 +738,10 @@ public final class GLESCapabilities {
         glTextureStorage1DEXT,
         glTextureStorage2DEXT,
         glTextureStorage3DEXT,
+        glTextureStorageMem2DEXT,
+        glTextureStorageMem2DMultisampleEXT,
+        glTextureStorageMem3DEXT,
+        glTextureStorageMem3DMultisampleEXT,
         glTextureViewEXT,
         glTextureViewOES,
         glTransformFeedbackVaryings,
@@ -807,6 +842,7 @@ public final class GLESCapabilities {
         glViewportIndexedfvNV,
         glViewportIndexedfvOES,
         glViewportSwizzleNV,
+        glWaitSemaphoreEXT,
         glWaitSync,
         glWaitSyncAPPLE,
         glWaitVkSemaphoreNV,
@@ -983,9 +1019,12 @@ public final class GLESCapabilities {
      * This extension adds functionality to that provided by {@link OESEGLImage OES_EGL_image} in order to support EGLImage 2D arrays. It extends the existing
      * {@code EGLImageTargetTexture2DOES} entry point from {@code OES_EGL_image}. Render buffers are not extended to include array support.
      * 
-     * <p>{@code EGLImage} 2D arrays are created using {@code eglCreateImageKHR} as defined in the {@code EGL_EXT_gl_texture_2D_image_array} extension.</p>
+     * <p>{@code EGLImage} 2D arrays can be created using extended versions of {@code eglCreateImageKHR}. For example, {@code EGL_ANDROID_image_native_buffer}
+     * can import image array native buffers on devices where such native buffers can be created.</p>
      */
     public final boolean GL_EXT_EGL_image_array;
+    /** When true, {@link EXTExternalBuffer} is supported. */
+    public final boolean GL_EXT_external_buffer;
     /**
      * When true, the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_float_blend.txt">EXT_float_blend</a> extension is supported.
      * 
@@ -1036,6 +1075,12 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_instanced_arrays;
     /** When true, {@link EXTMapBufferRange} is supported. */
     public final boolean GL_EXT_map_buffer_range;
+    /** When true, {@link EXTMemoryObject} is supported. */
+    public final boolean GL_EXT_memory_object;
+    /** When true, {@link EXTMemoryObjectFD} is supported. */
+    public final boolean GL_EXT_memory_object_fd;
+    /** When true, {@link EXTMemoryObjectWin32} is supported. */
+    public final boolean GL_EXT_memory_object_win32;
     /** When true, {@link EXTMultiDrawArrays} is supported. */
     public final boolean GL_EXT_multi_draw_arrays;
     /** When true, {@link EXTMultiDrawIndirect} is supported. */
@@ -1090,6 +1135,12 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_render_snorm;
     /** When true, {@link EXTRobustness} is supported. */
     public final boolean GL_EXT_robustness;
+    /** When true, {@link EXTSemaphore} is supported. */
+    public final boolean GL_EXT_semaphore;
+    /** When true, {@link EXTSemaphoreFD} is supported. */
+    public final boolean GL_EXT_semaphore_fd;
+    /** When true, {@link EXTSemaphoreWin32} is supported. */
+    public final boolean GL_EXT_semaphore_win32;
     /** When true, {@link EXTSeparateShaderObjects} is supported. */
     public final boolean GL_EXT_separate_shader_objects;
     /** When true, {@link EXTShaderFramebufferFetch} is supported. */
@@ -1279,8 +1330,12 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_texture_buffer;
     /** When true, {@link EXTTextureCompressionASTCDecodeMode} is supported. */
     public final boolean GL_EXT_texture_compression_astc_decode_mode;
+    /** When true, {@link EXTTextureCompressionBPTC} is supported. */
+    public final boolean GL_EXT_texture_compression_bptc;
     /** When true, {@link EXTTextureCompressionDXT1} is supported. */
     public final boolean GL_EXT_texture_compression_dxt1;
+    /** When true, {@link EXTTextureCompressionRGTC} is supported. */
+    public final boolean GL_EXT_texture_compression_rgtc;
     /** When true, {@link EXTTextureCompressionS3TC} is supported. */
     public final boolean GL_EXT_texture_compression_s3tc;
     /** When true, {@link EXTTextureCubeMapArray} is supported. */
@@ -1309,6 +1364,8 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_texture_view;
     /** When true, {@link EXTUnpackSubimage} is supported. */
     public final boolean GL_EXT_unpack_subimage;
+    /** When true, {@link EXTWin32KeyedMutex} is supported. */
+    public final boolean GL_EXT_win32_keyed_mutex;
     /** When true, {@link EXTWindowRectangles} is supported. */
     public final boolean GL_EXT_window_rectangles;
     /** When true, {@link EXTYUVTarget} is supported. */
@@ -1349,6 +1406,8 @@ public final class GLESCapabilities {
     public final boolean GL_KHR_debug;
     /** When true, {@link KHRNoError} is supported. */
     public final boolean GL_KHR_no_error;
+    /** When true, {@link KHRParallelShaderCompile} is supported. */
+    public final boolean GL_KHR_parallel_shader_compile;
     /**
      * When true, the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/KHR/robust_buffer_access_behavior.txt">KHR_robust_buffer_access_behavior</a> extension is supported.
      * 
@@ -1391,6 +1450,8 @@ public final class GLESCapabilities {
     public final boolean GL_NV_blend_equation_advanced;
     /** When true, {@link NVBlendEquationAdvancedCoherent} is supported. */
     public final boolean GL_NV_blend_equation_advanced_coherent;
+    /** When true, {@link NVBlendMinmaxFactor} is supported. */
+    public final boolean GL_NV_blend_minmax_factor;
     /** When true, {@link NVConditionalRender} is supported. */
     public final boolean GL_NV_conditional_render;
     /** When true, {@link NVConservativeRaster} is supported. */
@@ -2019,6 +2080,7 @@ public final class GLESCapabilities {
     final PointerBuffer addresses;
 
     GLESCapabilities(FunctionProvider provider, Set<String> ext) {
+        glAcquireKeyedMutexWin32EXT = provider.getFunctionAddress("glAcquireKeyedMutexWin32EXT");
         glActiveShaderProgram = provider.getFunctionAddress("glActiveShaderProgram");
         glActiveShaderProgramEXT = provider.getFunctionAddress("glActiveShaderProgramEXT");
         glActiveTexture = provider.getFunctionAddress("glActiveTexture");
@@ -2075,6 +2137,8 @@ public final class GLESCapabilities {
         glBlitFramebufferNV = provider.getFunctionAddress("glBlitFramebufferNV");
         glBufferData = provider.getFunctionAddress("glBufferData");
         glBufferStorageEXT = provider.getFunctionAddress("glBufferStorageEXT");
+        glBufferStorageExternalEXT = provider.getFunctionAddress("glBufferStorageExternalEXT");
+        glBufferStorageMemEXT = provider.getFunctionAddress("glBufferStorageMemEXT");
         glBufferSubData = provider.getFunctionAddress("glBufferSubData");
         glCheckFramebufferStatus = provider.getFunctionAddress("glCheckFramebufferStatus");
         glClear = provider.getFunctionAddress("glClear");
@@ -2124,6 +2188,7 @@ public final class GLESCapabilities {
         glCoverageModulationNV = provider.getFunctionAddress("glCoverageModulationNV");
         glCoverageModulationTableNV = provider.getFunctionAddress("glCoverageModulationTableNV");
         glCoverageOperationNV = provider.getFunctionAddress("glCoverageOperationNV");
+        glCreateMemoryObjectsEXT = provider.getFunctionAddress("glCreateMemoryObjectsEXT");
         glCreatePerfQueryINTEL = provider.getFunctionAddress("glCreatePerfQueryINTEL");
         glCreateProgram = provider.getFunctionAddress("glCreateProgram");
         glCreateShader = provider.getFunctionAddress("glCreateShader");
@@ -2139,6 +2204,7 @@ public final class GLESCapabilities {
         glDeleteBuffers = provider.getFunctionAddress("glDeleteBuffers");
         glDeleteFencesNV = provider.getFunctionAddress("glDeleteFencesNV");
         glDeleteFramebuffers = provider.getFunctionAddress("glDeleteFramebuffers");
+        glDeleteMemoryObjectsEXT = provider.getFunctionAddress("glDeleteMemoryObjectsEXT");
         glDeletePathsNV = provider.getFunctionAddress("glDeletePathsNV");
         glDeletePerfMonitorsAMD = provider.getFunctionAddress("glDeletePerfMonitorsAMD");
         glDeletePerfQueryINTEL = provider.getFunctionAddress("glDeletePerfQueryINTEL");
@@ -2149,6 +2215,7 @@ public final class GLESCapabilities {
         glDeleteQueriesEXT = provider.getFunctionAddress("glDeleteQueriesEXT");
         glDeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
         glDeleteSamplers = provider.getFunctionAddress("glDeleteSamplers");
+        glDeleteSemaphoresEXT = provider.getFunctionAddress("glDeleteSemaphoresEXT");
         glDeleteShader = provider.getFunctionAddress("glDeleteShader");
         glDeleteSync = provider.getFunctionAddress("glDeleteSync");
         glDeleteSyncAPPLE = provider.getFunctionAddress("glDeleteSyncAPPLE");
@@ -2274,6 +2341,7 @@ public final class GLESCapabilities {
         glGenQueriesEXT = provider.getFunctionAddress("glGenQueriesEXT");
         glGenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
         glGenSamplers = provider.getFunctionAddress("glGenSamplers");
+        glGenSemaphoresEXT = provider.getFunctionAddress("glGenSemaphoresEXT");
         glGenTextures = provider.getFunctionAddress("glGenTextures");
         glGenTransformFeedbacks = provider.getFunctionAddress("glGenTransformFeedbacks");
         glGenVertexArrays = provider.getFunctionAddress("glGenVertexArrays");
@@ -2320,6 +2388,7 @@ public final class GLESCapabilities {
         glGetIntegerv = provider.getFunctionAddress("glGetIntegerv");
         glGetInternalformatSampleivNV = provider.getFunctionAddress("glGetInternalformatSampleivNV");
         glGetInternalformativ = provider.getFunctionAddress("glGetInternalformativ");
+        glGetMemoryObjectParameterivEXT = provider.getFunctionAddress("glGetMemoryObjectParameterivEXT");
         glGetMultisamplefv = provider.getFunctionAddress("glGetMultisamplefv");
         glGetNextPerfQueryIdINTEL = provider.getFunctionAddress("glGetNextPerfQueryIdINTEL");
         glGetObjectLabel = provider.getFunctionAddress("glGetObjectLabel");
@@ -2379,6 +2448,7 @@ public final class GLESCapabilities {
         glGetSamplerParameterIuivOES = provider.getFunctionAddress("glGetSamplerParameterIuivOES");
         glGetSamplerParameterfv = provider.getFunctionAddress("glGetSamplerParameterfv");
         glGetSamplerParameteriv = provider.getFunctionAddress("glGetSamplerParameteriv");
+        glGetSemaphoreParameterui64vEXT = provider.getFunctionAddress("glGetSemaphoreParameterui64vEXT");
         glGetShaderInfoLog = provider.getFunctionAddress("glGetShaderInfoLog");
         glGetShaderPrecisionFormat = provider.getFunctionAddress("glGetShaderPrecisionFormat");
         glGetShaderSource = provider.getFunctionAddress("glGetShaderSource");
@@ -2409,6 +2479,8 @@ public final class GLESCapabilities {
         glGetUniformiv = provider.getFunctionAddress("glGetUniformiv");
         glGetUniformui64vNV = provider.getFunctionAddress("glGetUniformui64vNV");
         glGetUniformuiv = provider.getFunctionAddress("glGetUniformuiv");
+        glGetUnsignedBytei_vEXT = provider.getFunctionAddress("glGetUnsignedBytei_vEXT");
+        glGetUnsignedBytevEXT = provider.getFunctionAddress("glGetUnsignedBytevEXT");
         glGetVertexAttribIiv = provider.getFunctionAddress("glGetVertexAttribIiv");
         glGetVertexAttribIuiv = provider.getFunctionAddress("glGetVertexAttribIuiv");
         glGetVertexAttribPointerv = provider.getFunctionAddress("glGetVertexAttribPointerv");
@@ -2424,6 +2496,12 @@ public final class GLESCapabilities {
         glGetnUniformuiv = provider.getFunctionAddress("glGetnUniformuiv");
         glGetnUniformuivKHR = provider.getFunctionAddress("glGetnUniformuivKHR");
         glHint = provider.getFunctionAddress("glHint");
+        glImportMemoryFdEXT = provider.getFunctionAddress("glImportMemoryFdEXT");
+        glImportMemoryWin32HandleEXT = provider.getFunctionAddress("glImportMemoryWin32HandleEXT");
+        glImportMemoryWin32NameEXT = provider.getFunctionAddress("glImportMemoryWin32NameEXT");
+        glImportSemaphoreFdEXT = provider.getFunctionAddress("glImportSemaphoreFdEXT");
+        glImportSemaphoreWin32HandleEXT = provider.getFunctionAddress("glImportSemaphoreWin32HandleEXT");
+        glImportSemaphoreWin32NameEXT = provider.getFunctionAddress("glImportSemaphoreWin32NameEXT");
         glInsertEventMarkerEXT = provider.getFunctionAddress("glInsertEventMarkerEXT");
         glInterpolatePathsNV = provider.getFunctionAddress("glInterpolatePathsNV");
         glInvalidateFramebuffer = provider.getFunctionAddress("glInvalidateFramebuffer");
@@ -2437,6 +2515,7 @@ public final class GLESCapabilities {
         glIsFenceNV = provider.getFunctionAddress("glIsFenceNV");
         glIsFramebuffer = provider.getFunctionAddress("glIsFramebuffer");
         glIsImageHandleResidentNV = provider.getFunctionAddress("glIsImageHandleResidentNV");
+        glIsMemoryObjectEXT = provider.getFunctionAddress("glIsMemoryObjectEXT");
         glIsPathNV = provider.getFunctionAddress("glIsPathNV");
         glIsPointInFillPathNV = provider.getFunctionAddress("glIsPointInFillPathNV");
         glIsPointInStrokePathNV = provider.getFunctionAddress("glIsPointInStrokePathNV");
@@ -2447,6 +2526,7 @@ public final class GLESCapabilities {
         glIsQueryEXT = provider.getFunctionAddress("glIsQueryEXT");
         glIsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
         glIsSampler = provider.getFunctionAddress("glIsSampler");
+        glIsSemaphoreEXT = provider.getFunctionAddress("glIsSemaphoreEXT");
         glIsShader = provider.getFunctionAddress("glIsShader");
         glIsSync = provider.getFunctionAddress("glIsSync");
         glIsSyncAPPLE = provider.getFunctionAddress("glIsSyncAPPLE");
@@ -2471,8 +2551,10 @@ public final class GLESCapabilities {
         glMatrixMult3x2fNV = provider.getFunctionAddress("glMatrixMult3x2fNV");
         glMatrixMult3x3fNV = provider.getFunctionAddress("glMatrixMult3x3fNV");
         glMatrixMultTranspose3x3fNV = provider.getFunctionAddress("glMatrixMultTranspose3x3fNV");
+        glMaxShaderCompilerThreadsKHR = provider.getFunctionAddress("glMaxShaderCompilerThreadsKHR");
         glMemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");
         glMemoryBarrierByRegion = provider.getFunctionAddress("glMemoryBarrierByRegion");
+        glMemoryObjectParameterivEXT = provider.getFunctionAddress("glMemoryObjectParameterivEXT");
         glMinSampleShading = provider.getFunctionAddress("glMinSampleShading");
         glMinSampleShadingOES = provider.getFunctionAddress("glMinSampleShadingOES");
         glMultiDrawArraysEXT = provider.getFunctionAddress("glMultiDrawArraysEXT");
@@ -2481,6 +2563,9 @@ public final class GLESCapabilities {
         glMultiDrawElementsBaseVertexOES = provider.getFunctionAddress("glMultiDrawElementsBaseVertexOES");
         glMultiDrawElementsEXT = provider.getFunctionAddress("glMultiDrawElementsEXT");
         glMultiDrawElementsIndirectEXT = provider.getFunctionAddress("glMultiDrawElementsIndirectEXT");
+        glNamedBufferStorageEXT = provider.getFunctionAddress("glNamedBufferStorageEXT");
+        glNamedBufferStorageExternalEXT = provider.getFunctionAddress("glNamedBufferStorageExternalEXT");
+        glNamedBufferStorageMemEXT = provider.getFunctionAddress("glNamedBufferStorageMemEXT");
         glNamedFramebufferSampleLocationsfvNV = provider.getFunctionAddress("glNamedFramebufferSampleLocationsfvNV");
         glObjectLabel = provider.getFunctionAddress("glObjectLabel");
         glObjectLabelKHR = provider.getFunctionAddress("glObjectLabelKHR");
@@ -2620,6 +2705,7 @@ public final class GLESCapabilities {
         glReadnPixels = provider.getFunctionAddress("glReadnPixels");
         glReadnPixelsEXT = provider.getFunctionAddress("glReadnPixelsEXT");
         glReadnPixelsKHR = provider.getFunctionAddress("glReadnPixelsKHR");
+        glReleaseKeyedMutexWin32EXT = provider.getFunctionAddress("glReleaseKeyedMutexWin32EXT");
         glReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
         glRenderbufferStorage = provider.getFunctionAddress("glRenderbufferStorage");
         glRenderbufferStorageMultisample = provider.getFunctionAddress("glRenderbufferStorageMultisample");
@@ -2651,9 +2737,11 @@ public final class GLESCapabilities {
         glScissorIndexedvNV = provider.getFunctionAddress("glScissorIndexedvNV");
         glScissorIndexedvOES = provider.getFunctionAddress("glScissorIndexedvOES");
         glSelectPerfMonitorCountersAMD = provider.getFunctionAddress("glSelectPerfMonitorCountersAMD");
+        glSemaphoreParameterui64vEXT = provider.getFunctionAddress("glSemaphoreParameterui64vEXT");
         glSetFenceNV = provider.getFunctionAddress("glSetFenceNV");
         glShaderBinary = provider.getFunctionAddress("glShaderBinary");
         glShaderSource = provider.getFunctionAddress("glShaderSource");
+        glSignalSemaphoreEXT = provider.getFunctionAddress("glSignalSemaphoreEXT");
         glSignalVkFenceNV = provider.getFunctionAddress("glSignalVkFenceNV");
         glSignalVkSemaphoreNV = provider.getFunctionAddress("glSignalVkSemaphoreNV");
         glStartTilingQCOM = provider.getFunctionAddress("glStartTilingQCOM");
@@ -2702,6 +2790,10 @@ public final class GLESCapabilities {
         glTexStorage3DEXT = provider.getFunctionAddress("glTexStorage3DEXT");
         glTexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");
         glTexStorage3DMultisampleOES = provider.getFunctionAddress("glTexStorage3DMultisampleOES");
+        glTexStorageMem2DEXT = provider.getFunctionAddress("glTexStorageMem2DEXT");
+        glTexStorageMem2DMultisampleEXT = provider.getFunctionAddress("glTexStorageMem2DMultisampleEXT");
+        glTexStorageMem3DEXT = provider.getFunctionAddress("glTexStorageMem3DEXT");
+        glTexStorageMem3DMultisampleEXT = provider.getFunctionAddress("glTexStorageMem3DMultisampleEXT");
         glTexSubImage2D = provider.getFunctionAddress("glTexSubImage2D");
         glTexSubImage3D = provider.getFunctionAddress("glTexSubImage3D");
         glTexSubImage3DNV = provider.getFunctionAddress("glTexSubImage3DNV");
@@ -2710,6 +2802,10 @@ public final class GLESCapabilities {
         glTextureStorage1DEXT = provider.getFunctionAddress("glTextureStorage1DEXT");
         glTextureStorage2DEXT = provider.getFunctionAddress("glTextureStorage2DEXT");
         glTextureStorage3DEXT = provider.getFunctionAddress("glTextureStorage3DEXT");
+        glTextureStorageMem2DEXT = provider.getFunctionAddress("glTextureStorageMem2DEXT");
+        glTextureStorageMem2DMultisampleEXT = provider.getFunctionAddress("glTextureStorageMem2DMultisampleEXT");
+        glTextureStorageMem3DEXT = provider.getFunctionAddress("glTextureStorageMem3DEXT");
+        glTextureStorageMem3DMultisampleEXT = provider.getFunctionAddress("glTextureStorageMem3DMultisampleEXT");
         glTextureViewEXT = provider.getFunctionAddress("glTextureViewEXT");
         glTextureViewOES = provider.getFunctionAddress("glTextureViewOES");
         glTransformFeedbackVaryings = provider.getFunctionAddress("glTransformFeedbackVaryings");
@@ -2810,6 +2906,7 @@ public final class GLESCapabilities {
         glViewportIndexedfvNV = provider.getFunctionAddress("glViewportIndexedfvNV");
         glViewportIndexedfvOES = provider.getFunctionAddress("glViewportIndexedfvOES");
         glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
+        glWaitSemaphoreEXT = provider.getFunctionAddress("glWaitSemaphoreEXT");
         glWaitSync = provider.getFunctionAddress("glWaitSync");
         glWaitSyncAPPLE = provider.getFunctionAddress("glWaitSyncAPPLE");
         glWaitVkSemaphoreNV = provider.getFunctionAddress("glWaitVkSemaphoreNV");
@@ -2855,7 +2952,7 @@ public final class GLESCapabilities {
         GL_EXT_base_instance = ext.contains("GL_EXT_base_instance") && checkExtension("GL_EXT_base_instance", EXTBaseInstance.isAvailable(this));
         GL_EXT_blend_func_extended = ext.contains("GL_EXT_blend_func_extended") && checkExtension("GL_EXT_blend_func_extended", EXTBlendFuncExtended.isAvailable(this));
         GL_EXT_blend_minmax = ext.contains("GL_EXT_blend_minmax");
-        GL_EXT_buffer_storage = ext.contains("GL_EXT_buffer_storage") && checkExtension("GL_EXT_buffer_storage", EXTBufferStorage.isAvailable(this));
+        GL_EXT_buffer_storage = ext.contains("GL_EXT_buffer_storage") && checkExtension("GL_EXT_buffer_storage", EXTBufferStorage.isAvailable(this, ext));
         GL_EXT_clear_texture = ext.contains("GL_EXT_clear_texture") && checkExtension("GL_EXT_clear_texture", EXTClearTexture.isAvailable(this));
         GL_EXT_clip_cull_distance = ext.contains("GL_EXT_clip_cull_distance");
         GL_EXT_color_buffer_float = ext.contains("GL_EXT_color_buffer_float");
@@ -2872,12 +2969,16 @@ public final class GLESCapabilities {
         GL_EXT_draw_instanced = ext.contains("GL_EXT_draw_instanced") && checkExtension("GL_EXT_draw_instanced", EXTDrawInstanced.isAvailable(this));
         GL_EXT_draw_transform_feedback = ext.contains("GL_EXT_draw_transform_feedback") && checkExtension("GL_EXT_draw_transform_feedback", EXTDrawTransformFeedback.isAvailable(this));
         GL_EXT_EGL_image_array = ext.contains("GL_EXT_EGL_image_array");
+        GL_EXT_external_buffer = ext.contains("GL_EXT_external_buffer") && checkExtension("GL_EXT_external_buffer", EXTExternalBuffer.isAvailable(this, ext));
         GL_EXT_float_blend = ext.contains("GL_EXT_float_blend");
         GL_EXT_geometry_point_size = ext.contains("GL_EXT_geometry_point_size");
         GL_EXT_geometry_shader = ext.contains("GL_EXT_geometry_shader") && checkExtension("GL_EXT_geometry_shader", EXTGeometryShader.isAvailable(this));
         GL_EXT_gpu_shader5 = ext.contains("GL_EXT_gpu_shader5");
         GL_EXT_instanced_arrays = ext.contains("GL_EXT_instanced_arrays") && checkExtension("GL_EXT_instanced_arrays", EXTInstancedArrays.isAvailable(this));
         GL_EXT_map_buffer_range = ext.contains("GL_EXT_map_buffer_range") && checkExtension("GL_EXT_map_buffer_range", EXTMapBufferRange.isAvailable(this));
+        GL_EXT_memory_object = ext.contains("GL_EXT_memory_object") && checkExtension("GL_EXT_memory_object", EXTMemoryObject.isAvailable(this, ext));
+        GL_EXT_memory_object_fd = ext.contains("GL_EXT_memory_object_fd") && checkExtension("GL_EXT_memory_object_fd", EXTMemoryObjectFD.isAvailable(this));
+        GL_EXT_memory_object_win32 = ext.contains("GL_EXT_memory_object_win32") && checkExtension("GL_EXT_memory_object_win32", EXTMemoryObjectWin32.isAvailable(this));
         GL_EXT_multi_draw_arrays = ext.contains("GL_EXT_multi_draw_arrays") && checkExtension("GL_EXT_multi_draw_arrays", EXTMultiDrawArrays.isAvailable(this));
         GL_EXT_multi_draw_indirect = ext.contains("GL_EXT_multi_draw_indirect") && checkExtension("GL_EXT_multi_draw_indirect", EXTMultiDrawIndirect.isAvailable(this));
         GL_EXT_multisample_compatibility = ext.contains("GL_EXT_multisample_compatibility");
@@ -2894,6 +2995,9 @@ public final class GLESCapabilities {
         GL_EXT_read_format_bgra = ext.contains("GL_EXT_read_format_bgra");
         GL_EXT_render_snorm = ext.contains("GL_EXT_render_snorm");
         GL_EXT_robustness = ext.contains("GL_EXT_robustness") && checkExtension("GL_EXT_robustness", EXTRobustness.isAvailable(this));
+        GL_EXT_semaphore = ext.contains("GL_EXT_semaphore") && checkExtension("GL_EXT_semaphore", EXTSemaphore.isAvailable(this));
+        GL_EXT_semaphore_fd = ext.contains("GL_EXT_semaphore_fd") && checkExtension("GL_EXT_semaphore_fd", EXTSemaphoreFD.isAvailable(this));
+        GL_EXT_semaphore_win32 = ext.contains("GL_EXT_semaphore_win32") && checkExtension("GL_EXT_semaphore_win32", EXTSemaphoreWin32.isAvailable(this));
         GL_EXT_separate_shader_objects = ext.contains("GL_EXT_separate_shader_objects") && checkExtension("GL_EXT_separate_shader_objects", EXTSeparateShaderObjects.isAvailable(this));
         GL_EXT_shader_framebuffer_fetch = ext.contains("GL_EXT_shader_framebuffer_fetch");
         GL_EXT_shader_group_vote = ext.contains("GL_EXT_shader_group_vote");
@@ -2914,7 +3018,9 @@ public final class GLESCapabilities {
         GL_EXT_texture_border_clamp = ext.contains("GL_EXT_texture_border_clamp") && checkExtension("GL_EXT_texture_border_clamp", EXTTextureBorderClamp.isAvailable(this));
         GL_EXT_texture_buffer = ext.contains("GL_EXT_texture_buffer") && checkExtension("GL_EXT_texture_buffer", EXTTextureBuffer.isAvailable(this));
         GL_EXT_texture_compression_astc_decode_mode = ext.contains("GL_EXT_texture_compression_astc_decode_mode");
+        GL_EXT_texture_compression_bptc = ext.contains("GL_EXT_texture_compression_bptc");
         GL_EXT_texture_compression_dxt1 = ext.contains("GL_EXT_texture_compression_dxt1");
+        GL_EXT_texture_compression_rgtc = ext.contains("GL_EXT_texture_compression_rgtc");
         GL_EXT_texture_compression_s3tc = ext.contains("GL_EXT_texture_compression_s3tc");
         GL_EXT_texture_cube_map_array = ext.contains("GL_EXT_texture_cube_map_array");
         GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
@@ -2925,10 +3031,11 @@ public final class GLESCapabilities {
         GL_EXT_texture_sRGB_decode = ext.contains("GL_EXT_texture_sRGB_decode");
         GL_EXT_texture_sRGB_R8 = ext.contains("GL_EXT_texture_sRGB_R8");
         GL_EXT_texture_sRGB_RG8 = ext.contains("GL_EXT_texture_sRGB_RG8");
-        GL_EXT_texture_storage = ext.contains("GL_EXT_texture_storage") && checkExtension("GL_EXT_texture_storage", EXTTextureStorage.isAvailable(this));
+        GL_EXT_texture_storage = ext.contains("GL_EXT_texture_storage") && checkExtension("GL_EXT_texture_storage", EXTTextureStorage.isAvailable(this, ext));
         GL_EXT_texture_type_2_10_10_10_REV = ext.contains("GL_EXT_texture_type_2_10_10_10_REV");
         GL_EXT_texture_view = ext.contains("GL_EXT_texture_view") && checkExtension("GL_EXT_texture_view", EXTTextureView.isAvailable(this));
         GL_EXT_unpack_subimage = ext.contains("GL_EXT_unpack_subimage");
+        GL_EXT_win32_keyed_mutex = ext.contains("GL_EXT_win32_keyed_mutex") && checkExtension("GL_EXT_win32_keyed_mutex", EXTWin32KeyedMutex.isAvailable(this));
         GL_EXT_window_rectangles = ext.contains("GL_EXT_window_rectangles") && checkExtension("GL_EXT_window_rectangles", EXTWindowRectangles.isAvailable(this));
         GL_EXT_YUV_target = ext.contains("GL_EXT_YUV_target");
         GL_FJ_shader_binary_GCCSO = ext.contains("GL_FJ_shader_binary_GCCSO");
@@ -2949,6 +3056,7 @@ public final class GLESCapabilities {
         GL_KHR_context_flush_control = ext.contains("GL_KHR_context_flush_control");
         GL_KHR_debug = ext.contains("GL_KHR_debug") && checkExtension("GL_KHR_debug", KHRDebug.isAvailable(this));
         GL_KHR_no_error = ext.contains("GL_KHR_no_error");
+        GL_KHR_parallel_shader_compile = ext.contains("GL_KHR_parallel_shader_compile") && checkExtension("GL_KHR_parallel_shader_compile", KHRParallelShaderCompile.isAvailable(this));
         GL_KHR_robust_buffer_access_behavior = ext.contains("GL_KHR_robust_buffer_access_behavior");
         GL_KHR_robustness = ext.contains("GL_KHR_robustness") && checkExtension("GL_KHR_robustness", KHRRobustness.isAvailable(this));
         GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
@@ -2958,6 +3066,7 @@ public final class GLESCapabilities {
         GL_NV_bindless_texture = ext.contains("GL_NV_bindless_texture") && checkExtension("GL_NV_bindless_texture", NVBindlessTexture.isAvailable(this));
         GL_NV_blend_equation_advanced = ext.contains("GL_NV_blend_equation_advanced") && checkExtension("GL_NV_blend_equation_advanced", NVBlendEquationAdvanced.isAvailable(this));
         GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
+        GL_NV_blend_minmax_factor = ext.contains("GL_NV_blend_minmax_factor");
         GL_NV_conditional_render = ext.contains("GL_NV_conditional_render") && checkExtension("GL_NV_conditional_render", NVConditionalRender.isAvailable(this));
         GL_NV_conservative_raster = ext.contains("GL_NV_conservative_raster") && checkExtension("GL_NV_conservative_raster", NVConservativeRaster.isAvailable(this));
         GL_NV_conservative_raster_pre_snap_triangles = ext.contains("GL_NV_conservative_raster_pre_snap_triangles") && checkExtension("GL_NV_conservative_raster_pre_snap_triangles", NVConservativeRasterPreSnapTriangles.isAvailable(this));
@@ -3077,6 +3186,10 @@ public final class GLESCapabilities {
         GL_VIV_shader_binary = ext.contains("GL_VIV_shader_binary");
 
         addresses = ThreadLocalUtil.getAddressesFromCapabilities(this);
+    }
+
+    boolean hasDSA(Set<String> ext) {
+        return ext.contains("GL_ARB_direct_state_access") || ext.contains("GL_EXT_direct_state_access");
     }
 
     private static boolean checkExtension(String extension, boolean supported) {

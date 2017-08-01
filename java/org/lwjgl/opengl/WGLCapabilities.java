@@ -77,6 +77,8 @@ public final class WGLCapabilities {
     public final boolean WGL_ARB_context_flush_control;
     /** When true, {@link WGLARBCreateContext} is supported. */
     public final boolean WGL_ARB_create_context;
+    /** When true, {@link WGLARBCreateContextNoError} is supported. */
+    public final boolean WGL_ARB_create_context_no_error;
     /** When true, {@link WGLARBCreateContextProfile} is supported. */
     public final boolean WGL_ARB_create_context_profile;
     /** When true, {@link WGLARBCreateContextRobustness} is supported. */
@@ -233,6 +235,7 @@ public final class WGLCapabilities {
         WGL_ARB_buffer_region = ext.contains("WGL_ARB_buffer_region") && checkExtension("WGL_ARB_buffer_region", WGLARBBufferRegion.isAvailable(this));
         WGL_ARB_context_flush_control = ext.contains("WGL_ARB_context_flush_control");
         WGL_ARB_create_context = ext.contains("WGL_ARB_create_context") && checkExtension("WGL_ARB_create_context", WGLARBCreateContext.isAvailable(this));
+        WGL_ARB_create_context_no_error = ext.contains("WGL_ARB_create_context_no_error");
         WGL_ARB_create_context_profile = ext.contains("WGL_ARB_create_context_profile");
         WGL_ARB_create_context_robustness = ext.contains("WGL_ARB_create_context_robustness");
         WGL_ARB_extensions_string = ext.contains("WGL_ARB_extensions_string") && checkExtension("WGL_ARB_extensions_string", WGLARBExtensionsString.isAvailable(this));

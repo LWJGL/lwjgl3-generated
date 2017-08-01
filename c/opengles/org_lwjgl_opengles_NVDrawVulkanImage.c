@@ -15,32 +15,32 @@ typedef void (APIENTRY *glSignalVkFenceNVPROC) (jlong);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVDrawVulkanImage_glDrawVkImageNV(JNIEnv *__env, jclass clazz, jlong vkImage, jint sampler, jfloat x0, jfloat y0, jfloat x1, jfloat y1, jfloat z, jfloat s0, jfloat t0, jfloat s1, jfloat t1) {
-    glDrawVkImageNVPROC glDrawVkImageNV = (glDrawVkImageNVPROC)tlsGetFunction(186);
+    glDrawVkImageNVPROC glDrawVkImageNV = (glDrawVkImageNVPROC)tlsGetFunction(192);
     UNUSED_PARAM(clazz)
     glDrawVkImageNV(vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengles_NVDrawVulkanImage_nglGetVkProcAddrNV(JNIEnv *__env, jclass clazz, jlong nameAddress) {
-    glGetVkProcAddrNVPROC glGetVkProcAddrNV = (glGetVkProcAddrNVPROC)tlsGetFunction(395);
+    glGetVkProcAddrNVPROC glGetVkProcAddrNV = (glGetVkProcAddrNVPROC)tlsGetFunction(406);
     const intptr_t name = (const intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jlong)glGetVkProcAddrNV(name);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVDrawVulkanImage_glWaitVkSemaphoreNV(JNIEnv *__env, jclass clazz, jlong vkSemaphore) {
-    glWaitVkSemaphoreNVPROC glWaitVkSemaphoreNV = (glWaitVkSemaphoreNVPROC)tlsGetFunction(793);
+    glWaitVkSemaphoreNVPROC glWaitVkSemaphoreNV = (glWaitVkSemaphoreNVPROC)tlsGetFunction(829);
     UNUSED_PARAM(clazz)
     glWaitVkSemaphoreNV(vkSemaphore);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVDrawVulkanImage_glSignalVkSemaphoreNV(JNIEnv *__env, jclass clazz, jlong vkSemaphore) {
-    glSignalVkSemaphoreNVPROC glSignalVkSemaphoreNV = (glSignalVkSemaphoreNVPROC)tlsGetFunction(636);
+    glSignalVkSemaphoreNVPROC glSignalVkSemaphoreNV = (glSignalVkSemaphoreNVPROC)tlsGetFunction(663);
     UNUSED_PARAM(clazz)
     glSignalVkSemaphoreNV(vkSemaphore);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVDrawVulkanImage_glSignalVkFenceNV(JNIEnv *__env, jclass clazz, jlong vkFence) {
-    glSignalVkFenceNVPROC glSignalVkFenceNV = (glSignalVkFenceNVPROC)tlsGetFunction(635);
+    glSignalVkFenceNVPROC glSignalVkFenceNV = (glSignalVkFenceNVPROC)tlsGetFunction(662);
     UNUSED_PARAM(clazz)
     glSignalVkFenceNV(vkFence);
 }

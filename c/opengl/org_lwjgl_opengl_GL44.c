@@ -19,35 +19,35 @@ typedef void (APIENTRY *glBindVertexBuffersPROC) (jint, jint, const intptr_t, co
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBufferStorage__IJJI(JNIEnv *__env, jclass clazz, jint target, jlong size, jlong dataAddress, jint flags) {
-    glBufferStoragePROC glBufferStorage = (glBufferStoragePROC)tlsGetFunction(95);
+    glBufferStoragePROC glBufferStorage = (glBufferStoragePROC)tlsGetFunction(96);
     const intptr_t data = (const intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glBufferStorage(target, (intptr_t)size, data, flags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglClearTexSubImage__IIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong dataAddress) {
-    glClearTexSubImagePROC glClearTexSubImage = (glClearTexSubImagePROC)tlsGetFunction(132);
+    glClearTexSubImagePROC glClearTexSubImage = (glClearTexSubImagePROC)tlsGetFunction(135);
     const intptr_t data = (const intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglClearTexImage__IIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint level, jint format, jint type, jlong dataAddress) {
-    glClearTexImagePROC glClearTexImage = (glClearTexImagePROC)tlsGetFunction(131);
+    glClearTexImagePROC glClearTexImage = (glClearTexImagePROC)tlsGetFunction(134);
     const intptr_t data = (const intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glClearTexImage(texture, level, format, type, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBindBuffersBase__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint first, jint count, jlong buffersAddress) {
-    glBindBuffersBasePROC glBindBuffersBase = (glBindBuffersBasePROC)tlsGetFunction(38);
+    glBindBuffersBasePROC glBindBuffersBase = (glBindBuffersBasePROC)tlsGetFunction(39);
     const intptr_t buffers = (const intptr_t)buffersAddress;
     UNUSED_PARAM(clazz)
     glBindBuffersBase(target, first, count, buffers);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBindBuffersRange__IIIJJJ(JNIEnv *__env, jclass clazz, jint target, jint first, jint count, jlong buffersAddress, jlong offsetsAddress, jlong sizesAddress) {
-    glBindBuffersRangePROC glBindBuffersRange = (glBindBuffersRangePROC)tlsGetFunction(39);
+    glBindBuffersRangePROC glBindBuffersRange = (glBindBuffersRangePROC)tlsGetFunction(40);
     const intptr_t buffers = (const intptr_t)buffersAddress;
     const intptr_t offsets = (const intptr_t)offsetsAddress;
     const intptr_t sizes = (const intptr_t)sizesAddress;
@@ -56,28 +56,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBindBuffersRange__IIIJJJ(JN
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBindTextures__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong texturesAddress) {
-    glBindTexturesPROC glBindTextures = (glBindTexturesPROC)tlsGetFunction(57);
+    glBindTexturesPROC glBindTextures = (glBindTexturesPROC)tlsGetFunction(58);
     const intptr_t textures = (const intptr_t)texturesAddress;
     UNUSED_PARAM(clazz)
     glBindTextures(first, count, textures);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBindSamplers__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong samplersAddress) {
-    glBindSamplersPROC glBindSamplers = (glBindSamplersPROC)tlsGetFunction(54);
+    glBindSamplersPROC glBindSamplers = (glBindSamplersPROC)tlsGetFunction(55);
     const intptr_t samplers = (const intptr_t)samplersAddress;
     UNUSED_PARAM(clazz)
     glBindSamplers(first, count, samplers);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBindImageTextures__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong texturesAddress) {
-    glBindImageTexturesPROC glBindImageTextures = (glBindImageTexturesPROC)tlsGetFunction(47);
+    glBindImageTexturesPROC glBindImageTextures = (glBindImageTexturesPROC)tlsGetFunction(48);
     const intptr_t textures = (const intptr_t)texturesAddress;
     UNUSED_PARAM(clazz)
     glBindImageTextures(first, count, textures);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL44_nglBindVertexBuffers__IIJJJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong buffersAddress, jlong offsetsAddress, jlong stridesAddress) {
-    glBindVertexBuffersPROC glBindVertexBuffers = (glBindVertexBuffersPROC)tlsGetFunction(62);
+    glBindVertexBuffersPROC glBindVertexBuffers = (glBindVertexBuffersPROC)tlsGetFunction(63);
     const intptr_t buffers = (const intptr_t)buffersAddress;
     const intptr_t offsets = (const intptr_t)offsetsAddress;
     const intptr_t strides = (const intptr_t)stridesAddress;

@@ -98,6 +98,8 @@ public final class GLXCapabilities {
     public final boolean GLX_ARB_context_flush_control;
     /** When true, {@link GLXARBCreateContext} is supported. */
     public final boolean GLX_ARB_create_context;
+    /** When true, {@link GLXARBCreateContextNoError} is supported. */
+    public final boolean GLX_ARB_create_context_no_error;
     /** When true, {@link GLXARBCreateContextProfile} is supported. */
     public final boolean GLX_ARB_create_context_profile;
     /** When true, {@link GLXARBCreateContextRobustness} is supported. */
@@ -264,6 +266,7 @@ public final class GLXCapabilities {
         GLX_AMD_gpu_association = ext.contains("GLX_AMD_gpu_association") && checkExtension("GLX_AMD_gpu_association", GLXAMDGPUAssociation.isAvailable(this));
         GLX_ARB_context_flush_control = ext.contains("GLX_ARB_context_flush_control");
         GLX_ARB_create_context = ext.contains("GLX_ARB_create_context") && checkExtension("GLX_ARB_create_context", GLXARBCreateContext.isAvailable(this));
+        GLX_ARB_create_context_no_error = ext.contains("GLX_ARB_create_context_no_error");
         GLX_ARB_create_context_profile = ext.contains("GLX_ARB_create_context_profile");
         GLX_ARB_create_context_robustness = ext.contains("GLX_ARB_create_context_robustness");
         GLX_ARB_fbconfig_float = ext.contains("GLX_ARB_fbconfig_float");

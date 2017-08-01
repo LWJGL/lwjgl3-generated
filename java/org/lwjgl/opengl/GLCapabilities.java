@@ -17,6 +17,7 @@ public final class GLCapabilities {
 
     public final long
         glAccum,
+        glAcquireKeyedMutexWin32EXT,
         glActiveProgramEXT,
         glActiveShaderProgram,
         glActiveStencilFaceEXT,
@@ -112,6 +113,8 @@ public final class GLCapabilities {
         glBufferDataARB,
         glBufferPageCommitmentARB,
         glBufferStorage,
+        glBufferStorageExternalEXT,
+        glBufferStorageMemEXT,
         glBufferSubData,
         glBufferSubDataARB,
         glCallCommandListNV,
@@ -282,6 +285,7 @@ public final class GLCapabilities {
         glCreateBuffers,
         glCreateCommandListsNV,
         glCreateFramebuffers,
+        glCreateMemoryObjectsEXT,
         glCreatePerfQueryINTEL,
         glCreateProgram,
         glCreateProgramObjectARB,
@@ -316,6 +320,7 @@ public final class GLCapabilities {
         glDeleteFramebuffers,
         glDeleteFramebuffersEXT,
         glDeleteLists,
+        glDeleteMemoryObjectsEXT,
         glDeleteNamedStringARB,
         glDeleteObjectARB,
         glDeletePathsNV,
@@ -329,6 +334,7 @@ public final class GLCapabilities {
         glDeleteRenderbuffers,
         glDeleteRenderbuffersEXT,
         glDeleteSamplers,
+        glDeleteSemaphoresEXT,
         glDeleteShader,
         glDeleteStatesNV,
         glDeleteSync,
@@ -497,6 +503,7 @@ public final class GLCapabilities {
         glGenRenderbuffers,
         glGenRenderbuffersEXT,
         glGenSamplers,
+        glGenSemaphoresEXT,
         glGenTextures,
         glGenTransformFeedbacks,
         glGenTransformFeedbacksNV,
@@ -596,6 +603,7 @@ public final class GLCapabilities {
         glGetMapiv,
         glGetMaterialfv,
         glGetMaterialiv,
+        glGetMemoryObjectParameterivEXT,
         glGetMinmax,
         glGetMinmaxParameterfv,
         glGetMinmaxParameteriv,
@@ -710,6 +718,7 @@ public final class GLCapabilities {
         glGetSamplerParameterIuiv,
         glGetSamplerParameterfv,
         glGetSamplerParameteriv,
+        glGetSemaphoreParameterui64vEXT,
         glGetSeparableFilter,
         glGetShaderInfoLog,
         glGetShaderPrecisionFormat,
@@ -779,6 +788,8 @@ public final class GLCapabilities {
         glGetUniformui64vNV,
         glGetUniformuiv,
         glGetUniformuivEXT,
+        glGetUnsignedBytei_vEXT,
+        glGetUnsignedBytevEXT,
         glGetVaryingLocationNV,
         glGetVertexArrayIndexed64iv,
         glGetVertexArrayIndexediv,
@@ -845,6 +856,12 @@ public final class GLCapabilities {
         glGetnUniformuivARB,
         glHint,
         glHistogram,
+        glImportMemoryFdEXT,
+        glImportMemoryWin32HandleEXT,
+        glImportMemoryWin32NameEXT,
+        glImportSemaphoreFdEXT,
+        glImportSemaphoreWin32HandleEXT,
+        glImportSemaphoreWin32NameEXT,
         glImportSyncEXT,
         glIndexFormatNV,
         glIndexMask,
@@ -884,6 +901,7 @@ public final class GLCapabilities {
         glIsImageHandleResidentARB,
         glIsImageHandleResidentNV,
         glIsList,
+        glIsMemoryObjectEXT,
         glIsNamedBufferResidentNV,
         glIsNamedStringARB,
         glIsPathNV,
@@ -897,6 +915,7 @@ public final class GLCapabilities {
         glIsRenderbuffer,
         glIsRenderbufferEXT,
         glIsSampler,
+        glIsSemaphoreEXT,
         glIsShader,
         glIsStateNV,
         glIsSync,
@@ -994,9 +1013,11 @@ public final class GLCapabilities {
         glMatrixTranslatedEXT,
         glMatrixTranslatefEXT,
         glMaxShaderCompilerThreadsARB,
+        glMaxShaderCompilerThreadsKHR,
         glMemoryBarrier,
         glMemoryBarrierByRegion,
         glMemoryBarrierEXT,
+        glMemoryObjectParameterivEXT,
         glMinSampleShading,
         glMinSampleShadingARB,
         glMinmax,
@@ -1010,12 +1031,14 @@ public final class GLCapabilities {
         glMultiDrawArraysIndirect,
         glMultiDrawArraysIndirectBindlessCountNV,
         glMultiDrawArraysIndirectBindlessNV,
+        glMultiDrawArraysIndirectCount,
         glMultiDrawArraysIndirectCountARB,
         glMultiDrawElements,
         glMultiDrawElementsBaseVertex,
         glMultiDrawElementsIndirect,
         glMultiDrawElementsIndirectBindlessCountNV,
         glMultiDrawElementsIndirectBindlessNV,
+        glMultiDrawElementsIndirectCount,
         glMultiDrawElementsIndirectCountARB,
         glMultiTexBufferEXT,
         glMultiTexCoord1d,
@@ -1139,6 +1162,8 @@ public final class GLCapabilities {
         glNamedBufferPageCommitmentEXT,
         glNamedBufferStorage,
         glNamedBufferStorageEXT,
+        glNamedBufferStorageExternalEXT,
+        glNamedBufferStorageMemEXT,
         glNamedBufferSubData,
         glNamedBufferSubDataEXT,
         glNamedCopyBufferSubDataEXT,
@@ -1246,6 +1271,7 @@ public final class GLCapabilities {
         glPointSize,
         glPolygonMode,
         glPolygonOffset,
+        glPolygonOffsetClamp,
         glPolygonOffsetClampEXT,
         glPolygonStipple,
         glPopAttrib,
@@ -1461,6 +1487,7 @@ public final class GLCapabilities {
         glRectiv,
         glRects,
         glRectsv,
+        glReleaseKeyedMutexWin32EXT,
         glReleaseShaderCompiler,
         glRenderGpuMaskNV,
         glRenderMode,
@@ -1533,6 +1560,7 @@ public final class GLCapabilities {
         glSecondaryColorPointerEXT,
         glSelectBuffer,
         glSelectPerfMonitorCountersAMD,
+        glSemaphoreParameterui64vEXT,
         glSeparableFilter2D,
         glSetFenceNV,
         glSetMultisamplefvAMD,
@@ -1541,8 +1569,10 @@ public final class GLCapabilities {
         glShaderSource,
         glShaderSourceARB,
         glShaderStorageBlockBinding,
+        glSignalSemaphoreEXT,
         glSignalVkFenceNV,
         glSignalVkSemaphoreNV,
+        glSpecializeShader,
         glSpecializeShaderARB,
         glStateCaptureNV,
         glStencilClearTagEXT,
@@ -1652,6 +1682,11 @@ public final class GLCapabilities {
         glTexStorage2DMultisample,
         glTexStorage3D,
         glTexStorage3DMultisample,
+        glTexStorageMem1DEXT,
+        glTexStorageMem2DEXT,
+        glTexStorageMem2DMultisampleEXT,
+        glTexStorageMem3DEXT,
+        glTexStorageMem3DMultisampleEXT,
         glTexStorageSparseAMD,
         glTexSubImage1D,
         glTexSubImage2D,
@@ -1693,6 +1728,11 @@ public final class GLCapabilities {
         glTextureStorage3DEXT,
         glTextureStorage3DMultisample,
         glTextureStorage3DMultisampleEXT,
+        glTextureStorageMem1DEXT,
+        glTextureStorageMem2DEXT,
+        glTextureStorageMem2DMultisampleEXT,
+        glTextureStorageMem3DEXT,
+        glTextureStorageMem3DMultisampleEXT,
         glTextureStorageSparseAMD,
         glTextureSubImage1D,
         glTextureSubImage1DEXT,
@@ -2100,6 +2140,7 @@ public final class GLCapabilities {
         glViewportIndexedfv,
         glViewportPositionWScaleNV,
         glViewportSwizzleNV,
+        glWaitSemaphoreEXT,
         glWaitSync,
         glWaitVkSemaphoreNV,
         glWeightPathsNV,
@@ -2180,6 +2221,8 @@ public final class GLCapabilities {
     public final boolean OpenGL44;
     /** When true, {@link GL45} is supported. */
     public final boolean OpenGL45;
+    /** When true, {@link GL46} is supported. */
+    public final boolean OpenGL46;
     /** When true, {@link AMDBlendMinmaxFactor} is supported. */
     public final boolean GL_AMD_blend_minmax_factor;
     /**
@@ -2215,6 +2258,23 @@ public final class GLCapabilities {
     public final boolean GL_AMD_gcn_shader;
     /** When true, {@link AMDGPUShaderHalfFloat} is supported. */
     public final boolean GL_AMD_gpu_shader_half_float;
+    /**
+     * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/gpu_shader_int16.txt">AMD_gpu_shader_int16</a> extension is supported.
+     * 
+     * <p>This extension was developed to allow implementations supporting 16-bit integers to expose the feature in GLSL.</p>
+     * 
+     * <p>The extension introduces the following features for all shader types:</p>
+     * 
+     * <ul>
+     * <li>new built-in functions to pack and unpack 32-bit integer types into a two-component 16-bit integer vector;</li>
+     * <li>new built-in functions to convert half-precision floating-point values to or from their 16-bit integer bit encodings;</li>
+     * <li>vector relational functions supporting comparisons of vectors of 16-bit integer types; and</li>
+     * <li>common functions abs, frexp, ldexp, sign, min, max, clamp, and mix supporting arguments of 16-bit integer types.</li>
+     * </ul>
+     * 
+     * <p>Requires GLSL 4.00.</p>
+     */
+    public final boolean GL_AMD_gpu_shader_int16;
     /** When true, {@link AMDGPUShaderInt64} is supported. */
     public final boolean GL_AMD_gpu_shader_int64;
     /** When true, {@link AMDInterleavedElements} is supported. */
@@ -2659,6 +2719,8 @@ public final class GLCapabilities {
     public final boolean GL_ARB_point_parameters;
     /** When true, {@link ARBPointSprite} is supported. */
     public final boolean GL_ARB_point_sprite;
+    /** When true, {@link ARBPolygonOffsetClamp} is supported. */
+    public final boolean GL_ARB_polygon_offset_clamp;
     /**
      * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/post_depth_coverage.txt">ARB_post_depth_coverage</a> extension is supported.
      * 
@@ -3072,6 +3134,8 @@ public final class GLCapabilities {
      * <p>Requires {@link #GL_ARB_sparse_texture2 ARB_sparse_texture2}</p>
      */
     public final boolean GL_ARB_sparse_texture_clamp;
+    /** When true, {@link ARBSPIRVExtensions} is supported. */
+    public final boolean GL_ARB_spirv_extensions;
     /** When true, {@link ARBStencilTexturing} is supported. */
     public final boolean GL_ARB_stencil_texturing;
     /** When true, {@link ARBSync} is supported. */
@@ -3127,6 +3191,8 @@ public final class GLCapabilities {
     public final boolean GL_ARB_texture_env_crossbar;
     /** When true, {@link ARBTextureEnvDot3} is supported. */
     public final boolean GL_ARB_texture_env_dot3;
+    /** When true, {@link ARBTextureFilterAnisotropic} is supported. */
+    public final boolean GL_ARB_texture_filter_anisotropic;
     /** When true, {@link ARBTextureFilterMinmax} is supported. */
     public final boolean GL_ARB_texture_filter_minmax;
     /** When true, {@link ARBTextureFloat} is supported. */
@@ -3285,6 +3351,8 @@ public final class GLCapabilities {
     public final boolean GL_EXT_draw_buffers2;
     /** When true, {@link EXTDrawInstanced} is supported. */
     public final boolean GL_EXT_draw_instanced;
+    /** When true, {@link EXTExternalBuffer} is supported. */
+    public final boolean GL_EXT_external_buffer;
     /** When true, {@link EXTFramebufferBlit} is supported. */
     public final boolean GL_EXT_framebuffer_blit;
     /** When true, {@link EXTFramebufferMultisample} is supported. */
@@ -3301,6 +3369,12 @@ public final class GLCapabilities {
     public final boolean GL_EXT_gpu_program_parameters;
     /** When true, {@link EXTGPUShader4} is supported. */
     public final boolean GL_EXT_gpu_shader4;
+    /** When true, {@link EXTMemoryObject} is supported. */
+    public final boolean GL_EXT_memory_object;
+    /** When true, {@link EXTMemoryObjectFD} is supported. */
+    public final boolean GL_EXT_memory_object_fd;
+    /** When true, {@link EXTMemoryObjectWin32} is supported. */
+    public final boolean GL_EXT_memory_object_win32;
     /** When true, {@link EXTPackedDepthStencil} is supported. */
     public final boolean GL_EXT_packed_depth_stencil;
     /** When true, {@link EXTPackedFloat} is supported. */
@@ -3332,6 +3406,12 @@ public final class GLCapabilities {
     public final boolean GL_EXT_raster_multisample;
     /** When true, {@link EXTSecondaryColor} is supported. */
     public final boolean GL_EXT_secondary_color;
+    /** When true, {@link EXTSemaphore} is supported. */
+    public final boolean GL_EXT_semaphore;
+    /** When true, {@link EXTSemaphoreFD} is supported. */
+    public final boolean GL_EXT_semaphore_fd;
+    /** When true, {@link EXTSemaphoreWin32} is supported. */
+    public final boolean GL_EXT_semaphore_win32;
     /** When true, {@link EXTSeparateShaderObjects} is supported. */
     public final boolean GL_EXT_separate_shader_objects;
     /**
@@ -3470,6 +3550,8 @@ public final class GLCapabilities {
     public final boolean GL_EXT_vertex_array_bgra;
     /** When true, {@link EXTVertexAttrib64bit} is supported. */
     public final boolean GL_EXT_vertex_attrib_64bit;
+    /** When true, {@link EXTWin32KeyedMutex} is supported. */
+    public final boolean GL_EXT_win32_keyed_mutex;
     /** When true, {@link EXTWindowRectangles} is supported. */
     public final boolean GL_EXT_window_rectangles;
     /** When true, {@link EXTX11SyncObject} is supported. */
@@ -3504,6 +3586,8 @@ public final class GLCapabilities {
     public final boolean GL_KHR_debug;
     /** When true, {@link KHRNoError} is supported. */
     public final boolean GL_KHR_no_error;
+    /** When true, {@link KHRParallelShaderCompile} is supported. */
+    public final boolean GL_KHR_parallel_shader_compile;
     /**
      * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/KHR/robust_buffer_access_behavior.txt">KHR_robust_buffer_access_behavior</a> extension is supported.
      * 
@@ -3551,6 +3635,8 @@ public final class GLCapabilities {
     public final boolean GL_NV_blend_equation_advanced;
     /** When true, {@link NVBlendEquationAdvancedCoherent} is supported. */
     public final boolean GL_NV_blend_equation_advanced_coherent;
+    /** When true, {@link NVBlendMinmaxFactor} is supported. */
+    public final boolean GL_NV_blend_minmax_factor;
     /** When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/blend_square.txt">NV_blend_square</a> extension is supported. */
     public final boolean GL_NV_blend_square;
     /** When true, {@link NVClipSpaceWScaling} is supported. */
@@ -3790,6 +3876,13 @@ public final class GLCapabilities {
     public final boolean GL_NV_texture_compression_vtc;
     /** When true, {@link NVTextureMultisample} is supported. */
     public final boolean GL_NV_texture_multisample;
+    /**
+     * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/texture_rectangle_compressed.txt">NV_texture_rectangle_compressed</a> extension is supported.
+     * 
+     * <p>This extension allows applications to use compressed texture formats with the {@link GL31#GL_TEXTURE_RECTANGLE TEXTURE_RECTANGLE} texture target, removing an old limitation that
+     * prohibited such usage globally for rectangle textures.</p>
+     */
+    public final boolean GL_NV_texture_rectangle_compressed;
     /** When true, {@link NVTransformFeedback} is supported. */
     public final boolean GL_NV_transform_feedback;
     /** When true, {@link NVTransformFeedback2} is supported. */
@@ -3859,6 +3952,7 @@ public final class GLCapabilities {
         forwardCompatible = fc;
 
         glAccum = getFunctionAddress(fc, provider, "glAccum");
+        glAcquireKeyedMutexWin32EXT = provider.getFunctionAddress("glAcquireKeyedMutexWin32EXT");
         glActiveProgramEXT = provider.getFunctionAddress("glActiveProgramEXT");
         glActiveShaderProgram = provider.getFunctionAddress("glActiveShaderProgram");
         glActiveStencilFaceEXT = provider.getFunctionAddress("glActiveStencilFaceEXT");
@@ -3954,6 +4048,8 @@ public final class GLCapabilities {
         glBufferDataARB = provider.getFunctionAddress("glBufferDataARB");
         glBufferPageCommitmentARB = provider.getFunctionAddress("glBufferPageCommitmentARB");
         glBufferStorage = provider.getFunctionAddress("glBufferStorage");
+        glBufferStorageExternalEXT = provider.getFunctionAddress("glBufferStorageExternalEXT");
+        glBufferStorageMemEXT = provider.getFunctionAddress("glBufferStorageMemEXT");
         glBufferSubData = provider.getFunctionAddress("glBufferSubData");
         glBufferSubDataARB = provider.getFunctionAddress("glBufferSubDataARB");
         glCallCommandListNV = provider.getFunctionAddress("glCallCommandListNV");
@@ -4124,6 +4220,7 @@ public final class GLCapabilities {
         glCreateBuffers = provider.getFunctionAddress("glCreateBuffers");
         glCreateCommandListsNV = provider.getFunctionAddress("glCreateCommandListsNV");
         glCreateFramebuffers = provider.getFunctionAddress("glCreateFramebuffers");
+        glCreateMemoryObjectsEXT = provider.getFunctionAddress("glCreateMemoryObjectsEXT");
         glCreatePerfQueryINTEL = provider.getFunctionAddress("glCreatePerfQueryINTEL");
         glCreateProgram = provider.getFunctionAddress("glCreateProgram");
         glCreateProgramObjectARB = provider.getFunctionAddress("glCreateProgramObjectARB");
@@ -4158,6 +4255,7 @@ public final class GLCapabilities {
         glDeleteFramebuffers = provider.getFunctionAddress("glDeleteFramebuffers");
         glDeleteFramebuffersEXT = provider.getFunctionAddress("glDeleteFramebuffersEXT");
         glDeleteLists = getFunctionAddress(fc, provider, "glDeleteLists");
+        glDeleteMemoryObjectsEXT = provider.getFunctionAddress("glDeleteMemoryObjectsEXT");
         glDeleteNamedStringARB = provider.getFunctionAddress("glDeleteNamedStringARB");
         glDeleteObjectARB = provider.getFunctionAddress("glDeleteObjectARB");
         glDeletePathsNV = provider.getFunctionAddress("glDeletePathsNV");
@@ -4171,6 +4269,7 @@ public final class GLCapabilities {
         glDeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
         glDeleteRenderbuffersEXT = provider.getFunctionAddress("glDeleteRenderbuffersEXT");
         glDeleteSamplers = provider.getFunctionAddress("glDeleteSamplers");
+        glDeleteSemaphoresEXT = provider.getFunctionAddress("glDeleteSemaphoresEXT");
         glDeleteShader = provider.getFunctionAddress("glDeleteShader");
         glDeleteStatesNV = provider.getFunctionAddress("glDeleteStatesNV");
         glDeleteSync = provider.getFunctionAddress("glDeleteSync");
@@ -4339,6 +4438,7 @@ public final class GLCapabilities {
         glGenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
         glGenRenderbuffersEXT = provider.getFunctionAddress("glGenRenderbuffersEXT");
         glGenSamplers = provider.getFunctionAddress("glGenSamplers");
+        glGenSemaphoresEXT = provider.getFunctionAddress("glGenSemaphoresEXT");
         glGenTextures = provider.getFunctionAddress("glGenTextures");
         glGenTransformFeedbacks = provider.getFunctionAddress("glGenTransformFeedbacks");
         glGenTransformFeedbacksNV = provider.getFunctionAddress("glGenTransformFeedbacksNV");
@@ -4438,6 +4538,7 @@ public final class GLCapabilities {
         glGetMapiv = getFunctionAddress(fc, provider, "glGetMapiv");
         glGetMaterialfv = getFunctionAddress(fc, provider, "glGetMaterialfv");
         glGetMaterialiv = getFunctionAddress(fc, provider, "glGetMaterialiv");
+        glGetMemoryObjectParameterivEXT = provider.getFunctionAddress("glGetMemoryObjectParameterivEXT");
         glGetMinmax = getFunctionAddress(fc, provider, "glGetMinmax");
         glGetMinmaxParameterfv = getFunctionAddress(fc, provider, "glGetMinmaxParameterfv");
         glGetMinmaxParameteriv = getFunctionAddress(fc, provider, "glGetMinmaxParameteriv");
@@ -4552,6 +4653,7 @@ public final class GLCapabilities {
         glGetSamplerParameterIuiv = provider.getFunctionAddress("glGetSamplerParameterIuiv");
         glGetSamplerParameterfv = provider.getFunctionAddress("glGetSamplerParameterfv");
         glGetSamplerParameteriv = provider.getFunctionAddress("glGetSamplerParameteriv");
+        glGetSemaphoreParameterui64vEXT = provider.getFunctionAddress("glGetSemaphoreParameterui64vEXT");
         glGetSeparableFilter = getFunctionAddress(fc, provider, "glGetSeparableFilter");
         glGetShaderInfoLog = provider.getFunctionAddress("glGetShaderInfoLog");
         glGetShaderPrecisionFormat = provider.getFunctionAddress("glGetShaderPrecisionFormat");
@@ -4621,6 +4723,8 @@ public final class GLCapabilities {
         glGetUniformui64vNV = provider.getFunctionAddress("glGetUniformui64vNV");
         glGetUniformuiv = provider.getFunctionAddress("glGetUniformuiv");
         glGetUniformuivEXT = provider.getFunctionAddress("glGetUniformuivEXT");
+        glGetUnsignedBytei_vEXT = provider.getFunctionAddress("glGetUnsignedBytei_vEXT");
+        glGetUnsignedBytevEXT = provider.getFunctionAddress("glGetUnsignedBytevEXT");
         glGetVaryingLocationNV = provider.getFunctionAddress("glGetVaryingLocationNV");
         glGetVertexArrayIndexed64iv = provider.getFunctionAddress("glGetVertexArrayIndexed64iv");
         glGetVertexArrayIndexediv = provider.getFunctionAddress("glGetVertexArrayIndexediv");
@@ -4687,6 +4791,12 @@ public final class GLCapabilities {
         glGetnUniformuivARB = provider.getFunctionAddress("glGetnUniformuivARB");
         glHint = provider.getFunctionAddress("glHint");
         glHistogram = getFunctionAddress(fc, provider, "glHistogram");
+        glImportMemoryFdEXT = provider.getFunctionAddress("glImportMemoryFdEXT");
+        glImportMemoryWin32HandleEXT = provider.getFunctionAddress("glImportMemoryWin32HandleEXT");
+        glImportMemoryWin32NameEXT = provider.getFunctionAddress("glImportMemoryWin32NameEXT");
+        glImportSemaphoreFdEXT = provider.getFunctionAddress("glImportSemaphoreFdEXT");
+        glImportSemaphoreWin32HandleEXT = provider.getFunctionAddress("glImportSemaphoreWin32HandleEXT");
+        glImportSemaphoreWin32NameEXT = provider.getFunctionAddress("glImportSemaphoreWin32NameEXT");
         glImportSyncEXT = provider.getFunctionAddress("glImportSyncEXT");
         glIndexFormatNV = provider.getFunctionAddress("glIndexFormatNV");
         glIndexMask = getFunctionAddress(fc, provider, "glIndexMask");
@@ -4726,6 +4836,7 @@ public final class GLCapabilities {
         glIsImageHandleResidentARB = provider.getFunctionAddress("glIsImageHandleResidentARB");
         glIsImageHandleResidentNV = provider.getFunctionAddress("glIsImageHandleResidentNV");
         glIsList = getFunctionAddress(fc, provider, "glIsList");
+        glIsMemoryObjectEXT = provider.getFunctionAddress("glIsMemoryObjectEXT");
         glIsNamedBufferResidentNV = provider.getFunctionAddress("glIsNamedBufferResidentNV");
         glIsNamedStringARB = provider.getFunctionAddress("glIsNamedStringARB");
         glIsPathNV = provider.getFunctionAddress("glIsPathNV");
@@ -4739,6 +4850,7 @@ public final class GLCapabilities {
         glIsRenderbuffer = provider.getFunctionAddress("glIsRenderbuffer");
         glIsRenderbufferEXT = provider.getFunctionAddress("glIsRenderbufferEXT");
         glIsSampler = provider.getFunctionAddress("glIsSampler");
+        glIsSemaphoreEXT = provider.getFunctionAddress("glIsSemaphoreEXT");
         glIsShader = provider.getFunctionAddress("glIsShader");
         glIsStateNV = provider.getFunctionAddress("glIsStateNV");
         glIsSync = provider.getFunctionAddress("glIsSync");
@@ -4836,9 +4948,11 @@ public final class GLCapabilities {
         glMatrixTranslatedEXT = provider.getFunctionAddress("glMatrixTranslatedEXT");
         glMatrixTranslatefEXT = provider.getFunctionAddress("glMatrixTranslatefEXT");
         glMaxShaderCompilerThreadsARB = provider.getFunctionAddress("glMaxShaderCompilerThreadsARB");
+        glMaxShaderCompilerThreadsKHR = provider.getFunctionAddress("glMaxShaderCompilerThreadsKHR");
         glMemoryBarrier = provider.getFunctionAddress("glMemoryBarrier");
         glMemoryBarrierByRegion = provider.getFunctionAddress("glMemoryBarrierByRegion");
         glMemoryBarrierEXT = provider.getFunctionAddress("glMemoryBarrierEXT");
+        glMemoryObjectParameterivEXT = provider.getFunctionAddress("glMemoryObjectParameterivEXT");
         glMinSampleShading = provider.getFunctionAddress("glMinSampleShading");
         glMinSampleShadingARB = provider.getFunctionAddress("glMinSampleShadingARB");
         glMinmax = getFunctionAddress(fc, provider, "glMinmax");
@@ -4852,12 +4966,14 @@ public final class GLCapabilities {
         glMultiDrawArraysIndirect = provider.getFunctionAddress("glMultiDrawArraysIndirect");
         glMultiDrawArraysIndirectBindlessCountNV = provider.getFunctionAddress("glMultiDrawArraysIndirectBindlessCountNV");
         glMultiDrawArraysIndirectBindlessNV = provider.getFunctionAddress("glMultiDrawArraysIndirectBindlessNV");
+        glMultiDrawArraysIndirectCount = provider.getFunctionAddress("glMultiDrawArraysIndirectCount");
         glMultiDrawArraysIndirectCountARB = provider.getFunctionAddress("glMultiDrawArraysIndirectCountARB");
         glMultiDrawElements = provider.getFunctionAddress("glMultiDrawElements");
         glMultiDrawElementsBaseVertex = provider.getFunctionAddress("glMultiDrawElementsBaseVertex");
         glMultiDrawElementsIndirect = provider.getFunctionAddress("glMultiDrawElementsIndirect");
         glMultiDrawElementsIndirectBindlessCountNV = provider.getFunctionAddress("glMultiDrawElementsIndirectBindlessCountNV");
         glMultiDrawElementsIndirectBindlessNV = provider.getFunctionAddress("glMultiDrawElementsIndirectBindlessNV");
+        glMultiDrawElementsIndirectCount = provider.getFunctionAddress("glMultiDrawElementsIndirectCount");
         glMultiDrawElementsIndirectCountARB = provider.getFunctionAddress("glMultiDrawElementsIndirectCountARB");
         glMultiTexBufferEXT = provider.getFunctionAddress("glMultiTexBufferEXT");
         glMultiTexCoord1d = getFunctionAddress(fc, provider, "glMultiTexCoord1d");
@@ -4981,6 +5097,8 @@ public final class GLCapabilities {
         glNamedBufferPageCommitmentEXT = provider.getFunctionAddress("glNamedBufferPageCommitmentEXT");
         glNamedBufferStorage = provider.getFunctionAddress("glNamedBufferStorage");
         glNamedBufferStorageEXT = provider.getFunctionAddress("glNamedBufferStorageEXT");
+        glNamedBufferStorageExternalEXT = provider.getFunctionAddress("glNamedBufferStorageExternalEXT");
+        glNamedBufferStorageMemEXT = provider.getFunctionAddress("glNamedBufferStorageMemEXT");
         glNamedBufferSubData = provider.getFunctionAddress("glNamedBufferSubData");
         glNamedBufferSubDataEXT = provider.getFunctionAddress("glNamedBufferSubDataEXT");
         glNamedCopyBufferSubDataEXT = provider.getFunctionAddress("glNamedCopyBufferSubDataEXT");
@@ -5088,6 +5206,7 @@ public final class GLCapabilities {
         glPointSize = provider.getFunctionAddress("glPointSize");
         glPolygonMode = provider.getFunctionAddress("glPolygonMode");
         glPolygonOffset = provider.getFunctionAddress("glPolygonOffset");
+        glPolygonOffsetClamp = provider.getFunctionAddress("glPolygonOffsetClamp");
         glPolygonOffsetClampEXT = provider.getFunctionAddress("glPolygonOffsetClampEXT");
         glPolygonStipple = getFunctionAddress(fc, provider, "glPolygonStipple");
         glPopAttrib = getFunctionAddress(fc, provider, "glPopAttrib");
@@ -5303,6 +5422,7 @@ public final class GLCapabilities {
         glRectiv = getFunctionAddress(fc, provider, "glRectiv");
         glRects = getFunctionAddress(fc, provider, "glRects");
         glRectsv = getFunctionAddress(fc, provider, "glRectsv");
+        glReleaseKeyedMutexWin32EXT = provider.getFunctionAddress("glReleaseKeyedMutexWin32EXT");
         glReleaseShaderCompiler = provider.getFunctionAddress("glReleaseShaderCompiler");
         glRenderGpuMaskNV = provider.getFunctionAddress("glRenderGpuMaskNV");
         glRenderMode = getFunctionAddress(fc, provider, "glRenderMode");
@@ -5375,6 +5495,7 @@ public final class GLCapabilities {
         glSecondaryColorPointerEXT = provider.getFunctionAddress("glSecondaryColorPointerEXT");
         glSelectBuffer = getFunctionAddress(fc, provider, "glSelectBuffer");
         glSelectPerfMonitorCountersAMD = provider.getFunctionAddress("glSelectPerfMonitorCountersAMD");
+        glSemaphoreParameterui64vEXT = provider.getFunctionAddress("glSemaphoreParameterui64vEXT");
         glSeparableFilter2D = getFunctionAddress(fc, provider, "glSeparableFilter2D");
         glSetFenceNV = provider.getFunctionAddress("glSetFenceNV");
         glSetMultisamplefvAMD = provider.getFunctionAddress("glSetMultisamplefvAMD");
@@ -5383,8 +5504,10 @@ public final class GLCapabilities {
         glShaderSource = provider.getFunctionAddress("glShaderSource");
         glShaderSourceARB = provider.getFunctionAddress("glShaderSourceARB");
         glShaderStorageBlockBinding = provider.getFunctionAddress("glShaderStorageBlockBinding");
+        glSignalSemaphoreEXT = provider.getFunctionAddress("glSignalSemaphoreEXT");
         glSignalVkFenceNV = provider.getFunctionAddress("glSignalVkFenceNV");
         glSignalVkSemaphoreNV = provider.getFunctionAddress("glSignalVkSemaphoreNV");
+        glSpecializeShader = provider.getFunctionAddress("glSpecializeShader");
         glSpecializeShaderARB = provider.getFunctionAddress("glSpecializeShaderARB");
         glStateCaptureNV = provider.getFunctionAddress("glStateCaptureNV");
         glStencilClearTagEXT = provider.getFunctionAddress("glStencilClearTagEXT");
@@ -5494,6 +5617,11 @@ public final class GLCapabilities {
         glTexStorage2DMultisample = provider.getFunctionAddress("glTexStorage2DMultisample");
         glTexStorage3D = provider.getFunctionAddress("glTexStorage3D");
         glTexStorage3DMultisample = provider.getFunctionAddress("glTexStorage3DMultisample");
+        glTexStorageMem1DEXT = provider.getFunctionAddress("glTexStorageMem1DEXT");
+        glTexStorageMem2DEXT = provider.getFunctionAddress("glTexStorageMem2DEXT");
+        glTexStorageMem2DMultisampleEXT = provider.getFunctionAddress("glTexStorageMem2DMultisampleEXT");
+        glTexStorageMem3DEXT = provider.getFunctionAddress("glTexStorageMem3DEXT");
+        glTexStorageMem3DMultisampleEXT = provider.getFunctionAddress("glTexStorageMem3DMultisampleEXT");
         glTexStorageSparseAMD = provider.getFunctionAddress("glTexStorageSparseAMD");
         glTexSubImage1D = provider.getFunctionAddress("glTexSubImage1D");
         glTexSubImage2D = provider.getFunctionAddress("glTexSubImage2D");
@@ -5535,6 +5663,11 @@ public final class GLCapabilities {
         glTextureStorage3DEXT = provider.getFunctionAddress("glTextureStorage3DEXT");
         glTextureStorage3DMultisample = provider.getFunctionAddress("glTextureStorage3DMultisample");
         glTextureStorage3DMultisampleEXT = provider.getFunctionAddress("glTextureStorage3DMultisampleEXT");
+        glTextureStorageMem1DEXT = provider.getFunctionAddress("glTextureStorageMem1DEXT");
+        glTextureStorageMem2DEXT = provider.getFunctionAddress("glTextureStorageMem2DEXT");
+        glTextureStorageMem2DMultisampleEXT = provider.getFunctionAddress("glTextureStorageMem2DMultisampleEXT");
+        glTextureStorageMem3DEXT = provider.getFunctionAddress("glTextureStorageMem3DEXT");
+        glTextureStorageMem3DMultisampleEXT = provider.getFunctionAddress("glTextureStorageMem3DMultisampleEXT");
         glTextureStorageSparseAMD = provider.getFunctionAddress("glTextureStorageSparseAMD");
         glTextureSubImage1D = provider.getFunctionAddress("glTextureSubImage1D");
         glTextureSubImage1DEXT = provider.getFunctionAddress("glTextureSubImage1DEXT");
@@ -5942,6 +6075,7 @@ public final class GLCapabilities {
         glViewportIndexedfv = provider.getFunctionAddress("glViewportIndexedfv");
         glViewportPositionWScaleNV = provider.getFunctionAddress("glViewportPositionWScaleNV");
         glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
+        glWaitSemaphoreEXT = provider.getFunctionAddress("glWaitSemaphoreEXT");
         glWaitSync = provider.getFunctionAddress("glWaitSync");
         glWaitVkSemaphoreNV = provider.getFunctionAddress("glWaitVkSemaphoreNV");
         glWeightPathsNV = provider.getFunctionAddress("glWeightPathsNV");
@@ -6005,6 +6139,7 @@ public final class GLCapabilities {
         OpenGL43 = ext.contains("OpenGL43") && checkExtension("OpenGL43", GL43.isAvailable(this));
         OpenGL44 = ext.contains("OpenGL44") && checkExtension("OpenGL44", GL44.isAvailable(this));
         OpenGL45 = ext.contains("OpenGL45") && checkExtension("OpenGL45", GL45.isAvailable(this, ext));
+        OpenGL46 = ext.contains("OpenGL46") && checkExtension("OpenGL46", GL46.isAvailable(this));
         GL_AMD_blend_minmax_factor = ext.contains("GL_AMD_blend_minmax_factor");
         GL_AMD_conservative_depth = ext.contains("GL_AMD_conservative_depth");
         GL_AMD_debug_output = ext.contains("GL_AMD_debug_output") && checkExtension("GL_AMD_debug_output", AMDDebugOutput.isAvailable(this));
@@ -6012,6 +6147,7 @@ public final class GLCapabilities {
         GL_AMD_draw_buffers_blend = ext.contains("GL_AMD_draw_buffers_blend") && checkExtension("GL_AMD_draw_buffers_blend", AMDDrawBuffersBlend.isAvailable(this));
         GL_AMD_gcn_shader = ext.contains("GL_AMD_gcn_shader");
         GL_AMD_gpu_shader_half_float = ext.contains("GL_AMD_gpu_shader_half_float");
+        GL_AMD_gpu_shader_int16 = ext.contains("GL_AMD_gpu_shader_int16");
         GL_AMD_gpu_shader_int64 = ext.contains("GL_AMD_gpu_shader_int64") && checkExtension("GL_AMD_gpu_shader_int64", AMDGPUShaderInt64.isAvailable(this, ext));
         GL_AMD_interleaved_elements = ext.contains("GL_AMD_interleaved_elements") && checkExtension("GL_AMD_interleaved_elements", AMDInterleavedElements.isAvailable(this));
         GL_AMD_occlusion_query_event = ext.contains("GL_AMD_occlusion_query_event") && checkExtension("GL_AMD_occlusion_query_event", AMDOcclusionQueryEvent.isAvailable(this));
@@ -6109,6 +6245,7 @@ public final class GLCapabilities {
         GL_ARB_pixel_buffer_object = ext.contains("GL_ARB_pixel_buffer_object");
         GL_ARB_point_parameters = ext.contains("GL_ARB_point_parameters") && checkExtension("GL_ARB_point_parameters", ARBPointParameters.isAvailable(this));
         GL_ARB_point_sprite = ext.contains("GL_ARB_point_sprite");
+        GL_ARB_polygon_offset_clamp = ext.contains("GL_ARB_polygon_offset_clamp") && checkExtension("GL_ARB_polygon_offset_clamp", ARBPolygonOffsetClamp.isAvailable(this));
         GL_ARB_post_depth_coverage = ext.contains("GL_ARB_post_depth_coverage");
         GL_ARB_program_interface_query = ext.contains("GL_ARB_program_interface_query") && checkExtension("GL_ARB_program_interface_query", ARBProgramInterfaceQuery.isAvailable(this));
         GL_ARB_provoking_vertex = ext.contains("GL_ARB_provoking_vertex") && checkExtension("GL_ARB_provoking_vertex", ARBProvokingVertex.isAvailable(this));
@@ -6149,6 +6286,7 @@ public final class GLCapabilities {
         GL_ARB_sparse_texture = ext.contains("GL_ARB_sparse_texture") && checkExtension("GL_ARB_sparse_texture", ARBSparseTexture.isAvailable(this, ext));
         GL_ARB_sparse_texture2 = ext.contains("GL_ARB_sparse_texture2");
         GL_ARB_sparse_texture_clamp = ext.contains("GL_ARB_sparse_texture_clamp");
+        GL_ARB_spirv_extensions = ext.contains("GL_ARB_spirv_extensions");
         GL_ARB_stencil_texturing = ext.contains("GL_ARB_stencil_texturing");
         GL_ARB_sync = ext.contains("GL_ARB_sync") && checkExtension("GL_ARB_sync", ARBSync.isAvailable(this));
         GL_ARB_tessellation_shader = ext.contains("GL_ARB_tessellation_shader") && checkExtension("GL_ARB_tessellation_shader", ARBTessellationShader.isAvailable(this));
@@ -6166,6 +6304,7 @@ public final class GLCapabilities {
         GL_ARB_texture_env_combine = ext.contains("GL_ARB_texture_env_combine");
         GL_ARB_texture_env_crossbar = ext.contains("GL_ARB_texture_env_crossbar");
         GL_ARB_texture_env_dot3 = ext.contains("GL_ARB_texture_env_dot3");
+        GL_ARB_texture_filter_anisotropic = ext.contains("GL_ARB_texture_filter_anisotropic");
         GL_ARB_texture_filter_minmax = ext.contains("GL_ARB_texture_filter_minmax");
         GL_ARB_texture_float = ext.contains("GL_ARB_texture_float");
         GL_ARB_texture_gather = ext.contains("GL_ARB_texture_gather");
@@ -6222,6 +6361,7 @@ public final class GLCapabilities {
         GL_EXT_direct_state_access = ext.contains("GL_EXT_direct_state_access") && checkExtension("GL_EXT_direct_state_access", EXTDirectStateAccess.isAvailable(this, ext));
         GL_EXT_draw_buffers2 = ext.contains("GL_EXT_draw_buffers2") && checkExtension("GL_EXT_draw_buffers2", EXTDrawBuffers2.isAvailable(this));
         GL_EXT_draw_instanced = ext.contains("GL_EXT_draw_instanced") && checkExtension("GL_EXT_draw_instanced", EXTDrawInstanced.isAvailable(this));
+        GL_EXT_external_buffer = ext.contains("GL_EXT_external_buffer") && checkExtension("GL_EXT_external_buffer", EXTExternalBuffer.isAvailable(this, ext));
         GL_EXT_framebuffer_blit = ext.contains("GL_EXT_framebuffer_blit") && checkExtension("GL_EXT_framebuffer_blit", EXTFramebufferBlit.isAvailable(this));
         GL_EXT_framebuffer_multisample = ext.contains("GL_EXT_framebuffer_multisample") && checkExtension("GL_EXT_framebuffer_multisample", EXTFramebufferMultisample.isAvailable(this));
         GL_EXT_framebuffer_multisample_blit_scaled = ext.contains("GL_EXT_framebuffer_multisample_blit_scaled");
@@ -6230,6 +6370,9 @@ public final class GLCapabilities {
         GL_EXT_geometry_shader4 = ext.contains("GL_EXT_geometry_shader4") && checkExtension("GL_EXT_geometry_shader4", EXTGeometryShader4.isAvailable(this));
         GL_EXT_gpu_program_parameters = ext.contains("GL_EXT_gpu_program_parameters") && checkExtension("GL_EXT_gpu_program_parameters", EXTGPUProgramParameters.isAvailable(this));
         GL_EXT_gpu_shader4 = ext.contains("GL_EXT_gpu_shader4") && checkExtension("GL_EXT_gpu_shader4", EXTGPUShader4.isAvailable(this));
+        GL_EXT_memory_object = ext.contains("GL_EXT_memory_object") && checkExtension("GL_EXT_memory_object", EXTMemoryObject.isAvailable(this, ext));
+        GL_EXT_memory_object_fd = ext.contains("GL_EXT_memory_object_fd") && checkExtension("GL_EXT_memory_object_fd", EXTMemoryObjectFD.isAvailable(this, ext));
+        GL_EXT_memory_object_win32 = ext.contains("GL_EXT_memory_object_win32") && checkExtension("GL_EXT_memory_object_win32", EXTMemoryObjectWin32.isAvailable(this));
         GL_EXT_packed_depth_stencil = ext.contains("GL_EXT_packed_depth_stencil");
         GL_EXT_packed_float = ext.contains("GL_EXT_packed_float");
         GL_EXT_pixel_buffer_object = ext.contains("GL_EXT_pixel_buffer_object");
@@ -6239,6 +6382,9 @@ public final class GLCapabilities {
         GL_EXT_provoking_vertex = ext.contains("GL_EXT_provoking_vertex") && checkExtension("GL_EXT_provoking_vertex", EXTProvokingVertex.isAvailable(this));
         GL_EXT_raster_multisample = ext.contains("GL_EXT_raster_multisample") && checkExtension("GL_EXT_raster_multisample", EXTRasterMultisample.isAvailable(this));
         GL_EXT_secondary_color = ext.contains("GL_EXT_secondary_color") && checkExtension("GL_EXT_secondary_color", EXTSecondaryColor.isAvailable(this));
+        GL_EXT_semaphore = ext.contains("GL_EXT_semaphore") && checkExtension("GL_EXT_semaphore", EXTSemaphore.isAvailable(this));
+        GL_EXT_semaphore_fd = ext.contains("GL_EXT_semaphore_fd") && checkExtension("GL_EXT_semaphore_fd", EXTSemaphoreFD.isAvailable(this));
+        GL_EXT_semaphore_win32 = ext.contains("GL_EXT_semaphore_win32") && checkExtension("GL_EXT_semaphore_win32", EXTSemaphoreWin32.isAvailable(this));
         GL_EXT_separate_shader_objects = ext.contains("GL_EXT_separate_shader_objects") && checkExtension("GL_EXT_separate_shader_objects", EXTSeparateShaderObjects.isAvailable(this));
         GL_EXT_shader_image_load_formatted = ext.contains("GL_EXT_shader_image_load_formatted");
         GL_EXT_shader_image_load_store = ext.contains("GL_EXT_shader_image_load_store") && checkExtension("GL_EXT_shader_image_load_store", EXTShaderImageLoadStore.isAvailable(this));
@@ -6267,6 +6413,7 @@ public final class GLCapabilities {
         GL_EXT_transform_feedback = ext.contains("GL_EXT_transform_feedback") && checkExtension("GL_EXT_transform_feedback", EXTTransformFeedback.isAvailable(this));
         GL_EXT_vertex_array_bgra = ext.contains("GL_EXT_vertex_array_bgra");
         GL_EXT_vertex_attrib_64bit = ext.contains("GL_EXT_vertex_attrib_64bit") && checkExtension("GL_EXT_vertex_attrib_64bit", EXTVertexAttrib64bit.isAvailable(this, ext));
+        GL_EXT_win32_keyed_mutex = ext.contains("GL_EXT_win32_keyed_mutex") && checkExtension("GL_EXT_win32_keyed_mutex", EXTWin32KeyedMutex.isAvailable(this));
         GL_EXT_window_rectangles = ext.contains("GL_EXT_window_rectangles") && checkExtension("GL_EXT_window_rectangles", EXTWindowRectangles.isAvailable(this));
         GL_EXT_x11_sync_object = ext.contains("GL_EXT_x11_sync_object") && checkExtension("GL_EXT_x11_sync_object", EXTX11SyncObject.isAvailable(this));
         GL_INTEL_conservative_rasterization = ext.contains("GL_INTEL_conservative_rasterization");
@@ -6279,6 +6426,7 @@ public final class GLCapabilities {
         GL_KHR_context_flush_control = ext.contains("GL_KHR_context_flush_control");
         GL_KHR_debug = ext.contains("GL_KHR_debug") && checkExtension("GL_KHR_debug", KHRDebug.isAvailable(this));
         GL_KHR_no_error = ext.contains("GL_KHR_no_error");
+        GL_KHR_parallel_shader_compile = ext.contains("GL_KHR_parallel_shader_compile") && checkExtension("GL_KHR_parallel_shader_compile", KHRParallelShaderCompile.isAvailable(this));
         GL_KHR_robust_buffer_access_behavior = ext.contains("GL_KHR_robust_buffer_access_behavior");
         GL_KHR_robustness = ext.contains("GL_KHR_robustness") && checkExtension("GL_KHR_robustness", KHRRobustness.isAvailable(this));
         GL_KHR_texture_compression_astc_hdr = ext.contains("GL_KHR_texture_compression_astc_hdr");
@@ -6290,6 +6438,7 @@ public final class GLCapabilities {
         GL_NV_bindless_texture = ext.contains("GL_NV_bindless_texture") && checkExtension("GL_NV_bindless_texture", NVBindlessTexture.isAvailable(this));
         GL_NV_blend_equation_advanced = ext.contains("GL_NV_blend_equation_advanced") && checkExtension("GL_NV_blend_equation_advanced", NVBlendEquationAdvanced.isAvailable(this));
         GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
+        GL_NV_blend_minmax_factor = ext.contains("GL_NV_blend_minmax_factor");
         GL_NV_blend_square = ext.contains("GL_NV_blend_square");
         GL_NV_clip_space_w_scaling = ext.contains("GL_NV_clip_space_w_scaling") && checkExtension("GL_NV_clip_space_w_scaling", NVClipSpaceWScaling.isAvailable(this));
         GL_NV_command_list = ext.contains("GL_NV_command_list") && checkExtension("GL_NV_command_list", NVCommandList.isAvailable(this));
@@ -6347,6 +6496,7 @@ public final class GLCapabilities {
         GL_NV_texture_barrier = ext.contains("GL_NV_texture_barrier") && checkExtension("GL_NV_texture_barrier", NVTextureBarrier.isAvailable(this));
         GL_NV_texture_compression_vtc = ext.contains("GL_NV_texture_compression_vtc");
         GL_NV_texture_multisample = ext.contains("GL_NV_texture_multisample") && checkExtension("GL_NV_texture_multisample", NVTextureMultisample.isAvailable(this));
+        GL_NV_texture_rectangle_compressed = ext.contains("GL_NV_texture_rectangle_compressed");
         GL_NV_transform_feedback = ext.contains("GL_NV_transform_feedback") && checkExtension("GL_NV_transform_feedback", NVTransformFeedback.isAvailable(this));
         GL_NV_transform_feedback2 = ext.contains("GL_NV_transform_feedback2") && checkExtension("GL_NV_transform_feedback2", NVTransformFeedback2.isAvailable(this));
         GL_NV_uniform_buffer_unified_memory = ext.contains("GL_NV_uniform_buffer_unified_memory");
@@ -6363,6 +6513,10 @@ public final class GLCapabilities {
         GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
 
         addresses = ThreadLocalUtil.getAddressesFromCapabilities(this);
+    }
+
+    boolean hasDSA(Set<String> ext) {
+        return ext.contains("GL45") || ext.contains("GL_ARB_direct_state_access") || ext.contains("GL_EXT_direct_state_access");
     }
 
     private static long getFunctionAddress(boolean fc, FunctionProvider provider, String functionName) {

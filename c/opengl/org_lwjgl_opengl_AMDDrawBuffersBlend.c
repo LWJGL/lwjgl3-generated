@@ -14,25 +14,25 @@ typedef void (APIENTRY *glBlendEquationSeparateIndexedAMDPROC) (jint, jint, jint
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDDrawBuffersBlend_glBlendFuncIndexedAMD(JNIEnv *__env, jclass clazz, jint buf, jint src, jint dst) {
-    glBlendFuncIndexedAMDPROC glBlendFuncIndexedAMD = (glBlendFuncIndexedAMDPROC)tlsGetFunction(79);
+    glBlendFuncIndexedAMDPROC glBlendFuncIndexedAMD = (glBlendFuncIndexedAMDPROC)tlsGetFunction(80);
     UNUSED_PARAM(clazz)
     glBlendFuncIndexedAMD(buf, src, dst);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDDrawBuffersBlend_glBlendFuncSeparateIndexedAMD(JNIEnv *__env, jclass clazz, jint buf, jint srcRGB, jint dstRGB, jint srcAlpha, jint dstAlpha) {
-    glBlendFuncSeparateIndexedAMDPROC glBlendFuncSeparateIndexedAMD = (glBlendFuncSeparateIndexedAMDPROC)tlsGetFunction(82);
+    glBlendFuncSeparateIndexedAMDPROC glBlendFuncSeparateIndexedAMD = (glBlendFuncSeparateIndexedAMDPROC)tlsGetFunction(83);
     UNUSED_PARAM(clazz)
     glBlendFuncSeparateIndexedAMD(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDDrawBuffersBlend_glBlendEquationIndexedAMD(JNIEnv *__env, jclass clazz, jint buf, jint mode) {
-    glBlendEquationIndexedAMDPROC glBlendEquationIndexedAMD = (glBlendEquationIndexedAMDPROC)tlsGetFunction(70);
+    glBlendEquationIndexedAMDPROC glBlendEquationIndexedAMD = (glBlendEquationIndexedAMDPROC)tlsGetFunction(71);
     UNUSED_PARAM(clazz)
     glBlendEquationIndexedAMD(buf, mode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDDrawBuffersBlend_glBlendEquationSeparateIndexedAMD(JNIEnv *__env, jclass clazz, jint buf, jint modeRGB, jint modeAlpha) {
-    glBlendEquationSeparateIndexedAMDPROC glBlendEquationSeparateIndexedAMD = (glBlendEquationSeparateIndexedAMDPROC)tlsGetFunction(73);
+    glBlendEquationSeparateIndexedAMDPROC glBlendEquationSeparateIndexedAMD = (glBlendEquationSeparateIndexedAMDPROC)tlsGetFunction(74);
     UNUSED_PARAM(clazz)
     glBlendEquationSeparateIndexedAMD(buf, modeRGB, modeAlpha);
 }

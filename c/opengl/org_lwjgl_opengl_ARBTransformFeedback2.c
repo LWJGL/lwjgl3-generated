@@ -17,45 +17,45 @@ typedef void (APIENTRY *glDrawTransformFeedbackPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glBindTransformFeedback(JNIEnv *__env, jclass clazz, jint target, jint id) {
-    glBindTransformFeedbackPROC glBindTransformFeedback = (glBindTransformFeedbackPROC)tlsGetFunction(58);
+    glBindTransformFeedbackPROC glBindTransformFeedback = (glBindTransformFeedbackPROC)tlsGetFunction(59);
     UNUSED_PARAM(clazz)
     glBindTransformFeedback(target, id);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglDeleteTransformFeedbacks__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
-    glDeleteTransformFeedbacksPROC glDeleteTransformFeedbacks = (glDeleteTransformFeedbacksPROC)tlsGetFunction(317);
+    glDeleteTransformFeedbacksPROC glDeleteTransformFeedbacks = (glDeleteTransformFeedbacksPROC)tlsGetFunction(323);
     const intptr_t ids = (const intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDeleteTransformFeedbacks(n, ids);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_nglGenTransformFeedbacks__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
-    glGenTransformFeedbacksPROC glGenTransformFeedbacks = (glGenTransformFeedbacksPROC)tlsGetFunction(482);
+    glGenTransformFeedbacksPROC glGenTransformFeedbacks = (glGenTransformFeedbacksPROC)tlsGetFunction(489);
     intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glGenTransformFeedbacks(n, ids);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glIsTransformFeedback(JNIEnv *__env, jclass clazz, jint id) {
-    glIsTransformFeedbackPROC glIsTransformFeedback = (glIsTransformFeedbackPROC)tlsGetFunction(887);
+    glIsTransformFeedbackPROC glIsTransformFeedback = (glIsTransformFeedbackPROC)tlsGetFunction(906);
     UNUSED_PARAM(clazz)
     return (jboolean)glIsTransformFeedback(id);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glPauseTransformFeedback(JNIEnv *__env, jclass clazz) {
-    glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1205);
+    glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1230);
     UNUSED_PARAM(clazz)
     glPauseTransformFeedback();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glResumeTransformFeedback(JNIEnv *__env, jclass clazz) {
-    glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1456);
+    glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1483);
     UNUSED_PARAM(clazz)
     glResumeTransformFeedback();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glDrawTransformFeedback(JNIEnv *__env, jclass clazz, jint mode, jint id) {
-    glDrawTransformFeedbackPROC glDrawTransformFeedback = (glDrawTransformFeedbackPROC)tlsGetFunction(371);
+    glDrawTransformFeedbackPROC glDrawTransformFeedback = (glDrawTransformFeedbackPROC)tlsGetFunction(377);
     UNUSED_PARAM(clazz)
     glDrawTransformFeedback(mode, id);
 }

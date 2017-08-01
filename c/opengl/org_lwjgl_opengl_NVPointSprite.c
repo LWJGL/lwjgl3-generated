@@ -12,13 +12,13 @@ typedef void (APIENTRY *glPointParameterivNVPROC) (jint, const intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPointSprite_glPointParameteriNV(JNIEnv *__env, jclass clazz, jint pname, jint param) {
-    glPointParameteriNVPROC glPointParameteriNV = (glPointParameteriNVPROC)tlsGetFunction(1224);
+    glPointParameteriNVPROC glPointParameteriNV = (glPointParameteriNVPROC)tlsGetFunction(1249);
     UNUSED_PARAM(clazz)
     glPointParameteriNV(pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPointSprite_nglPointParameterivNV__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress) {
-    glPointParameterivNVPROC glPointParameterivNV = (glPointParameterivNVPROC)tlsGetFunction(1226);
+    glPointParameterivNVPROC glPointParameterivNV = (glPointParameterivNVPROC)tlsGetFunction(1251);
     const intptr_t params = (const intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glPointParameterivNV(pname, params);

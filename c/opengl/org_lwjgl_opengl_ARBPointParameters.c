@@ -12,13 +12,13 @@ typedef void (APIENTRY *glPointParameterfvARBPROC) (jint, const intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBPointParameters_glPointParameterfARB(JNIEnv *__env, jclass clazz, jint pname, jfloat param) {
-    glPointParameterfARBPROC glPointParameterfARB = (glPointParameterfARBPROC)tlsGetFunction(1218);
+    glPointParameterfARBPROC glPointParameterfARB = (glPointParameterfARBPROC)tlsGetFunction(1243);
     UNUSED_PARAM(clazz)
     glPointParameterfARB(pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBPointParameters_nglPointParameterfvARB__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress) {
-    glPointParameterfvARBPROC glPointParameterfvARB = (glPointParameterfvARBPROC)tlsGetFunction(1221);
+    glPointParameterfvARBPROC glPointParameterfvARB = (glPointParameterfvARBPROC)tlsGetFunction(1246);
     const intptr_t params = (const intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glPointParameterfvARB(pname, params);

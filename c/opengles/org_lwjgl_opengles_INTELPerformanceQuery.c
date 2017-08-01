@@ -20,46 +20,46 @@ typedef void (APIENTRY *glGetPerfQueryInfoINTELPROC) (jint, jint, intptr_t, intp
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_glBeginPerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
-    glBeginPerfQueryINTELPROC glBeginPerfQueryINTEL = (glBeginPerfQueryINTELPROC)tlsGetFunction(9);
+    glBeginPerfQueryINTELPROC glBeginPerfQueryINTEL = (glBeginPerfQueryINTELPROC)tlsGetFunction(10);
     UNUSED_PARAM(clazz)
     glBeginPerfQueryINTEL(queryHandle);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglCreatePerfQueryINTEL__IJ(JNIEnv *__env, jclass clazz, jint queryId, jlong queryHandleAddress) {
-    glCreatePerfQueryINTELPROC glCreatePerfQueryINTEL = (glCreatePerfQueryINTELPROC)tlsGetFunction(105);
+    glCreatePerfQueryINTELPROC glCreatePerfQueryINTEL = (glCreatePerfQueryINTELPROC)tlsGetFunction(109);
     intptr_t queryHandle = (intptr_t)queryHandleAddress;
     UNUSED_PARAM(clazz)
     glCreatePerfQueryINTEL(queryId, queryHandle);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_glDeletePerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
-    glDeletePerfQueryINTELPROC glDeletePerfQueryINTEL = (glDeletePerfQueryINTELPROC)tlsGetFunction(122);
+    glDeletePerfQueryINTELPROC glDeletePerfQueryINTEL = (glDeletePerfQueryINTELPROC)tlsGetFunction(127);
     UNUSED_PARAM(clazz)
     glDeletePerfQueryINTEL(queryHandle);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_glEndPerfQueryINTEL(JNIEnv *__env, jclass clazz, jint queryHandle) {
-    glEndPerfQueryINTELPROC glEndPerfQueryINTEL = (glEndPerfQueryINTELPROC)tlsGetFunction(198);
+    glEndPerfQueryINTELPROC glEndPerfQueryINTEL = (glEndPerfQueryINTELPROC)tlsGetFunction(204);
     UNUSED_PARAM(clazz)
     glEndPerfQueryINTEL(queryHandle);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetFirstPerfQueryIdINTEL__J(JNIEnv *__env, jclass clazz, jlong queryIdAddress) {
-    glGetFirstPerfQueryIdINTELPROC glGetFirstPerfQueryIdINTEL = (glGetFirstPerfQueryIdINTELPROC)tlsGetFunction(280);
+    glGetFirstPerfQueryIdINTELPROC glGetFirstPerfQueryIdINTEL = (glGetFirstPerfQueryIdINTELPROC)tlsGetFunction(287);
     intptr_t queryId = (intptr_t)queryIdAddress;
     UNUSED_PARAM(clazz)
     glGetFirstPerfQueryIdINTEL(queryId);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetNextPerfQueryIdINTEL__IJ(JNIEnv *__env, jclass clazz, jint queryId, jlong nextQueryIdAddress) {
-    glGetNextPerfQueryIdINTELPROC glGetNextPerfQueryIdINTEL = (glGetNextPerfQueryIdINTELPROC)tlsGetFunction(302);
+    glGetNextPerfQueryIdINTELPROC glGetNextPerfQueryIdINTEL = (glGetNextPerfQueryIdINTELPROC)tlsGetFunction(310);
     intptr_t nextQueryId = (intptr_t)nextQueryIdAddress;
     UNUSED_PARAM(clazz)
     glGetNextPerfQueryIdINTEL(queryId, nextQueryId);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetPerfCounterInfoINTEL__IIIJIJJJJJJ(JNIEnv *__env, jclass clazz, jint queryId, jint counterId, jint counterNameLength, jlong counterNameAddress, jint counterDescLength, jlong counterDescAddress, jlong counterOffsetAddress, jlong counterDataSizeAddress, jlong counterTypeEnumAddress, jlong counterDataTypeEnumAddress, jlong rawCounterMaxValueAddress) {
-    glGetPerfCounterInfoINTELPROC glGetPerfCounterInfoINTEL = (glGetPerfCounterInfoINTELPROC)tlsGetFunction(317);
+    glGetPerfCounterInfoINTELPROC glGetPerfCounterInfoINTEL = (glGetPerfCounterInfoINTELPROC)tlsGetFunction(325);
     intptr_t counterName = (intptr_t)counterNameAddress;
     intptr_t counterDesc = (intptr_t)counterDescAddress;
     intptr_t counterOffset = (intptr_t)counterOffsetAddress;
@@ -72,7 +72,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetPerfC
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetPerfQueryDataINTEL__IIIJJ(JNIEnv *__env, jclass clazz, jint queryHandle, jint flags, jint dataSize, jlong dataAddress, jlong bytesWrittenAddress) {
-    glGetPerfQueryDataINTELPROC glGetPerfQueryDataINTEL = (glGetPerfQueryDataINTELPROC)tlsGetFunction(324);
+    glGetPerfQueryDataINTELPROC glGetPerfQueryDataINTEL = (glGetPerfQueryDataINTELPROC)tlsGetFunction(332);
     intptr_t data = (intptr_t)dataAddress;
     intptr_t bytesWritten = (intptr_t)bytesWrittenAddress;
     UNUSED_PARAM(clazz)
@@ -80,7 +80,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetPerfQ
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetPerfQueryIdByNameINTEL__JJ(JNIEnv *__env, jclass clazz, jlong queryNameAddress, jlong queryIdAddress) {
-    glGetPerfQueryIdByNameINTELPROC glGetPerfQueryIdByNameINTEL = (glGetPerfQueryIdByNameINTELPROC)tlsGetFunction(325);
+    glGetPerfQueryIdByNameINTELPROC glGetPerfQueryIdByNameINTEL = (glGetPerfQueryIdByNameINTELPROC)tlsGetFunction(333);
     intptr_t queryName = (intptr_t)queryNameAddress;
     intptr_t queryId = (intptr_t)queryIdAddress;
     UNUSED_PARAM(clazz)
@@ -88,7 +88,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetPerfQ
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_INTELPerformanceQuery_nglGetPerfQueryInfoINTEL__IIJJJJJ(JNIEnv *__env, jclass clazz, jint queryId, jint queryNameLength, jlong queryNameAddress, jlong dataSizeAddress, jlong noCountersAddress, jlong noInstancesAddress, jlong capsMaskAddress) {
-    glGetPerfQueryInfoINTELPROC glGetPerfQueryInfoINTEL = (glGetPerfQueryInfoINTELPROC)tlsGetFunction(326);
+    glGetPerfQueryInfoINTELPROC glGetPerfQueryInfoINTEL = (glGetPerfQueryInfoINTELPROC)tlsGetFunction(334);
     intptr_t queryName = (intptr_t)queryNameAddress;
     intptr_t dataSize = (intptr_t)dataSizeAddress;
     intptr_t noCounters = (intptr_t)noCountersAddress;

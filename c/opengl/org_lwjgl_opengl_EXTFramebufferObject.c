@@ -27,109 +27,109 @@ typedef void (APIENTRY *glGenerateMipmapEXTPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glIsRenderbufferEXT(JNIEnv *__env, jclass clazz, jint renderbuffer) {
-    glIsRenderbufferEXTPROC glIsRenderbufferEXT = (glIsRenderbufferEXTPROC)tlsGetFunction(879);
+    glIsRenderbufferEXTPROC glIsRenderbufferEXT = (glIsRenderbufferEXTPROC)tlsGetFunction(897);
     UNUSED_PARAM(clazz)
     return (jboolean)glIsRenderbufferEXT(renderbuffer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glBindRenderbufferEXT(JNIEnv *__env, jclass clazz, jint target, jint renderbuffer) {
-    glBindRenderbufferEXTPROC glBindRenderbufferEXT = (glBindRenderbufferEXTPROC)tlsGetFunction(52);
+    glBindRenderbufferEXTPROC glBindRenderbufferEXT = (glBindRenderbufferEXTPROC)tlsGetFunction(53);
     UNUSED_PARAM(clazz)
     glBindRenderbufferEXT(target, renderbuffer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglDeleteRenderbuffersEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong renderbuffersAddress) {
-    glDeleteRenderbuffersEXTPROC glDeleteRenderbuffersEXT = (glDeleteRenderbuffersEXTPROC)tlsGetFunction(311);
+    glDeleteRenderbuffersEXTPROC glDeleteRenderbuffersEXT = (glDeleteRenderbuffersEXTPROC)tlsGetFunction(316);
     const intptr_t renderbuffers = (const intptr_t)renderbuffersAddress;
     UNUSED_PARAM(clazz)
     glDeleteRenderbuffersEXT(n, renderbuffers);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglGenRenderbuffersEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong renderbuffersAddress) {
-    glGenRenderbuffersEXTPROC glGenRenderbuffersEXT = (glGenRenderbuffersEXTPROC)tlsGetFunction(479);
+    glGenRenderbuffersEXTPROC glGenRenderbuffersEXT = (glGenRenderbuffersEXTPROC)tlsGetFunction(485);
     intptr_t renderbuffers = (intptr_t)renderbuffersAddress;
     UNUSED_PARAM(clazz)
     glGenRenderbuffersEXT(n, renderbuffers);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glRenderbufferStorageEXT(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint width, jint height) {
-    glRenderbufferStorageEXTPROC glRenderbufferStorageEXT = (glRenderbufferStorageEXTPROC)tlsGetFunction(1449);
+    glRenderbufferStorageEXTPROC glRenderbufferStorageEXT = (glRenderbufferStorageEXTPROC)tlsGetFunction(1476);
     UNUSED_PARAM(clazz)
     glRenderbufferStorageEXT(target, internalformat, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglGetRenderbufferParameterivEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetRenderbufferParameterivEXTPROC glGetRenderbufferParameterivEXT = (glGetRenderbufferParameterivEXTPROC)tlsGetFunction(689);
+    glGetRenderbufferParameterivEXTPROC glGetRenderbufferParameterivEXT = (glGetRenderbufferParameterivEXTPROC)tlsGetFunction(697);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetRenderbufferParameterivEXT(target, pname, params);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glIsFramebufferEXT(JNIEnv *__env, jclass clazz, jint framebuffer) {
-    glIsFramebufferEXTPROC glIsFramebufferEXT = (glIsFramebufferEXTPROC)tlsGetFunction(864);
+    glIsFramebufferEXTPROC glIsFramebufferEXT = (glIsFramebufferEXTPROC)tlsGetFunction(881);
     UNUSED_PARAM(clazz)
     return (jboolean)glIsFramebufferEXT(framebuffer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glBindFramebufferEXT(JNIEnv *__env, jclass clazz, jint target, jint framebuffer) {
-    glBindFramebufferEXTPROC glBindFramebufferEXT = (glBindFramebufferEXTPROC)tlsGetFunction(44);
+    glBindFramebufferEXTPROC glBindFramebufferEXT = (glBindFramebufferEXTPROC)tlsGetFunction(45);
     UNUSED_PARAM(clazz)
     glBindFramebufferEXT(target, framebuffer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglDeleteFramebuffersEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong framebuffersAddress) {
-    glDeleteFramebuffersEXTPROC glDeleteFramebuffersEXT = (glDeleteFramebuffersEXTPROC)tlsGetFunction(298);
+    glDeleteFramebuffersEXTPROC glDeleteFramebuffersEXT = (glDeleteFramebuffersEXTPROC)tlsGetFunction(302);
     const intptr_t framebuffers = (const intptr_t)framebuffersAddress;
     UNUSED_PARAM(clazz)
     glDeleteFramebuffersEXT(n, framebuffers);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglGenFramebuffersEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong framebuffersAddress) {
-    glGenFramebuffersEXTPROC glGenFramebuffersEXT = (glGenFramebuffersEXTPROC)tlsGetFunction(470);
+    glGenFramebuffersEXTPROC glGenFramebuffersEXT = (glGenFramebuffersEXTPROC)tlsGetFunction(476);
     intptr_t framebuffers = (intptr_t)framebuffersAddress;
     UNUSED_PARAM(clazz)
     glGenFramebuffersEXT(n, framebuffers);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glCheckFramebufferStatusEXT(JNIEnv *__env, jclass clazz, jint target) {
-    glCheckFramebufferStatusEXTPROC glCheckFramebufferStatusEXT = (glCheckFramebufferStatusEXTPROC)tlsGetFunction(102);
+    glCheckFramebufferStatusEXTPROC glCheckFramebufferStatusEXT = (glCheckFramebufferStatusEXTPROC)tlsGetFunction(105);
     UNUSED_PARAM(clazz)
     return (jint)glCheckFramebufferStatusEXT(target);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glFramebufferTexture1DEXT(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level) {
-    glFramebufferTexture1DEXTPROC glFramebufferTexture1DEXT = (glFramebufferTexture1DEXTPROC)tlsGetFunction(451);
+    glFramebufferTexture1DEXTPROC glFramebufferTexture1DEXT = (glFramebufferTexture1DEXTPROC)tlsGetFunction(457);
     UNUSED_PARAM(clazz)
     glFramebufferTexture1DEXT(target, attachment, textarget, texture, level);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glFramebufferTexture2DEXT(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level) {
-    glFramebufferTexture2DEXTPROC glFramebufferTexture2DEXT = (glFramebufferTexture2DEXTPROC)tlsGetFunction(453);
+    glFramebufferTexture2DEXTPROC glFramebufferTexture2DEXT = (glFramebufferTexture2DEXTPROC)tlsGetFunction(459);
     UNUSED_PARAM(clazz)
     glFramebufferTexture2DEXT(target, attachment, textarget, texture, level);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glFramebufferTexture3DEXT(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint textarget, jint texture, jint level, jint zoffset) {
-    glFramebufferTexture3DEXTPROC glFramebufferTexture3DEXT = (glFramebufferTexture3DEXTPROC)tlsGetFunction(455);
+    glFramebufferTexture3DEXTPROC glFramebufferTexture3DEXT = (glFramebufferTexture3DEXTPROC)tlsGetFunction(461);
     UNUSED_PARAM(clazz)
     glFramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glFramebufferRenderbufferEXT(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint renderbuffertarget, jint renderbuffer) {
-    glFramebufferRenderbufferEXTPROC glFramebufferRenderbufferEXT = (glFramebufferRenderbufferEXTPROC)tlsGetFunction(446);
+    glFramebufferRenderbufferEXTPROC glFramebufferRenderbufferEXT = (glFramebufferRenderbufferEXTPROC)tlsGetFunction(452);
     UNUSED_PARAM(clazz)
     glFramebufferRenderbufferEXT(target, attachment, renderbuffertarget, renderbuffer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglGetFramebufferAttachmentParameterivEXT__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint pname, jlong paramsAddress) {
-    glGetFramebufferAttachmentParameterivEXTPROC glGetFramebufferAttachmentParameterivEXT = (glGetFramebufferAttachmentParameterivEXTPROC)tlsGetFunction(551);
+    glGetFramebufferAttachmentParameterivEXTPROC glGetFramebufferAttachmentParameterivEXT = (glGetFramebufferAttachmentParameterivEXTPROC)tlsGetFunction(558);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetFramebufferAttachmentParameterivEXT(target, attachment, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glGenerateMipmapEXT(JNIEnv *__env, jclass clazz, jint target) {
-    glGenerateMipmapEXTPROC glGenerateMipmapEXT = (glGenerateMipmapEXTPROC)tlsGetFunction(486);
+    glGenerateMipmapEXTPROC glGenerateMipmapEXT = (glGenerateMipmapEXTPROC)tlsGetFunction(493);
     UNUSED_PARAM(clazz)
     glGenerateMipmapEXT(target);
 }

@@ -64,10 +64,10 @@ public class EXTTextureStorage {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(GLESCapabilities caps) {
+    static boolean isAvailable(GLESCapabilities caps, java.util.Set<String> ext) {
         return checkFunctions(
-            caps.glTexStorage1DEXT, caps.glTexStorage2DEXT, caps.glTexStorage3DEXT, caps.glTextureStorage1DEXT, caps.glTextureStorage2DEXT, 
-            caps.glTextureStorage3DEXT
+            caps.glTexStorage1DEXT, caps.glTexStorage2DEXT, caps.glTexStorage3DEXT, caps.hasDSA(ext) ? caps.glTextureStorage1DEXT : -1L, 
+            caps.hasDSA(ext) ? caps.glTextureStorage2DEXT : -1L, caps.hasDSA(ext) ? caps.glTextureStorage3DEXT : -1L
         );
     }
 

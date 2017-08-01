@@ -11,7 +11,7 @@ typedef void (APIENTRY *glGetInternalformativPROC) (jint, jint, jint, jint, intp
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBInternalformatQuery_nglGetInternalformativ__IIIIJ(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint pname, jint bufSize, jlong paramsAddress) {
-    glGetInternalformativPROC glGetInternalformativ = (glGetInternalformativPROC)tlsGetFunction(572);
+    glGetInternalformativPROC glGetInternalformativ = (glGetInternalformativPROC)tlsGetFunction(579);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetInternalformativ(target, internalformat, pname, bufSize, params);

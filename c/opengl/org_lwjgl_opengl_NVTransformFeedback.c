@@ -22,65 +22,65 @@ typedef void (APIENTRY *glTransformFeedbackStreamAttribsNVPROC) (jint, const int
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBeginTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint primitiveMode) {
-    glBeginTransformFeedbackNVPROC glBeginTransformFeedbackNV = (glBeginTransformFeedbackNVPROC)tlsGetFunction(25);
+    glBeginTransformFeedbackNVPROC glBeginTransformFeedbackNV = (glBeginTransformFeedbackNVPROC)tlsGetFunction(26);
     UNUSED_PARAM(clazz)
     glBeginTransformFeedbackNV(primitiveMode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glEndTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
-    glEndTransformFeedbackNVPROC glEndTransformFeedbackNV = (glEndTransformFeedbackNVPROC)tlsGetFunction(404);
+    glEndTransformFeedbackNVPROC glEndTransformFeedbackNV = (glEndTransformFeedbackNVPROC)tlsGetFunction(410);
     UNUSED_PARAM(clazz)
     glEndTransformFeedbackNV();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglTransformFeedbackAttribsNV__IJI(JNIEnv *__env, jclass clazz, jint count, jlong attribsAddress, jint bufferMode) {
-    glTransformFeedbackAttribsNVPROC glTransformFeedbackAttribsNV = (glTransformFeedbackAttribsNVPROC)tlsGetFunction(1685);
+    glTransformFeedbackAttribsNVPROC glTransformFeedbackAttribsNV = (glTransformFeedbackAttribsNVPROC)tlsGetFunction(1725);
     const intptr_t attribs = (const intptr_t)attribsAddress;
     UNUSED_PARAM(clazz)
     glTransformFeedbackAttribsNV(count, attribs, bufferMode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBindBufferRangeNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset, jlong size) {
-    glBindBufferRangeNVPROC glBindBufferRangeNV = (glBindBufferRangeNVPROC)tlsGetFunction(37);
+    glBindBufferRangeNVPROC glBindBufferRangeNV = (glBindBufferRangeNVPROC)tlsGetFunction(38);
     UNUSED_PARAM(clazz)
     glBindBufferRangeNV(target, index, buffer, (intptr_t)offset, (intptr_t)size);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBindBufferOffsetNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer, jlong offset) {
-    glBindBufferOffsetNVPROC glBindBufferOffsetNV = (glBindBufferOffsetNVPROC)tlsGetFunction(34);
+    glBindBufferOffsetNVPROC glBindBufferOffsetNV = (glBindBufferOffsetNVPROC)tlsGetFunction(35);
     UNUSED_PARAM(clazz)
     glBindBufferOffsetNV(target, index, buffer, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_glBindBufferBaseNV(JNIEnv *__env, jclass clazz, jint target, jint index, jint buffer) {
-    glBindBufferBaseNVPROC glBindBufferBaseNV = (glBindBufferBaseNVPROC)tlsGetFunction(32);
+    glBindBufferBaseNVPROC glBindBufferBaseNV = (glBindBufferBaseNVPROC)tlsGetFunction(33);
     UNUSED_PARAM(clazz)
     glBindBufferBaseNV(target, index, buffer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglTransformFeedbackVaryingsNV__IIJI(JNIEnv *__env, jclass clazz, jint program, jint count, jlong locationsAddress, jint bufferMode) {
-    glTransformFeedbackVaryingsNVPROC glTransformFeedbackVaryingsNV = (glTransformFeedbackVaryingsNVPROC)tlsGetFunction(1691);
+    glTransformFeedbackVaryingsNVPROC glTransformFeedbackVaryingsNV = (glTransformFeedbackVaryingsNVPROC)tlsGetFunction(1731);
     const intptr_t locations = (const intptr_t)locationsAddress;
     UNUSED_PARAM(clazz)
     glTransformFeedbackVaryingsNV(program, count, locations, bufferMode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglActiveVaryingNV(JNIEnv *__env, jclass clazz, jint program, jlong nameAddress) {
-    glActiveVaryingNVPROC glActiveVaryingNV = (glActiveVaryingNVPROC)tlsGetFunction(6);
+    glActiveVaryingNVPROC glActiveVaryingNV = (glActiveVaryingNVPROC)tlsGetFunction(7);
     const intptr_t name = (const intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     glActiveVaryingNV(program, name);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglGetVaryingLocationNV(JNIEnv *__env, jclass clazz, jint program, jlong nameAddress) {
-    glGetVaryingLocationNVPROC glGetVaryingLocationNV = (glGetVaryingLocationNVPROC)tlsGetFunction(763);
+    glGetVaryingLocationNVPROC glGetVaryingLocationNV = (glGetVaryingLocationNVPROC)tlsGetFunction(774);
     const intptr_t name = (const intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetVaryingLocationNV(program, name);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglGetActiveVaryingNV__IIIJJJJ(JNIEnv *__env, jclass clazz, jint program, jint index, jint bufSize, jlong lengthAddress, jlong sizeAddress, jlong typeAddress, jlong nameAddress) {
-    glGetActiveVaryingNVPROC glGetActiveVaryingNV = (glGetActiveVaryingNVPROC)tlsGetFunction(502);
+    glGetActiveVaryingNVPROC glGetActiveVaryingNV = (glGetActiveVaryingNVPROC)tlsGetFunction(509);
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t size = (intptr_t)sizeAddress;
     intptr_t type = (intptr_t)typeAddress;
@@ -90,14 +90,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglGetActiveVar
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglGetTransformFeedbackVaryingNV__IIJ(JNIEnv *__env, jclass clazz, jint program, jint index, jlong locationAddress) {
-    glGetTransformFeedbackVaryingNVPROC glGetTransformFeedbackVaryingNV = (glGetTransformFeedbackVaryingNVPROC)tlsGetFunction(741);
+    glGetTransformFeedbackVaryingNVPROC glGetTransformFeedbackVaryingNV = (glGetTransformFeedbackVaryingNVPROC)tlsGetFunction(750);
     intptr_t location = (intptr_t)locationAddress;
     UNUSED_PARAM(clazz)
     glGetTransformFeedbackVaryingNV(program, index, location);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback_nglTransformFeedbackStreamAttribsNV__IJIJI(JNIEnv *__env, jclass clazz, jint count, jlong attribsAddress, jint nbuffers, jlong bufstreamsAddress, jint bufferMode) {
-    glTransformFeedbackStreamAttribsNVPROC glTransformFeedbackStreamAttribsNV = (glTransformFeedbackStreamAttribsNVPROC)tlsGetFunction(1688);
+    glTransformFeedbackStreamAttribsNVPROC glTransformFeedbackStreamAttribsNV = (glTransformFeedbackStreamAttribsNVPROC)tlsGetFunction(1728);
     const intptr_t attribs = (const intptr_t)attribsAddress;
     const intptr_t bufstreams = (const intptr_t)bufstreamsAddress;
     UNUSED_PARAM(clazz)

@@ -446,14 +446,19 @@ ARITYn(void, callPV__JIIIIIIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, 
 ARITYn(void, callPV__JIIIIIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jint, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, param7, param8, (intptr_t)param9), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jint param6, jint param7, jint param8, jlong param9)
 ARITYn(void, callPV__JIIIIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, param7, (intptr_t)param8), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jint param6, jint param7, jlong param8)
 ARITYn(void, callV__JIIIIIIIIZ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jint, jint, jboolean))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, param7, param8), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jint param6, jint param7, jboolean param8)
+ARITYn(void, callJV__JIIIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jint, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, param7), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jint param6, jlong param7)
 ARITYn(void, callPV__JIIIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, (intptr_t)param7), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jint param6, jlong param7)
 ARITYn(void, callV__JIIIIIIIZ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jint, jboolean))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, param7), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jint param6, jboolean param7)
+ARITYn(void, callJV__JIIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jlong param6)
 ARITYn(void, callPV__JIIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, (intptr_t)param6), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jlong param6)
 ARITYn(void, callPPV__JIIIIIIJJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, (intptr_t)param6, (intptr_t)param7), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jlong param6, jlong param7)
 ARITYn(void, callV__JIIIIIIZ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jboolean))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jboolean param6)
+ARITYn(void, callJV__JIIIIIIZIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jint, jboolean, jint, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, param7, param8), jint param0, jint param1, jint param2, jint param3, jint param4, jint param5, jboolean param6, jint param7, jlong param8)
+ARITYn(void, callJV__JIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5), jint param0, jint param1, jint param2, jint param3, jint param4, jlong param5)
 ARITYn(void, callPV__JIIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, (intptr_t)param5), jint param0, jint param1, jint param2, jint param3, jint param4, jlong param5)
 ARITYn(void, callPV__JIIIIIJI, ((void (APIENTRY *) (jint, jint, jint, jint, jint, intptr_t, jint))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, (intptr_t)param5, param6), jint param0, jint param1, jint param2, jint param3, jint param4, jlong param5, jint param6)
 ARITYn(void, callV__JIIIIIZ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jboolean))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5), jint param0, jint param1, jint param2, jint param3, jint param4, jboolean param5)
+ARITYn(void, callJV__JIIIIIZIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jboolean, jint, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, param7), jint param0, jint param1, jint param2, jint param3, jint param4, jboolean param5, jint param6, jlong param7)
 ARITYn(void, callPV__JIIIIIZIJ, ((void (APIENTRY *) (jint, jint, jint, jint, jint, jboolean, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5, param6, (intptr_t)param7), jint param0, jint param1, jint param2, jint param3, jint param4, jboolean param5, jint param6, jlong param7)
 ARITYn(void, callPV__JIIIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, (intptr_t)param4), jint param0, jint param1, jint param2, jint param3, jlong param4)
 ARITYn(void, callPPV__JIIIIJIIJ, ((void (APIENTRY *) (jint, jint, jint, jint, intptr_t, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, param3, (intptr_t)param4, param5, param6, (intptr_t)param7), jint param0, jint param1, jint param2, jint param3, jlong param4, jint param5, jint param6, jlong param7)
@@ -491,6 +496,7 @@ ARITYn(void, callPPV__JIIJIIIJ, ((void (APIENTRY *) (jint, jint, intptr_t, jint,
 ARITYn(void, callPPV__JIIJIIIJIIF, ((void (APIENTRY *) (jint, jint, intptr_t, jint, jint, jint, intptr_t, jint, jint, jfloat))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2, param3, param4, param5, (intptr_t)param6, param7, param8, param9), jint param0, jint param1, jlong param2, jint param3, jint param4, jint param5, jlong param6, jint param7, jint param8, jfloat param9)
 ARITYn(void, callPPV__JIIJIIJ, ((void (APIENTRY *) (jint, jint, intptr_t, jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2, param3, param4, (intptr_t)param5), jint param0, jint param1, jlong param2, jint param3, jint param4, jlong param5)
 ARITYn(void, callPPV__JIIJIJ, ((void (APIENTRY *) (jint, jint, intptr_t, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2, param3, (intptr_t)param4), jint param0, jint param1, jlong param2, jint param3, jlong param4)
+ARITYn(void, callPPPV__JIIJIJJ, ((void (APIENTRY *) (jint, jint, intptr_t, jint, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2, param3, (intptr_t)param4, (intptr_t)param5), jint param0, jint param1, jlong param2, jint param3, jlong param4, jlong param5)
 ARITYn(void, callJJV__JIIJJ, ((void (APIENTRY *) (jint, jint, jlong, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3), jint param0, jint param1, jlong param2, jlong param3)
 ARITYn(void, callPPV__JIIJJ, ((void (APIENTRY *) (jint, jint, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2, (intptr_t)param3), jint param0, jint param1, jlong param2, jlong param3)
 ARITYn(void, callJPV__JIIJJ, ((void (APIENTRY *) (jint, jint, jlong, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, (intptr_t)param3), jint param0, jint param1, jlong param2, jlong param3)
@@ -511,8 +517,11 @@ ARITYn(void, callPV__JIJ, ((void (APIENTRY *) (jint, intptr_t))(intptr_t)__funct
 ARITYn(void, callJV__JIJ, ((void (APIENTRY *) (jint, jlong))(intptr_t)__functionAddress)(param0, param1), jint param0, jlong param1)
 ARITYn(void, callPV__JIJI, ((void (APIENTRY *) (jint, intptr_t, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2), jint param0, jlong param1, jint param2)
 ARITYn(void, callPV__JIJII, ((void (APIENTRY *) (jint, intptr_t, jint, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, param3), jint param0, jlong param1, jint param2, jint param3)
+ARITYn(void, callJV__JIJII, ((void (APIENTRY *) (jint, jlong, jint, jint))(intptr_t)__functionAddress)(param0, param1, param2, param3), jint param0, jlong param1, jint param2, jint param3)
 ARITYn(void, callPV__JIJIII, ((void (APIENTRY *) (jint, intptr_t, jint, jint, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, param3, param4), jint param0, jlong param1, jint param2, jint param3, jint param4)
 ARITYn(void, callPPV__JIJIJ, ((void (APIENTRY *) (jint, intptr_t, jint, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, (intptr_t)param3), jint param0, jlong param1, jint param2, jlong param3)
+ARITYn(void, callPJV__JIJIJ, ((void (APIENTRY *) (jint, intptr_t, jint, jlong))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, param3), jint param0, jlong param1, jint param2, jlong param3)
+ARITYn(void, callJPV__JIJIJ, ((void (APIENTRY *) (jint, jlong, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, param2, (intptr_t)param3), jint param0, jlong param1, jint param2, jlong param3)
 ARITYn(void, callPPV__JIJIJI, ((void (APIENTRY *) (jint, intptr_t, jint, intptr_t, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, (intptr_t)param3, param4), jint param0, jlong param1, jint param2, jlong param3, jint param4)
 ARITYn(void, callPPPV__JIJIJIJ, ((void (APIENTRY *) (jint, intptr_t, jint, intptr_t, jint, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, (intptr_t)param3, param4, (intptr_t)param5), jint param0, jlong param1, jint param2, jlong param3, jint param4, jlong param5)
 ARITYn(void, callPPPV__JIJIJJ, ((void (APIENTRY *) (jint, intptr_t, jint, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, (intptr_t)param3, (intptr_t)param4), jint param0, jlong param1, jint param2, jlong param3, jlong param4)
@@ -524,6 +533,7 @@ ARITYn(void, callPPV__JIJJIII, ((void (APIENTRY *) (jint, intptr_t, intptr_t, ji
 ARITYn(void, callPPPV__JIJJIJ, ((void (APIENTRY *) (jint, intptr_t, intptr_t, jint, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, (intptr_t)param2, param3, (intptr_t)param4), jint param0, jlong param1, jlong param2, jint param3, jlong param4)
 ARITYn(void, callPPPV__JIJJJ, ((void (APIENTRY *) (jint, intptr_t, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3), jint param0, jlong param1, jlong param2, jlong param3)
 ARITYn(void, callJJJV__JIJJJ, ((void (APIENTRY *) (jint, jlong, jlong, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3), jint param0, jlong param1, jlong param2, jlong param3)
+ARITYn(void, callPPPV__JIJJJI, ((void (APIENTRY *) (jint, intptr_t, intptr_t, intptr_t, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3, param4), jint param0, jlong param1, jlong param2, jlong param3, jint param4)
 ARITYn(void, callJJJJV__JIJJJJ, ((void (APIENTRY *) (jint, jlong, jlong, jlong, jlong))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4), jint param0, jlong param1, jlong param2, jlong param3, jlong param4)
 ARITYn(void, callPPPPV__JIJJJJ, ((void (APIENTRY *) (jint, intptr_t, intptr_t, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3, (intptr_t)param4), jint param0, jlong param1, jlong param2, jlong param3, jlong param4)
 ARITYn(void, callPPPPV__JIJJJJI, ((void (APIENTRY *) (jint, intptr_t, intptr_t, intptr_t, intptr_t, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3, (intptr_t)param4, param5), jint param0, jlong param1, jlong param2, jlong param3, jlong param4, jint param5)
@@ -614,7 +624,9 @@ ARITYn(jboolean, callPPPPZ__JIIIFJJJJ, return ((jboolean (APIENTRY *) (jint, jin
 ARITYn(jboolean, callPZ__JIIJ, return ((jboolean (APIENTRY *) (jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2), jint param0, jint param1, jlong param2)
 ARITYn(jboolean, callPPZ__JIIJIJ, return ((jboolean (APIENTRY *) (jint, jint, intptr_t, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2, param3, (intptr_t)param4), jint param0, jint param1, jlong param2, jint param3, jlong param4)
 ARITYn(jboolean, callPZ__JIJ, return ((jboolean (APIENTRY *) (jint, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1), jint param0, jlong param1)
+ARITYn(jboolean, callJZ__JIJ, return ((jboolean (APIENTRY *) (jint, jlong))(intptr_t)__functionAddress)(param0, param1), jint param0, jlong param1)
 ARITYn(jboolean, callPZ__JIJI, return ((jboolean (APIENTRY *) (jint, intptr_t, jint))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2), jint param0, jlong param1, jint param2)
+ARITYn(jboolean, callJZ__JIJI, return ((jboolean (APIENTRY *) (jint, jlong, jint))(intptr_t)__functionAddress)(param0, param1, param2), jint param0, jlong param1, jint param2)
 ARITYn(jboolean, callPPZ__JIJIJ, return ((jboolean (APIENTRY *) (jint, intptr_t, jint, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, param2, (intptr_t)param3), jint param0, jlong param1, jint param2, jlong param3)
 ARITYn(jboolean, callPPZ__JIJJ, return ((jboolean (APIENTRY *) (jint, intptr_t, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1, (intptr_t)param2), jint param0, jlong param1, jlong param2)
 ARITYn(jboolean, callPZ__JJ, return ((jboolean (APIENTRY *) (intptr_t))(intptr_t)__functionAddress)((intptr_t)param0), jlong param0)
@@ -4004,6 +4016,22 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_JNI_callPPV__JII_3II_3I(jlo
     UNUSED_PARAM(length2)
     UNUSED_PARAM(length4)
     Java_org_lwjgl_system_JNI_callPPV__JIIJIJ(NULL, NULL, __functionAddress, param0, param1, (intptr_t)param2, param3, (intptr_t)param4);
+}
+JNIEXPORT void JNICALL Java_org_lwjgl_system_JNI_callPPPV__JII_3II_3I_3I(JNIEnv *__env, jclass clazz, jlong __functionAddress, jint param0, jint param1, jintArray param2, jint param3, jintArray param4, jintArray param5) {
+    UNUSED_PARAMS(__env, clazz)
+    void *paramArray2 = param2 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param2, 0);
+    void *paramArray4 = param4 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param4, 0);
+    void *paramArray5 = param5 == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, param5, 0);
+    Java_org_lwjgl_system_JNI_callPPPV__JIIJIJJ(NULL, NULL, __functionAddress, param0, param1, (intptr_t)paramArray2, param3, (intptr_t)paramArray4, (intptr_t)paramArray5);
+    if (param5 != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, param5, paramArray5, 0); }
+    if (param4 != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, param4, paramArray4, 0); }
+    if (param2 != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, param2, paramArray2, 0); }
+}
+JNIEXPORT void JNICALL JavaCritical_org_lwjgl_system_JNI_callPPPV__JII_3II_3I_3I(jlong __functionAddress, jint param0, jint param1, jint length2, jint* param2, jint param3, jint length4, jint* param4, jint length5, jint* param5) {
+    UNUSED_PARAM(length2)
+    UNUSED_PARAM(length4)
+    UNUSED_PARAM(length5)
+    Java_org_lwjgl_system_JNI_callPPPV__JIIJIJJ(NULL, NULL, __functionAddress, param0, param1, (intptr_t)param2, param3, (intptr_t)param4, (intptr_t)param5);
 }
 JNIEXPORT void JNICALL Java_org_lwjgl_system_JNI_callPPV__JII_3IJ(JNIEnv *__env, jclass clazz, jlong __functionAddress, jint param0, jint param1, jintArray param2, jlong param3) {
     UNUSED_PARAMS(__env, clazz)

@@ -20,70 +20,70 @@ typedef void (APIENTRY *glVertexBlendARBPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightfvARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightfvARBPROC glWeightfvARB = (glWeightfvARBPROC)tlsGetFunction(2090);
+    glWeightfvARBPROC glWeightfvARB = (glWeightfvARBPROC)tlsGetFunction(2131);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightfvARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightbvARB(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightbvARBPROC glWeightbvARB = (glWeightbvARBPROC)tlsGetFunction(2088);
+    glWeightbvARBPROC glWeightbvARB = (glWeightbvARBPROC)tlsGetFunction(2129);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightbvARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightubvARB(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightubvARBPROC glWeightubvARB = (glWeightubvARBPROC)tlsGetFunction(2093);
+    glWeightubvARBPROC glWeightubvARB = (glWeightubvARBPROC)tlsGetFunction(2134);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightubvARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightsvARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightsvARBPROC glWeightsvARB = (glWeightsvARBPROC)tlsGetFunction(2092);
+    glWeightsvARBPROC glWeightsvARB = (glWeightsvARBPROC)tlsGetFunction(2133);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightsvARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightusvARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightusvARBPROC glWeightusvARB = (glWeightusvARBPROC)tlsGetFunction(2095);
+    glWeightusvARBPROC glWeightusvARB = (glWeightusvARBPROC)tlsGetFunction(2136);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightusvARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightivARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightivARBPROC glWeightivARB = (glWeightivARBPROC)tlsGetFunction(2091);
+    glWeightivARBPROC glWeightivARB = (glWeightivARBPROC)tlsGetFunction(2132);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightivARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightuivARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightuivARBPROC glWeightuivARB = (glWeightuivARBPROC)tlsGetFunction(2094);
+    glWeightuivARBPROC glWeightuivARB = (glWeightuivARBPROC)tlsGetFunction(2135);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightuivARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightdvARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong weightsAddress) {
-    glWeightdvARBPROC glWeightdvARB = (glWeightdvARBPROC)tlsGetFunction(2089);
+    glWeightdvARBPROC glWeightdvARB = (glWeightdvARBPROC)tlsGetFunction(2130);
     intptr_t weights = (intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
     glWeightdvARB(size, weights);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_nglWeightPointerARB__IIIJ(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
-    glWeightPointerARBPROC glWeightPointerARB = (glWeightPointerARBPROC)tlsGetFunction(2087);
+    glWeightPointerARBPROC glWeightPointerARB = (glWeightPointerARBPROC)tlsGetFunction(2128);
     intptr_t pointer = (intptr_t)pointerAddress;
     UNUSED_PARAM(clazz)
     glWeightPointerARB(size, type, stride, pointer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBlend_glVertexBlendARB(JNIEnv *__env, jclass clazz, jint count) {
-    glVertexBlendARBPROC glVertexBlendARB = (glVertexBlendARBPROC)tlsGetFunction(2067);
+    glVertexBlendARBPROC glVertexBlendARB = (glVertexBlendARBPROC)tlsGetFunction(2107);
     UNUSED_PARAM(clazz)
     glVertexBlendARB(count);
 }

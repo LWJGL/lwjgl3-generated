@@ -11,7 +11,7 @@ typedef void (APIENTRY *glConservativeRasterParameterfNVPROC) (jint, jfloat);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVConservativeRasterDilate_glConservativeRasterParameterfNV(JNIEnv *__env, jclass clazz, jint pname, jfloat value) {
-    glConservativeRasterParameterfNVPROC glConservativeRasterParameterfNV = (glConservativeRasterParameterfNVPROC)tlsGetFunction(221);
+    glConservativeRasterParameterfNVPROC glConservativeRasterParameterfNV = (glConservativeRasterParameterfNVPROC)tlsGetFunction(224);
     UNUSED_PARAM(clazz)
     glConservativeRasterParameterfNV(pname, value);
 }

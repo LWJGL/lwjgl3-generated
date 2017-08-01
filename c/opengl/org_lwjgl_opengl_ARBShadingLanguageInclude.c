@@ -16,7 +16,7 @@ typedef void (APIENTRY *glGetNamedStringivARBPROC) (jint, const intptr_t, jint, 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglNamedStringARB(JNIEnv *__env, jclass clazz, jint type, jint namelen, jlong nameAddress, jint stringlen, jlong stringAddress) {
-    glNamedStringARBPROC glNamedStringARB = (glNamedStringARBPROC)tlsGetFunction(1160);
+    glNamedStringARBPROC glNamedStringARB = (glNamedStringARBPROC)tlsGetFunction(1185);
     const intptr_t name = (const intptr_t)nameAddress;
     const intptr_t string = (const intptr_t)stringAddress;
     UNUSED_PARAM(clazz)
@@ -24,14 +24,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglNamedS
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglDeleteNamedStringARB(JNIEnv *__env, jclass clazz, jint namelen, jlong nameAddress) {
-    glDeleteNamedStringARBPROC glDeleteNamedStringARB = (glDeleteNamedStringARBPROC)tlsGetFunction(300);
+    glDeleteNamedStringARBPROC glDeleteNamedStringARB = (glDeleteNamedStringARBPROC)tlsGetFunction(305);
     const intptr_t name = (const intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     glDeleteNamedStringARB(namelen, name);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglCompileShaderIncludeARB__IIJJ(JNIEnv *__env, jclass clazz, jint shader, jint count, jlong pathAddress, jlong lengthAddress) {
-    glCompileShaderIncludeARBPROC glCompileShaderIncludeARB = (glCompileShaderIncludeARBPROC)tlsGetFunction(193);
+    glCompileShaderIncludeARBPROC glCompileShaderIncludeARB = (glCompileShaderIncludeARBPROC)tlsGetFunction(196);
     const intptr_t path = (const intptr_t)pathAddress;
     const intptr_t length = (const intptr_t)lengthAddress;
     UNUSED_PARAM(clazz)
@@ -39,14 +39,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglCompil
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglIsNamedStringARB(JNIEnv *__env, jclass clazz, jint namelen, jlong nameAddress) {
-    glIsNamedStringARBPROC glIsNamedStringARB = (glIsNamedStringARBPROC)tlsGetFunction(869);
+    glIsNamedStringARBPROC glIsNamedStringARB = (glIsNamedStringARBPROC)tlsGetFunction(887);
     const intptr_t name = (const intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jboolean)glIsNamedStringARB(namelen, name);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglGetNamedStringARB__IJIJJ(JNIEnv *__env, jclass clazz, jint namelen, jlong nameAddress, jint bufSize, jlong stringlenAddress, jlong stringAddress) {
-    glGetNamedStringARBPROC glGetNamedStringARB = (glGetNamedStringARBPROC)tlsGetFunction(616);
+    glGetNamedStringARBPROC glGetNamedStringARB = (glGetNamedStringARBPROC)tlsGetFunction(624);
     const intptr_t name = (const intptr_t)nameAddress;
     intptr_t stringlen = (intptr_t)stringlenAddress;
     intptr_t string = (intptr_t)stringAddress;
@@ -55,7 +55,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglGetNam
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglGetNamedStringivARB__IJIJ(JNIEnv *__env, jclass clazz, jint namelen, jlong nameAddress, jint pname, jlong paramsAddress) {
-    glGetNamedStringivARBPROC glGetNamedStringivARB = (glGetNamedStringivARBPROC)tlsGetFunction(617);
+    glGetNamedStringivARBPROC glGetNamedStringivARB = (glGetNamedStringivARBPROC)tlsGetFunction(625);
     const intptr_t name = (const intptr_t)nameAddress;
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
