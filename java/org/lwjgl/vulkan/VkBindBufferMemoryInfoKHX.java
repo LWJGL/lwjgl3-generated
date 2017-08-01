@@ -21,13 +21,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>If {@code deviceIndexCount} is greater than zero, then on device index</p><code>i</code>
  * 
- * <p>the buffer is attached to the instance of memory on the physical device with device index</p><code>pDeviceIndices[i]</code>
+ * <p>the buffer is attached to the instance of {@code memory} on the physical device with device index</p><code>pDeviceIndices[i]</code>
  * 
  * <p>.</p>
  * 
- * <p>If {@code deviceIndexCount} is zero and the memory comes from a memory heap with the {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} bit set, then it is as if {@code pDeviceIndices} contains consecutive indices from zero to the number of physical devices in the logical device, minus one. In other words, by default each physical device attaches to its own instance of the memory.</p>
+ * <p>If {@code deviceIndexCount} is zero and {@code memory} comes from a memory heap with the {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} bit set, then it is as if {@code pDeviceIndices} contains consecutive indices from zero to the number of physical devices in the logical device, minus one. In other words, by default each physical device attaches to its own instance of {@code memory}.</p>
  * 
- * <p>If {@code deviceIndexCount} is zero and the memory comes from a memory heap without the {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} bit set, then it is as if {@code pDeviceIndices} contains an array of zeros. In other words, by default each physical device attaches to instance zero.</p>
+ * <p>If {@code deviceIndexCount} is zero and {@code memory} comes from a memory heap without the {@link KHXDeviceGroupCreation#VK_MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX MEMORY_HEAP_MULTI_INSTANCE_BIT_KHX} bit set, then it is as if {@code pDeviceIndices} contains an array of zeros. In other words, by default each physical device attaches to instance zero.</p>
  * 
  * <h5>Valid Usage</h5>
  * 

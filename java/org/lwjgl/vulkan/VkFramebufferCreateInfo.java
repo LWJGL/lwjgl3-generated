@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>Image subresources used as attachments <b>must</b> not be used via any non-attachment usage for the duration of a render pass instance.</p>
+ * <p>Image subresources used as attachments <b>must</b> not be accessed in any other way for the duration of a render pass instance.</p>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 

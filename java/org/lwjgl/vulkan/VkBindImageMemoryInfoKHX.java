@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>If {@code deviceIndexCount} is greater than zero, then on device index</p><code>i</code>
  * 
- * <p>the image is attached to the instance of memory on the physical device with device index</p><code>pDeviceIndices[i]</code>
+ * <p>{@code image} is attached to the instance of the memory on the physical device with device index</p><code>pDeviceIndices[i]</code>
  * 
  * <p>.</p>
  * 
@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>is bound to memory instance</p><code>j</code>
  * 
- * <p>. The blocks of memory that are bound to each sparse image block region use an offset in memory, relative to {@code memoryOffset}, computed as if the whole image were being bound to a contiguous range of memory. In other words, horizontally adjacent image blocks use consecutive blocks of memory, vertically adjacent image blocks are separated by the number of bytes per block multiplied by the width in blocks of the image, and the block at</p><code>(0,0)</code>
+ * <p>. The blocks of memory that are bound to each sparse image block region use an offset in memory, relative to {@code memoryOffset}, computed as if the whole image were being bound to a contiguous range of memory. In other words, horizontally adjacent image blocks use consecutive blocks of memory, vertically adjacent image blocks are separated by the number of bytes per block multiplied by the width in blocks of {@code image}, and the block at</p><code>(0,0)</code>
  * 
  * <p>corresponds to memory starting at {@code memoryOffset}.</p>
  * 

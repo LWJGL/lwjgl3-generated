@@ -304,6 +304,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_display_control;
     /** When true, {@link EXTHdrMetadata} is supported. */
     public final boolean VK_EXT_hdr_metadata;
+    /** When true, {@link EXTPostDepthCoverage} is supported. */
+    public final boolean VK_EXT_post_depth_coverage;
     /** When true, {@link EXTSamplerFilterMinmax} is supported. */
     public final boolean VK_EXT_sampler_filter_minmax;
     /** When true, {@link EXTShaderSubgroupBallot} is supported. */
@@ -350,6 +352,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_KHR_maintenance1;
     /** When true, {@link KHRPushDescriptor} is supported. */
     public final boolean VK_KHR_push_descriptor;
+    /** When true, {@link KHRRelaxedBlockLayout} is supported. */
+    public final boolean VK_KHR_relaxed_block_layout;
     /** When true, {@link KHRSamplerMirrorClampToEdge} is supported. */
     public final boolean VK_KHR_sampler_mirror_clamp_to_edge;
     /** When true, {@link KHRShaderDrawParameters} is supported. */
@@ -573,6 +577,7 @@ public class VKCapabilitiesDevice {
             vkSetHdrMetadataEXT = isSupported(provider, "vkSetHdrMetadataEXT", supported);
             VK_EXT_hdr_metadata = supported && VK.checkExtension("VK_EXT_hdr_metadata", EXTHdrMetadata.isAvailable(this));
         }
+        VK_EXT_post_depth_coverage = ext.contains("VK_EXT_post_depth_coverage");
         VK_EXT_sampler_filter_minmax = ext.contains("VK_EXT_sampler_filter_minmax");
         VK_EXT_shader_subgroup_ballot = ext.contains("VK_EXT_shader_subgroup_ballot");
         VK_EXT_shader_subgroup_vote = ext.contains("VK_EXT_shader_subgroup_vote");
@@ -656,6 +661,7 @@ public class VKCapabilitiesDevice {
             vkCmdPushDescriptorSetKHR = isSupported(provider, "vkCmdPushDescriptorSetKHR", supported);
             VK_KHR_push_descriptor = supported && VK.checkExtension("VK_KHR_push_descriptor", KHRPushDescriptor.isAvailable(this));
         }
+        VK_KHR_relaxed_block_layout = ext.contains("VK_KHR_relaxed_block_layout");
         VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
         VK_KHR_shader_draw_parameters = ext.contains("VK_KHR_shader_draw_parameters");
         {
