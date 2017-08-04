@@ -15,8 +15,7 @@
  * 
  * <ul>
  * <li>--with-jemalloc-prefix=je_</li>
- * <li>--with-malloc-conf=purge:decay</li>
- * <li>--enable-tls</li>
+ * <li>--enable-lazy-lock (Linux & macOS)</li>
  * <li>--disable-stats</li>
  * <li>--disable-fill</li>
  * <li>--disable-zone-allocator (MacOS)</li>

@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
 /**
- * Native bindings to jemalloc.
+ * Native bindings to <a target="_blank" href="http://jemalloc.net/">jemalloc</a>.
  * 
  * <p>jemalloc is a general purpose malloc implementation that emphasizes fragmentation avoidance and scalable concurrency support. jemalloc first came into
  * use as the FreeBSD libc allocator in 2005, and since then it has found its way into numerous applications that rely on its predictable behavior. In
@@ -29,6 +29,42 @@ import static org.lwjgl.system.Pointer.*;
  * weaknesses that have practical repercussions for real world applications.</p>
  */
 public class JEmalloc {
+
+    /** The major version. */
+    public static final int JEMALLOC_VERSION_MAJOR = 5;
+
+    /** The minor version. */
+    public static final int JEMALLOC_VERSION_MINOR = 0;
+
+    /** The bugfix version. */
+    public static final int JEMALLOC_VERSION_BUGFIX = 1;
+
+    /** The revision number. */
+    public static final int JEMALLOC_VERSION_NREV = 3;
+
+    /** The globally unique identifier (git commit hash). */
+    public static final String JEMALLOC_VERSION_GID = "3f5049340e66c6929c3270f7359617f62e053b11";
+
+    /** The version string. */
+    public static final String JEMALLOC_VERSION = JEMALLOC_VERSION_MAJOR + "." + JEMALLOC_VERSION_MINOR + "." + JEMALLOC_VERSION_BUGFIX + "-" + JEMALLOC_VERSION_NREV + "-g" + JEMALLOC_VERSION_GID;
+
+    /**
+     * Initialize newly allocated memory to contain zero bytes. In the growing reallocation case, the real size prior to reallocation defines the boundary
+     * between untouched bytes and those that are initialized to contain zero bytes. If this macro is absent, newly allocated memory is uninitialized.
+     */
+    public static final int MALLOCX_ZERO = 0x40;
+
+    /**
+     * Do not use a thread-specific cache (tcache). Unless {@link #MALLOCX_TCACHE} or {@code MALLOCX_TCACHE_NONE} is specified, an automatically managed
+     * tcache will be used under many circumstances. This macro cannot be used in the same {@code flags} argument as {@code MALLOCX_TCACHE(tc)}.
+     */
+    public static final int MALLOCX_TCACHE_NONE = MALLOCX_TCACHE(-1);
+
+    /** Use as arena index in "arena.&lt;i&gt;.{purge,decay,dss}" and "stats.arenas.&lt;i&gt;.*" mallctl interfaces to select all arenas. */
+    public static final int MALLCTL_ARENAS_ALL = 0x1000;
+
+    /** Use as arena index in "stats.arenas.&lt;i&gt;.*" mallctl interfaces to select destroyed arenas. */
+    public static final int MALLCTL_ARENAS_DESTROYED = 0x1001;
 
     protected JEmalloc() {
         throw new UnsupportedOperationException();
@@ -272,7 +308,7 @@ public class JEmalloc {
      * 0, or if request size overflows due to size class and/or alignment constraints.
      *
      * @param size  the number of bytes to allocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     @NativeType("void *")
     public static ByteBuffer je_mallocx(@NativeType("size_t") long size, int flags) {
@@ -295,7 +331,7 @@ public class JEmalloc {
      *
      * @param ptr   the previously allocated memory or {@code NULL}
      * @param size  the number of bytes to allocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     @NativeType("void *")
     public static ByteBuffer je_rallocx(@NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size, int flags) {
@@ -319,7 +355,7 @@ public class JEmalloc {
      * @param ptr   the previously allocated memory or {@code NULL}
      * @param size  the number of bytes to allocate
      * @param extra the number of extra bytes to allocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     @NativeType("size_t")
     public static long je_xallocx(@NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size, @NativeType("size_t") long extra, int flags) {
@@ -338,7 +374,7 @@ public class JEmalloc {
      * Returns the real size of the allocation at {@code ptr}.
      *
      * @param ptr   the allocated memory to query
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     @NativeType("size_t")
     public static long je_sallocx(@NativeType("const void *") ByteBuffer ptr, int flags) {
@@ -357,7 +393,7 @@ public class JEmalloc {
      * Causes the memory referenced by {@code ptr} to be made available for future allocations.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_dallocx(@NativeType("void *") ByteBuffer ptr, int flags) {
         nje_dallocx(memAddress(ptr), flags);
@@ -367,7 +403,7 @@ public class JEmalloc {
      * Causes the memory referenced by {@code ptr} to be made available for future allocations.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_dallocx(@NativeType("void *") ShortBuffer ptr, @NativeType("int") int flags) {
         nje_dallocx(memAddress(ptr), flags);
@@ -377,7 +413,7 @@ public class JEmalloc {
      * Causes the memory referenced by {@code ptr} to be made available for future allocations.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_dallocx(@NativeType("void *") IntBuffer ptr, @NativeType("int") int flags) {
         nje_dallocx(memAddress(ptr), flags);
@@ -387,7 +423,7 @@ public class JEmalloc {
      * Causes the memory referenced by {@code ptr} to be made available for future allocations.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_dallocx(@NativeType("void *") LongBuffer ptr, @NativeType("int") int flags) {
         nje_dallocx(memAddress(ptr), flags);
@@ -397,7 +433,7 @@ public class JEmalloc {
      * Causes the memory referenced by {@code ptr} to be made available for future allocations.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_dallocx(@NativeType("void *") FloatBuffer ptr, @NativeType("int") int flags) {
         nje_dallocx(memAddress(ptr), flags);
@@ -407,7 +443,7 @@ public class JEmalloc {
      * Causes the memory referenced by {@code ptr} to be made available for future allocations.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_dallocx(@NativeType("void *") DoubleBuffer ptr, @NativeType("int") int flags) {
         nje_dallocx(memAddress(ptr), flags);
@@ -417,7 +453,7 @@ public class JEmalloc {
      * Causes the memory referenced by {@code ptr} to be made available for future allocations.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_dallocx(@NativeType("void *") PointerBuffer ptr, @NativeType("int") int flags) {
         nje_dallocx(memAddress(ptr), flags);
@@ -439,7 +475,7 @@ public class JEmalloc {
      * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") ByteBuffer ptr, @NativeType("int") int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining(), flags);
@@ -449,7 +485,7 @@ public class JEmalloc {
      * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") ShortBuffer ptr, @NativeType("int") int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 1, flags);
@@ -459,7 +495,7 @@ public class JEmalloc {
      * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") IntBuffer ptr, @NativeType("int") int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
@@ -469,7 +505,7 @@ public class JEmalloc {
      * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") LongBuffer ptr, @NativeType("int") int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
@@ -479,7 +515,7 @@ public class JEmalloc {
      * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") FloatBuffer ptr, @NativeType("int") int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
@@ -489,7 +525,7 @@ public class JEmalloc {
      * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") DoubleBuffer ptr, @NativeType("int") int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
@@ -499,7 +535,7 @@ public class JEmalloc {
      * Sized version of {@link #je_dallocx dallocx}. The primary optimization over {@code dallocx()} is the removal of a metadata read, which often suffers an L1 cache miss.
      *
      * @param ptr   the allocated memory to deallocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") PointerBuffer ptr, @NativeType("int") int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << POINTER_SHIFT, flags);
@@ -519,7 +555,7 @@ public class JEmalloc {
      * and/or alignment constraints.
      *
      * @param size  the number of bytes to allocate
-     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros in {@link JEmacros}
+     * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     @NativeType("void *")
     public static ByteBuffer je_nallocx(@NativeType("size_t") long size, int flags) {
@@ -781,6 +817,54 @@ public class JEmalloc {
     @NativeType("size_t")
     public static long je_malloc_usable_size(@NativeType("const void *") ByteBuffer ptr) {
         return nje_malloc_usable_size(memAddress(ptr));
+    }
+
+    static {
+        // Force jemalloc to initialize before anyone else uses it.
+        // This avoids a dangerous race when the first jemalloc functions are called concurrently.
+        if (Platform.get() == Platform.WINDOWS) {
+            nje_free(nje_malloc(8));
+        }
+    }
+
+    /**
+     * Align the memory allocation to start at an address that is a multiple of {@code (1 << la)}. This macro does not validate that {@code la} is within the
+     * valid range.
+     *
+     * @param la the alignment shift
+     */
+    public static int MALLOCX_LG_ALIGN(int la) {
+        return la;
+    }
+
+    /**
+     * Align the memory allocation to start at an address that is a multiple of {@code a}, where {@code a} is a power of two. This macro does not validate
+     * that {@code a} is a power of 2.
+     *
+     * @param a the alignment
+     */
+    public static int MALLOCX_ALIGN(int a) {
+        return Integer.numberOfTrailingZeros(a);
+    }
+
+    /**
+     * Use the thread-specific cache (tcache) specified by the identifier {@code tc}, which must have been acquired via the {@code tcache.create} mallctl.
+     * This macro does not validate that {@code tc} specifies a valid identifier.
+     *
+     * @param tc the thread-specific cache
+     */
+    public static int MALLOCX_TCACHE(int tc) {
+        return (tc + 2) << 8;
+    }
+
+    /**
+     * Use the arena specified by the index {@code a} (and by necessity bypass the thread cache). This macro has no effect for huge regions, nor for regions
+     * that were allocated via an arena other than the one specified. This macro does not validate that {@code a} specifies an arena index in the valid range.
+     *
+     * @param a the arena index
+     */
+    public static int MALLOCX_ARENA(int a) {
+        return (a + 1) << 20;
     }
 
 }
