@@ -6,7 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * This extension provides the {@link VkValidationFlagsEXT} struct that can be included in the {@code pNext} chain at {@link VK10#vkCreateInstance CreateInstance} time. The new struct contains an array of {@code VkValidationCheckEXT} values that will be disabled by the validation layers.
+ * This extension provides the {@link VkValidationFlagsEXT} struct that can be included in the {@code pNext} chain of the {@link VkInstanceCreateInfo} structure passed as the {@code pCreateInfo} parameter of {@link VK10#vkCreateInstance CreateInstance}. The new struct contains an array of {@code VkValidationCheckEXT} values that will be disabled by the validation layers.
  * 
  * <dl>
  * <dt><b>Name String</b></dt>

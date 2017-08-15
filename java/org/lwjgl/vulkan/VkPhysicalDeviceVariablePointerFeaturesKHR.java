@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code variablePointers} indicates whether the implementation supports the SPIR-V VariablePointers capability. When this feature is not enabled, shader modules <b>must</b> not declare the VariablePointers capability.</li>
  * </ul>
  * 
- * <p>If the {@link VkPhysicalDeviceVariablePointerFeaturesKHR} structure is included in the {@code pNext} chain of {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFeatures2KHR GetPhysicalDeviceFeatures2KHR}, it is filled with values indicating whether each feature is supported. {@link VkPhysicalDeviceVariablePointerFeaturesKHR} <b>can</b> also be used in the {@code pNext} chain of {@link VK10#vkCreateDevice CreateDevice} to enable the features.</p>
+ * <p>If the {@link VkPhysicalDeviceVariablePointerFeaturesKHR} structure is included in the {@code pNext} chain of {@link VkPhysicalDeviceFeatures2KHR}, it is filled with values indicating whether each feature is supported. {@link VkPhysicalDeviceVariablePointerFeaturesKHR} <b>can</b> also be used in the {@code pNext} chain of {@link VkDeviceCreateInfo} to enable the features.</p>
  * 
  * <h5>Valid Usage</h5>
  * 

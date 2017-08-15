@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code filterMinmaxImageComponentMapping} is a boolean value indicating whether the implementation supports non-identity component mapping of the image when doing min/max filtering.</li>
  * </ul>
  * 
- * <p>If the {@link VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT} structure is included in the {@code pNext} chain of flink:VkPhysicalDeviceProperties2KHR, it is filled with the implementation-dependent limits.</p>
+ * <p>If the {@link VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT} structure is included in the {@code pNext} chain of {@link VkPhysicalDeviceProperties2KHR}, it is filled with the implementation-dependent limits.</p>
  * 
  * <p>If {@code filterMinmaxSingleComponentFormats} is {@link VK10#VK_TRUE TRUE}, the following formats <b>must</b> support the {@link EXTSamplerFilterMinmax#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_MINMAX_BIT_EXT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_MINMAX_BIT_EXT} feature with {@link VK10#VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, if they support {@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}.</p>
  * 

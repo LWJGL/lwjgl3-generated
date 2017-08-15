@@ -312,6 +312,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_shader_subgroup_ballot;
     /** When true, {@link EXTShaderSubgroupVote} is supported. */
     public final boolean VK_EXT_shader_subgroup_vote;
+    /** When true, {@link EXTShaderViewportIndexLayer} is supported. */
+    public final boolean VK_EXT_shader_viewport_index_layer;
     /** When true, {@link GOOGLEDisplayTiming} is supported. */
     public final boolean VK_GOOGLE_display_timing;
     /** When true, {@link IMGFilterCubic} is supported. */
@@ -581,6 +583,7 @@ public class VKCapabilitiesDevice {
         VK_EXT_sampler_filter_minmax = ext.contains("VK_EXT_sampler_filter_minmax");
         VK_EXT_shader_subgroup_ballot = ext.contains("VK_EXT_shader_subgroup_ballot");
         VK_EXT_shader_subgroup_vote = ext.contains("VK_EXT_shader_subgroup_vote");
+        VK_EXT_shader_viewport_index_layer = ext.contains("VK_EXT_shader_viewport_index_layer");
         {
             supported = ext.contains("VK_GOOGLE_display_timing");
             vkGetRefreshCycleDurationGOOGLE = isSupported(provider, "vkGetRefreshCycleDurationGOOGLE", supported);

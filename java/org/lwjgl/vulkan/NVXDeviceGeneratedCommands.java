@@ -125,9 +125,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>87</dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-10-31</dd>
+ * <dd>2017-07-25</dd>
  * <dt><b>Revision</b></dt>
- * <dd>1</dd>
+ * <dd>3</dd>
  * <dt><b>Dependencies</b></dt>
  * <dd><ul>
  * <li>This extension is written against version 1.0 of the Vulkan API.</li>
@@ -141,6 +141,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Eric Werness, NVIDIA</li>
  * <li>Detlef Roettger, NVIDIA</li>
  * <li>Daniel Koch, NVIDIA</li>
+ * <li>Chris Hebert, NVIDIA</li>
  * </ul></dd>
  * <dt><b>Contacts</b></dt>
  * <dd><ul>
@@ -152,7 +153,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class NVXDeviceGeneratedCommands {
 
     /** The extension specification version. */
-    public static final int VK_NVX_DEVICE_GENERATED_COMMANDS_SPEC_VERSION = 1;
+    public static final int VK_NVX_DEVICE_GENERATED_COMMANDS_SPEC_VERSION = 3;
 
     /** The extension name. */
     public static final String VK_NVX_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME = "VK_NVX_device_generated_commands";

@@ -20,6 +20,11 @@ package org.lwjgl.vulkan;
  * 
  * <p>When using GLSL source-based shading languages, the {@code gl_ViewportMask}[] built-in output variable and {@code viewport_relative} layout qualifier from {@code GL_NV_viewport_array2} map to the {@code ViewportMaskNV} and {@code ViewportRelativeNV} decorations, respectively. Behaviour is described in the GL_NV_viewport_array2 extension specificiation.</p>
  * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>The {@code ShaderViewportIndexLayerNV} capability is equivalent to the  {@code ShaderViewportIndexLayerEXT} capability added by  <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_EXT_shader_viewport_index_layer">VK_EXT_shader_viewport_index_layer</a>.</p>
+ * </div>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>VK_NV_viewport_array2</dd>

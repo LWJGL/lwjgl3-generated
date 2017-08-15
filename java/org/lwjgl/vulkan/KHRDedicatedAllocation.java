@@ -6,7 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * This extension enables resources to be bound to a dedicated allocation, rather than suballocated. For any particular resource, applications <b>can</b> query whether a dedicated allocation is recommended, in which case using a dedicated allocation <b>may</b> improve the performance of access to that resource. Normal device memory allocations must support multiple resources per allocation, memory aliasing and sparse binding, which could interfere with some optimizations. Applications should query the implementation for when a dedicated allocation <b>may</b> be beneficial by adding {@link VkMemoryDedicatedRequirementsKHR} to the {@code pNext} chain of its call to {@link KHRGetMemoryRequirements2#vkGetImageMemoryRequirements2KHR GetImageMemoryRequirements2KHR}. Certain external handle types and external images or buffers <b>may</b> also depend on dedicated allocations on implementations that associate image or buffer metadata with OS-level memory objects.
+ * This extension enables resources to be bound to a dedicated allocation, rather than suballocated. For any particular resource, applications <b>can</b> query whether a dedicated allocation is recommended, in which case using a dedicated allocation <b>may</b> improve the performance of access to that resource. Normal device memory allocations must support multiple resources per allocation, memory aliasing and sparse binding, which could interfere with some optimizations. Applications should query the implementation for when a dedicated allocation <b>may</b> be beneficial by adding {@link VkMemoryDedicatedRequirementsKHR} to the {@code pNext} chain of the {@link VkMemoryRequirements2KHR} structure passed as the {@code pMemoryRequirements} parameter to a call to {@link KHRGetMemoryRequirements2#vkGetBufferMemoryRequirements2KHR GetBufferMemoryRequirements2KHR} or {@link KHRGetMemoryRequirements2#vkGetImageMemoryRequirements2KHR GetImageMemoryRequirements2KHR}. Certain external handle types and external images or buffers <b>may</b> also depend on dedicated allocations on implementations that associate image or buffer metadata with OS-level memory objects.
  * 
  * <p>This extension adds a two small structures to memory requirements querying and memory allocation: a new structure that flags whether an image/buffer should have a dedicated allocation, and a structure indicating the image or buffer that an allocation will be bound to.</p>
  * 
@@ -37,7 +37,7 @@ package org.lwjgl.vulkan;
  *     VkMemoryRequirements2KHR memoryRequirements =
  *     {
  *         VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2_KHR,
- *         &dedicatedAllocationRequirements,   // pNext
+ *         &dedicatedRequirements,             // pNext
  *     };
  * 
  *     const VkImageMemoryRequirementsInfo2KHR imageRequirementsInfo =
@@ -100,9 +100,9 @@ package org.lwjgl.vulkan;
  * <dt><b>Status</b></dt>
  * <dd>Draft.</dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-02-27</dd>
+ * <dd>2017-08-07</dd>
  * <dt><b>Revision</b></dt>
- * <dd>1</dd>
+ * <dd>3</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Dependencies</b></dt>
@@ -124,7 +124,7 @@ package org.lwjgl.vulkan;
 public final class KHRDedicatedAllocation {
 
     /** The extension specification version. */
-    public static final int VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION = 1;
+    public static final int VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION = 3;
 
     /** The extension name. */
     public static final String VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME = "VK_KHR_dedicated_allocation";
