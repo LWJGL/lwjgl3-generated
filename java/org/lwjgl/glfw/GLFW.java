@@ -3445,8 +3445,8 @@ public class GLFW {
     /**
      * Returns the values of all axes of the specified joystick. Each element in the array is a value between -1.0 and 1.0.
      * 
-     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
-     * presence.</p>
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. This can be used instead of first calling
+     * {@link #glfwJoystickPresent JoystickPresent}.</p>
      * 
      * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
      * function is called again for that joystick or the library is terminated.</p>
@@ -3490,8 +3490,8 @@ public class GLFW {
      * buttons. The hats are in the same order as returned by {@link #glfwGetJoystickHats GetJoystickHats} and are in the order up, right, down and left. To disable these extra
      * buttons, set the {@link #GLFW_JOYSTICK_HAT_BUTTONS JOYSTICK_HAT_BUTTONS} init hint before initialization.</p>
      * 
-     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
-     * presence.</p>
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. This can be used instead of first calling
+     * {@link #glfwJoystickPresent JoystickPresent}.</p>
      * 
      * <p>The returned array is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
      * function is called again for that joystick or the library is terminated.</p>
@@ -3555,8 +3555,8 @@ public class GLFW {
      *     // State of hat 2 could be right-up, right or right-down
      * }</pre></code>
      * 
-     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
-     * presence.</p>
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. This can be used instead of first calling
+     * {@link #glfwJoystickPresent JoystickPresent}.</p>
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
@@ -3595,8 +3595,8 @@ public class GLFW {
     /**
      * Returns the name, encoded as UTF-8, of the specified joystick.
      * 
-     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
-     * presence.</p>
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. This can be used instead of first calling
+     * {@link #glfwJoystickPresent JoystickPresent}.</p>
      * 
      * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, this
      * function is called again for that joystick or the library is terminated.</p>
@@ -3626,12 +3626,15 @@ public class GLFW {
     /**
      * Returns the SDL compatible GUID, as a UTF-8 encoded hexadecimal string, of the specified joystick.
      * 
+     * <p>The GUID is what connects a joystick to a gamepad mapping. A connected joystick will always have a GUID even if there is no gamepad mapping assigned to
+     * it.</p>
+     * 
      * <p>The GUID uses the format introduced in SDL 2.0.5. This GUID tries to uniquely identify the make and model of a joystick but does not identify a
      * specific unit, e.g. all wired Xbox 360 controllers will have the same GUID on that platform. The GUID for a unit may vary between platforms depending
      * on what hardware information the platform specific APIs provide.</p>
      * 
-     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. Call {@link #glfwJoystickPresent JoystickPresent} to check device
-     * presence.</p>
+     * <p>If the specified joystick is not present this function will return {@code NULL} but will not generate an error. This can be used instead of first calling
+     * {@link #glfwJoystickPresent JoystickPresent}.</p>
      * 
      * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected or the
      * library is terminated.</p>
@@ -3656,7 +3659,7 @@ public class GLFW {
      * Returns whether the specified joystick is both present and has a gamepad mapping.
      * 
      * <p>If the specified joystick is present but does not have a gamepad mapping this function will return {@code false} but will not generate an error. Call
-     * {@link #glfwJoystickPresent JoystickPresent} to only check device presence.</p>
+     * {@link #glfwJoystickPresent JoystickPresent} to check if a joystick is present regardless of whether it has a mapping.</p>
      * 
      * <p>This function must only be called from the main thread.</p>
      *
@@ -3780,7 +3783,7 @@ public class GLFW {
      * Returns the human-readable name of the gamepad from the gamepad mapping assigned to the specified joystick.
      * 
      * <p>If the specified joystick is not present or does not have a gamepad mapping this function will return {@code NULL} but will not generate an error. Call
-     * {@link #glfwJoystickIsGamepad JoystickIsGamepad} to check whether it is present and has a gamepad mapping.</p>
+     * {@link #glfwJoystickIsGamepad JoystickIsGamepad} to check if a joystick is present regardless of whether it has a mapping.</p>
      * 
      * <p>The returned string is allocated and freed by GLFW. You should not free it yourself. It is valid until the specified joystick is disconnected, the
      * gamepad mappings are updated or the library is terminated.</p>
@@ -3810,8 +3813,8 @@ public class GLFW {
     /**
      * Retrieves the state of the specified joystick remapped to an Xbox-like gamepad.
      * 
-     * <p>If the specified joystick is not present this function will return {@code false} but will not generate an error. Call {@link #glfwJoystickIsGamepad JoystickIsGamepad} to check
-     * whether it is present and has a gamepad mapping.</p>
+     * <p>If the specified joystick is not present or does not have a gamepad mapping this function will return {@link #GLFW_FALSE FALSE} but will not generate an error. Call
+     * {@link #glfwJoystickPresent JoystickPresent} to check whether it is present regardless of whether it has a mapping.</p>
      * 
      * <p>The Guide button may not be available for input as it is often hooked by the system or the Steam client.</p>
      * 
