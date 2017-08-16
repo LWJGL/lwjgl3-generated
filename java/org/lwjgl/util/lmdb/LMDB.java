@@ -126,82 +126,97 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class LMDB {
 
-    /** mmap at a fixed address (experimental). */
-    public static final int MDB_FIXEDMAP = 0x1;
+    /**
+     * Environment flags.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #MDB_FIXEDMAP FIXEDMAP} - mmap at a fixed address (experimental).</li>
+     * <li>{@link #MDB_NOSUBDIR NOSUBDIR} - No environment directory.</li>
+     * <li>{@link #MDB_NOSYNC NOSYNC} - Don't fsync after commit.</li>
+     * <li>{@link #MDB_RDONLY RDONLY} - Read only.</li>
+     * <li>{@link #MDB_NOMETASYNC NOMETASYNC} - Don't fsync metapage after commit.</li>
+     * <li>{@link #MDB_WRITEMAP WRITEMAP} - Use writable mmap.</li>
+     * <li>{@link #MDB_MAPASYNC MAPASYNC} - Use asynchronous msync when {@link #MDB_WRITEMAP WRITEMAP} is used.</li>
+     * <li>{@link #MDB_NOTLS NOTLS} - Tie reader locktable slots to {@code MDB_txn} objects instead of to threads.</li>
+     * <li>{@link #MDB_NOLOCK NOLOCK} - Don't do any locking, caller must manage their own locks.</li>
+     * <li>{@link #MDB_NORDAHEAD NORDAHEAD} - Don't do readahead (no effect on Windows).</li>
+     * <li>{@link #MDB_NOMEMINIT NOMEMINIT} - Don't initialize malloc'd memory before writing to datafile.</li>
+     * <li>{@link #MDB_PREVMETA PREVMETA} - Use the previous meta page rather than the latest one.</li>
+     * </ul>
+     */
+    public static final int
+        MDB_FIXEDMAP   = 0x1,
+        MDB_NOSUBDIR   = 0x4000,
+        MDB_NOSYNC     = 0x10000,
+        MDB_RDONLY     = 0x20000,
+        MDB_NOMETASYNC = 0x40000,
+        MDB_WRITEMAP   = 0x80000,
+        MDB_MAPASYNC   = 0x100000,
+        MDB_NOTLS      = 0x200000,
+        MDB_NOLOCK     = 0x400000,
+        MDB_NORDAHEAD  = 0x800000,
+        MDB_NOMEMINIT  = 0x1000000,
+        MDB_PREVMETA   = 0x2000000;
 
-    /** No environment directory. */
-    public static final int MDB_NOSUBDIR = 0x4000;
+    /**
+     * Database flags.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #MDB_REVERSEKEY REVERSEKEY} - Use reverse string keys.</li>
+     * <li>{@link #MDB_DUPSORT DUPSORT} - Use sorted duplicates.</li>
+     * <li>{@link #MDB_INTEGERKEY INTEGERKEY} - Numeric keys in native byte order: either {@code unsigned int} or {@code size_t}. The keys must all be of the same size.</li>
+     * <li>{@link #MDB_DUPFIXED DUPFIXED} - With {@link #MDB_DUPSORT DUPSORT}, sorted dup items have fixed size.</li>
+     * <li>{@link #MDB_INTEGERDUP INTEGERDUP} - With {@link #MDB_DUPSORT DUPSORT}, dups are {@link #MDB_INTEGERKEY INTEGERKEY} -style integers.</li>
+     * <li>{@link #MDB_REVERSEDUP REVERSEDUP} - With {@link #MDB_DUPSORT DUPSORT}, use reverse string dups.</li>
+     * <li>{@link #MDB_CREATE CREATE} - Create DB if not already existing.</li>
+     * </ul>
+     */
+    public static final int
+        MDB_REVERSEKEY = 0x2,
+        MDB_DUPSORT    = 0x4,
+        MDB_INTEGERKEY = 0x8,
+        MDB_DUPFIXED   = 0x10,
+        MDB_INTEGERDUP = 0x20,
+        MDB_REVERSEDUP = 0x40,
+        MDB_CREATE     = 0x40000;
 
-    /** Don't fsync after commit. */
-    public static final int MDB_NOSYNC = 0x10000;
+    /**
+     * Write flags.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #MDB_NOOVERWRITE NOOVERWRITE} - Don't write if the key already exists.</li>
+     * <li>{@link #MDB_NODUPDATA NODUPDATA} - Remove all duplicate data items.</li>
+     * <li>{@link #MDB_CURRENT CURRENT} - Overwrite the current key/data pair.</li>
+     * <li>{@link #MDB_RESERVE RESERVE} - Just reserve space for data, don't copy it. Return a pointer to the reserved space.</li>
+     * <li>{@link #MDB_APPEND APPEND} - Data is being appended, don't split full pages.</li>
+     * <li>{@link #MDB_APPENDDUP APPENDDUP} - Duplicate data is being appended, don't split full pages.</li>
+     * <li>{@link #MDB_MULTIPLE MULTIPLE} - Store multiple data items in one call. Only for {@link #MDB_DUPFIXED DUPFIXED}.</li>
+     * </ul>
+     */
+    public static final int
+        MDB_NOOVERWRITE = 0x10,
+        MDB_NODUPDATA   = 0x20,
+        MDB_CURRENT     = 0x40,
+        MDB_RESERVE     = 0x10000,
+        MDB_APPEND      = 0x20000,
+        MDB_APPENDDUP   = 0x40000,
+        MDB_MULTIPLE    = 0x80000;
 
-    /** Read only. */
-    public static final int MDB_RDONLY = 0x20000;
-
-    /** Don't fsync metapage after commit. */
-    public static final int MDB_NOMETASYNC = 0x40000;
-
-    /** Use writable mmap. */
-    public static final int MDB_WRITEMAP = 0x80000;
-
-    /** Use asynchronous msync when {@link #MDB_WRITEMAP WRITEMAP} is used. */
-    public static final int MDB_MAPASYNC = 0x100000;
-
-    /** Tie reader locktable slots to {@code MDB_txn} objects instead of to threads. */
-    public static final int MDB_NOTLS = 0x200000;
-
-    /** Don't do any locking, caller must manage their own locks. */
-    public static final int MDB_NOLOCK = 0x400000;
-
-    /** Don't do readahead (no effect on Windows). */
-    public static final int MDB_NORDAHEAD = 0x800000;
-
-    /** Don't initialize malloc'd memory before writing to datafile. */
-    public static final int MDB_NOMEMINIT = 0x1000000;
-
-    /** Use reverse string keys. */
-    public static final int MDB_REVERSEKEY = 0x2;
-
-    /** Use sorted duplicates. */
-    public static final int MDB_DUPSORT = 0x4;
-
-    /** Numeric keys in native byte order: either {@code unsigned int} or {@code size_t}. The keys must all be of the same size. */
-    public static final int MDB_INTEGERKEY = 0x8;
-
-    /** With {@link #MDB_DUPSORT DUPSORT}, sorted dup items have fixed size. */
-    public static final int MDB_DUPFIXED = 0x10;
-
-    /** With {@link #MDB_DUPSORT DUPSORT}, dups are {@link #MDB_INTEGERKEY INTEGERKEY} -style integers. */
-    public static final int MDB_INTEGERDUP = 0x20;
-
-    /** With {@link #MDB_DUPSORT DUPSORT}, use reverse string dups. */
-    public static final int MDB_REVERSEDUP = 0x40;
-
-    /** Create DB if not already existing. */
-    public static final int MDB_CREATE = 0x40000;
-
-    /** Don't write if the key already exists. */
-    public static final int MDB_NOOVERWRITE = 0x10;
-
-    /** Remove all duplicate data items. */
-    public static final int MDB_NODUPDATA = 0x20;
-
-    /** Overwrite the current key/data pair. */
-    public static final int MDB_CURRENT = 0x40;
-
-    /** Just reserve space for data, don't copy it. Return a pointer to the reserved space. */
-    public static final int MDB_RESERVE = 0x10000;
-
-    /** Data is being appended, don't split full pages. */
-    public static final int MDB_APPEND = 0x20000;
-
-    /** Duplicate data is being appended, don't split full pages. */
-    public static final int MDB_APPENDDUP = 0x40000;
-
-    /** Store multiple data items in one call. Only for {@link #MDB_DUPFIXED DUPFIXED}. */
-    public static final int MDB_MULTIPLE = 0x80000;
-
-    /** Omit free space from copy, and renumber all pages sequentially. */
+    /**
+     * Copy flags.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #MDB_CP_COMPACT CP_COMPACT} - Omit free space from copy, and renumber all pages sequentially.</li>
+     * </ul>
+     */
     public static final int MDB_CP_COMPACT = 0x1;
 
     /**
@@ -252,77 +267,64 @@ public class LMDB {
         MDB_SET_RANGE      = 17,
         MDB_PREV_MULTIPLE  = 18;
 
-    /** Successful result. */
-    public static final int MDB_SUCCESS = 0;
-
-    /** Key/data pair already exists. */
-    public static final int MDB_KEYEXIST = -30799;
-
-    /** Key/data pair not found (EOF). */
-    public static final int MDB_NOTFOUND = -30798;
-
-    /** Requested page not found - this usually indicates corruption. */
-    public static final int MDB_PAGE_NOTFOUND = -30797;
-
-    /** Located page was wrong type. */
-    public static final int MDB_CORRUPTED = -30796;
-
-    /** Update of meta page failed or environment had fatal error. */
-    public static final int MDB_PANIC = -30795;
-
-    /** Environment version mismatch. */
-    public static final int MDB_VERSION_MISMATCH = -30794;
-
-    /** File is not a valid LMDB file. */
-    public static final int MDB_INVALID = -30793;
-
-    /** Environment mapsize reached. */
-    public static final int MDB_MAP_FULL = -30792;
-
-    /** Environment maxdbs reached. */
-    public static final int MDB_DBS_FULL = -30791;
-
-    /** Environment maxreaders reached. */
-    public static final int MDB_READERS_FULL = -30790;
-
-    /** Too many TLS keys in use - Windows only. */
-    public static final int MDB_TLS_FULL = -30789;
-
-    /** Txn has too many dirty pages. */
-    public static final int MDB_TXN_FULL = -30788;
-
-    /** Cursor stack too deep - internal error. */
-    public static final int MDB_CURSOR_FULL = -30787;
-
-    /** Page has not enough space - internal error. */
-    public static final int MDB_PAGE_FULL = -30786;
-
-    /** Database contents grew beyond environment mapsize. */
-    public static final int MDB_MAP_RESIZED = -30785;
-
     /**
+     * Return codes.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #MDB_SUCCESS SUCCESS} - Successful result.</li>
+     * <li>{@link #MDB_KEYEXIST KEYEXIST} - Key/data pair already exists.</li>
+     * <li>{@link #MDB_NOTFOUND NOTFOUND} - Key/data pair not found (EOF).</li>
+     * <li>{@link #MDB_PAGE_NOTFOUND PAGE_NOTFOUND} - Requested page not found - this usually indicates corruption.</li>
+     * <li>{@link #MDB_CORRUPTED CORRUPTED} - Located page was wrong type.</li>
+     * <li>{@link #MDB_PANIC PANIC} - Update of meta page failed or environment had fatal error.</li>
+     * <li>{@link #MDB_VERSION_MISMATCH VERSION_MISMATCH} - Environment version mismatch.</li>
+     * <li>{@link #MDB_INVALID INVALID} - File is not a valid LMDB file.</li>
+     * <li>{@link #MDB_MAP_FULL MAP_FULL} - Environment mapsize reached.</li>
+     * <li>{@link #MDB_DBS_FULL DBS_FULL} - Environment maxdbs reached.</li>
+     * <li>{@link #MDB_READERS_FULL READERS_FULL} - Environment maxreaders reached.</li>
+     * <li>{@link #MDB_TLS_FULL TLS_FULL} - Too many TLS keys in use - Windows only.</li>
+     * <li>{@link #MDB_TXN_FULL TXN_FULL} - Txn has too many dirty pages.</li>
+     * <li>{@link #MDB_CURSOR_FULL CURSOR_FULL} - Cursor stack too deep - internal error.</li>
+     * <li>{@link #MDB_PAGE_FULL PAGE_FULL} - Page has not enough space - internal error.</li>
+     * <li>{@link #MDB_MAP_RESIZED MAP_RESIZED} - Database contents grew beyond environment mapsize.</li>
+     * <li>{@link #MDB_INCOMPATIBLE INCOMPATIBLE} - 
      * The operation expects an {@link #MDB_DUPSORT DUPSORT} / {@link #MDB_DUPFIXED DUPFIXED} database. Opening a named DB when the unnamed DB has {@link #MDB_DUPSORT DUPSORT} / {@link #MDB_INTEGERKEY INTEGERKEY}. Accessing a data record as a
      * database, or vice versa. The database was dropped and recreated with different flags.
+     * </li>
+     * <li>{@link #MDB_BAD_RSLOT BAD_RSLOT} - Invalid reuse of reader locktable slot.</li>
+     * <li>{@link #MDB_BAD_TXN BAD_TXN} - Transaction must abort, has a child, or is invalid.</li>
+     * <li>{@link #MDB_BAD_VALSIZE BAD_VALSIZE} - Unsupported size of key/DB name/data, or wrong {@link #MDB_DUPFIXED DUPFIXED} size.</li>
+     * <li>{@link #MDB_BAD_DBI BAD_DBI} - The specified DBI was changed unexpectedly.</li>
+     * <li>{@link #MDB_PROBLEM PROBLEM} - Unexpected problem - txn should abort.</li>
+     * <li>{@link #MDB_LAST_ERRCODE LAST_ERRCODE} - The last defined error code.</li>
+     * </ul>
      */
-    public static final int MDB_INCOMPATIBLE = -30784;
-
-    /** Invalid reuse of reader locktable slot. */
-    public static final int MDB_BAD_RSLOT = -30783;
-
-    /** Transaction must abort, has a child, or is invalid. */
-    public static final int MDB_BAD_TXN = -30782;
-
-    /** Unsupported size of key/DB name/data, or wrong {@link #MDB_DUPFIXED DUPFIXED} size. */
-    public static final int MDB_BAD_VALSIZE = -30781;
-
-    /** The specified DBI was changed unexpectedly. */
-    public static final int MDB_BAD_DBI = -30780;
-
-    /** Unexpected problem - txn should abort. */
-    public static final int MDB_PROBLEM = -30779;
-
-    /** The last defined error code. */
-    public static final int MDB_LAST_ERRCODE = MDB_PROBLEM;
+    public static final int
+        MDB_SUCCESS          = 0,
+        MDB_KEYEXIST         = -30799,
+        MDB_NOTFOUND         = -30798,
+        MDB_PAGE_NOTFOUND    = -30797,
+        MDB_CORRUPTED        = -30796,
+        MDB_PANIC            = -30795,
+        MDB_VERSION_MISMATCH = -30794,
+        MDB_INVALID          = -30793,
+        MDB_MAP_FULL         = -30792,
+        MDB_DBS_FULL         = -30791,
+        MDB_READERS_FULL     = -30790,
+        MDB_TLS_FULL         = -30789,
+        MDB_TXN_FULL         = -30788,
+        MDB_CURSOR_FULL      = -30787,
+        MDB_PAGE_FULL        = -30786,
+        MDB_MAP_RESIZED      = -30785,
+        MDB_INCOMPATIBLE     = -30784,
+        MDB_BAD_RSLOT        = -30783,
+        MDB_BAD_TXN          = -30782,
+        MDB_BAD_VALSIZE      = -30781,
+        MDB_BAD_DBI          = -30780,
+        MDB_PROBLEM          = -30779,
+        MDB_LAST_ERRCODE     = MDB_PROBLEM;
 
     static { Library.loadSystem(System::load, System::loadLibrary, LMDB.class, Platform.mapLibraryNameBundled("lwjgl_lmdb")); }
 
@@ -476,21 +478,27 @@ public class LMDB {
      *              enforce single-writer semantics, and must ensure that no readers are using old transactions while a writer is active. The simplest approach is
      *              to use an exclusive lock so that no readers may be active at all when a writer begins.</p></li>
      *              <li>{@link #MDB_NORDAHEAD NORDAHEAD}
-     *              Turn off readahead. Most operating systems perform readahead on read requests by default. This option turns it off if the OS supports it.
-     *              Turning it off may help random read performance when the DB is larger than RAM and system RAM is full.
+     *              
+     *              <p>Turn off readahead. Most operating systems perform readahead on read requests by default. This option turns it off if the OS supports it.
+     *              Turning it off may help random read performance when the DB is larger than RAM and system RAM is full.</p>
      *              
      *              <p>The option is not implemented on Windows.</p></li>
      *              <li>{@link #MDB_NOMEMINIT NOMEMINIT}
-     *              Don't initialize malloc'd memory before writing to unused spaces in the data file. By default, memory for pages written to the data file is
+     *              
+     *              <p>Don't initialize malloc'd memory before writing to unused spaces in the data file. By default, memory for pages written to the data file is
      *              obtained using malloc. While these pages may be reused in subsequent transactions, freshly malloc'd pages will be initialized to zeroes before
      *              use. This avoids persisting leftover data from other code (that used the heap and subsequently freed the memory) into the data file. Note that
      *              many other system libraries may allocate and free memory from the heap for arbitrary uses. E.g., stdio may use the heap for file I/O buffers.
      *              This initialization step has a modest performance cost so some applications may want to disable it using this flag. This option can be a
      *              problem for applications which handle sensitive data like passwords, and it makes memory checkers like Valgrind noisy. This flag is not needed
      *              with {@link #MDB_WRITEMAP WRITEMAP}, which writes directly to the mmap instead of using malloc for pages. The initialization is also skipped if {@link #MDB_RESERVE RESERVE} is used;
-     *              the caller is expected to overwrite all of the memory that was reserved in that case.
+     *              the caller is expected to overwrite all of the memory that was reserved in that case.</p>
      *              
      *              <p>This flag may be changed at any time using {@link #mdb_env_set_flags env_set_flags}.</p></li>
+     *              <li>{@link #MDB_PREVMETA PREVMETA}
+     *              
+     *              <p>Open the environment with the previous meta page rather than the latest one. This loses the latest transaction, but may help work around some
+     *              types of corruption.</p></li>
      *              </ul>
      * @param mode  The UNIX permissions to set on created files and semaphores.
      *              
@@ -585,21 +593,27 @@ public class LMDB {
      *              enforce single-writer semantics, and must ensure that no readers are using old transactions while a writer is active. The simplest approach is
      *              to use an exclusive lock so that no readers may be active at all when a writer begins.</p></li>
      *              <li>{@link #MDB_NORDAHEAD NORDAHEAD}
-     *              Turn off readahead. Most operating systems perform readahead on read requests by default. This option turns it off if the OS supports it.
-     *              Turning it off may help random read performance when the DB is larger than RAM and system RAM is full.
+     *              
+     *              <p>Turn off readahead. Most operating systems perform readahead on read requests by default. This option turns it off if the OS supports it.
+     *              Turning it off may help random read performance when the DB is larger than RAM and system RAM is full.</p>
      *              
      *              <p>The option is not implemented on Windows.</p></li>
      *              <li>{@link #MDB_NOMEMINIT NOMEMINIT}
-     *              Don't initialize malloc'd memory before writing to unused spaces in the data file. By default, memory for pages written to the data file is
+     *              
+     *              <p>Don't initialize malloc'd memory before writing to unused spaces in the data file. By default, memory for pages written to the data file is
      *              obtained using malloc. While these pages may be reused in subsequent transactions, freshly malloc'd pages will be initialized to zeroes before
      *              use. This avoids persisting leftover data from other code (that used the heap and subsequently freed the memory) into the data file. Note that
      *              many other system libraries may allocate and free memory from the heap for arbitrary uses. E.g., stdio may use the heap for file I/O buffers.
      *              This initialization step has a modest performance cost so some applications may want to disable it using this flag. This option can be a
      *              problem for applications which handle sensitive data like passwords, and it makes memory checkers like Valgrind noisy. This flag is not needed
      *              with {@link #MDB_WRITEMAP WRITEMAP}, which writes directly to the mmap instead of using malloc for pages. The initialization is also skipped if {@link #MDB_RESERVE RESERVE} is used;
-     *              the caller is expected to overwrite all of the memory that was reserved in that case.
+     *              the caller is expected to overwrite all of the memory that was reserved in that case.</p>
      *              
      *              <p>This flag may be changed at any time using {@link #mdb_env_set_flags env_set_flags}.</p></li>
+     *              <li>{@link #MDB_PREVMETA PREVMETA}
+     *              
+     *              <p>Open the environment with the previous meta page rather than the latest one. This loses the latest transaction, but may help work around some
+     *              types of corruption.</p></li>
      *              </ul>
      * @param mode  The UNIX permissions to set on created files and semaphores.
      *              
