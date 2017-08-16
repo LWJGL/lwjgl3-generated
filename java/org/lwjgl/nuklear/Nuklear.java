@@ -201,7 +201,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Important to know if you want to create your own widgets is the {@link #nk_widget widget} call. It allocates space on the panel reserved for this widget to be used,
  * but also returns the state of the widget space. If your widget is not seen and does not have to be updated it is '0' and you can just return. If it
- * only has to be drawn the state will be {@link #NK_WIDGET_ROM WIDGET_ROM} otherwise you can do both update and draw your widget. The reason for seperating is to onl draw and
+ * only has to be drawn the state will be {@link #NK_WIDGET_ROM WIDGET_ROM} otherwise you can do both update and draw your widget. The reason for separating is to only draw and
  * update what is actually neccessary which is crucial for performance.</p>
  * 
  * <h3>STACK</h3>
@@ -1231,7 +1231,7 @@ public class Nuklear {
      * 
      * <p>Should be used if you want complete control over nuklears memory management. Especially recommended for system with little memory or systems with
      * virtual memory. For the later case you can just allocate for example 16MB of virtual memory and only the required amount of memory will actually be
-     * commited.</p>
+     * committed.</p>
      * 
      * <p>IMPORTANT: make sure the passed memory block is aligned correctly for {@link NkDrawCommand}.</p>
      *
@@ -1376,7 +1376,7 @@ public class Nuklear {
     public static native int nnk_begin_titled(long ctx, long name, long title, long bounds, int flags);
 
     /**
-     * Extended window start with seperated title and identifier to allow multiple windows with same name but not title.
+     * Extended window start with separated title and identifier to allow multiple windows with same name but not title.
      *
      * @param ctx    the nuklear context
      * @param name   
@@ -1394,7 +1394,7 @@ public class Nuklear {
     }
 
     /**
-     * Extended window start with seperated title and identifier to allow multiple windows with same name but not title.
+     * Extended window start with separated title and identifier to allow multiple windows with same name but not title.
      *
      * @param ctx    the nuklear context
      * @param name   
@@ -1548,7 +1548,7 @@ public class Nuklear {
     public static native long nnk_window_get_panel(long ctx);
 
     /**
-     * Returns the underlying panel which contains all processing state of the currnet window.
+     * Returns the underlying panel which contains all processing state of the current window.
      *
      * @param ctx the nuklear context
      */
@@ -2111,7 +2111,7 @@ public class Nuklear {
     /**
      * Sets the currently used minimum row height.
      * 
-     * <p>IMPORTANT: The passed height needs to include both your prefered row height as well as padding. No internal padding is added.</p>
+     * <p>IMPORTANT: The passed height needs to include both your preferred row height as well as padding. No internal padding is added.</p>
      *
      * @param ctx    the nuklear context
      * @param height new minimum row height to be used for auto generating the row height
