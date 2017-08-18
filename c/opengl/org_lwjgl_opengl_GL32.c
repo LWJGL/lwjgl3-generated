@@ -72,13 +72,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glProvokingVertex(JNIEnv *__en
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glTexImage2DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
-    glTexImage2DMultisamplePROC glTexImage2DMultisample = (glTexImage2DMultisamplePROC)tlsGetFunction(1646);
+    glTexImage2DMultisamplePROC glTexImage2DMultisample = (glTexImage2DMultisamplePROC)tlsGetFunction(1647);
     UNUSED_PARAM(clazz)
     glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_glTexImage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
-    glTexImage3DMultisamplePROC glTexImage3DMultisample = (glTexImage3DMultisamplePROC)tlsGetFunction(1649);
+    glTexImage3DMultisamplePROC glTexImage3DMultisample = (glTexImage3DMultisamplePROC)tlsGetFunction(1650);
     UNUSED_PARAM(clazz)
     glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
 }
@@ -130,7 +130,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL32_nglClientWaitSync(JNIEnv *__en
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglWaitSync(JNIEnv *__env, jclass clazz, jlong syncAddress, jint flags, jlong timeout) {
-    glWaitSyncPROC glWaitSync = (glWaitSyncPROC)tlsGetFunction(2125);
+    glWaitSyncPROC glWaitSync = (glWaitSyncPROC)tlsGetFunction(2126);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     glWaitSync(sync, flags, timeout);

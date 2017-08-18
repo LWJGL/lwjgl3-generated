@@ -28,7 +28,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_NVDrawVulkanImage_nglGetVkProcAddr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVDrawVulkanImage_glWaitVkSemaphoreNV(JNIEnv *__env, jclass clazz, jlong vkSemaphore) {
-    glWaitVkSemaphoreNVPROC glWaitVkSemaphoreNV = (glWaitVkSemaphoreNVPROC)tlsGetFunction(2126);
+    glWaitVkSemaphoreNVPROC glWaitVkSemaphoreNV = (glWaitVkSemaphoreNVPROC)tlsGetFunction(2127);
     UNUSED_PARAM(clazz)
     glWaitVkSemaphoreNV(vkSemaphore);
 }

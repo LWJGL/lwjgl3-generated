@@ -77,25 +77,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_nglGetMemoryObjectP
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTexStorageMem2DEXT(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalFormat, jint width, jint height, jint memory, jlong offset) {
-    glTexStorageMem2DEXTPROC glTexStorageMem2DEXT = (glTexStorageMem2DEXTPROC)tlsGetFunction(1667);
+    glTexStorageMem2DEXTPROC glTexStorageMem2DEXT = (glTexStorageMem2DEXTPROC)tlsGetFunction(1668);
     UNUSED_PARAM(clazz)
     glTexStorageMem2DEXT(target, levels, internalFormat, width, height, memory, offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTexStorageMem2DMultisampleEXT(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalFormat, jint width, jint height, jboolean fixedSampleLocations, jint memory, jlong offset) {
-    glTexStorageMem2DMultisampleEXTPROC glTexStorageMem2DMultisampleEXT = (glTexStorageMem2DMultisampleEXTPROC)tlsGetFunction(1668);
+    glTexStorageMem2DMultisampleEXTPROC glTexStorageMem2DMultisampleEXT = (glTexStorageMem2DMultisampleEXTPROC)tlsGetFunction(1669);
     UNUSED_PARAM(clazz)
     glTexStorageMem2DMultisampleEXT(target, samples, internalFormat, width, height, fixedSampleLocations, memory, offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTexStorageMem3DEXT(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalFormat, jint width, jint height, jint depth, jint memory, jlong offset) {
-    glTexStorageMem3DEXTPROC glTexStorageMem3DEXT = (glTexStorageMem3DEXTPROC)tlsGetFunction(1669);
+    glTexStorageMem3DEXTPROC glTexStorageMem3DEXT = (glTexStorageMem3DEXTPROC)tlsGetFunction(1670);
     UNUSED_PARAM(clazz)
     glTexStorageMem3DEXT(target, levels, internalFormat, width, height, depth, memory, offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTexStorageMem3DMultisampleEXT(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalFormat, jint width, jint height, jint depth, jboolean fixedSampleLocations, jint memory, jlong offset) {
-    glTexStorageMem3DMultisampleEXTPROC glTexStorageMem3DMultisampleEXT = (glTexStorageMem3DMultisampleEXTPROC)tlsGetFunction(1670);
+    glTexStorageMem3DMultisampleEXTPROC glTexStorageMem3DMultisampleEXT = (glTexStorageMem3DMultisampleEXTPROC)tlsGetFunction(1671);
     UNUSED_PARAM(clazz)
     glTexStorageMem3DMultisampleEXT(target, samples, internalFormat, width, height, depth, fixedSampleLocations, memory, offset);
 }
@@ -107,25 +107,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glBufferStorageMemE
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTextureStorageMem2DEXT(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalFormat, jint width, jint height, jint memory, jlong offset) {
-    glTextureStorageMem2DEXTPROC glTextureStorageMem2DEXT = (glTextureStorageMem2DEXTPROC)tlsGetFunction(1713);
+    glTextureStorageMem2DEXTPROC glTextureStorageMem2DEXT = (glTextureStorageMem2DEXTPROC)tlsGetFunction(1714);
     UNUSED_PARAM(clazz)
     glTextureStorageMem2DEXT(texture, levels, internalFormat, width, height, memory, offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTextureStorageMem2DMultisampleEXT(JNIEnv *__env, jclass clazz, jint texture, jint samples, jint internalFormat, jint width, jint height, jboolean fixedSampleLocations, jint memory, jlong offset) {
-    glTextureStorageMem2DMultisampleEXTPROC glTextureStorageMem2DMultisampleEXT = (glTextureStorageMem2DMultisampleEXTPROC)tlsGetFunction(1714);
+    glTextureStorageMem2DMultisampleEXTPROC glTextureStorageMem2DMultisampleEXT = (glTextureStorageMem2DMultisampleEXTPROC)tlsGetFunction(1715);
     UNUSED_PARAM(clazz)
     glTextureStorageMem2DMultisampleEXT(texture, samples, internalFormat, width, height, fixedSampleLocations, memory, offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTextureStorageMem3DEXT(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalFormat, jint width, jint height, jint depth, jint memory, jlong offset) {
-    glTextureStorageMem3DEXTPROC glTextureStorageMem3DEXT = (glTextureStorageMem3DEXTPROC)tlsGetFunction(1715);
+    glTextureStorageMem3DEXTPROC glTextureStorageMem3DEXT = (glTextureStorageMem3DEXTPROC)tlsGetFunction(1716);
     UNUSED_PARAM(clazz)
     glTextureStorageMem3DEXT(texture, levels, internalFormat, width, height, depth, memory, offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTextureStorageMem3DMultisampleEXT(JNIEnv *__env, jclass clazz, jint texture, jint samples, jint internalFormat, jint width, jint height, jint depth, jboolean fixedSampleLocations, jint memory, jlong offset) {
-    glTextureStorageMem3DMultisampleEXTPROC glTextureStorageMem3DMultisampleEXT = (glTextureStorageMem3DMultisampleEXTPROC)tlsGetFunction(1716);
+    glTextureStorageMem3DMultisampleEXTPROC glTextureStorageMem3DMultisampleEXT = (glTextureStorageMem3DMultisampleEXTPROC)tlsGetFunction(1717);
     UNUSED_PARAM(clazz)
     glTextureStorageMem3DMultisampleEXT(texture, samples, internalFormat, width, height, depth, fixedSampleLocations, memory, offset);
 }
@@ -137,13 +137,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glNamedBufferStorag
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTexStorageMem1DEXT(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalFormat, jint width, jint memory, jlong offset) {
-    glTexStorageMem1DEXTPROC glTexStorageMem1DEXT = (glTexStorageMem1DEXTPROC)tlsGetFunction(1666);
+    glTexStorageMem1DEXTPROC glTexStorageMem1DEXT = (glTexStorageMem1DEXTPROC)tlsGetFunction(1667);
     UNUSED_PARAM(clazz)
     glTexStorageMem1DEXT(target, levels, internalFormat, width, memory, offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObject_glTextureStorageMem1DEXT(JNIEnv *__env, jclass clazz, jint texture, jint levels, jint internalFormat, jint width, jint memory, jlong offset) {
-    glTextureStorageMem1DEXTPROC glTextureStorageMem1DEXT = (glTextureStorageMem1DEXTPROC)tlsGetFunction(1712);
+    glTextureStorageMem1DEXTPROC glTextureStorageMem1DEXT = (glTextureStorageMem1DEXTPROC)tlsGetFunction(1713);
     UNUSED_PARAM(clazz)
     glTextureStorageMem1DEXT(texture, levels, internalFormat, width, memory, offset);
 }

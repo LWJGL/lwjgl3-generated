@@ -71,7 +71,7 @@ typedef void (APIENTRY *glGetProgramPipelineInfoLogPROC) (jint, jint, intptr_t, 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glUseProgramStages(JNIEnv *__env, jclass clazz, jint pipeline, jint stages, jint program) {
-    glUseProgramStagesPROC glUseProgramStages = (glUseProgramStagesPROC)tlsGetFunction(1861);
+    glUseProgramStagesPROC glUseProgramStages = (glUseProgramStagesPROC)tlsGetFunction(1862);
     UNUSED_PARAM(clazz)
     glUseProgramStages(pipeline, stages, program);
 }
@@ -463,7 +463,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_nglProgram
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSeparateShaderObjects_glValidateProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
-    glValidateProgramPipelinePROC glValidateProgramPipeline = (glValidateProgramPipelinePROC)tlsGetFunction(1865);
+    glValidateProgramPipelinePROC glValidateProgramPipeline = (glValidateProgramPipelinePROC)tlsGetFunction(1866);
     UNUSED_PARAM(clazz)
     glValidateProgramPipeline(pipeline);
 }

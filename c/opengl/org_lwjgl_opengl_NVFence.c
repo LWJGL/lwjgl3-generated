@@ -37,7 +37,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVFence_glIsFenceNV(JNIEnv *__e
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVFence_glTestFenceNV(JNIEnv *__env, jclass clazz, jint fence) {
-    glTestFenceNVPROC glTestFenceNV = (glTestFenceNVPROC)tlsGetFunction(1579);
+    glTestFenceNVPROC glTestFenceNV = (glTestFenceNVPROC)tlsGetFunction(1580);
     UNUSED_PARAM(clazz)
     return (jboolean)glTestFenceNV(fence);
 }

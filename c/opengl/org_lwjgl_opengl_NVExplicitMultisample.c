@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVExplicitMultisample_glSampleMaskI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVExplicitMultisample_glTexRenderbufferNV(JNIEnv *__env, jclass clazz, jint target, jint renderbuffer) {
-    glTexRenderbufferNVPROC glTexRenderbufferNV = (glTexRenderbufferNVPROC)tlsGetFunction(1660);
+    glTexRenderbufferNVPROC glTexRenderbufferNV = (glTexRenderbufferNVPROC)tlsGetFunction(1661);
     UNUSED_PARAM(clazz)
     glTexRenderbufferNV(target, renderbuffer);
 }

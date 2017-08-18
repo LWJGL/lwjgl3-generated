@@ -146,7 +146,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glCopyPathNV(JNIEnv
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglWeightPathsNV__IIJJ(JNIEnv *__env, jclass clazz, jint resultPath, jint numPaths, jlong pathsAddress, jlong weightsAddress) {
-    glWeightPathsNVPROC glWeightPathsNV = (glWeightPathsNVPROC)tlsGetFunction(2127);
+    glWeightPathsNVPROC glWeightPathsNV = (glWeightPathsNVPROC)tlsGetFunction(2128);
     const intptr_t paths = (const intptr_t)pathsAddress;
     const intptr_t weights = (const intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)
@@ -160,7 +160,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_glInterpolatePathsN
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPathRendering_nglTransformPathNV__IIIJ(JNIEnv *__env, jclass clazz, jint resultPath, jint srcPath, jint transformType, jlong transformValuesAddress) {
-    glTransformPathNVPROC glTransformPathNV = (glTransformPathNVPROC)tlsGetFunction(1732);
+    glTransformPathNVPROC glTransformPathNV = (glTransformPathNVPROC)tlsGetFunction(1733);
     const intptr_t transformValues = (const intptr_t)transformValuesAddress;
     UNUSED_PARAM(clazz)
     glTransformPathNV(resultPath, srcPath, transformType, transformValues);

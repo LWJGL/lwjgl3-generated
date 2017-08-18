@@ -333,54 +333,54 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glMatrixPopEXT
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glTextureParameteriEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint pname, jint param) {
-    glTextureParameteriEXTPROC glTextureParameteriEXT = (glTextureParameteriEXTPROC)tlsGetFunction(1698);
+    glTextureParameteriEXTPROC glTextureParameteriEXT = (glTextureParameteriEXTPROC)tlsGetFunction(1699);
     UNUSED_PARAM(clazz)
     glTextureParameteriEXT(texture, target, pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureParameterivEXT__IIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint pname, jlong paramAddress) {
-    glTextureParameterivEXTPROC glTextureParameterivEXT = (glTextureParameterivEXTPROC)tlsGetFunction(1700);
+    glTextureParameterivEXTPROC glTextureParameterivEXT = (glTextureParameterivEXTPROC)tlsGetFunction(1701);
     const intptr_t param = (const intptr_t)paramAddress;
     UNUSED_PARAM(clazz)
     glTextureParameterivEXT(texture, target, pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glTextureParameterfEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint pname, jfloat param) {
-    glTextureParameterfEXTPROC glTextureParameterfEXT = (glTextureParameterfEXTPROC)tlsGetFunction(1694);
+    glTextureParameterfEXTPROC glTextureParameterfEXT = (glTextureParameterfEXTPROC)tlsGetFunction(1695);
     UNUSED_PARAM(clazz)
     glTextureParameterfEXT(texture, target, pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureParameterfvEXT__IIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint pname, jlong paramAddress) {
-    glTextureParameterfvEXTPROC glTextureParameterfvEXT = (glTextureParameterfvEXTPROC)tlsGetFunction(1696);
+    glTextureParameterfvEXTPROC glTextureParameterfvEXT = (glTextureParameterfvEXTPROC)tlsGetFunction(1697);
     const intptr_t param = (const intptr_t)paramAddress;
     UNUSED_PARAM(clazz)
     glTextureParameterfvEXT(texture, target, pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureImage1DEXT__IIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint border, jint format, jint type, jlong pixelsAddress) {
-    glTextureImage1DEXTPROC glTextureImage1DEXT = (glTextureImage1DEXTPROC)tlsGetFunction(1681);
+    glTextureImage1DEXTPROC glTextureImage1DEXT = (glTextureImage1DEXTPROC)tlsGetFunction(1682);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureImage1DEXT(texture, target, level, internalformat, width, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureImage2DEXT__IIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint height, jint border, jint format, jint type, jlong pixelsAddress) {
-    glTextureImage2DEXTPROC glTextureImage2DEXT = (glTextureImage2DEXTPROC)tlsGetFunction(1682);
+    glTextureImage2DEXTPROC glTextureImage2DEXT = (glTextureImage2DEXTPROC)tlsGetFunction(1683);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureImage2DEXT(texture, target, level, internalformat, width, height, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureSubImage1DEXT__IIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint width, jint format, jint type, jlong pixelsAddress) {
-    glTextureSubImage1DEXTPROC glTextureSubImage1DEXT = (glTextureSubImage1DEXTPROC)tlsGetFunction(1719);
+    glTextureSubImage1DEXTPROC glTextureSubImage1DEXT = (glTextureSubImage1DEXTPROC)tlsGetFunction(1720);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureSubImage1DEXT(texture, target, level, xoffset, width, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureSubImage2DEXT__IIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint type, jlong pixelsAddress) {
-    glTextureSubImage2DEXTPROC glTextureSubImage2DEXT = (glTextureSubImage2DEXTPROC)tlsGetFunction(1721);
+    glTextureSubImage2DEXTPROC glTextureSubImage2DEXT = (glTextureSubImage2DEXTPROC)tlsGetFunction(1722);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureSubImage2DEXT(texture, target, level, xoffset, yoffset, width, height, format, type, pixels);
@@ -446,14 +446,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglGetTextureL
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureImage3DEXT__IIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint format, jint type, jlong pixelsAddress) {
-    glTextureImage3DEXTPROC glTextureImage3DEXT = (glTextureImage3DEXTPROC)tlsGetFunction(1685);
+    glTextureImage3DEXTPROC glTextureImage3DEXT = (glTextureImage3DEXTPROC)tlsGetFunction(1686);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureImage3DEXT(texture, target, level, internalformat, width, height, depth, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureSubImage3DEXT__IIIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong pixelsAddress) {
-    glTextureSubImage3DEXTPROC glTextureSubImage3DEXT = (glTextureSubImage3DEXTPROC)tlsGetFunction(1723);
+    glTextureSubImage3DEXTPROC glTextureSubImage3DEXT = (glTextureSubImage3DEXTPROC)tlsGetFunction(1724);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureSubImage3DEXT(texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
@@ -1017,7 +1017,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglMapNamedBu
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glUnmapNamedBufferEXT(JNIEnv *__env, jclass clazz, jint buffer) {
-    glUnmapNamedBufferEXTPROC glUnmapNamedBufferEXT = (glUnmapNamedBufferEXTPROC)tlsGetFunction(1857);
+    glUnmapNamedBufferEXTPROC glUnmapNamedBufferEXT = (glUnmapNamedBufferEXTPROC)tlsGetFunction(1858);
     UNUSED_PARAM(clazz)
     return (jboolean)glUnmapNamedBufferEXT(buffer);
 }
@@ -1204,7 +1204,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglProgramUnif
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glTextureBufferEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint internalformat, jint buffer) {
-    glTextureBufferEXTPROC glTextureBufferEXT = (glTextureBufferEXTPROC)tlsGetFunction(1678);
+    glTextureBufferEXTPROC glTextureBufferEXT = (glTextureBufferEXTPROC)tlsGetFunction(1679);
     UNUSED_PARAM(clazz)
     glTextureBufferEXT(texture, target, internalformat, buffer);
 }
@@ -1216,14 +1216,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glMultiTexBuff
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureParameterIivEXT__IIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint pname, jlong paramsAddress) {
-    glTextureParameterIivEXTPROC glTextureParameterIivEXT = (glTextureParameterIivEXTPROC)tlsGetFunction(1690);
+    glTextureParameterIivEXTPROC glTextureParameterIivEXT = (glTextureParameterIivEXTPROC)tlsGetFunction(1691);
     const intptr_t params = (const intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTextureParameterIivEXT(texture, target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_nglTextureParameterIuivEXT__IIIJ(JNIEnv *__env, jclass clazz, jint texture, jint target, jint pname, jlong paramsAddress) {
-    glTextureParameterIuivEXTPROC glTextureParameterIuivEXT = (glTextureParameterIuivEXTPROC)tlsGetFunction(1692);
+    glTextureParameterIuivEXTPROC glTextureParameterIuivEXT = (glTextureParameterIuivEXTPROC)tlsGetFunction(1693);
     const intptr_t params = (const intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTextureParameterIuivEXT(texture, target, pname, params);
@@ -1509,7 +1509,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glNamedFramebu
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glTextureRenderbufferEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint renderbuffer) {
-    glTextureRenderbufferEXTPROC glTextureRenderbufferEXT = (glTextureRenderbufferEXTPROC)tlsGetFunction(1701);
+    glTextureRenderbufferEXTPROC glTextureRenderbufferEXT = (glTextureRenderbufferEXTPROC)tlsGetFunction(1702);
     UNUSED_PARAM(clazz)
     glTextureRenderbufferEXT(texture, target, renderbuffer);
 }
@@ -1521,67 +1521,67 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glMultiTexRend
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayVertexOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint size, jint type, jint stride, jlong offset) {
-    glVertexArrayVertexOffsetEXTPROC glVertexArrayVertexOffsetEXT = (glVertexArrayVertexOffsetEXTPROC)tlsGetFunction(1923);
+    glVertexArrayVertexOffsetEXTPROC glVertexArrayVertexOffsetEXT = (glVertexArrayVertexOffsetEXTPROC)tlsGetFunction(1924);
     UNUSED_PARAM(clazz)
     glVertexArrayVertexOffsetEXT(vaobj, buffer, size, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayColorOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint size, jint type, jint stride, jlong offset) {
-    glVertexArrayColorOffsetEXTPROC glVertexArrayColorOffsetEXT = (glVertexArrayColorOffsetEXTPROC)tlsGetFunction(1902);
+    glVertexArrayColorOffsetEXTPROC glVertexArrayColorOffsetEXT = (glVertexArrayColorOffsetEXTPROC)tlsGetFunction(1903);
     UNUSED_PARAM(clazz)
     glVertexArrayColorOffsetEXT(vaobj, buffer, size, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayEdgeFlagOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint stride, jlong offset) {
-    glVertexArrayEdgeFlagOffsetEXTPROC glVertexArrayEdgeFlagOffsetEXT = (glVertexArrayEdgeFlagOffsetEXTPROC)tlsGetFunction(1903);
+    glVertexArrayEdgeFlagOffsetEXTPROC glVertexArrayEdgeFlagOffsetEXT = (glVertexArrayEdgeFlagOffsetEXTPROC)tlsGetFunction(1904);
     UNUSED_PARAM(clazz)
     glVertexArrayEdgeFlagOffsetEXT(vaobj, buffer, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayIndexOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint type, jint stride, jlong offset) {
-    glVertexArrayIndexOffsetEXTPROC glVertexArrayIndexOffsetEXT = (glVertexArrayIndexOffsetEXTPROC)tlsGetFunction(1906);
+    glVertexArrayIndexOffsetEXTPROC glVertexArrayIndexOffsetEXT = (glVertexArrayIndexOffsetEXTPROC)tlsGetFunction(1907);
     UNUSED_PARAM(clazz)
     glVertexArrayIndexOffsetEXT(vaobj, buffer, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayNormalOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint type, jint stride, jlong offset) {
-    glVertexArrayNormalOffsetEXTPROC glVertexArrayNormalOffsetEXT = (glVertexArrayNormalOffsetEXTPROC)tlsGetFunction(1908);
+    glVertexArrayNormalOffsetEXTPROC glVertexArrayNormalOffsetEXT = (glVertexArrayNormalOffsetEXTPROC)tlsGetFunction(1909);
     UNUSED_PARAM(clazz)
     glVertexArrayNormalOffsetEXT(vaobj, buffer, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayTexCoordOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint size, jint type, jint stride, jlong offset) {
-    glVertexArrayTexCoordOffsetEXTPROC glVertexArrayTexCoordOffsetEXT = (glVertexArrayTexCoordOffsetEXTPROC)tlsGetFunction(1911);
+    glVertexArrayTexCoordOffsetEXTPROC glVertexArrayTexCoordOffsetEXT = (glVertexArrayTexCoordOffsetEXTPROC)tlsGetFunction(1912);
     UNUSED_PARAM(clazz)
     glVertexArrayTexCoordOffsetEXT(vaobj, buffer, size, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayMultiTexCoordOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint texunit, jint size, jint type, jint stride, jlong offset) {
-    glVertexArrayMultiTexCoordOffsetEXTPROC glVertexArrayMultiTexCoordOffsetEXT = (glVertexArrayMultiTexCoordOffsetEXTPROC)tlsGetFunction(1907);
+    glVertexArrayMultiTexCoordOffsetEXTPROC glVertexArrayMultiTexCoordOffsetEXT = (glVertexArrayMultiTexCoordOffsetEXTPROC)tlsGetFunction(1908);
     UNUSED_PARAM(clazz)
     glVertexArrayMultiTexCoordOffsetEXT(vaobj, buffer, texunit, size, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayFogCoordOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint type, jint stride, jlong offset) {
-    glVertexArrayFogCoordOffsetEXTPROC glVertexArrayFogCoordOffsetEXT = (glVertexArrayFogCoordOffsetEXTPROC)tlsGetFunction(1905);
+    glVertexArrayFogCoordOffsetEXTPROC glVertexArrayFogCoordOffsetEXT = (glVertexArrayFogCoordOffsetEXTPROC)tlsGetFunction(1906);
     UNUSED_PARAM(clazz)
     glVertexArrayFogCoordOffsetEXT(vaobj, buffer, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArraySecondaryColorOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint size, jint type, jint stride, jlong offset) {
-    glVertexArraySecondaryColorOffsetEXTPROC glVertexArraySecondaryColorOffsetEXT = (glVertexArraySecondaryColorOffsetEXTPROC)tlsGetFunction(1910);
+    glVertexArraySecondaryColorOffsetEXTPROC glVertexArraySecondaryColorOffsetEXT = (glVertexArraySecondaryColorOffsetEXTPROC)tlsGetFunction(1911);
     UNUSED_PARAM(clazz)
     glVertexArraySecondaryColorOffsetEXT(vaobj, buffer, size, type, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayVertexAttribOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint index, jint size, jint type, jboolean normalized, jint stride, jlong offset) {
-    glVertexArrayVertexAttribOffsetEXTPROC glVertexArrayVertexAttribOffsetEXT = (glVertexArrayVertexAttribOffsetEXTPROC)tlsGetFunction(1919);
+    glVertexArrayVertexAttribOffsetEXTPROC glVertexArrayVertexAttribOffsetEXT = (glVertexArrayVertexAttribOffsetEXTPROC)tlsGetFunction(1920);
     UNUSED_PARAM(clazz)
     glVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, type, normalized, stride, (intptr_t)offset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDirectStateAccess_glVertexArrayVertexAttribIOffsetEXT(JNIEnv *__env, jclass clazz, jint vaobj, jint buffer, jint index, jint size, jint type, jint stride, jlong offset) {
-    glVertexArrayVertexAttribIOffsetEXTPROC glVertexArrayVertexAttribIOffsetEXT = (glVertexArrayVertexAttribIOffsetEXTPROC)tlsGetFunction(1916);
+    glVertexArrayVertexAttribIOffsetEXTPROC glVertexArrayVertexAttribIOffsetEXT = (glVertexArrayVertexAttribIOffsetEXTPROC)tlsGetFunction(1917);
     UNUSED_PARAM(clazz)
     glVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, type, stride, (intptr_t)offset);
 }

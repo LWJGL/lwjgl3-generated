@@ -20,20 +20,20 @@ typedef void (APIENTRY *glGetDoublei_vPROC) (jint, jint, intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportArrayv__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong vAddress) {
-    glViewportArrayvPROC glViewportArrayv = (glViewportArrayvPROC)tlsGetFunction(2119);
+    glViewportArrayvPROC glViewportArrayv = (glViewportArrayvPROC)tlsGetFunction(2120);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportArrayv(first, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glViewportIndexedf(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
-    glViewportIndexedfPROC glViewportIndexedf = (glViewportIndexedfPROC)tlsGetFunction(2120);
+    glViewportIndexedfPROC glViewportIndexedf = (glViewportIndexedfPROC)tlsGetFunction(2121);
     UNUSED_PARAM(clazz)
     glViewportIndexedf(index, x, y, w, h);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportIndexedfv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glViewportIndexedfvPROC glViewportIndexedfv = (glViewportIndexedfvPROC)tlsGetFunction(2121);
+    glViewportIndexedfvPROC glViewportIndexedfv = (glViewportIndexedfvPROC)tlsGetFunction(2122);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportIndexedfv(index, v);

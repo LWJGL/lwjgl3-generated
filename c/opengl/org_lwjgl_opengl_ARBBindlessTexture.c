@@ -68,13 +68,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glMakeImageHandl
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glUniformHandleui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong value) {
-    glUniformHandleui64ARBPROC glUniformHandleui64ARB = (glUniformHandleui64ARBPROC)tlsGetFunction(1825);
+    glUniformHandleui64ARBPROC glUniformHandleui64ARB = (glUniformHandleui64ARBPROC)tlsGetFunction(1826);
     UNUSED_PARAM(clazz)
     glUniformHandleui64ARB(location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_nglUniformHandleui64vARB__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valuesAddress) {
-    glUniformHandleui64vARBPROC glUniformHandleui64vARB = (glUniformHandleui64vARBPROC)tlsGetFunction(1827);
+    glUniformHandleui64vARBPROC glUniformHandleui64vARB = (glUniformHandleui64vARBPROC)tlsGetFunction(1828);
     const intptr_t values = (const intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glUniformHandleui64vARB(location, count, values);
@@ -106,13 +106,13 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glIsImageHan
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glVertexAttribL1ui64ARB(JNIEnv *__env, jclass clazz, jint index, jlong x) {
-    glVertexAttribL1ui64ARBPROC glVertexAttribL1ui64ARB = (glVertexAttribL1ui64ARBPROC)tlsGetFunction(2059);
+    glVertexAttribL1ui64ARBPROC glVertexAttribL1ui64ARB = (glVertexAttribL1ui64ARBPROC)tlsGetFunction(2060);
     UNUSED_PARAM(clazz)
     glVertexAttribL1ui64ARB(index, x);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_nglVertexAttribL1ui64vARB__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glVertexAttribL1ui64vARBPROC glVertexAttribL1ui64vARB = (glVertexAttribL1ui64vARBPROC)tlsGetFunction(2061);
+    glVertexAttribL1ui64vARBPROC glVertexAttribL1ui64vARB = (glVertexAttribL1ui64vARBPROC)tlsGetFunction(2062);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glVertexAttribL1ui64vARB(index, v);

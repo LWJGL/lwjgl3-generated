@@ -28,14 +28,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTextureInteger_glClearColorIuiEX
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTextureInteger_nglTexParameterIivEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glTexParameterIivEXTPROC glTexParameterIivEXT = (glTexParameterIivEXTPROC)tlsGetFunction(1653);
+    glTexParameterIivEXTPROC glTexParameterIivEXT = (glTexParameterIivEXTPROC)tlsGetFunction(1654);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTexParameterIivEXT(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTextureInteger_nglTexParameterIuivEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glTexParameterIuivEXTPROC glTexParameterIuivEXT = (glTexParameterIuivEXTPROC)tlsGetFunction(1655);
+    glTexParameterIuivEXTPROC glTexParameterIuivEXT = (glTexParameterIuivEXTPROC)tlsGetFunction(1656);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTexParameterIuivEXT(target, pname, params);

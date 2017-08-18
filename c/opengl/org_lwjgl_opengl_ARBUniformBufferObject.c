@@ -85,7 +85,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_nglGetIntege
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBUniformBufferObject_glUniformBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint uniformBlockBinding) {
-    glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1823);
+    glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1824);
     UNUSED_PARAM(clazz)
     glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 }

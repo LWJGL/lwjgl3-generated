@@ -81,13 +81,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglGetIntegerui6
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_glUniformui64NV(JNIEnv *__env, jclass clazz, jint location, jlong value) {
-    glUniformui64NVPROC glUniformui64NV = (glUniformui64NVPROC)tlsGetFunction(1851);
+    glUniformui64NVPROC glUniformui64NV = (glUniformui64NVPROC)tlsGetFunction(1852);
     UNUSED_PARAM(clazz)
     glUniformui64NV(location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglUniformui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniformui64vNVPROC glUniformui64vNV = (glUniformui64vNVPROC)tlsGetFunction(1852);
+    glUniformui64vNVPROC glUniformui64vNV = (glUniformui64vNVPROC)tlsGetFunction(1853);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformui64vNV(location, count, value);

@@ -13,13 +13,13 @@ typedef intptr_t (APIENTRY *glMapTexture2DINTELPROC) (jint, jint, jint, intptr_t
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_INTELMapTexture_glSyncTextureINTEL(JNIEnv *__env, jclass clazz, jint texture) {
-    glSyncTextureINTELPROC glSyncTextureINTEL = (glSyncTextureINTELPROC)tlsGetFunction(1576);
+    glSyncTextureINTELPROC glSyncTextureINTEL = (glSyncTextureINTELPROC)tlsGetFunction(1577);
     UNUSED_PARAM(clazz)
     glSyncTextureINTEL(texture);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_INTELMapTexture_glUnmapTexture2DINTEL(JNIEnv *__env, jclass clazz, jint texture, jint level) {
-    glUnmapTexture2DINTELPROC glUnmapTexture2DINTEL = (glUnmapTexture2DINTELPROC)tlsGetFunction(1858);
+    glUnmapTexture2DINTELPROC glUnmapTexture2DINTEL = (glUnmapTexture2DINTELPROC)tlsGetFunction(1859);
     UNUSED_PARAM(clazz)
     glUnmapTexture2DINTEL(texture, level);
 }

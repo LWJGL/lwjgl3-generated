@@ -14,14 +14,14 @@ typedef void (APIENTRY *glDrawRangeElementsPROC) (jint, jint, jint, jint, jint, 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL12_nglTexImage3D__IIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint target, jint level, jint internalformat, jint width, jint height, jint depth, jint border, jint format, jint type, jlong pixelsAddress) {
-    glTexImage3DPROC glTexImage3D = (glTexImage3DPROC)tlsGetFunction(1648);
+    glTexImage3DPROC glTexImage3D = (glTexImage3DPROC)tlsGetFunction(1649);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL12_nglTexSubImage3D__IIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint target, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong pixelsAddress) {
-    glTexSubImage3DPROC glTexSubImage3D = (glTexSubImage3DPROC)tlsGetFunction(1674);
+    glTexSubImage3DPROC glTexSubImage3D = (glTexSubImage3DPROC)tlsGetFunction(1675);
     const intptr_t pixels = (const intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);

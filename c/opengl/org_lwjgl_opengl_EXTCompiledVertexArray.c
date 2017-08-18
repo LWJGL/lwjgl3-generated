@@ -18,7 +18,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTCompiledVertexArray_glLockArrays
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTCompiledVertexArray_glUnlockArraysEXT(JNIEnv *__env, jclass clazz) {
-    glUnlockArraysEXTPROC glUnlockArraysEXT = (glUnlockArraysEXTPROC)tlsGetFunction(1853);
+    glUnlockArraysEXTPROC glUnlockArraysEXT = (glUnlockArraysEXTPROC)tlsGetFunction(1854);
     UNUSED_PARAM(clazz)
     glUnlockArraysEXT();
 }

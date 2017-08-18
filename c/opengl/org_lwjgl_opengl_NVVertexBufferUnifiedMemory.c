@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexBufferUnifiedMemory_glBuffe
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexBufferUnifiedMemory_glVertexFormatNV(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride) {
-    glVertexFormatNVPROC glVertexFormatNV = (glVertexFormatNVPROC)tlsGetFunction(2108);
+    glVertexFormatNVPROC glVertexFormatNV = (glVertexFormatNVPROC)tlsGetFunction(2109);
     UNUSED_PARAM(clazz)
     glVertexFormatNV(size, type, stride);
 }
@@ -52,7 +52,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexBufferUnifiedMemory_glIndex
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexBufferUnifiedMemory_glTexCoordFormatNV(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride) {
-    glTexCoordFormatNVPROC glTexCoordFormatNV = (glTexCoordFormatNVPROC)tlsGetFunction(1624);
+    glTexCoordFormatNVPROC glTexCoordFormatNV = (glTexCoordFormatNVPROC)tlsGetFunction(1625);
     UNUSED_PARAM(clazz)
     glTexCoordFormatNV(size, type, stride);
 }
@@ -76,13 +76,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexBufferUnifiedMemory_glFogCo
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexBufferUnifiedMemory_glVertexAttribFormatNV(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jboolean normalized, jint stride) {
-    glVertexAttribFormatNVPROC glVertexAttribFormatNV = (glVertexAttribFormatNVPROC)tlsGetFunction(2008);
+    glVertexAttribFormatNVPROC glVertexAttribFormatNV = (glVertexAttribFormatNVPROC)tlsGetFunction(2009);
     UNUSED_PARAM(clazz)
     glVertexAttribFormatNV(index, size, type, normalized, stride);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVVertexBufferUnifiedMemory_glVertexAttribIFormatNV(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jint stride) {
-    glVertexAttribIFormatNVPROC glVertexAttribIFormatNV = (glVertexAttribIFormatNVPROC)tlsGetFunction(2050);
+    glVertexAttribIFormatNVPROC glVertexAttribIFormatNV = (glVertexAttribIFormatNVPROC)tlsGetFunction(2051);
     UNUSED_PARAM(clazz)
     glVertexAttribIFormatNV(index, size, type, stride);
 }

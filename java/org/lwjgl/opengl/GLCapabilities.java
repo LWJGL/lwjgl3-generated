@@ -463,6 +463,7 @@ public final class GLCapabilities {
         glFogi,
         glFogiv,
         glFragmentCoverageColorNV,
+        glFrameTerminatorGREMEDY,
         glFramebufferDrawBufferEXT,
         glFramebufferDrawBuffersEXT,
         glFramebufferParameteri,
@@ -1591,6 +1592,7 @@ public final class GLCapabilities {
         glStencilThenCoverFillPathNV,
         glStencilThenCoverStrokePathInstancedNV,
         glStencilThenCoverStrokePathNV,
+        glStringMarkerGREMEDY,
         glSubpixelPrecisionBiasNV,
         glSyncTextureINTEL,
         glTessellationFactorAMD,
@@ -3556,6 +3558,10 @@ public final class GLCapabilities {
     public final boolean GL_EXT_window_rectangles;
     /** When true, {@link EXTX11SyncObject} is supported. */
     public final boolean GL_EXT_x11_sync_object;
+    /** When true, {@link GREMEDYFrameTerminator} is supported. */
+    public final boolean GL_GREMEDY_frame_terminator;
+    /** When true, {@link GREMEDYStringMarker} is supported. */
+    public final boolean GL_GREMEDY_string_marker;
     /** When true, {@link INTELConservativeRasterization} is supported. */
     public final boolean GL_INTEL_conservative_rasterization;
     /**
@@ -4398,6 +4404,7 @@ public final class GLCapabilities {
         glFogi = getFunctionAddress(fc, provider, "glFogi");
         glFogiv = getFunctionAddress(fc, provider, "glFogiv");
         glFragmentCoverageColorNV = provider.getFunctionAddress("glFragmentCoverageColorNV");
+        glFrameTerminatorGREMEDY = provider.getFunctionAddress("glFrameTerminatorGREMEDY");
         glFramebufferDrawBufferEXT = provider.getFunctionAddress("glFramebufferDrawBufferEXT");
         glFramebufferDrawBuffersEXT = provider.getFunctionAddress("glFramebufferDrawBuffersEXT");
         glFramebufferParameteri = provider.getFunctionAddress("glFramebufferParameteri");
@@ -5526,6 +5533,7 @@ public final class GLCapabilities {
         glStencilThenCoverFillPathNV = provider.getFunctionAddress("glStencilThenCoverFillPathNV");
         glStencilThenCoverStrokePathInstancedNV = provider.getFunctionAddress("glStencilThenCoverStrokePathInstancedNV");
         glStencilThenCoverStrokePathNV = provider.getFunctionAddress("glStencilThenCoverStrokePathNV");
+        glStringMarkerGREMEDY = provider.getFunctionAddress("glStringMarkerGREMEDY");
         glSubpixelPrecisionBiasNV = provider.getFunctionAddress("glSubpixelPrecisionBiasNV");
         glSyncTextureINTEL = provider.getFunctionAddress("glSyncTextureINTEL");
         glTessellationFactorAMD = provider.getFunctionAddress("glTessellationFactorAMD");
@@ -6416,6 +6424,8 @@ public final class GLCapabilities {
         GL_EXT_win32_keyed_mutex = ext.contains("GL_EXT_win32_keyed_mutex") && checkExtension("GL_EXT_win32_keyed_mutex", EXTWin32KeyedMutex.isAvailable(this));
         GL_EXT_window_rectangles = ext.contains("GL_EXT_window_rectangles") && checkExtension("GL_EXT_window_rectangles", EXTWindowRectangles.isAvailable(this));
         GL_EXT_x11_sync_object = ext.contains("GL_EXT_x11_sync_object") && checkExtension("GL_EXT_x11_sync_object", EXTX11SyncObject.isAvailable(this));
+        GL_GREMEDY_frame_terminator = ext.contains("GL_GREMEDY_frame_terminator") && checkExtension("GL_GREMEDY_frame_terminator", GREMEDYFrameTerminator.isAvailable(this));
+        GL_GREMEDY_string_marker = ext.contains("GL_GREMEDY_string_marker") && checkExtension("GL_GREMEDY_string_marker", GREMEDYStringMarker.isAvailable(this));
         GL_INTEL_conservative_rasterization = ext.contains("GL_INTEL_conservative_rasterization");
         GL_INTEL_fragment_shader_ordering = ext.contains("GL_INTEL_fragment_shader_ordering");
         GL_INTEL_framebuffer_CMAA = ext.contains("GL_INTEL_framebuffer_CMAA") && checkExtension("GL_INTEL_framebuffer_CMAA", INTELFramebufferCMAA.isAvailable(this));
