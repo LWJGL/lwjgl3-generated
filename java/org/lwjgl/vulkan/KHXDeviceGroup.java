@@ -545,6 +545,7 @@ public class KHXDeviceGroup {
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
      * <li>{@code pModes} <b>must</b> be a pointer to a combination of {@code VkDeviceGroupPresentModeFlagBitsKHX} values</li>
      * <li>{@code pModes} <b>must</b> not be 0</li>
+     * <li>Both of {@code device}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -773,6 +774,7 @@ public class KHXDeviceGroup {
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
      * <li>{@code pRectCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
      * <li>If the value referenced by {@code pRectCount} is not 0, and {@code pRects} is not {@code NULL}, {@code pRects} <b>must</b> be a pointer to an array of {@code pRectCount} {@link VkRect2D} structures</li>
+     * <li>Both of {@code physicalDevice}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>

@@ -34,6 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pImageIndices} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code uint32_t} values</li>
  * <li>If {@code pResults} is not {@code NULL}, {@code pResults} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code VkResult} values</li>
  * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
+ * <li>Both of the elements of {@code pSwapchains}, and the elements of {@code pWaitSemaphores} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
  * </ul>
  * 
  * <h5>See Also</h5>

@@ -308,6 +308,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_post_depth_coverage;
     /** When true, {@link EXTSamplerFilterMinmax} is supported. */
     public final boolean VK_EXT_sampler_filter_minmax;
+    /** When true, {@link EXTShaderStencilExport} is supported. */
+    public final boolean VK_EXT_shader_stencil_export;
     /** When true, {@link EXTShaderSubgroupBallot} is supported. */
     public final boolean VK_EXT_shader_subgroup_ballot;
     /** When true, {@link EXTShaderSubgroupVote} is supported. */
@@ -581,6 +583,7 @@ public class VKCapabilitiesDevice {
         }
         VK_EXT_post_depth_coverage = ext.contains("VK_EXT_post_depth_coverage");
         VK_EXT_sampler_filter_minmax = ext.contains("VK_EXT_sampler_filter_minmax");
+        VK_EXT_shader_stencil_export = ext.contains("VK_EXT_shader_stencil_export");
         VK_EXT_shader_subgroup_ballot = ext.contains("VK_EXT_shader_subgroup_ballot");
         VK_EXT_shader_subgroup_vote = ext.contains("VK_EXT_shader_subgroup_vote");
         VK_EXT_shader_viewport_index_layer = ext.contains("VK_EXT_shader_viewport_index_layer");

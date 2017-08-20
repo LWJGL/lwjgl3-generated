@@ -240,6 +240,7 @@ public class KHRSwapchain {
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code swapchain} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
      * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>Both of {@code device}, and {@code swapchain} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -300,6 +301,7 @@ public class KHRSwapchain {
      * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
      * <li>{@code pSwapchainImageCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
      * <li>If the value referenced by {@code pSwapchainImageCount} is not 0, and {@code pSwapchainImages} is not {@code NULL}, {@code pSwapchainImages} <b>must</b> be a pointer to an array of {@code pSwapchainImageCount} {@code VkImage} handles</li>
+     * <li>Both of {@code device}, and {@code swapchain} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -376,6 +378,7 @@ public class KHRSwapchain {
      * <li>{@code pImageIndex} <b>must</b> be a pointer to a {@code uint32_t} value</li>
      * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
+     * <li>Both of {@code device}, and {@code swapchain} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>

@@ -67,6 +67,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code presentMode} <b>must</b> be a valid {@code VkPresentModeKHR} value</li>
  * <li>If {@code oldSwapchain} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code oldSwapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
  * <li>If {@code oldSwapchain} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code surface}</li>
+ * <li>Both of {@code oldSwapchain}, and {@code surface} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
  * </ul>
  * 
  * <h5>See Also</h5>
