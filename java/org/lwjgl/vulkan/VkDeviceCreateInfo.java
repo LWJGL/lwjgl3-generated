@@ -247,7 +247,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -265,7 +265,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -388,7 +388,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #ppEnabledExtensionNames(PointerBuffer) ppEnabledExtensionNames}. */
     public static void nppEnabledExtensionNames(long struct, PointerBuffer value) { memPutAddress(struct + VkDeviceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); nenabledExtensionCount(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #pEnabledFeatures(VkPhysicalDeviceFeatures) pEnabledFeatures}. */
-    public static void npEnabledFeatures(long struct, VkPhysicalDeviceFeatures value) { memPutAddress(struct + VkDeviceCreateInfo.PENABLEDFEATURES, addressSafe(value)); }
+    public static void npEnabledFeatures(long struct, VkPhysicalDeviceFeatures value) { memPutAddress(struct + VkDeviceCreateInfo.PENABLEDFEATURES, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -458,7 +458,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

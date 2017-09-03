@@ -139,7 +139,7 @@ public class NkAllocator extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -157,7 +157,7 @@ public class NkAllocator extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -250,9 +250,9 @@ public class NkAllocator extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata(NkHandle) userdata}. */
     public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkAllocator.USERDATA, NkHandle.SIZEOF); }
     /** Unsafe version of {@link #alloc(NkPluginAllocI) alloc}. */
-    public static void nalloc(long struct, NkPluginAllocI value) { memPutAddress(struct + NkAllocator.ALLOC, addressSafe(value)); }
+    public static void nalloc(long struct, NkPluginAllocI value) { memPutAddress(struct + NkAllocator.ALLOC, memAddressSafe(value)); }
     /** Unsafe version of {@link #mfree(NkPluginFreeI) mfree}. */
-    public static void nmfree(long struct, NkPluginFreeI value) { memPutAddress(struct + NkAllocator.MFREE, addressSafe(value)); }
+    public static void nmfree(long struct, NkPluginFreeI value) { memPutAddress(struct + NkAllocator.MFREE, memAddressSafe(value)); }
 
     // -----------------------------------
 
@@ -292,7 +292,7 @@ public class NkAllocator extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

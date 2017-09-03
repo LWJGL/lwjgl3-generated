@@ -217,7 +217,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -235,7 +235,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -342,7 +342,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #flags(int) flags}. */
     public static void nflags(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.FLAGS, value); }
     /** Unsafe version of {@link #pApplicationInfo(VkApplicationInfo) pApplicationInfo}. */
-    public static void npApplicationInfo(long struct, VkApplicationInfo value) { memPutAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO, addressSafe(value)); }
+    public static void npApplicationInfo(long struct, VkApplicationInfo value) { memPutAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO, memAddressSafe(value)); }
     /** Sets the specified value to the {@code enabledLayerCount} field of the specified {@code struct}. */
     public static void nenabledLayerCount(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.ENABLEDLAYERCOUNT, value); }
     /** Unsafe version of {@link #ppEnabledLayerNames(PointerBuffer) ppEnabledLayerNames}. */
@@ -416,7 +416,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

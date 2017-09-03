@@ -146,7 +146,7 @@ public class VkPresentRegionKHR extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -164,7 +164,7 @@ public class VkPresentRegionKHR extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -255,7 +255,7 @@ public class VkPresentRegionKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code rectangleCount} field of the specified {@code struct}. */
     public static void nrectangleCount(long struct, int value) { memPutInt(struct + VkPresentRegionKHR.RECTANGLECOUNT, value); }
     /** Unsafe version of {@link #pRectangles(VkRectLayerKHR.Buffer) pRectangles}. */
-    public static void npRectangles(long struct, VkRectLayerKHR.Buffer value) { memPutAddress(struct + VkPresentRegionKHR.PRECTANGLES, addressSafe(value)); if (value != null) { nrectangleCount(struct, value.remaining()); } }
+    public static void npRectangles(long struct, VkRectLayerKHR.Buffer value) { memPutAddress(struct + VkPresentRegionKHR.PRECTANGLES, memAddressSafe(value)); if (value != null) { nrectangleCount(struct, value.remaining()); } }
 
     // -----------------------------------
 
@@ -295,7 +295,7 @@ public class VkPresentRegionKHR extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

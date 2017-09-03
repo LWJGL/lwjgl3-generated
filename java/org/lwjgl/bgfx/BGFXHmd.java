@@ -189,7 +189,7 @@ public class BGFXHmd extends Struct {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

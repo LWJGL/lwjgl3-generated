@@ -277,7 +277,7 @@ public class AIScene extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -295,7 +295,7 @@ public class AIScene extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -411,7 +411,7 @@ public class AIScene extends Struct implements NativeResource {
     /** Unsafe version of {@link #mFlags(int) mFlags}. */
     public static void nmFlags(long struct, int value) { memPutInt(struct + AIScene.MFLAGS, value); }
     /** Unsafe version of {@link #mRootNode(AINode) mRootNode}. */
-    public static void nmRootNode(long struct, AINode value) { memPutAddress(struct + AIScene.MROOTNODE, addressSafe(value)); }
+    public static void nmRootNode(long struct, AINode value) { memPutAddress(struct + AIScene.MROOTNODE, memAddressSafe(value)); }
     /** Sets the specified value to the {@code mNumMeshes} field of the specified {@code struct}. */
     public static void nmNumMeshes(long struct, int value) { memPutInt(struct + AIScene.MNUMMESHES, value); }
     /** Unsafe version of {@link #mMeshes(PointerBuffer) mMeshes}. */
@@ -514,7 +514,7 @@ public class AIScene extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

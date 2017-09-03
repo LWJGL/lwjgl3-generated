@@ -170,7 +170,7 @@ public class NkUserFont extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -188,7 +188,7 @@ public class NkUserFont extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -287,9 +287,9 @@ public class NkUserFont extends Struct implements NativeResource {
     /** Unsafe version of {@link #height(float) height}. */
     public static void nheight(long struct, float value) { memPutFloat(struct + NkUserFont.HEIGHT, value); }
     /** Unsafe version of {@link #width(NkTextWidthCallbackI) width}. */
-    public static void nwidth(long struct, NkTextWidthCallbackI value) { memPutAddress(struct + NkUserFont.WIDTH, addressSafe(value)); }
+    public static void nwidth(long struct, NkTextWidthCallbackI value) { memPutAddress(struct + NkUserFont.WIDTH, memAddressSafe(value)); }
     /** Unsafe version of {@link #query(NkQueryFontGlyphCallbackI) query}. */
-    public static void nquery(long struct, NkQueryFontGlyphCallbackI value) { memPutAddress(struct + NkUserFont.QUERY, addressSafe(value)); }
+    public static void nquery(long struct, NkQueryFontGlyphCallbackI value) { memPutAddress(struct + NkUserFont.QUERY, memAddressSafe(value)); }
     /** Unsafe version of {@link #texture(NkHandle) texture}. */
     public static void ntexture(long struct, NkHandle value) { memCopy(value.address(), struct + NkUserFont.TEXTURE, NkHandle.SIZEOF); }
 
@@ -331,7 +331,7 @@ public class NkUserFont extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

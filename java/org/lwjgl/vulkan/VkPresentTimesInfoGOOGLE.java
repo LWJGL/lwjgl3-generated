@@ -178,7 +178,7 @@ public class VkPresentTimesInfoGOOGLE extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -196,7 +196,7 @@ public class VkPresentTimesInfoGOOGLE extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -295,7 +295,7 @@ public class VkPresentTimesInfoGOOGLE extends Struct implements NativeResource {
     /** Sets the specified value to the {@code swapchainCount} field of the specified {@code struct}. */
     public static void nswapchainCount(long struct, int value) { memPutInt(struct + VkPresentTimesInfoGOOGLE.SWAPCHAINCOUNT, value); }
     /** Unsafe version of {@link #pTimes(VkPresentTimeGOOGLE.Buffer) pTimes}. */
-    public static void npTimes(long struct, VkPresentTimeGOOGLE.Buffer value) { memPutAddress(struct + VkPresentTimesInfoGOOGLE.PTIMES, addressSafe(value)); if (value != null) { nswapchainCount(struct, value.remaining()); } }
+    public static void npTimes(long struct, VkPresentTimeGOOGLE.Buffer value) { memPutAddress(struct + VkPresentTimesInfoGOOGLE.PTIMES, memAddressSafe(value)); if (value != null) { nswapchainCount(struct, value.remaining()); } }
 
     // -----------------------------------
 
@@ -335,7 +335,7 @@ public class VkPresentTimesInfoGOOGLE extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

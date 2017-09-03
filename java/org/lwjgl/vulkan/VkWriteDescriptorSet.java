@@ -280,7 +280,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -298,7 +298,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -417,9 +417,9 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
     /** Unsafe version of {@link #descriptorType(int) descriptorType}. */
     public static void ndescriptorType(long struct, int value) { memPutInt(struct + VkWriteDescriptorSet.DESCRIPTORTYPE, value); }
     /** Unsafe version of {@link #pImageInfo(VkDescriptorImageInfo.Buffer) pImageInfo}. */
-    public static void npImageInfo(long struct, VkDescriptorImageInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, addressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
+    public static void npImageInfo(long struct, VkDescriptorImageInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
     /** Unsafe version of {@link #pBufferInfo(VkDescriptorBufferInfo.Buffer) pBufferInfo}. */
-    public static void npBufferInfo(long struct, VkDescriptorBufferInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, addressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
+    public static void npBufferInfo(long struct, VkDescriptorBufferInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
     /** Unsafe version of {@link #pTexelBufferView(LongBuffer) pTexelBufferView}. */
     public static void npTexelBufferView(long struct, LongBuffer value) { memPutAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
 
@@ -490,7 +490,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

@@ -227,7 +227,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -245,7 +245,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -350,21 +350,21 @@ public class ExtentHooks extends Struct implements NativeResource {
     /** Unsafe version of {@link #alloc(ExtentAllocI) alloc}. */
     public static void nalloc(long struct, ExtentAllocI value) { memPutAddress(struct + ExtentHooks.ALLOC, value.address()); }
     /** Unsafe version of {@link #dalloc(ExtentDallocI) dalloc}. */
-    public static void ndalloc(long struct, ExtentDallocI value) { memPutAddress(struct + ExtentHooks.DALLOC, addressSafe(value)); }
+    public static void ndalloc(long struct, ExtentDallocI value) { memPutAddress(struct + ExtentHooks.DALLOC, memAddressSafe(value)); }
     /** Unsafe version of {@link #destroy(ExtentDestroyI) destroy}. */
-    public static void ndestroy(long struct, ExtentDestroyI value) { memPutAddress(struct + ExtentHooks.DESTROY, addressSafe(value)); }
+    public static void ndestroy(long struct, ExtentDestroyI value) { memPutAddress(struct + ExtentHooks.DESTROY, memAddressSafe(value)); }
     /** Unsafe version of {@link #commit(ExtentCommitI) commit}. */
-    public static void ncommit(long struct, ExtentCommitI value) { memPutAddress(struct + ExtentHooks.COMMIT, addressSafe(value)); }
+    public static void ncommit(long struct, ExtentCommitI value) { memPutAddress(struct + ExtentHooks.COMMIT, memAddressSafe(value)); }
     /** Unsafe version of {@link #decommit(ExtentDecommitI) decommit}. */
-    public static void ndecommit(long struct, ExtentDecommitI value) { memPutAddress(struct + ExtentHooks.DECOMMIT, addressSafe(value)); }
+    public static void ndecommit(long struct, ExtentDecommitI value) { memPutAddress(struct + ExtentHooks.DECOMMIT, memAddressSafe(value)); }
     /** Unsafe version of {@link #purge_lazy(ExtentPurgeI) purge_lazy}. */
-    public static void npurge_lazy(long struct, ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_LAZY, addressSafe(value)); }
+    public static void npurge_lazy(long struct, ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_LAZY, memAddressSafe(value)); }
     /** Unsafe version of {@link #purge_forced(ExtentPurgeI) purge_forced}. */
-    public static void npurge_forced(long struct, ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_FORCED, addressSafe(value)); }
+    public static void npurge_forced(long struct, ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_FORCED, memAddressSafe(value)); }
     /** Unsafe version of {@link #split(ExtentSplitI) split}. */
-    public static void nsplit(long struct, ExtentSplitI value) { memPutAddress(struct + ExtentHooks.SPLIT, addressSafe(value)); }
+    public static void nsplit(long struct, ExtentSplitI value) { memPutAddress(struct + ExtentHooks.SPLIT, memAddressSafe(value)); }
     /** Unsafe version of {@link #merge(ExtentMergeI) merge}. */
-    public static void nmerge(long struct, ExtentMergeI value) { memPutAddress(struct + ExtentHooks.MERGE, addressSafe(value)); }
+    public static void nmerge(long struct, ExtentMergeI value) { memPutAddress(struct + ExtentHooks.MERGE, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -425,7 +425,7 @@ public class ExtentHooks extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

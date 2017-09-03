@@ -295,7 +295,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -313,7 +313,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -436,7 +436,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
     /** Unsafe version of {@link #maxSequencesCount(int) maxSequencesCount}. */
     public static void nmaxSequencesCount(long struct, int value) { memPutInt(struct + VkCmdProcessCommandsInfoNVX.MAXSEQUENCESCOUNT, value); }
     /** Unsafe version of {@link #targetCommandBuffer(VkCommandBuffer) targetCommandBuffer}. */
-    public static void ntargetCommandBuffer(long struct, VkCommandBuffer value) { memPutAddress(struct + VkCmdProcessCommandsInfoNVX.TARGETCOMMANDBUFFER, addressSafe(value)); }
+    public static void ntargetCommandBuffer(long struct, VkCommandBuffer value) { memPutAddress(struct + VkCmdProcessCommandsInfoNVX.TARGETCOMMANDBUFFER, memAddressSafe(value)); }
     /** Unsafe version of {@link #sequencesCountBuffer(long) sequencesCountBuffer}. */
     public static void nsequencesCountBuffer(long struct, long value) { memPutLong(struct + VkCmdProcessCommandsInfoNVX.SEQUENCESCOUNTBUFFER, value); }
     /** Unsafe version of {@link #sequencesCountOffset(long) sequencesCountOffset}. */
@@ -505,7 +505,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

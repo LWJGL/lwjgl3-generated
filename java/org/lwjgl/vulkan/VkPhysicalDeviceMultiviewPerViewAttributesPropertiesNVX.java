@@ -157,7 +157,7 @@ public class VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX extends Str
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

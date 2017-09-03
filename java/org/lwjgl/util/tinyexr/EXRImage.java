@@ -171,7 +171,7 @@ public class EXRImage extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -189,7 +189,7 @@ public class EXRImage extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -286,7 +286,7 @@ public class EXRImage extends Struct implements NativeResource {
     public static int nnum_tiles(long struct) { return memGetInt(struct + EXRImage.NUM_TILES); }
 
     /** Unsafe version of {@link #tiles(EXRTile.Buffer) tiles}. */
-    public static void ntiles(long struct, EXRTile.Buffer value) { memPutAddress(struct + EXRImage.TILES, addressSafe(value)); nnum_tiles(struct, value == null ? 0 : value.remaining()); }
+    public static void ntiles(long struct, EXRTile.Buffer value) { memPutAddress(struct + EXRImage.TILES, memAddressSafe(value)); nnum_tiles(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #images(PointerBuffer) images}. */
     public static void nimages(long struct, PointerBuffer value) { memPutAddress(struct + EXRImage.IMAGES, memAddressSafe(value)); nnum_channels(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #width(int) width}. */
@@ -362,7 +362,7 @@ public class EXRImage extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

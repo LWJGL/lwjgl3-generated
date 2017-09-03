@@ -167,7 +167,7 @@ public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements Na
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -185,7 +185,7 @@ public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements Na
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -320,7 +320,7 @@ public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements Na
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

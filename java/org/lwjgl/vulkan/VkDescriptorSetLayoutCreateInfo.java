@@ -190,7 +190,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -208,7 +208,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -311,7 +311,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
     /** Sets the specified value to the {@code bindingCount} field of the specified {@code struct}. */
     public static void nbindingCount(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutCreateInfo.BINDINGCOUNT, value); }
     /** Unsafe version of {@link #pBindings(VkDescriptorSetLayoutBinding.Buffer) pBindings}. */
-    public static void npBindings(long struct, VkDescriptorSetLayoutBinding.Buffer value) { memPutAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS, addressSafe(value)); nbindingCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npBindings(long struct, VkDescriptorSetLayoutBinding.Buffer value) { memPutAddress(struct + VkDescriptorSetLayoutCreateInfo.PBINDINGS, memAddressSafe(value)); nbindingCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -374,7 +374,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

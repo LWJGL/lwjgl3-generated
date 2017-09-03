@@ -197,7 +197,7 @@ public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements Nativ
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -215,7 +215,7 @@ public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements Nativ
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -318,7 +318,7 @@ public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements Nativ
     /** Sets the specified value to the {@code deviceRenderAreaCount} field of the specified {@code struct}. */
     public static void ndeviceRenderAreaCount(long struct, int value) { memPutInt(struct + VkDeviceGroupRenderPassBeginInfoKHX.DEVICERENDERAREACOUNT, value); }
     /** Unsafe version of {@link #pDeviceRenderAreas(VkRect2D.Buffer) pDeviceRenderAreas}. */
-    public static void npDeviceRenderAreas(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkDeviceGroupRenderPassBeginInfoKHX.PDEVICERENDERAREAS, addressSafe(value)); ndeviceRenderAreaCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npDeviceRenderAreas(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkDeviceGroupRenderPassBeginInfoKHX.PDEVICERENDERAREAS, memAddressSafe(value)); ndeviceRenderAreaCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -381,7 +381,7 @@ public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements Nativ
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

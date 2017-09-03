@@ -195,7 +195,7 @@ public class GLXStereoNotifyEventEXT extends Struct {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

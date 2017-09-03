@@ -357,7 +357,7 @@ public class AIMesh extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -375,7 +375,7 @@ public class AIMesh extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -517,11 +517,11 @@ public class AIMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #mVertices(AIVector3D.Buffer) mVertices}. */
     public static void nmVertices(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MVERTICES, value.address()); }
     /** Unsafe version of {@link #mNormals(AIVector3D.Buffer) mNormals}. */
-    public static void nmNormals(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MNORMALS, addressSafe(value)); }
+    public static void nmNormals(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MNORMALS, memAddressSafe(value)); }
     /** Unsafe version of {@link #mTangents(AIVector3D.Buffer) mTangents}. */
-    public static void nmTangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MTANGENTS, addressSafe(value)); }
+    public static void nmTangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MTANGENTS, memAddressSafe(value)); }
     /** Unsafe version of {@link #mBitangents(AIVector3D.Buffer) mBitangents}. */
-    public static void nmBitangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MBITANGENTS, addressSafe(value)); }
+    public static void nmBitangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MBITANGENTS, memAddressSafe(value)); }
     /** Unsafe version of {@link #mColors(PointerBuffer) mColors}. */
     public static void nmColors(long struct, PointerBuffer value) {
         if (CHECKS) { checkGT(value, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
@@ -530,7 +530,7 @@ public class AIMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #mColors(int, AIColor4D.Buffer) mColors}. */
     public static void nmColors(long struct, int index, AIColor4D.Buffer value) {
         if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
-        memPutAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE, addressSafe(value));
+        memPutAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE, memAddressSafe(value));
     }
     /** Unsafe version of {@link #mTextureCoords(PointerBuffer) mTextureCoords}. */
     public static void nmTextureCoords(long struct, PointerBuffer value) {
@@ -540,7 +540,7 @@ public class AIMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #mTextureCoords(int, AIVector3D.Buffer) mTextureCoords}. */
     public static void nmTextureCoords(long struct, int index, AIVector3D.Buffer value) {
         if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-        memPutAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE, addressSafe(value));
+        memPutAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE, memAddressSafe(value));
     }
     /** Unsafe version of {@link #mNumUVComponents(IntBuffer) mNumUVComponents}. */
     public static void nmNumUVComponents(long struct, IntBuffer value) {
@@ -636,7 +636,7 @@ public class AIMesh extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

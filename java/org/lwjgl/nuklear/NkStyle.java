@@ -356,7 +356,7 @@ public class NkStyle extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -374,7 +374,7 @@ public class NkStyle extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -517,12 +517,12 @@ public class NkStyle extends Struct implements NativeResource {
     /** Unsafe version of {@link #cursors(int, NkCursor) cursors}. */
     public static void ncursors(long struct, int index, NkCursor value) {
         if (CHECKS) { check(index, NK_CURSOR_COUNT); }
-        memPutAddress(struct + NkStyle.CURSORS + index * POINTER_SIZE, addressSafe(value));
+        memPutAddress(struct + NkStyle.CURSORS + index * POINTER_SIZE, memAddressSafe(value));
     }
     /** Unsafe version of {@link #cursor_active(NkCursor) cursor_active}. */
-    public static void ncursor_active(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_ACTIVE, addressSafe(value)); }
+    public static void ncursor_active(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_ACTIVE, memAddressSafe(value)); }
     /** Unsafe version of {@link #cursor_last(NkCursor) cursor_last}. */
-    public static void ncursor_last(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_LAST, addressSafe(value)); }
+    public static void ncursor_last(long struct, NkCursor value) { memPutAddress(struct + NkStyle.CURSOR_LAST, memAddressSafe(value)); }
     /** Unsafe version of {@link #cursor_visible(boolean) cursor_visible}. */
     public static void ncursor_visible(long struct, int value) { memPutInt(struct + NkStyle.CURSOR_VISIBLE, value); }
     /** Unsafe version of {@link #text(NkStyleText) text}. */
@@ -619,7 +619,7 @@ public class NkStyle extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

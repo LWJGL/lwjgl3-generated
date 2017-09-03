@@ -198,7 +198,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -216,7 +216,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -321,9 +321,9 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
     /** Unsafe version of {@link #pfnFree(VkFreeFunctionI) pfnFree}. */
     public static void npfnFree(long struct, VkFreeFunctionI value) { memPutAddress(struct + VkAllocationCallbacks.PFNFREE, value.address()); }
     /** Unsafe version of {@link #pfnInternalAllocation(VkInternalAllocationNotificationI) pfnInternalAllocation}. */
-    public static void npfnInternalAllocation(long struct, VkInternalAllocationNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALALLOCATION, addressSafe(value)); }
+    public static void npfnInternalAllocation(long struct, VkInternalAllocationNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALALLOCATION, memAddressSafe(value)); }
     /** Unsafe version of {@link #pfnInternalFree(VkInternalFreeNotificationI) pfnInternalFree}. */
-    public static void npfnInternalFree(long struct, VkInternalFreeNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALFREE, addressSafe(value)); }
+    public static void npfnInternalFree(long struct, VkInternalFreeNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALFREE, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -386,7 +386,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

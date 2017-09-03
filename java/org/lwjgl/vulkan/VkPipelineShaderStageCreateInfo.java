@@ -238,7 +238,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -256,7 +256,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -372,7 +372,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         memPutAddress(struct + VkPipelineShaderStageCreateInfo.PNAME, memAddress(value));
     }
     /** Unsafe version of {@link #pSpecializationInfo(VkSpecializationInfo) pSpecializationInfo}. */
-    public static void npSpecializationInfo(long struct, VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, addressSafe(value)); }
+    public static void npSpecializationInfo(long struct, VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -437,7 +437,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

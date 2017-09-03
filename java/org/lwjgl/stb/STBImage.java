@@ -646,6 +646,15 @@ public class STBImage {
      *
      * @param retval_from_stbi_load an stb image
      */
+    public static void stbi_image_free(@NativeType("void *") ShortBuffer retval_from_stbi_load) {
+        nstbi_image_free(memAddress(retval_from_stbi_load));
+    }
+
+    /**
+     * Frees a loaded image
+     *
+     * @param retval_from_stbi_load an stb image
+     */
     public static void stbi_image_free(@NativeType("void *") FloatBuffer retval_from_stbi_load) {
         nstbi_image_free(memAddress(retval_from_stbi_load));
     }

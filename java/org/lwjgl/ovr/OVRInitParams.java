@@ -182,7 +182,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -200,7 +200,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -299,7 +299,7 @@ public class OVRInitParams extends Struct implements NativeResource {
     /** Unsafe version of {@link #RequestedMinorVersion(int) RequestedMinorVersion}. */
     public static void nRequestedMinorVersion(long struct, int value) { memPutInt(struct + OVRInitParams.REQUESTEDMINORVERSION, value); }
     /** Unsafe version of {@link #LogCallback(OVRLogCallbackI) LogCallback}. */
-    public static void nLogCallback(long struct, OVRLogCallbackI value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, addressSafe(value)); }
+    public static void nLogCallback(long struct, OVRLogCallbackI value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, memAddressSafe(value)); }
     /** Unsafe version of {@link #UserData(long) UserData}. */
     public static void nUserData(long struct, long value) { memPutAddress(struct + OVRInitParams.USERDATA, value); }
     /** Unsafe version of {@link #ConnectionTimeoutMS(int) ConnectionTimeoutMS}. */
@@ -343,7 +343,7 @@ public class OVRInitParams extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

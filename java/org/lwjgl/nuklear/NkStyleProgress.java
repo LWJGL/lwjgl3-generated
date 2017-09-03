@@ -278,7 +278,7 @@ public class NkStyleProgress extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -296,7 +296,7 @@ public class NkStyleProgress extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -441,9 +441,9 @@ public class NkStyleProgress extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata(NkHandle) userdata}. */
     public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleProgress.USERDATA, NkHandle.SIZEOF); }
     /** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-    public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleProgress.DRAW_BEGIN, addressSafe(value)); }
+    public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleProgress.DRAW_BEGIN, memAddressSafe(value)); }
     /** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-    public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleProgress.DRAW_END, addressSafe(value)); }
+    public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleProgress.DRAW_END, memAddressSafe(value)); }
 
     // -----------------------------------
 
@@ -483,7 +483,7 @@ public class NkStyleProgress extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

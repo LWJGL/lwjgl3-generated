@@ -278,7 +278,7 @@ public class VkBindImageMemoryInfoKHX extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -296,7 +296,7 @@ public class VkBindImageMemoryInfoKHX extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -415,7 +415,7 @@ public class VkBindImageMemoryInfoKHX extends Struct implements NativeResource {
     /** Sets the specified value to the {@code SFRRectCount} field of the specified {@code struct}. */
     public static void nSFRRectCount(long struct, int value) { memPutInt(struct + VkBindImageMemoryInfoKHX.SFRRECTCOUNT, value); }
     /** Unsafe version of {@link #pSFRRects(VkRect2D.Buffer) pSFRRects}. */
-    public static void npSFRRects(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS, addressSafe(value)); nSFRRectCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npSFRRects(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkBindImageMemoryInfoKHX.PSFRRECTS, memAddressSafe(value)); nSFRRectCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -481,7 +481,7 @@ public class VkBindImageMemoryInfoKHX extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 

@@ -205,7 +205,7 @@ public class AINode extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer malloc(int capacity) {
-        return create(nmemAlloc(capacity * SIZEOF), capacity);
+        return create(__malloc(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -223,7 +223,7 @@ public class AINode extends Struct implements NativeResource {
      * @param capacity the buffer capacity
      */
     public static Buffer create(int capacity) {
-        return new Buffer(BufferUtils.createByteBuffer(capacity * SIZEOF));
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -328,7 +328,7 @@ public class AINode extends Struct implements NativeResource {
     /** Unsafe version of {@link #mTransformation(AIMatrix4x4) mTransformation}. */
     public static void nmTransformation(long struct, AIMatrix4x4 value) { memCopy(value.address(), struct + AINode.MTRANSFORMATION, AIMatrix4x4.SIZEOF); }
     /** Unsafe version of {@link #mParent(AINode) mParent}. */
-    public static void nmParent(long struct, AINode value) { memPutAddress(struct + AINode.MPARENT, addressSafe(value)); }
+    public static void nmParent(long struct, AINode value) { memPutAddress(struct + AINode.MPARENT, memAddressSafe(value)); }
     /** Sets the specified value to the {@code mNumChildren} field of the specified {@code struct}. */
     public static void nmNumChildren(long struct, int value) { memPutInt(struct + AINode.MNUMCHILDREN, value); }
     /** Unsafe version of {@link #mChildren(PointerBuffer) mChildren}. */
@@ -338,7 +338,7 @@ public class AINode extends Struct implements NativeResource {
     /** Unsafe version of {@link #mMeshes(IntBuffer) mMeshes}. */
     public static void nmMeshes(long struct, IntBuffer value) { memPutAddress(struct + AINode.MMESHES, memAddressSafe(value)); nmNumMeshes(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #mMetadata(AIMetaData) mMetadata}. */
-    public static void nmMetadata(long struct, AIMetaData value) { memPutAddress(struct + AINode.MMETADATA, addressSafe(value)); }
+    public static void nmMetadata(long struct, AIMetaData value) { memPutAddress(struct + AINode.MMETADATA, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -408,7 +408,7 @@ public class AINode extends Struct implements NativeResource {
         }
 
         @Override
-        protected int sizeof() {
+        public int sizeof() {
             return SIZEOF;
         }
 
