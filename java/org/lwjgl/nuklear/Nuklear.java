@@ -1845,46 +1845,109 @@ public class Nuklear {
     // --- [ nk_window_set_bounds ] ---
 
     /** Unsafe version of: {@link #nk_window_set_bounds window_set_bounds} */
-    public static native void nnk_window_set_bounds(long ctx, long bounds);
+    public static native void nnk_window_set_bounds(long ctx, long name, long bounds);
 
     /**
-     * Updates position and size of the currently processed window.
+     * Updates position and size of the specified window.
      *
      * @param ctx    the nuklear context
-     * @param bounds 
+     * @param name   name of the window to modify both position and size
+     * @param bounds points to a {@code nk_rect} struct with the new position and size of the specified window
      */
-    public static void nk_window_set_bounds(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_rect") NkRect bounds) {
-        nnk_window_set_bounds(ctx.address(), bounds.address());
+    public static void nk_window_set_bounds(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") ByteBuffer name, @NativeType("struct nk_rect") NkRect bounds) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        nnk_window_set_bounds(ctx.address(), memAddress(name), bounds.address());
+    }
+
+    /**
+     * Updates position and size of the specified window.
+     *
+     * @param ctx    the nuklear context
+     * @param name   name of the window to modify both position and size
+     * @param bounds points to a {@code nk_rect} struct with the new position and size of the specified window
+     */
+    public static void nk_window_set_bounds(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("struct nk_rect") NkRect bounds) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.UTF8(name);
+            nnk_window_set_bounds(ctx.address(), memAddress(nameEncoded), bounds.address());
+        } finally {
+            stack.setPointer(stackPointer);
+        }
     }
 
     // --- [ nk_window_set_position ] ---
 
     /** Unsafe version of: {@link #nk_window_set_position window_set_position} */
-    public static native void nnk_window_set_position(long ctx, long position);
+    public static native void nnk_window_set_position(long ctx, long name, long position);
 
     /**
      * Updates position of the currently process window.
      *
      * @param ctx      the nuklear context
-     * @param position 
+     * @param name     name of the window to modify position of
+     * @param position points to a {@code nk_vec2} struct with the new position of currently active window
      */
-    public static void nk_window_set_position(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_vec2") NkVec2 position) {
-        nnk_window_set_position(ctx.address(), position.address());
+    public static void nk_window_set_position(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") ByteBuffer name, @NativeType("struct nk_vec2") NkVec2 position) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        nnk_window_set_position(ctx.address(), memAddress(name), position.address());
+    }
+
+    /**
+     * Updates position of the currently process window.
+     *
+     * @param ctx      the nuklear context
+     * @param name     name of the window to modify position of
+     * @param position points to a {@code nk_vec2} struct with the new position of currently active window
+     */
+    public static void nk_window_set_position(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("struct nk_vec2") NkVec2 position) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.UTF8(name);
+            nnk_window_set_position(ctx.address(), memAddress(nameEncoded), position.address());
+        } finally {
+            stack.setPointer(stackPointer);
+        }
     }
 
     // --- [ nk_window_set_size ] ---
 
     /** Unsafe version of: {@link #nk_window_set_size window_set_size} */
-    public static native void nnk_window_set_size(long ctx, long size);
+    public static native void nnk_window_set_size(long ctx, long name, long size);
 
     /**
-     * Updates the size of the currently processed window.
+     * Updates the size of the specified window.
      *
      * @param ctx  the nuklear context
-     * @param size 
+     * @param name name of the window to modify size of
+     * @param size points to a {@code nk_vec2} struct with the new size of currently active window
      */
-    public static void nk_window_set_size(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_vec2") NkVec2 size) {
-        nnk_window_set_size(ctx.address(), size.address());
+    public static void nk_window_set_size(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") ByteBuffer name, @NativeType("struct nk_vec2") NkVec2 size) {
+        if (CHECKS) {
+            checkNT1(name);
+        }
+        nnk_window_set_size(ctx.address(), memAddress(name), size.address());
+    }
+
+    /**
+     * Updates the size of the specified window.
+     *
+     * @param ctx  the nuklear context
+     * @param name name of the window to modify size of
+     * @param size points to a {@code nk_vec2} struct with the new size of currently active window
+     */
+    public static void nk_window_set_size(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("struct nk_vec2") NkVec2 size) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.UTF8(name);
+            nnk_window_set_size(ctx.address(), memAddress(nameEncoded), size.address());
+        } finally {
+            stack.setPointer(stackPointer);
+        }
     }
 
     // --- [ nk_window_set_focus ] ---
@@ -1893,10 +1956,10 @@ public class Nuklear {
     public static native void nnk_window_set_focus(long ctx, long name);
 
     /**
-     * Set the currently processed window as active window.
+     * Sets the specified window as active window.
      *
      * @param ctx  the nuklear context
-     * @param name 
+     * @param name name of the window to be set active
      */
     public static void nk_window_set_focus(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
@@ -1906,10 +1969,10 @@ public class Nuklear {
     }
 
     /**
-     * Set the currently processed window as active window.
+     * Sets the specified window as active window.
      *
      * @param ctx  the nuklear context
-     * @param name 
+     * @param name name of the window to be set active
      */
     public static void nk_window_set_focus(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -6711,10 +6774,11 @@ public class Nuklear {
     public static native void nnk_input_scroll(long ctx, long val);
 
     /**
-     * Mirrors mouse scroll values.
+     * Copies the last mouse scroll value to nuklear. Is generally a  scroll value. So does not have to come from mouse and could also originate from
+     * touch for example.
      *
      * @param ctx the nuklear context
-     * @param val 
+     * @param val vector with both X- as well as Y-scroll value
      */
     public static void nk_input_scroll(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_vec2") NkVec2 val) {
         nnk_input_scroll(ctx.address(), val.address());

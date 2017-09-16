@@ -229,25 +229,28 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1item_1is_1any_1active
     return (jint)nk_item_is_any_active(ctx);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1bounds(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong boundsAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1bounds(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jlong boundsAddress) {
     struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    const char *name = (const char *)(intptr_t)nameAddress;
     struct nk_rect *bounds = (struct nk_rect *)(intptr_t)boundsAddress;
     UNUSED_PARAMS(__env, clazz)
-    nk_window_set_bounds(ctx, *bounds);
+    nk_window_set_bounds(ctx, name, *bounds);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1position(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong positionAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1position(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jlong positionAddress) {
     struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    const char *name = (const char *)(intptr_t)nameAddress;
     struct nk_vec2 *position = (struct nk_vec2 *)(intptr_t)positionAddress;
     UNUSED_PARAMS(__env, clazz)
-    nk_window_set_position(ctx, *position);
+    nk_window_set_position(ctx, name, *position);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1size(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong sizeAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1size(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jlong sizeAddress) {
     struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    const char *name = (const char *)(intptr_t)nameAddress;
     struct nk_vec2 *size = (struct nk_vec2 *)(intptr_t)sizeAddress;
     UNUSED_PARAMS(__env, clazz)
-    nk_window_set_size(ctx, *size);
+    nk_window_set_size(ctx, name, *size);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1window_1set_1focus(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress) {
