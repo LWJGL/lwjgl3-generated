@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
     /** API version */
-    public static final int BGFX_API_VERSION = 46;
+    public static final int BGFX_API_VERSION = 48;
 
     /** Invalid handle */
     public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -187,13 +187,30 @@ public class BGFX {
         | BGFX_CLEAR_DISCARD_STENCIL)
         ;
 
-    /** Debug */
+    /**
+     * Debug
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #BGFX_DEBUG_NONE DEBUG_NONE}</li>
+     * <li>{@link #BGFX_DEBUG_WIREFRAME DEBUG_WIREFRAME} - Wireframe rendering. All rendering primitives will be rendered as lines.</li>
+     * <li>{@link #BGFX_DEBUG_IFH DEBUG_IFH} - 
+     * Infinitely fast hardware. When this flag is set all rendering calls will be skipped. It's useful when profiling to quickly assess bottleneck
+     * between CPU and GPU.
+     * </li>
+     * <li>{@link #BGFX_DEBUG_STATS DEBUG_STATS} - Display internal statistics.</li>
+     * <li>{@link #BGFX_DEBUG_TEXT DEBUG_TEXT} - Display debug text.</li>
+     * <li>{@link #BGFX_DEBUG_PROFILER DEBUG_PROFILER} - Enabled profiler.</li>
+     * </ul>
+     */
     public static final int
         BGFX_DEBUG_NONE      = 0x0,
         BGFX_DEBUG_WIREFRAME = 0x1,
         BGFX_DEBUG_IFH       = 0x2,
         BGFX_DEBUG_STATS     = 0x4,
-        BGFX_DEBUG_TEXT      = 0x8;
+        BGFX_DEBUG_TEXT      = 0x8,
+        BGFX_DEBUG_PROFILER  = 0x10;
 
     /** Buffer creation flags */
     public static final short
@@ -946,6 +963,7 @@ public class BGFX {
             destroy_indirect_buffer                      = apiGetFunctionAddress(BGFX, "bgfx_destroy_indirect_buffer"),
             create_shader                                = apiGetFunctionAddress(BGFX, "bgfx_create_shader"),
             get_shader_uniforms                          = apiGetFunctionAddress(BGFX, "bgfx_get_shader_uniforms"),
+            set_shader_name                              = apiGetFunctionAddress(BGFX, "bgfx_set_shader_name"),
             destroy_shader                               = apiGetFunctionAddress(BGFX, "bgfx_destroy_shader"),
             create_program                               = apiGetFunctionAddress(BGFX, "bgfx_create_program"),
             create_compute_program                       = apiGetFunctionAddress(BGFX, "bgfx_create_compute_program"),
@@ -961,6 +979,7 @@ public class BGFX {
             update_texture_3d                            = apiGetFunctionAddress(BGFX, "bgfx_update_texture_3d"),
             update_texture_cube                          = apiGetFunctionAddress(BGFX, "bgfx_update_texture_cube"),
             read_texture                                 = apiGetFunctionAddress(BGFX, "bgfx_read_texture"),
+            set_texture_name                             = apiGetFunctionAddress(BGFX, "bgfx_set_texture_name"),
             destroy_texture                              = apiGetFunctionAddress(BGFX, "bgfx_destroy_texture"),
             create_frame_buffer                          = apiGetFunctionAddress(BGFX, "bgfx_create_frame_buffer"),
             create_frame_buffer_scaled                   = apiGetFunctionAddress(BGFX, "bgfx_create_frame_buffer_scaled"),
@@ -1852,7 +1871,7 @@ public class BGFX {
     /**
      * Sets debug flags.
      *
-     * @param _debug the debug flags. One or more of:<br><table><tr><td>{@link #BGFX_DEBUG_NONE DEBUG_NONE}</td><td>{@link #BGFX_DEBUG_WIREFRAME DEBUG_WIREFRAME}</td><td>{@link #BGFX_DEBUG_IFH DEBUG_IFH}</td><td>{@link #BGFX_DEBUG_STATS DEBUG_STATS}</td><td>{@link #BGFX_DEBUG_TEXT DEBUG_TEXT}</td></tr></table>
+     * @param _debug the debug flags. One or more of:<br><table><tr><td>{@link #BGFX_DEBUG_NONE DEBUG_NONE}</td><td>{@link #BGFX_DEBUG_WIREFRAME DEBUG_WIREFRAME}</td><td>{@link #BGFX_DEBUG_IFH DEBUG_IFH}</td><td>{@link #BGFX_DEBUG_STATS DEBUG_STATS}</td><td>{@link #BGFX_DEBUG_TEXT DEBUG_TEXT}</td><td>{@link #BGFX_DEBUG_PROFILER DEBUG_PROFILER}</td></tr></table>
      */
     public static void bgfx_set_debug(@NativeType("uint32_t") int _debug) {
         long __functionAddress = Functions.set_debug;
@@ -2421,6 +2440,43 @@ public class BGFX {
         return nbgfx_get_shader_uniforms(_handle, memAddress(_uniforms), (short)_uniforms.remaining());
     }
 
+    // --- [ bgfx_set_shader_name ] ---
+
+    /** Unsafe version of: {@link #bgfx_set_shader_name set_shader_name} */
+    public static void nbgfx_set_shader_name(short _handle, long _name) {
+        long __functionAddress = Functions.set_shader_name;
+        invokePV(__functionAddress, _handle, _name);
+    }
+
+    /**
+     * Sets shader debug name.
+     *
+     * @param _handle shader handle
+     * @param _name   shader name
+     */
+    public static void bgfx_set_shader_name(@NativeType("bgfx_shader_handle_t") short _handle, @NativeType("const char *") ByteBuffer _name) {
+        if (CHECKS) {
+            checkNT1(_name);
+        }
+        nbgfx_set_shader_name(_handle, memAddress(_name));
+    }
+
+    /**
+     * Sets shader debug name.
+     *
+     * @param _handle shader handle
+     * @param _name   shader name
+     */
+    public static void bgfx_set_shader_name(@NativeType("bgfx_shader_handle_t") short _handle, @NativeType("const char *") CharSequence _name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer _nameEncoded = stack.UTF8(_name);
+            nbgfx_set_shader_name(_handle, memAddress(_nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
     // --- [ bgfx_destroy_shader ] ---
 
     /**
@@ -2825,6 +2881,43 @@ public class BGFX {
     @NativeType("uint32_t")
     public static int bgfx_read_texture(@NativeType("bgfx_texture_handle_t") short _handle, @NativeType("void *") FloatBuffer _data, @NativeType("uint8_t") int _mip) {
         return nbgfx_read_texture(_handle, memAddress(_data), (byte)_mip);
+    }
+
+    // --- [ bgfx_set_texture_name ] ---
+
+    /** Unsafe version of: {@link #bgfx_set_texture_name set_texture_name} */
+    public static void nbgfx_set_texture_name(short _handle, long _name) {
+        long __functionAddress = Functions.set_texture_name;
+        invokePV(__functionAddress, _handle, _name);
+    }
+
+    /**
+     * Sets texture debug name.
+     *
+     * @param _handle texture handle
+     * @param _name   texture name
+     */
+    public static void bgfx_set_texture_name(@NativeType("bgfx_texture_handle_t") short _handle, @NativeType("const char *") ByteBuffer _name) {
+        if (CHECKS) {
+            checkNT1(_name);
+        }
+        nbgfx_set_texture_name(_handle, memAddress(_name));
+    }
+
+    /**
+     * Sets texture debug name.
+     *
+     * @param _handle texture handle
+     * @param _name   texture name
+     */
+    public static void bgfx_set_texture_name(@NativeType("bgfx_texture_handle_t") short _handle, @NativeType("const char *") CharSequence _name) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer _nameEncoded = stack.UTF8(_name);
+            nbgfx_set_texture_name(_handle, memAddress(_nameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
     }
 
     // --- [ bgfx_destroy_texture ] ---
@@ -3824,6 +3917,10 @@ public class BGFX {
 
     /**
      * Sets index buffer for draw primitive.
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>{@code _tib} pointer after this call is invalid.</p></div>
      *
      * @param _tib        transient index buffer
      * @param _firstIndex first index to render
@@ -3886,6 +3983,10 @@ public class BGFX {
 
     /**
      * Sets vertex buffer for draw primitive.
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>{@code _tvb} pointer after this call is invalid.</p></div>
      *
      * @param _stream      vertex stream
      * @param _tvb         transient vertex buffer
@@ -3909,9 +4010,13 @@ public class BGFX {
 
     /**
      * Sets instance data buffer for draw primitive.
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>{@code _idb} pointer after this call is invalid.</p></div>
      *
-     * @param _idb instance data buffer
-     * @param _num number of instances to render
+     * @param _idb transient instance data buffer
+     * @param _num number of data instances
      */
     public static void bgfx_set_instance_data_buffer(@NativeType("const bgfx_instance_data_buffer_t *") BGFXInstanceDataBuffer _idb, @NativeType("uint32_t") int _num) {
         nbgfx_set_instance_data_buffer(_idb.address(), _num);
@@ -3922,13 +4027,13 @@ public class BGFX {
     /**
      * Set instance data buffer for draw primitive.
      *
-     * @param _handle      vertex buffer
-     * @param _startVertex first vertex to render
-     * @param _numVertices number of vertices to render
+     * @param _handle vertex buffer
+     * @param _start  first instance data
+     * @param _num    number of data instances
      */
-    public static void bgfx_set_instance_data_from_vertex_buffer(@NativeType("bgfx_vertex_buffer_handle_t") short _handle, @NativeType("uint32_t") int _startVertex, @NativeType("uint32_t") int _numVertices) {
+    public static void bgfx_set_instance_data_from_vertex_buffer(@NativeType("bgfx_vertex_buffer_handle_t") short _handle, @NativeType("uint32_t") int _start, @NativeType("uint32_t") int _num) {
         long __functionAddress = Functions.set_instance_data_from_vertex_buffer;
-        invokeV(__functionAddress, _handle, _startVertex, _numVertices);
+        invokeV(__functionAddress, _handle, _start, _num);
     }
 
     // --- [ bgfx_set_instance_data_from_dynamic_vertex_buffer ] ---
@@ -3936,13 +4041,13 @@ public class BGFX {
     /**
      * Set instance data buffer for draw primitive.
      *
-     * @param _handle      dynamic vertex buffer
-     * @param _startVertex first vertex to render
-     * @param _numVertices number of vertices to render
+     * @param _handle dynamic vertex buffer
+     * @param _start  first instance data
+     * @param _num    number of data instances
      */
-    public static void bgfx_set_instance_data_from_dynamic_vertex_buffer(@NativeType("bgfx_dynamic_vertex_buffer_handle_t") short _handle, @NativeType("uint32_t") int _startVertex, @NativeType("uint32_t") int _numVertices) {
+    public static void bgfx_set_instance_data_from_dynamic_vertex_buffer(@NativeType("bgfx_dynamic_vertex_buffer_handle_t") short _handle, @NativeType("uint32_t") int _start, @NativeType("uint32_t") int _num) {
         long __functionAddress = Functions.set_instance_data_from_dynamic_vertex_buffer;
-        invokeV(__functionAddress, _handle, _startVertex, _numVertices);
+        invokeV(__functionAddress, _handle, _start, _num);
     }
 
     // --- [ bgfx_set_texture ] ---
