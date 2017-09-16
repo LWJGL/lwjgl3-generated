@@ -71,21 +71,21 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglColorTableParameterfv
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetColorTable__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jlong tableAddress) {
-    glGetColorTablePROC glGetColorTable = (glGetColorTablePROC)tlsGetFunction(526);
+    glGetColorTablePROC glGetColorTable = (glGetColorTablePROC)tlsGetFunction(529);
     intptr_t table = (intptr_t)tableAddress;
     UNUSED_PARAM(clazz)
     glGetColorTable(target, format, type, table);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetColorTableParameteriv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetColorTableParameterivPROC glGetColorTableParameteriv = (glGetColorTableParameterivPROC)tlsGetFunction(528);
+    glGetColorTableParameterivPROC glGetColorTableParameteriv = (glGetColorTableParameterivPROC)tlsGetFunction(531);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetColorTableParameteriv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetColorTableParameterfv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetColorTableParameterfvPROC glGetColorTableParameterfv = (glGetColorTableParameterfvPROC)tlsGetFunction(527);
+    glGetColorTableParameterfvPROC glGetColorTableParameterfv = (glGetColorTableParameterfvPROC)tlsGetFunction(530);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetColorTableParameterfv(target, pname, params);
@@ -131,14 +131,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glCopyConvolutionFilter2
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetConvolutionFilter(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jlong imageAddress) {
-    glGetConvolutionFilterPROC glGetConvolutionFilter = (glGetConvolutionFilterPROC)tlsGetFunction(536);
+    glGetConvolutionFilterPROC glGetConvolutionFilter = (glGetConvolutionFilterPROC)tlsGetFunction(539);
     intptr_t image = (intptr_t)imageAddress;
     UNUSED_PARAM(clazz)
     glGetConvolutionFilter(target, format, type, image);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglSeparableFilter2D(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint width, jint height, jint format, jint type, jlong rowAddress, jlong columnAddress) {
-    glSeparableFilter2DPROC glSeparableFilter2D = (glSeparableFilter2DPROC)tlsGetFunction(1545);
+    glSeparableFilter2DPROC glSeparableFilter2D = (glSeparableFilter2DPROC)tlsGetFunction(1550);
     const intptr_t row = (const intptr_t)rowAddress;
     const intptr_t column = (const intptr_t)columnAddress;
     UNUSED_PARAM(clazz)
@@ -146,7 +146,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglSeparableFilter2D(JNI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetSeparableFilter(JNIEnv *__env, jclass clazz, jint target, jint format, jint type, jlong rowAddress, jlong columnAddress, jlong spanAddress) {
-    glGetSeparableFilterPROC glGetSeparableFilter = (glGetSeparableFilterPROC)tlsGetFunction(703);
+    glGetSeparableFilterPROC glGetSeparableFilter = (glGetSeparableFilterPROC)tlsGetFunction(706);
     intptr_t row = (intptr_t)rowAddress;
     intptr_t column = (intptr_t)columnAddress;
     intptr_t span = (intptr_t)spanAddress;
@@ -181,80 +181,80 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglConvolutionParameterf
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetConvolutionParameteriv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetConvolutionParameterivPROC glGetConvolutionParameteriv = (glGetConvolutionParameterivPROC)tlsGetFunction(538);
+    glGetConvolutionParameterivPROC glGetConvolutionParameteriv = (glGetConvolutionParameterivPROC)tlsGetFunction(541);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetConvolutionParameteriv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetConvolutionParameterfv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetConvolutionParameterfvPROC glGetConvolutionParameterfv = (glGetConvolutionParameterfvPROC)tlsGetFunction(537);
+    glGetConvolutionParameterfvPROC glGetConvolutionParameterfv = (glGetConvolutionParameterfvPROC)tlsGetFunction(540);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetConvolutionParameterfv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glHistogram(JNIEnv *__env, jclass clazz, jint target, jint width, jint internalformat, jboolean sink) {
-    glHistogramPROC glHistogram = (glHistogramPROC)tlsGetFunction(839);
+    glHistogramPROC glHistogram = (glHistogramPROC)tlsGetFunction(842);
     UNUSED_PARAM(clazz)
     glHistogram(target, width, internalformat, sink);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glResetHistogram(JNIEnv *__env, jclass clazz, jint target) {
-    glResetHistogramPROC glResetHistogram = (glResetHistogramPROC)tlsGetFunction(1480);
+    glResetHistogramPROC glResetHistogram = (glResetHistogramPROC)tlsGetFunction(1485);
     UNUSED_PARAM(clazz)
     glResetHistogram(target);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetHistogram(JNIEnv *__env, jclass clazz, jint target, jboolean reset, jint format, jint type, jlong valuesAddress) {
-    glGetHistogramPROC glGetHistogram = (glGetHistogramPROC)tlsGetFunction(564);
+    glGetHistogramPROC glGetHistogram = (glGetHistogramPROC)tlsGetFunction(567);
     intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glGetHistogram(target, reset, format, type, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetHistogramParameteriv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetHistogramParameterivPROC glGetHistogramParameteriv = (glGetHistogramParameterivPROC)tlsGetFunction(566);
+    glGetHistogramParameterivPROC glGetHistogramParameteriv = (glGetHistogramParameterivPROC)tlsGetFunction(569);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetHistogramParameteriv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetHistogramParameterfv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetHistogramParameterfvPROC glGetHistogramParameterfv = (glGetHistogramParameterfvPROC)tlsGetFunction(565);
+    glGetHistogramParameterfvPROC glGetHistogramParameterfv = (glGetHistogramParameterfvPROC)tlsGetFunction(568);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetHistogramParameterfv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glMinmax(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jboolean sink) {
-    glMinmaxPROC glMinmax = (glMinmaxPROC)tlsGetFunction(1004);
+    glMinmaxPROC glMinmax = (glMinmaxPROC)tlsGetFunction(1007);
     UNUSED_PARAM(clazz)
     glMinmax(target, internalformat, sink);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glResetMinmax(JNIEnv *__env, jclass clazz, jint target) {
-    glResetMinmaxPROC glResetMinmax = (glResetMinmaxPROC)tlsGetFunction(1481);
+    glResetMinmaxPROC glResetMinmax = (glResetMinmaxPROC)tlsGetFunction(1486);
     UNUSED_PARAM(clazz)
     glResetMinmax(target);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetMinmax(JNIEnv *__env, jclass clazz, jint target, jboolean reset, jint format, jint type, jlong valuesAddress) {
-    glGetMinmaxPROC glGetMinmax = (glGetMinmaxPROC)tlsGetFunction(588);
+    glGetMinmaxPROC glGetMinmax = (glGetMinmaxPROC)tlsGetFunction(591);
     intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glGetMinmax(target, reset, format, type, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetMinmaxParameteriv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetMinmaxParameterivPROC glGetMinmaxParameteriv = (glGetMinmaxParameterivPROC)tlsGetFunction(590);
+    glGetMinmaxParameterivPROC glGetMinmaxParameteriv = (glGetMinmaxParameterivPROC)tlsGetFunction(593);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetMinmaxParameteriv(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetMinmaxParameterfv__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
-    glGetMinmaxParameterfvPROC glGetMinmaxParameterfv = (glGetMinmaxParameterfvPROC)tlsGetFunction(589);
+    glGetMinmaxParameterfvPROC glGetMinmaxParameterfv = (glGetMinmaxParameterfvPROC)tlsGetFunction(592);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetMinmaxParameterfv(target, pname, params);

@@ -14,27 +14,27 @@ typedef void (APIENTRY *glSpecializeShaderPROC) (jint, const intptr_t, jint, con
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL46_nglMultiDrawArraysIndirectCount__IJJII(JNIEnv *__env, jclass clazz, jint mode, jlong indirectAddress, jlong drawcount, jint maxdrawcount, jint stride) {
-    glMultiDrawArraysIndirectCountPROC glMultiDrawArraysIndirectCount = (glMultiDrawArraysIndirectCountPROC)tlsGetFunction(1015);
+    glMultiDrawArraysIndirectCountPROC glMultiDrawArraysIndirectCount = (glMultiDrawArraysIndirectCountPROC)tlsGetFunction(1018);
     const intptr_t indirect = (const intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glMultiDrawArraysIndirectCount(mode, indirect, (intptr_t)drawcount, maxdrawcount, stride);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL46_nglMultiDrawElementsIndirectCount__IIJJII(JNIEnv *__env, jclass clazz, jint mode, jint type, jlong indirectAddress, jlong drawcount, jint maxdrawcount, jint stride) {
-    glMultiDrawElementsIndirectCountPROC glMultiDrawElementsIndirectCount = (glMultiDrawElementsIndirectCountPROC)tlsGetFunction(1022);
+    glMultiDrawElementsIndirectCountPROC glMultiDrawElementsIndirectCount = (glMultiDrawElementsIndirectCountPROC)tlsGetFunction(1025);
     const intptr_t indirect = (const intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glMultiDrawElementsIndirectCount(mode, type, indirect, (intptr_t)drawcount, maxdrawcount, stride);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL46_glPolygonOffsetClamp(JNIEnv *__env, jclass clazz, jfloat factor, jfloat units, jfloat clamp) {
-    glPolygonOffsetClampPROC glPolygonOffsetClamp = (glPolygonOffsetClampPROC)tlsGetFunction(1255);
+    glPolygonOffsetClampPROC glPolygonOffsetClamp = (glPolygonOffsetClampPROC)tlsGetFunction(1258);
     UNUSED_PARAM(clazz)
     glPolygonOffsetClamp(factor, units, clamp);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL46_nglSpecializeShader__IJIJJ(JNIEnv *__env, jclass clazz, jint shader, jlong pEntryPointAddress, jint numSpecializationConstants, jlong pConstantIndexAddress, jlong pConstantValueAddress) {
-    glSpecializeShaderPROC glSpecializeShader = (glSpecializeShaderPROC)tlsGetFunction(1556);
+    glSpecializeShaderPROC glSpecializeShader = (glSpecializeShaderPROC)tlsGetFunction(1561);
     const intptr_t pEntryPoint = (const intptr_t)pEntryPointAddress;
     const intptr_t pConstantIndex = (const intptr_t)pConstantIndexAddress;
     const intptr_t pConstantValue = (const intptr_t)pConstantValueAddress;

@@ -36,7 +36,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDebugOutput_nglDebugMessageCallb
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBDebugOutput_nglGetDebugMessageLogARB__IIJJJJJJ(JNIEnv *__env, jclass clazz, jint count, jint bufSize, jlong sourcesAddress, jlong typesAddress, jlong idsAddress, jlong severitiesAddress, jlong lengthsAddress, jlong messageLogAddress) {
-    glGetDebugMessageLogARBPROC glGetDebugMessageLogARB = (glGetDebugMessageLogARBPROC)tlsGetFunction(542);
+    glGetDebugMessageLogARBPROC glGetDebugMessageLogARB = (glGetDebugMessageLogARBPROC)tlsGetFunction(545);
     intptr_t sources = (intptr_t)sourcesAddress;
     intptr_t types = (intptr_t)typesAddress;
     intptr_t ids = (intptr_t)idsAddress;

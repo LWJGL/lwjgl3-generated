@@ -18,7 +18,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_EXTWin32KeyedMutex_glAcquireK
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_EXTWin32KeyedMutex_glReleaseKeyedMutexWin32EXT(JNIEnv *__env, jclass clazz, jint memory, jlong key) {
-    glReleaseKeyedMutexWin32EXTPROC glReleaseKeyedMutexWin32EXT = (glReleaseKeyedMutexWin32EXTPROC)tlsGetFunction(625);
+    glReleaseKeyedMutexWin32EXTPROC glReleaseKeyedMutexWin32EXT = (glReleaseKeyedMutexWin32EXTPROC)tlsGetFunction(626);
     UNUSED_PARAM(clazz)
     return (jboolean)glReleaseKeyedMutexWin32EXT(memory, key);
 }

@@ -21,7 +21,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTBlendFuncExtended_nglBindFragD
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_EXTBlendFuncExtended_nglGetFragDataIndexEXT(JNIEnv *__env, jclass clazz, jint program, jlong nameAddress) {
-    glGetFragDataIndexEXTPROC glGetFragDataIndexEXT = (glGetFragDataIndexEXTPROC)tlsGetFunction(291);
+    glGetFragDataIndexEXTPROC glGetFragDataIndexEXT = (glGetFragDataIndexEXTPROC)tlsGetFunction(292);
     const intptr_t name = (const intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetFragDataIndexEXT(program, name);
@@ -35,7 +35,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTBlendFuncExtended_nglBindFragD
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_EXTBlendFuncExtended_nglGetProgramResourceLocationIndexEXT(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jlong nameAddress) {
-    glGetProgramResourceLocationIndexEXTPROC glGetProgramResourceLocationIndexEXT = (glGetProgramResourceLocationIndexEXTPROC)tlsGetFunction(347);
+    glGetProgramResourceLocationIndexEXTPROC glGetProgramResourceLocationIndexEXT = (glGetProgramResourceLocationIndexEXTPROC)tlsGetFunction(348);
     const intptr_t name = (const intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetProgramResourceLocationIndexEXT(program, programInterface, name);

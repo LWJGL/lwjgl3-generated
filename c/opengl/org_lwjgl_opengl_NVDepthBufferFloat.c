@@ -13,7 +13,7 @@ typedef void (APIENTRY *glDepthBoundsdNVPROC) (jdouble, jdouble);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVDepthBufferFloat_glDepthRangedNV(JNIEnv *__env, jclass clazz, jdouble zNear, jdouble zFar) {
-    glDepthRangedNVPROC glDepthRangedNV = (glDepthRangedNVPROC)tlsGetFunction(333);
+    glDepthRangedNVPROC glDepthRangedNV = (glDepthRangedNVPROC)tlsGetFunction(334);
     UNUSED_PARAM(clazz)
     glDepthRangedNV(zNear, zFar);
 }
@@ -25,7 +25,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVDepthBufferFloat_glClearDepthdNV(
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVDepthBufferFloat_glDepthBoundsdNV(JNIEnv *__env, jclass clazz, jdouble zmin, jdouble zmax) {
-    glDepthBoundsdNVPROC glDepthBoundsdNV = (glDepthBoundsdNVPROC)tlsGetFunction(327);
+    glDepthBoundsdNVPROC glDepthBoundsdNV = (glDepthBoundsdNVPROC)tlsGetFunction(328);
     UNUSED_PARAM(clazz)
     glDepthBoundsdNV(zmin, zmax);
 }

@@ -11,7 +11,7 @@ typedef void (APIENTRY *glGetInternalformati64vPROC) (jint, jint, jint, jint, in
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBInternalformatQuery2_nglGetInternalformati64v__IIIIJ(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint pname, jint bufSize, jlong paramsAddress) {
-    glGetInternalformati64vPROC glGetInternalformati64v = (glGetInternalformati64vPROC)tlsGetFunction(578);
+    glGetInternalformati64vPROC glGetInternalformati64v = (glGetInternalformati64vPROC)tlsGetFunction(581);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetInternalformati64v(target, internalformat, pname, bufSize, params);

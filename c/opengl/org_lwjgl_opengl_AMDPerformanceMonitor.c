@@ -21,7 +21,7 @@ typedef void (APIENTRY *glGetPerfMonitorCounterDataAMDPROC) (jint, jint, jint, i
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMonitorGroupsAMD__JIJ(JNIEnv *__env, jclass clazz, jlong numGroupsAddress, jint groupsSize, jlong groupsAddress) {
-    glGetPerfMonitorGroupsAMDPROC glGetPerfMonitorGroupsAMD = (glGetPerfMonitorGroupsAMDPROC)tlsGetFunction(651);
+    glGetPerfMonitorGroupsAMDPROC glGetPerfMonitorGroupsAMD = (glGetPerfMonitorGroupsAMDPROC)tlsGetFunction(654);
     intptr_t numGroups = (intptr_t)numGroupsAddress;
     intptr_t groups = (intptr_t)groupsAddress;
     UNUSED_PARAM(clazz)
@@ -29,7 +29,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMon
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMonitorCountersAMD__IJJIJ(JNIEnv *__env, jclass clazz, jint group, jlong numCountersAddress, jlong maxActiveCountersAddress, jint counterSize, jlong countersAddress) {
-    glGetPerfMonitorCountersAMDPROC glGetPerfMonitorCountersAMD = (glGetPerfMonitorCountersAMDPROC)tlsGetFunction(649);
+    glGetPerfMonitorCountersAMDPROC glGetPerfMonitorCountersAMD = (glGetPerfMonitorCountersAMDPROC)tlsGetFunction(652);
     intptr_t numCounters = (intptr_t)numCountersAddress;
     intptr_t maxActiveCounters = (intptr_t)maxActiveCountersAddress;
     intptr_t counters = (intptr_t)countersAddress;
@@ -38,7 +38,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMon
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMonitorGroupStringAMD__IIJJ(JNIEnv *__env, jclass clazz, jint group, jint bufSize, jlong lengthAddress, jlong groupStringAddress) {
-    glGetPerfMonitorGroupStringAMDPROC glGetPerfMonitorGroupStringAMD = (glGetPerfMonitorGroupStringAMDPROC)tlsGetFunction(650);
+    glGetPerfMonitorGroupStringAMDPROC glGetPerfMonitorGroupStringAMD = (glGetPerfMonitorGroupStringAMDPROC)tlsGetFunction(653);
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t groupString = (intptr_t)groupStringAddress;
     UNUSED_PARAM(clazz)
@@ -46,7 +46,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMon
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMonitorCounterStringAMD__IIIJJ(JNIEnv *__env, jclass clazz, jint group, jint counter, jint bufSize, jlong lengthAddress, jlong counterStringAddress) {
-    glGetPerfMonitorCounterStringAMDPROC glGetPerfMonitorCounterStringAMD = (glGetPerfMonitorCounterStringAMDPROC)tlsGetFunction(648);
+    glGetPerfMonitorCounterStringAMDPROC glGetPerfMonitorCounterStringAMD = (glGetPerfMonitorCounterStringAMDPROC)tlsGetFunction(651);
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t counterString = (intptr_t)counterStringAddress;
     UNUSED_PARAM(clazz)
@@ -54,14 +54,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMon
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMonitorCounterInfoAMD__IIIJ(JNIEnv *__env, jclass clazz, jint group, jint counter, jint pname, jlong dataAddress) {
-    glGetPerfMonitorCounterInfoAMDPROC glGetPerfMonitorCounterInfoAMD = (glGetPerfMonitorCounterInfoAMDPROC)tlsGetFunction(647);
+    glGetPerfMonitorCounterInfoAMDPROC glGetPerfMonitorCounterInfoAMD = (glGetPerfMonitorCounterInfoAMDPROC)tlsGetFunction(650);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetPerfMonitorCounterInfoAMD(group, counter, pname, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGenPerfMonitorsAMD__IJ(JNIEnv *__env, jclass clazz, jint n, jlong monitorsAddress) {
-    glGenPerfMonitorsAMDPROC glGenPerfMonitorsAMD = (glGenPerfMonitorsAMDPROC)tlsGetFunction(479);
+    glGenPerfMonitorsAMDPROC glGenPerfMonitorsAMD = (glGenPerfMonitorsAMDPROC)tlsGetFunction(481);
     intptr_t monitors = (intptr_t)monitorsAddress;
     UNUSED_PARAM(clazz)
     glGenPerfMonitorsAMD(n, monitors);
@@ -75,7 +75,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglDeletePerf
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglSelectPerfMonitorCountersAMD__IZIIJ(JNIEnv *__env, jclass clazz, jint monitor, jboolean enable, jint group, jint numCounters, jlong counterListAddress) {
-    glSelectPerfMonitorCountersAMDPROC glSelectPerfMonitorCountersAMD = (glSelectPerfMonitorCountersAMDPROC)tlsGetFunction(1543);
+    glSelectPerfMonitorCountersAMDPROC glSelectPerfMonitorCountersAMD = (glSelectPerfMonitorCountersAMDPROC)tlsGetFunction(1548);
     intptr_t counterList = (intptr_t)counterListAddress;
     UNUSED_PARAM(clazz)
     glSelectPerfMonitorCountersAMD(monitor, enable, group, numCounters, counterList);
@@ -88,13 +88,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_glBeginPerfMo
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_glEndPerfMonitorAMD(JNIEnv *__env, jclass clazz, jint monitor) {
-    glEndPerfMonitorAMDPROC glEndPerfMonitorAMD = (glEndPerfMonitorAMDPROC)tlsGetFunction(403);
+    glEndPerfMonitorAMDPROC glEndPerfMonitorAMD = (glEndPerfMonitorAMDPROC)tlsGetFunction(404);
     UNUSED_PARAM(clazz)
     glEndPerfMonitorAMD(monitor);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDPerformanceMonitor_nglGetPerfMonitorCounterDataAMD__IIIJJ(JNIEnv *__env, jclass clazz, jint monitor, jint pname, jint dataSize, jlong dataAddress, jlong bytesWrittenAddress) {
-    glGetPerfMonitorCounterDataAMDPROC glGetPerfMonitorCounterDataAMD = (glGetPerfMonitorCounterDataAMDPROC)tlsGetFunction(646);
+    glGetPerfMonitorCounterDataAMDPROC glGetPerfMonitorCounterDataAMD = (glGetPerfMonitorCounterDataAMDPROC)tlsGetFunction(649);
     intptr_t data = (intptr_t)dataAddress;
     intptr_t bytesWritten = (intptr_t)bytesWrittenAddress;
     UNUSED_PARAM(clazz)

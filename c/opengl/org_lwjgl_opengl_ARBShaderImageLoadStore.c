@@ -18,7 +18,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderImageLoadStore_glBindImage
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderImageLoadStore_glMemoryBarrier(JNIEnv *__env, jclass clazz, jint barriers) {
-    glMemoryBarrierPROC glMemoryBarrier = (glMemoryBarrierPROC)tlsGetFunction(998);
+    glMemoryBarrierPROC glMemoryBarrier = (glMemoryBarrierPROC)tlsGetFunction(1001);
     UNUSED_PARAM(clazz)
     glMemoryBarrier(barriers);
 }

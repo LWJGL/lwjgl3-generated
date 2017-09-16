@@ -647,6 +647,17 @@ public class ARBDirectStateAccess {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link GL15#GL_STREAM_READ STREAM_READ}</td><td>{@link GL15#GL_STREAM_COPY STREAM_COPY}</td><td>{@link GL15#GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link GL15#GL_STATIC_READ STATIC_READ}</td><td>{@link GL15#GL_STATIC_COPY STATIC_COPY}</td><td>{@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
+    public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") LongBuffer data, @NativeType("GLenum") int usage) {
+        nglNamedBufferData(buffer, data.remaining() << 3, memAddress(data), usage);
+    }
+
+    /**
+     * DSA version of {@link GL15#glBufferData BufferData}.
+     *
+     * @param buffer 
+     * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
+     * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link GL15#GL_STREAM_READ STREAM_READ}</td><td>{@link GL15#GL_STREAM_COPY STREAM_COPY}</td><td>{@link GL15#GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link GL15#GL_STATIC_READ STATIC_READ}</td><td>{@link GL15#GL_STATIC_COPY STATIC_COPY}</td><td>{@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
+     */
     public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
         nglNamedBufferData(buffer, data.remaining() << 2, memAddress(data), usage);
     }
@@ -702,6 +713,17 @@ public class ARBDirectStateAccess {
      */
     public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") IntBuffer data) {
         nglNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+    }
+
+    /**
+     * DSA version of {@link GL15#glBufferSubData BufferSubData}.
+     *
+     * @param buffer 
+     * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
+     * @param data   a pointer to the new data that will be copied into the data store
+     */
+    public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") LongBuffer data) {
+        nglNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
     }
 
     /**
@@ -1124,6 +1146,17 @@ public class ARBDirectStateAccess {
      */
     public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") IntBuffer data) {
         nglGetNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+    }
+
+    /**
+     * DSA version of {@link GL15#glGetBufferSubData GetBufferSubData}.
+     *
+     * @param buffer the buffer object name
+     * @param offset the offset into the buffer object's data store from which data will be returned, measured in bytes
+     * @param data   a pointer to the location where buffer object data is returned
+     */
+    public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") LongBuffer data) {
+        nglGetNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
     }
 
     /**
@@ -3287,6 +3320,15 @@ public class ARBDirectStateAccess {
     }
 
     /** Array version of: {@link #glNamedBufferData NamedBufferData} */
+    public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") long[] data, @NativeType("GLenum") int usage) {
+        long __functionAddress = GL.getICD().glNamedBufferData;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
+    }
+
+    /** Array version of: {@link #glNamedBufferData NamedBufferData} */
     public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") float[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glNamedBufferData;
         if (CHECKS) {
@@ -3320,6 +3362,15 @@ public class ARBDirectStateAccess {
             check(__functionAddress);
         }
         callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+    }
+
+    /** Array version of: {@link #glNamedBufferSubData NamedBufferSubData} */
+    public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") long[] data) {
+        long __functionAddress = GL.getICD().glNamedBufferSubData;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
     }
 
     /** Array version of: {@link #glNamedBufferSubData NamedBufferSubData} */
@@ -3376,6 +3427,15 @@ public class ARBDirectStateAccess {
             check(__functionAddress);
         }
         callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+    }
+
+    /** Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */
+    public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") long[] data) {
+        long __functionAddress = GL.getICD().glGetNamedBufferSubData;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
     }
 
     /** Array version of: {@link #glGetNamedBufferSubData GetNamedBufferSubData} */

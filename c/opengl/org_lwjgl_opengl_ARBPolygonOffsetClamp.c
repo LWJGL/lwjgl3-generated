@@ -11,7 +11,7 @@ typedef void (APIENTRY *glPolygonOffsetClampPROC) (jfloat, jfloat, jfloat);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBPolygonOffsetClamp_glPolygonOffsetClamp(JNIEnv *__env, jclass clazz, jfloat factor, jfloat units, jfloat clamp) {
-    glPolygonOffsetClampPROC glPolygonOffsetClamp = (glPolygonOffsetClampPROC)tlsGetFunction(1255);
+    glPolygonOffsetClampPROC glPolygonOffsetClamp = (glPolygonOffsetClampPROC)tlsGetFunction(1258);
     UNUSED_PARAM(clazz)
     glPolygonOffsetClamp(factor, units, clamp);
 }

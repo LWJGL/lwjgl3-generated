@@ -19,7 +19,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTBufferStorage_nglBufferStorage
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTBufferStorage_nglNamedBufferStorageEXT__IJJI(JNIEnv *__env, jclass clazz, jint buffer, jlong size, jlong dataAddress, jint flags) {
-    glNamedBufferStorageEXTPROC glNamedBufferStorageEXT = (glNamedBufferStorageEXTPROC)tlsGetFunction(483);
+    glNamedBufferStorageEXTPROC glNamedBufferStorageEXT = (glNamedBufferStorageEXTPROC)tlsGetFunction(484);
     const intptr_t data = (const intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glNamedBufferStorageEXT(buffer, (intptr_t)size, data, flags);

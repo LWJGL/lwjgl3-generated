@@ -59,7 +59,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureCompression_nglCompressed
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTextureCompression_nglGetCompressedTexImageARB(JNIEnv *__env, jclass clazz, jint target, jint level, jlong pixelsAddress) {
-    glGetCompressedTexImageARBPROC glGetCompressedTexImageARB = (glGetCompressedTexImageARBPROC)tlsGetFunction(532);
+    glGetCompressedTexImageARBPROC glGetCompressedTexImageARB = (glGetCompressedTexImageARBPROC)tlsGetFunction(535);
     intptr_t pixels = (intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glGetCompressedTexImageARB(target, level, pixels);

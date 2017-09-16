@@ -69,40 +69,40 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glBlendEquation(JNIEnv *__env,
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glFogCoordf(JNIEnv *__env, jclass clazz, jfloat coord) {
-    glFogCoordfPROC glFogCoordf = (glFogCoordfPROC)tlsGetFunction(438);
+    glFogCoordfPROC glFogCoordf = (glFogCoordfPROC)tlsGetFunction(439);
     UNUSED_PARAM(clazz)
     glFogCoordf(coord);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glFogCoordd(JNIEnv *__env, jclass clazz, jdouble coord) {
-    glFogCoorddPROC glFogCoordd = (glFogCoorddPROC)tlsGetFunction(436);
+    glFogCoorddPROC glFogCoordd = (glFogCoorddPROC)tlsGetFunction(437);
     UNUSED_PARAM(clazz)
     glFogCoordd(coord);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoordfv__J(JNIEnv *__env, jclass clazz, jlong coordAddress) {
-    glFogCoordfvPROC glFogCoordfv = (glFogCoordfvPROC)tlsGetFunction(439);
+    glFogCoordfvPROC glFogCoordfv = (glFogCoordfvPROC)tlsGetFunction(440);
     const intptr_t coord = (const intptr_t)coordAddress;
     UNUSED_PARAM(clazz)
     glFogCoordfv(coord);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoorddv__J(JNIEnv *__env, jclass clazz, jlong coordAddress) {
-    glFogCoorddvPROC glFogCoorddv = (glFogCoorddvPROC)tlsGetFunction(437);
+    glFogCoorddvPROC glFogCoorddv = (glFogCoorddvPROC)tlsGetFunction(438);
     const intptr_t coord = (const intptr_t)coordAddress;
     UNUSED_PARAM(clazz)
     glFogCoorddv(coord);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglFogCoordPointer(JNIEnv *__env, jclass clazz, jint type, jint stride, jlong pointerAddress) {
-    glFogCoordPointerPROC glFogCoordPointer = (glFogCoordPointerPROC)tlsGetFunction(435);
+    glFogCoordPointerPROC glFogCoordPointer = (glFogCoordPointerPROC)tlsGetFunction(436);
     const intptr_t pointer = (const intptr_t)pointerAddress;
     UNUSED_PARAM(clazz)
     glFogCoordPointer(type, stride, pointer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawArrays__IJJI(JNIEnv *__env, jclass clazz, jint mode, jlong firstAddress, jlong countAddress, jint primcount) {
-    glMultiDrawArraysPROC glMultiDrawArrays = (glMultiDrawArraysPROC)tlsGetFunction(1011);
+    glMultiDrawArraysPROC glMultiDrawArrays = (glMultiDrawArraysPROC)tlsGetFunction(1014);
     const intptr_t first = (const intptr_t)firstAddress;
     const intptr_t count = (const intptr_t)countAddress;
     UNUSED_PARAM(clazz)
@@ -110,7 +110,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawArrays__IJJI(JNIEn
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawElements__IJIJI(JNIEnv *__env, jclass clazz, jint mode, jlong countAddress, jint type, jlong indicesAddress, jint primcount) {
-    glMultiDrawElementsPROC glMultiDrawElements = (glMultiDrawElementsPROC)tlsGetFunction(1017);
+    glMultiDrawElementsPROC glMultiDrawElements = (glMultiDrawElementsPROC)tlsGetFunction(1020);
     intptr_t count = (intptr_t)countAddress;
     const intptr_t indices = (const intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
@@ -118,137 +118,137 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglMultiDrawElements__IJIJI(JN
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glPointParameterf(JNIEnv *__env, jclass clazz, jint pname, jfloat param) {
-    glPointParameterfPROC glPointParameterf = (glPointParameterfPROC)tlsGetFunction(1242);
+    glPointParameterfPROC glPointParameterf = (glPointParameterfPROC)tlsGetFunction(1245);
     UNUSED_PARAM(clazz)
     glPointParameterf(pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glPointParameteri(JNIEnv *__env, jclass clazz, jint pname, jint param) {
-    glPointParameteriPROC glPointParameteri = (glPointParameteriPROC)tlsGetFunction(1248);
+    glPointParameteriPROC glPointParameteri = (glPointParameteriPROC)tlsGetFunction(1251);
     UNUSED_PARAM(clazz)
     glPointParameteri(pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglPointParameterfv__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress) {
-    glPointParameterfvPROC glPointParameterfv = (glPointParameterfvPROC)tlsGetFunction(1245);
+    glPointParameterfvPROC glPointParameterfv = (glPointParameterfvPROC)tlsGetFunction(1248);
     const intptr_t params = (const intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glPointParameterfv(pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglPointParameteriv__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress) {
-    glPointParameterivPROC glPointParameteriv = (glPointParameterivPROC)tlsGetFunction(1250);
+    glPointParameterivPROC glPointParameteriv = (glPointParameterivPROC)tlsGetFunction(1253);
     const intptr_t params = (const intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glPointParameteriv(pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3b(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
-    glSecondaryColor3bPROC glSecondaryColor3b = (glSecondaryColor3bPROC)tlsGetFunction(1503);
+    glSecondaryColor3bPROC glSecondaryColor3b = (glSecondaryColor3bPROC)tlsGetFunction(1508);
     UNUSED_PARAM(clazz)
     glSecondaryColor3b(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3s(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
-    glSecondaryColor3sPROC glSecondaryColor3s = (glSecondaryColor3sPROC)tlsGetFunction(1521);
+    glSecondaryColor3sPROC glSecondaryColor3s = (glSecondaryColor3sPROC)tlsGetFunction(1526);
     UNUSED_PARAM(clazz)
     glSecondaryColor3s(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3i(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
-    glSecondaryColor3iPROC glSecondaryColor3i = (glSecondaryColor3iPROC)tlsGetFunction(1517);
+    glSecondaryColor3iPROC glSecondaryColor3i = (glSecondaryColor3iPROC)tlsGetFunction(1522);
     UNUSED_PARAM(clazz)
     glSecondaryColor3i(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3f(JNIEnv *__env, jclass clazz, jfloat red, jfloat green, jfloat blue) {
-    glSecondaryColor3fPROC glSecondaryColor3f = (glSecondaryColor3fPROC)tlsGetFunction(1511);
+    glSecondaryColor3fPROC glSecondaryColor3f = (glSecondaryColor3fPROC)tlsGetFunction(1516);
     UNUSED_PARAM(clazz)
     glSecondaryColor3f(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3d(JNIEnv *__env, jclass clazz, jdouble red, jdouble green, jdouble blue) {
-    glSecondaryColor3dPROC glSecondaryColor3d = (glSecondaryColor3dPROC)tlsGetFunction(1507);
+    glSecondaryColor3dPROC glSecondaryColor3d = (glSecondaryColor3dPROC)tlsGetFunction(1512);
     UNUSED_PARAM(clazz)
     glSecondaryColor3d(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3ub(JNIEnv *__env, jclass clazz, jbyte red, jbyte green, jbyte blue) {
-    glSecondaryColor3ubPROC glSecondaryColor3ub = (glSecondaryColor3ubPROC)tlsGetFunction(1525);
+    glSecondaryColor3ubPROC glSecondaryColor3ub = (glSecondaryColor3ubPROC)tlsGetFunction(1530);
     UNUSED_PARAM(clazz)
     glSecondaryColor3ub(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3us(JNIEnv *__env, jclass clazz, jshort red, jshort green, jshort blue) {
-    glSecondaryColor3usPROC glSecondaryColor3us = (glSecondaryColor3usPROC)tlsGetFunction(1533);
+    glSecondaryColor3usPROC glSecondaryColor3us = (glSecondaryColor3usPROC)tlsGetFunction(1538);
     UNUSED_PARAM(clazz)
     glSecondaryColor3us(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glSecondaryColor3ui(JNIEnv *__env, jclass clazz, jint red, jint green, jint blue) {
-    glSecondaryColor3uiPROC glSecondaryColor3ui = (glSecondaryColor3uiPROC)tlsGetFunction(1529);
+    glSecondaryColor3uiPROC glSecondaryColor3ui = (glSecondaryColor3uiPROC)tlsGetFunction(1534);
     UNUSED_PARAM(clazz)
     glSecondaryColor3ui(red, green, blue);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3bv(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3bvPROC glSecondaryColor3bv = (glSecondaryColor3bvPROC)tlsGetFunction(1505);
+    glSecondaryColor3bvPROC glSecondaryColor3bv = (glSecondaryColor3bvPROC)tlsGetFunction(1510);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3bv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3sv__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3svPROC glSecondaryColor3sv = (glSecondaryColor3svPROC)tlsGetFunction(1523);
+    glSecondaryColor3svPROC glSecondaryColor3sv = (glSecondaryColor3svPROC)tlsGetFunction(1528);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3sv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3iv__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3ivPROC glSecondaryColor3iv = (glSecondaryColor3ivPROC)tlsGetFunction(1519);
+    glSecondaryColor3ivPROC glSecondaryColor3iv = (glSecondaryColor3ivPROC)tlsGetFunction(1524);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3iv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3fv__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3fvPROC glSecondaryColor3fv = (glSecondaryColor3fvPROC)tlsGetFunction(1513);
+    glSecondaryColor3fvPROC glSecondaryColor3fv = (glSecondaryColor3fvPROC)tlsGetFunction(1518);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3fv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3dv__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3dvPROC glSecondaryColor3dv = (glSecondaryColor3dvPROC)tlsGetFunction(1509);
+    glSecondaryColor3dvPROC glSecondaryColor3dv = (glSecondaryColor3dvPROC)tlsGetFunction(1514);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3dv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3ubv(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3ubvPROC glSecondaryColor3ubv = (glSecondaryColor3ubvPROC)tlsGetFunction(1527);
+    glSecondaryColor3ubvPROC glSecondaryColor3ubv = (glSecondaryColor3ubvPROC)tlsGetFunction(1532);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3ubv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3usv__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3usvPROC glSecondaryColor3usv = (glSecondaryColor3usvPROC)tlsGetFunction(1535);
+    glSecondaryColor3usvPROC glSecondaryColor3usv = (glSecondaryColor3usvPROC)tlsGetFunction(1540);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3usv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColor3uiv__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
-    glSecondaryColor3uivPROC glSecondaryColor3uiv = (glSecondaryColor3uivPROC)tlsGetFunction(1531);
+    glSecondaryColor3uivPROC glSecondaryColor3uiv = (glSecondaryColor3uivPROC)tlsGetFunction(1536);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3uiv(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglSecondaryColorPointer(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
-    glSecondaryColorPointerPROC glSecondaryColorPointer = (glSecondaryColorPointerPROC)tlsGetFunction(1540);
+    glSecondaryColorPointerPROC glSecondaryColorPointer = (glSecondaryColorPointerPROC)tlsGetFunction(1545);
     const intptr_t pointer = (const intptr_t)pointerAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColorPointer(size, type, stride, pointer);
@@ -261,104 +261,104 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glBlendFuncSeparate(JNIEnv *__
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2i(JNIEnv *__env, jclass clazz, jint x, jint y) {
-    glWindowPos2iPROC glWindowPos2i = (glWindowPos2iPROC)tlsGetFunction(2146);
+    glWindowPos2iPROC glWindowPos2i = (glWindowPos2iPROC)tlsGetFunction(2151);
     UNUSED_PARAM(clazz)
     glWindowPos2i(x, y);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2s(JNIEnv *__env, jclass clazz, jshort x, jshort y) {
-    glWindowPos2sPROC glWindowPos2s = (glWindowPos2sPROC)tlsGetFunction(2150);
+    glWindowPos2sPROC glWindowPos2s = (glWindowPos2sPROC)tlsGetFunction(2155);
     UNUSED_PARAM(clazz)
     glWindowPos2s(x, y);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2f(JNIEnv *__env, jclass clazz, jfloat x, jfloat y) {
-    glWindowPos2fPROC glWindowPos2f = (glWindowPos2fPROC)tlsGetFunction(2142);
+    glWindowPos2fPROC glWindowPos2f = (glWindowPos2fPROC)tlsGetFunction(2147);
     UNUSED_PARAM(clazz)
     glWindowPos2f(x, y);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos2d(JNIEnv *__env, jclass clazz, jdouble x, jdouble y) {
-    glWindowPos2dPROC glWindowPos2d = (glWindowPos2dPROC)tlsGetFunction(2138);
+    glWindowPos2dPROC glWindowPos2d = (glWindowPos2dPROC)tlsGetFunction(2143);
     UNUSED_PARAM(clazz)
     glWindowPos2d(x, y);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2iv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos2ivPROC glWindowPos2iv = (glWindowPos2ivPROC)tlsGetFunction(2148);
+    glWindowPos2ivPROC glWindowPos2iv = (glWindowPos2ivPROC)tlsGetFunction(2153);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2iv(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2sv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos2svPROC glWindowPos2sv = (glWindowPos2svPROC)tlsGetFunction(2152);
+    glWindowPos2svPROC glWindowPos2sv = (glWindowPos2svPROC)tlsGetFunction(2157);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2sv(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2fv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos2fvPROC glWindowPos2fv = (glWindowPos2fvPROC)tlsGetFunction(2144);
+    glWindowPos2fvPROC glWindowPos2fv = (glWindowPos2fvPROC)tlsGetFunction(2149);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2fv(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos2dv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos2dvPROC glWindowPos2dv = (glWindowPos2dvPROC)tlsGetFunction(2140);
+    glWindowPos2dvPROC glWindowPos2dv = (glWindowPos2dvPROC)tlsGetFunction(2145);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2dv(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3i(JNIEnv *__env, jclass clazz, jint x, jint y, jint z) {
-    glWindowPos3iPROC glWindowPos3i = (glWindowPos3iPROC)tlsGetFunction(2162);
+    glWindowPos3iPROC glWindowPos3i = (glWindowPos3iPROC)tlsGetFunction(2167);
     UNUSED_PARAM(clazz)
     glWindowPos3i(x, y, z);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3s(JNIEnv *__env, jclass clazz, jshort x, jshort y, jshort z) {
-    glWindowPos3sPROC glWindowPos3s = (glWindowPos3sPROC)tlsGetFunction(2166);
+    glWindowPos3sPROC glWindowPos3s = (glWindowPos3sPROC)tlsGetFunction(2171);
     UNUSED_PARAM(clazz)
     glWindowPos3s(x, y, z);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3f(JNIEnv *__env, jclass clazz, jfloat x, jfloat y, jfloat z) {
-    glWindowPos3fPROC glWindowPos3f = (glWindowPos3fPROC)tlsGetFunction(2158);
+    glWindowPos3fPROC glWindowPos3f = (glWindowPos3fPROC)tlsGetFunction(2163);
     UNUSED_PARAM(clazz)
     glWindowPos3f(x, y, z);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_glWindowPos3d(JNIEnv *__env, jclass clazz, jdouble x, jdouble y, jdouble z) {
-    glWindowPos3dPROC glWindowPos3d = (glWindowPos3dPROC)tlsGetFunction(2154);
+    glWindowPos3dPROC glWindowPos3d = (glWindowPos3dPROC)tlsGetFunction(2159);
     UNUSED_PARAM(clazz)
     glWindowPos3d(x, y, z);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3iv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos3ivPROC glWindowPos3iv = (glWindowPos3ivPROC)tlsGetFunction(2164);
+    glWindowPos3ivPROC glWindowPos3iv = (glWindowPos3ivPROC)tlsGetFunction(2169);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3iv(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3sv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos3svPROC glWindowPos3sv = (glWindowPos3svPROC)tlsGetFunction(2168);
+    glWindowPos3svPROC glWindowPos3sv = (glWindowPos3svPROC)tlsGetFunction(2173);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3sv(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3fv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos3fvPROC glWindowPos3fv = (glWindowPos3fvPROC)tlsGetFunction(2160);
+    glWindowPos3fvPROC glWindowPos3fv = (glWindowPos3fvPROC)tlsGetFunction(2165);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3fv(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL14_nglWindowPos3dv__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
-    glWindowPos3dvPROC glWindowPos3dv = (glWindowPos3dvPROC)tlsGetFunction(2156);
+    glWindowPos3dvPROC glWindowPos3dv = (glWindowPos3dvPROC)tlsGetFunction(2161);
     const intptr_t p = (const intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3dv(p);

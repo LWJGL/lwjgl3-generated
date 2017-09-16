@@ -14,25 +14,25 @@ typedef void (APIENTRY *glFramebufferTextureFaceARBPROC) (jint, jint, jint, jint
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGeometryShader4_glProgramParameteriARB(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
-    glProgramParameteriARBPROC glProgramParameteriARB = (glProgramParameteriARBPROC)tlsGetFunction(1281);
+    glProgramParameteriARBPROC glProgramParameteriARB = (glProgramParameteriARBPROC)tlsGetFunction(1284);
     UNUSED_PARAM(clazz)
     glProgramParameteriARB(program, pname, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGeometryShader4_glFramebufferTextureARB(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level) {
-    glFramebufferTextureARBPROC glFramebufferTextureARB = (glFramebufferTextureARBPROC)tlsGetFunction(462);
+    glFramebufferTextureARBPROC glFramebufferTextureARB = (glFramebufferTextureARBPROC)tlsGetFunction(464);
     UNUSED_PARAM(clazz)
     glFramebufferTextureARB(target, attachment, texture, level);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGeometryShader4_glFramebufferTextureLayerARB(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint layer) {
-    glFramebufferTextureLayerARBPROC glFramebufferTextureLayerARB = (glFramebufferTextureLayerARBPROC)tlsGetFunction(467);
+    glFramebufferTextureLayerARBPROC glFramebufferTextureLayerARB = (glFramebufferTextureLayerARBPROC)tlsGetFunction(469);
     UNUSED_PARAM(clazz)
     glFramebufferTextureLayerARB(target, attachment, texture, level, layer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGeometryShader4_glFramebufferTextureFaceARB(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint face) {
-    glFramebufferTextureFaceARBPROC glFramebufferTextureFaceARB = (glFramebufferTextureFaceARBPROC)tlsGetFunction(464);
+    glFramebufferTextureFaceARBPROC glFramebufferTextureFaceARB = (glFramebufferTextureFaceARBPROC)tlsGetFunction(466);
     UNUSED_PARAM(clazz)
     glFramebufferTextureFaceARB(target, attachment, texture, level, face);
 }

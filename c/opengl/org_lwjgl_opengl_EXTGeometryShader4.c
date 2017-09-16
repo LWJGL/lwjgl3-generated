@@ -14,25 +14,25 @@ typedef void (APIENTRY *glFramebufferTextureFaceEXTPROC) (jint, jint, jint, jint
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTGeometryShader4_glProgramParameteriEXT(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
-    glProgramParameteriEXTPROC glProgramParameteriEXT = (glProgramParameteriEXTPROC)tlsGetFunction(1282);
+    glProgramParameteriEXTPROC glProgramParameteriEXT = (glProgramParameteriEXTPROC)tlsGetFunction(1285);
     UNUSED_PARAM(clazz)
     glProgramParameteriEXT(program, pname, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTGeometryShader4_glFramebufferTextureEXT(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level) {
-    glFramebufferTextureEXTPROC glFramebufferTextureEXT = (glFramebufferTextureEXTPROC)tlsGetFunction(463);
+    glFramebufferTextureEXTPROC glFramebufferTextureEXT = (glFramebufferTextureEXTPROC)tlsGetFunction(465);
     UNUSED_PARAM(clazz)
     glFramebufferTextureEXT(target, attachment, texture, level);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTGeometryShader4_glFramebufferTextureLayerEXT(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint layer) {
-    glFramebufferTextureLayerEXTPROC glFramebufferTextureLayerEXT = (glFramebufferTextureLayerEXTPROC)tlsGetFunction(468);
+    glFramebufferTextureLayerEXTPROC glFramebufferTextureLayerEXT = (glFramebufferTextureLayerEXTPROC)tlsGetFunction(470);
     UNUSED_PARAM(clazz)
     glFramebufferTextureLayerEXT(target, attachment, texture, level, layer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTGeometryShader4_glFramebufferTextureFaceEXT(JNIEnv *__env, jclass clazz, jint target, jint attachment, jint texture, jint level, jint face) {
-    glFramebufferTextureFaceEXTPROC glFramebufferTextureFaceEXT = (glFramebufferTextureFaceEXTPROC)tlsGetFunction(465);
+    glFramebufferTextureFaceEXTPROC glFramebufferTextureFaceEXT = (glFramebufferTextureFaceEXTPROC)tlsGetFunction(467);
     UNUSED_PARAM(clazz)
     glFramebufferTextureFaceEXT(target, attachment, texture, level, face);
 }

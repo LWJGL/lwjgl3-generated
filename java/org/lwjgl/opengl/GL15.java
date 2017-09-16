@@ -388,6 +388,38 @@ public class GL15 {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") LongBuffer data, @NativeType("GLenum") int usage) {
+        nglBufferData(target, data.remaining() << 3, memAddress(data), usage);
+    }
+
+    /**
+     * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+     * 
+     * Creates and initializes a buffer object's data store.
+     * 
+     * <p>{@code usage} is a hint to the GL implementation as to how a buffer object's data store will be accessed. This enables the GL implementation to make
+     * more intelligent decisions that may significantly impact buffer object performance. It does not, however, constrain the actual usage of the data store.
+     * {@code usage} can be broken down into two parts: first, the frequency of access (modification and usage), and second, the nature of that access. The
+     * frequency of access may be one of these:</p>
+     * 
+     * <ul>
+     * <li><em>STREAM</em> - The data store contents will be modified once and used at most a few times.</li>
+     * <li><em>STATIC</em> - The data store contents will be modified once and used many times.</li>
+     * <li><em>DYNAMIC</em> - The data store contents will be modified repeatedly and used many times.</li>
+     * </ul>
+     * 
+     * <p>The nature of access may be one of these:</p>
+     * 
+     * <ul>
+     * <li><em>DRAW</em> - The data store contents are modified by the application, and used as the source for GL drawing and image specification commands.</li>
+     * <li><em>READ</em> - The data store contents are modified by reading data from the GL, and used to return that data when queried by the application.</li>
+     * <li><em>COPY</em> - The data store contents are modified by reading data from the GL, and used as the source for GL drawing and image specification commands.</li>
+     * </ul>
+     *
+     * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
+     * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
+     * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
+     */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
         nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
     }
@@ -481,6 +513,19 @@ public class GL15 {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") LongBuffer data) {
+        nglBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
+    }
+
+    /**
+     * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+     * 
+     * Updates a subset of a buffer object's data store.
+     *
+     * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
+     * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
+     * @param data   a pointer to the new data that will be copied into the data store
+     */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") FloatBuffer data) {
         nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
     }
@@ -544,6 +589,19 @@ public class GL15 {
      */
     public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") IntBuffer data) {
         nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
+    }
+
+    /**
+     * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+     * 
+     * Returns a subset of a buffer object's data store.
+     *
+     * @param target the target buffer object. One of:<br><table><tr><td>{@link #GL_ARRAY_BUFFER ARRAY_BUFFER}</td><td>{@link #GL_ELEMENT_ARRAY_BUFFER ELEMENT_ARRAY_BUFFER}</td><td>{@link GL21#GL_PIXEL_PACK_BUFFER PIXEL_PACK_BUFFER}</td><td>{@link GL21#GL_PIXEL_UNPACK_BUFFER PIXEL_UNPACK_BUFFER}</td></tr><tr><td>{@link GL30#GL_TRANSFORM_FEEDBACK_BUFFER TRANSFORM_FEEDBACK_BUFFER}</td><td>{@link GL31#GL_UNIFORM_BUFFER UNIFORM_BUFFER}</td><td>{@link GL31#GL_TEXTURE_BUFFER TEXTURE_BUFFER}</td><td>{@link GL31#GL_COPY_READ_BUFFER COPY_READ_BUFFER}</td></tr><tr><td>{@link GL31#GL_COPY_WRITE_BUFFER COPY_WRITE_BUFFER}</td><td>{@link GL40#GL_DRAW_INDIRECT_BUFFER DRAW_INDIRECT_BUFFER}</td><td>{@link GL42#GL_ATOMIC_COUNTER_BUFFER ATOMIC_COUNTER_BUFFER}</td><td>{@link GL43#GL_DISPATCH_INDIRECT_BUFFER DISPATCH_INDIRECT_BUFFER}</td></tr><tr><td>{@link GL43#GL_SHADER_STORAGE_BUFFER SHADER_STORAGE_BUFFER}</td><td>{@link ARBIndirectParameters#GL_PARAMETER_BUFFER_ARB PARAMETER_BUFFER_ARB}</td></tr></table>
+     * @param offset the offset into the buffer object's data store from which data will be returned, measured in bytes
+     * @param data   a pointer to the location where buffer object data is returned
+     */
+    public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") LongBuffer data) {
+        nglGetBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
     }
 
     /**
@@ -1030,6 +1088,19 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferData BufferData}
      */
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") long[] data, @NativeType("GLenum") int usage) {
+        long __functionAddress = GL.getICD().glBufferData;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPV(__functionAddress, target, (long)(data.length << 3), data, usage);
+    }
+
+    /**
+     * <p><a target="_blank" href="http://docs.gl/gl4/glBufferData">Reference Page</a></p>
+     * 
+     * Array version of: {@link #glBufferData BufferData}
+     */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") float[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferData;
         if (CHECKS) {
@@ -1082,6 +1153,19 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferSubData BufferSubData}
      */
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") long[] data) {
+        long __functionAddress = GL.getICD().glBufferSubData;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+    }
+
+    /**
+     * <p><a target="_blank" href="http://docs.gl/gl4/glBufferSubData">Reference Page</a></p>
+     * 
+     * Array version of: {@link #glBufferSubData BufferSubData}
+     */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") float[] data) {
         long __functionAddress = GL.getICD().glBufferSubData;
         if (CHECKS) {
@@ -1127,6 +1211,19 @@ public class GL15 {
             check(__functionAddress);
         }
         callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+    }
+
+    /**
+     * <p><a target="_blank" href="http://docs.gl/gl4/glGetBufferSubData">Reference Page</a></p>
+     * 
+     * Array version of: {@link #glGetBufferSubData GetBufferSubData}
+     */
+    public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") long[] data) {
+        long __functionAddress = GL.getICD().glGetBufferSubData;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
     }
 
     /**

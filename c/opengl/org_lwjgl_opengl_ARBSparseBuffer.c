@@ -19,13 +19,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSparseBuffer_glBufferPageCommitm
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSparseBuffer_glNamedBufferPageCommitmentEXT(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong size, jboolean commit) {
-    glNamedBufferPageCommitmentEXTPROC glNamedBufferPageCommitmentEXT = (glNamedBufferPageCommitmentEXTPROC)tlsGetFunction(1143);
+    glNamedBufferPageCommitmentEXTPROC glNamedBufferPageCommitmentEXT = (glNamedBufferPageCommitmentEXTPROC)tlsGetFunction(1146);
     UNUSED_PARAM(clazz)
     glNamedBufferPageCommitmentEXT(buffer, (intptr_t)offset, (intptr_t)size, commit);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSparseBuffer_glNamedBufferPageCommitmentARB(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong size, jboolean commit) {
-    glNamedBufferPageCommitmentARBPROC glNamedBufferPageCommitmentARB = (glNamedBufferPageCommitmentARBPROC)tlsGetFunction(1142);
+    glNamedBufferPageCommitmentARBPROC glNamedBufferPageCommitmentARB = (glNamedBufferPageCommitmentARBPROC)tlsGetFunction(1145);
     UNUSED_PARAM(clazz)
     glNamedBufferPageCommitmentARB(buffer, (intptr_t)offset, (intptr_t)size, commit);
 }

@@ -13,13 +13,13 @@ typedef void (APIENTRY *glClearPixelLocalStorageuiEXTPROC) (jint, jint, const in
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTShaderPixelLocalStorage2_glFramebufferPixelLocalStorageSizeEXT(JNIEnv *__env, jclass clazz, jint target, jint size) {
-    glFramebufferPixelLocalStorageSizeEXTPROC glFramebufferPixelLocalStorageSizeEXT = (glFramebufferPixelLocalStorageSizeEXTPROC)tlsGetFunction(233);
+    glFramebufferPixelLocalStorageSizeEXTPROC glFramebufferPixelLocalStorageSizeEXT = (glFramebufferPixelLocalStorageSizeEXTPROC)tlsGetFunction(234);
     UNUSED_PARAM(clazz)
     glFramebufferPixelLocalStorageSizeEXT(target, size);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_EXTShaderPixelLocalStorage2_glGetFramebufferPixelLocalStorageSizeEXT(JNIEnv *__env, jclass clazz, jint target) {
-    glGetFramebufferPixelLocalStorageSizeEXTPROC glGetFramebufferPixelLocalStorageSizeEXT = (glGetFramebufferPixelLocalStorageSizeEXTPROC)tlsGetFunction(295);
+    glGetFramebufferPixelLocalStorageSizeEXTPROC glGetFramebufferPixelLocalStorageSizeEXT = (glGetFramebufferPixelLocalStorageSizeEXTPROC)tlsGetFunction(296);
     UNUSED_PARAM(clazz)
     return (jint)glGetFramebufferPixelLocalStorageSizeEXT(target);
 }

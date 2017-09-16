@@ -43,20 +43,20 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_glBeginTransfo
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_glEndTransformFeedbackEXT(JNIEnv *__env, jclass clazz) {
-    glEndTransformFeedbackEXTPROC glEndTransformFeedbackEXT = (glEndTransformFeedbackEXTPROC)tlsGetFunction(409);
+    glEndTransformFeedbackEXTPROC glEndTransformFeedbackEXT = (glEndTransformFeedbackEXTPROC)tlsGetFunction(410);
     UNUSED_PARAM(clazz)
     glEndTransformFeedbackEXT();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_nglTransformFeedbackVaryingsEXT(JNIEnv *__env, jclass clazz, jint program, jint count, jlong varyingsAddress, jint bufferMode) {
-    glTransformFeedbackVaryingsEXTPROC glTransformFeedbackVaryingsEXT = (glTransformFeedbackVaryingsEXTPROC)tlsGetFunction(1731);
+    glTransformFeedbackVaryingsEXTPROC glTransformFeedbackVaryingsEXT = (glTransformFeedbackVaryingsEXTPROC)tlsGetFunction(1736);
     const intptr_t varyings = (const intptr_t)varyingsAddress;
     UNUSED_PARAM(clazz)
     glTransformFeedbackVaryingsEXT(program, count, varyings, bufferMode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_nglGetTransformFeedbackVaryingEXT__IIIJJJJ(JNIEnv *__env, jclass clazz, jint program, jint index, jint bufSize, jlong lengthAddress, jlong sizeAddress, jlong typeAddress, jlong nameAddress) {
-    glGetTransformFeedbackVaryingEXTPROC glGetTransformFeedbackVaryingEXT = (glGetTransformFeedbackVaryingEXTPROC)tlsGetFunction(749);
+    glGetTransformFeedbackVaryingEXTPROC glGetTransformFeedbackVaryingEXT = (glGetTransformFeedbackVaryingEXTPROC)tlsGetFunction(752);
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t size = (intptr_t)sizeAddress;
     intptr_t type = (intptr_t)typeAddress;
@@ -66,14 +66,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_nglGetTransfor
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_nglGetIntegerIndexedvEXT__IIJ(JNIEnv *__env, jclass clazz, jint param, jint index, jlong valuesAddress) {
-    glGetIntegerIndexedvEXTPROC glGetIntegerIndexedvEXT = (glGetIntegerIndexedvEXTPROC)tlsGetFunction(572);
+    glGetIntegerIndexedvEXTPROC glGetIntegerIndexedvEXT = (glGetIntegerIndexedvEXTPROC)tlsGetFunction(575);
     intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glGetIntegerIndexedvEXT(param, index, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_nglGetBooleanIndexedvEXT(JNIEnv *__env, jclass clazz, jint param, jint index, jlong valuesAddress) {
-    glGetBooleanIndexedvEXTPROC glGetBooleanIndexedvEXT = (glGetBooleanIndexedvEXTPROC)tlsGetFunction(514);
+    glGetBooleanIndexedvEXTPROC glGetBooleanIndexedvEXT = (glGetBooleanIndexedvEXTPROC)tlsGetFunction(517);
     intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glGetBooleanIndexedvEXT(param, index, values);

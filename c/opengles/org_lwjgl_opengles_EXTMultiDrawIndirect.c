@@ -12,14 +12,14 @@ typedef void (APIENTRY *glMultiDrawElementsIndirectEXTPROC) (jint, jint, const i
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMultiDrawIndirect_nglMultiDrawArraysIndirectEXT__IJII(JNIEnv *__env, jclass clazz, jint mode, jlong indirectAddress, jint drawcount, jint stride) {
-    glMultiDrawArraysIndirectEXTPROC glMultiDrawArraysIndirectEXT = (glMultiDrawArraysIndirectEXTPROC)tlsGetFunction(478);
+    glMultiDrawArraysIndirectEXTPROC glMultiDrawArraysIndirectEXT = (glMultiDrawArraysIndirectEXTPROC)tlsGetFunction(479);
     const intptr_t indirect = (const intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glMultiDrawArraysIndirectEXT(mode, indirect, drawcount, stride);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMultiDrawIndirect_nglMultiDrawElementsIndirectEXT__IIJII(JNIEnv *__env, jclass clazz, jint mode, jint type, jlong indirectAddress, jint drawcount, jint stride) {
-    glMultiDrawElementsIndirectEXTPROC glMultiDrawElementsIndirectEXT = (glMultiDrawElementsIndirectEXTPROC)tlsGetFunction(482);
+    glMultiDrawElementsIndirectEXTPROC glMultiDrawElementsIndirectEXT = (glMultiDrawElementsIndirectEXTPROC)tlsGetFunction(483);
     const intptr_t indirect = (const intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glMultiDrawElementsIndirectEXT(mode, type, indirect, drawcount, stride);

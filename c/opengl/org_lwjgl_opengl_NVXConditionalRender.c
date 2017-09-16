@@ -18,7 +18,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVXConditionalRender_glBeginConditi
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVXConditionalRender_glEndConditionalRenderNVX(JNIEnv *__env, jclass clazz) {
-    glEndConditionalRenderNVXPROC glEndConditionalRenderNVX = (glEndConditionalRenderNVXPROC)tlsGetFunction(401);
+    glEndConditionalRenderNVXPROC glEndConditionalRenderNVX = (glEndConditionalRenderNVXPROC)tlsGetFunction(402);
     UNUSED_PARAM(clazz)
     glEndConditionalRenderNVX();
 }

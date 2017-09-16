@@ -20,21 +20,21 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_glBindVertexAr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_nglDeleteVertexArrays__IJ(JNIEnv *__env, jclass clazz, jint n, jlong arraysAddress) {
-    glDeleteVertexArraysPROC glDeleteVertexArrays = (glDeleteVertexArraysPROC)tlsGetFunction(325);
+    glDeleteVertexArraysPROC glDeleteVertexArrays = (glDeleteVertexArraysPROC)tlsGetFunction(326);
     const intptr_t arrays = (const intptr_t)arraysAddress;
     UNUSED_PARAM(clazz)
     glDeleteVertexArrays(n, arrays);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_nglGenVertexArrays__IJ(JNIEnv *__env, jclass clazz, jint n, jlong arraysAddress) {
-    glGenVertexArraysPROC glGenVertexArrays = (glGenVertexArraysPROC)tlsGetFunction(491);
+    glGenVertexArraysPROC glGenVertexArrays = (glGenVertexArraysPROC)tlsGetFunction(494);
     intptr_t arrays = (intptr_t)arraysAddress;
     UNUSED_PARAM(clazz)
     glGenVertexArrays(n, arrays);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_glIsVertexArray(JNIEnv *__env, jclass clazz, jint array) {
-    glIsVertexArrayPROC glIsVertexArray = (glIsVertexArrayPROC)tlsGetFunction(908);
+    glIsVertexArrayPROC glIsVertexArray = (glIsVertexArrayPROC)tlsGetFunction(911);
     UNUSED_PARAM(clazz)
     return (jboolean)glIsVertexArray(array);
 }

@@ -21,28 +21,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_glCurrentPaletteMa
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexuivARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress) {
-    glMatrixIndexuivARBPROC glMatrixIndexuivARB = (glMatrixIndexuivARBPROC)tlsGetFunction(969);
+    glMatrixIndexuivARBPROC glMatrixIndexuivARB = (glMatrixIndexuivARBPROC)tlsGetFunction(972);
     intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glMatrixIndexuivARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexubvARB(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress) {
-    glMatrixIndexubvARBPROC glMatrixIndexubvARB = (glMatrixIndexubvARBPROC)tlsGetFunction(968);
+    glMatrixIndexubvARBPROC glMatrixIndexubvARB = (glMatrixIndexubvARBPROC)tlsGetFunction(971);
     intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glMatrixIndexubvARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexusvARB__IJ(JNIEnv *__env, jclass clazz, jint size, jlong indicesAddress) {
-    glMatrixIndexusvARBPROC glMatrixIndexusvARB = (glMatrixIndexusvARBPROC)tlsGetFunction(970);
+    glMatrixIndexusvARBPROC glMatrixIndexusvARB = (glMatrixIndexusvARBPROC)tlsGetFunction(973);
     intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glMatrixIndexusvARB(size, indices);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBMatrixPalette_nglMatrixIndexPointerARB(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
-    glMatrixIndexPointerARBPROC glMatrixIndexPointerARB = (glMatrixIndexPointerARBPROC)tlsGetFunction(967);
+    glMatrixIndexPointerARBPROC glMatrixIndexPointerARB = (glMatrixIndexPointerARBPROC)tlsGetFunction(970);
     intptr_t pointer = (intptr_t)pointerAddress;
     UNUSED_PARAM(clazz)
     glMatrixIndexPointerARB(size, type, stride, pointer);

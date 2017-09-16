@@ -23,39 +23,39 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glBindTransfor
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglDeleteTransformFeedbacksNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
-    glDeleteTransformFeedbacksNVPROC glDeleteTransformFeedbacksNV = (glDeleteTransformFeedbacksNVPROC)tlsGetFunction(324);
+    glDeleteTransformFeedbacksNVPROC glDeleteTransformFeedbacksNV = (glDeleteTransformFeedbacksNVPROC)tlsGetFunction(325);
     const intptr_t ids = (const intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDeleteTransformFeedbacksNV(n, ids);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_nglGenTransformFeedbacksNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
-    glGenTransformFeedbacksNVPROC glGenTransformFeedbacksNV = (glGenTransformFeedbacksNVPROC)tlsGetFunction(490);
+    glGenTransformFeedbacksNVPROC glGenTransformFeedbacksNV = (glGenTransformFeedbacksNVPROC)tlsGetFunction(493);
     intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glGenTransformFeedbacksNV(n, ids);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glIsTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint id) {
-    glIsTransformFeedbackNVPROC glIsTransformFeedbackNV = (glIsTransformFeedbackNVPROC)tlsGetFunction(907);
+    glIsTransformFeedbackNVPROC glIsTransformFeedbackNV = (glIsTransformFeedbackNVPROC)tlsGetFunction(910);
     UNUSED_PARAM(clazz)
     return (jboolean)glIsTransformFeedbackNV(id);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glPauseTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
-    glPauseTransformFeedbackNVPROC glPauseTransformFeedbackNV = (glPauseTransformFeedbackNVPROC)tlsGetFunction(1231);
+    glPauseTransformFeedbackNVPROC glPauseTransformFeedbackNV = (glPauseTransformFeedbackNVPROC)tlsGetFunction(1234);
     UNUSED_PARAM(clazz)
     glPauseTransformFeedbackNV();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glResumeTransformFeedbackNV(JNIEnv *__env, jclass clazz) {
-    glResumeTransformFeedbackNVPROC glResumeTransformFeedbackNV = (glResumeTransformFeedbackNVPROC)tlsGetFunction(1484);
+    glResumeTransformFeedbackNVPROC glResumeTransformFeedbackNV = (glResumeTransformFeedbackNVPROC)tlsGetFunction(1489);
     UNUSED_PARAM(clazz)
     glResumeTransformFeedbackNV();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVTransformFeedback2_glDrawTransformFeedbackNV(JNIEnv *__env, jclass clazz, jint mode, jint id) {
-    glDrawTransformFeedbackNVPROC glDrawTransformFeedbackNV = (glDrawTransformFeedbackNVPROC)tlsGetFunction(379);
+    glDrawTransformFeedbackNVPROC glDrawTransformFeedbackNV = (glDrawTransformFeedbackNVPROC)tlsGetFunction(380);
     UNUSED_PARAM(clazz)
     glDrawTransformFeedbackNV(mode, id);
 }

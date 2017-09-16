@@ -90,6 +90,7 @@ public final class GLESCapabilities {
         glClearTexSubImageEXT,
         glClientWaitSync,
         glClientWaitSyncAPPLE,
+        glClipControlEXT,
         glColorMask,
         glColorMaski,
         glColorMaskiEXT,
@@ -968,6 +969,8 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_buffer_storage;
     /** When true, {@link EXTClearTexture} is supported. */
     public final boolean GL_EXT_clear_texture;
+    /** When true, {@link EXTClipControl} is supported. */
+    public final boolean GL_EXT_clip_control;
     /** When true, {@link EXTClipCullDistance} is supported. */
     public final boolean GL_EXT_clip_cull_distance;
     /**
@@ -1338,6 +1341,8 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_texture_compression_rgtc;
     /** When true, {@link EXTTextureCompressionS3TC} is supported. */
     public final boolean GL_EXT_texture_compression_s3tc;
+    /** When true, {@link EXTTextureCompressionS3TCSRGB} is supported. */
+    public final boolean GL_EXT_texture_compression_s3tc_srgb;
     /** When true, {@link EXTTextureCubeMapArray} is supported. */
     public final boolean GL_EXT_texture_cube_map_array;
     /** When true, {@link EXTTextureFilterAnisotropic} is supported. */
@@ -2154,6 +2159,7 @@ public final class GLESCapabilities {
         glClearTexSubImageEXT = provider.getFunctionAddress("glClearTexSubImageEXT");
         glClientWaitSync = provider.getFunctionAddress("glClientWaitSync");
         glClientWaitSyncAPPLE = provider.getFunctionAddress("glClientWaitSyncAPPLE");
+        glClipControlEXT = provider.getFunctionAddress("glClipControlEXT");
         glColorMask = provider.getFunctionAddress("glColorMask");
         glColorMaski = provider.getFunctionAddress("glColorMaski");
         glColorMaskiEXT = provider.getFunctionAddress("glColorMaskiEXT");
@@ -2954,6 +2960,7 @@ public final class GLESCapabilities {
         GL_EXT_blend_minmax = ext.contains("GL_EXT_blend_minmax");
         GL_EXT_buffer_storage = ext.contains("GL_EXT_buffer_storage") && checkExtension("GL_EXT_buffer_storage", EXTBufferStorage.isAvailable(this, ext));
         GL_EXT_clear_texture = ext.contains("GL_EXT_clear_texture") && checkExtension("GL_EXT_clear_texture", EXTClearTexture.isAvailable(this));
+        GL_EXT_clip_control = ext.contains("GL_EXT_clip_control") && checkExtension("GL_EXT_clip_control", EXTClipControl.isAvailable(this));
         GL_EXT_clip_cull_distance = ext.contains("GL_EXT_clip_cull_distance");
         GL_EXT_color_buffer_float = ext.contains("GL_EXT_color_buffer_float");
         GL_EXT_color_buffer_half_float = ext.contains("GL_EXT_color_buffer_half_float");
@@ -3022,6 +3029,7 @@ public final class GLESCapabilities {
         GL_EXT_texture_compression_dxt1 = ext.contains("GL_EXT_texture_compression_dxt1");
         GL_EXT_texture_compression_rgtc = ext.contains("GL_EXT_texture_compression_rgtc");
         GL_EXT_texture_compression_s3tc = ext.contains("GL_EXT_texture_compression_s3tc");
+        GL_EXT_texture_compression_s3tc_srgb = ext.contains("GL_EXT_texture_compression_s3tc_srgb");
         GL_EXT_texture_cube_map_array = ext.contains("GL_EXT_texture_cube_map_array");
         GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
         GL_EXT_texture_filter_minmax = ext.contains("GL_EXT_texture_filter_minmax") && checkExtension("GL_EXT_texture_filter_minmax", EXTTextureFilterMinmax.isAvailable(this));

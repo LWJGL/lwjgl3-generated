@@ -19,7 +19,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTExternalBuffer_nglBufferStorageE
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTExternalBuffer_nglNamedBufferStorageExternalEXT(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong size, jlong clientBufferAddress, jint flags) {
-    glNamedBufferStorageExternalEXTPROC glNamedBufferStorageExternalEXT = (glNamedBufferStorageExternalEXTPROC)tlsGetFunction(1146);
+    glNamedBufferStorageExternalEXTPROC glNamedBufferStorageExternalEXT = (glNamedBufferStorageExternalEXTPROC)tlsGetFunction(1149);
     intptr_t clientBuffer = (intptr_t)clientBufferAddress;
     UNUSED_PARAM(clazz)
     glNamedBufferStorageExternalEXT(buffer, (intptr_t)offset, (intptr_t)size, clientBuffer, flags);

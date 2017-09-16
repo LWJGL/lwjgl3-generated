@@ -18,13 +18,13 @@ typedef jboolean (APIENTRY *glIsEnablediOESPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESDrawBuffersIndexed_glEnableiOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
-    glEnableiOESPROC glEnableiOES = (glEnableiOESPROC)tlsGetFunction(201);
+    glEnableiOESPROC glEnableiOES = (glEnableiOESPROC)tlsGetFunction(202);
     UNUSED_PARAM(clazz)
     glEnableiOES(target, index);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESDrawBuffersIndexed_glDisableiOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
-    glDisableiOESPROC glDisableiOES = (glDisableiOESPROC)tlsGetFunction(157);
+    glDisableiOESPROC glDisableiOES = (glDisableiOESPROC)tlsGetFunction(158);
     UNUSED_PARAM(clazz)
     glDisableiOES(target, index);
 }
@@ -54,13 +54,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESDrawBuffersIndexed_glBlendFunc
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESDrawBuffersIndexed_glColorMaskiOES(JNIEnv *__env, jclass clazz, jint index, jboolean r, jboolean g, jboolean b, jboolean a) {
-    glColorMaskiOESPROC glColorMaskiOES = (glColorMaskiOESPROC)tlsGetFunction(77);
+    glColorMaskiOESPROC glColorMaskiOES = (glColorMaskiOESPROC)tlsGetFunction(78);
     UNUSED_PARAM(clazz)
     glColorMaskiOES(index, r, g, b, a);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengles_OESDrawBuffersIndexed_glIsEnablediOES(JNIEnv *__env, jclass clazz, jint target, jint index) {
-    glIsEnablediOESPROC glIsEnablediOES = (glIsEnablediOESPROC)tlsGetFunction(431);
+    glIsEnablediOESPROC glIsEnablediOES = (glIsEnablediOESPROC)tlsGetFunction(432);
     UNUSED_PARAM(clazz)
     return (jboolean)glIsEnablediOES(target, index);
 }

@@ -22,33 +22,33 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glColorMaskIndexedE
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_nglGetBooleanIndexedvEXT(JNIEnv *__env, jclass clazz, jint target, jint index, jlong dataAddress) {
-    glGetBooleanIndexedvEXTPROC glGetBooleanIndexedvEXT = (glGetBooleanIndexedvEXTPROC)tlsGetFunction(514);
+    glGetBooleanIndexedvEXTPROC glGetBooleanIndexedvEXT = (glGetBooleanIndexedvEXTPROC)tlsGetFunction(517);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetBooleanIndexedvEXT(target, index, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_nglGetIntegerIndexedvEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint index, jlong dataAddress) {
-    glGetIntegerIndexedvEXTPROC glGetIntegerIndexedvEXT = (glGetIntegerIndexedvEXTPROC)tlsGetFunction(572);
+    glGetIntegerIndexedvEXTPROC glGetIntegerIndexedvEXT = (glGetIntegerIndexedvEXTPROC)tlsGetFunction(575);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glGetIntegerIndexedvEXT(target, index, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glEnableIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
-    glEnableIndexedEXTPROC glEnableIndexedEXT = (glEnableIndexedEXTPROC)tlsGetFunction(391);
+    glEnableIndexedEXTPROC glEnableIndexedEXT = (glEnableIndexedEXTPROC)tlsGetFunction(392);
     UNUSED_PARAM(clazz)
     glEnableIndexedEXT(target, index);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glDisableIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
-    glDisableIndexedEXTPROC glDisableIndexedEXT = (glDisableIndexedEXTPROC)tlsGetFunction(341);
+    glDisableIndexedEXTPROC glDisableIndexedEXT = (glDisableIndexedEXTPROC)tlsGetFunction(342);
     UNUSED_PARAM(clazz)
     glDisableIndexedEXT(target, index);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_EXTDrawBuffers2_glIsEnabledIndexedEXT(JNIEnv *__env, jclass clazz, jint target, jint index) {
-    glIsEnabledIndexedEXTPROC glIsEnabledIndexedEXT = (glIsEnabledIndexedEXTPROC)tlsGetFunction(877);
+    glIsEnabledIndexedEXTPROC glIsEnabledIndexedEXT = (glIsEnabledIndexedEXTPROC)tlsGetFunction(880);
     UNUSED_PARAM(clazz)
     return (jboolean)glIsEnabledIndexedEXT(target, index);
 }

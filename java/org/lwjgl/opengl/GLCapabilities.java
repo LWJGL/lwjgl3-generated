@@ -331,6 +331,7 @@ public final class GLCapabilities {
         glDeleteProgramsARB,
         glDeleteQueries,
         glDeleteQueriesARB,
+        glDeleteQueryResourceTagNV,
         glDeleteRenderbuffers,
         glDeleteRenderbuffersEXT,
         glDeleteSamplers,
@@ -501,6 +502,7 @@ public final class GLCapabilities {
         glGenProgramsARB,
         glGenQueries,
         glGenQueriesARB,
+        glGenQueryResourceTagNV,
         glGenRenderbuffers,
         glGenRenderbuffersEXT,
         glGenSamplers,
@@ -1451,6 +1453,8 @@ public final class GLCapabilities {
         glPushName,
         glQueryCounter,
         glQueryObjectParameteruiAMD,
+        glQueryResourceNV,
+        glQueryResourceTagNV,
         glRasterPos2d,
         glRasterPos2dv,
         glRasterPos2f,
@@ -2324,6 +2328,15 @@ public final class GLCapabilities {
      * <p>Requires {@link GL20 OpenGL 2.0} or {@link ARBShaderObjects ARB_shader_objects}.</p>
      */
     public final boolean GL_AMD_shader_explicit_vertex_parameter;
+    /**
+     * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/shader_image_load_store_lod.txt">AMD_shader_image_load_store_lod</a> extension is supported.
+     * 
+     * <p>This extension was developed based on the {@link ARBShaderImageLoadStore ARB_shader_image_load_store} extension to allow implementations supporting loads and stores on mipmap
+     * texture images.</p>
+     * 
+     * <p>Requires {@link GL40 OpenGL 4.0} and GLSL 4.00</p>
+     */
+    public final boolean GL_AMD_shader_image_load_store_lod;
     /**
      * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/shader_stencil_export.txt">AMD_shader_stencil_export</a> extension is supported.
      * 
@@ -3779,6 +3792,10 @@ public final class GLCapabilities {
     public final boolean GL_NV_point_sprite;
     /** When true, {@link NVPrimitiveRestart} is supported. */
     public final boolean GL_NV_primitive_restart;
+    /** When true, {@link NVQueryResource} is supported. */
+    public final boolean GL_NV_query_resource;
+    /** When true, {@link NVQueryResourceTag} is supported. */
+    public final boolean GL_NV_query_resource_tag;
     /** When true, {@link NVRobustnessVideoMemoryPurge} is supported. */
     public final boolean GL_NV_robustness_video_memory_purge;
     /** When true, {@link NVSampleLocations} is supported. */
@@ -4272,6 +4289,7 @@ public final class GLCapabilities {
         glDeleteProgramsARB = provider.getFunctionAddress("glDeleteProgramsARB");
         glDeleteQueries = provider.getFunctionAddress("glDeleteQueries");
         glDeleteQueriesARB = provider.getFunctionAddress("glDeleteQueriesARB");
+        glDeleteQueryResourceTagNV = provider.getFunctionAddress("glDeleteQueryResourceTagNV");
         glDeleteRenderbuffers = provider.getFunctionAddress("glDeleteRenderbuffers");
         glDeleteRenderbuffersEXT = provider.getFunctionAddress("glDeleteRenderbuffersEXT");
         glDeleteSamplers = provider.getFunctionAddress("glDeleteSamplers");
@@ -4442,6 +4460,7 @@ public final class GLCapabilities {
         glGenProgramsARB = provider.getFunctionAddress("glGenProgramsARB");
         glGenQueries = provider.getFunctionAddress("glGenQueries");
         glGenQueriesARB = provider.getFunctionAddress("glGenQueriesARB");
+        glGenQueryResourceTagNV = provider.getFunctionAddress("glGenQueryResourceTagNV");
         glGenRenderbuffers = provider.getFunctionAddress("glGenRenderbuffers");
         glGenRenderbuffersEXT = provider.getFunctionAddress("glGenRenderbuffersEXT");
         glGenSamplers = provider.getFunctionAddress("glGenSamplers");
@@ -5392,6 +5411,8 @@ public final class GLCapabilities {
         glPushName = getFunctionAddress(fc, provider, "glPushName");
         glQueryCounter = provider.getFunctionAddress("glQueryCounter");
         glQueryObjectParameteruiAMD = provider.getFunctionAddress("glQueryObjectParameteruiAMD");
+        glQueryResourceNV = provider.getFunctionAddress("glQueryResourceNV");
+        glQueryResourceTagNV = provider.getFunctionAddress("glQueryResourceTagNV");
         glRasterPos2d = getFunctionAddress(fc, provider, "glRasterPos2d");
         glRasterPos2dv = getFunctionAddress(fc, provider, "glRasterPos2dv");
         glRasterPos2f = getFunctionAddress(fc, provider, "glRasterPos2f");
@@ -6167,6 +6188,7 @@ public final class GLCapabilities {
         GL_AMD_shader_atomic_counter_ops = ext.contains("GL_AMD_shader_atomic_counter_ops");
         GL_AMD_shader_ballot = ext.contains("GL_AMD_shader_ballot");
         GL_AMD_shader_explicit_vertex_parameter = ext.contains("GL_AMD_shader_explicit_vertex_parameter");
+        GL_AMD_shader_image_load_store_lod = ext.contains("GL_AMD_shader_image_load_store_lod");
         GL_AMD_shader_stencil_export = ext.contains("GL_AMD_shader_stencil_export");
         GL_AMD_shader_trinary_minmax = ext.contains("GL_AMD_shader_trinary_minmax");
         GL_AMD_sparse_texture = ext.contains("GL_AMD_sparse_texture") && checkExtension("GL_AMD_sparse_texture", AMDSparseTexture.isAvailable(this));
@@ -6490,6 +6512,8 @@ public final class GLCapabilities {
         GL_NV_pixel_data_range = ext.contains("GL_NV_pixel_data_range") && checkExtension("GL_NV_pixel_data_range", NVPixelDataRange.isAvailable(this));
         GL_NV_point_sprite = ext.contains("GL_NV_point_sprite") && checkExtension("GL_NV_point_sprite", NVPointSprite.isAvailable(this));
         GL_NV_primitive_restart = ext.contains("GL_NV_primitive_restart") && checkExtension("GL_NV_primitive_restart", NVPrimitiveRestart.isAvailable(this));
+        GL_NV_query_resource = ext.contains("GL_NV_query_resource") && checkExtension("GL_NV_query_resource", NVQueryResource.isAvailable(this));
+        GL_NV_query_resource_tag = ext.contains("GL_NV_query_resource_tag") && checkExtension("GL_NV_query_resource_tag", NVQueryResourceTag.isAvailable(this));
         GL_NV_robustness_video_memory_purge = ext.contains("GL_NV_robustness_video_memory_purge");
         GL_NV_sample_locations = ext.contains("GL_NV_sample_locations") && checkExtension("GL_NV_sample_locations", NVSampleLocations.isAvailable(this));
         GL_NV_sample_mask_override_coverage = ext.contains("GL_NV_sample_mask_override_coverage");

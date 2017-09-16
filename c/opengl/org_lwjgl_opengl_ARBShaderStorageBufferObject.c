@@ -11,7 +11,7 @@ typedef void (APIENTRY *glShaderStorageBlockBindingPROC) (jint, jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderStorageBufferObject_glShaderStorageBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint storageBlockIndex, jint storageBlockBinding) {
-    glShaderStorageBlockBindingPROC glShaderStorageBlockBinding = (glShaderStorageBlockBindingPROC)tlsGetFunction(1552);
+    glShaderStorageBlockBindingPROC glShaderStorageBlockBinding = (glShaderStorageBlockBindingPROC)tlsGetFunction(1557);
     UNUSED_PARAM(clazz)
     glShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
 }
