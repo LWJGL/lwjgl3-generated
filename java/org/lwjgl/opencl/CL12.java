@@ -229,13 +229,8 @@ public class CL12 {
      * pointer type matching the extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL}
      * indicates that the specified function does not exist for the implementation or platform is not a valid platform. A non-{@code NULL} return value for
      * {@code clGetExtensionFunctionAddressForPlatform} does not guarantee that an extension function is actually supported by the platform. The application
-     * must also make a corresponding query using<code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code>
-     * 
-     * <p>or</p>
-     * 
-     * <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code>
-     * 
-     * <p>to determine if an extension is supported by the OpenCL implementation.</p>
+     * must also make a corresponding query using <code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code> or
+     * <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
      * 
      * <p>{@code clGetExtensionFunctionAddressForPlatform} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
      * {@code clGetExtensionFunctionAddressForPlatform}, implementations may choose to also export those functions statically from the object libraries
@@ -259,13 +254,8 @@ public class CL12 {
      * pointer type matching the extension function's definition defined in the appropriate extension specification and header file. A return value of {@code NULL}
      * indicates that the specified function does not exist for the implementation or platform is not a valid platform. A non-{@code NULL} return value for
      * {@code clGetExtensionFunctionAddressForPlatform} does not guarantee that an extension function is actually supported by the platform. The application
-     * must also make a corresponding query using<code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code>
-     * 
-     * <p>or</p>
-     * 
-     * <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code>
-     * 
-     * <p>to determine if an extension is supported by the OpenCL implementation.</p>
+     * must also make a corresponding query using <code>clGetPlatformInfo(platform, CL_PLATFORM_EXTENSIONS, &hellip; )</code> or
+     * <code>clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, &hellip; )</code> to determine if an extension is supported by the OpenCL implementation.
      * 
      * <p>{@code clGetExtensionFunctionAddressForPlatform} may not be queried for core (non-extension) functions in OpenCL. For functions that are queryable with
      * {@code clGetExtensionFunctionAddressForPlatform}, implementations may choose to also export those functions statically from the object libraries

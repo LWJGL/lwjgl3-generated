@@ -1510,10 +1510,8 @@ public class Assimp {
      * <ul>
      * <li>Specify the {@link #aiProcess_FindDegenerates Process_FindDegenerates} flag.</li>
      * <li>Specify the {@link #aiProcess_SortByPType Process_SortByPType} flag. This moves line and point primitives to separate meshes.</li>
-     * <li>Set the {@link #AI_CONFIG_PP_SBP_REMOVE} importer property to<code>{@link #aiPrimitiveType_POINT PrimitiveType_POINT} | {@link #aiPrimitiveType_LINE PrimitiveType_LINE}</code>
-     * 
-     * <p>to cause
-     * {@link #aiProcess_SortByPType Process_SortByPType} to reject point and line meshes from the scene.</p></li>
+     * <li>Set the {@link #AI_CONFIG_PP_SBP_REMOVE} importer property to <code>{@link #aiPrimitiveType_POINT PrimitiveType_POINT} | {@link #aiPrimitiveType_LINE PrimitiveType_LINE}</code> to cause
+     * {@link #aiProcess_SortByPType Process_SortByPType} to reject point and line meshes from the scene.</li>
      * </ul></li>
      * </ol>
      * 

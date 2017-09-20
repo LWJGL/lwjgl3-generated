@@ -32,17 +32,13 @@ public class GLFWNativeWGL {
     // --- [ glfwGetWGLContext ] ---
 
     /**
-     * Returns the<code>HGLRC</code>
-     * 
-     * <p>of the specified window.</p>
+     * Returns the {@code HGLRC} of the specified window.
      * 
      * <p>Note: This function may be called from any thread. Access is not synchronized.</p>
      *
      * @param window the GLFW window
      *
-     * @return The<code>HGLRC</code>
-     *         
-     *         <p>of the specified window, or {@code NULL} if an error occurred.</p>
+     * @return The {@code HGLRC} of the specified window, or {@code NULL} if an error occurred.
      *
      * @since version 3.0
      */

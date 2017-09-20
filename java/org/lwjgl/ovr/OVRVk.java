@@ -37,10 +37,12 @@ public class OVRVk {
     /**
      * Finds {@code VkPhysicalDevice} matching {@code ovrGraphicsLuid}.
      * 
-     * <code>This function enumerates the current physical devices and returns the one matching the {@code luid}. It must be called at least once prior to any
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>This function enumerates the current physical devices and returns the one matching the {@code luid}. It must be called at least once prior to any
      * {@link #ovr_CreateTextureSwapChainVk CreateTextureSwapChainVk} or {@link #ovr_CreateMirrorTextureWithOptionsVk CreateMirrorTextureWithOptionsVk} calls, and the instance must remain valid for the lifetime of the returned
-     * objects. It is assumed the {@code VkDevice} created by the application will be for the returned physical device.
-     * </code>
+     * objects. It is assumed the {@code VkDevice} created by the application will be for the returned physical device.</p>
+     * </div>
      *
      * @param session            an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
      * @param luid               the {@code luid} returned from {@link OVR#ovr_Create Create}
@@ -66,11 +68,13 @@ public class OVRVk {
     /**
      * Selects {@code VkQueue} to block on till rendering is complete.
      * 
-     * <code>The queue may be changed at any time but only the value at the time {@link OVR#ovr_SubmitFrame SubmitFrame} is called will be used. {@code ovr_SetSynchonizationQueueVk}
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>The queue may be changed at any time but only the value at the time {@link OVR#ovr_SubmitFrame SubmitFrame} is called will be used. {@code ovr_SetSynchonizationQueueVk}
      * must be called with a valid {@code VkQueue} created on the same {@code VkDevice} the texture sets were created on prior to the first call to
      * {@link OVR#ovr_SubmitFrame SubmitFrame}. An internally created {@code VkFence} object will be signalled by the completion of operations on queue and waited on to
-     * synchronize the VR compositor.
-     * </code>
+     * synchronize the VR compositor.</p>
+     * </div>
      *
      * @param session an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
      * @param queue   a {@code VkQueue} to add a {@code VkFence} operation to and wait on

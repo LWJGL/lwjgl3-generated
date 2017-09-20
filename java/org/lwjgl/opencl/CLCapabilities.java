@@ -535,7 +535,7 @@ public class CLCapabilities {
     /**
      * When true, the <a target="_blank" href="http://www.khronos.org/registry/cl/extensions/amd/cl_amd_printf.txt">amd_printf</a> extension is supported.
      * 
-     * <p>This extension adds the built-in function</p><code>printf(__constant char * restrict format, …);</code>
+     * <p>This extension adds the built-in function {@code printf(__constant char * restrict format, …);}</p>
      * 
      * <p>This function writes output to the stdout stream associated with the host application. The format string is a character sequence that:</p>
      * 
@@ -682,9 +682,7 @@ public class CLCapabilities {
      * When true, the <strong>khr_device_enqueue_local_arg_types</strong> extension is supported.
      * 
      * <p>This extension allows arguments to blocks passed to enqueue_kernel functions to be declared as a pointer to any type (built-in or user-defined) in
-     * local memory instead of just</p><code>local void *</code>
-     * 
-     * <p>.</p>
+     * local memory instead of just {@code local void *}.</p>
      */
     public final boolean cl_khr_device_enqueue_local_arg_types;
     /** When true, {@link KHREGLEvent} is supported. */
@@ -760,16 +758,10 @@ public class CLCapabilities {
      * 
      * <p>This extension adds support for specifying the rounding mode for an instruction or group of instructions in the program source.</p>
      * 
-     * <p>The appropriate rounding mode can be specified using</p><code>#pragma OPENCL SELECT_ROUNDING_MODE</code>
+     * <p>The appropriate rounding mode can be specified using {@code #pragma OPENCL SELECT_ROUNDING_MODE} rounding-mode in the program source.</p>
      * 
-     * <p>rounding-mode in the program source.</p>
-     * 
-     * <p>The</p><code>#pragma OPENCL SELECT_ROUNDING_MODE</code>
-     * 
-     * <p>sets the rounding mode for all instructions that operate on floating-point types (scalar or vector
-     * types) or produce floating-point values that follow this pragma in the program source until the next</p><code>#pragma OPENCL SELECT_ROUNDING_MODE</code>
-     * 
-     * <p>is
+     * <p>The {@code #pragma OPENCL SELECT_ROUNDING_MODE} sets the rounding mode for all instructions that operate on floating-point types (scalar or vector
+     * types) or produce floating-point values that follow this pragma in the program source until the next {@code #pragma OPENCL SELECT_ROUNDING_MODE} is
      * encountered. Note that the rounding mode specified for a block of code is known at compile time. Except where otherwise documented, the callee
      * functions do not inherit the rounding mode of the caller function.</p>
      * 
@@ -855,7 +847,7 @@ public class CLCapabilities {
      * 
      * <p>A user may specify that a loop in the source program be unrolled. This is done via a pragma. The syntax of this pragma is as follows</p>
      * 
-     * <code>#pragma unroll [unroll-factor]</code>
+     * <p>{@code #pragma unroll [unroll-factor]}</p>
      * 
      * <p>The pragma unroll may optionally specify an unroll factor. The pragma must be placed immediately before the loop and only applies to that loop.</p>
      * 

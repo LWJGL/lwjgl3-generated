@@ -314,9 +314,7 @@ public class GL31 {
      * <p>When a buffer object is attached to a buffer texture, the buffer object's data store is taken as the texture's texel array. The number of texels in the
      * buffer texture's texel array is given by</p>
      * 
-     * <code>floor(buffer_size / (components * sizeof(base_type))</code>
-     * 
-     * <p>,</p>
+     * <p>{@code floor(buffer_size / (components * sizeof(base_type))},</p>
      * 
      * <p>where {@code buffer_size} is the size of the buffer object, in basic machine units and {@code components} and {@code base_type} are the element count
      * and base data type for elements. The number of texels in the texel array is then clamped to the implementation-dependent limit {@link #GL_MAX_TEXTURE_BUFFER_SIZE MAX_TEXTURE_BUFFER_SIZE}.

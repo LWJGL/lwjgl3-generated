@@ -34,9 +34,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * dereferences in the shading language.</p>
  * 
  * <p>As a very simple example, imagine packing a group of similar objects' constants into a single buffer object and pointing your program at object
- * &lt;i&gt; by setting</p><code>glVertexAttribI1iEXT(attrLoc, i);</code>
- * 
- * <p>and using a shader as such:</p>
+ * &lt;i&gt; by setting {@code glVertexAttribI1iEXT(attrLoc, i);} and using a shader as such:</p>
  * 
  * <code><pre>
  * struct MyObjectType {
