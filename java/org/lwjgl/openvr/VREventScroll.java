@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Used for simulated mouse wheel scroll in overlay space.
@@ -32,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Scroll_t")
-public class VREventScroll extends Struct implements NativeResource {
+public class VREventScroll extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -85,85 +83,11 @@ public class VREventScroll extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int repeatCount() { return nrepeatCount(address()); }
 
-    /** Sets the specified value to the {@code xdelta} field. */
-    public VREventScroll xdelta(float value) { nxdelta(address(), value); return this; }
-    /** Sets the specified value to the {@code ydelta} field. */
-    public VREventScroll ydelta(float value) { nydelta(address(), value); return this; }
-    /** Sets the specified value to the {@code repeatCount} field. */
-    public VREventScroll repeatCount(@NativeType("uint32_t") int value) { nrepeatCount(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VREventScroll set(
-        float xdelta,
-        float ydelta,
-        int repeatCount
-    ) {
-        xdelta(xdelta);
-        ydelta(ydelta);
-        repeatCount(repeatCount);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventScroll set(VREventScroll src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventScroll} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventScroll malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventScroll} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventScroll calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventScroll} instance allocated with {@link BufferUtils}. */
-    public static VREventScroll create() {
-        return new VREventScroll(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventScroll} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventScroll create(long address) {
         return address == NULL ? null : new VREventScroll(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventScroll.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventScroll.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventScroll.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -178,74 +102,6 @@ public class VREventScroll extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventScroll} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventScroll mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventScroll} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventScroll callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventScroll} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventScroll mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventScroll} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventScroll callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventScroll.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventScroll.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventScroll.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventScroll.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #xdelta}. */
     public static float nxdelta(long struct) { return memGetFloat(struct + VREventScroll.XDELTA); }
     /** Unsafe version of {@link #ydelta}. */
@@ -253,17 +109,10 @@ public class VREventScroll extends Struct implements NativeResource {
     /** Unsafe version of {@link #repeatCount}. */
     public static int nrepeatCount(long struct) { return memGetInt(struct + VREventScroll.REPEATCOUNT); }
 
-    /** Unsafe version of {@link #xdelta(float) xdelta}. */
-    public static void nxdelta(long struct, float value) { memPutFloat(struct + VREventScroll.XDELTA, value); }
-    /** Unsafe version of {@link #ydelta(float) ydelta}. */
-    public static void nydelta(long struct, float value) { memPutFloat(struct + VREventScroll.YDELTA, value); }
-    /** Unsafe version of {@link #repeatCount(int) repeatCount}. */
-    public static void nrepeatCount(long struct, int value) { memPutInt(struct + VREventScroll.REPEATCOUNT, value); }
-
     // -----------------------------------
 
     /** An array of {@link VREventScroll} structs. */
-    public static class Buffer extends StructBuffer<VREventScroll, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventScroll, Buffer> {
 
         /**
          * Creates a new {@link VREventScroll.Buffer} instance backed by the specified container.
@@ -309,13 +158,6 @@ public class VREventScroll extends Struct implements NativeResource {
         /** Returns the value of the {@code repeatCount} field. */
         @NativeType("uint32_t")
         public int repeatCount() { return VREventScroll.nrepeatCount(address()); }
-
-        /** Sets the specified value to the {@code xdelta} field. */
-        public VREventScroll.Buffer xdelta(float value) { VREventScroll.nxdelta(address(), value); return this; }
-        /** Sets the specified value to the {@code ydelta} field. */
-        public VREventScroll.Buffer ydelta(float value) { VREventScroll.nydelta(address(), value); return this; }
-        /** Sets the specified value to the {@code repeatCount} field. */
-        public VREventScroll.Buffer repeatCount(@NativeType("uint32_t") int value) { VREventScroll.nrepeatCount(address(), value); return this; }
 
     }
 

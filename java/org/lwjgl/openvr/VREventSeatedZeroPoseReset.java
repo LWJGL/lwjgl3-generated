@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -22,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_SeatedZeroPoseReset_t")
-public class VREventSeatedZeroPoseReset extends Struct implements NativeResource {
+public class VREventSeatedZeroPoseReset extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -65,68 +63,11 @@ public class VREventSeatedZeroPoseReset extends Struct implements NativeResource
     @NativeType("bool")
     public boolean bResetBySystemMenu() { return nbResetBySystemMenu(address()); }
 
-    /** Sets the specified value to the {@code bResetBySystemMenu} field. */
-    public VREventSeatedZeroPoseReset bResetBySystemMenu(@NativeType("bool") boolean value) { nbResetBySystemMenu(address(), value); return this; }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventSeatedZeroPoseReset set(VREventSeatedZeroPoseReset src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventSeatedZeroPoseReset} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventSeatedZeroPoseReset malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventSeatedZeroPoseReset} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventSeatedZeroPoseReset calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventSeatedZeroPoseReset} instance allocated with {@link BufferUtils}. */
-    public static VREventSeatedZeroPoseReset create() {
-        return new VREventSeatedZeroPoseReset(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventSeatedZeroPoseReset} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventSeatedZeroPoseReset create(long address) {
         return address == NULL ? null : new VREventSeatedZeroPoseReset(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -141,84 +82,13 @@ public class VREventSeatedZeroPoseReset extends Struct implements NativeResource
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventSeatedZeroPoseReset} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventSeatedZeroPoseReset mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventSeatedZeroPoseReset} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventSeatedZeroPoseReset callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventSeatedZeroPoseReset mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventSeatedZeroPoseReset callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventSeatedZeroPoseReset.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #bResetBySystemMenu}. */
     public static boolean nbResetBySystemMenu(long struct) { return memGetByte(struct + VREventSeatedZeroPoseReset.BRESETBYSYSTEMMENU) != 0; }
-
-    /** Unsafe version of {@link #bResetBySystemMenu(boolean) bResetBySystemMenu}. */
-    public static void nbResetBySystemMenu(long struct, boolean value) { memPutByte(struct + VREventSeatedZeroPoseReset.BRESETBYSYSTEMMENU, value ? (byte)1 : (byte)0); }
 
     // -----------------------------------
 
     /** An array of {@link VREventSeatedZeroPoseReset} structs. */
-    public static class Buffer extends StructBuffer<VREventSeatedZeroPoseReset, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventSeatedZeroPoseReset, Buffer> {
 
         /**
          * Creates a new {@link VREventSeatedZeroPoseReset.Buffer} instance backed by the specified container.
@@ -260,9 +130,6 @@ public class VREventSeatedZeroPoseReset extends Struct implements NativeResource
         /** Returns the value of the {@code bResetBySystemMenu} field. */
         @NativeType("bool")
         public boolean bResetBySystemMenu() { return VREventSeatedZeroPoseReset.nbResetBySystemMenu(address()); }
-
-        /** Sets the specified value to the {@code bResetBySystemMenu} field. */
-        public VREventSeatedZeroPoseReset.Buffer bResetBySystemMenu(@NativeType("bool") boolean value) { VREventSeatedZeroPoseReset.nbResetBySystemMenu(address(), value); return this; }
 
     }
 

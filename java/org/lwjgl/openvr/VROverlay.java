@@ -2090,4 +2090,15 @@ public class VROverlay {
         }
     }
 
+    // --- [ VROverlay_CloseMessageOverlay ] ---
+
+    /** If the calling process owns the overlay and it's open, this will close it. */
+    public static void VROverlay_CloseMessageOverlay() {
+        long __functionAddress = OpenVR.VROverlay.CloseMessageOverlay;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callV(__functionAddress);
+    }
+
 }

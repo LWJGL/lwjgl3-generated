@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Used for events about processes.
@@ -26,7 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Process_t")
-public class VREventProcess extends Struct implements NativeResource {
+public class VREventProcess extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -81,85 +79,11 @@ public class VREventProcess extends Struct implements NativeResource {
     @NativeType("bool")
     public boolean bForced() { return nbForced(address()); }
 
-    /** Sets the specified value to the {@code pid} field. */
-    public VREventProcess pid(@NativeType("uint32_t") int value) { npid(address(), value); return this; }
-    /** Sets the specified value to the {@code oldPid} field. */
-    public VREventProcess oldPid(@NativeType("uint32_t") int value) { noldPid(address(), value); return this; }
-    /** Sets the specified value to the {@code bForced} field. */
-    public VREventProcess bForced(@NativeType("bool") boolean value) { nbForced(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VREventProcess set(
-        int pid,
-        int oldPid,
-        boolean bForced
-    ) {
-        pid(pid);
-        oldPid(oldPid);
-        bForced(bForced);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventProcess set(VREventProcess src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventProcess} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventProcess malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventProcess} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventProcess calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventProcess} instance allocated with {@link BufferUtils}. */
-    public static VREventProcess create() {
-        return new VREventProcess(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventProcess} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventProcess create(long address) {
         return address == NULL ? null : new VREventProcess(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventProcess.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventProcess.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventProcess.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -174,74 +98,6 @@ public class VREventProcess extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventProcess} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventProcess mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventProcess} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventProcess callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventProcess} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventProcess mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventProcess} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventProcess callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventProcess.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventProcess.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventProcess.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventProcess.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #pid}. */
     public static int npid(long struct) { return memGetInt(struct + VREventProcess.PID); }
     /** Unsafe version of {@link #oldPid}. */
@@ -249,17 +105,10 @@ public class VREventProcess extends Struct implements NativeResource {
     /** Unsafe version of {@link #bForced}. */
     public static boolean nbForced(long struct) { return memGetByte(struct + VREventProcess.BFORCED) != 0; }
 
-    /** Unsafe version of {@link #pid(int) pid}. */
-    public static void npid(long struct, int value) { memPutInt(struct + VREventProcess.PID, value); }
-    /** Unsafe version of {@link #oldPid(int) oldPid}. */
-    public static void noldPid(long struct, int value) { memPutInt(struct + VREventProcess.OLDPID, value); }
-    /** Unsafe version of {@link #bForced(boolean) bForced}. */
-    public static void nbForced(long struct, boolean value) { memPutByte(struct + VREventProcess.BFORCED, value ? (byte)1 : (byte)0); }
-
     // -----------------------------------
 
     /** An array of {@link VREventProcess} structs. */
-    public static class Buffer extends StructBuffer<VREventProcess, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventProcess, Buffer> {
 
         /**
          * Creates a new {@link VREventProcess.Buffer} instance backed by the specified container.
@@ -307,13 +156,6 @@ public class VREventProcess extends Struct implements NativeResource {
         /** Returns the value of the {@code bForced} field. */
         @NativeType("bool")
         public boolean bForced() { return VREventProcess.nbForced(address()); }
-
-        /** Sets the specified value to the {@code pid} field. */
-        public VREventProcess.Buffer pid(@NativeType("uint32_t") int value) { VREventProcess.npid(address(), value); return this; }
-        /** Sets the specified value to the {@code oldPid} field. */
-        public VREventProcess.Buffer oldPid(@NativeType("uint32_t") int value) { VREventProcess.noldPid(address(), value); return this; }
-        /** Sets the specified value to the {@code bForced} field. */
-        public VREventProcess.Buffer bForced(@NativeType("bool") boolean value) { VREventProcess.nbForced(address(), value); return this; }
 
     }
 

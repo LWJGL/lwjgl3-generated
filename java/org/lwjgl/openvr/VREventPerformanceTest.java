@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -22,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_PerformanceTest_t")
-public class VREventPerformanceTest extends Struct implements NativeResource {
+public class VREventPerformanceTest extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -65,68 +63,11 @@ public class VREventPerformanceTest extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int m_nFidelityLevel() { return nm_nFidelityLevel(address()); }
 
-    /** Sets the specified value to the {@code m_nFidelityLevel} field. */
-    public VREventPerformanceTest m_nFidelityLevel(@NativeType("uint32_t") int value) { nm_nFidelityLevel(address(), value); return this; }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventPerformanceTest set(VREventPerformanceTest src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventPerformanceTest} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventPerformanceTest malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventPerformanceTest} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventPerformanceTest calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventPerformanceTest} instance allocated with {@link BufferUtils}. */
-    public static VREventPerformanceTest create() {
-        return new VREventPerformanceTest(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventPerformanceTest} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventPerformanceTest create(long address) {
         return address == NULL ? null : new VREventPerformanceTest(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -141,84 +82,13 @@ public class VREventPerformanceTest extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventPerformanceTest} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventPerformanceTest mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventPerformanceTest} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventPerformanceTest callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventPerformanceTest mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventPerformanceTest callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventPerformanceTest.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #m_nFidelityLevel}. */
     public static int nm_nFidelityLevel(long struct) { return memGetInt(struct + VREventPerformanceTest.M_NFIDELITYLEVEL); }
-
-    /** Unsafe version of {@link #m_nFidelityLevel(int) m_nFidelityLevel}. */
-    public static void nm_nFidelityLevel(long struct, int value) { memPutInt(struct + VREventPerformanceTest.M_NFIDELITYLEVEL, value); }
 
     // -----------------------------------
 
     /** An array of {@link VREventPerformanceTest} structs. */
-    public static class Buffer extends StructBuffer<VREventPerformanceTest, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventPerformanceTest, Buffer> {
 
         /**
          * Creates a new {@link VREventPerformanceTest.Buffer} instance backed by the specified container.
@@ -260,9 +130,6 @@ public class VREventPerformanceTest extends Struct implements NativeResource {
         /** Returns the value of the {@code m_nFidelityLevel} field. */
         @NativeType("uint32_t")
         public int m_nFidelityLevel() { return VREventPerformanceTest.nm_nFidelityLevel(address()); }
-
-        /** Sets the specified value to the {@code m_nFidelityLevel} field. */
-        public VREventPerformanceTest.Buffer m_nFidelityLevel(@NativeType("uint32_t") int value) { VREventPerformanceTest.nm_nFidelityLevel(address(), value); return this; }
 
     }
 

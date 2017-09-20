@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Used for a few events about overlays.
@@ -24,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Status_t")
-public class VREventStatus extends Struct implements NativeResource {
+public class VREventStatus extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -67,68 +65,11 @@ public class VREventStatus extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int statusState() { return nstatusState(address()); }
 
-    /** Sets the specified value to the {@code statusState} field. */
-    public VREventStatus statusState(@NativeType("uint32_t") int value) { nstatusState(address(), value); return this; }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventStatus set(VREventStatus src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventStatus} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventStatus malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventStatus} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventStatus calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventStatus} instance allocated with {@link BufferUtils}. */
-    public static VREventStatus create() {
-        return new VREventStatus(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventStatus} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventStatus create(long address) {
         return address == NULL ? null : new VREventStatus(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventStatus.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventStatus.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventStatus.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -143,84 +84,13 @@ public class VREventStatus extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventStatus} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventStatus mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventStatus} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventStatus callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventStatus} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventStatus mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventStatus} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventStatus callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventStatus.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventStatus.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventStatus.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventStatus.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #statusState}. */
     public static int nstatusState(long struct) { return memGetInt(struct + VREventStatus.STATUSSTATE); }
-
-    /** Unsafe version of {@link #statusState(int) statusState}. */
-    public static void nstatusState(long struct, int value) { memPutInt(struct + VREventStatus.STATUSSTATE, value); }
 
     // -----------------------------------
 
     /** An array of {@link VREventStatus} structs. */
-    public static class Buffer extends StructBuffer<VREventStatus, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventStatus, Buffer> {
 
         /**
          * Creates a new {@link VREventStatus.Buffer} instance backed by the specified container.
@@ -262,9 +132,6 @@ public class VREventStatus extends Struct implements NativeResource {
         /** Returns the value of the {@code statusState} field. */
         @NativeType("uint32_t")
         public int statusState() { return VREventStatus.nstatusState(address()); }
-
-        /** Sets the specified value to the {@code statusState} field. */
-        public VREventStatus.Buffer statusState(@NativeType("uint32_t") int value) { VREventStatus.nstatusState(address(), value); return this; }
 
     }
 

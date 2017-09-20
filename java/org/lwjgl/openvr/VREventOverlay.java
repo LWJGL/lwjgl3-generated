@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Used for a few events about overlays.
@@ -30,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Overlay_t")
-public class VREventOverlay extends Struct implements NativeResource {
+public class VREventOverlay extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -73,68 +71,11 @@ public class VREventOverlay extends Struct implements NativeResource {
     @NativeType("uint64_t")
     public long overlayHandle() { return noverlayHandle(address()); }
 
-    /** Sets the specified value to the {@code overlayHandle} field. */
-    public VREventOverlay overlayHandle(@NativeType("uint64_t") long value) { noverlayHandle(address(), value); return this; }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventOverlay set(VREventOverlay src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventOverlay} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventOverlay malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventOverlay} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventOverlay calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventOverlay} instance allocated with {@link BufferUtils}. */
-    public static VREventOverlay create() {
-        return new VREventOverlay(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventOverlay} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventOverlay create(long address) {
         return address == NULL ? null : new VREventOverlay(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -149,84 +90,13 @@ public class VREventOverlay extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventOverlay} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventOverlay mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventOverlay} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventOverlay callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventOverlay mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventOverlay callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventOverlay.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #overlayHandle}. */
     public static long noverlayHandle(long struct) { return memGetLong(struct + VREventOverlay.OVERLAYHANDLE); }
-
-    /** Unsafe version of {@link #overlayHandle(long) overlayHandle}. */
-    public static void noverlayHandle(long struct, long value) { memPutLong(struct + VREventOverlay.OVERLAYHANDLE, value); }
 
     // -----------------------------------
 
     /** An array of {@link VREventOverlay} structs. */
-    public static class Buffer extends StructBuffer<VREventOverlay, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventOverlay, Buffer> {
 
         /**
          * Creates a new {@link VREventOverlay.Buffer} instance backed by the specified container.
@@ -268,9 +138,6 @@ public class VREventOverlay extends Struct implements NativeResource {
         /** Returns the value of the {@code overlayHandle} field. */
         @NativeType("uint64_t")
         public long overlayHandle() { return VREventOverlay.noverlayHandle(address()); }
-
-        /** Sets the specified value to the {@code overlayHandle} field. */
-        public VREventOverlay.Buffer overlayHandle(@NativeType("uint64_t") long value) { VREventOverlay.noverlayHandle(address(), value); return this; }
 
     }
 

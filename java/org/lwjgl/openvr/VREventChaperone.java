@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -23,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Chaperone_t")
-public class VREventChaperone extends Struct implements NativeResource {
+public class VREventChaperone extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -72,81 +70,11 @@ public class VREventChaperone extends Struct implements NativeResource {
     @NativeType("uint64_t")
     public long m_nCurrentUniverse() { return nm_nCurrentUniverse(address()); }
 
-    /** Sets the specified value to the {@code m_nPreviousUniverse} field. */
-    public VREventChaperone m_nPreviousUniverse(@NativeType("uint64_t") long value) { nm_nPreviousUniverse(address(), value); return this; }
-    /** Sets the specified value to the {@code m_nCurrentUniverse} field. */
-    public VREventChaperone m_nCurrentUniverse(@NativeType("uint64_t") long value) { nm_nCurrentUniverse(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VREventChaperone set(
-        long m_nPreviousUniverse,
-        long m_nCurrentUniverse
-    ) {
-        m_nPreviousUniverse(m_nPreviousUniverse);
-        m_nCurrentUniverse(m_nCurrentUniverse);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventChaperone set(VREventChaperone src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventChaperone} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventChaperone malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventChaperone} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventChaperone calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventChaperone} instance allocated with {@link BufferUtils}. */
-    public static VREventChaperone create() {
-        return new VREventChaperone(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventChaperone} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventChaperone create(long address) {
         return address == NULL ? null : new VREventChaperone(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -161,88 +89,15 @@ public class VREventChaperone extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventChaperone} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventChaperone mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventChaperone} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventChaperone callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventChaperone mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventChaperone callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventChaperone.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #m_nPreviousUniverse}. */
     public static long nm_nPreviousUniverse(long struct) { return memGetLong(struct + VREventChaperone.M_NPREVIOUSUNIVERSE); }
     /** Unsafe version of {@link #m_nCurrentUniverse}. */
     public static long nm_nCurrentUniverse(long struct) { return memGetLong(struct + VREventChaperone.M_NCURRENTUNIVERSE); }
 
-    /** Unsafe version of {@link #m_nPreviousUniverse(long) m_nPreviousUniverse}. */
-    public static void nm_nPreviousUniverse(long struct, long value) { memPutLong(struct + VREventChaperone.M_NPREVIOUSUNIVERSE, value); }
-    /** Unsafe version of {@link #m_nCurrentUniverse(long) m_nCurrentUniverse}. */
-    public static void nm_nCurrentUniverse(long struct, long value) { memPutLong(struct + VREventChaperone.M_NCURRENTUNIVERSE, value); }
-
     // -----------------------------------
 
     /** An array of {@link VREventChaperone} structs. */
-    public static class Buffer extends StructBuffer<VREventChaperone, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventChaperone, Buffer> {
 
         /**
          * Creates a new {@link VREventChaperone.Buffer} instance backed by the specified container.
@@ -287,11 +142,6 @@ public class VREventChaperone extends Struct implements NativeResource {
         /** Returns the value of the {@code m_nCurrentUniverse} field. */
         @NativeType("uint64_t")
         public long m_nCurrentUniverse() { return VREventChaperone.nm_nCurrentUniverse(address()); }
-
-        /** Sets the specified value to the {@code m_nPreviousUniverse} field. */
-        public VREventChaperone.Buffer m_nPreviousUniverse(@NativeType("uint64_t") long value) { VREventChaperone.nm_nPreviousUniverse(address(), value); return this; }
-        /** Sets the specified value to the {@code m_nCurrentUniverse} field. */
-        public VREventChaperone.Buffer m_nCurrentUniverse(@NativeType("uint64_t") long value) { VREventChaperone.nm_nCurrentUniverse(address(), value); return this; }
 
     }
 

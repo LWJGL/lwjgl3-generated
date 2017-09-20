@@ -77,7 +77,7 @@ public class VR {
 
     /** OpenVR constants. */
     public static final String
-        IVRSystem_Version                                   = "IVRSystem_016",
+        IVRSystem_Version                                   = "IVRSystem_017",
         IVRExtendedDisplay_Version                          = "IVRExtendedDisplay_001",
         IVRTrackedCamera_Version                            = "IVRTrackedCamera_003",
         k_pch_MimeType_HomeApp                              = "vr/home",
@@ -85,7 +85,7 @@ public class VR {
         IVRApplications_Version                             = "IVRApplications_006",
         IVRChaperone_Version                                = "IVRChaperone_003",
         IVRChaperoneSetup_Version                           = "IVRChaperoneSetup_005",
-        IVRCompositor_Version                               = "IVRCompositor_020",
+        IVRCompositor_Version                               = "IVRCompositor_021",
         IVROverlay_Version                                  = "IVROverlay_016",
         k_pch_Controller_Component_GDC2015                  = "gdc2015",
         k_pch_Controller_Component_Base                     = "base",
@@ -138,6 +138,7 @@ public class VR {
         k_pch_SteamVR_RetailDemo_Bool                       = "retailDemo",
         k_pch_SteamVR_IpdOffset_Float                       = "ipdOffset",
         k_pch_SteamVR_AllowSupersampleFiltering_Bool        = "allowSupersampleFiltering",
+        k_pch_SteamVR_EnableLinuxVulkanAsync_Bool           = "enableLinuxVulkanAsync",
         k_pch_Lighthouse_Section                            = "driver_lighthouse",
         k_pch_Lighthouse_DisableIMU_Bool                    = "disableimu",
         k_pch_Lighthouse_UseDisambiguation_String           = "usedisambiguation",
@@ -645,13 +646,15 @@ public class VR {
      * </li>
      * <li>{@link #EVRSubmitFlags_Submit_GlRenderBuffer EVRSubmitFlags_Submit_GlRenderBuffer} - If the texture pointer passed in is actually a renderbuffer (e.g. for MSAA in OpenGL) then set this flag.</li>
      * <li>{@link #EVRSubmitFlags_Submit_Reserved EVRSubmitFlags_Submit_Reserved} - Do not use.</li>
+     * <li>{@link #EVRSubmit_TextureWithPose EVRSubmit_TextureWithPose} - Set to indicate that {@code pTexture} is a pointer to a {@link VRTextureWithPose}.</li>
      * </ul>
      */
     public static final int
         EVRSubmitFlags_Submit_Default                      = 0,
         EVRSubmitFlags_Submit_LensDistortionAlreadyApplied = 1,
         EVRSubmitFlags_Submit_GlRenderBuffer               = 2,
-        EVRSubmitFlags_Submit_Reserved                     = 4;
+        EVRSubmitFlags_Submit_Reserved                     = 4,
+        EVRSubmit_TextureWithPose                          = 8;
 
     /**
      * {@code EVRState}: Status of the overall system or tracked objects.
@@ -799,6 +802,7 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_PerformanceTest_DisableCapture EVREventType_VREvent_PerformanceTest_DisableCapture}</li>
      * <li>{@link #EVREventType_VREvent_PerformanceTest_FidelityLevel EVREventType_VREvent_PerformanceTest_FidelityLevel}</li>
      * <li>{@link #EVREventType_VREvent_MessageOverlay_Closed EVREventType_VREvent_MessageOverlay_Closed}</li>
+     * <li>{@link #EVREventType_VREvent_MessageOverlayCloseRequested EVREventType_VREvent_MessageOverlayCloseRequested}</li>
      * <li>{@link #EVREventType_VREvent_VendorSpecific_Reserved_Start EVREventType_VREvent_VendorSpecific_Reserved_Start}</li>
      * <li>{@link #EVREventType_VREvent_VendorSpecific_Reserved_End EVREventType_VREvent_VendorSpecific_Reserved_End}</li>
      * </ul>
@@ -916,6 +920,7 @@ public class VR {
         EVREventType_VREvent_PerformanceTest_DisableCapture            = 1601,
         EVREventType_VREvent_PerformanceTest_FidelityLevel             = 1602,
         EVREventType_VREvent_MessageOverlay_Closed                     = 1650,
+        EVREventType_VREvent_MessageOverlayCloseRequested              = 1651,
         EVREventType_VREvent_VendorSpecific_Reserved_Start             = 10000,
         EVREventType_VREvent_VendorSpecific_Reserved_End               = 19999;
 
@@ -1240,6 +1245,9 @@ public class VR {
      * <li>{@link #EVRInitError_VRInitError_Init_VRDashboardStartupFailed EVRInitError_VRInitError_Init_VRDashboardStartupFailed}</li>
      * <li>{@link #EVRInitError_VRInitError_Init_VRHomeNotFound EVRInitError_VRInitError_Init_VRHomeNotFound}</li>
      * <li>{@link #EVRInitError_VRInitError_Init_VRHomeStartupFailed EVRInitError_VRInitError_Init_VRHomeStartupFailed}</li>
+     * <li>{@link #EVRInitError_VRInitError_Init_RebootingBusy EVRInitError_VRInitError_Init_RebootingBusy}</li>
+     * <li>{@link #EVRInitError_VRInitError_Init_FirmwareUpdateBusy EVRInitError_VRInitError_Init_FirmwareUpdateBusy}</li>
+     * <li>{@link #EVRInitError_VRInitError_Init_FirmwareRecoveryBusy EVRInitError_VRInitError_Init_FirmwareRecoveryBusy}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_Failed EVRInitError_VRInitError_Driver_Failed}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_Unknown EVRInitError_VRInitError_Driver_Unknown}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_HmdUnknown EVRInitError_VRInitError_Driver_HmdUnknown}</li>
@@ -1324,6 +1332,9 @@ public class VR {
         EVRInitError_VRInitError_Init_VRDashboardStartupFailed                      = 134,
         EVRInitError_VRInitError_Init_VRHomeNotFound                                = 135,
         EVRInitError_VRInitError_Init_VRHomeStartupFailed                           = 136,
+        EVRInitError_VRInitError_Init_RebootingBusy                                 = 137,
+        EVRInitError_VRInitError_Init_FirmwareUpdateBusy                            = 138,
+        EVRInitError_VRInitError_Init_FirmwareRecoveryBusy                          = 139,
         EVRInitError_VRInitError_Driver_Failed                                      = 200,
         EVRInitError_VRInitError_Driver_Unknown                                     = 201,
         EVRInitError_VRInitError_Driver_HmdUnknown                                  = 202,

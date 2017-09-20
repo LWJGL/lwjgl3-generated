@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * Not actually used for any events.
@@ -25,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Reserved_t")
-public class VREventReserved extends Struct implements NativeResource {
+public class VREventReserved extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -74,81 +72,11 @@ public class VREventReserved extends Struct implements NativeResource {
     @NativeType("uint64_t")
     public long reserved1() { return nreserved1(address()); }
 
-    /** Sets the specified value to the {@code reserved0} field. */
-    public VREventReserved reserved0(@NativeType("uint64_t") long value) { nreserved0(address(), value); return this; }
-    /** Sets the specified value to the {@code reserved1} field. */
-    public VREventReserved reserved1(@NativeType("uint64_t") long value) { nreserved1(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VREventReserved set(
-        long reserved0,
-        long reserved1
-    ) {
-        reserved0(reserved0);
-        reserved1(reserved1);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventReserved set(VREventReserved src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventReserved} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventReserved malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventReserved} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventReserved calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventReserved} instance allocated with {@link BufferUtils}. */
-    public static VREventReserved create() {
-        return new VREventReserved(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventReserved} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventReserved create(long address) {
         return address == NULL ? null : new VREventReserved(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventReserved.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventReserved.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventReserved.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -163,88 +91,15 @@ public class VREventReserved extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventReserved} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventReserved mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventReserved} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventReserved callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventReserved} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventReserved mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventReserved} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventReserved callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventReserved.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventReserved.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventReserved.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventReserved.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #reserved0}. */
     public static long nreserved0(long struct) { return memGetLong(struct + VREventReserved.RESERVED0); }
     /** Unsafe version of {@link #reserved1}. */
     public static long nreserved1(long struct) { return memGetLong(struct + VREventReserved.RESERVED1); }
 
-    /** Unsafe version of {@link #reserved0(long) reserved0}. */
-    public static void nreserved0(long struct, long value) { memPutLong(struct + VREventReserved.RESERVED0, value); }
-    /** Unsafe version of {@link #reserved1(long) reserved1}. */
-    public static void nreserved1(long struct, long value) { memPutLong(struct + VREventReserved.RESERVED1, value); }
-
     // -----------------------------------
 
     /** An array of {@link VREventReserved} structs. */
-    public static class Buffer extends StructBuffer<VREventReserved, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventReserved, Buffer> {
 
         /**
          * Creates a new {@link VREventReserved.Buffer} instance backed by the specified container.
@@ -289,11 +144,6 @@ public class VREventReserved extends Struct implements NativeResource {
         /** Returns the value of the {@code reserved1} field. */
         @NativeType("uint64_t")
         public long reserved1() { return VREventReserved.nreserved1(address()); }
-
-        /** Sets the specified value to the {@code reserved0} field. */
-        public VREventReserved.Buffer reserved0(@NativeType("uint64_t") long value) { VREventReserved.nreserved0(address(), value); return this; }
-        /** Sets the specified value to the {@code reserved1} field. */
-        public VREventReserved.Buffer reserved1(@NativeType("uint64_t") long value) { VREventReserved.nreserved1(address(), value); return this; }
 
     }
 

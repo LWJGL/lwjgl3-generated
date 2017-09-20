@@ -396,10 +396,12 @@ public final class OpenVR {
             LockGLSharedTextureForAccess,
             UnlockGLSharedTextureForAccess,
             GetVulkanInstanceExtensionsRequired,
-            GetVulkanDeviceExtensionsRequired;
+            GetVulkanDeviceExtensionsRequired,
+            SetExplicitTimingMode,
+            SubmitExplicitTimingData;
 
         public IVRCompositor(long tableAddress) {
-            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 41);
+            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 43);
             SetTrackingSpace = table.get(0);
             GetTrackingSpace = table.get(1);
             WaitGetPoses = table.get(2);
@@ -441,6 +443,8 @@ public final class OpenVR {
             UnlockGLSharedTextureForAccess = table.get(38);
             GetVulkanInstanceExtensionsRequired = table.get(39);
             GetVulkanDeviceExtensionsRequired = table.get(40);
+            SetExplicitTimingMode = table.get(41);
+            SubmitExplicitTimingData = table.get(42);
         }
 
     }
@@ -571,10 +575,11 @@ public final class OpenVR {
             SetKeyboardPositionForOverlay,
             SetOverlayIntersectionMask,
             GetOverlayFlags,
-            ShowMessageOverlay;
+            ShowMessageOverlay,
+            CloseMessageOverlay;
 
         public IVROverlay(long tableAddress) {
-            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 80);
+            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 81);
             FindOverlay = table.get(0);
             CreateOverlay = table.get(1);
             DestroyOverlay = table.get(2);
@@ -655,6 +660,7 @@ public final class OpenVR {
             SetOverlayIntersectionMask = table.get(77);
             GetOverlayFlags = table.get(78);
             ShowMessageOverlay = table.get(79);
+            CloseMessageOverlay = table.get(80);
         }
 
     }

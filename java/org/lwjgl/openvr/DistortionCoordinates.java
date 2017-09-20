@@ -98,44 +98,6 @@ public class DistortionCoordinates extends Struct implements NativeResource {
     /** Returns the value at the specified index of the {@code rfBlue} field. */
     public float rfBlue(int index) { return nrfBlue(address(), index); }
 
-    /** Copies the specified {@link FloatBuffer} to the {@code rfRed} field. */
-    public DistortionCoordinates rfRed(@NativeType("float[2]") FloatBuffer value) { nrfRed(address(), value); return this; }
-    /** Sets the specified value at the specified index of the {@code rfRed} field. */
-    public DistortionCoordinates rfRed(int index, float value) { nrfRed(address(), index, value); return this; }
-    /** Copies the specified {@link FloatBuffer} to the {@code rfGreen} field. */
-    public DistortionCoordinates rfGreen(@NativeType("float[2]") FloatBuffer value) { nrfGreen(address(), value); return this; }
-    /** Sets the specified value at the specified index of the {@code rfGreen} field. */
-    public DistortionCoordinates rfGreen(int index, float value) { nrfGreen(address(), index, value); return this; }
-    /** Copies the specified {@link FloatBuffer} to the {@code rfBlue} field. */
-    public DistortionCoordinates rfBlue(@NativeType("float[2]") FloatBuffer value) { nrfBlue(address(), value); return this; }
-    /** Sets the specified value at the specified index of the {@code rfBlue} field. */
-    public DistortionCoordinates rfBlue(int index, float value) { nrfBlue(address(), index, value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public DistortionCoordinates set(
-        FloatBuffer rfRed,
-        FloatBuffer rfGreen,
-        FloatBuffer rfBlue
-    ) {
-        rfRed(rfRed);
-        rfGreen(rfGreen);
-        rfBlue(rfBlue);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public DistortionCoordinates set(DistortionCoordinates src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
 
     /** Returns a new {@link DistortionCoordinates} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -287,37 +249,6 @@ public class DistortionCoordinates extends Struct implements NativeResource {
         return memGetFloat(struct + DistortionCoordinates.RFBLUE + index * 4);
     }
 
-    /** Unsafe version of {@link #rfRed(FloatBuffer) rfRed}. */
-    public static void nrfRed(long struct, FloatBuffer value) {
-        if (CHECKS) { checkGT(value, 2); }
-        memCopy(memAddress(value), struct + DistortionCoordinates.RFRED, value.remaining() * 4);
-    }
-    /** Unsafe version of {@link #rfRed(int, float) rfRed}. */
-    public static void nrfRed(long struct, int index, float value) {
-        if (CHECKS) { check(index, 2); }
-        memPutFloat(struct + DistortionCoordinates.RFRED + index * 4, value);
-    }
-    /** Unsafe version of {@link #rfGreen(FloatBuffer) rfGreen}. */
-    public static void nrfGreen(long struct, FloatBuffer value) {
-        if (CHECKS) { checkGT(value, 2); }
-        memCopy(memAddress(value), struct + DistortionCoordinates.RFGREEN, value.remaining() * 4);
-    }
-    /** Unsafe version of {@link #rfGreen(int, float) rfGreen}. */
-    public static void nrfGreen(long struct, int index, float value) {
-        if (CHECKS) { check(index, 2); }
-        memPutFloat(struct + DistortionCoordinates.RFGREEN + index * 4, value);
-    }
-    /** Unsafe version of {@link #rfBlue(FloatBuffer) rfBlue}. */
-    public static void nrfBlue(long struct, FloatBuffer value) {
-        if (CHECKS) { checkGT(value, 2); }
-        memCopy(memAddress(value), struct + DistortionCoordinates.RFBLUE, value.remaining() * 4);
-    }
-    /** Unsafe version of {@link #rfBlue(int, float) rfBlue}. */
-    public static void nrfBlue(long struct, int index, float value) {
-        if (CHECKS) { check(index, 2); }
-        memPutFloat(struct + DistortionCoordinates.RFBLUE + index * 4, value);
-    }
-
     // -----------------------------------
 
     /** An array of {@link DistortionCoordinates} structs. */
@@ -375,19 +306,6 @@ public class DistortionCoordinates extends Struct implements NativeResource {
         public FloatBuffer rfBlue() { return DistortionCoordinates.nrfBlue(address()); }
         /** Returns the value at the specified index of the {@code rfBlue} field. */
         public float rfBlue(int index) { return DistortionCoordinates.nrfBlue(address(), index); }
-
-        /** Copies the specified {@link FloatBuffer} to the {@code rfRed} field. */
-        public DistortionCoordinates.Buffer rfRed(@NativeType("float[2]") FloatBuffer value) { DistortionCoordinates.nrfRed(address(), value); return this; }
-        /** Sets the specified value at the specified index of the {@code rfRed} field. */
-        public DistortionCoordinates.Buffer rfRed(int index, float value) { DistortionCoordinates.nrfRed(address(), index, value); return this; }
-        /** Copies the specified {@link FloatBuffer} to the {@code rfGreen} field. */
-        public DistortionCoordinates.Buffer rfGreen(@NativeType("float[2]") FloatBuffer value) { DistortionCoordinates.nrfGreen(address(), value); return this; }
-        /** Sets the specified value at the specified index of the {@code rfGreen} field. */
-        public DistortionCoordinates.Buffer rfGreen(int index, float value) { DistortionCoordinates.nrfGreen(address(), index, value); return this; }
-        /** Copies the specified {@link FloatBuffer} to the {@code rfBlue} field. */
-        public DistortionCoordinates.Buffer rfBlue(@NativeType("float[2]") FloatBuffer value) { DistortionCoordinates.nrfBlue(address(), value); return this; }
-        /** Sets the specified value at the specified index of the {@code rfBlue} field. */
-        public DistortionCoordinates.Buffer rfBlue(int index, float value) { DistortionCoordinates.nrfBlue(address(), index, value); return this; }
 
     }
 

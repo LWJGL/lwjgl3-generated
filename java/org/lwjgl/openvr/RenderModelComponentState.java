@@ -88,38 +88,6 @@ public class RenderModelComponentState extends Struct implements NativeResource 
     @NativeType("VRComponentProperties")
     public int uProperties() { return nuProperties(address()); }
 
-    /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentRenderModel} field. */
-    public RenderModelComponentState mTrackingToComponentRenderModel(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { nmTrackingToComponentRenderModel(address(), value); return this; }
-    /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentLocal} field. */
-    public RenderModelComponentState mTrackingToComponentLocal(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { nmTrackingToComponentLocal(address(), value); return this; }
-    /** Sets the specified value to the {@code uProperties} field. */
-    public RenderModelComponentState uProperties(@NativeType("VRComponentProperties") int value) { nuProperties(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public RenderModelComponentState set(
-        HmdMatrix34 mTrackingToComponentRenderModel,
-        HmdMatrix34 mTrackingToComponentLocal,
-        int uProperties
-    ) {
-        mTrackingToComponentRenderModel(mTrackingToComponentRenderModel);
-        mTrackingToComponentLocal(mTrackingToComponentLocal);
-        uProperties(uProperties);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public RenderModelComponentState set(RenderModelComponentState src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
 
     /** Returns a new {@link RenderModelComponentState} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -256,13 +224,6 @@ public class RenderModelComponentState extends Struct implements NativeResource 
     /** Unsafe version of {@link #uProperties}. */
     public static int nuProperties(long struct) { return memGetInt(struct + RenderModelComponentState.UPROPERTIES); }
 
-    /** Unsafe version of {@link #mTrackingToComponentRenderModel(HmdMatrix34) mTrackingToComponentRenderModel}. */
-    public static void nmTrackingToComponentRenderModel(long struct, HmdMatrix34 value) { memCopy(value.address(), struct + RenderModelComponentState.MTRACKINGTOCOMPONENTRENDERMODEL, HmdMatrix34.SIZEOF); }
-    /** Unsafe version of {@link #mTrackingToComponentLocal(HmdMatrix34) mTrackingToComponentLocal}. */
-    public static void nmTrackingToComponentLocal(long struct, HmdMatrix34 value) { memCopy(value.address(), struct + RenderModelComponentState.MTRACKINGTOCOMPONENTLOCAL, HmdMatrix34.SIZEOF); }
-    /** Unsafe version of {@link #uProperties(int) uProperties}. */
-    public static void nuProperties(long struct, int value) { memPutInt(struct + RenderModelComponentState.UPROPERTIES, value); }
-
     // -----------------------------------
 
     /** An array of {@link RenderModelComponentState} structs. */
@@ -314,13 +275,6 @@ public class RenderModelComponentState extends Struct implements NativeResource 
         /** Returns the value of the {@code uProperties} field. */
         @NativeType("VRComponentProperties")
         public int uProperties() { return RenderModelComponentState.nuProperties(address()); }
-
-        /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentRenderModel} field. */
-        public RenderModelComponentState.Buffer mTrackingToComponentRenderModel(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { RenderModelComponentState.nmTrackingToComponentRenderModel(address(), value); return this; }
-        /** Copies the specified {@link HmdMatrix34} to the {@code mTrackingToComponentLocal} field. */
-        public RenderModelComponentState.Buffer mTrackingToComponentLocal(@NativeType("HmdMatrix34_t") HmdMatrix34 value) { RenderModelComponentState.nmTrackingToComponentLocal(address(), value); return this; }
-        /** Sets the specified value to the {@code uProperties} field. */
-        public RenderModelComponentState.Buffer uProperties(@NativeType("VRComponentProperties") int value) { RenderModelComponentState.nuProperties(address(), value); return this; }
 
     }
 

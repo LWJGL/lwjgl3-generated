@@ -85,42 +85,6 @@ public class VROverlayIntersectionResults extends Struct implements NativeResour
     /** Returns the value of the {@code fDistance} field. */
     public float fDistance() { return nfDistance(address()); }
 
-    /** Copies the specified {@link HmdVector3} to the {@code vPoint} field. */
-    public VROverlayIntersectionResults vPoint(@NativeType("HmdVector3_t") HmdVector3 value) { nvPoint(address(), value); return this; }
-    /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-    public VROverlayIntersectionResults vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { nvNormal(address(), value); return this; }
-    /** Copies the specified {@link HmdVector2} to the {@code vUVs} field. */
-    public VROverlayIntersectionResults vUVs(@NativeType("HmdVector2_t") HmdVector2 value) { nvUVs(address(), value); return this; }
-    /** Sets the specified value to the {@code fDistance} field. */
-    public VROverlayIntersectionResults fDistance(float value) { nfDistance(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VROverlayIntersectionResults set(
-        HmdVector3 vPoint,
-        HmdVector3 vNormal,
-        HmdVector2 vUVs,
-        float fDistance
-    ) {
-        vPoint(vPoint);
-        vNormal(vNormal);
-        vUVs(vUVs);
-        fDistance(fDistance);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VROverlayIntersectionResults set(VROverlayIntersectionResults src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
 
     /** Returns a new {@link VROverlayIntersectionResults} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -259,15 +223,6 @@ public class VROverlayIntersectionResults extends Struct implements NativeResour
     /** Unsafe version of {@link #fDistance}. */
     public static float nfDistance(long struct) { return memGetFloat(struct + VROverlayIntersectionResults.FDISTANCE); }
 
-    /** Unsafe version of {@link #vPoint(HmdVector3) vPoint}. */
-    public static void nvPoint(long struct, HmdVector3 value) { memCopy(value.address(), struct + VROverlayIntersectionResults.VPOINT, HmdVector3.SIZEOF); }
-    /** Unsafe version of {@link #vNormal(HmdVector3) vNormal}. */
-    public static void nvNormal(long struct, HmdVector3 value) { memCopy(value.address(), struct + VROverlayIntersectionResults.VNORMAL, HmdVector3.SIZEOF); }
-    /** Unsafe version of {@link #vUVs(HmdVector2) vUVs}. */
-    public static void nvUVs(long struct, HmdVector2 value) { memCopy(value.address(), struct + VROverlayIntersectionResults.VUVS, HmdVector2.SIZEOF); }
-    /** Unsafe version of {@link #fDistance(float) fDistance}. */
-    public static void nfDistance(long struct, float value) { memPutFloat(struct + VROverlayIntersectionResults.FDISTANCE, value); }
-
     // -----------------------------------
 
     /** An array of {@link VROverlayIntersectionResults} structs. */
@@ -321,15 +276,6 @@ public class VROverlayIntersectionResults extends Struct implements NativeResour
         public HmdVector2 vUVs() { return VROverlayIntersectionResults.nvUVs(address()); }
         /** Returns the value of the {@code fDistance} field. */
         public float fDistance() { return VROverlayIntersectionResults.nfDistance(address()); }
-
-        /** Copies the specified {@link HmdVector3} to the {@code vPoint} field. */
-        public VROverlayIntersectionResults.Buffer vPoint(@NativeType("HmdVector3_t") HmdVector3 value) { VROverlayIntersectionResults.nvPoint(address(), value); return this; }
-        /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-        public VROverlayIntersectionResults.Buffer vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { VROverlayIntersectionResults.nvNormal(address(), value); return this; }
-        /** Copies the specified {@link HmdVector2} to the {@code vUVs} field. */
-        public VROverlayIntersectionResults.Buffer vUVs(@NativeType("HmdVector2_t") HmdVector2 value) { VROverlayIntersectionResults.nvUVs(address(), value); return this; }
-        /** Sets the specified value to the {@code fDistance} field. */
-        public VROverlayIntersectionResults.Buffer fDistance(float value) { VROverlayIntersectionResults.nfDistance(address(), value); return this; }
 
     }
 

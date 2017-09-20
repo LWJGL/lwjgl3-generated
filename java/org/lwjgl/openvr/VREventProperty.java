@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Member documentation</h3>
@@ -29,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Property_t")
-public class VREventProperty extends Struct implements NativeResource {
+public class VREventProperty extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -78,81 +76,11 @@ public class VREventProperty extends Struct implements NativeResource {
     @NativeType("ETrackedDeviceProperty")
     public int prop() { return nprop(address()); }
 
-    /** Sets the specified value to the {@code container} field. */
-    public VREventProperty container(@NativeType("PropertyContainerHandle_t") long value) { ncontainer(address(), value); return this; }
-    /** Sets the specified value to the {@code prop} field. */
-    public VREventProperty prop(@NativeType("ETrackedDeviceProperty") int value) { nprop(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VREventProperty set(
-        long container,
-        int prop
-    ) {
-        container(container);
-        prop(prop);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventProperty set(VREventProperty src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventProperty} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventProperty malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventProperty} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventProperty calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventProperty} instance allocated with {@link BufferUtils}. */
-    public static VREventProperty create() {
-        return new VREventProperty(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventProperty} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventProperty create(long address) {
         return address == NULL ? null : new VREventProperty(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventProperty.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventProperty.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventProperty.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -167,88 +95,15 @@ public class VREventProperty extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventProperty} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventProperty mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventProperty} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventProperty callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventProperty} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventProperty mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventProperty} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventProperty callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventProperty.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventProperty.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventProperty.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventProperty.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #container}. */
     public static long ncontainer(long struct) { return memGetLong(struct + VREventProperty.CONTAINER); }
     /** Unsafe version of {@link #prop}. */
     public static int nprop(long struct) { return memGetInt(struct + VREventProperty.PROP); }
 
-    /** Unsafe version of {@link #container(long) container}. */
-    public static void ncontainer(long struct, long value) { memPutLong(struct + VREventProperty.CONTAINER, value); }
-    /** Unsafe version of {@link #prop(int) prop}. */
-    public static void nprop(long struct, int value) { memPutInt(struct + VREventProperty.PROP, value); }
-
     // -----------------------------------
 
     /** An array of {@link VREventProperty} structs. */
-    public static class Buffer extends StructBuffer<VREventProperty, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventProperty, Buffer> {
 
         /**
          * Creates a new {@link VREventProperty.Buffer} instance backed by the specified container.
@@ -293,11 +148,6 @@ public class VREventProperty extends Struct implements NativeResource {
         /** Returns the value of the {@code prop} field. */
         @NativeType("ETrackedDeviceProperty")
         public int prop() { return VREventProperty.nprop(address()); }
-
-        /** Sets the specified value to the {@code container} field. */
-        public VREventProperty.Buffer container(@NativeType("PropertyContainerHandle_t") long value) { VREventProperty.ncontainer(address(), value); return this; }
-        /** Sets the specified value to the {@code prop} field. */
-        public VREventProperty.Buffer prop(@NativeType("ETrackedDeviceProperty") int value) { VREventProperty.nprop(address(), value); return this; }
 
     }
 

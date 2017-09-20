@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -23,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Screenshot_t")
-public class VREventScreenshot extends Struct implements NativeResource {
+public class VREventScreenshot extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -72,81 +70,11 @@ public class VREventScreenshot extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int type() { return ntype(address()); }
 
-    /** Sets the specified value to the {@code handle} field. */
-    public VREventScreenshot handle(@NativeType("uint32_t") int value) { nhandle(address(), value); return this; }
-    /** Sets the specified value to the {@code type} field. */
-    public VREventScreenshot type(@NativeType("uint32_t") int value) { ntype(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VREventScreenshot set(
-        int handle,
-        int type
-    ) {
-        handle(handle);
-        type(type);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventScreenshot set(VREventScreenshot src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventScreenshot} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventScreenshot malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventScreenshot} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventScreenshot calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventScreenshot} instance allocated with {@link BufferUtils}. */
-    public static VREventScreenshot create() {
-        return new VREventScreenshot(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventScreenshot} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventScreenshot create(long address) {
         return address == NULL ? null : new VREventScreenshot(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -161,88 +89,15 @@ public class VREventScreenshot extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventScreenshot} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventScreenshot mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventScreenshot} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventScreenshot callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventScreenshot mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventScreenshot callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventScreenshot.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #handle}. */
     public static int nhandle(long struct) { return memGetInt(struct + VREventScreenshot.HANDLE); }
     /** Unsafe version of {@link #type}. */
     public static int ntype(long struct) { return memGetInt(struct + VREventScreenshot.TYPE); }
 
-    /** Unsafe version of {@link #handle(int) handle}. */
-    public static void nhandle(long struct, int value) { memPutInt(struct + VREventScreenshot.HANDLE, value); }
-    /** Unsafe version of {@link #type(int) type}. */
-    public static void ntype(long struct, int value) { memPutInt(struct + VREventScreenshot.TYPE, value); }
-
     // -----------------------------------
 
     /** An array of {@link VREventScreenshot} structs. */
-    public static class Buffer extends StructBuffer<VREventScreenshot, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventScreenshot, Buffer> {
 
         /**
          * Creates a new {@link VREventScreenshot.Buffer} instance backed by the specified container.
@@ -287,11 +142,6 @@ public class VREventScreenshot extends Struct implements NativeResource {
         /** Returns the value of the {@code type} field. */
         @NativeType("uint32_t")
         public int type() { return VREventScreenshot.ntype(address()); }
-
-        /** Sets the specified value to the {@code handle} field. */
-        public VREventScreenshot.Buffer handle(@NativeType("uint32_t") int value) { VREventScreenshot.nhandle(address(), value); return this; }
-        /** Sets the specified value to the {@code type} field. */
-        public VREventScreenshot.Buffer type(@NativeType("uint32_t") int value) { VREventScreenshot.ntype(address(), value); return this; }
 
     }
 

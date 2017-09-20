@@ -7,11 +7,9 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -23,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct VREvent_ApplicationLaunch_t")
-public class VREventApplicationLaunch extends Struct implements NativeResource {
+public class VREventApplicationLaunch extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -72,81 +70,11 @@ public class VREventApplicationLaunch extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int unArgsHandle() { return nunArgsHandle(address()); }
 
-    /** Sets the specified value to the {@code pid} field. */
-    public VREventApplicationLaunch pid(@NativeType("uint32_t") int value) { npid(address(), value); return this; }
-    /** Sets the specified value to the {@code unArgsHandle} field. */
-    public VREventApplicationLaunch unArgsHandle(@NativeType("uint32_t") int value) { nunArgsHandle(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public VREventApplicationLaunch set(
-        int pid,
-        int unArgsHandle
-    ) {
-        pid(pid);
-        unArgsHandle(unArgsHandle);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public VREventApplicationLaunch set(VREventApplicationLaunch src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
-
-    /** Returns a new {@link VREventApplicationLaunch} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VREventApplicationLaunch malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link VREventApplicationLaunch} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VREventApplicationLaunch calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VREventApplicationLaunch} instance allocated with {@link BufferUtils}. */
-    public static VREventApplicationLaunch create() {
-        return new VREventApplicationLaunch(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VREventApplicationLaunch} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static VREventApplicationLaunch create(long address) {
         return address == NULL ? null : new VREventApplicationLaunch(address, null);
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -161,88 +89,15 @@ public class VREventApplicationLaunch extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VREventApplicationLaunch} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VREventApplicationLaunch mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VREventApplicationLaunch} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VREventApplicationLaunch callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventApplicationLaunch mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VREventApplicationLaunch callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VREventApplicationLaunch.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
     /** Unsafe version of {@link #pid}. */
     public static int npid(long struct) { return memGetInt(struct + VREventApplicationLaunch.PID); }
     /** Unsafe version of {@link #unArgsHandle}. */
     public static int nunArgsHandle(long struct) { return memGetInt(struct + VREventApplicationLaunch.UNARGSHANDLE); }
 
-    /** Unsafe version of {@link #pid(int) pid}. */
-    public static void npid(long struct, int value) { memPutInt(struct + VREventApplicationLaunch.PID, value); }
-    /** Unsafe version of {@link #unArgsHandle(int) unArgsHandle}. */
-    public static void nunArgsHandle(long struct, int value) { memPutInt(struct + VREventApplicationLaunch.UNARGSHANDLE, value); }
-
     // -----------------------------------
 
     /** An array of {@link VREventApplicationLaunch} structs. */
-    public static class Buffer extends StructBuffer<VREventApplicationLaunch, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<VREventApplicationLaunch, Buffer> {
 
         /**
          * Creates a new {@link VREventApplicationLaunch.Buffer} instance backed by the specified container.
@@ -287,11 +142,6 @@ public class VREventApplicationLaunch extends Struct implements NativeResource {
         /** Returns the value of the {@code unArgsHandle} field. */
         @NativeType("uint32_t")
         public int unArgsHandle() { return VREventApplicationLaunch.nunArgsHandle(address()); }
-
-        /** Sets the specified value to the {@code pid} field. */
-        public VREventApplicationLaunch.Buffer pid(@NativeType("uint32_t") int value) { VREventApplicationLaunch.npid(address(), value); return this; }
-        /** Sets the specified value to the {@code unArgsHandle} field. */
-        public VREventApplicationLaunch.Buffer unArgsHandle(@NativeType("uint32_t") int value) { VREventApplicationLaunch.nunArgsHandle(address(), value); return this; }
 
     }
 

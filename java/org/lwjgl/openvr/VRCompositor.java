@@ -774,4 +774,59 @@ public class VRCompositor {
         }
     }
 
+    // --- [ VRCompositor_SetExplicitTimingMode ] ---
+
+    /**
+     * <h3>Vulkan/D3D12 Only</h3>
+     * 
+     * <p>There are two purposes for {@code SetExplicitTimingMode}:</p>
+     * 
+     * <ol>
+     * <li>To get a more accurate GPU timestamp for when the frame begins in Vulkan/D3D12 applications.</li>
+     * <li>(Optional) To avoid having {@link #VRCompositor_WaitGetPoses WaitGetPoses} access the Vulkan queue so that the queue can be accessed from another thread while {@code WaitGetPoses}
+     * is executing.</li>
+     * </ol>
+     * 
+     * <p>More accurate GPU timestamp for the start of the frame is achieved by the application calling {@link #VRCompositor_SubmitExplicitTimingData SubmitExplicitTimingData} immediately before its first
+     * submission to the Vulkan/D3D12 queue. This is more accurate because normally this GPU timestamp is recorded during {@link #VRCompositor_WaitGetPoses WaitGetPoses}. In D3D11,
+     * {@code WaitGetPoses} queues a GPU timestamp write, but it does not actually get submitted to the GPU until the application flushes. By using
+     * {@code SubmitExplicitTimingData}, the timestamp is recorded at the same place for Vulkan/D3D12 as it is for D3D11, resulting in a more accurate GPU
+     * time measurement for the frame.</p>
+     * 
+     * <p>Avoiding {@code WaitGetPoses} accessing the Vulkan queue can be achieved using {@code SetExplicitTimingMode} as well. If this is desired, the
+     * application <b>MUST</b> call {@link #VRCompositor_PostPresentHandoff PostPresentHandoff} itself prior to {@code WaitGetPoses}. If {@code SetExplicitTimingMode} is true and the application
+     * calls {@code PostPresentHandoff}, then {@code WaitGetPoses} is guaranteed not to access the queue. Note that {@code PostPresentHandoff} and
+     * {@code SubmitExplicitTimingData} will access the queue, so only {@code WaitGetPoses} becomes safe for accessing the queue from another thread.</p>
+     *
+     * @param bExplicitTimingMode 
+     */
+    public static void VRCompositor_SetExplicitTimingMode(@NativeType("bool") boolean bExplicitTimingMode) {
+        long __functionAddress = OpenVR.VRCompositor.SetExplicitTimingMode;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callV(__functionAddress, bExplicitTimingMode);
+    }
+
+    // --- [ VRCompositor_SubmitExplicitTimingData ] ---
+
+    /**
+     * <h3>Vulkan/D3D12 Only</h3>
+     * 
+     * <p>Submit explicit timing data. When {@code SetExplicitTimingMode} is true, this must be called immediately before the application's first
+     * {@code vkQueueSubmit} (Vulkan) or {@code ID3D12CommandQueue::ExecuteCommandLists} (D3D12) of each frame. This function will insert a GPU timestamp
+     * write just before the application starts its rendering. This function will perform a {@code vkQueueSubmit} on Vulkan so must not be done simultaneously
+     * with {@code VkQueue} operations on another thread.</p>
+     *
+     * @return {@link VR#EVRCompositorError_VRCompositorError_RequestFailed} if {@code SetExplicitTimingMode} is not enabled
+     */
+    @NativeType("EVRCompositorError")
+    public static int VRCompositor_SubmitExplicitTimingData() {
+        long __functionAddress = OpenVR.VRCompositor.SubmitExplicitTimingData;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress);
+    }
+
 }

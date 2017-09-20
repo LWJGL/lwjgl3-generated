@@ -28,7 +28,7 @@ public class VRChaperoneSetup {
     /**
      * Saves the current working copy to disk.
      *
-     * @param configFile 
+     * @param configFile one of:<br><table><tr><td>{@link VR#EChaperoneConfigFile_Live}</td><td>{@link VR#EChaperoneConfigFile_Temp}</td></tr></table>
      */
     @NativeType("bool")
     public static boolean VRChaperoneSetup_CommitWorkingCopy(@NativeType("EChaperoneConfigFile") int configFile) {

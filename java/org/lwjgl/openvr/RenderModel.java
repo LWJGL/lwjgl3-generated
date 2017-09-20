@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -103,38 +102,6 @@ public class RenderModel extends Struct implements NativeResource {
     /** Returns the value of the {@code diffuseTextureId} field. */
     @NativeType("TextureID_t")
     public int diffuseTextureId() { return ndiffuseTextureId(address()); }
-
-    /** Sets the address of the specified {@link RenderModelVertex.Buffer} to the {@code rVertexData} field. */
-    public RenderModel rVertexData(@NativeType("const RenderModel_Vertex_t *") RenderModelVertex.Buffer value) { nrVertexData(address(), value); return this; }
-    /** Sets the address of the specified {@link ShortBuffer} to the {@code IndexData} field. */
-    public RenderModel IndexData(@NativeType("const uint16_t *") ShortBuffer value) { nIndexData(address(), value); return this; }
-    /** Sets the specified value to the {@code diffuseTextureId} field. */
-    public RenderModel diffuseTextureId(@NativeType("TextureID_t") int value) { ndiffuseTextureId(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public RenderModel set(
-        RenderModelVertex.Buffer rVertexData,
-        ShortBuffer IndexData,
-        int diffuseTextureId
-    ) {
-        rVertexData(rVertexData);
-        IndexData(IndexData);
-        diffuseTextureId(diffuseTextureId);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public RenderModel set(RenderModel src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
 
     // -----------------------------------
 
@@ -276,39 +243,6 @@ public class RenderModel extends Struct implements NativeResource {
     /** Unsafe version of {@link #diffuseTextureId}. */
     public static int ndiffuseTextureId(long struct) { return memGetInt(struct + RenderModel.DIFFUSETEXTUREID); }
 
-    /** Unsafe version of {@link #rVertexData(RenderModelVertex.Buffer) rVertexData}. */
-    public static void nrVertexData(long struct, RenderModelVertex.Buffer value) { memPutAddress(struct + RenderModel.RVERTEXDATA, value.address()); nunVertexCount(struct, value.remaining()); }
-    /** Sets the specified value to the {@code unVertexCount} field of the specified {@code struct}. */
-    public static void nunVertexCount(long struct, int value) { memPutInt(struct + RenderModel.UNVERTEXCOUNT, value); }
-    /** Unsafe version of {@link #IndexData(ShortBuffer) IndexData}. */
-    public static void nIndexData(long struct, ShortBuffer value) { memPutAddress(struct + RenderModel.INDEXDATA, memAddress(value)); nunTriangleCount(struct, (value.remaining() / 3)); }
-    /** Sets the specified value to the {@code unTriangleCount} field of the specified {@code struct}. */
-    public static void nunTriangleCount(long struct, int value) { memPutInt(struct + RenderModel.UNTRIANGLECOUNT, value); }
-    /** Unsafe version of {@link #diffuseTextureId(int) diffuseTextureId}. */
-    public static void ndiffuseTextureId(long struct, int value) { memPutInt(struct + RenderModel.DIFFUSETEXTUREID, value); }
-
-    /**
-     * Validates pointer members that should not be {@code NULL}.
-     *
-     * @param struct the struct to validate
-     */
-    public static void validate(long struct) {
-        check(memGetAddress(struct + RenderModel.RVERTEXDATA));
-        check(memGetAddress(struct + RenderModel.INDEXDATA));
-    }
-
-    /**
-     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-     *
-     * @param array the struct array to validate
-     * @param count the number of structs in {@code array}
-     */
-    public static void validate(long array, int count) {
-        for (int i = 0; i < count; i++) {
-            validate(array + i * SIZEOF);
-        }
-    }
-
     // -----------------------------------
 
     /** An array of {@link RenderModel} structs. */
@@ -366,13 +300,6 @@ public class RenderModel extends Struct implements NativeResource {
         /** Returns the value of the {@code diffuseTextureId} field. */
         @NativeType("TextureID_t")
         public int diffuseTextureId() { return RenderModel.ndiffuseTextureId(address()); }
-
-        /** Sets the address of the specified {@link RenderModelVertex.Buffer} to the {@code rVertexData} field. */
-        public RenderModel.Buffer rVertexData(@NativeType("const RenderModel_Vertex_t *") RenderModelVertex.Buffer value) { RenderModel.nrVertexData(address(), value); return this; }
-        /** Sets the address of the specified {@link ShortBuffer} to the {@code IndexData} field. */
-        public RenderModel.Buffer IndexData(@NativeType("const uint16_t *") ShortBuffer value) { RenderModel.nIndexData(address(), value); return this; }
-        /** Sets the specified value to the {@code diffuseTextureId} field. */
-        public RenderModel.Buffer diffuseTextureId(@NativeType("TextureID_t") int value) { RenderModel.ndiffuseTextureId(address(), value); return this; }
 
     }
 

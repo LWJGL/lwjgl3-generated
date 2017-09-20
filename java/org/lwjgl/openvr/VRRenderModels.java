@@ -83,7 +83,6 @@ public class VRRenderModels {
         long __functionAddress = OpenVR.VRRenderModels.FreeRenderModel;
         if (CHECKS) {
             check(__functionAddress);
-            if (pRenderModel != NULL) { RenderModel.validate(pRenderModel); }
         }
         callPV(__functionAddress, pRenderModel);
     }
@@ -129,7 +128,6 @@ public class VRRenderModels {
         long __functionAddress = OpenVR.VRRenderModels.FreeTexture;
         if (CHECKS) {
             check(__functionAddress);
-            if (pTexture != NULL) { RenderModelTextureMap.validate(pTexture); }
         }
         callPV(__functionAddress, pTexture);
     }

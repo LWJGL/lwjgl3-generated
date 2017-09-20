@@ -90,40 +90,6 @@ public class RenderModelVertex extends Struct implements NativeResource {
     /** Returns the value at the specified index of the {@code rfTextureCoord} field. */
     public float rfTextureCoord(int index) { return nrfTextureCoord(address(), index); }
 
-    /** Copies the specified {@link HmdVector3} to the {@code vPosition} field. */
-    public RenderModelVertex vPosition(@NativeType("HmdVector3_t") HmdVector3 value) { nvPosition(address(), value); return this; }
-    /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-    public RenderModelVertex vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { nvNormal(address(), value); return this; }
-    /** Copies the specified {@link FloatBuffer} to the {@code rfTextureCoord} field. */
-    public RenderModelVertex rfTextureCoord(@NativeType("float[2]") FloatBuffer value) { nrfTextureCoord(address(), value); return this; }
-    /** Sets the specified value at the specified index of the {@code rfTextureCoord} field. */
-    public RenderModelVertex rfTextureCoord(int index, float value) { nrfTextureCoord(address(), index, value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public RenderModelVertex set(
-        HmdVector3 vPosition,
-        HmdVector3 vNormal,
-        FloatBuffer rfTextureCoord
-    ) {
-        vPosition(vPosition);
-        vNormal(vNormal);
-        rfTextureCoord(rfTextureCoord);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public RenderModelVertex set(RenderModelVertex src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
-
     // -----------------------------------
 
     /** Returns a new {@link RenderModelVertex} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -265,21 +231,6 @@ public class RenderModelVertex extends Struct implements NativeResource {
         return memGetFloat(struct + RenderModelVertex.RFTEXTURECOORD + index * 4);
     }
 
-    /** Unsafe version of {@link #vPosition(HmdVector3) vPosition}. */
-    public static void nvPosition(long struct, HmdVector3 value) { memCopy(value.address(), struct + RenderModelVertex.VPOSITION, HmdVector3.SIZEOF); }
-    /** Unsafe version of {@link #vNormal(HmdVector3) vNormal}. */
-    public static void nvNormal(long struct, HmdVector3 value) { memCopy(value.address(), struct + RenderModelVertex.VNORMAL, HmdVector3.SIZEOF); }
-    /** Unsafe version of {@link #rfTextureCoord(FloatBuffer) rfTextureCoord}. */
-    public static void nrfTextureCoord(long struct, FloatBuffer value) {
-        if (CHECKS) { checkGT(value, 2); }
-        memCopy(memAddress(value), struct + RenderModelVertex.RFTEXTURECOORD, value.remaining() * 4);
-    }
-    /** Unsafe version of {@link #rfTextureCoord(int, float) rfTextureCoord}. */
-    public static void nrfTextureCoord(long struct, int index, float value) {
-        if (CHECKS) { check(index, 2); }
-        memPutFloat(struct + RenderModelVertex.RFTEXTURECOORD + index * 4, value);
-    }
-
     // -----------------------------------
 
     /** An array of {@link RenderModelVertex} structs. */
@@ -333,15 +284,6 @@ public class RenderModelVertex extends Struct implements NativeResource {
         public FloatBuffer rfTextureCoord() { return RenderModelVertex.nrfTextureCoord(address()); }
         /** Returns the value at the specified index of the {@code rfTextureCoord} field. */
         public float rfTextureCoord(int index) { return RenderModelVertex.nrfTextureCoord(address(), index); }
-
-        /** Copies the specified {@link HmdVector3} to the {@code vPosition} field. */
-        public RenderModelVertex.Buffer vPosition(@NativeType("HmdVector3_t") HmdVector3 value) { RenderModelVertex.nvPosition(address(), value); return this; }
-        /** Copies the specified {@link HmdVector3} to the {@code vNormal} field. */
-        public RenderModelVertex.Buffer vNormal(@NativeType("HmdVector3_t") HmdVector3 value) { RenderModelVertex.nvNormal(address(), value); return this; }
-        /** Copies the specified {@link FloatBuffer} to the {@code rfTextureCoord} field. */
-        public RenderModelVertex.Buffer rfTextureCoord(@NativeType("float[2]") FloatBuffer value) { RenderModelVertex.nrfTextureCoord(address(), value); return this; }
-        /** Sets the specified value at the specified index of the {@code rfTextureCoord} field. */
-        public RenderModelVertex.Buffer rfTextureCoord(int index, float value) { RenderModelVertex.nrfTextureCoord(address(), index, value); return this; }
 
     }
 

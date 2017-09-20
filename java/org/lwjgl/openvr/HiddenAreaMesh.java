@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -77,21 +76,6 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
     /** Returns the value of the {@code unTriangleCount} field. */
     @NativeType("uint32_t")
     public int unTriangleCount() { return nunTriangleCount(address()); }
-
-    /** Sets the address of the specified {@link HmdVector2.Buffer} to the {@code pVertexData} field. */
-    public HiddenAreaMesh pVertexData(@NativeType("HmdVector2_t *") HmdVector2.Buffer value) { npVertexData(address(), value); return this; }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public HiddenAreaMesh set(HiddenAreaMesh src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
 
     // -----------------------------------
 
@@ -227,34 +211,6 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #unTriangleCount}. */
     public static int nunTriangleCount(long struct) { return memGetInt(struct + HiddenAreaMesh.UNTRIANGLECOUNT); }
 
-    /** Unsafe version of {@link #pVertexData(HmdVector2.Buffer) pVertexData}. */
-    public static void npVertexData(long struct, HmdVector2.Buffer value) { memPutAddress(struct + HiddenAreaMesh.PVERTEXDATA, memAddressSafe(value)); nunTriangleCount(struct, value == null ? 0 : value.remaining()); }
-    /** Sets the specified value to the {@code unTriangleCount} field of the specified {@code struct}. */
-    public static void nunTriangleCount(long struct, int value) { memPutInt(struct + HiddenAreaMesh.UNTRIANGLECOUNT, value); }
-
-    /**
-     * Validates pointer members that should not be {@code NULL}.
-     *
-     * @param struct the struct to validate
-     */
-    public static void validate(long struct) {
-        if (nunTriangleCount(struct) != 0) {
-            check(memGetAddress(struct + HiddenAreaMesh.PVERTEXDATA));
-        }
-    }
-
-    /**
-     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-     *
-     * @param array the struct array to validate
-     * @param count the number of structs in {@code array}
-     */
-    public static void validate(long array, int count) {
-        for (int i = 0; i < count; i++) {
-            validate(array + i * SIZEOF);
-        }
-    }
-
     // -----------------------------------
 
     /** An array of {@link HiddenAreaMesh} structs. */
@@ -303,9 +259,6 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
         /** Returns the value of the {@code unTriangleCount} field. */
         @NativeType("uint32_t")
         public int unTriangleCount() { return HiddenAreaMesh.nunTriangleCount(address()); }
-
-        /** Sets the address of the specified {@link HmdVector2.Buffer} to the {@code pVertexData} field. */
-        public HiddenAreaMesh.Buffer pVertexData(@NativeType("HmdVector2_t *") HmdVector2.Buffer value) { HiddenAreaMesh.npVertexData(address(), value); return this; }
 
     }
 

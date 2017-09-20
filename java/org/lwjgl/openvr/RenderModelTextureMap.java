@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -92,38 +91,6 @@ public class RenderModelTextureMap extends Struct implements NativeResource {
      */
     @NativeType("const uint8_t *")
     public ByteBuffer rubTextureMapData(int capacity) { return nrubTextureMapData(address(), capacity); }
-
-    /** Sets the specified value to the {@code unWidth} field. */
-    public RenderModelTextureMap unWidth(@NativeType("uint16_t") short value) { nunWidth(address(), value); return this; }
-    /** Sets the specified value to the {@code unHeight} field. */
-    public RenderModelTextureMap unHeight(@NativeType("uint16_t") short value) { nunHeight(address(), value); return this; }
-    /** Sets the address of the specified {@link ByteBuffer} to the {@code rubTextureMapData} field. */
-    public RenderModelTextureMap rubTextureMapData(@NativeType("const uint8_t *") ByteBuffer value) { nrubTextureMapData(address(), value); return this; }
-
-    /** Initializes this struct with the specified values. */
-    public RenderModelTextureMap set(
-        short unWidth,
-        short unHeight,
-        ByteBuffer rubTextureMapData
-    ) {
-        unWidth(unWidth);
-        unHeight(unHeight);
-        rubTextureMapData(rubTextureMapData);
-
-        return this;
-    }
-
-    /**
-     * Copies the specified struct data to this struct.
-     *
-     * @param src the source struct
-     *
-     * @return this struct
-     */
-    public RenderModelTextureMap set(RenderModelTextureMap src) {
-        memCopy(src.address(), address(), SIZEOF);
-        return this;
-    }
 
     // -----------------------------------
 
@@ -261,34 +228,6 @@ public class RenderModelTextureMap extends Struct implements NativeResource {
     /** Unsafe version of {@link #rubTextureMapData(int) rubTextureMapData}. */
     public static ByteBuffer nrubTextureMapData(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + RenderModelTextureMap.RUBTEXTUREMAPDATA), capacity); }
 
-    /** Unsafe version of {@link #unWidth(short) unWidth}. */
-    public static void nunWidth(long struct, short value) { memPutShort(struct + RenderModelTextureMap.UNWIDTH, value); }
-    /** Unsafe version of {@link #unHeight(short) unHeight}. */
-    public static void nunHeight(long struct, short value) { memPutShort(struct + RenderModelTextureMap.UNHEIGHT, value); }
-    /** Unsafe version of {@link #rubTextureMapData(ByteBuffer) rubTextureMapData}. */
-    public static void nrubTextureMapData(long struct, ByteBuffer value) { memPutAddress(struct + RenderModelTextureMap.RUBTEXTUREMAPDATA, memAddress(value)); }
-
-    /**
-     * Validates pointer members that should not be {@code NULL}.
-     *
-     * @param struct the struct to validate
-     */
-    public static void validate(long struct) {
-        check(memGetAddress(struct + RenderModelTextureMap.RUBTEXTUREMAPDATA));
-    }
-
-    /**
-     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-     *
-     * @param array the struct array to validate
-     * @param count the number of structs in {@code array}
-     */
-    public static void validate(long array, int count) {
-        for (int i = 0; i < count; i++) {
-            validate(array + i * SIZEOF);
-        }
-    }
-
     // -----------------------------------
 
     /** An array of {@link RenderModelTextureMap} structs. */
@@ -344,13 +283,6 @@ public class RenderModelTextureMap extends Struct implements NativeResource {
          */
         @NativeType("const uint8_t *")
         public ByteBuffer rubTextureMapData(int capacity) { return RenderModelTextureMap.nrubTextureMapData(address(), capacity); }
-
-        /** Sets the specified value to the {@code unWidth} field. */
-        public RenderModelTextureMap.Buffer unWidth(@NativeType("uint16_t") short value) { RenderModelTextureMap.nunWidth(address(), value); return this; }
-        /** Sets the specified value to the {@code unHeight} field. */
-        public RenderModelTextureMap.Buffer unHeight(@NativeType("uint16_t") short value) { RenderModelTextureMap.nunHeight(address(), value); return this; }
-        /** Sets the address of the specified {@link ByteBuffer} to the {@code rubTextureMapData} field. */
-        public RenderModelTextureMap.Buffer rubTextureMapData(@NativeType("const uint8_t *") ByteBuffer value) { RenderModelTextureMap.nrubTextureMapData(address(), value); return this; }
 
     }
 
