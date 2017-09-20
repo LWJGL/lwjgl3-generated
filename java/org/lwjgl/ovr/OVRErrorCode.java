@@ -54,6 +54,7 @@ public class OVRErrorCode {
      * <li>{@link #ovrError_InvalidOperation Error_InvalidOperation} - Function call is invalid for object's current state.</li>
      * <li>{@link #ovrError_InsufficientArraySize Error_InsufficientArraySize} - Increase size of output array</li>
      * <li>{@link #ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} - There is not any external camera information stored by ovrServer.</li>
+     * <li>{@link #ovrError_LostTracking Error_LostTracking} - Tracking is lost when {@link OVR#ovr_GetDevicePoses GetDevicePoses} is called.</li>
      * <li>{@link #ovrError_AudioDeviceNotFound Error_AudioDeviceNotFound} - Failure to find the specified audio device.</li>
      * <li>{@link #ovrError_AudioComError Error_AudioComError} - Generic COM error.</li>
      * <li>{@link #ovrError_Initialize Error_Initialize} - Generic initialization error.</li>
@@ -116,6 +117,7 @@ public class OVRErrorCode {
         ovrError_InvalidOperation              = -1015,
         ovrError_InsufficientArraySize         = -1016,
         ovrError_NoExternalCameraInfo          = -1017,
+        ovrError_LostTracking                  = -1018,
         ovrError_AudioDeviceNotFound           = -2001,
         ovrError_AudioComError                 = -2002,
         ovrError_Initialize                    = -3000,

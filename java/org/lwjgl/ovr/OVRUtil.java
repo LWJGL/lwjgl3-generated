@@ -155,54 +155,54 @@ public class OVRUtil {
     // --- [ ovr_CalcEyePoses ] ---
 
     /** Unsafe version of: {@link #ovr_CalcEyePoses _CalcEyePoses} */
-    public static native void novr_CalcEyePoses(long headPose, long HmdToEyeOffset, long outEyePoses);
+    public static native void novr_CalcEyePoses(long headPose, long HmdToEyePose, long outEyePoses);
 
     /**
      * Computes offset eye poses based on {@code headPose} returned by {@link OVRTrackingState}.
      *
-     * @param headPose       indicates the HMD position and orientation to use for the calculation
-     * @param HmdToEyeOffset can be {@link OVREyeRenderDesc}{@code .HmdToEyeViewOffset} returned from {@link OVR#ovr_GetRenderDesc GetRenderDesc}. For monoscopic rendering, use a vector that is the
-     *                       average of the two vectors for both eyes.
-     * @param outEyePoses    if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
-     *                       {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
+     * @param headPose     indicates the HMD position and orientation to use for the calculation
+     * @param HmdToEyePose can be {@link OVREyeRenderDesc}{@code .HmdToEyePose} returned from {@link OVR#ovr_GetRenderDesc GetRenderDesc}. For monoscopic rendering, use a position vector that is average of
+     *                     the two position vectors for each eye   .
+     * @param outEyePoses  if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
+     *                     {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
      */
-    public static void ovr_CalcEyePoses(@NativeType("ovrPosef") OVRPosef headPose, @NativeType("const ovrVector3f *") OVRVector3f.Buffer HmdToEyeOffset, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses) {
+    public static void ovr_CalcEyePoses(@NativeType("ovrPosef") OVRPosef headPose, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses) {
         if (CHECKS) {
-            check(HmdToEyeOffset, 2);
+            check(HmdToEyePose, 2);
             check(outEyePoses, 2);
         }
-        novr_CalcEyePoses(headPose.address(), HmdToEyeOffset.address(), outEyePoses.address());
+        novr_CalcEyePoses(headPose.address(), HmdToEyePose.address(), outEyePoses.address());
     }
 
     // --- [ ovr_GetEyePoses ] ---
 
     /** Unsafe version of: {@link #ovr_GetEyePoses _GetEyePoses} */
-    public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeOffset, long outEyePoses, long outSensorSampleTime);
+    public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyePose, long outEyePoses, long outSensorSampleTime);
 
     /**
      * Returns the predicted head pose in {@code outHmdTrackingState} and offset eye poses in {@code outEyePoses}.
      * 
      * <p>This is a thread-safe function where caller should increment {@code frameIndex} with every frame and pass that index where applicable to functions
      * called on the rendering thread. Assuming {@code outEyePoses} are used for rendering, it should be passed as a part of {@link OVRLayerEyeFov}. The caller does
-     * not need to worry about applying {@code HmdToEyeOffset} to the returned {@code outEyePoses} variables.</p>
+     * not need to worry about applying {@code HmdToEyePose} to the returned {@code outEyePoses} variables.</p>
      *
      * @param session             an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
      * @param frameIndex          the targeted frame index, or 0 to refer to one frame after the last time {@link OVR#ovr_SubmitFrame SubmitFrame} was called
      * @param latencyMarker       Specifies that this call is the point in time where the "App-to-Mid-Photon" latency timer starts from. If a given {@code ovrLayer} provides
      *                            "SensorSampleTimestamp", that will override the value stored here.
-     * @param hmdToEyeOffset      can be {@link OVREyeRenderDesc}{@code .HmdToEyeOffset} returned from {@link OVR#ovr_GetRenderDesc GetRenderDesc}. For monoscopic rendering, use a vector that is the
-     *                            average of the two vectors for both eyes.
+     * @param HmdToEyePose        can be {@link OVREyeRenderDesc}{@code .HmdToEyePose} returned from {@link OVR#ovr_GetRenderDesc GetRenderDesc}. For monoscopic rendering, use a position vector that is the
+     *                            average of the two position vectors for each eye.
      * @param outEyePoses         the predicted eye poses
      * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
      */
-    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrVector3f *") OVRVector3f.Buffer hmdToEyeOffset, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") DoubleBuffer outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") DoubleBuffer outSensorSampleTime) {
         if (CHECKS) {
             check(session);
-            check(hmdToEyeOffset, 2);
+            check(HmdToEyePose, 2);
             check(outEyePoses, 2);
             checkSafe(outSensorSampleTime, 1);
         }
-        novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
+        novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyePose.address(), outEyePoses.address(), memAddressSafe(outSensorSampleTime));
     }
 
     // --- [ ovrPosef_FlipHandedness ] ---
@@ -296,17 +296,17 @@ public class OVRUtil {
     }
 
     /** Array version of: {@link #novr_GetEyePoses} */
-    public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long hmdToEyeOffset, long outEyePoses, double[] outSensorSampleTime);
+    public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyePose, long outEyePoses, double[] outSensorSampleTime);
 
     /** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
-    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrVector3f *") OVRVector3f.Buffer hmdToEyeOffset, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") double[] outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") double[] outSensorSampleTime) {
         if (CHECKS) {
             check(session);
-            check(hmdToEyeOffset, 2);
+            check(HmdToEyePose, 2);
             check(outEyePoses, 2);
             checkSafe(outSensorSampleTime, 1);
         }
-        novr_GetEyePoses(session, frameIndex, latencyMarker, hmdToEyeOffset.address(), outEyePoses.address(), outSensorSampleTime);
+        novr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyePose.address(), outEyePoses.address(), outSensorSampleTime);
     }
 
 }

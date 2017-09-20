@@ -10,6 +10,7 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -37,6 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     ovrBool DisplayLost;
  *     ovrBool ShouldQuit;
  *     ovrBool ShouldRecenter;
+ *     ovrBool Internal[2];
  * }</pre></code>
  */
 @NativeType("struct ovrSessionStatus")
@@ -54,7 +56,8 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         HMDMOUNTED,
         DISPLAYLOST,
         SHOULDQUIT,
-        SHOULDRECENTER;
+        SHOULDRECENTER,
+        INTERNAL;
 
     static {
         Layout layout = __struct(
@@ -63,7 +66,8 @@ public class OVRSessionStatus extends Struct implements NativeResource {
             __member(1),
             __member(1),
             __member(1),
-            __member(1)
+            __member(1),
+            __array(1, 2)
         );
 
         SIZEOF = layout.getSize();
@@ -75,6 +79,7 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         DISPLAYLOST = layout.offsetof(3);
         SHOULDQUIT = layout.offsetof(4);
         SHOULDRECENTER = layout.offsetof(5);
+        INTERNAL = layout.offsetof(6);
     }
 
     OVRSessionStatus(long address, ByteBuffer container) {
@@ -112,6 +117,12 @@ public class OVRSessionStatus extends Struct implements NativeResource {
     /** Returns the value of the {@code ShouldRecenter} field. */
     @NativeType("ovrBool")
     public boolean ShouldRecenter() { return nShouldRecenter(address()); }
+    /** Returns a {@link ByteBuffer} view of the {@code Internal} field. */
+    @NativeType("ovrBool[2]")
+    public ByteBuffer Internal() { return nInternal(address()); }
+    /** Returns the value at the specified index of the {@code Internal} field. */
+    @NativeType("ovrBool")
+    public boolean Internal(int index) { return nInternal(address(), index); }
 
     // -----------------------------------
 
@@ -254,6 +265,13 @@ public class OVRSessionStatus extends Struct implements NativeResource {
     public static boolean nShouldQuit(long struct) { return memGetByte(struct + OVRSessionStatus.SHOULDQUIT) != 0; }
     /** Unsafe version of {@link #ShouldRecenter}. */
     public static boolean nShouldRecenter(long struct) { return memGetByte(struct + OVRSessionStatus.SHOULDRECENTER) != 0; }
+    /** Unsafe version of {@link #Internal}. */
+    public static ByteBuffer nInternal(long struct) { return memByteBuffer(struct + OVRSessionStatus.INTERNAL, 2); }
+    /** Unsafe version of {@link #Internal(int) Internal}. */
+    public static boolean nInternal(long struct, int index) {
+        if (CHECKS) { check(index, 2); }
+        return memGetByte(struct + OVRSessionStatus.INTERNAL + index * 1) != 0;
+    }
 
     // -----------------------------------
 
@@ -315,6 +333,12 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         /** Returns the value of the {@code ShouldRecenter} field. */
         @NativeType("ovrBool")
         public boolean ShouldRecenter() { return OVRSessionStatus.nShouldRecenter(address()); }
+        /** Returns a {@link ByteBuffer} view of the {@code Internal} field. */
+        @NativeType("ovrBool[2]")
+        public ByteBuffer Internal() { return OVRSessionStatus.nInternal(address()); }
+        /** Returns the value at the specified index of the {@code Internal} field. */
+        @NativeType("ovrBool")
+        public boolean Internal(int index) { return OVRSessionStatus.nInternal(address(), index); }
 
     }
 

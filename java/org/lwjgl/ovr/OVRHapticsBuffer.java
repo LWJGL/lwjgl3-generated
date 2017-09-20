@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code Samples} &ndash; samples stored in opaque format</li>
- * <li>{@code SamplesCount} &ndash; sumber of samples</li>
+ * <li>{@code SamplesCount} &ndash; number of samples (up to {@link OVR#OVR_HAPTICS_BUFFER_SAMPLES_MAX})</li>
  * <li>{@code SubmitMode} &ndash; how samples are submitted to the hardware. Must be:<br><table><tr><td>{@link OVR#ovrHapticsBufferSubmit_Enqueue HapticsBufferSubmit_Enqueue}</td></tr></table></li>
  * </ul>
  * 

@@ -10,6 +10,22 @@ ENABLE_WARNINGS()
 
 EXTERN_C_ENTER
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetInstanceExtensionsVk__JJJ(JNIEnv *__env, jclass clazz, jlong luidAddress, jlong extensionNamesAddress, jlong inoutExtensionNamesSizeAddress) {
+    ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
+    char *extensionNames = (char *)(intptr_t)extensionNamesAddress;
+    uint32_t *inoutExtensionNamesSize = (uint32_t *)(intptr_t)inoutExtensionNamesSizeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_GetInstanceExtensionsVk(*luid, extensionNames, inoutExtensionNamesSize);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetDeviceExtensionsVk__JJJ(JNIEnv *__env, jclass clazz, jlong luidAddress, jlong extensionNamesAddress, jlong inoutExtensionNamesSizeAddress) {
+    ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
+    char *extensionNames = (char *)(intptr_t)extensionNamesAddress;
+    uint32_t *inoutExtensionNamesSize = (uint32_t *)(intptr_t)inoutExtensionNamesSizeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_GetDeviceExtensionsVk(*luid, extensionNames, inoutExtensionNamesSize);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetSessionPhysicalDeviceVk(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong luidAddress, jlong instanceAddress, jlong out_physicalDeviceAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
@@ -58,6 +74,40 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetMirrorTextureBufferVk__
     VkImage *out_Image = (VkImage *)(intptr_t)out_ImageAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_GetMirrorTextureBufferVk(session, mirrorTexture, out_Image);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetInstanceExtensionsVk__JJ_3I(JNIEnv *__env, jclass clazz, jlong luidAddress, jlong extensionNamesAddress, jintArray inoutExtensionNamesSizeAddress) {
+    ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
+    char *extensionNames = (char *)(intptr_t)extensionNamesAddress;
+    jint __result;
+    jint *inoutExtensionNamesSize = (*__env)->GetPrimitiveArrayCritical(__env, inoutExtensionNamesSizeAddress, 0);
+    UNUSED_PARAMS(__env, clazz)
+    __result = (jint)ovr_GetInstanceExtensionsVk(*luid, extensionNames, (uint32_t *)inoutExtensionNamesSize);
+    (*__env)->ReleasePrimitiveArrayCritical(__env, inoutExtensionNamesSizeAddress, inoutExtensionNamesSize, 0);
+    return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVRVk_novr_1GetInstanceExtensionsVk__JJ_3I(jlong luidAddress, jlong extensionNamesAddress, jint inoutExtensionNamesSize__length, jint* inoutExtensionNamesSize) {
+    ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
+    char *extensionNames = (char *)(intptr_t)extensionNamesAddress;
+    UNUSED_PARAM(inoutExtensionNamesSize__length)
+    return (jint)ovr_GetInstanceExtensionsVk(*luid, extensionNames, (uint32_t *)inoutExtensionNamesSize);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetDeviceExtensionsVk__JJ_3I(JNIEnv *__env, jclass clazz, jlong luidAddress, jlong extensionNamesAddress, jintArray inoutExtensionNamesSizeAddress) {
+    ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
+    char *extensionNames = (char *)(intptr_t)extensionNamesAddress;
+    jint __result;
+    jint *inoutExtensionNamesSize = (*__env)->GetPrimitiveArrayCritical(__env, inoutExtensionNamesSizeAddress, 0);
+    UNUSED_PARAMS(__env, clazz)
+    __result = (jint)ovr_GetDeviceExtensionsVk(*luid, extensionNames, (uint32_t *)inoutExtensionNamesSize);
+    (*__env)->ReleasePrimitiveArrayCritical(__env, inoutExtensionNamesSizeAddress, inoutExtensionNamesSize, 0);
+    return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVRVk_novr_1GetDeviceExtensionsVk__JJ_3I(jlong luidAddress, jlong extensionNamesAddress, jint inoutExtensionNamesSize__length, jint* inoutExtensionNamesSize) {
+    ovrGraphicsLuid *luid = (ovrGraphicsLuid *)(intptr_t)luidAddress;
+    char *extensionNames = (char *)(intptr_t)extensionNamesAddress;
+    UNUSED_PARAM(inoutExtensionNamesSize__length)
+    return (jint)ovr_GetDeviceExtensionsVk(*luid, extensionNames, (uint32_t *)inoutExtensionNamesSize);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetTextureSwapChainBufferVk__JJI_3J(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jint index, jlongArray out_ImageAddress) {

@@ -29,6 +29,100 @@ public class OVRVk {
         throw new UnsupportedOperationException();
     }
 
+    // --- [ ovr_GetInstanceExtensionsVk ] ---
+
+    /**
+     * Unsafe version of: {@link #ovr_GetInstanceExtensionsVk GetInstanceExtensionsVk}
+     *
+     * @param inoutExtensionNamesSize indicates on input the capacity of {@code extensionNames} in chars. On output it returns the number of characters written to
+     *                                {@code extensionNames}, including the terminating 0 char. In the case of this function returning {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}, the required
+     *                                {@code inoutExtensionNamesSize} is returned.
+     */
+    public static native int novr_GetInstanceExtensionsVk(long luid, long extensionNames, long inoutExtensionNamesSize);
+
+    /**
+     * Gets a list of Vulkan {@code vkInstance} extensions required for VR.
+     * 
+     * <p>Returns a list of strings delimited by a single space identifying Vulkan extensions that must be enabled in order for the VR runtime to support
+     * Vulkan-based applications. The returned list reflects the current runtime version and the GPU the VR system is currently connected to.</p>
+     * 
+     * <p>Example code:</p>
+     * 
+     * <code><pre>
+     *  char extensionNames[4096];
+     *  uint32_t extensionNamesSize = sizeof(extensionNames);
+     *  ovr_GetInstanceExtensionsVk(luid, extensionsnames, &extensionNamesSize);
+     * 
+     *  uint32_t extensionCount = 0;
+     *  const char* extensionNamePtrs[256];
+     *  for(const char* p = extensionNames; *p; ++p) {
+     *      if((p == extensionNames) || (p[-1] == ' ')) {
+     *          extensionNamePtrs[extensionCount++] = p;
+     *          if (p[-1] == ' ')
+     *              p[-1] = '\0';
+     *      }
+     *  }
+     * 
+     *  VkInstanceCreateInfo info = { ... };
+     *  info.enabledExtensionCount = extensionCount;
+     *  info.ppEnabledExtensionNames = extensionNamePtrs;
+     *  [...]</pre></code>
+     *
+     * @param luid                    specifies the {@code luid} for the relevant GPU, which is returned from {@link OVR#ovr_Create Create}.
+     * @param extensionNames          a character buffer which will receive a list of extension name strings, separated by a single space char between each extension
+     * @param inoutExtensionNamesSize indicates on input the capacity of {@code extensionNames} in chars. On output it returns the number of characters written to
+     *                                {@code extensionNames}, including the terminating 0 char. In the case of this function returning {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}, the required
+     *                                {@code inoutExtensionNamesSize} is returned.
+     *
+     * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information. Returns
+     *         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize} in the case that {@code inoutExtensionNameSize} didn't have enough space, in which case {@code inoutExtensionNameSize}
+     *         will return the required {@code inoutExtensionNamesSize}.
+     */
+    @NativeType("ovrResult")
+    public static int ovr_GetInstanceExtensionsVk(@NativeType("ovrGraphicsLuid") OVRGraphicsLuid luid, @NativeType("char *") ByteBuffer extensionNames, @NativeType("uint32_t *") IntBuffer inoutExtensionNamesSize) {
+        if (CHECKS) {
+            check(inoutExtensionNamesSize, 1);
+            check(extensionNames, inoutExtensionNamesSize.get(inoutExtensionNamesSize.position()));
+        }
+        return novr_GetInstanceExtensionsVk(luid.address(), memAddress(extensionNames), memAddress(inoutExtensionNamesSize));
+    }
+
+    // --- [ ovr_GetDeviceExtensionsVk ] ---
+
+    /**
+     * Unsafe version of: {@link #ovr_GetDeviceExtensionsVk GetDeviceExtensionsVk}
+     *
+     * @param inoutExtensionNamesSize indicates on input the capacity of {@code extensionNames} in chars. On output it returns the number of characters written to
+     *                                {@code extensionNames}, including the terminating 0 char. In the case of this function returning {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}, the required
+     *                                {@code inoutExtensionNamesSize} is returned.
+     */
+    public static native int novr_GetDeviceExtensionsVk(long luid, long extensionNames, long inoutExtensionNamesSize);
+
+    /**
+     * Gets a list of Vulkan {@code vkDevice} extensions required for VR.
+     * 
+     * <p>Returns a list of strings delimited by a single space identifying Vulkan extensions that must be enabled in order for the VR runtime to support
+     * Vulkan-based applications. The returned list reflects the current runtime version and the GPU the VR system is currently connected to.</p>
+     *
+     * @param luid                    specifies the {@code luid} for the relevant GPU, which is returned from {@link OVR#ovr_Create Create}.
+     * @param extensionNames          a character buffer which will receive a list of extension name strings, separated by a single space char between each extension
+     * @param inoutExtensionNamesSize indicates on input the capacity of {@code extensionNames} in chars. On output it returns the number of characters written to
+     *                                {@code extensionNames}, including the terminating 0 char. In the case of this function returning {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}, the required
+     *                                {@code inoutExtensionNamesSize} is returned.
+     *
+     * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information. Returns
+     *         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize} in the case that {@code inoutExtensionNameSize} didn't have enough space, in which case {@code inoutExtensionNameSize}
+     *         will return the required {@code inoutExtensionNamesSize}.
+     */
+    @NativeType("ovrResult")
+    public static int ovr_GetDeviceExtensionsVk(@NativeType("ovrGraphicsLuid") OVRGraphicsLuid luid, @NativeType("char *") ByteBuffer extensionNames, @NativeType("uint32_t *") IntBuffer inoutExtensionNamesSize) {
+        if (CHECKS) {
+            check(inoutExtensionNamesSize, 1);
+            check(extensionNames, inoutExtensionNamesSize.get(inoutExtensionNamesSize.position()));
+        }
+        return novr_GetDeviceExtensionsVk(luid.address(), memAddress(extensionNames), memAddress(inoutExtensionNamesSize));
+    }
+
     // --- [ ovr_GetSessionPhysicalDeviceVk ] ---
 
     /** Unsafe version of: {@link #ovr_GetSessionPhysicalDeviceVk GetSessionPhysicalDeviceVk} */
@@ -214,6 +308,32 @@ public class OVRVk {
             check(out_Image, 1);
         }
         return novr_GetMirrorTextureBufferVk(session, mirrorTexture, memAddress(out_Image));
+    }
+
+    /** Array version of: {@link #novr_GetInstanceExtensionsVk} */
+    public static native int novr_GetInstanceExtensionsVk(long luid, long extensionNames, int[] inoutExtensionNamesSize);
+
+    /** Array version of: {@link #ovr_GetInstanceExtensionsVk GetInstanceExtensionsVk} */
+    @NativeType("ovrResult")
+    public static int ovr_GetInstanceExtensionsVk(@NativeType("ovrGraphicsLuid") OVRGraphicsLuid luid, @NativeType("char *") ByteBuffer extensionNames, @NativeType("uint32_t *") int[] inoutExtensionNamesSize) {
+        if (CHECKS) {
+            check(inoutExtensionNamesSize, 1);
+            check(extensionNames, inoutExtensionNamesSize[0]);
+        }
+        return novr_GetInstanceExtensionsVk(luid.address(), memAddress(extensionNames), inoutExtensionNamesSize);
+    }
+
+    /** Array version of: {@link #novr_GetDeviceExtensionsVk} */
+    public static native int novr_GetDeviceExtensionsVk(long luid, long extensionNames, int[] inoutExtensionNamesSize);
+
+    /** Array version of: {@link #ovr_GetDeviceExtensionsVk GetDeviceExtensionsVk} */
+    @NativeType("ovrResult")
+    public static int ovr_GetDeviceExtensionsVk(@NativeType("ovrGraphicsLuid") OVRGraphicsLuid luid, @NativeType("char *") ByteBuffer extensionNames, @NativeType("uint32_t *") int[] inoutExtensionNamesSize) {
+        if (CHECKS) {
+            check(inoutExtensionNamesSize, 1);
+            check(extensionNames, inoutExtensionNamesSize[0]);
+        }
+        return novr_GetDeviceExtensionsVk(luid.address(), memAddress(extensionNames), inoutExtensionNamesSize);
     }
 
     /** Array version of: {@link #novr_GetTextureSwapChainBufferVk} */

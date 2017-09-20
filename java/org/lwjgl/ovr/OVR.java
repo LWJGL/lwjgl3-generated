@@ -212,8 +212,8 @@ public class OVR {
      * 
      * <ul>
      * <li>{@link #ovrTexture_2D Texture_2D} - 2D textures</li>
-     * <li>{@link #ovrTexture_2D_External Texture_2D_External} - External 2D texture. Not used on PC</li>
-     * <li>{@link #ovrTexture_Cube Texture_Cube} - Cube maps.</li>
+     * <li>{@link #ovrTexture_2D_External Texture_2D_External} - Application-provided 2D texture. Not supported on PC.</li>
+     * <li>{@link #ovrTexture_Cube Texture_Cube} - Cube maps. {@link OVRTextureSwapChainDesc}{@code ::ArraySize} must be 6 for this type.</li>
      * </ul>
      */
     public static final int
@@ -554,6 +554,9 @@ public class OVR {
      * </ul>
      */
     public static final int ovrMaxProvidedFrameStats = 0x5;
+
+    /** Maximum number of samples in {@link OVRHapticsBuffer}. */
+    public static final int OVR_HAPTICS_BUFFER_SAMPLES_MAX = 256;
 
     /** Specifies the maximum number of layers supported by {@link #ovr_SubmitFrame SubmitFrame}. */
     public static final int ovrMaxLayerCount = 16;
@@ -1834,11 +1837,9 @@ public class OVR {
      *         <ul>
      *         <li>{@link OVRErrorCode#ovrSuccess Success}: rendering completed successfully.</li>
      *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering completed successfully but was not displayed on the HMD, usually because another application currently has ownership
-     *         of the HMD. Applications receiving this result should stop rendering new content, but continue to call {@code ovr_SubmitFrame} periodically until
-     *         it returns a value other than {@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}. Applications should not loop on calls to {@code ovr_SubmitFrame} in order to detect visibility;
-     *         instead {@link #ovr_GetSessionStatus GetSessionStatus} should be used. Similarly, applications should not call {@code ovr_SubmitFrame} with zero layers to detect visibility.</li>
+     *         of the HMD. Applications receiving this result should stop rendering new content, call {@link #ovr_GetSessionStatus GetSessionStatus} to detect visibility.</li>
      *         <li>{@link OVRErrorCode#ovrError_DisplayLost Error_DisplayLost}: The session has become invalid (such as due to a device removal) and the shared resources need to be released
-     *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
+     *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to be destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
      *         ({@code ovr_CreateTextureSwapChainXXX}). The application's existing private graphics resources do not need to be recreated unless the new
      *         {@code ovr_Create} call returns a different {@code GraphicsLuid}.</li>
      *         <li>{@link OVRErrorCode#ovrError_TextureSwapChainInvalid Error_TextureSwapChainInvalid}: The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure
@@ -1960,7 +1961,8 @@ public class OVR {
     /**
      * Unsafe version of: {@link #ovr_GetExternalCameras GetExternalCameras}
      *
-     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
+     * @param inoutCameraCount supplies the array capacity, will return the actual \# of cameras defined. If {@code inoutCameraCount} is too small, will return
+     *                         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
      */
     public static native int novr_GetExternalCameras(long session, long cameras, long inoutCameraCount);
 
@@ -1968,8 +1970,9 @@ public class OVR {
      * Returns the number of camera properties of all cameras.
      *
      * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param cameras          the array. If {@code NULL} or {@code *inoutCameraCount} is too small, will return {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
-     * @param inoutCameraCount supplies the array capacity, will return the actual number of cameras defined
+     * @param cameras          pointer to the array. If {@code NULL} and the provided array capacity is sufficient, will return {@code ovrError_NullArrayPointer}.
+     * @param inoutCameraCount supplies the array capacity, will return the actual \# of cameras defined. If {@code inoutCameraCount} is too small, will return
+     *                         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
      *
      * @return the ids of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
      */

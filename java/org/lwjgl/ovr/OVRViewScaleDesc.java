@@ -20,7 +20,8 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * Contains the data necessary to properly calculate position info for various layer types.
  * 
  * <ul>
- * <li>{@code HmdToEyeOffset} is the same value pair provided in {@link OVREyeRenderDesc}.</li>
+ * <li>{@code HmdToEyePose} is the same value-pair provided in {@link OVREyeRenderDesc}. Modifying this value is suggested only if the app is forcing monoscopic
+ * rendering and requires that all layers including quad layers show up in a monoscopic fashion.</li>
  * <li>{@code HmdSpaceToWorldScaleInMeters} is used to scale player motion into in-application units.</li>
  * </ul>
  * 
@@ -31,7 +32,7 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code HmdToEyeOffset} &ndash; translation of each eye</li>
+ * <li>{@code HmdToEyePose} &ndash; transform of each eye from the HMD center, in meters</li>
  * <li>{@code HmdSpaceToWorldScaleInMeters} &ndash; ratio of viewer units to meter units</li>
  * </ul>
  * 
@@ -39,7 +40,7 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * 
  * <code><pre>
  * struct ovrViewScaleDesc {
- *     {@link OVRVector3f ovrVector3f} HmdToEyeOffset[ovrEye_Count];
+ *     {@link OVRPosef ovrPosef} HmdToEyePose[ovrEye_Count];
  *     float HmdSpaceToWorldScaleInMeters;
  * }</pre></code>
  */
@@ -53,19 +54,19 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 
     /** The struct member offsets. */
     public static final int
-        HMDTOEYEOFFSET,
+        HMDTOEYEPOSE,
         HMDSPACETOWORLDSCALEINMETERS;
 
     static {
         Layout layout = __struct(
-            __array(OVRVector3f.SIZEOF, OVRVector3f.ALIGNOF, ovrEye_Count),
+            __array(OVRPosef.SIZEOF, OVRPosef.ALIGNOF, ovrEye_Count),
             __member(4)
         );
 
         SIZEOF = layout.getSize();
         ALIGNOF = layout.getAlignment();
 
-        HMDTOEYEOFFSET = layout.offsetof(0);
+        HMDTOEYEPOSE = layout.offsetof(0);
         HMDSPACETOWORLDSCALEINMETERS = layout.offsetof(1);
     }
 
@@ -86,28 +87,28 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
     @Override
     public int sizeof() { return SIZEOF; }
 
-    /** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeOffset} field. */
-    @NativeType("ovrVector3f[ovrEye_Count]")
-    public OVRVector3f.Buffer HmdToEyeOffset() { return nHmdToEyeOffset(address()); }
-    /** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeOffset} field. */
-    @NativeType("ovrVector3f")
-    public OVRVector3f HmdToEyeOffset(int index) { return nHmdToEyeOffset(address(), index); }
+    /** Returns a {@link OVRPosef}.Buffer view of the {@code HmdToEyePose} field. */
+    @NativeType("ovrPosef[ovrEye_Count]")
+    public OVRPosef.Buffer HmdToEyePose() { return nHmdToEyePose(address()); }
+    /** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code HmdToEyePose} field. */
+    @NativeType("ovrPosef")
+    public OVRPosef HmdToEyePose(int index) { return nHmdToEyePose(address(), index); }
     /** Returns the value of the {@code HmdSpaceToWorldScaleInMeters} field. */
     public float HmdSpaceToWorldScaleInMeters() { return nHmdSpaceToWorldScaleInMeters(address()); }
 
-    /** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeOffset} field. */
-    public OVRViewScaleDesc HmdToEyeOffset(@NativeType("ovrVector3f[ovrEye_Count]") OVRVector3f.Buffer value) { nHmdToEyeOffset(address(), value); return this; }
-    /** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeOffset} field. */
-    public OVRViewScaleDesc HmdToEyeOffset(int index, @NativeType("ovrVector3f") OVRVector3f value) { nHmdToEyeOffset(address(), index, value); return this; }
+    /** Copies the specified {@link OVRPosef.Buffer} to the {@code HmdToEyePose} field. */
+    public OVRViewScaleDesc HmdToEyePose(@NativeType("ovrPosef[ovrEye_Count]") OVRPosef.Buffer value) { nHmdToEyePose(address(), value); return this; }
+    /** Copies the specified {@link OVRPosef} at the specified index of the {@code HmdToEyePose} field. */
+    public OVRViewScaleDesc HmdToEyePose(int index, @NativeType("ovrPosef") OVRPosef value) { nHmdToEyePose(address(), index, value); return this; }
     /** Sets the specified value to the {@code HmdSpaceToWorldScaleInMeters} field. */
     public OVRViewScaleDesc HmdSpaceToWorldScaleInMeters(float value) { nHmdSpaceToWorldScaleInMeters(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public OVRViewScaleDesc set(
-        OVRVector3f.Buffer HmdToEyeOffset,
+        OVRPosef.Buffer HmdToEyePose,
         float HmdSpaceToWorldScaleInMeters
     ) {
-        HmdToEyeOffset(HmdToEyeOffset);
+        HmdToEyePose(HmdToEyePose);
         HmdSpaceToWorldScaleInMeters(HmdSpaceToWorldScaleInMeters);
 
         return this;
@@ -254,25 +255,25 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #HmdToEyeOffset}. */
-    public static OVRVector3f.Buffer nHmdToEyeOffset(long struct) { return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET, ovrEye_Count); }
-    /** Unsafe version of {@link #HmdToEyeOffset(int) HmdToEyeOffset}. */
-    public static OVRVector3f nHmdToEyeOffset(long struct, int index) {
+    /** Unsafe version of {@link #HmdToEyePose}. */
+    public static OVRPosef.Buffer nHmdToEyePose(long struct) { return OVRPosef.create(struct + OVRViewScaleDesc.HMDTOEYEPOSE, ovrEye_Count); }
+    /** Unsafe version of {@link #HmdToEyePose(int) HmdToEyePose}. */
+    public static OVRPosef nHmdToEyePose(long struct, int index) {
         if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRVector3f.create(struct + OVRViewScaleDesc.HMDTOEYEOFFSET + index * OVRVector3f.SIZEOF);
+        return OVRPosef.create(struct + OVRViewScaleDesc.HMDTOEYEPOSE + index * OVRPosef.SIZEOF);
     }
     /** Unsafe version of {@link #HmdSpaceToWorldScaleInMeters}. */
     public static float nHmdSpaceToWorldScaleInMeters(long struct) { return memGetFloat(struct + OVRViewScaleDesc.HMDSPACETOWORLDSCALEINMETERS); }
 
-    /** Unsafe version of {@link #HmdToEyeOffset(OVRVector3f.Buffer) HmdToEyeOffset}. */
-    public static void nHmdToEyeOffset(long struct, OVRVector3f.Buffer value) {
+    /** Unsafe version of {@link #HmdToEyePose(OVRPosef.Buffer) HmdToEyePose}. */
+    public static void nHmdToEyePose(long struct, OVRPosef.Buffer value) {
         if (CHECKS) { checkGT(value, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET, value.remaining() * OVRVector3f.SIZEOF);
+        memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEPOSE, value.remaining() * OVRPosef.SIZEOF);
     }
-    /** Unsafe version of {@link #HmdToEyeOffset(int, OVRVector3f) HmdToEyeOffset}. */
-    public static void nHmdToEyeOffset(long struct, int index, OVRVector3f value) {
+    /** Unsafe version of {@link #HmdToEyePose(int, OVRPosef) HmdToEyePose}. */
+    public static void nHmdToEyePose(long struct, int index, OVRPosef value) {
         if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEOFFSET + index * OVRVector3f.SIZEOF, OVRVector3f.SIZEOF);
+        memCopy(value.address(), struct + OVRViewScaleDesc.HMDTOEYEPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
     }
     /** Unsafe version of {@link #HmdSpaceToWorldScaleInMeters(float) HmdSpaceToWorldScaleInMeters}. */
     public static void nHmdSpaceToWorldScaleInMeters(long struct, float value) { memPutFloat(struct + OVRViewScaleDesc.HMDSPACETOWORLDSCALEINMETERS, value); }
@@ -319,19 +320,19 @@ public class OVRViewScaleDesc extends Struct implements NativeResource {
             return SIZEOF;
         }
 
-        /** Returns a {@link OVRVector3f}.Buffer view of the {@code HmdToEyeOffset} field. */
-        @NativeType("ovrVector3f[ovrEye_Count]")
-        public OVRVector3f.Buffer HmdToEyeOffset() { return OVRViewScaleDesc.nHmdToEyeOffset(address()); }
-        /** Returns a {@link OVRVector3f} view of the struct at the specified index of the {@code HmdToEyeOffset} field. */
-        @NativeType("ovrVector3f")
-        public OVRVector3f HmdToEyeOffset(int index) { return OVRViewScaleDesc.nHmdToEyeOffset(address(), index); }
+        /** Returns a {@link OVRPosef}.Buffer view of the {@code HmdToEyePose} field. */
+        @NativeType("ovrPosef[ovrEye_Count]")
+        public OVRPosef.Buffer HmdToEyePose() { return OVRViewScaleDesc.nHmdToEyePose(address()); }
+        /** Returns a {@link OVRPosef} view of the struct at the specified index of the {@code HmdToEyePose} field. */
+        @NativeType("ovrPosef")
+        public OVRPosef HmdToEyePose(int index) { return OVRViewScaleDesc.nHmdToEyePose(address(), index); }
         /** Returns the value of the {@code HmdSpaceToWorldScaleInMeters} field. */
         public float HmdSpaceToWorldScaleInMeters() { return OVRViewScaleDesc.nHmdSpaceToWorldScaleInMeters(address()); }
 
-        /** Copies the specified {@link OVRVector3f.Buffer} to the {@code HmdToEyeOffset} field. */
-        public OVRViewScaleDesc.Buffer HmdToEyeOffset(@NativeType("ovrVector3f[ovrEye_Count]") OVRVector3f.Buffer value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), value); return this; }
-        /** Copies the specified {@link OVRVector3f} at the specified index of the {@code HmdToEyeOffset} field. */
-        public OVRViewScaleDesc.Buffer HmdToEyeOffset(int index, @NativeType("ovrVector3f") OVRVector3f value) { OVRViewScaleDesc.nHmdToEyeOffset(address(), index, value); return this; }
+        /** Copies the specified {@link OVRPosef.Buffer} to the {@code HmdToEyePose} field. */
+        public OVRViewScaleDesc.Buffer HmdToEyePose(@NativeType("ovrPosef[ovrEye_Count]") OVRPosef.Buffer value) { OVRViewScaleDesc.nHmdToEyePose(address(), value); return this; }
+        /** Copies the specified {@link OVRPosef} at the specified index of the {@code HmdToEyePose} field. */
+        public OVRViewScaleDesc.Buffer HmdToEyePose(int index, @NativeType("ovrPosef") OVRPosef value) { OVRViewScaleDesc.nHmdToEyePose(address(), index, value); return this; }
         /** Sets the specified value to the {@code HmdSpaceToWorldScaleInMeters} field. */
         public OVRViewScaleDesc.Buffer HmdSpaceToWorldScaleInMeters(float value) { OVRViewScaleDesc.nHmdSpaceToWorldScaleInMeters(address(), value); return this; }
 
