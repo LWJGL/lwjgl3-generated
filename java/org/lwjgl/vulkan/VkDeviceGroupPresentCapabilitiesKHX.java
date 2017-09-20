@@ -44,23 +44,7 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code presentMask} &ndash; an array of masks, where the mask at element<code>i</code>
- * 
- * <p>is non-zero if physical device</p><code>i</code>
- * 
- * <p>has a presentation engine, and where bit</p><code>j</code>
- * 
- * <p>is set in element</p><code>i</code>
- * 
- * <p>if physical device</p><code>i</code>
- * 
- * <p><b>can</b> present swapchain images from physical device</p><code>j</code>
- * 
- * <p>. If element</p><code>i</code>
- * 
- * <p>is non-zero, then bit</p><code>i</code>
- * 
- * <p><b>must</b> be set.</p></li>
+ * <li>{@code presentMask} &ndash; an array of masks, where the mask at element <code>i</code> is non-zero if physical device <code>i</code> has a presentation engine, and where bit <code>j</code> is set in element <code>i</code> if physical device <code>i</code> <b>can</b> present swapchain images from physical device <code>j</code>. If element <code>i</code> is non-zero, then bit <code>i</code> <b>must</b> be set.</li>
  * <li>{@code modes} &ndash; a bitmask of {@code VkDeviceGroupPresentModeFlagBitsKHX} indicating which device group presentation modes are supported.</li>
  * </ul>
  * 

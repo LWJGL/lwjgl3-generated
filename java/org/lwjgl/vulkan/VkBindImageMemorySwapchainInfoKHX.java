@@ -20,12 +20,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>If {@code swapchain} is not {@code NULL}, the {@code swapchain} and {@code imageIndex} are used to determine the memory that the image is bound to, instead of {@code memory} and {@code memoryOffset}.</p>
  * 
- * <p>Memory <b>can</b> be bound to a swapchain and use the {@code pDeviceIndices} or {@code pSFRRects} members of {@link VkBindImageMemoryInfoKHX}.</p>
+ * <p>Memory <b>can</b> be bound to a swapchain and use the {@code pDeviceIndices} or {@code pSFRRects} members of {@link VkBindImageMemoryDeviceGroupInfoKHX}.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>At least one of {@code swapchain} and {@link VkBindImageMemoryInfoKHX}{@code ::memory} <b>must</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
  * <li>{@code imageIndex} <b>must</b> be less than the number of images in {@code swapchain}</li>
  * </ul>
  * 

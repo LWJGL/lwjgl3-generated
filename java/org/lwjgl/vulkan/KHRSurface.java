@@ -27,21 +27,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_KHR_surface</dd>
+ * <dd>{@code VK_KHR_surface}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Instance extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>1</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-08-25</dd>
  * <dt><b>Revision</b></dt>
  * <dd>25</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>James Jones @cubanismo,Ian Elliott mailto:ianelliott@google.com[ianelliott@google.com]</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-08-25</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Patrick Doane, Blizzard</li>
@@ -56,11 +60,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Jeff Vigil, Qualcomm</li>
  * <li>Chia-I Wu, LunarG</li>
  * <li>Jason Ekstrand, Intel</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>James Jones, NVIDIA</li>
- * <li>Ian Elliott, LunarG</li>
  * </ul></dd>
  * </dl>
  */
@@ -187,19 +186,11 @@ public class KHRSurface {
      * </tbody>
      * </table>
      * 
-     * <p>For Opto-Electrical Transfer Function (OETF), unless otherwise specified, the values of</p><code>L</code>
+     * <p>For Opto-Electrical Transfer Function (OETF), unless otherwise specified, the values of <code>L</code> and <code>E</code> are defined as:</p>
      * 
-     * <p>and</p><code>E</code>
+     * <p><code>L</code> - linear luminance of image 0 &le L &le; 1 for conventional colorimetry</p>
      * 
-     * <p>are defined as:</p>
-     * 
-     * <code>L</code>
-     * 
-     * <p>- linear luminance of image 0 &le L &le; 1 for conventional colorimetry</p>
-     * 
-     * <code>E</code>
-     * 
-     * <p>- corresponding electrical signal (value stored in memory)</p>
+     * <p><code>E</code> - corresponding electrical signal (value stored in memory)</p>
      * 
      * <h5>See Also</h5>
      * 

@@ -25,35 +25,32 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_KHR_display</dd>
+ * <dd>{@code VK_KHR_display}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Instance extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>3</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft.</dd>
+ * <dt><b>Revision</b></dt>
+ * <dd>21</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_surface">{@code VK_KHR_surface}</a></li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>James Jones @cubanismo,Norbert Nopper @FslNopper</li>
+ * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
  * <dd>2017-03-13</dd>
- * <dt><b>Revision</b></dt>
- * <dd>23</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>Requires VK_KHR_surface.</li>
- * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>James Jones, NVIDIA</li>
  * <li>Norbert Nopper, Freescale</li>
  * <li>Jeff Vigil, Qualcomm</li>
  * <li>Daniel Rakos, AMD</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>James Jones (jajones 'at' nvidia.com)</li>
- * <li>Norbert Nopper (Norbert.Nopper 'at' freescale.com)</li>
  * </ul></dd>
  * </dl>
  */
@@ -333,9 +330,7 @@ public class KHRDisplay {
      * </dl>
      *
      * @param physicalDevice a physical device.
-     * @param planeIndex     the plane which the application wishes to use, and <b>must</b> be in the range<code>[0, physical device plane count - 1]</code>
-     *                       
-     *                       <p>.</p>
+     * @param planeIndex     the plane which the application wishes to use, and <b>must</b> be in the range <code>[0, physical device plane count - 1]</code>.
      * @param pDisplayCount  a pointer to an integer related to the number of displays available or queried, as described below.
      * @param pDisplays      either {@code NULL} or a pointer to an array of {@code VkDisplayKHR} handles.
      */

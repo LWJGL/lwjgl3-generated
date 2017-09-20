@@ -14,21 +14,28 @@ package org.lwjgl.vulkan;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_AMD_gpu_shader_int16</dd>
+ * <dd>{@code VK_AMD_gpu_shader_int16}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>133</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>06/08/2017</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>mailto:quentin.lin@amd.com[quentin.lin@amd.com]</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>06/08/2017</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
+ * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>Requires the SPV_AMD_gpu_shader_int16 SPIR-V extension.</li>
+ * <li>Requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/AMD/SPV_AMD_gpu_shader_int16.html">SPV_AMD_gpu_shader_int16</a> SPIR-V extension.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
@@ -38,10 +45,6 @@ package org.lwjgl.vulkan;
  * <li>Rex Xu, AMD</li>
  * <li>Timothy Lottes, AMD</li>
  * <li>Zhi Cai, AMD</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Qun Lin, AMD (mailto:quentin.lin@amd.com[quentin.lin@amd.com])</li>
  * </ul></dd>
  * </dl>
  */

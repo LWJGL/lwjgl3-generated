@@ -15,24 +15,26 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_KHR_external_fence_capabilities</dd>
+ * <dd>{@code VK_KHR_external_fence_capabilities}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Instance extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>113</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-05-08</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_get_physical_device_properties2">{@code VK_KHR_get_physical_device_properties2}</a></li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Jesse Hall @jessehall</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-05-08</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>Depends on VK_KHR_get_physical_device_properties2.</li>
- * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jesse Hall, Google</li>
@@ -41,8 +43,6 @@ import static org.lwjgl.system.JNI.*;
  * <li>Cass Everitt, Oculus</li>
  * <li>Contributors to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_external_semaphore_capabilities">VK_KHR_external_semaphore_capablities</a></li>
  * </ul></dd>
- * <dt><b>Contact</b></dt>
- * <dd>Jesse Hall (jessehall 'at' google.com)</dd>
  * </dl>
  */
 public class KHRExternalFenceCapabilities {
@@ -81,6 +81,20 @@ public class KHRExternalFenceCapabilities {
      * <li>{@link #VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR} indicates a global share handle that has only limited valid usage outside of Vulkan and other compatible APIs. It is not compatible with any native APIs. It does not own a reference to the underlying synchronization primitive represented by its Vulkan fence object, and will therefore become invalid when all Vulkan fence objects associated with it are destroyed.</li>
      * <li>{@link #VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR} indicates a POSIX file descriptor handle to a Linux Sync File or Android Fence. It can be used with any native API accepting a valid sync file or fence as input. It owns a reference to the underlying synchronization primitive associated with the file descriptor. Implementations which support importing this handle type <b>must</b> accept any type of sync or fence FD supported by the native system they are running on.</li>
      * </ul>
+     * 
+     * <p>Some external fence handle types can only be shared within the same underlying physical device and/or the same driver version, as defined in the following table:</p>
+     * 
+     * <h6>External fence handle types compatibility</h6>
+     * 
+     * <table class="lwjgl">
+     * <tbody>
+     * <tr><td>Handle type</td><td>{@link VkPhysicalDeviceIDPropertiesKHR}{@code ::driverUUID}</td><td>{@link VkPhysicalDeviceIDPropertiesKHR}{@code ::deviceUUID}</td></tr>
+     * <tr><td>{@link #VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR}</td><td>Must match</td><td>Must match</td></tr>
+     * <tr><td>{@link #VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR}</td><td>Must match</td><td>Must match</td></tr>
+     * <tr><td>{@link #VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR}</td><td>Must match</td><td>Must match</td></tr>
+     * <tr><td>{@link #VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR}</td><td>No restriction</td><td>No restriction</td></tr>
+     * </tbody>
+     * </table>
      * 
      * <h5>See Also</h5>
      * 

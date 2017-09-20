@@ -23,62 +23,26 @@ import static org.lwjgl.system.MemoryStack.*;
  * <p>Possible values of {@code minImageTransferGranularity} are:</p>
  * 
  * <ul>
- * <li>
- * 
- * <code>(0,0,0)</code>
- * 
- * <p>which indicates that only whole mip levels <b>must</b> be transferred using the image transfer operations on the corresponding queues. In this case, the following restrictions apply to all offset and extent parameters of image transfer operations:</p>
+ * <li><code>(0,0,0)</code> which indicates that only whole mip levels <b>must</b> be transferred using the image transfer operations on the corresponding queues. In this case, the following restrictions apply to all offset and extent parameters of image transfer operations:
  * 
  * <ul>
  * <li>The {@code x}, {@code y}, and {@code z} members of a {@link VkOffset3D} parameter <b>must</b> always be zero.</li>
  * <li>The {@code width}, {@code height}, and {@code depth} members of a {@link VkExtent3D} parameter <b>must</b> always match the width, height, and depth of the image subresource corresponding to the parameter, respectively.</li>
  * </ul>
  * </li>
- * <li>
- * 
- * <code>(A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>)</code>
- * 
- * <p>where</p><code>A<sub>x</sub></code>
- * 
- * <p>,</p><code>A<sub>y</sub></code>
- * 
- * <p>, and</p><code>A<sub>z</sub></code>
- * 
- * <p>are all integer powers of two. In this case the following restrictions apply to all image transfer operations:</p>
+ * <li><code>(A<sub>x</sub>, A<sub>y</sub>, A<sub>z</sub>)</code> where <code>A<sub>x</sub></code>, <code>A<sub>y</sub></code>, and <code>A<sub>z</sub></code> are all integer powers of two. In this case the following restrictions apply to all image transfer operations:
  * 
  * <ul>
- * <li>{@code x}, {@code y}, and {@code z} of a {@link VkOffset3D} parameter <b>must</b> be integer multiples of<code>A<sub>x</sub></code>
- * 
- * <p>,</p><code>A<sub>y</sub></code>
- * 
- * <p>, and</p><code>A<sub>z</sub></code>
- * 
- * <p>, respectively.</p></li>
- * <li>{@code width} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of<code>A<sub>x</sub></code>
- * 
- * <p>, or else</p><code>x + width</code>
- * 
- * <p><b>must</b> equal the width of the image subresource corresponding to the parameter.</p></li>
- * <li>{@code height} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of<code>A<sub>y</sub></code>
- * 
- * <p>, or else</p><code>y + height</code>
- * 
- * <p><b>must</b> equal the height of the image subresource corresponding to the parameter.</p></li>
- * <li>{@code depth} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of<code>A<sub>z</sub></code>
- * 
- * <p>, or else</p><code>z + depth</code>
- * 
- * <p><b>must</b> equal the depth of the image subresource corresponding to the parameter.</p></li>
+ * <li>{@code x}, {@code y}, and {@code z} of a {@link VkOffset3D} parameter <b>must</b> be integer multiples of <code>A<sub>x</sub></code>, <code>A<sub>y</sub></code>, and <code>A<sub>z</sub></code>, respectively.</li>
+ * <li>{@code width} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of <code>A<sub>x</sub></code>, or else <code>x + width</code> <b>must</b> equal the width of the image subresource corresponding to the parameter.</li>
+ * <li>{@code height} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of <code>A<sub>y</sub></code>, or else <code>y + height</code> <b>must</b> equal the height of the image subresource corresponding to the parameter.</li>
+ * <li>{@code depth} of a {@link VkExtent3D} parameter <b>must</b> be an integer multiple of <code>A<sub>z</sub></code>, or else <code>z + depth</code> <b>must</b> equal the depth of the image subresource corresponding to the parameter.</li>
  * <li>If the format of the image corresponding to the parameters is one of the block-compressed formats then for the purposes of the above calculations the granularity <b>must</b> be scaled up by the compressed texel block dimensions.</li>
  * </ul>
  * </li>
  * </ul>
  * 
- * <p>Queues supporting graphics and/or compute operations <b>must</b> report</p><code>(1,1,1)</code>
- * 
- * <p>in {@code minImageTransferGranularity}, meaning that there are no additional restrictions on the granularity of image transfer operations for these queues. Other queues supporting image transfer operations are only required: to support whole mip level transfers, thus {@code minImageTransferGranularity} for queues belonging to such queue families <b>may</b> be</p><code>(0,0,0)</code>
- * 
- * <p>.</p>
+ * <p>Queues supporting graphics and/or compute operations <b>must</b> report <code>(1,1,1)</code> in {@code minImageTransferGranularity}, meaning that there are no additional restrictions on the granularity of image transfer operations for these queues. Other queues supporting image transfer operations are only required: to support whole mip level transfers, thus {@code minImageTransferGranularity} for queues belonging to such queue families <b>may</b> be <code>(0,0,0)</code>.</p>
  * 
  * <p>The <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-device">Device Memory</a> section describes memory properties queried from the physical device.</p>
  * 

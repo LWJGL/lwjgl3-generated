@@ -18,22 +18,26 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_KHR_xlib_surface</dd>
+ * <dd>{@code VK_KHR_xlib_surface}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Instance extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>5</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2015-11-28</dd>
  * <dt><b>Revision</b></dt>
  * <dd>6</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_surface">{@code VK_KHR_surface}</a></li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Jesse Hall @jessehall,Ian Elliott mailto:ianelliott@google.com[ianelliott@google.com]</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2015-11-28</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>Requires VK_KHR_surface.</li>
- * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Patrick Doane, Blizzard</li>
@@ -52,11 +56,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Ray Smith, ARM</li>
  * <li>Jeff Vigil, Qualcomm</li>
  * <li>Chia-I Wu, LunarG</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Jesse Hall, Google</li>
- * <li>Ian Elliott, LunarG</li>
  * </ul></dd>
  * </dl>
  */

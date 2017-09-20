@@ -18,47 +18,25 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>If {@code coverageModulationTableEnable} is {@link VK10#VK_FALSE FALSE}, then for each color sample the associated bits of the fragment's coverage are counted and divided by the number of associated bits to produce a modulation factor</p><code>R</code>
- * 
- * <p>in the range</p><code>(0,1]</code>
- * 
- * <p>(a value of zero would have been killed due to a color coverage of 0). Specifically:</p>
+ * <p>If {@code coverageModulationTableEnable} is {@link VK10#VK_FALSE FALSE}, then for each color sample the associated bits of the fragment's coverage are counted and divided by the number of associated bits to produce a modulation factor <code>R</code> in the range <code>(0,1]</code> (a value of zero would have been killed due to a color coverage of 0). Specifically:</p>
  * 
  * <ul>
- * <li><code>N</code>
- * 
- * <p>= value of {@code rasterizationSamples}</p></li>
- * <li><code>M</code>
- * 
- * <p>= value of {@link VkAttachmentDescription}{@code ::samples} for any color attachments</p></li>
+ * <li><code>N</code> = value of {@code rasterizationSamples}</li>
+ * <li><code>M</code> = value of {@link VkAttachmentDescription}{@code ::samples} for any color attachments</li>
  * <li><code>R = popcount(associated coverage bits) / (N / M)</code></li>
  * </ul>
  * 
- * <p>If {@code coverageModulationTableEnable} is {@link VK10#VK_TRUE TRUE}, the value</p><code>R</code>
- * 
- * <p>is computed using a programmable lookup table. The lookup table has</p><code>N / M</code>
- * 
- * <p>elements, and the element of the table is selected by:</p>
+ * <p>If {@code coverageModulationTableEnable} is {@link VK10#VK_TRUE TRUE}, the value <code>R</code> is computed using a programmable lookup table. The lookup table has <code>N / M</code> elements, and the element of the table is selected by:</p>
  * 
  * <ul>
  * <li><code>R = pCoverageModulationTable[popcount(associated coverage bits)-1]</code></li>
  * </ul>
  * 
- * <p>Note that the table does not have an entry for</p><code>popcount(associated coverage bits) = 0</code>
+ * <p>Note that the table does not have an entry for <code>popcount(associated coverage bits) = 0</code>, because such samples would have been killed.</p>
  * 
- * <p>, because such samples would have been killed.</p>
+ * <p>The values of {@code pCoverageModulationTable} <b>may</b> be rounded to an implementation-dependent precision, which is at least as fine as <code>1 / N</code>, and clamped to <code>[0,1]</code>.</p>
  * 
- * <p>The values of {@code pCoverageModulationTable} <b>may</b> be rounded to an implementation-dependent precision, which is at least as fine as</p><code>1 / N</code>
- * 
- * <p>, and clamped to</p><code>[0,1]</code>
- * 
- * <p>.</p>
- * 
- * <p>For each color attachment with a floating point or normalized color format, each fragment output color value is replicated to</p><code>M</code>
- * 
- * <p>values which <b>can</b> each be modulated (multiplied) by that color sample's associated value of</p><code>R</code>
- * 
- * <p>. Which components are modulated is controlled by {@code coverageModulationMode}.</p>
+ * <p>For each color attachment with a floating point or normalized color format, each fragment output color value is replicated to <code>M</code> values which <b>can</b> each be modulated (multiplied) by that color sample's associated value of <code>R</code>. Which components are modulated is controlled by {@code coverageModulationMode}.</p>
  * 
  * <p>If this structure is not present, it is as if coverageModulationMode is {@link NVFramebufferMixedSamples#VK_COVERAGE_MODULATION_MODE_NONE_NV COVERAGE_MODULATION_MODE_NONE_NV}.</p>
  * 

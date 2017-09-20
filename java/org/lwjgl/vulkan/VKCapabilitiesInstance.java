@@ -47,6 +47,10 @@ public class VKCapabilitiesInstance {
     public final long
         vkGetPhysicalDeviceSurfaceCapabilities2EXT;
 
+    // EXT_sample_locations
+    public final long
+        vkGetPhysicalDeviceMultisamplePropertiesEXT;
+
     // KHR_display
     public final long
         vkGetPhysicalDeviceDisplayPropertiesKHR,
@@ -214,6 +218,8 @@ public class VKCapabilitiesInstance {
             vkGetPhysicalDeviceSurfaceCapabilities2EXT = isSupported(provider, "vkGetPhysicalDeviceSurfaceCapabilities2EXT", supported);
             VK_EXT_display_surface_counter = supported && VK.checkExtension("VK_EXT_display_surface_counter", EXTDisplaySurfaceCounter.isAvailable(this));
         }
+        {
+            vkGetPhysicalDeviceMultisamplePropertiesEXT = isSupported(provider, "vkGetPhysicalDeviceMultisamplePropertiesEXT", true);        }
         VK_EXT_swapchain_colorspace = ext.contains("VK_EXT_swapchain_colorspace");
         VK_EXT_validation_flags = ext.contains("VK_EXT_validation_flags");
         {
@@ -281,8 +287,7 @@ public class VKCapabilitiesInstance {
             VK_KHR_xlib_surface = supported && VK.checkExtension("VK_KHR_xlib_surface", KHRXlibSurface.isAvailable(this));
         }
         {
-            vkGetPhysicalDevicePresentRectanglesKHX = isSupported(provider, "vkGetPhysicalDevicePresentRectanglesKHX", true);
-        }
+            vkGetPhysicalDevicePresentRectanglesKHX = isSupported(provider, "vkGetPhysicalDevicePresentRectanglesKHX", true);        }
         {
             supported = ext.contains("VK_KHX_device_group_creation");
             vkEnumeratePhysicalDeviceGroupsKHX = isSupported(provider, "vkEnumeratePhysicalDeviceGroupsKHX", supported);
@@ -304,8 +309,7 @@ public class VKCapabilitiesInstance {
             VK_NV_external_memory_capabilities = supported && VK.checkExtension("VK_NV_external_memory_capabilities", NVExternalMemoryCapabilities.isAvailable(this));
         }
         {
-            vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = isSupported(provider, "vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX", true);
-        }
+            vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX = isSupported(provider, "vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX", true);        }
     }
 
 }

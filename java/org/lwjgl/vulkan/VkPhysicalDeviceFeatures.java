@@ -40,9 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>Values from anywhere within the memory range(s) bound to the buffer (possibly including bytes of memory past the end of the buffer, up to the end of the bound range).</li>
- * <li>Zero values, or<code>(0,0,0,x)</code>
- * 
- * <p>vectors for vector reads where x is a valid value represented in the type of the vector components and <b>may</b> be any of:</p>
+ * <li>Zero values, or <code>(0,0,0,x)</code> vectors for vector reads where x is a valid value represented in the type of the vector components and <b>may</b> be any of:
  * 
  * <ul>
  * <li>0, 1, or the maximum representable positive integer value, for signed or unsigned integer components</li>
@@ -61,9 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>Values from anywhere within the memory range(s) bound to the buffer, converted according to the format of the attribute.</li>
  * <li>Zero values, format converted according to the format of the attribute.</li>
- * <li>Zero values, or<code>(0,0,0,x)</code>
- * 
- * <p>vectors, as described above.</p></li>
+ * <li>Zero values, or <code>(0,0,0,x)</code> vectors, as described above.</li>
  * </ul>
  * </li>
  * </ul>

@@ -103,29 +103,27 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_NV_clip_space_w_scaling</dd>
+ * <dd>{@code VK_NV_clip_space_w_scaling}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>88</dd>
- * <dt><b>Status</b></dt>
- * <dd>Complete.</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-02-15</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
- * <dt><b>Dependencies</b></dt>
+ * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>Requires Vulkan 1.0</li>
  * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Eric Werness @ewerness</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-02-15</dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Eric Werness, NVIDIA</li>
  * <li>Kedarnath Thangudu, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Eric Werness (ewerness 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
  */
@@ -184,15 +182,7 @@ public class NVClipSpaceWScaling {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The viewport parameters taken from element</p><code>i</code>
-     * 
-     * <p>of {@code pViewportScalings} replace the current state for the viewport index</p><code>firstViewport {plus} i</code>
-     * 
-     * <p>, for</p><code>i</code>
-     * 
-     * <p>in</p><code>[0, viewportCount)</code>
-     * 
-     * <p>.</p>
+     * <p>The viewport parameters taken from element <code>i</code> of {@code pViewportScalings} replace the current state for the viewport index <code>firstViewport {plus} i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 

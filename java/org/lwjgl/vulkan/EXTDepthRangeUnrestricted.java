@@ -6,35 +6,32 @@
 package org.lwjgl.vulkan;
 
 /**
+ * This extension removes the {@link VkViewport} {@code minDepth} and {@code maxDepth} restrictions that the values must be between {@code 0.0} and {@code 1.0}, inclusive. It also removes the same restriction on {@link VkPipelineDepthStencilStateCreateInfo} {@code minDepthBounds} and {@code maxDepthBounds}. Finally it removes the restriction on the {@code depth} value in {@link VkClearDepthStencilValue}.
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_EXT_depth_range_unrestricted</dd>
+ * <dd>{@code VK_EXT_depth_range_unrestricted}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>14</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft</dd>
- * <dt><b>Last Modified Data</b></dt>
- * <dd>2017-06-22</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
- * <dt><b>Dependencies</b></dt>
+ * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>This extension requires Vulkan 1.0.</li>
+ * <li>Requires Vulkan 1.0</li>
  * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Piers Daniell @pdaniell</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-06-22</dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Daniel Koch, NVIDIA</li>
  * <li>Jeff Bolz, NVIDIA</li>
  * </ul></dd>
- * <dt><b>Contact</b></dt>
- * <dd><ul>
- * <li>Piers Daniell (pdaniell 'at' nvidia.com)</li>
- * </ul></dd>
- * <dt><b>Overview</b></dt>
- * <dd>This extension removes the {@link VkViewport} {@code minDepth} and {@code maxDepth} restrictions that the values must be between {@code 0.0} and {@code 1.0}, inclusive. It also removes the same restriction on {@link VkPipelineDepthStencilStateCreateInfo} {@code minDepthBounds} and {@code maxDepthBounds}. Finally it removes the restriction on the {@code depth} value in {@link VkClearDepthStencilValue}.</dd>
  * </dl>
  */
 public final class EXTDepthRangeUnrestricted {

@@ -165,10 +165,26 @@ public class VKCapabilitiesDevice {
     public final long
         vkSetHdrMetadataEXT;
 
+    // EXT_sample_locations
+    public final long
+        vkCmdSetSampleLocationsEXT;
+
+    // EXT_validation_cache
+    public final long
+        vkCreateValidationCacheEXT,
+        vkDestroyValidationCacheEXT,
+        vkMergeValidationCachesEXT,
+        vkGetValidationCacheDataEXT;
+
     // GOOGLE_display_timing
     public final long
         vkGetRefreshCycleDurationGOOGLE,
         vkGetPastPresentationTimingGOOGLE;
+
+    // KHR_bind_memory2
+    public final long
+        vkBindBufferMemory2KHR,
+        vkBindImageMemory2KHR;
 
     // KHR_descriptor_update_template
     public final long
@@ -225,6 +241,11 @@ public class VKCapabilitiesDevice {
     public final long
         vkCmdPushDescriptorSetKHR;
 
+    // KHR_sampler_ycbcr_conversion
+    public final long
+        vkCreateSamplerYcbcrConversionKHR,
+        vkDestroySamplerYcbcrConversionKHR;
+
     // KHR_shared_presentable_image
     public final long
         vkGetSwapchainStatusKHR;
@@ -240,13 +261,11 @@ public class VKCapabilitiesDevice {
     // KHX_device_group
     public final long
         vkGetDeviceGroupPeerMemoryFeaturesKHX,
-        vkBindBufferMemory2KHX,
-        vkBindImageMemory2KHX,
         vkCmdSetDeviceMaskKHX,
+        vkCmdDispatchBaseKHX,
         vkGetDeviceGroupPresentCapabilitiesKHX,
         vkGetDeviceGroupSurfacePresentModesKHX,
-        vkAcquireNextImage2KHX,
-        vkCmdDispatchBaseKHX;
+        vkAcquireNextImage2KHX;
 
     // NV_clip_space_w_scaling
     public final long
@@ -280,6 +299,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_AMD_gpu_shader_half_float;
     /** When true, {@link AMDGPUShaderInt16} is supported. */
     public final boolean VK_AMD_gpu_shader_int16;
+    /** When true, {@link AMDMixedAttachmentSamples} is supported. */
+    public final boolean VK_AMD_mixed_attachment_samples;
     /** When true, {@link AMDNegativeViewportHeight} is supported. */
     public final boolean VK_AMD_negative_viewport_height;
     /** When true, {@link AMDRasterizationOrder} is supported. */
@@ -288,6 +309,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_AMD_shader_ballot;
     /** When true, {@link AMDShaderExplicitVertexParameter} is supported. */
     public final boolean VK_AMD_shader_explicit_vertex_parameter;
+    /** When true, {@link AMDShaderFragmentMask} is supported. */
+    public final boolean VK_AMD_shader_fragment_mask;
     /** When true, {@link AMDShaderTrinaryMinmax} is supported. */
     public final boolean VK_AMD_shader_trinary_minmax;
     /** When true, {@link AMDTextureGatherBiasLod} is supported. */
@@ -306,6 +329,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_hdr_metadata;
     /** When true, {@link EXTPostDepthCoverage} is supported. */
     public final boolean VK_EXT_post_depth_coverage;
+    /** When true, {@link EXTSampleLocations} is supported. */
+    public final boolean VK_EXT_sample_locations;
     /** When true, {@link EXTSamplerFilterMinmax} is supported. */
     public final boolean VK_EXT_sampler_filter_minmax;
     /** When true, {@link EXTShaderStencilExport} is supported. */
@@ -316,6 +341,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_shader_subgroup_vote;
     /** When true, {@link EXTShaderViewportIndexLayer} is supported. */
     public final boolean VK_EXT_shader_viewport_index_layer;
+    /** When true, {@link EXTValidationCache} is supported. */
+    public final boolean VK_EXT_validation_cache;
     /** When true, {@link GOOGLEDisplayTiming} is supported. */
     public final boolean VK_GOOGLE_display_timing;
     /** When true, {@link IMGFilterCubic} is supported. */
@@ -324,6 +351,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_IMG_format_pvrtc;
     /** When true, {@link KHR16bitStorage} is supported. */
     public final boolean VK_KHR_16bit_storage;
+    /** When true, {@link KHRBindMemory2} is supported. */
+    public final boolean VK_KHR_bind_memory2;
     /** When true, {@link KHRDedicatedAllocation} is supported. */
     public final boolean VK_KHR_dedicated_allocation;
     /** When true, {@link KHRDescriptorUpdateTemplate} is supported. */
@@ -350,16 +379,22 @@ public class VKCapabilitiesDevice {
     public final boolean VK_KHR_external_semaphore_win32;
     /** When true, {@link KHRGetMemoryRequirements2} is supported. */
     public final boolean VK_KHR_get_memory_requirements2;
+    /** When true, {@link KHRImageFormatList} is supported. */
+    public final boolean VK_KHR_image_format_list;
     /** When true, {@link KHRIncrementalPresent} is supported. */
     public final boolean VK_KHR_incremental_present;
     /** When true, {@link KHRMaintenance1} is supported. */
     public final boolean VK_KHR_maintenance1;
+    /** When true, {@link KHRMaintenance2} is supported. */
+    public final boolean VK_KHR_maintenance2;
     /** When true, {@link KHRPushDescriptor} is supported. */
     public final boolean VK_KHR_push_descriptor;
     /** When true, {@link KHRRelaxedBlockLayout} is supported. */
     public final boolean VK_KHR_relaxed_block_layout;
     /** When true, {@link KHRSamplerMirrorClampToEdge} is supported. */
     public final boolean VK_KHR_sampler_mirror_clamp_to_edge;
+    /** When true, {@link KHRSamplerYcbcrConversion} is supported. */
+    public final boolean VK_KHR_sampler_ycbcr_conversion;
     /** When true, {@link KHRShaderDrawParameters} is supported. */
     public final boolean VK_KHR_shader_draw_parameters;
     /** When true, {@link KHRSharedPresentableImage} is supported. */
@@ -546,10 +581,12 @@ public class VKCapabilitiesDevice {
         VK_AMD_gcn_shader = ext.contains("VK_AMD_gcn_shader");
         VK_AMD_gpu_shader_half_float = ext.contains("VK_AMD_gpu_shader_half_float");
         VK_AMD_gpu_shader_int16 = ext.contains("VK_AMD_gpu_shader_int16");
+        VK_AMD_mixed_attachment_samples = ext.contains("VK_AMD_mixed_attachment_samples");
         VK_AMD_negative_viewport_height = ext.contains("VK_AMD_negative_viewport_height");
         VK_AMD_rasterization_order = ext.contains("VK_AMD_rasterization_order");
         VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
         VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
+        VK_AMD_shader_fragment_mask = ext.contains("VK_AMD_shader_fragment_mask");
         VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
         VK_AMD_texture_gather_bias_lod = ext.contains("VK_AMD_texture_gather_bias_lod");
         VK_EXT_blend_operation_advanced = ext.contains("VK_EXT_blend_operation_advanced");
@@ -582,11 +619,24 @@ public class VKCapabilitiesDevice {
             VK_EXT_hdr_metadata = supported && VK.checkExtension("VK_EXT_hdr_metadata", EXTHdrMetadata.isAvailable(this));
         }
         VK_EXT_post_depth_coverage = ext.contains("VK_EXT_post_depth_coverage");
+        {
+            supported = ext.contains("VK_EXT_sample_locations");
+            vkCmdSetSampleLocationsEXT = isSupported(provider, "vkCmdSetSampleLocationsEXT", supported);
+            VK_EXT_sample_locations = supported && VK.checkExtension("VK_EXT_sample_locations", EXTSampleLocations.isAvailable(capsInstance, this));
+        }
         VK_EXT_sampler_filter_minmax = ext.contains("VK_EXT_sampler_filter_minmax");
         VK_EXT_shader_stencil_export = ext.contains("VK_EXT_shader_stencil_export");
         VK_EXT_shader_subgroup_ballot = ext.contains("VK_EXT_shader_subgroup_ballot");
         VK_EXT_shader_subgroup_vote = ext.contains("VK_EXT_shader_subgroup_vote");
         VK_EXT_shader_viewport_index_layer = ext.contains("VK_EXT_shader_viewport_index_layer");
+        {
+            supported = ext.contains("VK_EXT_validation_cache");
+            vkCreateValidationCacheEXT = isSupported(provider, "vkCreateValidationCacheEXT", supported);
+            vkDestroyValidationCacheEXT = isSupported(provider, "vkDestroyValidationCacheEXT", supported);
+            vkMergeValidationCachesEXT = isSupported(provider, "vkMergeValidationCachesEXT", supported);
+            vkGetValidationCacheDataEXT = isSupported(provider, "vkGetValidationCacheDataEXT", supported);
+            VK_EXT_validation_cache = supported && VK.checkExtension("VK_EXT_validation_cache", EXTValidationCache.isAvailable(this));
+        }
         {
             supported = ext.contains("VK_GOOGLE_display_timing");
             vkGetRefreshCycleDurationGOOGLE = isSupported(provider, "vkGetRefreshCycleDurationGOOGLE", supported);
@@ -596,6 +646,12 @@ public class VKCapabilitiesDevice {
         VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
         VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
         VK_KHR_16bit_storage = ext.contains("VK_KHR_16bit_storage");
+        {
+            supported = ext.contains("VK_KHR_bind_memory2");
+            vkBindBufferMemory2KHR = isSupported(provider, "vkBindBufferMemory2KHR", supported);
+            vkBindImageMemory2KHR = isSupported(provider, "vkBindImageMemory2KHR", supported);
+            VK_KHR_bind_memory2 = supported && VK.checkExtension("VK_KHR_bind_memory2", KHRBindMemory2.isAvailable(this));
+        }
         VK_KHR_dedicated_allocation = ext.contains("VK_KHR_dedicated_allocation");
         {
             supported = ext.contains("VK_KHR_descriptor_update_template");
@@ -656,12 +712,14 @@ public class VKCapabilitiesDevice {
             vkGetImageSparseMemoryRequirements2KHR = isSupported(provider, "vkGetImageSparseMemoryRequirements2KHR", supported);
             VK_KHR_get_memory_requirements2 = supported && VK.checkExtension("VK_KHR_get_memory_requirements2", KHRGetMemoryRequirements2.isAvailable(this));
         }
+        VK_KHR_image_format_list = ext.contains("VK_KHR_image_format_list");
         VK_KHR_incremental_present = ext.contains("VK_KHR_incremental_present");
         {
             supported = ext.contains("VK_KHR_maintenance1");
             vkTrimCommandPoolKHR = isSupported(provider, "vkTrimCommandPoolKHR", supported);
             VK_KHR_maintenance1 = supported && VK.checkExtension("VK_KHR_maintenance1", KHRMaintenance1.isAvailable(this));
         }
+        VK_KHR_maintenance2 = ext.contains("VK_KHR_maintenance2");
         {
             supported = ext.contains("VK_KHR_push_descriptor");
             vkCmdPushDescriptorSetKHR = isSupported(provider, "vkCmdPushDescriptorSetKHR", supported);
@@ -669,6 +727,12 @@ public class VKCapabilitiesDevice {
         }
         VK_KHR_relaxed_block_layout = ext.contains("VK_KHR_relaxed_block_layout");
         VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
+        {
+            supported = ext.contains("VK_KHR_sampler_ycbcr_conversion");
+            vkCreateSamplerYcbcrConversionKHR = isSupported(provider, "vkCreateSamplerYcbcrConversionKHR", supported);
+            vkDestroySamplerYcbcrConversionKHR = isSupported(provider, "vkDestroySamplerYcbcrConversionKHR", supported);
+            VK_KHR_sampler_ycbcr_conversion = supported && VK.checkExtension("VK_KHR_sampler_ycbcr_conversion", KHRSamplerYcbcrConversion.isAvailable(this));
+        }
         VK_KHR_shader_draw_parameters = ext.contains("VK_KHR_shader_draw_parameters");
         {
             supported = ext.contains("VK_KHR_shared_presentable_image");
@@ -690,14 +754,12 @@ public class VKCapabilitiesDevice {
         {
             supported = ext.contains("VK_KHX_device_group");
             vkGetDeviceGroupPeerMemoryFeaturesKHX = isSupported(provider, "vkGetDeviceGroupPeerMemoryFeaturesKHX", supported);
-            vkBindBufferMemory2KHX = isSupported(provider, "vkBindBufferMemory2KHX", supported);
-            vkBindImageMemory2KHX = isSupported(provider, "vkBindImageMemory2KHX", supported);
             vkCmdSetDeviceMaskKHX = isSupported(provider, "vkCmdSetDeviceMaskKHX", supported);
+            vkCmdDispatchBaseKHX = isSupported(provider, "vkCmdDispatchBaseKHX", supported);
             vkGetDeviceGroupPresentCapabilitiesKHX = isSupported(provider, "vkGetDeviceGroupPresentCapabilitiesKHX", supported);
             vkGetDeviceGroupSurfacePresentModesKHX = isSupported(provider, "vkGetDeviceGroupSurfacePresentModesKHX", supported);
             vkAcquireNextImage2KHX = isSupported(provider, "vkAcquireNextImage2KHX", supported);
-            vkCmdDispatchBaseKHX = isSupported(provider, "vkCmdDispatchBaseKHX", supported);
-            VK_KHX_device_group = supported && VK.checkExtension("VK_KHX_device_group", KHXDeviceGroup.isAvailable(capsInstance, this));
+            VK_KHX_device_group = supported && VK.checkExtension("VK_KHX_device_group", KHXDeviceGroup.isAvailable(capsInstance, this, ext));
         }
         VK_KHX_multiview = ext.contains("VK_KHX_multiview");
         {

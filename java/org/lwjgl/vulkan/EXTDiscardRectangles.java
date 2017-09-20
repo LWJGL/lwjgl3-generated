@@ -19,31 +19,28 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_EXT_discard_rectangles</dd>
+ * <dd>{@code VK_EXT_discard_rectangles}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>100</dd>
- * <dt><b>Status</b></dt>
- * <dd>Complete</dd>
- * <dt><b>Last Modified Data</b></dt>
- * <dd>2016-12-22</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
- * <dt><b>Dependencies</b></dt>
+ * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>This extension requires Vulkan 1.0.</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_get_physical_device_properties2">VK_KHR_get_physical_device_properties2</a>.</li>
+ * <li>Requires Vulkan 1.0</li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_get_physical_device_properties2">{@code VK_KHR_get_physical_device_properties2}</a></li>
  * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Piers Daniell @pdaniell</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-12-22</dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Daniel Koch, NVIDIA</li>
  * <li>Jeff Bolz, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contact</b></dt>
- * <dd><ul>
- * <li>Piers Daniell (pdaniell 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
  */
@@ -131,15 +128,7 @@ public class EXTDiscardRectangles {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The discard rectangle taken from element</p><code>i</code>
-     * 
-     * <p>of {@code pDiscardRectangles} replace the current state for the discard rectangle index</p><code>firstDiscardRectangle {plus} i</code>
-     * 
-     * <p>, for</p><code>i</code>
-     * 
-     * <p>in</p><code>[0, discardRectangleCount)</code>
-     * 
-     * <p>.</p>
+     * <p>The discard rectangle taken from element <code>i</code> of {@code pDiscardRectangles} replace the current state for the discard rectangle index <code>firstDiscardRectangle {plus} i</code>, for <code>i</code> in <code>[0, discardRectangleCount)</code>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -149,12 +138,8 @@ public class EXTDiscardRectangles {
      * <li>The sum of {@code firstDiscardRectangle} and {@code discardRectangleCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}, inclusive</li>
      * <li>{@code pDiscardRectangles} <b>must</b> be a pointer to an array of {@code discardRectangleCount} valid {@link VkRect2D} structures</li>
      * <li>The {@code x} and {@code y} members of {@code offset} in {@link VkRect2D} <b>must</b> be greater than or equal to 0</li>
-     * <li>Evaluation of<code>(offset.x + extent.width)</code>
-     * 
-     * <p>in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</p></li>
-     * <li>Evaluation of<code>(offset.y + extent.height)</code>
-     * 
-     * <p>in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</p></li>
+     * <li>Evaluation of <code>(offset.x + extent.width)</code> in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
+     * <li>Evaluation of <code>(offset.y + extent.height)</code> in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>

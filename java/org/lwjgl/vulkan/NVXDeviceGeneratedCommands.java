@@ -119,19 +119,23 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_NVX_device_generated_commands</dd>
+ * <dd>{@code VK_NVX_device_generated_commands}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>87</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-07-25</dd>
  * <dt><b>Revision</b></dt>
  * <dd>3</dd>
- * <dt><b>Dependencies</b></dt>
+ * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>Requires Vulkan 1.0</li>
  * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Christoph Kubisch @pixeljetstream</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-07-25</dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Pierre Boudier, NVIDIA</li>
@@ -142,11 +146,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Detlef Roettger, NVIDIA</li>
  * <li>Daniel Koch, NVIDIA</li>
  * <li>Chris Hebert, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Pierre Boudier, NVIDIA (mailto:pboudier@nvidia.com[pboudier@nvidia.com])</li>
- * <li>Christoph Kubisch, NVIDIA (mailto:ckubisch@nvidia.com[ckubisch@nvidia.com])</li>
  * </ul></dd>
  * </dl>
  */

@@ -16,11 +16,19 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * (None).
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If {@code image} was created with a <em>multi-planar</em> format and the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} flag, there <b>must</b> be a {@link VkImagePlaneMemoryRequirementsInfoKHR} in the {@code pNext} chain of the {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
+ * <li>If {@code image} was not created with the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} flag, there <b>must</b> not be a {@link VkImagePlaneMemoryRequirementsInfoKHR} in the {@code pNext} chain of the {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
+ * <li>If {@code image} was created with a single-plane format, there <b>must</b> not be a {@link VkImagePlaneMemoryRequirementsInfoKHR} in the {@code pNext} chain of the {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
+ * </ul>
+ * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRGetMemoryRequirements2#VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL} or a pointer to a valid instance of {@link VkImagePlaneMemoryRequirementsInfoKHR}</li>
  * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
  * </ul>
  * 

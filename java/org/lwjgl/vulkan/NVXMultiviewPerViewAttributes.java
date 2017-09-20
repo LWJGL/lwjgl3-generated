@@ -38,35 +38,36 @@ package org.lwjgl.vulkan;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_NVX_multiview_per_view_attributes</dd>
+ * <dd>{@code VK_NVX_multiview_per_view_attributes}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>98</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft.</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-01-13</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHX_multiview">{@code VK_KHX_multiview}</a></li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Jeff Bolz @jbolz</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-01-13</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
+ * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
  * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/NV/SPV_NVX_multiview_per_view_attributes.html">SPV_NVX_multiview_per_view_attributes</a> SPIR-V extension.</li>
  * <li>This extension requires the GL_NVX_multiview_per_view_attributes extension for GLSL source languages.</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_get_physical_device_properties2">VK_KHR_get_physical_device_properties2</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHX_multiview">VK_KHX_multiview</a>.</li>
  * <li>This extension interacts with <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_NV_viewport_array2">VK_NV_viewport_array2</a>.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jeff Bolz, NVIDIA</li>
  * <li>Daniel Koch, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
  */

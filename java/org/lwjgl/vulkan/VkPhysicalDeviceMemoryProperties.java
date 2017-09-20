@@ -43,18 +43,14 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <p>There <b>must</b> be at least one memory type with both the {@link VK10#VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} and {@link VK10#VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} bits set in its {@code propertyFlags}. There <b>must</b> be at least one memory type with the {@link VK10#VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit set in its {@code propertyFlags}.</p>
  * 
- * <p>The memory types are sorted according to a preorder which serves to aid in easily selecting an appropriate memory type. Given two memory types X and Y, the preorder defines</p><code>X {leq} Y</code>
- * 
- * <p>if:</p>
+ * <p>The memory types are sorted according to a preorder which serves to aid in easily selecting an appropriate memory type. Given two memory types X and Y, the preorder defines <code>X {leq} Y</code> if:</p>
  * 
  * <ul>
  * <li>the memory property bits set for X are a strict subset of the memory property bits set for Y. Or,</li>
  * <li>the memory property bits set for X are the same as the memory property bits set for Y, and X uses a memory heap with greater or equal performance (as determined in an implementation-specific manner).</li>
  * </ul>
  * 
- * <p>Memory types are ordered in the list such that X is assigned a lesser {@code memoryTypeIndex} than Y if</p><code>(X {leq} Y) {land} {lnot} (Y {leq} X)</code>
- * 
- * <p>according to the preorder. Note that the list of all allowed memory property flag combinations above satisfies this preorder, but other orders would as well. The goal of this ordering is to enable applications to use a simple search loop in selecting the proper memory type, along the lines of:</p>
+ * <p>Memory types are ordered in the list such that X is assigned a lesser {@code memoryTypeIndex} than Y if <code>(X {leq} Y) {land} {lnot} (Y {leq} X)</code> according to the preorder. Note that the list of all allowed memory property flag combinations above satisfies this preorder, but other orders would as well. The goal of this ordering is to enable applications to use a simple search loop in selecting the proper memory type, along the lines of:</p>
  * 
  * <code><pre>
  * // Find a memory type in "memoryTypeBits" that includes all of "properties"

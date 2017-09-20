@@ -28,21 +28,23 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_KHR_maintenance1</dd>
+ * <dd>{@code VK_KHR_maintenance1}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>70</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-10-26</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
- * <dt><b>Dependencies</b></dt>
+ * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
+ * <li>Requires Vulkan 1.0</li>
  * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Piers Daniell @pdaniell</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-10-26</dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Dan Ginsburg, Valve</li>
@@ -59,10 +61,6 @@ import static org.lwjgl.system.JNI.*;
  * <li>Slawomir Grajewski, Intel</li>
  * <li>Tobias Hector, Imagination Technologies</li>
  * <li>Tom Olson, ARM</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Piers Daniell (pdaniell 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
  */

@@ -22,39 +22,37 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_KHX_device_group</dd>
+ * <dd>{@code VK_KHX_device_group}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>61</dd>
- * <dt><b>Status</b></dt>
- * <dd>Draft.</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-10-19</dd>
  * <dt><b>Revision</b></dt>
- * <dd>1</dd>
+ * <dd>2</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHX_device_group_creation">{@code VK_KHX_device_group_creation}</a></li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Jeff Bolz @jbolz</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-05-19</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0 of the Vulkan API.</li>
- * <li>Requires VK_KHR_swapchain revision 68.</li>
- * <li>Requires VK_KHX_device_group_creation revision 1.</li>
- * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jeff Bolz, NVIDIA</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Jeff Bolz (jbolz 'at' nvidia.com)</li>
+ * <li>Tobias Hector, Imagination Technologies</li>
  * </ul></dd>
  * </dl>
  */
 public class KHXDeviceGroup {
 
     /** The extension specification version. */
-    public static final int VK_KHX_DEVICE_GROUP_SPEC_VERSION = 1;
+    public static final int VK_KHX_DEVICE_GROUP_SPEC_VERSION = 2;
 
     /** The extension name. */
     public static final String VK_KHX_DEVICE_GROUP_EXTENSION_NAME = "VK_KHX_device_group";
@@ -66,37 +64,20 @@ public class KHXDeviceGroup {
      * 
      * <ul>
      * <li>{@link #VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX}</li>
-     * <li>{@link #VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHX STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHX}</li>
-     * <li>{@link #VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX}</li>
      * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX}</li>
      * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHX}</li>
      * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX}</li>
      * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX}</li>
-     * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX}</li>
-     * <li>{@link #VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX}</li>
-     * <li>{@link #VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX}</li>
      * <li>{@link #VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX}</li>
-     * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX}</li>
-     * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX}</li>
      * </ul>
      */
     public static final int
         VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO_KHX             = 1000060000,
-        VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO_KHX                = 1000060001,
-        VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO_KHX                 = 1000060002,
         VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX    = 1000060003,
         VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO_KHX = 1000060004,
         VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX               = 1000060005,
         VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO_KHX          = 1000060006,
-        VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX      = 1000060007,
-        VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX            = 1000060008,
-        VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX       = 1000060009,
-        VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX                = 1000060010,
-        VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX              = 1000060011,
-        VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX     = 1000060012;
-
-    /** Extends {@code VkImageCreateFlagBits}. */
-    public static final int VK_IMAGE_CREATE_BIND_SFR_BIT_KHX = 0x40;
+        VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHX                = 1000060010;
 
     /**
      * Extends {@code VkPipelineCreateFlagBits}.
@@ -115,6 +96,44 @@ public class KHXDeviceGroup {
     /** Extends {@code VkDependencyFlagBits}. */
     public static final int VK_DEPENDENCY_DEVICE_GROUP_BIT_KHX = 0x4;
 
+    /**
+     * Extends {@code VkStructureType}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO_KHX STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHX STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHX}</li>
+     * </ul>
+     */
+    public static final int
+        VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO_KHX = 1000060013,
+        VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHX  = 1000060014;
+
+    /** Extends {@code VkImageCreateFlagBits}. */
+    public static final int VK_IMAGE_CREATE_BIND_SFR_BIT_KHX = 0x40;
+
+    /** Extends {@code VkStructureType}. */
+    public static final int VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHX = 1000060007;
+
+    /**
+     * Extends {@code VkStructureType}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX}</li>
+     * <li>{@link #VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX}</li>
+     * </ul>
+     */
+    public static final int
+        VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHX        = 1000060008,
+        VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHX   = 1000060009,
+        VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHX          = 1000060011,
+        VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHX = 1000060012;
+
     /** Extends {@code VkSwapchainCreateFlagBitsKHR}. */
     public static final int VK_SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX = 0x1;
 
@@ -124,13 +143,13 @@ public class KHXDeviceGroup {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX} indicates that the memory <b>can</b> be accessed as the source of a ftext:vkCmdCopy* command.</li>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX} indicates that the memory <b>can</b> be accessed as the destination of a ftext:vkCmdCopy* command.</li>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX} indicates that the memory <b>can</b> be read as any other memory access type.</li>
-     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX} indicates that the memory <b>can</b> be written as any other memory access type. Shader atomics are considered to be writes.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX PEER_MEMORY_FEATURE_COPY_SRC_BIT_KHX} indicates that the memory <b>can</b> be accessed as the source of a ftext:vkCmdCopyBuffer, ftext:vkCmdCopyImage, ftext:vkCmdCopyBufferToImage, or ftext:vkCmdCopyImageToBuffer command.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX} indicates that the memory <b>can</b> be accessed as the destination of a ftext:vkCmdCopyBuffer, ftext:vkCmdCopyImage, ftext:vkCmdCopyBufferToImage, or ftext:vkCmdCopyImageToBuffer command.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_SRC_BIT_KHX} indicates that the memory <b>can</b> be read as any memory access type.</li>
+     * <li>{@link #VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX PEER_MEMORY_FEATURE_GENERIC_DST_BIT_KHX} indicates that the memory <b>can</b> be written as any memory access type. Shader atomics are considered to be writes.</li>
      * </ul>
      * 
-     * <p>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX} <b>must</b> be supported for all heaps.</p>
+     * <p>{@link #VK_PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX PEER_MEMORY_FEATURE_COPY_DST_BIT_KHX} <b>must</b> be supported for all host local heaps and for at least one device local heap.</p>
      * 
      * <p>If a device does not support a peer memory feature, it is still valid to use a resource that includes both local and peer memory bindings with the corresponding access type as long as only the local bindings are actually accessed. For example, an application doing split-frame rendering would use framebuffer attachments that include both local and peer memory bindings, but would scissor the rendering to only update local memory.</p>
      * 
@@ -185,16 +204,18 @@ public class KHXDeviceGroup {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
+    static boolean isAvailable(VKCapabilitiesInstance caps, java.util.Set<String> ext) {
         return checkFunctions(
-            caps.vkGetPhysicalDevicePresentRectanglesKHX
+            ext.contains("VK_KHR_surface") ? caps.vkGetPhysicalDevicePresentRectanglesKHX : -1L
         );
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance capsInstance, VKCapabilitiesDevice caps) {
-        return isAvailable(capsInstance) && checkFunctions(
-            caps.vkGetDeviceGroupPeerMemoryFeaturesKHX, caps.vkBindBufferMemory2KHX, caps.vkBindImageMemory2KHX, caps.vkCmdSetDeviceMaskKHX, 
-            caps.vkGetDeviceGroupPresentCapabilitiesKHX, caps.vkGetDeviceGroupSurfacePresentModesKHX, caps.vkAcquireNextImage2KHX, caps.vkCmdDispatchBaseKHX
+    static boolean isAvailable(VKCapabilitiesInstance capsInstance, VKCapabilitiesDevice caps, java.util.Set<String> ext) {
+        return isAvailable(capsInstance, ext) && checkFunctions(
+            caps.vkGetDeviceGroupPeerMemoryFeaturesKHX, caps.vkCmdSetDeviceMaskKHX, caps.vkCmdDispatchBaseKHX, 
+            ext.contains("VK_KHR_surface") ? caps.vkGetDeviceGroupPresentCapabilitiesKHX : -1L, 
+            ext.contains("VK_KHR_surface") ? caps.vkGetDeviceGroupSurfacePresentModesKHX : -1L, 
+            ext.contains("VK_KHR_swapchain") ? caps.vkAcquireNextImage2KHX : -1L
         );
     }
 
@@ -256,140 +277,6 @@ public class KHXDeviceGroup {
         nvkGetDeviceGroupPeerMemoryFeaturesKHX(device, heapIndex, localDeviceIndex, remoteDeviceIndex, memAddress(pPeerMemoryFeatures));
     }
 
-    // --- [ vkBindBufferMemory2KHX ] ---
-
-    /**
-     * Unsafe version of: {@link #vkBindBufferMemory2KHX BindBufferMemory2KHX}
-     *
-     * @param bindInfoCount the number of elements in {@code pBindInfos}.
-     */
-    public static int nvkBindBufferMemory2KHX(VkDevice device, int bindInfoCount, long pBindInfos) {
-        long __functionAddress = device.getCapabilities().vkBindBufferMemory2KHX;
-        if (CHECKS) {
-            check(__functionAddress);
-            VkBindBufferMemoryInfoKHX.validate(pBindInfos, bindInfoCount);
-        }
-        return callPPI(__functionAddress, device.address(), bindInfoCount, pBindInfos);
-    }
-
-    /**
-     * Bind device memory to buffer objects.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To attach memory to buffer objects for one or more buffers at a time, call:</p>
-     * 
-     * <code><pre>
-     * VkResult vkBindBufferMemory2KHX(
-     *     VkDevice                                    device,
-     *     uint32_t                                    bindInfoCount,
-     *     const VkBindBufferMemoryInfoKHX*            pBindInfos);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>On some implementations, it <b>may</b> be more efficient to batch memory bindings into a single command.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pBindInfos} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindBufferMemoryInfoKHX} structures</li>
-     * <li>{@code bindInfoCount} <b>must</b> be greater than 0</li>
-     * </ul>
-     * 
-     * <h5>Return Codes</h5>
-     * 
-     * <dl>
-     * <dt>On success, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-     * </ul></dd>
-     * <dt>On failure, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
-     * </ul></dd>
-     * </dl>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkBindBufferMemoryInfoKHX}</p>
-     *
-     * @param device     the logical device that owns the buffers and memory.
-     * @param pBindInfos a pointer to an array of structures of type {@link VkBindBufferMemoryInfoKHX}, describing buffers and memory to bind.
-     */
-    @NativeType("VkResult")
-    public static int vkBindBufferMemory2KHX(@NativeType("VkDevice") VkDevice device, @NativeType("const VkBindBufferMemoryInfoKHX *") VkBindBufferMemoryInfoKHX.Buffer pBindInfos) {
-        return nvkBindBufferMemory2KHX(device, pBindInfos.remaining(), pBindInfos.address());
-    }
-
-    // --- [ vkBindImageMemory2KHX ] ---
-
-    /**
-     * Unsafe version of: {@link #vkBindImageMemory2KHX BindImageMemory2KHX}
-     *
-     * @param bindInfoCount the number of elements in {@code pBindInfos}.
-     */
-    public static int nvkBindImageMemory2KHX(VkDevice device, int bindInfoCount, long pBindInfos) {
-        long __functionAddress = device.getCapabilities().vkBindImageMemory2KHX;
-        if (CHECKS) {
-            check(__functionAddress);
-            VkBindImageMemoryInfoKHX.validate(pBindInfos, bindInfoCount);
-        }
-        return callPPI(__functionAddress, device.address(), bindInfoCount, pBindInfos);
-    }
-
-    /**
-     * Bind device memory to image objects.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To attach memory to image objects for one or more images at a time, call:</p>
-     * 
-     * <code><pre>
-     * VkResult vkBindImageMemory2KHX(
-     *     VkDevice                                    device,
-     *     uint32_t                                    bindInfoCount,
-     *     const VkBindImageMemoryInfoKHX*             pBindInfos);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>On some implementations, it <b>may</b> be more efficient to batch memory bindings into a single command.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pBindInfos} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindImageMemoryInfoKHX} structures</li>
-     * <li>{@code bindInfoCount} <b>must</b> be greater than 0</li>
-     * </ul>
-     * 
-     * <h5>Return Codes</h5>
-     * 
-     * <dl>
-     * <dt>On success, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-     * </ul></dd>
-     * <dt>On failure, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
-     * </ul></dd>
-     * </dl>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkBindImageMemoryInfoKHX}</p>
-     *
-     * @param device     the logical device that owns the images and memory.
-     * @param pBindInfos a pointer to an array of structures of type {@link VkBindImageMemoryInfoKHX}, describing images and memory to bind.
-     */
-    @NativeType("VkResult")
-    public static int vkBindImageMemory2KHX(@NativeType("VkDevice") VkDevice device, @NativeType("const VkBindImageMemoryInfoKHX *") VkBindImageMemoryInfoKHX.Buffer pBindInfos) {
-        return nvkBindImageMemory2KHX(device, pBindInfos.remaining(), pBindInfos.address());
-    }
-
     // --- [ vkCmdSetDeviceMaskKHX ] ---
 
     /**
@@ -448,6 +335,81 @@ public class KHXDeviceGroup {
             check(__functionAddress);
         }
         callPV(__functionAddress, commandBuffer.address(), deviceMask);
+    }
+
+    // --- [ vkCmdDispatchBaseKHX ] ---
+
+    /**
+     * Dispatch compute work items.
+     * 
+     * <h5>C Specification</h5>
+     * 
+     * <p>To record a dispatch using non-zero base values for the components of {@code WorkgroupId}, call:</p>
+     * 
+     * <code><pre>
+     * void vkCmdDispatchBaseKHX(
+     *     VkCommandBuffer                             commandBuffer,
+     *     uint32_t                                    baseGroupX,
+     *     uint32_t                                    baseGroupY,
+     *     uint32_t                                    baseGroupZ,
+     *     uint32_t                                    groupCountX,
+     *     uint32_t                                    groupCountY,
+     *     uint32_t                                    groupCountZ);</pre></code>
+     * 
+     * <h5>Description</h5>
+     * 
+     * <p>When the command is executed, a global workgroup consisting of <code>groupCountX {times} groupCountY {times} groupCountZ</code> local workgroups is assembled, with {@code WorkgroupId} values ranging from <code>[baseGroup, baseGroup {plus} groupCount)</code> in each component. {@link VK10#vkCmdDispatch CmdDispatch} is equivalent to vkCmdDispatchBaseKHX(0,0,0,groupCountX,groupCountY,groupCountZ).</p>
+     * 
+     * <h5>Valid Usage</h5>
+     * 
+     * <ul>
+     * <li>All valid usage rules from {@link VK10#vkCmdDispatch CmdDispatch} apply</li>
+     * <li>{@code baseGroupX} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[0]</li>
+     * <li>{@code baseGroupX} <b>must</b> be less than {@code VkPhysicaYDeviceLimits}{@code ::maxComputeWorkGroupCount}[1]</li>
+     * <li>{@code baseGroupZ} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[2]</li>
+     * <li>{@code groupCountX} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[0] minus {@code baseGroupX}</li>
+     * <li>{@code groupCountY} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[1] minus {@code baseGroupY}</li>
+     * <li>{@code groupCountZ} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[2] minus {@code baseGroupZ}</li>
+     * <li>If any of {@code baseGroupX}, {@code baseGroupY}, or {@code baseGroupZ} are not zero, then the currently bound compute pipeline <b>must</b> have been created with the {@link #VK_PIPELINE_CREATE_DISPATCH_BASE_KHX PIPELINE_CREATE_DISPATCH_BASE_KHX} flag.</li>
+     * </ul>
+     * 
+     * <h5>Valid Usage (Implicit)</h5>
+     * 
+     * <ul>
+     * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+     * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
+     * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support compute operations</li>
+     * <li>This command <b>must</b> only be called outside of a render pass instance</li>
+     * </ul>
+     * 
+     * <h5>Host Synchronization</h5>
+     * 
+     * <ul>
+     * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
+     * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
+     * </ul>
+     * 
+     * <h5>Command Properties</h5>
+     * 
+     * <table class="lwjgl">
+     * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Compute</td><td></td></tr></tbody>
+     * </table>
+     *
+     * @param commandBuffer the command buffer into which the command will be recorded.
+     * @param baseGroupX    the start value for the X component of {@code WorkgroupId}.
+     * @param baseGroupY    the start value for the Y component of {@code WorkgroupId}.
+     * @param baseGroupZ    the start value for the Z component of {@code WorkgroupId}.
+     * @param groupCountX   the number of local workgroups to dispatch in the X dimension.
+     * @param groupCountY   the number of local workgroups to dispatch in the Y dimension.
+     * @param groupCountZ   the number of local workgroups to dispatch in the Z dimension.
+     */
+    public static void vkCmdDispatchBaseKHX(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int baseGroupX, @NativeType("uint32_t") int baseGroupY, @NativeType("uint32_t") int baseGroupZ, @NativeType("uint32_t") int groupCountX, @NativeType("uint32_t") int groupCountY, @NativeType("uint32_t") int groupCountZ) {
+        long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatchBaseKHX;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        callPV(__functionAddress, commandBuffer.address(), baseGroupX, baseGroupY, baseGroupZ, groupCountX, groupCountY, groupCountZ);
     }
 
     // --- [ vkGetDeviceGroupPresentCapabilitiesKHX ] ---
@@ -581,153 +543,6 @@ public class KHXDeviceGroup {
         return nvkGetDeviceGroupSurfacePresentModesKHX(device, surface, memAddress(pModes));
     }
 
-    // --- [ vkAcquireNextImage2KHX ] ---
-
-    /** Unsafe version of: {@link #vkAcquireNextImage2KHX AcquireNextImage2KHX} */
-    public static int nvkAcquireNextImage2KHX(VkDevice device, long pAcquireInfo, long pImageIndex) {
-        long __functionAddress = device.getCapabilities().vkAcquireNextImage2KHX;
-        if (CHECKS) {
-            check(__functionAddress);
-        }
-        return callPPPI(__functionAddress, device.address(), pAcquireInfo, pImageIndex);
-    }
-
-    /**
-     * Retrieve the index of the next available presentable image.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To acquire an available presentable image to use, and retrieve the index of that image, call:</p>
-     * 
-     * <code><pre>
-     * VkResult vkAcquireNextImage2KHX(
-     *     VkDevice                                    device,
-     *     const VkAcquireNextImageInfoKHX*            pAcquireInfo,
-     *     uint32_t*                                   pImageIndex);</pre></code>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pAcquireInfo} <b>must</b> be a pointer to a valid {@link VkAcquireNextImageInfoKHX} structure</li>
-     * <li>{@code pImageIndex} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * </ul>
-     * 
-     * <h5>Return Codes</h5>
-     * 
-     * <dl>
-     * <dt>On success, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-     * <li>{@link VK10#VK_TIMEOUT TIMEOUT}</li>
-     * <li>{@link VK10#VK_NOT_READY NOT_READY}</li>
-     * <li>{@link KHRSwapchain#VK_SUBOPTIMAL_KHR SUBOPTIMAL_KHR}</li>
-     * </ul></dd>
-     * <dt>On failure, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
-     * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}</li>
-     * <li>{@link KHRSurface#VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR}</li>
-     * </ul></dd>
-     * </dl>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkAcquireNextImageInfoKHX}</p>
-     *
-     * @param device       the device associated with {@code swapchain}.
-     * @param pAcquireInfo a pointer to a structure of type {@link VkAcquireNextImageInfoKHX} containing parameters of the acquire.
-     * @param pImageIndex  a pointer to a {@code uint32_t} that is set to the index of the next image to use.
-     */
-    @NativeType("VkResult")
-    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") IntBuffer pImageIndex) {
-        if (CHECKS) {
-            check(pImageIndex, 1);
-        }
-        return nvkAcquireNextImage2KHX(device, pAcquireInfo.address(), memAddress(pImageIndex));
-    }
-
-    // --- [ vkCmdDispatchBaseKHX ] ---
-
-    /**
-     * Dispatch compute work items.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To record a dispatch using non-zero base values for the components of {@code WorkgroupId}, call:</p>
-     * 
-     * <code><pre>
-     * void vkCmdDispatchBaseKHX(
-     *     VkCommandBuffer                             commandBuffer,
-     *     uint32_t                                    baseGroupX,
-     *     uint32_t                                    baseGroupY,
-     *     uint32_t                                    baseGroupZ,
-     *     uint32_t                                    groupCountX,
-     *     uint32_t                                    groupCountY,
-     *     uint32_t                                    groupCountZ);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>When the command is executed, a global workgroup consisting of</p><code>groupCountX {times} groupCountY {times} groupCountZ</code>
-     * 
-     * <p>local workgroups is assembled, with {@code WorkgroupId} values ranging from</p><code>[baseGroup, baseGroup {plus} groupCount)</code>
-     * 
-     * <p>in each component. {@link VK10#vkCmdDispatch CmdDispatch} is equivalent to vkCmdDispatchBaseKHX(0,0,0,groupCountX,groupCountY,groupCountZ).</p>
-     * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>All valid usage rules from {@link VK10#vkCmdDispatch CmdDispatch} apply</li>
-     * <li>{@code baseGroupX} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[0]</li>
-     * <li>{@code baseGroupX} <b>must</b> be less than {@code VkPhysicaYDeviceLimits}{@code ::maxComputeWorkGroupCount}[1]</li>
-     * <li>{@code baseGroupZ} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[2]</li>
-     * <li>{@code groupCountX} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[0] minus {@code baseGroupX}</li>
-     * <li>{@code groupCountY} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[1] minus {@code baseGroupY}</li>
-     * <li>{@code groupCountZ} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxComputeWorkGroupCount}[2] minus {@code baseGroupZ}</li>
-     * <li>If any of {@code baseGroupX}, {@code baseGroupY}, or {@code baseGroupZ} are not zero, then the currently bound compute pipeline <b>must</b> have been created with the {@link #VK_PIPELINE_CREATE_DISPATCH_BASE_KHX PIPELINE_CREATE_DISPATCH_BASE_KHX} flag.</li>
-     * </ul>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
-     * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support compute operations</li>
-     * <li>This command <b>must</b> only be called outside of a render pass instance</li>
-     * </ul>
-     * 
-     * <h5>Host Synchronization</h5>
-     * 
-     * <ul>
-     * <li>Host access to {@code commandBuffer} <b>must</b> be externally synchronized</li>
-     * <li>Host access to the {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> be externally synchronized</li>
-     * </ul>
-     * 
-     * <h5>Command Properties</h5>
-     * 
-     * <table class="lwjgl">
-     * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Compute</td><td></td></tr></tbody>
-     * </table>
-     *
-     * @param commandBuffer the command buffer into which the command will be recorded.
-     * @param baseGroupX    the start value for the X component of {@code WorkgroupId}.
-     * @param baseGroupY    the start value for the Y component of {@code WorkgroupId}.
-     * @param baseGroupZ    the start value for the Z component of {@code WorkgroupId}.
-     * @param groupCountX   the number of local workgroups to dispatch in the X dimension.
-     * @param groupCountY   the number of local workgroups to dispatch in the Y dimension.
-     * @param groupCountZ   the number of local workgroups to dispatch in the Z dimension.
-     */
-    public static void vkCmdDispatchBaseKHX(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int baseGroupX, @NativeType("uint32_t") int baseGroupY, @NativeType("uint32_t") int baseGroupZ, @NativeType("uint32_t") int groupCountX, @NativeType("uint32_t") int groupCountY, @NativeType("uint32_t") int groupCountZ) {
-        long __functionAddress = commandBuffer.getCapabilities().vkCmdDispatchBaseKHX;
-        if (CHECKS) {
-            check(__functionAddress);
-        }
-        callPV(__functionAddress, commandBuffer.address(), baseGroupX, baseGroupY, baseGroupZ, groupCountX, groupCountY, groupCountZ);
-    }
-
     // --- [ vkGetPhysicalDevicePresentRectanglesKHX ] ---
 
     /**
@@ -816,6 +631,74 @@ public class KHXDeviceGroup {
         return nvkGetPhysicalDevicePresentRectanglesKHX(physicalDevice, surface, memAddress(pRectCount), memAddressSafe(pRects));
     }
 
+    // --- [ vkAcquireNextImage2KHX ] ---
+
+    /** Unsafe version of: {@link #vkAcquireNextImage2KHX AcquireNextImage2KHX} */
+    public static int nvkAcquireNextImage2KHX(VkDevice device, long pAcquireInfo, long pImageIndex) {
+        long __functionAddress = device.getCapabilities().vkAcquireNextImage2KHX;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPPI(__functionAddress, device.address(), pAcquireInfo, pImageIndex);
+    }
+
+    /**
+     * Retrieve the index of the next available presentable image.
+     * 
+     * <h5>C Specification</h5>
+     * 
+     * <p>To acquire an available presentable image to use, and retrieve the index of that image, call:</p>
+     * 
+     * <code><pre>
+     * VkResult vkAcquireNextImage2KHX(
+     *     VkDevice                                    device,
+     *     const VkAcquireNextImageInfoKHX*            pAcquireInfo,
+     *     uint32_t*                                   pImageIndex);</pre></code>
+     * 
+     * <h5>Valid Usage (Implicit)</h5>
+     * 
+     * <ul>
+     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
+     * <li>{@code pAcquireInfo} <b>must</b> be a pointer to a valid {@link VkAcquireNextImageInfoKHX} structure</li>
+     * <li>{@code pImageIndex} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+     * </ul>
+     * 
+     * <h5>Return Codes</h5>
+     * 
+     * <dl>
+     * <dt>On success, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+     * <li>{@link VK10#VK_TIMEOUT TIMEOUT}</li>
+     * <li>{@link VK10#VK_NOT_READY NOT_READY}</li>
+     * <li>{@link KHRSwapchain#VK_SUBOPTIMAL_KHR SUBOPTIMAL_KHR}</li>
+     * </ul></dd>
+     * <dt>On failure, this command returns</dt>
+     * <dd><ul>
+     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
+     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
+     * <li>{@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
+     * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}</li>
+     * <li>{@link KHRSurface#VK_ERROR_SURFACE_LOST_KHR ERROR_SURFACE_LOST_KHR}</li>
+     * </ul></dd>
+     * </dl>
+     * 
+     * <h5>See Also</h5>
+     * 
+     * <p>{@link VkAcquireNextImageInfoKHX}</p>
+     *
+     * @param device       the device associated with {@code swapchain}.
+     * @param pAcquireInfo a pointer to a structure of type {@link VkAcquireNextImageInfoKHX} containing parameters of the acquire.
+     * @param pImageIndex  a pointer to a {@code uint32_t} that is set to the index of the next image to use.
+     */
+    @NativeType("VkResult")
+    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") IntBuffer pImageIndex) {
+        if (CHECKS) {
+            check(pImageIndex, 1);
+        }
+        return nvkAcquireNextImage2KHX(device, pAcquireInfo.address(), memAddress(pImageIndex));
+    }
+
     /** Array version of: {@link #vkGetDeviceGroupPeerMemoryFeaturesKHX GetDeviceGroupPeerMemoryFeaturesKHX} */
     public static void vkGetDeviceGroupPeerMemoryFeaturesKHX(VkDevice device, @NativeType("uint32_t") int heapIndex, @NativeType("uint32_t") int localDeviceIndex, @NativeType("uint32_t") int remoteDeviceIndex, @NativeType("VkPeerMemoryFeatureFlagsKHX *") int[] pPeerMemoryFeatures) {
         long __functionAddress = device.getCapabilities().vkGetDeviceGroupPeerMemoryFeaturesKHX;
@@ -837,17 +720,6 @@ public class KHXDeviceGroup {
         return callPJPI(__functionAddress, device.address(), surface, pModes);
     }
 
-    /** Array version of: {@link #vkAcquireNextImage2KHX AcquireNextImage2KHX} */
-    @NativeType("VkResult")
-    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") int[] pImageIndex) {
-        long __functionAddress = device.getCapabilities().vkAcquireNextImage2KHX;
-        if (CHECKS) {
-            check(__functionAddress);
-            check(pImageIndex, 1);
-        }
-        return callPPPI(__functionAddress, device.address(), pAcquireInfo.address(), pImageIndex);
-    }
-
     /** Array version of: {@link #vkGetPhysicalDevicePresentRectanglesKHX GetPhysicalDevicePresentRectanglesKHX} */
     @NativeType("VkResult")
     public static int vkGetPhysicalDevicePresentRectanglesKHX(VkPhysicalDevice physicalDevice, @NativeType("VkSurfaceKHR") long surface, @NativeType("uint32_t *") int[] pRectCount, @NativeType("VkRect2D *") VkRect2D.Buffer pRects) {
@@ -858,6 +730,17 @@ public class KHXDeviceGroup {
             checkSafe(pRects, pRectCount[0]);
         }
         return callPJPPI(__functionAddress, physicalDevice.address(), surface, pRectCount, memAddressSafe(pRects));
+    }
+
+    /** Array version of: {@link #vkAcquireNextImage2KHX AcquireNextImage2KHX} */
+    @NativeType("VkResult")
+    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") int[] pImageIndex) {
+        long __functionAddress = device.getCapabilities().vkAcquireNextImage2KHX;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(pImageIndex, 1);
+        }
+        return callPPPI(__functionAddress, device.address(), pAcquireInfo.address(), pImageIndex);
     }
 
 }

@@ -130,7 +130,7 @@ public class VK10 {
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@link VkAcquireNextImageInfoKHX}, {@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindBufferMemoryInfoKHX}, {@link VkBindImageMemoryInfoKHX}, {@link VkBindImageMemorySwapchainInfoKHX}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferMemoryRequirementsInfo2KHR}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkD3D12FenceSubmitInfoKHR}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDescriptorUpdateTemplateCreateInfoKHR}, {@link VkDeviceCreateInfo}, {@link VkDeviceEventInfoEXT}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceGroupBindSparseInfoKHX}, {@link VkDeviceGroupCommandBufferBeginInfoKHX}, {@link VkDeviceGroupDeviceCreateInfoKHX}, {@link VkDeviceGroupPresentCapabilitiesKHX}, {@link VkDeviceGroupPresentInfoKHX}, {@link VkDeviceGroupRenderPassBeginInfoKHX}, {@link VkDeviceGroupSubmitInfoKHX}, {@link VkDeviceGroupSwapchainCreateInfoKHX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayEventInfoEXT}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPowerInfoEXT}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportFenceCreateInfoKHR}, {@link VkExportFenceWin32HandleInfoKHR}, {@link VkExportMemoryAllocateInfoKHR}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoKHR}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExportSemaphoreCreateInfoKHR}, {@link VkExportSemaphoreWin32HandleInfoKHR}, {@link VkExternalBufferPropertiesKHR}, {@link VkExternalFencePropertiesKHR}, {@link VkExternalImageFormatPropertiesKHR}, {@link VkExternalMemoryBufferCreateInfoKHR}, {@link VkExternalMemoryImageCreateInfoKHR}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkExternalSemaphorePropertiesKHR}, {@link VkFenceCreateInfo}, {@link VkFenceGetFdInfoKHR}, {@link VkFenceGetWin32HandleInfoKHR}, {@link VkFormatProperties2KHR}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkHdrMetadataEXT}, {@link VkIOSSurfaceCreateInfoMVK}, {@link VkImageCreateInfo}, {@link VkImageFormatProperties2KHR}, {@link VkImageMemoryBarrier}, {@link VkImageMemoryRequirementsInfo2KHR}, {@link VkImageSparseMemoryRequirementsInfo2KHR}, {@link VkImageSwapchainCreateInfoKHX}, {@link VkImageViewCreateInfo}, {@link VkImportFenceFdInfoKHR}, {@link VkImportFenceWin32HandleInfoKHR}, {@link VkImportMemoryFdInfoKHR}, {@link VkImportMemoryWin32HandleInfoKHR}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkImportSemaphoreFdInfoKHR}, {@link VkImportSemaphoreWin32HandleInfoKHR}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMacOSSurfaceCreateInfoMVK}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateFlagsInfoKHX}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMemoryDedicatedAllocateInfoKHR}, {@link VkMemoryDedicatedRequirementsKHR}, {@link VkMemoryFdPropertiesKHR}, {@link VkMemoryGetFdInfoKHR}, {@link VkMemoryGetWin32HandleInfoKHR}, {@link VkMemoryRequirements2KHR}, {@link VkMemoryWin32HandlePropertiesKHR}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkObjectTableCreateInfoNVX}, {@link VkPhysicalDevice16BitStorageFeaturesKHR}, {@link VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT}, {@link VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT}, {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}, {@link VkPhysicalDeviceExternalBufferInfoKHR}, {@link VkPhysicalDeviceExternalFenceInfoKHR}, {@link VkPhysicalDeviceExternalImageFormatInfoKHR}, {@link VkPhysicalDeviceExternalSemaphoreInfoKHR}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VkPhysicalDeviceGroupPropertiesKHX}, {@link VkPhysicalDeviceIDPropertiesKHR}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VkPhysicalDeviceMultiviewFeaturesKHX}, {@link VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX}, {@link VkPhysicalDeviceMultiviewPropertiesKHX}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDevicePushDescriptorPropertiesKHR}, {@link VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPhysicalDeviceSurfaceInfo2KHR}, {@link VkPhysicalDeviceVariablePointerFeaturesKHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineCoverageModulationStateCreateInfoNV}, {@link VkPipelineCoverageToColorStateCreateInfoNV}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDiscardRectangleStateCreateInfoEXT}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPipelineViewportSwizzleStateCreateInfoNV}, {@link VkPipelineViewportWScalingStateCreateInfoNV}, {@link VkPresentInfoKHR}, {@link VkPresentRegionsKHR}, {@link VkPresentTimesInfoGOOGLE}, {@link VkQueryPoolCreateInfo}, {@link VkQueueFamilyProperties2KHR}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkRenderPassMultiviewCreateInfoKHX}, {@link VkSamplerCreateInfo}, {@link VkSamplerReductionModeCreateInfoEXT}, {@link VkSemaphoreCreateInfo}, {@link VkSemaphoreGetFdInfoKHR}, {@link VkSemaphoreGetWin32HandleInfoKHR}, {@link VkShaderModuleCreateInfo}, {@link VkSharedPresentSurfaceCapabilitiesKHR}, {@link VkSparseImageFormatProperties2KHR}, {@link VkSparseImageMemoryRequirements2KHR}, {@link VkSubmitInfo}, {@link VkSurfaceCapabilities2EXT}, {@link VkSurfaceCapabilities2KHR}, {@link VkSurfaceFormat2KHR}, {@link VkSwapchainCounterCreateInfoEXT}, {@link VkSwapchainCreateInfoKHR}, {@link VkTextureLODGatherFormatPropertiesAMD}, {@link VkValidationFlagsEXT}, {@link VkViSurfaceCreateInfoNN}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
+     * <p>{@link VkAcquireNextImageInfoKHX}, {@link VkAndroidSurfaceCreateInfoKHR}, {@link VkApplicationInfo}, {@link VkBindBufferMemoryDeviceGroupInfoKHX}, {@link VkBindBufferMemoryInfoKHR}, {@link VkBindImageMemoryDeviceGroupInfoKHX}, {@link VkBindImageMemoryInfoKHR}, {@link VkBindImageMemorySwapchainInfoKHX}, {@link VkBindImagePlaneMemoryInfoKHR}, {@link VkBindSparseInfo}, {@link VkBufferCreateInfo}, {@link VkBufferMemoryBarrier}, {@link VkBufferMemoryRequirementsInfo2KHR}, {@link VkBufferViewCreateInfo}, {@link VkCmdProcessCommandsInfoNVX}, {@link VkCmdReserveSpaceForCommandsInfoNVX}, {@link VkCommandBufferAllocateInfo}, {@link VkCommandBufferBeginInfo}, {@link VkCommandBufferInheritanceInfo}, {@link VkCommandPoolCreateInfo}, {@link VkComputePipelineCreateInfo}, {@link VkCopyDescriptorSet}, {@link VkD3D12FenceSubmitInfoKHR}, {@link VkDebugMarkerMarkerInfoEXT}, {@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link VkDebugReportCallbackCreateInfoEXT}, {@link VkDedicatedAllocationBufferCreateInfoNV}, {@link VkDedicatedAllocationImageCreateInfoNV}, {@link VkDedicatedAllocationMemoryAllocateInfoNV}, {@link VkDescriptorPoolCreateInfo}, {@link VkDescriptorSetAllocateInfo}, {@link VkDescriptorSetLayoutCreateInfo}, {@link VkDescriptorUpdateTemplateCreateInfoKHR}, {@link VkDeviceCreateInfo}, {@link VkDeviceEventInfoEXT}, {@link VkDeviceGeneratedCommandsFeaturesNVX}, {@link VkDeviceGeneratedCommandsLimitsNVX}, {@link VkDeviceGroupBindSparseInfoKHX}, {@link VkDeviceGroupCommandBufferBeginInfoKHX}, {@link VkDeviceGroupDeviceCreateInfoKHX}, {@link VkDeviceGroupPresentCapabilitiesKHX}, {@link VkDeviceGroupPresentInfoKHX}, {@link VkDeviceGroupRenderPassBeginInfoKHX}, {@link VkDeviceGroupSubmitInfoKHX}, {@link VkDeviceGroupSwapchainCreateInfoKHX}, {@link VkDeviceQueueCreateInfo}, {@link VkDisplayEventInfoEXT}, {@link VkDisplayModeCreateInfoKHR}, {@link VkDisplayPowerInfoEXT}, {@link VkDisplayPresentInfoKHR}, {@link VkDisplaySurfaceCreateInfoKHR}, {@link VkEventCreateInfo}, {@link VkExportFenceCreateInfoKHR}, {@link VkExportFenceWin32HandleInfoKHR}, {@link VkExportMemoryAllocateInfoKHR}, {@link VkExportMemoryAllocateInfoNV}, {@link VkExportMemoryWin32HandleInfoKHR}, {@link VkExportMemoryWin32HandleInfoNV}, {@link VkExportSemaphoreCreateInfoKHR}, {@link VkExportSemaphoreWin32HandleInfoKHR}, {@link VkExternalBufferPropertiesKHR}, {@link VkExternalFencePropertiesKHR}, {@link VkExternalImageFormatPropertiesKHR}, {@link VkExternalMemoryBufferCreateInfoKHR}, {@link VkExternalMemoryImageCreateInfoKHR}, {@link VkExternalMemoryImageCreateInfoNV}, {@link VkExternalSemaphorePropertiesKHR}, {@link VkFenceCreateInfo}, {@link VkFenceGetFdInfoKHR}, {@link VkFenceGetWin32HandleInfoKHR}, {@link VkFormatProperties2KHR}, {@link VkFramebufferCreateInfo}, {@link VkGraphicsPipelineCreateInfo}, {@link VkHdrMetadataEXT}, {@link VkIOSSurfaceCreateInfoMVK}, {@link VkImageCreateInfo}, {@link VkImageFormatListCreateInfoKHR}, {@link VkImageFormatProperties2KHR}, {@link VkImageMemoryBarrier}, {@link VkImageMemoryRequirementsInfo2KHR}, {@link VkImagePlaneMemoryRequirementsInfoKHR}, {@link VkImageSparseMemoryRequirementsInfo2KHR}, {@link VkImageSwapchainCreateInfoKHX}, {@link VkImageViewCreateInfo}, {@link VkImageViewUsageCreateInfoKHR}, {@link VkImportFenceFdInfoKHR}, {@link VkImportFenceWin32HandleInfoKHR}, {@link VkImportMemoryFdInfoKHR}, {@link VkImportMemoryWin32HandleInfoKHR}, {@link VkImportMemoryWin32HandleInfoNV}, {@link VkImportSemaphoreFdInfoKHR}, {@link VkImportSemaphoreWin32HandleInfoKHR}, {@link VkIndirectCommandsLayoutCreateInfoNVX}, {@link VkInstanceCreateInfo}, {@link VkMacOSSurfaceCreateInfoMVK}, {@link VkMappedMemoryRange}, {@link VkMemoryAllocateFlagsInfoKHX}, {@link VkMemoryAllocateInfo}, {@link VkMemoryBarrier}, {@link VkMemoryDedicatedAllocateInfoKHR}, {@link VkMemoryDedicatedRequirementsKHR}, {@link VkMemoryFdPropertiesKHR}, {@link VkMemoryGetFdInfoKHR}, {@link VkMemoryGetWin32HandleInfoKHR}, {@link VkMemoryRequirements2KHR}, {@link VkMemoryWin32HandlePropertiesKHR}, {@link VkMirSurfaceCreateInfoKHR}, {@link VkMultisamplePropertiesEXT}, {@link VkObjectTableCreateInfoNVX}, {@link VkPhysicalDevice16BitStorageFeaturesKHR}, {@link VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT}, {@link VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT}, {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}, {@link VkPhysicalDeviceExternalBufferInfoKHR}, {@link VkPhysicalDeviceExternalFenceInfoKHR}, {@link VkPhysicalDeviceExternalImageFormatInfoKHR}, {@link VkPhysicalDeviceExternalSemaphoreInfoKHR}, {@link VkPhysicalDeviceFeatures2KHR}, {@link VkPhysicalDeviceGroupPropertiesKHX}, {@link VkPhysicalDeviceIDPropertiesKHR}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceMemoryProperties2KHR}, {@link VkPhysicalDeviceMultiviewFeaturesKHX}, {@link VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX}, {@link VkPhysicalDeviceMultiviewPropertiesKHX}, {@link VkPhysicalDevicePointClippingPropertiesKHR}, {@link VkPhysicalDeviceProperties2KHR}, {@link VkPhysicalDevicePushDescriptorPropertiesKHR}, {@link VkPhysicalDeviceSampleLocationsPropertiesEXT}, {@link VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT}, {@link VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPhysicalDeviceSurfaceInfo2KHR}, {@link VkPhysicalDeviceVariablePointerFeaturesKHR}, {@link VkPipelineCacheCreateInfo}, {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}, {@link VkPipelineColorBlendStateCreateInfo}, {@link VkPipelineCoverageModulationStateCreateInfoNV}, {@link VkPipelineCoverageToColorStateCreateInfoNV}, {@link VkPipelineDepthStencilStateCreateInfo}, {@link VkPipelineDiscardRectangleStateCreateInfoEXT}, {@link VkPipelineDynamicStateCreateInfo}, {@link VkPipelineInputAssemblyStateCreateInfo}, {@link VkPipelineLayoutCreateInfo}, {@link VkPipelineMultisampleStateCreateInfo}, {@link VkPipelineRasterizationStateCreateInfo}, {@link VkPipelineRasterizationStateRasterizationOrderAMD}, {@link VkPipelineSampleLocationsStateCreateInfoEXT}, {@link VkPipelineShaderStageCreateInfo}, {@link VkPipelineTessellationDomainOriginStateCreateInfoKHR}, {@link VkPipelineTessellationStateCreateInfo}, {@link VkPipelineVertexInputStateCreateInfo}, {@link VkPipelineViewportStateCreateInfo}, {@link VkPipelineViewportSwizzleStateCreateInfoNV}, {@link VkPipelineViewportWScalingStateCreateInfoNV}, {@link VkPresentInfoKHR}, {@link VkPresentRegionsKHR}, {@link VkPresentTimesInfoGOOGLE}, {@link VkQueryPoolCreateInfo}, {@link VkQueueFamilyProperties2KHR}, {@link VkRenderPassBeginInfo}, {@link VkRenderPassCreateInfo}, {@link VkRenderPassInputAttachmentAspectCreateInfoKHR}, {@link VkRenderPassMultiviewCreateInfoKHX}, {@link VkRenderPassSampleLocationsBeginInfoEXT}, {@link VkSampleLocationsInfoEXT}, {@link VkSamplerCreateInfo}, {@link VkSamplerReductionModeCreateInfoEXT}, {@link VkSamplerYcbcrConversionCreateInfoKHR}, {@link VkSamplerYcbcrConversionImageFormatPropertiesKHR}, {@link VkSamplerYcbcrConversionInfoKHR}, {@link VkSemaphoreCreateInfo}, {@link VkSemaphoreGetFdInfoKHR}, {@link VkSemaphoreGetWin32HandleInfoKHR}, {@link VkShaderModuleCreateInfo}, {@link VkShaderModuleValidationCacheCreateInfoEXT}, {@link VkSharedPresentSurfaceCapabilitiesKHR}, {@link VkSparseImageFormatProperties2KHR}, {@link VkSparseImageMemoryRequirements2KHR}, {@link VkSubmitInfo}, {@link VkSurfaceCapabilities2EXT}, {@link VkSurfaceCapabilities2KHR}, {@link VkSurfaceFormat2KHR}, {@link VkSwapchainCounterCreateInfoEXT}, {@link VkSwapchainCreateInfoKHR}, {@link VkTextureLODGatherFormatPropertiesAMD}, {@link VkValidationCacheCreateInfoEXT}, {@link VkValidationFlagsEXT}, {@link VkViSurfaceCreateInfoNN}, {@link VkWaylandSurfaceCreateInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoKHR}, {@link VkWin32KeyedMutexAcquireReleaseInfoNV}, {@link VkWin32SurfaceCreateInfoKHR}, {@link VkWriteDescriptorSet}, {@link VkXcbSurfaceCreateInfoKHR}, {@link VkXlibSurfaceCreateInfoKHR}</p>
      * 
      * <h5>Enum values:</h5>
      * 
@@ -245,7 +245,7 @@ public class VK10 {
      * <ul>
      * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_COMMAND SYSTEM_ALLOCATION_SCOPE_COMMAND} specifies that the allocation is scoped to the duration of the Vulkan command.</li>
      * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_OBJECT SYSTEM_ALLOCATION_SCOPE_OBJECT} specifies that the allocation is scoped to the lifetime of the Vulkan object that is being created or used.</li>
-     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_CACHE SYSTEM_ALLOCATION_SCOPE_CACHE} specifies that the allocation is scoped to the lifetime of a {@code VkPipelineCache} object.</li>
+     * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_CACHE SYSTEM_ALLOCATION_SCOPE_CACHE} specifies that the allocation is scoped to the lifetime of a {@code VkPipelineCache} or {@code VkValidationCacheEXT} object.</li>
      * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_DEVICE SYSTEM_ALLOCATION_SCOPE_DEVICE} specifies that the allocation is scoped to the lifetime of the Vulkan device.</li>
      * <li>{@link #VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE SYSTEM_ALLOCATION_SCOPE_INSTANCE} specifies that the allocation is scoped to the lifetime of the Vulkan instance.</li>
      * </ul>
@@ -256,7 +256,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>If an allocation is scoped to the duration of a command, the allocator will use the {@link #VK_SYSTEM_ALLOCATION_SCOPE_COMMAND SYSTEM_ALLOCATION_SCOPE_COMMAND} allocation scope. The most specific allocator available is used: if the object being created or manipulated has an allocator, that object&#8217;s allocator will be used, else if the parent {@code VkDevice} has an allocator it will be used, else if the parent {@code VkInstance} has an allocator it will be used. Else,</li>
-     * <li>If an allocation is associated with an object of type {@code VkPipelineCache}, the allocator will use the {@link #VK_SYSTEM_ALLOCATION_SCOPE_CACHE SYSTEM_ALLOCATION_SCOPE_CACHE} allocation scope. The most specific allocator available is used (pipeline cache, else device, else instance). Else,</li>
+     * <li>If an allocation is associated with an object of type {@code VkValidationCacheEXT} or {@code VkPipelineCache}, the allocator will use the {@link #VK_SYSTEM_ALLOCATION_SCOPE_CACHE SYSTEM_ALLOCATION_SCOPE_CACHE} allocation scope. The most specific allocator available is used (cache, else device, else instance). Else,</li>
      * <li>If an allocation is scoped to the lifetime of an object, that object is being created or manipulated by the command, and that object&#8217;s type is not {@code VkDevice} or {@code VkInstance}, the allocator will use an allocation scope of {@link #VK_SYSTEM_ALLOCATION_SCOPE_OBJECT SYSTEM_ALLOCATION_SCOPE_OBJECT}. The most specific allocator available is used (object, else device, else instance). Else,</li>
      * <li>If an allocation is scoped to the lifetime of a device, the allocator will use an allocation scope of {@link #VK_SYSTEM_ALLOCATION_SCOPE_DEVICE SYSTEM_ALLOCATION_SCOPE_DEVICE}. The most specific allocator available is used (device, else instance). Else,</li>
      * <li>If the allocation is scoped to the lifetime of an instance and the instance has an allocator, its allocator will be used with an allocation scope of {@link #VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE SYSTEM_ALLOCATION_SCOPE_INSTANCE}.</li>
@@ -480,11 +480,45 @@ public class VK10 {
      * <li>{@link #VK_FORMAT_ASTC_12x10_SRGB_BLOCK FORMAT_ASTC_12x10_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12×10 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
      * <li>{@link #VK_FORMAT_ASTC_12x12_UNORM_BLOCK FORMAT_ASTC_12x12_UNORM_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12×12 rectangle of unsigned normalized RGBA texel data.</li>
      * <li>{@link #VK_FORMAT_ASTC_12x12_SRGB_BLOCK FORMAT_ASTC_12x12_SRGB_BLOCK} specifies a four-component, ASTC compressed format where each 128-bit compressed texel block encodes a 12×12 rectangle of unsigned normalized RGBA texel data with sRGB nonlinear encoding applied to the RGB components.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G8B8G8R8_422_UNORM_KHR FORMAT_G8B8G8R8_422_UNORM_KHR} specifies a four-component, 32-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has an 8-bit G component for the even <em>i</em> coordinate in byte 0, an 8-bit B component in byte 1, an 8-bit G component for the odd <em>i</em> coordinate in byte 2, and an 8-bit R component in byte 3. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_B8G8R8G8_422_UNORM_KHR FORMAT_B8G8R8G8_422_UNORM_KHR} specifies a four-component, 32-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has an 8-bit B component in byte 0, an 8-bit G component for the even <em>i</em> coordinate in byte 1, an 8-bit R component in byte 2, and an 8-bit G component for the odd <em>i</em> coordinate in byte 3. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G8_B8_R8_3PLANE_420_UNORM_KHR FORMAT_G8_B8_R8_3PLANE_420_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has an 8-bit G component in plane 0, an 8-bit B component in plane 1, and an 8-bit R component in plane 2. The horizontal and vertical dimensions of the R and B planes are halved relative to the image dimensions, and each R and B component is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G8_B8R8_2PLANE_420_UNORM_KHR FORMAT_G8_B8R8_2PLANE_420_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has an 8-bit G component in plane 0, and a two-component, 16-bit BR plane 1 consisting of an 8-bit B component in byte 0 and an 8-bit R component in byte 1. The horizontal and vertical dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G8_B8_R8_3PLANE_422_UNORM_KHR FORMAT_G8_B8_R8_3PLANE_422_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has an 8-bit G component in plane 0, an 8-bit B component in plane 1, and an 8-bit R component in plane 2. The horizontal dimension of the R and B plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G8_B8R8_2PLANE_422_UNORM_KHR FORMAT_G8_B8R8_2PLANE_422_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has an 8-bit G component in plane 0, and a two-component, 16-bit BR plane 1 consisting of an 8-bit B component in byte 0 and an 8-bit R component in byte 1. The horizontal dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G8_B8_R8_3PLANE_444_UNORM_KHR FORMAT_G8_B8_R8_3PLANE_444_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has an 8-bit G component in plane 0, an 8-bit B component in plane 1, and an 8-bit R component in plane 2. Each plane has the same dimensions and each R, G and B component contributes to a single texel. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_R10X6_UNORM_PACK16_KHR FORMAT_R10X6_UNORM_PACK16_KHR} specifies a one-component, 16-bit unsigned normalized format that has a single 10-bit R component in the top 10 bits of a 16-bit word, with the bottom 6 bits set to 0.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_R10X6G10X6_UNORM_2PACK16_KHR FORMAT_R10X6G10X6_UNORM_2PACK16_KHR} specifies a two-component, 32-bit unsigned normalized format that has a 10-bit R component in the top 10 bits of the word in bytes 0..1, and a 10-bit G component in the top 10 bits of the word in bytes 2..3, with the bottom 6 bits of each word set to 0.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_R10X6G10X6B10X6A10X6_UNORM_4PACK16_KHR FORMAT_R10X6G10X6B10X6A10X6_UNORM_4PACK16_KHR} specifies a four-component, 64-bit unsigned normalized format that has a 10-bit R component in the top 10 bits of the word in bytes 0..1, a 10-bit G component in the top 10 bits of the word in bytes 2..3, a 10-bit B component in the top 10 bits of the word in bytes 4..5, and a 10-bit A component in the top 10 bits of the word in bytes 6..7, with the bottom 6 bits of each word set to 0.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G10X6B10X6G10X6R10X6_422_UNORM_4PACK16_KHR FORMAT_G10X6B10X6G10X6R10X6_422_UNORM_4PACK16_KHR} specifies a four-component, 64-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has a 10-bit G component for the even <em>i</em> coordinate in the top 10 bits of the word in bytes 0..1, a 10-bit B component in the top 10 bits of the word in bytes 2..3, a 10-bit G component for the odd <em>i</em> coordinate in the top 10 bits of the word in bytes 4..5, and a 10-bit R component in the top 10 bits of the word in bytes 6..7, with the bottom 6 bits of each word set to 0. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_B10X6G10X6R10X6G10X6_422_UNORM_4PACK16_KHR FORMAT_B10X6G10X6R10X6G10X6_422_UNORM_4PACK16_KHR} specifies a four-component, 64-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has a 10-bit B component in the top 10 bits of the word in bytes 0..1, a 10-bit G component for the even <em>i</em> coordinate in the top 10 bits of the word in bytes 2..3, a 10-bit R component in the top 10 bits of the word in bytes 4..5, and a 10-bit G component for the odd <em>i</em> coordinate in the top 10 bits of the word in bytes 6..7, with the bottom 6 bits of each word set to 0. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR FORMAT_G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 10-bit G component in the top 10 bits of each 16-bit word of plane 0, a 10-bit B component in the top 10 bits of each 16-bit word of plane 1, and a 10-bit R component in the top 10 bits of each 16-bit word of plane 2, with the bottom 6 bits of each word set to 0. The horizontal and vertical dimensions of the R and B planes are halved relative to the image dimensions, and each R and B component is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16_KHR FORMAT_G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 10-bit G component in the top 10 bits of each 16-bit word of plane 0, and a two-component, 32-bit BR plane 1 consisting of a 10-bit B component in the top 10 bits of the word in bytes 0..1, and a 10-bit R component in the top 10 bits of the word in bytes 2..3, the bottom 6 bits of each word set to 0. The horizontal and vertical dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16_KHR FORMAT_G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 10-bit G component in the top 10 bits of each 16-bit word of plane 0, a 10-bit B component in the top 10 bits of each 16-bit word of plane 1, and a 10-bit R component in the top 10 bits of each 16-bit word of plane 2, with the bottom 6 bits of each word set to 0. The horizontal dimension of the R and B plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16_KHR FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 10-bit G component in the top 10 bits of each 16-bit word of plane 0, and a two-component, 32-bit BR plane 1 consisting of a 10-bit B component in the top 10 bits of the word in bytes 0..1, and a 10-bit R component in the top 10 bits of the word in bytes 2..3, the bottom 6 bits of each word set to 0. The horizontal dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16_KHR FORMAT_G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 10-bit G component in the top 10 bits of each 16-bit word of plane 0, a 10-bit B component in the top 10 bits of each 16-bit word of plane 1, and a 10-bit R component in the top 10 bits of each 16-bit word of plane 2, with the bottom 6 bits of each word set to 0. Each plane has the same dimensions and each R, G and B component contributes to a single texel. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_R12X4_UNORM_PACK16_KHR FORMAT_R12X4_UNORM_PACK16_KHR} specifies a one-component, 16-bit unsigned normalized format that has a single 12-bit R component in the top 12 bits of a 16-bit word, with the bottom 4 bits set to 0.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_R12X4G12X4_UNORM_2PACK16_KHR FORMAT_R12X4G12X4_UNORM_2PACK16_KHR} specifies a two-component, 32-bit unsigned normalized format that has a 12-bit R component in the top 12 bits of the word in bytes 0..1, and a 12-bit G component in the top 12 bits of the word in bytes 2..3, with the bottom 4 bits of each word set to 0.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_R12X4G12X4B12X4A12X4_UNORM_4PACK16_KHR FORMAT_R12X4G12X4B12X4A12X4_UNORM_4PACK16_KHR} specifies a four-component, 64-bit unsigned normalized format that has a 12-bit R component in the top 12 bits of the word in bytes 0..1, a 12-bit G component in the top 12 bits of the word in bytes 2..3, a 12-bit B component in the top 12 bits of the word in bytes 4..5, and a 12-bit A component in the top 12 bits of the word in bytes 6..7, with the bottom 4 bits of each word set to 0.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G12X4B12X4G12X4R12X4_422_UNORM_4PACK16_KHR FORMAT_G12X4B12X4G12X4R12X4_422_UNORM_4PACK16_KHR} specifies a four-component, 64-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has a 12-bit G component for the even <em>i</em> coordinate in the top 12 bits of the word in bytes 0..1, a 12-bit B component in the top 12 bits of the word in bytes 2..3, a 12-bit G component for the odd <em>i</em> coordinate in the top 12 bits of the word in bytes 4..5, and a 12-bit R component in the top 12 bits of the word in bytes 6..7, with the bottom 4 bits of each word set to 0. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_B12X4G12X4R12X4G12X4_422_UNORM_4PACK16_KHR FORMAT_B12X4G12X4R12X4G12X4_422_UNORM_4PACK16_KHR} specifies a four-component, 64-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has a 12-bit B component in the top 12 bits of the word in bytes 0..1, a 12-bit G component for the even <em>i</em> coordinate in the top 12 bits of the word in bytes 2..3, a 12-bit R component in the top 12 bits of the word in bytes 4..5, and a 12-bit G component for the odd <em>i</em> coordinate in the top 12 bits of the word in bytes 6..7, with the bottom 4 bits of each word set to 0. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16_KHR FORMAT_G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 12-bit G component in the top 12 bits of each 16-bit word of plane 0, a 12-bit B component in the top 12 bits of each 16-bit word of plane 1, and a 12-bit R component in the top 12 bits of each 16-bit word of plane 2, with the bottom 4 bits of each word set to 0. The horizontal and vertical dimensions of the R and B planes are halved relative to the image dimensions, and each R and B component is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16_KHR FORMAT_G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 12-bit G component in the top 12 bits of each 16-bit word of plane 0, and a two-component, 32-bit BR plane 1 consisting of a 12-bit B component in the top 12 bits of the word in bytes 0..1, and a 12-bit R component in the top 12 bits of the word in bytes 2..3, the bottom 4 bits of each word set to 0. The horizontal and vertical dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16_KHR FORMAT_G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 12-bit G component in the top 12 bits of each 16-bit word of plane 0, a 12-bit B component in the top 12 bits of each 16-bit word of plane 1, and a 12-bit R component in the top 12 bits of each 16-bit word of plane 2, with the bottom 4 bits of each word set to 0. The horizontal dimension of the R and B plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16_KHR FORMAT_G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 12-bit G component in the top 12 bits of each 16-bit word of plane 0, and a two-component, 32-bit BR plane 1 consisting of a 12-bit B component in the top 12 bits of the word in bytes 0..1, and a 12-bit R component in the top 12 bits of the word in bytes 2..3, the bottom 4 bits of each word set to 0. The horizontal dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16_KHR FORMAT_G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 12-bit G component in the top 12 bits of each 16-bit word of plane 0, a 12-bit B component in the top 12 bits of each 16-bit word of plane 1, and a 12-bit R component in the top 12 bits of each 16-bit word of plane 2, with the bottom 4 bits of each word set to 0. Each plane has the same dimensions and each R, G and B component contributes to a single texel. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G16B16G16R16_422_UNORM_KHR FORMAT_G16B16G16R16_422_UNORM_KHR} specifies a four-component, 64-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has a 16-bit G component for the even <em>i</em> coordinate in the word in bytes 0..1, a 16-bit B component in the word in bytes 2..3, a 16-bit G component for the odd <em>i</em> coordinate in the word in bytes 4..5, and a 16-bit R component in the word in bytes 6..7. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_B16G16R16G16_422_UNORM_KHR FORMAT_B16G16R16G16_422_UNORM_KHR} specifies a four-component, 64-bit format containing a pair of G components, an R component, and a B component, collectively encoding a 2×1 rectangle of unsigned normalized RGB texel data. One G value is present at each <em>i</em> coordinate, with the B and R values shared across both G values and thus recorded at half the horizontal resolution of the image. This format has a 16-bit B component in the word in bytes 0..1, a 16-bit G component for the even <em>i</em> coordinate in the word in bytes 2..3, a 16-bit R component in the word in bytes 4..5, and a 16-bit G component for the odd <em>i</em> coordinate in the word in bytes 6..7. Images in this format <b>must</b> be defined with a width that is a multiple of two. For the purposes of the constraints on copy extents, this format is treated as a compressed format with a 2×1 compressed texel block.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G16_B16_R16_3PLANE_420_UNORM_KHR FORMAT_G16_B16_R16_3PLANE_420_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 16-bit G component in each 16-bit word of plane 0, a 16-bit B component in each 16-bit word of plane 1, and a 16-bit R component in each 16-bit word of plane 2. The horizontal and vertical dimensions of the R and B planes are halved relative to the image dimensions, and each R and B component is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G16_B16R16_2PLANE_420_UNORM_KHR FORMAT_G16_B16R16_2PLANE_420_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 16-bit G component in each 16-bit word of plane 0, and a two-component, 32-bit BR plane 1 consisting of a 16-bit B component in the word in bytes 0..1, and a 16-bit R component in the word in bytes 2..3. The horizontal and vertical dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code> and <code>floor(j<sub>G</sub> &times; 0.5) = j<sub>B</sub> = j<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width and height that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G16_B16_R16_3PLANE_422_UNORM_KHR FORMAT_G16_B16_R16_3PLANE_422_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 16-bit G component in each 16-bit word of plane 0, a 16-bit B component in each 16-bit word of plane 1, and a 16-bit R component in each 16-bit word of plane 2. The horizontal dimension of the R and B plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G16_B16R16_2PLANE_422_UNORM_KHR FORMAT_G16_B16R16_2PLANE_422_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 16-bit G component in each 16-bit word of plane 0, and a two-component, 32-bit BR plane 1 consisting of a 16-bit B component in the word in bytes 0..1, and a 16-bit R component in the word in bytes 2..3. The horizontal dimensions of the BR plane is halved relative to the image dimensions, and each R and B value is shared with the G components for which <code>floor(i<sub>G</sub> &times; 0.5) = i<sub>B</sub> = i<sub>R</sub></code>. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the BR plane. Images in this format <b>must</b> be defined with a width that is a multiple of two.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_G16_B16_R16_3PLANE_444_UNORM_KHR FORMAT_G16_B16_R16_3PLANE_444_UNORM_KHR} specifies a unsigned normalized <em>multi-planar format</em> that has a 16-bit G component in each 16-bit word of plane 0, a 16-bit B component in each 16-bit word of plane 1, and a 16-bit R component in each 16-bit word of plane 2. Each plane has the same dimensions and each R, G and B component contributes to a single texel. The location of each plane when this image is in linear layout can be determined via vkGetImageSubresourceLayout, using {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} for the G plane, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} for the B plane, and {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} for the R plane.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageViewCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+     * <p>{@link VkAttachmentDescription}, {@link VkBufferViewCreateInfo}, {@link VkImageCreateInfo}, {@link VkImageFormatListCreateInfoKHR}, {@link VkImageViewCreateInfo}, {@link VkPhysicalDeviceImageFormatInfo2KHR}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkSamplerYcbcrConversionCreateInfoKHR}, {@link VkSurfaceFormatKHR}, {@link VkSwapchainCreateInfoKHR}, {@link VkVertexInputAttributeDescription}, {@link NVExternalMemoryCapabilities#vkGetPhysicalDeviceExternalImageFormatPropertiesNV GetPhysicalDeviceExternalImageFormatPropertiesNV}, {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR}, {@link #vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
      */
     public static final int
         VK_FORMAT_UNDEFINED                  = 0,
@@ -690,9 +724,7 @@ public class VK10 {
      * <li>{@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT} specifies that an image <b>can</b> be used as {@code srcImage} for the {@link #vkCmdBlitImage CmdBlitImage} command.</li>
      * <li>{@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT} specifies that an image <b>can</b> be used as {@code dstImage} for the {@link #vkCmdBlitImage CmdBlitImage} command.</li>
      * <li>{@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} specifies that if {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT} is also set, an image view <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link #VK_FILTER_LINEAR FILTER_LINEAR}, or {@code mipmapMode} set to {@link #VK_SAMPLER_MIPMAP_MODE_LINEAR SAMPLER_MIPMAP_MODE_LINEAR}. If {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT} is also set, an image can be used as the {@code srcImage} to {@link #vkCmdBlitImage CmdBlitImage} with a {@code filter} of {@link #VK_FILTER_LINEAR FILTER_LINEAR}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT} or {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}.
-     * If the format being queried is a depth/stencil format, this bit only indicates that the depth aspect (not the stencil aspect) of an image of this format supports linear filtering, and that linear filtering of the depth aspect is supported whether depth compare is enabled in the sampler or not. If this bit is not present, linear filtering with depth compare disabled is unsupported and linear filtering with depth compare enabled is supported, but <b>may</b> compute the filtered value in an implementation-dependent manner which differs from the normal rules of linear filtering. The resulting value <b>must</b> be in the range<code>[0,1]</code>
-     * 
-     * <p>and <b>should</b> be proportional to, or a weighted average of, the number of comparison passes or failures.</p>
+     * If the format being queried is a depth/stencil format, this bit only indicates that the depth aspect (not the stencil aspect) of an image of this format supports linear filtering, and that linear filtering of the depth aspect is supported whether depth compare is enabled in the sampler or not. If this bit is not present, linear filtering with depth compare disabled is unsupported and linear filtering with depth compare enabled is supported, but <b>may</b> compute the filtered value in an implementation-dependent manner which differs from the normal rules of linear filtering. The resulting value <b>must</b> be in the range <code>[0,1]</code> and <b>should</b> be proportional to, or a weighted average of, the number of comparison passes or failures.
      * </li>
      * <li>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR} specifies that an image <b>can</b> be used as a source image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a>.</li>
      * <li>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR} specifies that an image <b>can</b> be used as a destination image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">copy commands</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">clear commands</a>.</li>
@@ -703,6 +735,13 @@ public class VK10 {
      * <dd>{@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, or be the source image for a blit with {@code filter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}. If the format being queried is a depth/stencil format, this only indicates that the depth aspect is cubic filterable.</dd>
      * </dl>
      * </li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR} specifies that an application <b>can</b> define a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#samplers-YCbCr-conversion">sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion</a> using this format as a source, and that an image of this format <b>can</b> be used with a {@link VkSamplerYcbcrConversionCreateInfoKHR} {@code xChromaOffset} and/or {@code yChromaOffset} of {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_MIDPOINT_KHR CHROMA_LOCATION_MIDPOINT_KHR}. Otherwise both {@code xChromaOffset} and {@code yChromaOffset} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_COSITED_EVEN_KHR CHROMA_LOCATION_COSITED_EVEN_KHR}. If a format does not incorporate chroma downsampling (it is not a {@code 422'' or }420'' format) but the implementation supports sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion for this format, the implementation <b>must</b> set {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR}.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR} specifies that an application <b>can</b> define a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#samplers-YCbCr-conversion">sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion</a> using this format as a source, and that an image of this format <b>can</b> be used with a {@link VkSamplerYcbcrConversionCreateInfoKHR} {@code xChromaOffset} and/or {@code yChromaOffset} of {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_COSITED_EVEN_KHR CHROMA_LOCATION_COSITED_EVEN_KHR}. Otherwise both {@code xChromaOffset} and {@code yChromaOffset} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_MIDPOINT_KHR CHROMA_LOCATION_MIDPOINT_KHR}. If neither {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR} nor {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR} is set, the application <b>must</b> not define a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#samplers-YCbCr-conversion">sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion</a> using this format as a source.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER_BIT_KHR FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER_BIT_KHR} specifies that the format can do linear sampler filtering (min/magFilter) whilst sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion is enabled.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER_BIT_KHR FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER_BIT_KHR} specifies that the format can have different chroma, min, and mag filters.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_BIT_KHR FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_BIT_KHR} specifies that reconstruction is explicit, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#textures-chroma-reconstruction">Chroma Reconstruction</a>. If this bit is not present, reconstruction is implicit by default.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE_BIT_KHR FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE_BIT_KHR} specifies that reconstruction <b>can</b> be forcibly made explicit by setting {@link VkSamplerYcbcrConversionCreateInfoKHR}{@code ::forceExplicitReconstruction} to {@link #VK_TRUE TRUE}.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_DISJOINT_BIT_KHR FORMAT_FEATURE_DISJOINT_BIT_KHR} specifies that a multi-planar image <b>can</b> have the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} set during image creation. An implementation <b>must</b> not set {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_DISJOINT_BIT_KHR FORMAT_FEATURE_DISJOINT_BIT_KHR} for <em>single-plane formats</em>.</li>
      * </ul>
      * 
      * <p>The following bits <b>may</b> be set in {@code bufferFeatures}, specifying that the features are supported by <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkBuffer">buffers</a> or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VkBufferView">buffer views</a> created with the queried {@link #vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}{@code ::format}:</p>
@@ -810,10 +849,15 @@ public class VK10 {
      * <li>{@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} specifies that the image will be backed using sparse memory binding.</li>
      * <li>{@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT} specifies that the image <b>can</b> be partially backed using sparse memory binding. Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag.</li>
      * <li>{@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} specifies that the image will be backed using sparse memory binding with memory ranges that might also simultaneously be backing another image (or another portion of the same image). Images created with this flag <b>must</b> also be created with the {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT} flag</li>
-     * <li>{@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} with a different format from the image.</li>
+     * <li>{@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} with a different format from the image. For <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar</a> formats, {@link #VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT} indicates that a {@code VkImageView} can be created of a <em>plane</em> of the image.</li>
      * <li>{@link #VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT IMAGE_CREATE_CUBE_COMPATIBLE_BIT} specifies that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}.</li>
      * <li>{@link KHRMaintenance1#VK_IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR IMAGE_CREATE_2D_ARRAY_COMPATIBLE_BIT_KHR} specifies that the image <b>can</b> be used to create a {@code VkImageView} of type {@link #VK_IMAGE_VIEW_TYPE_2D IMAGE_VIEW_TYPE_2D} or {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY}.</li>
-     * <li>{@link KHXDeviceGroup#VK_IMAGE_CREATE_BIND_SFR_BIT_KHX IMAGE_CREATE_BIND_SFR_BIT_KHX} specifies that the image <b>can</b> be used with a non-zero value of the {@code SFRRectCount} member of the {@link VkBindImageMemoryInfoKHX} structure passed into {@link KHXDeviceGroup#vkBindImageMemory2KHX BindImageMemory2KHX}. This flag also has the effect of making the image use the standard sparse image block dimensions.</li>
+     * <li>{@link KHXDeviceGroup#VK_IMAGE_CREATE_BIND_SFR_BIT_KHX IMAGE_CREATE_BIND_SFR_BIT_KHX} specifies that the image <b>can</b> be used with a non-zero value of the {@code SFRRectCount} member of a {@link VkBindImageMemoryDeviceGroupInfoKHX} structure passed into {@link KHRBindMemory2#vkBindImageMemory2KHR BindImageMemory2KHR}. This flag also has the effect of making the image use the standard sparse image block dimensions.</li>
+     * <li>{@link KHRMaintenance2#VK_IMAGE_CREATE_BLOCK_TEXEL_VIEW_COMPATIBLE_BIT_KHR IMAGE_CREATE_BLOCK_TEXEL_VIEW_COMPATIBLE_BIT_KHR} indicates that the image having a compressed format <b>can</b> be used to create a {@code VkImageView} with an uncompressed format where each texel in the image view corresponds to a compressed texel block of the image.</li>
+     * <li>{@link KHRMaintenance2#VK_IMAGE_CREATE_EXTENDED_USAGE_BIT_KHR IMAGE_CREATE_EXTENDED_USAGE_BIT_KHR} indicates that the image <b>can</b> be created with usage flags that are not supported for the format the image is created with but are supported for at least one format a {@code VkImageView} created from the image <b>can</b> have.</li>
+     * <li>{@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} indicates that an image with a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a> <b>must</b> have each plane separately bound to memory, rather than having a single memory binding for the whole image; the presence of this bit distinguishes a <em>disjoint image</em> from an image without this bit set.</li>
+     * <li>{@link KHRBindMemory2#VK_IMAGE_CREATE_ALIAS_BIT_KHR IMAGE_CREATE_ALIAS_BIT_KHR} indicates that two images created with the same creation parameters and aliased to the same memory <b>can</b> interpret the contents of the memory consistently with each other, subject to the rules described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-memory-aliasing">Memory Aliasing</a> section. This flag further indicates that each plane of a <em>disjoint</em> image <b>can</b> share an in-memory non-linear representation with single-plane images, and that a single-plane image <b>can</b> share an in-memory non-linear representation with a plane of a multi-planar disjoint image, according to the rules in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-compatible-planes">the “Compatible formats of planes of multi-planar formats” section</a>. If the {@code pNext} chain includes a {@link VkExternalMemoryImageCreateInfoKHR} or {@link VkExternalMemoryImageCreateInfoNV} structure whose {@code handleTypes} member is not 0, it is as if {@link KHRBindMemory2#VK_IMAGE_CREATE_ALIAS_BIT_KHR IMAGE_CREATE_ALIAS_BIT_KHR} is set.</li>
+     * <li>{@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} specifies that an image with a depth or depth/stencil format <b>can</b> be used with custom sample locations when used as a depth/stencil attachment.</li>
      * </ul>
      * 
      * <p>If any of the bits {@link #VK_IMAGE_CREATE_SPARSE_BINDING_BIT IMAGE_CREATE_SPARSE_BINDING_BIT}, {@link #VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT IMAGE_CREATE_SPARSE_RESIDENCY_BIT}, or {@link #VK_IMAGE_CREATE_SPARSE_ALIASED_BIT IMAGE_CREATE_SPARSE_ALIASED_BIT} are set, {@link #VK_IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT IMAGE_USAGE_TRANSIENT_ATTACHMENT_BIT} <b>must</b> not also be set.</p>
@@ -848,7 +892,7 @@ public class VK10 {
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@link VkAttachmentDescription}, {@link VkImageCreateInfo}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineMultisampleStateCreateInfo}, {@code VkSampleCountFlags}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
+     * <p>{@link VkAttachmentDescription}, {@link VkImageCreateInfo}, {@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkPipelineMultisampleStateCreateInfo}, {@code VkSampleCountFlags}, {@link VkSampleLocationsInfoEXT}, {@link EXTSampleLocations#vkGetPhysicalDeviceMultisamplePropertiesEXT GetPhysicalDeviceMultisamplePropertiesEXT}, {@link #vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}</p>
      */
     public static final int
         VK_SAMPLE_COUNT_1_BIT  = 0x1,
@@ -1044,7 +1088,7 @@ public class VK10 {
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@code VkImageAspectFlags}</p>
+     * <p>{@link VkBindImagePlaneMemoryInfoKHR}, {@code VkImageAspectFlags}, {@link VkImagePlaneMemoryRequirementsInfoKHR}</p>
      */
     public static final int
         VK_IMAGE_ASPECT_COLOR_BIT    = 0x1,
@@ -1301,6 +1345,8 @@ public class VK10 {
      * <li>{@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL} <b>must</b> only be used as a color or resolve attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} usage bit enabled.</li>
      * <li>{@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL} <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled.</li>
      * <li>{@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL} <b>must</b> only be used as a read-only depth/stencil attachment in a {@code VkFramebuffer} and/or as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled. Only image subresources of images created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} <b>can</b> be used as a sampled image or combined image/sampler in a shader. Similarly, only image subresources of images created with {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>can</b> be used as input attachments.</li>
+     * <li>{@link KHRMaintenance2#VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL_KHR IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL_KHR}: <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}, where the depth aspect is read-only, and/or as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment) where only the depth aspect is accessed. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled. Only image subresources of images created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} <b>can</b> be used as a sampled image or combined image/sampler in a shader. Similarly, only image subresources of images created with {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>can</b> be used as input attachments.</li>
+     * <li>{@link KHRMaintenance2#VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL_KHR IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL_KHR}: <b>must</b> only be used as a depth/stencil attachment in a {@code VkFramebuffer}, where the stencil aspect is read-only, and/or as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment) where only the stencil aspect is accessed. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} usage bit enabled. Only image subresources of images created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} <b>can</b> be used as a sampled image or combined image/sampler in a shader. Similarly, only image subresources of images created with {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} <b>can</b> be used as input attachments.</li>
      * <li>{@link #VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL} <b>must</b> only be used as a read-only image in a shader (which <b>can</b> be read as a sampled image, combined image/sampler and/or input attachment). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} usage bit enabled.</li>
      * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} <b>must</b> only be used as a source image of a transfer command (see the definition of <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-pipeline-stages-transfer">{@link #VK_PIPELINE_STAGE_TRANSFER_BIT PIPELINE_STAGE_TRANSFER_BIT}</a>). This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage bit enabled.</li>
      * <li>{@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} <b>must</b> only be used as a destination image of a transfer command. This layout is valid only for image subresources of images created with the {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage bit enabled.</li>
@@ -1311,6 +1357,12 @@ public class VK10 {
      * <p>For each mechanism of accessing an image in the API, there is a parameter or structure member that controls the image layout used to access the image. For transfer commands, this is a parameter to the command (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears">the “Clear Commands” section</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies">the “Copy Commands” section</a>). For use as a framebuffer attachment, this is a member in the substructures of the {@link VkRenderPassCreateInfo} (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#renderpass">Render Pass</a>). For use in a descriptor set, this is a member in the {@link VkDescriptorImageInfo} structure (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#descriptorsets-updates">the “Descriptor Set Updates” section</a>). At the time that any command buffer command accessing an image executes on any queue, the layouts of the image subresources that are accessed <b>must</b> all match the layout specified via the API controlling those accesses.</p>
      * 
      * <p>The image layout of each image subresource <b>must</b> be well-defined at each point in the image subresource's lifetime. This means that when performing a layout transition on the image subresource, the old layout value <b>must</b> either equal the current layout of the image subresource (at the time the transition executes), or else be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} (implying that the contents of the image subresource need not be preserved). The new layout used in a transition <b>must</b> not be {@link #VK_IMAGE_LAYOUT_UNDEFINED IMAGE_LAYOUT_UNDEFINED} or {@link #VK_IMAGE_LAYOUT_PREINITIALIZED IMAGE_LAYOUT_PREINITIALIZED}.</p>
+     * 
+     * <p>The image layout of each image subresource of a depth/stencil image created with {@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} is dependent on the last sample locations used to render to the image subresource as a depth/stencil attachment, thus applications <b>must</b> provide the same sample locations that were last used to render to the given image subresource whenever a layout transition of the image subresource happens, otherwise the contents of the depth aspect of the image subresource become undefined.</p>
+     * 
+     * <p>In addition, depth reads from a depth/stencil attachment referring to an image subresource range of a depth/stencil image created with {@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} using different sample locations than what have been last used to perform depth writes to the image subresources of the same image subresource range produce undefined results.</p>
+     * 
+     * <p>Similarly, depth writes to a depth/stencil attachment referring to an image subresource range of a depth/stencil image created with {@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} using different sample locations than what have been last used to perform depth writes to the image subresources of the same image subresource range make the contents of the depth aspect of those image subresources undefined.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -1518,10 +1570,8 @@ public class VK10 {
      * <li>{@link #VK_POLYGON_MODE_POINT POLYGON_MODE_POINT} specifies that polygon vertices are drawn as points.</li>
      * <li>{@link #VK_POLYGON_MODE_LINE POLYGON_MODE_LINE} specifies that polygon edges are drawn as line segments.</li>
      * <li>{@link #VK_POLYGON_MODE_FILL POLYGON_MODE_FILL} specifies that polygons are rendered using the polygon rasterization rules in this section.</li>
-     * <li>{@link NVFillRectangle#VK_POLYGON_MODE_FILL_RECTANGLE_NV POLYGON_MODE_FILL_RECTANGLE_NV} specifies that polygons are rendered using polygon rasterization rules, modified to consider a sample within the primitive if the sample location is inside the axis-aligned bounding box of the triangle after projection. Note that the barycentric weights used in attribute interpolation <b>can</b> extend outside the range<code>[0,1]</code>
-     * 
-     * <p>when these primitives are shaded. Special treatment is given to a sample position on the boundary edge of the bounding box. In such a case, if two rectangles lie on either side of a common edge (with identical endpoints) on which a sample position lies, then exactly one of the triangles <b>must</b> produce a fragment that covers that sample during rasterization.
-     * Polygons rendered in {@link NVFillRectangle#VK_POLYGON_MODE_FILL_RECTANGLE_NV POLYGON_MODE_FILL_RECTANGLE_NV} mode <b>may</b> be     clipped by the frustum or by user clip planes.     If clipping is applied, the triangle is culled rather than clipped.</p>
+     * <li>{@link NVFillRectangle#VK_POLYGON_MODE_FILL_RECTANGLE_NV POLYGON_MODE_FILL_RECTANGLE_NV} specifies that polygons are rendered using polygon rasterization rules, modified to consider a sample within the primitive if the sample location is inside the axis-aligned bounding box of the triangle after projection. Note that the barycentric weights used in attribute interpolation <b>can</b> extend outside the range <code>[0,1]</code> when these primitives are shaded. Special treatment is given to a sample position on the boundary edge of the bounding box. In such a case, if two rectangles lie on either side of a common edge (with identical endpoints) on which a sample position lies, then exactly one of the triangles <b>must</b> produce a fragment that covers that sample during rasterization.
+     * Polygons rendered in {@link NVFillRectangle#VK_POLYGON_MODE_FILL_RECTANGLE_NV POLYGON_MODE_FILL_RECTANGLE_NV} mode <b>may</b> be     clipped by the frustum or by user clip planes.     If clipping is applied, the triangle is culled rather than clipped.
      * 
      * <p>Area calculation and facingness are determined for     {@link NVFillRectangle#VK_POLYGON_MODE_FILL_RECTANGLE_NV POLYGON_MODE_FILL_RECTANGLE_NV} mode using the triangle's     vertices.</p>
      * </li>
@@ -1589,24 +1639,12 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@link #VK_COMPARE_OP_NEVER COMPARE_OP_NEVER} specifies that the test never passes.</li>
-     * <li>{@link #VK_COMPARE_OP_LESS COMPARE_OP_LESS} specifies that the test passes when<code>R &lt; S</code>
-     * 
-     * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL} specifies that the test passes when<code>R = S</code>
-     * 
-     * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL} specifies that the test passes when<code>R ≤ S</code>
-     * 
-     * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_GREATER COMPARE_OP_GREATER} specifies that the test passes when<code>R &gt; S</code>
-     * 
-     * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL} specifies that the test passes when<code>R ≠ S</code>
-     * 
-     * <p>.</p></li>
-     * <li>{@link #VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL} specifies that the test passes when<code>R ≥ S</code>
-     * 
-     * <p>.</p></li>
+     * <li>{@link #VK_COMPARE_OP_LESS COMPARE_OP_LESS} specifies that the test passes when <code>R &lt; S</code>.</li>
+     * <li>{@link #VK_COMPARE_OP_EQUAL COMPARE_OP_EQUAL} specifies that the test passes when <code>R = S</code>.</li>
+     * <li>{@link #VK_COMPARE_OP_LESS_OR_EQUAL COMPARE_OP_LESS_OR_EQUAL} specifies that the test passes when <code>R ≤ S</code>.</li>
+     * <li>{@link #VK_COMPARE_OP_GREATER COMPARE_OP_GREATER} specifies that the test passes when <code>R &gt; S</code>.</li>
+     * <li>{@link #VK_COMPARE_OP_NOT_EQUAL COMPARE_OP_NOT_EQUAL} specifies that the test passes when <code>R ≠ S</code>.</li>
+     * <li>{@link #VK_COMPARE_OP_GREATER_OR_EQUAL COMPARE_OP_GREATER_OR_EQUAL} specifies that the test passes when <code>R ≥ S</code>.</li>
      * <li>{@link #VK_COMPARE_OP_ALWAYS COMPARE_OP_ALWAYS} specifies that the test always passes.</li>
      * </ul>
      * 
@@ -1646,15 +1684,7 @@ public class VK10 {
      * 
      * <p>If the stencil test passes, the {@code writeMask} member of the {@link VkStencilOpState} structures controls how the updated stencil value is written to the stencil framebuffer attachment.</p>
      * 
-     * <p>The least significant</p><code>s</code>
-     * 
-     * <p>bits of {@code writeMask}, where</p><code>s</code>
-     * 
-     * <p>is the number of bits in the stencil framebuffer attachment, specify an integer mask. Where a</p><code>1</code>
-     * 
-     * <p>appears in this mask, the corresponding bit in the stencil value in the depth/stencil attachment is written; where a</p><code>0</code>
-     * 
-     * <p>appears, the bit is not written. The {@code writeMask} value uses either the front-facing or back-facing state based on the facingness of the fragment. Fragments generated by front-facing primitives use the front mask and fragments generated by back-facing primitives use the back mask.</p>
+     * <p>The least significant <code>s</code> bits of {@code writeMask}, where <code>s</code> is the number of bits in the stencil framebuffer attachment, specify an integer mask. Where a <code>1</code> appears in this mask, the corresponding bit in the stencil value in the depth/stencil attachment is written; where a <code>0</code> appears, the bit is not written. The {@code writeMask} value uses either the front-facing or back-facing state based on the facingness of the fragment. Fragments generated by front-facing primitives use the front mask and fragments generated by back-facing primitives use the back mask.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -1678,32 +1708,12 @@ public class VK10 {
      * <p>The logical operations supported by Vulkan are summarized in the following table in which</p>
      * 
      * <ul>
-     * <li><code>¬</code>
-     * 
-     * <p>is bitwise invert,</p></li>
-     * <li><code>∧</code>
-     * 
-     * <p>is bitwise and,</p></li>
-     * <li><code>∨</code>
-     * 
-     * <p>is bitwise or,</p></li>
-     * <li><code>⊕</code>
-     * 
-     * <p>is bitwise exclusive or,</p></li>
-     * <li><code>s</code>
-     * 
-     * <p>is the fragment&#8217;s</p><code>R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub></code>
-     * 
-     * <p>or</p><code>A<sub>s0</sub></code>
-     * 
-     * <p>component value for the fragment output corresponding to the color attachment being updated, and</p></li>
-     * <li><code>d</code>
-     * 
-     * <p>is the color attachment&#8217;s</p><code>R, G, B</code>
-     * 
-     * <p>or</p><code>A</code>
-     * 
-     * <p>component value:</p></li>
+     * <li><code>¬</code> is bitwise invert,</li>
+     * <li><code>∧</code> is bitwise and,</li>
+     * <li><code>∨</code> is bitwise or,</li>
+     * <li><code>⊕</code> is bitwise exclusive or,</li>
+     * <li><code>s</code> is the fragment&#8217;s <code>R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub></code> or <code>A<sub>s0</sub></code> component value for the fragment output corresponding to the color attachment being updated, and</li>
+     * <li><code>d</code> is the color attachment&#8217;s <code>R, G, B</code> or <code>A</code> component value:</li>
      * </ul>
      * 
      * <h6>Logical Operations</h6>
@@ -1764,15 +1774,7 @@ public class VK10 {
      * <h6>Blend Factors</h6>
      * 
      * <table class="lwjgl">
-     * <thead><tr><th>VkBlendFactor</th><th>RGB Blend Factors<code>(S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>)</code>
-     * 
-     * <p>or</p><code>(D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub>)</code>
-     * 
-     * <p></th><th>Alpha Blend Factor (</p><code>S<sub>a</sub></code>
-     * 
-     * <p>or</p><code>D<sub>a</sub></code>
-     * 
-     * <p>)</th></p></tr></thead>
+     * <thead><tr><th>VkBlendFactor</th><th>RGB Blend Factors <code>(S<sub>r</sub>,S<sub>g</sub>,S<sub>b</sub>)</code> or <code>(D<sub>r</sub>,D<sub>g</sub>,D<sub>b</sub>)</code></th><th>Alpha Blend Factor (<code>S<sub>a</sub></code> or <code>D<sub>a</sub></code>)</th></tr></thead>
      * <tbody>
      * <tr><td>{@link #VK_BLEND_FACTOR_ZERO BLEND_FACTOR_ZERO}</td><td><code>(0,0,0)</code></td><td><code>0</code></td></tr>
      * <tr><td>{@link #VK_BLEND_FACTOR_ONE BLEND_FACTOR_ONE}</td><td><code>(1,1,1)</code></td><td><code>1</code></td></tr>
@@ -1788,9 +1790,7 @@ public class VK10 {
      * <tr><td>{@link #VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR}</td><td><code>(1-R<sub>c</sub>,1-G<sub>c</sub>,1-B<sub>c</sub>)</code></td><td><code>1-A<sub>c</sub></code></td></tr>
      * <tr><td>{@link #VK_BLEND_FACTOR_CONSTANT_ALPHA BLEND_FACTOR_CONSTANT_ALPHA}</td><td><code>(A<sub>c</sub>,A<sub>c</sub>,A<sub>c</sub>)</code></td><td><code>A<sub>c</sub></code></td></tr>
      * <tr><td>{@link #VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA BLEND_FACTOR_ONE_MINUS_CONSTANT_ALPHA}</td><td><code>(1-A<sub>c</sub>,1-A<sub>c</sub>,1-A<sub>c</sub>)</code></td><td><code>1-A<sub>c</sub></code></td></tr>
-     * <tr><td>{@link #VK_BLEND_FACTOR_SRC_ALPHA_SATURATE BLEND_FACTOR_SRC_ALPHA_SATURATE}</td><td><code>(f,f,f)</code>
-     * 
-     * <p>;</p><code>f = min(A<sub>s0</sub>,1-A<sub>d</sub>)</code></td><td><code>1</code></td></tr>
+     * <tr><td>{@link #VK_BLEND_FACTOR_SRC_ALPHA_SATURATE BLEND_FACTOR_SRC_ALPHA_SATURATE}</td><td><code>(f,f,f)</code>; <code>f = min(A<sub>s0</sub>,1-A<sub>d</sub>)</code></td><td><code>1</code></td></tr>
      * <tr><td>{@link #VK_BLEND_FACTOR_SRC1_COLOR BLEND_FACTOR_SRC1_COLOR}</td><td><code>(R<sub>s1</sub>,G<sub>s1</sub>,B<sub>s1</sub>)</code></td><td><code>A<sub>s1</sub></code></td></tr>
      * <tr><td>{@link #VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR BLEND_FACTOR_ONE_MINUS_SRC1_COLOR}</td><td><code>(1-R<sub>s1</sub>,1-G<sub>s1</sub>,1-B<sub>s1</sub>)</code></td><td><code>1-A<sub>s1</sub></code></td></tr>
      * <tr><td>{@link #VK_BLEND_FACTOR_SRC1_ALPHA BLEND_FACTOR_SRC1_ALPHA}</td><td><code>(A<sub>s1</sub>,A<sub>s1</sub>,A<sub>s1</sub>)</code></td><td><code>A<sub>s1</sub></code></td></tr>
@@ -1801,26 +1801,10 @@ public class VK10 {
      * <p>In this table, the following conventions are used:</p>
      * 
      * <ul>
-     * <li><code>R<sub>s0</sub>,G<sub>s0</sub>,B<sub>s0</sub></code>
-     * 
-     * <p>and</p><code>A<sub>s0</sub></code>
-     * 
-     * <p>represent the first source color R, G, B, and A components, respectively, for the fragment output location corresponding to the color attachment being blended.</p></li>
-     * <li><code>R<sub>s1</sub>,G<sub>s1</sub>,B<sub>s1</sub></code>
-     * 
-     * <p>and</p><code>A<sub>s1</sub></code>
-     * 
-     * <p>represent the second source color R, G, B, and A components, respectively, used in dual source blending modes, for the fragment output location corresponding to the color attachment being blended.</p></li>
-     * <li><code>R<sub>d</sub>,G<sub>d</sub>,B<sub>d</sub></code>
-     * 
-     * <p>and</p><code>A<sub>d</sub></code>
-     * 
-     * <p>represent the R, G, B, and A components of the destination color. That is, the color currently in the corresponding color attachment for this fragment/sample.</p></li>
-     * <li><code>R<sub>c</sub>,G<sub>c</sub>,B<sub>c</sub></code>
-     * 
-     * <p>and</p><code>A<sub>c</sub></code>
-     * 
-     * <p>represent the blend constant R, G, B, and A components, respectively.</p></li>
+     * <li><code>R<sub>s0</sub>,G<sub>s0</sub>,B<sub>s0</sub></code> and <code>A<sub>s0</sub></code> represent the first source color R, G, B, and A components, respectively, for the fragment output location corresponding to the color attachment being blended.</li>
+     * <li><code>R<sub>s1</sub>,G<sub>s1</sub>,B<sub>s1</sub></code> and <code>A<sub>s1</sub></code> represent the second source color R, G, B, and A components, respectively, used in dual source blending modes, for the fragment output location corresponding to the color attachment being blended.</li>
+     * <li><code>R<sub>d</sub>,G<sub>d</sub>,B<sub>d</sub></code> and <code>A<sub>d</sub></code> represent the R, G, B, and A components of the destination color. That is, the color currently in the corresponding color attachment for this fragment/sample.</li>
+     * <li><code>R<sub>c</sub>,G<sub>c</sub>,B<sub>c</sub></code> and <code>A<sub>c</sub></code> represent the blend constant R, G, B, and A components, respectively.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -1860,58 +1844,26 @@ public class VK10 {
      * <table class="lwjgl">
      * <thead><tr><th>VkBlendOp</th><th>RGB Components</th><th>Alpha Component</th></tr></thead>
      * <tbody>
-     * <tr><td>{@link #VK_BLEND_OP_ADD BLEND_OP_ADD}</td><td><code>R = R<sub>s0</sub> × S<sub>r</sub> + R<sub>d</sub> × D<sub>r</sub></code><code>G = G<sub>s0</sub> × S<sub>g</sub> + G<sub>d</sub> × D<sub>g</sub></code><code>B = B<sub>s0</sub> × S<sub>b</sub> + B<sub>d</sub> × D<sub>b</sub></code></td><td><code>A = A<sub>s0</sub> × S<sub>a</sub> + A<sub>d</sub> × D<sub>a</sub></code></td></tr>
-     * <tr><td>{@link #VK_BLEND_OP_SUBTRACT BLEND_OP_SUBTRACT}</td><td><code>R = R<sub>s0</sub> × S<sub>r</sub> - R<sub>d</sub> × D<sub>r</sub></code><code>G = G<sub>s0</sub> × S<sub>g</sub> - G<sub>d</sub> × D<sub>g</sub></code><code>B = B<sub>s0</sub> × S<sub>b</sub> - B<sub>d</sub> × D<sub>b</sub></code></td><td><code>A = A<sub>s0</sub> × S<sub>a</sub> - A<sub>d</sub> × D<sub>a</sub></code></td></tr>
-     * <tr><td>{@link #VK_BLEND_OP_REVERSE_SUBTRACT BLEND_OP_REVERSE_SUBTRACT}</td><td><code>R = R<sub>d</sub> × D<sub>r</sub> - R<sub>s0</sub> × S<sub>r</sub></code><code>G = G<sub>d</sub> × D<sub>g</sub> - G<sub>s0</sub> × S<sub>g</sub></code><code>B = B<sub>d</sub> × D<sub>b</sub> - B<sub>s0</sub> × S<sub>b</sub></code></td><td><code>A = A<sub>d</sub> × D<sub>a</sub> - A<sub>s0</sub> × S<sub>a</sub></code></td></tr>
-     * <tr><td>{@link #VK_BLEND_OP_MIN BLEND_OP_MIN}</td><td><code>R = min(R<sub>s0</sub>,R<sub>d</sub>)</code><code>G = min(G<sub>s0</sub>,G<sub>d</sub>)</code><code>B = min(B<sub>s0</sub>,B<sub>d</sub>)</code></td><td><code>A = min(A<sub>s0</sub>,A<sub>d</sub>)</code></td></tr>
-     * <tr><td>{@link #VK_BLEND_OP_MAX BLEND_OP_MAX}</td><td><code>R = max(R<sub>s0</sub>,R<sub>d</sub>)</code><code>G = max(G<sub>s0</sub>,G<sub>d</sub>)</code><code>B = max(B<sub>s0</sub>,B<sub>d</sub>)</code></td><td><code>A = max(A<sub>s0</sub>,A<sub>d</sub>)</code></td></tr>
+     * <tr><td>{@link #VK_BLEND_OP_ADD BLEND_OP_ADD}</td><td><code>R = R<sub>s0</sub> × S<sub>r</sub> + R<sub>d</sub> × D<sub>r</sub></code> <code>G = G<sub>s0</sub> × S<sub>g</sub> + G<sub>d</sub> × D<sub>g</sub></code> <code>B = B<sub>s0</sub> × S<sub>b</sub> + B<sub>d</sub> × D<sub>b</sub></code></td><td><code>A = A<sub>s0</sub> × S<sub>a</sub> + A<sub>d</sub> × D<sub>a</sub></code></td></tr>
+     * <tr><td>{@link #VK_BLEND_OP_SUBTRACT BLEND_OP_SUBTRACT}</td><td><code>R = R<sub>s0</sub> × S<sub>r</sub> - R<sub>d</sub> × D<sub>r</sub></code> <code>G = G<sub>s0</sub> × S<sub>g</sub> - G<sub>d</sub> × D<sub>g</sub></code> <code>B = B<sub>s0</sub> × S<sub>b</sub> - B<sub>d</sub> × D<sub>b</sub></code></td><td><code>A = A<sub>s0</sub> × S<sub>a</sub> - A<sub>d</sub> × D<sub>a</sub></code></td></tr>
+     * <tr><td>{@link #VK_BLEND_OP_REVERSE_SUBTRACT BLEND_OP_REVERSE_SUBTRACT}</td><td><code>R = R<sub>d</sub> × D<sub>r</sub> - R<sub>s0</sub> × S<sub>r</sub></code> <code>G = G<sub>d</sub> × D<sub>g</sub> - G<sub>s0</sub> × S<sub>g</sub></code> <code>B = B<sub>d</sub> × D<sub>b</sub> - B<sub>s0</sub> × S<sub>b</sub></code></td><td><code>A = A<sub>d</sub> × D<sub>a</sub> - A<sub>s0</sub> × S<sub>a</sub></code></td></tr>
+     * <tr><td>{@link #VK_BLEND_OP_MIN BLEND_OP_MIN}</td><td><code>R = min(R<sub>s0</sub>,R<sub>d</sub>)</code> <code>G = min(G<sub>s0</sub>,G<sub>d</sub>)</code> <code>B = min(B<sub>s0</sub>,B<sub>d</sub>)</code></td><td><code>A = min(A<sub>s0</sub>,A<sub>d</sub>)</code></td></tr>
+     * <tr><td>{@link #VK_BLEND_OP_MAX BLEND_OP_MAX}</td><td><code>R = max(R<sub>s0</sub>,R<sub>d</sub>)</code> <code>G = max(G<sub>s0</sub>,G<sub>d</sub>)</code> <code>B = max(B<sub>s0</sub>,B<sub>d</sub>)</code></td><td><code>A = max(A<sub>s0</sub>,A<sub>d</sub>)</code></td></tr>
      * </tbody>
      * </table>
      * 
      * <p>In this table, the following conventions are used:</p>
      * 
      * <ul>
-     * <li><code>R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub></code>
-     * 
-     * <p>and</p><code>A<sub>s0</sub></code>
-     * 
-     * <p>represent the first source color R, G, B, and A components, respectively.</p></li>
-     * <li><code>R<sub>d</sub>, G<sub>d</sub>, B<sub>d</sub></code>
-     * 
-     * <p>and</p><code>A<sub>d</sub></code>
-     * 
-     * <p>represent the R, G, B, and A components of the destination color. That is, the color currently in the corresponding color attachment for this fragment/sample.</p></li>
-     * <li><code>S<sub>r</sub>, S<sub>g</sub>, S<sub>b</sub></code>
-     * 
-     * <p>and</p><code>S<sub>a</sub></code>
-     * 
-     * <p>represent the source blend factor R, G, B, and A components, respectively.</p></li>
-     * <li><code>D<sub>r</sub>, D<sub>g</sub>, D<sub>b</sub></code>
-     * 
-     * <p>and</p><code>D<sub>a</sub></code>
-     * 
-     * <p>represent the destination blend factor R, G, B, and A components, respectively.</p></li>
+     * <li><code>R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub></code> and <code>A<sub>s0</sub></code> represent the first source color R, G, B, and A components, respectively.</li>
+     * <li><code>R<sub>d</sub>, G<sub>d</sub>, B<sub>d</sub></code> and <code>A<sub>d</sub></code> represent the R, G, B, and A components of the destination color. That is, the color currently in the corresponding color attachment for this fragment/sample.</li>
+     * <li><code>S<sub>r</sub>, S<sub>g</sub>, S<sub>b</sub></code> and <code>S<sub>a</sub></code> represent the source blend factor R, G, B, and A components, respectively.</li>
+     * <li><code>D<sub>r</sub>, D<sub>g</sub>, D<sub>b</sub></code> and <code>D<sub>a</sub></code> represent the destination blend factor R, G, B, and A components, respectively.</li>
      * </ul>
      * 
-     * <p>The blending operation produces a new set of values</p><code>R, G, B</code>
+     * <p>The blending operation produces a new set of values <code>R, G, B</code> and <code>A</code>, which are written to the framebuffer attachment. If blending is not enabled for this attachment, then <code>R, G, B</code> and <code>A</code> are assigned <code>R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub></code> and <code>A<sub>s0</sub></code>, respectively.</p>
      * 
-     * <p>and</p><code>A</code>
-     * 
-     * <p>, which are written to the framebuffer attachment. If blending is not enabled for this attachment, then</p><code>R, G, B</code>
-     * 
-     * <p>and</p><code>A</code>
-     * 
-     * <p>are assigned</p><code>R<sub>s0</sub>, G<sub>s0</sub>, B<sub>s0</sub></code>
-     * 
-     * <p>and</p><code>A<sub>s0</sub></code>
-     * 
-     * <p>, respectively.</p>
-     * 
-     * <p>If the color attachment is fixed-point, the components of the source and destination values and blend factors are each clamped to</p><code>[0,1]</code>
-     * 
-     * <p>or</p><code>[-1,1]</code>
-     * 
-     * <p>respectively for an unsigned normalized or signed normalized color attachment prior to evaluating the blend operations. If the color attachment is floating-point, no clamping occurs.</p>
+     * <p>If the color attachment is fixed-point, the components of the source and destination values and blend factors are each clamped to <code>[0,1]</code> or <code>[-1,1]</code> respectively for an unsigned normalized or signed normalized color attachment prior to evaluating the blend operations. If the color attachment is floating-point, no clamping occurs.</p>
      * 
      * <h5>See Also</h5>
      * 
@@ -1930,18 +1882,10 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_COLOR_COMPONENT_R_BIT COLOR_COMPONENT_R_BIT} specifies that the<code>R</code>
-     * 
-     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
-     * <li>{@link #VK_COLOR_COMPONENT_G_BIT COLOR_COMPONENT_G_BIT} specifies that the<code>G</code>
-     * 
-     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
-     * <li>{@link #VK_COLOR_COMPONENT_B_BIT COLOR_COMPONENT_B_BIT} specifies that the<code>B</code>
-     * 
-     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
-     * <li>{@link #VK_COLOR_COMPONENT_A_BIT COLOR_COMPONENT_A_BIT} specifies that the<code>A</code>
-     * 
-     * <p>value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</p></li>
+     * <li>{@link #VK_COLOR_COMPONENT_R_BIT COLOR_COMPONENT_R_BIT} specifies that the <code>R</code> value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</li>
+     * <li>{@link #VK_COLOR_COMPONENT_G_BIT COLOR_COMPONENT_G_BIT} specifies that the <code>G</code> value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</li>
+     * <li>{@link #VK_COLOR_COMPONENT_B_BIT COLOR_COMPONENT_B_BIT} specifies that the <code>B</code> value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</li>
+     * <li>{@link #VK_COLOR_COMPONENT_A_BIT COLOR_COMPONENT_A_BIT} specifies that the <code>A</code> value is written to the color attachment for the appropriate sample. Otherwise, the value in memory is unmodified.</li>
      * </ul>
      * 
      * <p>The color write mask operation is applied regardless of whether blending is enabled.</p>
@@ -1973,6 +1917,7 @@ public class VK10 {
      * <li>{@link #VK_DYNAMIC_STATE_STENCIL_REFERENCE DYNAMIC_STATE_STENCIL_REFERENCE} specifies that the {@code reference} state in {@link VkPipelineDepthStencilStateCreateInfo} for both {@code front} and {@code back} will be ignored and <b>must</b> be set dynamically with {@link #vkCmdSetStencilReference CmdSetStencilReference} before any draws are performed with a pipeline state with {@link VkPipelineDepthStencilStateCreateInfo} member {@code stencilTestEnable} set to {@link #VK_TRUE TRUE}</li>
      * <li>{@link NVClipSpaceWScaling#VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} specifies that the {@code pViewportScalings} state in {@link VkPipelineViewportWScalingStateCreateInfoNV} will be ignored and <b>must</b> be set dynamically with {@link NVClipSpaceWScaling#vkCmdSetViewportWScalingNV CmdSetViewportWScalingNV} before any draws are performed with a pipeline state with {@code VkPipelineViewportWScalingStateCreateInfo} member {@code viewportScalingEnable} set to {@link #VK_TRUE TRUE}</li>
      * <li>{@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLES_EXT DYNAMIC_STATE_DISCARD_RECTANGLES_EXT} specifies that the {@code pDiscardRectangles} state in {@link VkPipelineDiscardRectangleStateCreateInfoEXT} will be ignored and <b>must</b> be set dynamically with {@link EXTDiscardRectangles#vkCmdSetDiscardRectangleEXT CmdSetDiscardRectangleEXT} before any draw or clear commands. The {@code VkDiscardRectangleModeEXT} and the number of active discard rectangles is still specified by the {@code discardRectangleMode} and {@code discardRectangleCount} members of {@link VkPipelineDiscardRectangleStateCreateInfoEXT}.</li>
+     * <li>{@link EXTSampleLocations#VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT} specifies that the {@code sampleLocationsInfo} state in {@link VkPipelineSampleLocationsStateCreateInfoEXT} will be ignored and <b>must</b> be set dynamically with {@link EXTSampleLocations#vkCmdSetSampleLocationsEXT CmdSetSampleLocationsEXT} before any draw or clear commands. Enabling custom sample locations is still indicated by the {@code sampleLocationsEnable} member of {@link VkPipelineSampleLocationsStateCreateInfoEXT}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2004,7 +1949,7 @@ public class VK10 {
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@link VkSamplerCreateInfo}, {@link #vkCmdBlitImage CmdBlitImage}</p>
+     * <p>{@link VkSamplerCreateInfo}, {@link VkSamplerYcbcrConversionCreateInfoKHR}, {@link #vkCmdBlitImage CmdBlitImage}</p>
      */
     public static final int
         VK_FILTER_NEAREST = 0,
@@ -2503,6 +2448,7 @@ public class VK10 {
      * <tr><td>{@link KHRDescriptorUpdateTemplate#VK_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR}</td><td>{@code VkDescriptorUpdateTemplateKHR}</td></tr>
      * <tr><td>{@link NVXDeviceGeneratedCommands#VK_OBJECT_TYPE_OBJECT_TABLE_NVX OBJECT_TYPE_OBJECT_TABLE_NVX}</td><td>{@code VkObjectTableNVX}</td></tr>
      * <tr><td>{@link NVXDeviceGeneratedCommands#VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX}</td><td>{@code VkIndirectCommandsLayoutNVX}</td></tr>
+     * <tr><td>{@link EXTValidationCache#VK_OBJECT_TYPE_VALIDATION_CACHE_EXT OBJECT_TYPE_VALIDATION_CACHE_EXT}</td><td>{@code VkValidationCacheEXT}</td></tr>
      * </tbody>
      * </table>
      * 
@@ -4911,7 +4857,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkBindBufferMemory BindBufferMemory} is equivalent to passing the same parameters through {@link VkBindBufferMemoryInfoKHX} to {@link KHXDeviceGroup#vkBindBufferMemory2KHX BindBufferMemory2KHX}, with {@code deviceIndexCount} equal to zero.</p>
+     * <p>{@link #vkBindBufferMemory BindBufferMemory} is equivalent to passing the same parameters through {@link VkBindBufferMemoryInfoKHR} to {@link KHRBindMemory2#vkBindBufferMemory2KHR BindBufferMemory2KHR}.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -4978,7 +4924,7 @@ public class VK10 {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>To attach memory to an image object, call:</p>
+     * <p>To attach memory to a {@code VkImage} object created without the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} set, call:</p>
      * 
      * <code><pre>
      * VkResult vkBindImageMemory(
@@ -4989,11 +4935,12 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkBindImageMemory BindImageMemory} is equivalent to passing the same parameters through {@link VkBindImageMemoryInfoKHX} to {@link KHXDeviceGroup#vkBindImageMemory2KHX BindImageMemory2KHX}, with {@code deviceIndexCount} and {@code SFRRectCount} equal to zero.</p>
+     * <p>{@link #vkBindImageMemory BindImageMemory} is equivalent to passing the same parameters through {@link VkBindImageMemoryInfoKHR} to {@link KHRBindMemory2#vkBindImageMemory2KHR BindImageMemory2KHR}.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
+     * <li>{@code image} <b>must</b> not have been created with the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} set.</li>
      * <li>{@code image} <b>must</b> not already be backed by a memory object</li>
      * <li>{@code image} <b>must</b> not have been created with any sparse memory binding flags</li>
      * <li>{@code memoryOffset} <b>must</b> be less than the size of {@code memory}</li>
@@ -5101,13 +5048,19 @@ public class VK10 {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>To determine the memory requirements for an image resource, call:</p>
+     * <p>To determine the memory requirements for an image resource which is not created with the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} flag set, call:</p>
      * 
      * <code><pre>
      * void vkGetImageMemoryRequirements(
      *     VkDevice                                    device,
      *     VkImage                                     image,
      *     VkMemoryRequirements*                       pMemoryRequirements);</pre></code>
+     * 
+     * <h5>Valid Usage</h5>
+     * 
+     * <ul>
+     * <li>{@code image} <b>must</b> not have been created with the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} flag set</li>
+     * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -7253,6 +7206,8 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
+     * <p>If the {@code VkFormat} of {@code image} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, {@link #vkGetImageSubresourceLayout GetImageSubresourceLayout} describes one plane of the image.</p>
+     * 
      * <p>{@link #vkGetImageSubresourceLayout GetImageSubresourceLayout} is invariant for the lifetime of a single image.</p>
      * 
      * <h5>Valid Usage</h5>
@@ -7260,6 +7215,8 @@ public class VK10 {
      * <ul>
      * <li>{@code image} <b>must</b> have been created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}</li>
      * <li>The {@code aspectMask} member of {@code pSubresource} <b>must</b> only have a single bit set</li>
+     * <li>If the {@code format} of {@code image} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a> with two planes, the {@code aspectMask} member of {@code pSubresource} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR}</li>
+     * <li>If the {@code format} of {@code image} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a> with three planes, the {@code aspectMask} member of {@code pSubresource} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR}, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -7312,7 +7269,9 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>Some of the image creation parameters are inherited by the view. The remaining parameters are contained in the {@code pCreateInfo}.</p>
+     * <p>Some of the image creation parameters are inherited by the view. In particular, image view creation inherits the implicit parameter {@code usage} specifying the allowed usages of the image view that, by default, takes the value of the corresponding {@code usage} parameter specified in {@link VkImageCreateInfo} at image creation time. This implicit parameter <b>can</b> be overriden by chaining a {@link VkImageViewUsageCreateInfoKHR} structure through the {@code pNext} member to {@link VkImageViewCreateInfo} as described later in this section.</p>
+     * 
+     * <p>The remaining parameters are contained in the {@code pCreateInfo}.</p>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -7735,7 +7694,7 @@ public class VK10 {
      * </tbody>
      * </table>
      * 
-     * <p>The first four bytes encode the length of the entire pipeline header, in bytes. This value includes all fields in the header including the pipeline cache version field and the size of the length field.</p>
+     * <p>The first four bytes encode the length of the entire pipeline cache header, in bytes. This value includes all fields in the header including the pipeline cache version field and the size of the length field.</p>
      * 
      * <p>The next four bytes encode the pipeline cache version, as described for {@code VkPipelineCacheHeaderVersion}. A consumer of the pipeline cache <b>should</b> use the cache version to interpret the remainder of the cache header.</p>
      * 
@@ -8693,16 +8652,9 @@ public class VK10 {
      * 
      * <p>When a descriptor set is allocated, the initial state is largely uninitialized and all descriptors are undefined. However, the descriptor set <b>can</b> be bound in a command buffer without causing errors or exceptions. All entries that are statically used by a pipeline in a drawing or dispatching command <b>must</b> have been populated before the descriptor set is bound for use by that command. Entries that are not statically used by a pipeline <b>can</b> have uninitialized descriptors or descriptors of resources that have been destroyed, and executing a draw or dispatch with such a descriptor set bound does not cause undefined behavior. This means applications need not populate unused entries with dummy descriptors.</p>
      * 
-     * <p>If an allocation fails due to fragmentation, an indeterminate error is returned with an unspecified error code. Any returned error other than {@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} or {@link #VK_ERROR_FRAGMENTED_POOL ERROR_FRAGMENTED_POOL} does not imply its usual meaning: applications <b>should</b> assume that the allocation failed due to fragmentation, and create a new descriptor pool.</p>
+     * <p>If the allocation fails due to no more space in the descriptor pool, and not because of system or device memory exhaustion, then {@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} <b>must</b> be returned.</p>
      * 
      * <p>{@link #vkAllocateDescriptorSets AllocateDescriptorSets} <b>can</b> be used to create multiple descriptor sets. If the creation of any of those descriptor sets fails, then the implementation <b>must</b> destroy all successfully created descriptor set objects from this command, set all entries of the {@code pDescriptorSets} array to {@link #VK_NULL_HANDLE NULL_HANDLE} and return the error.</p>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>Applications <b>should</b> check for a negative return value when allocating new descriptor sets, assume that any error other than {@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} effectively means {@link #VK_ERROR_FRAGMENTED_POOL ERROR_FRAGMENTED_POOL}, and try to create a new descriptor pool. If {@link #VK_ERROR_FRAGMENTED_POOL ERROR_FRAGMENTED_POOL} is the actual return value, it adds certainty to that decision.</p>
-     * 
-     * <p>The reason for this is that {@link #VK_ERROR_FRAGMENTED_POOL ERROR_FRAGMENTED_POOL} was only added in a later revision of the 1.0 specification, and so drivers <b>may</b> return other errors if they were written against earlier revisions. To ensure full compatibility with earlier patch revisions, these other errors are allowed.</p>
-     * </div>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -9882,6 +9834,7 @@ public class VK10 {
      * <li>If {@code pipelineBindPoint} is {@link #VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}, {@code pipeline} <b>must</b> be a compute pipeline</li>
      * <li>If {@code pipelineBindPoint} is {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}, {@code pipeline} <b>must</b> be a graphics pipeline</li>
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-variableMultisampleRate">variable multisample rate</a> feature is not supported, {@code pipeline} is a graphics pipeline, the current subpass has no attachments, and this is not the first call to this function with a graphics pipeline after transitioning to the current subpass, then the sample count specified by this pipeline <b>must</b> match that set in the previous pipeline</li>
+     * <li>If {@link VkPhysicalDeviceSampleLocationsPropertiesEXT}{@code ::variableSampleLocations} is {@link #VK_FALSE FALSE}, and {@code pipeline} is a graphics pipeline created with a {@link VkPipelineSampleLocationsStateCreateInfoEXT} structure having its {@code sampleLocationsEnable} member set to {@link #VK_TRUE TRUE} but without {@link EXTSampleLocations#VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT} enabled then the current render pass instance <b>must</b> have been begun by specifying a {@link VkRenderPassSampleLocationsBeginInfoEXT} structure whose {@code pPostSubpassSampleLocations} member contains an element with a {@code subpassIndex} matching the current subpass index and the {@code sampleLocationsInfo} member of that element <b>must</b> match the {@code sampleLocationsInfo} specified in {@link VkPipelineSampleLocationsStateCreateInfoEXT} when the pipeline was created</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -9946,15 +9899,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The viewport parameters taken from element</p><code>i</code>
-     * 
-     * <p>of {@code pViewports} replace the current state for the viewport index</p><code>firstViewport {plus} i</code>
-     * 
-     * <p>, for</p><code>i</code>
-     * 
-     * <p>in</p><code>[0, viewportCount)</code>
-     * 
-     * <p>.</p>
+     * <p>The viewport parameters taken from element <code>i</code> of {@code pViewports} replace the current state for the viewport index <code>firstViewport {plus} i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -10019,9 +9964,7 @@ public class VK10 {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>The scissor test determines if a fragment's framebuffer coordinates</p><code>(x<sub>f</sub>,y<sub>f</sub>)</code>
-     * 
-     * <p>lie within the scissor rectangle corresponding to the viewport index (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-viewport">Controlling the Viewport</a>) used by the primitive that generated the fragment. If the pipeline state object is created without {@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} enabled then the scissor rectangles are set by the {@link VkPipelineViewportStateCreateInfo} state of the pipeline state object. Otherwise, to dynamically set the scissor rectangles call:</p>
+     * <p>The scissor test determines if a fragment's framebuffer coordinates <code>(x<sub>f</sub>,y<sub>f</sub>)</code> lie within the scissor rectangle corresponding to the viewport index (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#vertexpostproc-viewport">Controlling the Viewport</a>) used by the primitive that generated the fragment. If the pipeline state object is created without {@link #VK_DYNAMIC_STATE_SCISSOR DYNAMIC_STATE_SCISSOR} enabled then the scissor rectangles are set by the {@link VkPipelineViewportStateCreateInfo} state of the pipeline state object. Otherwise, to dynamically set the scissor rectangles call:</p>
      * 
      * <code><pre>
      * void vkCmdSetScissor(
@@ -10032,15 +9975,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The scissor rectangles taken from element</p><code>i</code>
-     * 
-     * <p>of {@code pScissors} replace the current state for the scissor index</p><code>firstScissor {plus} i</code>
-     * 
-     * <p>, for</p><code>i</code>
-     * 
-     * <p>in</p><code>[0, scissorCount)</code>
-     * 
-     * <p>.</p>
+     * <p>The scissor rectangles taken from element <code>i</code> of {@code pScissors} replace the current state for the scissor index <code>firstScissor {plus} i</code>, for <code>i</code> in <code>[0, scissorCount)</code>.</p>
      * 
      * <p>Each scissor rectangle is described by a {@link VkRect2D} structure, with the {@code offset.x} and {@code offset.y} values determining the upper left corner of the scissor rectangle, and the {@code extent.width} and {@code extent.height} values determining the size in pixels.</p>
      * 
@@ -10053,12 +9988,8 @@ public class VK10 {
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code firstScissor} <b>must</b> be 0</li>
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code scissorCount} <b>must</b> be 1</li>
      * <li>The {@code x} and {@code y} members of {@code offset} <b>must</b> be greater than or equal to 0</li>
-     * <li>Evaluation of<code>(offset.x + extent.width)</code>
-     * 
-     * <p><b>must</b> not cause a signed integer addition overflow</p></li>
-     * <li>Evaluation of<code>(offset.y + extent.height)</code>
-     * 
-     * <p><b>must</b> not cause a signed integer addition overflow</p></li>
+     * <li>Evaluation of <code>(offset.x + extent.width)</code> <b>must</b> not cause a signed integer addition overflow</li>
+     * <li>Evaluation of <code>(offset.y + extent.height)</code> <b>must</b> not cause a signed integer addition overflow</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -10172,43 +10103,19 @@ public class VK10 {
      * 
      * <p>{@code depthBiasSlopeFactor} scales the maximum depth slope of the polygon, and {@code depthBiasConstantFactor} scales an implementation-dependent constant that relates to the usable resolution of the depth buffer. The resulting values are summed to produce the depth bias value which is then clamped to a minimum or maximum value specified by {@code depthBiasClamp}. {@code depthBiasSlopeFactor}, {@code depthBiasConstantFactor}, and {@code depthBiasClamp} <b>can</b> each be positive, negative, or zero.</p>
      * 
-     * <p>The maximum depth slope</p><code>m</code>
-     * 
-     * <p>of a triangle is</p>
+     * <p>The maximum depth slope <code>m</code> of a triangle is</p>
      * 
      * <code><pre>
      *       m = sqrt((&part;z<sub>f</sub> / &part;x<sub>f</sub>)<sup>2</sup> + (&part;z<sub>f</sub> / &part;y<sub>f</sub>)<sup>2</sup>)</pre></code>
      * 
-     * <p>where</p><code>(x<sub>f</sub>, y<sub>f</sub>, z<sub>f</sub>)</code>
-     * 
-     * <p>is a point on the triangle.</p><code>m</code>
-     * 
-     * <p><b>may</b> be approximated as</p>
+     * <p>where <code>(x<sub>f</sub>, y<sub>f</sub>, z<sub>f</sub>)</code> is a point on the triangle. <code>m</code> <b>may</b> be approximated as</p>
      * 
      * <code><pre>
      *       m = max(abs(&part;z<sub>f</sub> / &part;x<sub>f</sub>), abs(&part;z<sub>f</sub> / &part;y<sub>f</sub>))</pre></code>
      * 
-     * <p>The minimum resolvable difference</p><code>r</code>
+     * <p>The minimum resolvable difference <code>r</code> is an implementation-dependent parameter that depends on the depth buffer representation. It is the smallest difference in framebuffer coordinate <code>z</code> values that is guaranteed to remain distinct throughout polygon rasterization and in the depth buffer. All pairs of fragments generated by the rasterization of two polygons with otherwise identical vertices, but <code>z<sub>f</sub></code> values that differ by <code>r</code>, will have distinct depth values.</p>
      * 
-     * <p>is an implementation-dependent parameter that depends on the depth buffer representation. It is the smallest difference in framebuffer coordinate</p><code>z</code>
-     * 
-     * <p>values that is guaranteed to remain distinct throughout polygon rasterization and in the depth buffer. All pairs of fragments generated by the rasterization of two polygons with otherwise identical vertices, but</p><code>z<sub>f</sub></code>
-     * 
-     * <p>values that differ by</p><code>r</code>
-     * 
-     * <p>, will have distinct depth values.</p>
-     * 
-     * <p>For fixed-point depth buffer representations,</p><code>r</code>
-     * 
-     * <p>is constant throughout the range of the entire depth buffer. For floating-point depth buffers, there is no single minimum resolvable difference. In this case, the minimum resolvable difference for a given polygon is dependent on the maximum exponent,</p><code>e</code>
-     * 
-     * <p>, in the range of</p><code>z</code>
-     * 
-     * <p>values spanned by the primitive. If</p><code>n</code>
-     * 
-     * <p>is the number of bits in the floating-point mantissa, the minimum resolvable difference,</p><code>r</code>
-     * 
-     * <p>, for the given primitive is defined as</p>
+     * <p>For fixed-point depth buffer representations, <code>r</code> is constant throughout the range of the entire depth buffer. For floating-point depth buffers, there is no single minimum resolvable difference. In this case, the minimum resolvable difference for a given polygon is dependent on the maximum exponent, <code>e</code>, in the range of <code>z</code> values spanned by the primitive. If <code>n</code> is the number of bits in the floating-point mantissa, the minimum resolvable difference, <code>r</code>, for the given primitive is defined as</p>
      * 
      * <dl>
      * <dd><code>r = 2<sup>e-n</sup></code></dd>
@@ -10216,32 +10123,18 @@ public class VK10 {
      * 
      * <p>If a triangle is rasterized using the {@link NVFillRectangle#VK_POLYGON_MODE_FILL_RECTANGLE_NV POLYGON_MODE_FILL_RECTANGLE_NV} polygon mode, then this minimum resolvable difference <b>may</b> not be resolvable for samples outside of the triangle, where the depth is extrapolated.</p>
      * 
-     * <p>If no depth buffer is present,</p><code>r</code>
+     * <p>If no depth buffer is present, <code>r</code> is undefined.</p>
      * 
-     * <p>is undefined.</p>
-     * 
-     * <p>The bias value</p><code>o</code>
-     * 
-     * <p>for a polygon is</p>
+     * <p>The bias value <code>o</code> for a polygon is</p>
      * 
      * <code><pre>
      *         m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor                     depthBiasClamp = 0 or NaN
      * o = min(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, depthBiasClamp)    depthBiasClamp &gt; 0
      *     max(m &times; depthBiasSlopeFactor + r &times; depthBiasConstantFactor, depthBiasClamp)    depthBiasClamp &lt; 0</pre></code>
      * 
-     * <code>m</code>
+     * <p><code>m</code> is computed as described above. If the depth buffer uses a fixed-point representation, <code>m</code> is a function of depth values in the range <code>[0,1]</code>, and <code>o</code> is applied to depth values in the same range.</p>
      * 
-     * <p>is computed as described above. If the depth buffer uses a fixed-point representation,</p><code>m</code>
-     * 
-     * <p>is a function of depth values in the range</p><code>[0,1]</code>
-     * 
-     * <p>, and</p><code>o</code>
-     * 
-     * <p>is applied to depth values in the same range.</p>
-     * 
-     * <p>For fixed-point depth buffers, fragment depth values are always limited to the range</p><code>[0,1]</code>
-     * 
-     * <p>by clamping after depth bias addition is performed. Fragment depth values are clamped even when the depth buffer uses a floating-point representation.</p>
+     * <p>For fixed-point depth buffers, fragment depth values are always limited to the range <code>[0,1]</code> by clamping after depth bias addition is performed. Fragment depth values are clamped even when the depth buffer uses a floating-point representation.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -10347,11 +10240,7 @@ public class VK10 {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>The depth bounds test conditionally disables coverage of a sample based on the outcome of a comparison between the value</p><code>z<sub>a</sub></code>
-     * 
-     * <p>in the depth attachment at location</p><code>(x<sub>f</sub>,y<sub>f</sub>)</code>
-     * 
-     * <p>(for the appropriate sample) and a range of values. The test is enabled or disabled by the {@code depthBoundsTestEnable} member of {@link VkPipelineDepthStencilStateCreateInfo}: If the pipeline state object is created without the {@link #VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS} dynamic state enabled then the range of values used in the depth bounds test are defined by the {@code minDepthBounds} and {@code maxDepthBounds} members of the {@link VkPipelineDepthStencilStateCreateInfo} structure. Otherwise, to dynamically set the depth bounds range values call:</p>
+     * <p>The depth bounds test conditionally disables coverage of a sample based on the outcome of a comparison between the value <code>z<sub>a</sub></code> in the depth attachment at location <code>(x<sub>f</sub>,y<sub>f</sub>)</code> (for the appropriate sample) and a range of values. The test is enabled or disabled by the {@code depthBoundsTestEnable} member of {@link VkPipelineDepthStencilStateCreateInfo}: If the pipeline state object is created without the {@link #VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS} dynamic state enabled then the range of values used in the depth bounds test are defined by the {@code minDepthBounds} and {@code maxDepthBounds} members of the {@link VkPipelineDepthStencilStateCreateInfo} structure. Otherwise, to dynamically set the depth bounds range values call:</p>
      * 
      * <code><pre>
      * void vkCmdSetDepthBounds(
@@ -10743,15 +10632,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The values taken from elements</p><code>i</code>
-     * 
-     * <p>of {@code pBuffers} and {@code pOffsets} replace the current state for the vertex input binding</p><code>firstBinding {plus} i</code>
-     * 
-     * <p>, for</p><code>i</code>
-     * 
-     * <p>in</p><code>[0, bindingCount)</code>
-     * 
-     * <p>. The vertex input binding is updated to start at the offset indicated by {@code pOffsets}[i] from the start of the buffer {@code pBuffers}[i]. All vertex input attributes that use each of these bindings will use these updated addresses in their address calculations for subsequent draw commands.</p>
+     * <p>The values taken from elements <code>i</code> of {@code pBuffers} and {@code pOffsets} replace the current state for the vertex input binding <code>firstBinding {plus} i</code>, for <code>i</code> in <code>[0, bindingCount)</code>. The vertex input binding is updated to start at the offset indicated by {@code pOffsets}[i] from the start of the buffer {@code pBuffers}[i]. All vertex input attributes that use each of these bindings will use these updated addresses in their address calculations for subsequent draw commands.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -10845,6 +10726,7 @@ public class VK10 {
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
      * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index <b>must</b> be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
+     * <li>If the currently bound graphics pipeline was created with {@link VkPipelineSampleLocationsStateCreateInfoEXT}{@code ::sampleLocationsEnable} set to {@link #VK_TRUE TRUE} and the current subpass has a depth/stencil attachment, then that attachment <b>must</b> have been created with the {@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} bit set</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -10919,9 +10801,7 @@ public class VK10 {
      * <li>For a given vertex buffer binding, any attribute data fetched <b>must</b> be entirely contained within the corresponding vertex buffer binding, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#fxvertex-input">the “Vertex Input Description” section</a></li>
      * <li>A valid graphics pipeline <b>must</b> be bound to the current command buffer with {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
      * <li>If the {@code VkPipeline} object currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} requires any dynamic state, that state <b>must</b> have been set on the current command buffer</li>
-     * <li><code>(indexSize * (firstIndex + indexCount) + offset)</code>
-     * 
-     * <p><b>must</b> be less than or equal to the size of the currently bound index buffer, with indexSize being based on the type specified by {@code indexType}, where the index buffer, {@code indexType}, and {@code offset} are specified via {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</p></li>
+     * <li><code>(indexSize * (firstIndex + indexCount) + offset)</code> <b>must</b> be less than or equal to the size of the currently bound index buffer, with indexSize being based on the type specified by {@code indexType}, where the index buffer, {@code indexType}, and {@code offset} are specified via {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}</li>
      * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
      * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
      * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses unnormalized coordinates, it <b>must</b> not be used with any of the SPIR-V {@code OpImageSample*} or {@code OpImageSparseSample*} instructions with {@code ImplicitLod}, {@code Dref} or {@code Proj} in their name, in any shader stage</li>
@@ -10933,6 +10813,7 @@ public class VK10 {
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
      * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index <b>must</b> be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
+     * <li>If the currently bound graphics pipeline was created with {@link VkPipelineSampleLocationsStateCreateInfoEXT}{@code ::sampleLocationsEnable} set to {@link #VK_TRUE TRUE} and the current subpass has a depth/stencil attachment, then that attachment <b>must</b> have been created with the {@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} bit set</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11007,12 +10888,8 @@ public class VK10 {
      * <li>All vertex input bindings accessed via vertex input variables declared in the vertex shader entry point&#8217;s interface <b>must</b> have valid buffers bound</li>
      * <li>A valid graphics pipeline <b>must</b> be bound to the current command buffer with {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
      * <li>If the {@code VkPipeline} object currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} requires any dynamic state, that state <b>must</b> have been set on the current command buffer</li>
-     * <li>If {@code drawCount} is equal to 1,<code>(offset sizeof({@link VkDrawIndirectCommand}))</code>
-     * 
-     * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
-     * <li>If {@code drawCount} is greater than 1,<code>(stride × (drawCount - 1) + offset sizeof({@link VkDrawIndirectCommand}))</code>
-     * 
-     * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
+     * <li>If {@code drawCount} is equal to 1, <code>(offset sizeof({@link VkDrawIndirectCommand}))</code> <b>must</b> be less than or equal to the size of {@code buffer}</li>
+     * <li>If {@code drawCount} is greater than 1, <code>(stride × (drawCount - 1) + offset sizeof({@link VkDrawIndirectCommand}))</code> <b>must</b> be less than or equal to the size of {@code buffer}</li>
      * <li>{@code drawCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxDrawIndirectCount}</li>
      * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
      * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
@@ -11025,6 +10902,7 @@ public class VK10 {
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
      * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index <b>must</b> be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
+     * <li>If the currently bound graphics pipeline was created with {@link VkPipelineSampleLocationsStateCreateInfoEXT}{@code ::sampleLocationsEnable} set to {@link #VK_TRUE TRUE} and the current subpass has a depth/stencil attachment, then that attachment <b>must</b> have been created with the {@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} bit set</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11100,12 +10978,8 @@ public class VK10 {
      * <li>All vertex input bindings accessed via vertex input variables declared in the vertex shader entry point&#8217;s interface <b>must</b> have valid buffers bound</li>
      * <li>A valid graphics pipeline <b>must</b> be bound to the current command buffer with {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
      * <li>If the {@code VkPipeline} object currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} requires any dynamic state, that state <b>must</b> have been set on the current command buffer</li>
-     * <li>If {@code drawCount} is equal to 1,<code>(offset sizeof({@link VkDrawIndexedIndirectCommand}))</code>
-     * 
-     * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
-     * <li>If {@code drawCount} is greater than 1,<code>(stride × (drawCount - 1) + offset sizeof({@link VkDrawIndexedIndirectCommand}))</code>
-     * 
-     * <p><b>must</b> be less than or equal to the size of {@code buffer}</p></li>
+     * <li>If {@code drawCount} is equal to 1, <code>(offset sizeof({@link VkDrawIndexedIndirectCommand}))</code> <b>must</b> be less than or equal to the size of {@code buffer}</li>
+     * <li>If {@code drawCount} is greater than 1, <code>(stride × (drawCount - 1) + offset sizeof({@link VkDrawIndexedIndirectCommand}))</code> <b>must</b> be less than or equal to the size of {@code buffer}</li>
      * <li>{@code drawCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxDrawIndirectCount}</li>
      * <li>Every input attachment used by the current subpass <b>must</b> be bound to the pipeline via a descriptor set</li>
      * <li>If any {@code VkSampler} object that is accessed from a shader by the {@code VkPipeline} currently bound to {@link #VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS} uses unnormalized coordinates, it <b>must</b> not be used to sample from any {@code VkImage} with a {@code VkImageView} of the type {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, {@link #VK_IMAGE_VIEW_TYPE_1D_ARRAY IMAGE_VIEW_TYPE_1D_ARRAY}, {@link #VK_IMAGE_VIEW_TYPE_2D_ARRAY IMAGE_VIEW_TYPE_2D_ARRAY} or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}, in any shader stage</li>
@@ -11118,6 +10992,7 @@ public class VK10 {
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>Any {@code VkImageView} being sampled with {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} as a result of this command <b>must</b> not have a {@code VkImageViewType} of {@link #VK_IMAGE_VIEW_TYPE_3D IMAGE_VIEW_TYPE_3D}, {@link #VK_IMAGE_VIEW_TYPE_CUBE IMAGE_VIEW_TYPE_CUBE}, or {@link #VK_IMAGE_VIEW_TYPE_CUBE_ARRAY IMAGE_VIEW_TYPE_CUBE_ARRAY}</li>
      * <li>If the draw is recorded in a render pass instance with multiview enabled, the maximum instance index <b>must</b> be less than or equal to {@link VkPhysicalDeviceMultiviewPropertiesKHX}{@code ::maxMultiviewInstanceIndex}.</li>
+     * <li>If the currently bound graphics pipeline was created with {@link VkPipelineSampleLocationsStateCreateInfoEXT}{@code ::sampleLocationsEnable} set to {@link #VK_TRUE TRUE} and the current subpass has a depth/stencil attachment, then that attachment <b>must</b> have been created with the {@link EXTSampleLocations#VK_IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT IMAGE_CREATE_SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_BIT_EXT} bit set</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11174,9 +11049,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>When the command is executed, a global workgroup consisting of</p><code>groupCountX {times} groupCountY {times} groupCountZ</code>
-     * 
-     * <p>local workgroups is assembled.</p>
+     * <p>When the command is executed, a global workgroup consisting of <code>groupCountX {times} groupCountY {times} groupCountZ</code> local workgroups is assembled.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -11427,6 +11300,13 @@ public class VK10 {
      * 
      * <p>The formats of {@code srcImage} and {@code dstImage} <b>must</b> be compatible. Formats are considered compatible if their element size is the same between both formats. For example, {@link #VK_FORMAT_R8G8B8A8_UNORM FORMAT_R8G8B8A8_UNORM} is compatible with {@link #VK_FORMAT_R32_UINT FORMAT_R32_UINT} because both texels are 4 bytes in size. Depth/stencil formats <b>must</b> match exactly.</p>
      * 
+     * <p>If the format of {@code srcImage} or {@code dstImage} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion"><em>multi-planar</em> image format</a>, regions of each plane to be copied <b>must</b> be specified separately using the {@code srcSubresource} and {@code dstSubresource} members of the {@link VkImageCopy} structure. In this case, the {@code aspectMask} of the {@code srcSubresource} or {@code dstSubresource} that refers to the multi-planar image <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR}, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR}, or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR}. For the purposes of {@link #vkCmdCopyImage CmdCopyImage}, each plane of a multi-planar image is treated as having the format listed in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-compatible-planes">the “Compatible formats of planes of multi-planar formats” section</a> for the plane identified by the {@code aspectMask} of the corresponding subresource. This applies both to {@code VkFormat} and to coordinates used in the copy, which correspond to texels in the <em>plane</em> rather than how these texels map to coordinates in the image as a whole.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>For example, the {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} plane of a {@link KHRSamplerYcbcrConversion#VK_FORMAT_G8_B8R8_2PLANE_420_UNORM_KHR FORMAT_G8_B8R8_2PLANE_420_UNORM_KHR} image is compatible with an image of format {@link #VK_FORMAT_R8G8_UNORM FORMAT_R8G8_UNORM} and (less usefully) with the {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} plane of an image of format {@link KHRSamplerYcbcrConversion#VK_FORMAT_G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR FORMAT_G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16_KHR}, as each texel is 2 bytes in size.</p>
+     * </div>
+     * 
      * <p>{@link #vkCmdCopyImage CmdCopyImage} allows copying between size-compatible compressed and uncompressed internal formats. Formats are size-compatible if the element size of the uncompressed format is equal to the element size (compressed texel block size) of the compressed format. Such a copy does not perform on-the-fly compression or decompression. When copying from an uncompressed format to a compressed format, each texel of uncompressed data of the source image is copied as a raw value to the corresponding compressed texel block of the destination image. When copying from a compressed format to an uncompressed format, each compressed texel block of the source image is copied as a raw value to the corresponding texel of uncompressed data in the destination image. Thus, for example, it is legal to copy between a 128-bit uncompressed format and a compressed format which has a 128-bit sized compressed texel block representing 4{times}4 texels (using 8 bits per texel), or between a 64-bit uncompressed format and a compressed format which has a 64-bit sized compressed texel block representing 4{times}4 texels (using 4 bits per texel).</p>
      * 
      * <p>When copying between compressed and uncompressed formats the {@code extent} members represent the texel dimensions of the source image and not the destination. When copying from a compressed image to an uncompressed image the image texel dimensions written to the uncompressed image will be source extent divided by the compressed texel block dimensions. When copying from an uncompressed image to a compressed image the image texel dimensions written to the compressed image will be the source extent multiplied by the compressed texel block dimensions. In both cases the number of bytes read and the number of bytes written will be identical.</p>
@@ -11434,52 +11314,44 @@ public class VK10 {
      * <p>Copying to or from block-compressed images is typically done in multiples of the compressed texel block size. For this reason the {@code extent} <b>must</b> be a multiple of the compressed texel block dimension. There is one exception to this rule which is required: to handle compressed images created with dimensions that are not a multiple of the compressed texel block dimensions: if the {@code srcImage} is compressed, then:</p>
      * 
      * <ul>
-     * <li>If {@code extent.width} is not a multiple of the compressed texel block width, then<code>(extent.width + srcOffset.x)</code>
-     * 
-     * <p><b>must</b> equal the image subresource width.</p></li>
-     * <li>If {@code extent.height} is not a multiple of the compressed texel block height, then<code>(extent.height + srcOffset.y)</code>
-     * 
-     * <p><b>must</b> equal the image subresource height.</p></li>
-     * <li>If {@code extent.depth} is not a multiple of the compressed texel block depth, then<code>(extent.depth + srcOffset.z)</code>
-     * 
-     * <p><b>must</b> equal the image subresource depth.</p></li>
+     * <li>If {@code extent.width} is not a multiple of the compressed texel block width, then <code>(extent.width + srcOffset.x)</code> <b>must</b> equal the image subresource width.</li>
+     * <li>If {@code extent.height} is not a multiple of the compressed texel block height, then <code>(extent.height + srcOffset.y)</code> <b>must</b> equal the image subresource height.</li>
+     * <li>If {@code extent.depth} is not a multiple of the compressed texel block depth, then <code>(extent.depth + srcOffset.z)</code> <b>must</b> equal the image subresource depth.</li>
      * </ul>
      * 
      * <p>Similarly, if the {@code dstImage} is compressed, then:</p>
      * 
      * <ul>
-     * <li>If {@code extent.width} is not a multiple of the compressed texel block width, then<code>(extent.width + dstOffset.x)</code>
-     * 
-     * <p><b>must</b> equal the image subresource width.</p></li>
-     * <li>If {@code extent.height} is not a multiple of the compressed texel block height, then<code>(extent.height + dstOffset.y)</code>
-     * 
-     * <p><b>must</b> equal the image subresource height.</p></li>
-     * <li>If {@code extent.depth} is not a multiple of the compressed texel block depth, then<code>(extent.depth + dstOffset.z)</code>
-     * 
-     * <p><b>must</b> equal the image subresource depth.</p></li>
+     * <li>If {@code extent.width} is not a multiple of the compressed texel block width, then <code>(extent.width + dstOffset.x)</code> <b>must</b> equal the image subresource width.</li>
+     * <li>If {@code extent.height} is not a multiple of the compressed texel block height, then <code>(extent.height + dstOffset.y)</code> <b>must</b> equal the image subresource height.</li>
+     * <li>If {@code extent.depth} is not a multiple of the compressed texel block depth, then <code>(extent.depth + dstOffset.z)</code> <b>must</b> equal the image subresource depth.</li>
      * </ul>
      * 
      * <p>This allows the last compressed texel block of the image in each non-multiple dimension to be included as a source or destination of the copy.</p>
+     * 
+     * <p>"{@code etext:_422}" image formats that are not <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion"><em>multi-planar</em></a> are treated as having a 2{times}1 compressed texel block for the purposes of these rules.</p>
      * 
      * <p>{@link #vkCmdCopyImage CmdCopyImage} <b>can</b> be used to copy image data between multisample images, but both images <b>must</b> have the same number of samples.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
-     * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
+     * <li>The source region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage} if the {@code srcImage}&#8217;s {@code VkFormat} is not a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, and <b>must</b> be a region that is contained within the plane being copied if the {@code srcImage}&#8217;s {@code VkFormat} is a multi-planar format</li>
+     * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage} if the {@code dstImage}&#8217;s {@code VkFormat} is not a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, and <b>must</b> be a region that is contained within the plane being copied to if the {@code dstImage}&#8217;s {@code VkFormat} is a multi-planar format</li>
      * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory</li>
      * <li>{@code srcImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
-     * <li>If {@code srcImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
+     * <li>If {@code srcImage} is non-sparse then the image or <em>disjoint</em> plane to be copied <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code srcImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
      * <li>{@code dstImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
-     * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
+     * <li>If {@code dstImage} is non-sparse then the image or <em>disjoint</em> plane that is the destination of the copy <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
-     * <li>The {@code VkFormat} of each of {@code srcImage} and {@code dstImage} <b>must</b> be compatible, as defined <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-images-format-compatibility">below</a></li>
+     * <li>If the {@code VkFormat} of each of {@code srcImage} and {@code dstImage} is not a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion"><em>multi-planar format</em></a>, the {@code VkFormat} of each of {@code srcImage} and {@code dstImage} <b>must</b> be compatible, as defined <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-images-format-compatibility">below</a></li>
+     * <li>In a copy to or from a plane of a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar image</a>, the {@code VkFormat} of the image and plane <b>must</b> be compatible according to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-compatible-planes">the description of compatible planes</a> for the plane being copied</li>
+     * <li>When a copy is performed to or from an image with a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, the {@code aspectMask} of the {@code srcSubresource} and/or {@code dstSubresource} that refers to the multi-planar image <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR}, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR}, or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} (with {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} valid only for a {@code VkFormat} with three planes)</li>
      * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> match</li>
      * </ul>
      * 
@@ -11635,11 +11507,13 @@ public class VK10 {
      * <li>The destination region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
      * <li>The union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory with any texel that <b>may</b> be sampled during the blit operation</li>
      * <li>{@code srcImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+     * <li>{@code srcImage} <b>must</b> not use a format listed in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">the “Formats requiring sampler Y'C<sub>B</sub>C<sub>R</sub> conversion for {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} image views” table</a></li>
      * <li>{@code srcImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} usage flag</li>
      * <li>If {@code srcImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code srcImageLayout} <b>must</b> specify the layout of the image subresources of {@code srcImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code srcImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>{@code dstImage} <b>must</b> use a format that supports {@link #VK_FORMAT_FEATURE_BLIT_DST_BIT FORMAT_FEATURE_BLIT_DST_BIT}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
+     * <li>{@code dstImage} <b>must</b> not use a format listed in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">the “Formats requiring sampler Y'C<sub>B</sub>C<sub>R</sub> conversion for {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} image views” table</a></li>
      * <li>{@code dstImage} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
      * <li>If {@code dstImage} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
@@ -11735,11 +11609,13 @@ public class VK10 {
      * 
      * <p>Each region in {@code pRegions} is copied from the specified region of the source buffer to the specified region of the destination image.</p>
      * 
+     * <p>If the format of {@code dstImage} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar image format</a>), regions of each plane to be a target of a copy <b>must</b> be specified separately using the {@code pRegions} member of the {@link VkBufferImageCopy} structure. In this case, the {@code aspectMask} of {@code imageSubresource} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR}, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR}, or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR}. For the purposes of {@link #vkCmdCopyBufferToImage CmdCopyBufferToImage}, each plane of a multi-planar image is treated as having the format listed in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-compatible-planes">the “Compatible formats of planes of multi-planar formats” section</a> for the plane identified by the {@code aspectMask} of the corresponding subresource. This applies both to {@code VkFormat} and to coordinates used in the copy, which correspond to texels in the <em>plane</em> rather than how these texels map to coordinates in the image as a whole.</p>
+     * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
      * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcBuffer}</li>
-     * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage}</li>
+     * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstImage} if the {@code dstImage}&#8217;s {@code VkFormat} is not a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, and <b>must</b> be a region that is contained within the plane being copied to if the {@code dstImage}&#8217;s {@code VkFormat} is a multi-planar format</li>
      * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory</li>
      * <li>{@code srcBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_SRC_BIT BUFFER_USAGE_TRANSFER_SRC_BIT} usage flag</li>
      * <li>{@code dstImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
@@ -11826,10 +11702,12 @@ public class VK10 {
      * 
      * <p>Each region in {@code pRegions} is copied from the specified region of the source image to the specified region of the destination buffer.</p>
      * 
+     * <p>If the {@code VkFormat} of {@code srcImage} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar image format</a>, regions of each plane to be a source of a copy <b>must</b> be specified separately using the {@code pRegions} member of the {@link VkBufferImageCopy} structure. In this case, the {@code aspectMask} of {@code imageSubresource} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR}, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR}, or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR}. For the purposes of {@link #vkCmdCopyBufferToImage CmdCopyBufferToImage}, each plane of a multi-planar image is treated as having the format listed in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-compatible-planes">the “Compatible formats of planes of multi-planar formats” section</a> for the plane identified by the {@code aspectMask} of the corresponding subresource. This applies both to {@code VkFormat} and to coordinates used in the copy, which correspond to texels in the <em>plane</em> rather than how these texels map to coordinates in the image as a whole.</p>
+     * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage}</li>
+     * <li>The image region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code srcImage} if the {@code srcImage}&#8217;s {@code VkFormat} is not a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, and <b>must</b> be a region that is contained within the plane being copied if the {@code srcImage}&#8217;s {@code VkFormat} is a multi-planar format</li>
      * <li>The buffer region specified by a given element of {@code pRegions} <b>must</b> be a region that is contained within {@code dstBuffer}</li>
      * <li>The union of all source regions, and the union of all destination regions, specified by the elements of {@code pRegions}, <b>must</b> not overlap in memory</li>
      * <li>{@code srcImage} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
@@ -11916,6 +11794,15 @@ public class VK10 {
      * 
      * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
      * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>Buffer updates performed with {@link #vkCmdUpdateBuffer CmdUpdateBuffer} first copy the data into command buffer memory when the command is recorded (which requires additional storage and may incur an additional allocation), and then copy the data from the command buffer into {@code dstBuffer} when the command is executed on a device.</p>
+     * 
+     * <p>The additional cost of this functionality compared to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html\#<<copies-buffers">buffer to buffer copies</a> means it is only recommended for very small amounts of data, and is why it is limited to only 65536 bytes.</p>
+     * 
+     * <p>Applications <b>can</b> work around this by issuing multiple {@link #vkCmdUpdateBuffer CmdUpdateBuffer} commands to different ranges of the same buffer, but it is strongly recommended that they <b>should</b> not.</p>
+     * </div>
+     * 
      * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
      * 
      * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as "{@code transfer}" operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
@@ -11986,6 +11873,15 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>Buffer updates performed with {@link #vkCmdUpdateBuffer CmdUpdateBuffer} first copy the data into command buffer memory when the command is recorded (which requires additional storage and may incur an additional allocation), and then copy the data from the command buffer into {@code dstBuffer} when the command is executed on a device.</p>
+     * 
+     * <p>The additional cost of this functionality compared to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html\#<<copies-buffers">buffer to buffer copies</a> means it is only recommended for very small amounts of data, and is why it is limited to only 65536 bytes.</p>
+     * 
+     * <p>Applications <b>can</b> work around this by issuing multiple {@link #vkCmdUpdateBuffer CmdUpdateBuffer} commands to different ranges of the same buffer, but it is strongly recommended that they <b>should</b> not.</p>
+     * </div>
      * 
      * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
      * 
@@ -12058,6 +11954,15 @@ public class VK10 {
      * 
      * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
      * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>Buffer updates performed with {@link #vkCmdUpdateBuffer CmdUpdateBuffer} first copy the data into command buffer memory when the command is recorded (which requires additional storage and may incur an additional allocation), and then copy the data from the command buffer into {@code dstBuffer} when the command is executed on a device.</p>
+     * 
+     * <p>The additional cost of this functionality compared to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html\#<<copies-buffers">buffer to buffer copies</a> means it is only recommended for very small amounts of data, and is why it is limited to only 65536 bytes.</p>
+     * 
+     * <p>Applications <b>can</b> work around this by issuing multiple {@link #vkCmdUpdateBuffer CmdUpdateBuffer} commands to different ranges of the same buffer, but it is strongly recommended that they <b>should</b> not.</p>
+     * </div>
+     * 
      * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
      * 
      * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as "{@code transfer}" operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
@@ -12128,6 +12033,15 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>Buffer updates performed with {@link #vkCmdUpdateBuffer CmdUpdateBuffer} first copy the data into command buffer memory when the command is recorded (which requires additional storage and may incur an additional allocation), and then copy the data from the command buffer into {@code dstBuffer} when the command is executed on a device.</p>
+     * 
+     * <p>The additional cost of this functionality compared to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html\#<<copies-buffers">buffer to buffer copies</a> means it is only recommended for very small amounts of data, and is why it is limited to only 65536 bytes.</p>
+     * 
+     * <p>Applications <b>can</b> work around this by issuing multiple {@link #vkCmdUpdateBuffer CmdUpdateBuffer} commands to different ranges of the same buffer, but it is strongly recommended that they <b>should</b> not.</p>
+     * </div>
      * 
      * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
      * 
@@ -12200,6 +12114,15 @@ public class VK10 {
      * 
      * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
      * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>Buffer updates performed with {@link #vkCmdUpdateBuffer CmdUpdateBuffer} first copy the data into command buffer memory when the command is recorded (which requires additional storage and may incur an additional allocation), and then copy the data from the command buffer into {@code dstBuffer} when the command is executed on a device.</p>
+     * 
+     * <p>The additional cost of this functionality compared to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html\#<<copies-buffers">buffer to buffer copies</a> means it is only recommended for very small amounts of data, and is why it is limited to only 65536 bytes.</p>
+     * 
+     * <p>Applications <b>can</b> work around this by issuing multiple {@link #vkCmdUpdateBuffer CmdUpdateBuffer} commands to different ranges of the same buffer, but it is strongly recommended that they <b>should</b> not.</p>
+     * </div>
+     * 
      * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
      * 
      * <p>{@link #vkCmdUpdateBuffer CmdUpdateBuffer} is only allowed outside of a render pass. This command is treated as "{@code transfer}" operation, for the purposes of synchronization barriers. The {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} <b>must</b> be specified in {@code usage} of {@link VkBufferCreateInfo} in order for the buffer to be compatible with {@link #vkCmdUpdateBuffer CmdUpdateBuffer}.</p>
@@ -12270,6 +12193,15 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <p>{@code dataSize} <b>must</b> be less than or equal to 65536 bytes. For larger updates, applications <b>can</b> use buffer to buffer <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#copies-buffers">copies</a>.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>Buffer updates performed with {@link #vkCmdUpdateBuffer CmdUpdateBuffer} first copy the data into command buffer memory when the command is recorded (which requires additional storage and may incur an additional allocation), and then copy the data from the command buffer into {@code dstBuffer} when the command is executed on a device.</p>
+     * 
+     * <p>The additional cost of this functionality compared to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html\#<<copies-buffers">buffer to buffer copies</a> means it is only recommended for very small amounts of data, and is why it is limited to only 65536 bytes.</p>
+     * 
+     * <p>Applications <b>can</b> work around this by issuing multiple {@link #vkCmdUpdateBuffer CmdUpdateBuffer} commands to different ranges of the same buffer, but it is strongly recommended that they <b>should</b> not.</p>
+     * </div>
      * 
      * <p>The source data is copied from the user pointer to the command buffer when the command is called.</p>
      * 
@@ -12429,17 +12361,14 @@ public class VK10 {
      * <ul>
      * <li>{@code image} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+     * <li>{@code image} <b>must</b> not use a format listed in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">the “Formats requiring sampler Y'C<sub>B</sub>C<sub>R</sub> conversion for {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} image views” table</a></li>
      * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
      * </ul>
      * 
@@ -12511,17 +12440,14 @@ public class VK10 {
      * <ul>
      * <li>{@code image} <b>must</b> use a format that supports {@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR}, which is indicated by {@link VkFormatProperties}{@code ::linearTilingFeatures} (for linearly tiled images) or {@link VkFormatProperties}{@code ::optimalTilingFeatures} (for optimally tiled images) - as returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code image} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} usage flag</li>
+     * <li>{@code image} <b>must</b> not use a format listed in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">the “Formats requiring sampler Y'C<sub>B</sub>C<sub>R</sub> conversion for {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} image views” table</a></li>
      * <li>If {@code image} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
      * </ul>
      * 
@@ -12604,13 +12530,9 @@ public class VK10 {
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> have a depth/stencil format</li>
      * </ul>
      * 
@@ -12682,13 +12604,9 @@ public class VK10 {
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and<code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code>
-     * 
-     * <p>for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</p></li>
+     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> have a depth/stencil format</li>
      * </ul>
      * 
@@ -13537,9 +13455,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>When executed on a queue, this command sets the status of query indices</p><code>[firstQuery, firstQuery {plus} queryCount - 1]</code>
-     * 
-     * <p>to unavailable.</p>
+     * <p>When executed on a queue, this command sets the status of query indices <code>[firstQuery, firstQuery {plus} queryCount - 1]</code> to unavailable.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -13612,22 +13528,21 @@ public class VK10 {
      * 
      * <p>While {@link #vkCmdWriteTimestamp CmdWriteTimestamp} <b>can</b> be called inside or outside of a render pass instance, {@link #vkCmdCopyQueryPoolResults CmdCopyQueryPoolResults} <b>must</b> only be called outside of a render pass instance.</p>
      * 
-     * <p>If {@link #vkCmdWriteTimestamp CmdWriteTimestamp} is called while executing a render pass instance that has multiview enabled, the timestamp uses</p><code>N</code>
+     * <p>Timestamps <b>may</b> only be meaningfully compared if they are written by commands submitted to the same queue.</p>
      * 
-     * <p>consecutive query indices in the query pool (starting at {@code query}) where</p><code>N</code>
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
-     * <p>is the number of bits set in the view mask of the subpass the command is executed in. The resulting query values are determined by an implementation-dependent choice of one of the following behaviors:</p>
+     * <p>An example of such a comparison is determining the execution time of a sequence of commands.</p>
+     * </div>
+     * 
+     * <p>If {@link #vkCmdWriteTimestamp CmdWriteTimestamp} is called while executing a render pass instance that has multiview enabled, the timestamp uses <code>N</code> consecutive query indices in the query pool (starting at {@code query}) where <code>N</code> is the number of bits set in the view mask of the subpass the command is executed in. The resulting query values are determined by an implementation-dependent choice of one of the following behaviors:</p>
      * 
      * <ul>
      * <li>The first query is a timestamp value and (if more than one bit is set in the view mask) zero is written to the remaining queries. If two timestamps are written in the same subpass, the sum of the execution time of all views between those commands is the difference between the first query written by each command.</li>
-     * <li>All<code>N</code>
-     * 
-     * <p>queries are timestamp values. If two timestamps are written in the same subpass, the sum of the execution time of all views between those commands is the sum of the difference between corresponding queries written by each command. The difference between corresponding queries <b>may</b> be the execution time of a single view.</p></li>
+     * <li>All <code>N</code> queries are timestamp values. If two timestamps are written in the same subpass, the sum of the execution time of all views between those commands is the sum of the difference between corresponding queries written by each command. The difference between corresponding queries <b>may</b> be the execution time of a single view.</li>
      * </ul>
      * 
-     * <p>In either case, the application <b>can</b> sum the differences between all</p><code>N</code>
-     * 
-     * <p>queries to determine the total execution time.</p>
+     * <p>In either case, the application <b>can</b> sum the differences between all <code>N</code> queries to determine the total execution time.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -14197,7 +14112,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin} is {@link #VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT IMAGE_USAGE_COLOR_ATTACHMENT_BIT} set</li>
-     * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin} is {@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} set</li>
+     * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin} is {@link KHRMaintenance2#VK_IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL_KHR IMAGE_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_OPTIMAL_KHR}, {@link KHRMaintenance2#VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL_KHR IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL_KHR}, {@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL}, or {@link #VK_IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL IMAGE_LAYOUT_DEPTH_STENCIL_READ_ONLY_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT} set</li>
      * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin} is {@link #VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_SAMPLED_BIT IMAGE_USAGE_SAMPLED_BIT} or {@link #VK_IMAGE_USAGE_INPUT_ATTACHMENT_BIT IMAGE_USAGE_INPUT_ATTACHMENT_BIT} set</li>
      * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin} is {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_SRC_BIT IMAGE_USAGE_TRANSFER_SRC_BIT} set</li>
      * <li>If any of the {@code initialLayout} or {@code finalLayout} member of the {@link VkAttachmentDescription} structures or the {@code layout} member of the {@link VkAttachmentReference} structures specified when creating the render pass specified in the {@code renderPass} member of {@code pRenderPassBegin} is {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} then the corresponding attachment image subresource of the framebuffer specified in the {@code framebuffer} member of {@code pRenderPassBegin} <b>must</b> have been created with {@link #VK_IMAGE_USAGE_TRANSFER_DST_BIT IMAGE_USAGE_TRANSFER_DST_BIT} set</li>

@@ -78,31 +78,31 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_EXT_debug_report</dd>
+ * <dd>{@code VK_EXT_debug_report}</dd>
  * <dt><b>Extension Type</b></dt>
- * <dd>Instance</dd>
+ * <dd>Instance extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>12</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-04-27</dd>
  * <dt><b>Revision</b></dt>
  * <dd>8</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>Courtney Goeltzenleuchter @courtney</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2017-04-27</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0.27 of the Vulkan API.</li>
- * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Courtney Goeltzenleuchter, LunarG</li>
  * <li>Dan Ginsburg, Valve</li>
  * <li>Jon Ashburn, LunarG</li>
  * <li>Mark Lobodzinski, LunarG</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>Courtney Goeltzenleuchter</li>
  * </ul></dd>
  * </dl>
  */
@@ -178,6 +178,12 @@ public class EXTDebugReport {
      * <h5>See Also</h5>
      * 
      * <p>{@link VkDebugMarkerObjectNameInfoEXT}, {@link VkDebugMarkerObjectTagInfoEXT}, {@link #vkDebugReportMessageEXT DebugReportMessageEXT}</p>
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT}</li>
+     * </ul>
      */
     public static final int
         VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT                      = 0,
@@ -212,7 +218,8 @@ public class EXTDebugReport {
         VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_KHR_EXT                  = 29,
         VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT             = 30,
         VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT             = 31,
-        VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32;
+        VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32,
+        VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT             = 33;
 
     /**
      * VkDebugReportFlagBitsEXT - Bitmask specifying events which cause a debug report callback

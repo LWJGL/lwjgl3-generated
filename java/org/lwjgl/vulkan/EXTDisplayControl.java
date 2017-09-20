@@ -18,24 +18,27 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
- * <dd>VK_EXT_display_control</dd>
+ * <dd>{@code VK_EXT_display_control}</dd>
  * <dt><b>Extension Type</b></dt>
  * <dd>Device extension</dd>
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>92</dd>
- * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-12-13</dd>
  * <dt><b>Revision</b></dt>
  * <dd>1</dd>
+ * <dt><b>Extension and Version Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Requires Vulkan 1.0</li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_EXT_display_surface_counter">{@code VK_EXT_display_surface_counter}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_swapchain">{@code VK_KHR_swapchain}</a></li>
+ * </ul></dd>
+ * <dt><b>Contact</b></dt>
+ * <dd><ul>
+ * <li>James Jones @cubanismo</li>
+ * </ul></dd>
+ * <dt><b>Last Modified Date</b></dt>
+ * <dd>2016-12-13</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
- * <dt><b>Dependencies</b></dt>
- * <dd><ul>
- * <li>This extension is written against version 1.0.37 of the Vulkan API.</li>
- * <li>Requires VK_KHR_display</li>
- * <li>Requires VK_EXT_display_surface_counter</li>
- * <li>Requires VK_KHR_swapchain</li>
- * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Pierre Boudier, NVIDIA</li>
@@ -43,10 +46,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Damien Leone, NVIDIA</li>
  * <li>Pierre-Loup Griffais, Valve</li>
  * <li>Daniel Vetter, Intel</li>
- * </ul></dd>
- * <dt><b>Contacts</b></dt>
- * <dd><ul>
- * <li>James Jones, NVIDIA (jajones 'at' nvidia.com)</li>
  * </ul></dd>
  * </dl>
  */
@@ -197,7 +196,7 @@ public class EXTDisplayControl {
         long __functionAddress = device.getCapabilities().vkRegisterDeviceEventEXT;
         if (CHECKS) {
             check(__functionAddress);
-            VkAllocationCallbacks.validate(pAllocator);
+            if (pAllocator != NULL) { VkAllocationCallbacks.validate(pAllocator); }
         }
         return callPPPPI(__functionAddress, device.address(), pDeviceEventInfo, pAllocator, pFence);
     }
@@ -221,7 +220,7 @@ public class EXTDisplayControl {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code pDeviceEventInfo} <b>must</b> be a pointer to a valid {@link VkDeviceEventInfoEXT} structure</li>
-     * <li>{@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>{@code pFence} <b>must</b> be a pointer to a {@code VkFence} handle</li>
      * </ul>
      * 
@@ -248,7 +247,7 @@ public class EXTDisplayControl {
         if (CHECKS) {
             check(pFence, 1);
         }
-        return nvkRegisterDeviceEventEXT(device, pDeviceEventInfo.address(), pAllocator.address(), memAddress(pFence));
+        return nvkRegisterDeviceEventEXT(device, pDeviceEventInfo.address(), memAddressSafe(pAllocator), memAddress(pFence));
     }
 
     // --- [ vkRegisterDisplayEventEXT ] ---
@@ -258,7 +257,7 @@ public class EXTDisplayControl {
         long __functionAddress = device.getCapabilities().vkRegisterDisplayEventEXT;
         if (CHECKS) {
             check(__functionAddress);
-            VkAllocationCallbacks.validate(pAllocator);
+            if (pAllocator != NULL) { VkAllocationCallbacks.validate(pAllocator); }
         }
         return callPJPPPI(__functionAddress, device.address(), display, pDisplayEventInfo, pAllocator, pFence);
     }
@@ -284,7 +283,7 @@ public class EXTDisplayControl {
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
      * <li>{@code pDisplayEventInfo} <b>must</b> be a pointer to a valid {@link VkDisplayEventInfoEXT} structure</li>
-     * <li>{@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>{@code pFence} <b>must</b> be a pointer to a {@code VkFence} handle</li>
      * </ul>
      * 
@@ -312,7 +311,7 @@ public class EXTDisplayControl {
         if (CHECKS) {
             check(pFence, 1);
         }
-        return nvkRegisterDisplayEventEXT(device, display, pDisplayEventInfo.address(), pAllocator.address(), memAddress(pFence));
+        return nvkRegisterDisplayEventEXT(device, display, pDisplayEventInfo.address(), memAddressSafe(pAllocator), memAddress(pFence));
     }
 
     // --- [ vkGetSwapchainCounterEXT ] ---
@@ -391,9 +390,9 @@ public class EXTDisplayControl {
         if (CHECKS) {
             check(__functionAddress);
             check(pFence, 1);
-            VkAllocationCallbacks.validate(pAllocator.address());
+            if (pAllocator != null) { VkAllocationCallbacks.validate(pAllocator.address()); }
         }
-        return callPPPPI(__functionAddress, device.address(), pDeviceEventInfo.address(), pAllocator.address(), pFence);
+        return callPPPPI(__functionAddress, device.address(), pDeviceEventInfo.address(), memAddressSafe(pAllocator), pFence);
     }
 
     /** Array version of: {@link #vkRegisterDisplayEventEXT RegisterDisplayEventEXT} */
@@ -403,9 +402,9 @@ public class EXTDisplayControl {
         if (CHECKS) {
             check(__functionAddress);
             check(pFence, 1);
-            VkAllocationCallbacks.validate(pAllocator.address());
+            if (pAllocator != null) { VkAllocationCallbacks.validate(pAllocator.address()); }
         }
-        return callPJPPPI(__functionAddress, device.address(), display, pDisplayEventInfo.address(), pAllocator.address(), pFence);
+        return callPJPPPI(__functionAddress, device.address(), display, pDisplayEventInfo.address(), memAddressSafe(pAllocator), pFence);
     }
 
     /** Array version of: {@link #vkGetSwapchainCounterEXT GetSwapchainCounterEXT} */
