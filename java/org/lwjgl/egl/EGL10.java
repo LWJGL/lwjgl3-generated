@@ -396,9 +396,6 @@ public class EGL10 {
         if (CHECKS) {
             check(__functionAddress);
             check(dpy);
-            check(draw);
-            check(read);
-            check(ctx);
         }
         return callPPPPI(__functionAddress, dpy, draw, read, ctx) != 0;
     }
