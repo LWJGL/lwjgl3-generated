@@ -18,8 +18,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code cpuTimeBegin} &ndash; CPU frame begin time</li>
- * <li>{@code cpuTimeEnd} &ndash; CPU frame end time</li>
+ * <li>{@code cpuTimeFrame} &ndash; CPU time between two {@link BGFX#bgfx_frame frame} calls</li>
+ * <li>{@code cpuTimeBegin} &ndash; Render thread CPU submit begin time</li>
+ * <li>{@code cpuTimeEnd} &ndash; Render thread CPU submit end time</li>
  * <li>{@code cpuTimerFreq} &ndash; CPU timer frequency</li>
  * <li>{@code gpuTimeBegin} &ndash; GPU frame begin time</li>
  * <li>{@code gpuTimeEnd} &ndash; GPU frame end time</li>
@@ -41,6 +42,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <code><pre>
  * struct bgfx_stats_t {
+ *     uint64_t cpuTimeFrame;
  *     uint64_t cpuTimeBegin;
  *     uint64_t cpuTimeEnd;
  *     uint64_t cpuTimerFreq;
@@ -70,6 +72,7 @@ public class BGFXStats extends Struct {
 
     /** The struct member offsets. */
     public static final int
+        CPUTIMEFRAME,
         CPUTIMEBEGIN,
         CPUTIMEEND,
         CPUTIMERFREQ,
@@ -98,6 +101,7 @@ public class BGFXStats extends Struct {
             __member(8),
             __member(8),
             __member(8),
+            __member(8),
             __member(4),
             __member(4),
             __member(4),
@@ -112,23 +116,24 @@ public class BGFXStats extends Struct {
         SIZEOF = layout.getSize();
         ALIGNOF = layout.getAlignment();
 
-        CPUTIMEBEGIN = layout.offsetof(0);
-        CPUTIMEEND = layout.offsetof(1);
-        CPUTIMERFREQ = layout.offsetof(2);
-        GPUTIMEBEGIN = layout.offsetof(3);
-        GPUTIMEEND = layout.offsetof(4);
-        GPUTIMERFREQ = layout.offsetof(5);
-        WAITRENDER = layout.offsetof(6);
-        WAITSUBMIT = layout.offsetof(7);
-        NUMDRAW = layout.offsetof(8);
-        NUMCOMPUTE = layout.offsetof(9);
-        MAXGPULATENCY = layout.offsetof(10);
-        WIDTH = layout.offsetof(11);
-        HEIGHT = layout.offsetof(12);
-        TEXTWIDTH = layout.offsetof(13);
-        TEXTHEIGHT = layout.offsetof(14);
-        NUMVIEWS = layout.offsetof(15);
-        VIEWSTATS = layout.offsetof(16);
+        CPUTIMEFRAME = layout.offsetof(0);
+        CPUTIMEBEGIN = layout.offsetof(1);
+        CPUTIMEEND = layout.offsetof(2);
+        CPUTIMERFREQ = layout.offsetof(3);
+        GPUTIMEBEGIN = layout.offsetof(4);
+        GPUTIMEEND = layout.offsetof(5);
+        GPUTIMERFREQ = layout.offsetof(6);
+        WAITRENDER = layout.offsetof(7);
+        WAITSUBMIT = layout.offsetof(8);
+        NUMDRAW = layout.offsetof(9);
+        NUMCOMPUTE = layout.offsetof(10);
+        MAXGPULATENCY = layout.offsetof(11);
+        WIDTH = layout.offsetof(12);
+        HEIGHT = layout.offsetof(13);
+        TEXTWIDTH = layout.offsetof(14);
+        TEXTHEIGHT = layout.offsetof(15);
+        NUMVIEWS = layout.offsetof(16);
+        VIEWSTATS = layout.offsetof(17);
     }
 
     BGFXStats(long address, ByteBuffer container) {
@@ -148,6 +153,9 @@ public class BGFXStats extends Struct {
     @Override
     public int sizeof() { return SIZEOF; }
 
+    /** Returns the value of the {@code cpuTimeFrame} field. */
+    @NativeType("uint64_t")
+    public long cpuTimeFrame() { return ncpuTimeFrame(address()); }
     /** Returns the value of the {@code cpuTimeBegin} field. */
     @NativeType("uint64_t")
     public long cpuTimeBegin() { return ncpuTimeBegin(address()); }
@@ -222,6 +230,8 @@ public class BGFXStats extends Struct {
 
     // -----------------------------------
 
+    /** Unsafe version of {@link #cpuTimeFrame}. */
+    public static long ncpuTimeFrame(long struct) { return memGetLong(struct + BGFXStats.CPUTIMEFRAME); }
     /** Unsafe version of {@link #cpuTimeBegin}. */
     public static long ncpuTimeBegin(long struct) { return memGetLong(struct + BGFXStats.CPUTIMEBEGIN); }
     /** Unsafe version of {@link #cpuTimeEnd}. */
@@ -304,6 +314,9 @@ public class BGFXStats extends Struct {
             return SIZEOF;
         }
 
+        /** Returns the value of the {@code cpuTimeFrame} field. */
+        @NativeType("uint64_t")
+        public long cpuTimeFrame() { return BGFXStats.ncpuTimeFrame(address()); }
         /** Returns the value of the {@code cpuTimeBegin} field. */
         @NativeType("uint64_t")
         public long cpuTimeBegin() { return BGFXStats.ncpuTimeBegin(address()); }
