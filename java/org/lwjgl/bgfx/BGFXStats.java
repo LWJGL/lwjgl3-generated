@@ -30,6 +30,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code numDraw} &ndash; number of draw calls submitted</li>
  * <li>{@code numCompute} &ndash; number of compute calls submitted</li>
  * <li>{@code maxGpuLatency} &ndash; GPU driver latency</li>
+ * <li>{@code gpuMemoryMax} &ndash; maximum available GPU memory</li>
+ * <li>{@code gpuMemoryUsed} &ndash; available GPU memory</li>
  * <li>{@code width} &ndash; backbuffer width in pixels</li>
  * <li>{@code height} &ndash; backbuffer height in pixels</li>
  * <li>{@code textWidth} &ndash; debug text width in characters</li>
@@ -42,18 +44,20 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <code><pre>
  * struct bgfx_stats_t {
- *     uint64_t cpuTimeFrame;
- *     uint64_t cpuTimeBegin;
- *     uint64_t cpuTimeEnd;
- *     uint64_t cpuTimerFreq;
- *     uint64_t gpuTimeBegin;
- *     uint64_t gpuTimeEnd;
- *     uint64_t gpuTimerFreq;
+ *     int64_t cpuTimeFrame;
+ *     int64_t cpuTimeBegin;
+ *     int64_t cpuTimeEnd;
+ *     int64_t cpuTimerFreq;
+ *     int64_t gpuTimeBegin;
+ *     int64_t gpuTimeEnd;
+ *     int64_t gpuTimerFreq;
  *     int64_t waitRender;
  *     int64_t waitSubmit;
  *     uint32_t numDraw;
  *     uint32_t numCompute;
  *     uint32_t maxGpuLatency;
+ *     int64_t gpuMemoryMax;
+ *     int64_t gpuMemoryUsed;
  *     uint16_t width;
  *     uint16_t height;
  *     uint16_t textWidth;
@@ -84,6 +88,8 @@ public class BGFXStats extends Struct {
         NUMDRAW,
         NUMCOMPUTE,
         MAXGPULATENCY,
+        GPUMEMORYMAX,
+        GPUMEMORYUSED,
         WIDTH,
         HEIGHT,
         TEXTWIDTH,
@@ -105,6 +111,8 @@ public class BGFXStats extends Struct {
             __member(4),
             __member(4),
             __member(4),
+            __member(8),
+            __member(8),
             __member(2),
             __member(2),
             __member(2),
@@ -128,12 +136,14 @@ public class BGFXStats extends Struct {
         NUMDRAW = layout.offsetof(9);
         NUMCOMPUTE = layout.offsetof(10);
         MAXGPULATENCY = layout.offsetof(11);
-        WIDTH = layout.offsetof(12);
-        HEIGHT = layout.offsetof(13);
-        TEXTWIDTH = layout.offsetof(14);
-        TEXTHEIGHT = layout.offsetof(15);
-        NUMVIEWS = layout.offsetof(16);
-        VIEWSTATS = layout.offsetof(17);
+        GPUMEMORYMAX = layout.offsetof(12);
+        GPUMEMORYUSED = layout.offsetof(13);
+        WIDTH = layout.offsetof(14);
+        HEIGHT = layout.offsetof(15);
+        TEXTWIDTH = layout.offsetof(16);
+        TEXTHEIGHT = layout.offsetof(17);
+        NUMVIEWS = layout.offsetof(18);
+        VIEWSTATS = layout.offsetof(19);
     }
 
     BGFXStats(long address, ByteBuffer container) {
@@ -154,25 +164,25 @@ public class BGFXStats extends Struct {
     public int sizeof() { return SIZEOF; }
 
     /** Returns the value of the {@code cpuTimeFrame} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long cpuTimeFrame() { return ncpuTimeFrame(address()); }
     /** Returns the value of the {@code cpuTimeBegin} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long cpuTimeBegin() { return ncpuTimeBegin(address()); }
     /** Returns the value of the {@code cpuTimeEnd} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long cpuTimeEnd() { return ncpuTimeEnd(address()); }
     /** Returns the value of the {@code cpuTimerFreq} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long cpuTimerFreq() { return ncpuTimerFreq(address()); }
     /** Returns the value of the {@code gpuTimeBegin} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long gpuTimeBegin() { return ngpuTimeBegin(address()); }
     /** Returns the value of the {@code gpuTimeEnd} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long gpuTimeEnd() { return ngpuTimeEnd(address()); }
     /** Returns the value of the {@code gpuTimerFreq} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long gpuTimerFreq() { return ngpuTimerFreq(address()); }
     /** Returns the value of the {@code waitRender} field. */
     @NativeType("int64_t")
@@ -189,6 +199,12 @@ public class BGFXStats extends Struct {
     /** Returns the value of the {@code maxGpuLatency} field. */
     @NativeType("uint32_t")
     public int maxGpuLatency() { return nmaxGpuLatency(address()); }
+    /** Returns the value of the {@code gpuMemoryMax} field. */
+    @NativeType("int64_t")
+    public long gpuMemoryMax() { return ngpuMemoryMax(address()); }
+    /** Returns the value of the {@code gpuMemoryUsed} field. */
+    @NativeType("int64_t")
+    public long gpuMemoryUsed() { return ngpuMemoryUsed(address()); }
     /** Returns the value of the {@code width} field. */
     @NativeType("uint16_t")
     public short width() { return nwidth(address()); }
@@ -254,6 +270,10 @@ public class BGFXStats extends Struct {
     public static int nnumCompute(long struct) { return memGetInt(struct + BGFXStats.NUMCOMPUTE); }
     /** Unsafe version of {@link #maxGpuLatency}. */
     public static int nmaxGpuLatency(long struct) { return memGetInt(struct + BGFXStats.MAXGPULATENCY); }
+    /** Unsafe version of {@link #gpuMemoryMax}. */
+    public static long ngpuMemoryMax(long struct) { return memGetLong(struct + BGFXStats.GPUMEMORYMAX); }
+    /** Unsafe version of {@link #gpuMemoryUsed}. */
+    public static long ngpuMemoryUsed(long struct) { return memGetLong(struct + BGFXStats.GPUMEMORYUSED); }
     /** Unsafe version of {@link #width}. */
     public static short nwidth(long struct) { return memGetShort(struct + BGFXStats.WIDTH); }
     /** Unsafe version of {@link #height}. */
@@ -315,25 +335,25 @@ public class BGFXStats extends Struct {
         }
 
         /** Returns the value of the {@code cpuTimeFrame} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long cpuTimeFrame() { return BGFXStats.ncpuTimeFrame(address()); }
         /** Returns the value of the {@code cpuTimeBegin} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long cpuTimeBegin() { return BGFXStats.ncpuTimeBegin(address()); }
         /** Returns the value of the {@code cpuTimeEnd} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long cpuTimeEnd() { return BGFXStats.ncpuTimeEnd(address()); }
         /** Returns the value of the {@code cpuTimerFreq} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long cpuTimerFreq() { return BGFXStats.ncpuTimerFreq(address()); }
         /** Returns the value of the {@code gpuTimeBegin} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long gpuTimeBegin() { return BGFXStats.ngpuTimeBegin(address()); }
         /** Returns the value of the {@code gpuTimeEnd} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long gpuTimeEnd() { return BGFXStats.ngpuTimeEnd(address()); }
         /** Returns the value of the {@code gpuTimerFreq} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long gpuTimerFreq() { return BGFXStats.ngpuTimerFreq(address()); }
         /** Returns the value of the {@code waitRender} field. */
         @NativeType("int64_t")
@@ -350,6 +370,12 @@ public class BGFXStats extends Struct {
         /** Returns the value of the {@code maxGpuLatency} field. */
         @NativeType("uint32_t")
         public int maxGpuLatency() { return BGFXStats.nmaxGpuLatency(address()); }
+        /** Returns the value of the {@code gpuMemoryMax} field. */
+        @NativeType("int64_t")
+        public long gpuMemoryMax() { return BGFXStats.ngpuMemoryMax(address()); }
+        /** Returns the value of the {@code gpuMemoryUsed} field. */
+        @NativeType("int64_t")
+        public long gpuMemoryUsed() { return BGFXStats.ngpuMemoryUsed(address()); }
         /** Returns the value of the {@code width} field. */
         @NativeType("uint16_t")
         public short width() { return BGFXStats.nwidth(address()); }
