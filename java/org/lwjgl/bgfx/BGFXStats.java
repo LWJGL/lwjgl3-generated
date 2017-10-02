@@ -288,7 +288,7 @@ public class BGFXStats extends Struct {
     public static BGFXViewStats.Buffer nviewStats(long struct) { return BGFXViewStats.create(struct + BGFXStats.VIEWSTATS, Short.toUnsignedInt(nnumViews(struct))); }
     /** Unsafe version of {@link #viewStats(int) viewStats}. */
     public static BGFXViewStats nviewStats(long struct, int index) {
-        if (CHECKS) { check(index, 256); }
+        if (CHECKS) { check(index, Short.toUnsignedInt(nnumViews(struct))); }
         return BGFXViewStats.create(struct + BGFXStats.VIEWSTATS + index * BGFXViewStats.SIZEOF);
     }
 

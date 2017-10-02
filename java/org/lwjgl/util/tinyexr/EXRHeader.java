@@ -525,7 +525,7 @@ public class EXRHeader extends Struct implements NativeResource {
     public static EXRAttribute.Buffer ncustom_attributes(long struct) { return EXRAttribute.create(struct + EXRHeader.CUSTOM_ATTRIBUTES, nnum_custom_attributes(struct)); }
     /** Unsafe version of {@link #custom_attributes(int) custom_attributes}. */
     public static EXRAttribute ncustom_attributes(long struct, int index) {
-        if (CHECKS) { check(index, TINYEXR_MAX_ATTRIBUTES); }
+        if (CHECKS) { check(index, nnum_custom_attributes(struct)); }
         return EXRAttribute.create(struct + EXRHeader.CUSTOM_ATTRIBUTES + index * EXRAttribute.SIZEOF);
     }
     /** Unsafe version of {@link #channels}. */

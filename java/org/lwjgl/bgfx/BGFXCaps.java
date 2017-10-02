@@ -189,7 +189,7 @@ public class BGFXCaps extends Struct {
     public static BGFXCapsGPU.Buffer ngpu(long struct) { return BGFXCapsGPU.create(struct + BGFXCaps.GPU, Byte.toUnsignedInt(nnumGPUs(struct))); }
     /** Unsafe version of {@link #gpu(int) gpu}. */
     public static BGFXCapsGPU ngpu(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
+        if (CHECKS) { check(index, Byte.toUnsignedInt(nnumGPUs(struct))); }
         return BGFXCapsGPU.create(struct + BGFXCaps.GPU + index * BGFXCapsGPU.SIZEOF);
     }
     /** Unsafe version of {@link #limits}. */

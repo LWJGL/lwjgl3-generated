@@ -298,7 +298,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
     public static VkMemoryType.Buffer nmemoryTypes(long struct) { return VkMemoryType.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYTYPES, nmemoryTypeCount(struct)); }
     /** Unsafe version of {@link #memoryTypes(int) memoryTypes}. */
     public static VkMemoryType nmemoryTypes(long struct, int index) {
-        if (CHECKS) { check(index, VK_MAX_MEMORY_TYPES); }
+        if (CHECKS) { check(index, nmemoryTypeCount(struct)); }
         return VkMemoryType.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYTYPES + index * VkMemoryType.SIZEOF);
     }
     /** Unsafe version of {@link #memoryHeapCount}. */
@@ -307,7 +307,7 @@ public class VkPhysicalDeviceMemoryProperties extends Struct implements NativeRe
     public static VkMemoryHeap.Buffer nmemoryHeaps(long struct) { return VkMemoryHeap.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYHEAPS, nmemoryHeapCount(struct)); }
     /** Unsafe version of {@link #memoryHeaps(int) memoryHeaps}. */
     public static VkMemoryHeap nmemoryHeaps(long struct, int index) {
-        if (CHECKS) { check(index, VK_MAX_MEMORY_HEAPS); }
+        if (CHECKS) { check(index, nmemoryHeapCount(struct)); }
         return VkMemoryHeap.create(struct + VkPhysicalDeviceMemoryProperties.MEMORYHEAPS + index * VkMemoryHeap.SIZEOF);
     }
 
