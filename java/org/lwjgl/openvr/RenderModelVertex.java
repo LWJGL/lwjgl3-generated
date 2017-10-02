@@ -7,12 +7,10 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * A single vertex in a render model.
@@ -33,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * }</pre></code>
  */
 @NativeType("struct RenderModel_Vertex_t")
-public class RenderModelVertex extends Struct implements NativeResource {
+public class RenderModelVertex extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -92,51 +90,9 @@ public class RenderModelVertex extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link RenderModelVertex} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static RenderModelVertex malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link RenderModelVertex} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static RenderModelVertex calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link RenderModelVertex} instance allocated with {@link BufferUtils}. */
-    public static RenderModelVertex create() {
-        return new RenderModelVertex(BufferUtils.createByteBuffer(SIZEOF));
-    }
-
     /** Returns a new {@link RenderModelVertex} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static RenderModelVertex create(long address) {
         return address == NULL ? null : new RenderModelVertex(address, null);
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -147,74 +103,6 @@ public class RenderModelVertex extends Struct implements NativeResource {
      */
     public static Buffer create(long address, int capacity) {
         return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
-    }
-
-    // -----------------------------------
-
-    /** Returns a new {@link RenderModelVertex} instance allocated on the thread-local {@link MemoryStack}. */
-    public static RenderModelVertex mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link RenderModelVertex} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static RenderModelVertex callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static RenderModelVertex mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static RenderModelVertex callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link RenderModelVertex.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
     // -----------------------------------
@@ -234,7 +122,7 @@ public class RenderModelVertex extends Struct implements NativeResource {
     // -----------------------------------
 
     /** An array of {@link RenderModelVertex} structs. */
-    public static class Buffer extends StructBuffer<RenderModelVertex, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<RenderModelVertex, Buffer> {
 
         /**
          * Creates a new {@link RenderModelVertex.Buffer} instance backed by the specified container.
