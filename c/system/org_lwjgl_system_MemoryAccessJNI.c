@@ -75,12 +75,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_MemoryAccessJNI_free(JNIEnv *__env
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_MemoryAccessJNI_aligned_1alloc(JNIEnv *__env, jclass clazz) {
     UNUSED_PARAMS(__env, clazz)
-return (jlong)(intptr_t)&__aligned_alloc;
+    return (jlong)(intptr_t)&__aligned_alloc;
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_MemoryAccessJNI_aligned_1free(JNIEnv *__env, jclass clazz) {
     UNUSED_PARAMS(__env, clazz)
-return (jlong)(intptr_t)&__aligned_free;
+    return (jlong)(intptr_t)&__aligned_free;
 }
 
 JNIEXPORT jbyte JNICALL Java_org_lwjgl_system_MemoryAccessJNI_ngetByte(JNIEnv *__env, jclass clazz, jlong ptrAddress) {
