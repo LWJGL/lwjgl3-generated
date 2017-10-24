@@ -84,7 +84,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>12</dd>
  * <dt><b>Revision</b></dt>
- * <dd>8</dd>
+ * <dd>9</dd>
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
@@ -109,7 +109,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 public class EXTDebugReport {
 
     /** The extension specification version. */
-    public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 8;
+    public static final int VK_EXT_DEBUG_REPORT_SPEC_VERSION = 9;
 
     /** The extension name. */
     public static final String VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report";

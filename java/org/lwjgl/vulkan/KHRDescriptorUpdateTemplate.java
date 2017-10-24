@@ -245,13 +245,18 @@ public class KHRDescriptorUpdateTemplate {
      *     VkDescriptorUpdateTemplateKHR               descriptorUpdateTemplate,
      *     const void*                                 pData);</pre></code>
      * 
+     * <h5>Valid Usage</h5>
+     * 
+     * <ul>
+     * <li>{@code pData} <b>must</b> be a pointer to a memory that contains one or more valid instances of {@link VkDescriptorImageInfo}, {@link VkDescriptorBufferInfo}, or {@code VkBufferView} in a layout defined by {@code descriptorUpdateTemplate} when it was created with {@link #vkCreateDescriptorUpdateTemplateKHR CreateDescriptorUpdateTemplateKHR}</li>
+     * </ul>
+     * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code descriptorSet} <b>must</b> be a valid {@code VkDescriptorSet} handle</li>
      * <li>{@code descriptorUpdateTemplate} <b>must</b> be a valid {@code VkDescriptorUpdateTemplateKHR} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer</li>
      * <li>{@code descriptorUpdateTemplate} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -324,7 +329,7 @@ public class KHRDescriptorUpdateTemplate {
      * };
      * 
      * VkDescriptorUpdateTemplateKHR myDescriptorUpdateTemplate;
-     * myResult = vkCreatePipelineLayout(
+     * myResult = vkCreateDescriptorUpdateTemplateKHR(
      *     myDevice,
      *     &createInfo,
      *     NULL,
@@ -372,6 +377,7 @@ public class KHRDescriptorUpdateTemplate {
      * 
      * <ul>
      * <li>The pipelineBindPoint specified during the creation of the descriptor update template <b>must</b> be supported by the {@code commandBuffer}&#8217;s parent {@code VkCommandPool}&#8217;s queue family</li>
+     * <li>{@code pData} <b>must</b> be a pointer to a memory that contains one or more valid instances of {@link VkDescriptorImageInfo}, {@link VkDescriptorBufferInfo}, or {@code VkBufferView} in a layout defined by {@code descriptorUpdateTemplate} when it was created with {@link #vkCreateDescriptorUpdateTemplateKHR CreateDescriptorUpdateTemplateKHR}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -380,7 +386,6 @@ public class KHRDescriptorUpdateTemplate {
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code descriptorUpdateTemplate} <b>must</b> be a valid {@code VkDescriptorUpdateTemplateKHR} handle</li>
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>Each of {@code commandBuffer}, {@code descriptorUpdateTemplate}, and {@code layout} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
@@ -442,7 +447,7 @@ public class KHRDescriptorUpdateTemplate {
      * };
      * 
      * VkDescriptorUpdateTemplateKHR myDescriptorUpdateTemplate;
-     * myResult = vkCreatePipelineLayout(
+     * myResult = vkCreateDescriptorUpdateTemplateKHR(
      *     myDevice,
      *     &createInfo,
      *     NULL,

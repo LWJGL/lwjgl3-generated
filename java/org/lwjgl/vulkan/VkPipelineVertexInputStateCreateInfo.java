@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code vertexBindingDescriptionCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputBindings}</li>
  * <li>{@code vertexAttributeDescriptionCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxVertexInputAttributes}</li>
- * <li>For every {@code binding} specified by any given element of {@code pVertexAttributeDescriptions}, a {@link VkVertexInputBindingDescription} <b>must</b> exist in {@code pVertexBindingDescriptions} with the same value of {@code binding}</li>
+ * <li>For every {@code binding} specified by each element of {@code pVertexAttributeDescriptions}, a {@link VkVertexInputBindingDescription} <b>must</b> exist in {@code pVertexBindingDescriptions} with the same value of {@code binding}</li>
  * <li>All elements of {@code pVertexBindingDescriptions} <b>must</b> describe distinct binding numbers</li>
  * <li>All elements of {@code pVertexAttributeDescriptions} <b>must</b> describe distinct attribute locations</li>
  * </ul>

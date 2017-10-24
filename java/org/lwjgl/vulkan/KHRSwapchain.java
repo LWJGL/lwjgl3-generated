@@ -221,9 +221,9 @@ public class KHRSwapchain {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@code swapchain} and all associated {@code VkImage} handles are destroyed, and <b>must</b> not be acquired or used any more by the application. The memory of each {@code VkImage} will only be freed after that image is no longer used by the platform. For example, if one image of the swapchain is being displayed in a window, the memory for that image <b>may</b> not be freed until the window is destroyed, or another swapchain is created for the window. Destroying the swapchain does not invalidate the parent {@code VkSurfaceKHR}, and a new swapchain <b>can</b> be created with it.</p>
+     * <p>The application <b>must</b> not destroy a swapchain until after completion of all outstanding operations on images that were acquired from the swapchain. {@code swapchain} and all associated {@code VkImage} handles are destroyed, and <b>must</b> not be acquired or used any more by the application. The memory of each {@code VkImage} will only be freed after that image is no longer used by the presentation engine. For example, if one image of the swapchain is being displayed in a window, the memory for that image <b>may</b> not be freed until the window is destroyed, or another swapchain is created for the window. Destroying the swapchain does not invalidate the parent {@code VkSurfaceKHR}, and a new swapchain <b>can</b> be created with it.</p>
      * 
-     * <p>If a swapchain associated with a display surface is destroyed and there are no valid descendants of that swapchain, the implementation <b>must</b> either revert any display resources modified by presenting images with the swapchain to their state prior to the first present performed with the swapchain and its ancestors, or leave such resources in their current state.</p>
+     * <p>When a swapchain associated with a display surface is destroyed, if the image most recently presented to the display surface is from the swapchain being destroyed, then either any display resources modified by presenting images from any swapchain associated with the display surface <b>must</b> be reverted by the implementation to their state prior to the first present performed on one of these swapchains, or such resources <b>must</b> be left in their current state.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -362,7 +362,7 @@ public class KHRSwapchain {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code swapchain} <b>must</b> not have been replaced by being passed as the {@link VkSwapchainCreateInfoKHR}{@code ::oldSwapchain} value to {@link #vkCreateSwapchainKHR CreateSwapchainKHR}</li>
+     * <li>{@code swapchain} <b>must</b> not be in the retired state</li>
      * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled</li>
      * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must</b> not be associated with any other queue command that has not yet completed execution on that queue</li>
      * </ul>
@@ -409,7 +409,7 @@ public class KHRSwapchain {
      * </dl>
      *
      * @param device      the device associated with {@code swapchain}.
-     * @param swapchain   the swapchain from which an image is being acquired.
+     * @param swapchain   the non-retired swapchain from which an image is being acquired.
      * @param timeout     indicates how long the function waits, in nanoseconds, if no image is available.
      * @param semaphore   {@link VK10#VK_NULL_HANDLE NULL_HANDLE} or a semaphore to signal.
      * @param fence       {@link VK10#VK_NULL_HANDLE NULL_HANDLE} or a fence to signal.
@@ -450,7 +450,7 @@ public class KHRSwapchain {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>Any given element of {@code pSwapchains} member of {@code pPresentInfo} <b>must</b> be a swapchain that is created for a surface for which presentation is supported from {@code queue} as determined using a call to {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
+     * <li>Each element of {@code pSwapchains} member of {@code pPresentInfo} <b>must</b> be a swapchain that is created for a surface for which presentation is supported from {@code queue} as determined using a call to {@link KHRSurface#vkGetPhysicalDeviceSurfaceSupportKHR GetPhysicalDeviceSurfaceSupportKHR}</li>
      * <li>If more than one member of {@code pSwapchains} was created from a display surface, all display surfaces referenced that refer to the same display <b>must</b> use the same display mode</li>
      * <li>When a semaphore unsignal operation defined by the elements of the {@code pWaitSemaphores} member of {@code pPresentInfo} executes on {@code queue}, no other queue <b>must</b> be waiting on the same semaphore.</li>
      * <li>All elements of the {@code pWaitSemaphores} member of {@code pPresentInfo} <b>must</b> be semaphores that are signaled, or have <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-signaling">semaphore signal operations</a> previously submitted for execution.</li>

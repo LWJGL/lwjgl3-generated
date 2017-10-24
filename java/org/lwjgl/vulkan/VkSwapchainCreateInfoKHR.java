@@ -17,17 +17,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying parameters of a newly created swapchain object.
  * 
- * <h5>Description</h5>
- * 
- * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
- * 
- * <p>Applications <b>should</b> set this value to {@link VK10#VK_TRUE TRUE} if they do not expect to read back the content of presentable images before presenting them or after reacquiring them and if their pixel shaders do not have any side effects that require them to run for all pixels in the presentable image.</p>
- * </div>
- * 
- * <ul>
- * <li>{@code oldSwapchain}, if not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, specifies the swapchain that will be replaced by the new swapchain being created. The new swapchain will be a descendant of {@code oldSwapchain}. Further, any descendants of the new swapchain will also be descendants of {@code oldSwapchain}. Upon calling {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR} with a {@code oldSwapchain} that is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, any images not acquired by the application <b>may</b> be freed by the implementation, which <b>may</b> occur even if creation of the new swapchain fails. The application <b>must</b> destroy the old swapchain to free all memory associated with the old swapchain. The application <b>must</b> wait for the completion of any outstanding rendering to images it currently has acquired at the time the swapchain is destroyed. The application <b>can</b> continue to present any images it acquired and has not yet presented using the old swapchain, as long as it has not entered a state that causes it to return {@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}. However, the application <b>cannot</b> acquire any more images from the old swapchain regardless of whether or not creation of the new swapchain succeeds. The application <b>can</b> continue to use a shared presentable image obtained from {@code oldSwapchain} until a presentable image is acquired from the new swapchain, as long as it has not entered a state that causes it to return {@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}.</li>
- * </ul>
- * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -37,6 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code minImageCount} <b>must</b> be 1 if {@code presentMode} is either {@link KHRSharedPresentableImage#VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR} or {@link KHRSharedPresentableImage#VK_PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR}</li>
  * <li>{@code imageFormat} and {@code imageColorSpace} <b>must</b> match the {@code format} and {@code colorSpace} members, respectively, of one of the {@link VkSurfaceFormatKHR} structures returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceFormatsKHR GetPhysicalDeviceSurfaceFormatsKHR} for the surface</li>
  * <li>{@code imageExtent} <b>must</b> be between {@code minImageExtent} and {@code maxImageExtent}, inclusive, where {@code minImageExtent} and {@code maxImageExtent} are members of the {@link VkSurfaceCapabilitiesKHR} structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
+ * <li>{@code imageExtent} members {@code width} and {@code height} <b>must</b> both be non-zero</li>
  * <li>{@code imageArrayLayers} <b>must</b> be greater than 0 and less than or equal to the {@code maxImageArrayLayers} member of the {@link VkSurfaceCapabilitiesKHR} structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
  * <li>If {@code presentMode} is {@link KHRSurface#VK_PRESENT_MODE_IMMEDIATE_KHR PRESENT_MODE_IMMEDIATE_KHR}, {@link KHRSurface#VK_PRESENT_MODE_MAILBOX_KHR PRESENT_MODE_MAILBOX_KHR}, {@link KHRSurface#VK_PRESENT_MODE_FIFO_KHR PRESENT_MODE_FIFO_KHR} or {@link KHRSurface#VK_PRESENT_MODE_FIFO_RELAXED_KHR PRESENT_MODE_FIFO_RELAXED_KHR}, {@code imageUsage} <b>must</b> be a subset of the supported usage flags present in the {@code supportedUsageFlags} member of the {@link VkSurfaceCapabilitiesKHR} structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for {@code surface}</li>
  * <li>If {@code presentMode} is {@link KHRSharedPresentableImage#VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR} or {@link KHRSharedPresentableImage#VK_PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR}, {@code imageUsage} <b>must</b> be a subset of the supported usage flags present in the {@code sharedPresentSupportedUsageFlags} member of the {@link VkSharedPresentSurfaceCapabilitiesKHR} structure returned by {@link KHRGetSurfaceCapabilities2#vkGetPhysicalDeviceSurfaceCapabilities2KHR GetPhysicalDeviceSurfaceCapabilities2KHR} for {@code surface}</li>
@@ -47,6 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code compositeAlpha} <b>must</b> be one of the bits present in the {@code supportedCompositeAlpha} member of the {@link VkSurfaceCapabilitiesKHR} structure returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} for the surface</li>
  * <li>{@code presentMode} <b>must</b> be one of the {@code VkPresentModeKHR} values returned by {@link KHRSurface#vkGetPhysicalDeviceSurfacePresentModesKHR GetPhysicalDeviceSurfacePresentModesKHR} for the surface</li>
  * <li>If the logical device was created with {@link VkDeviceGroupDeviceCreateInfoKHX}{@code ::physicalDeviceCount} equal to 1, {@code flags} <b>must</b> not contain {@link KHXDeviceGroup#VK_SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX SWAPCHAIN_CREATE_BIND_SFR_BIT_KHX}</li>
+ * <li>{@code oldSwapchain} <b>must</b> not be in the retired state</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -80,11 +71,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code flags} &ndash; a bitmask of {@code VkSwapchainCreateFlagBitsKHR} indicating parameters of swapchain creation.</li>
- * <li>{@code surface} &ndash; the surface that the swapchain will present images to.</li>
+ * <li>{@code surface} &ndash; the surface to which the swapchain will present images. The swapchain is associated with {@code surface}.</li>
  * <li>{@code minImageCount} &ndash; the minimum number of presentable images that the application needs. The platform will either create the swapchain with at least that many images, or will fail to create the swapchain.</li>
  * <li>{@code imageFormat} &ndash; a {@code VkFormat} that is valid for swapchains on the specified surface.</li>
  * <li>{@code imageColorSpace} &ndash; a {@code VkColorSpaceKHR} that is valid for swapchains on the specified surface.</li>
- * <li>{@code imageExtent} &ndash; the size (in pixels) of the swapchain. Behavior is platform-dependent when the image extent does not match the surface&#8217;s {@code currentExtent} as returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}.</li>
+ * <li>{@code imageExtent} &ndash; the non-zero size (in pixels) of the swapchain. Behavior is platform-dependent when the image extent does not match the surface&#8217;s {@code currentExtent} as returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}.
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>On some platforms, {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} can return in {@link VkSurfaceCapabilitiesKHR} a {@code currentExtent} that has a {@code width} and/or {@code height} equal to zero. This can happen, e.g., while a native window object is minimized. In this situation, the native window object may have to be restored from the minimized state before a {@code VkSwapchainKHR} can be created, because:</p>
+ * 
+ * <ul>
+ * <li>The {@code minImageExtent} and {@code maxImageExtent} values returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR} may match the {@code currentExtent}.</li>
+ * <li>On some platforms, the {@code imageExtent} member of {@link VkSwapchainCreateInfoKHR} must match the {@code currentExtent} returned by {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}.</li>
+ * </ul>
+ * </div></li>
  * <li>{@code imageArrayLayers} &ndash; the number of views in a multiview/stereo surface. For non-stereoscopic-3D applications, this value is 1.</li>
  * <li>{@code imageUsage} &ndash; a bitmask of {@code VkImageUsageFlagBits}, indicating how the application will use the swapchain&#8217;s presentable images.</li>
  * <li>{@code imageSharingMode} &ndash; the sharing mode used for the images of the swapchain.</li>
@@ -97,8 +98,28 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>If set to {@link VK10#VK_TRUE TRUE}, the presentable images associated with the swapchain <b>may</b> not own all of their pixels. Pixels in the presentable images that correspond to regions of the target surface obscured by another window on the desktop or subject to some other clipping mechanism will have undefined content when read back. Pixel shaders <b>may</b> not execute for these pixels, and thus any side affects they would have had will not occur.</li>
- * <li>If set to {@link VK10#VK_FALSE FALSE}, presentable images associated with the swapchain will own all the pixels they contain. Setting this value to {@link VK10#VK_TRUE TRUE} does not guarantee any clipping will occur, but allows more optimal presentation methods to be used on some platforms.</li>
+ * <li>If set to {@link VK10#VK_FALSE FALSE}, presentable images associated with the swapchain will own all the pixels they contain. Setting this value to {@link VK10#VK_TRUE TRUE} does not guarantee any clipping will occur, but allows more optimal presentation methods to be used on some platforms.
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>Applications <b>should</b> set this value to {@link VK10#VK_TRUE TRUE} if they do not expect to read back the content of presentable images before presenting them or after reacquiring them and if their pixel shaders do not have any side effects that require them to run for all pixels in the presentable image.</p>
+ * </div>
+ * </li>
  * </ul></li>
+ * <li>{@code oldSwapchain} &ndash; if not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, specifies an existing non-retired swapchain that is associated with surface.
+ * 
+ * <p>Upon calling {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR} with a {@code oldSwapchain} that is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code oldSwapchain} is retired, even if creation of the new swapchain fails. The new swapchain is created in the non-retired state whether or not {@code oldSwapchain} is {@link VK10#VK_NULL_HANDLE NULL_HANDLE}.</p>
+ * 
+ * <p>Upon calling {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR} with a {@code oldSwapchain} that is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, any images from {@code oldSwapchain} that are not acquired by the application <b>may</b> be freed by the implementation, which <b>may</b> occur even if creation of the new swapchain fails. The application <b>must</b> destroy {@code oldSwapchain} to free all memory associated with {@code oldSwapchain}.</p>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>Multiple retired swapchains <b>can</b> be associated with the same {@code VkSurfaceKHR} through multiple uses of {@code oldSwapchain} that outnumber calls to {@link KHRSwapchain#vkDestroySwapchainKHR DestroySwapchainKHR}.</p>
+ * 
+ * <p>After {@code oldSwapchain} is retired, the application <b>can</b> pass to {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR} any images it had already acquired from {@code oldSwapchain}. E.g., an application may present an image from the old swapchain before an image from the new swapchain is ready to be presented. As usual, {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR} <b>may</b> fail if {@code oldSwapchain} has entered a state that causes {@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR} to be returned.</p>
+ * 
+ * <p>The application <b>can</b> continue to use a shared presentable image obtained from {@code oldSwapchain} until a presentable image is acquired from the new swapchain, as long as it has not entered a state that causes it to return {@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}.</p>
+ * </div></li>
  * </ul>
  * 
  * <h3>Layout</h3>

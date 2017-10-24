@@ -31,9 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>The callback <b>must</b> not call {@link EXTDebugReport#vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT}.</p>
  * 
- * <p>The callback returns a {@code VkBool32} that indicates to the calling layer the application's desire to abort the call. A value of {@link VK10#VK_TRUE TRUE} indicates that the application wants to abort this call. If the application returns {@link VK10#VK_FALSE FALSE}, the command <b>must</b> not be aborted. Applications <b>should</b> always return {@link VK10#VK_FALSE FALSE} so that they see the same behavior with and without validation layers enabled.</p>
- * 
- * <p>If the application returns {@link VK10#VK_TRUE TRUE} from its callback and the Vulkan call being aborted returns a {@code VkResult}, the layer will return {@link EXTDebugReport#VK_ERROR_VALIDATION_FAILED_EXT ERROR_VALIDATION_FAILED_EXT}.</p>
+ * <p>The callback returns a {@code VkBool32}, which is interpreted in a layer-specified manner. The application <b>should</b> always return {@link VK10#VK_FALSE FALSE}. The {@link VK10#VK_TRUE TRUE} value is reserved for use in layer development.</p>
  * 
  * <h5>Valid Usage</h5>
  * 

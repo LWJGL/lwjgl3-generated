@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>For any given element of {@code pBinds}, if the {@code flags} member of that element contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range defined <b>must</b> be within the mip tail region of the metadata aspect of {@code image}</li>
+ * <li>If the {@code flags} member of any element of {@code pBinds} contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range defined <b>must</b> be within the mip tail region of the metadata aspect of {@code image}</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

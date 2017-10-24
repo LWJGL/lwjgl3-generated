@@ -83,11 +83,15 @@ public class AMDDrawIndirectCount {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkCmdDrawIndirectCountAMD CmdDrawIndirectCountAMD} behaves similar to {@link VK10#vkCmdDrawIndirect CmdDrawIndirect} except that the draw count is read by the device from a buffer during execution. The command will read an unsigned 32-bit integer from {@code countBuffer} located at {@code countBufferOffset} and use this as the draw count.</p>
+     * <p>{@link #vkCmdDrawIndirectCountAMD CmdDrawIndirectCountAMD} behaves similarly to {@link VK10#vkCmdDrawIndirect CmdDrawIndirect} except that the draw count is read by the device from a buffer during execution. The command will read an unsigned 32-bit integer from {@code countBuffer} located at {@code countBufferOffset} and use this as the draw count.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
+     * <li>If {@code buffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
+     * <li>{@code buffer} <b>must</b> have been created with the {@link VK10#VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} bit set</li>
+     * <li>If {@code countBuffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
+     * <li>{@code countBuffer} <b>must</b> have been created with the {@link VK10#VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} bit set</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code countBufferOffset} <b>must</b> be a multiple of 4</li>
      * <li>{@code stride} <b>must</b> be a multiple of 4 and <b>must</b> be greater than or equal to sizeof({@link VkDrawIndirectCommand})</li>
@@ -179,11 +183,15 @@ public class AMDDrawIndirectCount {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkCmdDrawIndexedIndirectCountAMD CmdDrawIndexedIndirectCountAMD} behaves similar to {@link #vkCmdDrawIndirectCountAMD CmdDrawIndirectCountAMD} except that the draw count is read by the device from a buffer during execution. The command will read an unsigned 32-bit integer from {@code countBuffer} located at {@code countBufferOffset} and use this as the draw count.</p>
+     * <p>{@link #vkCmdDrawIndexedIndirectCountAMD CmdDrawIndexedIndirectCountAMD} behaves similarly to {@link VK10#vkCmdDrawIndexedIndirect CmdDrawIndexedIndirect} except that the draw count is read by the device from a buffer during execution. The command will read an unsigned 32-bit integer from {@code countBuffer} located at {@code countBufferOffset} and use this as the draw count.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
+     * <li>If {@code buffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
+     * <li>{@code buffer} <b>must</b> have been created with the {@link VK10#VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} bit set</li>
+     * <li>If {@code countBuffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
+     * <li>{@code countBuffer} <b>must</b> have been created with the {@link VK10#VK_BUFFER_USAGE_INDIRECT_BUFFER_BIT BUFFER_USAGE_INDIRECT_BUFFER_BIT} bit set</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code countBufferOffset} <b>must</b> be a multiple of 4</li>
      * <li>{@code stride} <b>must</b> be a multiple of 4 and <b>must</b> be greater than or equal to sizeof({@link VkDrawIndirectCommand})</li>

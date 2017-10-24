@@ -28,6 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
+ * <li>{@code swapchain} <b>must</b> not be in the retired state</li>
  * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled</li>
  * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must</b> not be associated with any other queue command that has not yet completed execution on that queue</li>
  * <li>{@code deviceMask} <b>must</b> be a valid device mask</li>
@@ -62,7 +63,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code swapchain} &ndash; the swapchain from which an image is being acquired.</li>
+ * <li>{@code swapchain} &ndash; a non-retired swapchain from which an image is acquired.</li>
  * <li>{@code timeout} &ndash; indicates how long the function waits, in nanoseconds, if no image is available.</li>
  * <li>{@code semaphore} &ndash; {@link VK10#VK_NULL_HANDLE NULL_HANDLE} or a semaphore to signal.</li>
  * <li>{@code fence} &ndash; {@link VK10#VK_NULL_HANDLE NULL_HANDLE} or a fence to signal.</li>

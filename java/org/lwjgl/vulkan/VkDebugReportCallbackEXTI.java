@@ -31,9 +31,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <p>The callback <b>must</b> not call {@link EXTDebugReport#vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT}.</p>
  * 
- * <p>The callback returns a {@code VkBool32} that indicates to the calling layer the application's desire to abort the call. A value of {@link VK10#VK_TRUE TRUE} indicates that the application wants to abort this call. If the application returns {@link VK10#VK_FALSE FALSE}, the command <b>must</b> not be aborted. Applications <b>should</b> always return {@link VK10#VK_FALSE FALSE} so that they see the same behavior with and without validation layers enabled.</p>
- * 
- * <p>If the application returns {@link VK10#VK_TRUE TRUE} from its callback and the Vulkan call being aborted returns a {@code VkResult}, the layer will return {@link EXTDebugReport#VK_ERROR_VALIDATION_FAILED_EXT ERROR_VALIDATION_FAILED_EXT}.</p>
+ * <p>The callback returns a {@code VkBool32}, which is interpreted in a layer-specified manner. The application <b>should</b> always return {@link VK10#VK_FALSE FALSE}. The {@link VK10#VK_TRUE TRUE} value is reserved for use in layer development.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
@@ -75,7 +73,7 @@ public interface VkDebugReportCallbackEXTI extends CallbackI.I {
      * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} that triggered this callback.
      * @param objectType   a {@code VkDebugReportObjectTypeEXT} value specifying the type of object being used or created at the time the event was triggered.
      * @param object       the object where the issue was detected. If {@code objectType} is {@link EXTDebugReport#VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT}, {@code object} is undefined.
-     * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional value.
+     * @param location     a component (layer, driver, loader) defined value that indicates the <em>location</em> of the trigger. This is an optional: value.
      * @param messageCode  a layer-defined value indicating what test triggered this callback.
      * @param pLayerPrefix a null-terminated string that is an abbreviation of the name of the component making the callback. {@code pLayerPrefix} is only valid for the duration of the callback.
      * @param pMessage     a null-terminated string detailing the trigger conditions. {@code pMessage} is only valid for the duration of the callback.

@@ -24,8 +24,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>The {@code offset} member of any given element of {@code pMapEntries} <b>must</b> be less than {@code dataSize}</li>
- * <li>For any given element of {@code pMapEntries}, {@code size} <b>must</b> be less than or equal to {@code dataSize} minus {@code offset}</li>
+ * <li>The {@code offset} member of each element of {@code pMapEntries} <b>must</b> be less than {@code dataSize}</li>
+ * <li>The {@code size} member of each element of {@code pMapEntries} <b>must</b> be less than or equal to {@code dataSize} minus {@code offset}</li>
  * <li>If {@code mapEntryCount} is not 0, {@code pMapEntries} <b>must</b> be a pointer to an array of {@code mapEntryCount} valid {@link VkSpecializationMapEntry} structures</li>
  * </ul>
  * 

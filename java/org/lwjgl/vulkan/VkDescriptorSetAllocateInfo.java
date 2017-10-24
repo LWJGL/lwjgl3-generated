@@ -17,6 +17,12 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying the allocation parameters for descriptor sets.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>Each element of {@code pSetLayouts} <b>must</b> not have been created with {@link KHRPushDescriptor#VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR} set</li>
+ * </ul>
+ * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>

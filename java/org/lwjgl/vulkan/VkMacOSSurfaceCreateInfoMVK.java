@@ -29,7 +29,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link MVKMacosSurface#VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>{@code pView} <b>must</b> be a pointer</li>
  * </ul>
  * 
  * <h5>See Also</h5>

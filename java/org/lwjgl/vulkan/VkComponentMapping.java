@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code r} &ndash; a {@code VkComponentSwizzle} specifying the component value placed in the R component of the output vector.</li>
  * <li>{@code g} &ndash; a {@code VkComponentSwizzle} specifying the component value placed in the G component of the output vector.</li>
  * <li>{@code b} &ndash; a {@code VkComponentSwizzle} specifying the component value placed in the B component of the output vector.</li>
+ * <li>{@code a} &ndash; a {@code VkComponentSwizzle} specifying the component value placed in the A component of the output vector.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -142,6 +142,10 @@ public class VKCapabilitiesDevice {
         vkCmdDrawIndirectCountAMD,
         vkCmdDrawIndexedIndirectCountAMD;
 
+    // AMD_shader_info
+    public final long
+        vkGetShaderInfoAMD;
+
     // EXT_debug_marker
     public final long
         vkDebugMarkerSetObjectTagEXT,
@@ -311,6 +315,10 @@ public class VKCapabilitiesDevice {
     public final boolean VK_AMD_shader_explicit_vertex_parameter;
     /** When true, {@link AMDShaderFragmentMask} is supported. */
     public final boolean VK_AMD_shader_fragment_mask;
+    /** When true, {@link AMDShaderImageLoadStoreLod} is supported. */
+    public final boolean VK_AMD_shader_image_load_store_lod;
+    /** When true, {@link AMDShaderInfo} is supported. */
+    public final boolean VK_AMD_shader_info;
     /** When true, {@link AMDShaderTrinaryMinmax} is supported. */
     public final boolean VK_AMD_shader_trinary_minmax;
     /** When true, {@link AMDTextureGatherBiasLod} is supported. */
@@ -325,6 +333,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_discard_rectangles;
     /** When true, {@link EXTDisplayControl} is supported. */
     public final boolean VK_EXT_display_control;
+    /** When true, {@link EXTGlobalPriority} is supported. */
+    public final boolean VK_EXT_global_priority;
     /** When true, {@link EXTHdrMetadata} is supported. */
     public final boolean VK_EXT_hdr_metadata;
     /** When true, {@link EXTPostDepthCoverage} is supported. */
@@ -587,6 +597,12 @@ public class VKCapabilitiesDevice {
         VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
         VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
         VK_AMD_shader_fragment_mask = ext.contains("VK_AMD_shader_fragment_mask");
+        VK_AMD_shader_image_load_store_lod = ext.contains("VK_AMD_shader_image_load_store_lod");
+        {
+            supported = ext.contains("VK_AMD_shader_info");
+            vkGetShaderInfoAMD = isSupported(provider, "vkGetShaderInfoAMD", supported);
+            VK_AMD_shader_info = supported && VK.checkExtension("VK_AMD_shader_info", AMDShaderInfo.isAvailable(this));
+        }
         VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
         VK_AMD_texture_gather_bias_lod = ext.contains("VK_AMD_texture_gather_bias_lod");
         VK_EXT_blend_operation_advanced = ext.contains("VK_EXT_blend_operation_advanced");
@@ -613,6 +629,7 @@ public class VKCapabilitiesDevice {
             vkGetSwapchainCounterEXT = isSupported(provider, "vkGetSwapchainCounterEXT", supported);
             VK_EXT_display_control = supported && VK.checkExtension("VK_EXT_display_control", EXTDisplayControl.isAvailable(this));
         }
+        VK_EXT_global_priority = ext.contains("VK_EXT_global_priority");
         {
             supported = ext.contains("VK_EXT_hdr_metadata");
             vkSetHdrMetadataEXT = isSupported(provider, "vkSetHdrMetadataEXT", supported);
