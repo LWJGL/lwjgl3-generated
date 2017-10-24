@@ -10,7 +10,6 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
@@ -26,6 +25,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code DisplayLost} &ndash; True if the session is in a display-lost state. See {@link OVR#ovr_SubmitFrame SubmitFrame}.</li>
  * <li>{@code ShouldQuit} &ndash; True if the application should initiate shutdown.</li>
  * <li>{@code ShouldRecenter} &ndash; True if UX has requested re-centering. Must call {@link OVR#ovr_ClearShouldRecenterFlag ClearShouldRecenterFlag}, {@link OVR#ovr_RecenterTrackingOrigin RecenterTrackingOrigin} or {@link OVR#ovr_SpecifyTrackingOrigin SpecifyTrackingOrigin}.</li>
+ * <li>{@code HasInputFocus} &ndash; 
+ * True if the application is the foreground application and receives input (e.g. Touch controller state). If this is false then the application is in the
+ * background (but possibly still visible) should hide any input representations such as hands.</li>
+ * <li>{@code OverlayPresent} &ndash; 
+ * True if a system overlay is present, such as a dashboard. In this case the application (if visible) should pause while still drawing, avoid drawing
+ * near-field graphics so they don't visually fight with the system overlay, and consume fewer CPU and GPU resources.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -38,7 +43,8 @@ import static org.lwjgl.system.MemoryStack.*;
  *     ovrBool DisplayLost;
  *     ovrBool ShouldQuit;
  *     ovrBool ShouldRecenter;
- *     ovrBool Internal[2];
+ *     ovrBool HasInputFocus;
+ *     ovrBool OverlayPresent;
  * }</pre></code>
  */
 @NativeType("struct ovrSessionStatus")
@@ -57,7 +63,8 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         DISPLAYLOST,
         SHOULDQUIT,
         SHOULDRECENTER,
-        INTERNAL;
+        HASINPUTFOCUS,
+        OVERLAYPRESENT;
 
     static {
         Layout layout = __struct(
@@ -67,7 +74,8 @@ public class OVRSessionStatus extends Struct implements NativeResource {
             __member(1),
             __member(1),
             __member(1),
-            __array(1, 2)
+            __member(1),
+            __member(1)
         );
 
         SIZEOF = layout.getSize();
@@ -79,7 +87,8 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         DISPLAYLOST = layout.offsetof(3);
         SHOULDQUIT = layout.offsetof(4);
         SHOULDRECENTER = layout.offsetof(5);
-        INTERNAL = layout.offsetof(6);
+        HASINPUTFOCUS = layout.offsetof(6);
+        OVERLAYPRESENT = layout.offsetof(7);
     }
 
     OVRSessionStatus(long address, ByteBuffer container) {
@@ -117,12 +126,12 @@ public class OVRSessionStatus extends Struct implements NativeResource {
     /** Returns the value of the {@code ShouldRecenter} field. */
     @NativeType("ovrBool")
     public boolean ShouldRecenter() { return nShouldRecenter(address()); }
-    /** Returns a {@link ByteBuffer} view of the {@code Internal} field. */
-    @NativeType("ovrBool[2]")
-    public ByteBuffer Internal() { return nInternal(address()); }
-    /** Returns the value at the specified index of the {@code Internal} field. */
+    /** Returns the value of the {@code HasInputFocus} field. */
     @NativeType("ovrBool")
-    public boolean Internal(int index) { return nInternal(address(), index); }
+    public boolean HasInputFocus() { return nHasInputFocus(address()); }
+    /** Returns the value of the {@code OverlayPresent} field. */
+    @NativeType("ovrBool")
+    public boolean OverlayPresent() { return nOverlayPresent(address()); }
 
     // -----------------------------------
 
@@ -265,13 +274,10 @@ public class OVRSessionStatus extends Struct implements NativeResource {
     public static boolean nShouldQuit(long struct) { return memGetByte(struct + OVRSessionStatus.SHOULDQUIT) != 0; }
     /** Unsafe version of {@link #ShouldRecenter}. */
     public static boolean nShouldRecenter(long struct) { return memGetByte(struct + OVRSessionStatus.SHOULDRECENTER) != 0; }
-    /** Unsafe version of {@link #Internal}. */
-    public static ByteBuffer nInternal(long struct) { return memByteBuffer(struct + OVRSessionStatus.INTERNAL, 2); }
-    /** Unsafe version of {@link #Internal(int) Internal}. */
-    public static boolean nInternal(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetByte(struct + OVRSessionStatus.INTERNAL + index * 1) != 0;
-    }
+    /** Unsafe version of {@link #HasInputFocus}. */
+    public static boolean nHasInputFocus(long struct) { return memGetByte(struct + OVRSessionStatus.HASINPUTFOCUS) != 0; }
+    /** Unsafe version of {@link #OverlayPresent}. */
+    public static boolean nOverlayPresent(long struct) { return memGetByte(struct + OVRSessionStatus.OVERLAYPRESENT) != 0; }
 
     // -----------------------------------
 
@@ -333,12 +339,12 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         /** Returns the value of the {@code ShouldRecenter} field. */
         @NativeType("ovrBool")
         public boolean ShouldRecenter() { return OVRSessionStatus.nShouldRecenter(address()); }
-        /** Returns a {@link ByteBuffer} view of the {@code Internal} field. */
-        @NativeType("ovrBool[2]")
-        public ByteBuffer Internal() { return OVRSessionStatus.nInternal(address()); }
-        /** Returns the value at the specified index of the {@code Internal} field. */
+        /** Returns the value of the {@code HasInputFocus} field. */
         @NativeType("ovrBool")
-        public boolean Internal(int index) { return OVRSessionStatus.nInternal(address(), index); }
+        public boolean HasInputFocus() { return OVRSessionStatus.nHasInputFocus(address()); }
+        /** Returns the value of the {@code OverlayPresent} field. */
+        @NativeType("ovrBool")
+        public boolean OverlayPresent() { return OVRSessionStatus.nOverlayPresent(address()); }
 
     }
 

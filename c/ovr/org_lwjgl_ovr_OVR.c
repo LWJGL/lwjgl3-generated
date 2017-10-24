@@ -88,6 +88,19 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetSessionStatus(JNIEnv *__e
     return (jint)ovr_GetSessionStatus(session, sessionStatus);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1IsExtensionSupported(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint extension, jlong outExtensionSupportedAddress) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    ovrBool *outExtensionSupported = (ovrBool *)(intptr_t)outExtensionSupportedAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_IsExtensionSupported(session, extension, outExtensionSupported);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1EnableExtension(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint extension) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_EnableExtension(session, extension);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetTrackingOriginType(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint origin) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -291,6 +304,26 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetRenderDesc(JNIEnv *__env,
     ovrFovPort *fov = (ovrFovPort *)(intptr_t)fovAddress;
     UNUSED_PARAMS(__env, clazz)
     *((ovrEyeRenderDesc*)(intptr_t)__result) = ovr_GetRenderDesc(session, eyeType, *fov);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1WaitToBeginFrame(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_WaitToBeginFrame(session, frameIndex);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1BeginFrame(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_BeginFrame(session, frameIndex);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1EndFrame(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jlong viewScaleDescAddress, jlong layerPtrListAddress, jint layerCount) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    const ovrViewScaleDesc *viewScaleDesc = (const ovrViewScaleDesc *)(intptr_t)viewScaleDescAddress;
+    const ovrLayerHeader * const *layerPtrList = (const ovrLayerHeader * const *)(intptr_t)layerPtrListAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_EndFrame(session, frameIndex, viewScaleDesc, layerPtrList, layerCount);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SubmitFrame(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jlong viewScaleDescAddress, jlong layerPtrListAddress, jint layerCount) {

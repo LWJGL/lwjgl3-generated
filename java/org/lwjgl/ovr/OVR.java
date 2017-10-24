@@ -43,6 +43,10 @@ public class OVR {
      * </li>
      * <li>{@link #ovrInit_Invisible Init_Invisible} - This client will not be visible in the HMD. Typically set by diagnostic or debugging utilities.</li>
      * <li>{@link #ovrInit_MixedRendering Init_MixedRendering} - This client will alternate between VR and 2D rendering. Typically set by game engine editors and VR-enabled web browsers.</li>
+     * <li>{@link #ovrInit_FocusAware Init_FocusAware} - 
+     * This client is aware of {@link OVRSessionStatus} focus states (e.g. {@code ovrSessionStatus::HasInputFocus}), and responds to them appropriately
+     * (e.g. pauses and stops drawing hands when lacking focus).
+     * </li>
      * <li>{@link #ovrInit_WritableBits Init_WritableBits} - These bits are writable by user code.</li>
      * </ul>
      */
@@ -51,6 +55,7 @@ public class OVR {
         ovrInit_RequestVersion = 0x4,
         ovrInit_Invisible      = 0x10,
         ovrInit_MixedRendering = 0x20,
+        ovrInit_FocusAware     = 0x40,
         ovrInit_WritableBits   = 0xFFFFFF;
 
     /**
@@ -127,6 +132,17 @@ public class OVR {
         ovrTrackingCap_Orientation      = 0x10,
         ovrTrackingCap_MagYawCorrection = 0x20,
         ovrTrackingCap_Position         = 0x40;
+
+    /**
+     * Optional extensions. ({@code ovrExtensions})
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #ovrExtension_TextureLayout_Octilinear Extension_TextureLayout_Octilinear} - Enable before first layer submission.</li>
+     * </ul>
+     */
+    public static final int ovrExtension_TextureLayout_Octilinear = 0;
 
     /**
      * Specifies which eye is being used for rendering. ({@code ovrEyeType})
@@ -319,13 +335,20 @@ public class OVR {
      * Texture swap chain contains protected content, and requires HDCP connection in order to display to HMD. Also prevents mirroring or other
      * redirection of any frame containing this contents
      * </li>
+     * <li>{@link #ovrTextureMisc_AutoGenerateMips TextureMisc_AutoGenerateMips} - 
+     * Automatically generate and use the mip chain in composition on each submission. Mips are regenerated from highest quality level, ignoring other
+     * pre-existing mip levels.
+     * 
+     * <p>Not supported for depth or compressed (BC) formats.</p>
+     * </li>
      * </ul>
      */
     public static final int
         ovrTextureMisc_None              = 0,
         ovrTextureMisc_DX_Typeless       = 0x1,
         ovrTextureMisc_AllowGenerateMips = 0x2,
-        ovrTextureMisc_ProtectedContent  = 0x4;
+        ovrTextureMisc_ProtectedContent  = 0x4,
+        ovrTextureMisc_AutoGenerateMips  = 0x8;
 
     /**
      * Button input types. ({@code ovrTouch})
@@ -573,13 +596,17 @@ public class OVR {
      * <li>{@link #ovrLayerType_EyeFov LayerType_EyeFov} - Described by {@link OVRLayerEyeFov}.</li>
      * <li>{@link #ovrLayerType_Quad LayerType_Quad} - Described by {@link OVRLayerQuad}.</li>
      * <li>{@link #ovrLayerType_EyeMatrix LayerType_EyeMatrix} - Described by {@link OVRLayerEyeMatrix}.</li>
+     * <li>{@link #ovrLayerType_EyeFovMultires LayerType_EyeFovMultires} - Described by {@link OVRLayerEyeFovMultires}.</li>
+     * <li>{@link #ovrLayerType_Cube LayerType_Cube} - Described by {@link OVRLayerCube}.</li>
      * </ul>
      */
     public static final int
-        ovrLayerType_Disabled  = 0,
-        ovrLayerType_EyeFov    = 1,
-        ovrLayerType_Quad      = 3,
-        ovrLayerType_EyeMatrix = 5;
+        ovrLayerType_Disabled       = 0,
+        ovrLayerType_EyeFov         = 1,
+        ovrLayerType_Quad           = 3,
+        ovrLayerType_EyeMatrix      = 5,
+        ovrLayerType_EyeFovMultires = 7,
+        ovrLayerType_Cube           = 10;
 
     /**
      * Identifies flags used by {@link OVRLayerHeader} and which are passed to {@link #ovr_SubmitFrame SubmitFrame}. ({@code ovrLayerFlags})
@@ -605,6 +632,20 @@ public class OVR {
         ovrLayerFlag_HighQuality               = 0x1,
         ovrLayerFlag_TextureOriginAtBottomLeft = 0x2,
         ovrLayerFlag_HeadLocked                = 0x4;
+
+    /**
+     * Describes eye texture layouts. Used with {@link OVRLayerEyeFovMultires}. ({@code ovrTextureLayout})
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #ovrTextureLayout_Rectilinear TextureLayout_Rectilinear} - Regular eyeFov layer.</li>
+     * <li>{@link #ovrTextureLayout_Octilinear TextureLayout_Octilinear} - Octilinear extension must be enabled.</li>
+     * </ul>
+     */
+    public static final int
+        ovrTextureLayout_Rectilinear = 0,
+        ovrTextureLayout_Octilinear  = 1;
 
     /**
      * Performance HUD enables the HMD user to see information critical to the real-time operation of the VR application such as latency timing, and CPU & GPU
@@ -1037,6 +1078,51 @@ public class OVR {
             check(session);
         }
         return novr_GetSessionStatus(session, sessionStatus.address());
+    }
+
+    // --- [ ovr_IsExtensionSupported ] ---
+
+    /** Unsafe version of: {@link #ovr_IsExtensionSupported IsExtensionSupported} */
+    public static native int novr_IsExtensionSupported(long session, int extension, long outExtensionSupported);
+
+    /**
+     * Queries extension support status.
+     *
+     * @param session               an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param extension             extension to query
+     * @param outExtensionSupported set to extension support status. {@link #ovrTrue True} if supported.
+     *
+     * @return an {@code ovrResult} indicating success or failure. In the case of failure use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
+     */
+    @NativeType("ovrResult")
+    public static int ovr_IsExtensionSupported(@NativeType("ovrSession") long session, @NativeType("ovrExtensions") int extension, @NativeType("ovrBool *") ByteBuffer outExtensionSupported) {
+        if (CHECKS) {
+            check(session);
+            check(outExtensionSupported, 1);
+        }
+        return novr_IsExtensionSupported(session, extension, memAddress(outExtensionSupported));
+    }
+
+    // --- [ ovr_EnableExtension ] ---
+
+    /** Unsafe version of: {@link #ovr_EnableExtension EnableExtension} */
+    public static native int novr_EnableExtension(long session, int extension);
+
+    /**
+     * Enable extension. Extensions must be enabled after {@link #ovr_Create Create} is called.
+     *
+     * @param session   an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param extension extension to enable.
+     *
+     * @return an {@code ovrResult} indicating success or failure. Extension is only enabled if successful. In the case of failure use {@link #ovr_GetLastErrorInfo GetLastErrorInfo} to get more
+     *         information.
+     */
+    @NativeType("ovrResult")
+    public static int ovr_EnableExtension(@NativeType("ovrSession") long session, @NativeType("ovrExtensions") int extension) {
+        if (CHECKS) {
+            check(session);
+        }
+        return novr_EnableExtension(session, extension);
     }
 
     // --- [ ovr_SetTrackingOriginType ] ---
@@ -1789,6 +1875,130 @@ public class OVR {
         return __result;
     }
 
+    // --- [ ovr_WaitToBeginFrame ] ---
+
+    /** Unsafe version of: {@link #ovr_WaitToBeginFrame WaitToBeginFrame} */
+    public static native int novr_WaitToBeginFrame(long session, long frameIndex);
+
+    /**
+     * Waits until surfaces are available and it is time to begin rendering the frame. Must be called before {@link #ovr_BeginFrame BeginFrame}, but not necessarily from the same
+     * thread.
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param frameIndex specifies the targeted application frame index
+     *
+     * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+     *         
+     *         <ul>
+     *         <li>{@link OVRErrorCode#ovrSuccess Success}: command completed successfully.</li>
+     *         <li>{@link OVRErrorCode#ovrSuccess_NotVisible Success_NotVisible}: rendering of a previous frame completed successfully but was not displayed on the HMD, usually because another application
+     *         currently has ownership of the HMD. Applications receiving this result should stop rendering new content and call {@link #ovr_GetSessionStatus GetSessionStatus} to detect
+     *         visibility.</li>
+     *         <li>{@link OVRErrorCode#ovrError_DisplayLost Error_DisplayLost}: The session has become invalid (such as due to a device removal) and the shared resources need to be released
+     *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
+     *         ({@code ovr_CreateTextureSwapChainXXX}). The application's existing private graphics resources do not need to be recreated unless the new
+     *         {@code ovr_Create} call returns a different {@code GraphicsLuid}.</li>
+     *         </ul>
+     */
+    @NativeType("ovrResult")
+    public static int ovr_WaitToBeginFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex) {
+        if (CHECKS) {
+            check(session);
+        }
+        return novr_WaitToBeginFrame(session, frameIndex);
+    }
+
+    // --- [ ovr_BeginFrame ] ---
+
+    /** Unsafe version of: {@link #ovr_BeginFrame BeginFrame} */
+    public static native int novr_BeginFrame(long session, long frameIndex);
+
+    /**
+     * Called from render thread before application begins rendering. Must be called after {@link #ovr_WaitToBeginFrame WaitToBeginFrame} and before {@link #ovr_EndFrame EndFrame}, but not necessarily
+     * from the same threads.
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param frameIndex specifies the targeted application frame index. It must match what was passed to {@link #ovr_WaitToBeginFrame WaitToBeginFrame}.
+     *
+     * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+     *         
+     *         <ul>
+     *         <li>{@link OVRErrorCode#ovrSuccess Success}: command completed successfully.</li>
+     *         <li>{@link OVRErrorCode#ovrError_DisplayLost Error_DisplayLost}: The session has become invalid (such as due to a device removal) and the shared resources need to be released
+     *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
+     *         ({@code ovr_CreateTextureSwapChainXXX}). The application's existing private graphics resources do not need to be recreated unless the new
+     *         {@code ovr_Create} call returns a different {@code GraphicsLuid}.</li>
+     *         </ul>
+     */
+    @NativeType("ovrResult")
+    public static int ovr_BeginFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex) {
+        if (CHECKS) {
+            check(session);
+        }
+        return novr_BeginFrame(session, frameIndex);
+    }
+
+    // --- [ ovr_EndFrame ] ---
+
+    /**
+     * Unsafe version of: {@link #ovr_EndFrame EndFrame}
+     *
+     * @param layerCount indicates the number of valid elements in {@code layerPtrList}. The maximum supported {@code layerCount} is not currently specified, but may be
+     *                   specified in a future version.
+     */
+    public static native int novr_EndFrame(long session, long frameIndex, long viewScaleDesc, long layerPtrList, int layerCount);
+
+    /**
+     * Called from render thread after application has finished rendering. Must be called after {@link #ovr_BeginFrame BeginFrame}, but not necessarily from the same thread.
+     * Submits layers for distortion and display, which will happen asynchronously.
+     * 
+     * <ul>
+     * <li>Layers are drawn in the order they are specified in the array, regardless of the layer type.</li>
+     * <li>Layers are not remembered between successive calls to {@link #ovr_SubmitFrame SubmitFrame}. A layer must be specified in every call to {@code ovr_SubmitFrame} or it
+     * won't be displayed.</li>
+     * <li>If a {@code layerPtrList} entry that was specified in a previous call to {@link #ovr_SubmitFrame SubmitFrame} is passed as {@code NULL} or is of type {@link #ovrLayerType_Disabled LayerType_Disabled}, that
+     * layer is no longer displayed.</li>
+     * <li>A {@code layerPtrList} entry can be of any layer type and multiple entries of the same layer type are allowed. No {@code layerPtrList} entry may be
+     * duplicated (i.e. the same pointer as an earlier entry).</li>
+     * </ul>
+     * 
+     * <h3>Example code</h3>
+     * 
+     * <code><pre>
+     * ovrLayerEyeFov  layer0;
+     * ovrLayerQuad    layer1;
+     * ...
+     * ovrLayerHeader* layers[2] = { &layer0.Header, &layer1.Header };
+     * ovrResult result = ovr_EndFrame(session, frameIndex, nullptr, layers, 2);</pre></code>
+     *
+     * @param session       an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param frameIndex    specifies the targeted application frame index. It must match what was passed to {@link #ovr_BeginFrame BeginFrame}.
+     * @param viewScaleDesc provides additional information needed only if {@code layerPtrList} contains an {@link #ovrLayerType_Quad LayerType_Quad}. If {@code NULL}, a default version is used based on the
+     *                      current configuration and a 1.0 world scale.
+     * @param layerPtrList  specifies a list of ovrLayer pointers, which can include {@code NULL} entries to indicate that any previously shown layer at that index is to not be
+     *                      displayed. Each layer header must be a part of a layer structure such as {@link OVRLayerEyeFov} or {@link OVRLayerQuad}, with {@code Header.Type} identifying
+     *                      its type. A {@code NULL} layerPtrList entry in the array indicates the absence of the given layer.
+     *
+     * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success. Return values include but aren't limited to:
+     *         
+     *         <ul>
+     *         <li>{@link OVRErrorCode#ovrSuccess Success}: rendering completed successfully.</li>
+     *         <li>{@link OVRErrorCode#ovrError_DisplayLost Error_DisplayLost}: The session has become invalid (such as due to a device removal) and the shared resources need to be released
+     *         ({@link #ovr_DestroyTextureSwapChain DestroyTextureSwapChain}), the session needs to destroyed ({@link #ovr_Destroy Destroy}) and recreated ({@link #ovr_Create Create}), and new resources need to be created
+     *         ({@code ovr_CreateTextureSwapChainXXX}). The application's existing private graphics resources do not need to be recreated unless the new
+     *         {@code ovr_Create} call returns a different {@code GraphicsLuid}.</li>
+     *         <li>{@link OVRErrorCode#ovrError_TextureSwapChainInvalid Error_TextureSwapChainInvalid}: The {@code ovrTextureSwapChain} is in an incomplete or inconsistent state. Ensure {@link #ovr_CommitTextureSwapChain CommitTextureSwapChain} was
+     *         called at least once first.</li>
+     *         </ul>
+     */
+    @NativeType("ovrResult")
+    public static int ovr_EndFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("const ovrViewScaleDesc *") OVRViewScaleDesc viewScaleDesc, @NativeType("const ovrLayerHeader * const *") PointerBuffer layerPtrList) {
+        if (CHECKS) {
+            check(session);
+        }
+        return novr_EndFrame(session, frameIndex, memAddressSafe(viewScaleDesc), memAddress(layerPtrList), layerPtrList.remaining());
+    }
+
     // --- [ ovr_SubmitFrame ] ---
 
     /**
@@ -1802,8 +2012,10 @@ public class OVR {
     /**
      * Submits layers for distortion and display.
      * 
-     * <p>{@code ovr_SubmitFrame} triggers distortion and processing which might happen asynchronously. The function will return when there is room in the submission
-     * queue and surfaces are available. Distortion might or might not have completed.</p>
+     * <p>Deprecated. Use WaitToBeginFrame(), BeginFrame(), and {@link #ovr_EndFrame EndFrame} instead.</p>
+     * 
+     * <p>{@code ovr_SubmitFrame} triggers distortion and processing which might happen asynchronously. The function will return when there is room in the
+     * submission queue and surfaces are available. Distortion might or might not have completed.</p>
      * 
      * <ul>
      * <li>Layers are drawn in the order they are specified in the array, regardless of the layer type.</li>

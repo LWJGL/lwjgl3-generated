@@ -36,7 +36,7 @@ import static org.lwjgl.ovr.OVR.ovrEye_Count;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code Header} &ndash; must be {@link OVR#ovrLayerType_EyeMatrix LayerType_EyeMatrix}</li>
+ * <li>{@code Header} &ndash; {@code Header.Type} must be {@link OVR#ovrLayerType_EyeMatrix LayerType_EyeMatrix}</li>
  * <li>{@code ColorTexture} &ndash; {@code ovrTextureSwapChains} for the left and right eye respectively. The second one of which can be {@code NULL} for cases described above.</li>
  * <li>{@code Viewport} &ndash; specifies the {@code ColorTexture} sub-rect UV coordinates. Both {@code Viewport[0]} and {@code Viewport[1]} must be valid.</li>
  * <li>{@code RenderPose} &ndash; 
