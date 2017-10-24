@@ -30,8 +30,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code numDraw} &ndash; number of draw calls submitted</li>
  * <li>{@code numCompute} &ndash; number of compute calls submitted</li>
  * <li>{@code maxGpuLatency} &ndash; GPU driver latency</li>
- * <li>{@code gpuMemoryMax} &ndash; maximum available GPU memory</li>
- * <li>{@code gpuMemoryUsed} &ndash; available GPU memory</li>
+ * <li>{@code gpuMemoryMax} &ndash; maximum available GPU memory for application</li>
+ * <li>{@code gpuMemoryUsed} &ndash; amount of GPU memory used</li>
  * <li>{@code width} &ndash; backbuffer width in pixels</li>
  * <li>{@code height} &ndash; backbuffer height in pixels</li>
  * <li>{@code textWidth} &ndash; debug text width in characters</li>

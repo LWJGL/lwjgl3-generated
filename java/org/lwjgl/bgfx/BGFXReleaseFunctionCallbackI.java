@@ -30,8 +30,8 @@ public interface BGFXReleaseFunctionCallbackI extends CallbackI.V {
     /**
      * Memory release callback.
      *
-     * @param _ptr      
-     * @param _userData 
+     * @param _ptr      pointer to allocated data
+     * @param _userData user defined data if needed
      */
     void invoke(@NativeType("void *") long _ptr, @NativeType("void *") long _userData);
 

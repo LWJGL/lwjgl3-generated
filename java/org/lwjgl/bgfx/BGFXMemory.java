@@ -20,8 +20,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code data} &ndash; pointer to allocated memory</li>
- * <li>{@code size} &ndash; size of {@code data}, in bytes</li>
+ * <li>{@code data} &ndash; pointer to data</li>
+ * <li>{@code size} &ndash; data size</li>
  * </ul>
  * 
  * <h3>Layout</h3>

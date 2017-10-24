@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
     /** API version */
-    public static final int BGFX_API_VERSION = 50;
+    public static final int BGFX_API_VERSION = 53;
 
     /** Invalid handle */
     public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -466,9 +466,9 @@ public class BGFX {
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_ACCESS_READ ACCESS_READ}</li>
-     * <li>{@link #BGFX_ACCESS_WRITE ACCESS_WRITE}</li>
-     * <li>{@link #BGFX_ACCESS_READWRITE ACCESS_READWRITE}</li>
+     * <li>{@link #BGFX_ACCESS_READ ACCESS_READ} - Read</li>
+     * <li>{@link #BGFX_ACCESS_WRITE ACCESS_WRITE} - Write</li>
+     * <li>{@link #BGFX_ACCESS_READWRITE ACCESS_READWRITE} - Read and write</li>
      * <li>{@link #BGFX_ACCESS_COUNT ACCESS_COUNT}</li>
      * </ul>
      */
@@ -731,11 +731,11 @@ public class BGFX {
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #BGFX_UNIFORM_TYPE_INT1 UNIFORM_TYPE_INT1}</li>
-     * <li>{@link #BGFX_UNIFORM_TYPE_END UNIFORM_TYPE_END}</li>
-     * <li>{@link #BGFX_UNIFORM_TYPE_VEC4 UNIFORM_TYPE_VEC4}</li>
-     * <li>{@link #BGFX_UNIFORM_TYPE_MAT3 UNIFORM_TYPE_MAT3}</li>
-     * <li>{@link #BGFX_UNIFORM_TYPE_MAT4 UNIFORM_TYPE_MAT4}</li>
+     * <li>{@link #BGFX_UNIFORM_TYPE_INT1 UNIFORM_TYPE_INT1} - Int, used for samplers only.</li>
+     * <li>{@link #BGFX_UNIFORM_TYPE_END UNIFORM_TYPE_END} - Reserved, do not use.</li>
+     * <li>{@link #BGFX_UNIFORM_TYPE_VEC4 UNIFORM_TYPE_VEC4} - 4 floats vector.</li>
+     * <li>{@link #BGFX_UNIFORM_TYPE_MAT3 UNIFORM_TYPE_MAT3} - 3x3 matrix.</li>
+     * <li>{@link #BGFX_UNIFORM_TYPE_MAT4 UNIFORM_TYPE_MAT4} - 4x4 matrix.</li>
      * <li>{@link #BGFX_UNIFORM_TYPE_COUNT UNIFORM_TYPE_COUNT}</li>
      * </ul>
      */
@@ -1555,7 +1555,7 @@ public class BGFX {
     /**
      * Unsafe version of: {@link #bgfx_copy copy}
      *
-     * @param _size the number of bytes to copy
+     * @param _size size of data to be copied
      */
     public static long nbgfx_copy(long _data, int _size) {
         long __functionAddress = Functions.copy;
@@ -1565,7 +1565,7 @@ public class BGFX {
     /**
      * Allocates buffer and copies data into it. Data will be freed inside bgfx.
      *
-     * @param _data the source data
+     * @param _data pointer to data to be copied
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_copy(@NativeType("const void *") ByteBuffer _data) {
@@ -1576,7 +1576,7 @@ public class BGFX {
     /**
      * Allocates buffer and copies data into it. Data will be freed inside bgfx.
      *
-     * @param _data the source data
+     * @param _data pointer to data to be copied
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_copy(@NativeType("const void *") ShortBuffer _data) {
@@ -1587,7 +1587,7 @@ public class BGFX {
     /**
      * Allocates buffer and copies data into it. Data will be freed inside bgfx.
      *
-     * @param _data the source data
+     * @param _data pointer to data to be copied
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_copy(@NativeType("const void *") IntBuffer _data) {
@@ -1598,7 +1598,7 @@ public class BGFX {
     /**
      * Allocates buffer and copies data into it. Data will be freed inside bgfx.
      *
-     * @param _data the source data
+     * @param _data pointer to data to be copied
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_copy(@NativeType("const void *") LongBuffer _data) {
@@ -1609,7 +1609,7 @@ public class BGFX {
     /**
      * Allocates buffer and copies data into it. Data will be freed inside bgfx.
      *
-     * @param _data the source data
+     * @param _data pointer to data to be copied
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_copy(@NativeType("const void *") FloatBuffer _data) {
@@ -1620,7 +1620,7 @@ public class BGFX {
     /**
      * Allocates buffer and copies data into it. Data will be freed inside bgfx.
      *
-     * @param _data the source data
+     * @param _data pointer to data to be copied
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_copy(@NativeType("const void *") DoubleBuffer _data) {
@@ -1631,7 +1631,7 @@ public class BGFX {
     /**
      * Allocates buffer and copies data into it. Data will be freed inside bgfx.
      *
-     * @param _data the source data
+     * @param _data pointer to data to be copied
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_copy(@NativeType("const void *") PointerBuffer _data) {
@@ -2291,8 +2291,6 @@ public class BGFX {
     /**
      * Allocates transient index buffer.
      * 
-     * <p>You must call {@link #bgfx_set_index_buffer set_index_buffer} after alloc in order to avoid memory leak.</p>
-     * 
      * <p>Only 16-bit index buffer is supported.</p>
      *
      * @param _tib {@link BGFXTransientIndexBuffer} structure is filled and is valid for the duration of frame, and it can be reused for multiple draw calls
@@ -2348,9 +2346,9 @@ public class BGFX {
     // --- [ bgfx_alloc_instance_data_buffer ] ---
 
     /** Unsafe version of: {@link #bgfx_alloc_instance_data_buffer alloc_instance_data_buffer} */
-    public static long nbgfx_alloc_instance_data_buffer(int _num, short _stride) {
+    public static void nbgfx_alloc_instance_data_buffer(long _idb, int _num, short _stride) {
         long __functionAddress = Functions.alloc_instance_data_buffer;
-        return invokeP(__functionAddress, _num, _stride);
+        invokePV(__functionAddress, _idb, _num, _stride);
     }
 
     /**
@@ -2358,13 +2356,12 @@ public class BGFX {
      * 
      * <p>You must call {@link #bgfx_set_instance_data_buffer set_instance_data_buffer} after alloc in order to avoid memory leak.</p>
      *
-     * @param _num    number of instances to allocate
-     * @param _stride stride per instance
+     * @param _idb    {@link BGFXInstanceDataBuffer} structure is filled and is valid for duration of frame, and it can be reused for multiple draw calls
+     * @param _num    number of instances
+     * @param _stride instance stride. Must be multiple of 16
      */
-    @NativeType("const bgfx_instance_data_buffer_t *")
-    public static BGFXInstanceDataBuffer bgfx_alloc_instance_data_buffer(@NativeType("uint32_t") int _num, @NativeType("uint16_t") int _stride) {
-        long __result = nbgfx_alloc_instance_data_buffer(_num, (short)_stride);
-        return BGFXInstanceDataBuffer.create(__result);
+    public static void bgfx_alloc_instance_data_buffer(@NativeType("bgfx_instance_data_buffer_t *") BGFXInstanceDataBuffer _idb, @NativeType("uint32_t") int _num, @NativeType("uint16_t") int _stride) {
+        nbgfx_alloc_instance_data_buffer(_idb.address(), _num, (short)_stride);
     }
 
     // --- [ bgfx_create_indirect_buffer ] ---
@@ -2372,7 +2369,7 @@ public class BGFX {
     /**
      * Creates draw indirect buffer.
      *
-     * @param _num 
+     * @param _num number of indirect calls
      */
     @NativeType("bgfx_indirect_buffer_handle_t")
     public static short bgfx_create_indirect_buffer(@NativeType("uint32_t") int _num) {
@@ -3360,7 +3357,7 @@ public class BGFX {
      * @param _id    view id
      * @param _x     position x from the left corner of the window
      * @param _y     position y from the top corner of the window
-     * @param _ratio view rectangle ratio. One of:<br><table><tr><td>{@link #BGFX_BACKBUFFER_RATIO_EQUAL BACKBUFFER_RATIO_EQUAL}</td><td>{@link #BGFX_BACKBUFFER_RATIO_HALF BACKBUFFER_RATIO_HALF}</td><td>{@link #BGFX_BACKBUFFER_RATIO_QUARTER BACKBUFFER_RATIO_QUARTER}</td></tr><tr><td>{@link #BGFX_BACKBUFFER_RATIO_EIGHTH BACKBUFFER_RATIO_EIGHTH}</td><td>{@link #BGFX_BACKBUFFER_RATIO_SIXTEENTH BACKBUFFER_RATIO_SIXTEENTH}</td><td>{@link #BGFX_BACKBUFFER_RATIO_DOUBLE BACKBUFFER_RATIO_DOUBLE}</td></tr></table>
+     * @param _ratio width and height will be set in respect to back-buffer size. One of:<br><table><tr><td>{@link #BGFX_BACKBUFFER_RATIO_EQUAL BACKBUFFER_RATIO_EQUAL}</td><td>{@link #BGFX_BACKBUFFER_RATIO_HALF BACKBUFFER_RATIO_HALF}</td><td>{@link #BGFX_BACKBUFFER_RATIO_QUARTER BACKBUFFER_RATIO_QUARTER}</td></tr><tr><td>{@link #BGFX_BACKBUFFER_RATIO_EIGHTH BACKBUFFER_RATIO_EIGHTH}</td><td>{@link #BGFX_BACKBUFFER_RATIO_SIXTEENTH BACKBUFFER_RATIO_SIXTEENTH}</td><td>{@link #BGFX_BACKBUFFER_RATIO_DOUBLE BACKBUFFER_RATIO_DOUBLE}</td></tr></table>
      */
     public static void bgfx_set_view_rect_auto(@NativeType("uint8_t") int _id, @NativeType("uint16_t") int _x, @NativeType("uint16_t") int _y, @NativeType("bgfx_backbuffer_ratio_t") int _ratio) {
         nbgfx_set_view_rect_auto((byte)_id, (short)_x, (short)_y, _ratio);
@@ -3572,7 +3569,7 @@ public class BGFX {
      * @param _num   number of views to remap
      * @param _order view remap id table. Passing {@code NULL} will reset view ids to default state
      */
-    public static void bgfx_set_view_order(@NativeType("uint8_t") int _id, @NativeType("uint8_t") int _num, @NativeType("const void *") ByteBuffer _order) {
+    public static void bgfx_set_view_order(@NativeType("uint8_t") int _id, @NativeType("uint8_t") int _num, @NativeType("const uint8_t *") ByteBuffer _order) {
         if (CHECKS) {
             checkSafe(_order, _num);
         }
