@@ -178,7 +178,9 @@ public class OVRErrorCode {
      * @param result the {@code ovrResult} to check
      */
     @NativeType("bool")
-    public static native boolean OVR_SUCCESS(@NativeType("ovrResult") int result);
+    public static boolean OVR_SUCCESS(@NativeType("ovrResult") int result) {
+        return result >= 0;
+    }
 
     // --- [ OVR_UNQUALIFIED_SUCCESS ] ---
 
@@ -191,7 +193,9 @@ public class OVRErrorCode {
      * @param result the {@code ovrResult} to check
      */
     @NativeType("bool")
-    public static native boolean OVR_UNQUALIFIED_SUCCESS(@NativeType("ovrResult") int result);
+    public static boolean OVR_UNQUALIFIED_SUCCESS(@NativeType("ovrResult") int result) {
+        return result == ovrSuccess;
+    }
 
     // --- [ OVR_FAILURE ] ---
 
@@ -201,6 +205,8 @@ public class OVRErrorCode {
      * @param result the {@code ovrResult} to check
      */
     @NativeType("bool")
-    public static native boolean OVR_FAILURE(@NativeType("ovrResult") int result);
+    public static boolean OVR_FAILURE(@NativeType("ovrResult") int result) {
+        return !OVR_SUCCESS(result);
+    }
 
 }
