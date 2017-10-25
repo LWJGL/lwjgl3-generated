@@ -30,7 +30,7 @@ public interface CLEventCallbackI extends CallbackI.V {
 
     /**
      * Will be called when the execution status of the command associated with {@code event} changes to an execution status equal or past the status specified by
-     * {@code command_exec_status}."
+     * {@code command_exec_status}.
      *
      * @param event                     the event
      * @param event_command_exec_status represents the execution status of command for which this callback function is invoked. If the callback is called as the result of the command
