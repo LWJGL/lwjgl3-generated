@@ -702,6 +702,7 @@ public final class JNI {
     public static native void invokePPV(long __functionAddress, long param0, int param1, int param2, int[] param3);
     public static native void invokePPPV(long __functionAddress, long param0, double[] param1, double[] param2);
     public static native void invokePPV(long __functionAddress, long param0, float[] param1, int param2);
+    public static native void invokePPPV(long __functionAddress, long param0, float[] param1, float[] param2);
     public static native void invokePPV(long __functionAddress, long param0, int[] param1, int param2);
     public static native void invokePPPV(long __functionAddress, long param0, int[] param1, int[] param2);
     public static native void invokePPPPPV(long __functionAddress, long param0, int[] param1, int[] param2, int[] param3, int[] param4);

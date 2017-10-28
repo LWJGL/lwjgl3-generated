@@ -660,6 +660,7 @@ public class GLFW {
             GetPrimaryMonitor          = apiGetFunctionAddress(GLFW, "glfwGetPrimaryMonitor"),
             GetMonitorPos              = apiGetFunctionAddress(GLFW, "glfwGetMonitorPos"),
             GetMonitorPhysicalSize     = apiGetFunctionAddress(GLFW, "glfwGetMonitorPhysicalSize"),
+            GetMonitorContentScale     = apiGetFunctionAddress(GLFW, "glfwGetMonitorContentScale"),
             GetMonitorName             = apiGetFunctionAddress(GLFW, "glfwGetMonitorName"),
             SetMonitorCallback         = apiGetFunctionAddress(GLFW, "glfwSetMonitorCallback"),
             GetVideoModes              = apiGetFunctionAddress(GLFW, "glfwGetVideoModes"),
@@ -683,6 +684,7 @@ public class GLFW {
             SetWindowSize              = apiGetFunctionAddress(GLFW, "glfwSetWindowSize"),
             GetFramebufferSize         = apiGetFunctionAddress(GLFW, "glfwGetFramebufferSize"),
             GetWindowFrameSize         = apiGetFunctionAddress(GLFW, "glfwGetWindowFrameSize"),
+            GetWindowContentScale      = apiGetFunctionAddress(GLFW, "glfwGetWindowContentScale"),
             IconifyWindow              = apiGetFunctionAddress(GLFW, "glfwIconifyWindow"),
             RestoreWindow              = apiGetFunctionAddress(GLFW, "glfwRestoreWindow"),
             MaximizeWindow             = apiGetFunctionAddress(GLFW, "glfwMaximizeWindow"),
@@ -1179,6 +1181,43 @@ public class GLFW {
             checkSafe(heightMM, 1);
         }
         nglfwGetMonitorPhysicalSize(monitor, memAddressSafe(widthMM), memAddressSafe(heightMM));
+    }
+
+    // --- [ glfwGetMonitorContentScale ] ---
+
+    /** Unsafe version of: {@link #glfwGetMonitorContentScale GetMonitorContentScale} */
+    public static void nglfwGetMonitorContentScale(long monitor, long xscale, long yscale) {
+        long __functionAddress = Functions.GetMonitorContentScale;
+        if (CHECKS) {
+            check(monitor);
+        }
+        invokePPPV(__functionAddress, monitor, xscale, yscale);
+    }
+
+    /**
+     * Retrieves the content scale for the specified monitor.
+     * 
+     * <p>This function retrieves the content scale for the specified monitor. The content scale is the ratio between the current DPI and the platform's default
+     * DPI. If you scale all pixel dimensions by this scale then your content should appear at an appropriate size. This is especially important for text and
+     * any UI elements.</p>
+     * 
+     * <p>The content scale may depend on both the monitor resolution and pixel density and on user settings. It may be very different from the raw DPI
+     * calculated from the physical size and current resolution.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param monitor the monitor to query
+     * @param xscale  where to store the x-axis content scale, or {@code NULL}
+     * @param yscale  where to store the y-axis content scale, or {@code NULL}
+     *
+     * @since version 3.3
+     */
+    public static void glfwGetMonitorContentScale(@NativeType("GLFWmonitor *") long monitor, @NativeType("float *") FloatBuffer xscale, @NativeType("float *") FloatBuffer yscale) {
+        if (CHECKS) {
+            checkSafe(xscale, 1);
+            checkSafe(yscale, 1);
+        }
+        nglfwGetMonitorContentScale(monitor, memAddressSafe(xscale), memAddressSafe(yscale));
     }
 
     // --- [ glfwGetMonitorName ] ---
@@ -2074,6 +2113,41 @@ public class GLFW {
             checkSafe(bottom, 1);
         }
         nglfwGetWindowFrameSize(window, memAddressSafe(left), memAddressSafe(top), memAddressSafe(right), memAddressSafe(bottom));
+    }
+
+    // --- [ glfwGetWindowContentScale ] ---
+
+    /** Unsafe version of: {@link #glfwGetWindowContentScale GetWindowContentScale} */
+    public static void nglfwGetWindowContentScale(long window, long xscale, long yscale) {
+        long __functionAddress = Functions.GetWindowContentScale;
+        if (CHECKS) {
+            check(window);
+        }
+        invokePPPV(__functionAddress, window, xscale, yscale);
+    }
+
+    /**
+     * Retrieves the content scale for the specified window.
+     * 
+     * <p>This function retrieves the content scale for the specified window. The content scale is the ratio between the current DPI and the platform's default
+     * DPI. If you scale all pixel dimensions by this scale then your content should appear at an appropriate size. This is especially important for text and
+     * any UI elements.</p>
+     * 
+     * <p>On systems where each monitor can have its own content scale, the window content scale will depend on which monitor the system considers the window to
+     * be on.</p>
+     *
+     * @param window the window to query
+     * @param xscale where to store the x-axis content scale, or {@code NULL}
+     * @param yscale where to store the y-axis content scale, or {@code NULL}
+     *
+     * @since version 3.3
+     */
+    public static void glfwGetWindowContentScale(@NativeType("GLFWwindow *") long window, @NativeType("float *") FloatBuffer xscale, @NativeType("float *") FloatBuffer yscale) {
+        if (CHECKS) {
+            checkSafe(xscale, 1);
+            checkSafe(yscale, 1);
+        }
+        nglfwGetWindowContentScale(window, memAddressSafe(xscale), memAddressSafe(yscale));
     }
 
     // --- [ glfwIconifyWindow ] ---
@@ -4282,6 +4356,17 @@ public class GLFW {
         invokePPPV(__functionAddress, monitor, widthMM, heightMM);
     }
 
+    /** Array version of: {@link #glfwGetMonitorContentScale GetMonitorContentScale} */
+    public static void glfwGetMonitorContentScale(@NativeType("GLFWmonitor *") long monitor, @NativeType("float *") float[] xscale, @NativeType("float *") float[] yscale) {
+        long __functionAddress = Functions.GetMonitorContentScale;
+        if (CHECKS) {
+            check(monitor);
+            checkSafe(xscale, 1);
+            checkSafe(yscale, 1);
+        }
+        invokePPPV(__functionAddress, monitor, xscale, yscale);
+    }
+
     /** Array version of: {@link #glfwGetWindowPos GetWindowPos} */
     public static void glfwGetWindowPos(@NativeType("GLFWwindow *") long window, @NativeType("int *") int[] xpos, @NativeType("int *") int[] ypos) {
         long __functionAddress = Functions.GetWindowPos;
@@ -4326,6 +4411,17 @@ public class GLFW {
             checkSafe(bottom, 1);
         }
         invokePPPPPV(__functionAddress, window, left, top, right, bottom);
+    }
+
+    /** Array version of: {@link #glfwGetWindowContentScale GetWindowContentScale} */
+    public static void glfwGetWindowContentScale(@NativeType("GLFWwindow *") long window, @NativeType("float *") float[] xscale, @NativeType("float *") float[] yscale) {
+        long __functionAddress = Functions.GetWindowContentScale;
+        if (CHECKS) {
+            check(window);
+            checkSafe(xscale, 1);
+            checkSafe(yscale, 1);
+        }
+        invokePPPV(__functionAddress, window, xscale, yscale);
     }
 
     /** Array version of: {@link #glfwGetCursorPos GetCursorPos} */
