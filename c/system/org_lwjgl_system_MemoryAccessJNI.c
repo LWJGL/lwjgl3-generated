@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <stdint.h>
 #ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4711))
     static void* __aligned_alloc(size_t alignment, size_t size) {
         return _aligned_malloc(size, alignment);
     }

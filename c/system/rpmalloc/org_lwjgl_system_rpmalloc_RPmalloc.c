@@ -4,10 +4,6 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-#ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4711))
-#endif
-
 DISABLE_WARNINGS()
 //#define ENABLE_STATISTICS 1
 #include "rpmalloc.c"

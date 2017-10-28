@@ -7,7 +7,6 @@
 
 #ifdef LWJGL_WINDOWS
     #define APIENTRY __stdcall
-    __pragma(warning(disable : 4711))
 #else
     #define APIENTRY
 #endif

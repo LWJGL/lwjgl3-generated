@@ -11,9 +11,6 @@
 DISABLE_WARNINGS()
 #include <stdlib.h>
 #include <string.h>
-#ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4711))
-#endif
 #include "lwjgl_malloc.h"
 #define STBI_MALLOC(sz)    org_lwjgl_malloc(sz)
 #define STBI_REALLOC(p,sz) org_lwjgl_realloc(p,sz)

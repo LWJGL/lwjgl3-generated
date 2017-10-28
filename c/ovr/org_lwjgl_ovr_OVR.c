@@ -9,7 +9,7 @@
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4711 4738))
+    __pragma(warning(disable : 4738))
 #endif
 #include "OVR_CAPIShim.c"
 ENABLE_WARNINGS()

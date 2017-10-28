@@ -8,9 +8,6 @@
 #endif
 #include "common_tools.h"
 DISABLE_WARNINGS()
-#ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4711))
-#endif
 #define XXH_PRIVATE_API
 #include "lwjgl_malloc.h"
 #include "xxhash.h"

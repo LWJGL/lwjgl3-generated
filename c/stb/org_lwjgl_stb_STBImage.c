@@ -6,7 +6,7 @@
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4701 4702 4711 4738))
+    __pragma(warning(disable : 4701 4702 4738))
 #endif
 #include "lwjgl_malloc.h"
 #define STBI_MALLOC(sz)    org_lwjgl_malloc(sz)

@@ -15,7 +15,7 @@
 #define PAR_FREE(BUF) org_lwjgl_free(BUF)
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4711 4738))
+    __pragma(warning(disable : 4738))
 #elif LWJGL_LINUX
     #pragma GCC diagnostic ignored "-Wunused-parameter"
 #endif

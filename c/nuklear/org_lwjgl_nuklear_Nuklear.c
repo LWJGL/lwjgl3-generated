@@ -10,7 +10,7 @@
 #include "common_tools.h"
 DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
-    __pragma(warning(disable : 4711 4738))
+    __pragma(warning(disable : 4738))
 #endif
 #define NK_PRIVATE
 #define NK_INCLUDE_FIXED_TYPES
