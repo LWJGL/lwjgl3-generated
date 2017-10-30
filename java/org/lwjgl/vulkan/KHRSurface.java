@@ -296,7 +296,7 @@ public class KHRSurface {
      * <ul>
      * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
      * <li>If {@code surface} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code surface} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code instance}</li>
      * </ul>
      * 
@@ -354,7 +354,7 @@ public class KHRSurface {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
-     * <li>{@code pSupported} <b>must</b> be a pointer to a {@code VkBool32} value</li>
+     * <li>{@code pSupported} <b>must</b> be a valid pointer to a {@code VkBool32} value</li>
      * <li>Both of {@code physicalDevice}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
@@ -415,7 +415,7 @@ public class KHRSurface {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
-     * <li>{@code pSurfaceCapabilities} <b>must</b> be a pointer to a {@link VkSurfaceCapabilitiesKHR} structure</li>
+     * <li>{@code pSurfaceCapabilities} <b>must</b> be a valid pointer to a {@link VkSurfaceCapabilitiesKHR} structure</li>
      * <li>Both of {@code physicalDevice}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
@@ -485,8 +485,8 @@ public class KHRSurface {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
-     * <li>{@code pSurfaceFormatCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pSurfaceFormatCount} is not 0, and {@code pSurfaceFormats} is not {@code NULL}, {@code pSurfaceFormats} <b>must</b> be a pointer to an array of {@code pSurfaceFormatCount} {@link VkSurfaceFormatKHR} structures</li>
+     * <li>{@code pSurfaceFormatCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pSurfaceFormatCount} is not 0, and {@code pSurfaceFormats} is not {@code NULL}, {@code pSurfaceFormats} <b>must</b> be a valid pointer to an array of {@code pSurfaceFormatCount} {@link VkSurfaceFormatKHR} structures</li>
      * <li>Both of {@code physicalDevice}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
@@ -562,8 +562,8 @@ public class KHRSurface {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
-     * <li>{@code pPresentModeCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPresentModeCount} is not 0, and {@code pPresentModes} is not {@code NULL}, {@code pPresentModes} <b>must</b> be a pointer to an array of {@code pPresentModeCount} {@code VkPresentModeKHR} values</li>
+     * <li>{@code pPresentModeCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPresentModeCount} is not 0, and {@code pPresentModes} is not {@code NULL}, {@code pPresentModes} <b>must</b> be a valid pointer to an array of {@code pPresentModeCount} {@code VkPresentModeKHR} values</li>
      * <li>Both of {@code physicalDevice}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 

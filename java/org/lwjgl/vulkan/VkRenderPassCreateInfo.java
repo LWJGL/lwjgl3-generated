@@ -38,9 +38,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkRenderPassInputAttachmentAspectCreateInfoKHR} or {@link VkRenderPassMultiviewCreateInfoKHX}</li>
  * <li>Each {@code sType} member in the {@code pNext} chain <b>must</b> be unique</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@link VkAttachmentDescription} structures</li>
- * <li>{@code pSubpasses} <b>must</b> be a pointer to an array of {@code subpassCount} valid {@link VkSubpassDescription} structures</li>
- * <li>If {@code dependencyCount} is not 0, {@code pDependencies} <b>must</b> be a pointer to an array of {@code dependencyCount} valid {@link VkSubpassDependency} structures</li>
+ * <li>If {@code attachmentCount} is not 0, {@code pAttachments} <b>must</b> be a valid pointer to an array of {@code attachmentCount} valid {@link VkAttachmentDescription} structures</li>
+ * <li>{@code pSubpasses} <b>must</b> be a valid pointer to an array of {@code subpassCount} valid {@link VkSubpassDescription} structures</li>
+ * <li>If {@code dependencyCount} is not 0, {@code pDependencies} <b>must</b> be a valid pointer to an array of {@code dependencyCount} valid {@link VkSubpassDependency} structures</li>
  * <li>{@code subpassCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

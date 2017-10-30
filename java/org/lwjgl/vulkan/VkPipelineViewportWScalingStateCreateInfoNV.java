@@ -17,14 +17,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying parameters of a newly created pipeline viewport W scaling state.
  * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled and {@code viewportWScalingEnable} is {@link VK10#VK_TRUE TRUE}, {@code viewportCount} <b>must</b> be 1</li>
- * <li>{@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive if {@code viewportWScalingEnable} is {@link VK10#VK_TRUE TRUE}</li>
- * <li>{@code viewportCount} and {@link VkPipelineViewportStateCreateInfo}{@code ::viewportCount} <b>must</b> be identical if {@code viewportWScalingEnable} is {@link VK10#VK_TRUE TRUE}</li>
- * </ul>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
@@ -39,11 +31,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code sType} &ndash; the type of this structure</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure</li>
- * <li>{@code viewportWScalingEnable} &ndash; the enable for viewport W scaling</li>
- * <li>{@code viewportCount} &ndash; the number of viewports used by W scaling and <b>must</b> match the number of viewports in the pipeline if viewport W scaling is enabled.</li>
- * <li>{@code pViewportWScalings} &ndash; a pointer to an array of {@link VkViewportWScalingNV} structures which define the W scaling parameters for the corresponding viewport. If the viewport W scaling state is dynamic, this member is ignored. If no element of the {@code pDynamicStates} member of sname::VkPipelineViewportStateCreateInfo{@code ::pDynamicState} is {@link NVClipSpaceWScaling#VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV}, the {@code pViewportScalings} member of a {@link VkPipelineViewportWScalingStateCreateInfoNV} extension structure <b>must</b> be a pointer to an array of {@link VkPipelineViewportWScalingStateCreateInfoNV}{@code ::viewportCount} {@link VkViewportWScalingNV} structures</li>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code viewportWScalingEnable} &ndash; controls whether viewport <b>W</b> scaling is enabled.</li>
+ * <li>{@code viewportCount} &ndash; the number of viewports used by <b>W</b> scaling, and <b>must</b> match the number of viewports in the pipeline if viewport <b>W</b> scaling is enabled.</li>
+ * <li>{@code pViewportWScalings} &ndash; a pointer to an array of {@link VkViewportWScalingNV} structures, which define the <b>W</b> scaling parameters for the corresponding viewport. If the viewport <b>W</b> scaling state is dynamic, this member is ignored.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

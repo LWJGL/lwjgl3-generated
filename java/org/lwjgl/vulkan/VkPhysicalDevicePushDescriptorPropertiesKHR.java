@@ -16,17 +16,17 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure describing push descriptor limits that can be supported by an implementation.
  * 
- * <h5>Description</h5>
- * 
- * <ul>
- * <li>{@code maxPushDescriptors} is the maximum number of descriptors that <b>can</b> be used in a descriptor set created with {@link KHRPushDescriptor#VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR} set.</li>
- * </ul>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRPushDescriptor#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * </ul>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code maxPushDescriptors} &ndash; the maximum number of descriptors that <b>can</b> be used in a descriptor set created with {@link KHRPushDescriptor#VK_DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR DESCRIPTOR_SET_LAYOUT_CREATE_PUSH_DESCRIPTOR_BIT_KHR} set.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -33,9 +33,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link NVXDeviceGeneratedCommands#VK_STRUCTURE_TYPE_OBJECT_TABLE_CREATE_INFO_NVX STRUCTURE_TYPE_OBJECT_TABLE_CREATE_INFO_NVX}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>{@code pObjectEntryTypes} <b>must</b> be a pointer to an array of {@code objectCount} valid {@code VkObjectEntryTypeNVX} values</li>
- * <li>{@code pObjectEntryCounts} <b>must</b> be a pointer to an array of {@code objectCount} {@code uint32_t} values</li>
- * <li>{@code pObjectEntryUsageFlags} <b>must</b> be a pointer to an array of {@code objectCount} valid combinations of {@code VkObjectEntryUsageFlagBitsNVX} values</li>
+ * <li>{@code pObjectEntryTypes} <b>must</b> be a valid pointer to an array of {@code objectCount} valid {@code VkObjectEntryTypeNVX} values</li>
+ * <li>{@code pObjectEntryCounts} <b>must</b> be a valid pointer to an array of {@code objectCount} {@code uint32_t} values</li>
+ * <li>{@code pObjectEntryUsageFlags} <b>must</b> be a valid pointer to an array of {@code objectCount} valid combinations of {@code VkObjectEntryUsageFlagBitsNVX} values</li>
  * <li>Each element of {@code pObjectEntryUsageFlags} <b>must</b> not be 0</li>
  * <li>{@code objectCount} <b>must</b> be greater than 0</li>
  * </ul>

@@ -30,7 +30,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code allocationSize} <b>must</b> be less than or equal to the amount of memory available to the {@link VkMemoryHeap} specified by {@code memoryTypeIndex} and the calling command&#8217;s {@code VkDevice}</li>
  * <li>{@code allocationSize} <b>must</b> be greater than 0</li>
  * <li>If the {@code pNext} chain contains an instance of {@link VkExportMemoryAllocateInfoKHR}, and any of the handle types specified in {@link VkExportMemoryAllocateInfoKHR}{@code ::handleTypes} require a dedicated allocation, as reported by {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} in {@link VkExternalImageFormatPropertiesKHR}{@code ::externalMemoryProperties}{@code ::externalMemoryFeatures} or {@link VkExternalBufferPropertiesKHR}{@code ::externalMemoryProperties}{@code ::externalMemoryFeatures}, the {@code pNext} chain must contain an instance of {@link VkMemoryDedicatedAllocateInfoKHR} or {@link VkDedicatedAllocationMemoryAllocateInfoNV} with either its {@code image} or {@code buffer} field set to a value other than {@link VK10#VK_NULL_HANDLE NULL_HANDLE}.</li>
  * <li>If the {@code pNext} chain contains an instance of {@link VkExportMemoryAllocateInfoKHR}, it <b>must</b> not contain an instance of {@link VkExportMemoryAllocateInfoNV} or {@link VkExportMemoryWin32HandleInfoNV}.</li>
@@ -62,7 +61,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code allocationSize} &ndash; the size of the allocation in bytes</li>
- * <li>{@code memoryTypeIndex} &ndash; the memory type index, which selects the properties of the memory to be allocated, as well as the heap the memory will come from.</li>
+ * <li>{@code memoryTypeIndex} &ndash; an index identifying a memory type from the {@code memoryTypes} array of the {@link VkPhysicalDeviceMemoryProperties} structure</li>
  * </ul>
  * 
  * <h3>Layout</h3>

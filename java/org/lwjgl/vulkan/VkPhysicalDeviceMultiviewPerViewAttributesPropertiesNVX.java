@@ -14,12 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Structure describing multiview limits that can be supported by an implementation.
  * 
- * <h5>Description</h5>
- * 
- * <ul>
- * <li>{@code perViewPositionAllComponents} is {@link VK10#VK_TRUE TRUE} if the implementation supports per-view position values that differ in components other than the X component.</li>
- * </ul>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
@@ -28,6 +22,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * </ul>
  * 
  * <p>If the {@link VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX} structure is included in the {@code pNext} chain of {@link VkPhysicalDeviceProperties2KHR}, it is filled with the implementation-dependent limits.</p>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code perViewPositionAllComponents} &ndash; {@link VK10#VK_TRUE TRUE} if the implementation supports per-view position values that differ in components other than the X component.</li>
+ * </ul>
  * 
  * <h3>Layout</h3>
  * 

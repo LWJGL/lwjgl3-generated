@@ -250,7 +250,7 @@ public class NVExternalMemoryWin32 {
      * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
      * <li>{@code handleType} <b>must</b> be a valid combination of {@code VkExternalMemoryHandleTypeFlagBitsNV} values</li>
      * <li>{@code handleType} <b>must</b> not be 0</li>
-     * <li>{@code pHandle} <b>must</b> be a pointer to a {@code HANDLE} value</li>
+     * <li>{@code pHandle} <b>must</b> be a valid pointer to a {@code HANDLE} value</li>
      * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 

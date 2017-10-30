@@ -119,7 +119,7 @@ public class KHRExternalFenceFd {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pImportFenceFdInfo} <b>must</b> be a pointer to a valid {@link VkImportFenceFdInfoKHR} structure</li>
+     * <li>{@code pImportFenceFdInfo} <b>must</b> be a valid pointer to a valid {@link VkImportFenceFdInfoKHR} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -191,8 +191,8 @@ public class KHRExternalFenceFd {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pGetFdInfo} <b>must</b> be a pointer to a valid {@link VkFenceGetFdInfoKHR} structure</li>
-     * <li>{@code pFd} <b>must</b> be a pointer to a {@code int} value</li>
+     * <li>{@code pGetFdInfo} <b>must</b> be a valid pointer to a valid {@link VkFenceGetFdInfoKHR} structure</li>
+     * <li>{@code pFd} <b>must</b> be a valid pointer to a {@code int} value</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>

@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The <em>binding range</em> <code>[resourceOffset, resourceOffset {plus} size)</code> has different constraints based on {@code flags}. If {@code flags} contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the mip tail region of the metadata aspect. This metadata region is defined by:</p>
+ * <p>The <em>binding range</em> <code>[resourceOffset, resourceOffset + size)</code> has different constraints based on {@code flags}. If {@code flags} contains {@link VK10#VK_SPARSE_MEMORY_BIND_METADATA_BIT SPARSE_MEMORY_BIND_METADATA_BIT}, the binding range <b>must</b> be within the mip tail region of the metadata aspect. This metadata region is defined by:</p>
  * 
  * <dl>
  * <dd><code>metadataRegion = [base, base + imageMipTailSize)</code></dd>

@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link KHRDescriptorUpdateTemplate#VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>{@code pDescriptorUpdateEntries} <b>must</b> be a pointer to an array of {@code descriptorUpdateEntryCount} valid {@link VkDescriptorUpdateTemplateEntryKHR} structures</li>
+ * <li>{@code pDescriptorUpdateEntries} <b>must</b> be a valid pointer to an array of {@code descriptorUpdateEntryCount} valid {@link VkDescriptorUpdateTemplateEntryKHR} structures</li>
  * <li>{@code templateType} <b>must</b> be a valid {@code VkDescriptorUpdateTemplateTypeKHR} value</li>
  * <li>If {@code descriptorSetLayout} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorSetLayout} <b>must</b> be a valid {@code VkDescriptorSetLayout} handle</li>
  * <li>If {@code pipelineBindPoint} is not 0, {@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>

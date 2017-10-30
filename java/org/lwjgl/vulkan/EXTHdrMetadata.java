@@ -98,8 +98,8 @@ public class EXTHdrMetadata {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
-     * <li>{@code pMetadata} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@link VkHdrMetadataEXT} structures</li>
+     * <li>{@code pSwapchains} <b>must</b> be a valid pointer to an array of {@code swapchainCount} valid {@code VkSwapchainKHR} handles</li>
+     * <li>{@code pMetadata} <b>must</b> be a valid pointer to an array of {@code swapchainCount} valid {@link VkHdrMetadataEXT} structures</li>
      * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
      * <li>Both of {@code device}, and the elements of {@code pSwapchains} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>

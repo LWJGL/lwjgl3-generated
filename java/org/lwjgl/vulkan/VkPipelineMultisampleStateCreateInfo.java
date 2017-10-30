@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>Each {@code sType} member in the {@code pNext} chain <b>must</b> be unique</li>
  * <li>{@code flags} <b>must</b> be 0</li>
  * <li>{@code rasterizationSamples} <b>must</b> be a valid {@code VkSampleCountFlagBits} value</li>
- * <li>If {@code pSampleMask} is not {@code NULL}, {@code pSampleMask} <b>must</b> be a pointer to an array of {@code ceil(rasterizationSamples / 32)} {@code VkSampleMask} values</li>
+ * <li>If {@code pSampleMask} is not {@code NULL}, {@code pSampleMask} <b>must</b> be a valid pointer to an array of {@code ceil(rasterizationSamples / 32)} {@code VkSampleMask} values</li>
  * </ul>
  * 
  * <h5>See Also</h5>

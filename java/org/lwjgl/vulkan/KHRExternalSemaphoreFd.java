@@ -118,7 +118,7 @@ public class KHRExternalSemaphoreFd {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pImportSemaphoreFdInfo} <b>must</b> be a pointer to a valid {@link VkImportSemaphoreFdInfoKHR} structure</li>
+     * <li>{@code pImportSemaphoreFdInfo} <b>must</b> be a valid pointer to a valid {@link VkImportSemaphoreFdInfoKHR} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -188,8 +188,8 @@ public class KHRExternalSemaphoreFd {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pGetFdInfo} <b>must</b> be a pointer to a valid {@link VkSemaphoreGetFdInfoKHR} structure</li>
-     * <li>{@code pFd} <b>must</b> be a pointer to a {@code int} value</li>
+     * <li>{@code pGetFdInfo} <b>must</b> be a valid pointer to a valid {@link VkSemaphoreGetFdInfoKHR} structure</li>
+     * <li>{@code pFd} <b>must</b> be a valid pointer to a {@code int} value</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>

@@ -120,9 +120,9 @@ public class KHRDisplaySwapchain {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfos} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@link VkSwapchainCreateInfoKHR} structures</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pSwapchains} <b>must</b> be a pointer to an array of {@code swapchainCount} {@code VkSwapchainKHR} handles</li>
+     * <li>{@code pCreateInfos} <b>must</b> be a valid pointer to an array of {@code swapchainCount} valid {@link VkSwapchainCreateInfoKHR} structures</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pSwapchains} <b>must</b> be a valid pointer to an array of {@code swapchainCount} {@code VkSwapchainKHR} handles</li>
      * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
      * </ul>
      * 

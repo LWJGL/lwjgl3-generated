@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link EXTDebugMarker#VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code objectType} <b>must</b> be a valid {@code VkDebugReportObjectTypeEXT} value</li>
- * <li>{@code pTag} <b>must</b> be a pointer to an array of {@code tagSize} bytes</li>
+ * <li>{@code pTag} <b>must</b> be a valid pointer to an array of {@code tagSize} bytes</li>
  * <li>{@code tagSize} <b>must</b> be greater than 0</li>
  * </ul>
  * 

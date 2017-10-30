@@ -18,11 +18,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <ul>
- * <li>{@code variablePointersStorageBuffer} indicates whether the implementation supports the SPIR-V VariablePointersStorageBuffer capability. When this feature is not enabled, shader modules <b>must</b> not declare the SPV_KHR_variable_pointers extension or the VariablePointersStorageBuffer capability.</li>
- * <li>{@code variablePointers} indicates whether the implementation supports the SPIR-V VariablePointers capability. When this feature is not enabled, shader modules <b>must</b> not declare the VariablePointers capability.</li>
- * </ul>
- * 
  * <p>If the {@link VkPhysicalDeviceVariablePointerFeaturesKHR} structure is included in the {@code pNext} chain of {@link VkPhysicalDeviceFeatures2KHR}, it is filled with values indicating whether each feature is supported. {@link VkPhysicalDeviceVariablePointerFeaturesKHR} <b>can</b> also be used in the {@code pNext} chain of {@link VkDeviceCreateInfo} to enable the features.</p>
  * 
  * <h5>Valid Usage</h5>
@@ -36,6 +31,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRVariablePointers#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTER_FEATURES_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * </ul>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code variablePointersStorageBuffer} &ndash; indicates whether the implementation supports the SPIR-V VariablePointersStorageBuffer capability. When this feature is not enabled, shader modules <b>must</b> not declare the SPV_KHR_variable_pointers extension or the VariablePointersStorageBuffer capability.</li>
+ * <li>{@code variablePointers} &ndash; indicates whether the implementation supports the SPIR-V VariablePointers capability. When this feature is not enabled, shader modules <b>must</b> not declare the VariablePointers capability.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -17,11 +17,18 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying sparse image memory bind info.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>The {@code subresource.mipLevel} member of each element of {@code pBinds} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+ * <li>The {@code subresource.arrayLayer} member of each element of {@code pBinds} <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+ * </ul>
+ * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
  * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
- * <li>{@code pBinds} <b>must</b> be a pointer to an array of {@code bindCount} valid {@link VkSparseImageMemoryBind} structures</li>
+ * <li>{@code pBinds} <b>must</b> be a valid pointer to an array of {@code bindCount} valid {@link VkSparseImageMemoryBind} structures</li>
  * <li>{@code bindCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

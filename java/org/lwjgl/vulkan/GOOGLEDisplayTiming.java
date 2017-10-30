@@ -106,7 +106,7 @@ public class GOOGLEDisplayTiming {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
-     * <li>{@code pDisplayTimingProperties} <b>must</b> be a pointer to a {@link VkRefreshCycleDurationGOOGLE} structure</li>
+     * <li>{@code pDisplayTimingProperties} <b>must</b> be a valid pointer to a {@link VkRefreshCycleDurationGOOGLE} structure</li>
      * <li>Both of {@code device}, and {@code swapchain} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
@@ -183,8 +183,8 @@ public class GOOGLEDisplayTiming {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
-     * <li>{@code pPresentationTimingCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPresentationTimingCount} is not 0, and {@code pPresentationTimings} is not {@code NULL}, {@code pPresentationTimings} <b>must</b> be a pointer to an array of {@code pPresentationTimingCount} {@link VkPastPresentationTimingGOOGLE} structures</li>
+     * <li>{@code pPresentationTimingCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPresentationTimingCount} is not 0, and {@code pPresentationTimings} is not {@code NULL}, {@code pPresentationTimings} <b>must</b> be a valid pointer to an array of {@code pPresentationTimingCount} {@link VkPastPresentationTimingGOOGLE} structures</li>
      * <li>Both of {@code device}, and {@code swapchain} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 

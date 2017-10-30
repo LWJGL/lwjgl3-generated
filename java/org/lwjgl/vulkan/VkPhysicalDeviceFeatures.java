@@ -51,7 +51,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * </li>
  * <li>Out-of-bounds writes <b>may</b> modify values within the memory range(s) bound to the buffer, but <b>must</b> not modify any other memory.</li>
  * <li>Out-of-bounds atomics <b>may</b> modify values within the memory range(s) bound to the buffer, but <b>must</b> not modify any other memory, and return an undefined value.</li>
- * <li>Vertex input attributes are considered out of bounds if the address of the attribute plus the size of the attribute is greater than the size of the bound buffer. Further, if any vertex input attribute using a specific vertex input binding is out of bounds, then all vertex input attributes using that vertex input binding for that vertex shader invocation are considered out of bounds.
+ * <li>Vertex input attributes are considered out of bounds if the offset of the attribute in the bound vertex buffer range plus the size of the attribute is greater than either:
+ * 
+ * <ul>
+ * <li>{@code vertexBufferRangeSize}, if <code>bindingStride == 0</code>; or</li>
+ * <li><code>(vertexBufferRangeSize - (vertexBufferRangeSize % bindingStride))</code></li>
+ * </ul>
+ * 
+ * <p>where {@code vertexBufferRangeSize} is the byte size of the memory range bound to the vertex buffer binding and {@code bindingStride} is the byte stride of the corresponding vertex input binding. Further, if any vertex input attribute using a specific vertex input binding is out of bounds, then all vertex input attributes using that vertex input binding for that vertex shader invocation are considered out of bounds.</p>
  * 
  * <ul>
  * <li>If a vertex input attribute is out of bounds, it will be assigned one of the following values:
@@ -84,7 +91,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code largePoints} &ndash; indicates whether points with size greater than 1.0 are supported. If this feature is not enabled, only a point size of 1.0 written by a shader is supported. The range and granularity of supported point sizes are indicated by the {@code pointSizeRange} and {@code pointSizeGranularity} members of the {@link VkPhysicalDeviceLimits} structure, respectively.</li>
  * <li>{@code alphaToOne} &ndash; indicates whether the implementation is able to replace the alpha value of the color fragment output from the fragment shader with the maximum representable alpha value for fixed-point colors or 1.0 for floating-point colors. If this feature is not enabled, then the {@code alphaToOneEnable} member of the {@link VkPipelineMultisampleStateCreateInfo} structure <b>must</b> be set to {@link VK10#VK_FALSE FALSE}. Otherwise setting {@code alphaToOneEnable} to {@link VK10#VK_TRUE TRUE} will enable alpha-to-one behavior.</li>
  * <li>{@code multiViewport} &ndash; indicates whether more than one viewport is supported. If this feature is not enabled, the {@code viewportCount} and {@code scissorCount} members of the {@link VkPipelineViewportStateCreateInfo} structure <b>must</b> be set to 1. Similarly, the {@code viewportCount} parameter to the {@link VK10#vkCmdSetViewport CmdSetViewport} command and the {@code scissorCount} parameter to the {@link VK10#vkCmdSetScissor CmdSetScissor} command <b>must</b> be 1, and the {@code firstViewport} parameter to the {@link VK10#vkCmdSetViewport CmdSetViewport} command and the {@code firstScissor} parameter to the {@link VK10#vkCmdSetScissor CmdSetScissor} command <b>must</b> be 0.</li>
- * <li>{@code samplerAnisotropy} &ndash; indicates whether anisotropic filtering is supported. If this feature is not enabled, the {@code maxAnisotropy} member of the {@link VkSamplerCreateInfo} structure <b>must</b> be 1.0.</li>
+ * <li>{@code samplerAnisotropy} &ndash; indicates whether anisotropic filtering is supported. If this feature is not enabled, the {@code anisotropyEnable} member of the {@link VkSamplerCreateInfo} structure <b>must</b> be {@link VK10#VK_FALSE FALSE}.</li>
  * <li>{@code textureCompressionETC2} &ndash; indicates whether all of the ETC2 and EAC compressed texture formats are supported. If this feature is enabled, then the {@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}, {@link VK10#VK_FORMAT_FEATURE_BLIT_SRC_BIT FORMAT_FEATURE_BLIT_SRC_BIT} and {@link VK10#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} features <b>must</b> be supported in {@code optimalTilingFeatures} for the following formats:
  * 
  * <ul>

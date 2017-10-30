@@ -162,8 +162,8 @@ public class KHRExternalFenceCapabilities {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pExternalFenceInfo} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceExternalFenceInfoKHR} structure</li>
-     * <li>{@code pExternalFenceProperties} <b>must</b> be a pointer to a {@link VkExternalFencePropertiesKHR} structure</li>
+     * <li>{@code pExternalFenceInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceExternalFenceInfoKHR} structure</li>
+     * <li>{@code pExternalFenceProperties} <b>must</b> be a valid pointer to a {@link VkExternalFencePropertiesKHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>

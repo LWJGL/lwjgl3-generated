@@ -96,7 +96,7 @@ public class EXTAcquireXlibDisplay {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code dpy} <b>must</b> be a pointer to a {@code Display} value</li>
+     * <li>{@code dpy} <b>must</b> be a valid pointer to a {@code Display} value</li>
      * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
      * </ul>
      * 
@@ -161,8 +161,8 @@ public class EXTAcquireXlibDisplay {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code dpy} <b>must</b> be a pointer to a {@code Display} value</li>
-     * <li>{@code pDisplay} <b>must</b> be a pointer to a {@code VkDisplayKHR} handle</li>
+     * <li>{@code dpy} <b>must</b> be a valid pointer to a {@code Display} value</li>
+     * <li>{@code pDisplay} <b>must</b> be a valid pointer to a {@code VkDisplayKHR} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>

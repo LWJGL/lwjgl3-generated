@@ -23,9 +23,9 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <p>The {@link VkPhysicalDeviceMemoryProperties} structure describes a number of <em>memory heaps</em> as well as a number of <em>memory types</em> that <b>can</b> be used to access memory allocated in those heaps. Each heap describes a memory resource of a particular size, and each memory type describes a set of memory properties (e.g. host cached vs uncached) that <b>can</b> be used with a given memory heap. Allocations using a particular memory type will consume resources from the heap indicated by that memory type's heap index. More than one memory type <b>may</b> share each heap, and the heaps and memory types provide a mechanism to advertise an accurate size of the physical memory resources while allowing the memory to be used with a variety of different properties.</p>
  * 
- * <p>The number of memory heaps is given by {@code memoryHeapCount} and is less than or equal to {@link VK10#VK_MAX_MEMORY_HEAPS MAX_MEMORY_HEAPS}. Each heap is described by an element of the {@code memoryHeaps} array, as a {@link VkMemoryHeap} structure. The number of memory types available across all memory heaps is given by {@code memoryTypeCount} and is less than or equal to {@link VK10#VK_MAX_MEMORY_TYPES MAX_MEMORY_TYPES}. Each memory type is described by an element of the {@code memoryTypes} array, as a {@link VkMemoryType} structure.</p>
+ * <p>The number of memory heaps is given by {@code memoryHeapCount} and is less than or equal to {@link VK10#VK_MAX_MEMORY_HEAPS MAX_MEMORY_HEAPS}. Each heap is described by an element of the {@code memoryHeaps} array as a {@link VkMemoryHeap} structure. The number of memory types available across all memory heaps is given by {@code memoryTypeCount} and is less than or equal to {@link VK10#VK_MAX_MEMORY_TYPES MAX_MEMORY_TYPES}. Each memory type is described by an element of the {@code memoryTypes} array as a {@link VkMemoryType} structure.</p>
  * 
- * <p>At least one heap <b>must</b> include {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} in {@link VkMemoryHeap}{@code ::flags}. If there are multiple heaps that all have similar performance characteristics, they <b>may</b> all include {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT}. In a unified memory architecture (UMA) system, there is often only a single memory heap which is considered to be equally "{@code local}" to the host and to the device, and such an implementation <b>must</b> advertise the heap as device-local.</p>
+ * <p>At least one heap <b>must</b> include {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} in {@link VkMemoryHeap}{@code ::flags}. If there are multiple heaps that all have similar performance characteristics, they <b>may</b> all include {@link VK10#VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT}. In a unified memory architecture (UMA) system there is often only a single memory heap which is considered to be equally "{@code local}" to the host and to the device, and such an implementation <b>must</b> advertise the heap as device-local.</p>
  * 
  * <p>Each memory type returned by {@link VK10#vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties} <b>must</b> have its {@code propertyFlags} set to one of the following values:</p>
  * 
@@ -43,37 +43,56 @@ import static org.lwjgl.vulkan.VK10.*;
  * 
  * <p>There <b>must</b> be at least one memory type with both the {@link VK10#VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} and {@link VK10#VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} bits set in its {@code propertyFlags}. There <b>must</b> be at least one memory type with the {@link VK10#VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit set in its {@code propertyFlags}.</p>
  * 
- * <p>The memory types are sorted according to a preorder which serves to aid in easily selecting an appropriate memory type. Given two memory types X and Y, the preorder defines <code>X {leq} Y</code> if:</p>
+ * <p>For each pair of elements <b>X</b> and <b>Y</b> returned in {@code memoryTypes}, <b>X</b> <b>must</b> be placed at a lower index position than <b>Y</b> if:</p>
  * 
  * <ul>
- * <li>the memory property bits set for X are a strict subset of the memory property bits set for Y. Or,</li>
- * <li>the memory property bits set for X are the same as the memory property bits set for Y, and X uses a memory heap with greater or equal performance (as determined in an implementation-specific manner).</li>
+ * <li>either the set of bit flags returned in the {@code propertyFlags} member of <b>X</b> is a strict subset of the set of bit flags returned in the {@code propertyFlags} member of <b>Y</b>.</li>
+ * <li>or the {@code propertyFlags} members of <b>X</b> and <b>Y</b> are equal, and <b>X</b> belongs to a memory heap with greater performance (as determined in an implementation-specific manner).</li>
  * </ul>
  * 
- * <p>Memory types are ordered in the list such that X is assigned a lesser {@code memoryTypeIndex} than Y if <code>(X {leq} Y) {land} {lnot} (Y {leq} X)</code> according to the preorder. Note that the list of all allowed memory property flag combinations above satisfies this preorder, but other orders would as well. The goal of this ordering is to enable applications to use a simple search loop in selecting the proper memory type, along the lines of:</p>
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>There is no ordering requirement between <b>X</b> and <b>Y</b> elements for the case their {@code propertyFlags} members are not in a subset relation. That potentially allows more than one possible way to order the same set of memory types. Notice that the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-device-bitmask-list">list of all allowed memory property flag combinations</a> is written in the required order. But if instead {@link VK10#VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} was before {@link VK10#VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} | {@link VK10#VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT}, the list would still be in the required order.</p>
+ * </div>
+ * 
+ * <p>This ordering requirement enables applications to use a simple search loop to select the desired memory type along the lines of:</p>
  * 
  * <code><pre>
- * // Find a memory type in "memoryTypeBits" that includes all of "properties"
- * int32_t FindProperties(uint32_t memoryTypeBits, VkMemoryPropertyFlags properties)
- * {
- *     for (int32_t i = 0; i < memoryTypeCount; ++i)
- *     {
- *         if ((memoryTypeBits & (1 << i)) &&
- *             ((memoryTypes[i].propertyFlags & properties) == properties))
- *             return i;
+ * // Find a memory in `memoryTypeBitsRequirement` that includes all of `requiredProperties`
+ * int32_t findProperties(const VkPhysicalDeviceMemoryProperties* pMemoryProperties,
+ *                        uint32_t memoryTypeBitsRequirement,
+ *                        VkMemoryPropertyFlags requiredProperties) {
+ *     const uint32_t memoryCount = pMemoryProperties->memoryTypeCount;
+ *     for (uint32_t memoryIndex = 0; memoryIndex < memoryCount; ++memoryIndex) {
+ *         const uint32_t memoryTypeBits = (1 << memoryIndex);
+ *         const bool isRequiredMemoryType = memoryTypeBitsRequirement & memoryTypeBits;
+ * 
+ *         const VkMemoryPropertyFlags properties =
+ *             pMemoryProperties->memoryTypes[memoryIndex].propertyFlags;
+ *         const bool hasRequiredProperties =
+ *             (properties & requiredProperties) == requiredProperties;
+ * 
+ *         if (isRequiredMemoryType && hasRequiredProperties)
+ *             return static_cast<int32_t>(memoryIndex);
  *     }
+ * 
+ *     // failed to find memory type
  *     return -1;
  * }
  * 
- * // Try to find an optimal memory type, or if it does not exist
- * // find any compatible memory type
+ * // Try to find an optimal memory type, or if it does not exist try fallback memory type
+ * // `device` is the VkDevice
+ * // `image` is the VkImage that requires memory to be bound
+ * // `memoryProperties` properties as returned by vkGetPhysicalDeviceMemoryProperties
+ * // `requiredProperties` are the property flags that must be present
+ * // `optimalProperties` are the property flags that are preferred by the application
  * VkMemoryRequirements memoryRequirements;
  * vkGetImageMemoryRequirements(device, image, &memoryRequirements);
- * int32_t memoryType = FindProperties(memoryRequirements.memoryTypeBits, optimalProperties);
- * if (memoryType == -1)
- *     memoryType = FindProperties(memoryRequirements.memoryTypeBits, requiredProperties);</pre></code>
- * 
- * <p>The loop will find the first supported memory type that has all bits requested in {@code properties} set. If there is no exact match, it will find a closest match (i.e. a memory type with the fewest additional bits set), which has some additional bits set but which are not detrimental to the behaviors requested by {@code properties}. The application <b>can</b> first search for the optimal properties, e.g. a memory type that is device-local or supports coherent cached accesses, as appropriate for the intended usage, and if such a memory type is not present <b>can</b> fallback to searching for a less optimal but guaranteed set of properties such as "0" or "host-visible and coherent".</p>
+ * int32_t memoryType =
+ *     findProperties(&memoryProperties, memoryRequirements.memoryTypeBits, optimalProperties);
+ * if (memoryType == -1) // not found; try fallback properties
+ *     memoryType =
+ *         findProperties(&memoryProperties, memoryRequirements.memoryTypeBits, requiredProperties);</pre></code>
  * 
  * <h5>See Also</h5>
  * 

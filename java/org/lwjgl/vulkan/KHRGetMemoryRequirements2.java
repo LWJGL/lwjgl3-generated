@@ -111,8 +111,8 @@ public class KHRGetMemoryRequirements2 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pInfo} <b>must</b> be a pointer to a valid {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
-     * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements2KHR} structure</li>
+     * <li>{@code pInfo} <b>must</b> be a valid pointer to a valid {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
+     * <li>{@code pMemoryRequirements} <b>must</b> be a valid pointer to a {@link VkMemoryRequirements2KHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -155,8 +155,8 @@ public class KHRGetMemoryRequirements2 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pInfo} <b>must</b> be a pointer to a valid {@link VkBufferMemoryRequirementsInfo2KHR} structure</li>
-     * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements2KHR} structure</li>
+     * <li>{@code pInfo} <b>must</b> be a valid pointer to a valid {@link VkBufferMemoryRequirementsInfo2KHR} structure</li>
+     * <li>{@code pMemoryRequirements} <b>must</b> be a valid pointer to a {@link VkMemoryRequirements2KHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>

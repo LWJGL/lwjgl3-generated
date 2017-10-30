@@ -128,7 +128,7 @@ public class EXTDiscardRectangles {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The discard rectangle taken from element <code>i</code> of {@code pDiscardRectangles} replace the current state for the discard rectangle index <code>firstDiscardRectangle {plus} i</code>, for <code>i</code> in <code>[0, discardRectangleCount)</code>.</p>
+     * <p>The discard rectangle taken from element <code>i</code> of {@code pDiscardRectangles} replace the current state for the discard rectangle index <code>firstDiscardRectangle + i</code>, for <code>i</code> in <code>[0, discardRectangleCount)</code>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -136,7 +136,7 @@ public class EXTDiscardRectangles {
      * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled</li>
      * <li>{@code firstDiscardRectangle} <b>must</b> be less than {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}.{@code maxDiscardRectangles}</li>
      * <li>The sum of {@code firstDiscardRectangle} and {@code discardRectangleCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}, inclusive</li>
-     * <li>{@code pDiscardRectangles} <b>must</b> be a pointer to an array of {@code discardRectangleCount} valid {@link VkRect2D} structures</li>
+     * <li>{@code pDiscardRectangles} <b>must</b> be a valid pointer to an array of {@code discardRectangleCount} valid {@link VkRect2D} structures</li>
      * <li>The {@code x} and {@code y} members of {@code offset} in {@link VkRect2D} <b>must</b> be greater than or equal to 0</li>
      * <li>Evaluation of <code>(offset.x + extent.width)</code> in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
      * <li>Evaluation of <code>(offset.y + extent.height)</code> in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
@@ -146,7 +146,7 @@ public class EXTDiscardRectangles {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pDiscardRectangles} <b>must</b> be a pointer to an array of {@code discardRectangleCount} {@link VkRect2D} structures</li>
+     * <li>{@code pDiscardRectangles} <b>must</b> be a valid pointer to an array of {@code discardRectangleCount} {@link VkRect2D} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>{@code discardRectangleCount} <b>must</b> be greater than 0</li>

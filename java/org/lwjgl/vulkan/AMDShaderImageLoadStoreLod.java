@@ -30,7 +30,7 @@ package org.lwjgl.vulkan;
  * <li>Dominik Witczak @dominikwitczak_amd</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>08/21/2017</dd>
+ * <dd>2017-08-21</dd>
  * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
  * <li>This extension requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/AMD/SPV_AMD_shader_image_load_store_lod.html">SPV_AMD_shader_image_load_store_lod</a> SPIR-V extension.</li>

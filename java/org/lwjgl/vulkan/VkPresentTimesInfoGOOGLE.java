@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link GOOGLEDisplayTiming#VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE}</li>
- * <li>If {@code pTimes} is not {@code NULL}, {@code pTimes} <b>must</b> be a pointer to an array of {@code swapchainCount} {@link VkPresentTimeGOOGLE} structures</li>
+ * <li>If {@code pTimes} is not {@code NULL}, {@code pTimes} <b>must</b> be a valid pointer to an array of {@code swapchainCount} {@link VkPresentTimeGOOGLE} structures</li>
  * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

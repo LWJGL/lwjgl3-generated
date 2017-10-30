@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The layers <code>[baseArrayLayer, baseArrayLayer {plus} layerCount)</code> counting from the base layer of the attachment image view are cleared.</p>
+ * <p>The layers <code>[baseArrayLayer, baseArrayLayer + layerCount)</code> counting from the base layer of the attachment image view are cleared.</p>
  * 
  * <h5>See Also</h5>
  * 

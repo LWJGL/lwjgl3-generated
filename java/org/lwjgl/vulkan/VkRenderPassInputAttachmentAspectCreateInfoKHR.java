@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRMaintenance2#VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO_KHR STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>{@code pAspectReferences} <b>must</b> be a pointer to an array of {@code aspectReferenceCount} valid {@link VkInputAttachmentAspectReferenceKHR} structures</li>
+ * <li>{@code pAspectReferences} <b>must</b> be a valid pointer to an array of {@code aspectReferenceCount} valid {@link VkInputAttachmentAspectReferenceKHR} structures</li>
  * <li>{@code aspectReferenceCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

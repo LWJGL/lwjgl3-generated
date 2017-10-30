@@ -16,12 +16,6 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <h5>Description</h5>
  * 
- * <ul>
- * <li>{@code sType} is the type of this structure.</li>
- * <li>{@code pNext} is {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code pointClippingBehavior} is the point clipping behavior supported by the implementation, and is of type {@code VkPointClippingBehaviorKHR}.</li>
- * </ul>
- * 
  * <p>If the {@link VkPhysicalDevicePointClippingPropertiesKHR} structure is included in the {@code pNext} chain of flink:VkPhysicalDeviceProperties2KHR, it is filled with the implementation-dependent limits.</p>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -29,6 +23,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRMaintenance2#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * </ul>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code pointClippingBehavior} &ndash; the point clipping behavior supported by the implementation, and is of type {@code VkPointClippingBehaviorKHR}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

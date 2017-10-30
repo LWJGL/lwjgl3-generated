@@ -14,17 +14,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Structure describing advanced blending limits that can be supported by an implementation.
  * 
- * <h5>Description</h5>
- * 
- * <ul>
- * <li>{@code advancedBlendMaxColorAttachments} is one greater than the highest color attachment index that <b>can</b> be used in a subpass, for a pipeline that uses an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-blend-advanced">advanced blend operation</a>.</li>
- * <li>{@code advancedBlendIndependentBlend} indicates whether advanced blend operations <b>can</b> vary per-attachment.</li>
- * <li>{@code advancedBlendNonPremultipliedSrcColor} indicates whether the source color <b>can</b> be treated as non-premultiplied. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::srcPremultiplied} <b>must</b> be {@link VK10#VK_TRUE TRUE}.</li>
- * <li>{@code advancedBlendNonPremultipliedDstColor} indicates whether the destination color <b>can</b> be treated as non-premultiplied. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::dstPremultiplied} <b>must</b> be {@link VK10#VK_TRUE TRUE}.</li>
- * <li>{@code advancedBlendCorrelatedOverlap} indicates whether the overlap mode <b>can</b> be treated as correlated. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::blendOverlap} <b>must</b> be {@link EXTBlendOperationAdvanced#VK_BLEND_OVERLAP_UNCORRELATED_EXT BLEND_OVERLAP_UNCORRELATED_EXT}.</li>
- * <li>{@code advancedBlendAllOperations} indicates whether all advanced blend operation enums are supported. See the valid usage of {@link VkPipelineColorBlendAttachmentState}.</li>
- * </ul>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
@@ -32,6 +21,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * </ul>
  * 
  * <p>If the {@link VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT} structure is included in the {@code pNext} chain of {@link VkPhysicalDeviceProperties2KHR}, it is filled with the implementation-dependent limits.</p>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code advancedBlendMaxColorAttachments} &ndash; one greater than the highest color attachment index that <b>can</b> be used in a subpass, for a pipeline that uses an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-blend-advanced">advanced blend operation</a>.</li>
+ * <li>{@code advancedBlendIndependentBlend} &ndash; indicates whether advanced blend operations <b>can</b> vary per-attachment.</li>
+ * <li>{@code advancedBlendNonPremultipliedSrcColor} &ndash; indicates whether the source color <b>can</b> be treated as non-premultiplied. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::srcPremultiplied} <b>must</b> be {@link VK10#VK_TRUE TRUE}.</li>
+ * <li>{@code advancedBlendNonPremultipliedDstColor} &ndash; indicates whether the destination color <b>can</b> be treated as non-premultiplied. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::dstPremultiplied} <b>must</b> be {@link VK10#VK_TRUE TRUE}.</li>
+ * <li>{@code advancedBlendCorrelatedOverlap} &ndash; indicates whether the overlap mode <b>can</b> be treated as correlated. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::blendOverlap} <b>must</b> be {@link EXTBlendOperationAdvanced#VK_BLEND_OVERLAP_UNCORRELATED_EXT BLEND_OVERLAP_UNCORRELATED_EXT}.</li>
+ * <li>{@code advancedBlendAllOperations} &ndash; indicates whether all advanced blend operation enums are supported. See the valid usage of {@link VkPipelineColorBlendAttachmentState}.</li>
+ * </ul>
  * 
  * <h3>Layout</h3>
  * 

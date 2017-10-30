@@ -35,9 +35,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO_KHX}</li>
- * <li>If {@code waitSemaphoreCount} is not 0, {@code pWaitSemaphoreDeviceIndices} <b>must</b> be a pointer to an array of {@code waitSemaphoreCount} {@code uint32_t} values</li>
- * <li>If {@code commandBufferCount} is not 0, {@code pCommandBufferDeviceMasks} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code uint32_t} values</li>
- * <li>If {@code signalSemaphoreCount} is not 0, {@code pSignalSemaphoreDeviceIndices} <b>must</b> be a pointer to an array of {@code signalSemaphoreCount} {@code uint32_t} values</li>
+ * <li>If {@code waitSemaphoreCount} is not 0, {@code pWaitSemaphoreDeviceIndices} <b>must</b> be a valid pointer to an array of {@code waitSemaphoreCount} {@code uint32_t} values</li>
+ * <li>If {@code commandBufferCount} is not 0, {@code pCommandBufferDeviceMasks} <b>must</b> be a valid pointer to an array of {@code commandBufferCount} {@code uint32_t} values</li>
+ * <li>If {@code signalSemaphoreCount} is not 0, {@code pSignalSemaphoreDeviceIndices} <b>must</b> be a valid pointer to an array of {@code signalSemaphoreCount} {@code uint32_t} values</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

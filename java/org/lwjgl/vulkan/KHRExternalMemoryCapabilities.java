@@ -198,8 +198,8 @@ public class KHRExternalMemoryCapabilities {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pExternalBufferInfo} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceExternalBufferInfoKHR} structure</li>
-     * <li>{@code pExternalBufferProperties} <b>must</b> be a pointer to a {@link VkExternalBufferPropertiesKHR} structure</li>
+     * <li>{@code pExternalBufferInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceExternalBufferInfoKHR} structure</li>
+     * <li>{@code pExternalBufferProperties} <b>must</b> be a valid pointer to a {@link VkExternalBufferPropertiesKHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>

@@ -35,7 +35,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroupCreation#VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO_KHX}</li>
- * <li>If {@code physicalDeviceCount} is not 0, {@code pPhysicalDevices} <b>must</b> be a pointer to an array of {@code physicalDeviceCount} valid {@code VkPhysicalDevice} handles</li>
+ * <li>If {@code physicalDeviceCount} is not 0, {@code pPhysicalDevices} <b>must</b> be a valid pointer to an array of {@code physicalDeviceCount} valid {@code VkPhysicalDevice} handles</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

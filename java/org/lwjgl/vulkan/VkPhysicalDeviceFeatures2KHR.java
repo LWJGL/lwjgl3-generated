@@ -18,12 +18,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <ul>
- * <li>{@code sType} is the type of this structure.</li>
- * <li>{@code pNext} is {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code features} is a structure of type {@link VkPhysicalDeviceFeatures} describing the fine-grained features of the Vulkan 1.0 API.</li>
- * </ul>
- * 
  * <p>The {@code pNext} chain of this structure is used to extend the structure with features defined by extensions. This structure <b>can</b> be used in {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFeatures2KHR GetPhysicalDeviceFeatures2KHR} or <b>can</b> be in the {@code pNext} chain of a {@link VkDeviceCreateInfo} structure, in which case it controls which features are enabled in the device in lieu of {@code pEnabledFeatures}.</p>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -37,6 +31,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>See Also</h5>
  * 
  * <p>{@link VkPhysicalDeviceFeatures}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFeatures2KHR GetPhysicalDeviceFeatures2KHR}</p>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code features} &ndash; a structure of type {@link VkPhysicalDeviceFeatures} describing the fine-grained features of the Vulkan 1.0 API.</li>
+ * </ul>
  * 
  * <h3>Layout</h3>
  * 

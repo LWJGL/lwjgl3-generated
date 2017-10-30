@@ -30,7 +30,7 @@ package org.lwjgl.vulkan;
  * <li>mailto:quentin.lin@amd.com[quentin.lin@amd.com]</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>06/08/2017</dd>
+ * <dd>2017-06-08</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Interactions and External Dependencies</b></dt>

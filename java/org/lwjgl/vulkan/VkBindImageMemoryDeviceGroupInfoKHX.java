@@ -57,8 +57,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHX STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO_KHX}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>If {@code deviceIndexCount} is not 0, {@code pDeviceIndices} <b>must</b> be a pointer to an array of {@code deviceIndexCount} {@code uint32_t} values</li>
- * <li>If {@code SFRRectCount} is not 0, {@code pSFRRects} <b>must</b> be a pointer to an array of {@code SFRRectCount} {@link VkRect2D} structures</li>
+ * <li>If {@code deviceIndexCount} is not 0, {@code pDeviceIndices} <b>must</b> be a valid pointer to an array of {@code deviceIndexCount} {@code uint32_t} values</li>
+ * <li>If {@code SFRRectCount} is not 0, {@code pSFRRects} <b>must</b> be a valid pointer to an array of {@code SFRRectCount} {@link VkRect2D} structures</li>
  * </ul>
  * 
  * <h5>See Also</h5>

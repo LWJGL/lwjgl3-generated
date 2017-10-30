@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link EXTValidationCache#VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>If {@code initialDataSize} is not 0, {@code pInitialData} <b>must</b> be a pointer to an array of {@code initialDataSize} bytes</li>
+ * <li>If {@code initialDataSize} is not 0, {@code pInitialData} <b>must</b> be a valid pointer to an array of {@code initialDataSize} bytes</li>
  * </ul>
  * 
  * <h5>See Also</h5>

@@ -45,8 +45,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>If {@code setLayoutCount} is not 0, {@code pSetLayouts} <b>must</b> be a pointer to an array of {@code setLayoutCount} valid {@code VkDescriptorSetLayout} handles</li>
- * <li>If {@code pushConstantRangeCount} is not 0, {@code pPushConstantRanges} <b>must</b> be a pointer to an array of {@code pushConstantRangeCount} valid {@link VkPushConstantRange} structures</li>
+ * <li>If {@code setLayoutCount} is not 0, {@code pSetLayouts} <b>must</b> be a valid pointer to an array of {@code setLayoutCount} valid {@code VkDescriptorSetLayout} handles</li>
+ * <li>If {@code pushConstantRangeCount} is not 0, {@code pPushConstantRanges} <b>must</b> be a valid pointer to an array of {@code pushConstantRangeCount} valid {@link VkPushConstantRange} structures</li>
  * </ul>
  * 
  * <h5>See Also</h5>

@@ -24,6 +24,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
  * <li>{@code scissorCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
  * <li>{@code scissorCount} and {@code viewportCount} <b>must</b> be identical</li>
+ * <li>If the {@code viewportWScalingEnable} member of a {@link VkPipelineViewportWScalingStateCreateInfoNV} structure chained to the {@code pNext} chain is {@link VK10#VK_TRUE TRUE}, the {@code viewportCount} member of the {@link VkPipelineViewportWScalingStateCreateInfoNV} structure <b>must</b> be equal to {@code viewportCount}</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

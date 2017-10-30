@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXDeviceGroup#VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO_KHX}</li>
- * <li>If {@code deviceRenderAreaCount} is not 0, {@code pDeviceRenderAreas} <b>must</b> be a pointer to an array of {@code deviceRenderAreaCount} {@link VkRect2D} structures</li>
+ * <li>If {@code deviceRenderAreaCount} is not 0, {@code pDeviceRenderAreas} <b>must</b> be a valid pointer to an array of {@code deviceRenderAreaCount} {@link VkRect2D} structures</li>
  * </ul>
  * 
  * <h5>See Also</h5>

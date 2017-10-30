@@ -260,7 +260,7 @@ public class KHXDeviceGroup {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pPeerMemoryFeatures} <b>must</b> be a pointer to a {@code VkPeerMemoryFeatureFlagsKHX} value</li>
+     * <li>{@code pPeerMemoryFeatures} <b>must</b> be a valid pointer to a {@code VkPeerMemoryFeatureFlagsKHX} value</li>
      * </ul>
      *
      * @param device              the logical device that owns the memory.
@@ -357,7 +357,7 @@ public class KHXDeviceGroup {
      * 
      * <h5>Description</h5>
      * 
-     * <p>When the command is executed, a global workgroup consisting of <code>groupCountX {times} groupCountY {times} groupCountZ</code> local workgroups is assembled, with {@code WorkgroupId} values ranging from <code>[baseGroup, baseGroup {plus} groupCount)</code> in each component. {@link VK10#vkCmdDispatch CmdDispatch} is equivalent to vkCmdDispatchBaseKHX(0,0,0,groupCountX,groupCountY,groupCountZ).</p>
+     * <p>When the command is executed, a global workgroup consisting of <code>groupCountX × groupCountY × groupCountZ</code> local workgroups is assembled, with {@code WorkgroupId} values ranging from <code>[baseGroup, baseGroup + groupCount)</code> in each component. {@link VK10#vkCmdDispatch CmdDispatch} is equivalent to vkCmdDispatchBaseKHX(0,0,0,groupCountX,groupCountY,groupCountZ).</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -440,7 +440,7 @@ public class KHXDeviceGroup {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pDeviceGroupPresentCapabilities} <b>must</b> be a pointer to a {@link VkDeviceGroupPresentCapabilitiesKHX} structure</li>
+     * <li>{@code pDeviceGroupPresentCapabilities} <b>must</b> be a valid pointer to a {@link VkDeviceGroupPresentCapabilitiesKHX} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -504,7 +504,7 @@ public class KHXDeviceGroup {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
-     * <li>{@code pModes} <b>must</b> be a pointer to a {@code VkDeviceGroupPresentModeFlagsKHX} value</li>
+     * <li>{@code pModes} <b>must</b> be a valid pointer to a {@code VkDeviceGroupPresentModeFlagsKHX} value</li>
      * <li>Both of {@code device}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
@@ -585,8 +585,8 @@ public class KHXDeviceGroup {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>{@code surface} <b>must</b> be a valid {@code VkSurfaceKHR} handle</li>
-     * <li>{@code pRectCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pRectCount} is not 0, and {@code pRects} is not {@code NULL}, {@code pRects} <b>must</b> be a pointer to an array of {@code pRectCount} {@link VkRect2D} structures</li>
+     * <li>{@code pRectCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pRectCount} is not 0, and {@code pRects} is not {@code NULL}, {@code pRects} <b>must</b> be a valid pointer to an array of {@code pRectCount} {@link VkRect2D} structures</li>
      * <li>Both of {@code physicalDevice}, and {@code surface} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 
@@ -657,8 +657,8 @@ public class KHXDeviceGroup {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pAcquireInfo} <b>must</b> be a pointer to a valid {@link VkAcquireNextImageInfoKHX} structure</li>
-     * <li>{@code pImageIndex} <b>must</b> be a pointer to a {@code uint32_t} value</li>
+     * <li>{@code pAcquireInfo} <b>must</b> be a valid pointer to a valid {@link VkAcquireNextImageInfoKHX} structure</li>
+     * <li>{@code pImageIndex} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>

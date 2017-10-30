@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
- * <li>{@code pSetLayouts} <b>must</b> be a pointer to an array of {@code descriptorSetCount} valid {@code VkDescriptorSetLayout} handles</li>
+ * <li>{@code pSetLayouts} <b>must</b> be a valid pointer to an array of {@code descriptorSetCount} valid {@code VkDescriptorSetLayout} handles</li>
  * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
  * <li>Both of {@code descriptorPool}, and the elements of {@code pSetLayouts} <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
  * </ul>

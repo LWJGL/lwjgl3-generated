@@ -53,11 +53,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSubpassDescriptionFlagBits} values</li>
  * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
- * <li>If {@code inputAttachmentCount} is not 0, {@code pInputAttachments} <b>must</b> be a pointer to an array of {@code inputAttachmentCount} valid {@link VkAttachmentReference} structures</li>
- * <li>If {@code colorAttachmentCount} is not 0, {@code pColorAttachments} <b>must</b> be a pointer to an array of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
- * <li>If {@code colorAttachmentCount} is not 0, and {@code pResolveAttachments} is not {@code NULL}, {@code pResolveAttachments} <b>must</b> be a pointer to an array of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
- * <li>If {@code pDepthStencilAttachment} is not {@code NULL}, {@code pDepthStencilAttachment} <b>must</b> be a pointer to a valid {@link VkAttachmentReference} structure</li>
- * <li>If {@code preserveAttachmentCount} is not 0, {@code pPreserveAttachments} <b>must</b> be a pointer to an array of {@code preserveAttachmentCount} {@code uint32_t} values</li>
+ * <li>If {@code inputAttachmentCount} is not 0, {@code pInputAttachments} <b>must</b> be a valid pointer to an array of {@code inputAttachmentCount} valid {@link VkAttachmentReference} structures</li>
+ * <li>If {@code colorAttachmentCount} is not 0, {@code pColorAttachments} <b>must</b> be a valid pointer to an array of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
+ * <li>If {@code colorAttachmentCount} is not 0, and {@code pResolveAttachments} is not {@code NULL}, {@code pResolveAttachments} <b>must</b> be a valid pointer to an array of {@code colorAttachmentCount} valid {@link VkAttachmentReference} structures</li>
+ * <li>If {@code pDepthStencilAttachment} is not {@code NULL}, {@code pDepthStencilAttachment} <b>must</b> be a valid pointer to a valid {@link VkAttachmentReference} structure</li>
+ * <li>If {@code preserveAttachmentCount} is not 0, {@code pPreserveAttachments} <b>must</b> be a valid pointer to an array of {@code preserveAttachmentCount} {@code uint32_t} values</li>
  * </ul>
  * 
  * <h5>See Also</h5>

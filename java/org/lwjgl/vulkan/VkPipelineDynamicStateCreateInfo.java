@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link VK10#VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code flags} <b>must</b> be 0</li>
- * <li>{@code pDynamicStates} <b>must</b> be a pointer to an array of {@code dynamicStateCount} valid {@code VkDynamicState} values</li>
+ * <li>{@code pDynamicStates} <b>must</b> be a valid pointer to an array of {@code dynamicStateCount} valid {@code VkDynamicState} values</li>
  * <li>{@code dynamicStateCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

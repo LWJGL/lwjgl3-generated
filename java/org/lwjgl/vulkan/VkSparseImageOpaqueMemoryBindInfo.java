@@ -27,7 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
- * <li>{@code pBinds} <b>must</b> be a pointer to an array of {@code bindCount} valid {@link VkSparseMemoryBind} structures</li>
+ * <li>{@code pBinds} <b>must</b> be a valid pointer to an array of {@code bindCount} valid {@link VkSparseMemoryBind} structures</li>
  * <li>{@code bindCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

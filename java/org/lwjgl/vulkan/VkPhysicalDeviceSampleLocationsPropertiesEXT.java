@@ -15,16 +15,6 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Structure describing sample location limits that can be supported by an implementation.
  * 
- * <h5>Description</h5>
- * 
- * <ul>
- * <li>{@code sampleLocationSampleCounts} is a bitmask of {@code VkSampleCountFlagBits} indicating the sample counts supporting custom sample locations.</li>
- * <li>{@code maxSampleLocationGridSize} is the maximum size of the pixel grid in which sample locations <b>can</b> vary that is supported for all sample counts in {@code sampleLocationSampleCounts}.</li>
- * <li>{@code sampleLocationCoordinateRange}[2] is the range of supported sample location coordinates.</li>
- * <li>{@code sampleLocationSubPixelBits} is the number of bits of subpixel precision for sample locations.</li>
- * <li>{@code variableSampleLocations} indicates whether the sample locations used by all pipelines that will be bound to a command buffer during a subpass <b>must</b> match. If set to {@link VK10#VK_TRUE TRUE}, the implementation supports variable sample locations in a subpass. If set to {@link VK10#VK_FALSE FALSE}, then the sample locations <b>must</b> stay constant in any given subpass.</li>
- * </ul>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>
@@ -37,6 +27,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h5>See Also</h5>
  * 
  * <p>{@link VkExtent2D}</p>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sampleLocationSampleCounts} &ndash; a bitmask of {@code VkSampleCountFlagBits} indicating the sample counts supporting custom sample locations.</li>
+ * <li>{@code maxSampleLocationGridSize} &ndash; the maximum size of the pixel grid in which sample locations <b>can</b> vary that is supported for all sample counts in {@code sampleLocationSampleCounts}.</li>
+ * <li>{@code sampleLocationCoordinateRange} &ndash; the range of supported sample location coordinates.</li>
+ * <li>{@code sampleLocationSubPixelBits} &ndash; the number of bits of subpixel precision for sample locations.</li>
+ * <li>{@code variableSampleLocations} &ndash; indicates whether the sample locations used by all pipelines that will be bound to a command buffer during a subpass <b>must</b> match. If set to {@link VK10#VK_TRUE TRUE}, the implementation supports variable sample locations in a subpass. If set to {@link VK10#VK_FALSE FALSE}, then the sample locations <b>must</b> stay constant in any given subpass.</li>
+ * </ul>
  * 
  * <h3>Layout</h3>
  * 

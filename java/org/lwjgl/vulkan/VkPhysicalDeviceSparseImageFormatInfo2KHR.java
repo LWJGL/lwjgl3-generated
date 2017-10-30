@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code format} &ndash; the image format.</li>
  * <li>{@code type} &ndash; the dimensionality of image.</li>
- * <li>{@code samples} &ndash; the number of samples per pixel as defined in {@code VkSampleCountFlagBits}.</li>
+ * <li>{@code samples} &ndash; the number of samples per texel as defined in {@code VkSampleCountFlagBits}.</li>
  * <li>{@code usage} &ndash; a bitmask describing the intended usage of the image.</li>
  * <li>{@code tiling} &ndash; the tiling arrangement of the data elements in memory.</li>
  * </ul>

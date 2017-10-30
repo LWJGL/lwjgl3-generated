@@ -173,7 +173,7 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pFeatures} <b>must</b> be a pointer to a {@link VkPhysicalDeviceFeatures2KHR} structure</li>
+     * <li>{@code pFeatures} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceFeatures2KHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -218,7 +218,7 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceProperties2KHR} structure</li>
+     * <li>{@code pProperties} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceProperties2KHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -265,7 +265,7 @@ public class KHRGetPhysicalDeviceProperties2 {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
-     * <li>{@code pFormatProperties} <b>must</b> be a pointer to a {@link VkFormatProperties2KHR} structure</li>
+     * <li>{@code pFormatProperties} <b>must</b> be a valid pointer to a {@link VkFormatProperties2KHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -314,8 +314,8 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pImageFormatInfo} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceImageFormatInfo2KHR} structure</li>
-     * <li>{@code pImageFormatProperties} <b>must</b> be a pointer to a {@link VkImageFormatProperties2KHR} structure</li>
+     * <li>{@code pImageFormatInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceImageFormatInfo2KHR} structure</li>
+     * <li>{@code pImageFormatProperties} <b>must</b> be a valid pointer to a {@link VkImageFormatProperties2KHR} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -382,8 +382,8 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pQueueFamilyPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pQueueFamilyPropertyCount} is not 0, and {@code pQueueFamilyProperties} is not {@code NULL}, {@code pQueueFamilyProperties} <b>must</b> be a pointer to an array of {@code pQueueFamilyPropertyCount} {@link VkQueueFamilyProperties2KHR} structures</li>
+     * <li>{@code pQueueFamilyPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pQueueFamilyPropertyCount} is not 0, and {@code pQueueFamilyProperties} is not {@code NULL}, {@code pQueueFamilyProperties} <b>must</b> be a valid pointer to an array of {@code pQueueFamilyPropertyCount} {@link VkQueueFamilyProperties2KHR} structures</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -433,7 +433,7 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pMemoryProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceMemoryProperties2KHR} structure</li>
+     * <li>{@code pMemoryProperties} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceMemoryProperties2KHR} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -484,9 +484,9 @@ public class KHRGetPhysicalDeviceProperties2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pFormatInfo} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceSparseImageFormatInfo2KHR} structure</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkSparseImageFormatProperties2KHR} structures</li>
+     * <li>{@code pFormatInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceSparseImageFormatInfo2KHR} structure</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkSparseImageFormatProperties2KHR} structures</li>
      * </ul>
      * 
      * <h5>See Also</h5>

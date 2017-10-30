@@ -16,14 +16,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure describing capabilities of a surface.
  * 
- * <h5>Description</h5>
- * 
- * <ul>
- * <li>{@code sType} is the type of this structure.</li>
- * <li>{@code pNext} is {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code supportedSurfaceCounters} is a bitmask of {@code VkSurfaceCounterFlagBitsEXT} indicating the supported surface counter types.</li>
- * </ul>
- * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
@@ -40,6 +32,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>See Also</h5>
  * 
  * <p>{@link VkExtent2D}, {@link EXTDisplaySurfaceCounter#vkGetPhysicalDeviceSurfaceCapabilities2EXT GetPhysicalDeviceSurfaceCapabilities2EXT}</p>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code supportedSurfaceCounters} &ndash; a bitmask of {@code VkSurfaceCounterFlagBitsEXT} indicating the supported surface counter types.</li>
+ * </ul>
  * 
  * <h3>Layout</h3>
  * 

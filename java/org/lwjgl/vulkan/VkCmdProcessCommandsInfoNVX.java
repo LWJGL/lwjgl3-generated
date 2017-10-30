@@ -40,7 +40,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code objectTable} <b>must</b> be a valid {@code VkObjectTableNVX} handle</li>
  * <li>{@code indirectCommandsLayout} <b>must</b> be a valid {@code VkIndirectCommandsLayoutNVX} handle</li>
- * <li>{@code pIndirectCommandsTokens} <b>must</b> be a pointer to an array of {@code indirectCommandsTokenCount} valid {@link VkIndirectCommandsTokenNVX} structures</li>
+ * <li>{@code pIndirectCommandsTokens} <b>must</b> be a valid pointer to an array of {@code indirectCommandsTokenCount} valid {@link VkIndirectCommandsTokenNVX} structures</li>
  * <li>If {@code targetCommandBuffer} is not {@code NULL}, {@code targetCommandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
  * <li>If {@code sequencesCountBuffer} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code sequencesCountBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
  * <li>If {@code sequencesIndexBuffer} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code sequencesIndexBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>

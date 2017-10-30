@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code stage} <b>must</b> be a valid {@code VkShaderStageFlagBits} value</li>
  * <li>{@code module} <b>must</b> be a valid {@code VkShaderModule} handle</li>
  * <li>{@code pName} <b>must</b> be a null-terminated UTF-8 string</li>
- * <li>If {@code pSpecializationInfo} is not {@code NULL}, {@code pSpecializationInfo} <b>must</b> be a pointer to a valid {@link VkSpecializationInfo} structure</li>
+ * <li>If {@code pSpecializationInfo} is not {@code NULL}, {@code pSpecializationInfo} <b>must</b> be a valid pointer to a valid {@link VkSpecializationInfo} structure</li>
  * </ul>
  * 
  * <h5>See Also</h5>

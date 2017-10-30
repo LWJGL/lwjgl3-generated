@@ -16,13 +16,6 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying a image subresource.
  * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>{@code mipLevel} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when the image was created</li>
- * <li>{@code arrayLayer} <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when the image was created</li>
- * </ul>
- * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>

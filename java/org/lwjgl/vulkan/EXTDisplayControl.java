@@ -164,7 +164,7 @@ public class EXTDisplayControl {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
-     * <li>{@code pDisplayPowerInfo} <b>must</b> be a pointer to a valid {@link VkDisplayPowerInfoEXT} structure</li>
+     * <li>{@code pDisplayPowerInfo} <b>must</b> be a valid pointer to a valid {@link VkDisplayPowerInfoEXT} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -219,9 +219,9 @@ public class EXTDisplayControl {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pDeviceEventInfo} <b>must</b> be a pointer to a valid {@link VkDeviceEventInfoEXT} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pFence} <b>must</b> be a pointer to a {@code VkFence} handle</li>
+     * <li>{@code pDeviceEventInfo} <b>must</b> be a valid pointer to a valid {@link VkDeviceEventInfoEXT} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pFence} <b>must</b> be a valid pointer to a {@code VkFence} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -282,9 +282,9 @@ public class EXTDisplayControl {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code display} <b>must</b> be a valid {@code VkDisplayKHR} handle</li>
-     * <li>{@code pDisplayEventInfo} <b>must</b> be a pointer to a valid {@link VkDisplayEventInfoEXT} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pFence} <b>must</b> be a pointer to a {@code VkFence} handle</li>
+     * <li>{@code pDisplayEventInfo} <b>must</b> be a valid pointer to a valid {@link VkDisplayEventInfoEXT} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pFence} <b>must</b> be a valid pointer to a {@code VkFence} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -355,7 +355,7 @@ public class EXTDisplayControl {
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code swapchain} <b>must</b> be a valid {@code VkSwapchainKHR} handle</li>
      * <li>{@code counter} <b>must</b> be a valid {@code VkSurfaceCounterFlagBitsEXT} value</li>
-     * <li>{@code pCounterValue} <b>must</b> be a pointer to a {@code uint64_t} value</li>
+     * <li>{@code pCounterValue} <b>must</b> be a valid pointer to a {@code uint64_t} value</li>
      * <li>Both of {@code device}, and {@code swapchain} <b>must</b> have been created, allocated, or retrieved from the same {@code VkInstance}</li>
      * </ul>
      * 

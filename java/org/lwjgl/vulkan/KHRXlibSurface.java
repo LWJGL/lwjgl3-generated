@@ -111,9 +111,9 @@ public class KHRXlibSurface {
      * 
      * <ul>
      * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkXlibSurfaceCreateInfoKHR} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pSurface} <b>must</b> be a pointer to a {@code VkSurfaceKHR} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkXlibSurfaceCreateInfoKHR} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pSurface} <b>must</b> be a valid pointer to a {@code VkSurfaceKHR} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -177,7 +177,7 @@ public class KHRXlibSurface {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code dpy} <b>must</b> be a pointer to a {@code Display} value</li>
+     * <li>{@code dpy} <b>must</b> be a valid pointer to a {@code Display} value</li>
      * </ul>
      *
      * @param physicalDevice   the physical device.

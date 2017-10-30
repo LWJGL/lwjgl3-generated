@@ -57,7 +57,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
  * <li>{@code flags} <b>must</b> be a valid combination of {@code VkIndirectCommandsLayoutUsageFlagBitsNVX} values</li>
  * <li>{@code flags} <b>must</b> not be 0</li>
- * <li>{@code pTokens} <b>must</b> be a pointer to an array of {@code tokenCount} valid {@link VkIndirectCommandsLayoutTokenNVX} structures</li>
+ * <li>{@code pTokens} <b>must</b> be a valid pointer to an array of {@code tokenCount} valid {@link VkIndirectCommandsLayoutTokenNVX} structures</li>
  * <li>{@code tokenCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 

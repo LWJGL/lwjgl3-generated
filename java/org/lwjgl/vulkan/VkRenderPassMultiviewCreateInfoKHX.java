@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>Some implementations <b>may</b> not support multiview in conjunction with <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiview-gs">geometry shaders</a> or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiview-tess">tessellation shaders</a>.</p>
  * 
- * <p>When multiview is enabled, the {@link KHXMultiview#VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX DEPENDENCY_VIEW_LOCAL_BIT_KHX} bit in a dependency <b>can</b> be used to express a view-local dependency, meaning that each view in the destination subpass depends on a single view in the source subpass. Unlike pipeline barriers, a subpass dependency <b>can</b> potentially have a different view mask in the source subpass and the destination subpass. If the dependency is view-local, then each view (<code>dstView</code>) in the destination subpass depends on the view <code>dstView {plus} pViewOffsets[dependency]</code> in the source subpass. If there is not such a view in the source subpass, then this dependency does not affect that view in the destination subpass. If the dependency is not view-local, then all views in the destination subpass depend on all views in the source subpass, and the view offset is ignored. A non-zero view offset is not allowed in a self-dependency.</p>
+ * <p>When multiview is enabled, the {@link KHXMultiview#VK_DEPENDENCY_VIEW_LOCAL_BIT_KHX DEPENDENCY_VIEW_LOCAL_BIT_KHX} bit in a dependency <b>can</b> be used to express a view-local dependency, meaning that each view in the destination subpass depends on a single view in the source subpass. Unlike pipeline barriers, a subpass dependency <b>can</b> potentially have a different view mask in the source subpass and the destination subpass. If the dependency is view-local, then each view (<code>dstView</code>) in the destination subpass depends on the view <code>dstView + pViewOffsets[dependency]</code> in the source subpass. If there is not such a view in the source subpass, then this dependency does not affect that view in the destination subpass. If the dependency is not view-local, then all views in the destination subpass depend on all views in the source subpass, and the view offset is ignored. A non-zero view offset is not allowed in a self-dependency.</p>
  * 
  * <p>The elements of {@code pCorrelationMasks} are a set of masks of views indicating that views in the same mask <b>may</b> exhibit spatial coherency between the views, making it more efficient to render them concurrently. Correlation masks <b>must</b> not have a functional effect on the results of the multiview rendering.</p>
  * 
@@ -49,9 +49,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHXMultiview#VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO_KHX}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>If {@code subpassCount} is not 0, {@code pViewMasks} <b>must</b> be a pointer to an array of {@code subpassCount} {@code uint32_t} values</li>
- * <li>If {@code dependencyCount} is not 0, {@code pViewOffsets} <b>must</b> be a pointer to an array of {@code dependencyCount} {@code int32_t} values</li>
- * <li>If {@code correlationMaskCount} is not 0, {@code pCorrelationMasks} <b>must</b> be a pointer to an array of {@code correlationMaskCount} {@code uint32_t} values</li>
+ * <li>If {@code subpassCount} is not 0, {@code pViewMasks} <b>must</b> be a valid pointer to an array of {@code subpassCount} {@code uint32_t} values</li>
+ * <li>If {@code dependencyCount} is not 0, {@code pViewOffsets} <b>must</b> be a valid pointer to an array of {@code dependencyCount} {@code int32_t} values</li>
+ * <li>If {@code correlationMaskCount} is not 0, {@code pCorrelationMasks} <b>must</b> be a valid pointer to an array of {@code correlationMaskCount} {@code uint32_t} values</li>
  * </ul>
  * 
  * <h3>Member documentation</h3>

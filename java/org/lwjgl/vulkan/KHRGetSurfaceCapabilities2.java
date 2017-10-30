@@ -112,8 +112,8 @@ public class KHRGetSurfaceCapabilities2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pSurfaceInfo} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceSurfaceInfo2KHR} structure</li>
-     * <li>{@code pSurfaceCapabilities} <b>must</b> be a pointer to a {@link VkSurfaceCapabilities2KHR} structure</li>
+     * <li>{@code pSurfaceInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceSurfaceInfo2KHR} structure</li>
+     * <li>{@code pSurfaceCapabilities} <b>must</b> be a valid pointer to a {@link VkSurfaceCapabilities2KHR} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -181,9 +181,9 @@ public class KHRGetSurfaceCapabilities2 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pSurfaceInfo} <b>must</b> be a pointer to a valid {@link VkPhysicalDeviceSurfaceInfo2KHR} structure</li>
-     * <li>{@code pSurfaceFormatCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pSurfaceFormatCount} is not 0, and {@code pSurfaceFormats} is not {@code NULL}, {@code pSurfaceFormats} <b>must</b> be a pointer to an array of {@code pSurfaceFormatCount} {@link VkSurfaceFormat2KHR} structures</li>
+     * <li>{@code pSurfaceInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceSurfaceInfo2KHR} structure</li>
+     * <li>{@code pSurfaceFormatCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pSurfaceFormatCount} is not 0, and {@code pSurfaceFormats} is not {@code NULL}, {@code pSurfaceFormats} <b>must</b> be a valid pointer to an array of {@code pSurfaceFormatCount} {@link VkSurfaceFormat2KHR} structures</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>

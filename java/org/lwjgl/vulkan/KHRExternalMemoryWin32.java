@@ -108,14 +108,14 @@ public class KHRExternalMemoryWin32 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>For handle types defined as NT handles, the handles returned by {@link #vkGetMemoryWin32HandleKHR GetMemoryWin32HandleKHR} are owned by the application. To avoid leaking resources, the application <b>must</b> release ownership of them using the fname:CloseHandle system call when they are no longer needed.</p>
+     * <p>For handle types defined as NT handles, the handles returned by {@link #vkGetMemoryWin32HandleKHR GetMemoryWin32HandleKHR} are owned by the application. To avoid leaking resources, the application <b>must</b> release ownership of them using the {@code CloseHandle} system call when they are no longer needed.</p>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pGetWin32HandleInfo} <b>must</b> be a pointer to a valid {@link VkMemoryGetWin32HandleInfoKHR} structure</li>
-     * <li>{@code pHandle} <b>must</b> be a pointer to a {@code HANDLE} value</li>
+     * <li>{@code pGetWin32HandleInfo} <b>must</b> be a valid pointer to a valid {@link VkMemoryGetWin32HandleInfoKHR} structure</li>
+     * <li>{@code pHandle} <b>must</b> be a valid pointer to a {@code HANDLE} value</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -186,7 +186,7 @@ public class KHRExternalMemoryWin32 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBitsKHR} value</li>
-     * <li>{@code pMemoryWin32HandleProperties} <b>must</b> be a pointer to a {@link VkMemoryWin32HandlePropertiesKHR} structure</li>
+     * <li>{@code pMemoryWin32HandleProperties} <b>must</b> be a valid pointer to a {@link VkMemoryWin32HandlePropertiesKHR} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>

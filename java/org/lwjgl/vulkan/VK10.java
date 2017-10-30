@@ -966,7 +966,7 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit indicates that memory allocated with this type is the most efficient for device access. This property will only be set for memory types belonging to heaps with the {@link #VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} set.</li>
+     * <li>{@link #VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT MEMORY_PROPERTY_DEVICE_LOCAL_BIT} bit indicates that memory allocated with this type is the most efficient for device access. This property will be set if and only if the memory type belongs to a heap with the {@link #VK_MEMORY_HEAP_DEVICE_LOCAL_BIT MEMORY_HEAP_DEVICE_LOCAL_BIT} set.</li>
      * <li>{@link #VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT MEMORY_PROPERTY_HOST_VISIBLE_BIT} bit indicates that memory allocated with this type <b>can</b> be mapped for host access using {@link #vkMapMemory MapMemory}.</li>
      * <li>{@link #VK_MEMORY_PROPERTY_HOST_COHERENT_BIT MEMORY_PROPERTY_HOST_COHERENT_BIT} bit indicates that the host cache management commands {@link #vkFlushMappedMemoryRanges FlushMappedMemoryRanges} and {@link #vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges} are not needed to flush host writes to the device or make device writes visible to the host, respectively.</li>
      * <li>{@link #VK_MEMORY_PROPERTY_HOST_CACHED_BIT MEMORY_PROPERTY_HOST_CACHED_BIT} bit indicates that memory allocated with this type is cached on the host. Host memory accesses to uncached memory are slower than to cached memory, however uncached memory is always host coherent.</li>
@@ -1104,7 +1104,7 @@ public class VK10 {
      * <ul>
      * <li>{@link #VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT} specifies that the image uses a single mip tail region for all array layers.</li>
      * <li>{@link #VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT} specifies that the first mip level whose dimensions are not integer multiples of the corresponding dimensions of the sparse image block begins the mip tail region.</li>
-     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT} specifies that the image uses non-standard sparse image block dimensions, and the {@code imageGranularity} values do not match the standard sparse image block dimensions for the given pixel format.</li>
+     * <li>{@link #VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT} specifies that the image uses non-standard sparse image block dimensions, and the {@code imageGranularity} values do not match the standard sparse image block dimensions for the given format.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2578,9 +2578,9 @@ public class VK10 {
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkInstanceCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pInstance} <b>must</b> be a pointer to a {@code VkInstance} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkInstanceCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pInstance} <b>must</b> be a valid pointer to a {@code VkInstance} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -2652,7 +2652,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>If {@code instance} is not {@code NULL}, {@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -2705,8 +2705,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code instance} <b>must</b> be a valid {@code VkInstance} handle</li>
-     * <li>{@code pPhysicalDeviceCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPhysicalDeviceCount} is not 0, and {@code pPhysicalDevices} is not {@code NULL}, {@code pPhysicalDevices} <b>must</b> be a pointer to an array of {@code pPhysicalDeviceCount} {@code VkPhysicalDevice} handles</li>
+     * <li>{@code pPhysicalDeviceCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPhysicalDeviceCount} is not 0, and {@code pPhysicalDevices} is not {@code NULL}, {@code pPhysicalDevices} <b>must</b> be a valid pointer to an array of {@code pPhysicalDeviceCount} {@code VkPhysicalDevice} handles</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -2762,7 +2762,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pFeatures} <b>must</b> be a pointer to a {@link VkPhysicalDeviceFeatures} structure</li>
+     * <li>{@code pFeatures} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceFeatures} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2802,7 +2802,7 @@ public class VK10 {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
-     * <li>{@code pFormatProperties} <b>must</b> be a pointer to a {@link VkFormatProperties} structure</li>
+     * <li>{@code pFormatProperties} <b>must</b> be a valid pointer to a {@link VkFormatProperties} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2860,7 +2860,7 @@ public class VK10 {
      * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
      * <li>{@code usage} <b>must</b> not be 0</li>
      * <li>{@code flags} <b>must</b> be a valid combination of {@code VkImageCreateFlagBits} values</li>
-     * <li>{@code pImageFormatProperties} <b>must</b> be a pointer to a {@link VkImageFormatProperties} structure</li>
+     * <li>{@code pImageFormatProperties} <b>must</b> be a valid pointer to a {@link VkImageFormatProperties} structure</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -2919,7 +2919,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceProperties} structure</li>
+     * <li>{@code pProperties} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceProperties} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2966,8 +2966,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pQueueFamilyPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pQueueFamilyPropertyCount} is not 0, and {@code pQueueFamilyProperties} is not {@code NULL}, {@code pQueueFamilyProperties} <b>must</b> be a pointer to an array of {@code pQueueFamilyPropertyCount} {@link VkQueueFamilyProperties} structures</li>
+     * <li>{@code pQueueFamilyPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pQueueFamilyPropertyCount} is not 0, and {@code pQueueFamilyProperties} is not {@code NULL}, {@code pQueueFamilyProperties} <b>must</b> be a valid pointer to an array of {@code pQueueFamilyPropertyCount} {@link VkQueueFamilyProperties} structures</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -3010,7 +3010,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pMemoryProperties} <b>must</b> be a pointer to a {@link VkPhysicalDeviceMemoryProperties} structure</li>
+     * <li>{@code pMemoryProperties} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceMemoryProperties} structure</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -3338,9 +3338,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDeviceCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pDevice} <b>must</b> be a pointer to a {@code VkDevice} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkDeviceCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pDevice} <b>must</b> be a valid pointer to a {@code VkDevice} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -3423,7 +3423,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>If {@code device} is not {@code NULL}, {@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -3480,8 +3480,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -3543,8 +3543,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -3621,8 +3621,8 @@ public class VK10 {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -3683,8 +3683,8 @@ public class VK10 {
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
      * <li>If {@code pLayerName} is not {@code NULL}, {@code pLayerName} <b>must</b> be a null-terminated UTF-8 string</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkExtensionProperties} structures</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -3760,8 +3760,8 @@ public class VK10 {
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -3830,8 +3830,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkLayerProperties} structures</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -3899,7 +3899,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pQueue} <b>must</b> be a pointer to a {@code VkQueue} handle</li>
+     * <li>{@code pQueue} <b>must</b> be a valid pointer to a {@code VkQueue} handle</li>
      * </ul>
      *
      * @param device           the logical device that owns the queue.
@@ -3983,7 +3983,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
-     * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
+     * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a valid pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
      * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
      * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
      * </ul>
@@ -4086,7 +4086,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
-     * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
+     * <li>If {@code submitCount} is not 0, {@code pSubmits} <b>must</b> be a valid pointer to an array of {@code submitCount} valid {@link VkSubmitInfo} structures</li>
      * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
      * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
      * </ul>
@@ -4266,30 +4266,28 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>Allocations returned by {@link #vkAllocateMemory AllocateMemory} are guaranteed to meet any alignment requirement by the implementation. For example, if an implementation requires 128 byte alignment for images and 64 byte alignment for buffers, the device memory returned through this mechanism would be 128-byte aligned. This ensures that applications <b>can</b> correctly suballocate objects of different types (with potentially different alignment requirements) in the same memory object.</p>
+     * <p>Allocations returned by {@link #vkAllocateMemory AllocateMemory} are guaranteed to meet any alignment requirement of the implementation. For example, if an implementation requires 128 byte alignment for images and 64 byte alignment for buffers, the device memory returned through this mechanism would be 128-byte aligned. This ensures that applications <b>can</b> correctly suballocate objects of different types (with potentially different alignment requirements) in the same memory object.</p>
      * 
      * <p>When memory is allocated, its contents are undefined.</p>
      * 
-     * <p>There is an implementation-dependent maximum number of memory allocations which <b>can</b> be simultaneously created on a device. This is specified by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxMemoryAllocationCount">{@code maxMemoryAllocationCount}</a> member of the {@link VkPhysicalDeviceLimits} structure. If {@code maxMemoryAllocationCount} is exceeded, {@link #vkAllocateMemory AllocateMemory} will return {@link #VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
+     * <p>There is an implementation-dependent maximum number of memory allocations that <b>can</b> be simultaneously created on a device. This is specified by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-limits-maxMemoryAllocationCount">{@code maxMemoryAllocationCount}</a> member of the {@link VkPhysicalDeviceLimits} structure. If {@code maxMemoryAllocationCount} is exceeded, {@link #vkAllocateMemory AllocateMemory} will return {@link #VK_ERROR_TOO_MANY_OBJECTS ERROR_TOO_MANY_OBJECTS}.</p>
      * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>Some platforms <b>may</b> have a limit on the maximum size of a single allocation. For example, certain systems <b>may</b> fail to create allocations with a size greater than or equal to 4GB. Such a limit is implementation-dependent, and if such a failure occurs then the error {@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY} <b>should</b> be returned.</p>
-     * </div>
+     * <p>Some platforms <b>may</b> have a limit on the maximum size of a single allocation. For example, certain systems <b>may</b> fail to create allocations with a size greater than or equal to 4GB. Such a limit is implementation-dependent, and if such a failure occurs then the error {@link #VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY} <b>must</b> be returned.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>The number of currently valid memory objects, allocated from {@code device}, <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxMemoryAllocationCount}</li>
+     * <li>{@code pAllocateInfo}-&gt;{@code allocationSize} <b>must</b> be less than or equal to sVkPhysicalDeviceMemoryProperties{@code ::memoryHeaps}[{@code pAllocateInfo}-&gt;{@code memoryTypeIndex}].{@code size} as returned by {@link #vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties} for the {@code VkPhysicalDevice} that {@code device} was created from.</li>
+     * <li>{@code pAllocateInfo}-&gt;{@code memoryTypeIndex} <b>must</b> be less than {@link VkPhysicalDeviceMemoryProperties}{@code ::memoryTypeCount} as returned by {@link #vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties} for the {@code VkPhysicalDevice} that {@code device} was created from.</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pAllocateInfo} <b>must</b> be a pointer to a valid {@link VkMemoryAllocateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pMemory} <b>must</b> be a pointer to a {@code VkDeviceMemory} handle</li>
+     * <li>{@code pAllocateInfo} <b>must</b> be a valid pointer to a valid {@link VkMemoryAllocateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pMemory} <b>must</b> be a valid pointer to a {@code VkDeviceMemory} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -4351,7 +4349,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>Before freeing a memory object, an application <b>must</b> ensure the memory object is no longer in use by the device--for example by command buffers queued for execution. The memory <b>can</b> remain bound to images or buffers at the time the memory object is freed, but any further use of them (on host or device) for anything other than destroying those objects will result in undefined behavior. If there are still any bound images or buffers, the memory <b>may</b> not be immediately released by the implementation, but <b>must</b> be released by the time all bound images and buffers have been destroyed. Once memory is released, it is returned to the heap from which it was allocated.</p>
+     * <p>Before freeing a memory object, an application <b>must</b> ensure the memory object is no longer in use by the device--for example by command buffers in the <em>pending state</em>. The memory <b>can</b> remain bound to images or buffers at the time the memory object is freed, but any further use of them (on host or device) for anything other than destroying those objects will result in undefined behavior. If there are still any bound images or buffers, the memory <b>may</b> not be immediately released by the implementation, but <b>must</b> be released by the time all bound images and buffers have been destroyed. Once memory is released, it is returned to the heap from which it was allocated.</p>
      * 
      * <p>How memory objects are bound to Images and Buffers is described in detail in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#resources-association">Resource Memory Association</a> section.</p>
      * 
@@ -4373,7 +4371,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code memory} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code memory} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -4454,7 +4452,7 @@ public class VK10 {
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
      * <li>{@code flags} <b>must</b> be 0</li>
-     * <li>{@code ppData} <b>must</b> be a pointer to a pointer value</li>
+     * <li>{@code ppData} <b>must</b> be a valid pointer to a pointer value</li>
      * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -4576,7 +4574,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+     * <li>{@code pMemoryRanges} <b>must</b> be a valid pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
      * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
      * </ul>
      * 
@@ -4634,7 +4632,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+     * <li>{@code pMemoryRanges} <b>must</b> be a valid pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
      * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
      * </ul>
      * 
@@ -4701,7 +4699,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+     * <li>{@code pMemoryRanges} <b>must</b> be a valid pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
      * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
      * </ul>
      * 
@@ -4757,7 +4755,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pMemoryRanges} <b>must</b> be a pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
+     * <li>{@code pMemoryRanges} <b>must</b> be a valid pointer to an array of {@code memoryRangeCount} valid {@link VkMappedMemoryRange} structures</li>
      * <li>{@code memoryRangeCount} <b>must</b> be greater than 0</li>
      * </ul>
      * 
@@ -4824,7 +4822,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code memory} <b>must</b> be a valid {@code VkDeviceMemory} handle</li>
-     * <li>{@code pCommittedMemoryInBytes} <b>must</b> be a pointer to a {@code VkDeviceSize} value</li>
+     * <li>{@code pCommittedMemoryInBytes} <b>must</b> be a valid pointer to a {@code VkDeviceSize} value</li>
      * <li>{@code memory} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      *
@@ -5019,7 +5017,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
+     * <li>{@code pMemoryRequirements} <b>must</b> be a valid pointer to a {@link VkMemoryRequirements} structure</li>
      * <li>{@code buffer} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -5067,7 +5065,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
-     * <li>{@code pMemoryRequirements} <b>must</b> be a pointer to a {@link VkMemoryRequirements} structure</li>
+     * <li>{@code pMemoryRequirements} <b>must</b> be a valid pointer to a {@link VkMemoryRequirements} structure</li>
      * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -5125,8 +5123,8 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
-     * <li>{@code pSparseMemoryRequirementCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pSparseMemoryRequirementCount} is not 0, and {@code pSparseMemoryRequirements} is not {@code NULL}, {@code pSparseMemoryRequirements} <b>must</b> be a pointer to an array of {@code pSparseMemoryRequirementCount} {@link VkSparseImageMemoryRequirements} structures</li>
+     * <li>{@code pSparseMemoryRequirementCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pSparseMemoryRequirementCount} is not 0, and {@code pSparseMemoryRequirements} is not {@code NULL}, {@code pSparseMemoryRequirements} <b>must</b> be a valid pointer to an array of {@code pSparseMemoryRequirementCount} {@link VkSparseImageMemoryRequirements} structures</li>
      * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -5203,8 +5201,8 @@ public class VK10 {
      * <li>{@code usage} <b>must</b> be a valid combination of {@code VkImageUsageFlagBits} values</li>
      * <li>{@code usage} <b>must</b> not be 0</li>
      * <li>{@code tiling} <b>must</b> be a valid {@code VkImageTiling} value</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a pointer to an array of {@code pPropertyCount} {@link VkSparseImageFormatProperties} structures</li>
+     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
+     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkSparseImageFormatProperties} structures</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -5214,7 +5212,7 @@ public class VK10 {
      * @param physicalDevice the physical device from which to query the sparse image capabilities.
      * @param format         the image format.
      * @param type           the dimensionality of image.
-     * @param samples        the number of samples per pixel as defined in {@code VkSampleCountFlagBits}.
+     * @param samples        the number of samples per texel as defined in {@code VkSampleCountFlagBits}.
      * @param usage          a bitmask describing the intended usage of the image.
      * @param tiling         the tiling arrangement of the data elements in memory.
      * @param pPropertyCount a pointer to an integer related to the number of sparse format properties available or queried, as described below.
@@ -5281,7 +5279,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
-     * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
+     * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a valid pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
      * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
      * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
      * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
@@ -5372,7 +5370,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code queue} <b>must</b> be a valid {@code VkQueue} handle</li>
-     * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
+     * <li>If {@code bindInfoCount} is not 0, {@code pBindInfo} <b>must</b> be a valid pointer to an array of {@code bindInfoCount} valid {@link VkBindSparseInfo} structures</li>
      * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
      * <li>The {@code queue} <b>must</b> support sparse binding operations</li>
      * <li>Both of {@code fence}, and {@code queue} that are valid handles <b>must</b> have been created, allocated, or retrieved from the same {@code VkDevice}</li>
@@ -5454,9 +5452,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkFenceCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pFence} <b>must</b> be a pointer to a {@code VkFence} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkFenceCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pFence} <b>must</b> be a valid pointer to a {@code VkFence} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -5527,7 +5525,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code fence} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -5592,7 +5590,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+     * <li>{@code pFences} <b>must</b> be a valid pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
      * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
      * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
@@ -5656,7 +5654,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+     * <li>{@code pFences} <b>must</b> be a valid pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
      * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
      * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
@@ -5806,7 +5804,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+     * <li>{@code pFences} <b>must</b> be a valid pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
      * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
      * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
@@ -5871,7 +5869,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pFences} <b>must</b> be a pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
+     * <li>{@code pFences} <b>must</b> be a valid pointer to an array of {@code fenceCount} valid {@code VkFence} handles</li>
      * <li>{@code fenceCount} <b>must</b> be greater than 0</li>
      * <li>Each element of {@code pFences} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
@@ -5940,9 +5938,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkSemaphoreCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pSemaphore} <b>must</b> be a pointer to a {@code VkSemaphore} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkSemaphoreCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pSemaphore} <b>must</b> be a valid pointer to a {@code VkSemaphore} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -6013,7 +6011,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code semaphore} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code semaphore} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -6068,9 +6066,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkEventCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pEvent} <b>must</b> be a pointer to a {@code VkEvent} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkEventCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pEvent} <b>must</b> be a valid pointer to a {@code VkEvent} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -6141,7 +6139,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code event} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code event} <b>must</b> be a valid {@code VkEvent} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code event} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -6377,9 +6375,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkQueryPoolCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pQueryPool} <b>must</b> be a pointer to a {@code VkQueryPool} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkQueryPoolCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pQueryPool} <b>must</b> be a valid pointer to a {@code VkQueryPool} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -6450,7 +6448,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code queryPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code queryPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -6553,7 +6551,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
      * <li>{@code dataSize} <b>must</b> be greater than 0</li>
      * <li>{@code queryPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
@@ -6657,7 +6655,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
      * <li>{@code dataSize} <b>must</b> be greater than 0</li>
      * <li>{@code queryPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
@@ -6761,7 +6759,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code queryPool} <b>must</b> be a valid {@code VkQueryPool} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code flags} <b>must</b> be a valid combination of {@code VkQueryResultFlagBits} values</li>
      * <li>{@code dataSize} <b>must</b> be greater than 0</li>
      * <li>{@code queryPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
@@ -6832,9 +6830,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pBuffer} <b>must</b> be a pointer to a {@code VkBuffer} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkBufferCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pBuffer} <b>must</b> be a valid pointer to a {@code VkBuffer} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -6905,7 +6903,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code buffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code buffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code buffer} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -6956,9 +6954,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkBufferViewCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pView} <b>must</b> be a pointer to a {@code VkBufferView} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkBufferViewCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pView} <b>must</b> be a valid pointer to a {@code VkBufferView} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -7029,7 +7027,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code bufferView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code bufferView} <b>must</b> be a valid {@code VkBufferView} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code bufferView} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -7087,9 +7085,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pImage} <b>must</b> be a pointer to a {@code VkImage} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkImageCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pImage} <b>must</b> be a valid pointer to a {@code VkImage} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -7160,7 +7158,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code image} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code image} <b>must</b> be a valid {@code VkImage} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code image} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -7215,6 +7213,8 @@ public class VK10 {
      * <ul>
      * <li>{@code image} <b>must</b> have been created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}</li>
      * <li>The {@code aspectMask} member of {@code pSubresource} <b>must</b> only have a single bit set</li>
+     * <li>The {@code mipLevel} member of {@code pSubresource} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>The {@code arrayLayer} member of {@code pSubresource} <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>If the {@code format} of {@code image} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a> with two planes, the {@code aspectMask} member of {@code pSubresource} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR} or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR}</li>
      * <li>If the {@code format} of {@code image} is a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a> with three planes, the {@code aspectMask} member of {@code pSubresource} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR}, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR} or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR}</li>
      * </ul>
@@ -7224,8 +7224,8 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
-     * <li>{@code pSubresource} <b>must</b> be a pointer to a valid {@link VkImageSubresource} structure</li>
-     * <li>{@code pLayout} <b>must</b> be a pointer to a {@link VkSubresourceLayout} structure</li>
+     * <li>{@code pSubresource} <b>must</b> be a valid pointer to a valid {@link VkImageSubresource} structure</li>
+     * <li>{@code pLayout} <b>must</b> be a valid pointer to a {@link VkSubresourceLayout} structure</li>
      * <li>{@code image} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -7277,9 +7277,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkImageViewCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pView} <b>must</b> be a pointer to a {@code VkImageView} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkImageViewCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pView} <b>must</b> be a valid pointer to a {@code VkImageView} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -7350,7 +7350,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code imageView} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code imageView} <b>must</b> be a valid {@code VkImageView} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code imageView} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -7408,9 +7408,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkShaderModuleCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pShaderModule} <b>must</b> be a pointer to a {@code VkShaderModule} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkShaderModuleCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pShaderModule} <b>must</b> be a valid pointer to a {@code VkShaderModule} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -7485,7 +7485,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code shaderModule} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code shaderModule} <b>must</b> be a valid {@code VkShaderModule} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code shaderModule} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -7551,9 +7551,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkPipelineCacheCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pPipelineCache} <b>must</b> be a pointer to a {@code VkPipelineCache} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkPipelineCacheCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pPipelineCache} <b>must</b> be a valid pointer to a {@code VkPipelineCache} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -7623,7 +7623,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -7705,8 +7705,8 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
-     * <li>{@code pDataSize} <b>must</b> be a pointer to a {@code size_t} value</li>
-     * <li>If the value referenced by {@code pDataSize} is not 0, and {@code pData} is not {@code NULL}, {@code pData} <b>must</b> be a pointer to an array of {@code pDataSize} bytes</li>
+     * <li>{@code pDataSize} <b>must</b> be a valid pointer to a {@code size_t} value</li>
+     * <li>If the value referenced by {@code pDataSize} is not 0, and {@code pData} is not {@code NULL}, {@code pData} <b>must</b> be a valid pointer to an array of {@code pDataSize} bytes</li>
      * <li>{@code pipelineCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -7783,7 +7783,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code dstCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
-     * <li>{@code pSrcCaches} <b>must</b> be a pointer to an array of {@code srcCacheCount} valid {@code VkPipelineCache} handles</li>
+     * <li>{@code pSrcCaches} <b>must</b> be a valid pointer to an array of {@code srcCacheCount} valid {@code VkPipelineCache} handles</li>
      * <li>{@code srcCacheCount} <b>must</b> be greater than 0</li>
      * <li>{@code dstCache} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * <li>Each element of {@code pSrcCaches} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
@@ -7866,9 +7866,9 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
-     * <li>{@code pCreateInfos} <b>must</b> be a pointer to an array of {@code createInfoCount} valid {@link VkGraphicsPipelineCreateInfo} structures</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
+     * <li>{@code pCreateInfos} <b>must</b> be a valid pointer to an array of {@code createInfoCount} valid {@link VkGraphicsPipelineCreateInfo} structures</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pPipelines} <b>must</b> be a valid pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
      * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
      * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
@@ -7950,9 +7950,9 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code pipelineCache} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineCache} <b>must</b> be a valid {@code VkPipelineCache} handle</li>
-     * <li>{@code pCreateInfos} <b>must</b> be a pointer to an array of {@code createInfoCount} valid {@link VkComputePipelineCreateInfo} structures</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pPipelines} <b>must</b> be a pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
+     * <li>{@code pCreateInfos} <b>must</b> be a valid pointer to an array of {@code createInfoCount} valid {@link VkComputePipelineCreateInfo} structures</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pPipelines} <b>must</b> be a valid pointer to an array of {@code createInfoCount} {@code VkPipeline} handles</li>
      * <li>{@code createInfoCount} <b>must</b> be greater than 0</li>
      * <li>If {@code pipelineCache} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
@@ -8027,7 +8027,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code pipeline} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipeline} <b>must</b> be a valid {@code VkPipeline} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code pipeline} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -8079,9 +8079,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkPipelineLayoutCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pPipelineLayout} <b>must</b> be a pointer to a {@code VkPipelineLayout} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkPipelineLayoutCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pPipelineLayout} <b>must</b> be a valid pointer to a {@code VkPipelineLayout} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -8151,7 +8151,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code pipelineLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code pipelineLayout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code pipelineLayout} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -8202,9 +8202,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkSamplerCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pSampler} <b>must</b> be a pointer to a {@code VkSampler} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkSamplerCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pSampler} <b>must</b> be a valid pointer to a {@code VkSampler} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -8276,7 +8276,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code sampler} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code sampler} <b>must</b> be a valid {@code VkSampler} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code sampler} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -8328,9 +8328,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDescriptorSetLayoutCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pSetLayout} <b>must</b> be a pointer to a {@code VkDescriptorSetLayout} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkDescriptorSetLayoutCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pSetLayout} <b>must</b> be a valid pointer to a {@code VkDescriptorSetLayout} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -8400,7 +8400,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code descriptorSetLayout} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorSetLayout} <b>must</b> be a valid {@code VkDescriptorSetLayout} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code descriptorSetLayout} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -8458,9 +8458,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDescriptorPoolCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pDescriptorPool} <b>must</b> be a pointer to a {@code VkDescriptorPool} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkDescriptorPoolCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pDescriptorPool} <b>must</b> be a valid pointer to a {@code VkDescriptorPool} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -8535,7 +8535,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code descriptorPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorPool} <b>must</b> be a valid {@code VkDescriptorPool} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code descriptorPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -8652,7 +8652,7 @@ public class VK10 {
      * 
      * <p>When a descriptor set is allocated, the initial state is largely uninitialized and all descriptors are undefined. However, the descriptor set <b>can</b> be bound in a command buffer without causing errors or exceptions. All entries that are statically used by a pipeline in a drawing or dispatching command <b>must</b> have been populated before the descriptor set is bound for use by that command. Entries that are not statically used by a pipeline <b>can</b> have uninitialized descriptors or descriptors of resources that have been destroyed, and executing a draw or dispatch with such a descriptor set bound does not cause undefined behavior. This means applications need not populate unused entries with dummy descriptors.</p>
      * 
-     * <p>If the allocation fails due to no more space in the descriptor pool, and not because of system or device memory exhaustion, then {@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} <b>must</b> be returned.</p>
+     * <p>If a call to {@link #vkAllocateDescriptorSets AllocateDescriptorSets} would cause the total number of descriptor sets allocated from the pool to exceed the value of {@link VkDescriptorPoolCreateInfo}{@code ::maxSets} used to create {@code pAllocateInfo}->{@code descriptorPool}, then the allocation <b>may</b> fail due to lack of space in the descriptor pool. Similarly, the allocation <b>may</b> fail due to lack of space if the call to {@link #vkAllocateDescriptorSets AllocateDescriptorSets} would cause the number of any given descriptor type to exceed the sum of all the {@code descriptorCount} members of each element of {@link VkDescriptorPoolCreateInfo}{@code ::pPoolSizes} with a {@code member} equal to that type. If the allocation fails due to no more space in the descriptor pool, and not because of system or device memory exhaustion, then {@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} <b>must</b> be returned.</p>
      * 
      * <p>{@link #vkAllocateDescriptorSets AllocateDescriptorSets} <b>can</b> be used to create multiple descriptor sets. If the creation of any of those descriptor sets fails, then the implementation <b>must</b> destroy all successfully created descriptor set objects from this command, set all entries of the {@code pDescriptorSets} array to {@link #VK_NULL_HANDLE NULL_HANDLE} and return the error.</p>
      * 
@@ -8660,8 +8660,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pAllocateInfo} <b>must</b> be a pointer to a valid {@link VkDescriptorSetAllocateInfo} structure</li>
-     * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code pAllocateInfo}::descriptorSetCount {@code VkDescriptorSet} handles</li>
+     * <li>{@code pAllocateInfo} <b>must</b> be a valid pointer to a valid {@link VkDescriptorSetAllocateInfo} structure</li>
+     * <li>{@code pDescriptorSets} <b>must</b> be a valid pointer to an array of {@code pAllocateInfo}::descriptorSetCount {@code VkDescriptorSet} handles</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -8692,7 +8692,7 @@ public class VK10 {
      *
      * @param device          the logical device that owns the descriptor pool.
      * @param pAllocateInfo   a pointer to an instance of the {@link VkDescriptorSetAllocateInfo} structure describing parameters of the allocation.
-     * @param pDescriptorSets a pointer to an array of {@code VkDescriptorSet} handles in which the resulting descriptor set objects are returned. The array <b>must</b> be at least the length specified by the {@code descriptorSetCount} member of {@code pAllocateInfo}.
+     * @param pDescriptorSets a pointer to an array of {@code VkDescriptorSet} handles in which the resulting descriptor set objects are returned.
      */
     @NativeType("VkResult")
     public static int vkAllocateDescriptorSets(VkDevice device, @NativeType("const VkDescriptorSetAllocateInfo *") VkDescriptorSetAllocateInfo pAllocateInfo, @NativeType("VkDescriptorSet *") LongBuffer pDescriptorSets) {
@@ -8736,7 +8736,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
-     * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b> either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+     * <li>{@code pDescriptorSets} <b>must</b> be a valid pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b> either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
      * <li>Each valid handle in {@code pDescriptorSets} <b>must</b> have been allocated from {@code descriptorPool}</li>
      * <li>{@code descriptorPool} <b>must</b> have been created with the {@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} flag</li>
      * </ul>
@@ -8803,7 +8803,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>All submitted commands that refer to any element of {@code pDescriptorSets} <b>must</b> have completed execution</li>
-     * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b> either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
+     * <li>{@code pDescriptorSets} <b>must</b> be a valid pointer to an array of {@code descriptorSetCount} {@code VkDescriptorSet} handles, each element of which <b>must</b> either be a valid handle or {@link #VK_NULL_HANDLE NULL_HANDLE}</li>
      * <li>Each valid handle in {@code pDescriptorSets} <b>must</b> have been allocated from {@code descriptorPool}</li>
      * <li>{@code descriptorPool} <b>must</b> have been created with the {@link #VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT} flag</li>
      * </ul>
@@ -8904,8 +8904,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>If {@code descriptorWriteCount} is not 0, {@code pDescriptorWrites} <b>must</b> be a pointer to an array of {@code descriptorWriteCount} valid {@link VkWriteDescriptorSet} structures</li>
-     * <li>If {@code descriptorCopyCount} is not 0, {@code pDescriptorCopies} <b>must</b> be a pointer to an array of {@code descriptorCopyCount} valid {@link VkCopyDescriptorSet} structures</li>
+     * <li>If {@code descriptorWriteCount} is not 0, {@code pDescriptorWrites} <b>must</b> be a valid pointer to an array of {@code descriptorWriteCount} valid {@link VkWriteDescriptorSet} structures</li>
+     * <li>If {@code descriptorCopyCount} is not 0, {@code pDescriptorCopies} <b>must</b> be a valid pointer to an array of {@code descriptorCopyCount} valid {@link VkCopyDescriptorSet} structures</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -8957,9 +8957,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkFramebufferCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pFramebuffer} <b>must</b> be a pointer to a {@code VkFramebuffer} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkFramebufferCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pFramebuffer} <b>must</b> be a valid pointer to a {@code VkFramebuffer} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -9030,7 +9030,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code framebuffer} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code framebuffer} <b>must</b> be a valid {@code VkFramebuffer} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code framebuffer} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -9082,9 +9082,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkRenderPassCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pRenderPass} <b>must</b> be a pointer to a {@code VkRenderPass} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkRenderPassCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pRenderPass} <b>must</b> be a valid pointer to a {@code VkRenderPass} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -9155,7 +9155,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code renderPass} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code renderPass} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -9216,7 +9216,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>{@code renderPass} <b>must</b> be a valid {@code VkRenderPass} handle</li>
-     * <li>{@code pGranularity} <b>must</b> be a pointer to a {@link VkExtent2D} structure</li>
+     * <li>{@code pGranularity} <b>must</b> be a valid pointer to a {@link VkExtent2D} structure</li>
      * <li>{@code renderPass} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -9261,9 +9261,9 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkCommandPoolCreateInfo} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pCommandPool} <b>must</b> be a pointer to a {@code VkCommandPool} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkCommandPoolCreateInfo} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pCommandPool} <b>must</b> be a valid pointer to a {@code VkCommandPool} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -9340,7 +9340,7 @@ public class VK10 {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code commandPool} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, {@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code commandPool} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -9459,8 +9459,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pAllocateInfo} <b>must</b> be a pointer to a valid {@link VkCommandBufferAllocateInfo} structure</li>
-     * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code pAllocateInfo}::commandBufferCount {@code VkCommandBuffer} handles</li>
+     * <li>{@code pAllocateInfo} <b>must</b> be a valid pointer to a valid {@link VkCommandBufferAllocateInfo} structure</li>
+     * <li>{@code pCommandBuffers} <b>must</b> be a valid pointer to an array of {@code pAllocateInfo}::commandBufferCount {@code VkCommandBuffer} handles</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -9533,7 +9533,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>All elements of {@code pCommandBuffers} <b>must</b> not be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending state</a></li>
-     * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b> either be a valid handle or {@code NULL}</li>
+     * <li>{@code pCommandBuffers} <b>must</b> be a valid pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b> either be a valid handle or {@code NULL}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -9583,7 +9583,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>All elements of {@code pCommandBuffers} <b>must</b> not be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">pending state</a></li>
-     * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b> either be a valid handle or {@code NULL}</li>
+     * <li>{@code pCommandBuffers} <b>must</b> be a valid pointer to an array of {@code commandBufferCount} {@code VkCommandBuffer} handles, each element of which <b>must</b> either be a valid handle or {@code NULL}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -9649,7 +9649,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pBeginInfo} <b>must</b> be a pointer to a valid {@link VkCommandBufferBeginInfo} structure</li>
+     * <li>{@code pBeginInfo} <b>must</b> be a valid pointer to a valid {@link VkCommandBufferBeginInfo} structure</li>
      * </ul>
      * 
      * <h5>Host Synchronization</h5>
@@ -9899,7 +9899,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The viewport parameters taken from element <code>i</code> of {@code pViewports} replace the current state for the viewport index <code>firstViewport {plus} i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
+     * <p>The viewport parameters taken from element <code>i</code> of {@code pViewports} replace the current state for the viewport index <code>firstViewport + i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -9909,7 +9909,7 @@ public class VK10 {
      * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code firstViewport} <b>must</b> be 0</li>
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code viewportCount} <b>must</b> be 1</li>
-     * <li>{@code pViewports} <b>must</b> be a pointer to an array of {@code viewportCount} valid {@link VkViewport} structures</li>
+     * <li>{@code pViewports} <b>must</b> be a valid pointer to an array of {@code viewportCount} valid {@link VkViewport} structures</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -9975,7 +9975,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The scissor rectangles taken from element <code>i</code> of {@code pScissors} replace the current state for the scissor index <code>firstScissor {plus} i</code>, for <code>i</code> in <code>[0, scissorCount)</code>.</p>
+     * <p>The scissor rectangles taken from element <code>i</code> of {@code pScissors} replace the current state for the scissor index <code>firstScissor + i</code>, for <code>i</code> in <code>[0, scissorCount)</code>.</p>
      * 
      * <p>Each scissor rectangle is described by a {@link VkRect2D} structure, with the {@code offset.x} and {@code offset.y} values determining the upper left corner of the scissor rectangle, and the {@code extent.width} and {@code extent.height} values determining the size in pixels.</p>
      * 
@@ -9996,7 +9996,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pScissors} <b>must</b> be a pointer to an array of {@code scissorCount} {@link VkRect2D} structures</li>
+     * <li>{@code pScissors} <b>must</b> be a valid pointer to an array of {@code scissorCount} {@link VkRect2D} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>{@code scissorCount} <b>must</b> be greater than 0</li>
@@ -10510,8 +10510,8 @@ public class VK10 {
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code pipelineBindPoint} <b>must</b> be a valid {@code VkPipelineBindPoint} value</li>
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
-     * <li>{@code pDescriptorSets} <b>must</b> be a pointer to an array of {@code descriptorSetCount} valid {@code VkDescriptorSet} handles</li>
-     * <li>If {@code dynamicOffsetCount} is not 0, {@code pDynamicOffsets} <b>must</b> be a pointer to an array of {@code dynamicOffsetCount} {@code uint32_t} values</li>
+     * <li>{@code pDescriptorSets} <b>must</b> be a valid pointer to an array of {@code descriptorSetCount} valid {@code VkDescriptorSet} handles</li>
+     * <li>If {@code dynamicOffsetCount} is not 0, {@code pDynamicOffsets} <b>must</b> be a valid pointer to an array of {@code dynamicOffsetCount} {@code uint32_t} values</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code descriptorSetCount} <b>must</b> be greater than 0</li>
@@ -10632,7 +10632,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The values taken from elements <code>i</code> of {@code pBuffers} and {@code pOffsets} replace the current state for the vertex input binding <code>firstBinding {plus} i</code>, for <code>i</code> in <code>[0, bindingCount)</code>. The vertex input binding is updated to start at the offset indicated by {@code pOffsets}[i] from the start of the buffer {@code pBuffers}[i]. All vertex input attributes that use each of these bindings will use these updated addresses in their address calculations for subsequent draw commands.</p>
+     * <p>The values taken from elements <code>i</code> of {@code pBuffers} and {@code pOffsets} replace the current state for the vertex input binding <code>firstBinding + i</code>, for <code>i</code> in <code>[0, bindingCount)</code>. The vertex input binding is updated to start at the offset indicated by {@code pOffsets}[i] from the start of the buffer {@code pBuffers}[i]. All vertex input attributes that use each of these bindings will use these updated addresses in their address calculations for subsequent draw commands.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -10648,8 +10648,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pBuffers} <b>must</b> be a pointer to an array of {@code bindingCount} valid {@code VkBuffer} handles</li>
-     * <li>{@code pOffsets} <b>must</b> be a pointer to an array of {@code bindingCount} {@code VkDeviceSize} values</li>
+     * <li>{@code pBuffers} <b>must</b> be a valid pointer to an array of {@code bindingCount} valid {@code VkBuffer} handles</li>
+     * <li>{@code pOffsets} <b>must</b> be a valid pointer to an array of {@code bindingCount} {@code VkDeviceSize} values</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>{@code bindingCount} <b>must</b> be greater than 0</li>
@@ -11051,7 +11051,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>When the command is executed, a global workgroup consisting of <code>groupCountX {times} groupCountY {times} groupCountZ</code> local workgroups is assembled.</p>
+     * <p>When the command is executed, a global workgroup consisting of <code>groupCountX × groupCountY × groupCountZ</code> local workgroups is assembled.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -11232,7 +11232,7 @@ public class VK10 {
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code srcBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} {@link VkBufferCopy} structures</li>
+     * <li>{@code pRegions} <b>must</b> be a valid pointer to an array of {@code regionCount} {@link VkBufferCopy} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -11355,6 +11355,10 @@ public class VK10 {
      * <li>In a copy to or from a plane of a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar image</a>, the {@code VkFormat} of the image and plane <b>must</b> be compatible according to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-compatible-planes">the description of compatible planes</a> for the plane being copied</li>
      * <li>When a copy is performed to or from an image with a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#features-formats-requiring-sampler-ycbcr-conversion">multi-planar format</a>, the {@code aspectMask} of the {@code srcSubresource} and/or {@code dstSubresource} that refers to the multi-planar image <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_0_BIT_KHR IMAGE_ASPECT_PLANE_0_BIT_KHR}, {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_1_BIT_KHR IMAGE_ASPECT_PLANE_1_BIT_KHR}, or {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} (with {@link KHRSamplerYcbcrConversion#VK_IMAGE_ASPECT_PLANE_2_BIT_KHR IMAGE_ASPECT_PLANE_2_BIT_KHR} valid only for a {@code VkFormat} with three planes)</li>
      * <li>The sample count of {@code srcImage} and {@code dstImage} <b>must</b> match</li>
+     * <li>The {@code srcSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The {@code dstSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
+     * <li>The <code>srcSubresource.baseArrayLayer srcSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The <code>dstSubresource.baseArrayLayer dstSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11365,7 +11369,7 @@ public class VK10 {
      * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
      * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageCopy} structures</li>
+     * <li>{@code pRegions} <b>must</b> be a valid pointer to an array of {@code regionCount} valid {@link VkImageCopy} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -11488,7 +11492,7 @@ public class VK10 {
      * 
      * <p>Blits are done layer by layer starting with the {@code baseArrayLayer} member of {@code srcSubresource} for the source and {@code dstSubresource} for the destination. {@code layerCount} layers are blitted to the destination image.</p>
      * 
-     * <p>3D textures are blitted slice by slice. Slices in the source region bounded by {@code srcOffsets}[0].{@code z} and {@code srcOffsets}[1].{@code z} are copied to slices in the destination region bounded by {@code dstOffsets}[0].{@code z} and {@code dstOffsets}[1].{@code z}. For each destination slice, a source z coordinate is linearly interpolated between {@code srcOffsets}[0].{@code z} and {@code srcOffsets}[1].{@code z}. If the {@code filter} parameter is {@link #VK_FILTER_LINEAR FILTER_LINEAR} then the value sampled from the source image is taken by doing linear filtering using the interpolated z coordinate. If {@code filter} parameter is {@link #VK_FILTER_NEAREST FILTER_NEAREST} then value sampled from the source image is taken from the single nearest slice (with undefined rounding mode).</p>
+     * <p>3D textures are blitted slice by slice. Slices in the source region bounded by {@code srcOffsets}[0].{@code z} and {@code srcOffsets}[1].{@code z} are copied to slices in the destination region bounded by {@code dstOffsets}[0].{@code z} and {@code dstOffsets}[1].{@code z}. For each destination slice, a source <b>z</b> coordinate is linearly interpolated between {@code srcOffsets}[0].{@code z} and {@code srcOffsets}[1].{@code z}. If the {@code filter} parameter is {@link #VK_FILTER_LINEAR FILTER_LINEAR} then the value sampled from the source image is taken by doing linear filtering using the interpolated <b>z</b> coordinate. If {@code filter} parameter is {@link #VK_FILTER_NEAREST FILTER_NEAREST} then value sampled from the source image is taken from the single nearest slice (with undefined rounding mode).</p>
      * 
      * <p>The following filtering and conversion rules apply:</p>
      * 
@@ -11530,6 +11534,10 @@ public class VK10 {
      * <li>If {@code filter} is {@link #VK_FILTER_LINEAR FILTER_LINEAR}, {@code srcImage} <b>must</b> be of a format which supports linear filtering, as specified by the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code filter} is {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, {@code srcImage} <b>must</b> be of a format which supports cubic filtering, as specified by the {@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} (for a linear image) or {@link VkFormatProperties}{@code ::optimalTilingFeatures}(for an optimally tiled image) returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code filter} is {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, {@code srcImage} <b>must</b> have a {@code VkImageType} of {@link #VK_IMAGE_TYPE_3D IMAGE_TYPE_3D}</li>
+     * <li>The {@code srcSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The {@code dstSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
+     * <li>The <code>srcSubresource.baseArrayLayer srcSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The <code>dstSubresource.baseArrayLayer dstSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11540,7 +11548,7 @@ public class VK10 {
      * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
      * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageBlit} structures</li>
+     * <li>{@code pRegions} <b>must</b> be a valid pointer to an array of {@code regionCount} valid {@link VkImageBlit} structures</li>
      * <li>{@code filter} <b>must</b> be a valid {@code VkFilter} value</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
@@ -11627,6 +11635,8 @@ public class VK10 {
      * <li>{@code dstImage} <b>must</b> have a sample count equal to {@link #VK_SAMPLE_COUNT_1_BIT SAMPLE_COUNT_1_BIT}</li>
      * <li>{@code dstImageLayout} <b>must</b> specify the layout of the image subresources of {@code dstImage} specified in {@code pRegions} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
+     * <li>The {@code imageSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
+     * <li>The <code>imageSubresource.baseArrayLayer imageSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11636,7 +11646,7 @@ public class VK10 {
      * <li>{@code srcBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
      * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
+     * <li>{@code pRegions} <b>must</b> be a valid pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -11720,6 +11730,8 @@ public class VK10 {
      * <li>{@code srcImageLayout} <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL IMAGE_LAYOUT_TRANSFER_SRC_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>{@code dstBuffer} <b>must</b> have been created with {@link #VK_BUFFER_USAGE_TRANSFER_DST_BIT BUFFER_USAGE_TRANSFER_DST_BIT} usage flag</li>
      * <li>If {@code dstBuffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
+     * <li>The {@code imageSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The <code>imageSubresource.baseArrayLayer imageSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11729,7 +11741,7 @@ public class VK10 {
      * <li>{@code srcImage} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
+     * <li>{@code pRegions} <b>must</b> be a valid pointer to an array of {@code regionCount} valid {@link VkBufferImageCopy} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -11826,7 +11838,7 @@ public class VK10 {
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -11906,7 +11918,7 @@ public class VK10 {
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -11986,7 +11998,7 @@ public class VK10 {
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12066,7 +12078,7 @@ public class VK10 {
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12146,7 +12158,7 @@ public class VK10 {
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12226,7 +12238,7 @@ public class VK10 {
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code dstBuffer} <b>must</b> be a valid {@code VkBuffer} handle</li>
-     * <li>{@code pData} <b>must</b> be a pointer to an array of {@code dataSize} bytes</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to an array of {@code dataSize} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12368,9 +12380,9 @@ public class VK10 {
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code levelCount} member is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, then <code>baseMipLevel + levelCount</code> <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code layerCount} member is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, then <code>baseArrayLayer + layerCount</code> <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
      * </ul>
      * 
@@ -12380,8 +12392,8 @@ public class VK10 {
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pColor} <b>must</b> be a pointer to a valid {@link VkClearColorValue} union</li>
-     * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+     * <li>{@code pColor} <b>must</b> be a valid pointer to a valid {@link VkClearColorValue} union</li>
+     * <li>{@code pRanges} <b>must</b> be a valid pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12447,9 +12459,9 @@ public class VK10 {
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code levelCount} member is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, then <code>baseMipLevel + levelCount</code> <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code layerCount} member is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, then <code>baseArrayLayer + layerCount</code> <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> not have a compressed or depth/stencil format</li>
      * </ul>
      * 
@@ -12459,8 +12471,8 @@ public class VK10 {
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pColor} <b>must</b> be a pointer to a valid {@link VkClearColorValue} union</li>
-     * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+     * <li>{@code pColor} <b>must</b> be a valid pointer to a valid {@link VkClearColorValue} union</li>
+     * <li>{@code pRanges} <b>must</b> be a valid pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12532,9 +12544,9 @@ public class VK10 {
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code levelCount} member is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, then <code>baseMipLevel + levelCount</code> <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code layerCount} member is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, then <code>baseArrayLayer + layerCount</code> <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> have a depth/stencil format</li>
      * </ul>
      * 
@@ -12544,8 +12556,8 @@ public class VK10 {
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pDepthStencil} <b>must</b> be a pointer to a valid {@link VkClearDepthStencilValue} structure</li>
-     * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+     * <li>{@code pDepthStencil} <b>must</b> be a valid pointer to a valid {@link VkClearDepthStencilValue} structure</li>
+     * <li>{@code pRanges} <b>must</b> be a valid pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12606,9 +12618,9 @@ public class VK10 {
      * <li>{@code imageLayout} <b>must</b> specify the layout of the image subresource ranges of {@code image} specified in {@code pRanges} at the time this command is executed on a {@code VkDevice}</li>
      * <li>{@code imageLayout} <b>must</b> be either of {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL} or {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseMipLevel} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::levelCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseMipLevel {@link VkImageSubresourceRange}::levelCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code levelCount} member is not {@link #VK_REMAINING_MIP_LEVELS REMAINING_MIP_LEVELS}, then <code>baseMipLevel + levelCount</code> <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>The {@link VkImageSubresourceRange}{@code ::baseArrayLayer} members of the elements of the {@code pRanges} array <b>must</b> each be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
-     * <li>If the {@link VkImageSubresourceRange}{@code ::layerCount} member of any element of the {@code pRanges} array is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, it <b>must</b> be non-zero and <code>{@link VkImageSubresourceRange}::baseArrayLayer {@link VkImageSubresourceRange}::layerCount</code> for that element of the {@code pRanges} array <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
+     * <li>For each {@link VkImageSubresourceRange} element of {@code pRanges}, if the {@code layerCount} member is not {@link #VK_REMAINING_ARRAY_LAYERS REMAINING_ARRAY_LAYERS}, then <code>baseArrayLayer + layerCount</code> <b>must</b> be less than the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code image} was created</li>
      * <li>{@code image} <b>must</b> have a depth/stencil format</li>
      * </ul>
      * 
@@ -12618,8 +12630,8 @@ public class VK10 {
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
      * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code imageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pDepthStencil} <b>must</b> be a pointer to a valid {@link VkClearDepthStencilValue} structure</li>
-     * <li>{@code pRanges} <b>must</b> be a pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
+     * <li>{@code pDepthStencil} <b>must</b> be a valid pointer to a valid {@link VkClearDepthStencilValue} structure</li>
+     * <li>{@code pRanges} <b>must</b> be a valid pointer to an array of {@code rangeCount} valid {@link VkImageSubresourceRange} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12699,8 +12711,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pAttachments} <b>must</b> be a pointer to an array of {@code attachmentCount} valid {@link VkClearAttachment} structures</li>
-     * <li>{@code pRects} <b>must</b> be a pointer to an array of {@code rectCount} {@link VkClearRect} structures</li>
+     * <li>{@code pAttachments} <b>must</b> be a valid pointer to an array of {@code attachmentCount} valid {@link VkClearAttachment} structures</li>
+     * <li>{@code pRects} <b>must</b> be a valid pointer to an array of {@code rectCount} {@link VkClearRect} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>This command <b>must</b> only be called inside of a render pass instance</li>
@@ -12788,6 +12800,10 @@ public class VK10 {
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code srcImage} and {@code dstImage} <b>must</b> have been created with the same image format</li>
+     * <li>The {@code srcSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The {@code dstSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
+     * <li>The <code>srcSubresource.baseArrayLayer srcSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The <code>dstSubresource.baseArrayLayer dstSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -12798,7 +12814,7 @@ public class VK10 {
      * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
      * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageResolve} structures</li>
+     * <li>{@code pRegions} <b>must</b> be a valid pointer to an array of {@code regionCount} valid {@link VkImageResolve} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -12877,6 +12893,10 @@ public class VK10 {
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_LINEAR IMAGE_TILING_LINEAR}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::linearTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>If {@code dstImage} was created with {@code tiling} equal to {@link #VK_IMAGE_TILING_OPTIMAL IMAGE_TILING_OPTIMAL}, {@code dstImage} <b>must</b> have been created with a {@code format} that supports being a color attachment, as specified by the {@link #VK_FORMAT_FEATURE_COLOR_ATTACHMENT_BIT FORMAT_FEATURE_COLOR_ATTACHMENT_BIT} flag in {@link VkFormatProperties}{@code ::optimalTilingFeatures} returned by {@link #vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}</li>
      * <li>{@code srcImage} and {@code dstImage} <b>must</b> have been created with the same image format</li>
+     * <li>The {@code srcSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The {@code dstSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
+     * <li>The <code>srcSubresource.baseArrayLayer srcSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The <code>dstSubresource.baseArrayLayer dstSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -12887,7 +12907,7 @@ public class VK10 {
      * <li>{@code srcImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
      * <li>{@code dstImage} <b>must</b> be a valid {@code VkImage} handle</li>
      * <li>{@code dstImageLayout} <b>must</b> be a valid {@code VkImageLayout} value</li>
-     * <li>{@code pRegions} <b>must</b> be a pointer to an array of {@code regionCount} valid {@link VkImageResolve} structures</li>
+     * <li>{@code pRegions} <b>must</b> be a valid pointer to an array of {@code regionCount} valid {@link VkImageResolve} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>This command <b>must</b> only be called outside of a render pass instance</li>
@@ -13141,14 +13161,14 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pEvents} <b>must</b> be a pointer to an array of {@code eventCount} valid {@code VkEvent} handles</li>
+     * <li>{@code pEvents} <b>must</b> be a valid pointer to an array of {@code eventCount} valid {@code VkEvent} handles</li>
      * <li>{@code srcStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
      * <li>{@code srcStageMask} <b>must</b> not be 0</li>
      * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
      * <li>{@code dstStageMask} <b>must</b> not be 0</li>
-     * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid {@link VkMemoryBarrier} structures</li>
-     * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a pointer to an array of {@code bufferMemoryBarrierCount} valid {@link VkBufferMemoryBarrier} structures</li>
-     * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid {@link VkImageMemoryBarrier} structures</li>
+     * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a valid pointer to an array of {@code memoryBarrierCount} valid {@link VkMemoryBarrier} structures</li>
+     * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a valid pointer to an array of {@code bufferMemoryBarrierCount} valid {@link VkBufferMemoryBarrier} structures</li>
+     * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a valid pointer to an array of {@code imageMemoryBarrierCount} valid {@link VkImageMemoryBarrier} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code eventCount} <b>must</b> be greater than 0</li>
@@ -13266,9 +13286,9 @@ public class VK10 {
      * <li>{@code dstStageMask} <b>must</b> be a valid combination of {@code VkPipelineStageFlagBits} values</li>
      * <li>{@code dstStageMask} <b>must</b> not be 0</li>
      * <li>{@code dependencyFlags} <b>must</b> be a valid combination of {@code VkDependencyFlagBits} values</li>
-     * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a pointer to an array of {@code memoryBarrierCount} valid {@link VkMemoryBarrier} structures</li>
-     * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a pointer to an array of {@code bufferMemoryBarrierCount} valid {@link VkBufferMemoryBarrier} structures</li>
-     * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a pointer to an array of {@code imageMemoryBarrierCount} valid {@link VkImageMemoryBarrier} structures</li>
+     * <li>If {@code memoryBarrierCount} is not 0, {@code pMemoryBarriers} <b>must</b> be a valid pointer to an array of {@code memoryBarrierCount} valid {@link VkMemoryBarrier} structures</li>
+     * <li>If {@code bufferMemoryBarrierCount} is not 0, {@code pBufferMemoryBarriers} <b>must</b> be a valid pointer to an array of {@code bufferMemoryBarrierCount} valid {@link VkBufferMemoryBarrier} structures</li>
+     * <li>If {@code imageMemoryBarrierCount} is not 0, {@code pImageMemoryBarriers} <b>must</b> be a valid pointer to an array of {@code imageMemoryBarrierCount} valid {@link VkImageMemoryBarrier} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * </ul>
@@ -13457,7 +13477,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>When executed on a queue, this command sets the status of query indices <code>[firstQuery, firstQuery {plus} queryCount - 1]</code> to unavailable.</p>
+     * <p>When executed on a queue, this command sets the status of query indices <code>[firstQuery, firstQuery + queryCount - 1]</code> to unavailable.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -13731,7 +13751,7 @@ public class VK10 {
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
      * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
      * <li>{@code stageFlags} <b>must</b> not be 0</li>
-     * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+     * <li>{@code pValues} <b>must</b> be a valid pointer to an array of {@code size} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code size} <b>must</b> be greater than 0</li>
@@ -13795,7 +13815,7 @@ public class VK10 {
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
      * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
      * <li>{@code stageFlags} <b>must</b> not be 0</li>
-     * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+     * <li>{@code pValues} <b>must</b> be a valid pointer to an array of {@code size} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code size} <b>must</b> be greater than 0</li>
@@ -13859,7 +13879,7 @@ public class VK10 {
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
      * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
      * <li>{@code stageFlags} <b>must</b> not be 0</li>
-     * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+     * <li>{@code pValues} <b>must</b> be a valid pointer to an array of {@code size} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code size} <b>must</b> be greater than 0</li>
@@ -13923,7 +13943,7 @@ public class VK10 {
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
      * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
      * <li>{@code stageFlags} <b>must</b> not be 0</li>
-     * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+     * <li>{@code pValues} <b>must</b> be a valid pointer to an array of {@code size} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code size} <b>must</b> be greater than 0</li>
@@ -13987,7 +14007,7 @@ public class VK10 {
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
      * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
      * <li>{@code stageFlags} <b>must</b> not be 0</li>
-     * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+     * <li>{@code pValues} <b>must</b> be a valid pointer to an array of {@code size} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code size} <b>must</b> be greater than 0</li>
@@ -14051,7 +14071,7 @@ public class VK10 {
      * <li>{@code layout} <b>must</b> be a valid {@code VkPipelineLayout} handle</li>
      * <li>{@code stageFlags} <b>must</b> be a valid combination of {@code VkShaderStageFlagBits} values</li>
      * <li>{@code stageFlags} <b>must</b> not be 0</li>
-     * <li>{@code pValues} <b>must</b> be a pointer to an array of {@code size} bytes</li>
+     * <li>{@code pValues} <b>must</b> be a valid pointer to an array of {@code size} bytes</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics, or compute operations</li>
      * <li>{@code size} <b>must</b> be greater than 0</li>
@@ -14126,7 +14146,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pRenderPassBegin} <b>must</b> be a pointer to a valid {@link VkRenderPassBeginInfo} structure</li>
+     * <li>{@code pRenderPassBegin} <b>must</b> be a valid pointer to a valid {@link VkRenderPassBeginInfo} structure</li>
      * <li>{@code contents} <b>must</b> be a valid {@code VkSubpassContents} value</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
@@ -14332,7 +14352,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
+     * <li>{@code pCommandBuffers} <b>must</b> be a valid pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>
@@ -14406,7 +14426,7 @@ public class VK10 {
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
-     * <li>{@code pCommandBuffers} <b>must</b> be a pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
+     * <li>{@code pCommandBuffers} <b>must</b> be a valid pointer to an array of {@code commandBufferCount} valid {@code VkCommandBuffer} handles</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support transfer, graphics, or compute operations</li>
      * <li>{@code commandBuffer} <b>must</b> be a primary {@code VkCommandBuffer}</li>

@@ -134,9 +134,9 @@ public class KHRDescriptorUpdateTemplate {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a pointer to a valid {@link VkDescriptorUpdateTemplateCreateInfoKHR} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pDescriptorUpdateTemplate} <b>must</b> be a pointer to a {@code VkDescriptorUpdateTemplateKHR} handle</li>
+     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkDescriptorUpdateTemplateCreateInfoKHR} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>{@code pDescriptorUpdateTemplate} <b>must</b> be a valid pointer to a {@code VkDescriptorUpdateTemplateKHR} handle</li>
      * </ul>
      * 
      * <h5>Return Codes</h5>
@@ -207,7 +207,7 @@ public class KHRDescriptorUpdateTemplate {
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
      * <li>If {@code descriptorUpdateTemplate} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code descriptorUpdateTemplate} <b>must</b> be a valid {@code VkDescriptorUpdateTemplateKHR} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a pointer to a valid {@link VkAllocationCallbacks} structure</li>
+     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
      * <li>If {@code descriptorUpdateTemplate} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
      * </ul>
      * 
@@ -248,7 +248,7 @@ public class KHRDescriptorUpdateTemplate {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code pData} <b>must</b> be a pointer to a memory that contains one or more valid instances of {@link VkDescriptorImageInfo}, {@link VkDescriptorBufferInfo}, or {@code VkBufferView} in a layout defined by {@code descriptorUpdateTemplate} when it was created with {@link #vkCreateDescriptorUpdateTemplateKHR CreateDescriptorUpdateTemplateKHR}</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to a memory that contains one or more valid instances of {@link VkDescriptorImageInfo}, {@link VkDescriptorBufferInfo}, or {@code VkBufferView} in a layout defined by {@code descriptorUpdateTemplate} when it was created with {@link #vkCreateDescriptorUpdateTemplateKHR CreateDescriptorUpdateTemplateKHR}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -377,7 +377,7 @@ public class KHRDescriptorUpdateTemplate {
      * 
      * <ul>
      * <li>The pipelineBindPoint specified during the creation of the descriptor update template <b>must</b> be supported by the {@code commandBuffer}&#8217;s parent {@code VkCommandPool}&#8217;s queue family</li>
-     * <li>{@code pData} <b>must</b> be a pointer to a memory that contains one or more valid instances of {@link VkDescriptorImageInfo}, {@link VkDescriptorBufferInfo}, or {@code VkBufferView} in a layout defined by {@code descriptorUpdateTemplate} when it was created with {@link #vkCreateDescriptorUpdateTemplateKHR CreateDescriptorUpdateTemplateKHR}</li>
+     * <li>{@code pData} <b>must</b> be a valid pointer to a memory that contains one or more valid instances of {@link VkDescriptorImageInfo}, {@link VkDescriptorBufferInfo}, or {@code VkBufferView} in a layout defined by {@code descriptorUpdateTemplate} when it was created with {@link #vkCreateDescriptorUpdateTemplateKHR CreateDescriptorUpdateTemplateKHR}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>

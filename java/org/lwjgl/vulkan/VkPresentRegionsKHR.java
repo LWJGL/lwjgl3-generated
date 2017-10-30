@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRIncrementalPresent#VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR STRUCTURE_TYPE_PRESENT_REGIONS_KHR}</li>
- * <li>If {@code pRegions} is not {@code NULL}, {@code pRegions} <b>must</b> be a pointer to an array of {@code swapchainCount} valid {@link VkPresentRegionKHR} structures</li>
+ * <li>If {@code pRegions} is not {@code NULL}, {@code pRegions} <b>must</b> be a valid pointer to an array of {@code swapchainCount} valid {@link VkPresentRegionKHR} structures</li>
  * <li>{@code swapchainCount} <b>must</b> be greater than 0</li>
  * </ul>
  * 
