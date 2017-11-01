@@ -7,8 +7,6 @@ package org.lwjgl.openvr;
 
 import java.nio.*;
 
-import org.lwjgl.*;
-
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -250,6 +248,7 @@ public class VRSystem {
         long __functionAddress = OpenVR.VRSystem.GetOutputDevice;
         if (CHECKS) {
             check(__functionAddress);
+            check(pInstance);
         }
         callPPV(__functionAddress, pnDevice, textureType, pInstance);
     }
@@ -278,12 +277,11 @@ public class VRSystem {
      * @param textureType one of:<br><table><tr><td>{@link VR#ETextureType_TextureType_DirectX}</td><td>{@link VR#ETextureType_TextureType_OpenGL}</td></tr><tr><td>{@link VR#ETextureType_TextureType_Vulkan}</td><td>{@link VR#ETextureType_TextureType_IOSurface}</td></tr><tr><td>{@link VR#ETextureType_TextureType_DirectX12}</td></tr></table>
      * @param pInstance   an optional parameter that is required only when {@code textureType} is {@link VR#ETextureType_TextureType_Vulkan}
      */
-    public static void VRSystem_GetOutputDevice(@NativeType("uint64_t *") LongBuffer pnDevice, @NativeType("ETextureType") int textureType, @NativeType("VkInstance_T *") PointerBuffer pInstance) {
+    public static void VRSystem_GetOutputDevice(@NativeType("uint64_t *") LongBuffer pnDevice, @NativeType("ETextureType") int textureType, @NativeType("VkInstance_T *") long pInstance) {
         if (CHECKS) {
             check(pnDevice, 1);
-            check(pInstance, 1);
         }
-        nVRSystem_GetOutputDevice(memAddress(pnDevice), textureType, memAddress(pInstance));
+        nVRSystem_GetOutputDevice(memAddress(pnDevice), textureType, pInstance);
     }
 
     // --- [ VRSystem_IsDisplayOnDesktop ] ---

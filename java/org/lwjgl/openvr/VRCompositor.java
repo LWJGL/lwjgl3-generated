@@ -751,7 +751,7 @@ public class VRCompositor {
      * @param pchValue        
      */
     @NativeType("uint32_t")
-    public static int VRCompositor_GetVulkanDeviceExtensionsRequired(@NativeType("VkPhysicalDevice_T") long pPhysicalDevice, @NativeType("char *") ByteBuffer pchValue) {
+    public static int VRCompositor_GetVulkanDeviceExtensionsRequired(@NativeType("VkPhysicalDevice_T *") long pPhysicalDevice, @NativeType("char *") ByteBuffer pchValue) {
         return nVRCompositor_GetVulkanDeviceExtensionsRequired(pPhysicalDevice, memAddressSafe(pchValue), remainingSafe(pchValue));
     }
 
@@ -763,7 +763,7 @@ public class VRCompositor {
      * @param unBufferSize    
      */
     @NativeType("uint32_t")
-    public static String VRCompositor_GetVulkanDeviceExtensionsRequired(@NativeType("VkPhysicalDevice_T") long pPhysicalDevice, @NativeType("uint32_t") int unBufferSize) {
+    public static String VRCompositor_GetVulkanDeviceExtensionsRequired(@NativeType("VkPhysicalDevice_T *") long pPhysicalDevice, @NativeType("uint32_t") int unBufferSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchValue = stack.malloc(unBufferSize);

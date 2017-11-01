@@ -109,34 +109,18 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
     /** Returns the value of the {@code m_nImage} field. */
     @NativeType("uint64_t")
     public long m_nImage() { return nm_nImage(address()); }
-    /**
-     * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pDevice} field.
-     *
-     * @param capacity the number of elements in the returned buffer
-     */
+    /** Returns the value of the {@code m_pDevice} field. */
     @NativeType("VkDevice_T *")
-    public PointerBuffer m_pDevice(int capacity) { return nm_pDevice(address(), capacity); }
-    /**
-     * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pPhysicalDevice} field.
-     *
-     * @param capacity the number of elements in the returned buffer
-     */
+    public long m_pDevice() { return nm_pDevice(address()); }
+    /** Returns the value of the {@code m_pPhysicalDevice} field. */
     @NativeType("VkPhysicalDevice_T *")
-    public PointerBuffer m_pPhysicalDevice(int capacity) { return nm_pPhysicalDevice(address(), capacity); }
-    /**
-     * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pInstance} field.
-     *
-     * @param capacity the number of elements in the returned buffer
-     */
+    public long m_pPhysicalDevice() { return nm_pPhysicalDevice(address()); }
+    /** Returns the value of the {@code m_pInstance} field. */
     @NativeType("VkInstance_T *")
-    public PointerBuffer m_pInstance(int capacity) { return nm_pInstance(address(), capacity); }
-    /**
-     * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pQueue} field.
-     *
-     * @param capacity the number of elements in the returned buffer
-     */
+    public long m_pInstance() { return nm_pInstance(address()); }
+    /** Returns the value of the {@code m_pQueue} field. */
     @NativeType("VkQueue_T *")
-    public PointerBuffer m_pQueue(int capacity) { return nm_pQueue(address(), capacity); }
+    public long m_pQueue() { return nm_pQueue(address()); }
     /** Returns the value of the {@code m_nQueueFamilyIndex} field. */
     @NativeType("uint32_t")
     public int m_nQueueFamilyIndex() { return nm_nQueueFamilyIndex(address()); }
@@ -155,14 +139,14 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
 
     /** Sets the specified value to the {@code m_nImage} field. */
     public VRVulkanTextureData m_nImage(@NativeType("uint64_t") long value) { nm_nImage(address(), value); return this; }
-    /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pDevice} field. */
-    public VRVulkanTextureData m_pDevice(@NativeType("VkDevice_T *") PointerBuffer value) { nm_pDevice(address(), value); return this; }
-    /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pPhysicalDevice} field. */
-    public VRVulkanTextureData m_pPhysicalDevice(@NativeType("VkPhysicalDevice_T *") PointerBuffer value) { nm_pPhysicalDevice(address(), value); return this; }
-    /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pInstance} field. */
-    public VRVulkanTextureData m_pInstance(@NativeType("VkInstance_T *") PointerBuffer value) { nm_pInstance(address(), value); return this; }
-    /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pQueue} field. */
-    public VRVulkanTextureData m_pQueue(@NativeType("VkQueue_T *") PointerBuffer value) { nm_pQueue(address(), value); return this; }
+    /** Sets the specified value to the {@code m_pDevice} field. */
+    public VRVulkanTextureData m_pDevice(@NativeType("VkDevice_T *") long value) { nm_pDevice(address(), value); return this; }
+    /** Sets the specified value to the {@code m_pPhysicalDevice} field. */
+    public VRVulkanTextureData m_pPhysicalDevice(@NativeType("VkPhysicalDevice_T *") long value) { nm_pPhysicalDevice(address(), value); return this; }
+    /** Sets the specified value to the {@code m_pInstance} field. */
+    public VRVulkanTextureData m_pInstance(@NativeType("VkInstance_T *") long value) { nm_pInstance(address(), value); return this; }
+    /** Sets the specified value to the {@code m_pQueue} field. */
+    public VRVulkanTextureData m_pQueue(@NativeType("VkQueue_T *") long value) { nm_pQueue(address(), value); return this; }
     /** Sets the specified value to the {@code m_nQueueFamilyIndex} field. */
     public VRVulkanTextureData m_nQueueFamilyIndex(@NativeType("uint32_t") int value) { nm_nQueueFamilyIndex(address(), value); return this; }
     /** Sets the specified value to the {@code m_nWidth} field. */
@@ -177,10 +161,10 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
     /** Initializes this struct with the specified values. */
     public VRVulkanTextureData set(
         long m_nImage,
-        PointerBuffer m_pDevice,
-        PointerBuffer m_pPhysicalDevice,
-        PointerBuffer m_pInstance,
-        PointerBuffer m_pQueue,
+        long m_pDevice,
+        long m_pPhysicalDevice,
+        long m_pInstance,
+        long m_pQueue,
         int m_nQueueFamilyIndex,
         int m_nWidth,
         int m_nHeight,
@@ -344,14 +328,14 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
 
     /** Unsafe version of {@link #m_nImage}. */
     public static long nm_nImage(long struct) { return memGetLong(struct + VRVulkanTextureData.M_NIMAGE); }
-    /** Unsafe version of {@link #m_pDevice(int) m_pDevice}. */
-    public static PointerBuffer nm_pDevice(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VRVulkanTextureData.M_PDEVICE), capacity); }
-    /** Unsafe version of {@link #m_pPhysicalDevice(int) m_pPhysicalDevice}. */
-    public static PointerBuffer nm_pPhysicalDevice(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VRVulkanTextureData.M_PPHYSICALDEVICE), capacity); }
-    /** Unsafe version of {@link #m_pInstance(int) m_pInstance}. */
-    public static PointerBuffer nm_pInstance(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VRVulkanTextureData.M_PINSTANCE), capacity); }
-    /** Unsafe version of {@link #m_pQueue(int) m_pQueue}. */
-    public static PointerBuffer nm_pQueue(long struct, int capacity) { return memPointerBuffer(memGetAddress(struct + VRVulkanTextureData.M_PQUEUE), capacity); }
+    /** Unsafe version of {@link #m_pDevice}. */
+    public static long nm_pDevice(long struct) { return memGetAddress(struct + VRVulkanTextureData.M_PDEVICE); }
+    /** Unsafe version of {@link #m_pPhysicalDevice}. */
+    public static long nm_pPhysicalDevice(long struct) { return memGetAddress(struct + VRVulkanTextureData.M_PPHYSICALDEVICE); }
+    /** Unsafe version of {@link #m_pInstance}. */
+    public static long nm_pInstance(long struct) { return memGetAddress(struct + VRVulkanTextureData.M_PINSTANCE); }
+    /** Unsafe version of {@link #m_pQueue}. */
+    public static long nm_pQueue(long struct) { return memGetAddress(struct + VRVulkanTextureData.M_PQUEUE); }
     /** Unsafe version of {@link #m_nQueueFamilyIndex}. */
     public static int nm_nQueueFamilyIndex(long struct) { return memGetInt(struct + VRVulkanTextureData.M_NQUEUEFAMILYINDEX); }
     /** Unsafe version of {@link #m_nWidth}. */
@@ -365,14 +349,14 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
 
     /** Unsafe version of {@link #m_nImage(long) m_nImage}. */
     public static void nm_nImage(long struct, long value) { memPutLong(struct + VRVulkanTextureData.M_NIMAGE, value); }
-    /** Unsafe version of {@link #m_pDevice(PointerBuffer) m_pDevice}. */
-    public static void nm_pDevice(long struct, PointerBuffer value) { memPutAddress(struct + VRVulkanTextureData.M_PDEVICE, memAddress(value)); }
-    /** Unsafe version of {@link #m_pPhysicalDevice(PointerBuffer) m_pPhysicalDevice}. */
-    public static void nm_pPhysicalDevice(long struct, PointerBuffer value) { memPutAddress(struct + VRVulkanTextureData.M_PPHYSICALDEVICE, memAddress(value)); }
-    /** Unsafe version of {@link #m_pInstance(PointerBuffer) m_pInstance}. */
-    public static void nm_pInstance(long struct, PointerBuffer value) { memPutAddress(struct + VRVulkanTextureData.M_PINSTANCE, memAddress(value)); }
-    /** Unsafe version of {@link #m_pQueue(PointerBuffer) m_pQueue}. */
-    public static void nm_pQueue(long struct, PointerBuffer value) { memPutAddress(struct + VRVulkanTextureData.M_PQUEUE, memAddress(value)); }
+    /** Unsafe version of {@link #m_pDevice(long) m_pDevice}. */
+    public static void nm_pDevice(long struct, long value) { memPutAddress(struct + VRVulkanTextureData.M_PDEVICE, check(value)); }
+    /** Unsafe version of {@link #m_pPhysicalDevice(long) m_pPhysicalDevice}. */
+    public static void nm_pPhysicalDevice(long struct, long value) { memPutAddress(struct + VRVulkanTextureData.M_PPHYSICALDEVICE, check(value)); }
+    /** Unsafe version of {@link #m_pInstance(long) m_pInstance}. */
+    public static void nm_pInstance(long struct, long value) { memPutAddress(struct + VRVulkanTextureData.M_PINSTANCE, check(value)); }
+    /** Unsafe version of {@link #m_pQueue(long) m_pQueue}. */
+    public static void nm_pQueue(long struct, long value) { memPutAddress(struct + VRVulkanTextureData.M_PQUEUE, check(value)); }
     /** Unsafe version of {@link #m_nQueueFamilyIndex(int) m_nQueueFamilyIndex}. */
     public static void nm_nQueueFamilyIndex(long struct, int value) { memPutInt(struct + VRVulkanTextureData.M_NQUEUEFAMILYINDEX, value); }
     /** Unsafe version of {@link #m_nWidth(int) m_nWidth}. */
@@ -453,34 +437,18 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
         /** Returns the value of the {@code m_nImage} field. */
         @NativeType("uint64_t")
         public long m_nImage() { return VRVulkanTextureData.nm_nImage(address()); }
-        /**
-         * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pDevice} field.
-         *
-         * @param capacity the number of elements in the returned buffer
-         */
+        /** Returns the value of the {@code m_pDevice} field. */
         @NativeType("VkDevice_T *")
-        public PointerBuffer m_pDevice(int capacity) { return VRVulkanTextureData.nm_pDevice(address(), capacity); }
-        /**
-         * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pPhysicalDevice} field.
-         *
-         * @param capacity the number of elements in the returned buffer
-         */
+        public long m_pDevice() { return VRVulkanTextureData.nm_pDevice(address()); }
+        /** Returns the value of the {@code m_pPhysicalDevice} field. */
         @NativeType("VkPhysicalDevice_T *")
-        public PointerBuffer m_pPhysicalDevice(int capacity) { return VRVulkanTextureData.nm_pPhysicalDevice(address(), capacity); }
-        /**
-         * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pInstance} field.
-         *
-         * @param capacity the number of elements in the returned buffer
-         */
+        public long m_pPhysicalDevice() { return VRVulkanTextureData.nm_pPhysicalDevice(address()); }
+        /** Returns the value of the {@code m_pInstance} field. */
         @NativeType("VkInstance_T *")
-        public PointerBuffer m_pInstance(int capacity) { return VRVulkanTextureData.nm_pInstance(address(), capacity); }
-        /**
-         * Returns a {@link PointerBuffer} view of the data pointed to by the {@code m_pQueue} field.
-         *
-         * @param capacity the number of elements in the returned buffer
-         */
+        public long m_pInstance() { return VRVulkanTextureData.nm_pInstance(address()); }
+        /** Returns the value of the {@code m_pQueue} field. */
         @NativeType("VkQueue_T *")
-        public PointerBuffer m_pQueue(int capacity) { return VRVulkanTextureData.nm_pQueue(address(), capacity); }
+        public long m_pQueue() { return VRVulkanTextureData.nm_pQueue(address()); }
         /** Returns the value of the {@code m_nQueueFamilyIndex} field. */
         @NativeType("uint32_t")
         public int m_nQueueFamilyIndex() { return VRVulkanTextureData.nm_nQueueFamilyIndex(address()); }
@@ -499,14 +467,14 @@ public class VRVulkanTextureData extends Struct implements NativeResource {
 
         /** Sets the specified value to the {@code m_nImage} field. */
         public VRVulkanTextureData.Buffer m_nImage(@NativeType("uint64_t") long value) { VRVulkanTextureData.nm_nImage(address(), value); return this; }
-        /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pDevice} field. */
-        public VRVulkanTextureData.Buffer m_pDevice(@NativeType("VkDevice_T *") PointerBuffer value) { VRVulkanTextureData.nm_pDevice(address(), value); return this; }
-        /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pPhysicalDevice} field. */
-        public VRVulkanTextureData.Buffer m_pPhysicalDevice(@NativeType("VkPhysicalDevice_T *") PointerBuffer value) { VRVulkanTextureData.nm_pPhysicalDevice(address(), value); return this; }
-        /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pInstance} field. */
-        public VRVulkanTextureData.Buffer m_pInstance(@NativeType("VkInstance_T *") PointerBuffer value) { VRVulkanTextureData.nm_pInstance(address(), value); return this; }
-        /** Sets the address of the specified {@link PointerBuffer} to the {@code m_pQueue} field. */
-        public VRVulkanTextureData.Buffer m_pQueue(@NativeType("VkQueue_T *") PointerBuffer value) { VRVulkanTextureData.nm_pQueue(address(), value); return this; }
+        /** Sets the specified value to the {@code m_pDevice} field. */
+        public VRVulkanTextureData.Buffer m_pDevice(@NativeType("VkDevice_T *") long value) { VRVulkanTextureData.nm_pDevice(address(), value); return this; }
+        /** Sets the specified value to the {@code m_pPhysicalDevice} field. */
+        public VRVulkanTextureData.Buffer m_pPhysicalDevice(@NativeType("VkPhysicalDevice_T *") long value) { VRVulkanTextureData.nm_pPhysicalDevice(address(), value); return this; }
+        /** Sets the specified value to the {@code m_pInstance} field. */
+        public VRVulkanTextureData.Buffer m_pInstance(@NativeType("VkInstance_T *") long value) { VRVulkanTextureData.nm_pInstance(address(), value); return this; }
+        /** Sets the specified value to the {@code m_pQueue} field. */
+        public VRVulkanTextureData.Buffer m_pQueue(@NativeType("VkQueue_T *") long value) { VRVulkanTextureData.nm_pQueue(address(), value); return this; }
         /** Sets the specified value to the {@code m_nQueueFamilyIndex} field. */
         public VRVulkanTextureData.Buffer m_nQueueFamilyIndex(@NativeType("uint32_t") int value) { VRVulkanTextureData.nm_nQueueFamilyIndex(address(), value); return this; }
         /** Sets the specified value to the {@code m_nWidth} field. */
