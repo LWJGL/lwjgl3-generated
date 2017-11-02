@@ -724,6 +724,91 @@ public class User32 {
     /** Value for rolling one detent. */
     public static final int WHEEL_DELTA = 120;
 
+    /**
+     * Identifies the dots per inch (dpi) setting for a thread, process, or window. ({@code DPI_AWARENESS})
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #DPI_AWARENESS_INVALID DPI_AWARENESS_INVALID} - 
+     * Invalid DPI awareness.
+     * 
+     * <p>This is an invalid DPI awareness value.</p>
+     * </li>
+     * <li>{@link #DPI_AWARENESS_UNAWARE DPI_AWARENESS_UNAWARE} - 
+     * DPI unaware.
+     * 
+     * <p>This process does not scale for DPI changes and is always assumed to have a scale factor of 100% (96 DPI). It will be automatically scaled by the
+     * system on any other DPI setting.</p>
+     * </li>
+     * <li>{@link #DPI_AWARENESS_SYSTEM_AWARE DPI_AWARENESS_SYSTEM_AWARE} - 
+     * System DPI aware.
+     * 
+     * <p>This process does not scale for DPI changes. It will query for the DPI once and use that value for the lifetime of the process. If the DPI changes,
+     * the process will not adjust to the new DPI value. It will be automatically scaled up or down by the system when the DPI changes from the system
+     * value.</p>
+     * </li>
+     * <li>{@link #DPI_AWARENESS_PER_MONITOR_AWARE DPI_AWARENESS_PER_MONITOR_AWARE} - 
+     * Per monitor DPI aware.
+     * 
+     * <p>This process checks for the DPI when it is created and adjusts the scale factor whenever the DPI changes. These processes are not automatically
+     * scaled by the system.</p>
+     * </li>
+     * </ul>
+     */
+    public static final int
+        DPI_AWARENESS_INVALID           = -1,
+        DPI_AWARENESS_UNAWARE           = 0,
+        DPI_AWARENESS_SYSTEM_AWARE      = 1,
+        DPI_AWARENESS_PER_MONITOR_AWARE = 2;
+
+    /**
+     * DPI unaware.
+     * 
+     * <p>This window does not scale for DPI changes and is always assumed to have a scale factor of 100% (96 DPI). It will be automatically scaled by the system
+     * on any other DPI setting.</p>
+     */
+    public static final long DPI_AWARENESS_CONTEXT_UNAWARE = -1L;
+
+    /**
+     * System DPI aware.
+     * 
+     * <p>This window does not scale for DPI changes. It will query for the DPI once and use that value for the lifetime of the process. If the DPI changes, the
+     * process will not adjust to the new DPI value. It will be automatically scaled up or down by the system when the DPI changes from the system value.</p>
+     */
+    public static final long DPI_AWARENESS_CONTEXT_SYSTEM_AWARE = -2L;
+
+    /**
+     * Per monitor DPI aware.
+     * 
+     * <p>This window checks for the DPI when it is created and adjusts the scale factor whenever the DPI changes. These processes are not automatically scaled
+     * by the system.</p>
+     */
+    public static final long DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE = -3L;
+
+    /**
+     * Also known as Per Monitor v2.
+     * 
+     * <p>An advancement over the original per-monitor DPI awareness mode, which enables applications to access new DPI-related scaling behaviors on a per
+     * top-level window basis.</p>
+     * 
+     * <p>Per Monitor v2 was made available in the Creators Update of Windows 10, and is not available on earlier versions of the operating system.</p>
+     * 
+     * <p>The additional behaviors introduced are as follows:</p>
+     * 
+     * <ul>
+     * <li>Child window DPI change notifications - In Per Monitor v2 contexts, the entire window tree is notified of any DPI changes that occur.</li>
+     * <li>Scaling of non-client area - All windows will automatically have their non-client area drawn in a DPI sensitive fashion. Calls to
+     * {@code EnableNonClientDpiScaling} are unnecessary.</li>
+     * <li>Scaling of Win32 menus - All {@code NTUSER} menus created in Per Monitor v2 contexts will be scaling in a per-monitor fashion.</li>
+     * <li>Dialog Scaling - Win32 dialogs created in Per Monitor v2 contexts will automatically respond to DPI changes.</li>
+     * <li>Improved scaling of {@code comctl32} controls - Various {@code comctl32} controls have improved DPI scaling behavior in Per Monitor v2 contexts.</li>
+     * <li>Improved theming behavior - {@code UxTheme} handles opened in the context of a Per Monitor v2 window will operate in terms of the DPI associated
+     * with that window.</li>
+     * </ul>
+     */
+    public static final long DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = -4L;
+
     /** {@link WINDOWPLACEMENT} flags. */
     public static final int
         WPF_SETMINPOSITION       = 0x1,
@@ -918,56 +1003,64 @@ public class User32 {
 
         /** Function address. */
         public static final long
-            RegisterClassEx            = apiGetFunctionAddress(USER32, "RegisterClassExW"),
-            UnregisterClass            = apiGetFunctionAddress(USER32, "UnregisterClassW"),
-            CreateWindowEx             = apiGetFunctionAddress(USER32, "CreateWindowExW"),
-            DestroyWindow              = apiGetFunctionAddress(USER32, "DestroyWindow"),
-            DefWindowProc              = apiGetFunctionAddress(USER32, "DefWindowProcW"),
-            ShowWindow                 = apiGetFunctionAddress(USER32, "ShowWindow"),
-            UpdateWindow               = apiGetFunctionAddress(USER32, "UpdateWindow"),
-            SetWindowPos               = apiGetFunctionAddress(USER32, "SetWindowPos"),
-            SetWindowText              = apiGetFunctionAddress(USER32, "SetWindowTextW"),
-            GetMessage                 = apiGetFunctionAddress(USER32, "GetMessageW"),
-            PeekMessage                = apiGetFunctionAddress(USER32, "PeekMessageW"),
-            TranslateMessage           = apiGetFunctionAddress(USER32, "TranslateMessage"),
-            WaitMessage                = apiGetFunctionAddress(USER32, "WaitMessage"),
-            DispatchMessage            = apiGetFunctionAddress(USER32, "DispatchMessageW"),
-            PostMessage                = apiGetFunctionAddress(USER32, "PostMessageW"),
-            SendMessage                = apiGetFunctionAddress(USER32, "SendMessageW"),
-            AdjustWindowRectEx         = apiGetFunctionAddress(USER32, "AdjustWindowRectEx"),
-            GetWindowRect              = apiGetFunctionAddress(USER32, "GetWindowRect"),
-            MoveWindow                 = apiGetFunctionAddress(USER32, "MoveWindow"),
-            GetWindowPlacement         = apiGetFunctionAddress(USER32, "GetWindowPlacement"),
-            SetWindowPlacement         = apiGetFunctionAddress(USER32, "SetWindowPlacement"),
-            IsWindowVisible            = apiGetFunctionAddress(USER32, "IsWindowVisible"),
-            IsIconic                   = apiGetFunctionAddress(USER32, "IsIconic"),
-            IsZoomed                   = apiGetFunctionAddress(USER32, "IsZoomed"),
-            BringWindowToTop           = apiGetFunctionAddress(USER32, "BringWindowToTop"),
-            SetWindowLongPtr           = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "SetWindowLongPtrW" : "SetWindowLongW"),
-            GetWindowLongPtr           = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "GetWindowLongPtrW" : "GetWindowLongW"),
-            SetClassLongPtr            = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "SetClassLongPtrW" : "SetClassLongW"),
-            GetClassLongPtr            = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "GetClassLongPtrW" : "GetClassLongW"),
-            SetLayeredWindowAttributes = apiGetFunctionAddress(USER32, "SetLayeredWindowAttributes"),
-            LoadIcon                   = apiGetFunctionAddress(USER32, "LoadIconW"),
-            LoadCursor                 = apiGetFunctionAddress(USER32, "LoadCursorW"),
-            GetDC                      = apiGetFunctionAddress(USER32, "GetDC"),
-            ReleaseDC                  = apiGetFunctionAddress(USER32, "ReleaseDC"),
-            GetSystemMetrics           = apiGetFunctionAddress(USER32, "GetSystemMetrics"),
-            RegisterTouchWindow        = USER32.getFunctionAddress("RegisterTouchWindow"),
-            UnregisterTouchWindow      = USER32.getFunctionAddress("UnregisterTouchWindow"),
-            IsTouchWindow              = USER32.getFunctionAddress("IsTouchWindow"),
-            GetTouchInputInfo          = USER32.getFunctionAddress("GetTouchInputInfo"),
-            CloseTouchInputHandle      = USER32.getFunctionAddress("CloseTouchInputHandle"),
-            MonitorFromWindow          = apiGetFunctionAddress(USER32, "MonitorFromWindow"),
-            GetMonitorInfo             = apiGetFunctionAddress(USER32, "GetMonitorInfoW"),
-            EnumDisplayDevices         = apiGetFunctionAddress(USER32, "EnumDisplayDevicesW"),
-            EnumDisplaySettingsEx      = apiGetFunctionAddress(USER32, "EnumDisplaySettingsExW"),
-            ChangeDisplaySettingsEx    = apiGetFunctionAddress(USER32, "ChangeDisplaySettingsExW"),
-            GetCursorPos               = apiGetFunctionAddress(USER32, "GetCursorPos"),
-            SetCursorPos               = apiGetFunctionAddress(USER32, "SetCursorPos"),
-            ClipCursor                 = apiGetFunctionAddress(USER32, "ClipCursor"),
-            ShowCursor                 = apiGetFunctionAddress(USER32, "ShowCursor"),
-            SetCursor                  = apiGetFunctionAddress(USER32, "SetCursor");
+            RegisterClassEx                     = apiGetFunctionAddress(USER32, "RegisterClassExW"),
+            UnregisterClass                     = apiGetFunctionAddress(USER32, "UnregisterClassW"),
+            CreateWindowEx                      = apiGetFunctionAddress(USER32, "CreateWindowExW"),
+            DestroyWindow                       = apiGetFunctionAddress(USER32, "DestroyWindow"),
+            DefWindowProc                       = apiGetFunctionAddress(USER32, "DefWindowProcW"),
+            CallWindowProc                      = apiGetFunctionAddress(USER32, "CallWindowProcW"),
+            ShowWindow                          = apiGetFunctionAddress(USER32, "ShowWindow"),
+            UpdateWindow                        = apiGetFunctionAddress(USER32, "UpdateWindow"),
+            SetWindowPos                        = apiGetFunctionAddress(USER32, "SetWindowPos"),
+            SetWindowText                       = apiGetFunctionAddress(USER32, "SetWindowTextW"),
+            GetMessage                          = apiGetFunctionAddress(USER32, "GetMessageW"),
+            PeekMessage                         = apiGetFunctionAddress(USER32, "PeekMessageW"),
+            TranslateMessage                    = apiGetFunctionAddress(USER32, "TranslateMessage"),
+            WaitMessage                         = apiGetFunctionAddress(USER32, "WaitMessage"),
+            DispatchMessage                     = apiGetFunctionAddress(USER32, "DispatchMessageW"),
+            PostMessage                         = apiGetFunctionAddress(USER32, "PostMessageW"),
+            SendMessage                         = apiGetFunctionAddress(USER32, "SendMessageW"),
+            AdjustWindowRectEx                  = apiGetFunctionAddress(USER32, "AdjustWindowRectEx"),
+            GetWindowRect                       = apiGetFunctionAddress(USER32, "GetWindowRect"),
+            MoveWindow                          = apiGetFunctionAddress(USER32, "MoveWindow"),
+            GetWindowPlacement                  = apiGetFunctionAddress(USER32, "GetWindowPlacement"),
+            SetWindowPlacement                  = apiGetFunctionAddress(USER32, "SetWindowPlacement"),
+            IsWindowVisible                     = apiGetFunctionAddress(USER32, "IsWindowVisible"),
+            IsIconic                            = apiGetFunctionAddress(USER32, "IsIconic"),
+            IsZoomed                            = apiGetFunctionAddress(USER32, "IsZoomed"),
+            BringWindowToTop                    = apiGetFunctionAddress(USER32, "BringWindowToTop"),
+            SetWindowLongPtr                    = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "SetWindowLongPtrW" : "SetWindowLongW"),
+            GetWindowLongPtr                    = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "GetWindowLongPtrW" : "GetWindowLongW"),
+            SetClassLongPtr                     = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "SetClassLongPtrW" : "SetClassLongW"),
+            GetClassLongPtr                     = apiGetFunctionAddress(USER32, Pointer.BITS64 ? "GetClassLongPtrW" : "GetClassLongW"),
+            SetLayeredWindowAttributes          = apiGetFunctionAddress(USER32, "SetLayeredWindowAttributes"),
+            LoadIcon                            = apiGetFunctionAddress(USER32, "LoadIconW"),
+            LoadCursor                          = apiGetFunctionAddress(USER32, "LoadCursorW"),
+            GetDC                               = apiGetFunctionAddress(USER32, "GetDC"),
+            ReleaseDC                           = apiGetFunctionAddress(USER32, "ReleaseDC"),
+            GetSystemMetrics                    = apiGetFunctionAddress(USER32, "GetSystemMetrics"),
+            RegisterTouchWindow                 = USER32.getFunctionAddress("RegisterTouchWindow"),
+            UnregisterTouchWindow               = USER32.getFunctionAddress("UnregisterTouchWindow"),
+            IsTouchWindow                       = USER32.getFunctionAddress("IsTouchWindow"),
+            GetTouchInputInfo                   = USER32.getFunctionAddress("GetTouchInputInfo"),
+            CloseTouchInputHandle               = USER32.getFunctionAddress("CloseTouchInputHandle"),
+            MonitorFromWindow                   = apiGetFunctionAddress(USER32, "MonitorFromWindow"),
+            GetMonitorInfo                      = apiGetFunctionAddress(USER32, "GetMonitorInfoW"),
+            EnumDisplayDevices                  = apiGetFunctionAddress(USER32, "EnumDisplayDevicesW"),
+            EnumDisplaySettingsEx               = apiGetFunctionAddress(USER32, "EnumDisplaySettingsExW"),
+            ChangeDisplaySettingsEx             = apiGetFunctionAddress(USER32, "ChangeDisplaySettingsExW"),
+            GetCursorPos                        = apiGetFunctionAddress(USER32, "GetCursorPos"),
+            SetCursorPos                        = apiGetFunctionAddress(USER32, "SetCursorPos"),
+            ClipCursor                          = apiGetFunctionAddress(USER32, "ClipCursor"),
+            ShowCursor                          = apiGetFunctionAddress(USER32, "ShowCursor"),
+            SetCursor                           = apiGetFunctionAddress(USER32, "SetCursor"),
+            GetDpiForSystem                     = USER32.getFunctionAddress("GetDpiForSystem"),
+            GetDpiForWindow                     = USER32.getFunctionAddress("GetDpiForWindow"),
+            GetAwarenessFromDpiAwarenessContext = USER32.getFunctionAddress("GetAwarenessFromDpiAwarenessContext"),
+            GetThreadDpiAwarenessContext        = USER32.getFunctionAddress("GetThreadDpiAwarenessContext"),
+            GetWindowDpiAwarenessContext        = USER32.getFunctionAddress("GetWindowDpiAwarenessContext"),
+            IsValidDpiAwarenessContext          = USER32.getFunctionAddress("IsValidDpiAwarenessContext"),
+            SetThreadDpiAwarenessContext        = USER32.getFunctionAddress("SetThreadDpiAwarenessContext");
 
     }
 
@@ -1156,6 +1249,34 @@ public class User32 {
             check(hWnd);
         }
         return callPPPP(__functionAddress, hWnd, Msg, wParam, lParam);
+    }
+
+    // --- [ CallWindowProc ] ---
+
+    /** Unsafe version of: {@link #CallWindowProc} */
+    public static long nCallWindowProc(long lpPrevWndFunc, long hWnd, int Msg, long wParam, long lParam) {
+        long __functionAddress = Functions.CallWindowProc;
+        if (CHECKS) {
+            check(hWnd);
+        }
+        return callPPPPP(__functionAddress, lpPrevWndFunc, hWnd, Msg, wParam, lParam);
+    }
+
+    /**
+     * Passes message information to the specified window procedure.
+     *
+     * @param lpPrevWndFunc the previous window procedure.
+     *                      
+     *                      <p>If this value is obtained by calling the {@link #GetWindowLongPtr} function with the {@code nIndex} parameter set to {@link #GWL_WNDPROC} or {@code DWL_DLGPROC},
+     *                      it is actually either the address of a window or dialog box procedure, or a special internal value meaningful only to {@code CallWindowProc}.</p>
+     * @param hWnd          a handle to the window procedure to receive the message
+     * @param Msg           the message
+     * @param wParam        additional message information. The content of this parameter depends on the value of the {@code Msg} parameter.
+     * @param lParam        additional message information. The content of this parameter depends on the value of the {@code Msg} parameter.
+     */
+    @NativeType("LRESULT")
+    public static long CallWindowProc(@NativeType("WNDPROC") WindowProcI lpPrevWndFunc, @NativeType("HWND") long hWnd, @NativeType("UINT") int Msg, @NativeType("WPARAM") long wParam, @NativeType("LPARAM") long lParam) {
+        return nCallWindowProc(lpPrevWndFunc.address(), hWnd, Msg, wParam, lParam);
     }
 
     // --- [ ShowWindow ] ---
@@ -2382,6 +2503,156 @@ public class User32 {
     public static long SetCursor(@NativeType("HCURSOR") long hCursor) {
         long __functionAddress = Functions.SetCursor;
         return callPP(__functionAddress, hCursor);
+    }
+
+    // --- [ GetDpiForSystem ] ---
+
+    /**
+     * Returns the system DPI.
+     * 
+     * <p>The return value will be dependent based upon the calling context. If the current thread has a {@code DPI_AWARENESS} value of {@link #DPI_AWARENESS_UNAWARE},
+     * the return value will be 96. That is because the current context always assumes a DPI of 96. For any other {@code DPI_AWARENESS} value, the return
+     * value will be the actual system DPI.</p>
+     * 
+     * <p>You should not cache the system DPI, but should use {@code GetDpiForSystem} whenever you need the system DPI value.</p>
+     *
+     * @return the system DPI value
+     *
+     * @since Windows 10
+     */
+    @NativeType("UINT")
+    public static int GetDpiForSystem() {
+        long __functionAddress = Functions.GetDpiForSystem;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callI(__functionAddress);
+    }
+
+    // --- [ GetDpiForWindow ] ---
+
+    /**
+     * Returns the dots per inch (dpi) value for the associated window.
+     *
+     * @param hwnd the window you want to get information about
+     *
+     * @return the DPI for the window which depends on the {@code DPI_AWARENESS} of the window. An invalid {@code hwnd} value will result in a return value of 0.
+     *
+     * @since Windows 10
+     */
+    @NativeType("UINT")
+    public static int GetDpiForWindow(@NativeType("HWND") long hwnd) {
+        long __functionAddress = Functions.GetDpiForWindow;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hwnd);
+        }
+        return callPI(__functionAddress, hwnd);
+    }
+
+    // --- [ GetAwarenessFromDpiAwarenessContext ] ---
+
+    /**
+     * Retrieves the {@code DPI_AWARENESS} value from a {@code DPI_AWARENESS_CONTEXT}.
+     *
+     * @param value the {@code DPI_AWARENESS_CONTEXT} you want to examine
+     *
+     * @return the {@code DPI_AWARENESS}. If the provided value is null or invalid, this method will return {@link #DPI_AWARENESS_INVALID}.
+     *
+     * @since Windows 10
+     */
+    @NativeType("DPI_AWARENESS")
+    public static int GetAwarenessFromDpiAwarenessContext(@NativeType("DPI_AWARENESS_CONTEXT") long value) {
+        long __functionAddress = Functions.GetAwarenessFromDpiAwarenessContext;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(value);
+        }
+        return callPI(__functionAddress, value);
+    }
+
+    // --- [ GetThreadDpiAwarenessContext ] ---
+
+    /**
+     * Gets the {@code DPI_AWARENESS_CONTEXT} for the current thread.
+     * 
+     * <p>If {@link #SetThreadDpiAwarenessContext} was never called for this thread, then the return value will equal the default {@code DPI_AWARENESS_CONTEXT} for the
+     * process.</p>
+     *
+     * @return the current {@code DPI_AWARENESS_CONTEXT} for the thread.
+     *
+     * @since Windows 10
+     */
+    @NativeType("DPI_AWARENESS_CONTEXT")
+    public static long GetThreadDpiAwarenessContext() {
+        long __functionAddress = Functions.GetThreadDpiAwarenessContext;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callP(__functionAddress);
+    }
+
+    // --- [ GetWindowDpiAwarenessContext ] ---
+
+    /**
+     * Returns the {@code DPI_AWARENESS_CONTEXT}  associated with a window.
+     *
+     * @param hwnd the window to query
+     *
+     * @return the {@code DPI_AWARENESS_CONTEXT} for the provided window. If the window is not valid, the return value is {@code NULL}.
+     *
+     * @since Windows 10
+     */
+    @NativeType("DPI_AWARENESS_CONTEXT")
+    public static long GetWindowDpiAwarenessContext(@NativeType("HWND") long hwnd) {
+        long __functionAddress = Functions.GetWindowDpiAwarenessContext;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(hwnd);
+        }
+        return callPP(__functionAddress, hwnd);
+    }
+
+    // --- [ IsValidDpiAwarenessContext ] ---
+
+    /**
+     * Determines if a specified {@code DPI_AWARENESS_CONTEXT} is valid and supported by the current system.
+     *
+     * @param value the context that you want to determine if it is supported
+     *
+     * @return {@link WinBase#TRUE} if the provided context is supported, otherwise {@link WinBase#FALSE}
+     *
+     * @since Windows 10
+     */
+    @NativeType("BOOL")
+    public static boolean IsValidDpiAwarenessContext(@NativeType("DPI_AWARENESS_CONTEXT") long value) {
+        long __functionAddress = Functions.IsValidDpiAwarenessContext;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPI(__functionAddress, value) != 0;
+    }
+
+    // --- [ SetThreadDpiAwarenessContext ] ---
+
+    /**
+     * Set the DPI awareness for the current thread to the provided value.
+     *
+     * @param dpiContext the DPI awareness value to set
+     *
+     * @return The old {@code DPI_AWARENESS_CONTEXT} for the thread. If the {@code dpiContext} is invalid, the thread will not be updated and the return value will be
+     *         {@code NULL}. You can use this value to restore the old {@code DPI_AWARENESS_CONTEXT} after overriding it with a predefined value.
+     *
+     * @since Windows 10
+     */
+    @NativeType("DPI_AWARENESS_CONTEXT")
+    public static long SetThreadDpiAwarenessContext(@NativeType("DPI_AWARENESS_CONTEXT") long dpiContext) {
+        long __functionAddress = Functions.SetThreadDpiAwarenessContext;
+        if (CHECKS) {
+            check(__functionAddress);
+            check(dpiContext);
+        }
+        return callPP(__functionAddress, dpiContext);
     }
 
     /** Array version of: {@link #IsTouchWindow} */
