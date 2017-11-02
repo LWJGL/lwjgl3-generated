@@ -12,7 +12,7 @@ typedef void (APIENTRY *glFlushPixelDataRangeNVPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVPixelDataRange_nglPixelDataRangeNV(JNIEnv *__env, jclass clazz, jint target, jint length, jlong pointerAddress) {
-    glPixelDataRangeNVPROC glPixelDataRangeNV = (glPixelDataRangeNVPROC)tlsGetFunction(1235);
+    glPixelDataRangeNVPROC glPixelDataRangeNV = (glPixelDataRangeNVPROC)tlsGetFunction(1236);
     const intptr_t pointer = (const intptr_t)pointerAddress;
     UNUSED_PARAM(clazz)
     glPixelDataRangeNV(target, length, pointer);

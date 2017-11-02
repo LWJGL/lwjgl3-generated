@@ -20,13 +20,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVExplicitMultisample_nglGetMultisa
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVExplicitMultisample_glSampleMaskIndexedNV(JNIEnv *__env, jclass clazz, jint index, jint mask) {
-    glSampleMaskIndexedNVPROC glSampleMaskIndexedNV = (glSampleMaskIndexedNVPROC)tlsGetFunction(1494);
+    glSampleMaskIndexedNVPROC glSampleMaskIndexedNV = (glSampleMaskIndexedNVPROC)tlsGetFunction(1495);
     UNUSED_PARAM(clazz)
     glSampleMaskIndexedNV(index, mask);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVExplicitMultisample_glTexRenderbufferNV(JNIEnv *__env, jclass clazz, jint target, jint renderbuffer) {
-    glTexRenderbufferNVPROC glTexRenderbufferNV = (glTexRenderbufferNVPROC)tlsGetFunction(1666);
+    glTexRenderbufferNVPROC glTexRenderbufferNV = (glTexRenderbufferNVPROC)tlsGetFunction(1667);
     UNUSED_PARAM(clazz)
     glTexRenderbufferNV(target, renderbuffer);
 }

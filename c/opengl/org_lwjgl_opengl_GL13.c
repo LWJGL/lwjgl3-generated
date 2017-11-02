@@ -105,7 +105,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_nglGetCompressedTexImage(JNIEn
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL13_glSampleCoverage(JNIEnv *__env, jclass clazz, jfloat value, jboolean invert) {
-    glSampleCoveragePROC glSampleCoverage = (glSampleCoveragePROC)tlsGetFunction(1492);
+    glSampleCoveragePROC glSampleCoverage = (glSampleCoveragePROC)tlsGetFunction(1493);
     UNUSED_PARAM(clazz)
     glSampleCoverage(value, invert);
 }

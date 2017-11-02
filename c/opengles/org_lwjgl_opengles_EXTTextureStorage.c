@@ -34,19 +34,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureStorage_glTexStorage3DE
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureStorage_glTextureStorage1DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint levels, jint internalformat, jint width) {
-    glTextureStorage1DEXTPROC glTextureStorage1DEXT = (glTextureStorage1DEXTPROC)tlsGetFunction(720);
+    glTextureStorage1DEXTPROC glTextureStorage1DEXT = (glTextureStorage1DEXTPROC)tlsGetFunction(721);
     UNUSED_PARAM(clazz)
     glTextureStorage1DEXT(texture, target, levels, internalformat, width);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureStorage_glTextureStorage2DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint levels, jint internalformat, jint width, jint height) {
-    glTextureStorage2DEXTPROC glTextureStorage2DEXT = (glTextureStorage2DEXTPROC)tlsGetFunction(721);
+    glTextureStorage2DEXTPROC glTextureStorage2DEXT = (glTextureStorage2DEXTPROC)tlsGetFunction(722);
     UNUSED_PARAM(clazz)
     glTextureStorage2DEXT(texture, target, levels, internalformat, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureStorage_glTextureStorage3DEXT(JNIEnv *__env, jclass clazz, jint texture, jint target, jint levels, jint internalformat, jint width, jint height, jint depth) {
-    glTextureStorage3DEXTPROC glTextureStorage3DEXT = (glTextureStorage3DEXTPROC)tlsGetFunction(722);
+    glTextureStorage3DEXTPROC glTextureStorage3DEXT = (glTextureStorage3DEXTPROC)tlsGetFunction(723);
     UNUSED_PARAM(clazz)
     glTextureStorage3DEXT(texture, target, levels, internalformat, width, height, depth);
 }

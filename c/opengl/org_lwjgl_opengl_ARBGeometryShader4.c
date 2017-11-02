@@ -14,7 +14,7 @@ typedef void (APIENTRY *glFramebufferTextureFaceARBPROC) (jint, jint, jint, jint
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGeometryShader4_glProgramParameteriARB(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
-    glProgramParameteriARBPROC glProgramParameteriARB = (glProgramParameteriARBPROC)tlsGetFunction(1284);
+    glProgramParameteriARBPROC glProgramParameteriARB = (glProgramParameteriARBPROC)tlsGetFunction(1285);
     UNUSED_PARAM(clazz)
     glProgramParameteriARB(program, pname, value);
 }

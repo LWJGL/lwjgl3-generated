@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBSync_nglClientWaitSync(JNIEnv *_
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSync_nglWaitSync(JNIEnv *__env, jclass clazz, jlong syncAddress, jint flags, jlong timeout) {
-    glWaitSyncPROC glWaitSync = (glWaitSyncPROC)tlsGetFunction(2131);
+    glWaitSyncPROC glWaitSync = (glWaitSyncPROC)tlsGetFunction(2132);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     glWaitSync(sync, flags, timeout);

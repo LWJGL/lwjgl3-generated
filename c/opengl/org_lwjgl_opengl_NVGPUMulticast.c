@@ -22,7 +22,7 @@ typedef void (APIENTRY *glMulticastGetQueryObjectui64vNVPROC) (jint, jint, jint,
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glRenderGpuMaskNV(JNIEnv *__env, jclass clazz, jint mask) {
-    glRenderGpuMaskNVPROC glRenderGpuMaskNV = (glRenderGpuMaskNVPROC)tlsGetFunction(1478);
+    glRenderGpuMaskNVPROC glRenderGpuMaskNV = (glRenderGpuMaskNVPROC)tlsGetFunction(1479);
     UNUSED_PARAM(clazz)
     glRenderGpuMaskNV(mask);
 }

@@ -21,7 +21,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_KHRRobustness_glGetGraphicsResetSta
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRRobustness_nglReadnPixels__IIIIIIIJ(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint format, jint type, jint bufSize, jlong pixelsAddress) {
-    glReadnPixelsPROC glReadnPixels = (glReadnPixelsPROC)tlsGetFunction(1466);
+    glReadnPixelsPROC glReadnPixels = (glReadnPixelsPROC)tlsGetFunction(1467);
     intptr_t pixels = (intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glReadnPixels(x, y, width, height, format, type, bufSize, pixels);

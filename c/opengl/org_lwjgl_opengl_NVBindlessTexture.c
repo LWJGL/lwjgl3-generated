@@ -65,26 +65,26 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVBindlessTexture_glMakeImageHandle
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVBindlessTexture_glUniformHandleui64NV(JNIEnv *__env, jclass clazz, jint location, jlong value) {
-    glUniformHandleui64NVPROC glUniformHandleui64NV = (glUniformHandleui64NVPROC)tlsGetFunction(1832);
+    glUniformHandleui64NVPROC glUniformHandleui64NV = (glUniformHandleui64NVPROC)tlsGetFunction(1833);
     UNUSED_PARAM(clazz)
     glUniformHandleui64NV(location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVBindlessTexture_nglUniformHandleui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valuesAddress) {
-    glUniformHandleui64vNVPROC glUniformHandleui64vNV = (glUniformHandleui64vNVPROC)tlsGetFunction(1834);
+    glUniformHandleui64vNVPROC glUniformHandleui64vNV = (glUniformHandleui64vNVPROC)tlsGetFunction(1835);
     const intptr_t values = (const intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glUniformHandleui64vNV(location, count, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVBindlessTexture_glProgramUniformHandleui64NV(JNIEnv *__env, jclass clazz, jint program, jint location, jlong value) {
-    glProgramUniformHandleui64NVPROC glProgramUniformHandleui64NV = (glProgramUniformHandleui64NVPROC)tlsGetFunction(1385);
+    glProgramUniformHandleui64NVPROC glProgramUniformHandleui64NV = (glProgramUniformHandleui64NVPROC)tlsGetFunction(1386);
     UNUSED_PARAM(clazz)
     glProgramUniformHandleui64NV(program, location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVBindlessTexture_nglProgramUniformHandleui64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valuesAddress) {
-    glProgramUniformHandleui64vNVPROC glProgramUniformHandleui64vNV = (glProgramUniformHandleui64vNVPROC)tlsGetFunction(1387);
+    glProgramUniformHandleui64vNVPROC glProgramUniformHandleui64vNV = (glProgramUniformHandleui64vNVPROC)tlsGetFunction(1388);
     const intptr_t values = (const intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glProgramUniformHandleui64vNV(program, location, count, values);

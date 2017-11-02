@@ -68,26 +68,26 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glMakeImageHandl
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glUniformHandleui64ARB(JNIEnv *__env, jclass clazz, jint location, jlong value) {
-    glUniformHandleui64ARBPROC glUniformHandleui64ARB = (glUniformHandleui64ARBPROC)tlsGetFunction(1831);
+    glUniformHandleui64ARBPROC glUniformHandleui64ARB = (glUniformHandleui64ARBPROC)tlsGetFunction(1832);
     UNUSED_PARAM(clazz)
     glUniformHandleui64ARB(location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_nglUniformHandleui64vARB__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valuesAddress) {
-    glUniformHandleui64vARBPROC glUniformHandleui64vARB = (glUniformHandleui64vARBPROC)tlsGetFunction(1833);
+    glUniformHandleui64vARBPROC glUniformHandleui64vARB = (glUniformHandleui64vARBPROC)tlsGetFunction(1834);
     const intptr_t values = (const intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glUniformHandleui64vARB(location, count, values);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glProgramUniformHandleui64ARB(JNIEnv *__env, jclass clazz, jint program, jint location, jlong value) {
-    glProgramUniformHandleui64ARBPROC glProgramUniformHandleui64ARB = (glProgramUniformHandleui64ARBPROC)tlsGetFunction(1384);
+    glProgramUniformHandleui64ARBPROC glProgramUniformHandleui64ARB = (glProgramUniformHandleui64ARBPROC)tlsGetFunction(1385);
     UNUSED_PARAM(clazz)
     glProgramUniformHandleui64ARB(program, location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_nglProgramUniformHandleui64vARB__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valuesAddress) {
-    glProgramUniformHandleui64vARBPROC glProgramUniformHandleui64vARB = (glProgramUniformHandleui64vARBPROC)tlsGetFunction(1386);
+    glProgramUniformHandleui64vARBPROC glProgramUniformHandleui64vARB = (glProgramUniformHandleui64vARBPROC)tlsGetFunction(1387);
     const intptr_t values = (const intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glProgramUniformHandleui64vARB(program, location, count, values);
@@ -106,13 +106,13 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glIsImageHan
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_glVertexAttribL1ui64ARB(JNIEnv *__env, jclass clazz, jint index, jlong x) {
-    glVertexAttribL1ui64ARBPROC glVertexAttribL1ui64ARB = (glVertexAttribL1ui64ARBPROC)tlsGetFunction(2065);
+    glVertexAttribL1ui64ARBPROC glVertexAttribL1ui64ARB = (glVertexAttribL1ui64ARBPROC)tlsGetFunction(2066);
     UNUSED_PARAM(clazz)
     glVertexAttribL1ui64ARB(index, x);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBBindlessTexture_nglVertexAttribL1ui64vARB__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glVertexAttribL1ui64vARBPROC glVertexAttribL1ui64vARB = (glVertexAttribL1ui64vARBPROC)tlsGetFunction(2067);
+    glVertexAttribL1ui64vARBPROC glVertexAttribL1ui64vARB = (glVertexAttribL1ui64vARBPROC)tlsGetFunction(2068);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glVertexAttribL1ui64vARB(index, v);

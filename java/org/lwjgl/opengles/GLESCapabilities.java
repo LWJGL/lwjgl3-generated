@@ -736,6 +736,7 @@ public final class GLESCapabilities {
         glTexSubImage3DNV,
         glTexSubImage3DOES,
         glTextureBarrierNV,
+        glTextureFoveationParametersQCOM,
         glTextureStorage1DEXT,
         glTextureStorage2DEXT,
         glTextureStorage3DEXT,
@@ -1351,6 +1352,8 @@ public final class GLESCapabilities {
     public final boolean GL_EXT_texture_filter_minmax;
     /** When true, {@link EXTTextureFormatBGRA8888} is supported. */
     public final boolean GL_EXT_texture_format_BGRA8888;
+    /** When true, {@link EXTTextureMirrorClampToEdge} is supported. */
+    public final boolean GL_EXT_texture_mirror_clamp_to_edge;
     /** When true, {@link EXTTextureNorm16} is supported. */
     public final boolean GL_EXT_texture_norm16;
     /** When true, {@link EXTTextureRG} is supported. */
@@ -2074,6 +2077,8 @@ public final class GLESCapabilities {
     public final boolean GL_QCOM_perfmon_global_mode;
     /** When true, {@link QCOMShaderFramebufferFetchNoncoherent} is supported. */
     public final boolean GL_QCOM_shader_framebuffer_fetch_noncoherent;
+    /** When true, {@link QCOMTextureFoveated} is supported. */
+    public final boolean GL_QCOM_texture_foveated;
     /** When true, {@link QCOMTiledRendering} is supported. */
     public final boolean GL_QCOM_tiled_rendering;
     /** When true, {@link QCOMWriteonlyRendering} is supported. */
@@ -2805,6 +2810,7 @@ public final class GLESCapabilities {
         glTexSubImage3DNV = provider.getFunctionAddress("glTexSubImage3DNV");
         glTexSubImage3DOES = provider.getFunctionAddress("glTexSubImage3DOES");
         glTextureBarrierNV = provider.getFunctionAddress("glTextureBarrierNV");
+        glTextureFoveationParametersQCOM = provider.getFunctionAddress("glTextureFoveationParametersQCOM");
         glTextureStorage1DEXT = provider.getFunctionAddress("glTextureStorage1DEXT");
         glTextureStorage2DEXT = provider.getFunctionAddress("glTextureStorage2DEXT");
         glTextureStorage3DEXT = provider.getFunctionAddress("glTextureStorage3DEXT");
@@ -3034,6 +3040,7 @@ public final class GLESCapabilities {
         GL_EXT_texture_filter_anisotropic = ext.contains("GL_EXT_texture_filter_anisotropic");
         GL_EXT_texture_filter_minmax = ext.contains("GL_EXT_texture_filter_minmax") && checkExtension("GL_EXT_texture_filter_minmax", EXTTextureFilterMinmax.isAvailable(this));
         GL_EXT_texture_format_BGRA8888 = ext.contains("GL_EXT_texture_format_BGRA8888");
+        GL_EXT_texture_mirror_clamp_to_edge = ext.contains("GL_EXT_texture_mirror_clamp_to_edge");
         GL_EXT_texture_norm16 = ext.contains("GL_EXT_texture_norm16");
         GL_EXT_texture_rg = ext.contains("GL_EXT_texture_rg");
         GL_EXT_texture_sRGB_decode = ext.contains("GL_EXT_texture_sRGB_decode");
@@ -3189,6 +3196,7 @@ public final class GLESCapabilities {
         GL_QCOM_framebuffer_foveated = ext.contains("GL_QCOM_framebuffer_foveated") && checkExtension("GL_QCOM_framebuffer_foveated", QCOMFramebufferFoveated.isAvailable(this));
         GL_QCOM_perfmon_global_mode = ext.contains("GL_QCOM_perfmon_global_mode");
         GL_QCOM_shader_framebuffer_fetch_noncoherent = ext.contains("GL_QCOM_shader_framebuffer_fetch_noncoherent") && checkExtension("GL_QCOM_shader_framebuffer_fetch_noncoherent", QCOMShaderFramebufferFetchNoncoherent.isAvailable(this));
+        GL_QCOM_texture_foveated = ext.contains("GL_QCOM_texture_foveated") && checkExtension("GL_QCOM_texture_foveated", QCOMTextureFoveated.isAvailable(this));
         GL_QCOM_tiled_rendering = ext.contains("GL_QCOM_tiled_rendering") && checkExtension("GL_QCOM_tiled_rendering", QCOMTiledRendering.isAvailable(this));
         GL_QCOM_writeonly_rendering = ext.contains("GL_QCOM_writeonly_rendering");
         GL_VIV_shader_binary = ext.contains("GL_VIV_shader_binary");

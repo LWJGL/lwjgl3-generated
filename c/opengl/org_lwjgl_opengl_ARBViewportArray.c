@@ -20,40 +20,40 @@ typedef void (APIENTRY *glGetDoublei_vPROC) (jint, jint, intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportArrayv__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong vAddress) {
-    glViewportArrayvPROC glViewportArrayv = (glViewportArrayvPROC)tlsGetFunction(2125);
+    glViewportArrayvPROC glViewportArrayv = (glViewportArrayvPROC)tlsGetFunction(2126);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportArrayv(first, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glViewportIndexedf(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
-    glViewportIndexedfPROC glViewportIndexedf = (glViewportIndexedfPROC)tlsGetFunction(2126);
+    glViewportIndexedfPROC glViewportIndexedf = (glViewportIndexedfPROC)tlsGetFunction(2127);
     UNUSED_PARAM(clazz)
     glViewportIndexedf(index, x, y, w, h);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportIndexedfv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glViewportIndexedfvPROC glViewportIndexedfv = (glViewportIndexedfvPROC)tlsGetFunction(2127);
+    glViewportIndexedfvPROC glViewportIndexedfv = (glViewportIndexedfvPROC)tlsGetFunction(2128);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportIndexedfv(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglScissorArrayv__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong vAddress) {
-    glScissorArrayvPROC glScissorArrayv = (glScissorArrayvPROC)tlsGetFunction(1505);
+    glScissorArrayvPROC glScissorArrayv = (glScissorArrayvPROC)tlsGetFunction(1506);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glScissorArrayv(first, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glScissorIndexed(JNIEnv *__env, jclass clazz, jint index, jint left, jint bottom, jint width, jint height) {
-    glScissorIndexedPROC glScissorIndexed = (glScissorIndexedPROC)tlsGetFunction(1506);
+    glScissorIndexedPROC glScissorIndexed = (glScissorIndexedPROC)tlsGetFunction(1507);
     UNUSED_PARAM(clazz)
     glScissorIndexed(index, left, bottom, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglScissorIndexedv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glScissorIndexedvPROC glScissorIndexedv = (glScissorIndexedvPROC)tlsGetFunction(1507);
+    glScissorIndexedvPROC glScissorIndexedv = (glScissorIndexedvPROC)tlsGetFunction(1508);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glScissorIndexedv(index, v);

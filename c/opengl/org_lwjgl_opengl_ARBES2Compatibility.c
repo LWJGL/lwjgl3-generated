@@ -15,13 +15,13 @@ typedef void (APIENTRY *glClearDepthfPROC) (jfloat);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_glReleaseShaderCompiler(JNIEnv *__env, jclass clazz) {
-    glReleaseShaderCompilerPROC glReleaseShaderCompiler = (glReleaseShaderCompilerPROC)tlsGetFunction(1477);
+    glReleaseShaderCompilerPROC glReleaseShaderCompiler = (glReleaseShaderCompilerPROC)tlsGetFunction(1478);
     UNUSED_PARAM(clazz)
     glReleaseShaderCompiler();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_nglShaderBinary__IJIJI(JNIEnv *__env, jclass clazz, jint count, jlong shadersAddress, jint binaryformat, jlong binaryAddress, jint length) {
-    glShaderBinaryPROC glShaderBinary = (glShaderBinaryPROC)tlsGetFunction(1554);
+    glShaderBinaryPROC glShaderBinary = (glShaderBinaryPROC)tlsGetFunction(1555);
     const intptr_t shaders = (const intptr_t)shadersAddress;
     const intptr_t binary = (const intptr_t)binaryAddress;
     UNUSED_PARAM(clazz)

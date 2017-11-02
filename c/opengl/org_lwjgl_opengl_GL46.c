@@ -28,13 +28,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL46_nglMultiDrawElementsIndirectCo
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL46_glPolygonOffsetClamp(JNIEnv *__env, jclass clazz, jfloat factor, jfloat units, jfloat clamp) {
-    glPolygonOffsetClampPROC glPolygonOffsetClamp = (glPolygonOffsetClampPROC)tlsGetFunction(1258);
+    glPolygonOffsetClampPROC glPolygonOffsetClamp = (glPolygonOffsetClampPROC)tlsGetFunction(1259);
     UNUSED_PARAM(clazz)
     glPolygonOffsetClamp(factor, units, clamp);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL46_nglSpecializeShader__IJIJJ(JNIEnv *__env, jclass clazz, jint shader, jlong pEntryPointAddress, jint numSpecializationConstants, jlong pConstantIndexAddress, jlong pConstantValueAddress) {
-    glSpecializeShaderPROC glSpecializeShader = (glSpecializeShaderPROC)tlsGetFunction(1561);
+    glSpecializeShaderPROC glSpecializeShader = (glSpecializeShaderPROC)tlsGetFunction(1562);
     const intptr_t pEntryPoint = (const intptr_t)pEntryPointAddress;
     const intptr_t pConstantIndex = (const intptr_t)pConstantIndexAddress;
     const intptr_t pConstantValue = (const intptr_t)pConstantValueAddress;

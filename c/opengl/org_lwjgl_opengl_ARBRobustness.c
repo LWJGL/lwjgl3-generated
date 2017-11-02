@@ -92,7 +92,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglGetnTexImageARB__I
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBRobustness_nglReadnPixelsARB__IIIIIIIJ(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height, jint format, jint type, jint bufSize, jlong dataAddress) {
-    glReadnPixelsARBPROC glReadnPixelsARB = (glReadnPixelsARBPROC)tlsGetFunction(1467);
+    glReadnPixelsARBPROC glReadnPixelsARB = (glReadnPixelsARBPROC)tlsGetFunction(1468);
     intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glReadnPixelsARB(x, y, width, height, format, type, bufSize, data);

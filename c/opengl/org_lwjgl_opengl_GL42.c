@@ -29,19 +29,19 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglGetActiveAtomicCounterBuffe
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_glTexStorage1D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width) {
-    glTexStorage1DPROC glTexStorage1D = (glTexStorage1DPROC)tlsGetFunction(1667);
+    glTexStorage1DPROC glTexStorage1D = (glTexStorage1DPROC)tlsGetFunction(1668);
     UNUSED_PARAM(clazz)
     glTexStorage1D(target, levels, internalformat, width);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_glTexStorage2D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width, jint height) {
-    glTexStorage2DPROC glTexStorage2D = (glTexStorage2DPROC)tlsGetFunction(1668);
+    glTexStorage2DPROC glTexStorage2D = (glTexStorage2DPROC)tlsGetFunction(1669);
     UNUSED_PARAM(clazz)
     glTexStorage2D(target, levels, internalformat, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_glTexStorage3D(JNIEnv *__env, jclass clazz, jint target, jint levels, jint internalformat, jint width, jint height, jint depth) {
-    glTexStorage3DPROC glTexStorage3D = (glTexStorage3DPROC)tlsGetFunction(1670);
+    glTexStorage3DPROC glTexStorage3D = (glTexStorage3DPROC)tlsGetFunction(1671);
     UNUSED_PARAM(clazz)
     glTexStorage3D(target, levels, internalformat, width, height, depth);
 }

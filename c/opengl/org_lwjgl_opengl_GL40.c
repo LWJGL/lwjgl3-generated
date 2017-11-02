@@ -94,115 +94,115 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDrawElementsIndirect__IIJ(J
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform1d(JNIEnv *__env, jclass clazz, jint location, jdouble x) {
-    glUniform1dPROC glUniform1d = (glUniform1dPROC)tlsGetFunction(1741);
+    glUniform1dPROC glUniform1d = (glUniform1dPROC)tlsGetFunction(1742);
     UNUSED_PARAM(clazz)
     glUniform1d(location, x);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform2d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y) {
-    glUniform2dPROC glUniform2d = (glUniform2dPROC)tlsGetFunction(1763);
+    glUniform2dPROC glUniform2d = (glUniform2dPROC)tlsGetFunction(1764);
     UNUSED_PARAM(clazz)
     glUniform2d(location, x, y);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform3d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z) {
-    glUniform3dPROC glUniform3d = (glUniform3dPROC)tlsGetFunction(1785);
+    glUniform3dPROC glUniform3d = (glUniform3dPROC)tlsGetFunction(1786);
     UNUSED_PARAM(clazz)
     glUniform3d(location, x, y, z);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform4d(JNIEnv *__env, jclass clazz, jint location, jdouble x, jdouble y, jdouble z, jdouble w) {
-    glUniform4dPROC glUniform4d = (glUniform4dPROC)tlsGetFunction(1807);
+    glUniform4dPROC glUniform4d = (glUniform4dPROC)tlsGetFunction(1808);
     UNUSED_PARAM(clazz)
     glUniform4d(location, x, y, z, w);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform1dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform1dvPROC glUniform1dv = (glUniform1dvPROC)tlsGetFunction(1742);
+    glUniform1dvPROC glUniform1dv = (glUniform1dvPROC)tlsGetFunction(1743);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform1dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform2dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform2dvPROC glUniform2dv = (glUniform2dvPROC)tlsGetFunction(1764);
+    glUniform2dvPROC glUniform2dv = (glUniform2dvPROC)tlsGetFunction(1765);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform2dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform3dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform3dvPROC glUniform3dv = (glUniform3dvPROC)tlsGetFunction(1786);
+    glUniform3dvPROC glUniform3dv = (glUniform3dvPROC)tlsGetFunction(1787);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform3dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform4dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform4dvPROC glUniform4dv = (glUniform4dvPROC)tlsGetFunction(1808);
+    glUniform4dvPROC glUniform4dv = (glUniform4dvPROC)tlsGetFunction(1809);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform4dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix2dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix2dvPROC glUniformMatrix2dv = (glUniformMatrix2dvPROC)tlsGetFunction(1835);
+    glUniformMatrix2dvPROC glUniformMatrix2dv = (glUniformMatrix2dvPROC)tlsGetFunction(1836);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix2dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix3dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix3dvPROC glUniformMatrix3dv = (glUniformMatrix3dvPROC)tlsGetFunction(1842);
+    glUniformMatrix3dvPROC glUniformMatrix3dv = (glUniformMatrix3dvPROC)tlsGetFunction(1843);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix3dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix4dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix4dvPROC glUniformMatrix4dv = (glUniformMatrix4dvPROC)tlsGetFunction(1849);
+    glUniformMatrix4dvPROC glUniformMatrix4dv = (glUniformMatrix4dvPROC)tlsGetFunction(1850);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix4dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix2x3dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix2x3dvPROC glUniformMatrix2x3dv = (glUniformMatrix2x3dvPROC)tlsGetFunction(1838);
+    glUniformMatrix2x3dvPROC glUniformMatrix2x3dv = (glUniformMatrix2x3dvPROC)tlsGetFunction(1839);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix2x3dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix2x4dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix2x4dvPROC glUniformMatrix2x4dv = (glUniformMatrix2x4dvPROC)tlsGetFunction(1840);
+    glUniformMatrix2x4dvPROC glUniformMatrix2x4dv = (glUniformMatrix2x4dvPROC)tlsGetFunction(1841);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix2x4dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix3x2dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix3x2dvPROC glUniformMatrix3x2dv = (glUniformMatrix3x2dvPROC)tlsGetFunction(1845);
+    glUniformMatrix3x2dvPROC glUniformMatrix3x2dv = (glUniformMatrix3x2dvPROC)tlsGetFunction(1846);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix3x2dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix3x4dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix3x4dvPROC glUniformMatrix3x4dv = (glUniformMatrix3x4dvPROC)tlsGetFunction(1847);
+    glUniformMatrix3x4dvPROC glUniformMatrix3x4dv = (glUniformMatrix3x4dvPROC)tlsGetFunction(1848);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix3x4dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix4x2dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix4x2dvPROC glUniformMatrix4x2dv = (glUniformMatrix4x2dvPROC)tlsGetFunction(1852);
+    glUniformMatrix4x2dvPROC glUniformMatrix4x2dv = (glUniformMatrix4x2dvPROC)tlsGetFunction(1853);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix4x2dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix4x3dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix4x3dvPROC glUniformMatrix4x3dv = (glUniformMatrix4x3dvPROC)tlsGetFunction(1854);
+    glUniformMatrix4x3dvPROC glUniformMatrix4x3dv = (glUniformMatrix4x3dvPROC)tlsGetFunction(1855);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix4x3dv(location, count, transpose, value);
@@ -259,7 +259,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglGetActiveSubroutineName__II
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformSubroutinesuiv__IIJ(JNIEnv *__env, jclass clazz, jint shadertype, jint count, jlong indicesAddress) {
-    glUniformSubroutinesuivPROC glUniformSubroutinesuiv = (glUniformSubroutinesuivPROC)tlsGetFunction(1856);
+    glUniformSubroutinesuivPROC glUniformSubroutinesuiv = (glUniformSubroutinesuivPROC)tlsGetFunction(1857);
     const intptr_t indices = (const intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glUniformSubroutinesuiv(shadertype, count, indices);
@@ -280,13 +280,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglGetProgramStageiv__IIIJ(JNI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glPatchParameteri(JNIEnv *__env, jclass clazz, jint pname, jint value) {
-    glPatchParameteriPROC glPatchParameteri = (glPatchParameteriPROC)tlsGetFunction(1211);
+    glPatchParameteriPROC glPatchParameteri = (glPatchParameteriPROC)tlsGetFunction(1212);
     UNUSED_PARAM(clazz)
     glPatchParameteri(pname, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglPatchParameterfv__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong valuesAddress) {
-    glPatchParameterfvPROC glPatchParameterfv = (glPatchParameterfvPROC)tlsGetFunction(1210);
+    glPatchParameterfvPROC glPatchParameterfv = (glPatchParameterfvPROC)tlsGetFunction(1211);
     const intptr_t values = (const intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glPatchParameterfv(pname, values);
@@ -319,13 +319,13 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL40_glIsTransformFeedback(JNIE
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glPauseTransformFeedback(JNIEnv *__env, jclass clazz) {
-    glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1233);
+    glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1234);
     UNUSED_PARAM(clazz)
     glPauseTransformFeedback();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glResumeTransformFeedback(JNIEnv *__env, jclass clazz) {
-    glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1488);
+    glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1489);
     UNUSED_PARAM(clazz)
     glResumeTransformFeedback();
 }

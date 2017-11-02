@@ -53,13 +53,15 @@ public class EXTSemaphore {
 
     /** Accepted by the {@code dstLayouts} parameter of {@link #glSignalSemaphoreEXT SignalSemaphoreEXT} and the {@code srcLayouts} parameter of {@link #glWaitSemaphoreEXT WaitSemaphoreEXT}. */
     public static final int
-        GL_LAYOUT_GENERAL_EXT                  = 0x958D,
-        GL_LAYOUT_COLOR_ATTACHMENT_EXT         = 0x958E,
-        GL_LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT = 0x958F,
-        GL_LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT  = 0x9590,
-        GL_LAYOUT_SHADER_READ_ONLY_EXT         = 0x9591,
-        GL_LAYOUT_TRANSFER_SRC_EXT             = 0x9592,
-        GL_LAYOUT_TRANSFER_DST_EXT             = 0x9593;
+        GL_LAYOUT_GENERAL_EXT                            = 0x958D,
+        GL_LAYOUT_COLOR_ATTACHMENT_EXT                   = 0x958E,
+        GL_LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT           = 0x958F,
+        GL_LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT            = 0x9590,
+        GL_LAYOUT_SHADER_READ_ONLY_EXT                   = 0x9591,
+        GL_LAYOUT_TRANSFER_SRC_EXT                       = 0x9592,
+        GL_LAYOUT_TRANSFER_DST_EXT                       = 0x9593,
+        GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT = 0x9530,
+        GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT = 0x9531;
 
     static { GLES.initialize(); }
 

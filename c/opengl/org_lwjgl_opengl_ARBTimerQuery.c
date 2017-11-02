@@ -13,7 +13,7 @@ typedef void (APIENTRY *glGetQueryObjectui64vPROC) (jint, jint, intptr_t);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTimerQuery_glQueryCounter(JNIEnv *__env, jclass clazz, jint id, jint target) {
-    glQueryCounterPROC glQueryCounter = (glQueryCounterPROC)tlsGetFunction(1435);
+    glQueryCounterPROC glQueryCounter = (glQueryCounterPROC)tlsGetFunction(1436);
     UNUSED_PARAM(clazz)
     glQueryCounter(id, target);
 }

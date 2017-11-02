@@ -119,20 +119,20 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL43_nglGetDebugMessageLog__IIJJJJJ
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglPushDebugGroup(JNIEnv *__env, jclass clazz, jint source, jint id, jint length, jlong messageAddress) {
-    glPushDebugGroupPROC glPushDebugGroup = (glPushDebugGroupPROC)tlsGetFunction(1431);
+    glPushDebugGroupPROC glPushDebugGroup = (glPushDebugGroupPROC)tlsGetFunction(1432);
     const intptr_t message = (const intptr_t)messageAddress;
     UNUSED_PARAM(clazz)
     glPushDebugGroup(source, id, length, message);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glPopDebugGroup(JNIEnv *__env, jclass clazz) {
-    glPopDebugGroupPROC glPopDebugGroup = (glPopDebugGroupPROC)tlsGetFunction(1263);
+    glPopDebugGroupPROC glPopDebugGroup = (glPopDebugGroupPROC)tlsGetFunction(1264);
     UNUSED_PARAM(clazz)
     glPopDebugGroup();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglObjectLabel(JNIEnv *__env, jclass clazz, jint identifier, jint name, jint length, jlong labelAddress) {
-    glObjectLabelPROC glObjectLabel = (glObjectLabelPROC)tlsGetFunction(1206);
+    glObjectLabelPROC glObjectLabel = (glObjectLabelPROC)tlsGetFunction(1207);
     const intptr_t label = (const intptr_t)labelAddress;
     UNUSED_PARAM(clazz)
     glObjectLabel(identifier, name, length, label);
@@ -147,7 +147,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglGetObjectLabel__IIIJJ(JNIEn
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglObjectPtrLabel(JNIEnv *__env, jclass clazz, jlong ptrAddress, jint length, jlong labelAddress) {
-    glObjectPtrLabelPROC glObjectPtrLabel = (glObjectPtrLabelPROC)tlsGetFunction(1207);
+    glObjectPtrLabelPROC glObjectPtrLabel = (glObjectPtrLabelPROC)tlsGetFunction(1208);
     intptr_t ptr = (intptr_t)ptrAddress;
     const intptr_t label = (const intptr_t)labelAddress;
     UNUSED_PARAM(clazz)
@@ -281,31 +281,31 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramResourceLocationI
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glShaderStorageBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint storageBlockIndex, jint storageBlockBinding) {
-    glShaderStorageBlockBindingPROC glShaderStorageBlockBinding = (glShaderStorageBlockBindingPROC)tlsGetFunction(1557);
+    glShaderStorageBlockBindingPROC glShaderStorageBlockBinding = (glShaderStorageBlockBindingPROC)tlsGetFunction(1558);
     UNUSED_PARAM(clazz)
     glShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glTexBufferRange(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer, jlong offset, jlong size) {
-    glTexBufferRangePROC glTexBufferRange = (glTexBufferRangePROC)tlsGetFunction(1589);
+    glTexBufferRangePROC glTexBufferRange = (glTexBufferRangePROC)tlsGetFunction(1590);
     UNUSED_PARAM(clazz)
     glTexBufferRange(target, internalformat, buffer, (intptr_t)offset, (intptr_t)size);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glTexStorage2DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jboolean fixedsamplelocations) {
-    glTexStorage2DMultisamplePROC glTexStorage2DMultisample = (glTexStorage2DMultisamplePROC)tlsGetFunction(1669);
+    glTexStorage2DMultisamplePROC glTexStorage2DMultisample = (glTexStorage2DMultisamplePROC)tlsGetFunction(1670);
     UNUSED_PARAM(clazz)
     glTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glTexStorage3DMultisample(JNIEnv *__env, jclass clazz, jint target, jint samples, jint internalformat, jint width, jint height, jint depth, jboolean fixedsamplelocations) {
-    glTexStorage3DMultisamplePROC glTexStorage3DMultisample = (glTexStorage3DMultisamplePROC)tlsGetFunction(1671);
+    glTexStorage3DMultisamplePROC glTexStorage3DMultisample = (glTexStorage3DMultisamplePROC)tlsGetFunction(1672);
     UNUSED_PARAM(clazz)
     glTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glTextureView(JNIEnv *__env, jclass clazz, jint texture, jint target, jint origtexture, jint internalformat, jint minlevel, jint numlevels, jint minlayer, jint numlayers) {
-    glTextureViewPROC glTextureView = (glTextureViewPROC)tlsGetFunction(1730);
+    glTextureViewPROC glTextureView = (glTextureViewPROC)tlsGetFunction(1731);
     UNUSED_PARAM(clazz)
     glTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 }
@@ -317,31 +317,31 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glBindVertexBuffer(JNIEnv *__e
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glVertexAttribFormat(JNIEnv *__env, jclass clazz, jint attribindex, jint size, jint type, jboolean normalized, jint relativeoffset) {
-    glVertexAttribFormatPROC glVertexAttribFormat = (glVertexAttribFormatPROC)tlsGetFunction(2013);
+    glVertexAttribFormatPROC glVertexAttribFormat = (glVertexAttribFormatPROC)tlsGetFunction(2014);
     UNUSED_PARAM(clazz)
     glVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glVertexAttribIFormat(JNIEnv *__env, jclass clazz, jint attribindex, jint size, jint type, jint relativeoffset) {
-    glVertexAttribIFormatPROC glVertexAttribIFormat = (glVertexAttribIFormatPROC)tlsGetFunction(2055);
+    glVertexAttribIFormatPROC glVertexAttribIFormat = (glVertexAttribIFormatPROC)tlsGetFunction(2056);
     UNUSED_PARAM(clazz)
     glVertexAttribIFormat(attribindex, size, type, relativeoffset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glVertexAttribLFormat(JNIEnv *__env, jclass clazz, jint attribindex, jint size, jint type, jint relativeoffset) {
-    glVertexAttribLFormatPROC glVertexAttribLFormat = (glVertexAttribLFormatPROC)tlsGetFunction(2093);
+    glVertexAttribLFormatPROC glVertexAttribLFormat = (glVertexAttribLFormatPROC)tlsGetFunction(2094);
     UNUSED_PARAM(clazz)
     glVertexAttribLFormat(attribindex, size, type, relativeoffset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glVertexAttribBinding(JNIEnv *__env, jclass clazz, jint attribindex, jint bindingindex) {
-    glVertexAttribBindingPROC glVertexAttribBinding = (glVertexAttribBindingPROC)tlsGetFunction(2010);
+    glVertexAttribBindingPROC glVertexAttribBinding = (glVertexAttribBindingPROC)tlsGetFunction(2011);
     UNUSED_PARAM(clazz)
     glVertexAttribBinding(attribindex, bindingindex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glVertexBindingDivisor(JNIEnv *__env, jclass clazz, jint bindingindex, jint divisor) {
-    glVertexBindingDivisorPROC glVertexBindingDivisor = (glVertexBindingDivisorPROC)tlsGetFunction(2112);
+    glVertexBindingDivisorPROC glVertexBindingDivisor = (glVertexBindingDivisorPROC)tlsGetFunction(2113);
     UNUSED_PARAM(clazz)
     glVertexBindingDivisor(bindingindex, divisor);
 }

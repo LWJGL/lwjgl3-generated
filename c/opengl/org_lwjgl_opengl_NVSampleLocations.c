@@ -27,7 +27,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_nglNamedFramebuff
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_glResolveDepthValuesNV(JNIEnv *__env, jclass clazz) {
-    glResolveDepthValuesNVPROC glResolveDepthValuesNV = (glResolveDepthValuesNVPROC)tlsGetFunction(1487);
+    glResolveDepthValuesNVPROC glResolveDepthValuesNV = (glResolveDepthValuesNVPROC)tlsGetFunction(1488);
     UNUSED_PARAM(clazz)
     glResolveDepthValuesNV();
 }

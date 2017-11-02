@@ -17,7 +17,7 @@ import static org.lwjgl.system.Checks.*;
  * 
  * <p>This extension seeks to address the inefficiency of sequential multiview rendering by adding a means to render to multiple elements of a 2D texture
  * array simultaneously. In multiview rendering, draw calls are instanced into each corresponding element of the texture array. The vertex program uses a
- * new ViewID variable to compute per-view values, typically the vertex position and view-dependent variables like reflection.</p>
+ * new {@code gl_ViewID_OVR} variable to compute per-view values, typically the vertex position and view-dependent variables like reflection.</p>
  * 
  * <p>The formulation of this extension is high level in order to allow implementation freedom. On existing hardware, applications and drivers can realize
  * the benefits of a single scene traversal, even if all GPU work is fully duplicated per-view. But future support could enable simultaneous rendering via
@@ -31,7 +31,7 @@ import static org.lwjgl.system.Checks.*;
  */
 public class OVRMultiview {
 
-    /** Accepted by the {@code pname} parameter of GetFramebufferAttachmentParameteriv. */
+    /** Accepted by the {@code pname} parameter of {@link GLES20#glGetFramebufferAttachmentParameteriv GetFramebufferAttachmentParameteriv}. */
     public static final int
         GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR       = 0x9630,
         GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR = 0x9632;
@@ -39,7 +39,7 @@ public class OVRMultiview {
     /** Accepted by the {@code pname} parameter of GetIntegerv. */
     public static final int GL_MAX_VIEWS_OVR = 0x9631;
 
-    /** Returned by CheckFramebufferStatus. */
+    /** Returned by {@link GLES20#glCheckFramebufferStatus CheckFramebufferStatus}. */
     public static final int GL_FRAMEBUFFER_INCOMPLETE_VIEW_TARGETS_OVR = 0x9633;
 
     static { GLES.initialize(); }

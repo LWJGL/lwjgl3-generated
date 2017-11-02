@@ -82,7 +82,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_GL15_nglMapBuffer(JNIEnv *__env, j
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL15_glUnmapBuffer(JNIEnv *__env, jclass clazz, jint target) {
-    glUnmapBufferPROC glUnmapBuffer = (glUnmapBufferPROC)tlsGetFunction(1860);
+    glUnmapBufferPROC glUnmapBuffer = (glUnmapBufferPROC)tlsGetFunction(1861);
     UNUSED_PARAM(clazz)
     return (jboolean)glUnmapBuffer(target);
 }

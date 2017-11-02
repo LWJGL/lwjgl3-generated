@@ -12,13 +12,13 @@ typedef void (APIENTRY *glTessellationModeAMDPROC) (jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDVertexShaderTessellator_glTessellationFactorAMD(JNIEnv *__env, jclass clazz, jfloat factor) {
-    glTessellationFactorAMDPROC glTessellationFactorAMD = (glTessellationFactorAMDPROC)tlsGetFunction(1583);
+    glTessellationFactorAMDPROC glTessellationFactorAMD = (glTessellationFactorAMDPROC)tlsGetFunction(1584);
     UNUSED_PARAM(clazz)
     glTessellationFactorAMD(factor);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_AMDVertexShaderTessellator_glTessellationModeAMD(JNIEnv *__env, jclass clazz, jint mode) {
-    glTessellationModeAMDPROC glTessellationModeAMD = (glTessellationModeAMDPROC)tlsGetFunction(1584);
+    glTessellationModeAMDPROC glTessellationModeAMD = (glTessellationModeAMDPROC)tlsGetFunction(1585);
     UNUSED_PARAM(clazz)
     glTessellationModeAMD(mode);
 }

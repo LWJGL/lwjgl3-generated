@@ -27,7 +27,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVQueryResourceTag_nglDeleteQueryRe
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVQueryResourceTag_nglQueryResourceTagNV(JNIEnv *__env, jclass clazz, jint tagId, jlong tagStringAddress) {
-    glQueryResourceTagNVPROC glQueryResourceTagNV = (glQueryResourceTagNVPROC)tlsGetFunction(1438);
+    glQueryResourceTagNVPROC glQueryResourceTagNV = (glQueryResourceTagNVPROC)tlsGetFunction(1439);
     const intptr_t tagString = (const intptr_t)tagStringAddress;
     UNUSED_PARAM(clazz)
     glQueryResourceTagNV(tagId, tagString);

@@ -81,13 +81,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglGetIntegerui6
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_glUniformui64NV(JNIEnv *__env, jclass clazz, jint location, jlong value) {
-    glUniformui64NVPROC glUniformui64NV = (glUniformui64NVPROC)tlsGetFunction(1857);
+    glUniformui64NVPROC glUniformui64NV = (glUniformui64NVPROC)tlsGetFunction(1858);
     UNUSED_PARAM(clazz)
     glUniformui64NV(location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglUniformui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniformui64vNVPROC glUniformui64vNV = (glUniformui64vNVPROC)tlsGetFunction(1858);
+    glUniformui64vNVPROC glUniformui64vNV = (glUniformui64vNVPROC)tlsGetFunction(1859);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformui64vNV(location, count, value);
@@ -101,13 +101,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglGetUniformui6
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_glProgramUniformui64NV(JNIEnv *__env, jclass clazz, jint program, jint location, jlong value) {
-    glProgramUniformui64NVPROC glProgramUniformui64NV = (glProgramUniformui64NVPROC)tlsGetFunction(1424);
+    glProgramUniformui64NVPROC glProgramUniformui64NV = (glProgramUniformui64NVPROC)tlsGetFunction(1425);
     UNUSED_PARAM(clazz)
     glProgramUniformui64NV(program, location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglProgramUniformui64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
-    glProgramUniformui64vNVPROC glProgramUniformui64vNV = (glProgramUniformui64vNVPROC)tlsGetFunction(1425);
+    glProgramUniformui64vNVPROC glProgramUniformui64vNV = (glProgramUniformui64vNVPROC)tlsGetFunction(1426);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniformui64vNV(program, location, count, value);

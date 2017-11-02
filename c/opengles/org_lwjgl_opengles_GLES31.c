@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_GLES31_nglGetProgramResourceLocat
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_glUseProgramStages(JNIEnv *__env, jclass clazz, jint pipeline, jint stages, jint program) {
-    glUseProgramStagesPROC glUseProgramStages = (glUseProgramStagesPROC)tlsGetFunction(792);
+    glUseProgramStagesPROC glUseProgramStages = (glUseProgramStagesPROC)tlsGetFunction(793);
     UNUSED_PARAM(clazz)
     glUseProgramStages(pipeline, stages, program);
 }
@@ -426,7 +426,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_nglProgramUniformMatrix4x3
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_glValidateProgramPipeline(JNIEnv *__env, jclass clazz, jint pipeline) {
-    glValidateProgramPipelinePROC glValidateProgramPipeline = (glValidateProgramPipelinePROC)tlsGetFunction(795);
+    glValidateProgramPipelinePROC glValidateProgramPipeline = (glValidateProgramPipelinePROC)tlsGetFunction(796);
     UNUSED_PARAM(clazz)
     glValidateProgramPipeline(pipeline);
 }
@@ -504,25 +504,25 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_glBindVertexBuffer(JNIEnv 
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_glVertexAttribFormat(JNIEnv *__env, jclass clazz, jint attribindex, jint size, jint type, jboolean normalized, jint relativeoffset) {
-    glVertexAttribFormatPROC glVertexAttribFormat = (glVertexAttribFormatPROC)tlsGetFunction(810);
+    glVertexAttribFormatPROC glVertexAttribFormat = (glVertexAttribFormatPROC)tlsGetFunction(811);
     UNUSED_PARAM(clazz)
     glVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_glVertexAttribIFormat(JNIEnv *__env, jclass clazz, jint attribindex, jint size, jint type, jint relativeoffset) {
-    glVertexAttribIFormatPROC glVertexAttribIFormat = (glVertexAttribIFormatPROC)tlsGetFunction(815);
+    glVertexAttribIFormatPROC glVertexAttribIFormat = (glVertexAttribIFormatPROC)tlsGetFunction(816);
     UNUSED_PARAM(clazz)
     glVertexAttribIFormat(attribindex, size, type, relativeoffset);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_glVertexAttribBinding(JNIEnv *__env, jclass clazz, jint attribindex, jint bindingindex) {
-    glVertexAttribBindingPROC glVertexAttribBinding = (glVertexAttribBindingPROC)tlsGetFunction(805);
+    glVertexAttribBindingPROC glVertexAttribBinding = (glVertexAttribBindingPROC)tlsGetFunction(806);
     UNUSED_PARAM(clazz)
     glVertexAttribBinding(attribindex, bindingindex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES31_glVertexBindingDivisor(JNIEnv *__env, jclass clazz, jint bindingindex, jint divisor) {
-    glVertexBindingDivisorPROC glVertexBindingDivisor = (glVertexBindingDivisorPROC)tlsGetFunction(818);
+    glVertexBindingDivisorPROC glVertexBindingDivisor = (glVertexBindingDivisorPROC)tlsGetFunction(819);
     UNUSED_PARAM(clazz)
     glVertexBindingDivisor(bindingindex, divisor);
 }

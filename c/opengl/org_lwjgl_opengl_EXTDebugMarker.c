@@ -20,14 +20,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDebugMarker_nglInsertEventMarker
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDebugMarker_nglPushGroupMarkerEXT(JNIEnv *__env, jclass clazz, jint length, jlong markerAddress) {
-    glPushGroupMarkerEXTPROC glPushGroupMarkerEXT = (glPushGroupMarkerEXTPROC)tlsGetFunction(1432);
+    glPushGroupMarkerEXTPROC glPushGroupMarkerEXT = (glPushGroupMarkerEXTPROC)tlsGetFunction(1433);
     const intptr_t marker = (const intptr_t)markerAddress;
     UNUSED_PARAM(clazz)
     glPushGroupMarkerEXT(length, marker);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDebugMarker_glPopGroupMarkerEXT(JNIEnv *__env, jclass clazz) {
-    glPopGroupMarkerEXTPROC glPopGroupMarkerEXT = (glPopGroupMarkerEXTPROC)tlsGetFunction(1264);
+    glPopGroupMarkerEXTPROC glPopGroupMarkerEXT = (glPopGroupMarkerEXTPROC)tlsGetFunction(1265);
     UNUSED_PARAM(clazz)
     glPopGroupMarkerEXT();
 }

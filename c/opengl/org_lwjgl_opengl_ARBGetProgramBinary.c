@@ -22,14 +22,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglGetProgramBi
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglProgramBinary(JNIEnv *__env, jclass clazz, jint program, jint binaryFormat, jlong binaryAddress, jint length) {
-    glProgramBinaryPROC glProgramBinary = (glProgramBinaryPROC)tlsGetFunction(1272);
+    glProgramBinaryPROC glProgramBinary = (glProgramBinaryPROC)tlsGetFunction(1273);
     const intptr_t binary = (const intptr_t)binaryAddress;
     UNUSED_PARAM(clazz)
     glProgramBinary(program, binaryFormat, binary, length);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_glProgramParameteri(JNIEnv *__env, jclass clazz, jint program, jint pname, jint value) {
-    glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1283);
+    glProgramParameteriPROC glProgramParameteri = (glProgramParameteriPROC)tlsGetFunction(1284);
     UNUSED_PARAM(clazz)
     glProgramParameteri(program, pname, value);
 }

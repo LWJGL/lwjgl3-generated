@@ -65,13 +65,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVBindlessTexture_glMakeImageHand
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVBindlessTexture_glUniformHandleui64NV(JNIEnv *__env, jclass clazz, jint location, jlong value) {
-    glUniformHandleui64NVPROC glUniformHandleui64NV = (glUniformHandleui64NVPROC)tlsGetFunction(772);
+    glUniformHandleui64NVPROC glUniformHandleui64NV = (glUniformHandleui64NVPROC)tlsGetFunction(773);
     UNUSED_PARAM(clazz)
     glUniformHandleui64NV(location, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVBindlessTexture_nglUniformHandleui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valuesAddress) {
-    glUniformHandleui64vNVPROC glUniformHandleui64vNV = (glUniformHandleui64vNVPROC)tlsGetFunction(773);
+    glUniformHandleui64vNVPROC glUniformHandleui64vNV = (glUniformHandleui64vNVPROC)tlsGetFunction(774);
     const intptr_t values = (const intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glUniformHandleui64vNV(location, count, values);

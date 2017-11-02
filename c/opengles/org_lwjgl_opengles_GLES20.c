@@ -876,203 +876,203 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglTexSubImage2D__IIIIIIII
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform1f(JNIEnv *__env, jclass clazz, jint location, jfloat v0) {
-    glUniform1fPROC glUniform1f = (glUniform1fPROC)tlsGetFunction(731);
+    glUniform1fPROC glUniform1f = (glUniform1fPROC)tlsGetFunction(732);
     UNUSED_PARAM(clazz)
     glUniform1f(location, v0);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform1fv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform1fvPROC glUniform1fv = (glUniform1fvPROC)tlsGetFunction(732);
+    glUniform1fvPROC glUniform1fv = (glUniform1fvPROC)tlsGetFunction(733);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform1fv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform1i(JNIEnv *__env, jclass clazz, jint location, jint v0) {
-    glUniform1iPROC glUniform1i = (glUniform1iPROC)tlsGetFunction(733);
+    glUniform1iPROC glUniform1i = (glUniform1iPROC)tlsGetFunction(734);
     UNUSED_PARAM(clazz)
     glUniform1i(location, v0);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform1iv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform1ivPROC glUniform1iv = (glUniform1ivPROC)tlsGetFunction(736);
+    glUniform1ivPROC glUniform1iv = (glUniform1ivPROC)tlsGetFunction(737);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform1iv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform2f(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1) {
-    glUniform2fPROC glUniform2f = (glUniform2fPROC)tlsGetFunction(741);
+    glUniform2fPROC glUniform2f = (glUniform2fPROC)tlsGetFunction(742);
     UNUSED_PARAM(clazz)
     glUniform2f(location, v0, v1);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform2fv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform2fvPROC glUniform2fv = (glUniform2fvPROC)tlsGetFunction(742);
+    glUniform2fvPROC glUniform2fv = (glUniform2fvPROC)tlsGetFunction(743);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform2fv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform2i(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1) {
-    glUniform2iPROC glUniform2i = (glUniform2iPROC)tlsGetFunction(743);
+    glUniform2iPROC glUniform2i = (glUniform2iPROC)tlsGetFunction(744);
     UNUSED_PARAM(clazz)
     glUniform2i(location, v0, v1);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform2iv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform2ivPROC glUniform2iv = (glUniform2ivPROC)tlsGetFunction(746);
+    glUniform2ivPROC glUniform2iv = (glUniform2ivPROC)tlsGetFunction(747);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform2iv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform3f(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1, jfloat v2) {
-    glUniform3fPROC glUniform3f = (glUniform3fPROC)tlsGetFunction(751);
+    glUniform3fPROC glUniform3f = (glUniform3fPROC)tlsGetFunction(752);
     UNUSED_PARAM(clazz)
     glUniform3f(location, v0, v1, v2);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform3fv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform3fvPROC glUniform3fv = (glUniform3fvPROC)tlsGetFunction(752);
+    glUniform3fvPROC glUniform3fv = (glUniform3fvPROC)tlsGetFunction(753);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform3fv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform3i(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1, jint v2) {
-    glUniform3iPROC glUniform3i = (glUniform3iPROC)tlsGetFunction(753);
+    glUniform3iPROC glUniform3i = (glUniform3iPROC)tlsGetFunction(754);
     UNUSED_PARAM(clazz)
     glUniform3i(location, v0, v1, v2);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform3iv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform3ivPROC glUniform3iv = (glUniform3ivPROC)tlsGetFunction(756);
+    glUniform3ivPROC glUniform3iv = (glUniform3ivPROC)tlsGetFunction(757);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform3iv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform4f(JNIEnv *__env, jclass clazz, jint location, jfloat v0, jfloat v1, jfloat v2, jfloat v3) {
-    glUniform4fPROC glUniform4f = (glUniform4fPROC)tlsGetFunction(761);
+    glUniform4fPROC glUniform4f = (glUniform4fPROC)tlsGetFunction(762);
     UNUSED_PARAM(clazz)
     glUniform4f(location, v0, v1, v2, v3);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform4fv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform4fvPROC glUniform4fv = (glUniform4fvPROC)tlsGetFunction(762);
+    glUniform4fvPROC glUniform4fv = (glUniform4fvPROC)tlsGetFunction(763);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform4fv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUniform4i(JNIEnv *__env, jclass clazz, jint location, jint v0, jint v1, jint v2, jint v3) {
-    glUniform4iPROC glUniform4i = (glUniform4iPROC)tlsGetFunction(763);
+    glUniform4iPROC glUniform4i = (glUniform4iPROC)tlsGetFunction(764);
     UNUSED_PARAM(clazz)
     glUniform4i(location, v0, v1, v2, v3);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniform4iv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
-    glUniform4ivPROC glUniform4iv = (glUniform4ivPROC)tlsGetFunction(766);
+    glUniform4ivPROC glUniform4iv = (glUniform4ivPROC)tlsGetFunction(767);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform4iv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniformMatrix2fv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix2fvPROC glUniformMatrix2fv = (glUniformMatrix2fvPROC)tlsGetFunction(774);
+    glUniformMatrix2fvPROC glUniformMatrix2fv = (glUniformMatrix2fvPROC)tlsGetFunction(775);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix2fv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniformMatrix3fv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix3fvPROC glUniformMatrix3fv = (glUniformMatrix3fvPROC)tlsGetFunction(779);
+    glUniformMatrix3fvPROC glUniformMatrix3fv = (glUniformMatrix3fvPROC)tlsGetFunction(780);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix3fv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglUniformMatrix4fv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
-    glUniformMatrix4fvPROC glUniformMatrix4fv = (glUniformMatrix4fvPROC)tlsGetFunction(784);
+    glUniformMatrix4fvPROC glUniformMatrix4fv = (glUniformMatrix4fvPROC)tlsGetFunction(785);
     const intptr_t value = (const intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix4fv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glUseProgram(JNIEnv *__env, jclass clazz, jint program) {
-    glUseProgramPROC glUseProgram = (glUseProgramPROC)tlsGetFunction(791);
+    glUseProgramPROC glUseProgram = (glUseProgramPROC)tlsGetFunction(792);
     UNUSED_PARAM(clazz)
     glUseProgram(program);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glValidateProgram(JNIEnv *__env, jclass clazz, jint program) {
-    glValidateProgramPROC glValidateProgram = (glValidateProgramPROC)tlsGetFunction(794);
+    glValidateProgramPROC glValidateProgram = (glValidateProgramPROC)tlsGetFunction(795);
     UNUSED_PARAM(clazz)
     glValidateProgram(program);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glVertexAttrib1f(JNIEnv *__env, jclass clazz, jint index, jfloat x) {
-    glVertexAttrib1fPROC glVertexAttrib1f = (glVertexAttrib1fPROC)tlsGetFunction(797);
+    glVertexAttrib1fPROC glVertexAttrib1f = (glVertexAttrib1fPROC)tlsGetFunction(798);
     UNUSED_PARAM(clazz)
     glVertexAttrib1f(index, x);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglVertexAttrib1fv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glVertexAttrib1fvPROC glVertexAttrib1fv = (glVertexAttrib1fvPROC)tlsGetFunction(798);
+    glVertexAttrib1fvPROC glVertexAttrib1fv = (glVertexAttrib1fvPROC)tlsGetFunction(799);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glVertexAttrib1fv(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glVertexAttrib2f(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y) {
-    glVertexAttrib2fPROC glVertexAttrib2f = (glVertexAttrib2fPROC)tlsGetFunction(799);
+    glVertexAttrib2fPROC glVertexAttrib2f = (glVertexAttrib2fPROC)tlsGetFunction(800);
     UNUSED_PARAM(clazz)
     glVertexAttrib2f(index, x, y);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglVertexAttrib2fv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glVertexAttrib2fvPROC glVertexAttrib2fv = (glVertexAttrib2fvPROC)tlsGetFunction(800);
+    glVertexAttrib2fvPROC glVertexAttrib2fv = (glVertexAttrib2fvPROC)tlsGetFunction(801);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glVertexAttrib2fv(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glVertexAttrib3f(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat z) {
-    glVertexAttrib3fPROC glVertexAttrib3f = (glVertexAttrib3fPROC)tlsGetFunction(801);
+    glVertexAttrib3fPROC glVertexAttrib3f = (glVertexAttrib3fPROC)tlsGetFunction(802);
     UNUSED_PARAM(clazz)
     glVertexAttrib3f(index, x, y, z);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglVertexAttrib3fv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glVertexAttrib3fvPROC glVertexAttrib3fv = (glVertexAttrib3fvPROC)tlsGetFunction(802);
+    glVertexAttrib3fvPROC glVertexAttrib3fv = (glVertexAttrib3fvPROC)tlsGetFunction(803);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glVertexAttrib3fv(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glVertexAttrib4f(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat z, jfloat w) {
-    glVertexAttrib4fPROC glVertexAttrib4f = (glVertexAttrib4fPROC)tlsGetFunction(803);
+    glVertexAttrib4fPROC glVertexAttrib4f = (glVertexAttrib4fPROC)tlsGetFunction(804);
     UNUSED_PARAM(clazz)
     glVertexAttrib4f(index, x, y, z, w);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglVertexAttrib4fv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glVertexAttrib4fvPROC glVertexAttrib4fv = (glVertexAttrib4fvPROC)tlsGetFunction(804);
+    glVertexAttrib4fvPROC glVertexAttrib4fv = (glVertexAttrib4fvPROC)tlsGetFunction(805);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glVertexAttrib4fv(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_nglVertexAttribPointer(JNIEnv *__env, jclass clazz, jint index, jint size, jint type, jboolean normalized, jint stride, jlong pointerAddress) {
-    glVertexAttribPointerPROC glVertexAttribPointer = (glVertexAttribPointerPROC)tlsGetFunction(817);
+    glVertexAttribPointerPROC glVertexAttribPointer = (glVertexAttribPointerPROC)tlsGetFunction(818);
     const intptr_t pointer = (const intptr_t)pointerAddress;
     UNUSED_PARAM(clazz)
     glVertexAttribPointer(index, size, type, normalized, stride, pointer);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES20_glViewport(JNIEnv *__env, jclass clazz, jint x, jint y, jint width, jint height) {
-    glViewportPROC glViewport = (glViewportPROC)tlsGetFunction(819);
+    glViewportPROC glViewport = (glViewportPROC)tlsGetFunction(820);
     UNUSED_PARAM(clazz)
     glViewport(x, y, width, height);
 }

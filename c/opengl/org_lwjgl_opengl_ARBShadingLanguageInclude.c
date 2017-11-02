@@ -16,7 +16,7 @@ typedef void (APIENTRY *glGetNamedStringivARBPROC) (jint, const intptr_t, jint, 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShadingLanguageInclude_nglNamedStringARB(JNIEnv *__env, jclass clazz, jint type, jint namelen, jlong nameAddress, jint stringlen, jlong stringAddress) {
-    glNamedStringARBPROC glNamedStringARB = (glNamedStringARBPROC)tlsGetFunction(1188);
+    glNamedStringARBPROC glNamedStringARB = (glNamedStringARBPROC)tlsGetFunction(1189);
     const intptr_t name = (const intptr_t)nameAddress;
     const intptr_t string = (const intptr_t)stringAddress;
     UNUSED_PARAM(clazz)

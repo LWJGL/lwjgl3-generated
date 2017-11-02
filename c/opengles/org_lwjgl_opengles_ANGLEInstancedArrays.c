@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_nglDrawEleme
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_glVertexAttribDivisorANGLE(JNIEnv *__env, jclass clazz, jint index, jint divisor) {
-    glVertexAttribDivisorANGLEPROC glVertexAttribDivisorANGLE = (glVertexAttribDivisorANGLEPROC)tlsGetFunction(807);
+    glVertexAttribDivisorANGLEPROC glVertexAttribDivisorANGLE = (glVertexAttribDivisorANGLEPROC)tlsGetFunction(808);
     UNUSED_PARAM(clazz)
     glVertexAttribDivisorANGLE(index, divisor);
 }

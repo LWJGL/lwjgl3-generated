@@ -1187,6 +1187,7 @@ public final class GLCapabilities {
         glNamedFramebufferTextureFaceEXT,
         glNamedFramebufferTextureLayer,
         glNamedFramebufferTextureLayerEXT,
+        glNamedFramebufferTextureMultiviewOVR,
         glNamedProgramLocalParameter4dEXT,
         glNamedProgramLocalParameter4dvEXT,
         glNamedProgramLocalParameter4fEXT,
@@ -5145,6 +5146,7 @@ public final class GLCapabilities {
         glNamedFramebufferTextureFaceEXT = provider.getFunctionAddress("glNamedFramebufferTextureFaceEXT");
         glNamedFramebufferTextureLayer = provider.getFunctionAddress("glNamedFramebufferTextureLayer");
         glNamedFramebufferTextureLayerEXT = provider.getFunctionAddress("glNamedFramebufferTextureLayerEXT");
+        glNamedFramebufferTextureMultiviewOVR = provider.getFunctionAddress("glNamedFramebufferTextureMultiviewOVR");
         glNamedProgramLocalParameter4dEXT = provider.getFunctionAddress("glNamedProgramLocalParameter4dEXT");
         glNamedProgramLocalParameter4dvEXT = provider.getFunctionAddress("glNamedProgramLocalParameter4dvEXT");
         glNamedProgramLocalParameter4fEXT = provider.getFunctionAddress("glNamedProgramLocalParameter4fEXT");
@@ -6543,7 +6545,7 @@ public final class GLCapabilities {
         GL_NVX_blend_equation_advanced_multi_draw_buffers = ext.contains("GL_NVX_blend_equation_advanced_multi_draw_buffers");
         GL_NVX_conditional_render = ext.contains("GL_NVX_conditional_render") && checkExtension("GL_NVX_conditional_render", NVXConditionalRender.isAvailable(this));
         GL_NVX_gpu_memory_info = ext.contains("GL_NVX_gpu_memory_info");
-        GL_OVR_multiview = ext.contains("GL_OVR_multiview") && checkExtension("GL_OVR_multiview", OVRMultiview.isAvailable(this));
+        GL_OVR_multiview = ext.contains("GL_OVR_multiview") && checkExtension("GL_OVR_multiview", OVRMultiview.isAvailable(this, ext));
         GL_OVR_multiview2 = ext.contains("GL_OVR_multiview2");
 
         addresses = ThreadLocalUtil.getAddressesFromCapabilities(this);

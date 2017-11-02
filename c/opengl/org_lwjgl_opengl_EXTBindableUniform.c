@@ -13,7 +13,7 @@ typedef intptr_t (APIENTRY *glGetUniformOffsetEXTPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTBindableUniform_glUniformBufferEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jint buffer) {
-    glUniformBufferEXTPROC glUniformBufferEXT = (glUniformBufferEXTPROC)tlsGetFunction(1830);
+    glUniformBufferEXTPROC glUniformBufferEXT = (glUniformBufferEXTPROC)tlsGetFunction(1831);
     UNUSED_PARAM(clazz)
     glUniformBufferEXT(program, location, buffer);
 }

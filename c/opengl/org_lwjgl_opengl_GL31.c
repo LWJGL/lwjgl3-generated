@@ -41,13 +41,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glCopyBufferSubData(JNIEnv *__
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glPrimitiveRestartIndex(JNIEnv *__env, jclass clazz, jint index) {
-    glPrimitiveRestartIndexPROC glPrimitiveRestartIndex = (glPrimitiveRestartIndexPROC)tlsGetFunction(1268);
+    glPrimitiveRestartIndexPROC glPrimitiveRestartIndex = (glPrimitiveRestartIndexPROC)tlsGetFunction(1269);
     UNUSED_PARAM(clazz)
     glPrimitiveRestartIndex(index);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glTexBuffer(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint buffer) {
-    glTexBufferPROC glTexBuffer = (glTexBufferPROC)tlsGetFunction(1586);
+    glTexBufferPROC glTexBuffer = (glTexBufferPROC)tlsGetFunction(1587);
     UNUSED_PARAM(clazz)
     glTexBuffer(target, internalformat, buffer);
 }
@@ -99,7 +99,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglGetActiveUniformBlockName__
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glUniformBlockBinding(JNIEnv *__env, jclass clazz, jint program, jint uniformBlockIndex, jint uniformBlockBinding) {
-    glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1829);
+    glUniformBlockBindingPROC glUniformBlockBinding = (glUniformBlockBindingPROC)tlsGetFunction(1830);
     UNUSED_PARAM(clazz)
     glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 }

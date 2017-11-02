@@ -138,7 +138,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglGetConvolutionFilter(
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_nglSeparableFilter2D(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint width, jint height, jint format, jint type, jlong rowAddress, jlong columnAddress) {
-    glSeparableFilter2DPROC glSeparableFilter2D = (glSeparableFilter2DPROC)tlsGetFunction(1550);
+    glSeparableFilter2DPROC glSeparableFilter2D = (glSeparableFilter2DPROC)tlsGetFunction(1551);
     const intptr_t row = (const intptr_t)rowAddress;
     const intptr_t column = (const intptr_t)columnAddress;
     UNUSED_PARAM(clazz)
@@ -201,7 +201,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glHistogram(JNIEnv *__en
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glResetHistogram(JNIEnv *__env, jclass clazz, jint target) {
-    glResetHistogramPROC glResetHistogram = (glResetHistogramPROC)tlsGetFunction(1485);
+    glResetHistogramPROC glResetHistogram = (glResetHistogramPROC)tlsGetFunction(1486);
     UNUSED_PARAM(clazz)
     glResetHistogram(target);
 }
@@ -234,7 +234,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glMinmax(JNIEnv *__env, 
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBImaging_glResetMinmax(JNIEnv *__env, jclass clazz, jint target) {
-    glResetMinmaxPROC glResetMinmax = (glResetMinmaxPROC)tlsGetFunction(1486);
+    glResetMinmaxPROC glResetMinmax = (glResetMinmaxPROC)tlsGetFunction(1487);
     UNUSED_PARAM(clazz)
     glResetMinmax(target);
 }

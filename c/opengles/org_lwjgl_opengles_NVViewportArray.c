@@ -22,20 +22,20 @@ typedef jboolean (APIENTRY *glIsEnablediNVPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVViewportArray_nglViewportArrayvNV__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong vAddress) {
-    glViewportArrayvNVPROC glViewportArrayvNV = (glViewportArrayvNVPROC)tlsGetFunction(820);
+    glViewportArrayvNVPROC glViewportArrayvNV = (glViewportArrayvNVPROC)tlsGetFunction(821);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportArrayvNV(first, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVViewportArray_glViewportIndexedfNV(JNIEnv *__env, jclass clazz, jint index, jfloat x, jfloat y, jfloat w, jfloat h) {
-    glViewportIndexedfNVPROC glViewportIndexedfNV = (glViewportIndexedfNVPROC)tlsGetFunction(822);
+    glViewportIndexedfNVPROC glViewportIndexedfNV = (glViewportIndexedfNVPROC)tlsGetFunction(823);
     UNUSED_PARAM(clazz)
     glViewportIndexedfNV(index, x, y, w, h);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVViewportArray_nglViewportIndexedfvNV__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
-    glViewportIndexedfvNVPROC glViewportIndexedfvNV = (glViewportIndexedfvNVPROC)tlsGetFunction(824);
+    glViewportIndexedfvNVPROC glViewportIndexedfvNV = (glViewportIndexedfvNVPROC)tlsGetFunction(825);
     const intptr_t v = (const intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportIndexedfvNV(index, v);

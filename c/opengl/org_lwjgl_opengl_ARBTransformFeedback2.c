@@ -43,13 +43,13 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glIsTrans
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glPauseTransformFeedback(JNIEnv *__env, jclass clazz) {
-    glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1233);
+    glPauseTransformFeedbackPROC glPauseTransformFeedback = (glPauseTransformFeedbackPROC)tlsGetFunction(1234);
     UNUSED_PARAM(clazz)
     glPauseTransformFeedback();
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTransformFeedback2_glResumeTransformFeedback(JNIEnv *__env, jclass clazz) {
-    glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1488);
+    glResumeTransformFeedbackPROC glResumeTransformFeedback = (glResumeTransformFeedbackPROC)tlsGetFunction(1489);
     UNUSED_PARAM(clazz)
     glResumeTransformFeedback();
 }

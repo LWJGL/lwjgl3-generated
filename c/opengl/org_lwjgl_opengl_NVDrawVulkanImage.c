@@ -28,19 +28,19 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_NVDrawVulkanImage_nglGetVkProcAddr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVDrawVulkanImage_glWaitVkSemaphoreNV(JNIEnv *__env, jclass clazz, jlong vkSemaphore) {
-    glWaitVkSemaphoreNVPROC glWaitVkSemaphoreNV = (glWaitVkSemaphoreNVPROC)tlsGetFunction(2132);
+    glWaitVkSemaphoreNVPROC glWaitVkSemaphoreNV = (glWaitVkSemaphoreNVPROC)tlsGetFunction(2133);
     UNUSED_PARAM(clazz)
     glWaitVkSemaphoreNV(vkSemaphore);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVDrawVulkanImage_glSignalVkSemaphoreNV(JNIEnv *__env, jclass clazz, jlong vkSemaphore) {
-    glSignalVkSemaphoreNVPROC glSignalVkSemaphoreNV = (glSignalVkSemaphoreNVPROC)tlsGetFunction(1560);
+    glSignalVkSemaphoreNVPROC glSignalVkSemaphoreNV = (glSignalVkSemaphoreNVPROC)tlsGetFunction(1561);
     UNUSED_PARAM(clazz)
     glSignalVkSemaphoreNV(vkSemaphore);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVDrawVulkanImage_glSignalVkFenceNV(JNIEnv *__env, jclass clazz, jlong vkFence) {
-    glSignalVkFenceNVPROC glSignalVkFenceNV = (glSignalVkFenceNVPROC)tlsGetFunction(1559);
+    glSignalVkFenceNVPROC glSignalVkFenceNV = (glSignalVkFenceNVPROC)tlsGetFunction(1560);
     UNUSED_PARAM(clazz)
     glSignalVkFenceNV(vkFence);
 }
