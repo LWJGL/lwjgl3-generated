@@ -23,6 +23,12 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeNewWithConfig(JNIEn
     return (jlong)(intptr_t)YGNodeNewWithConfig(config);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeClone(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jlong)(intptr_t)YGNodeClone(node);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeFree(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
     const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -58,6 +64,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeRemoveChild(JNIEnv *
     const YGNodeRef child = (const YGNodeRef)(intptr_t)childAddress;
     UNUSED_PARAMS(__env, clazz)
     YGNodeRemoveChild(node, child);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeRemoveAllChildren(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGNodeRemoveAllChildren(node);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetChild(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint index) {
@@ -744,6 +756,13 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigGetUseWebDefau
     const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)YGConfigGetUseWebDefaults(config);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetNodeClonedFunc(JNIEnv *__env, jclass clazz, jlong configAddress, jlong callbackAddress) {
+    const YGConfigRef config = (const YGConfigRef)(intptr_t)configAddress;
+    const YGNodeClonedFunc callback = (const YGNodeClonedFunc)(intptr_t)callbackAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGConfigSetNodeClonedFunc(config, callback);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_YGConfigGetDefault(JNIEnv *__env, jclass clazz) {

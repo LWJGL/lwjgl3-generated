@@ -356,6 +356,18 @@ public class Yoga {
         return nYGNodeNewWithConfig(config);
     }
 
+    // --- [ YGNodeClone ] ---
+
+    public static native long nYGNodeClone(long node);
+
+    @NativeType("YGNodeRef")
+    public static long YGNodeClone(@NativeType("const YGNodeRef") long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        return nYGNodeClone(node);
+    }
+
     // --- [ YGNodeFree ] ---
 
     public static native void nYGNodeFree(long node);
@@ -416,6 +428,17 @@ public class Yoga {
             check(child);
         }
         nYGNodeRemoveChild(node, child);
+    }
+
+    // --- [ YGNodeRemoveAllChildren ] ---
+
+    public static native void nYGNodeRemoveAllChildren(long node);
+
+    public static void YGNodeRemoveAllChildren(@NativeType("const YGNodeRef") long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        nYGNodeRemoveAllChildren(node);
     }
 
     // --- [ YGNodeGetChild ] ---
@@ -2000,6 +2023,17 @@ public class Yoga {
             check(config);
         }
         return nYGConfigGetUseWebDefaults(config);
+    }
+
+    // --- [ YGConfigSetNodeClonedFunc ] ---
+
+    public static native void nYGConfigSetNodeClonedFunc(long config, long callback);
+
+    public static void YGConfigSetNodeClonedFunc(@NativeType("const YGConfigRef") long config, @NativeType("const YGNodeClonedFunc") YGNodeClonedFuncI callback) {
+        if (CHECKS) {
+            check(config);
+        }
+        nYGConfigSetNodeClonedFunc(config, callback.address());
     }
 
     // --- [ YGConfigGetDefault ] ---
