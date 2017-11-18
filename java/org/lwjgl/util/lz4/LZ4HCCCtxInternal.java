@@ -25,7 +25,6 @@ import static org.lwjgl.util.lz4.LZ4HC.*;
  * <li>{@code dictLimit} &ndash; below that point, need {@code extDict}</li>
  * <li>{@code lowLimit} &ndash; below that point, no more {@code dict}</li>
  * <li>{@code nextToUpdate} &ndash; index from which to continue dictionary update</li>
- * <li>{@code searchNum} &ndash; only for optimal parser</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -41,8 +40,7 @@ import static org.lwjgl.util.lz4.LZ4HC.*;
  *     uint32_t dictLimit;
  *     uint32_t lowLimit;
  *     uint32_t nextToUpdate;
- *     uint32_t searchNum;
- *     uint32_t compressionLevel;
+ *     int compressionLevel;
  * }</pre></code>
  */
 @NativeType("struct LZ4HC_CCtx_internal")
@@ -64,7 +62,6 @@ public class LZ4HCCCtxInternal extends Struct {
         DICTLIMIT,
         LOWLIMIT,
         NEXTTOUPDATE,
-        SEARCHNUM,
         COMPRESSIONLEVEL;
 
     static {
@@ -75,7 +72,6 @@ public class LZ4HCCCtxInternal extends Struct {
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
-            __member(4),
             __member(4),
             __member(4),
             __member(4),
@@ -94,8 +90,7 @@ public class LZ4HCCCtxInternal extends Struct {
         DICTLIMIT = layout.offsetof(6);
         LOWLIMIT = layout.offsetof(7);
         NEXTTOUPDATE = layout.offsetof(8);
-        SEARCHNUM = layout.offsetof(9);
-        COMPRESSIONLEVEL = layout.offsetof(10);
+        COMPRESSIONLEVEL = layout.offsetof(9);
     }
 
     LZ4HCCCtxInternal(long address, ByteBuffer container) {
@@ -164,11 +159,7 @@ public class LZ4HCCCtxInternal extends Struct {
     /** Returns the value of the {@code nextToUpdate} field. */
     @NativeType("uint32_t")
     public int nextToUpdate() { return nnextToUpdate(address()); }
-    /** Returns the value of the {@code searchNum} field. */
-    @NativeType("uint32_t")
-    public int searchNum() { return nsearchNum(address()); }
     /** Returns the value of the {@code compressionLevel} field. */
-    @NativeType("uint32_t")
     public int compressionLevel() { return ncompressionLevel(address()); }
 
     // -----------------------------------
@@ -218,8 +209,6 @@ public class LZ4HCCCtxInternal extends Struct {
     public static int nlowLimit(long struct) { return memGetInt(struct + LZ4HCCCtxInternal.LOWLIMIT); }
     /** Unsafe version of {@link #nextToUpdate}. */
     public static int nnextToUpdate(long struct) { return memGetInt(struct + LZ4HCCCtxInternal.NEXTTOUPDATE); }
-    /** Unsafe version of {@link #searchNum}. */
-    public static int nsearchNum(long struct) { return memGetInt(struct + LZ4HCCCtxInternal.SEARCHNUM); }
     /** Unsafe version of {@link #compressionLevel}. */
     public static int ncompressionLevel(long struct) { return memGetInt(struct + LZ4HCCCtxInternal.COMPRESSIONLEVEL); }
 
@@ -314,11 +303,7 @@ public class LZ4HCCCtxInternal extends Struct {
         /** Returns the value of the {@code nextToUpdate} field. */
         @NativeType("uint32_t")
         public int nextToUpdate() { return LZ4HCCCtxInternal.nnextToUpdate(address()); }
-        /** Returns the value of the {@code searchNum} field. */
-        @NativeType("uint32_t")
-        public int searchNum() { return LZ4HCCCtxInternal.nsearchNum(address()); }
         /** Returns the value of the {@code compressionLevel} field. */
-        @NativeType("uint32_t")
         public int compressionLevel() { return LZ4HCCCtxInternal.ncompressionLevel(address()); }
 
     }

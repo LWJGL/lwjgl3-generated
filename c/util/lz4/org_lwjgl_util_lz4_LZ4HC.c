@@ -18,17 +18,17 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4HC_nLZ4_1compress_1HC(JNIEnv *
     return (jint)LZ4_compress_HC(src, dst, srcSize, dstCapacity, compressionLevel);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4HC_LZ4_1sizeofStateHC(JNIEnv *__env, jclass clazz) {
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)LZ4_sizeofStateHC();
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4HC_nLZ4_1compress_1HC_1extStateHC(JNIEnv *__env, jclass clazz, jlong stateAddress, jlong srcAddress, jlong dstAddress, jint srcSize, jint maxDstSize, jint compressionLevel) {
     void *state = (void *)(intptr_t)stateAddress;
     const char *src = (const char *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_compress_HC_extStateHC(state, src, dst, srcSize, maxDstSize, compressionLevel);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4HC_LZ4_1sizeofStateHC(JNIEnv *__env, jclass clazz) {
-    UNUSED_PARAMS(__env, clazz)
-    return (jint)LZ4_sizeofStateHC();
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4HC_LZ4_1createStreamHC(JNIEnv *__env, jclass clazz) {

@@ -40,7 +40,7 @@ public class LZ4HC {
         LZ4HC_CLEVEL_OPT_MIN = 11,
         LZ4HC_CLEVEL_MAX     = 12;
 
-    public static final int LZ4HC_DICTIONARY_LOGSIZE = 17;
+    public static final int LZ4HC_DICTIONARY_LOGSIZE = 16;
 
     public static final int LZ4HC_MAXD = (1 << LZ4HC_DICTIONARY_LOGSIZE);
 
@@ -78,14 +78,17 @@ public class LZ4HC {
      *
      * @param src              
      * @param dst              
-     * @param compressionLevel recommended values are between 4 and 9, although any value between 1 and {@link #LZ4HC_CLEVEL_MAX CLEVEL_MAX} will work. Values &gt; {@link #LZ4HC_CLEVEL_MAX CLEVEL_MAX} behave the same as
-     *                         {@link #LZ4HC_CLEVEL_MAX CLEVEL_MAX}.
+     * @param compressionLevel any value between 1 and {@link #LZ4HC_CLEVEL_MAX CLEVEL_MAX} will work. Values &gt; {@link #LZ4HC_CLEVEL_MAX CLEVEL_MAX} behave the same as {@link #LZ4HC_CLEVEL_MAX CLEVEL_MAX}.
      *
      * @return the number of bytes written into {@code dst} or 0 if compression fails
      */
     public static int LZ4_compress_HC(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int compressionLevel) {
         return nLZ4_compress_HC(memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), compressionLevel);
     }
+
+    // --- [ LZ4_sizeofStateHC ] ---
+
+    public static native int LZ4_sizeofStateHC();
 
     // --- [ LZ4_compress_HC_extStateHC ] ---
 
@@ -95,7 +98,7 @@ public class LZ4HC {
     /**
      * Same as {@link #LZ4_compress_HC compress_HC}, but using an externally allocated memory segment for {@code state}.
      * 
-     * <p>{@code state} size is provided by {@link #LZ4_sizeofStateHC sizeofStateHC}. Memory segment must be aligned on 8-bytes boundaries (which a normal {@code malloc()} will do
+     * <p>{@code state} size is provided by {@link #LZ4_sizeofStateHC sizeofStateHC}. Memory segment must be aligned on 8-bytes boundaries (which a normal {@code malloc()} should do
      * properly).</p>
      *
      * @param state            
@@ -106,10 +109,6 @@ public class LZ4HC {
     public static int LZ4_compress_HC_extStateHC(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int compressionLevel) {
         return nLZ4_compress_HC_extStateHC(memAddress(state), memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), compressionLevel);
     }
-
-    // --- [ LZ4_sizeofStateHC ] ---
-
-    public static native int LZ4_sizeofStateHC();
 
     // --- [ LZ4_createStreamHC ] ---
 
@@ -221,9 +220,6 @@ public class LZ4HC {
 
     /**
      * Similar as {@link #LZ4_compress_HC_continue compress_HC_continue}, but will read a variable nb of bytes from {@code src} to fit into {@code targetDstSize} budget.
-     * 
-     * <p>Important: due to limitations, this prototype only works well up to {@code cLevel} &lt; {@link #LZ4HC_CLEVEL_OPT_MIN CLEVEL_OPT_MIN}. Beyond that level, compression performance
-     * will be much reduced due to internal incompatibilities.</p>
      *
      * @param LZ4_streamHCPtr 
      * @param src             
@@ -247,8 +243,7 @@ public class LZ4HC {
     public static native void nLZ4_setCompressionLevel(long LZ4_streamHCPtr, int compressionLevel);
 
     /**
-     * It's possible to change compression level after {@link #LZ4_resetStreamHC resetStreamHC}, between 2 invocations of {@code LZ4_compress_HC_continue*()}, but that requires to
-     * stay in the same mode (aka 1-10 or 11-12). This function ensures this condition.
+     * It's possible to change compression level between 2 invocations of {@code LZ4_compress_HC_continue*()}.
      *
      * @param LZ4_streamHCPtr  
      * @param compressionLevel 
