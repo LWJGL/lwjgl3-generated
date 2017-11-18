@@ -412,23 +412,23 @@ public class GLFW {
      * {@code WindowHint}: Specifies whether the cursor should be centered over newly created full screen windows. This hint is ignored for windowed mode
      * windows.
      * </li>
-     * <li>{@link #GLFW_TRANSPARENT TRANSPARENT} - 
+     * <li>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER} - 
      * {@code WindowHint}: specifies whether the window framebuffer will be transparent. If enabled and supported by the system, the window framebuffer
      * alpha channel will be used to combine the framebuffer with the background. This does not affect window decorations.
      * </li>
      * </ul>
      */
     public static final int
-        GLFW_FOCUSED       = 0x20001,
-        GLFW_ICONIFIED     = 0x20002,
-        GLFW_RESIZABLE     = 0x20003,
-        GLFW_VISIBLE       = 0x20004,
-        GLFW_DECORATED     = 0x20005,
-        GLFW_AUTO_ICONIFY  = 0x20006,
-        GLFW_FLOATING      = 0x20007,
-        GLFW_MAXIMIZED     = 0x20008,
-        GLFW_CENTER_CURSOR = 0x20009,
-        GLFW_TRANSPARENT   = 0x2000A;
+        GLFW_FOCUSED                 = 0x20001,
+        GLFW_ICONIFIED               = 0x20002,
+        GLFW_RESIZABLE               = 0x20003,
+        GLFW_VISIBLE                 = 0x20004,
+        GLFW_DECORATED               = 0x20005,
+        GLFW_AUTO_ICONIFY            = 0x20006,
+        GLFW_FLOATING                = 0x20007,
+        GLFW_MAXIMIZED               = 0x20008,
+        GLFW_CENTER_CURSOR           = 0x20009,
+        GLFW_TRANSPARENT_FRAMEBUFFER = 0x2000A;
 
     /** Input options. */
     public static final int
@@ -685,6 +685,8 @@ public class GLFW {
             GetFramebufferSize         = apiGetFunctionAddress(GLFW, "glfwGetFramebufferSize"),
             GetWindowFrameSize         = apiGetFunctionAddress(GLFW, "glfwGetWindowFrameSize"),
             GetWindowContentScale      = apiGetFunctionAddress(GLFW, "glfwGetWindowContentScale"),
+            GetWindowOpacity           = apiGetFunctionAddress(GLFW, "glfwGetWindowOpacity"),
+            SetWindowOpacity           = apiGetFunctionAddress(GLFW, "glfwSetWindowOpacity"),
             IconifyWindow              = apiGetFunctionAddress(GLFW, "glfwIconifyWindow"),
             RestoreWindow              = apiGetFunctionAddress(GLFW, "glfwRestoreWindow"),
             MaximizeWindow             = apiGetFunctionAddress(GLFW, "glfwMaximizeWindow"),
@@ -1482,7 +1484,7 @@ public class GLFW {
      * <tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
      * <tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
      * <tr><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
-     * <tr><td>{@link #GLFW_TRANSPARENT TRANSPARENT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
+     * <tr><td>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
      * <tr><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
      * <tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
      * <tr><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>8</td><td>0 to {@link Integer#MAX_VALUE} or {@link #GLFW_DONT_CARE DONT_CARE}</td></tr>
@@ -1516,7 +1518,7 @@ public class GLFW {
      * 
      * <p>This function must only be called from the main thread.</p>
      *
-     * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td><td>{@link #GLFW_FLOATING FLOATING}</td></tr><tr><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT TRANSPARENT}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td></tr><tr><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td></tr><tr><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_RED_BITS RED_BITS}</td><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td></tr><tr><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td></tr><tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td></tr></table>
+     * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td></tr><tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_RED_BITS RED_BITS}</td></tr><tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td></tr><tr><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td></tr><tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td></tr><tr><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td></tr></table>
      * @param value the new value of the window hint
      *
      * @since version 2.2
@@ -1575,7 +1577,7 @@ public class GLFW {
      * <li>This function must only be called from the main thread.</li>
      * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
      * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
-     * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
+     * is present, the {@code IDI_APPLICATION} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
      * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
      * <li>The OS only supports forward-compatible core profile contexts for OpenGL versions 3.2 and later. Before creating an OpenGL context of version 3.2
      * or later you must set the {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT} and {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE} hints accordingly. OpenGL 3.0 and 3.1 contexts are not supported at all on
@@ -1656,7 +1658,7 @@ public class GLFW {
      * <li>This function must only be called from the main thread.</li>
      * <li><b>Windows</b>: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.</li>
      * <li><b>Windows</b>: If the executable has an icon resource named {@code GLFW_ICON}, it will be set as the initial icon for the window. If no such icon
-     * is present, the {@code IDI_WINLOGO} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
+     * is present, the {@code IDI_APPLICATION} icon will be used instead. To set a different icon, see {@link #glfwSetWindowIcon SetWindowIcon}.</li>
      * <li><b>Windows</b>: The context to share resources with may not be current on any other thread.</li>
      * <li>The OS only supports forward-compatible core profile contexts for OpenGL versions 3.2 and later. Before creating an OpenGL context of version 3.2
      * or later you must set the {@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT} and {@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE} hints accordingly. OpenGL 3.0 and 3.1 contexts are not supported at all on
@@ -2150,6 +2152,62 @@ public class GLFW {
         nglfwGetWindowContentScale(window, memAddressSafe(xscale), memAddressSafe(yscale));
     }
 
+    // --- [ glfwGetWindowOpacity ] ---
+
+    /**
+     * Returns the opacity of the whole window.
+     * 
+     * <p>This function returns the opacity of the window, including any decorations.</p>
+     * 
+     * <p>The opacity (or alpha) value is a positive finite number between zero and one, where zero is fully transparent and one is fully opaque.  If the system
+     * does not support whole window transparency, this function always returns one.</p>
+     * 
+     * <p>The initial opacity value for newly created windows is one.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param window the window to query
+     *
+     * @return the opacity value of the specified window
+     *
+     * @since version 3.3
+     */
+    public static float glfwGetWindowOpacity(@NativeType("GLFWwindow *") long window) {
+        long __functionAddress = Functions.GetWindowOpacity;
+        if (CHECKS) {
+            check(window);
+        }
+        return invokePF(__functionAddress, window);
+    }
+
+    // --- [ glfwSetWindowOpacity ] ---
+
+    /**
+     * Sets the opacity of the whole window.
+     * 
+     * <p>This function sets the opacity of the window, including any decorations.</p>
+     * 
+     * <p>The opacity (or alpha) value is a positive finite number between zero and one, where zero is fully transparent and one is fully opaque.</p>
+     * 
+     * <p>The initial opacity value for newly created windows is one.</p>
+     * 
+     * <p>A window created with framebuffer transparency may not use whole window transparency. The results of doing this are undefined.</p>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param window  the window to set the opacity for
+     * @param opacity the desired opacity of the specified window
+     *
+     * @since version 3.3
+     */
+    public static void glfwSetWindowOpacity(@NativeType("GLFWwindow *") long window, float opacity) {
+        long __functionAddress = Functions.SetWindowOpacity;
+        if (CHECKS) {
+            check(window);
+        }
+        invokePV(__functionAddress, window, opacity);
+    }
+
     // --- [ glfwIconifyWindow ] ---
 
     /**
@@ -2380,7 +2438,7 @@ public class GLFW {
      * function should not fail as long as it is passed valid arguments and the library has been initialized.</p>
      *
      * @param window the window to query
-     * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT TRANSPARENT}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td></tr><tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
+     * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td></tr><tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
      *
      * @return the value of the attribute, or zero if an error occurred
      *
@@ -2473,8 +2531,8 @@ public class GLFW {
     }
 
     /**
-     * Sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the screen position of the
-     * upper-left corner of the client area of the window.
+     * Sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the position, in screen
+     * coordinates, of the upper-left corner of the client area of the window.
      * 
      * <p>This function must only be called from the main thread.</p>
      *
@@ -3328,6 +3386,8 @@ public class GLFW {
      * pressed or released, see {@link #glfwSetKeyCallback SetKeyCallback} instead.</p>
      * 
      * <p>This function must only be called from the main thread.</p>
+     * 
+     * <p>Deprecared: scheduled for removal in version 4.0.</p>
      *
      * @param window the window whose callback to set
      * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -3931,7 +3991,7 @@ public class GLFW {
      * 
      * <p>This function must only be called from the main thread.</p>
      *
-     * @param window the window that will own the clipboard contents
+     * @param window deprecated, any valid window or {@code NULL}.
      * @param string a UTF-8 encoded string
      *
      * @since version 3.0
@@ -3950,7 +4010,7 @@ public class GLFW {
      * 
      * <p>This function must only be called from the main thread.</p>
      *
-     * @param window the window that will own the clipboard contents
+     * @param window deprecated, any valid window or {@code NULL}.
      * @param string a UTF-8 encoded string
      *
      * @since version 3.0
@@ -3991,7 +4051,7 @@ public class GLFW {
      * <li>The returned string is valid only until the next call to {@link #glfwGetClipboardString GetClipboardString} or {@link #glfwSetClipboardString SetClipboardString}.</li>
      * </ul></div>
      *
-     * @param window the window that will request the clipboard contents
+     * @param window deprecated, any valid window or {@code NULL}.
      *
      * @return the contents of the clipboard as a UTF-8 encoded string, or {@code NULL} if an error occurred
      *
@@ -4083,8 +4143,10 @@ public class GLFW {
     // --- [ glfwMakeContextCurrent ] ---
 
     /**
-     * Makes the OpenGL or OpenGL ES context of the specified window current on the calling thread. A context can only be made current on a single thread at a
-     * time and each thread can have only a single current context at a time.
+     * Makes the OpenGL or OpenGL ES context of the specified window current on the calling thread. A context must only be made current on a single thread at
+     * a time and each thread can have only a single current context at a time.
+     * 
+     * <p>When moving a context between threads, you must make it non-current on the old thread before making it current on the new one.</p>
      * 
      * <p>By default, making a context non-current implicitly forces a pipeline flush. On machines that support
      * <a target="_blank" href="https://www.opengl.org/registry/specs/KHR/context_flush_control.txt">GL_KHR_context_flush_control</a>, you can control whether a context
