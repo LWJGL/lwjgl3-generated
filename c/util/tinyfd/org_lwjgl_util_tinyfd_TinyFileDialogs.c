@@ -31,6 +31,19 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_tinyfd_TinyFileDialogs_ntinyfd_1resp
     return (jlong)(intptr_t)tinyfd_response;
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_tinyfd_TinyFileDialogs_tinyfd_1beep(JNIEnv *__env, jclass clazz) {
+    UNUSED_PARAMS(__env, clazz)
+    tinyfd_beep();
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyfd_TinyFileDialogs_ntinyfd_1notifyPopup(JNIEnv *__env, jclass clazz, jlong aTitleAddress, jlong aMessageAddress, jlong aIconTypeAddress) {
+    const char *aTitle = (const char *)(intptr_t)aTitleAddress;
+    const char *aMessage = (const char *)(intptr_t)aMessageAddress;
+    const char *aIconType = (const char *)(intptr_t)aIconTypeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)tinyfd_notifyPopup(aTitle, aMessage, aIconType);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tinyfd_TinyFileDialogs_ntinyfd_1messageBox(JNIEnv *__env, jclass clazz, jlong aTitleAddress, jlong aMessageAddress, jlong aDialogTypeAddress, jlong aIconTypeAddress, jint aDefaultButton) {
     const char *aTitle = (const char *)(intptr_t)aTitleAddress;
     const char *aMessage = (const char *)(intptr_t)aMessageAddress;

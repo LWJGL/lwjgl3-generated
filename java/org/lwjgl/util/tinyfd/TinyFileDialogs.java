@@ -104,6 +104,50 @@ public class TinyFileDialogs {
         return memUTF8(__result);
     }
 
+    // --- [ tinyfd_beep ] ---
+
+    public static native void tinyfd_beep();
+
+    // --- [ tinyfd_notifyPopup ] ---
+
+    /** Unsafe version of: {@link #tinyfd_notifyPopup notifyPopup} */
+    public static native int ntinyfd_notifyPopup(long aTitle, long aMessage, long aIconType);
+
+    /**
+     * Displays a notification popup.
+     *
+     * @param aTitle    the dialog title or {@code NULL}
+     * @param aMessage  the message or {@code NULL}. It may contain \n and \t characters.
+     * @param aIconType the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td></tr></table>
+     */
+    public static int tinyfd_notifyPopup(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aMessage, @NativeType("const char *") ByteBuffer aIconType) {
+        if (CHECKS) {
+            checkNT1Safe(aTitle);
+            checkNT1Safe(aMessage);
+            checkNT1(aIconType);
+        }
+        return ntinyfd_notifyPopup(memAddressSafe(aTitle), memAddressSafe(aMessage), memAddress(aIconType));
+    }
+
+    /**
+     * Displays a notification popup.
+     *
+     * @param aTitle    the dialog title or {@code NULL}
+     * @param aMessage  the message or {@code NULL}. It may contain \n and \t characters.
+     * @param aIconType the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td></tr></table>
+     */
+    public static int tinyfd_notifyPopup(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aMessage, @NativeType("const char *") CharSequence aIconType) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
+            ByteBuffer aMessageEncoded = stack.UTF8(aMessage);
+            ByteBuffer aIconTypeEncoded = stack.ASCII(aIconType);
+            return ntinyfd_notifyPopup(memAddressSafe(aTitleEncoded), memAddressSafe(aMessageEncoded), memAddress(aIconTypeEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
     // --- [ tinyfd_messageBox ] ---
 
     /** Unsafe version of: {@link #tinyfd_messageBox messageBox} */
