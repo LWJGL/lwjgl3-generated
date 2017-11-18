@@ -508,7 +508,7 @@ public class NkStyle extends Struct implements NativeResource {
     public static NkStyleWindow nwindow(long struct) { return NkStyleWindow.create(struct + NkStyle.WINDOW); }
 
     /** Unsafe version of {@link #font(NkUserFont) font}. */
-    public static void nfont(long struct, NkUserFont value) { memPutAddress(struct + NkStyle.FONT, value.address()); }
+    public static void nfont(long struct, NkUserFont value) { memPutAddress(struct + NkStyle.FONT, memAddressSafe(value)); }
     /** Unsafe version of {@link #cursors(PointerBuffer) cursors}. */
     public static void ncursors(long struct, PointerBuffer value) {
         if (CHECKS) { checkGT(value, NK_CURSOR_COUNT); }
@@ -559,27 +559,6 @@ public class NkStyle extends Struct implements NativeResource {
     public static void ncombo(long struct, NkStyleCombo value) { memCopy(value.address(), struct + NkStyle.COMBO, NkStyleCombo.SIZEOF); }
     /** Unsafe version of {@link #window(NkStyleWindow) window}. */
     public static void nwindow(long struct, NkStyleWindow value) { memCopy(value.address(), struct + NkStyle.WINDOW, NkStyleWindow.SIZEOF); }
-
-    /**
-     * Validates pointer members that should not be {@code NULL}.
-     *
-     * @param struct the struct to validate
-     */
-    public static void validate(long struct) {
-        check(memGetAddress(struct + NkStyle.FONT));
-    }
-
-    /**
-     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
-     *
-     * @param array the struct array to validate
-     * @param count the number of structs in {@code array}
-     */
-    public static void validate(long array, int count) {
-        for (int i = 0; i < count; i++) {
-            validate(array + i * SIZEOF);
-        }
-    }
 
     // -----------------------------------
 

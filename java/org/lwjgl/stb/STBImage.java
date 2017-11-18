@@ -154,8 +154,8 @@ public class STBImage {
      *   3                     red, green, blue
      *   4                     red, green, blue, alpha</pre></code>
      * 
-     * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *channels_in_file} will be unchanged. The function
-     * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
+     * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *channels_in_file} will be unchanged. The
+     * function {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
      * 
      * <p>Paletted PNG, BMP, GIF, and PIC images are automatically depalettized.</p>
      *
@@ -197,8 +197,8 @@ public class STBImage {
      *   3                     red, green, blue
      *   4                     red, green, blue, alpha</pre></code>
      * 
-     * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *channels_in_file} will be unchanged. The function
-     * {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
+     * <p>If image loading fails for any reason, the return value will be {@code NULL}, and {@code *x}, {@code *y}, {@code *channels_in_file} will be unchanged. The
+     * function {@link #stbi_failure_reason failure_reason} can be queried for an extremely brief, end-user unfriendly explanation of why the load failed.</p>
      * 
      * <p>Paletted PNG, BMP, GIF, and PIC images are automatically depalettized.</p>
      *

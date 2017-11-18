@@ -150,7 +150,7 @@ public class JNINativeInterface {
     // --- [ ToReflectedField ] ---
 
     /** Unsafe version of: {@link #ToReflectedField} */
-    public static native Method nToReflectedField(Class<?> cls, long fieldID, boolean isStatic);
+    public static native Field nToReflectedField(Class<?> cls, long fieldID, boolean isStatic);
 
     /**
      * Converts a field ID derived from {@code cls} to a {@link Field} object.
@@ -160,7 +160,7 @@ public class JNINativeInterface {
      * @param isStatic must be set to {@link #JNI_TRUE TRUE} if {@code fieldID} refers to a static field, and {@link #JNI_FALSE FALSE} otherwise
      */
     @NativeType("jobject")
-    public static Method ToReflectedField(@NativeType("jclass") Class<?> cls, @NativeType("jfieldID") long fieldID, @NativeType("jboolean") boolean isStatic) {
+    public static Field ToReflectedField(@NativeType("jclass") Class<?> cls, @NativeType("jfieldID") long fieldID, @NativeType("jboolean") boolean isStatic) {
         if (CHECKS) {
             check(fieldID);
         }
