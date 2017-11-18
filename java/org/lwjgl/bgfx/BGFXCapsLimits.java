@@ -35,6 +35,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code maxDynamicVertexBuffers} &ndash; maximum number of vertex buffer handles</li>
  * <li>{@code maxUniforms} &ndash; maximum number of uniform handles</li>
  * <li>{@code maxOcclusionQueries} &ndash; maximum number of occlusion query handles</li>
+ * <li>{@code maxEncoders} &ndash; maximum number of encoder threads</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -59,6 +60,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t maxDynamicVertexBuffers;
  *     uint32_t maxUniforms;
  *     uint32_t maxOcclusionQueries;
+ *     uint32_t maxEncoders;
  * }</pre></code>
  */
 @NativeType("struct bgfx_caps_limits_t")
@@ -88,10 +90,12 @@ public class BGFXCapsLimits extends Struct {
         MAXDYNAMICINDEXBUFFERS,
         MAXDYNAMICVERTEXBUFFERS,
         MAXUNIFORMS,
-        MAXOCCLUSIONQUERIES;
+        MAXOCCLUSIONQUERIES,
+        MAXENCODERS;
 
     static {
         Layout layout = __struct(
+            __member(4),
             __member(4),
             __member(4),
             __member(4),
@@ -133,6 +137,7 @@ public class BGFXCapsLimits extends Struct {
         MAXDYNAMICVERTEXBUFFERS = layout.offsetof(15);
         MAXUNIFORMS = layout.offsetof(16);
         MAXOCCLUSIONQUERIES = layout.offsetof(17);
+        MAXENCODERS = layout.offsetof(18);
     }
 
     BGFXCapsLimits(long address, ByteBuffer container) {
@@ -206,6 +211,9 @@ public class BGFXCapsLimits extends Struct {
     /** Returns the value of the {@code maxOcclusionQueries} field. */
     @NativeType("uint32_t")
     public int maxOcclusionQueries() { return nmaxOcclusionQueries(address()); }
+    /** Returns the value of the {@code maxEncoders} field. */
+    @NativeType("uint32_t")
+    public int maxEncoders() { return nmaxEncoders(address()); }
 
     // -----------------------------------
 
@@ -262,6 +270,8 @@ public class BGFXCapsLimits extends Struct {
     public static int nmaxUniforms(long struct) { return memGetInt(struct + BGFXCapsLimits.MAXUNIFORMS); }
     /** Unsafe version of {@link #maxOcclusionQueries}. */
     public static int nmaxOcclusionQueries(long struct) { return memGetInt(struct + BGFXCapsLimits.MAXOCCLUSIONQUERIES); }
+    /** Unsafe version of {@link #maxEncoders}. */
+    public static int nmaxEncoders(long struct) { return memGetInt(struct + BGFXCapsLimits.MAXENCODERS); }
 
     // -----------------------------------
 
@@ -359,6 +369,9 @@ public class BGFXCapsLimits extends Struct {
         /** Returns the value of the {@code maxOcclusionQueries} field. */
         @NativeType("uint32_t")
         public int maxOcclusionQueries() { return BGFXCapsLimits.nmaxOcclusionQueries(address()); }
+        /** Returns the value of the {@code maxEncoders} field. */
+        @NativeType("uint32_t")
+        public int maxEncoders() { return BGFXCapsLimits.nmaxEncoders(address()); }
 
     }
 

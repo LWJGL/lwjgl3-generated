@@ -29,8 +29,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * struct bgfx_view_stats_t {
  *     char name[256];
  *     uint8_t view;
- *     uint64_t cpuTimeElapsed;
- *     uint64_t gpuTimeElapsed;
+ *     int64_t cpuTimeElapsed;
+ *     int64_t gpuTimeElapsed;
  * }</pre></code>
  */
 @NativeType("struct bgfx_view_stats_t")
@@ -92,10 +92,10 @@ public class BGFXViewStats extends Struct {
     @NativeType("uint8_t")
     public byte view() { return nview(address()); }
     /** Returns the value of the {@code cpuTimeElapsed} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long cpuTimeElapsed() { return ncpuTimeElapsed(address()); }
     /** Returns the value of the {@code gpuTimeElapsed} field. */
-    @NativeType("uint64_t")
+    @NativeType("int64_t")
     public long gpuTimeElapsed() { return ngpuTimeElapsed(address()); }
 
     // -----------------------------------
@@ -180,10 +180,10 @@ public class BGFXViewStats extends Struct {
         @NativeType("uint8_t")
         public byte view() { return BGFXViewStats.nview(address()); }
         /** Returns the value of the {@code cpuTimeElapsed} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long cpuTimeElapsed() { return BGFXViewStats.ncpuTimeElapsed(address()); }
         /** Returns the value of the {@code gpuTimeElapsed} field. */
-        @NativeType("uint64_t")
+        @NativeType("int64_t")
         public long gpuTimeElapsed() { return BGFXViewStats.ngpuTimeElapsed(address()); }
 
     }

@@ -65,7 +65,7 @@ public class BGFXPlatform {
      *
      * @param _msecs timeout in milliseconds
      *
-     * @return current renderer state
+     * @return current renderer state. One of: {@link #BGFX_RENDER_FRAME_NO_CONTEXT RENDER_FRAME_NO_CONTEXT} {@link #BGFX_RENDER_FRAME_RENDER RENDER_FRAME_RENDER} {@link #BGFX_RENDER_FRAME_TIMEOUT RENDER_FRAME_TIMEOUT} {@link #BGFX_RENDER_FRAME_EXITING RENDER_FRAME_EXITING} {@link #BGFX_RENDER_FRAME_COUNT RENDER_FRAME_COUNT}
      */
     @NativeType("bgfx_renderer_frame_t")
     public static int bgfx_render_frame(@NativeType("int32_t") int _msecs) {

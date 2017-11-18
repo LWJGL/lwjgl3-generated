@@ -9,7 +9,6 @@ import java.nio.*;
 
 import org.lwjgl.system.*;
 
-import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
@@ -38,6 +37,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code textHeight} &ndash; debug text height in characters</li>
  * <li>{@code numViews} &ndash; number of view stats</li>
  * <li>{@code viewStats} &ndash; view stats</li>
+ * <li>{@code numEncoder} &ndash; number of encoders used during frame</li>
+ * <li>{@code encoderStats} &ndash; encoder stats</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -63,7 +64,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint16_t textWidth;
  *     uint16_t textHeight;
  *     uint16_t numViews;
- *     {@link BGFXViewStats bgfx_view_stats_t} viewStats[256];
+ *     {@link BGFXViewStats bgfx_view_stats_t} * viewStats;
+ *     uint16_t numEncoder;
+ *     {@link BGFXEncoderStats bgfx_encoder_stats_t} * encoderStats;
  * }</pre></code>
  */
 @NativeType("struct bgfx_stats_t")
@@ -95,7 +98,9 @@ public class BGFXStats extends Struct {
         TEXTWIDTH,
         TEXTHEIGHT,
         NUMVIEWS,
-        VIEWSTATS;
+        VIEWSTATS,
+        NUMENCODER,
+        ENCODERSTATS;
 
     static {
         Layout layout = __struct(
@@ -118,7 +123,9 @@ public class BGFXStats extends Struct {
             __member(2),
             __member(2),
             __member(2),
-            __array(BGFXViewStats.SIZEOF, BGFXViewStats.ALIGNOF, 256)
+            __member(POINTER_SIZE),
+            __member(2),
+            __member(POINTER_SIZE)
         );
 
         SIZEOF = layout.getSize();
@@ -144,6 +151,8 @@ public class BGFXStats extends Struct {
         TEXTHEIGHT = layout.offsetof(17);
         NUMVIEWS = layout.offsetof(18);
         VIEWSTATS = layout.offsetof(19);
+        NUMENCODER = layout.offsetof(20);
+        ENCODERSTATS = layout.offsetof(21);
     }
 
     BGFXStats(long address, ByteBuffer container) {
@@ -220,12 +229,15 @@ public class BGFXStats extends Struct {
     /** Returns the value of the {@code numViews} field. */
     @NativeType("uint16_t")
     public short numViews() { return nnumViews(address()); }
-    /** Returns a {@link BGFXViewStats}.Buffer view of the {@code viewStats} field. */
-    @NativeType("bgfx_view_stats_t[256]")
+    /** Returns a {@link BGFXViewStats.Buffer} view of the struct array pointed to by the {@code viewStats} field. */
+    @NativeType("bgfx_view_stats_t *")
     public BGFXViewStats.Buffer viewStats() { return nviewStats(address()); }
-    /** Returns a {@link BGFXViewStats} view of the struct at the specified index of the {@code viewStats} field. */
-    @NativeType("bgfx_view_stats_t")
-    public BGFXViewStats viewStats(int index) { return nviewStats(address(), index); }
+    /** Returns the value of the {@code numEncoder} field. */
+    @NativeType("uint16_t")
+    public short numEncoder() { return nnumEncoder(address()); }
+    /** Returns a {@link BGFXEncoderStats.Buffer} view of the struct array pointed to by the {@code encoderStats} field. */
+    @NativeType("bgfx_encoder_stats_t *")
+    public BGFXEncoderStats.Buffer encoderStats() { return nencoderStats(address()); }
 
     // -----------------------------------
 
@@ -285,12 +297,11 @@ public class BGFXStats extends Struct {
     /** Unsafe version of {@link #numViews}. */
     public static short nnumViews(long struct) { return memGetShort(struct + BGFXStats.NUMVIEWS); }
     /** Unsafe version of {@link #viewStats}. */
-    public static BGFXViewStats.Buffer nviewStats(long struct) { return BGFXViewStats.create(struct + BGFXStats.VIEWSTATS, Short.toUnsignedInt(nnumViews(struct))); }
-    /** Unsafe version of {@link #viewStats(int) viewStats}. */
-    public static BGFXViewStats nviewStats(long struct, int index) {
-        if (CHECKS) { check(index, Short.toUnsignedInt(nnumViews(struct))); }
-        return BGFXViewStats.create(struct + BGFXStats.VIEWSTATS + index * BGFXViewStats.SIZEOF);
-    }
+    public static BGFXViewStats.Buffer nviewStats(long struct) { return BGFXViewStats.create(memGetAddress(struct + BGFXStats.VIEWSTATS), Short.toUnsignedInt(nnumViews(struct))); }
+    /** Unsafe version of {@link #numEncoder}. */
+    public static short nnumEncoder(long struct) { return memGetShort(struct + BGFXStats.NUMENCODER); }
+    /** Unsafe version of {@link #encoderStats}. */
+    public static BGFXEncoderStats.Buffer nencoderStats(long struct) { return BGFXEncoderStats.create(memGetAddress(struct + BGFXStats.ENCODERSTATS), Short.toUnsignedInt(nnumEncoder(struct))); }
 
     // -----------------------------------
 
@@ -391,12 +402,15 @@ public class BGFXStats extends Struct {
         /** Returns the value of the {@code numViews} field. */
         @NativeType("uint16_t")
         public short numViews() { return BGFXStats.nnumViews(address()); }
-        /** Returns a {@link BGFXViewStats}.Buffer view of the {@code viewStats} field. */
-        @NativeType("bgfx_view_stats_t[256]")
+        /** Returns a {@link BGFXViewStats.Buffer} view of the struct array pointed to by the {@code viewStats} field. */
+        @NativeType("bgfx_view_stats_t *")
         public BGFXViewStats.Buffer viewStats() { return BGFXStats.nviewStats(address()); }
-        /** Returns a {@link BGFXViewStats} view of the struct at the specified index of the {@code viewStats} field. */
-        @NativeType("bgfx_view_stats_t")
-        public BGFXViewStats viewStats(int index) { return BGFXStats.nviewStats(address(), index); }
+        /** Returns the value of the {@code numEncoder} field. */
+        @NativeType("uint16_t")
+        public short numEncoder() { return BGFXStats.nnumEncoder(address()); }
+        /** Returns a {@link BGFXEncoderStats.Buffer} view of the struct array pointed to by the {@code encoderStats} field. */
+        @NativeType("bgfx_encoder_stats_t *")
+        public BGFXEncoderStats.Buffer encoderStats() { return BGFXStats.nencoderStats(address()); }
 
     }
 
