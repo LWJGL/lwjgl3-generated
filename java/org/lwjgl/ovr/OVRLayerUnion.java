@@ -28,7 +28,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * union ovrLayer_Union {
  *     {@link OVRLayerHeader ovrLayerHeader} Header;
  *     {@link OVRLayerEyeFov ovrLayerEyeFov} EyeFov;
+ *     {@link OVRLayerEyeFovDepth ovrLayerEyeFovDepth} EyeFovDepth;
  *     {@link OVRLayerEyeFovMultires ovrLayerEyeFovMultires} Multires;
+ *     {@link OVRLayerCylinder ovrLayerCylinder} Cylinder;
  *     {@link OVRLayerCube ovrLayerCube} Cube;
  *     {@link OVRLayerQuad ovrLayerQuad} Quad;
  * }</pre></code>
@@ -45,7 +47,9 @@ public class OVRLayerUnion extends Struct implements NativeResource {
     public static final int
         HEADER,
         EYEFOV,
+        EYEFOVDEPTH,
         MULTIRES,
+        CYLINDER,
         CUBE,
         QUAD;
 
@@ -53,7 +57,9 @@ public class OVRLayerUnion extends Struct implements NativeResource {
         Layout layout = __union(
             __member(OVRLayerHeader.SIZEOF, OVRLayerHeader.ALIGNOF),
             __member(OVRLayerEyeFov.SIZEOF, OVRLayerEyeFov.ALIGNOF),
+            __member(OVRLayerEyeFovDepth.SIZEOF, OVRLayerEyeFovDepth.ALIGNOF),
             __member(OVRLayerEyeFovMultires.SIZEOF, OVRLayerEyeFovMultires.ALIGNOF),
+            __member(OVRLayerCylinder.SIZEOF, OVRLayerCylinder.ALIGNOF),
             __member(OVRLayerCube.SIZEOF, OVRLayerCube.ALIGNOF),
             __member(OVRLayerQuad.SIZEOF, OVRLayerQuad.ALIGNOF)
         );
@@ -63,9 +69,11 @@ public class OVRLayerUnion extends Struct implements NativeResource {
 
         HEADER = layout.offsetof(0);
         EYEFOV = layout.offsetof(1);
-        MULTIRES = layout.offsetof(2);
-        CUBE = layout.offsetof(3);
-        QUAD = layout.offsetof(4);
+        EYEFOVDEPTH = layout.offsetof(2);
+        MULTIRES = layout.offsetof(3);
+        CYLINDER = layout.offsetof(4);
+        CUBE = layout.offsetof(5);
+        QUAD = layout.offsetof(6);
     }
 
     OVRLayerUnion(long address, ByteBuffer container) {
@@ -91,9 +99,15 @@ public class OVRLayerUnion extends Struct implements NativeResource {
     /** Returns a {@link OVRLayerEyeFov} view of the {@code EyeFov} field. */
     @NativeType("ovrLayerEyeFov")
     public OVRLayerEyeFov EyeFov() { return nEyeFov(address()); }
+    /** Returns a {@link OVRLayerEyeFovDepth} view of the {@code EyeFovDepth} field. */
+    @NativeType("ovrLayerEyeFovDepth")
+    public OVRLayerEyeFovDepth EyeFovDepth() { return nEyeFovDepth(address()); }
     /** Returns a {@link OVRLayerEyeFovMultires} view of the {@code Multires} field. */
     @NativeType("ovrLayerEyeFovMultires")
     public OVRLayerEyeFovMultires Multires() { return nMultires(address()); }
+    /** Returns a {@link OVRLayerCylinder} view of the {@code Cylinder} field. */
+    @NativeType("ovrLayerCylinder")
+    public OVRLayerCylinder Cylinder() { return nCylinder(address()); }
     /** Returns a {@link OVRLayerCube} view of the {@code Cube} field. */
     @NativeType("ovrLayerCube")
     public OVRLayerCube Cube() { return nCube(address()); }
@@ -105,8 +119,12 @@ public class OVRLayerUnion extends Struct implements NativeResource {
     public OVRLayerUnion Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { nHeader(address(), value); return this; }
     /** Copies the specified {@link OVRLayerEyeFov} to the {@code EyeFov} field. */
     public OVRLayerUnion EyeFov(@NativeType("ovrLayerEyeFov") OVRLayerEyeFov value) { nEyeFov(address(), value); return this; }
+    /** Copies the specified {@link OVRLayerEyeFovDepth} to the {@code EyeFovDepth} field. */
+    public OVRLayerUnion EyeFovDepth(@NativeType("ovrLayerEyeFovDepth") OVRLayerEyeFovDepth value) { nEyeFovDepth(address(), value); return this; }
     /** Copies the specified {@link OVRLayerEyeFovMultires} to the {@code Multires} field. */
     public OVRLayerUnion Multires(@NativeType("ovrLayerEyeFovMultires") OVRLayerEyeFovMultires value) { nMultires(address(), value); return this; }
+    /** Copies the specified {@link OVRLayerCylinder} to the {@code Cylinder} field. */
+    public OVRLayerUnion Cylinder(@NativeType("ovrLayerCylinder") OVRLayerCylinder value) { nCylinder(address(), value); return this; }
     /** Copies the specified {@link OVRLayerCube} to the {@code Cube} field. */
     public OVRLayerUnion Cube(@NativeType("ovrLayerCube") OVRLayerCube value) { nCube(address(), value); return this; }
     /** Copies the specified {@link OVRLayerQuad} to the {@code Quad} field. */
@@ -257,8 +275,12 @@ public class OVRLayerUnion extends Struct implements NativeResource {
     public static OVRLayerHeader nHeader(long struct) { return OVRLayerHeader.create(struct + OVRLayerUnion.HEADER); }
     /** Unsafe version of {@link #EyeFov}. */
     public static OVRLayerEyeFov nEyeFov(long struct) { return OVRLayerEyeFov.create(struct + OVRLayerUnion.EYEFOV); }
+    /** Unsafe version of {@link #EyeFovDepth}. */
+    public static OVRLayerEyeFovDepth nEyeFovDepth(long struct) { return OVRLayerEyeFovDepth.create(struct + OVRLayerUnion.EYEFOVDEPTH); }
     /** Unsafe version of {@link #Multires}. */
     public static OVRLayerEyeFovMultires nMultires(long struct) { return OVRLayerEyeFovMultires.create(struct + OVRLayerUnion.MULTIRES); }
+    /** Unsafe version of {@link #Cylinder}. */
+    public static OVRLayerCylinder nCylinder(long struct) { return OVRLayerCylinder.create(struct + OVRLayerUnion.CYLINDER); }
     /** Unsafe version of {@link #Cube}. */
     public static OVRLayerCube nCube(long struct) { return OVRLayerCube.create(struct + OVRLayerUnion.CUBE); }
     /** Unsafe version of {@link #Quad}. */
@@ -268,8 +290,12 @@ public class OVRLayerUnion extends Struct implements NativeResource {
     public static void nHeader(long struct, OVRLayerHeader value) { memCopy(value.address(), struct + OVRLayerUnion.HEADER, OVRLayerHeader.SIZEOF); }
     /** Unsafe version of {@link #EyeFov(OVRLayerEyeFov) EyeFov}. */
     public static void nEyeFov(long struct, OVRLayerEyeFov value) { memCopy(value.address(), struct + OVRLayerUnion.EYEFOV, OVRLayerEyeFov.SIZEOF); }
+    /** Unsafe version of {@link #EyeFovDepth(OVRLayerEyeFovDepth) EyeFovDepth}. */
+    public static void nEyeFovDepth(long struct, OVRLayerEyeFovDepth value) { memCopy(value.address(), struct + OVRLayerUnion.EYEFOVDEPTH, OVRLayerEyeFovDepth.SIZEOF); }
     /** Unsafe version of {@link #Multires(OVRLayerEyeFovMultires) Multires}. */
     public static void nMultires(long struct, OVRLayerEyeFovMultires value) { memCopy(value.address(), struct + OVRLayerUnion.MULTIRES, OVRLayerEyeFovMultires.SIZEOF); }
+    /** Unsafe version of {@link #Cylinder(OVRLayerCylinder) Cylinder}. */
+    public static void nCylinder(long struct, OVRLayerCylinder value) { memCopy(value.address(), struct + OVRLayerUnion.CYLINDER, OVRLayerCylinder.SIZEOF); }
     /** Unsafe version of {@link #Cube(OVRLayerCube) Cube}. */
     public static void nCube(long struct, OVRLayerCube value) { memCopy(value.address(), struct + OVRLayerUnion.CUBE, OVRLayerCube.SIZEOF); }
     /** Unsafe version of {@link #Quad(OVRLayerQuad) Quad}. */
@@ -323,9 +349,15 @@ public class OVRLayerUnion extends Struct implements NativeResource {
         /** Returns a {@link OVRLayerEyeFov} view of the {@code EyeFov} field. */
         @NativeType("ovrLayerEyeFov")
         public OVRLayerEyeFov EyeFov() { return OVRLayerUnion.nEyeFov(address()); }
+        /** Returns a {@link OVRLayerEyeFovDepth} view of the {@code EyeFovDepth} field. */
+        @NativeType("ovrLayerEyeFovDepth")
+        public OVRLayerEyeFovDepth EyeFovDepth() { return OVRLayerUnion.nEyeFovDepth(address()); }
         /** Returns a {@link OVRLayerEyeFovMultires} view of the {@code Multires} field. */
         @NativeType("ovrLayerEyeFovMultires")
         public OVRLayerEyeFovMultires Multires() { return OVRLayerUnion.nMultires(address()); }
+        /** Returns a {@link OVRLayerCylinder} view of the {@code Cylinder} field. */
+        @NativeType("ovrLayerCylinder")
+        public OVRLayerCylinder Cylinder() { return OVRLayerUnion.nCylinder(address()); }
         /** Returns a {@link OVRLayerCube} view of the {@code Cube} field. */
         @NativeType("ovrLayerCube")
         public OVRLayerCube Cube() { return OVRLayerUnion.nCube(address()); }
@@ -337,8 +369,12 @@ public class OVRLayerUnion extends Struct implements NativeResource {
         public OVRLayerUnion.Buffer Header(@NativeType("ovrLayerHeader") OVRLayerHeader value) { OVRLayerUnion.nHeader(address(), value); return this; }
         /** Copies the specified {@link OVRLayerEyeFov} to the {@code EyeFov} field. */
         public OVRLayerUnion.Buffer EyeFov(@NativeType("ovrLayerEyeFov") OVRLayerEyeFov value) { OVRLayerUnion.nEyeFov(address(), value); return this; }
+        /** Copies the specified {@link OVRLayerEyeFovDepth} to the {@code EyeFovDepth} field. */
+        public OVRLayerUnion.Buffer EyeFovDepth(@NativeType("ovrLayerEyeFovDepth") OVRLayerEyeFovDepth value) { OVRLayerUnion.nEyeFovDepth(address(), value); return this; }
         /** Copies the specified {@link OVRLayerEyeFovMultires} to the {@code Multires} field. */
         public OVRLayerUnion.Buffer Multires(@NativeType("ovrLayerEyeFovMultires") OVRLayerEyeFovMultires value) { OVRLayerUnion.nMultires(address(), value); return this; }
+        /** Copies the specified {@link OVRLayerCylinder} to the {@code Cylinder} field. */
+        public OVRLayerUnion.Buffer Cylinder(@NativeType("ovrLayerCylinder") OVRLayerCylinder value) { OVRLayerUnion.nCylinder(address(), value); return this; }
         /** Copies the specified {@link OVRLayerCube} to the {@code Cube} field. */
         public OVRLayerUnion.Buffer Cube(@NativeType("ovrLayerCube") OVRLayerCube value) { OVRLayerUnion.nCube(address(), value); return this; }
         /** Copies the specified {@link OVRLayerQuad} to the {@code Quad} field. */

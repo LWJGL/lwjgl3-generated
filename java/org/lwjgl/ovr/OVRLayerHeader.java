@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code Type} &ndash; described by {@code ovrLayerType}. One of:<br><table><tr><td>{@link OVR#ovrLayerType_Disabled LayerType_Disabled}</td><td>{@link OVR#ovrLayerType_EyeFov LayerType_EyeFov}</td><td>{@link OVR#ovrLayerType_Quad LayerType_Quad}</td><td>{@link OVR#ovrLayerType_EyeMatrix LayerType_EyeMatrix}</td></tr><tr><td>{@link OVR#ovrLayerType_EyeFovMultires LayerType_EyeFovMultires}</td><td>{@link OVR#ovrLayerType_Cube LayerType_Cube}</td></tr></table></li>
+ * <li>{@code Type} &ndash; described by {@code ovrLayerType}. One of:<br><table><tr><td>{@link OVR#ovrLayerType_Disabled LayerType_Disabled}</td><td>{@link OVR#ovrLayerType_EyeFov LayerType_EyeFov}</td><td>{@link OVR#ovrLayerType_EyeFovDepth LayerType_EyeFovDepth}</td><td>{@link OVR#ovrLayerType_Quad LayerType_Quad}</td></tr><tr><td>{@link OVR#ovrLayerType_EyeMatrix LayerType_EyeMatrix}</td><td>{@link OVR#ovrLayerType_EyeFovMultires LayerType_EyeFovMultires}</td><td>{@link OVR#ovrLayerType_Cylinder LayerType_Cylinder}</td><td>{@link OVR#ovrLayerType_Cube LayerType_Cube}</td></tr></table></li>
  * <li>{@code Flags} &ndash; described by {@code ovrLayerFlags}</li>
  * </ul>
  * 

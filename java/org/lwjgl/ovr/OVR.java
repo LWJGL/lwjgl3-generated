@@ -351,6 +351,42 @@ public class OVR {
         ovrTextureMisc_AutoGenerateMips  = 0x8;
 
     /**
+     * Bit flags used as part of {@link OVRMirrorTextureDesc}'s {@code MirrorOptions} field. {@code ovrMirrorOptions}
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #ovrMirrorOption_Default MirrorOption_Default} - 
+     * By default the mirror texture will be:
+     * 
+     * <ul>
+     * <li>Pre-distortion (i.e. rectilinear)</li>
+     * <li>Contain both eye textures</li>
+     * <li>Exclude Guardian, Notifications, System Menu GUI</li>
+     * </ul>
+     * </li>
+     * <li>{@link #ovrMirrorOption_PostDistortion MirrorOption_PostDistortion} - 
+     * Retrieves the barrel distorted texture contents instead of the rectilinear one.
+     * 
+     * <p>This is only recommended for debugging purposes, and not for final desktop presentation.</p>
+     * </li>
+     * <li>{@link #ovrMirrorOption_LeftEyeOnly MirrorOption_LeftEyeOnly} - Since {@link #ovrMirrorOption_Default MirrorOption_Default} renders both eyes into the mirror texture, these two flags are exclusive (i.e. cannot use them simultaneously)</li>
+     * <li>{@link #ovrMirrorOption_RightEyeOnly MirrorOption_RightEyeOnly} - See {@link #ovrMirrorOption_LeftEyeOnly MirrorOption_LeftEyeOnly}</li>
+     * <li>{@link #ovrMirrorOption_IncludeGuardian MirrorOption_IncludeGuardian} - Shows the boundary system aka Guardian on the mirror texture.</li>
+     * <li>{@link #ovrMirrorOption_IncludeNotifications MirrorOption_IncludeNotifications} - Shows system notifications the user receives on the mirror texture.</li>
+     * <li>{@link #ovrMirrorOption_IncludeSystemGui MirrorOption_IncludeSystemGui} - Shows the system menu (triggered by hitting the Home button) on the mirror texture.</li>
+     * </ul>
+     */
+    public static final int
+        ovrMirrorOption_Default              = 0x0,
+        ovrMirrorOption_PostDistortion       = 0x1,
+        ovrMirrorOption_LeftEyeOnly          = 0x2,
+        ovrMirrorOption_RightEyeOnly         = 0x4,
+        ovrMirrorOption_IncludeGuardian      = 0x8,
+        ovrMirrorOption_IncludeNotifications = 0x10,
+        ovrMirrorOption_IncludeSystemGui     = 0x20;
+
+    /**
      * Button input types. ({@code ovrTouch})
      * 
      * <h5>Enum values:</h5>
@@ -594,18 +630,22 @@ public class OVR {
      * <ul>
      * <li>{@link #ovrLayerType_Disabled LayerType_Disabled} - Layer is disabled.</li>
      * <li>{@link #ovrLayerType_EyeFov LayerType_EyeFov} - Described by {@link OVRLayerEyeFov}.</li>
+     * <li>{@link #ovrLayerType_EyeFovDepth LayerType_EyeFovDepth} - Described by {@link OVRLayerEyeFovDepth}.</li>
      * <li>{@link #ovrLayerType_Quad LayerType_Quad} - Described by {@link OVRLayerQuad}.</li>
      * <li>{@link #ovrLayerType_EyeMatrix LayerType_EyeMatrix} - Described by {@link OVRLayerEyeMatrix}.</li>
      * <li>{@link #ovrLayerType_EyeFovMultires LayerType_EyeFovMultires} - Described by {@link OVRLayerEyeFovMultires}.</li>
+     * <li>{@link #ovrLayerType_Cylinder LayerType_Cylinder} - Described by {@link OVRLayerCylinder}.</li>
      * <li>{@link #ovrLayerType_Cube LayerType_Cube} - Described by {@link OVRLayerCube}.</li>
      * </ul>
      */
     public static final int
         ovrLayerType_Disabled       = 0,
         ovrLayerType_EyeFov         = 1,
+        ovrLayerType_EyeFovDepth    = 2,
         ovrLayerType_Quad           = 3,
         ovrLayerType_EyeMatrix      = 5,
         ovrLayerType_EyeFovMultires = 7,
+        ovrLayerType_Cylinder       = 8,
         ovrLayerType_Cube           = 10;
 
     /**

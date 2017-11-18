@@ -26,6 +26,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1GetTextureSwapChainBufferG
     return (jint)ovr_GetTextureSwapChainBufferGL(session, chain, index, out_TexId);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1CreateMirrorTextureWithOptionsGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong descAddress, jlong out_MirrorTextureAddress) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    const ovrMirrorTextureDesc *desc = (const ovrMirrorTextureDesc *)(intptr_t)descAddress;
+    ovrMirrorTexture *out_MirrorTexture = (ovrMirrorTexture *)(intptr_t)out_MirrorTextureAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_CreateMirrorTextureWithOptionsGL(session, desc, out_MirrorTexture);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRGL_novr_1CreateMirrorTextureGL(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong descAddress, jlong out_MirrorTextureAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     const ovrMirrorTextureDesc *desc = (const ovrMirrorTextureDesc *)(intptr_t)descAddress;

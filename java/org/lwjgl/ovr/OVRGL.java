@@ -84,19 +84,51 @@ public class OVRGL {
         return novr_GetTextureSwapChainBufferGL(session, chain, index, memAddress(out_TexId));
     }
 
+    // --- [ ovr_CreateMirrorTextureWithOptionsGL ] ---
+
+    /** Unsafe version of: {@link #ovr_CreateMirrorTextureWithOptionsGL CreateMirrorTextureWithOptionsGL} */
+    public static native int novr_CreateMirrorTextureWithOptionsGL(long session, long desc, long out_MirrorTexture);
+
+    /**
+     * Creates a Mirror Texture which is auto-refreshed to mirror Rift contents produced by this application.
+     * 
+     * <p>A second call to {@code ovr_CreateMirrorTextureWithOptionsGL} for a given {@code ovrSession} before destroying the first one is not supported and will
+     * result in an error return.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>The {@code format} provided should be thought of as the format the distortion compositor will use when writing into the mirror texture. It is highly
+     * recommended that mirror textures are requested as sRGB formats because the distortion compositor does sRGB-correct rendering. If the application
+     * requests a non-sRGB format (e.g. {@code R8G8B8A8_UNORM}) as the mirror texture, then the application might have to apply a manual linear-to-gamma
+     * conversion when reading from the mirror texture. Failure to do so can result in incorrect gamma conversions leading to gamma-curve artifacts and color
+     * banding.</p></div>
+     *
+     * @param session           an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
+     * @param desc              specifies the requested mirror texture description
+     * @param out_MirrorTexture specifies the created {@code ovrMirrorTexture}, which will be valid upon a successful return value, else it will be {@code NULL}. This texture must be
+     *                          eventually destroyed via {@link OVR#ovr_DestroyMirrorTexture DestroyMirrorTexture} before destroying the session with {@link OVR#ovr_Destroy Destroy}.
+     *
+     * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
+     */
+    @NativeType("ovrResult")
+    public static int ovr_CreateMirrorTextureWithOptionsGL(@NativeType("ovrSession") long session, @NativeType("const ovrMirrorTextureDesc *") OVRMirrorTextureDesc desc, @NativeType("ovrMirrorTexture *") PointerBuffer out_MirrorTexture) {
+        if (CHECKS) {
+            check(session);
+            check(out_MirrorTexture, 1);
+        }
+        return novr_CreateMirrorTextureWithOptionsGL(session, desc.address(), memAddress(out_MirrorTexture));
+    }
+
     // --- [ ovr_CreateMirrorTextureGL ] ---
 
     /** Unsafe version of: {@link #ovr_CreateMirrorTextureGL CreateMirrorTextureGL} */
     public static native int novr_CreateMirrorTextureGL(long session, long desc, long out_MirrorTexture);
 
     /**
-     * Creates a Mirror Texture which is auto-refreshed to mirror Rift contents produced by this application.
+     * Deprecated. Use {@link #ovr_CreateMirrorTextureWithOptionsGL CreateMirrorTextureWithOptionsGL} instead.
      * 
-     * <p>The format provided should be thought of as the format the distortion compositor will use when writing into the mirror texture. It is highly
-     * recommended that mirror textures are requested as sRGB formats because the distortion compositor does sRGB-correct rendering. If the application
-     * requests a non-sRGB format (e.g. {@code R8G8B8A8_UNORM}) as the mirror texture, then the application might have to apply a manual linear-to-gamma
-     * conversion when reading from the mirror texture. Failure to do so can result in incorrect gamma conversions leading to gamma-curve artifacts and color
-     * banding.</p>
+     * <p>Same as {@code ovr_CreateMirrorTextureWithOptionsGL} except doesn't use {@code ovrMirrorOptions} flags as part of {@link OVRMirrorTextureDesc}'s
+     * {@code MirrorOptions} field, and defaults to {@link OVR#ovrMirrorOption_PostDistortion MirrorOption_PostDistortion}.</p>
      *
      * @param session           an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
      * @param desc              the requested mirror texture description
@@ -123,7 +155,7 @@ public class OVRGL {
      * Gets a the underlying buffer as a GL texture name.
      *
      * @param session       an {@code ovrSession} previously returned by {@link OVR#ovr_Create Create}
-     * @param mirrorTexture an {@code OVRMirrorTexture} previously returned by {@link #ovr_CreateMirrorTextureGL CreateMirrorTextureGL}
+     * @param mirrorTexture an {@code OVRMirrorTexture} previously returned by {@link #ovr_CreateMirrorTextureWithOptionsGL CreateMirrorTextureWithOptionsGL}
      * @param out_TexId     returns the GL texture object name associated with the mirror texture
      *
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
