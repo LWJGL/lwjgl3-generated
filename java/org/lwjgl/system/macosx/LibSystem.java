@@ -22,7 +22,6 @@ public final class LibSystem {
 
     private static final SharedLibrary SYSTEM = Library.loadNative(LibSystem.class, "System");
 
-    /** Contains the function pointers loaded from the System {@link SharedLibrary}. */
     /** Returns the System {@link SharedLibrary}. */
     public static SharedLibrary getLibrary() {
         return SYSTEM;
