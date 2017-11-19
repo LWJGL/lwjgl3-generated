@@ -980,7 +980,7 @@ public class ZstdX {
      * @param param one of:<br><table><tr><td>{@link #ZSTD_p_format p_format}</td><td>{@link #ZSTD_p_compressionLevel p_compressionLevel}</td><td>{@link #ZSTD_p_windowLog p_windowLog}</td><td>{@link #ZSTD_p_hashLog p_hashLog}</td><td>{@link #ZSTD_p_chainLog p_chainLog}</td></tr><tr><td>{@link #ZSTD_p_searchLog p_searchLog}</td><td>{@link #ZSTD_p_minMatch p_minMatch}</td><td>{@link #ZSTD_p_targetLength p_targetLength}</td><td>{@link #ZSTD_p_compressionStrategy p_compressionStrategy}</td><td>{@link #ZSTD_p_contentSizeFlag p_contentSizeFlag}</td></tr><tr><td>{@link #ZSTD_p_checksumFlag p_checksumFlag}</td><td>{@link #ZSTD_p_dictIDFlag p_dictIDFlag}</td><td>{@link #ZSTD_p_nbThreads p_nbThreads}</td><td>{@link #ZSTD_p_jobSize p_jobSize}</td><td>{@link #ZSTD_p_overlapSizeLog p_overlapSizeLog}</td></tr><tr><td>{@link #ZSTD_p_forceMaxWindow p_forceMaxWindow}</td><td>{@link #ZSTD_p_enableLongDistanceMatching p_enableLongDistanceMatching}</td><td>{@link #ZSTD_p_ldmHashLog p_ldmHashLog}</td><td>{@link #ZSTD_p_ldmMinMatch p_ldmMinMatch}</td><td>{@link #ZSTD_p_ldmBucketSizeLog p_ldmBucketSizeLog}</td></tr><tr><td>{@link #ZSTD_p_ldmHashEveryLog p_ldmHashEveryLog}</td></tr></table>
      * @param value 
      *
-     * @return 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
+     * @return informational value (typically, the one being set, possibly corrected), 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
      */
     @NativeType("size_t")
     public static long ZSTD_CCtx_setParameter(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("ZSTD_cParameter") int param, @NativeType("unsigned int") int value) {
