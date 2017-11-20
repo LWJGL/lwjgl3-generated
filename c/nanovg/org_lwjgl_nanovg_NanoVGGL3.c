@@ -19,7 +19,7 @@ EXTERN_C_ENTER
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVGGL3_nnvglCreateImageFromHandleGL3(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint textureId, jint w, jint h, jint flags) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)nvglCreateImageFromHandleGL3(ctx, textureId, w, h, flags);
+    return (jint)nvglCreateImageFromHandleGL3(ctx, (GLuint)textureId, w, h, flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVGGL3_nnvglImageHandleGL3(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint image) {

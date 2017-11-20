@@ -70,7 +70,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackFontRanges(JNI
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1PackSetOversampling(JNIEnv *__env, jclass clazz, jlong spcAddress, jint h_oversample, jint v_oversample) {
     stbtt_pack_context *spc = (stbtt_pack_context *)(intptr_t)spcAddress;
     UNUSED_PARAMS(__env, clazz)
-    stbtt_PackSetOversampling(spc, h_oversample, v_oversample);
+    stbtt_PackSetOversampling(spc, (unsigned int)h_oversample, (unsigned int)v_oversample);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetPackedQuad__JIIIJJJI(JNIEnv *__env, jclass clazz, jlong chardataAddress, jint pw, jint ph, jint char_index, jlong xposAddress, jlong yposAddress, jlong qAddress, jint align_to_integer) {
@@ -402,7 +402,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphSDF__JFII
     int *xoff = (int *)(intptr_t)xoffAddress;
     int *yoff = (int *)(intptr_t)yoffAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)stbtt_GetGlyphSDF(font, scale, glyph, padding, onedge_value, pixel_dist_scale, width, height, xoff, yoff);
+    return (jlong)(intptr_t)stbtt_GetGlyphSDF(font, scale, glyph, padding, (unsigned char)onedge_value, pixel_dist_scale, width, height, xoff, yoff);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointSDF__JFIIBFJJJJ(JNIEnv *__env, jclass clazz, jlong fontAddress, jfloat scale, jint codepoint, jint padding, jbyte onedge_value, jfloat pixel_dist_scale, jlong widthAddress, jlong heightAddress, jlong xoffAddress, jlong yoffAddress) {
@@ -412,7 +412,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointSDF__
     int *xoff = (int *)(intptr_t)xoffAddress;
     int *yoff = (int *)(intptr_t)yoffAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)stbtt_GetCodepointSDF(font, scale, codepoint, padding, onedge_value, pixel_dist_scale, width, height, xoff, yoff);
+    return (jlong)(intptr_t)stbtt_GetCodepointSDF(font, scale, codepoint, padding, (unsigned char)onedge_value, pixel_dist_scale, width, height, xoff, yoff);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1FindMatchingFont(JNIEnv *__env, jclass clazz, jlong fontdataAddress, jlong nameAddress, jint flags) {
@@ -870,7 +870,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphSDF__JFII
     jint *xoff = (*__env)->GetPrimitiveArrayCritical(__env, xoffAddress, 0);
     jint *yoff = (*__env)->GetPrimitiveArrayCritical(__env, yoffAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)stbtt_GetGlyphSDF(font, scale, glyph, padding, onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
+    __result = (jlong)(intptr_t)stbtt_GetGlyphSDF(font, scale, glyph, padding, (unsigned char)onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
     (*__env)->ReleasePrimitiveArrayCritical(__env, yoffAddress, yoff, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, xoffAddress, xoff, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, heightAddress, height, 0);
@@ -884,7 +884,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetGlyphS
     UNUSED_PARAM(height__length)
     UNUSED_PARAM(xoff__length)
     UNUSED_PARAM(yoff__length)
-    return (jlong)(intptr_t)stbtt_GetGlyphSDF(font, scale, glyph, padding, onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
+    return (jlong)(intptr_t)stbtt_GetGlyphSDF(font, scale, glyph, padding, (unsigned char)onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 }
 #endif
 
@@ -896,7 +896,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepointSDF__
     jint *xoff = (*__env)->GetPrimitiveArrayCritical(__env, xoffAddress, 0);
     jint *yoff = (*__env)->GetPrimitiveArrayCritical(__env, yoffAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)stbtt_GetCodepointSDF(font, scale, codepoint, padding, onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
+    __result = (jlong)(intptr_t)stbtt_GetCodepointSDF(font, scale, codepoint, padding, (unsigned char)onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
     (*__env)->ReleasePrimitiveArrayCritical(__env, yoffAddress, yoff, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, xoffAddress, xoff, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, heightAddress, height, 0);
@@ -910,7 +910,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBTruetype_nstbtt_1GetCodepo
     UNUSED_PARAM(height__length)
     UNUSED_PARAM(xoff__length)
     UNUSED_PARAM(yoff__length)
-    return (jlong)(intptr_t)stbtt_GetCodepointSDF(font, scale, codepoint, padding, onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
+    return (jlong)(intptr_t)stbtt_GetCodepointSDF(font, scale, codepoint, padding, (unsigned char)onedge_value, pixel_dist_scale, (int *)width, (int *)height, (int *)xoff, (int *)yoff);
 }
 #endif
 

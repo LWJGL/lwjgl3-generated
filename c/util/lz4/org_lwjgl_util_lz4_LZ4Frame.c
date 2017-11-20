@@ -47,7 +47,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_LZ4F_1getVersion(JNIEnv 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1createCompressionContext(JNIEnv *__env, jclass clazz, jlong cctxPtrAddress, jint version) {
     LZ4F_cctx **cctxPtr = (LZ4F_cctx **)(intptr_t)cctxPtrAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)LZ4F_createCompressionContext(cctxPtr, version);
+    return (jlong)LZ4F_createCompressionContext(cctxPtr, (unsigned)version);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1freeCompressionContext(JNIEnv *__env, jclass clazz, jlong cctxAddress) {
@@ -98,7 +98,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressEnd(JNIE
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1createDecompressionContext(JNIEnv *__env, jclass clazz, jlong dctxPtrAddress, jint version) {
     LZ4F_dctx **dctxPtr = (LZ4F_dctx **)(intptr_t)dctxPtrAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)LZ4F_createDecompressionContext(dctxPtr, version);
+    return (jlong)LZ4F_createDecompressionContext(dctxPtr, (unsigned)version);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1freeDecompressionContext(JNIEnv *__env, jclass clazz, jlong dctxAddress) {

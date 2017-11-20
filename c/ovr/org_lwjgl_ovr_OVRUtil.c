@@ -18,13 +18,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1Detect(JNIEnv *__env, jc
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1Projection(JNIEnv *__env, jclass clazz, jlong fovAddress, jfloat znear, jfloat zfar, jint projectionModFlags, jlong __result) {
     ovrFovPort *fov = (ovrFovPort *)(intptr_t)fovAddress;
     UNUSED_PARAMS(__env, clazz)
-    *((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_Projection(*fov, znear, zfar, projectionModFlags);
+    *((ovrMatrix4f*)(intptr_t)__result) = ovrMatrix4f_Projection(*fov, znear, zfar, (unsigned int)projectionModFlags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrTimewarpProjectionDesc_1FromProjection(JNIEnv *__env, jclass clazz, jlong projectionAddress, jint projectionModFlags, jlong __result) {
     ovrMatrix4f *projection = (ovrMatrix4f *)(intptr_t)projectionAddress;
     UNUSED_PARAMS(__env, clazz)
-    *((ovrTimewarpProjectionDesc*)(intptr_t)__result) = ovrTimewarpProjectionDesc_FromProjection(*projection, projectionModFlags);
+    *((ovrTimewarpProjectionDesc*)(intptr_t)__result) = ovrTimewarpProjectionDesc_FromProjection(*projection, (unsigned int)projectionModFlags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrMatrix4f_1OrthoSubProjection(JNIEnv *__env, jclass clazz, jlong projectionAddress, jlong orthoScaleAddress, jfloat orthoDistance, jfloat HmdToEyeOffsetX, jlong __result) {
@@ -48,7 +48,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJJ(JNIE
     ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
     double *outSensorSampleTime = (double *)(intptr_t)outSensorSampleTimeAddress;
     UNUSED_PARAMS(__env, clazz)
-    ovr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyePose, outEyePoses, outSensorSampleTime);
+    ovr_GetEyePoses(session, (long long)frameIndex, (ovrBool)latencyMarker, HmdToEyePose, outEyePoses, outSensorSampleTime);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novrPosef_1FlipHandedness(JNIEnv *__env, jclass clazz, jlong inPoseAddress, jlong outPoseAddress) {
@@ -69,7 +69,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GenHapticsFromAudioData(
     ovrHapticsClip *outHapticsClip = (ovrHapticsClip *)(intptr_t)outHapticsClipAddress;
     const ovrAudioChannelData *audioChannel = (const ovrAudioChannelData *)(intptr_t)audioChannelAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)ovr_GenHapticsFromAudioData(outHapticsClip, audioChannel, genMode);
+    return (jint)ovr_GenHapticsFromAudioData(outHapticsClip, audioChannel, (ovrHapticsGenMode)genMode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1ReleaseAudioChannelData(JNIEnv *__env, jclass clazz, jlong audioChannelAddress) {
@@ -90,7 +90,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZJJ_3D(JN
     ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
     jdouble *outSensorSampleTime = outSensorSampleTimeAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, outSensorSampleTimeAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    ovr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyePose, outEyePoses, (double *)outSensorSampleTime);
+    ovr_GetEyePoses(session, (long long)frameIndex, (ovrBool)latencyMarker, HmdToEyePose, outEyePoses, (double *)outSensorSampleTime);
     if (outSensorSampleTime != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, outSensorSampleTimeAddress, outSensorSampleTime, 0); }
 }
 #ifdef LWJGL_WINDOWS
@@ -99,7 +99,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_ovr_OVRUtil_novr_1GetEyePoses__JJZ
     const ovrPosef *HmdToEyePose = (const ovrPosef *)(intptr_t)HmdToEyePoseAddress;
     ovrPosef *outEyePoses = (ovrPosef *)(intptr_t)outEyePosesAddress;
     UNUSED_PARAM(outSensorSampleTime__length)
-    ovr_GetEyePoses(session, frameIndex, latencyMarker, HmdToEyePose, outEyePoses, (double *)outSensorSampleTime);
+    ovr_GetEyePoses(session, (long long)frameIndex, (ovrBool)latencyMarker, HmdToEyePose, outEyePoses, (double *)outSensorSampleTime);
 }
 #endif
 

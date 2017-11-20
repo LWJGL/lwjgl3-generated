@@ -188,7 +188,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1remove_1d
 JNIEXPORT void JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1unweld(JNIEnv *__env, jclass clazz, jlong meshAddress, jboolean create_indices) {
     par_shapes_mesh *mesh = (par_shapes_mesh *)(intptr_t)meshAddress;
     UNUSED_PARAMS(__env, clazz)
-    par_shapes_unweld(mesh, create_indices);
+    par_shapes_unweld(mesh, (bool)create_indices);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JFJ(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloat epsilon, jlong mappingAddress) {

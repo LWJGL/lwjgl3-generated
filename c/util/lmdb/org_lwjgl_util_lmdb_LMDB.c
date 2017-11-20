@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1open(JNIEnv *__e
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
     const char *path = (const char *)(intptr_t)pathAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_env_open(env, path, flags, mode);
+    return (jint)mdb_env_open(env, path, (unsigned int)flags, (mdb_mode_t)mode);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1copy(JNIEnv *__env, jclass clazz, jlong envAddress, jlong pathAddress) {
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1copy2(JNIEnv *__
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
     const char *path = (const char *)(intptr_t)pathAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_env_copy2(env, path, flags);
+    return (jint)mdb_env_copy2(env, path, (unsigned int)flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1stat(JNIEnv *__env, jclass clazz, jlong envAddress, jlong statAddress) {
@@ -86,7 +86,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1close(JNIEnv *__
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1set_1flags(JNIEnv *__env, jclass clazz, jlong envAddress, jint flags, jint onoff) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_env_set_flags(env, flags, onoff);
+    return (jint)mdb_env_set_flags(env, (unsigned int)flags, onoff);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1flags__JJ(JNIEnv *__env, jclass clazz, jlong envAddress, jlong flagsAddress) {
@@ -112,7 +112,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1set_1mapsize(JNI
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1set_1maxreaders(JNIEnv *__env, jclass clazz, jlong envAddress, jint readers) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_env_set_maxreaders(env, readers);
+    return (jint)mdb_env_set_maxreaders(env, (unsigned int)readers);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1maxreaders__JJ(JNIEnv *__env, jclass clazz, jlong envAddress, jlong readersAddress) {
@@ -125,7 +125,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1maxreaders_
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1set_1maxdbs(JNIEnv *__env, jclass clazz, jlong envAddress, jint dbs) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_env_set_maxdbs(env, dbs);
+    return (jint)mdb_env_set_maxdbs(env, (MDB_dbi)dbs);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1maxkeysize(JNIEnv *__env, jclass clazz, jlong envAddress) {
@@ -152,7 +152,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1txn_1begin(JNIEnv *__
     MDB_txn *parent = (MDB_txn *)(intptr_t)parentAddress;
     MDB_txn **txn = (MDB_txn **)(intptr_t)txnAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_txn_begin(env, parent, flags, txn);
+    return (jint)mdb_txn_begin(env, parent, (unsigned int)flags, txn);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1txn_1env(JNIEnv *__env, jclass clazz, jlong txnAddress) {
@@ -196,61 +196,61 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1open__JJIJ(JNIEn
     const char *name = (const char *)(intptr_t)nameAddress;
     MDB_dbi *dbi = (MDB_dbi *)(intptr_t)dbiAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_dbi_open(txn, name, flags, dbi);
+    return (jint)mdb_dbi_open(txn, name, (unsigned int)flags, dbi);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1stat(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong statAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     MDB_stat *stat = (MDB_stat *)(intptr_t)statAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_stat(txn, dbi, stat);
+    return (jint)mdb_stat(txn, (MDB_dbi)dbi, stat);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1flags__JIJ(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong flagsAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     unsigned int *flags = (unsigned int *)(intptr_t)flagsAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_dbi_flags(txn, dbi, flags);
+    return (jint)mdb_dbi_flags(txn, (MDB_dbi)dbi, flags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1close(JNIEnv *__env, jclass clazz, jlong envAddress, jint dbi) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
     UNUSED_PARAMS(__env, clazz)
-    mdb_dbi_close(env, dbi);
+    mdb_dbi_close(env, (MDB_dbi)dbi);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1drop(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jint del) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_drop(txn, dbi, del);
+    return (jint)mdb_drop(txn, (MDB_dbi)dbi, del);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1set_1compare(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong cmpAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     MDB_cmp_func *cmp = (MDB_cmp_func *)(intptr_t)cmpAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_set_compare(txn, dbi, cmp);
+    return (jint)mdb_set_compare(txn, (MDB_dbi)dbi, cmp);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1set_1dupsort(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong cmpAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     MDB_cmp_func *cmp = (MDB_cmp_func *)(intptr_t)cmpAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_set_dupsort(txn, dbi, cmp);
+    return (jint)mdb_set_dupsort(txn, (MDB_dbi)dbi, cmp);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1set_1relfunc(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong relAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     MDB_rel_func *rel = (MDB_rel_func *)(intptr_t)relAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_set_relfunc(txn, dbi, rel);
+    return (jint)mdb_set_relfunc(txn, (MDB_dbi)dbi, rel);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1set_1relctx(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong ctxAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     void *ctx = (void *)(intptr_t)ctxAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_set_relctx(txn, dbi, ctx);
+    return (jint)mdb_set_relctx(txn, (MDB_dbi)dbi, ctx);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1get(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong keyAddress, jlong dataAddress) {
@@ -258,7 +258,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1get(JNIEnv *__env, jc
     MDB_val *key = (MDB_val *)(intptr_t)keyAddress;
     MDB_val *data = (MDB_val *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_get(txn, dbi, key, data);
+    return (jint)mdb_get(txn, (MDB_dbi)dbi, key, data);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1put(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong keyAddress, jlong dataAddress, jint flags) {
@@ -266,7 +266,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1put(JNIEnv *__env, jc
     MDB_val *key = (MDB_val *)(intptr_t)keyAddress;
     MDB_val *data = (MDB_val *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_put(txn, dbi, key, data, flags);
+    return (jint)mdb_put(txn, (MDB_dbi)dbi, key, data, (unsigned int)flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1del(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong keyAddress, jlong dataAddress) {
@@ -274,14 +274,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1del(JNIEnv *__env, jc
     MDB_val *key = (MDB_val *)(intptr_t)keyAddress;
     MDB_val *data = (MDB_val *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_del(txn, dbi, key, data);
+    return (jint)mdb_del(txn, (MDB_dbi)dbi, key, data);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1open(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong cursorAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     MDB_cursor **cursor = (MDB_cursor **)(intptr_t)cursorAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_cursor_open(txn, dbi, cursor);
+    return (jint)mdb_cursor_open(txn, (MDB_dbi)dbi, cursor);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1close(JNIEnv *__env, jclass clazz, jlong cursorAddress) {
@@ -314,7 +314,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1get(JNIEnv *_
     MDB_val *key = (MDB_val *)(intptr_t)keyAddress;
     MDB_val *data = (MDB_val *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_cursor_get(cursor, key, data, op);
+    return (jint)mdb_cursor_get(cursor, key, data, (MDB_cursor_op)op);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1put(JNIEnv *__env, jclass clazz, jlong cursorAddress, jlong keyAddress, jlong dataAddress, jint flags) {
@@ -322,13 +322,13 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1put(JNIEnv *_
     MDB_val *key = (MDB_val *)(intptr_t)keyAddress;
     MDB_val *data = (MDB_val *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_cursor_put(cursor, key, data, flags);
+    return (jint)mdb_cursor_put(cursor, key, data, (unsigned int)flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1del(JNIEnv *__env, jclass clazz, jlong cursorAddress, jint flags) {
     MDB_cursor *cursor = (MDB_cursor *)(intptr_t)cursorAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_cursor_del(cursor, flags);
+    return (jint)mdb_cursor_del(cursor, (unsigned int)flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1count(JNIEnv *__env, jclass clazz, jlong cursorAddress, jlong countpAddress) {
@@ -343,7 +343,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cmp(JNIEnv *__env, jc
     const MDB_val *a = (const MDB_val *)(intptr_t)aAddress;
     const MDB_val *b = (const MDB_val *)(intptr_t)bAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_cmp(txn, dbi, a, b);
+    return (jint)mdb_cmp(txn, (MDB_dbi)dbi, a, b);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dcmp(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong aAddress, jlong bAddress) {
@@ -351,7 +351,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dcmp(JNIEnv *__env, j
     const MDB_val *a = (const MDB_val *)(intptr_t)aAddress;
     const MDB_val *b = (const MDB_val *)(intptr_t)bAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)mdb_dcmp(txn, dbi, a, b);
+    return (jint)mdb_dcmp(txn, (MDB_dbi)dbi, a, b);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1reader_1list(JNIEnv *__env, jclass clazz, jlong envAddress, jlong funcAddress, jlong ctxAddress) {
@@ -424,7 +424,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1open__JJI_3I(JNI
     jint __result;
     jint *dbi = (*__env)->GetPrimitiveArrayCritical(__env, dbiAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jint)mdb_dbi_open(txn, name, flags, (MDB_dbi *)dbi);
+    __result = (jint)mdb_dbi_open(txn, name, (unsigned int)flags, (MDB_dbi *)dbi);
     (*__env)->ReleasePrimitiveArrayCritical(__env, dbiAddress, dbi, 0);
     return __result;
 }
@@ -432,7 +432,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1open__JJ
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     const char *name = (const char *)(intptr_t)nameAddress;
     UNUSED_PARAM(dbi__length)
-    return (jint)mdb_dbi_open(txn, name, flags, (MDB_dbi *)dbi);
+    return (jint)mdb_dbi_open(txn, name, (unsigned int)flags, (MDB_dbi *)dbi);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1flags__JI_3I(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jintArray flagsAddress) {
@@ -440,14 +440,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1flags__JI_3I(JNI
     jint __result;
     jint *flags = (*__env)->GetPrimitiveArrayCritical(__env, flagsAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jint)mdb_dbi_flags(txn, dbi, (unsigned int *)flags);
+    __result = (jint)mdb_dbi_flags(txn, (MDB_dbi)dbi, (unsigned int *)flags);
     (*__env)->ReleasePrimitiveArrayCritical(__env, flagsAddress, flags, 0);
     return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1flags__JI_3I(jlong txnAddress, jint dbi, jint flags__length, jint* flags) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
     UNUSED_PARAM(flags__length)
-    return (jint)mdb_dbi_flags(txn, dbi, (unsigned int *)flags);
+    return (jint)mdb_dbi_flags(txn, (MDB_dbi)dbi, (unsigned int *)flags);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1reader_1check__J_3I(JNIEnv *__env, jclass clazz, jlong envAddress, jintArray deadAddress) {

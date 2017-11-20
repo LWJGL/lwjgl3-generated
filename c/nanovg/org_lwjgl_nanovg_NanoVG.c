@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgGlobalCompositeBlendFunc
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRGB(JNIEnv *__env, jclass clazz, jbyte r, jbyte g, jbyte b, jlong __result) {
     UNUSED_PARAMS(__env, clazz)
-    *((NVGcolor*)(intptr_t)__result) = nvgRGB(r, g, b);
+    *((NVGcolor*)(intptr_t)__result) = nvgRGB((unsigned char)r, (unsigned char)g, (unsigned char)b);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRGBf(JNIEnv *__env, jclass clazz, jfloat r, jfloat g, jfloat b, jlong __result) {
@@ -77,7 +77,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRGBf(JNIEnv *__env, jcla
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRGBA(JNIEnv *__env, jclass clazz, jbyte r, jbyte g, jbyte b, jbyte a, jlong __result) {
     UNUSED_PARAMS(__env, clazz)
-    *((NVGcolor*)(intptr_t)__result) = nvgRGBA(r, g, b, a);
+    *((NVGcolor*)(intptr_t)__result) = nvgRGBA((unsigned char)r, (unsigned char)g, (unsigned char)b, (unsigned char)a);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgRGBAf(JNIEnv *__env, jclass clazz, jfloat r, jfloat g, jfloat b, jfloat a, jlong __result) {
@@ -95,7 +95,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgLerpRGBA(JNIEnv *__env, 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransRGBA(JNIEnv *__env, jclass clazz, jlong c0Address, jbyte a, jlong __result) {
     NVGcolor *c0 = (NVGcolor *)(intptr_t)c0Address;
     UNUSED_PARAMS(__env, clazz)
-    *((NVGcolor*)(intptr_t)__result) = nvgTransRGBA(*c0, a);
+    *((NVGcolor*)(intptr_t)__result) = nvgTransRGBA(*c0, (unsigned char)a);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransRGBAf(JNIEnv *__env, jclass clazz, jlong c0Address, jfloat a, jlong __result) {
@@ -111,7 +111,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgHSL(JNIEnv *__env, jclas
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgHSLA(JNIEnv *__env, jclass clazz, jfloat h, jfloat s, jfloat l, jbyte a, jlong __result) {
     UNUSED_PARAMS(__env, clazz)
-    *((NVGcolor*)(intptr_t)__result) = nvgHSLA(h, s, l, a);
+    *((NVGcolor*)(intptr_t)__result) = nvgHSLA(h, s, l, (unsigned char)a);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgSave(JNIEnv *__env, jclass clazz, jlong ctxAddress) {

@@ -127,25 +127,25 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_MemoryAccessJNI_ngetAddress(JNIEnv
 JNIEXPORT void JNICALL Java_org_lwjgl_system_MemoryAccessJNI_nputByte(JNIEnv *__env, jclass clazz, jlong ptrAddress, jbyte value) {
     void *ptr = (void *)(intptr_t)ptrAddress;
     UNUSED_PARAMS(__env, clazz)
-    putByte(ptr, value);
+    putByte(ptr, (int8_t)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_MemoryAccessJNI_nputShort(JNIEnv *__env, jclass clazz, jlong ptrAddress, jshort value) {
     void *ptr = (void *)(intptr_t)ptrAddress;
     UNUSED_PARAMS(__env, clazz)
-    putShort(ptr, value);
+    putShort(ptr, (int16_t)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_MemoryAccessJNI_nputInt(JNIEnv *__env, jclass clazz, jlong ptrAddress, jint value) {
     void *ptr = (void *)(intptr_t)ptrAddress;
     UNUSED_PARAMS(__env, clazz)
-    putInt(ptr, value);
+    putInt(ptr, (int32_t)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_MemoryAccessJNI_nputLong(JNIEnv *__env, jclass clazz, jlong ptrAddress, jlong value) {
     void *ptr = (void *)(intptr_t)ptrAddress;
     UNUSED_PARAMS(__env, clazz)
-    putLong(ptr, value);
+    putLong(ptr, (int64_t)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_MemoryAccessJNI_nputFloat(JNIEnv *__env, jclass clazz, jlong ptrAddress, jfloat value) {

@@ -108,13 +108,13 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1filenam
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1seek_1frame(JNIEnv *__env, jclass clazz, jlong fAddress, jint sample_number) {
     stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)stb_vorbis_seek_frame(f, sample_number);
+    return (jint)stb_vorbis_seek_frame(f, (unsigned int)sample_number);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1seek(JNIEnv *__env, jclass clazz, jlong fAddress, jint sample_number) {
     stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)stb_vorbis_seek(f, sample_number);
+    return (jint)stb_vorbis_seek(f, (unsigned int)sample_number);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1seek_1start(JNIEnv *__env, jclass clazz, jlong fAddress) {

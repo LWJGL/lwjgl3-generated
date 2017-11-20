@@ -28,55 +28,55 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcReset(JNIEnv *__
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcMode(JNIEnv *__env, jclass clazz, jlong vmAddress, jint mode) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcMode(vm, mode);
+    dcMode(vm, (DCint)mode);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgBool(JNIEnv *__env, jclass clazz, jlong vmAddress, jint value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgBool(vm, value);
+    dcArgBool(vm, (DCbool)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgChar(JNIEnv *__env, jclass clazz, jlong vmAddress, jbyte value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgChar(vm, value);
+    dcArgChar(vm, (DCchar)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgShort(JNIEnv *__env, jclass clazz, jlong vmAddress, jshort value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgShort(vm, value);
+    dcArgShort(vm, (DCshort)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgInt(JNIEnv *__env, jclass clazz, jlong vmAddress, jint value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgInt(vm, value);
+    dcArgInt(vm, (DCint)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgLong(JNIEnv *__env, jclass clazz, jlong vmAddress, jint value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgLong(vm, value);
+    dcArgLong(vm, (DClong)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgLongLong(JNIEnv *__env, jclass clazz, jlong vmAddress, jlong value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgLongLong(vm, value);
+    dcArgLongLong(vm, (DClonglong)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgFloat(JNIEnv *__env, jclass clazz, jlong vmAddress, jfloat value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgFloat(vm, value);
+    dcArgFloat(vm, (DCfloat)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgDouble(JNIEnv *__env, jclass clazz, jlong vmAddress, jdouble value) {
     DCCallVM *vm = (DCCallVM *)(intptr_t)vmAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcArgDouble(vm, value);
+    dcArgDouble(vm, (DCdouble)value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcArgPointer(JNIEnv *__env, jclass clazz, jlong vmAddress, jlong valueAddress) {
@@ -181,19 +181,19 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcGetError(JNIEnv 
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_dyncall_DynCall_dcNewStruct(JNIEnv *__env, jclass clazz, jlong fieldCount, jint alignment) {
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)dcNewStruct((DCsize)fieldCount, alignment);
+    return (jlong)(intptr_t)dcNewStruct((DCsize)fieldCount, (DCint)alignment);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcStructField(JNIEnv *__env, jclass clazz, jlong sAddress, jint type, jint alignment, jlong arrayLength) {
     DCstruct *s = (DCstruct *)(intptr_t)sAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcStructField(s, type, alignment, (DCsize)arrayLength);
+    dcStructField(s, (DCint)type, (DCint)alignment, (DCsize)arrayLength);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcSubStruct(JNIEnv *__env, jclass clazz, jlong sAddress, jlong fieldCount, jint alignment, jlong arrayLength) {
     DCstruct *s = (DCstruct *)(intptr_t)sAddress;
     UNUSED_PARAMS(__env, clazz)
-    dcSubStruct(s, (DCsize)fieldCount, alignment, (DCsize)arrayLength);
+    dcSubStruct(s, (DCsize)fieldCount, (DCint)alignment, (DCsize)arrayLength);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcCloseStruct(JNIEnv *__env, jclass clazz, jlong sAddress) {

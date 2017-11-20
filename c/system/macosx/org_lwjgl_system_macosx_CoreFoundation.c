@@ -74,7 +74,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFStringCre
     CFAllocatorRef allocator = (CFAllocatorRef)(intptr_t)allocatorAddress;
     const char *cStr = (const char *)(intptr_t)cStrAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)CFStringCreateWithCString(allocator, cStr, encoding);
+    return (jlong)(intptr_t)CFStringCreateWithCString(allocator, cStr, (CFStringEncoding)encoding);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFStringCreateWithCStringNoCopy(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong cStrAddress, jint encoding, jlong contentsDeallocatorAddress) {
@@ -82,14 +82,14 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFStringCre
     const char *cStr = (const char *)(intptr_t)cStrAddress;
     CFAllocatorRef contentsDeallocator = (CFAllocatorRef)(intptr_t)contentsDeallocatorAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)CFStringCreateWithCStringNoCopy(allocator, cStr, encoding, contentsDeallocator);
+    return (jlong)(intptr_t)CFStringCreateWithCStringNoCopy(allocator, cStr, (CFStringEncoding)encoding, contentsDeallocator);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFURLCreateWithFileSystemPath(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong filePathAddress, jlong pathStyle, jboolean isDirectory) {
     CFAllocatorRef allocator = (CFAllocatorRef)(intptr_t)allocatorAddress;
     CFStringRef filePath = (CFStringRef)(intptr_t)filePathAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)CFURLCreateWithFileSystemPath(allocator, filePath, pathStyle, isDirectory);
+    return (jlong)(intptr_t)CFURLCreateWithFileSystemPath(allocator, filePath, (CFURLPathStyle)pathStyle, (Boolean)isDirectory);
 }
 
 EXTERN_C_EXIT

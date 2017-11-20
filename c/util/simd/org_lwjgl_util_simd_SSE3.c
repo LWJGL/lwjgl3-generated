@@ -10,7 +10,7 @@ EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_simd_SSE3__1MM_1SET_1DENORMALS_1ZERO_1MODE(JNIEnv *__env, jclass clazz, jint mode) {
     UNUSED_PARAMS(__env, clazz)
-    _MM_SET_DENORMALS_ZERO_MODE(mode);
+    _MM_SET_DENORMALS_ZERO_MODE((unsigned int)mode);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_simd_SSE3__1MM_1GET_1DENORMALS_1ZERO_1MODE(JNIEnv *__env, jclass clazz) {

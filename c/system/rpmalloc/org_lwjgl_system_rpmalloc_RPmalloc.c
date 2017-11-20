@@ -103,7 +103,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_nrprealloc(JNIEn
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_nrpaligned_1realloc(JNIEnv *__env, jclass clazz, jlong ptrAddress, jlong alignment, jlong size, jlong oldsize, jint flags) {
     void *ptr = (void *)(intptr_t)ptrAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)rpaligned_realloc(ptr, (size_t)alignment, (size_t)size, (size_t)oldsize, flags);
+    return (jlong)(intptr_t)rpaligned_realloc(ptr, (size_t)alignment, (size_t)size, (size_t)oldsize, (unsigned int)flags);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_nrpaligned_1alloc(JNIEnv *__env, jclass clazz, jlong alignment, jlong size) {
