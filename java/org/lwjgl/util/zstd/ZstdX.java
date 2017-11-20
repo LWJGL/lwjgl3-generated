@@ -688,7 +688,7 @@ public class ZstdX {
      * <p>Limitations:</p>
      * 
      * <ol>
-     * <li>currently not compatible with internal {@code CDict} creation, such as {@link #ZSTD_CCtx_loadDictionary CCtx_loadDictionary} or {@code ZSTD_initCStream_usingDict().</li>
+     * <li>currently not compatible with internal {@code CDict} creation, such as {@link #ZSTD_CCtx_loadDictionary CCtx_loadDictionary} or {@code ZSTD_initCStream_usingDict()}.</li>
      * <li>currently not compatible with multi-threading</li>
      * </ol>
      *

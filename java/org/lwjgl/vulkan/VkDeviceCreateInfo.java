@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>The {@code queueFamilyIndex} member of each element of {@code pQueueCreateInfos} <b>must</b> be unique within {@code pQueueCreateInfos}</li>
  * <li>If the {@code pNext} chain includes a {@link VkPhysicalDeviceFeatures2KHR} structure, then {@code pEnabledFeatures} <b>must</b> be {@code NULL}</li>
- * <li>{@code ppEnabledExtensionNames} <b>must</b> not contain both {@link #KHR_maintenance1} and {@link #AMD_negative_viewport_height}</li>
+ * <li>{@code ppEnabledExtensionNames} <b>must</b> not contain both {@link KHRMaintenance1} and {@link AMDNegativeViewportHeight}</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The members of {@link VkPhysicalDeviceSurfaceInfo2KHR} correspond to the arguments to {@link #GetPhysicalDeviceSurfaceCapabilities}, with {@code sType} and {@code pNext} added for extensibility.</p>
+ * <p>The members of {@link VkPhysicalDeviceSurfaceInfo2KHR} correspond to the arguments to {@link KHRSurface#vkGetPhysicalDeviceSurfaceCapabilitiesKHR GetPhysicalDeviceSurfaceCapabilitiesKHR}, with {@code sType} and {@code pNext} added for extensibility.</p>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 

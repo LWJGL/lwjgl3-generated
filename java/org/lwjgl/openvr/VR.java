@@ -2043,8 +2043,8 @@ public class VR {
     // --- [ VR_ShutdownInternal ] ---
 
     /**
-     * Shuts down the connection to the VR hardware and cleans up the OpenVR API. The {@link IVRSystem} pointer returned by {@link #VR_InitInternal InitInternal} will be invalid after
-     * this call is made.
+     * Shuts down the connection to the VR hardware and cleans up the OpenVR API. The {@code IVRSystem} pointer returned by {@link #VR_InitInternal InitInternal} will be invalid
+     * after this call is made.
      */
     public static void VR_ShutdownInternal() {
         long __functionAddress = Functions.ShutdownInternal;
