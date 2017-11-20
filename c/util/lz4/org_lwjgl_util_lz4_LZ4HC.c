@@ -94,44 +94,4 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_lz4_LZ4HC_nLZ4_1setCompressionLevel(J
     LZ4_setCompressionLevel(LZ4_streamHCPtr, compressionLevel);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4HC_nLZ4_1compress_1HC_1destSize__JJJ_3III(JNIEnv *__env, jclass clazz, jlong LZ4HC_DataAddress, jlong srcAddress, jlong dstAddress, jintArray srcSizePtrAddress, jint targetDstSize, jint compressionLevel) {
-    void *LZ4HC_Data = (void *)(intptr_t)LZ4HC_DataAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
-    char *dst = (char *)(intptr_t)dstAddress;
-    jint __result;
-    jint *srcSizePtr = (*__env)->GetPrimitiveArrayCritical(__env, srcSizePtrAddress, 0);
-    UNUSED_PARAMS(__env, clazz)
-    __result = (jint)LZ4_compress_HC_destSize(LZ4HC_Data, src, dst, (int *)srcSizePtr, targetDstSize, compressionLevel);
-    (*__env)->ReleasePrimitiveArrayCritical(__env, srcSizePtrAddress, srcSizePtr, 0);
-    return __result;
-}
-#ifdef LWJGL_WINDOWS
-JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_lz4_LZ4HC_nLZ4_1compress_1HC_1destSize__JJJ_3III(jlong LZ4HC_DataAddress, jlong srcAddress, jlong dstAddress, jint srcSizePtr__length, jint* srcSizePtr, jint targetDstSize, jint compressionLevel) {
-    void *LZ4HC_Data = (void *)(intptr_t)LZ4HC_DataAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
-    char *dst = (char *)(intptr_t)dstAddress;
-    UNUSED_PARAM(srcSizePtr__length)
-    return (jint)LZ4_compress_HC_destSize(LZ4HC_Data, src, dst, (int *)srcSizePtr, targetDstSize, compressionLevel);
-}
-#endif
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4HC_nLZ4_1compress_1HC_1continue_1destSize__JJJ_3II(JNIEnv *__env, jclass clazz, jlong LZ4_streamHCPtrAddress, jlong srcAddress, jlong dstAddress, jintArray srcSizePtrAddress, jint targetDstSize) {
-    LZ4_streamHC_t *LZ4_streamHCPtr = (LZ4_streamHC_t *)(intptr_t)LZ4_streamHCPtrAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
-    char *dst = (char *)(intptr_t)dstAddress;
-    jint __result;
-    jint *srcSizePtr = (*__env)->GetPrimitiveArrayCritical(__env, srcSizePtrAddress, 0);
-    UNUSED_PARAMS(__env, clazz)
-    __result = (jint)LZ4_compress_HC_continue_destSize(LZ4_streamHCPtr, src, dst, (int *)srcSizePtr, targetDstSize);
-    (*__env)->ReleasePrimitiveArrayCritical(__env, srcSizePtrAddress, srcSizePtr, 0);
-    return __result;
-}
-JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_lz4_LZ4HC_nLZ4_1compress_1HC_1continue_1destSize__JJJ_3II(jlong LZ4_streamHCPtrAddress, jlong srcAddress, jlong dstAddress, jint srcSizePtr__length, jint* srcSizePtr, jint targetDstSize) {
-    LZ4_streamHC_t *LZ4_streamHCPtr = (LZ4_streamHC_t *)(intptr_t)LZ4_streamHCPtrAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
-    char *dst = (char *)(intptr_t)dstAddress;
-    UNUSED_PARAM(srcSizePtr__length)
-    return (jint)LZ4_compress_HC_continue_destSize(LZ4_streamHCPtr, src, dst, (int *)srcSizePtr, targetDstSize);
-}
-
 EXTERN_C_EXIT

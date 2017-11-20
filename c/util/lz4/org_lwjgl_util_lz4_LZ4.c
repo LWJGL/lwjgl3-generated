@@ -170,21 +170,4 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1fast_1using
     return (jint)LZ4_decompress_fast_usingDict(source, dest, originalSize, dictStart, dictSize);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1destSize__JJ_3II(JNIEnv *__env, jclass clazz, jlong sourceAddress, jlong destAddress, jintArray sourceSizePtrAddress, jint targetDestSize) {
-    const char *source = (const char *)(intptr_t)sourceAddress;
-    char *dest = (char *)(intptr_t)destAddress;
-    jint __result;
-    jint *sourceSizePtr = (*__env)->GetPrimitiveArrayCritical(__env, sourceSizePtrAddress, 0);
-    UNUSED_PARAMS(__env, clazz)
-    __result = (jint)LZ4_compress_destSize(source, dest, (int *)sourceSizePtr, targetDestSize);
-    (*__env)->ReleasePrimitiveArrayCritical(__env, sourceSizePtrAddress, sourceSizePtr, 0);
-    return __result;
-}
-JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1destSize__JJ_3II(jlong sourceAddress, jlong destAddress, jint sourceSizePtr__length, jint* sourceSizePtr, jint targetDestSize) {
-    const char *source = (const char *)(intptr_t)sourceAddress;
-    char *dest = (char *)(intptr_t)destAddress;
-    UNUSED_PARAM(sourceSizePtr__length)
-    return (jint)LZ4_compress_destSize(source, dest, (int *)sourceSizePtr, targetDestSize);
-}
-
 EXTERN_C_EXIT

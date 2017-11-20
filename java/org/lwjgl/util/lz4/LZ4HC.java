@@ -255,29 +255,4 @@ public class LZ4HC {
         nLZ4_setCompressionLevel(LZ4_streamHCPtr, compressionLevel);
     }
 
-    /** Array version of: {@link #nLZ4_compress_HC_destSize} */
-    public static native int nLZ4_compress_HC_destSize(long LZ4HC_Data, long src, long dst, int[] srcSizePtr, int targetDstSize, int compressionLevel);
-
-    /** Array version of: {@link #LZ4_compress_HC_destSize compress_HC_destSize} */
-    public static int LZ4_compress_HC_destSize(@NativeType("void *") ByteBuffer LZ4HC_Data, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int *") int[] srcSizePtr, @NativeType("int") int compressionLevel) {
-        if (CHECKS) {
-            check(srcSizePtr, 1);
-            check(src, srcSizePtr[0]);
-        }
-        return nLZ4_compress_HC_destSize(memAddress(LZ4HC_Data), memAddress(src), memAddress(dst), srcSizePtr, dst.remaining(), compressionLevel);
-    }
-
-    /** Array version of: {@link #nLZ4_compress_HC_continue_destSize} */
-    public static native int nLZ4_compress_HC_continue_destSize(long LZ4_streamHCPtr, long src, long dst, int[] srcSizePtr, int targetDstSize);
-
-    /** Array version of: {@link #LZ4_compress_HC_continue_destSize compress_HC_continue_destSize} */
-    public static int LZ4_compress_HC_continue_destSize(@NativeType("LZ4_streamHC_t *") long LZ4_streamHCPtr, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int *") int[] srcSizePtr) {
-        if (CHECKS) {
-            check(LZ4_streamHCPtr);
-            check(srcSizePtr, 1);
-            check(src, srcSizePtr[0]);
-        }
-        return nLZ4_compress_HC_continue_destSize(LZ4_streamHCPtr, memAddress(src), memAddress(dst), srcSizePtr, dst.remaining());
-    }
-
 }

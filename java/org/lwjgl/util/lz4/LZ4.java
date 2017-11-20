@@ -559,16 +559,4 @@ public class LZ4 {
         return nLZ4_decompress_fast_usingDict(memAddress(source), memAddress(dest), dest.remaining(), memAddress(dictStart), dictStart.remaining());
     }
 
-    /** Array version of: {@link #nLZ4_compress_destSize} */
-    public static native int nLZ4_compress_destSize(long source, long dest, int[] sourceSizePtr, int targetDestSize);
-
-    /** Array version of: {@link #LZ4_compress_destSize compress_destSize} */
-    public static int LZ4_compress_destSize(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest, @NativeType("int *") int[] sourceSizePtr) {
-        if (CHECKS) {
-            check(sourceSizePtr, 1);
-            check(source, sourceSizePtr[0]);
-        }
-        return nLZ4_compress_destSize(memAddress(source), memAddress(dest), sourceSizePtr, dest.remaining());
-    }
-
 }
