@@ -87,7 +87,7 @@ public class STBImageWrite {
     public static boolean stbi_write_png(@NativeType("const char *") ByteBuffer filename, int w, int h, int comp, @NativeType("const void *") ByteBuffer data, int stride_in_bytes) {
         if (CHECKS) {
             checkNT1(filename);
-            check(data, w * h * comp);
+            check(data, (stride_in_bytes != 0 ? stride_in_bytes : w * comp) * h);
         }
         return nstbi_write_png(memAddress(filename), w, h, comp, memAddress(data), stride_in_bytes) != 0;
     }
@@ -113,7 +113,7 @@ public class STBImageWrite {
     @NativeType("int")
     public static boolean stbi_write_png(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const void *") ByteBuffer data, @NativeType("int") int stride_in_bytes) {
         if (CHECKS) {
-            check(data, w * h * comp);
+            check(data, (stride_in_bytes != 0 ? stride_in_bytes : w * comp) * h);
         }
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -382,7 +382,7 @@ public class STBImageWrite {
     @NativeType("int")
     public static boolean stbi_write_png_to_func(@NativeType("stbi_write_func *") STBIWriteCallbackI func, @NativeType("void *") long context, int w, int h, int comp, @NativeType("const void *") ByteBuffer data, int stride_in_bytes) {
         if (CHECKS) {
-            check(data, w * h * comp);
+            check(data, (stride_in_bytes != 0 ? stride_in_bytes : w * comp) * h);
         }
         return nstbi_write_png_to_func(func.address(), context, w, h, comp, memAddress(data), stride_in_bytes) != 0;
     }

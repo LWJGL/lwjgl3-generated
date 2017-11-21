@@ -394,7 +394,7 @@ public class STBTruetype {
     @NativeType("int")
     public static boolean stbtt_PackBegin(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("unsigned char *") ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding, @NativeType("void *") long alloc_context) {
         if (CHECKS) {
-            checkSafe(pixels, width * height);
+            checkSafe(pixels, (stride_in_bytes != 0 ? stride_in_bytes : width) * height);
         }
         return nstbtt_PackBegin(spc.address(), memAddressSafe(pixels), width, height, stride_in_bytes, padding, alloc_context) != 0;
     }
@@ -415,7 +415,7 @@ public class STBTruetype {
     @NativeType("int")
     public static boolean stbtt_PackBegin(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("unsigned char *") ByteBuffer pixels, @NativeType("int") int width, @NativeType("int") int height, @NativeType("int") int stride_in_bytes, @NativeType("int") int padding) {
         if (CHECKS) {
-            checkSafe(pixels, width * height);
+            checkSafe(pixels, (stride_in_bytes != 0 ? stride_in_bytes : width) * height);
         }
         return nstbtt_PackBegin(spc.address(), memAddressSafe(pixels), width, height, stride_in_bytes, padding, NULL) != 0;
     }
@@ -1191,7 +1191,7 @@ public class STBTruetype {
      */
     public static void stbtt_MakeCodepointBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int codepoint) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
         }
         nstbtt_MakeCodepointBitmap(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, codepoint);
     }
@@ -1217,7 +1217,7 @@ public class STBTruetype {
      */
     public static void stbtt_MakeCodepointBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int codepoint) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
         }
         nstbtt_MakeCodepointBitmapSubpixel(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, codepoint);
     }
@@ -1247,7 +1247,7 @@ public class STBTruetype {
      */
     public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") FloatBuffer sub_x, @NativeType("float *") FloatBuffer sub_y, int codepoint) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
             check(sub_x, 1);
             check(sub_y, 1);
         }
@@ -1393,7 +1393,7 @@ public class STBTruetype {
      */
     public static void stbtt_MakeGlyphBitmap(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, int glyph) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
         }
         nstbtt_MakeGlyphBitmap(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, glyph);
     }
@@ -1419,7 +1419,7 @@ public class STBTruetype {
      */
     public static void stbtt_MakeGlyphBitmapSubpixel(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int glyph) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
         }
         nstbtt_MakeGlyphBitmapSubpixel(info.address(), memAddress(output), out_w, out_h, out_stride, scale_x, scale_y, shift_x, shift_y, glyph);
     }
@@ -1449,7 +1449,7 @@ public class STBTruetype {
      */
     public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") FloatBuffer sub_x, @NativeType("float *") FloatBuffer sub_y, int glyph) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
             check(sub_x, 1);
             check(sub_y, 1);
         }
@@ -1915,7 +1915,7 @@ public class STBTruetype {
     /** Array version of: {@link #stbtt_MakeCodepointBitmapSubpixelPrefilter MakeCodepointBitmapSubpixelPrefilter} */
     public static void stbtt_MakeCodepointBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") float[] sub_x, @NativeType("float *") float[] sub_y, int codepoint) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
             check(sub_x, 1);
             check(sub_y, 1);
         }
@@ -1988,7 +1988,7 @@ public class STBTruetype {
     /** Array version of: {@link #stbtt_MakeGlyphBitmapSubpixelPrefilter MakeGlyphBitmapSubpixelPrefilter} */
     public static void stbtt_MakeGlyphBitmapSubpixelPrefilter(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("unsigned char *") ByteBuffer output, int out_w, int out_h, int out_stride, float scale_x, float scale_y, float shift_x, float shift_y, int oversample_x, int oversample_y, @NativeType("float *") float[] sub_x, @NativeType("float *") float[] sub_y, int glyph) {
         if (CHECKS) {
-            check(output, out_w * out_h);
+            check(output, (out_stride != 0 ? out_stride : out_w) * out_h);
             check(sub_x, 1);
             check(sub_y, 1);
         }
