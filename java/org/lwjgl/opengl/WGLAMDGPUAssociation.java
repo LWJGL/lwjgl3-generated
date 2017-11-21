@@ -129,7 +129,7 @@ public class WGLAMDGPUAssociation {
      * @param data     the buffer which will be filled with the requested information
      */
     public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") IntBuffer data) {
-        return nwglGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data));
+        return nwglGetGPUInfoAMD(id, property, dataType, (int)(((long)data.remaining() << 2) >> GLChecks.typeToByteShift(dataType)), memAddress(data));
     }
 
     /**
@@ -147,7 +147,7 @@ public class WGLAMDGPUAssociation {
      * @param data     the buffer which will be filled with the requested information
      */
     public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") FloatBuffer data) {
-        return nwglGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data));
+        return nwglGetGPUInfoAMD(id, property, dataType, (int)(((long)data.remaining() << 2) >> GLChecks.typeToByteShift(dataType)), memAddress(data));
     }
 
     // --- [ wglGetContextGPUIDAMD ] ---

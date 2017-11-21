@@ -1269,7 +1269,7 @@ public class BGFX {
      */
     @NativeType("uint32_t")
     public static int bgfx_topology_convert(@NativeType("bgfx_topology_convert_t") int _conversion, @NativeType("void *") ShortBuffer _dst, @NativeType("const void *") ShortBuffer _indices, @NativeType("bool") boolean _index32) {
-        return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 1, memAddress(_indices), _indices.remaining(), _index32);
+        return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 1, memAddress(_indices), (int)(((long)_indices.remaining() << 1) >> (_index32 ? 2 : 1)), _index32);
     }
 
     /**
@@ -1284,7 +1284,7 @@ public class BGFX {
      */
     @NativeType("uint32_t")
     public static int bgfx_topology_convert(@NativeType("bgfx_topology_convert_t") int _conversion, @NativeType("void *") IntBuffer _dst, @NativeType("const void *") IntBuffer _indices, @NativeType("bool") boolean _index32) {
-        return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 2, memAddress(_indices), _indices.remaining(), _index32);
+        return nbgfx_topology_convert(_conversion, memAddressSafe(_dst), remainingSafe(_dst) << 2, memAddress(_indices), (int)(((long)_indices.remaining() << 2) >> (_index32 ? 2 : 1)), _index32);
     }
 
     // --- [ bgfx_topology_sort_tri_list ] ---
@@ -1314,13 +1314,11 @@ public class BGFX {
      * @param _index32  set to `true` if input indices are 32-bit
      */
     public static void bgfx_topology_sort_tri_list(@NativeType("bgfx_topology_sort_t") int _sort, @NativeType("void *") ByteBuffer _dst, @NativeType("const float *") FloatBuffer _dir, @NativeType("const float *") FloatBuffer _pos, @NativeType("const void *") ByteBuffer _vertices, @NativeType("uint32_t") int _stride, @NativeType("const void *") ByteBuffer _indices, @NativeType("bool") boolean _index32) {
-        int _numIndices = _indices.remaining() >> (_index32 ? 2 : 1);
         if (CHECKS) {
             check(_dir, 3);
             check(_pos, 3);
-            check(_vertices, _numIndices * _stride);
         }
-        nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining(), memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
+        nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining(), memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
     }
 
     /**
@@ -1336,13 +1334,11 @@ public class BGFX {
      * @param _index32  set to `true` if input indices are 32-bit
      */
     public static void bgfx_topology_sort_tri_list(@NativeType("bgfx_topology_sort_t") int _sort, @NativeType("void *") ShortBuffer _dst, @NativeType("const float *") FloatBuffer _dir, @NativeType("const float *") FloatBuffer _pos, @NativeType("const void *") ByteBuffer _vertices, @NativeType("uint32_t") int _stride, @NativeType("const void *") ShortBuffer _indices, @NativeType("bool") boolean _index32) {
-        int _numIndices = _indices.remaining();
         if (CHECKS) {
             check(_dir, 3);
             check(_pos, 3);
-            check(_vertices, _numIndices * _stride);
         }
-        nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 1, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
+        nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 1, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), (int)(((long)_indices.remaining() << 1) >> (_index32 ? 2 : 1)), _index32);
     }
 
     /**
@@ -1358,13 +1354,11 @@ public class BGFX {
      * @param _index32  set to `true` if input indices are 32-bit
      */
     public static void bgfx_topology_sort_tri_list(@NativeType("bgfx_topology_sort_t") int _sort, @NativeType("void *") IntBuffer _dst, @NativeType("const float *") FloatBuffer _dir, @NativeType("const float *") FloatBuffer _pos, @NativeType("const void *") ByteBuffer _vertices, @NativeType("uint32_t") int _stride, @NativeType("const void *") IntBuffer _indices, @NativeType("bool") boolean _index32) {
-        int _numIndices = _indices.remaining();
         if (CHECKS) {
             check(_dir, 3);
             check(_pos, 3);
-            check(_vertices, _numIndices * _stride);
         }
-        nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 2, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
+        nbgfx_topology_sort_tri_list(_sort, memAddress(_dst), _dst.remaining() << 2, memAddress(_dir), memAddress(_pos), memAddress(_vertices), _stride, memAddress(_indices), (int)(((long)_indices.remaining() << 2) >> (_index32 ? 2 : 1)), _index32);
     }
 
     // --- [ bgfx_get_supported_renderers ] ---
@@ -4719,37 +4713,31 @@ public class BGFX {
     /** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
     public static void bgfx_topology_sort_tri_list(@NativeType("bgfx_topology_sort_t") int _sort, @NativeType("void *") ByteBuffer _dst, @NativeType("const float *") float[] _dir, @NativeType("const float *") float[] _pos, @NativeType("const void *") ByteBuffer _vertices, @NativeType("uint32_t") int _stride, @NativeType("const void *") ByteBuffer _indices, @NativeType("bool") boolean _index32) {
         long __functionAddress = Functions.topology_sort_tri_list;
-        int _numIndices = _indices.remaining() >> (_index32 ? 2 : 1);
         if (CHECKS) {
             check(_dir, 3);
             check(_pos, 3);
-            check(_vertices, _numIndices * _stride);
         }
-        invokePPPPPV(__functionAddress, _sort, memAddress(_dst), _dst.remaining(), _dir, _pos, memAddress(_vertices), _stride, memAddress(_indices), _numIndices, _index32);
+        invokePPPPPV(__functionAddress, _sort, memAddress(_dst), _dst.remaining(), _dir, _pos, memAddress(_vertices), _stride, memAddress(_indices), _indices.remaining() >> (_index32 ? 2 : 1), _index32);
     }
 
     /** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
     public static void bgfx_topology_sort_tri_list(@NativeType("bgfx_topology_sort_t") int _sort, @NativeType("void *") short[] _dst, @NativeType("const float *") float[] _dir, @NativeType("const float *") float[] _pos, @NativeType("const void *") ByteBuffer _vertices, @NativeType("uint32_t") int _stride, @NativeType("const void *") short[] _indices, @NativeType("bool") boolean _index32) {
         long __functionAddress = Functions.topology_sort_tri_list;
-        int _numIndices = _indices.length;
         if (CHECKS) {
             check(_dir, 3);
             check(_pos, 3);
-            check(_vertices, _numIndices * _stride);
         }
-        invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 1, _dir, _pos, memAddress(_vertices), _stride, _indices, _numIndices, _index32);
+        invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 1, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length, _index32);
     }
 
     /** Array version of: {@link #bgfx_topology_sort_tri_list topology_sort_tri_list} */
     public static void bgfx_topology_sort_tri_list(@NativeType("bgfx_topology_sort_t") int _sort, @NativeType("void *") int[] _dst, @NativeType("const float *") float[] _dir, @NativeType("const float *") float[] _pos, @NativeType("const void *") ByteBuffer _vertices, @NativeType("uint32_t") int _stride, @NativeType("const void *") int[] _indices, @NativeType("bool") boolean _index32) {
         long __functionAddress = Functions.topology_sort_tri_list;
-        int _numIndices = _indices.length;
         if (CHECKS) {
             check(_dir, 3);
             check(_pos, 3);
-            check(_vertices, _numIndices * _stride);
         }
-        invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 2, _dir, _pos, memAddress(_vertices), _stride, _indices, _numIndices, _index32);
+        invokePPPPPV(__functionAddress, _sort, _dst, _dst.length << 2, _dir, _pos, memAddress(_vertices), _stride, _indices, _indices.length, _index32);
     }
 
     /** Array version of: {@link #bgfx_get_supported_renderers get_supported_renderers} */

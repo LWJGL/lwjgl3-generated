@@ -371,7 +371,7 @@ public class NVPathRendering {
      * @param coords    
      */
     public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
-        nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+        nglPathCommandsNV(path, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     /**
@@ -381,7 +381,7 @@ public class NVPathRendering {
      * @param coords    
      */
     public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
-        nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+        nglPathCommandsNV(path, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     // --- [ glPathCoordsNV ] ---
@@ -404,7 +404,7 @@ public class NVPathRendering {
      * @param coords    
      */
     public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
-        nglPathCoordsNV(path, coords.remaining(), coordType, memAddress(coords));
+        nglPathCoordsNV(path, (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     /**
@@ -413,7 +413,7 @@ public class NVPathRendering {
      * @param coords    
      */
     public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
-        nglPathCoordsNV(path, coords.remaining(), coordType, memAddress(coords));
+        nglPathCoordsNV(path, (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     // --- [ glPathSubCommandsNV ] ---
@@ -442,7 +442,7 @@ public class NVPathRendering {
      * @param coords           
      */
     public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
-        nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+        nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     /**
@@ -454,7 +454,7 @@ public class NVPathRendering {
      * @param coords           
      */
     public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
-        nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining(), coordType, memAddress(coords));
+        nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     // --- [ glPathSubCoordsNV ] ---
@@ -479,7 +479,7 @@ public class NVPathRendering {
      * @param coords     
      */
     public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
-        nglPathSubCoordsNV(path, coordStart, coords.remaining(), coordType, memAddress(coords));
+        nglPathSubCoordsNV(path, coordStart, (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     /**
@@ -489,7 +489,7 @@ public class NVPathRendering {
      * @param coords     
      */
     public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
-        nglPathSubCoordsNV(path, coordStart, coords.remaining(), coordType, memAddress(coords));
+        nglPathSubCoordsNV(path, coordStart, (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
     // --- [ glPathStringNV ] ---
