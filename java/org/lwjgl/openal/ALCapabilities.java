@@ -138,8 +138,6 @@ public final class ALCapabilities {
     public final boolean OpenAL10;
     /** When true, {@link AL11} is supported. */
     public final boolean OpenAL11;
-    /** When true, {@link SOFTSourceResampler} is supported. */
-    public final boolean OpenAL_SOFT_source_resampler;
     /** When true, {@link EXTAlaw} is supported. */
     public final boolean AL_EXT_ALAW;
     /** When true, {@link EXTBFormat} is supported. */
@@ -198,6 +196,8 @@ public final class ALCapabilities {
     public final boolean AL_SOFT_source_latency;
     /** When true, {@link SOFTSourceLength} is supported. */
     public final boolean AL_SOFT_source_length;
+    /** When true, {@link SOFTSourceResampler} is supported. */
+    public final boolean AL_SOFT_source_resampler;
     /** When true, {@link SOFTSourceSpatialize} is supported. */
     public final boolean AL_SOFT_source_spatialize;
 
@@ -326,7 +326,6 @@ public final class ALCapabilities {
 
         OpenAL10 = ext.contains("OpenAL10") && checkExtension("OpenAL10", AL10.isAvailable(this));
         OpenAL11 = ext.contains("OpenAL11") && checkExtension("OpenAL11", AL11.isAvailable(this));
-        OpenAL_SOFT_source_resampler = ext.contains("OpenAL_SOFT_source_resampler") && checkExtension("OpenAL_SOFT_source_resampler", SOFTSourceResampler.isAvailable(this));
         AL_EXT_ALAW = ext.contains("AL_EXT_ALAW");
         AL_EXT_BFORMAT = ext.contains("AL_EXT_BFORMAT");
         AL_EXT_DOUBLE = ext.contains("AL_EXT_DOUBLE");
@@ -356,6 +355,7 @@ public final class ALCapabilities {
         AL_SOFT_MSADPCM = ext.contains("AL_SOFT_MSADPCM");
         AL_SOFT_source_latency = ext.contains("AL_SOFT_source_latency") && checkExtension("AL_SOFT_source_latency", SOFTSourceLatency.isAvailable(this));
         AL_SOFT_source_length = ext.contains("AL_SOFT_source_length");
+        AL_SOFT_source_resampler = ext.contains("AL_SOFT_source_resampler") && checkExtension("AL_SOFT_source_resampler", SOFTSourceResampler.isAvailable(this));
         AL_SOFT_source_spatialize = ext.contains("AL_SOFT_source_spatialize");
 
         addresses = ThreadLocalUtil.getAddressesFromCapabilities(this);
