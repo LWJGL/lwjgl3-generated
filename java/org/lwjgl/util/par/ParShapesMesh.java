@@ -14,6 +14,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * The {@code par_shapes.h} mesh structure.
  * 
+ * <p><b>LWJGL note</b>: in the default build, {@code PAR_SHAPES_T} is {@code uint32_t}.</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
@@ -102,12 +104,12 @@ public class ParShapesMesh extends Struct {
     /** Returns the value of the {@code npoints} field. */
     public int npoints() { return nnpoints(address()); }
     /**
-     * Returns a {@link ShortBuffer} view of the data pointed to by the {@code triangles} field.
+     * Returns a {@link IntBuffer} view of the data pointed to by the {@code triangles} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
     @NativeType("PAR_SHAPES_T *")
-    public ShortBuffer triangles(int capacity) { return ntriangles(address(), capacity); }
+    public IntBuffer triangles(int capacity) { return ntriangles(address(), capacity); }
     /** Returns the value of the {@code ntriangles} field. */
     public int ntriangles() { return nntriangles(address()); }
     /**
@@ -149,7 +151,7 @@ public class ParShapesMesh extends Struct {
     /** Unsafe version of {@link #npoints}. */
     public static int nnpoints(long struct) { return memGetInt(struct + ParShapesMesh.NPOINTS); }
     /** Unsafe version of {@link #triangles(int) triangles}. */
-    public static ShortBuffer ntriangles(long struct, int capacity) { return memShortBuffer(memGetAddress(struct + ParShapesMesh.TRIANGLES), capacity); }
+    public static IntBuffer ntriangles(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + ParShapesMesh.TRIANGLES), capacity); }
     /** Unsafe version of {@link #ntriangles}. */
     public static int nntriangles(long struct) { return memGetInt(struct + ParShapesMesh.NTRIANGLES); }
     /** Unsafe version of {@link #normals(int) normals}. */
@@ -209,12 +211,12 @@ public class ParShapesMesh extends Struct {
         /** Returns the value of the {@code npoints} field. */
         public int npoints() { return ParShapesMesh.nnpoints(address()); }
         /**
-         * Returns a {@link ShortBuffer} view of the data pointed to by the {@code triangles} field.
+         * Returns a {@link IntBuffer} view of the data pointed to by the {@code triangles} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
         @NativeType("PAR_SHAPES_T *")
-        public ShortBuffer triangles(int capacity) { return ParShapesMesh.ntriangles(address(), capacity); }
+        public IntBuffer triangles(int capacity) { return ParShapesMesh.ntriangles(address(), capacity); }
         /** Returns the value of the {@code ntriangles} field. */
         public int ntriangles() { return ParShapesMesh.nntriangles(address()); }
         /**

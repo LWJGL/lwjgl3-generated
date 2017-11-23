@@ -18,8 +18,10 @@ DISABLE_WARNINGS()
     __pragma(warning(disable : 4738))
 #elif LWJGL_LINUX
     #pragma GCC diagnostic ignored "-Wunused-parameter"
+    #pragma GCC diagnostic ignored "-Wsign-compare"
 #endif
 #define PAR_SHAPES_IMPLEMENTATION
+#define PAR_SHAPES_T uint32_t
 #include "par_shapes.h"
 ENABLE_WARNINGS()
 
@@ -246,16 +248,16 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1r
     par_shapes_rotate(mesh, radians, (const float *)axis);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3S(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloat epsilon, jshortArray mappingAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3I(JNIEnv *__env, jclass clazz, jlong meshAddress, jfloat epsilon, jintArray mappingAddress) {
     const par_shapes_mesh *mesh = (const par_shapes_mesh *)(intptr_t)meshAddress;
     jlong __result;
-    jshort *mapping = mappingAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, mappingAddress, 0);
+    jint *mapping = mappingAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, mappingAddress, 0);
     UNUSED_PARAMS(__env, clazz)
     __result = (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, (PAR_SHAPES_T *)mapping);
     if (mapping != NULL) { (*__env)->ReleasePrimitiveArrayCritical(__env, mappingAddress, mapping, 0); }
     return __result;
 }
-JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3S(jlong meshAddress, jfloat epsilon, jint mapping__length, jshort* mapping) {
+JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_util_par_ParShapes_npar_1shapes_1weld__JF_3I(jlong meshAddress, jfloat epsilon, jint mapping__length, jint* mapping) {
     const par_shapes_mesh *mesh = (const par_shapes_mesh *)(intptr_t)meshAddress;
     UNUSED_PARAM(mapping__length)
     return (jlong)(intptr_t)par_shapes_weld(mesh, epsilon, (PAR_SHAPES_T *)mapping);

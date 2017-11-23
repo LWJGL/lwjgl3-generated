@@ -567,7 +567,7 @@ public class ParShapes {
      * @param mapping null, or a pointer to {@code npoints} 16-bit integers, which gets filled with the mapping from old vertex indices to new indices
      */
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_weld(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, float epsilon, @NativeType("PAR_SHAPES_T *") ShortBuffer mapping) {
+    public static ParShapesMesh par_shapes_weld(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, float epsilon, @NativeType("PAR_SHAPES_T *") IntBuffer mapping) {
         if (CHECKS) {
             checkSafe(mapping, mesh.npoints());
         }
@@ -626,11 +626,11 @@ public class ParShapes {
     }
 
     /** Array version of: {@link #npar_shapes_weld} */
-    public static native long npar_shapes_weld(long mesh, float epsilon, short[] mapping);
+    public static native long npar_shapes_weld(long mesh, float epsilon, int[] mapping);
 
     /** Array version of: {@link #par_shapes_weld weld} */
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_weld(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, float epsilon, @NativeType("PAR_SHAPES_T *") short[] mapping) {
+    public static ParShapesMesh par_shapes_weld(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, float epsilon, @NativeType("PAR_SHAPES_T *") int[] mapping) {
         if (CHECKS) {
             checkSafe(mapping, mesh.npoints());
         }
