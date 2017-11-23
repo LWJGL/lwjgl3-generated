@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code advancedBlendMaxColorAttachments} &ndash; one greater than the highest color attachment index that <b>can</b> be used in a subpass, for a pipeline that uses an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#framebuffer-blend-advanced">advanced blend operation</a>.</li>
+ * <li>{@code advancedBlendMaxColorAttachments} &ndash; one greater than the highest color attachment index that <b>can</b> be used in a subpass, for a pipeline that uses an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#framebuffer-blend-advanced">advanced blend operation</a>.</li>
  * <li>{@code advancedBlendIndependentBlend} &ndash; indicates whether advanced blend operations <b>can</b> vary per-attachment.</li>
  * <li>{@code advancedBlendNonPremultipliedSrcColor} &ndash; indicates whether the source color <b>can</b> be treated as non-premultiplied. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::srcPremultiplied} <b>must</b> be {@link VK10#VK_TRUE TRUE}.</li>
  * <li>{@code advancedBlendNonPremultipliedDstColor} &ndash; indicates whether the destination color <b>can</b> be treated as non-premultiplied. If this is {@link VK10#VK_FALSE FALSE}, then {@link VkPipelineColorBlendAdvancedStateCreateInfoEXT}{@code ::dstPremultiplied} <b>must</b> be {@link VK10#VK_TRUE TRUE}.</li>

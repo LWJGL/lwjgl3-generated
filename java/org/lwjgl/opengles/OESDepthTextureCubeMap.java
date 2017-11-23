@@ -6,11 +6,11 @@
 package org.lwjgl.opengles;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/OES/OES_depth_texture_cube_map.txt">OES_depth_texture_cube_map</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/OES/OES_depth_texture_cube_map.txt">OES_depth_texture_cube_map</a> extension.
  * 
  * <p>This extension extends OES_depth_texture and OES_packed_depth_stencil to support depth and depth-stencil cube-map textures.</p>
  * 
- * <p>Requires {@link GLES20 GLES 2.0} and <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/OES/OES_depth_texture.txt">OES_depth_texture_cube_map</a>.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and {@link  OES_depth_texture}.</p>
  */
 public final class OESDepthTextureCubeMap {
 

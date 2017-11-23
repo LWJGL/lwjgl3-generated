@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/NV/NV_alpha_to_coverage_dither_control.txt">NV_alpha_to_coverage_dither_control</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_alpha_to_coverage_dither_control.txt">NV_alpha_to_coverage_dither_control</a> extension.
  * 
  * <p>{@code NV_alpha_to_coverage_dither_control} provides a new mechanism to control whether dithering is applied when the existing alpha to coverage
  * functionality is used.</p>

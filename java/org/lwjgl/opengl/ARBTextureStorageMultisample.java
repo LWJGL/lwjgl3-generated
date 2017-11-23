@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_storage_multisample.txt">ARB_texture_storage_multisample</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_storage_multisample.txt">ARB_texture_storage_multisample</a> extension.
  * 
  * <p>The {@link ARBTextureStorage ARB_texture_storage} extension and OpenGL 4.2 introduced the concept of immutable texture objects. With these objects, once their data store
  * has been sized and allocated, it could not be resized for the lifetime of the objects (although its content could be updated). OpenGL implementations

@@ -19,25 +19,25 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture3D.txt">EXT_texture3D</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/bgra.txt">EXT_bgra</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/packed_pixels.txt">EXT_packed_pixels</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/rescale_normal.txt">EXT_rescale_normal</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/separate_specular_color.txt">EXT_separate_specular_color</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/SGIS/texture_edge_clamp.txt">SGIS_texture_edge_clamp</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/SGIS/texture_lod.txt">SGIS_texture_lod</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/draw_range_elements.txt">EXT_draw_range_elements</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_texture3D.txt">EXT_texture3D</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_bgra.txt">EXT_bgra</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_packed_pixels.txt">EXT_packed_pixels</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_rescale_normal.txt">EXT_rescale_normal</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_separate_specular_color.txt">EXT_separate_specular_color</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/SGIS/SGIS_texture_edge_clamp.txt">SGIS_texture_edge_clamp</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/SGIS/SGIS_texture_lod.txt">SGIS_texture_lod</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_draw_range_elements.txt">EXT_draw_range_elements</a></li>
  * </ul>
  * 
  * <p>Extensions part of the <em>imaging subset</em>:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/color_table.txt">EXT_color_table</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/color_subtable.txt">EXT_color_subtable</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/convolution.txt">EXT_convolution</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/HP/convolution_border_modes.txt">HP_convolution_border_modes</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/SGI/color_matrix.txt">SGI_color_matrix</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/histogram.txt">EXT_histogram</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_color.txt">EXT_blend_color</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_minmax.txt">EXT_blend_minmax</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/EXT_blend_subtract.txt">EXT_EXT_blend_subtract</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_color_table.txt">EXT_color_table</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_color_subtable.txt">EXT_color_subtable</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_convolution.txt">EXT_convolution</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/HP/HP_convolution_border_modes.txt">HP_convolution_border_modes</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/SGI/SGI_color_matrix.txt">SGI_color_matrix</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_histogram.txt">EXT_histogram</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_blend_color.txt">EXT_blend_color</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_blend_minmax.txt">EXT_blend_minmax</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_blend_subtract.txt">EXT_blend_subtract</a></li>
  * </ul>
  */
 public class GL12 {

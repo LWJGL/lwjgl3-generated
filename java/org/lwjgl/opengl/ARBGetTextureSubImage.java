@@ -14,7 +14,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/get_texture_sub_image.txt">ARB_get_texture_sub_image</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_get_texture_sub_image.txt">ARB_get_texture_sub_image</a> extension.
  * 
  * <p>This extension adds a new function to get sub-regions of texture images.</p>
  * 

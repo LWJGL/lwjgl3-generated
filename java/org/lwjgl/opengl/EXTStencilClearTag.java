@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/stencil_clear_tag.txt">EXT_stencil_clear_tag</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_stencil_clear_tag.txt">EXT_stencil_clear_tag</a> extension.
  * 
  * <p>Stencil-only framebuffer clears are increasingly common as 3D applications are now using rendering algorithms such as stenciled shadow volume rendering
  * for multiple light sources in a single frame, recent "soft" stenciled shadow volume techniques, and stencil-based constructive solid geometry

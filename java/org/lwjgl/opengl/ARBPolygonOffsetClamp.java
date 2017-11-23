@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/polygon_offset_clamp.txt">ARB_polygon_offset_clamp</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_polygon_offset_clamp.txt">ARB_polygon_offset_clamp</a> extension.
  * 
  * <p>This extension adds a new parameter to the polygon offset function that clamps the calculated offset to a minimum or maximum value. The clamping
  * functionality is useful when polygons are nearly parallel to the view direction because their high slopes can result in arbitrarily large polygon

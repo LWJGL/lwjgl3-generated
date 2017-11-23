@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_image_load_store.txt">ARB_shader_image_load_store</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_image_load_store.txt">ARB_shader_image_load_store</a> extension.
  * 
  * <p>This extension provides GLSL built-in functions allowing shaders to load from, store to, and perform atomic read-modify-write operations to a single
  * level of a texture object from any shader stage. These built-in functions are named imageLoad(), imageStore(), and imageAtomic*(), respectively, and

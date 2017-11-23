@@ -14,7 +14,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_64bit.txt">ARB_vertex_attrib_64bit</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_vertex_attrib_64bit.txt">ARB_vertex_attrib_64bit</a> extension.
  * 
  * <p>This extension provides OpenGL shading language support for vertex shader inputs with 64-bit floating-point components and OpenGL API support for
  * specifying the value of those inputs using vertex array or immediate mode entry points. This builds on the support for general-purpose support for
@@ -25,8 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * single-precision attributes are not automatically converted to double-precision or vice versa. For shader variables with 64-bit component types, the
  * "VertexAttribL" functions must be used to specify attribute values. For other shader variables, the "VertexAttribL" functions must not be used. If a
  * vertex attribute is specified using the wrong attribute function, the values of the corresponding shader input are undefined. This approach requiring
- * matching types is identical to that used for the "VertexAttribI" functions provided by OpenGL 3.0 and the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>
- * extension.</p>
+ * matching types is identical to that used for the "VertexAttribI" functions provided by OpenGL 3.0 and the {@link EXTGPUShader4 EXT_gpu_shader4} extension.</p>
  * 
  * <p>Additionally, some vertex shader inputs using the wider 64-bit components may count double against the implementation-dependent limit on the number of
  * vertex shader attribute vectors. A 64-bit scalar or a two-component vector consumes only a single generic vertex attribute; three- and four-component
@@ -37,7 +36,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Support for 64-bit floating-point vertex attributes in this extension can be combined with other extensions. In particular, this extension provides an
  * entry point that can be used with EXT_direct_state_access to directly set state for any vertex array object. Also, the related
- * <a target="_blank" href="http://www.opengl.org/registry/specs/NV/vertex_attrib_integer_64bit.txt">NV_vertex_attrib_integer_64bit</a> extension provides an entry point to specify bindless vertex attribute arrays with 64-bit
+ * {@link NVVertexAttribInteger64bit NV_vertex_attrib_integer_64bit} extension provides an entry point to specify bindless vertex attribute arrays with 64-bit
  * components, integer or floating-point.</p>
  * 
  * <p>Requires {@link GL30 OpenGL 3.0}, GLSL 1.30 and {@link ARBGPUShaderFP64 ARB_gpu_shader_fp64}. Promoted to core in {@link GL41 OpenGL 4.1}.</p>

@@ -20,31 +20,31 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/arrays_of_arrays.txt">ARB_arrays_of_arrays</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES3_compatibility.txt">ARB_ES3_compatibility</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/clear_buffer_object.txt">ARB_clear_buffer_object</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/compute_shader.txt">ARB_compute_shader</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/copy_image.txt">ARB_copy_image</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_group.txt">ARB_debug_group</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_label.txt">ARB_debug_label</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_output2.txt">ARB_debug_output2</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_output.txt">ARB_debug_output</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/explicit_uniform_location.txt">ARB_explicit_uniform_location</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/fragment_layer_viewport.txt">ARB_fragment_layer_viewport</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/framebuffer_no_attachments.txt">ARB_framebuffer_no_attachments</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/internalformat_query2.txt">ARB_internalformat_query2</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/invalidate_subdata.txt">ARB_invalidate_subdata</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/multi_draw_indirect.txt">ARB_multi_draw_indirect</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/program_interface_query.txt">ARB_program_interface_query</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/robust_buffer_access_behavior.txt">ARB_robust_buffer_access_behavior</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_image_size.txt">ARB_shader_image_size</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_storage_buffer_object.txt">ARB_shader_storage_buffer_object</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/stencil_texturing.txt">ARB_stencil_texturing</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_buffer_range.txt">ARB_texture_buffer_range</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_query_levels.txt">ARB_texture_query_levels</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_storage_multisample.txt">ARB_texture_storage_multisample</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_view.txt">ARB_texture_view</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_arrays_of_arrays.txt">ARB_arrays_of_arrays</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_ES3_compatibility.txt">ARB_ES3_compatibility</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_clear_buffer_object.txt">ARB_clear_buffer_object</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_compute_shader.txt">ARB_compute_shader</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_copy_image.txt">ARB_copy_image</a></li>
+ * <li>{@code ARB_debug_group}</li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_debug_label.txt">EXT_debug_label</a></li>
+ * <li>{@code ARB_debug_output2}</li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_debug_output.txt">ARB_debug_output</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_explicit_uniform_location.txt">ARB_explicit_uniform_location</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_fragment_layer_viewport.txt">ARB_fragment_layer_viewport</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_framebuffer_no_attachments.txt">ARB_framebuffer_no_attachments</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_internalformat_query2.txt">ARB_internalformat_query2</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_invalidate_subdata.txt">ARB_invalidate_subdata</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_multi_draw_indirect.txt">ARB_multi_draw_indirect</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_program_interface_query.txt">ARB_program_interface_query</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_robust_buffer_access_behavior.txt">ARB_robust_buffer_access_behavior</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_image_size.txt">ARB_shader_image_size</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_storage_buffer_object.txt">ARB_shader_storage_buffer_object</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_stencil_texturing.txt">ARB_stencil_texturing</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_buffer_range.txt">ARB_texture_buffer_range</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_query_levels.txt">ARB_texture_query_levels</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_storage_multisample.txt">ARB_texture_storage_multisample</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_view.txt">ARB_texture_view</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_vertex_attrib_binding.txt">ARB_vertex_attrib_binding</a></li>
  * </ul>
  */
 public class GL43 {

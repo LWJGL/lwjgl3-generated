@@ -1459,7 +1459,7 @@ public class Assimp {
      * Reorders triangles for better vertex cache locality.
      * 
      * <p>The step tries to improve the ACMR (average post-transform vertex cache miss ratio) for all meshes. The implementation runs in O(n) and is roughly
-     * based on the 'tipsify' algorithm (see <a target="_blank" href="http://www.cs.princeton.edu/gfx/pubs/Sander_2007_%3ETR/tipsy.pdf">this paper</a>).</p>
+     * based on the 'tipsify' algorithm (see <a target="_blank" href="http://gfx.cs.princeton.edu/pubs/Sander_2007_%3ETR/tipsy.pdf">this paper</a>).</p>
      * 
      * <p>If you intend to render huge models in hardware, this step might be of interest to you. The {@link #AI_CONFIG_PP_ICL_PTCACHE_SIZE} importer property
      * can be used to fine-tune the cache optimization.</p>

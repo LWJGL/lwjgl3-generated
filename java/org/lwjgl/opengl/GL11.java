@@ -22,13 +22,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/vertex_array.txt">EXT_vertex_array</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/polygon_offset.txt">EXT_polygon_offset</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_logic_op.txt">EXT_blend_logic_op</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture.txt">EXT_texture</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/copy_texture.txt">EXT_copy_texture</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/subtexture.txt">EXT_subtexture</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_object.txt">EXT_texture_object</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_vertex_array.txt">EXT_vertex_array</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_polygon_offset.txt">EXT_polygon_offset</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_blend_logic_op.txt">EXT_blend_logic_op</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_texture.txt">EXT_texture</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_copy_texture.txt">EXT_copy_texture</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_subtexture.txt">EXT_subtexture</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_texture_object.txt">EXT_texture_object</a></li>
  * </ul>
  */
 public class GL11 {

@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/instanced_arrays.txt">ARB_instanced_arrays</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_instanced_arrays.txt">ARB_instanced_arrays</a> extension.
  * 
  * <p>A common use case in GL for some applications is to be able to draw the same object, or groups of similar objects that share vertex data, primitive
  * count and type, multiple times. This extension provides a means of accelerating such use cases while restricting the number of API calls, and keeping
@@ -61,7 +61,7 @@ public class ARBInstancedArrays {
     // --- [ glVertexArrayVertexAttribDivisorEXT ] ---
 
     /**
-     * <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
+     * {@link EXTDirectStateAccess EXT_direct_state_access} version of {@link #glVertexAttribDivisorARB VertexAttribDivisorARB}.
      * 
      * <p>This function was added to the extension specification in July 2013. Implemenations are allowed to expose ARB_instanced_arrays without providing this
      * function. The correct way to test its availability is:</p>

@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.Pointer.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.khronos.org/registry/cl/extensions/intel/cl_intel_subgroups.txt">intel_subgroups</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.khronos.org/registry/OpenCL/extensions/intel/cl_intel_subgroups.txt">intel_subgroups</a> extension.
  * 
  * <p>The goal of this extension is to allow programmers to improve the performance of their applications by taking advantage of the fact that some work
  * items in a work group execute together as a group (a "subgroup"), and that work items in a subgroup can take advantage of hardware features that are

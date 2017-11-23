@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/debug_output.txt">ARB_debug_output</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_debug_output.txt">ARB_debug_output</a> extension.
  * 
  * <p>This extension allows the GL to notify applications when various events occur that may be useful during application development and debugging.</p>
  * 

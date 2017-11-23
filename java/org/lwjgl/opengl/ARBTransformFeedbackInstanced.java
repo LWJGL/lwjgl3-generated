@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/transform_feedback_instanced.txt">ARB_transform_feedback_instanced</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_transform_feedback_instanced.txt">ARB_transform_feedback_instanced</a> extension.
  * 
  * <p>Multiple instances of geometry may be specified to the GL by calling functions such as {@link GL31#glDrawArraysInstanced DrawArraysInstanced} and {@link GL31#glDrawElementsInstanced DrawElementsInstanced}.
  * Further, the results of a transform feedback operation may be returned to the GL by calling {@link GL40#glDrawTransformFeedback DrawTransformFeedback}, or

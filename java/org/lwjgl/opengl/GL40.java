@@ -20,19 +20,19 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_query_lod.txt">ARB_texture_query_lod</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/draw_buffers_blend.txt">ARB_draw_buffers_blend</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/draw_indirect.txt">ARB_draw_indirect</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/gpu_shader5.txt">ARB_gpu_shader5</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/gpu_shader_fp64.txt">ARB_gpu_shader_fp64</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/sample_shading.txt">ARB_sample_shading</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_subroutine.txt">ARB_shader_subroutine</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/tessellation_shader.txt">ARB_tessellation_shader</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_buffer_object_rgb32.txt">ARB_texture_buffer_object_rgb32</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_cube_map_array.txt">ARB_texture_cube_map_array</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_gather.txt">ARB_texture_gather</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/transform_feedback2.txt">ARB_transform_feedback2</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/transform_feedback3.txt">ARB_transform_feedback3</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_query_lod.txt">ARB_texture_query_lod</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_draw_buffers_blend.txt">ARB_draw_buffers_blend</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_draw_indirect.txt">ARB_draw_indirect</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_gpu_shader5.txt">ARB_gpu_shader5</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_gpu_shader_fp64.txt">ARB_gpu_shader_fp64</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_sample_shading.txt">ARB_sample_shading</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_subroutine.txt">ARB_shader_subroutine</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_tessellation_shader.txt">ARB_tessellation_shader</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_buffer_object_rgb32.txt">ARB_texture_buffer_object_rgb32</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_cube_map_array.txt">ARB_texture_cube_map_array</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_gather.txt">ARB_texture_gather</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_transform_feedback2.txt">ARB_transform_feedback2</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_transform_feedback3.txt">ARB_transform_feedback3</a></li>
  * </ul>
  */
 public class GL40 {

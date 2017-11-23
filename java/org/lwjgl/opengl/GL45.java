@@ -23,17 +23,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/clip_control.txt">ARB_clip_control</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/cull_distance.txt">ARB_cull_distance</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES3_1_compatibility.txt">ARB_ES3_1_compatibility</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/conditional_render_inverted.txt">ARB_conditional_render_inverted</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/KHR/context_flush_control.txt">KHR_context_flush_control</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/derivative_control.txt">ARB_derivative_control</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/direct_state_access.txt">ARB_direct_state_access</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/get_texture_sub_image.txt">ARB_get_texture_sub_image</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/KHR/robustness.txt">KHR_robustness</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_texture_image_samples.txt">ARB_shader_texture_image_samples</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_barrier.txt">ARB_texture_barrier</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_clip_control.txt">ARB_clip_control</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_cull_distance.txt">ARB_cull_distance</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_ES3_1_compatibility.txt">ARB_ES3_1_compatibility</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_conditional_render_inverted.txt">ARB_conditional_render_inverted</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/KHR/KHR_context_flush_control.txt">KHR_context_flush_control</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_derivative_control.txt">ARB_derivative_control</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_direct_state_access.txt">ARB_direct_state_access</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_get_texture_sub_image.txt">ARB_get_texture_sub_image</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/KHR/KHR_robustness.txt">KHR_robustness</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_texture_image_samples.txt">ARB_shader_texture_image_samples</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_barrier.txt">ARB_texture_barrier</a></li>
  * </ul>
  */
 public class GL45 {

@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_surface">{@code VK_KHR_surface}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_surface">{@code VK_KHR_surface}</a></li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>
@@ -136,7 +136,7 @@ public class KHRXlibSurface {
      *
      * @param instance    the instance to associate the surface with.
      * @param pCreateInfo a pointer to an instance of the {@link VkXlibSurfaceCreateInfoKHR} structure containing the parameters affecting the creation of the surface object.
-     * @param pAllocator  the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
+     * @param pAllocator  the allocator used for host memory allocated for the surface object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a>).
      * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
      */
     @NativeType("VkResult")

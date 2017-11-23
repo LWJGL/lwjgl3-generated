@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/INTEL/INTEL_framebuffer_CMAA.txt">INTEL_framebuffer_CMAA</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/INTEL/INTEL_framebuffer_CMAA.txt">INTEL_framebuffer_CMAA</a> extension.
  * 
  * <p>Multisampling is a mechanism to antialias all GL primitives and is part of the GL specification.</p>
  * 

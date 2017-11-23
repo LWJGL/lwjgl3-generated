@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_clip_control.txt">EXT_clip_control</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_clip_control.txt">EXT_clip_control</a> extension.
  * 
  * <p>This extension provides additional clip control modes to configure how clip space is mapped to window space. This extension's goal is to</p>
  * 

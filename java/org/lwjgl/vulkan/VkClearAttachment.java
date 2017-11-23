@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code aspectMask} &ndash; a mask selecting the color, depth and/or stencil aspects of the attachment to be cleared. {@code aspectMask} <b>can</b> include {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} for color attachments, {@link VK10#VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} for depth/stencil attachments with a depth component, and {@link VK10#VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} for depth/stencil attachments with a stencil component. If the subpass&#8217;s depth/stencil attachment is {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED}, then the clear has no effect.</li>
  * <li>{@code colorAttachment} &ndash; only meaningful if {@link VK10#VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT} is set in {@code aspectMask}, in which case it is an index to the {@code pColorAttachments} array in the {@link VkSubpassDescription} structure of the current subpass which selects the color attachment to clear. If {@code colorAttachment} is {@link VK10#VK_ATTACHMENT_UNUSED ATTACHMENT_UNUSED} then the clear has no effect.</li>
- * <li>{@code clearValue} &ndash; the color or depth/stencil value to clear the attachment to, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#clears-values">Clear Values</a> below.</li>
+ * <li>{@code clearValue} &ndash; the color or depth/stencil value to clear the attachment to, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#clears-values">Clear Values</a> below.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

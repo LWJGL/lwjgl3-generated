@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/robustness.txt">ARB_robustness</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_robustness.txt">ARB_robustness</a> extension.
  * 
  * <p>Several recent trends in how OpenGL integrates into modern computer systems have created new requirements for robustness and security for OpenGL
  * rendering contexts.</p>
@@ -65,8 +65,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>There are other well-known robustness issues with the OpenGL API which this extension does not address. For example, selector-based OpenGL commands are
  * a well-known source of programming errors. Code to manipulate texture state may assume the active texture selector is set appropriately when an
  * intervening function call obscures a change to the active texture state resulting in incorrectly updated or queried state. The
- * <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> extension introduces selector-free OpenGL commands and queries to address that particular issue so this
- * extension does not.</p>
+ * {@link EXTDirectStateAccess EXT_direct_state_access} extension introduces selector-free OpenGL commands and queries to address that particular issue so this extension does
+ * not.</p>
  * 
  * <p>The intent of this extension is NOT to deprecate any existing API and thereby introduce compatibility issues and coding burdens on existing code, but
  * rather to provide new APIs to ensure a level of robustness commensurate with the expectations of modern applications of OpenGL.</p>

@@ -22,15 +22,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_array_bgra.txt">ARB_vertex_array_bgra</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/draw_elements_base_vertex.txt">ARB_draw_elements_base_vertex</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/fragment_coord_conventions.txt">ARB_fragment_coord_conventions</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/provoking_vertex.txt">ARB_provoking_vertex</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/seamless_cube_map.txt">ARB_seamless_cube_map</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_multisample.txt">ARB_texture_multisample</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/depth_clamp.txt">ARB_depth_clamp</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/geometry_shader4.txt">ARB_geometry_shader4</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/sync.txt">ARB_sync</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_vertex_array_bgra.txt">ARB_vertex_array_bgra</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_draw_elements_base_vertex.txt">ARB_draw_elements_base_vertex</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_fragment_coord_conventions.txt">ARB_fragment_coord_conventions</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_provoking_vertex.txt">ARB_provoking_vertex</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_seamless_cube_map.txt">ARB_seamless_cube_map</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_multisample.txt">ARB_texture_multisample</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_depth_clamp.txt">ARB_depth_clamp</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_geometry_shader4.txt">ARB_geometry_shader4</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_sync.txt">ARB_sync</a></li>
  * </ul>
  */
 public class GL32 {

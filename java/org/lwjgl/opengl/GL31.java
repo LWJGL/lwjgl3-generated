@@ -22,12 +22,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/draw_instanced.txt">ARB_draw_instanced</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/copy_buffer.txt">ARB_copy_buffer</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/NV/primitive_restart.txt">NV_primitive_restart</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_buffer_object.txt">ARB_texture_buffer_object</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_rectangle.txt">ARB_texture_rectangle</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/uniform_buffer_object.txt">ARB_uniform_buffer_object</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_draw_instanced.txt">ARB_draw_instanced</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_copy_buffer.txt">ARB_copy_buffer</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_primitive_restart.txt">NV_primitive_restart</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_buffer_object.txt">ARB_texture_buffer_object</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_rectangle.txt">ARB_texture_rectangle</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_uniform_buffer_object.txt">ARB_uniform_buffer_object</a></li>
  * </ul>
  */
 public class GL31 {

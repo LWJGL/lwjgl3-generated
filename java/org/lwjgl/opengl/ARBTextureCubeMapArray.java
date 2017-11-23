@@ -6,11 +6,11 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_cube_map_array.txt">ARB_texture_cube_map_array</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_cube_map_array.txt">ARB_texture_cube_map_array</a> extension.
  * 
- * <p>The <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_array.txt">EXT_texture_array</a> extension, and subsequently OpenGL 3.0 have introduced the concept of one- and two-dimensional array
- * textures. An array texture is an ordered set of images with the same size and format. Each image in an array texture has a unique level. This extension
- * expands texture array support to include cube map textures.</p>
+ * <p>The {@link EXTTextureArray EXT_texture_array} extension, and subsequently OpenGL 3.0 have introduced the concept of one- and two-dimensional array textures. An array
+ * texture is an ordered set of images with the same size and format. Each image in an array texture has a unique level. This extension expands texture
+ * array support to include cube map textures.</p>
  * 
  * <p>A cube map array texture is a 2-dimensional array texture that may contain many cube map layers. Each cube map layer is a unique cube map image set.
  * Images in a cube map array have the same size and format limitations as one- and two-dimensional array textures. A cube map array texture is specified

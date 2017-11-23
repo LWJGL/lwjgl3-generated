@@ -22,7 +22,7 @@ package org.lwjgl.vulkan;
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <p>The {@code ShaderViewportIndexLayerNV} capability is equivalent to the  {@code ShaderViewportIndexLayerEXT} capability added by  <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_EXT_shader_viewport_index_layer">VK_EXT_shader_viewport_index_layer</a>.</p>
+ * <p>The {@code ShaderViewportIndexLayerNV} capability is equivalent to the  {@code ShaderViewportIndexLayerEXT} capability added by  <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_shader_viewport_index_layer">VK_EXT_shader_viewport_index_layer</a>.</p>
  * </div>
  * 
  * <dl>

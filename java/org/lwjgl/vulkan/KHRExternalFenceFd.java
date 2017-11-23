@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_external_fence">{@code VK_KHR_external_fence}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_fence">{@code VK_KHR_external_fence}</a></li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>
@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>James Jones, NVIDIA</li>
  * <li>Jeff Juliano, NVIDIA</li>
  * <li>Cass Everitt, Oculus</li>
- * <li>Contributors to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_external_semaphore_fd">VK_KHR_external_semaphore_fd</a></li>
+ * <li>Contributors to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_fd">VK_KHR_external_semaphore_fd</a></li>
  * </ul></dd>
  * </dl>
  */
@@ -185,7 +185,7 @@ public class KHRExternalFenceFd {
      * 
      * <p>Where supported by the operating system, the implementation <b>must</b> set the file descriptor to be closed automatically when an fname:execve system call is made.</p>
      * 
-     * <p>Exporting a file descriptor from a fence <b>may</b> have side effects depending on the transference of the specified handle type, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences-importing">Importing Fence State</a>.</p>
+     * <p>Exporting a file descriptor from a fence <b>may</b> have side effects depending on the transference of the specified handle type, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-importing">Importing Fence State</a>.</p>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 

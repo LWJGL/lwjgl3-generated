@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/QCOM/QCOM_texture_foveated.txt">QCOM_texture_foveated</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/QCOM/QCOM_texture_foveated.txt">QCOM_texture_foveated</a> extension.
  * 
  * <p>Foveated rendering is a technique that aims to reduce fragment processing workload and bandwidth by reducing the average resolution of a render target.
  * Perceived image quality is kept high by leaving the focal point of rendering at full resolution.</p>

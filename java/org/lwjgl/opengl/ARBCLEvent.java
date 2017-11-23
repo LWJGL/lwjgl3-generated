@@ -12,7 +12,7 @@ import static org.lwjgl.system.Checks.*;
 import org.lwjgl.opencl.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/cl_event.txt">ARB_cl_event</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_cl_event.txt">ARB_cl_event</a> extension.
  * 
  * <p>This extension allows creating OpenGL sync objects linked to OpenCL event objects, potentially improving efficiency of sharing images and buffers between
  * the two APIs. The companion {@link org.lwjgl.opencl.KHRGLEvent cl_khr_gl_event} OpenCL extension provides the complementary functionality of creating an

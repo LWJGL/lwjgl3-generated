@@ -312,7 +312,7 @@ public class EXTDebugReport {
      *
      * @param instance    the instance the callback will be logged on.
      * @param pCreateInfo points to a {@link VkDebugReportCallbackCreateInfoEXT} structure which defines the conditions under which this callback will be called.
-     * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+     * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      * @param pCallback   a pointer to record the {@code VkDebugReportCallbackEXT} object created.
      */
     @NativeType("VkResult")
@@ -376,7 +376,7 @@ public class EXTDebugReport {
      *
      * @param instance   the instance where the callback was created.
      * @param callback   the {@code VkDebugReportCallbackEXT} object to destroy. {@code callback} is an externally synchronized object and <b>must</b> not be used on more than one thread at a time. This means that {@link #vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT} <b>must</b> not be called when a callback is active.
-     * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
+     * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
     public static void vkDestroyDebugReportCallbackEXT(VkInstance instance, @NativeType("VkDebugReportCallbackEXT") long callback, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyDebugReportCallbackEXT(instance, callback, memAddressSafe(pAllocator));
@@ -419,7 +419,7 @@ public class EXTDebugReport {
      * 
      * <ul>
      * <li>{@code object} <b>must</b> be a Vulkan object or {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
-     * <li>If {@code objectType} is not {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} and {@code object} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code object} <b>must</b> be a Vulkan object of the corresponding type associated with {@code objectType} as defined in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#debug-report-object-types">the “{@code VkDebugReportObjectTypeEXT} and Vulkan Handle Relationship” table</a>.</li>
+     * <li>If {@code objectType} is not {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} and {@code object} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code object} <b>must</b> be a Vulkan object of the corresponding type associated with {@code objectType} as defined in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#debug-report-object-types">the “{@code VkDebugReportObjectTypeEXT} and Vulkan Handle Relationship” table</a>.</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -476,7 +476,7 @@ public class EXTDebugReport {
      * 
      * <ul>
      * <li>{@code object} <b>must</b> be a Vulkan object or {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
-     * <li>If {@code objectType} is not {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} and {@code object} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code object} <b>must</b> be a Vulkan object of the corresponding type associated with {@code objectType} as defined in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#debug-report-object-types">the “{@code VkDebugReportObjectTypeEXT} and Vulkan Handle Relationship” table</a>.</li>
+     * <li>If {@code objectType} is not {@link #VK_DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT DEBUG_REPORT_OBJECT_TYPE_UNKNOWN_EXT} and {@code object} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code object} <b>must</b> be a Vulkan object of the corresponding type associated with {@code objectType} as defined in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#debug-report-object-types">the “{@code VkDebugReportObjectTypeEXT} and Vulkan Handle Relationship” table</a>.</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>

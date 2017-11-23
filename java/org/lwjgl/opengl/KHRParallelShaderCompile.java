@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/KHR/parallel_shader_compile.txt">KHR_parallel_shader_compile</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/KHR/KHR_parallel_shader_compile.txt">KHR_parallel_shader_compile</a> extension.
  * 
  * <p>Compiling GLSL into implementation-specific code can be a time consuming process, so a GL implementation may wish to perform the compilation in a
  * separate CPU thread. This extension provides a mechanism for the application to provide a hint to limit the number of threads it wants to be used to

@@ -6,9 +6,9 @@
 package org.lwjgl.opengl;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_subtract.txt">EXT_blend_subtract</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_blend_subtract.txt">EXT_blend_subtract</a> extension.
  * 
- * <p>Two additional blending equations are specified using the interface defined by <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/blend_minmax.link.txt">EXT_blend_minmax.link</a>. These equations are similar to the default
+ * <p>Two additional blending equations are specified using the interface defined by {@link EXTBlendMinmax EXT_blend_minmax}. These equations are similar to the default
  * blending equation, but produce the difference of its left and right hand sides, rather than the sum.  Image differences are useful in many image
  * processing applications.</p>
  * 

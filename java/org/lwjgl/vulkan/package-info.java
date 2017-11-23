@@ -5,7 +5,7 @@
  */
 
 /**
- * Contains bindings to <a target="_blank" href="https://www.khronos.org/vulkan">Vulkan</a>, a new generation graphics and compute API that provides high-efficiency,
+ * Contains bindings to <a target="_blank" href="https://www.khronos.org/vulkan/">Vulkan</a>, a new generation graphics and compute API that provides high-efficiency,
  * cross-platform access to modern GPUs used in a wide variety of devices from PCs and consoles to mobile phones and embedded platforms.
  * 
  * <p>Experimental extensions (KHX, NVX, etc) is not supported API. When such an extension is promoted to stable, the corresponding experimental bindings

@@ -5,7 +5,7 @@
  */
 package org.lwjgl.opengl;
 
-/** This extension is undocumented. See <a target="_blank" href="http://www.hardwaresecrets.com/datasheets/3Dc_White_Paper.pdf">3Dc™ White Paper</a> for information. */
+/** This extension is undocumented. See <a target="_blank" href="https://en.wikipedia.org/wiki/3Dc">3Dc</a> for information. */
 public final class ATITextureCompression3DC {
 
     /** Accepted by the {@code internalformat} parameter of TexImage functions. */

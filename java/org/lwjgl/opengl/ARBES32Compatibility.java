@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/ES3_2_compatibility.txt">ARB_ES3_2_compatibility</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_ES3_2_compatibility.txt">ARB_ES3_2_compatibility</a> extension.
  * 
  * <p>This extension adds support for features of OpenGL ES 3.2 that are missing from OpenGL 4.5. Enabling these features will ease the process of porting
  * applications from OpenGL ES 3.2 to OpenGL.</p>

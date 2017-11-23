@@ -15,18 +15,18 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/bindless_texture.txt">ARB_bindless_texture</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_bindless_texture.txt">ARB_bindless_texture</a> extension.
  * 
  * <p>This extension allows OpenGL applications to access texture objects in shaders without first binding each texture to one of a limited number of texture
  * image units. Using this extension, an application can query a 64-bit unsigned integer texture handle for each texture that it wants to access and then
  * use that handle directly in GLSL or assembly-based shaders. The ability to access textures without having to bind and/or re-bind them is similar to the
- * capability provided by the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/shader_buffer_load.txt">NV_shader_buffer_load</a> extension that allows shaders to access buffer objects without binding them. In
- * both cases, these extensions significantly reduce the amount of API and internal GL driver overhead needed to manage resource bindings.</p>
+ * capability provided by the {@link NVShaderBufferLoad NV_shader_buffer_load} extension that allows shaders to access buffer objects without binding them. In both cases,
+ * these extensions significantly reduce the amount of API and internal GL driver overhead needed to manage resource bindings.</p>
  * 
  * <p>This extension also provides similar capability for the image load, store, and atomic functionality provided by OpenGL 4.2 and the
- * {@link ARBShaderImageLoadStore ARB_shader_image_load_store} and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/shader_image_load_store.txt">EXT_shader_image_load_store</a> extensions, where a texture can be accessed without first
- * binding it to an image unit. An image handle can be extracted from a texture object using an API with a set of parameters similar to those for
- * BindImageTextureEXT.</p>
+ * {@link ARBShaderImageLoadStore ARB_shader_image_load_store} and {@link EXTShaderImageLoadStore EXT_shader_image_load_store} extensions, where a texture can be accessed without first binding it to an
+ * image unit. An image handle can be extracted from a texture object using an API with a set of parameters similar to those for
+ * {@link EXTShaderImageLoadStore#glBindImageTextureEXT BindImageTextureEXT}.</p>
  * 
  * <p>This extension adds no new data types to GLSL. Instead, it uses existing sampler and image data types and allows them to be populated with texture and
  * image handles. This extension does permit sampler and image data types to be used in more contexts than in unextended GLSL 4.00. In particular, sampler
@@ -36,10 +36,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * integer specified will identify a texture image or image unit. For samplers and images with values specified as texture image or image units, the GL
  * implemenation will translate the unit number to an internal handle as required.</p>
  * 
- * <p>To access texture or image resources using handles, the handles must first be made resident. Accessing a texture or image by handle without first making
- * it resident can result in undefined results, including program termination. Since the amount of texture memory required by an application may exceed the
- * amount of memory available to the system, this extension provides API calls allowing applications to manage overall texture memory consumption by making
- * a texture resident and non-resident as required.</p>
+ * <p>To access texture or image resources using handles, the handles must first be made resident. Accessing a texture or image by handle without first
+ * making it resident can result in undefined results, including program termination. Since the amount of texture memory required by an application may
+ * exceed the amount of memory available to the system, this extension provides API calls allowing applications to manage overall texture memory
+ * consumption by making a texture resident and non-resident as required.</p>
  * 
  * <p>Requires {@link GL40 OpenGL 4.0}.</p>
  */
@@ -142,7 +142,8 @@ public class ARBBindlessTexture {
      * Creates and returns an image handle for level {@code level} of the texture named {@code texture}. If {@code layered} is {@link GL11#GL_TRUE TRUE}, a handle is created
      * for the entire texture level. If {@code layered} is {@link GL11#GL_FALSE FALSE}, a handle is created for only the layer {@code layer} of the texture level.
      * {@code format} specifies a format used to interpret the texels of the image when used for image loads, stores, and atomics, and has the same meaning as
-     * the {@code format} parameter of BindImageTextureEXT(). A 64-bit unsigned integer handle is returned if the command succeeds; otherwise, zero is returned.
+     * the {@code format} parameter of {@link EXTShaderImageLoadStore#glBindImageTextureEXT BindImageTextureEXT}. A 64-bit unsigned integer handle is returned if the command succeeds; otherwise, zero is
+     * returned.
      * 
      * <p>The error {@link GL11#GL_INVALID_VALUE INVALID_VALUE} is generated by GetImageHandleARB if:</p>
      * 

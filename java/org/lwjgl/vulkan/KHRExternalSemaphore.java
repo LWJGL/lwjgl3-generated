@@ -20,7 +20,7 @@ package org.lwjgl.vulkan;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_external_semaphore_capabilities">{@code VK_KHR_external_semaphore_capabilities}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities">{@code VK_KHR_external_semaphore_capabilities}</a></li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>
@@ -62,7 +62,7 @@ public final class KHRExternalSemaphore {
      * <p>These bits have the following meanings:</p>
      * 
      * <ul>
-     * <li>{@link #VK_SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR} indicates that the semaphore payload will be imported only temporarily, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-semaphores-importing">Importing Semaphore Payloads</a>, regardless of the permanence of {@code handleType}.</li>
+     * <li>{@link #VK_SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR} indicates that the semaphore payload will be imported only temporarily, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-semaphores-importing">Importing Semaphore Payloads</a>, regardless of the permanence of {@code handleType}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>

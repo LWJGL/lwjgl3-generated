@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/OES/OES_geometry_shader.txt">OES_geometry_shader</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/OES/OES_geometry_shader.txt">OES_geometry_shader</a> extension.
  * 
  * <p>OES_geometry_shader defines a new shader type available to be run on the GPU, called a geometry shader. Geometry shaders are run after vertices are
  * transformed, but prior to color clamping, flatshading and clipping.</p>

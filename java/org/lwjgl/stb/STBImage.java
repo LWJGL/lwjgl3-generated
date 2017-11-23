@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>PNM (PPM and PGM binary only)</li>
  * </ul>
  * 
- * <p>Animated GIF still needs a proper API, but <a target="_blank" href="http://gist.github.com/urraka/685d9a6340b26b830d49">here</a>'s one way to do it.</p>
+ * <p>Animated GIF still needs a proper API, but <a target="_blank" href="https://gist.github.com/urraka/685d9a6340b26b830d49">here</a>'s one way to do it.</p>
  * 
  * <p>Features:</p>
  * 

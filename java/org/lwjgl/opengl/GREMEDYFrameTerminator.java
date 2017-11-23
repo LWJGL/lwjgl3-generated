@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/GREMEDY/frame_terminator.txt">GREMEDY_frame_terminator</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/GREMEDY/GREMEDY_frame_terminator.txt">GREMEDY_frame_terminator</a> extension.
  * 
  * <p>This extension defines a mechanism that enables marking the end of render frames within the OpenGL stream.</p>
  * 

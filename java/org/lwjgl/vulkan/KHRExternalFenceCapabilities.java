@@ -25,7 +25,7 @@ import static org.lwjgl.system.JNI.*;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_get_physical_device_properties2">{@code VK_KHR_get_physical_device_properties2}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2">{@code VK_KHR_get_physical_device_properties2}</a></li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>
@@ -41,7 +41,7 @@ import static org.lwjgl.system.JNI.*;
  * <li>James Jones, NVIDIA</li>
  * <li>Jeff Juliano, NVIDIA</li>
  * <li>Cass Everitt, Oculus</li>
- * <li>Contributors to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_external_semaphore_capabilities">VK_KHR_external_semaphore_capablities</a></li>
+ * <li>Contributors to <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_semaphore_capabilities">VK_KHR_external_semaphore_capablities</a></li>
  * </ul></dd>
  * </dl>
  */
@@ -150,7 +150,7 @@ public class KHRExternalFenceCapabilities {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>Fences <b>may</b> support import and export of their <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#synchronization-fences-payloads">payload</a> to external handles. To query the external handle types supported by fences, call:</p>
+     * <p>Fences <b>may</b> support import and export of their <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-payloads">payload</a> to external handles. To query the external handle types supported by fences, call:</p>
      * 
      * <code><pre>
      * void vkGetPhysicalDeviceExternalFencePropertiesKHR(

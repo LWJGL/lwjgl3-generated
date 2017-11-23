@@ -22,13 +22,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_objects.txt">ARB_shader_objects</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_shader.txt">ARB_vertex_shader</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/fragment_shader.txt">ARB_fragment_shader</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shading_language_100.txt">ARB_shading_language_100</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/draw_buffers.txt">ARB_draw_buffers</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_non_power_of_two.txt">ARB_texture_non_power_of_two</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/point_sprite.txt">ARB_point_sprite</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ATI/separate_stencil.txt">ATI_separate_stencil</a> and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/stencil_two_side.txt">EXT_stencil_two_side</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_objects.txt">ARB_shader_objects</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_vertex_shader.txt">ARB_vertex_shader</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_fragment_shader.txt">ARB_fragment_shader</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shading_language_100.txt">ARB_shading_language_100</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_draw_buffers.txt">ARB_draw_buffers</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_non_power_of_two.txt">ARB_texture_non_power_of_two</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_point_sprite.txt">ARB_point_sprite</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ATI/ATI_separate_stencil.txt">ATI_separate_stencil</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_stencil_two_side.txt">EXT_stencil_two_side</a></li>
  * </ul>
  */
 public class GL20 {

@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/pixel_buffer_object.txt">ARB_pixel_buffer_object</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/EXT/texture_sRGB.txt">EXT_texture_sRGB</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_pixel_buffer_object.txt">ARB_pixel_buffer_object</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_texture_sRGB.txt">EXT_texture_sRGB</a></li>
  * </ul>
  */
 public class GL21 {

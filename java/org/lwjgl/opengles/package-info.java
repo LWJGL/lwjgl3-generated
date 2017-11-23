@@ -9,8 +9,8 @@
  * graphics on embedded systems - including consoles, phones, appliances and vehicles. It consists of well-defined subsets of desktop OpenGL, creating a
  * flexible and powerful low-level interface between software and graphics acceleration.
  * 
- * <p>The <a target="_blank" href="https://www.khronos.org/registry/gles/">Khronos OpenGL ES registry</a> is a useful online resource that contains the OpenGL ES and OpenGL
- * ES Shading Language specifications, as well as specifications of OpenGL ES extensions. The <a target="_blank" href="https://www.khronos.org/opengles/sdk/docs/">OpenGL ES Reference Pages</a> is another convenient source of documentation.</p>
+ * <p>The <a target="_blank" href="https://www.khronos.org/registry/OpenGL/index_es.php">Khronos OpenGL ES registry</a> is a useful online resource that contains the OpenGL ES and OpenGL
+ * ES Shading Language specifications, as well as specifications of OpenGL ES extensions. The <a target="_blank" href="https://www.khronos.org/registry/OpenGL-Refpages/">OpenGL ES Reference Pages</a> is another convenient source of documentation.</p>
  */
 package org.lwjgl.opengles;
 

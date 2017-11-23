@@ -35,8 +35,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_swapchain">{@code VK_KHR_swapchain}</a></li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#VK_KHR_display">{@code VK_KHR_display}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain">{@code VK_KHR_swapchain}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_display">{@code VK_KHR_display}</a></li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>
@@ -156,7 +156,7 @@ public class KHRDisplaySwapchain {
      *
      * @param device       the device to create the swapchains for.
      * @param pCreateInfos a pointer to an array of {@link VkSwapchainCreateInfoKHR} structures specifying the parameters of the created swapchains.
-     * @param pAllocator   the allocator used for host memory allocated for the swapchain objects when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/xhtml/vkspec.html#memory-allocation">Memory Allocation</a>).
+     * @param pAllocator   the allocator used for host memory allocated for the swapchain objects when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a>).
      * @param pSwapchains  a pointer to an array of {@code VkSwapchainKHR} handles in which the created swapchain objects will be returned.
      */
     @NativeType("VkResult")

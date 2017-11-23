@@ -20,17 +20,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/indirect_parameters.txt">ARB_indirect_parameters</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/pipeline_statistics_query.txt">ARB_pipeline_statistics_query</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/polygon_offset_clamp.txt">ARB_polygon_offset_clamp</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/KHR/no_error.txt">KHR_no_error</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_atomic_counter_ops.txt">ARB_shader_atomic_counter_ops</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_draw_parameters.txt">ARB_shader_draw_parameters</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/shader_group_vote.txt">ARB_shader_group_vote</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/gl_spirv.txt">ARB_gl_spirv</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/spirv_extensions.txt">ARB_spirv_extensions</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_filter_anisotropic.txt">ARB_texture_filter_anisotropic</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/transform_feedback_overflow_query.txt">ARB_transform_feedback_overflow_query</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_indirect_parameters.txt">ARB_indirect_parameters</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_pipeline_statistics_query.txt">ARB_pipeline_statistics_query</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_polygon_offset_clamp.txt">ARB_polygon_offset_clamp</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/KHR/KHR_no_error.txt">KHR_no_error</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_atomic_counter_ops.txt">ARB_shader_atomic_counter_ops</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_draw_parameters.txt">ARB_shader_draw_parameters</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_group_vote.txt">ARB_shader_group_vote</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_gl_spirv.txt">ARB_gl_spirv</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_spirv_extensions.txt">ARB_spirv_extensions</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_filter_anisotropic.txt">ARB_texture_filter_anisotropic</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_transform_feedback_overflow_query.txt">ARB_transform_feedback_overflow_query</a></li>
  * </ul>
  */
 public class GL46 {

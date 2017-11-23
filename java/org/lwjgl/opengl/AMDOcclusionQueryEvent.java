@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/AMD/occlusion_query_event.txt">AMD_occlusion_query_event</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/AMD/AMD_occlusion_query_event.txt">AMD_occlusion_query_event</a> extension.
  * 
  * <p>This extension introduces the concept of occlusion query events and changes the concept of an occlusion query from counting passed fragments to counting
  * fragments that generate any of a user-selectable set of events. Provided events include passing the depth test, and passing or failing the stencil test.

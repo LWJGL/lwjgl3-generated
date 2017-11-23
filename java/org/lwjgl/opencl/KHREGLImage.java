@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.khronos.org/registry/cl/extensions/khr/cl_khr_egl_image.txt">khr_egl_image</a> extension.
+ * Native bindings to the <a target="_blank" href="http://www.khronos.org/registry/OpenCL/extensions/khr/cl_khr_egl_image.txt">khr_egl_image</a> extension.
  * 
  * <p>This extension provides a mechanism for creating derived resources, such as OpenCL image objects, from {@code EGLImages}.</p>
  */

@@ -102,7 +102,7 @@ public final class WGLCapabilities {
     /** When true, {@link WGLARBRobustnessApplicationIsolation} is supported. */
     public final boolean WGL_ARB_robustness_application_isolation;
     /**
-     * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/wgl_robustness_isolation.txt">WGL_ARB_robustness_share_group_isolation</a> extension.
+     * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/WGL_ARB_robustness_application_isolation.txt">WGL_ARB_robustness_share_group_isolation</a> extension.
      * 
      * <p>GL_ARB_robustness and WGL_ARB_create_context_robustness allow creating an OpenGL context supporting graphics reset notification behavior.
      * WGL_ARB_robustness_share_group_isolation provides stronger guarantees about the possible side-effects of a graphics reset.</p>
@@ -139,7 +139,7 @@ public final class WGLCapabilities {
     /** When true, {@link WGLEXTSwapControl} is supported. */
     public final boolean WGL_EXT_swap_control;
     /**
-     * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> extension is supported.
+     * When true, the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/WGL_EXT_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> extension is supported.
      * 
      * <p>This extension extends the existing {@link WGLEXTSwapControl WGL_EXT_swap_control} extension by allowing a negative {@code interval} parameter to
      * {@link WGLEXTSwapControl#wglSwapIntervalEXT SwapIntervalEXT}. The negative {@code interval} allows late swaps to occur without synchronization to the video frame. This
@@ -153,11 +153,11 @@ public final class WGLCapabilities {
     /** When true, {@link WGLNVDXInterop} is supported. */
     public final boolean WGL_NV_DX_interop;
     /**
-     * When true, the <a target="_blank" href="http://www.opengl.org/registry/specs/NV/DX_interop2.txt">WGL_NV_DX_interop2</a> extension is supported.
+     * When true, the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/WGL_NV_DX_interop2.txt">WGL_NV_DX_interop2</a> extension is supported.
      * 
-     * <p>This extension expands on the specification of <a target="_blank" href="http://www.opengl.org/registry/specs/NV/DX_interop.txt">NV_DX_interop</a> to add support for DirectX version 10, 10.1 and 11 resources.</p>
+     * <p>This extension expands on the specification of {@link WGLNVDXInterop WGL_NV_DX_interop} to add support for DirectX version 10, 10.1 and 11 resources.</p>
      * 
-     * <p>Requires {@link GL20 OpenGL 2.0} and <a target="_blank" href="http://www.opengl.org/registry/specs/NV/DX_interop.txt">NV_DX_interop</a>.</p>
+     * <p>Requires {@link GL20 OpenGL 2.0} and {@link WGLNVDXInterop WGL_NV_DX_interop}.</p>
      */
     public final boolean WGL_NV_DX_interop2;
     /** When true, {@link WGLNVFloatBuffer} is supported. */

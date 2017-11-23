@@ -14,7 +14,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/EXT/EXT_window_rectangles.txt">EXT_window_rectangles</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_window_rectangles.txt">EXT_window_rectangles</a> extension.
  * 
  * <p>This extension provides additional orthogonally aligned "window rectangles" specified in window-space coordinates that restrict rasterization of all
  * primitive types (geometry, images, paths) and framebuffer clears.</p>

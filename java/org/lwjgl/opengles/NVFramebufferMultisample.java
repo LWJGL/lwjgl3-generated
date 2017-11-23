@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/NV/NV_framebuffer_multisample.txt">NV_framebuffer_multisample</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_framebuffer_multisample.txt">NV_framebuffer_multisample</a> extension.
  * 
  * <p>This extension extends the framebuffer object framework to enable multisample rendering.</p>
  * 

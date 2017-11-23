@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/blend_func_extended.txt">ARB_blend_func_extended</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_blend_func_extended.txt">ARB_blend_func_extended</a> extension.
  * 
  * <p>Traditional OpenGL includes fixed-function blending that combines source colors with the existing content of a render buffer in a variety of ways. A
  * number of extensions have enhanced this functionality by adding further sources of blending weights and methods to combine them. However, the inputs to
@@ -25,7 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * used as a blending factor for either source or destination colors. Furthermore, this extension increases orthogonality by allowing the
  * {@link GL11#GL_SRC_ALPHA_SATURATE SRC_ALPHA_SATURATE} function to be used as the destination weight.</p>
  * 
- * <p>Requires {@link ARBFragmentShader ARB_fragment_shader} and <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/gpu_shader4.txt">EXT_gpu_shader4</a>. Promoted to core in {@link GL33 OpenGL 3.3}.</p>
+ * <p>Requires {@link ARBFragmentShader ARB_fragment_shader} and {@link EXTGPUShader4 EXT_gpu_shader4}. Promoted to core in {@link GL33 OpenGL 3.3}.</p>
  */
 public class ARBBlendFuncExtended {
 

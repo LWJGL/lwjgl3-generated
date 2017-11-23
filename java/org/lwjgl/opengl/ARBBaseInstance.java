@@ -13,7 +13,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/base_instance.txt">ARB_base_instance</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_base_instance.txt">ARB_base_instance</a> extension.
  * 
  * <p>This extension allows the offset within buffer objects used for instanced rendering to be specified. This is congruent with the {@code first} parameter
  * in {@link GL11#glDrawArrays DrawArrays} and the {@code basevertex} parameter in {@link GL11#glDrawElements DrawElements}. When instanced rendering is performed (for example, through

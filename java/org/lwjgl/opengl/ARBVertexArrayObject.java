@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_array_object.txt">ARB_vertex_array_object</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_vertex_array_object.txt">ARB_vertex_array_object</a> extension.
  * 
  * <p>This extension introduces named vertex array objects which encapsulate vertex array state on the client side. These objects allow applications to
  * rapidly switch between large sets of array state. In addition, layered libraries can return to the default array state by simply creating and binding a

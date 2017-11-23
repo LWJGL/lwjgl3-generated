@@ -15,11 +15,11 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Native bindings to the <a target="_blank" href="http://www.opengl.org/registry/specs/ARB/transform_feedback3.txt">ARB_transform_feedback3</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_transform_feedback3.txt">ARB_transform_feedback3</a> extension.
  * 
- * <p>This extension further extends the transform feedback capabilities provided by the <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a>,
- * <a target="_blank" href="http://www.opengl.org/registry/specs/NV/transform_feedback.txt">NV_transform_feedback</a>, and <a target="_blank" href="http://www.opengl.org/registry/specs/NV/transform_feedback2.txt">NV_transform_feedback2</a> extensions. Those extensions provided a new transform
- * feedback mode, where selected vertex attributes can be recorded to a buffer object for each primitive processed by the GL.</p>
+ * <p>This extension further extends the transform feedback capabilities provided by the {@link EXTTransformFeedback EXT_transform_feedback}, {@link NVTransformFeedback NV_transform_feedback}, and
+ * {@link NVTransformFeedback2 NV_transform_feedback2} extensions. Those extensions provided a new transform feedback mode, where selected vertex attributes can be recorded to
+ * a buffer object for each primitive processed by the GL.</p>
  * 
  * <p>This extension provides increased flexibility in how vertex attributes can be written to buffer objects. Previous extensions allowed applications to
  * record a set of attributes interleaved into a single buffer object (interleaved mode) or to record into multiple objects, but with only a single
@@ -27,17 +27,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * capability is supported for all three styles of transform feedback:</p>
  * 
  * <ul>
- * <li>"EXT"-style GLSL transform feedback (<a target="_blank" href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a>), where a list of varyings is provided prior to linking a
- * program object and is used whenever that program object is used.</li>
- * <li>"NV"-style GLSL transform feedback (<a target="_blank" href="http://www.opengl.org/registry/specs/NV/transform_feedback2.txt">NV_transform_feedback2</a>), where "locations" of active varyings are queried after linking
+ * <li>"EXT"-style GLSL transform feedback ({@link EXTTransformFeedback EXT_transform_feedback}), where a list of varyings is provided prior to linking a program object and is
+ * used whenever that program object is used.</li>
+ * <li>"NV"-style GLSL transform feedback ({@link NVTransformFeedback2 NV_transform_feedback2}), where "locations" of active varyings are queried after linking
  * and are then passed to a function that sets the active transform feedback varyings for the program object. Unlike the "EXT"-style mode, the set of
  * varyings to capture can be changed without relinking.</li>
- * <li>Transform feedback for fixed-function or assembly vertex/geometry shaders (<a target="_blank" href="http://www.opengl.org/registry/specs/NV/transform_feedback2.txt">NV_transform_feedback2</a>), where applications
- * specify a set of canonical attribute enums/numbers to capture.</li>
+ * <li>Transform feedback for fixed-function or assembly vertex/geometry shaders ({@link NVTransformFeedback2 NV_transform_feedback2}), where applications specify a set of
+ * canonical attribute enums/numbers to capture.</li>
  * </ul>
  * 
  * <p>Additionally, this extension adds new support for multiple separate vertex streams. New geometry shader functionality provided by the
- * {@link ARBGPUShader5 ARB_gpu_shader5} and <a target="_blank" href="http://www.opengl.org/registry/specs/NV/gpu_program5.txt">NV_gpu_program5</a> extensions allows geometry shaders to direct each vertex arbitrarily at a specified
+ * {@link ARBGPUShader5 ARB_gpu_shader5} and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_gpu_program5.txt">NV_gpu_program5</a> extensions allows geometry shaders to direct each vertex arbitrarily at a specified
  * vertex stream. For example, a geometry program might write each "regular" vertex it emits to one vertex stream while writing some per-primitive data it
  * computes to a second vertex stream. This extension allows applications to choose a vertex stream for each buffer object it writes to, and allows the
  * vertices written to each vertex stream to be recorded in separate buffer objects. Only one stream may be selected for rasterization, and in the initial
@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * feedback-related query targets is extended to accommodate multiple vertex streams, so it is possible to count the number of processed and recorded
  * primitives for each stream separately.</p>
  * 
- * <p>Requires {@link GL30 OpenGL 3.0} or <a target="_blank" href="http://www.opengl.org/registry/specs/EXT/transform_feedback.txt">EXT_transform_feedback</a> or <a target="_blank" href="http://www.opengl.org/registry/specs/NV/transform_feedback.txt">NV_transform_feedback</a>. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
+ * <p>Requires {@link GL30 OpenGL 3.0} or {@link EXTTransformFeedback EXT_transform_feedback} or {@link NVTransformFeedback NV_transform_feedback}. Promoted to core in {@link GL40 OpenGL 4.0}.</p>
  */
 public class ARBTransformFeedback3 {
 

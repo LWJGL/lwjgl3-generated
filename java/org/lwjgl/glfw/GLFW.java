@@ -1584,14 +1584,14 @@ public class GLFW {
      * macOS.</li>
      * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For
      * more information on bundles, see the
-     * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
+     * <a target="_blank" href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
      * Developer Library.</li>
      * <li><b>macOS</b>: The first time a window is created the menu bar is created. If GLFW finds a {@code `MainMenu.nib`} it is loaded and assumed to
      * contain a menu bar. Otherwise a minimal menu bar is created manually with common commands like Hide, Quit and About. The About entry opens a
      * minimal about dialog with information from the application's bundle. Menu bar creation can be disabled entirely with the {@link #GLFW_COCOA_MENUBAR COCOA_MENUBAR} init hint.</li>
      * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
      * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
-     * more information, see <a target="_blank" href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
+     * more information, see <a target="_blank" href="https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
      * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
@@ -1665,14 +1665,14 @@ public class GLFW {
      * macOS.</li>
      * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For
      * more information on bundles, see the
-     * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
+     * <a target="_blank" href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
      * Developer Library.</li>
      * <li><b>macOS</b>: The first time a window is created the menu bar is created. If GLFW finds a {@code `MainMenu.nib`} it is loaded and assumed to
      * contain a menu bar. Otherwise a minimal menu bar is created manually with common commands like Hide, Quit and About. The About entry opens a
      * minimal about dialog with information from the application's bundle. Menu bar creation can be disabled entirely with the {@link #GLFW_COCOA_MENUBAR COCOA_MENUBAR} init hint.</li>
      * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
      * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
-     * more information, see <a target="_blank" href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
+     * more information, see <a target="_blank" href="https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
      * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
@@ -1852,8 +1852,8 @@ public class GLFW {
      * 
      * <p><b>macOS</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
      * application bundle's icon. For more information on bundles, see the
-     * <a target="_blank" href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer
-     * Library.</p>
+     * <a target="_blank" href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
+     * Developer Library.</p>
      * 
      * <p>This function must only be called from the main thread.</p>
      *
@@ -4149,8 +4149,9 @@ public class GLFW {
      * <p>When moving a context between threads, you must make it non-current on the old thread before making it current on the new one.</p>
      * 
      * <p>By default, making a context non-current implicitly forces a pipeline flush. On machines that support
-     * <a target="_blank" href="https://www.opengl.org/registry/specs/KHR/context_flush_control.txt">GL_KHR_context_flush_control</a>, you can control whether a context
-     * performs this flush by setting the {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR} <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_hints_ctx">window hint</a>.</p>
+     * <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/KHR/KHR_context_flush_control.txt">GL_KHR_context_flush_control</a>, you can control whether
+     * a context performs this flush by setting the {@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}
+     * <a target="_blank" href="http://www.glfw.org/docs/latest/window.html#window_hints_ctx">window hint</a>.</p>
      * 
      * <p>The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a {@link #GLFW_NO_WINDOW_CONTEXT NO_WINDOW_CONTEXT} error.</p>
      * 
@@ -4215,10 +4216,11 @@ public class GLFW {
      * before swapping the buffers and returning. This is sometimes called <i>vertical synchronization</i>, <i>vertical retrace synchronization</i> or just
      * <i>vsync</i>.
      * 
-     * <p>Contexts that support either of the <a target="_blank" href="https://www.opengl.org/registry/specs/EXT/wgl_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> and
-     * <a target="_blank" href="https://www.opengl.org/registry/specs/EXT/glx_swap_control_tear.txt">GLX_EXT_swap_control_tear</a> extensions also accept negative swap
-     * intervals, which allow the driver to swap even if a frame arrives a little bit late. You can check for the presence of these extensions using
-     * {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.</p>
+     * <p>Contexts that support either of the
+     * <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/WGL_EXT_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> and
+     * <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/GLX_EXT_swap_control_tear.txt">GLX_EXT_swap_control_tear</a> extensions also accept
+     * negative swap intervals, which allow the driver to swap even if a frame arrives a little bit late. You can check for the presence of these extensions
+     * using {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.</p>
      * 
      * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
      * 

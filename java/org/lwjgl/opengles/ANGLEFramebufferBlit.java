@@ -10,7 +10,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.Checks.*;
 
 /**
- * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/gles/extensions/ANGLE/ANGLE_framebuffer_blit.txt">ANGLE_framebuffer_blit</a> extension.
+ * Native bindings to the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ANGLE/ANGLE_framebuffer_blit.txt">ANGLE_framebuffer_blit</a> extension.
  * 
  * <p>This extension modifies framebuffer objects by splitting the framebuffer object binding point into separate DRAW and READ bindings. This allows copying
  * directly from one framebuffer to another. In addition, a new high performance blit function is added to facilitate these blits and perform some data

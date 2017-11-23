@@ -21,14 +21,14 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Extensions promoted to core in this release:</p>
  * 
  * <ul>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/buffer_storage.txt">ARB_buffer_storage</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/clear_texture.txt">ARB_clear_texture</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/enhanced_layouts.txt">ARB_enhanced_layouts</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/multi_bind.txt">ARB_multi_bind</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/query_buffer_object.txt">ARB_query_buffer_object</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_mirror_clamp_to_edge.txt">ARB_texture_mirror_clamp_to_edge</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/texture_stencil8.txt">ARB_texture_stencil8</a></li>
- * <li><a target="_blank" href="http://www.opengl.org/registry/specs/ARB/vertex_type_10f_11f_11f_rev.txt">ARB_vertex_type_10f_11f_11f_rev</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_buffer_storage.txt">ARB_buffer_storage</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_clear_texture.txt">ARB_clear_texture</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_enhanced_layouts.txt">ARB_enhanced_layouts</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_multi_bind.txt">ARB_multi_bind</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_query_buffer_object.txt">ARB_query_buffer_object</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_mirror_clamp_to_edge.txt">ARB_texture_mirror_clamp_to_edge</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_stencil8.txt">ARB_texture_stencil8</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_vertex_type_10f_11f_11f_rev.txt">ARB_vertex_type_10f_11f_11f_rev</a></li>
  * </ul>
  */
 public class GL44 {

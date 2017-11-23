@@ -2088,7 +2088,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms712455.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlallochandle-function">MSDN Reference</a>
      * 
      * <p>Allocates an environment, connection, statement, or descriptor handle.</p>
      *
@@ -2129,7 +2129,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711810.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlconnect-function">MSDN Reference</a>
      * 
      * <p>Establishes connections to a driver and a data source. The connection handle references storage of all information about the connection to the data
      * source, including status, transaction state, and error information.</p>
@@ -2147,7 +2147,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711810.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlconnect-function">MSDN Reference</a>
      * 
      * <p>Establishes connections to a driver and a data source. The connection handle references storage of all information about the connection to the data
      * source, including status, transaction state, and error information.</p>
@@ -2189,7 +2189,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711004.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqldatasources-function">MSDN Reference</a>
      * 
      * <p>Returns information about a data source. This function is implemented only by the Driver Manager.</p>
      *
@@ -2241,7 +2241,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711681.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetinfo-function">MSDN Reference</a>
      * 
      * <p>Returns general information about the driver and data source associated with a connection.</p>
      *
@@ -2259,7 +2259,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711681.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetinfo-function">MSDN Reference</a>
      * 
      * <p>Returns general information about the driver and data source associated with a connection.</p>
      *
@@ -2277,7 +2277,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711681.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetinfo-function">MSDN Reference</a>
      * 
      * <p>Returns general information about the driver and data source associated with a connection.</p>
      *
@@ -2295,7 +2295,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711681.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetinfo-function">MSDN Reference</a>
      * 
      * <p>Returns general information about the driver and data source associated with a connection.</p>
      *
@@ -2324,7 +2324,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms709291.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetfunctions-function">MSDN Reference</a>
      * 
      * <p>Returns information about whether a driver supports a specific ODBC function. This function is implemented in the Driver Manager; it can also be
      * implemented in drivers. If a driver implements SQLGetFunctions, the Driver Manager calls the function in the driver. Otherwise, it executes the
@@ -2345,7 +2345,7 @@ public class SQL {
     // --- [ SQLGetTypeInfo ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714632.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgettypeinfo-function">MSDN Reference</a>
      * 
      * <p>Returns information about data types supported by the data source. The driver returns the information in the form of an SQL result set. The data types
      * are intended for use in Data Definition Language (DDL) statements.</p>
@@ -2394,7 +2394,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713605.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetconnectattr-function">MSDN Reference</a>
      * 
      * <p>Sets attributes that govern aspects of connections.</p>
      *
@@ -2423,7 +2423,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710297.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetconnectattr-function">MSDN Reference</a>
      * 
      * <p>Returns the current setting of a connection attribute.</p>
      *
@@ -2457,7 +2457,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms709285.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetenvattr-function">MSDN Reference</a>
      * 
      * <p>Sets attributes that govern aspects of environments.</p>
      *
@@ -2485,7 +2485,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms709276.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetenvattr-function">MSDN Reference</a>
      * 
      * <p>Returns the current setting of a connection attribute.</p>
      *
@@ -2514,7 +2514,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms712631.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetstmtattr-function">MSDN Reference</a>
      * 
      * <p>Sets attributes related to a statement.</p>
      *
@@ -2539,7 +2539,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms715438.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetstmtattr-function">MSDN Reference</a>
      * 
      * <p>Returns the current setting of a statement attribute.</p>
      *
@@ -2568,7 +2568,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms716370.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetdescfield-function">MSDN Reference</a>
      * 
      * <p>Returns the current setting or value of a single field of a descriptor record.</p>
      *
@@ -2598,7 +2598,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710921.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetdescrec-function">MSDN Reference</a>
      * 
      * <p>Returns the current settings or values of multiple fields of a descriptor record. The fields returned describe the name, data type, and storage of
      * column or parameter data.</p>
@@ -2640,7 +2640,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713560.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetdescfield-function">MSDN Reference</a>
      * 
      * <p>Sets the value of a single field of a descriptor record.</p>
      *
@@ -2666,7 +2666,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714675.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetdescrec-function">MSDN Reference</a>
      * 
      * <p>Sets multiple descriptor fields that affect the data type and buffer bound to a column or parameter data.</p>
      *
@@ -2694,7 +2694,7 @@ public class SQL {
     // --- [ SQLCopyDesc ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms715378.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlcopydesc-function">MSDN Reference</a>
      * 
      * <p>Copies descriptor information from one descriptor handle to another.</p>
      *
@@ -2723,7 +2723,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710926.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlprepare-function">MSDN Reference</a>
      * 
      * <p>Prepares an SQL string for execution.</p>
      *
@@ -2736,7 +2736,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710926.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlprepare-function">MSDN Reference</a>
      * 
      * <p>Prepares an SQL string for execution.</p>
      *
@@ -2766,7 +2766,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms716209.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetcursorname-function">MSDN Reference</a>
      * 
      * <p>Returns the cursor name associated with a specified statement.</p>
      *
@@ -2794,7 +2794,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711707.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetcursorname-function">MSDN Reference</a>
      * 
      * <p>Associates a cursor name with an active statement. If an application does not call SQLSetCursorName, the driver generates cursor names as needed for
      * SQL statement processing.</p>
@@ -2810,7 +2810,7 @@ public class SQL {
     // --- [ SQLExecute ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713584.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlexecute-function">MSDN Reference</a>
      * 
      * <p>Executes a prepared statement, using the current values of the parameter marker variables if any parameter markers exist in the statement.</p>
      *
@@ -2841,7 +2841,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713611.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlexecdirect-function">MSDN Reference</a>
      * 
      * <p>Executes a preparable statement, using the current values of the parameter marker variables if any parameters exist in the statement. SQLExecDirect is
      * the fastest way to submit an SQL statement for one-time execution.</p>
@@ -2855,7 +2855,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713611.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlexecdirect-function">MSDN Reference</a>
      * 
      * <p>Executes a preparable statement, using the current values of the parameter marker variables if any parameters exist in the statement. SQLExecDirect is
      * the fastest way to submit an SQL statement for one-time execution.</p>
@@ -2886,7 +2886,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms712366.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlparamdata-function">MSDN Reference</a>
      * 
      * <p>SQLParamData is used together with {@link #SQLPutData PutData} to supply parameter data at statement execution time, and with {@link #SQLGetData GetData} to retrieve streamed output
      * parameter data.</p>
@@ -2914,7 +2914,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713824.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlputdata-function">MSDN Reference</a>
      * 
      * <p>Allows an application to send data for a parameter or column to the driver at statement execution time. This function can be used to send character or
      * binary data values in parts to a column with a character, binary, or data source–specific data type (for example, parameters of the {@link #SQL_LONGVARBINARY LONGVARBINARY} or
@@ -2940,7 +2940,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711835.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlrowcount-function">MSDN Reference</a>
      * 
      * <p>Returns the number of rows affected by an UPDATE, INSERT, or DELETE statement; an {@link #SQL_ADD ADD}, {@link #SQL_UPDATE_BY_BOOKMARK UPDATE_BY_BOOKMARK}, or {@link #SQL_DELETE_BY_BOOKMARK DELETE_BY_BOOKMARK} operation in
      * {@link #SQLBulkOperations BulkOperations}; or an {@link #SQL_UPDATE UPDATE} or {@link #SQL_DELETE DELETE} operation in {@link #SQLSetPos SetPos}.</p>
@@ -2968,7 +2968,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms715393.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlnumresultcols-function">MSDN Reference</a>
      * 
      * <p>Returns the number of columns in a result set.</p>
      *
@@ -2995,7 +2995,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms716289.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqldescribecol-function">MSDN Reference</a>
      * 
      * <p>Returns the result descriptor — column name,type, column size, decimal digits, and nullability — for one column in the result set. This information
      * also is available in the fields of the IRD.</p>
@@ -3033,7 +3033,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713558.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlcolattribute-function">MSDN Reference</a>
      * 
      * <p>Returns descriptor information for a column in a result set. Descriptor information is returned as a character string, a descriptor-dependent value, or
      * an integer value.</p>
@@ -3066,7 +3066,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711010.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbindcol-function">MSDN Reference</a>
      * 
      * <p>Binds application data buffers to columns in the result set.</p>
      *
@@ -3085,7 +3085,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711010.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbindcol-function">MSDN Reference</a>
      * 
      * <p>Binds application data buffers to columns in the result set.</p>
      *
@@ -3104,7 +3104,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711010.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbindcol-function">MSDN Reference</a>
      * 
      * <p>Binds application data buffers to columns in the result set.</p>
      *
@@ -3123,7 +3123,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711010.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbindcol-function">MSDN Reference</a>
      * 
      * <p>Binds application data buffers to columns in the result set.</p>
      *
@@ -3142,7 +3142,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711010.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbindcol-function">MSDN Reference</a>
      * 
      * <p>Binds application data buffers to columns in the result set.</p>
      *
@@ -3161,7 +3161,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms711010.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbindcol-function">MSDN Reference</a>
      * 
      * <p>Binds application data buffers to columns in the result set.</p>
      *
@@ -3182,7 +3182,7 @@ public class SQL {
     // --- [ SQLFetch ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms712424.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlfetch-function">MSDN Reference</a>
      * 
      * <p>Fetches the next rowset of data from the result set and returns data for all bound columns.</p>
      *
@@ -3200,7 +3200,7 @@ public class SQL {
     // --- [ SQLFetchScroll ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714682.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlfetchscroll-function">MSDN Reference</a>
      * 
      * <p>Fetches the specified rowset of data from the result set and returns data for all bound columns. Rowsets can be specified at an absolute or relative
      * position or by bookmark.</p>
@@ -3230,7 +3230,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms715441.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetdata-function">MSDN Reference</a>
      * 
      * <p>Retrieves data for a single column in the result set or for a single parameter after {@link #SQLParamData ParamData} returns {@link #SQL_PARAM_DATA_AVAILABLE PARAM_DATA_AVAILABLE}. It can be called
      * multiple times to retrieve variable-length data in parts.</p>
@@ -3281,7 +3281,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710181.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetdiagfield-function">MSDN Reference</a>
      * 
      * <p>Returns the current value of a field of a record of the diagnostic data structure (associated with a specified handle) that contains error, warning,
      * and status information.</p>
@@ -3322,7 +3322,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms716256.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlgetdiagrec-function">MSDN Reference</a>
      * 
      * <p>Returns the current values of multiple fields of a diagnostic record that contains error, warning, and status information. Unlike {@link #SQLGetDiagField GetDiagField},
      * which returns one diagnostic field per call, SQLGetDiagRec returns several commonly used fields of a diagnostic record, including the SQLSTATE, the
@@ -3349,7 +3349,7 @@ public class SQL {
     // --- [ SQLFreeStmt ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms709284.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlfreestmt-function">MSDN Reference</a>
      * 
      * <p>Stops processing associated with a specific statement, closes any open cursors associated with the statement, discards pending results, or, optionally,
      * frees all resources associated with the statement handle.</p>
@@ -3369,7 +3369,7 @@ public class SQL {
     // --- [ SQLCloseCursor ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms709301.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlclosecursor-function">MSDN Reference</a>
      * 
      * <p>Closes a cursor that has been opened on a statement and discards pending results.</p>
      *
@@ -3387,7 +3387,7 @@ public class SQL {
     // --- [ SQLCancel ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714112.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlcancel-function">MSDN Reference</a>
      * 
      * <p>Cancels the processing on a statement.</p>
      * 
@@ -3407,7 +3407,7 @@ public class SQL {
     // --- [ SQLCancelHandle ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ee388578.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlcancelhandle-function">MSDN Reference</a>
      * 
      * <p>Cancels the processing on a connection or statement. The Driver Manager maps a call to SQLCancelHandle to a call to {@link #SQLCancel Cancel} when {@code HandleType}
      * is {@link #SQL_HANDLE_STMT HANDLE_STMT}.</p>
@@ -3427,7 +3427,7 @@ public class SQL {
     // --- [ SQLEndTran ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms716544.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlendtran-function">MSDN Reference</a>
      * 
      * <p>Requests a commit or rollback operation for all active operations on all statements associated with a connection. SQLEndTran can also request that a
      * commit or rollback operation be performed for all connections associated with an environment.</p>
@@ -3448,7 +3448,7 @@ public class SQL {
     // --- [ SQLDisconnect ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713946.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqldisconnect-function">MSDN Reference</a>
      * 
      * <p>Closes the connection associated with a specific connection handle.</p>
      *
@@ -3466,7 +3466,7 @@ public class SQL {
     // --- [ SQLFreeHandle ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710123.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlfreehandle-function">MSDN Reference</a>
      * 
      * <p>Frees resources associated with a specific environment, connection, statement, or descriptor handle.</p>
      *
@@ -3495,7 +3495,7 @@ public class SQL {
 
     /**
      * SQLCompleteAsync can be used to determine when an asynchronous function is complete using either notification- or polling-based processing. For more
-     * information about asynchronous operations, see <a href="https://msdn.microsoft.com/en-us/library/hh405040.aspx">Asynchronous Execution</a>.
+     * information about asynchronous operations, see <a target="_blank" href="https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/asynchronous-execution">Asynchronous Execution</a>.
      * 
      * <p>SQLCompleteAsync is only implemented in the ODBC Driver Manager.</p>
      * 
@@ -3613,7 +3613,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms715433.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqldriverconnect-function">MSDN Reference</a>
      * 
      * <p>SQLDriverConnect is an alternative to {@link #SQLConnect Connect}. It supports data sources that require more connection information than the three arguments in
      * SQLConnect, dialog boxes to prompt the user for all connection information, and data sources that are not defined in the system information.</p>
@@ -3657,7 +3657,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms715433.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqldriverconnect-function">MSDN Reference</a>
      * 
      * <p>SQLDriverConnect is an alternative to {@link #SQLConnect Connect}. It supports data sources that require more connection information than the three arguments in
      * SQLConnect, dialog boxes to prompt the user for all connection information, and data sources that are not defined in the system information.</p>
@@ -3723,7 +3723,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714565.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbrowseconnect-function">MSDN Reference</a>
      * 
      * <p>Supports an iterative method of discovering and enumerating the attributes and attribute values required to connect to a data source. Each call to
      * SQLBrowseConnect returns successive levels of attributes and attribute values. When all levels have been enumerated, a connection to the data source is
@@ -3750,7 +3750,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714565.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbrowseconnect-function">MSDN Reference</a>
      * 
      * <p>Supports an iterative method of discovering and enumerating the attributes and attribute values required to connect to a data source. Each call to
      * SQLBrowseConnect returns successive levels of attributes and attribute values. When all levels have been enumerated, a connection to the data source is
@@ -3785,7 +3785,7 @@ public class SQL {
     // --- [ SQLBulkOperations ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms712471.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbulkoperations-function">MSDN Reference</a>
      * 
      * <p>Performs bulk insertions and bulk bookmark operations, including update, delete, and fetch by bookmark.</p>
      *
@@ -3828,7 +3828,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710188.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqldescribeparam-function">MSDN Reference</a>
      * 
      * <p>Returns the description of a parameter marker associated with a prepared SQL statement. This information is also available in the fields of the IPD.</p>
      *
@@ -3887,7 +3887,7 @@ public class SQL {
     // --- [ SQLMoreResults ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714673.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlmoreresults-function">MSDN Reference</a>
      * 
      * <p>Determines whether more results are available on a statement containing SELECT, UPDATE, INSERT, or DELETE statements and, if so, initializes processing
      * for those results.</p>
@@ -3915,7 +3915,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714575.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlnativesql-function">MSDN Reference</a>
      * 
      * <p>Returns the SQL string as modified by the driver. SQLNativeSql does not execute the SQL statement.</p>
      *
@@ -3933,7 +3933,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms714575.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlnativesql-function">MSDN Reference</a>
      * 
      * <p>Returns the SQL string as modified by the driver. SQLNativeSql does not execute the SQL statement.</p>
      *
@@ -3968,7 +3968,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms715409.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlnumparams-function">MSDN Reference</a>
      * 
      * <p>Returns the number of parameters in an SQL statement.</p>
      *
@@ -4049,7 +4049,7 @@ public class SQL {
     // --- [ SQLSetPos ] ---
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms713507.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetpos-function">MSDN Reference</a>
      * 
      * <p>Sets the cursor position in a rowset and allows an application to refresh data in the rowset or to update or delete data in the result set.</p>
      *
@@ -4094,7 +4094,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms712400.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqldrivers-function">MSDN Reference</a>
      * 
      * <p>Lists driver descriptions and driver attribute keywords. This function is implemented only by the Driver Manager.</p>
      *
@@ -4126,7 +4126,7 @@ public class SQL {
     }
 
     /**
-     * <a href="https://msdn.microsoft.com/en-us/library/ms710963.aspx">MSDN Reference</a>
+     * <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlbindparameter-function">MSDN Reference</a>
      * 
      * <p>Binds a buffer to a parameter marker in an SQL statement. SQLBindParameter supports binding to a Unicode C data type, even if the underlying driver
      * does not support Unicode data.</p>
