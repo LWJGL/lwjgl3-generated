@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>The library provides a set of functions that populate fields of the {@link ParShapesMesh} structure.</p>
  * 
  * <p>The {@code normals} and {@code tcoords} fields might be null, but every other field is guaranteed to have valid values. This mesh representation is
- * very limited: indices must be unsigned 16-bit integers, points must be three-tuples, and there is no support for face-varying data.</p>
+ * very limited: indices must be unsigned 32-bit integers, points must be three-tuples, and there is no support for face-varying data.</p>
  * 
  * <p>When you’re done extracting the data you need from the mesh, be sure to free it:</p>
  * 
@@ -564,7 +564,7 @@ public class ParShapes {
      *
      * @param mesh    the mesh to weld
      * @param epsilon the maximum distance to consider when welding vertices
-     * @param mapping null, or a pointer to {@code npoints} 16-bit integers, which gets filled with the mapping from old vertex indices to new indices
+     * @param mapping null, or a pointer to {@code npoints} 32-bit integers, which gets filled with the mapping from old vertex indices to new indices
      */
     @NativeType("par_shapes_mesh *")
     public static ParShapesMesh par_shapes_weld(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, float epsilon, @NativeType("PAR_SHAPES_T *") IntBuffer mapping) {

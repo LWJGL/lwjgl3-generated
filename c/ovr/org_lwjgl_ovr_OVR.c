@@ -38,10 +38,10 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetVersionString(JNIEnv *__
     return (jlong)(intptr_t)ovr_GetVersionString();
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_ovr_OVR_novr_1TraceMessage(JNIEnv *__env, jclass clazz, jint level, jlong messageAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1TraceMessage(JNIEnv *__env, jclass clazz, jint level, jlong messageAddress) {
     const char *message = (const char *)(intptr_t)messageAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)ovr_TraceMessage(level, message);
+    return (jint)ovr_TraceMessage(level, message);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1IdentifyClient(JNIEnv *__env, jclass clazz, jlong identityAddress) {

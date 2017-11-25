@@ -873,7 +873,7 @@ public class OVR {
     // --- [ ovr_TraceMessage ] ---
 
     /** Unsafe version of: {@link #ovr_TraceMessage TraceMessage} */
-    public static native long novr_TraceMessage(int level, long message);
+    public static native int novr_TraceMessage(int level, long message);
 
     /**
      * Writes a message string to the LibOVR tracing mechanism (if enabled).
@@ -885,13 +885,11 @@ public class OVR {
      *
      * @return the {@code strlen} of the message or a negative value if the message is too large
      */
-    @NativeType("const char *")
-    public static String ovr_TraceMessage(@NativeType("int") int level, @NativeType("const char *") ByteBuffer message) {
+    public static int ovr_TraceMessage(int level, @NativeType("const char *") ByteBuffer message) {
         if (CHECKS) {
             checkNT1(message);
         }
-        long __result = novr_TraceMessage(level, memAddress(message));
-        return memUTF8(__result);
+        return novr_TraceMessage(level, memAddress(message));
     }
 
     /**
@@ -904,13 +902,11 @@ public class OVR {
      *
      * @return the {@code strlen} of the message or a negative value if the message is too large
      */
-    @NativeType("const char *")
-    public static String ovr_TraceMessage(@NativeType("int") int level, @NativeType("const char *") CharSequence message) {
+    public static int ovr_TraceMessage(@NativeType("int") int level, @NativeType("const char *") CharSequence message) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer messageEncoded = stack.UTF8(message);
-            long __result = novr_TraceMessage(level, memAddress(messageEncoded));
-            return memUTF8(__result);
+            return novr_TraceMessage(level, memAddress(messageEncoded));
         } finally {
             stack.setPointer(stackPointer);
         }

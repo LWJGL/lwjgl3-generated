@@ -260,7 +260,7 @@ public class Tootle {
      * @param pnIB             the input index buffer: 3 {@code unsigned int} per triangle.
      * @param nVertices        the number of vertices in the vertex buffer
      * @param nCacheSize       hardware cache size (12 to 24 are good options)
-     * @param pnIBOut          the updated index buffer (the output). May not be {@code NULL}.
+     * @param pnIBOut          the updated index buffer (the output). May not be {@code NULL}. May equal {@code pnIB}.
      * @param pnClustersOut    the output clusters which is an array of {@code nFaces+1} {@code unsigned ints}. It is of a compact format type. Entry {@code i} and {@code i+1}
      *                         mark all face ids in {@code [i, i+1)} to be in cluster {@code i}. The last element of the array contains the number of clusters. May not be {@code NULL}.
      *                         This has to be pre-allocated of size {@code nFaces+1}.
@@ -326,8 +326,9 @@ public class Tootle {
         if (CHECKS) {
             checkSafe(pnIBOut, pnIB.remaining());
             check(pnFaceClusters, nFaces + 1);
+            checkSafe(pnClusterRemapOut, pnFaceClusters.get(nFaces));
         }
-        return nTootleOptimizeOverdraw(memAddress(pVB), memAddress(pnIB), pVB.remaining() / nVBStride, nFaces, nVBStride, memAddressSafe(pfViewpoint), remainingSafe(pfViewpoint) / 3, eFrontWinding, memAddress(pnFaceClusters), memAddressSafe(pnIBOut), memAddress(pnClusterRemapOut), eOverdrawOptimizer);
+        return nTootleOptimizeOverdraw(memAddress(pVB), memAddress(pnIB), pVB.remaining() / nVBStride, nFaces, nVBStride, memAddressSafe(pfViewpoint), remainingSafe(pfViewpoint) / 3, eFrontWinding, memAddress(pnFaceClusters), memAddressSafe(pnIBOut), memAddressSafe(pnClusterRemapOut), eOverdrawOptimizer);
     }
 
     /**
@@ -365,8 +366,9 @@ public class Tootle {
         if (CHECKS) {
             checkSafe(pnIBOut, pnIB.remaining());
             check(pnFaceClusters, nFaces + 1);
+            checkSafe(pnClusterRemapOut, pnFaceClusters.get(nFaces));
         }
-        return nTootleOptimizeOverdraw(memAddress(pVB), memAddress(pnIB), (int)(((long)pVB.remaining() << 2) / nVBStride), nFaces, nVBStride, memAddressSafe(pfViewpoint), remainingSafe(pfViewpoint) / 3, eFrontWinding, memAddress(pnFaceClusters), memAddressSafe(pnIBOut), memAddress(pnClusterRemapOut), eOverdrawOptimizer);
+        return nTootleOptimizeOverdraw(memAddress(pVB), memAddress(pnIB), (int)(((long)pVB.remaining() << 2) / nVBStride), nFaces, nVBStride, memAddressSafe(pfViewpoint), remainingSafe(pfViewpoint) / 3, eFrontWinding, memAddress(pnFaceClusters), memAddressSafe(pnIBOut), memAddressSafe(pnClusterRemapOut), eOverdrawOptimizer);
     }
 
     // --- [ TootleCleanup ] ---
@@ -474,7 +476,7 @@ public class Tootle {
      * @param nVBStride        the distance between successive vertices in the vertex buffer, in bytes. This must be at least {@code 3*sizeof(float)}.
      * @param nCacheSize       hardware cache size (12 to 24 are good options)
      * @param eFrontWinding    the winding order of front-faces in the model. One of:<br><table><tr><td>{@link #TOOTLE_CCW CCW}</td><td>{@link #TOOTLE_CW CW}</td></tr></table>
-     * @param pnIBOut          the updated index buffer (the output). May not be {@code NULL}.
+     * @param pnIBOut          the updated index buffer (the output). May not be {@code NULL}. May equal {@code pnIB}.
      * @param pnNumClustersOut the number of output clusters. May be {@code NULL} if not requested.
      * @param fAlpha           a linear parameter to compute lambda term from the algorithm. Pass {@link #TOOTLE_DEFAULT_ALPHA DEFAULT_ALPHA} as a default.
      *
@@ -501,7 +503,7 @@ public class Tootle {
      * @param nVBStride        the distance between successive vertices in the vertex buffer, in bytes. This must be at least {@code 3*sizeof(float)}.
      * @param nCacheSize       hardware cache size (12 to 24 are good options)
      * @param eFrontWinding    the winding order of front-faces in the model. One of:<br><table><tr><td>{@link #TOOTLE_CCW CCW}</td><td>{@link #TOOTLE_CW CW}</td></tr></table>
-     * @param pnIBOut          the updated index buffer (the output). May not be {@code NULL}.
+     * @param pnIBOut          the updated index buffer (the output). May not be {@code NULL}. May equal {@code pnIB}.
      * @param pnNumClustersOut the number of output clusters. May be {@code NULL} if not requested.
      * @param fAlpha           a linear parameter to compute lambda term from the algorithm. Pass {@link #TOOTLE_DEFAULT_ALPHA DEFAULT_ALPHA} as a default.
      *
@@ -671,7 +673,7 @@ public class Tootle {
      *                         value (X,Y,Z).
      * @param pnIB             the mesh index buffer. This must be a triangle list.
      * @param nVBStride        the distance between successive vertices in the vertex buffer, in bytes. This must be at least {@code 3*sizeof(float)}.
-     * @param pVBOut           the output vertex buffer. May not be {@code NULL}. May equal {@code pVB}.
+     * @param pVBOut           the output vertex buffer. May be {@code NULL}. May equal {@code pVB}.
      * @param pnIBOut          the output index buffer. May not be {@code NULL}. May equal {@code pnIB}.
      * @param pnVertexRemapOut an array that will receive a vertex re-mapping. May be {@code NULL} if the output is not requested. If not {@code NULL}, must be an array of size
      *                         {@code nVertices}. The {@code i}'th element of the output array contains the position of the input vertex {@code i} in the new vertex re-ordering.
@@ -701,7 +703,7 @@ public class Tootle {
      *                         value (X,Y,Z).
      * @param pnIB             the mesh index buffer. This must be a triangle list.
      * @param nVBStride        the distance between successive vertices in the vertex buffer, in bytes. This must be at least {@code 3*sizeof(float)}.
-     * @param pVBOut           the output vertex buffer. May not be {@code NULL}. May equal {@code pVB}.
+     * @param pVBOut           the output vertex buffer. May be {@code NULL}. May equal {@code pVB}.
      * @param pnIBOut          the output index buffer. May not be {@code NULL}. May equal {@code pnIB}.
      * @param pnVertexRemapOut an array that will receive a vertex re-mapping. May be {@code NULL} if the output is not requested. If not {@code NULL}, must be an array of size
      *                         {@code nVertices}. The {@code i}'th element of the output array contains the position of the input vertex {@code i} in the new vertex re-ordering.
