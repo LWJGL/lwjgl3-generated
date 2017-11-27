@@ -783,15 +783,6 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigGetContext(JNIEnv
     return (jlong)(intptr_t)YGConfigGetContext(config);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGSetMemoryFuncs(JNIEnv *__env, jclass clazz, jlong ygmallocAddress, jlong yccallocAddress, jlong ygreallocAddress, jlong ygfreeAddress) {
-    YGMalloc ygmalloc = (YGMalloc)(intptr_t)ygmallocAddress;
-    YGCalloc yccalloc = (YGCalloc)(intptr_t)yccallocAddress;
-    YGRealloc ygrealloc = (YGRealloc)(intptr_t)ygreallocAddress;
-    YGFree ygfree = (YGFree)(intptr_t)ygfreeAddress;
-    UNUSED_PARAMS(__env, clazz)
-    YGSetMemoryFuncs(ygmalloc, yccalloc, ygrealloc, ygfree);
-}
-
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGAlignToString(JNIEnv *__env, jclass clazz, jint value) {
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)YGAlignToString((YGAlign)value);

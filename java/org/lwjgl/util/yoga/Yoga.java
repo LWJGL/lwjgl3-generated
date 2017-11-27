@@ -192,6 +192,7 @@ public class Yoga {
      * <li>{@link #YGJustifyFlexEnd JustifyFlexEnd}</li>
      * <li>{@link #YGJustifySpaceBetween JustifySpaceBetween}</li>
      * <li>{@link #YGJustifySpaceAround JustifySpaceAround}</li>
+     * <li>{@link #YGJustifySpaceEvenly JustifySpaceEvenly}</li>
      * </ul>
      */
     public static final int
@@ -199,7 +200,8 @@ public class Yoga {
         YGJustifyCenter       = 1,
         YGJustifyFlexEnd      = 2,
         YGJustifySpaceBetween = 3,
-        YGJustifySpaceAround  = 4;
+        YGJustifySpaceAround  = 4,
+        YGJustifySpaceEvenly  = 5;
 
     /**
      * YGLogLevel
@@ -787,7 +789,7 @@ public class Yoga {
 
     /**
      * @param node           
-     * @param justifyContent one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr></table>
+     * @param justifyContent one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr><tr><td>{@link #YGJustifySpaceEvenly JustifySpaceEvenly}</td></tr></table>
      */
     public static void YGNodeStyleSetJustifyContent(@NativeType("const YGNodeRef") long node, @NativeType("YGJustify") int justifyContent) {
         if (CHECKS) {
@@ -2065,14 +2067,6 @@ public class Yoga {
         return nYGConfigGetContext(config);
     }
 
-    // --- [ YGSetMemoryFuncs ] ---
-
-    public static native void nYGSetMemoryFuncs(long ygmalloc, long yccalloc, long ygrealloc, long ygfree);
-
-    public static void YGSetMemoryFuncs(@NativeType("YGMalloc") YGMallocI ygmalloc, @NativeType("YGCalloc") YGMallocI yccalloc, @NativeType("YGRealloc") YGReallocI ygrealloc, @NativeType("YGFree") YGFreeI ygfree) {
-        nYGSetMemoryFuncs(ygmalloc.address(), yccalloc.address(), ygrealloc.address(), ygfree.address());
-    }
-
     // --- [ YGAlignToString ] ---
 
     /** Unsafe version of: {@link #YGAlignToString AlignToString} */
@@ -2162,7 +2156,7 @@ public class Yoga {
     /** Unsafe version of: {@link #YGJustifyToString JustifyToString} */
     public static native long nYGJustifyToString(int value);
 
-    /** @param value one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr></table> */
+    /** @param value one of:<br><table><tr><td>{@link #YGJustifyFlexStart JustifyFlexStart}</td><td>{@link #YGJustifyCenter JustifyCenter}</td><td>{@link #YGJustifyFlexEnd JustifyFlexEnd}</td><td>{@link #YGJustifySpaceBetween JustifySpaceBetween}</td><td>{@link #YGJustifySpaceAround JustifySpaceAround}</td></tr><tr><td>{@link #YGJustifySpaceEvenly JustifySpaceEvenly}</td></tr></table> */
     @NativeType("const char *")
     public static String YGJustifyToString(@NativeType("YGJustify") int value) {
         long __result = nYGJustifyToString(value);
