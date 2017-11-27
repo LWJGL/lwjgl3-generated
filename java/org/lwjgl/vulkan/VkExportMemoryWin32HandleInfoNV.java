@@ -22,7 +22,7 @@ import org.lwjgl.system.windows.*;
  * 
  * <p>If this structure is not present, or if {@code pAttributes} is set to {@code NULL}, default security descriptor values will be used, and child processes created by the application will not inherit the handle, as described in the MSDN documentation for "{@code Synchronization Object Security and Access Rights}"[1]. Further, if the structure is not present, the access rights will be</p>
  * 
- * <p>{@code DXGI_SHARED_RESOURCE_READ} | {@code DXGI_SHARED_RESOURCE_WRITE}</p>
+ * <p>DXGI_SHARED_RESOURCE_READ | DXGI_SHARED_RESOURCE_WRITE</p>
  * 
  * <p>[1] https://msdn.microsoft.com/en-us/library/windows/desktop/ms686670.aspx</p>
  * 

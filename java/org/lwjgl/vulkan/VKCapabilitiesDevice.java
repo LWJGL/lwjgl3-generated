@@ -165,6 +165,10 @@ public class VKCapabilitiesDevice {
         vkRegisterDisplayEventEXT,
         vkGetSwapchainCounterEXT;
 
+    // EXT_external_memory_host
+    public final long
+        vkGetMemoryHostPointerPropertiesEXT;
+
     // EXT_hdr_metadata
     public final long
         vkSetHdrMetadataEXT;
@@ -333,12 +337,18 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_discard_rectangles;
     /** When true, {@link EXTDisplayControl} is supported. */
     public final boolean VK_EXT_display_control;
+    /** When true, {@link EXTExternalMemoryDmaBuf} is supported. */
+    public final boolean VK_EXT_external_memory_dma_buf;
+    /** When true, {@link EXTExternalMemoryHost} is supported. */
+    public final boolean VK_EXT_external_memory_host;
     /** When true, {@link EXTGlobalPriority} is supported. */
     public final boolean VK_EXT_global_priority;
     /** When true, {@link EXTHdrMetadata} is supported. */
     public final boolean VK_EXT_hdr_metadata;
     /** When true, {@link EXTPostDepthCoverage} is supported. */
     public final boolean VK_EXT_post_depth_coverage;
+    /** When true, {@link EXTQueueFamilyForeign} is supported. */
+    public final boolean VK_EXT_queue_family_foreign;
     /** When true, {@link EXTSampleLocations} is supported. */
     public final boolean VK_EXT_sample_locations;
     /** When true, {@link EXTSamplerFilterMinmax} is supported. */
@@ -629,6 +639,12 @@ public class VKCapabilitiesDevice {
             vkGetSwapchainCounterEXT = isSupported(provider, "vkGetSwapchainCounterEXT", supported);
             VK_EXT_display_control = supported && VK.checkExtension("VK_EXT_display_control", EXTDisplayControl.isAvailable(this));
         }
+        VK_EXT_external_memory_dma_buf = ext.contains("VK_EXT_external_memory_dma_buf");
+        {
+            supported = ext.contains("VK_EXT_external_memory_host");
+            vkGetMemoryHostPointerPropertiesEXT = isSupported(provider, "vkGetMemoryHostPointerPropertiesEXT", supported);
+            VK_EXT_external_memory_host = supported && VK.checkExtension("VK_EXT_external_memory_host", EXTExternalMemoryHost.isAvailable(this));
+        }
         VK_EXT_global_priority = ext.contains("VK_EXT_global_priority");
         {
             supported = ext.contains("VK_EXT_hdr_metadata");
@@ -636,6 +652,7 @@ public class VKCapabilitiesDevice {
             VK_EXT_hdr_metadata = supported && VK.checkExtension("VK_EXT_hdr_metadata", EXTHdrMetadata.isAvailable(this));
         }
         VK_EXT_post_depth_coverage = ext.contains("VK_EXT_post_depth_coverage");
+        VK_EXT_queue_family_foreign = ext.contains("VK_EXT_queue_family_foreign");
         {
             supported = ext.contains("VK_EXT_sample_locations");
             vkCmdSetSampleLocationsEXT = isSupported(provider, "vkCmdSetSampleLocationsEXT", supported);

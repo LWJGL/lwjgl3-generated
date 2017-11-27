@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code maxSrcPosition} &ndash; the maximum source rectangle offset supported by this plane using the specified mode. The {@code x} and {@code y} components of {@code maxSrcPosition} <b>must</b> each be greater than or equal to the {@code x} and {@code y} components of {@code minSrcPosition}, respectively.</li>
  * <li>{@code minSrcExtent} &ndash; the minimum source rectangle size supported by this plane using the specified mode.</li>
  * <li>{@code maxSrcExtent} &ndash; the maximum source rectangle size supported by this plane using the specified mode.</li>
- * <li>{@code minDstPosition} &ndash; {@code minDstPosition}, {@code maxDstPosition}, {@code minDstExtent}, {@code maxDstExtent} all have similar semantics to their corresponding "Src" equivalents, but apply to the output region within the mode rather than the input region within the source image. Unlike the "Src" offsets, {@code minDstPosition} and {@code maxDstPosition} <b>may</b> contain negative values.</li>
+ * <li>{@code minDstPosition} &ndash; {@code minDstPosition}, {@code maxDstPosition}, {@code minDstExtent}, {@code maxDstExtent} all have similar semantics to their corresponding {@code Src}<b> equivalents, but apply to the output region within the mode rather than the input region within the source image. Unlike the {@code Src}</b> offsets, {@code minDstPosition} and {@code maxDstPosition} <b>may</b> contain negative values.</li>
  * <li>{@code maxDstPosition} &ndash; see {@code minDstPosition}</li>
  * <li>{@code minDstExtent} &ndash; see {@code minDstPosition}</li>
  * <li>{@code maxDstExtent} &ndash; see {@code minDstPosition}</li>

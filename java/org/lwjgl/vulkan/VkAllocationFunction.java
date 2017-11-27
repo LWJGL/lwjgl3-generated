@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Correct Vulkan operation <b>cannot</b> be assumed if the application does not follow these rules.</p>
  * 
- * <p>For example, {@code pfnAllocation} (or {@code pfnReallocation}) could cause termination of running Vulkan instance(s) on a failed allocation for debugging purposes, either directly or indirectly. In these circumstances, it <b>cannot</b> be assumed that any part of any affected VkInstance objects are going to operate correctly (even {@link VK10#vkDestroyInstance DestroyInstance}), and the application <b>must</b> ensure it cleans up properly via other means (e.g. process termination).</p>
+ * <p>For example, {@code pfnAllocation} (or {@code pfnReallocation}) could cause termination of running Vulkan instance(s) on a failed allocation for debugging purposes, either directly or indirectly. In these circumstances, it <b>cannot</b> be assumed that any part of any affected {@code VkInstance} objects are going to operate correctly (even {@link VK10#vkDestroyInstance DestroyInstance}), and the application <b>must</b> ensure it cleans up properly via other means (e.g. process termination).</p>
  * </div>
  * 
  * <p>If {@code pfnAllocation} returns {@code NULL}, and if the implementation is unable to continue correct processing of the current command without the requested allocation, it <b>must</b> treat this as a run-time error, and generate {@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY} at the appropriate time for the command in which the condition was detected, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#fundamentals-errorcodes">Return Codes</a>.</p>

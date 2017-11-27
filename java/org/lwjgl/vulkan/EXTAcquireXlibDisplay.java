@@ -155,7 +155,7 @@ public class EXTAcquireXlibDisplay {
      * 
      * <h5>Description</h5>
      * 
-     * <p>If there is no VkDisplayKHR corresponding to {@code rrOutput} on {@code physicalDevice}, {@link VK10#VK_NULL_HANDLE NULL_HANDLE} <b>must</b> be returned in {@code pDisplay}.</p>
+     * <p>If there is no {@code VkDisplayKHR} corresponding to {@code rrOutput} on {@code physicalDevice}, {@link VK10#VK_NULL_HANDLE NULL_HANDLE} <b>must</b> be returned in {@code pDisplay}.</p>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -177,7 +177,7 @@ public class EXTAcquireXlibDisplay {
      * @param physicalDevice The physical device to query the display handle on.
      * @param dpy            A connection to the X11 server from which {@code rrOutput} was queried.
      * @param rrOutput       An X11 RandR output ID.
-     * @param pDisplay       The corresponding VkDisplayKHR handle will be returned here.
+     * @param pDisplay       The corresponding {@code VkDisplayKHR} handle will be returned here.
      */
     @NativeType("VkResult")
     public static int vkGetRandROutputDisplayEXT(VkPhysicalDevice physicalDevice, @NativeType("Display *") long dpy, @NativeType("RROutput") long rrOutput, @NativeType("VkDisplayKHR *") LongBuffer pDisplay) {

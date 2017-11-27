@@ -45,7 +45,7 @@ import org.lwjgl.system.windows.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>If {@link VkExportSemaphoreCreateInfoKHR}{@code ::handleTypes} does not include {@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR} or {@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR}, VkExportSemaphoreWin32HandleInfoKHR <b>must</b> not be in the {@code pNext} chain of {@link VkSemaphoreCreateInfo}.</li>
+ * <li>If {@link VkExportSemaphoreCreateInfoKHR}{@code ::handleTypes} does not include {@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR} or {@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR}, {@link VkExportSemaphoreWin32HandleInfoKHR} <b>must</b> not be in the {@code pNext} chain of {@link VkSemaphoreCreateInfo}.</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

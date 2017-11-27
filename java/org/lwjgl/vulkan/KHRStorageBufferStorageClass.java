@@ -12,7 +12,7 @@ package org.lwjgl.vulkan;
  * <li>SPV_KHR_storage_buffer_storage_class</li>
  * </ul>
  * 
- * <p>This extension provides a new SPIR-V {@code StorageBuffer} storage class. A {@code Block}-decorated object in this class is equivalent to a {@code BufferBlock}-decorated object in the <b>Uniform</b> storage class.</p>
+ * <p>This extension provides a new SPIR-V {@code StorageBuffer} storage class. A {@code Block}-decorated object in this class is equivalent to a {@code BufferBlock}-decorated object in the {@code Uniform} storage class.</p>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>

@@ -344,7 +344,7 @@ public class KHRDescriptorUpdateTemplate {
      *
      * @param device                   the logical device that updates the descriptor sets.
      * @param descriptorSet            the descriptor set to update
-     * @param descriptorUpdateTemplate the {@code VkDescriptorUpdateTemplateKHR} which specifies the update mapping between the application pointer and the descriptor set to update.
+     * @param descriptorUpdateTemplate the {@code VkDescriptorUpdateTemplateKHR} which specifies the update mapping between {@code pData} and the descriptor set to update.
      * @param pData                    a pointer to memory which contains one or more structures of {@link VkDescriptorImageInfo}, {@link VkDescriptorBufferInfo}, or {@code VkBufferView} used to write the descriptors.
      */
     public static void vkUpdateDescriptorSetWithTemplateKHR(VkDevice device, @NativeType("VkDescriptorSet") long descriptorSet, @NativeType("VkDescriptorUpdateTemplateKHR") long descriptorUpdateTemplate, @NativeType("const void *") long pData) {

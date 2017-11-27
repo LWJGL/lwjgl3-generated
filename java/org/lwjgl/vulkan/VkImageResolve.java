@@ -49,7 +49,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code srcSubresource} &ndash; {@code srcSubresource} and {@code dstSubresource} are {@link VkImageSubresourceLayers} structures specifying the image subresources of the images used for the source and destination image data, respectively. Resolve of depth/stencil images is not supported.</li>
- * <li>{@code srcOffset} &ndash; {@code srcOffset} and {@code dstOffset} select the initial x, y, and z offsets in texels of the sub-regions of the source and destination image data.</li>
+ * <li>{@code srcOffset} &ndash; {@code srcOffset} and {@code dstOffset} select the initial {@code x}, {@code y}, and {@code z} offsets in texels of the sub-regions of the source and destination image data.</li>
  * <li>{@code dstSubresource} &ndash; see {@code srcSubresource}</li>
  * <li>{@code dstOffset} &ndash; see {@code srcOffset}</li>
  * <li>{@code extent} &ndash; the size in texels of the source image to resolve in {@code width}, {@code height} and {@code depth}.</li>

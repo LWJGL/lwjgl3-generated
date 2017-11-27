@@ -20,6 +20,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>The properties of the file descriptor exported depend on the value of {@code handleType}. See {@code VkExternalMemoryHandleTypeFlagBitsKHR} for a description of the properties of the defined external memory handle types.</p>
  * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>The size of the exported file <b>may</b> be larger than the size requested by {@link VkMemoryAllocateInfo}::allocationSize. If {@code handleType} is {@link EXTExternalMemoryDmaBuf#VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT}, then the application <b>can</b> query the file's actual size with link:man:lseek(2)[lseek(2)].</p>
+ * </div>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>

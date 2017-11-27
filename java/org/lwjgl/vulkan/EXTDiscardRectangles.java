@@ -134,7 +134,7 @@ public class EXTDiscardRectangles {
      * 
      * <ul>
      * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled</li>
-     * <li>{@code firstDiscardRectangle} <b>must</b> be less than {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}.{@code maxDiscardRectangles}</li>
+     * <li>{@code firstDiscardRectangle} <b>must</b> be less than {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}</li>
      * <li>The sum of {@code firstDiscardRectangle} and {@code discardRectangleCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}, inclusive</li>
      * <li>{@code pDiscardRectangles} <b>must</b> be a valid pointer to an array of {@code discardRectangleCount} valid {@link VkRect2D} structures</li>
      * <li>The {@code x} and {@code y} members of {@code offset} in {@link VkRect2D} <b>must</b> be greater than or equal to 0</li>

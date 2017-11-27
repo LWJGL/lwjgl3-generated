@@ -267,7 +267,7 @@ public class EXTDisplayControl {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>To create a fence that will be signaled when an event occurs on a VkDisplayKHR object, call:</p>
+     * <p>To create a fence that will be signaled when an event occurs on a {@code VkDisplayKHR} object, call:</p>
      * 
      * <code><pre>
      * VkResult vkRegisterDisplayEventEXT(

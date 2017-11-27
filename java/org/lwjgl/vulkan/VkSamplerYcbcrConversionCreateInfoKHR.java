@@ -30,8 +30,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code format} <b>must</b> support {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR} or {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR}</li>
  * <li>If the format does not support {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR}, {@code xChromaOffset} and {@code yChromaOffset} <b>must</b> not be {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_COSITED_EVEN_KHR CHROMA_LOCATION_COSITED_EVEN_KHR}</li>
  * <li>If the format does not support {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR}, {@code xChromaOffset} and {@code yChromaOffset} <b>must</b> not be {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_MIDPOINT_KHR CHROMA_LOCATION_MIDPOINT_KHR}</li>
- * <li>{@code format} <b>must</b> represent unsigned normalized values (i.e. the format must be a etext:UNORM format)</li>
- * <li>If the format has a _422 or _420 suffix:
+ * <li>{@code format} <b>must</b> represent unsigned normalized values (i.e. the format must be a {@code UNORM} format)</li>
+ * <li>If the format has a {@code _422} or {@code _420} suffix:
  * 
  * <ul>
  * <li>{@code components.g} <b>must</b> be {@link VK10#VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}</li>

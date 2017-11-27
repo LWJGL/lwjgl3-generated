@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code subpassIndex} <b>must</b> be less than the {@code subpassCount} specified in {@link VkRenderPassCreateInfo} the render pass specified by {@link VkRenderPassBeginInfo}::pname::renderPass was created with</li>
+ * <li>{@code subpassIndex} <b>must</b> be less than the {@code subpassCount} specified in {@link VkRenderPassCreateInfo} the render pass specified by {@link VkRenderPassBeginInfo}{@code ::renderPass} was created with</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

@@ -48,7 +48,7 @@ package org.lwjgl.vulkan;
  *     }
  * }</pre></code>
  * 
- * <p>In this shader, the inputs "gl_Position", "Inputs.texcoord", and "Inputs.baseColor" are simply copied from the input vertex to the corresponding output vertex. The only "interesting" work done by the geometry shader is computing and emitting a gl_Layer value for the primitive.</p>
+ * <p>In this shader, the inputs {@code gl_Position}, {@code Inputs.texcoord}, and {@code Inputs.baseColor} are simply copied from the input vertex to the corresponding output vertex. The only "interesting" work done by the geometry shader is computing and emitting a {@code gl_Layer} value for the primitive.</p>
  * 
  * <p>The following geometry shader, using this extension, is equivalent:</p>
  * 

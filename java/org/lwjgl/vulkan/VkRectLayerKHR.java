@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code layer} <b>must</b> be less than {@code imageArrayLayers} member of the {@link VkSwapchainCreateInfoKHR} structure given to {@link KHRSwapchain#vkCreateSwapchainKHR CreateSwapchainKHR}.</li>
  * </ul>
  * 
- * <p>Some platforms allow the size of a surface to change, and then scale the pixels of the image to fit the surface. VkRectLayerKHR specifies pixels of the swapchain's image(s), which will be constant for the life of the swapchain.</p>
+ * <p>Some platforms allow the size of a surface to change, and then scale the pixels of the image to fit the surface. {@link VkRectLayerKHR} specifies pixels of the swapchain's image(s), which will be constant for the life of the swapchain.</p>
  * 
  * <h5>See Also</h5>
  * 

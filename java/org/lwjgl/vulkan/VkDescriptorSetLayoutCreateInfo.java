@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; a bitmask of {@code VkDescriptorSetLayoutCreateFlags}. specifying options for descriptor set layout creation.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkDescriptorSetLayoutCreateFlagBits} specifying options for descriptor set layout creation.</li>
  * <li>{@code bindingCount} &ndash; the number of elements in {@code pBindings}.</li>
  * <li>{@code pBindings} &ndash; a pointer to an array of {@link VkDescriptorSetLayoutBinding} structures.</li>
  * </ul>

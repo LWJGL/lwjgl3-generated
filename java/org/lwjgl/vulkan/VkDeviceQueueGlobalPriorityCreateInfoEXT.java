@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>A queue created without specifying {@link VkDeviceQueueGlobalPriorityCreateInfoEXT} will default to {@link EXTGlobalPriority#VK_QUEUE_GLOBAL_PRIORITY_MEDIUM QUEUE_GLOBAL_PRIORITY_MEDIUM}.</p>
+ * <p>A queue created without specifying {@link VkDeviceQueueGlobalPriorityCreateInfoEXT} will default to {@link EXTGlobalPriority#VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT}.</p>
  * 
  * <h5>Valid Usage (Implicit)</h5>
  * 

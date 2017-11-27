@@ -171,7 +171,7 @@ public class NVClipSpaceWScaling {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>If the bound pipeline state object was not created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled, viewport W scaling parameters are specified using the {@code pViewportWScalings} member of {@link VkPipelineViewportWScalingStateCreateInfoNV} in the pipeline state object. If the pipeline state object was created with the {@link VK10#VK_DYNAMIC_STATE_VIEWPORT DYNAMIC_STATE_VIEWPORT} dynamic state enabled, the viewport transformation parameters are dynamically set and changed with the command:</p>
+     * <p>If the bound pipeline state object was not created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled, viewport <b>W</b> scaling parameters are specified using the {@code pViewportWScalings} member of {@link VkPipelineViewportWScalingStateCreateInfoNV} in the pipeline state object. If the pipeline state object was created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled, the viewport transformation parameters are dynamically set and changed with the command:</p>
      * 
      * <code><pre>
      * void vkCmdSetViewportWScalingNV(
@@ -182,7 +182,7 @@ public class NVClipSpaceWScaling {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The viewport parameters taken from element <code>i</code> of {@code pViewportScalings} replace the current state for the viewport index <code>firstViewport + i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
+     * <p>The viewport parameters taken from element <code>i</code> of {@code pViewportWScalings} replace the current state for the viewport index <code>firstViewport + i</code>, for <code>i</code> in <code>[0, viewportCount)</code>.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -222,7 +222,7 @@ public class NVClipSpaceWScaling {
      *
      * @param commandBuffer      the command buffer into which the command will be recorded.
      * @param firstViewport      the index of the first viewport whose parameters are updated by the command.
-     * @param pViewportWScalings 
+     * @param pViewportWScalings a pointer to an array of {@link VkViewportWScalingNV} structures specifying viewport parameters.
      */
     public static void vkCmdSetViewportWScalingNV(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstViewport, @NativeType("const VkViewportWScalingNV *") VkViewportWScalingNV.Buffer pViewportWScalings) {
         nvkCmdSetViewportWScalingNV(commandBuffer, firstViewport, pViewportWScalings.remaining(), pViewportWScalings.address());
