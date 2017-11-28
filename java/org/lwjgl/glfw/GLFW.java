@@ -4066,9 +4066,6 @@ public class GLFW {
     /** Unsafe version of: {@link #glfwSetClipboardString SetClipboardString} */
     public static void nglfwSetClipboardString(long window, long string) {
         long __functionAddress = Functions.SetClipboardString;
-        if (CHECKS) {
-            check(window);
-        }
         invokePPV(__functionAddress, window, string);
     }
 
@@ -4128,9 +4125,6 @@ public class GLFW {
     /** Unsafe version of: {@link #glfwGetClipboardString GetClipboardString} */
     public static long nglfwGetClipboardString(long window) {
         long __functionAddress = Functions.GetClipboardString;
-        if (CHECKS) {
-            check(window);
-        }
         return invokePP(__functionAddress, window);
     }
 
