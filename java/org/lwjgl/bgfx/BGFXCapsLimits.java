@@ -17,12 +17,12 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code maxDrawCalls} &ndash; maximum draw calls</li>
+ * <li>{@code maxDrawCalls} &ndash; maximum number of draw calls</li>
  * <li>{@code maxBlits} &ndash; maximum number of blit calls</li>
  * <li>{@code maxTextureSize} &ndash; maximum texture size</li>
- * <li>{@code maxViews} &ndash; maximum views</li>
+ * <li>{@code maxViews} &ndash; maximum number of views</li>
  * <li>{@code maxFrameBuffers} &ndash; maximum number of frame buffer handles</li>
- * <li>{@code maxFBAttachments} &ndash; maximum frame buffer attachments</li>
+ * <li>{@code maxFBAttachments} &ndash; maximum number of frame buffer attachments</li>
  * <li>{@code maxPrograms} &ndash; maximum number of program handles</li>
  * <li>{@code maxShaders} &ndash; maximum number of shader handles</li>
  * <li>{@code maxTextures} &ndash; maximum number of texture handles</li>

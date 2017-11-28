@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * struct bgfx_view_stats_t {
  *     char name[256];
- *     uint8_t view;
+ *     bgfx_view_id_t view;
  *     int64_t cpuTimeElapsed;
  *     int64_t gpuTimeElapsed;
  * }</pre></code>
@@ -51,7 +51,7 @@ public class BGFXViewStats extends Struct {
     static {
         Layout layout = __struct(
             __array(1, 256),
-            __member(1),
+            __member(2),
             __member(8),
             __member(8)
         );
@@ -89,8 +89,8 @@ public class BGFXViewStats extends Struct {
     @NativeType("char[256]")
     public String nameString() { return nnameString(address()); }
     /** Returns the value of the {@code view} field. */
-    @NativeType("uint8_t")
-    public byte view() { return nview(address()); }
+    @NativeType("bgfx_view_id_t")
+    public short view() { return nview(address()); }
     /** Returns the value of the {@code cpuTimeElapsed} field. */
     @NativeType("int64_t")
     public long cpuTimeElapsed() { return ncpuTimeElapsed(address()); }
@@ -122,7 +122,7 @@ public class BGFXViewStats extends Struct {
     /** Unsafe version of {@link #nameString}. */
     public static String nnameString(long struct) { return memASCII(struct + BGFXViewStats.NAME); }
     /** Unsafe version of {@link #view}. */
-    public static byte nview(long struct) { return memGetByte(struct + BGFXViewStats.VIEW); }
+    public static short nview(long struct) { return memGetShort(struct + BGFXViewStats.VIEW); }
     /** Unsafe version of {@link #cpuTimeElapsed}. */
     public static long ncpuTimeElapsed(long struct) { return memGetLong(struct + BGFXViewStats.CPUTIMEELAPSED); }
     /** Unsafe version of {@link #gpuTimeElapsed}. */
@@ -177,8 +177,8 @@ public class BGFXViewStats extends Struct {
         @NativeType("char[256]")
         public String nameString() { return BGFXViewStats.nnameString(address()); }
         /** Returns the value of the {@code view} field. */
-        @NativeType("uint8_t")
-        public byte view() { return BGFXViewStats.nview(address()); }
+        @NativeType("bgfx_view_id_t")
+        public short view() { return BGFXViewStats.nview(address()); }
         /** Returns the value of the {@code cpuTimeElapsed} field. */
         @NativeType("int64_t")
         public long cpuTimeElapsed() { return BGFXViewStats.ncpuTimeElapsed(address()); }
