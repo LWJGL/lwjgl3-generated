@@ -1364,7 +1364,12 @@ public class GLFW {
      * 
      * <p>For gamma correct rendering with OpenGL or OpenGL ES, see the {@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE} hint.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: Gamma handling is a privileged protocol, this function will thus never be implemented and emits {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * </ul>
      *
      * @param monitor the monitor whose gamma ramp to set
      * @param gamma   the desired exponent
@@ -1396,7 +1401,13 @@ public class GLFW {
      * <p>The returned structure and its arrays are allocated and freed by GLFW. You should not free them yourself. They are valid until the specified monitor is
      * disconnected, this function is called again for that monitor or the library is terminated.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: Gamma handling is a privileged protocol, this function will thus never be implemented and emits {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR} while returning
+     * {@code NULL}.</li>
+     * </ul>
      *
      * @param monitor the monitor to query
      *
@@ -1437,6 +1448,7 @@ public class GLFW {
      * <li>This function must only be called from the main thread.</li>
      * <li>Gamma ramp sizes other than 256 are not supported by all hardware</li>
      * <li><b>Windows</b>: The gamma ramp size must be 256.</li>
+     * <li><b>Wayland</b>: Gamma handling is a privileged protocol, this function will thus never be implemented and emits {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
      * <li>The specified gamma ramp is copied before this function returns.</li>
      * </ul></div>
      *
@@ -1596,6 +1608,10 @@ public class GLFW {
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
      * to query the final size, position or other attributes directly after window creation.</li>
+     * <li><b>Wayland</b>: The window frame is currently unimplemented, as if {@link #GLFW_DECORATED DECORATED}) was always set to {@link #GLFW_FALSE FALSE}. A compositor can still emit close, resize
+     * or maximize events, using for example a keybind mechanism.</li>
+     * <li><b>Wayland</b>: A full screen window will not attempt to change the mode, no matter what the requested size or refresh rate.</li>
+     * <li><b>Wayland</b>: Screensaver inhibition requires the idle-inhibit protocol to be implemented in the user's compositor.</li>
      * </ul></div>
      *
      * @param width   the desired width, in screen coordinates, of the window
@@ -1677,6 +1693,10 @@ public class GLFW {
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
      * to query the final size, position or other attributes directly after window creation.</li>
+     * <li><b>Wayland</b>: The window frame is currently unimplemented, as if {@link #GLFW_DECORATED DECORATED}) was always set to {@link #GLFW_FALSE FALSE}. A compositor can still emit close, resize
+     * or maximize events, using for example a keybind mechanism.</li>
+     * <li><b>Wayland</b>: A full screen window will not attempt to change the mode, no matter what the requested size or refresh rate.</li>
+     * <li><b>Wayland</b>: Screensaver inhibition requires the idle-inhibit protocol to be implemented in the user's compositor.</li>
      * </ul></div>
      *
      * @param width   the desired width, in screen coordinates, of the window
@@ -1848,14 +1868,16 @@ public class GLFW {
      * <p>The desired image sizes varies depending on platform and system settings. The selected images will be rescaled as needed. Good sizes include 16x16,
      * 32x32 and 48x48.</p>
      * 
-     * <p>The specified image data is copied before this function returns.</p>
+     * <p>Notes:</p>
      * 
-     * <p><b>macOS</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
-     * application bundle's icon. For more information on bundles, see the
-     * <a target="_blank" href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac
-     * Developer Library.</p>
-     * 
-     * <p>This function must only be called from the main thread.</p>
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li>The specified image data is copied before this function returns.</li>
+     * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
+     * application bundle's icon. For more information on bundles, see the <a target="_blank" href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer Library.</li>
+     * <li><b>Wayland</b>: The {@code wl_shell} protocol does not support window icons, the window will inherit the one defined in the application's desktop
+     * file, so this function emits {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * </ul>
      *
      * @param window the window whose icon to set
      * @param images the images to create the icon from. This is ignored if count is zero.
@@ -1882,7 +1904,12 @@ public class GLFW {
      * 
      * <p>Any or all of the position arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} position arguments will be set to zero.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: There is no way for an application to retrieve the global position of its windows, this function will always emit {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * </ul>
      *
      * @param window the window to query
      * @param xpos   where to store the x-coordinate of the upper-left corner of the client area, or {@code NULL}
@@ -1909,7 +1936,12 @@ public class GLFW {
      * 
      * <p>The window manager may put limits on what positions are allowed. GLFW cannot and should not override these limits.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: There is no way for an application to set the global position of its windows, this function will always emit {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * </ul>
      *
      * @param window the window to query
      * @param xpos   the x-coordinate of the upper-left corner of the client area
@@ -1968,7 +2000,12 @@ public class GLFW {
      * 
      * <p>The maximum dimensions must be greater than or equal to the minimum dimensions and all must be greater than or equal to zero.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: The size limits will not be applied until the window is actually resized, either by the user or by the compositor.</li>
+     * </ul>
      *
      * @param window    the window to set limits for
      * @param minwidth  the minimum width, in screen coordinates, of the client area, or {@link #GLFW_DONT_CARE DONT_CARE}
@@ -1999,7 +2036,12 @@ public class GLFW {
      * 
      * <p>The aspect ratio is applied immediately to a windowed mode window and may cause it to be resized.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: The aspect ratio will not be applied until the window is actually resized, either by the user or by the compositor.</li>
+     * </ul>
      *
      * @param window the window to set limits for
      * @param numer  the numerator of the desired aspect ratio, or {@link #GLFW_DONT_CARE DONT_CARE}
@@ -2027,7 +2069,12 @@ public class GLFW {
      * 
      * <p>The window manager may put limits on what sizes are allowed. GLFW cannot and should not override these limits.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: A full screen window will not attempt to change the mode, no matter what the requested size.</li>
+     * </ul>
      *
      * @param window the window to resize
      * @param width  the desired width, in screen coordinates, of the window client area
@@ -2097,7 +2144,12 @@ public class GLFW {
      * 
      * <p>Any or all of the size arguments may be {@code NULL}. If an error occurs, all non-{@code NULL} size arguments will be set to zero.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: The window frame is currently unimplemented, as if {@link #GLFW_DECORATED DECORATED} was always set to {@link #GLFW_FALSE FALSE}, so the returned values will always be zero.</li>
+     * </ul>
      *
      * @param window the window whose frame size to query
      * @param left   where to store the size, in screen coordinates, of the left edge of the window frame, or {@code NULL}
@@ -2215,7 +2267,12 @@ public class GLFW {
      * 
      * <p>If the specified window is a full screen window, the original monitor resolution is restored until the window is restored.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: There is no concept of iconification in {@code wl_shell}, this function will always emit {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * </ul>
      *
      * @param window the window to iconify
      *
@@ -2322,7 +2379,12 @@ public class GLFW {
      * 
      * <p>For a less disruptive way of getting the user's attention, see {@link #glfwRequestWindowAttention RequestWindowAttention}.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: It is not possible for an application to bring its windows to front, this function will always emit {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * </ul>
      *
      * @param window the window to give input focus
      *
@@ -2405,7 +2467,13 @@ public class GLFW {
      * <p>When a window transitions from full screen to windowed mode, this function restores any previous window settings such as whether it is decorated,
      * floating, resizable, has size or aspect ratio limits, etc.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: The desired window position is ignored, as there is no way for an application to set this property.</li>
+     * <li><b>Wayland</b>: Setting the window to full screen will not attempt to change the mode, no matter what the requested size or refresh rate.</li>
+     * </ul>
      *
      * @param window      the window whose monitor, size or video mode to set
      * @param monitor     the desired monitor, or {@code NULL} to set windowed mode
@@ -2534,7 +2602,12 @@ public class GLFW {
      * Sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the position, in screen
      * coordinates, of the upper-left corner of the client area of the window.
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: This callback will never be called, as there is no way for an application to know its global position.</li>
+     * </ul>
      *
      * @param window the window whose callback to set
      * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -2697,7 +2770,12 @@ public class GLFW {
     /**
      * Sets the iconification callback of the specified window, which is called when the window is iconified or restored.
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: The {@code wl_shell} protocol has no concept of iconification, this callback will never be called.</li>
+     * </ul>
      *
      * @param window the window whose callback to set
      * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -3162,7 +3240,12 @@ public class GLFW {
      * 
      * <p>If the cursor mode is {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED} then the cursor position is unconstrained and limited only by the minimum and maximum values of <b>double</b>.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: This function will only work when the cursor mode is {@link #GLFW_CURSOR_DISABLED CURSOR_DISABLED}, otherwise it will do nothing.</li>
+     * </ul>
      *
      * @param window the desired window
      * @param xpos   the desired x-coordinate, relative to the left edge of the client area
@@ -3537,7 +3620,12 @@ public class GLFW {
      * <p>Because the path array and its strings may have been generated specifically for that event, they are not guaranteed to be valid after the callback has
      * returned. If you wish to use them after the callback returns, you need to make a deep copy.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: File drop is currently unimplemented.</li>
+     * </ul>
      *
      * @param window the window whose callback to set
      * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
@@ -3989,7 +4077,12 @@ public class GLFW {
      * 
      * <p>The specified string is copied before this function returns.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: Clipboard is currently unimplemented.</li>
+     * </ul>
      *
      * @param window deprecated, any valid window or {@code NULL}.
      * @param string a UTF-8 encoded string
@@ -4008,7 +4101,12 @@ public class GLFW {
      * 
      * <p>The specified string is copied before this function returns.</p>
      * 
-     * <p>This function must only be called from the main thread.</p>
+     * <p>Notes:</p>
+     * 
+     * <ul>
+     * <li>This function must only be called from the main thread.</li>
+     * <li><b>Wayland</b>: Clipboard is currently unimplemented.</li>
+     * </ul>
      *
      * @param window deprecated, any valid window or {@code NULL}.
      * @param string a UTF-8 encoded string
@@ -4049,6 +4147,7 @@ public class GLFW {
      * <li>This function must only be called from the main thread.</li>
      * <li>The returned string is allocated and freed by GLFW.  You should not free it yourself.</li>
      * <li>The returned string is valid only until the next call to {@link #glfwGetClipboardString GetClipboardString} or {@link #glfwSetClipboardString SetClipboardString}.</li>
+     * <li><b>Wayland</b>: Clipboard is currently unimplemented.</li>
      * </ul></div>
      *
      * @param window deprecated, any valid window or {@code NULL}.
