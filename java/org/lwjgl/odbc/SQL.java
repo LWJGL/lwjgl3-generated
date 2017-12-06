@@ -2042,11 +2042,11 @@ public class SQL {
             FreeStmt         = apiGetFunctionAddress(ODBC, "SQLFreeStmt"),
             CloseCursor      = apiGetFunctionAddress(ODBC, "SQLCloseCursor"),
             Cancel           = apiGetFunctionAddress(ODBC, "SQLCancel"),
-            CancelHandle     = apiGetFunctionAddress(ODBC, "SQLCancelHandle"),
+            CancelHandle     = ODBC.getFunctionAddress("SQLCancelHandle"),
             EndTran          = apiGetFunctionAddress(ODBC, "SQLEndTran"),
             Disconnect       = apiGetFunctionAddress(ODBC, "SQLDisconnect"),
             FreeHandle       = apiGetFunctionAddress(ODBC, "SQLFreeHandle"),
-            CompleteAsync    = apiGetFunctionAddress(ODBC, "SQLCompleteAsync"),
+            CompleteAsync    = ODBC.getFunctionAddress("SQLCompleteAsync"),
             Columns          = apiGetFunctionAddress(ODBC, "SQLColumnsW"),
             SpecialColumns   = apiGetFunctionAddress(ODBC, "SQLSpecialColumnsW"),
             Statistics       = apiGetFunctionAddress(ODBC, "SQLStatisticsW"),
@@ -3414,11 +3414,14 @@ public class SQL {
      *
      * @param HandleType one of:<br><table><tr><td>{@link #SQL_HANDLE_DBC HANDLE_DBC}</td><td>{@link #SQL_HANDLE_STMT HANDLE_STMT}</td></tr></table>
      * @param Handle     
+     *
+     * @since ODBC 3.8
      */
     @NativeType("SQLRETURN")
     public static short SQLCancelHandle(@NativeType("SQLSMALLINT") short HandleType, @NativeType("SQLHANDLE") long Handle) {
         long __functionAddress = Functions.CancelHandle;
         if (CHECKS) {
+            check(__functionAddress);
             check(Handle);
         }
         return callPS(__functionAddress, HandleType, Handle);
@@ -3488,6 +3491,7 @@ public class SQL {
     public static short nSQLCompleteAsync(short HandleType, long Handle, long AsyncRetCodePtr) {
         long __functionAddress = Functions.CompleteAsync;
         if (CHECKS) {
+            check(__functionAddress);
             check(Handle);
         }
         return callPPS(__functionAddress, HandleType, Handle, AsyncRetCodePtr);
@@ -3510,6 +3514,8 @@ public class SQL {
      *                        SQLCompleteAsync returns {@link #SQL_INVALID_HANDLE INVALID_HANDLE}.
      * @param AsyncRetCodePtr pointer to a buffer that will contain the return code of the asynchronous API. If {@code AsyncRetCodePtr} is {@code NULL}, SQLCompleteAsync returns
      *                        {@link #SQL_ERROR ERROR}.
+     *
+     * @since ODBC 3.8
      */
     @NativeType("SQLRETURN")
     public static short SQLCompleteAsync(@NativeType("SQLSMALLINT") short HandleType, @NativeType("SQLHANDLE") long Handle, @NativeType("RETCODE *") ShortBuffer AsyncRetCodePtr) {
