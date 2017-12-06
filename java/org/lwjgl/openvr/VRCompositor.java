@@ -793,19 +793,20 @@ public class VRCompositor {
      * {@code SubmitExplicitTimingData}, the timestamp is recorded at the same place for Vulkan/D3D12 as it is for D3D11, resulting in a more accurate GPU
      * time measurement for the frame.</p>
      * 
-     * <p>Avoiding {@code WaitGetPoses} accessing the Vulkan queue can be achieved using {@code SetExplicitTimingMode} as well. If this is desired, the
-     * application <b>MUST</b> call {@link #VRCompositor_PostPresentHandoff PostPresentHandoff} itself prior to {@code WaitGetPoses}. If {@code SetExplicitTimingMode} is true and the application
-     * calls {@code PostPresentHandoff}, then {@code WaitGetPoses} is guaranteed not to access the queue. Note that {@code PostPresentHandoff} and
-     * {@code SubmitExplicitTimingData} will access the queue, so only {@code WaitGetPoses} becomes safe for accessing the queue from another thread.</p>
+     * <p>Avoiding {@link #VRCompositor_WaitGetPoses WaitGetPoses} accessing the Vulkan queue can be achieved using {@code SetExplicitTimingMode} as well. If this is desired, the application
+     * should set the timing mode to {@link VR#EVRCompositorTimingMode_VRCompositorTimingMode_Explicit_ApplicationPerformsPostPresentHandoff} and <b>MUST</b> call
+     * {@link #VRCompositor_PostPresentHandoff PostPresentHandoff} itself. If these conditions are met, then {@code WaitGetPoses} is guaranteed not to access the queue. Note that
+     * {@code PostPresentHandoff} and {@code SubmitExplicitTimingData} will access the queue, so only {@code WaitGetPoses} becomes safe for accessing the
+     * queue from another thread.</p>
      *
-     * @param bExplicitTimingMode 
+     * @param eTimingMode 
      */
-    public static void VRCompositor_SetExplicitTimingMode(@NativeType("bool") boolean bExplicitTimingMode) {
+    public static void VRCompositor_SetExplicitTimingMode(@NativeType("EVRCompositorTimingMode") int eTimingMode) {
         long __functionAddress = OpenVR.VRCompositor.SetExplicitTimingMode;
         if (CHECKS) {
             check(__functionAddress);
         }
-        callV(__functionAddress, bExplicitTimingMode);
+        callV(__functionAddress, eTimingMode);
     }
 
     // --- [ VRCompositor_SubmitExplicitTimingData ] ---

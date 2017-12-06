@@ -13,7 +13,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 /**
  * When in mouse input mode you can receive data from the touchpad, these events are only sent if the users finger is on the touchpad (or just released from
- * it).
+ * it). These events are sent to overlays with the {@link VR#VROverlayFlags_SendVRTouchpadEvents} flag set.
  * 
  * <h3>Member documentation</h3>
  * 

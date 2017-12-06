@@ -281,6 +281,7 @@ public final class JNI {
     public static native int callPPI(long __functionAddress, long param0, int param1, long param2);
     public static native int callJPI(long __functionAddress, long param0, int param1, long param2);
     public static native int callPJI(long __functionAddress, long param0, int param1, long param2);
+    public static native int callJPI(long __functionAddress, long param0, int param1, long param2, float param3);
     public static native int callPPI(long __functionAddress, long param0, int param1, long param2, int param3);
     public static native int callPPPPI(long __functionAddress, long param0, int param1, long param2, int param3, int param4, long param5, long param6);
     public static native int callPPJI(long __functionAddress, long param0, int param1, long param2, int param3, long param4);

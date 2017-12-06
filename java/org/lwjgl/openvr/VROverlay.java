@@ -1230,7 +1230,7 @@ public class VROverlay {
      * Sets the input settings for the specified overlay.
      *
      * @param ulOverlayHandle 
-     * @param eInputMethod    one of:<br><table><tr><td>{@link VR#VROverlayInputMethod_None}</td><td>{@link VR#VROverlayInputMethod_Mouse}</td></tr></table>
+     * @param eInputMethod    one of:<br><table><tr><td>{@link VR#VROverlayInputMethod_None}</td><td>{@link VR#VROverlayInputMethod_Mouse}</td></tr><tr><td>{@link VR#VROverlayInputMethod_DualAnalog}</td></tr></table>
      */
     @NativeType("EVROverlayError")
     public static int VROverlay_SetOverlayInputMethod(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("VROverlayInputMethod") int eInputMethod) {
@@ -1414,6 +1414,57 @@ public class VROverlay {
             check(__functionAddress);
         }
         return callJI(__functionAddress, eDirection, ulFrom);
+    }
+
+    // --- [ VROverlay_SetOverlayDualAnalogTransform ] ---
+
+    /** Unsafe version of: {@link #VROverlay_SetOverlayDualAnalogTransform SetOverlayDualAnalogTransform} */
+    public static int nVROverlay_SetOverlayDualAnalogTransform(long ulOverlay, int eWhich, long pvCenter, float fRadius) {
+        long __functionAddress = OpenVR.VROverlay.SetOverlayDualAnalogTransform;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callJPI(__functionAddress, ulOverlay, eWhich, pvCenter, fRadius);
+    }
+
+    /**
+     * Sets the analog input to Dual Analog coordinate scale for the specified overlay.
+     *
+     * @param ulOverlay 
+     * @param eWhich    one of:<br><table><tr><td>{@link VR#EDualAnalogWhich_k_EDualAnalog_Left}</td><td>{@link VR#EDualAnalogWhich_k_EDualAnalog_Right}</td></tr></table>
+     * @param pvCenter  
+     * @param fRadius   
+     */
+    @NativeType("EVROverlayError")
+    public static int VROverlay_SetOverlayDualAnalogTransform(@NativeType("VROverlayHandle_t") long ulOverlay, @NativeType("EDualAnalogWhich") int eWhich, @NativeType("HmdVector2_t *") HmdVector2 pvCenter, float fRadius) {
+        return nVROverlay_SetOverlayDualAnalogTransform(ulOverlay, eWhich, pvCenter.address(), fRadius);
+    }
+
+    // --- [ VROverlay_GetOverlayDualAnalogTransform ] ---
+
+    /** Unsafe version of: {@link #VROverlay_GetOverlayDualAnalogTransform GetOverlayDualAnalogTransform} */
+    public static int nVROverlay_GetOverlayDualAnalogTransform(long ulOverlay, int eWhich, long pvCenter, long pfRadius) {
+        long __functionAddress = OpenVR.VROverlay.GetOverlayDualAnalogTransform;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callJPPI(__functionAddress, ulOverlay, eWhich, pvCenter, pfRadius);
+    }
+
+    /**
+     * Gets the analog input to Dual Analog coordinate scale for the specified overlay.
+     *
+     * @param ulOverlay 
+     * @param eWhich    one of:<br><table><tr><td>{@link VR#EDualAnalogWhich_k_EDualAnalog_Left}</td><td>{@link VR#EDualAnalogWhich_k_EDualAnalog_Right}</td></tr></table>
+     * @param pvCenter  
+     * @param pfRadius  
+     */
+    @NativeType("EVROverlayError")
+    public static int VROverlay_GetOverlayDualAnalogTransform(@NativeType("VROverlayHandle_t") long ulOverlay, @NativeType("EDualAnalogWhich") int eWhich, @NativeType("HmdVector2_t *") HmdVector2 pvCenter, @NativeType("float *") FloatBuffer pfRadius) {
+        if (CHECKS) {
+            check(pfRadius, 1);
+        }
+        return nVROverlay_GetOverlayDualAnalogTransform(ulOverlay, eWhich, pvCenter.address(), memAddress(pfRadius));
     }
 
     // --- [ VROverlay_SetOverlayTexture ] ---

@@ -27,7 +27,7 @@ public class VR {
         k_nDriverNone                    = -1,
         k_unMaxDriverDebugResponseSize   = 32768,
         k_unTrackedDeviceIndex_Hmd       = 0,
-        k_unMaxTrackedDeviceCount        = 16,
+        k_unMaxTrackedDeviceCount        = 64,
         k_unTrackedDeviceIndexOther      = 0xFFFFFFFE,
         k_unTrackedDeviceIndexInvalid    = 0xFFFFFFFF,
         k_unInvalidPropertyTag           = 0,
@@ -41,6 +41,10 @@ public class VR {
         k_unHmdVector3PropertyTag        = 22,
         k_unHmdVector4PropertyTag        = 23,
         k_unHiddenAreaPropertyTag        = 30,
+        k_unPathHandleInfoTag            = 31,
+        k_unActionPropertyTag            = 32,
+        k_unInputValuePropertyTag        = 33,
+        k_unWildcardPropertyTag          = 34,
         k_unOpenVRInternalReserved_Start = 1000,
         k_unOpenVRInternalReserved_End   = 10000,
         k_unScreenshotHandleInvalid      = 0,
@@ -77,150 +81,152 @@ public class VR {
 
     /** OpenVR constants. */
     public static final String
-        IVRSystem_Version                                   = "IVRSystem_017",
-        IVRExtendedDisplay_Version                          = "IVRExtendedDisplay_001",
-        IVRTrackedCamera_Version                            = "IVRTrackedCamera_003",
-        k_pch_MimeType_HomeApp                              = "vr/home",
-        k_pch_MimeType_GameTheater                          = "vr/game_theater",
-        IVRApplications_Version                             = "IVRApplications_006",
-        IVRChaperone_Version                                = "IVRChaperone_003",
-        IVRChaperoneSetup_Version                           = "IVRChaperoneSetup_005",
-        IVRCompositor_Version                               = "IVRCompositor_021",
-        IVROverlay_Version                                  = "IVROverlay_016",
-        k_pch_Controller_Component_GDC2015                  = "gdc2015",
-        k_pch_Controller_Component_Base                     = "base",
-        k_pch_Controller_Component_Tip                      = "tip",
-        k_pch_Controller_Component_HandGrip                 = "handgrip",
-        k_pch_Controller_Component_Status                   = "status",
-        IVRRenderModels_Version                             = "IVRRenderModels_005",
-        IVRNotifications_Version                            = "IVRNotifications_002",
-        IVRSettings_Version                                 = "IVRSettings_002",
-        k_pch_SteamVR_Section                               = "steamvr",
-        k_pch_SteamVR_RequireHmd_String                     = "requireHmd",
-        k_pch_SteamVR_ForcedDriverKey_String                = "forcedDriver",
-        k_pch_SteamVR_ForcedHmdKey_String                   = "forcedHmd",
-        k_pch_SteamVR_DisplayDebug_Bool                     = "displayDebug",
-        k_pch_SteamVR_DebugProcessPipe_String               = "debugProcessPipe",
-        k_pch_SteamVR_DisplayDebugX_Int32                   = "displayDebugX",
-        k_pch_SteamVR_DisplayDebugY_Int32                   = "displayDebugY",
-        k_pch_SteamVR_SendSystemButtonToAllApps_Bool        = "sendSystemButtonToAllApps",
-        k_pch_SteamVR_LogLevel_Int32                        = "loglevel",
-        k_pch_SteamVR_IPD_Float                             = "ipd",
-        k_pch_SteamVR_Background_String                     = "background",
-        k_pch_SteamVR_BackgroundUseDomeProjection_Bool      = "backgroundUseDomeProjection",
-        k_pch_SteamVR_BackgroundCameraHeight_Float          = "backgroundCameraHeight",
-        k_pch_SteamVR_BackgroundDomeRadius_Float            = "backgroundDomeRadius",
-        k_pch_SteamVR_GridColor_String                      = "gridColor",
-        k_pch_SteamVR_PlayAreaColor_String                  = "playAreaColor",
-        k_pch_SteamVR_ShowStage_Bool                        = "showStage",
-        k_pch_SteamVR_ActivateMultipleDrivers_Bool          = "activateMultipleDrivers",
-        k_pch_SteamVR_DirectMode_Bool                       = "directMode",
-        k_pch_SteamVR_DirectModeEdidVid_Int32               = "directModeEdidVid",
-        k_pch_SteamVR_DirectModeEdidPid_Int32               = "directModeEdidPid",
-        k_pch_SteamVR_UsingSpeakers_Bool                    = "usingSpeakers",
-        k_pch_SteamVR_SpeakersForwardYawOffsetDegrees_Float = "speakersForwardYawOffsetDegrees",
-        k_pch_SteamVR_BaseStationPowerManagement_Bool       = "basestationPowerManagement",
-        k_pch_SteamVR_NeverKillProcesses_Bool               = "neverKillProcesses",
-        k_pch_SteamVR_SupersampleScale_Float                = "supersampleScale",
-        k_pch_SteamVR_AllowAsyncReprojection_Bool           = "allowAsyncReprojection",
-        k_pch_SteamVR_AllowReprojection_Bool                = "allowInterleavedReprojection",
-        k_pch_SteamVR_ForceReprojection_Bool                = "forceReprojection",
-        k_pch_SteamVR_ForceFadeOnBadTracking_Bool           = "forceFadeOnBadTracking",
-        k_pch_SteamVR_DefaultMirrorView_Int32               = "defaultMirrorView",
-        k_pch_SteamVR_ShowMirrorView_Bool                   = "showMirrorView",
-        k_pch_SteamVR_MirrorViewGeometry_String             = "mirrorViewGeometry",
-        k_pch_SteamVR_StartMonitorFromAppLaunch             = "startMonitorFromAppLaunch",
-        k_pch_SteamVR_StartCompositorFromAppLaunch_Bool     = "startCompositorFromAppLaunch",
-        k_pch_SteamVR_StartDashboardFromAppLaunch_Bool      = "startDashboardFromAppLaunch",
-        k_pch_SteamVR_StartOverlayAppsFromDashboard_Bool    = "startOverlayAppsFromDashboard",
-        k_pch_SteamVR_EnableHomeApp                         = "enableHomeApp",
-        k_pch_SteamVR_CycleBackgroundImageTimeSec_Int32     = "CycleBackgroundImageTimeSec",
-        k_pch_SteamVR_RetailDemo_Bool                       = "retailDemo",
-        k_pch_SteamVR_IpdOffset_Float                       = "ipdOffset",
-        k_pch_SteamVR_AllowSupersampleFiltering_Bool        = "allowSupersampleFiltering",
-        k_pch_SteamVR_EnableLinuxVulkanAsync_Bool           = "enableLinuxVulkanAsync",
-        k_pch_Lighthouse_Section                            = "driver_lighthouse",
-        k_pch_Lighthouse_DisableIMU_Bool                    = "disableimu",
-        k_pch_Lighthouse_UseDisambiguation_String           = "usedisambiguation",
-        k_pch_Lighthouse_DisambiguationDebug_Int32          = "disambiguationdebug",
-        k_pch_Lighthouse_PrimaryBasestation_Int32           = "primarybasestation",
-        k_pch_Lighthouse_DBHistory_Bool                     = "dbhistory",
-        k_pch_Null_Section                                  = "driver_null",
-        k_pch_Null_SerialNumber_String                      = "serialNumber",
-        k_pch_Null_ModelNumber_String                       = "modelNumber",
-        k_pch_Null_WindowX_Int32                            = "windowX",
-        k_pch_Null_WindowY_Int32                            = "windowY",
-        k_pch_Null_WindowWidth_Int32                        = "windowWidth",
-        k_pch_Null_WindowHeight_Int32                       = "windowHeight",
-        k_pch_Null_RenderWidth_Int32                        = "renderWidth",
-        k_pch_Null_RenderHeight_Int32                       = "renderHeight",
-        k_pch_Null_SecondsFromVsyncToPhotons_Float          = "secondsFromVsyncToPhotons",
-        k_pch_Null_DisplayFrequency_Float                   = "displayFrequency",
-        k_pch_UserInterface_Section                         = "userinterface",
-        k_pch_UserInterface_StatusAlwaysOnTop_Bool          = "StatusAlwaysOnTop",
-        k_pch_UserInterface_MinimizeToTray_Bool             = "MinimizeToTray",
-        k_pch_UserInterface_Screenshots_Bool                = "screenshots",
-        k_pch_UserInterface_ScreenshotType_Int              = "screenshotType",
-        k_pch_Notifications_Section                         = "notifications",
-        k_pch_Notifications_DoNotDisturb_Bool               = "DoNotDisturb",
-        k_pch_Keyboard_Section                              = "keyboard",
-        k_pch_Keyboard_TutorialCompletions                  = "TutorialCompletions",
-        k_pch_Keyboard_ScaleX                               = "ScaleX",
-        k_pch_Keyboard_ScaleY                               = "ScaleY",
-        k_pch_Keyboard_OffsetLeftX                          = "OffsetLeftX",
-        k_pch_Keyboard_OffsetRightX                         = "OffsetRightX",
-        k_pch_Keyboard_OffsetY                              = "OffsetY",
-        k_pch_Keyboard_Smoothing                            = "Smoothing",
-        k_pch_Perf_Section                                  = "perfcheck",
-        k_pch_Perf_HeuristicActive_Bool                     = "heuristicActive",
-        k_pch_Perf_NotifyInHMD_Bool                         = "warnInHMD",
-        k_pch_Perf_NotifyOnlyOnce_Bool                      = "warnOnlyOnce",
-        k_pch_Perf_AllowTimingStore_Bool                    = "allowTimingStore",
-        k_pch_Perf_SaveTimingsOnExit_Bool                   = "saveTimingsOnExit",
-        k_pch_Perf_TestData_Float                           = "perfTestData",
-        k_pch_Perf_LinuxGPUProfiling_Bool                   = "linuxGPUProfiling",
-        k_pch_CollisionBounds_Section                       = "collisionBounds",
-        k_pch_CollisionBounds_Style_Int32                   = "CollisionBoundsStyle",
-        k_pch_CollisionBounds_GroundPerimeterOn_Bool        = "CollisionBoundsGroundPerimeterOn",
-        k_pch_CollisionBounds_CenterMarkerOn_Bool           = "CollisionBoundsCenterMarkerOn",
-        k_pch_CollisionBounds_PlaySpaceOn_Bool              = "CollisionBoundsPlaySpaceOn",
-        k_pch_CollisionBounds_FadeDistance_Float            = "CollisionBoundsFadeDistance",
-        k_pch_CollisionBounds_ColorGammaR_Int32             = "CollisionBoundsColorGammaR",
-        k_pch_CollisionBounds_ColorGammaG_Int32             = "CollisionBoundsColorGammaG",
-        k_pch_CollisionBounds_ColorGammaB_Int32             = "CollisionBoundsColorGammaB",
-        k_pch_CollisionBounds_ColorGammaA_Int32             = "CollisionBoundsColorGammaA",
-        k_pch_Camera_Section                                = "camera",
-        k_pch_Camera_EnableCamera_Bool                      = "enableCamera",
-        k_pch_Camera_EnableCameraInDashboard_Bool           = "enableCameraInDashboard",
-        k_pch_Camera_EnableCameraForCollisionBounds_Bool    = "enableCameraForCollisionBounds",
-        k_pch_Camera_EnableCameraForRoomView_Bool           = "enableCameraForRoomView",
-        k_pch_Camera_BoundsColorGammaR_Int32                = "cameraBoundsColorGammaR",
-        k_pch_Camera_BoundsColorGammaG_Int32                = "cameraBoundsColorGammaG",
-        k_pch_Camera_BoundsColorGammaB_Int32                = "cameraBoundsColorGammaB",
-        k_pch_Camera_BoundsColorGammaA_Int32                = "cameraBoundsColorGammaA",
-        k_pch_Camera_BoundsStrength_Int32                   = "cameraBoundsStrength",
-        k_pch_audio_Section                                 = "audio",
-        k_pch_audio_OnPlaybackDevice_String                 = "onPlaybackDevice",
-        k_pch_audio_OnRecordDevice_String                   = "onRecordDevice",
-        k_pch_audio_OnPlaybackMirrorDevice_String           = "onPlaybackMirrorDevice",
-        k_pch_audio_OffPlaybackDevice_String                = "offPlaybackDevice",
-        k_pch_audio_OffRecordDevice_String                  = "offRecordDevice",
-        k_pch_audio_VIVEHDMIGain                            = "viveHDMIGain",
-        k_pch_Power_Section                                 = "power",
-        k_pch_Power_PowerOffOnExit_Bool                     = "powerOffOnExit",
-        k_pch_Power_TurnOffScreensTimeout_Float             = "turnOffScreensTimeout",
-        k_pch_Power_TurnOffControllersTimeout_Float         = "turnOffControllersTimeout",
-        k_pch_Power_ReturnToWatchdogTimeout_Float           = "returnToWatchdogTimeout",
-        k_pch_Power_AutoLaunchSteamVROnButtonPress          = "autoLaunchSteamVROnButtonPress",
-        k_pch_Power_PauseCompositorOnStandby_Bool           = "pauseCompositorOnStandbyc",
-        k_pch_Dashboard_Section                             = "dashboard",
-        k_pch_Dashboard_EnableDashboard_Bool                = "enableDashboard",
-        k_pch_Dashboard_ArcadeMode_Bool                     = "arcadeMode",
-        k_pch_modelskin_Section                             = "modelskins",
-        k_pch_Driver_Enable_Bool                            = "enable",
-        IVRScreenshots_Version                              = "IVRScreenshots_001",
-        IVRResources_Version                                = "IVRResources_001",
-        IVRDriverManager_Version                            = "IVRDriverManager_001";
+        IVRSystem_Version                                              = "IVRSystem_017",
+        IVRExtendedDisplay_Version                                     = "IVRExtendedDisplay_001",
+        IVRTrackedCamera_Version                                       = "IVRTrackedCamera_003",
+        k_pch_MimeType_HomeApp                                         = "vr/home",
+        k_pch_MimeType_GameTheater                                     = "vr/game_theater",
+        IVRApplications_Version                                        = "IVRApplications_006",
+        IVRChaperone_Version                                           = "IVRChaperone_003",
+        IVRChaperoneSetup_Version                                      = "IVRChaperoneSetup_005",
+        IVRCompositor_Version                                          = "IVRCompositor_022",
+        IVROverlay_Version                                             = "IVROverlay_017",
+        k_pch_Controller_Component_GDC2015                             = "gdc2015",
+        k_pch_Controller_Component_Base                                = "base",
+        k_pch_Controller_Component_Tip                                 = "tip",
+        k_pch_Controller_Component_HandGrip                            = "handgrip",
+        k_pch_Controller_Component_Status                              = "status",
+        IVRRenderModels_Version                                        = "IVRRenderModels_005",
+        IVRNotifications_Version                                       = "IVRNotifications_002",
+        IVRSettings_Version                                            = "IVRSettings_002",
+        k_pch_SteamVR_Section                                          = "steamvr",
+        k_pch_SteamVR_RequireHmd_String                                = "requireHmd",
+        k_pch_SteamVR_ForcedDriverKey_String                           = "forcedDriver",
+        k_pch_SteamVR_ForcedHmdKey_String                              = "forcedHmd",
+        k_pch_SteamVR_DisplayDebug_Bool                                = "displayDebug",
+        k_pch_SteamVR_DebugProcessPipe_String                          = "debugProcessPipe",
+        k_pch_SteamVR_DisplayDebugX_Int32                              = "displayDebugX",
+        k_pch_SteamVR_DisplayDebugY_Int32                              = "displayDebugY",
+        k_pch_SteamVR_SendSystemButtonToAllApps_Bool                   = "sendSystemButtonToAllApps",
+        k_pch_SteamVR_LogLevel_Int32                                   = "loglevel",
+        k_pch_SteamVR_IPD_Float                                        = "ipd",
+        k_pch_SteamVR_Background_String                                = "background",
+        k_pch_SteamVR_BackgroundUseDomeProjection_Bool                 = "backgroundUseDomeProjection",
+        k_pch_SteamVR_BackgroundCameraHeight_Float                     = "backgroundCameraHeight",
+        k_pch_SteamVR_BackgroundDomeRadius_Float                       = "backgroundDomeRadius",
+        k_pch_SteamVR_GridColor_String                                 = "gridColor",
+        k_pch_SteamVR_PlayAreaColor_String                             = "playAreaColor",
+        k_pch_SteamVR_ShowStage_Bool                                   = "showStage",
+        k_pch_SteamVR_ActivateMultipleDrivers_Bool                     = "activateMultipleDrivers",
+        k_pch_SteamVR_DirectMode_Bool                                  = "directMode",
+        k_pch_SteamVR_DirectModeEdidVid_Int32                          = "directModeEdidVid",
+        k_pch_SteamVR_DirectModeEdidPid_Int32                          = "directModeEdidPid",
+        k_pch_SteamVR_UsingSpeakers_Bool                               = "usingSpeakers",
+        k_pch_SteamVR_SpeakersForwardYawOffsetDegrees_Float            = "speakersForwardYawOffsetDegrees",
+        k_pch_SteamVR_BaseStationPowerManagement_Bool                  = "basestationPowerManagement",
+        k_pch_SteamVR_NeverKillProcesses_Bool                          = "neverKillProcesses",
+        k_pch_SteamVR_SupersampleScale_Float                           = "supersampleScale",
+        k_pch_SteamVR_AllowAsyncReprojection_Bool                      = "allowAsyncReprojection",
+        k_pch_SteamVR_AllowReprojection_Bool                           = "allowInterleavedReprojection",
+        k_pch_SteamVR_ForceReprojection_Bool                           = "forceReprojection",
+        k_pch_SteamVR_ForceFadeOnBadTracking_Bool                      = "forceFadeOnBadTracking",
+        k_pch_SteamVR_DefaultMirrorView_Int32                          = "defaultMirrorView",
+        k_pch_SteamVR_ShowMirrorView_Bool                              = "showMirrorView",
+        k_pch_SteamVR_MirrorViewGeometry_String                        = "mirrorViewGeometry",
+        k_pch_SteamVR_StartMonitorFromAppLaunch                        = "startMonitorFromAppLaunch",
+        k_pch_SteamVR_StartCompositorFromAppLaunch_Bool                = "startCompositorFromAppLaunch",
+        k_pch_SteamVR_StartDashboardFromAppLaunch_Bool                 = "startDashboardFromAppLaunch",
+        k_pch_SteamVR_StartOverlayAppsFromDashboard_Bool               = "startOverlayAppsFromDashboard",
+        k_pch_SteamVR_EnableHomeApp                                    = "enableHomeApp",
+        k_pch_SteamVR_CycleBackgroundImageTimeSec_Int32                = "CycleBackgroundImageTimeSec",
+        k_pch_SteamVR_RetailDemo_Bool                                  = "retailDemo",
+        k_pch_SteamVR_IpdOffset_Float                                  = "ipdOffset",
+        k_pch_SteamVR_AllowSupersampleFiltering_Bool                   = "allowSupersampleFiltering",
+        k_pch_SteamVR_EnableLinuxVulkanAsync_Bool                      = "enableLinuxVulkanAsync",
+        k_pch_SteamVR_HaveStartedTutorialForNativeChaperoneDriver_Bool = "haveStartedTutorialForNativeChaperoneDriver",
+        k_pch_Lighthouse_Section                                       = "driver_lighthouse",
+        k_pch_Lighthouse_DisableIMU_Bool                               = "disableimu",
+        k_pch_Lighthouse_UseDisambiguation_String                      = "usedisambiguation",
+        k_pch_Lighthouse_DisambiguationDebug_Int32                     = "disambiguationdebug",
+        k_pch_Lighthouse_PrimaryBasestation_Int32                      = "primarybasestation",
+        k_pch_Lighthouse_DBHistory_Bool                                = "dbhistory",
+        k_pch_Lighthouse_EnableBluetooth_Bool                          = "enableBluetooth",
+        k_pch_Null_Section                                             = "driver_null",
+        k_pch_Null_SerialNumber_String                                 = "serialNumber",
+        k_pch_Null_ModelNumber_String                                  = "modelNumber",
+        k_pch_Null_WindowX_Int32                                       = "windowX",
+        k_pch_Null_WindowY_Int32                                       = "windowY",
+        k_pch_Null_WindowWidth_Int32                                   = "windowWidth",
+        k_pch_Null_WindowHeight_Int32                                  = "windowHeight",
+        k_pch_Null_RenderWidth_Int32                                   = "renderWidth",
+        k_pch_Null_RenderHeight_Int32                                  = "renderHeight",
+        k_pch_Null_SecondsFromVsyncToPhotons_Float                     = "secondsFromVsyncToPhotons",
+        k_pch_Null_DisplayFrequency_Float                              = "displayFrequency",
+        k_pch_UserInterface_Section                                    = "userinterface",
+        k_pch_UserInterface_StatusAlwaysOnTop_Bool                     = "StatusAlwaysOnTop",
+        k_pch_UserInterface_MinimizeToTray_Bool                        = "MinimizeToTray",
+        k_pch_UserInterface_Screenshots_Bool                           = "screenshots",
+        k_pch_UserInterface_ScreenshotType_Int                         = "screenshotType",
+        k_pch_Notifications_Section                                    = "notifications",
+        k_pch_Notifications_DoNotDisturb_Bool                          = "DoNotDisturb",
+        k_pch_Keyboard_Section                                         = "keyboard",
+        k_pch_Keyboard_TutorialCompletions                             = "TutorialCompletions",
+        k_pch_Keyboard_ScaleX                                          = "ScaleX",
+        k_pch_Keyboard_ScaleY                                          = "ScaleY",
+        k_pch_Keyboard_OffsetLeftX                                     = "OffsetLeftX",
+        k_pch_Keyboard_OffsetRightX                                    = "OffsetRightX",
+        k_pch_Keyboard_OffsetY                                         = "OffsetY",
+        k_pch_Keyboard_Smoothing                                       = "Smoothing",
+        k_pch_Perf_Section                                             = "perfcheck",
+        k_pch_Perf_HeuristicActive_Bool                                = "heuristicActive",
+        k_pch_Perf_NotifyInHMD_Bool                                    = "warnInHMD",
+        k_pch_Perf_NotifyOnlyOnce_Bool                                 = "warnOnlyOnce",
+        k_pch_Perf_AllowTimingStore_Bool                               = "allowTimingStore",
+        k_pch_Perf_SaveTimingsOnExit_Bool                              = "saveTimingsOnExit",
+        k_pch_Perf_TestData_Float                                      = "perfTestData",
+        k_pch_Perf_LinuxGPUProfiling_Bool                              = "linuxGPUProfiling",
+        k_pch_CollisionBounds_Section                                  = "collisionBounds",
+        k_pch_CollisionBounds_Style_Int32                              = "CollisionBoundsStyle",
+        k_pch_CollisionBounds_GroundPerimeterOn_Bool                   = "CollisionBoundsGroundPerimeterOn",
+        k_pch_CollisionBounds_CenterMarkerOn_Bool                      = "CollisionBoundsCenterMarkerOn",
+        k_pch_CollisionBounds_PlaySpaceOn_Bool                         = "CollisionBoundsPlaySpaceOn",
+        k_pch_CollisionBounds_FadeDistance_Float                       = "CollisionBoundsFadeDistance",
+        k_pch_CollisionBounds_ColorGammaR_Int32                        = "CollisionBoundsColorGammaR",
+        k_pch_CollisionBounds_ColorGammaG_Int32                        = "CollisionBoundsColorGammaG",
+        k_pch_CollisionBounds_ColorGammaB_Int32                        = "CollisionBoundsColorGammaB",
+        k_pch_CollisionBounds_ColorGammaA_Int32                        = "CollisionBoundsColorGammaA",
+        k_pch_Camera_Section                                           = "camera",
+        k_pch_Camera_EnableCamera_Bool                                 = "enableCamera",
+        k_pch_Camera_EnableCameraInDashboard_Bool                      = "enableCameraInDashboard",
+        k_pch_Camera_EnableCameraForCollisionBounds_Bool               = "enableCameraForCollisionBounds",
+        k_pch_Camera_EnableCameraForRoomView_Bool                      = "enableCameraForRoomView",
+        k_pch_Camera_BoundsColorGammaR_Int32                           = "cameraBoundsColorGammaR",
+        k_pch_Camera_BoundsColorGammaG_Int32                           = "cameraBoundsColorGammaG",
+        k_pch_Camera_BoundsColorGammaB_Int32                           = "cameraBoundsColorGammaB",
+        k_pch_Camera_BoundsColorGammaA_Int32                           = "cameraBoundsColorGammaA",
+        k_pch_Camera_BoundsStrength_Int32                              = "cameraBoundsStrength",
+        k_pch_audio_Section                                            = "audio",
+        k_pch_audio_OnPlaybackDevice_String                            = "onPlaybackDevice",
+        k_pch_audio_OnRecordDevice_String                              = "onRecordDevice",
+        k_pch_audio_OnPlaybackMirrorDevice_String                      = "onPlaybackMirrorDevice",
+        k_pch_audio_OffPlaybackDevice_String                           = "offPlaybackDevice",
+        k_pch_audio_OffRecordDevice_String                             = "offRecordDevice",
+        k_pch_audio_VIVEHDMIGain                                       = "viveHDMIGain",
+        k_pch_Power_Section                                            = "power",
+        k_pch_Power_PowerOffOnExit_Bool                                = "powerOffOnExit",
+        k_pch_Power_TurnOffScreensTimeout_Float                        = "turnOffScreensTimeout",
+        k_pch_Power_TurnOffControllersTimeout_Float                    = "turnOffControllersTimeout",
+        k_pch_Power_ReturnToWatchdogTimeout_Float                      = "returnToWatchdogTimeout",
+        k_pch_Power_AutoLaunchSteamVROnButtonPress                     = "autoLaunchSteamVROnButtonPress",
+        k_pch_Power_PauseCompositorOnStandby_Bool                      = "pauseCompositorOnStandbyc",
+        k_pch_Dashboard_Section                                        = "dashboard",
+        k_pch_Dashboard_EnableDashboard_Bool                           = "enableDashboard",
+        k_pch_Dashboard_ArcadeMode_Bool                                = "arcadeMode",
+        k_pch_modelskin_Section                                        = "modelskins",
+        k_pch_Driver_Enable_Bool                                       = "enable",
+        IVRScreenshots_Version                                         = "IVRScreenshots_001",
+        IVRResources_Version                                           = "IVRResources_001",
+        IVRDriverManager_Version                                       = "IVRDriverManager_001";
 
     /**
      * EVREye
@@ -393,6 +399,8 @@ public class VR {
      * <li>{@link #ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_ParentDriver_Uint64 ETrackedDeviceProperty_Prop_ParentDriver_Uint64}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_ResourceRoot_String ETrackedDeviceProperty_Prop_ResourceRoot_String}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_RegisteredDeviceType_String ETrackedDeviceProperty_Prop_RegisteredDeviceType_String}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_InputProfileName_String ETrackedDeviceProperty_Prop_InputProfileName_String} - input profile to use for this device in the input system. Will default to tracking system name if this isn't provided.</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DisplayFrequency_Float ETrackedDeviceProperty_Prop_DisplayFrequency_Float}</li>
@@ -440,6 +448,12 @@ public class VR {
      * <li>{@link #ETrackedDeviceProperty_Prop_DisplayDebugMode_Bool ETrackedDeviceProperty_Prop_DisplayDebugMode_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_GraphicsAdapterLuid_Uint64 ETrackedDeviceProperty_Prop_GraphicsAdapterLuid_Uint64}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DriverProvidedChaperonePath_String ETrackedDeviceProperty_Prop_DriverProvidedChaperonePath_String}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_ExpectedTrackingReferenceCount_Int32 ETrackedDeviceProperty_Prop_ExpectedTrackingReferenceCount_Int32} - expected number of sensors or basestations to reserve UI space for</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_ExpectedControllerCount_Int32 ETrackedDeviceProperty_Prop_ExpectedControllerCount_Int32} - expected number of tracked controllers to reserve UI space for</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathControllerLeftDeviceOff_String ETrackedDeviceProperty_Prop_NamedIconPathControllerLeftDeviceOff_String} - placeholder icon for "left" controller if not yet detected/loaded</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathControllerRightDeviceOff_String ETrackedDeviceProperty_Prop_NamedIconPathControllerRightDeviceOff_String} - placeholder icon for "right" controller if not yet detected/loaded</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathTrackingReferenceDeviceOff_String ETrackedDeviceProperty_Prop_NamedIconPathTrackingReferenceDeviceOff_String}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_DoNotApplyPrediction_Bool ETrackedDeviceProperty_Prop_DoNotApplyPrediction_Bool} - placeholder icon for sensor/base if not yet detected/loaded</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_AttachedDeviceId_String ETrackedDeviceProperty_Prop_AttachedDeviceId_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_SupportedButtons_Uint64 ETrackedDeviceProperty_Prop_SupportedButtons_Uint64}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_Axis0Type_Int32 ETrackedDeviceProperty_Prop_Axis0Type_Int32}</li>
@@ -466,6 +480,7 @@ public class VR {
      * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathDeviceAlertLow_String ETrackedDeviceProperty_Prop_NamedIconPathDeviceAlertLow_String} - PNG for static icon, or GIF for animation, 50x32 for headsets and 32x32 for others</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_Start ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_Start}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_ParentContainer ETrackedDeviceProperty_Prop_ParentContainer}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_UserConfigPath_String ETrackedDeviceProperty_Prop_UserConfigPath_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_InstallPath_String ETrackedDeviceProperty_Prop_InstallPath_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_HasDisplayComponent_Bool ETrackedDeviceProperty_Prop_HasDisplayComponent_Bool}</li>
@@ -478,125 +493,134 @@ public class VR {
      * </ul>
      */
     public static final int
-        ETrackedDeviceProperty_Prop_Invalid                                      = 0,
-        ETrackedDeviceProperty_Prop_TrackingSystemName_String                    = 1000,
-        ETrackedDeviceProperty_Prop_ModelNumber_String                           = 1001,
-        ETrackedDeviceProperty_Prop_SerialNumber_String                          = 1002,
-        ETrackedDeviceProperty_Prop_RenderModelName_String                       = 1003,
-        ETrackedDeviceProperty_Prop_WillDriftInYaw_Bool                          = 1004,
-        ETrackedDeviceProperty_Prop_ManufacturerName_String                      = 1005,
-        ETrackedDeviceProperty_Prop_TrackingFirmwareVersion_String               = 1006,
-        ETrackedDeviceProperty_Prop_HardwareRevision_String                      = 1007,
-        ETrackedDeviceProperty_Prop_AllWirelessDongleDescriptions_String         = 1008,
-        ETrackedDeviceProperty_Prop_ConnectedWirelessDongle_String               = 1009,
-        ETrackedDeviceProperty_Prop_DeviceIsWireless_Bool                        = 1010,
-        ETrackedDeviceProperty_Prop_DeviceIsCharging_Bool                        = 1011,
-        ETrackedDeviceProperty_Prop_DeviceBatteryPercentage_Float                = 1012,
-        ETrackedDeviceProperty_Prop_StatusDisplayTransform_Matrix34              = 1013,
-        ETrackedDeviceProperty_Prop_Firmware_UpdateAvailable_Bool                = 1014,
-        ETrackedDeviceProperty_Prop_Firmware_ManualUpdate_Bool                   = 1015,
-        ETrackedDeviceProperty_Prop_Firmware_ManualUpdateURL_String              = 1016,
-        ETrackedDeviceProperty_Prop_HardwareRevision_Uint64                      = 1017,
-        ETrackedDeviceProperty_Prop_FirmwareVersion_Uint64                       = 1018,
-        ETrackedDeviceProperty_Prop_FPGAVersion_Uint64                           = 1019,
-        ETrackedDeviceProperty_Prop_VRCVersion_Uint64                            = 1020,
-        ETrackedDeviceProperty_Prop_RadioVersion_Uint64                          = 1021,
-        ETrackedDeviceProperty_Prop_DongleVersion_Uint64                         = 1022,
-        ETrackedDeviceProperty_Prop_BlockServerShutdown_Bool                     = 1023,
-        ETrackedDeviceProperty_Prop_CanUnifyCoordinateSystemWithHmd_Bool         = 1024,
-        ETrackedDeviceProperty_Prop_ContainsProximitySensor_Bool                 = 1025,
-        ETrackedDeviceProperty_Prop_DeviceProvidesBatteryStatus_Bool             = 1026,
-        ETrackedDeviceProperty_Prop_DeviceCanPowerOff_Bool                       = 1027,
-        ETrackedDeviceProperty_Prop_Firmware_ProgrammingTarget_String            = 1028,
-        ETrackedDeviceProperty_Prop_DeviceClass_Int32                            = 1029,
-        ETrackedDeviceProperty_Prop_HasCamera_Bool                               = 1030,
-        ETrackedDeviceProperty_Prop_DriverVersion_String                         = 1031,
-        ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool            = 1032,
-        ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool             = 1033,
-        ETrackedDeviceProperty_Prop_ParentDriver_Uint64                          = 1034,
-        ETrackedDeviceProperty_Prop_ResourceRoot_String                          = 1035,
-        ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool                   = 2000,
-        ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float              = 2001,
-        ETrackedDeviceProperty_Prop_DisplayFrequency_Float                       = 2002,
-        ETrackedDeviceProperty_Prop_UserIpdMeters_Float                          = 2003,
-        ETrackedDeviceProperty_Prop_CurrentUniverseId_Uint64                     = 2004,
-        ETrackedDeviceProperty_Prop_PreviousUniverseId_Uint64                    = 2005,
-        ETrackedDeviceProperty_Prop_DisplayFirmwareVersion_Uint64                = 2006,
-        ETrackedDeviceProperty_Prop_IsOnDesktop_Bool                             = 2007,
-        ETrackedDeviceProperty_Prop_DisplayMCType_Int32                          = 2008,
-        ETrackedDeviceProperty_Prop_DisplayMCOffset_Float                        = 2009,
-        ETrackedDeviceProperty_Prop_DisplayMCScale_Float                         = 2010,
-        ETrackedDeviceProperty_Prop_EdidVendorID_Int32                           = 2011,
-        ETrackedDeviceProperty_Prop_DisplayMCImageLeft_String                    = 2012,
-        ETrackedDeviceProperty_Prop_DisplayMCImageRight_String                   = 2013,
-        ETrackedDeviceProperty_Prop_DisplayGCBlackClamp_Float                    = 2014,
-        ETrackedDeviceProperty_Prop_EdidProductID_Int32                          = 2015,
-        ETrackedDeviceProperty_Prop_CameraToHeadTransform_Matrix34               = 2016,
-        ETrackedDeviceProperty_Prop_DisplayGCType_Int32                          = 2017,
-        ETrackedDeviceProperty_Prop_DisplayGCOffset_Float                        = 2018,
-        ETrackedDeviceProperty_Prop_DisplayGCScale_Float                         = 2019,
-        ETrackedDeviceProperty_Prop_DisplayGCPrescale_Float                      = 2020,
-        ETrackedDeviceProperty_Prop_DisplayGCImage_String                        = 2021,
-        ETrackedDeviceProperty_Prop_LensCenterLeftU_Float                        = 2022,
-        ETrackedDeviceProperty_Prop_LensCenterLeftV_Float                        = 2023,
-        ETrackedDeviceProperty_Prop_LensCenterRightU_Float                       = 2024,
-        ETrackedDeviceProperty_Prop_LensCenterRightV_Float                       = 2025,
-        ETrackedDeviceProperty_Prop_UserHeadToEyeDepthMeters_Float               = 2026,
-        ETrackedDeviceProperty_Prop_CameraFirmwareVersion_Uint64                 = 2027,
-        ETrackedDeviceProperty_Prop_CameraFirmwareDescription_String             = 2028,
-        ETrackedDeviceProperty_Prop_DisplayFPGAVersion_Uint64                    = 2029,
-        ETrackedDeviceProperty_Prop_DisplayBootloaderVersion_Uint64              = 2030,
-        ETrackedDeviceProperty_Prop_DisplayHardwareVersion_Uint64                = 2031,
-        ETrackedDeviceProperty_Prop_AudioFirmwareVersion_Uint64                  = 2032,
-        ETrackedDeviceProperty_Prop_CameraCompatibilityMode_Int32                = 2033,
-        ETrackedDeviceProperty_Prop_ScreenshotHorizontalFieldOfViewDegrees_Float = 2034,
-        ETrackedDeviceProperty_Prop_ScreenshotVerticalFieldOfViewDegrees_Float   = 2035,
-        ETrackedDeviceProperty_Prop_DisplaySuppressed_Bool                       = 2036,
-        ETrackedDeviceProperty_Prop_DisplayAllowNightMode_Bool                   = 2037,
-        ETrackedDeviceProperty_Prop_DisplayMCImageWidth_Int32                    = 2038,
-        ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32                   = 2039,
-        ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32              = 2040,
-        ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary                    = 2041,
-        ETrackedDeviceProperty_Prop_SecondsFromPhotonsToVblank_Float             = 2042,
-        ETrackedDeviceProperty_Prop_DriverDirectModeSendsVsyncEvents_Bool        = 2043,
-        ETrackedDeviceProperty_Prop_DisplayDebugMode_Bool                        = 2044,
-        ETrackedDeviceProperty_Prop_GraphicsAdapterLuid_Uint64                   = 2045,
-        ETrackedDeviceProperty_Prop_DriverProvidedChaperonePath_String           = 2048,
-        ETrackedDeviceProperty_Prop_AttachedDeviceId_String                      = 3000,
-        ETrackedDeviceProperty_Prop_SupportedButtons_Uint64                      = 3001,
-        ETrackedDeviceProperty_Prop_Axis0Type_Int32                              = 3002,
-        ETrackedDeviceProperty_Prop_Axis1Type_Int32                              = 3003,
-        ETrackedDeviceProperty_Prop_Axis2Type_Int32                              = 3004,
-        ETrackedDeviceProperty_Prop_Axis3Type_Int32                              = 3005,
-        ETrackedDeviceProperty_Prop_Axis4Type_Int32                              = 3006,
-        ETrackedDeviceProperty_Prop_ControllerRoleHint_Int32                     = 3007,
-        ETrackedDeviceProperty_Prop_FieldOfViewLeftDegrees_Float                 = 4000,
-        ETrackedDeviceProperty_Prop_FieldOfViewRightDegrees_Float                = 4001,
-        ETrackedDeviceProperty_Prop_FieldOfViewTopDegrees_Float                  = 4002,
-        ETrackedDeviceProperty_Prop_FieldOfViewBottomDegrees_Float               = 4003,
-        ETrackedDeviceProperty_Prop_TrackingRangeMinimumMeters_Float             = 4004,
-        ETrackedDeviceProperty_Prop_TrackingRangeMaximumMeters_Float             = 4005,
-        ETrackedDeviceProperty_Prop_ModeLabel_String                             = 4006,
-        ETrackedDeviceProperty_Prop_IconPathName_String                          = 5000,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceOff_String                = 5001,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceSearching_String          = 5002,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceSearchingAlert_String     = 5003,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceReady_String              = 5004,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceReadyAlert_String         = 5005,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceNotReady_String           = 5006,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceStandby_String            = 5007,
-        ETrackedDeviceProperty_Prop_NamedIconPathDeviceAlertLow_String           = 5008,
-        ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_Start               = 5100,
-        ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End                 = 5150,
-        ETrackedDeviceProperty_Prop_UserConfigPath_String                        = 6000,
-        ETrackedDeviceProperty_Prop_InstallPath_String                           = 6001,
-        ETrackedDeviceProperty_Prop_HasDisplayComponent_Bool                     = 6002,
-        ETrackedDeviceProperty_Prop_HasControllerComponent_Bool                  = 6003,
-        ETrackedDeviceProperty_Prop_HasCameraComponent_Bool                      = 6004,
-        ETrackedDeviceProperty_Prop_HasDriverDirectModeComponent_Bool            = 6005,
-        ETrackedDeviceProperty_Prop_HasVirtualDisplayComponent_Bool              = 6006,
-        ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start                = 10000,
-        ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End                  = 10999;
+        ETrackedDeviceProperty_Prop_Invalid                                        = 0,
+        ETrackedDeviceProperty_Prop_TrackingSystemName_String                      = 1000,
+        ETrackedDeviceProperty_Prop_ModelNumber_String                             = 1001,
+        ETrackedDeviceProperty_Prop_SerialNumber_String                            = 1002,
+        ETrackedDeviceProperty_Prop_RenderModelName_String                         = 1003,
+        ETrackedDeviceProperty_Prop_WillDriftInYaw_Bool                            = 1004,
+        ETrackedDeviceProperty_Prop_ManufacturerName_String                        = 1005,
+        ETrackedDeviceProperty_Prop_TrackingFirmwareVersion_String                 = 1006,
+        ETrackedDeviceProperty_Prop_HardwareRevision_String                        = 1007,
+        ETrackedDeviceProperty_Prop_AllWirelessDongleDescriptions_String           = 1008,
+        ETrackedDeviceProperty_Prop_ConnectedWirelessDongle_String                 = 1009,
+        ETrackedDeviceProperty_Prop_DeviceIsWireless_Bool                          = 1010,
+        ETrackedDeviceProperty_Prop_DeviceIsCharging_Bool                          = 1011,
+        ETrackedDeviceProperty_Prop_DeviceBatteryPercentage_Float                  = 1012,
+        ETrackedDeviceProperty_Prop_StatusDisplayTransform_Matrix34                = 1013,
+        ETrackedDeviceProperty_Prop_Firmware_UpdateAvailable_Bool                  = 1014,
+        ETrackedDeviceProperty_Prop_Firmware_ManualUpdate_Bool                     = 1015,
+        ETrackedDeviceProperty_Prop_Firmware_ManualUpdateURL_String                = 1016,
+        ETrackedDeviceProperty_Prop_HardwareRevision_Uint64                        = 1017,
+        ETrackedDeviceProperty_Prop_FirmwareVersion_Uint64                         = 1018,
+        ETrackedDeviceProperty_Prop_FPGAVersion_Uint64                             = 1019,
+        ETrackedDeviceProperty_Prop_VRCVersion_Uint64                              = 1020,
+        ETrackedDeviceProperty_Prop_RadioVersion_Uint64                            = 1021,
+        ETrackedDeviceProperty_Prop_DongleVersion_Uint64                           = 1022,
+        ETrackedDeviceProperty_Prop_BlockServerShutdown_Bool                       = 1023,
+        ETrackedDeviceProperty_Prop_CanUnifyCoordinateSystemWithHmd_Bool           = 1024,
+        ETrackedDeviceProperty_Prop_ContainsProximitySensor_Bool                   = 1025,
+        ETrackedDeviceProperty_Prop_DeviceProvidesBatteryStatus_Bool               = 1026,
+        ETrackedDeviceProperty_Prop_DeviceCanPowerOff_Bool                         = 1027,
+        ETrackedDeviceProperty_Prop_Firmware_ProgrammingTarget_String              = 1028,
+        ETrackedDeviceProperty_Prop_DeviceClass_Int32                              = 1029,
+        ETrackedDeviceProperty_Prop_HasCamera_Bool                                 = 1030,
+        ETrackedDeviceProperty_Prop_DriverVersion_String                           = 1031,
+        ETrackedDeviceProperty_Prop_Firmware_ForceUpdateRequired_Bool              = 1032,
+        ETrackedDeviceProperty_Prop_ViveSystemButtonFixRequired_Bool               = 1033,
+        ETrackedDeviceProperty_Prop_ParentDriver_Uint64                            = 1034,
+        ETrackedDeviceProperty_Prop_ResourceRoot_String                            = 1035,
+        ETrackedDeviceProperty_Prop_RegisteredDeviceType_String                    = 1036,
+        ETrackedDeviceProperty_Prop_InputProfileName_String                        = 1037,
+        ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool                     = 2000,
+        ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float                = 2001,
+        ETrackedDeviceProperty_Prop_DisplayFrequency_Float                         = 2002,
+        ETrackedDeviceProperty_Prop_UserIpdMeters_Float                            = 2003,
+        ETrackedDeviceProperty_Prop_CurrentUniverseId_Uint64                       = 2004,
+        ETrackedDeviceProperty_Prop_PreviousUniverseId_Uint64                      = 2005,
+        ETrackedDeviceProperty_Prop_DisplayFirmwareVersion_Uint64                  = 2006,
+        ETrackedDeviceProperty_Prop_IsOnDesktop_Bool                               = 2007,
+        ETrackedDeviceProperty_Prop_DisplayMCType_Int32                            = 2008,
+        ETrackedDeviceProperty_Prop_DisplayMCOffset_Float                          = 2009,
+        ETrackedDeviceProperty_Prop_DisplayMCScale_Float                           = 2010,
+        ETrackedDeviceProperty_Prop_EdidVendorID_Int32                             = 2011,
+        ETrackedDeviceProperty_Prop_DisplayMCImageLeft_String                      = 2012,
+        ETrackedDeviceProperty_Prop_DisplayMCImageRight_String                     = 2013,
+        ETrackedDeviceProperty_Prop_DisplayGCBlackClamp_Float                      = 2014,
+        ETrackedDeviceProperty_Prop_EdidProductID_Int32                            = 2015,
+        ETrackedDeviceProperty_Prop_CameraToHeadTransform_Matrix34                 = 2016,
+        ETrackedDeviceProperty_Prop_DisplayGCType_Int32                            = 2017,
+        ETrackedDeviceProperty_Prop_DisplayGCOffset_Float                          = 2018,
+        ETrackedDeviceProperty_Prop_DisplayGCScale_Float                           = 2019,
+        ETrackedDeviceProperty_Prop_DisplayGCPrescale_Float                        = 2020,
+        ETrackedDeviceProperty_Prop_DisplayGCImage_String                          = 2021,
+        ETrackedDeviceProperty_Prop_LensCenterLeftU_Float                          = 2022,
+        ETrackedDeviceProperty_Prop_LensCenterLeftV_Float                          = 2023,
+        ETrackedDeviceProperty_Prop_LensCenterRightU_Float                         = 2024,
+        ETrackedDeviceProperty_Prop_LensCenterRightV_Float                         = 2025,
+        ETrackedDeviceProperty_Prop_UserHeadToEyeDepthMeters_Float                 = 2026,
+        ETrackedDeviceProperty_Prop_CameraFirmwareVersion_Uint64                   = 2027,
+        ETrackedDeviceProperty_Prop_CameraFirmwareDescription_String               = 2028,
+        ETrackedDeviceProperty_Prop_DisplayFPGAVersion_Uint64                      = 2029,
+        ETrackedDeviceProperty_Prop_DisplayBootloaderVersion_Uint64                = 2030,
+        ETrackedDeviceProperty_Prop_DisplayHardwareVersion_Uint64                  = 2031,
+        ETrackedDeviceProperty_Prop_AudioFirmwareVersion_Uint64                    = 2032,
+        ETrackedDeviceProperty_Prop_CameraCompatibilityMode_Int32                  = 2033,
+        ETrackedDeviceProperty_Prop_ScreenshotHorizontalFieldOfViewDegrees_Float   = 2034,
+        ETrackedDeviceProperty_Prop_ScreenshotVerticalFieldOfViewDegrees_Float     = 2035,
+        ETrackedDeviceProperty_Prop_DisplaySuppressed_Bool                         = 2036,
+        ETrackedDeviceProperty_Prop_DisplayAllowNightMode_Bool                     = 2037,
+        ETrackedDeviceProperty_Prop_DisplayMCImageWidth_Int32                      = 2038,
+        ETrackedDeviceProperty_Prop_DisplayMCImageHeight_Int32                     = 2039,
+        ETrackedDeviceProperty_Prop_DisplayMCImageNumChannels_Int32                = 2040,
+        ETrackedDeviceProperty_Prop_DisplayMCImageData_Binary                      = 2041,
+        ETrackedDeviceProperty_Prop_SecondsFromPhotonsToVblank_Float               = 2042,
+        ETrackedDeviceProperty_Prop_DriverDirectModeSendsVsyncEvents_Bool          = 2043,
+        ETrackedDeviceProperty_Prop_DisplayDebugMode_Bool                          = 2044,
+        ETrackedDeviceProperty_Prop_GraphicsAdapterLuid_Uint64                     = 2045,
+        ETrackedDeviceProperty_Prop_DriverProvidedChaperonePath_String             = 2048,
+        ETrackedDeviceProperty_Prop_ExpectedTrackingReferenceCount_Int32           = 2049,
+        ETrackedDeviceProperty_Prop_ExpectedControllerCount_Int32                  = 2050,
+        ETrackedDeviceProperty_Prop_NamedIconPathControllerLeftDeviceOff_String    = 2051,
+        ETrackedDeviceProperty_Prop_NamedIconPathControllerRightDeviceOff_String   = 2052,
+        ETrackedDeviceProperty_Prop_NamedIconPathTrackingReferenceDeviceOff_String = 2053,
+        ETrackedDeviceProperty_Prop_DoNotApplyPrediction_Bool                      = 2054,
+        ETrackedDeviceProperty_Prop_AttachedDeviceId_String                        = 3000,
+        ETrackedDeviceProperty_Prop_SupportedButtons_Uint64                        = 3001,
+        ETrackedDeviceProperty_Prop_Axis0Type_Int32                                = 3002,
+        ETrackedDeviceProperty_Prop_Axis1Type_Int32                                = 3003,
+        ETrackedDeviceProperty_Prop_Axis2Type_Int32                                = 3004,
+        ETrackedDeviceProperty_Prop_Axis3Type_Int32                                = 3005,
+        ETrackedDeviceProperty_Prop_Axis4Type_Int32                                = 3006,
+        ETrackedDeviceProperty_Prop_ControllerRoleHint_Int32                       = 3007,
+        ETrackedDeviceProperty_Prop_FieldOfViewLeftDegrees_Float                   = 4000,
+        ETrackedDeviceProperty_Prop_FieldOfViewRightDegrees_Float                  = 4001,
+        ETrackedDeviceProperty_Prop_FieldOfViewTopDegrees_Float                    = 4002,
+        ETrackedDeviceProperty_Prop_FieldOfViewBottomDegrees_Float                 = 4003,
+        ETrackedDeviceProperty_Prop_TrackingRangeMinimumMeters_Float               = 4004,
+        ETrackedDeviceProperty_Prop_TrackingRangeMaximumMeters_Float               = 4005,
+        ETrackedDeviceProperty_Prop_ModeLabel_String                               = 4006,
+        ETrackedDeviceProperty_Prop_IconPathName_String                            = 5000,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceOff_String                  = 5001,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceSearching_String            = 5002,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceSearchingAlert_String       = 5003,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceReady_String                = 5004,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceReadyAlert_String           = 5005,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceNotReady_String             = 5006,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceStandby_String              = 5007,
+        ETrackedDeviceProperty_Prop_NamedIconPathDeviceAlertLow_String             = 5008,
+        ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_Start                 = 5100,
+        ETrackedDeviceProperty_Prop_DisplayHiddenArea_Binary_End                   = 5150,
+        ETrackedDeviceProperty_Prop_ParentContainer                                = 5151,
+        ETrackedDeviceProperty_Prop_UserConfigPath_String                          = 6000,
+        ETrackedDeviceProperty_Prop_InstallPath_String                             = 6001,
+        ETrackedDeviceProperty_Prop_HasDisplayComponent_Bool                       = 6002,
+        ETrackedDeviceProperty_Prop_HasControllerComponent_Bool                    = 6003,
+        ETrackedDeviceProperty_Prop_HasCameraComponent_Bool                        = 6004,
+        ETrackedDeviceProperty_Prop_HasDriverDirectModeComponent_Bool              = 6005,
+        ETrackedDeviceProperty_Prop_HasVirtualDisplayComponent_Bool                = 6006,
+        ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_Start                  = 10000,
+        ETrackedDeviceProperty_Prop_VendorSpecific_Reserved_End                    = 10999;
 
     /**
      * {@code ETrackedPropertyError}: Used to return errors that occur when reading properties.
@@ -616,6 +640,7 @@ public class VR {
      * <li>{@link #ETrackedPropertyError_TrackedProp_NotYetAvailable ETrackedPropertyError_TrackedProp_NotYetAvailable} - The property value isn't known yet, but is expected soon. Call again later.</li>
      * <li>{@link #ETrackedPropertyError_TrackedProp_PermissionDenied ETrackedPropertyError_TrackedProp_PermissionDenied}</li>
      * <li>{@link #ETrackedPropertyError_TrackedProp_InvalidOperation ETrackedPropertyError_TrackedProp_InvalidOperation}</li>
+     * <li>{@link #ETrackedPropertyError_TrackedProp_CannotWriteToWildcards ETrackedPropertyError_TrackedProp_CannotWriteToWildcards}</li>
      * </ul>
      */
     public static final int
@@ -630,7 +655,8 @@ public class VR {
         ETrackedPropertyError_TrackedProp_StringExceedsMaximumLength = 8,
         ETrackedPropertyError_TrackedProp_NotYetAvailable            = 9,
         ETrackedPropertyError_TrackedProp_PermissionDenied           = 10,
-        ETrackedPropertyError_TrackedProp_InvalidOperation           = 11;
+        ETrackedPropertyError_TrackedProp_InvalidOperation           = 11,
+        ETrackedPropertyError_TrackedProp_CannotWriteToWildcards     = 12;
 
     /**
      * {@code EVRSubmitFlags}: Allows the application to control how scene textures are used by the compositor when calling {@link VRCompositor#VRCompositor_Submit Submit}.
@@ -709,6 +735,14 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_ButtonUnpress EVREventType_VREvent_ButtonUnpress} - data is controller</li>
      * <li>{@link #EVREventType_VREvent_ButtonTouch EVREventType_VREvent_ButtonTouch} - data is controller</li>
      * <li>{@link #EVREventType_VREvent_ButtonUntouch EVREventType_VREvent_ButtonUntouch} - data is controller</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_Press EVREventType_VREvent_DualAnalog_Press} - data is dualAnalog</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_Unpress EVREventType_VREvent_DualAnalog_Unpress} - data is dualAnalog</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_Touch EVREventType_VREvent_DualAnalog_Touch} - data is dualAnalog</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_Untouch EVREventType_VREvent_DualAnalog_Untouch} - data is dualAnalog</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_Move EVREventType_VREvent_DualAnalog_Move} - data is dualAnalog</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_ModeSwitch1 EVREventType_VREvent_DualAnalog_ModeSwitch1} - data is dualAnalog</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_ModeSwitch2 EVREventType_VREvent_DualAnalog_ModeSwitch2} - data is dualAnalog</li>
+     * <li>{@link #EVREventType_VREvent_DualAnalog_Cancel EVREventType_VREvent_DualAnalog_Cancel} - data is dualAnalog</li>
      * <li>{@link #EVREventType_VREvent_MouseMove EVREventType_VREvent_MouseMove} - data is mouse</li>
      * <li>{@link #EVREventType_VREvent_MouseButtonDown EVREventType_VREvent_MouseButtonDown} - data is mouse</li>
      * <li>{@link #EVREventType_VREvent_MouseButtonUp EVREventType_VREvent_MouseButtonUp} - data is mouse</li>
@@ -727,6 +761,8 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted} - data is process</li>
      * <li>{@link #EVREventType_VREvent_HideRenderModels EVREventType_VREvent_HideRenderModels} - Sent to the scene application to request hiding render models temporarily</li>
      * <li>{@link #EVREventType_VREvent_ShowRenderModels EVREventType_VREvent_ShowRenderModels} - Sent to the scene application to request restoring render model visibility</li>
+     * <li>{@link #EVREventType_VREvent_ConsoleOpened EVREventType_VREvent_ConsoleOpened}</li>
+     * <li>{@link #EVREventType_VREvent_ConsoleClosed EVREventType_VREvent_ConsoleClosed}</li>
      * <li>{@link #EVREventType_VREvent_OverlayShown EVREventType_VREvent_OverlayShown}</li>
      * <li>{@link #EVREventType_VREvent_OverlayHidden EVREventType_VREvent_OverlayHidden}</li>
      * <li>{@link #EVREventType_VREvent_DashboardActivated EVREventType_VREvent_DashboardActivated}</li>
@@ -774,6 +810,14 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_EnvironmentSettingsHaveChanged EVREventType_VREvent_EnvironmentSettingsHaveChanged}</li>
      * <li>{@link #EVREventType_VREvent_PowerSettingsHaveChanged EVREventType_VREvent_PowerSettingsHaveChanged}</li>
      * <li>{@link #EVREventType_VREvent_EnableHomeAppSettingsHaveChanged EVREventType_VREvent_EnableHomeAppSettingsHaveChanged}</li>
+     * <li>{@link #EVREventType_VREvent_SteamVRSectionSettingChanged EVREventType_VREvent_SteamVRSectionSettingChanged}</li>
+     * <li>{@link #EVREventType_VREvent_LighthouseSectionSettingChanged EVREventType_VREvent_LighthouseSectionSettingChanged}</li>
+     * <li>{@link #EVREventType_VREvent_NullSectionSettingChanged EVREventType_VREvent_NullSectionSettingChanged}</li>
+     * <li>{@link #EVREventType_VREvent_UserInterfaceSectionSettingChanged EVREventType_VREvent_UserInterfaceSectionSettingChanged}</li>
+     * <li>{@link #EVREventType_VREvent_NotificationsSectionSettingChanged EVREventType_VREvent_NotificationsSectionSettingChanged}</li>
+     * <li>{@link #EVREventType_VREvent_KeyboardSectionSettingChanged EVREventType_VREvent_KeyboardSectionSettingChanged}</li>
+     * <li>{@link #EVREventType_VREvent_PerfSectionSettingChanged EVREventType_VREvent_PerfSectionSettingChanged}</li>
+     * <li>{@link #EVREventType_VREvent_DashboardSectionSettingChanged EVREventType_VREvent_DashboardSectionSettingChanged}</li>
      * <li>{@link #EVREventType_VREvent_StatusUpdate EVREventType_VREvent_StatusUpdate}</li>
      * <li>{@link #EVREventType_VREvent_MCImageUpdated EVREventType_VREvent_MCImageUpdated}</li>
      * <li>{@link #EVREventType_VREvent_FirmwareUpdateStarted EVREventType_VREvent_FirmwareUpdateStarted}</li>
@@ -827,6 +871,14 @@ public class VR {
         EVREventType_VREvent_ButtonUnpress                             = 201,
         EVREventType_VREvent_ButtonTouch                               = 202,
         EVREventType_VREvent_ButtonUntouch                             = 203,
+        EVREventType_VREvent_DualAnalog_Press                          = 250,
+        EVREventType_VREvent_DualAnalog_Unpress                        = 251,
+        EVREventType_VREvent_DualAnalog_Touch                          = 252,
+        EVREventType_VREvent_DualAnalog_Untouch                        = 253,
+        EVREventType_VREvent_DualAnalog_Move                           = 254,
+        EVREventType_VREvent_DualAnalog_ModeSwitch1                    = 255,
+        EVREventType_VREvent_DualAnalog_ModeSwitch2                    = 256,
+        EVREventType_VREvent_DualAnalog_Cancel                         = 257,
         EVREventType_VREvent_MouseMove                                 = 300,
         EVREventType_VREvent_MouseButtonDown                           = 301,
         EVREventType_VREvent_MouseButtonUp                             = 302,
@@ -845,6 +897,8 @@ public class VR {
         EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted = 407,
         EVREventType_VREvent_HideRenderModels                          = 410,
         EVREventType_VREvent_ShowRenderModels                          = 411,
+        EVREventType_VREvent_ConsoleOpened                             = 420,
+        EVREventType_VREvent_ConsoleClosed                             = 421,
         EVREventType_VREvent_OverlayShown                              = 500,
         EVREventType_VREvent_OverlayHidden                             = 501,
         EVREventType_VREvent_DashboardActivated                        = 502,
@@ -892,6 +946,14 @@ public class VR {
         EVREventType_VREvent_EnvironmentSettingsHaveChanged            = 854,
         EVREventType_VREvent_PowerSettingsHaveChanged                  = 855,
         EVREventType_VREvent_EnableHomeAppSettingsHaveChanged          = 856,
+        EVREventType_VREvent_SteamVRSectionSettingChanged              = 857,
+        EVREventType_VREvent_LighthouseSectionSettingChanged           = 858,
+        EVREventType_VREvent_NullSectionSettingChanged                 = 859,
+        EVREventType_VREvent_UserInterfaceSectionSettingChanged        = 860,
+        EVREventType_VREvent_NotificationsSectionSettingChanged        = 861,
+        EVREventType_VREvent_KeyboardSectionSettingChanged             = 862,
+        EVREventType_VREvent_PerfSectionSettingChanged                 = 863,
+        EVREventType_VREvent_DashboardSectionSettingChanged            = 864,
         EVREventType_VREvent_StatusUpdate                              = 900,
         EVREventType_VREvent_MCImageUpdated                            = 1000,
         EVREventType_VREvent_FirmwareUpdateStarted                     = 1100,
@@ -1005,6 +1067,20 @@ public class VR {
         EVRMouseButton_VRMouseButton_Left   = 1,
         EVRMouseButton_VRMouseButton_Right  = 2,
         EVRMouseButton_VRMouseButton_Middle = 4;
+
+    /**
+     * {@code EDualAnalogWhich}
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #EDualAnalogWhich_k_EDualAnalog_Left EDualAnalogWhich_k_EDualAnalog_Left}</li>
+     * <li>{@link #EDualAnalogWhich_k_EDualAnalog_Right EDualAnalogWhich_k_EDualAnalog_Right}</li>
+     * </ul>
+     */
+    public static final int
+        EDualAnalogWhich_k_EDualAnalog_Left  = 0,
+        EDualAnalogWhich_k_EDualAnalog_Right = 1;
 
     /**
      * EHiddenAreaMeshType
@@ -1248,6 +1324,7 @@ public class VR {
      * <li>{@link #EVRInitError_VRInitError_Init_RebootingBusy EVRInitError_VRInitError_Init_RebootingBusy}</li>
      * <li>{@link #EVRInitError_VRInitError_Init_FirmwareUpdateBusy EVRInitError_VRInitError_Init_FirmwareUpdateBusy}</li>
      * <li>{@link #EVRInitError_VRInitError_Init_FirmwareRecoveryBusy EVRInitError_VRInitError_Init_FirmwareRecoveryBusy}</li>
+     * <li>{@link #EVRInitError_VRInitError_Init_USBServiceBusy EVRInitError_VRInitError_Init_USBServiceBusy}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_Failed EVRInitError_VRInitError_Driver_Failed}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_Unknown EVRInitError_VRInitError_Driver_Unknown}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_HmdUnknown EVRInitError_VRInitError_Driver_HmdUnknown}</li>
@@ -1276,6 +1353,7 @@ public class VR {
      * <li>{@link #EVRInitError_VRInitError_Compositor_ScreenshotsInitFailed EVRInitError_VRInitError_Compositor_ScreenshotsInitFailed}</li>
      * <li>{@link #EVRInitError_VRInitError_Compositor_UnableToCreateDevice EVRInitError_VRInitError_Compositor_UnableToCreateDevice}</li>
      * <li>{@link #EVRInitError_VRInitError_VendorSpecific_UnableToConnectToOculusRuntime EVRInitError_VRInitError_VendorSpecific_UnableToConnectToOculusRuntime}</li>
+     * <li>{@link #EVRInitError_VRInitError_VendorSpecific_WindowsNotInDevMode EVRInitError_VRInitError_VendorSpecific_WindowsNotInDevMode}</li>
      * <li>{@link #EVRInitError_VRInitError_VendorSpecific_HmdFound_CantOpenDevice EVRInitError_VRInitError_VendorSpecific_HmdFound_CantOpenDevice}</li>
      * <li>{@link #EVRInitError_VRInitError_VendorSpecific_HmdFound_UnableToRequestConfigStart EVRInitError_VRInitError_VendorSpecific_HmdFound_UnableToRequestConfigStart}</li>
      * <li>{@link #EVRInitError_VRInitError_VendorSpecific_HmdFound_NoStoredConfig EVRInitError_VRInitError_VendorSpecific_HmdFound_NoStoredConfig}</li>
@@ -1335,6 +1413,7 @@ public class VR {
         EVRInitError_VRInitError_Init_RebootingBusy                                 = 137,
         EVRInitError_VRInitError_Init_FirmwareUpdateBusy                            = 138,
         EVRInitError_VRInitError_Init_FirmwareRecoveryBusy                          = 139,
+        EVRInitError_VRInitError_Init_USBServiceBusy                                = 140,
         EVRInitError_VRInitError_Driver_Failed                                      = 200,
         EVRInitError_VRInitError_Driver_Unknown                                     = 201,
         EVRInitError_VRInitError_Driver_HmdUnknown                                  = 202,
@@ -1363,6 +1442,7 @@ public class VR {
         EVRInitError_VRInitError_Compositor_ScreenshotsInitFailed                   = 404,
         EVRInitError_VRInitError_Compositor_UnableToCreateDevice                    = 405,
         EVRInitError_VRInitError_VendorSpecific_UnableToConnectToOculusRuntime      = 1000,
+        EVRInitError_VRInitError_VendorSpecific_WindowsNotInDevMode                 = 1001,
         EVRInitError_VRInitError_VendorSpecific_HmdFound_CantOpenDevice             = 1101,
         EVRInitError_VRInitError_VendorSpecific_HmdFound_UnableToRequestConfigStart = 1102,
         EVRInitError_VRInitError_VendorSpecific_HmdFound_NoStoredConfig             = 1103,
@@ -1544,6 +1624,8 @@ public class VR {
      * <li>{@link #EVRApplicationProperty_VRApplicationProperty_NewsURL_String EVRApplicationProperty_VRApplicationProperty_NewsURL_String}</li>
      * <li>{@link #EVRApplicationProperty_VRApplicationProperty_ImagePath_String EVRApplicationProperty_VRApplicationProperty_ImagePath_String}</li>
      * <li>{@link #EVRApplicationProperty_VRApplicationProperty_Source_String EVRApplicationProperty_VRApplicationProperty_Source_String}</li>
+     * <li>{@link #EVRApplicationProperty_VRApplicationProperty_ActionManifestPath_String EVRApplicationProperty_VRApplicationProperty_ActionManifestPath_String}</li>
+     * <li>{@link #EVRApplicationProperty_VRApplicationProperty_ActionBindingPath_String EVRApplicationProperty_VRApplicationProperty_ActionBindingPath_String}</li>
      * <li>{@link #EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool}</li>
      * <li>{@link #EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool}</li>
      * <li>{@link #EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool}</li>
@@ -1563,6 +1645,8 @@ public class VR {
         EVRApplicationProperty_VRApplicationProperty_NewsURL_String                     = 51,
         EVRApplicationProperty_VRApplicationProperty_ImagePath_String                   = 52,
         EVRApplicationProperty_VRApplicationProperty_Source_String                      = 53,
+        EVRApplicationProperty_VRApplicationProperty_ActionManifestPath_String          = 54,
+        EVRApplicationProperty_VRApplicationProperty_ActionBindingPath_String           = 55,
         EVRApplicationProperty_VRApplicationProperty_IsDashboardOverlay_Bool            = 60,
         EVRApplicationProperty_VRApplicationProperty_IsTemplate_Bool                    = 61,
         EVRApplicationProperty_VRApplicationProperty_IsInstanced_Bool                   = 62,
@@ -1636,7 +1720,7 @@ public class VR {
     public static final int EChaperoneImportFlags_EChaperoneImport_BoundsOnly = 1;
 
     /**
-     * {@code EVRCompositorError}: Errors that can occur with the VR compositor
+     * {@code EVRCompositorError}: Errors that can occur with the VR compositor.
      * 
      * <h5>Enum values:</h5>
      * 
@@ -1670,18 +1754,36 @@ public class VR {
         EVRCompositorError_VRCompositorError_InvalidBounds                = 109;
 
     /**
-     * {@code VROverlayInputMethod}: Types of input supported by VR Overlays
+     * {@code EVRCompositorTimingMode}: Timing mode passed to {@link VRCompositor#VRCompositor_SetExplicitTimingMode SetExplicitTimingMode}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #EVRCompositorTimingMode_VRCompositorTimingMode_Implicit EVRCompositorTimingMode_VRCompositorTimingMode_Implicit}</li>
+     * <li>{@link #EVRCompositorTimingMode_VRCompositorTimingMode_Explicit_RuntimePerformsPostPresentHandoff EVRCompositorTimingMode_VRCompositorTimingMode_Explicit_RuntimePerformsPostPresentHandoff}</li>
+     * <li>{@link #EVRCompositorTimingMode_VRCompositorTimingMode_Explicit_ApplicationPerformsPostPresentHandoff EVRCompositorTimingMode_VRCompositorTimingMode_Explicit_ApplicationPerformsPostPresentHandoff}</li>
+     * </ul>
+     */
+    public static final int
+        EVRCompositorTimingMode_VRCompositorTimingMode_Implicit                                       = 0,
+        EVRCompositorTimingMode_VRCompositorTimingMode_Explicit_RuntimePerformsPostPresentHandoff     = 1,
+        EVRCompositorTimingMode_VRCompositorTimingMode_Explicit_ApplicationPerformsPostPresentHandoff = 2;
+
+    /**
+     * {@code VROverlayInputMethod}: Types of input supported by VR Overlays.
      * 
      * <h5>Enum values:</h5>
      * 
      * <ul>
      * <li>{@link #VROverlayInputMethod_None VROverlayInputMethod_None} - No input events will be generated automatically for this overlay.</li>
      * <li>{@link #VROverlayInputMethod_Mouse VROverlayInputMethod_Mouse} - Tracked controllers will get mouse events automatically.</li>
+     * <li>{@link #VROverlayInputMethod_DualAnalog VROverlayInputMethod_DualAnalog} - Analog inputs from tracked controllers are turned into DualAnalog events.</li>
      * </ul>
      */
     public static final int
-        VROverlayInputMethod_None  = 0,
-        VROverlayInputMethod_Mouse = 1;
+        VROverlayInputMethod_None       = 0,
+        VROverlayInputMethod_Mouse      = 1,
+        VROverlayInputMethod_DualAnalog = 2;
 
     /**
      * {@code VROverlayTransformType}: Allows the caller to figure out which overlay transform getter to call.
