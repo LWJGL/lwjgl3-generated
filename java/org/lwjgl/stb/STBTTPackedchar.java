@@ -118,6 +118,62 @@ public class STBTTPackedchar extends Struct implements NativeResource {
     /** Returns the value of the {@code yoff2} field. */
     public float yoff2() { return nyoff2(address()); }
 
+    /** Sets the specified value to the {@code x0} field. */
+    public STBTTPackedchar x0(@NativeType("unsigned short") short value) { nx0(address(), value); return this; }
+    /** Sets the specified value to the {@code y0} field. */
+    public STBTTPackedchar y0(@NativeType("unsigned short") short value) { ny0(address(), value); return this; }
+    /** Sets the specified value to the {@code x1} field. */
+    public STBTTPackedchar x1(@NativeType("unsigned short") short value) { nx1(address(), value); return this; }
+    /** Sets the specified value to the {@code y1} field. */
+    public STBTTPackedchar y1(@NativeType("unsigned short") short value) { ny1(address(), value); return this; }
+    /** Sets the specified value to the {@code xoff} field. */
+    public STBTTPackedchar xoff(float value) { nxoff(address(), value); return this; }
+    /** Sets the specified value to the {@code yoff} field. */
+    public STBTTPackedchar yoff(float value) { nyoff(address(), value); return this; }
+    /** Sets the specified value to the {@code xadvance} field. */
+    public STBTTPackedchar xadvance(float value) { nxadvance(address(), value); return this; }
+    /** Sets the specified value to the {@code xoff2} field. */
+    public STBTTPackedchar xoff2(float value) { nxoff2(address(), value); return this; }
+    /** Sets the specified value to the {@code yoff2} field. */
+    public STBTTPackedchar yoff2(float value) { nyoff2(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public STBTTPackedchar set(
+        short x0,
+        short y0,
+        short x1,
+        short y1,
+        float xoff,
+        float yoff,
+        float xadvance,
+        float xoff2,
+        float yoff2
+    ) {
+        x0(x0);
+        y0(y0);
+        x1(x1);
+        y1(y1);
+        xoff(xoff);
+        yoff(yoff);
+        xadvance(xadvance);
+        xoff2(xoff2);
+        yoff2(yoff2);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public STBTTPackedchar set(STBTTPackedchar src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link STBTTPackedchar} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -266,6 +322,25 @@ public class STBTTPackedchar extends Struct implements NativeResource {
     /** Unsafe version of {@link #yoff2}. */
     public static float nyoff2(long struct) { return memGetFloat(struct + STBTTPackedchar.YOFF2); }
 
+    /** Unsafe version of {@link #x0(short) x0}. */
+    public static void nx0(long struct, short value) { memPutShort(struct + STBTTPackedchar.X0, value); }
+    /** Unsafe version of {@link #y0(short) y0}. */
+    public static void ny0(long struct, short value) { memPutShort(struct + STBTTPackedchar.Y0, value); }
+    /** Unsafe version of {@link #x1(short) x1}. */
+    public static void nx1(long struct, short value) { memPutShort(struct + STBTTPackedchar.X1, value); }
+    /** Unsafe version of {@link #y1(short) y1}. */
+    public static void ny1(long struct, short value) { memPutShort(struct + STBTTPackedchar.Y1, value); }
+    /** Unsafe version of {@link #xoff(float) xoff}. */
+    public static void nxoff(long struct, float value) { memPutFloat(struct + STBTTPackedchar.XOFF, value); }
+    /** Unsafe version of {@link #yoff(float) yoff}. */
+    public static void nyoff(long struct, float value) { memPutFloat(struct + STBTTPackedchar.YOFF, value); }
+    /** Unsafe version of {@link #xadvance(float) xadvance}. */
+    public static void nxadvance(long struct, float value) { memPutFloat(struct + STBTTPackedchar.XADVANCE, value); }
+    /** Unsafe version of {@link #xoff2(float) xoff2}. */
+    public static void nxoff2(long struct, float value) { memPutFloat(struct + STBTTPackedchar.XOFF2, value); }
+    /** Unsafe version of {@link #yoff2(float) yoff2}. */
+    public static void nyoff2(long struct, float value) { memPutFloat(struct + STBTTPackedchar.YOFF2, value); }
+
     // -----------------------------------
 
     /** An array of {@link STBTTPackedchar} structs. */
@@ -330,6 +405,25 @@ public class STBTTPackedchar extends Struct implements NativeResource {
         public float xoff2() { return STBTTPackedchar.nxoff2(address()); }
         /** Returns the value of the {@code yoff2} field. */
         public float yoff2() { return STBTTPackedchar.nyoff2(address()); }
+
+        /** Sets the specified value to the {@code x0} field. */
+        public STBTTPackedchar.Buffer x0(@NativeType("unsigned short") short value) { STBTTPackedchar.nx0(address(), value); return this; }
+        /** Sets the specified value to the {@code y0} field. */
+        public STBTTPackedchar.Buffer y0(@NativeType("unsigned short") short value) { STBTTPackedchar.ny0(address(), value); return this; }
+        /** Sets the specified value to the {@code x1} field. */
+        public STBTTPackedchar.Buffer x1(@NativeType("unsigned short") short value) { STBTTPackedchar.nx1(address(), value); return this; }
+        /** Sets the specified value to the {@code y1} field. */
+        public STBTTPackedchar.Buffer y1(@NativeType("unsigned short") short value) { STBTTPackedchar.ny1(address(), value); return this; }
+        /** Sets the specified value to the {@code xoff} field. */
+        public STBTTPackedchar.Buffer xoff(float value) { STBTTPackedchar.nxoff(address(), value); return this; }
+        /** Sets the specified value to the {@code yoff} field. */
+        public STBTTPackedchar.Buffer yoff(float value) { STBTTPackedchar.nyoff(address(), value); return this; }
+        /** Sets the specified value to the {@code xadvance} field. */
+        public STBTTPackedchar.Buffer xadvance(float value) { STBTTPackedchar.nxadvance(address(), value); return this; }
+        /** Sets the specified value to the {@code xoff2} field. */
+        public STBTTPackedchar.Buffer xoff2(float value) { STBTTPackedchar.nxoff2(address(), value); return this; }
+        /** Sets the specified value to the {@code yoff2} field. */
+        public STBTTPackedchar.Buffer yoff2(float value) { STBTTPackedchar.nyoff2(address(), value); return this; }
 
     }
 

@@ -7,32 +7,50 @@ package org.lwjgl.stb;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
-/** The opaque {@code stbrp_node} struct. */
+/**
+ * The opaque {@code stbrp_node} struct.
+ * 
+ * <h3>Layout</h3>
+ * 
+ * <code><pre>
+ * struct stbrp_node {
+ *     stbrp_coord x;
+ *     stbrp_coord y;
+ *     {@link STBRPNode stbrp_node} * next;
+ * }</pre></code>
+ */
 @NativeType("struct stbrp_node")
-public class STBRPNode extends Struct implements NativeResource {
+public class STBRPNode extends Struct {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
 
     public static final int ALIGNOF;
 
+    /** The struct member offsets. */
+    public static final int
+        X,
+        Y,
+        NEXT;
+
     static {
-        LibSTB.initialize();
+        Layout layout = __struct(
+            __member(2),
+            __member(2),
+            __member(POINTER_SIZE)
+        );
 
-        try (MemoryStack stack = stackPush()) {
-            IntBuffer offsets = stack.mallocInt(1);
-            SIZEOF = offsets(memAddress(offsets));
-            ALIGNOF = offsets.get(0);
-        }
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
+
+        X = layout.offsetof(0);
+        Y = layout.offsetof(1);
+        NEXT = layout.offsetof(2);
     }
-
-    private static native int offsets(long buffer);
 
     STBRPNode(long address, ByteBuffer container) {
         super(address, container);
@@ -51,53 +69,21 @@ public class STBRPNode extends Struct implements NativeResource {
     @Override
     public int sizeof() { return SIZEOF; }
 
+    /** Returns the value of the {@code x} field. */
+    @NativeType("stbrp_coord")
+    public short x() { return nx(address()); }
+    /** Returns the value of the {@code y} field. */
+    @NativeType("stbrp_coord")
+    public short y() { return ny(address()); }
+    /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code next} field. */
+    @NativeType("stbrp_node *")
+    public STBRPNode next() { return nnext(address()); }
+
     // -----------------------------------
-
-    /** Returns a new {@link STBRPNode} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static STBRPNode malloc() {
-        return create(nmemAlloc(SIZEOF));
-    }
-
-    /** Returns a new {@link STBRPNode} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static STBRPNode calloc() {
-        return create(nmemCalloc(1, SIZEOF));
-    }
-
-    /** Returns a new {@link STBRPNode} instance allocated with {@link BufferUtils}. */
-    public static STBRPNode create() {
-        return new STBRPNode(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link STBRPNode} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static STBRPNode create(long address) {
         return address == NULL ? null : new STBRPNode(address, null);
-    }
-
-    /**
-     * Returns a new {@link STBRPNode.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link STBRPNode.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link STBRPNode.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -112,78 +98,17 @@ public class STBRPNode extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link STBRPNode} instance allocated on the thread-local {@link MemoryStack}. */
-    public static STBRPNode mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link STBRPNode} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static STBRPNode callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link STBRPNode} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static STBRPNode mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link STBRPNode} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static STBRPNode callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link STBRPNode.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link STBRPNode.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link STBRPNode.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link STBRPNode.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
+    /** Unsafe version of {@link #x}. */
+    public static short nx(long struct) { return memGetShort(struct + STBRPNode.X); }
+    /** Unsafe version of {@link #y}. */
+    public static short ny(long struct) { return memGetShort(struct + STBRPNode.Y); }
+    /** Unsafe version of {@link #next}. */
+    public static STBRPNode nnext(long struct) { return STBRPNode.create(memGetAddress(struct + STBRPNode.NEXT)); }
 
     // -----------------------------------
 
     /** An array of {@link STBRPNode} structs. */
-    public static class Buffer extends StructBuffer<STBRPNode, Buffer> implements NativeResource {
+    public static class Buffer extends StructBuffer<STBRPNode, Buffer> {
 
         /**
          * Creates a new {@link STBRPNode.Buffer} instance backed by the specified container.
@@ -221,6 +146,16 @@ public class STBRPNode extends Struct implements NativeResource {
         public int sizeof() {
             return SIZEOF;
         }
+
+        /** Returns the value of the {@code x} field. */
+        @NativeType("stbrp_coord")
+        public short x() { return STBRPNode.nx(address()); }
+        /** Returns the value of the {@code y} field. */
+        @NativeType("stbrp_coord")
+        public short y() { return STBRPNode.ny(address()); }
+        /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code next} field. */
+        @NativeType("stbrp_node *")
+        public STBRPNode next() { return STBRPNode.nnext(address()); }
 
     }
 

@@ -10,10 +10,34 @@ import java.nio.*;
 import org.lwjgl.*;
 import org.lwjgl.system.*;
 
+import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
-/** The opaque {@code stbrp_context} struct. */
+/**
+ * The opaque {@code stbrp_context} struct.
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code extra} &ndash; we allocate two extra nodes so optimal user-node-count is {@code width} not {@code width+2}</li>
+ * </ul>
+ * 
+ * <h3>Layout</h3>
+ * 
+ * <code><pre>
+ * struct stbrp_context {
+ *     int width;
+ *     int height;
+ *     int align;
+ *     int init_mode;
+ *     int heuristic;
+ *     int num_nodes;
+ *     {@link STBRPNode stbrp_node} * active_head;
+ *     {@link STBRPNode stbrp_node} * free_head;
+ *     {@link STBRPNode stbrp_node} extra[2];
+ * }</pre></code>
+ */
 @NativeType("struct stbrp_context")
 public class STBRPContext extends Struct implements NativeResource {
 
@@ -22,17 +46,44 @@ public class STBRPContext extends Struct implements NativeResource {
 
     public static final int ALIGNOF;
 
+    /** The struct member offsets. */
+    public static final int
+        WIDTH,
+        HEIGHT,
+        ALIGN,
+        INIT_MODE,
+        HEURISTIC,
+        NUM_NODES,
+        ACTIVE_HEAD,
+        FREE_HEAD,
+        EXTRA;
+
     static {
-        LibSTB.initialize();
+        Layout layout = __struct(
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE),
+            __array(STBRPNode.SIZEOF, STBRPNode.ALIGNOF, 2)
+        );
 
-        try (MemoryStack stack = stackPush()) {
-            IntBuffer offsets = stack.mallocInt(1);
-            SIZEOF = offsets(memAddress(offsets));
-            ALIGNOF = offsets.get(0);
-        }
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
+
+        WIDTH = layout.offsetof(0);
+        HEIGHT = layout.offsetof(1);
+        ALIGN = layout.offsetof(2);
+        INIT_MODE = layout.offsetof(3);
+        HEURISTIC = layout.offsetof(4);
+        NUM_NODES = layout.offsetof(5);
+        ACTIVE_HEAD = layout.offsetof(6);
+        FREE_HEAD = layout.offsetof(7);
+        EXTRA = layout.offsetof(8);
     }
-
-    private static native int offsets(long buffer);
 
     STBRPContext(long address, ByteBuffer container) {
         super(address, container);
@@ -50,6 +101,31 @@ public class STBRPContext extends Struct implements NativeResource {
 
     @Override
     public int sizeof() { return SIZEOF; }
+
+    /** Returns the value of the {@code width} field. */
+    public int width() { return nwidth(address()); }
+    /** Returns the value of the {@code height} field. */
+    public int height() { return nheight(address()); }
+    /** Returns the value of the {@code align} field. */
+    public int align() { return nalign(address()); }
+    /** Returns the value of the {@code init_mode} field. */
+    public int init_mode() { return ninit_mode(address()); }
+    /** Returns the value of the {@code heuristic} field. */
+    public int heuristic() { return nheuristic(address()); }
+    /** Returns the value of the {@code num_nodes} field. */
+    public int num_nodes() { return nnum_nodes(address()); }
+    /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code active_head} field. */
+    @NativeType("stbrp_node *")
+    public STBRPNode active_head() { return nactive_head(address()); }
+    /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code free_head} field. */
+    @NativeType("stbrp_node *")
+    public STBRPNode free_head() { return nfree_head(address()); }
+    /** Returns a {@link STBRPNode}.Buffer view of the {@code extra} field. */
+    @NativeType("stbrp_node[2]")
+    public STBRPNode.Buffer extra() { return nextra(address()); }
+    /** Returns a {@link STBRPNode} view of the struct at the specified index of the {@code extra} field. */
+    @NativeType("stbrp_node")
+    public STBRPNode extra(int index) { return nextra(address(), index); }
 
     // -----------------------------------
 
@@ -180,6 +256,30 @@ public class STBRPContext extends Struct implements NativeResource {
 
     // -----------------------------------
 
+    /** Unsafe version of {@link #width}. */
+    public static int nwidth(long struct) { return memGetInt(struct + STBRPContext.WIDTH); }
+    /** Unsafe version of {@link #height}. */
+    public static int nheight(long struct) { return memGetInt(struct + STBRPContext.HEIGHT); }
+    /** Unsafe version of {@link #align}. */
+    public static int nalign(long struct) { return memGetInt(struct + STBRPContext.ALIGN); }
+    /** Unsafe version of {@link #init_mode}. */
+    public static int ninit_mode(long struct) { return memGetInt(struct + STBRPContext.INIT_MODE); }
+    /** Unsafe version of {@link #heuristic}. */
+    public static int nheuristic(long struct) { return memGetInt(struct + STBRPContext.HEURISTIC); }
+    /** Unsafe version of {@link #num_nodes}. */
+    public static int nnum_nodes(long struct) { return memGetInt(struct + STBRPContext.NUM_NODES); }
+    /** Unsafe version of {@link #active_head}. */
+    public static STBRPNode nactive_head(long struct) { return STBRPNode.create(memGetAddress(struct + STBRPContext.ACTIVE_HEAD)); }
+    /** Unsafe version of {@link #free_head}. */
+    public static STBRPNode nfree_head(long struct) { return STBRPNode.create(memGetAddress(struct + STBRPContext.FREE_HEAD)); }
+    /** Unsafe version of {@link #extra}. */
+    public static STBRPNode.Buffer nextra(long struct) { return STBRPNode.create(struct + STBRPContext.EXTRA, 2); }
+    /** Unsafe version of {@link #extra(int) extra}. */
+    public static STBRPNode nextra(long struct, int index) {
+        if (CHECKS) { check(index, 2); }
+        return STBRPNode.create(struct + STBRPContext.EXTRA + index * STBRPNode.SIZEOF);
+    }
+
     // -----------------------------------
 
     /** An array of {@link STBRPContext} structs. */
@@ -221,6 +321,31 @@ public class STBRPContext extends Struct implements NativeResource {
         public int sizeof() {
             return SIZEOF;
         }
+
+        /** Returns the value of the {@code width} field. */
+        public int width() { return STBRPContext.nwidth(address()); }
+        /** Returns the value of the {@code height} field. */
+        public int height() { return STBRPContext.nheight(address()); }
+        /** Returns the value of the {@code align} field. */
+        public int align() { return STBRPContext.nalign(address()); }
+        /** Returns the value of the {@code init_mode} field. */
+        public int init_mode() { return STBRPContext.ninit_mode(address()); }
+        /** Returns the value of the {@code heuristic} field. */
+        public int heuristic() { return STBRPContext.nheuristic(address()); }
+        /** Returns the value of the {@code num_nodes} field. */
+        public int num_nodes() { return STBRPContext.nnum_nodes(address()); }
+        /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code active_head} field. */
+        @NativeType("stbrp_node *")
+        public STBRPNode active_head() { return STBRPContext.nactive_head(address()); }
+        /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code free_head} field. */
+        @NativeType("stbrp_node *")
+        public STBRPNode free_head() { return STBRPContext.nfree_head(address()); }
+        /** Returns a {@link STBRPNode}.Buffer view of the {@code extra} field. */
+        @NativeType("stbrp_node[2]")
+        public STBRPNode.Buffer extra() { return STBRPContext.nextra(address()); }
+        /** Returns a {@link STBRPNode} view of the struct at the specified index of the {@code extra} field. */
+        @NativeType("stbrp_node")
+        public STBRPNode extra(int index) { return STBRPContext.nextra(address(), index); }
 
     }
 

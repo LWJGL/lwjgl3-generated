@@ -109,7 +109,8 @@ public class STBRPRect extends Struct implements NativeResource {
     @NativeType("stbrp_coord")
     public short y() { return ny(address()); }
     /** Returns the value of the {@code was_packed} field. */
-    public int was_packed() { return nwas_packed(address()); }
+    @NativeType("int")
+    public boolean was_packed() { return nwas_packed(address()) != 0; }
 
     /** Sets the specified value to the {@code id} field. */
     public STBRPRect id(int value) { nid(address(), value); return this; }
@@ -122,7 +123,7 @@ public class STBRPRect extends Struct implements NativeResource {
     /** Sets the specified value to the {@code y} field. */
     public STBRPRect y(@NativeType("stbrp_coord") short value) { ny(address(), value); return this; }
     /** Sets the specified value to the {@code was_packed} field. */
-    public STBRPRect was_packed(int value) { nwas_packed(address(), value); return this; }
+    public STBRPRect was_packed(@NativeType("int") boolean value) { nwas_packed(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
     public STBRPRect set(
@@ -131,7 +132,7 @@ public class STBRPRect extends Struct implements NativeResource {
         short h,
         short x,
         short y,
-        int was_packed
+        boolean was_packed
     ) {
         id(id);
         w(w);
@@ -307,7 +308,7 @@ public class STBRPRect extends Struct implements NativeResource {
     public static void nx(long struct, short value) { memPutShort(struct + STBRPRect.X, value); }
     /** Unsafe version of {@link #y(short) y}. */
     public static void ny(long struct, short value) { memPutShort(struct + STBRPRect.Y, value); }
-    /** Unsafe version of {@link #was_packed(int) was_packed}. */
+    /** Unsafe version of {@link #was_packed(boolean) was_packed}. */
     public static void nwas_packed(long struct, int value) { memPutInt(struct + STBRPRect.WAS_PACKED, value); }
 
     // -----------------------------------
@@ -367,7 +368,8 @@ public class STBRPRect extends Struct implements NativeResource {
         @NativeType("stbrp_coord")
         public short y() { return STBRPRect.ny(address()); }
         /** Returns the value of the {@code was_packed} field. */
-        public int was_packed() { return STBRPRect.nwas_packed(address()); }
+        @NativeType("int")
+        public boolean was_packed() { return STBRPRect.nwas_packed(address()) != 0; }
 
         /** Sets the specified value to the {@code id} field. */
         public STBRPRect.Buffer id(int value) { STBRPRect.nid(address(), value); return this; }
@@ -380,7 +382,7 @@ public class STBRPRect extends Struct implements NativeResource {
         /** Sets the specified value to the {@code y} field. */
         public STBRPRect.Buffer y(@NativeType("stbrp_coord") short value) { STBRPRect.ny(address(), value); return this; }
         /** Sets the specified value to the {@code was_packed} field. */
-        public STBRPRect.Buffer was_packed(int value) { STBRPRect.nwas_packed(address(), value); return this; }
+        public STBRPRect.Buffer was_packed(@NativeType("int") boolean value) { STBRPRect.nwas_packed(address(), value ? 1 : 0); return this; }
 
     }
 

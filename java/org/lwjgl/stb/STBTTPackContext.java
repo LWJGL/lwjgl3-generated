@@ -13,7 +13,25 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
-/** An opaque structure which holds all the context needed from {@link STBTruetype#stbtt_PackBegin PackBegin} to {@link STBTruetype#stbtt_PackEnd PackEnd}. */
+/**
+ * An opaque structure which holds all the context needed from {@link STBTruetype#stbtt_PackBegin PackBegin} to {@link STBTruetype#stbtt_PackEnd PackEnd}.
+ * 
+ * <h3>Layout</h3>
+ * 
+ * <code><pre>
+ * struct stbtt_pack_context {
+ *     void * user_allocator_context;
+ *     {@link STBRPContext stbrp_context} * pack_info;
+ *     int width;
+ *     int height;
+ *     int stride_in_bytes;
+ *     int padding;
+ *     unsigned int h_oversample;
+ *     unsigned int v_oversample;
+ *     unsigned char * pixels;
+ *     {@link STBRPNode stbrp_node} * nodes;
+ * }</pre></code>
+ */
 @NativeType("struct stbtt_pack_context")
 public class STBTTPackContext extends Struct implements NativeResource {
 
@@ -22,17 +40,47 @@ public class STBTTPackContext extends Struct implements NativeResource {
 
     public static final int ALIGNOF;
 
+    /** The struct member offsets. */
+    public static final int
+        USER_ALLOCATOR_CONTEXT,
+        PACK_INFO,
+        WIDTH,
+        HEIGHT,
+        STRIDE_IN_BYTES,
+        PADDING,
+        H_OVERSAMPLE,
+        V_OVERSAMPLE,
+        PIXELS,
+        NODES;
+
     static {
-        LibSTB.initialize();
+        Layout layout = __struct(
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(4),
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE)
+        );
 
-        try (MemoryStack stack = stackPush()) {
-            IntBuffer offsets = stack.mallocInt(1);
-            SIZEOF = offsets(memAddress(offsets));
-            ALIGNOF = offsets.get(0);
-        }
+        SIZEOF = layout.getSize();
+        ALIGNOF = layout.getAlignment();
+
+        USER_ALLOCATOR_CONTEXT = layout.offsetof(0);
+        PACK_INFO = layout.offsetof(1);
+        WIDTH = layout.offsetof(2);
+        HEIGHT = layout.offsetof(3);
+        STRIDE_IN_BYTES = layout.offsetof(4);
+        PADDING = layout.offsetof(5);
+        H_OVERSAMPLE = layout.offsetof(6);
+        V_OVERSAMPLE = layout.offsetof(7);
+        PIXELS = layout.offsetof(8);
+        NODES = layout.offsetof(9);
     }
-
-    private static native int offsets(long buffer);
 
     STBTTPackContext(long address, ByteBuffer container) {
         super(address, container);
@@ -50,6 +98,41 @@ public class STBTTPackContext extends Struct implements NativeResource {
 
     @Override
     public int sizeof() { return SIZEOF; }
+
+    /** Returns the value of the {@code user_allocator_context} field. */
+    @NativeType("void *")
+    public long user_allocator_context() { return nuser_allocator_context(address()); }
+    /** Returns a {@link STBRPContext} view of the struct pointed to by the {@code pack_info} field. */
+    @NativeType("stbrp_context *")
+    public STBRPContext pack_info() { return npack_info(address()); }
+    /** Returns the value of the {@code width} field. */
+    public int width() { return nwidth(address()); }
+    /** Returns the value of the {@code height} field. */
+    public int height() { return nheight(address()); }
+    /** Returns the value of the {@code stride_in_bytes} field. */
+    public int stride_in_bytes() { return nstride_in_bytes(address()); }
+    /** Returns the value of the {@code padding} field. */
+    public int padding() { return npadding(address()); }
+    /** Returns the value of the {@code h_oversample} field. */
+    @NativeType("unsigned int")
+    public int h_oversample() { return nh_oversample(address()); }
+    /** Returns the value of the {@code v_oversample} field. */
+    @NativeType("unsigned int")
+    public int v_oversample() { return nv_oversample(address()); }
+    /**
+     * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pixels} field.
+     *
+     * @param capacity the number of elements in the returned buffer
+     */
+    @NativeType("unsigned char *")
+    public ByteBuffer pixels(int capacity) { return npixels(address(), capacity); }
+    /**
+     * Returns a {@link STBRPNode.Buffer} view of the struct array pointed to by the {@code nodes} field.
+     *
+     * @param capacity the number of elements in the returned buffer
+     */
+    @NativeType("stbrp_node *")
+    public STBRPNode.Buffer nodes(int capacity) { return nnodes(address(), capacity); }
 
     // -----------------------------------
 
@@ -180,6 +263,27 @@ public class STBTTPackContext extends Struct implements NativeResource {
 
     // -----------------------------------
 
+    /** Unsafe version of {@link #user_allocator_context}. */
+    public static long nuser_allocator_context(long struct) { return memGetAddress(struct + STBTTPackContext.USER_ALLOCATOR_CONTEXT); }
+    /** Unsafe version of {@link #pack_info}. */
+    public static STBRPContext npack_info(long struct) { return STBRPContext.create(memGetAddress(struct + STBTTPackContext.PACK_INFO)); }
+    /** Unsafe version of {@link #width}. */
+    public static int nwidth(long struct) { return memGetInt(struct + STBTTPackContext.WIDTH); }
+    /** Unsafe version of {@link #height}. */
+    public static int nheight(long struct) { return memGetInt(struct + STBTTPackContext.HEIGHT); }
+    /** Unsafe version of {@link #stride_in_bytes}. */
+    public static int nstride_in_bytes(long struct) { return memGetInt(struct + STBTTPackContext.STRIDE_IN_BYTES); }
+    /** Unsafe version of {@link #padding}. */
+    public static int npadding(long struct) { return memGetInt(struct + STBTTPackContext.PADDING); }
+    /** Unsafe version of {@link #h_oversample}. */
+    public static int nh_oversample(long struct) { return memGetInt(struct + STBTTPackContext.H_OVERSAMPLE); }
+    /** Unsafe version of {@link #v_oversample}. */
+    public static int nv_oversample(long struct) { return memGetInt(struct + STBTTPackContext.V_OVERSAMPLE); }
+    /** Unsafe version of {@link #pixels(int) pixels}. */
+    public static ByteBuffer npixels(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + STBTTPackContext.PIXELS), capacity); }
+    /** Unsafe version of {@link #nodes}. */
+    public static STBRPNode.Buffer nnodes(long struct, int capacity) { return STBRPNode.create(memGetAddress(struct + STBTTPackContext.NODES), capacity); }
+
     // -----------------------------------
 
     /** An array of {@link STBTTPackContext} structs. */
@@ -221,6 +325,41 @@ public class STBTTPackContext extends Struct implements NativeResource {
         public int sizeof() {
             return SIZEOF;
         }
+
+        /** Returns the value of the {@code user_allocator_context} field. */
+        @NativeType("void *")
+        public long user_allocator_context() { return STBTTPackContext.nuser_allocator_context(address()); }
+        /** Returns a {@link STBRPContext} view of the struct pointed to by the {@code pack_info} field. */
+        @NativeType("stbrp_context *")
+        public STBRPContext pack_info() { return STBTTPackContext.npack_info(address()); }
+        /** Returns the value of the {@code width} field. */
+        public int width() { return STBTTPackContext.nwidth(address()); }
+        /** Returns the value of the {@code height} field. */
+        public int height() { return STBTTPackContext.nheight(address()); }
+        /** Returns the value of the {@code stride_in_bytes} field. */
+        public int stride_in_bytes() { return STBTTPackContext.nstride_in_bytes(address()); }
+        /** Returns the value of the {@code padding} field. */
+        public int padding() { return STBTTPackContext.npadding(address()); }
+        /** Returns the value of the {@code h_oversample} field. */
+        @NativeType("unsigned int")
+        public int h_oversample() { return STBTTPackContext.nh_oversample(address()); }
+        /** Returns the value of the {@code v_oversample} field. */
+        @NativeType("unsigned int")
+        public int v_oversample() { return STBTTPackContext.nv_oversample(address()); }
+        /**
+         * Returns a {@link ByteBuffer} view of the data pointed to by the {@code pixels} field.
+         *
+         * @param capacity the number of elements in the returned buffer
+         */
+        @NativeType("unsigned char *")
+        public ByteBuffer pixels(int capacity) { return STBTTPackContext.npixels(address(), capacity); }
+        /**
+         * Returns a {@link STBRPNode.Buffer} view of the struct array pointed to by the {@code nodes} field.
+         *
+         * @param capacity the number of elements in the returned buffer
+         */
+        @NativeType("stbrp_node *")
+        public STBRPNode.Buffer nodes(int capacity) { return STBTTPackContext.nnodes(address(), capacity); }
 
     }
 
