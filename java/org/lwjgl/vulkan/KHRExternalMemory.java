@@ -20,7 +20,7 @@ package org.lwjgl.vulkan;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities">{@code VK_KHR_external_memory_capabilities}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_external_memory_capabilities">VK_KHR_external_memory_capabilities</a></li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>
@@ -32,8 +32,8 @@ package org.lwjgl.vulkan;
  * <dd>No known IP claims.</dd>
  * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
- * <li>Interacts with VK_KHR_dedicated_allocation.</li>
- * <li>Interacts with VK_NV_dedicated_allocation.</li>
+ * <li>Interacts with <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_dedicated_allocation">VK_KHR_dedicated_allocation</a>.</li>
+ * <li>Interacts with <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_NV_dedicated_allocation">VK_NV_dedicated_allocation</a>.</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>

@@ -23,7 +23,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code rasterizationOrder} <b>must</b> be a valid {@code VkRasterizationOrderAMD} value</li>
  * </ul>
  * 
- * <p>If the {@code VK_AMD_rasterization_order} device extension is not enabled or the application does not request a particular rasterization order through specifying a {@link VkPipelineRasterizationStateRasterizationOrderAMD} structure then the rasterization order used by the graphics pipeline defaults to {@link AMDRasterizationOrder#VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD}.</p>
+ * <p>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_rasterization_order">VK_AMD_rasterization_order</a> device extension is not enabled or the application does not request a particular rasterization order through specifying a {@link VkPipelineRasterizationStateRasterizationOrderAMD} structure then the rasterization order used by the graphics pipeline defaults to {@link AMDRasterizationOrder#VK_RASTERIZATION_ORDER_STRICT_AMD RASTERIZATION_ORDER_STRICT_AMD}.</p>
  * 
  * <h3>Member documentation</h3>
  * 

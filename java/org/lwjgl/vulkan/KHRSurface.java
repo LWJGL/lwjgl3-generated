@@ -16,13 +16,13 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * The {@code VK_KHR_surface} extension is an instance extension. It introduces {@code VkSurfaceKHR} objects, which abstract native platform surface or window objects for use with Vulkan. It also provides a way to determine whether a queue family in a physical device supports presenting to particular surface.
  * 
- * <p>Separate extensions for each each platform provide the mechanisms for creating {@code VkSurfaceKHR} objects, but once created they may be used in this and other platform-independent extensions, in particular the {@code VK_KHR_swapchain} extension.</p>
+ * <p>Separate extensions for each platform provide the mechanisms for creating {@code VkSurfaceKHR} objects, but once created they may be used in this and other platform-independent extensions, in particular the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain">VK_KHR_swapchain</a> extension.</p>
  * 
  * <h5>Examples</h5>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <p>The example code for the {@code VK_KHR_surface} and {@code VK_KHR_swapchain} extensions was removed from the appendix after revision 1.0.29. This WSI example code was ported to the cube demo that is shipped with the official Khronos SDK, and is being kept up-to-date in that location (see: https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers/blob/master/demos/cube.c).</p>
+ * <p>The example code for the {@code VK_KHR_surface} and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_swapchain">VK_KHR_swapchain</a> extensions was removed from the appendix after revision 1.0.29. This WSI example code was ported to the cube demo that is shipped with the official Khronos SDK, and is being kept up-to-date in that location (see: https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers/blob/master/demos/cube.c).</p>
  * </div>
  * 
  * <dl>
@@ -167,7 +167,7 @@ public class KHRSurface {
      * <li>{@link EXTSwapchainColorspace#VK_COLOR_SPACE_PASS_THROUGH_EXT COLOR_SPACE_PASS_THROUGH_EXT} indicates that color components are used “as is”. This is intended to allow applications to supply data for color spaces not described here.</li>
      * </ul>
      * 
-     * <p>The color components of Non-linear color space swap chain images have had the appropriate transfer function applied. Vulkan requires that all implementations support the sRGB transfer function when using an SRGB pixel format. Other transfer functions, such as SMPTE 170M or SMPTE2084, <b>must</b> not be performed by the implementation, but <b>can</b> be performed by the application shader. This extension defines enums for {@code VkColorSpaceKHR} that correspond to the following color spaces::</p>
+     * <p>The color components of Non-linear color space swap chain images have had the appropriate transfer function applied. Vulkan requires that all implementations support the sRGB transfer function when using an SRGB pixel format. Other transfer functions, such as SMPTE 170M or SMPTE2084, <b>must</b> not be performed by the implementation, but <b>can</b> be performed by the application shader. This extension defines enums for {@code VkColorSpaceKHR} that correspond to the following color spaces:</p>
      * 
      * <h6>Color Spaces and Attributes</h6>
      * 

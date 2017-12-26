@@ -41,7 +41,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code descriptorCount} &ndash; the number of descriptors to update. If {@code descriptorCount} is greater than the number of remaining array elements in the destination binding, those affect consecutive bindings in a manner similar to {@link VkWriteDescriptorSet} above.</li>
  * <li>{@code descriptorType} &ndash; a {@code VkDescriptorType} specifying the type of the descriptor.</li>
  * <li>{@code offset} &ndash; the offset in bytes of the first binding in the raw data structure.</li>
- * <li>{@code stride} &ndash; the stride in bytes between two consecutive array elements of the descriptor update informations in the raw data structure. The actual pointer ptr for each array element j of update entry i is computed using the following formula:</li>
+ * <li>{@code stride} &ndash; the stride in bytes between two consecutive array elements of the descriptor update informations in the raw data structure. The actual pointer ptr for each array element j of update entry i is computed using the following formula:
+ * 
+ * <code><pre>
+ *     const char *ptr = (const char *)pData + pDescriptorUpdateEntries[i].offset + j * pDescriptorUpdateEntries[i].stride</pre></code>
+ * 
+ * <p>The stride is useful in case the bindings are stored in structs along with other data.</p></li>
  * </ul>
  * 
  * <h3>Layout</h3>

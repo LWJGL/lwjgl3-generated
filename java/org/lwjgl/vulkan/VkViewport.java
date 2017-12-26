@@ -40,11 +40,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code width} <b>must</b> be greater than {@code 0.0} and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[0]</li>
- * <li>{@code height} <b>must</b> be greater than or equal to -{@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1] and less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1]</li>
- * <li>If the VK_AMD_negative_viewport_height extension is enabled, {@code height} <b>can</b> also be negative.</li>
- * <li>{@code x} and {@code y} <b>must</b> each be between {@code viewportBoundsRange}[0] and {@code viewportBoundsRange}[1], inclusive</li>
+ * <li>{@code width} <b>must</b> be greater than {@code 0.0}</li>
+ * <li>{@code width} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[0]</li>
+ * <li>The absolute value of {@code height} <b>must</b> be less than or equal to {@link VkPhysicalDeviceLimits}{@code ::maxViewportDimensions}[1]</li>
+ * <li>{@code x} <b>must</b> be greater than or equal to {@code viewportBoundsRange}[0]</li>
  * <li><code>(x + width)</code> <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
+ * <li>{@code y} <b>must</b> be greater than or equal to {@code viewportBoundsRange}[0]</li>
+ * <li>{@code y} <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
+ * <li><code>(y + height)</code> <b>must</b> be greater than or equal to {@code viewportBoundsRange}[0]</li>
  * <li><code>(y + height)</code> <b>must</b> be less than or equal to {@code viewportBoundsRange}[1]</li>
  * </ul>
  * 

@@ -6,7 +6,7 @@
 package org.lwjgl.vulkan;
 
 /**
- * This extension adds a number of "{@code advanced}" blending operations that <b>can</b> be used to perform new color blending operations, many of which are more complex than the standard blend modes provided by unextended Vulkan. This extension requires different styles of usage, depending on the level of hardware support and the feature enable:
+ * This extension adds a number of "{@code advanced}" blending operations that <b>can</b> be used to perform new color blending operations, many of which are more complex than the standard blend modes provided by unextended Vulkan. This extension requires different styles of usage, depending on the level of hardware support and the enabled features:
  * 
  * <ul>
  * <li>If {@link VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT}{@code ::advancedBlendCoherentOperations} is {@link VK10#VK_FALSE FALSE}, the new blending operations are supported, but a memory dependency <b>must</b> separate each advanced blend operation on a given sample. {@link #VK_ACCESS_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT ACCESS_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT} is used to synchronize reads using advanced blend operations.</li>

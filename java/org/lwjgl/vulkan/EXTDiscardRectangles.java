@@ -11,11 +11,11 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
- * This extension provides additional orthogonally aligned "discard rectangles" specified in framebuffer-space coordinates that restrict rasterization of all points, lines and triangles.
+ * This extension provides additional orthogonally aligned "{@code discard rectangles}" specified in framebuffer-space coordinates that restrict rasterization of all points, lines and triangles.
  * 
  * <p>From zero to an implementation-dependent limit (specified by {@code maxDiscardRectangles}) number of discard rectangles can be operational at once. When one or more discard rectangles are active, rasterized fragments can either survive if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT} mode) or be rejected if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT} mode).</p>
  * 
- * <p>These discard rectangles operate orthogonally to the existing scissor test functionality. If the VK_KHX_device_group extension is enabled the discard rectangles can be different for each physical device in the device group by specifying the device mask and setting discard rectangle dynamic state.</p>
+ * <p>These discard rectangles operate orthogonally to the existing scissor test functionality. If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group">VK_KHX_device_group</a> extension is enabled the discard rectangles can be different for each physical device in the device group by specifying the device mask and setting discard rectangle dynamic state.</p>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2">{@code VK_KHR_get_physical_device_properties2}</a></li>
+ * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2">VK_KHR_get_physical_device_properties2</a></li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>
@@ -134,12 +134,10 @@ public class EXTDiscardRectangles {
      * 
      * <ul>
      * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT DYNAMIC_STATE_DISCARD_RECTANGLE_EXT} dynamic state enabled</li>
-     * <li>{@code firstDiscardRectangle} <b>must</b> be less than {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}</li>
-     * <li>The sum of {@code firstDiscardRectangle} and {@code discardRectangleCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}, inclusive</li>
-     * <li>{@code pDiscardRectangles} <b>must</b> be a valid pointer to an array of {@code discardRectangleCount} valid {@link VkRect2D} structures</li>
-     * <li>The {@code x} and {@code y} members of {@code offset} in {@link VkRect2D} <b>must</b> be greater than or equal to 0</li>
-     * <li>Evaluation of <code>(offset.x + extent.width)</code> in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
-     * <li>Evaluation of <code>(offset.y + extent.height)</code> in {@link VkRect2D} <b>must</b> not cause a signed integer addition overflow</li>
+     * <li>The sum of {@code firstDiscardRectangle} and {@code discardRectangleCount} <b>must</b> be less than or equal to {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}{@code ::maxDiscardRectangles}</li>
+     * <li>The {@code x} and {@code y} member of {@code offset} in each {@link VkRect2D} element of {@code pDiscardRectangles} <b>must</b> be greater than or equal to 0</li>
+     * <li>Evaluation of <code>(offset.x + extent.width)</code> in each {@link VkRect2D} element of {@code pDiscardRectangles} <b>must</b> not cause a signed integer addition overflow</li>
+     * <li>Evaluation of <code>(offset.y + extent.height)</code> in each {@link VkRect2D} element of {@code pDiscardRectangles} <b>must</b> not cause a signed integer addition overflow</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>

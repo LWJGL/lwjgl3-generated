@@ -91,7 +91,7 @@ public class VK10 {
      * <li>{@link KHRSurface#VK_ERROR_NATIVE_WINDOW_IN_USE_KHR ERROR_NATIVE_WINDOW_IN_USE_KHR} The requested window is already in use by Vulkan or another API in a manner which prevents it from being used again.</li>
      * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR} A surface has changed in such a way that it is no longer compatible with the swapchain, and further presentation requests using the swapchain will fail. Applications <b>must</b> query the new surface properties and recreate their swapchain if they wish to continue presenting to the surface.</li>
      * <li>{@link KHRDisplaySwapchain#VK_ERROR_INCOMPATIBLE_DISPLAY_KHR ERROR_INCOMPATIBLE_DISPLAY_KHR} The display used by a swapchain does not use the same presentable image layout, or is incompatible in a way that prevents sharing an image.</li>
-     * <li>{@link NVGLSLShader#VK_ERROR_INVALID_SHADER_NV ERROR_INVALID_SHADER_NV} One or more shaders failed to compile or link. More details are reported back to the application via VK_EXT_debug_report if enabled.</li>
+     * <li>{@link NVGLSLShader#VK_ERROR_INVALID_SHADER_NV ERROR_INVALID_SHADER_NV} One or more shaders failed to compile or link. More details are reported back to the application via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report">VK_EXT_debug_report</a> if enabled.</li>
      * <li>{@link KHRMaintenance1#VK_ERROR_OUT_OF_POOL_MEMORY_KHR ERROR_OUT_OF_POOL_MEMORY_KHR} A pool memory allocation has failed. This <b>must</b> only be returned if no attempt to allocate host or device memory was made to accomodate the new allocation. If the failure was definitely due to fragmentation of the pool, {@link #VK_ERROR_FRAGMENTED_POOL ERROR_FRAGMENTED_POOL} <b>should</b> be returned instead.</li>
      * <li>{@link KHRExternalMemory#VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR ERROR_INVALID_EXTERNAL_HANDLE_KHR} An external handle is not a valid handle of the specified type.</li>
      * </ul>
@@ -729,13 +729,8 @@ public class VK10 {
      * </li>
      * <li>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR FORMAT_FEATURE_TRANSFER_SRC_BIT_KHR} specifies that an image <b>can</b> be used as a source image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#copies">copy commands</a>.</li>
      * <li>{@link KHRMaintenance1#VK_FORMAT_FEATURE_TRANSFER_DST_BIT_KHR FORMAT_FEATURE_TRANSFER_DST_BIT_KHR} specifies that an image <b>can</b> be used as a destination image for <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#copies">copy commands</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#clears">clear commands</a>.</li>
-     * <li>{@link EXTSamplerFilterMinmax#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_MINMAX_BIT_EXT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_MINMAX_BIT_EXT} specifies {@code VkImage} <b>can</b> be used as a sampled image with a min or max {@code VkSamplerReductionModeEXT}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}.
-     * 
-     * <dl>
-     * <dt>{@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG}</dt>
-     * <dd>{@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, or be the source image for a blit with {@code filter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}. If the format being queried is a depth/stencil format, this only indicates that the depth aspect is cubic filterable.</dd>
-     * </dl>
-     * </li>
+     * <li>{@link EXTSamplerFilterMinmax#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_MINMAX_BIT_EXT FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_MINMAX_BIT_EXT} specifies {@code VkImage} <b>can</b> be used as a sampled image with a min or max {@code VkSamplerReductionModeEXT}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}.</li>
+     * <li>{@link IMGFilterCubic#VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_CUBIC_BIT_IMG} specifies that {@code VkImage} <b>can</b> be used with a sampler that has either of {@code magFilter} or {@code minFilter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}, or be the source image for a blit with {@code filter} set to {@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG}. This bit <b>must</b> only be exposed for formats that also support the {@link #VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT FORMAT_FEATURE_SAMPLED_IMAGE_BIT}. If the format being queried is a depth/stencil format, this only indicates that the depth aspect is cubic filterable.</li>
      * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR} specifies that an application <b>can</b> define a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#samplers-YCbCr-conversion">sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion</a> using this format as a source, and that an image of this format <b>can</b> be used with a {@link VkSamplerYcbcrConversionCreateInfoKHR} {@code xChromaOffset} and/or {@code yChromaOffset} of {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_MIDPOINT_KHR CHROMA_LOCATION_MIDPOINT_KHR}. Otherwise both {@code xChromaOffset} and {@code yChromaOffset} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_COSITED_EVEN_KHR CHROMA_LOCATION_COSITED_EVEN_KHR}. If a format does not incorporate chroma downsampling (it is not a “422” or “420” format) but the implementation supports sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion for this format, the implementation <b>must</b> set {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR}.</li>
      * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR} specifies that an application <b>can</b> define a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#samplers-YCbCr-conversion">sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion</a> using this format as a source, and that an image of this format <b>can</b> be used with a {@link VkSamplerYcbcrConversionCreateInfoKHR} {@code xChromaOffset} and/or {@code yChromaOffset} of {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_COSITED_EVEN_KHR CHROMA_LOCATION_COSITED_EVEN_KHR}. Otherwise both {@code xChromaOffset} and {@code yChromaOffset} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_CHROMA_LOCATION_MIDPOINT_KHR CHROMA_LOCATION_MIDPOINT_KHR}. If neither {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR} nor {@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR FORMAT_FEATURE_MIDPOINT_CHROMA_SAMPLES_BIT_KHR} is set, the application <b>must</b> not define a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#samplers-YCbCr-conversion">sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion</a> using this format as a source.</li>
      * <li>{@link KHRSamplerYcbcrConversion#VK_FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER_BIT_KHR FORMAT_FEATURE_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER_BIT_KHR} specifies that the format can do linear sampler filtering (min/magFilter) whilst sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion is enabled.</li>
@@ -1986,7 +1981,7 @@ public class VK10 {
      * <li>{@link #VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT} specifies that the mirrored repeat wrap mode will be used.</li>
      * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE} specifies that the clamp to edge wrap mode will be used.</li>
      * <li>{@link #VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER} specifies that the clamp to border wrap mode will be used.</li>
-     * <li>{@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE} specifies that the mirror clamp to edge wrap mode will be used. This is only valid if the VK_KHR_mirror_clamp_to_edge extension is enabled.</li>
+     * <li>{@link KHRSamplerMirrorClampToEdge#VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE} specifies that the mirror clamp to edge wrap mode will be used. This is only valid if the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_sampler_mirror_clamp_to_edge">VK_KHR_sampler_mirror_clamp_to_edge</a> extension is enabled.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -2151,7 +2146,7 @@ public class VK10 {
      * <li>{@link #VK_ACCESS_INDEX_READ_BIT ACCESS_INDEX_READ_BIT} specifies read access to an index buffer as part of an indexed drawing command, bound by {@link #vkCmdBindIndexBuffer CmdBindIndexBuffer}.</li>
      * <li>{@link #VK_ACCESS_VERTEX_ATTRIBUTE_READ_BIT ACCESS_VERTEX_ATTRIBUTE_READ_BIT} specifies read access to a vertex buffer as part of a drawing command, bound by {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers}.</li>
      * <li>{@link #VK_ACCESS_UNIFORM_READ_BIT ACCESS_UNIFORM_READ_BIT} specifies read access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-uniformbuffer">uniform buffer</a>.</li>
-     * <li>{@link #VK_ACCESS_INPUT_ATTACHMENT_READ_BIT ACCESS_INPUT_ATTACHMENT_READ_BIT} specifies read access to an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#renderpass">input attachment</a> within a renderpass during fragment shading.</li>
+     * <li>{@link #VK_ACCESS_INPUT_ATTACHMENT_READ_BIT ACCESS_INPUT_ATTACHMENT_READ_BIT} specifies read access to an <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#renderpass">input attachment</a> within a render pass during fragment shading.</li>
      * <li>{@link #VK_ACCESS_SHADER_READ_BIT ACCESS_SHADER_READ_BIT} specifies read access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storagebuffer">storage buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-uniformtexelbuffer">uniform texel buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storagetexelbuffer">storage texel buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-sampledimage">sampled image</a>, or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storageimage">storage image</a>.</li>
      * <li>{@link #VK_ACCESS_SHADER_WRITE_BIT ACCESS_SHADER_WRITE_BIT} specifies write access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storagebuffer">storage buffer</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storagetexelbuffer">storage texel buffer</a>, or <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storageimage">storage image</a>.</li>
      * <li>{@link #VK_ACCESS_COLOR_ATTACHMENT_READ_BIT ACCESS_COLOR_ATTACHMENT_READ_BIT} specifies read access to a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#renderpass">color attachment</a>, such as via <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#framebuffer-blending">blending</a>, <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#framebuffer-logicop">logic operations</a>, or via certain <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#renderpass-load-store-ops">subpass load operations</a>. It does not include <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#framebuffer-blend-advanced">advanced blend operations</a>.</li>
@@ -3049,7 +3044,7 @@ public class VK10 {
      * 
      * <p>{@link #vkGetInstanceProcAddr GetInstanceProcAddr} itself is obtained in a platform- and loader- specific manner. Typically, the loader library will export this command as a function symbol, so applications <b>can</b> link against the loader library, or load it dynamically and look up the symbol using platform-specific APIs. Loaders are encouraged to export function symbols for all other core Vulkan commands as well; if this is done, then applications that use only the core Vulkan commands have no need to use {@link #vkGetInstanceProcAddr GetInstanceProcAddr}.</p>
      * 
-     * <p>The table below defines the various use cases for {@link #vkGetInstanceProcAddr GetInstanceProcAddr} and expected return value ("fp" is function pointer) for each case.</p>
+     * <p>The table below defines the various use cases for {@link #vkGetInstanceProcAddr GetInstanceProcAddr} and expected return value ("{@code fp}" is "{@code function pointer}") for each case.</p>
      * 
      * <p>The returned function pointer is of type {@code PFN_vkVoidFunction}, and must be cast to the type of the command being queried.</p>
      * 
@@ -3116,7 +3111,7 @@ public class VK10 {
      * 
      * <p>{@link #vkGetInstanceProcAddr GetInstanceProcAddr} itself is obtained in a platform- and loader- specific manner. Typically, the loader library will export this command as a function symbol, so applications <b>can</b> link against the loader library, or load it dynamically and look up the symbol using platform-specific APIs. Loaders are encouraged to export function symbols for all other core Vulkan commands as well; if this is done, then applications that use only the core Vulkan commands have no need to use {@link #vkGetInstanceProcAddr GetInstanceProcAddr}.</p>
      * 
-     * <p>The table below defines the various use cases for {@link #vkGetInstanceProcAddr GetInstanceProcAddr} and expected return value ("fp" is function pointer) for each case.</p>
+     * <p>The table below defines the various use cases for {@link #vkGetInstanceProcAddr GetInstanceProcAddr} and expected return value ("{@code fp}" is "{@code function pointer}") for each case.</p>
      * 
      * <p>The returned function pointer is of type {@code PFN_vkVoidFunction}, and must be cast to the type of the command being queried.</p>
      * 
@@ -7403,7 +7398,7 @@ public class VK10 {
      * 
      * <p>Once a shader module has been created, any entry points it contains <b>can</b> be used in pipeline shader stages as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#pipelines-compute">Compute Pipelines</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#pipelines-graphics">Graphics Pipelines</a>.</p>
      * 
-     * <p>If the shader stage fails to compile {@link NVGLSLShader#VK_ERROR_INVALID_SHADER_NV ERROR_INVALID_SHADER_NV} will be generated and the compile log will be reported back to the application by {@code VK_EXT_debug_report} if enabled.</p>
+     * <p>If the shader stage fails to compile {@link NVGLSLShader#VK_ERROR_INVALID_SHADER_NV ERROR_INVALID_SHADER_NV} will be generated and the compile log will be reported back to the application by <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_EXT_debug_report">VK_EXT_debug_report</a> if enabled.</p>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -9860,7 +9855,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer     the command buffer that the pipeline will be bound to.
@@ -9910,13 +9905,13 @@ public class VK10 {
      * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code firstViewport} <b>must</b> be 0</li>
      * <li>If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#features-features-multiViewport">multiple viewports</a> feature is not enabled, {@code viewportCount} <b>must</b> be 1</li>
-     * <li>{@code pViewports} <b>must</b> be a valid pointer to an array of {@code viewportCount} valid {@link VkViewport} structures</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
      * <ul>
      * <li>{@code commandBuffer} <b>must</b> be a valid {@code VkCommandBuffer} handle</li>
+     * <li>{@code pViewports} <b>must</b> be a valid pointer to an array of {@code viewportCount} {@link VkViewport} structures</li>
      * <li>{@code commandBuffer} <b>must</b> be in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#commandbuffers-lifecycle">recording state</a></li>
      * <li>The {@code VkCommandPool} that {@code commandBuffer} was allocated from <b>must</b> support graphics operations</li>
      * <li>{@code viewportCount} <b>must</b> be greater than 0</li>
@@ -10530,7 +10525,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer     the command buffer that the descriptor sets will be bound to.
@@ -11252,7 +11247,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -11388,7 +11383,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -11665,7 +11660,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -11760,7 +11755,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -11857,7 +11852,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
@@ -11937,7 +11932,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
@@ -12017,7 +12012,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
@@ -12097,7 +12092,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
@@ -12177,7 +12172,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
@@ -12257,7 +12252,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
@@ -12412,7 +12407,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -12491,7 +12486,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -13001,7 +12996,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command is recorded.
@@ -13072,7 +13067,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command is recorded.
@@ -13186,7 +13181,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -13304,7 +13299,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Transfer graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Transfer Graphics Compute</td><td></td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -13383,7 +13378,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which this command will be recorded.
@@ -13447,7 +13442,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which this command will be recorded.
@@ -13508,7 +13503,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which this command will be recorded.
@@ -13598,7 +13593,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Transfer graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Transfer Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which the command will be recorded.
@@ -13689,7 +13684,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics compute</td><td>Transfer</td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Outside</td><td>Graphics Compute</td><td>Transfer</td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer into which this command will be recorded.
@@ -13769,7 +13764,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer in which the push constant update will be recorded.
@@ -13833,7 +13828,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer in which the push constant update will be recorded.
@@ -13897,7 +13892,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer in which the push constant update will be recorded.
@@ -13961,7 +13956,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer in which the push constant update will be recorded.
@@ -14025,7 +14020,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer in which the push constant update will be recorded.
@@ -14089,7 +14084,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Both</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer the command buffer in which the push constant update will be recorded.
@@ -14371,7 +14366,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary</td><td>Both</td><td>Transfer graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary</td><td>Both</td><td>Transfer Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer   a handle to a primary command buffer that the secondary command buffers are executed in.
@@ -14445,7 +14440,7 @@ public class VK10 {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary</td><td>Both</td><td>Transfer graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary</td><td>Both</td><td>Transfer Graphics Compute</td><td></td></tr></tbody>
      * </table>
      *
      * @param commandBuffer a handle to a primary command buffer that the secondary command buffers are executed in.

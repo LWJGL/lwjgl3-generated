@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL}.</li>
- * <li>{@code supportsTextureGatherLODBiasAMD} &ndash; tells if the image format can be used with texture gather bias/LOD functions, as introduced by the {@link AMDTextureGatherBiasLod} extension. (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_texture_gather_bias_lod">VK_AMD_texture_gather_bias_lod</a>). This field is set by the implementation. User-specified value is ignored.</li>
+ * <li>{@code supportsTextureGatherLODBiasAMD} &ndash; tells if the image format can be used with texture gather bias/LOD functions, as introduced by the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_texture_gather_bias_lod">VK_AMD_texture_gather_bias_lod</a> extension. This field is set by the implementation. User-specified value is ignored.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

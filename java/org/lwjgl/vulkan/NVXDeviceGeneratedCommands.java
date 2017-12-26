@@ -18,11 +18,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * This extension allows the device to generate a number of critical commands for command buffers.
  * 
- * <p>When rendering a large number of objects, the device can be leveraged to implement a number of critical functions, like updating matrices, or implementing occlusion culling, frustum culling, front to back sorting... Implementing those on the device does not require any special extension, since an application is free to define its own data structure, and just process them using shaders.</p>
+ * <p>When rendering a large number of objects, the device can be leveraged to implement a number of critical functions, like updating matrices, or implementing occlusion culling, frustum culling, front to back sorting, etc. Implementing those on the device does not require any special extension, since an application is free to define its own data structure, and just process them using shaders.</p>
  * 
  * <p>However, if the application desires to quickly kick off the rendering of the final stream of objects, then unextended Vulkan forces the application to read back the processed stream and issue graphics command from the host. For very large scenes, the synchronization overhead, and cost to generate the command buffer can become the bottleneck. This extension allows an application to generate a device side stream of state changes and commands, and convert it efficiently into a command buffer without having to read it back on the host.</p>
  * 
- * <p>Furthermore, it allows incremental changes to such command buffers, by manipulating only partial sections of a command stream, for example pipeline bindings. Unextended Vulkan requires re-creation of entire command buffers in such scenario, or updates synchronized on the host.</p>
+ * <p>Furthermore, it allows incremental changes to such command buffers by manipulating only partial sections of a command stream -- for example pipeline bindings. Unextended Vulkan requires re-creation of entire command buffers in such scenario, or updates synchronized on the host.</p>
  * 
  * <p>The intended usage for this extension is for the application to:</p>
  * 
@@ -48,7 +48,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Applications <b>should</b> register a small number of objects, and use dynamic offsets whenever possible.</p>
  * 
- * <p>While the GPU can be faster than a CPU to generate the commands, it may not happen asynchronously, therefore the primary use-case is generating "{@code less}" total work (occlusion culling, classification to use specialized shaders...).</p>
+ * <p>While the GPU can be faster than a CPU to generate the commands, it may not happen asynchronously, therefore the primary use-case is generating "{@code less}" total work (occlusion culling, classification to use specialized shaders, etc.).</p>
  * 
  * <h5>Example Code</h5>
  * 
@@ -371,7 +371,7 @@ public class NVXDeviceGeneratedCommands {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Primary Secondary</td><td>Inside</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Primary Secondary</td><td>Inside</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
@@ -437,7 +437,7 @@ public class NVXDeviceGeneratedCommands {
      * 
      * <table class="lwjgl">
      * <thead><tr><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkCommandBufferLevel">Command Buffer Levels</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#vkCmdBeginRenderPass">Render Pass Scope</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VkQueueFlagBits">Supported Queue Types</a></th><th><a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-pipeline-stages-types">Pipeline Type</a></th></tr></thead>
-     * <tbody><tr><td>Secondary</td><td>Inside</td><td>Graphics compute</td><td></td></tr></tbody>
+     * <tbody><tr><td>Secondary</td><td>Inside</td><td>Graphics Compute</td><td></td></tr></tbody>
      * </table>
      * 
      * <h5>See Also</h5>
