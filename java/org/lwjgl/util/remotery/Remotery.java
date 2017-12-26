@@ -39,6 +39,7 @@ public class Remotery {
      * 
      * <ul>
      * <li>{@link #RMT_ERROR_NONE ERROR_NONE}</li>
+     * <li>{@link #RMT_ERROR_RECURSIVE_SAMPLE ERROR_RECURSIVE_SAMPLE} - Not an error but an internal message to calling code</li>
      * <li>{@link #RMT_ERROR_MALLOC_FAIL ERROR_MALLOC_FAIL} - Malloc call within remotery failed</li>
      * <li>{@link #RMT_ERROR_TLS_ALLOC_FAIL ERROR_TLS_ALLOC_FAIL} - Attempt to allocate thread local storage failed</li>
      * <li>{@link #RMT_ERROR_VIRTUAL_MEMORY_BUFFER_FAIL ERROR_VIRTUAL_MEMORY_BUFFER_FAIL} - Failed to create a virtual memory mirror buffer</li>
@@ -86,49 +87,50 @@ public class Remotery {
      */
     public static final int
         RMT_ERROR_NONE                            = 0,
-        RMT_ERROR_MALLOC_FAIL                     = 1,
-        RMT_ERROR_TLS_ALLOC_FAIL                  = 2,
-        RMT_ERROR_VIRTUAL_MEMORY_BUFFER_FAIL      = 3,
-        RMT_ERROR_CREATE_THREAD_FAIL              = 4,
-        RMT_ERROR_SOCKET_INIT_NETWORK_FAIL        = 5,
-        RMT_ERROR_SOCKET_CREATE_FAIL              = 6,
-        RMT_ERROR_SOCKET_BIND_FAIL                = 7,
-        RMT_ERROR_SOCKET_LISTEN_FAIL              = 8,
-        RMT_ERROR_SOCKET_SET_NON_BLOCKING_FAIL    = 9,
-        RMT_ERROR_SOCKET_INVALID_POLL             = 10,
-        RMT_ERROR_SOCKET_SELECT_FAIL              = 11,
-        RMT_ERROR_SOCKET_POLL_ERRORS              = 12,
-        RMT_ERROR_SOCKET_ACCEPT_FAIL              = 13,
-        RMT_ERROR_SOCKET_SEND_TIMEOUT             = 14,
-        RMT_ERROR_SOCKET_SEND_FAIL                = 15,
-        RMT_ERROR_SOCKET_RECV_NO_DATA             = 16,
-        RMT_ERROR_SOCKET_RECV_TIMEOUT             = 17,
-        RMT_ERROR_SOCKET_RECV_FAILED              = 18,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_NOT_GET     = 19,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_NO_VERSION  = 20,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_BAD_VERSION = 21,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_NO_HOST     = 22,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_BAD_HOST    = 23,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_NO_KEY      = 24,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_BAD_KEY     = 25,
-        RMT_ERROR_WEBSOCKET_HANDSHAKE_STRING_FAIL = 26,
-        RMT_ERROR_WEBSOCKET_DISCONNECTED          = 27,
-        RMT_ERROR_WEBSOCKET_BAD_FRAME_HEADER      = 28,
-        RMT_ERROR_WEBSOCKET_BAD_FRAME_HEADER_SIZE = 29,
-        RMT_ERROR_WEBSOCKET_BAD_FRAME_HEADER_MASK = 30,
-        RMT_ERROR_WEBSOCKET_RECEIVE_TIMEOUT       = 31,
-        RMT_ERROR_REMOTERY_NOT_CREATED            = 32,
-        RMT_ERROR_SEND_ON_INCOMPLETE_PROFILE      = 33,
-        RMT_ERROR_CUDA_DEINITIALIZED              = 34,
-        RMT_ERROR_CUDA_NOT_INITIALIZED            = 35,
-        RMT_ERROR_CUDA_INVALID_CONTEXT            = 36,
-        RMT_ERROR_CUDA_INVALID_VALUE              = 37,
-        RMT_ERROR_CUDA_INVALID_HANDLE             = 38,
-        RMT_ERROR_CUDA_OUT_OF_MEMORY              = 39,
-        RMT_ERROR_ERROR_NOT_READY                 = 40,
-        RMT_ERROR_D3D11_FAILED_TO_CREATE_QUERY    = 41,
-        RMT_ERROR_OPENGL_ERROR                    = 42,
-        RMT_ERROR_CUDA_UNKNOWN                    = 43;
+        RMT_ERROR_RECURSIVE_SAMPLE                = 1,
+        RMT_ERROR_MALLOC_FAIL                     = 2,
+        RMT_ERROR_TLS_ALLOC_FAIL                  = 3,
+        RMT_ERROR_VIRTUAL_MEMORY_BUFFER_FAIL      = 4,
+        RMT_ERROR_CREATE_THREAD_FAIL              = 5,
+        RMT_ERROR_SOCKET_INIT_NETWORK_FAIL        = 6,
+        RMT_ERROR_SOCKET_CREATE_FAIL              = 7,
+        RMT_ERROR_SOCKET_BIND_FAIL                = 8,
+        RMT_ERROR_SOCKET_LISTEN_FAIL              = 9,
+        RMT_ERROR_SOCKET_SET_NON_BLOCKING_FAIL    = 10,
+        RMT_ERROR_SOCKET_INVALID_POLL             = 11,
+        RMT_ERROR_SOCKET_SELECT_FAIL              = 12,
+        RMT_ERROR_SOCKET_POLL_ERRORS              = 13,
+        RMT_ERROR_SOCKET_ACCEPT_FAIL              = 14,
+        RMT_ERROR_SOCKET_SEND_TIMEOUT             = 15,
+        RMT_ERROR_SOCKET_SEND_FAIL                = 16,
+        RMT_ERROR_SOCKET_RECV_NO_DATA             = 17,
+        RMT_ERROR_SOCKET_RECV_TIMEOUT             = 18,
+        RMT_ERROR_SOCKET_RECV_FAILED              = 19,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_NOT_GET     = 20,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_NO_VERSION  = 21,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_BAD_VERSION = 22,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_NO_HOST     = 23,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_BAD_HOST    = 24,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_NO_KEY      = 25,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_BAD_KEY     = 26,
+        RMT_ERROR_WEBSOCKET_HANDSHAKE_STRING_FAIL = 27,
+        RMT_ERROR_WEBSOCKET_DISCONNECTED          = 28,
+        RMT_ERROR_WEBSOCKET_BAD_FRAME_HEADER      = 29,
+        RMT_ERROR_WEBSOCKET_BAD_FRAME_HEADER_SIZE = 30,
+        RMT_ERROR_WEBSOCKET_BAD_FRAME_HEADER_MASK = 31,
+        RMT_ERROR_WEBSOCKET_RECEIVE_TIMEOUT       = 32,
+        RMT_ERROR_REMOTERY_NOT_CREATED            = 33,
+        RMT_ERROR_SEND_ON_INCOMPLETE_PROFILE      = 34,
+        RMT_ERROR_CUDA_DEINITIALIZED              = 35,
+        RMT_ERROR_CUDA_NOT_INITIALIZED            = 36,
+        RMT_ERROR_CUDA_INVALID_CONTEXT            = 37,
+        RMT_ERROR_CUDA_INVALID_VALUE              = 38,
+        RMT_ERROR_CUDA_INVALID_HANDLE             = 39,
+        RMT_ERROR_CUDA_OUT_OF_MEMORY              = 40,
+        RMT_ERROR_ERROR_NOT_READY                 = 41,
+        RMT_ERROR_D3D11_FAILED_TO_CREATE_QUERY    = 42,
+        RMT_ERROR_OPENGL_ERROR                    = 43,
+        RMT_ERROR_CUDA_UNKNOWN                    = 44;
 
     /**
      * {@code rmtSampleFlags}
@@ -138,11 +140,13 @@ public class Remotery {
      * <ul>
      * <li>{@link #RMTSF_None RMTSF_None} - Default behaviour</li>
      * <li>{@link #RMTSF_Aggregate RMTSF_Aggregate} - Search parent for same-named samples and merge timing instead of adding a new sample</li>
+     * <li>{@link #RMTSF_Recursive RMTSF_Recursive} - Merge sample with parent if it's the same sample</li>
      * </ul>
      */
     public static final int
         RMTSF_None      = 0,
-        RMTSF_Aggregate = 1;
+        RMTSF_Aggregate = 1,
+        RMTSF_Recursive = 2;
 
     static { LibRemotery.initialize(); }
 
@@ -248,7 +252,7 @@ public class Remotery {
 
     /**
      * @param name       
-     * @param flags      one of:<br><table><tr><td>{@link #RMTSF_None}</td><td>{@link #RMTSF_Aggregate}</td></tr></table>
+     * @param flags      one of:<br><table><tr><td>{@link #RMTSF_None}</td><td>{@link #RMTSF_Aggregate}</td><td>{@link #RMTSF_Recursive}</td></tr></table>
      * @param hash_cache 
      */
     public static void rmt_BeginCPUSample(@NativeType("rmtPStr") ByteBuffer name, @NativeType("rmtU32") int flags, @NativeType("rmtU32 *") IntBuffer hash_cache) {
@@ -261,7 +265,7 @@ public class Remotery {
 
     /**
      * @param name       
-     * @param flags      one of:<br><table><tr><td>{@link #RMTSF_None}</td><td>{@link #RMTSF_Aggregate}</td></tr></table>
+     * @param flags      one of:<br><table><tr><td>{@link #RMTSF_None}</td><td>{@link #RMTSF_Aggregate}</td><td>{@link #RMTSF_Recursive}</td></tr></table>
      * @param hash_cache 
      */
     public static void rmt_BeginCPUSample(@NativeType("rmtPStr") CharSequence name, @NativeType("rmtU32") int flags, @NativeType("rmtU32 *") IntBuffer hash_cache) {
