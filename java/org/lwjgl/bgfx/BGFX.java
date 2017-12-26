@@ -22,7 +22,7 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
     /** API version */
-    public static final int BGFX_API_VERSION = 57;
+    public static final int BGFX_API_VERSION = 59;
 
     /** Invalid handle */
     public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
@@ -367,8 +367,9 @@ public class BGFX {
         BGFX_CAPS_TEXTURE_COMPARE_ALL    = 0xC0000L,
         BGFX_CAPS_TEXTURE_COMPARE_LEQUAL = 0x80000L,
         BGFX_CAPS_TEXTURE_CUBE_ARRAY     = 0x100000L,
-        BGFX_CAPS_TEXTURE_READ_BACK      = 0x200000L,
-        BGFX_CAPS_VERTEX_ATTRIB_HALF     = 0x400000L,
+        BGFX_CAPS_TEXTURE_DIRECT_ACCESS  = 0x200000L,
+        BGFX_CAPS_TEXTURE_READ_BACK      = 0x400000L,
+        BGFX_CAPS_VERTEX_ATTRIB_HALF     = 0x800000L,
         BGFX_CAPS_VERTEX_ATTRIB_UINT10   = 0x800000L;
 
     /** Format caps */
@@ -982,6 +983,7 @@ public class BGFX {
             update_texture_cube                                  = apiGetFunctionAddress(BGFX, "bgfx_update_texture_cube"),
             read_texture                                         = apiGetFunctionAddress(BGFX, "bgfx_read_texture"),
             set_texture_name                                     = apiGetFunctionAddress(BGFX, "bgfx_set_texture_name"),
+            get_direct_access_ptr                                = apiGetFunctionAddress(BGFX, "bgfx_get_direct_access_ptr"),
             destroy_texture                                      = apiGetFunctionAddress(BGFX, "bgfx_destroy_texture"),
             create_frame_buffer                                  = apiGetFunctionAddress(BGFX, "bgfx_create_frame_buffer"),
             create_frame_buffer_scaled                           = apiGetFunctionAddress(BGFX, "bgfx_create_frame_buffer_scaled"),
@@ -2971,6 +2973,26 @@ public class BGFX {
         } finally {
             stack.setPointer(stackPointer);
         }
+    }
+
+    // --- [ bgfx_get_direct_access_ptr ] ---
+
+    /**
+     * Returns texture direct access pointer.
+     * 
+     * <p>Returns pointer to texture memory. If returned pointer is {@code NULL} direct access is not available for this texture. If pointer is {@code UINTPTR_MAX}
+     * sentinel value it means texture is pending creation. Pointer returned can be cached and it will be valid until texture is destroyed.</p>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>Availability depends on: {@link #BGFX_CAPS_TEXTURE_DIRECT_ACCESS CAPS_TEXTURE_DIRECT_ACCESS}. This feature is available on GPUs that have unified memory architecture (UMA) support.</p></div>
+     *
+     * @param _handle 
+     */
+    @NativeType("void *")
+    public static long bgfx_get_direct_access_ptr(@NativeType("bgfx_texture_handle_t") short _handle) {
+        long __functionAddress = Functions.get_direct_access_ptr;
+        return invokeP(__functionAddress, _handle);
     }
 
     // --- [ bgfx_destroy_texture ] ---

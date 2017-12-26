@@ -29,6 +29,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code numDraw} &ndash; number of draw calls submitted</li>
  * <li>{@code numCompute} &ndash; number of compute calls submitted</li>
  * <li>{@code maxGpuLatency} &ndash; GPU driver latency</li>
+ * <li>{@code numDynamicIndexBuffers} &ndash; number of used dynamic index buffers</li>
+ * <li>{@code numDynamicVertexBuffers} &ndash; number of used dynamic vertex buffers</li>
+ * <li>{@code numFrameBuffers} &ndash; number of used frame buffers</li>
+ * <li>{@code numIndexBuffers} &ndash; number of used index buffers</li>
+ * <li>{@code numOcclusionQueries} &ndash; number of used occlusion queries</li>
+ * <li>{@code numPrograms} &ndash; number of used programs</li>
+ * <li>{@code numShaders} &ndash; number of used shaders</li>
+ * <li>{@code numTextures} &ndash; number of used textures</li>
+ * <li>{@code numUniforms} &ndash; number of used uniforms</li>
+ * <li>{@code numVertexBuffers} &ndash; number of used vertex buffers</li>
+ * <li>{@code numVertexDecls} &ndash; number of used vertex declarations</li>
  * <li>{@code gpuMemoryMax} &ndash; maximum available GPU memory for application</li>
  * <li>{@code gpuMemoryUsed} &ndash; amount of GPU memory used</li>
  * <li>{@code width} &ndash; backbuffer width in pixels</li>
@@ -57,6 +68,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t numDraw;
  *     uint32_t numCompute;
  *     uint32_t maxGpuLatency;
+ *     uint16_t numDynamicIndexBuffers;
+ *     uint16_t numDynamicVertexBuffers;
+ *     uint16_t numFrameBuffers;
+ *     uint16_t numIndexBuffers;
+ *     uint16_t numOcclusionQueries;
+ *     uint16_t numPrograms;
+ *     uint16_t numShaders;
+ *     uint16_t numTextures;
+ *     uint16_t numUniforms;
+ *     uint16_t numVertexBuffers;
+ *     uint16_t numVertexDecls;
  *     int64_t gpuMemoryMax;
  *     int64_t gpuMemoryUsed;
  *     uint16_t width;
@@ -91,6 +113,17 @@ public class BGFXStats extends Struct {
         NUMDRAW,
         NUMCOMPUTE,
         MAXGPULATENCY,
+        NUMDYNAMICINDEXBUFFERS,
+        NUMDYNAMICVERTEXBUFFERS,
+        NUMFRAMEBUFFERS,
+        NUMINDEXBUFFERS,
+        NUMOCCLUSIONQUERIES,
+        NUMPROGRAMS,
+        NUMSHADERS,
+        NUMTEXTURES,
+        NUMUNIFORMS,
+        NUMVERTEXBUFFERS,
+        NUMVERTEXDECLS,
         GPUMEMORYMAX,
         GPUMEMORYUSED,
         WIDTH,
@@ -116,6 +149,17 @@ public class BGFXStats extends Struct {
             __member(4),
             __member(4),
             __member(4),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
+            __member(2),
             __member(8),
             __member(8),
             __member(2),
@@ -143,16 +187,27 @@ public class BGFXStats extends Struct {
         NUMDRAW = layout.offsetof(9);
         NUMCOMPUTE = layout.offsetof(10);
         MAXGPULATENCY = layout.offsetof(11);
-        GPUMEMORYMAX = layout.offsetof(12);
-        GPUMEMORYUSED = layout.offsetof(13);
-        WIDTH = layout.offsetof(14);
-        HEIGHT = layout.offsetof(15);
-        TEXTWIDTH = layout.offsetof(16);
-        TEXTHEIGHT = layout.offsetof(17);
-        NUMVIEWS = layout.offsetof(18);
-        VIEWSTATS = layout.offsetof(19);
-        NUMENCODER = layout.offsetof(20);
-        ENCODERSTATS = layout.offsetof(21);
+        NUMDYNAMICINDEXBUFFERS = layout.offsetof(12);
+        NUMDYNAMICVERTEXBUFFERS = layout.offsetof(13);
+        NUMFRAMEBUFFERS = layout.offsetof(14);
+        NUMINDEXBUFFERS = layout.offsetof(15);
+        NUMOCCLUSIONQUERIES = layout.offsetof(16);
+        NUMPROGRAMS = layout.offsetof(17);
+        NUMSHADERS = layout.offsetof(18);
+        NUMTEXTURES = layout.offsetof(19);
+        NUMUNIFORMS = layout.offsetof(20);
+        NUMVERTEXBUFFERS = layout.offsetof(21);
+        NUMVERTEXDECLS = layout.offsetof(22);
+        GPUMEMORYMAX = layout.offsetof(23);
+        GPUMEMORYUSED = layout.offsetof(24);
+        WIDTH = layout.offsetof(25);
+        HEIGHT = layout.offsetof(26);
+        TEXTWIDTH = layout.offsetof(27);
+        TEXTHEIGHT = layout.offsetof(28);
+        NUMVIEWS = layout.offsetof(29);
+        VIEWSTATS = layout.offsetof(30);
+        NUMENCODER = layout.offsetof(31);
+        ENCODERSTATS = layout.offsetof(32);
     }
 
     BGFXStats(long address, ByteBuffer container) {
@@ -208,6 +263,39 @@ public class BGFXStats extends Struct {
     /** Returns the value of the {@code maxGpuLatency} field. */
     @NativeType("uint32_t")
     public int maxGpuLatency() { return nmaxGpuLatency(address()); }
+    /** Returns the value of the {@code numDynamicIndexBuffers} field. */
+    @NativeType("uint16_t")
+    public short numDynamicIndexBuffers() { return nnumDynamicIndexBuffers(address()); }
+    /** Returns the value of the {@code numDynamicVertexBuffers} field. */
+    @NativeType("uint16_t")
+    public short numDynamicVertexBuffers() { return nnumDynamicVertexBuffers(address()); }
+    /** Returns the value of the {@code numFrameBuffers} field. */
+    @NativeType("uint16_t")
+    public short numFrameBuffers() { return nnumFrameBuffers(address()); }
+    /** Returns the value of the {@code numIndexBuffers} field. */
+    @NativeType("uint16_t")
+    public short numIndexBuffers() { return nnumIndexBuffers(address()); }
+    /** Returns the value of the {@code numOcclusionQueries} field. */
+    @NativeType("uint16_t")
+    public short numOcclusionQueries() { return nnumOcclusionQueries(address()); }
+    /** Returns the value of the {@code numPrograms} field. */
+    @NativeType("uint16_t")
+    public short numPrograms() { return nnumPrograms(address()); }
+    /** Returns the value of the {@code numShaders} field. */
+    @NativeType("uint16_t")
+    public short numShaders() { return nnumShaders(address()); }
+    /** Returns the value of the {@code numTextures} field. */
+    @NativeType("uint16_t")
+    public short numTextures() { return nnumTextures(address()); }
+    /** Returns the value of the {@code numUniforms} field. */
+    @NativeType("uint16_t")
+    public short numUniforms() { return nnumUniforms(address()); }
+    /** Returns the value of the {@code numVertexBuffers} field. */
+    @NativeType("uint16_t")
+    public short numVertexBuffers() { return nnumVertexBuffers(address()); }
+    /** Returns the value of the {@code numVertexDecls} field. */
+    @NativeType("uint16_t")
+    public short numVertexDecls() { return nnumVertexDecls(address()); }
     /** Returns the value of the {@code gpuMemoryMax} field. */
     @NativeType("int64_t")
     public long gpuMemoryMax() { return ngpuMemoryMax(address()); }
@@ -282,6 +370,28 @@ public class BGFXStats extends Struct {
     public static int nnumCompute(long struct) { return memGetInt(struct + BGFXStats.NUMCOMPUTE); }
     /** Unsafe version of {@link #maxGpuLatency}. */
     public static int nmaxGpuLatency(long struct) { return memGetInt(struct + BGFXStats.MAXGPULATENCY); }
+    /** Unsafe version of {@link #numDynamicIndexBuffers}. */
+    public static short nnumDynamicIndexBuffers(long struct) { return memGetShort(struct + BGFXStats.NUMDYNAMICINDEXBUFFERS); }
+    /** Unsafe version of {@link #numDynamicVertexBuffers}. */
+    public static short nnumDynamicVertexBuffers(long struct) { return memGetShort(struct + BGFXStats.NUMDYNAMICVERTEXBUFFERS); }
+    /** Unsafe version of {@link #numFrameBuffers}. */
+    public static short nnumFrameBuffers(long struct) { return memGetShort(struct + BGFXStats.NUMFRAMEBUFFERS); }
+    /** Unsafe version of {@link #numIndexBuffers}. */
+    public static short nnumIndexBuffers(long struct) { return memGetShort(struct + BGFXStats.NUMINDEXBUFFERS); }
+    /** Unsafe version of {@link #numOcclusionQueries}. */
+    public static short nnumOcclusionQueries(long struct) { return memGetShort(struct + BGFXStats.NUMOCCLUSIONQUERIES); }
+    /** Unsafe version of {@link #numPrograms}. */
+    public static short nnumPrograms(long struct) { return memGetShort(struct + BGFXStats.NUMPROGRAMS); }
+    /** Unsafe version of {@link #numShaders}. */
+    public static short nnumShaders(long struct) { return memGetShort(struct + BGFXStats.NUMSHADERS); }
+    /** Unsafe version of {@link #numTextures}. */
+    public static short nnumTextures(long struct) { return memGetShort(struct + BGFXStats.NUMTEXTURES); }
+    /** Unsafe version of {@link #numUniforms}. */
+    public static short nnumUniforms(long struct) { return memGetShort(struct + BGFXStats.NUMUNIFORMS); }
+    /** Unsafe version of {@link #numVertexBuffers}. */
+    public static short nnumVertexBuffers(long struct) { return memGetShort(struct + BGFXStats.NUMVERTEXBUFFERS); }
+    /** Unsafe version of {@link #numVertexDecls}. */
+    public static short nnumVertexDecls(long struct) { return memGetShort(struct + BGFXStats.NUMVERTEXDECLS); }
     /** Unsafe version of {@link #gpuMemoryMax}. */
     public static long ngpuMemoryMax(long struct) { return memGetLong(struct + BGFXStats.GPUMEMORYMAX); }
     /** Unsafe version of {@link #gpuMemoryUsed}. */
@@ -381,6 +491,39 @@ public class BGFXStats extends Struct {
         /** Returns the value of the {@code maxGpuLatency} field. */
         @NativeType("uint32_t")
         public int maxGpuLatency() { return BGFXStats.nmaxGpuLatency(address()); }
+        /** Returns the value of the {@code numDynamicIndexBuffers} field. */
+        @NativeType("uint16_t")
+        public short numDynamicIndexBuffers() { return BGFXStats.nnumDynamicIndexBuffers(address()); }
+        /** Returns the value of the {@code numDynamicVertexBuffers} field. */
+        @NativeType("uint16_t")
+        public short numDynamicVertexBuffers() { return BGFXStats.nnumDynamicVertexBuffers(address()); }
+        /** Returns the value of the {@code numFrameBuffers} field. */
+        @NativeType("uint16_t")
+        public short numFrameBuffers() { return BGFXStats.nnumFrameBuffers(address()); }
+        /** Returns the value of the {@code numIndexBuffers} field. */
+        @NativeType("uint16_t")
+        public short numIndexBuffers() { return BGFXStats.nnumIndexBuffers(address()); }
+        /** Returns the value of the {@code numOcclusionQueries} field. */
+        @NativeType("uint16_t")
+        public short numOcclusionQueries() { return BGFXStats.nnumOcclusionQueries(address()); }
+        /** Returns the value of the {@code numPrograms} field. */
+        @NativeType("uint16_t")
+        public short numPrograms() { return BGFXStats.nnumPrograms(address()); }
+        /** Returns the value of the {@code numShaders} field. */
+        @NativeType("uint16_t")
+        public short numShaders() { return BGFXStats.nnumShaders(address()); }
+        /** Returns the value of the {@code numTextures} field. */
+        @NativeType("uint16_t")
+        public short numTextures() { return BGFXStats.nnumTextures(address()); }
+        /** Returns the value of the {@code numUniforms} field. */
+        @NativeType("uint16_t")
+        public short numUniforms() { return BGFXStats.nnumUniforms(address()); }
+        /** Returns the value of the {@code numVertexBuffers} field. */
+        @NativeType("uint16_t")
+        public short numVertexBuffers() { return BGFXStats.nnumVertexBuffers(address()); }
+        /** Returns the value of the {@code numVertexDecls} field. */
+        @NativeType("uint16_t")
+        public short numVertexDecls() { return BGFXStats.nnumVertexDecls(address()); }
         /** Returns the value of the {@code gpuMemoryMax} field. */
         @NativeType("int64_t")
         public long gpuMemoryMax() { return BGFXStats.ngpuMemoryMax(address()); }

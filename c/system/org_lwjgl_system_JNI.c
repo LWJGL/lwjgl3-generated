@@ -78,6 +78,7 @@ ARITYn(jlong, invokePPPP__JJJJI, return (jlong)((intptr_t (*) (intptr_t, intptr_
 ARITYn(jlong, invokePPPPP__JJJJJ, return (jlong)((intptr_t (*) (intptr_t, intptr_t, intptr_t, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1, (intptr_t)param2, (intptr_t)param3), jlong param0, jlong param1, jlong param2, jlong param3)
 ARITYn(jlong, invokePPP__JJJZZ, return (jlong)((intptr_t (*) (intptr_t, intptr_t, jboolean, jboolean))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1, param2, param3), jlong param0, jlong param1, jboolean param2, jboolean param3)
 ARITYn(jlong, invokePPP__JJZZJ, return (jlong)((intptr_t (*) (intptr_t, jboolean, jboolean, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, param1, param2, (intptr_t)param3), jlong param0, jboolean param1, jboolean param2, jlong param3)
+ARITYn(jlong, invokeP__JS, return (jlong)((intptr_t (*) (jshort))(intptr_t)__functionAddress)(param0), jshort param0)
 ARITYn(jlong, invokePP__JSJ, return (jlong)((intptr_t (*) (jshort, intptr_t))(intptr_t)__functionAddress)(param0, (intptr_t)param1), jshort param0, jlong param1)
 ARITYn(jlong, invokeP__JSSSBII, return (jlong)((intptr_t (*) (jshort, jshort, jshort, jbyte, jint, jint))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4, param5), jshort param0, jshort param1, jshort param2, jbyte param3, jint param4, jint param5)
 ARITY0(jshort, invokeS__J, return ((jshort (*) ())(intptr_t)__functionAddress)())
