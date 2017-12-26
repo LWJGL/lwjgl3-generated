@@ -3693,8 +3693,21 @@ public final class GLCapabilities {
     public final boolean GL_NV_conservative_raster;
     /** When true, {@link NVConservativeRasterDilate} is supported. */
     public final boolean GL_NV_conservative_raster_dilate;
+    /** When true, {@link NVConservativeRasterPreSnap} is supported. */
+    public final boolean GL_NV_conservative_raster_pre_snap;
     /** When true, {@link NVConservativeRasterPreSnapTriangles} is supported. */
     public final boolean GL_NV_conservative_raster_pre_snap_triangles;
+    /**
+     * When true, the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_conservative_raster_underestimation.txt">NV_conservative_raster_underestimation</a> extension is supported.
+     * 
+     * <p>The extension {@link NVConservativeRaster NV_conservative_raster} provides a new rasterization mode known as "Overestimated Conservative Rasterization", where any pixel
+     * that is partially covered, even if no sample location is covered, is treated as fully covered and a corresponding fragment will be shaded. There is
+     * also an "Underestimated Conservative Rasterization" variant, where only the pixels that are completely covered by the primitive are rasterized.</p>
+     * 
+     * <p>This extension provides the underestimated conservative rasterization information for each fragment in the fragment shader through a new built-in
+     * {@code gl_FragFullyCoveredNV}.</p>
+     */
+    public final boolean GL_NV_conservative_raster_underestimation;
     /** When true, {@link NVCopyDepthToColor} is supported. */
     public final boolean GL_NV_copy_depth_to_color;
     /** When true, {@link NVCopyImage} is supported. */
@@ -6504,7 +6517,9 @@ public final class GLCapabilities {
         GL_NV_conditional_render = ext.contains("GL_NV_conditional_render") && checkExtension("GL_NV_conditional_render", NVConditionalRender.isAvailable(this));
         GL_NV_conservative_raster = ext.contains("GL_NV_conservative_raster") && checkExtension("GL_NV_conservative_raster", NVConservativeRaster.isAvailable(this));
         GL_NV_conservative_raster_dilate = ext.contains("GL_NV_conservative_raster_dilate") && checkExtension("GL_NV_conservative_raster_dilate", NVConservativeRasterDilate.isAvailable(this));
+        GL_NV_conservative_raster_pre_snap = ext.contains("GL_NV_conservative_raster_pre_snap");
         GL_NV_conservative_raster_pre_snap_triangles = ext.contains("GL_NV_conservative_raster_pre_snap_triangles") && checkExtension("GL_NV_conservative_raster_pre_snap_triangles", NVConservativeRasterPreSnapTriangles.isAvailable(this));
+        GL_NV_conservative_raster_underestimation = ext.contains("GL_NV_conservative_raster_underestimation");
         GL_NV_copy_depth_to_color = ext.contains("GL_NV_copy_depth_to_color");
         GL_NV_copy_image = ext.contains("GL_NV_copy_image") && checkExtension("GL_NV_copy_image", NVCopyImage.isAvailable(this));
         GL_NV_deep_texture3D = ext.contains("GL_NV_deep_texture3D");

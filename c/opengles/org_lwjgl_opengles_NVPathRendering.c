@@ -139,7 +139,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVPathRendering_glCopyPathNV(JNIE
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVPathRendering_nglWeightPathsNV__IIJJ(JNIEnv *__env, jclass clazz, jint resultPath, jint numPaths, jlong pathsAddress, jlong weightsAddress) {
-    glWeightPathsNVPROC glWeightPathsNV = (glWeightPathsNVPROC)tlsGetFunction(832);
+    glWeightPathsNVPROC glWeightPathsNV = (glWeightPathsNVPROC)tlsGetFunction(833);
     const intptr_t paths = (const intptr_t)pathsAddress;
     const intptr_t weights = (const intptr_t)weightsAddress;
     UNUSED_PARAM(clazz)

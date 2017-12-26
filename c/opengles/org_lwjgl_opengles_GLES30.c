@@ -609,7 +609,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_GLES30_nglClientWaitSync(JNIEnv *
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_GLES30_nglWaitSync(JNIEnv *__env, jclass clazz, jlong syncAddress, jint flags, jlong timeout) {
-    glWaitSyncPROC glWaitSync = (glWaitSyncPROC)tlsGetFunction(829);
+    glWaitSyncPROC glWaitSync = (glWaitSyncPROC)tlsGetFunction(830);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     glWaitSync(sync, flags, timeout);

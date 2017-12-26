@@ -145,6 +145,15 @@ public final class GLXCapabilities {
     public final boolean GLX_EXT_framebuffer_sRGB;
     /** When true, {@link GLXEXTImportContext} is supported. */
     public final boolean GLX_EXT_import_context;
+    /**
+     * When true, the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/GLX_EXT_no_config_context.txt">GLX_EXT_no_config_context</a> extension is supported.
+     * 
+     * <p>Modern GPUs allow contexts to render to almost any combination of supported color and auxiliary buffer formats. Traditionally GLX context creation is
+     * done with respect to a GLXFBConfig specifying buffer formats, and constrains contexts to only work with drawables created with a "compatible" config.</p>
+     * 
+     * <p>This extension allows creation of GL & ES contexts without specifying a {@code GLXFBConfig}.</p>
+     */
+    public final boolean GLX_EXT_no_config_context;
     /** When true, {@link GLXEXTStereoTree} is supported. */
     public final boolean GLX_EXT_stereo_tree;
     /** When true, {@link GLXEXTSwapControl} is supported. */
@@ -282,6 +291,7 @@ public final class GLXCapabilities {
         GLX_EXT_fbconfig_packed_float = ext.contains("GLX_EXT_fbconfig_packed_float");
         GLX_EXT_framebuffer_sRGB = ext.contains("GLX_EXT_framebuffer_sRGB");
         GLX_EXT_import_context = ext.contains("GLX_EXT_import_context") && checkExtension("GLX_EXT_import_context", GLXEXTImportContext.isAvailable(this));
+        GLX_EXT_no_config_context = ext.contains("GLX_EXT_no_config_context");
         GLX_EXT_stereo_tree = ext.contains("GLX_EXT_stereo_tree");
         GLX_EXT_swap_control = ext.contains("GLX_EXT_swap_control") && checkExtension("GLX_EXT_swap_control", GLXEXTSwapControl.isAvailable(this));
         GLX_EXT_swap_control_tear = ext.contains("GLX_EXT_swap_control_tear");

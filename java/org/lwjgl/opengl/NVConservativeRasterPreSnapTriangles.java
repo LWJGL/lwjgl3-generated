@@ -21,6 +21,8 @@ import static org.lwjgl.system.Checks.*;
  * triangle becomes degenerate due to snapping. It's additionally possible that rounding errors in computing the position of a vertex or from snapping may
  * cause a primitive that would cover a pixel at infinite precision to fail to cover the pixel post-snap. Rasterizing such primitives more conservatively
  * may be useful for "binning" algorithms described in {@link NVConservativeRaster NV_conservative_raster}.</p>
+ * 
+ * <p>Requires {@link NVConservativeRaster NV_conservative_raster}.</p>
  */
 public class NVConservativeRasterPreSnapTriangles {
 

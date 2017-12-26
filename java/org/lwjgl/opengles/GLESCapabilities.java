@@ -843,6 +843,7 @@ public final class GLESCapabilities {
         glViewportIndexedfOES,
         glViewportIndexedfvNV,
         glViewportIndexedfvOES,
+        glViewportPositionWScaleNV,
         glViewportSwizzleNV,
         glWaitSemaphoreEXT,
         glWaitSync,
@@ -1462,10 +1463,14 @@ public final class GLESCapabilities {
     public final boolean GL_NV_blend_equation_advanced_coherent;
     /** When true, {@link NVBlendMinmaxFactor} is supported. */
     public final boolean GL_NV_blend_minmax_factor;
+    /** When true, {@link NVClipSpaceWScaling} is supported. */
+    public final boolean GL_NV_clip_space_w_scaling;
     /** When true, {@link NVConditionalRender} is supported. */
     public final boolean GL_NV_conditional_render;
     /** When true, {@link NVConservativeRaster} is supported. */
     public final boolean GL_NV_conservative_raster;
+    /** When true, {@link NVConservativeRasterPreSnap} is supported. */
+    public final boolean GL_NV_conservative_raster_pre_snap;
     /** When true, {@link NVConservativeRasterPreSnapTriangles} is supported. */
     public final boolean GL_NV_conservative_raster_pre_snap_triangles;
     /** When true, {@link NVCopyBuffer} is supported. */
@@ -1729,6 +1734,25 @@ public final class GLESCapabilities {
     public final boolean GL_NV_shadow_samplers_cube;
     /** When true, {@link NVSRGBFormats} is supported. */
     public final boolean GL_NV_sRGB_formats;
+    /**
+     * When true, the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_stereo_view_rendering.txt">NV_stereo_view_rendering</a> extension is supported.
+     * 
+     * <p>Virtual reality (VR) applications often render a single logical scene from multiple views corresponding to a pair of eyes. The views (eyes) are
+     * separated by a fixed offset in the X direction.</p>
+     * 
+     * <p>Traditionally, multiple views are rendered via multiple rendering passes. This is expensive for the GPU because the objects in the scene must be
+     * transformed, rasterized, shaded, and fragment processed redundantly. This is expensive for the CPU because the scene graph needs to be visited multiple
+     * times and driver validation happens for each view. Rendering N passes tends to take N times longer than a single pass.</p>
+     * 
+     * <p>This extension provides a mechanism to render binocular (stereo) views from a single stream of OpenGL rendering commands. Vertex, tessellation, and
+     * geometry (VTG) shaders can output two positions for each vertex corresponding to the two eye views. A built-in "gl_SecondaryPositionNV" is added to
+     * specify the second position. The positions from each view may be sent to different viewports and/or layers. A built-in "gl_SecondaryViewportMaskNV[]"
+     * is also added to specify the viewport mask for the second view. A new layout-qualifier "secondary_view_offset" is added for built-in output "gl_Layer"
+     * which allows for the geometry from each view to be sent to different layers for rendering.</p>
+     * 
+     * <p>Requires {@link #GL_NV_viewport_array2 NV_viewport_array2}.</p>
+     */
+    public final boolean GL_NV_stereo_view_rendering;
     /** When true, {@link NVTextureArray} is supported. */
     public final boolean GL_NV_texture_array;
     /** When true, {@link NVTextureBarrier} is supported. */
@@ -2917,6 +2941,7 @@ public final class GLESCapabilities {
         glViewportIndexedfOES = provider.getFunctionAddress("glViewportIndexedfOES");
         glViewportIndexedfvNV = provider.getFunctionAddress("glViewportIndexedfvNV");
         glViewportIndexedfvOES = provider.getFunctionAddress("glViewportIndexedfvOES");
+        glViewportPositionWScaleNV = provider.getFunctionAddress("glViewportPositionWScaleNV");
         glViewportSwizzleNV = provider.getFunctionAddress("glViewportSwizzleNV");
         glWaitSemaphoreEXT = provider.getFunctionAddress("glWaitSemaphoreEXT");
         glWaitSync = provider.getFunctionAddress("glWaitSync");
@@ -3083,8 +3108,10 @@ public final class GLESCapabilities {
         GL_NV_blend_equation_advanced = ext.contains("GL_NV_blend_equation_advanced") && checkExtension("GL_NV_blend_equation_advanced", NVBlendEquationAdvanced.isAvailable(this));
         GL_NV_blend_equation_advanced_coherent = ext.contains("GL_NV_blend_equation_advanced_coherent");
         GL_NV_blend_minmax_factor = ext.contains("GL_NV_blend_minmax_factor");
+        GL_NV_clip_space_w_scaling = ext.contains("GL_NV_clip_space_w_scaling") && checkExtension("GL_NV_clip_space_w_scaling", NVClipSpaceWScaling.isAvailable(this));
         GL_NV_conditional_render = ext.contains("GL_NV_conditional_render") && checkExtension("GL_NV_conditional_render", NVConditionalRender.isAvailable(this));
         GL_NV_conservative_raster = ext.contains("GL_NV_conservative_raster") && checkExtension("GL_NV_conservative_raster", NVConservativeRaster.isAvailable(this));
+        GL_NV_conservative_raster_pre_snap = ext.contains("GL_NV_conservative_raster_pre_snap");
         GL_NV_conservative_raster_pre_snap_triangles = ext.contains("GL_NV_conservative_raster_pre_snap_triangles") && checkExtension("GL_NV_conservative_raster_pre_snap_triangles", NVConservativeRasterPreSnapTriangles.isAvailable(this));
         GL_NV_copy_buffer = ext.contains("GL_NV_copy_buffer") && checkExtension("GL_NV_copy_buffer", NVCopyBuffer.isAvailable(this));
         GL_NV_coverage_sample = ext.contains("GL_NV_coverage_sample") && checkExtension("GL_NV_coverage_sample", NVCoverageSample.isAvailable(this));
@@ -3123,6 +3150,7 @@ public final class GLESCapabilities {
         GL_NV_shadow_samplers_array = ext.contains("GL_NV_shadow_samplers_array");
         GL_NV_shadow_samplers_cube = ext.contains("GL_NV_shadow_samplers_cube");
         GL_NV_sRGB_formats = ext.contains("GL_NV_sRGB_formats");
+        GL_NV_stereo_view_rendering = ext.contains("GL_NV_stereo_view_rendering");
         GL_NV_texture_array = ext.contains("GL_NV_texture_array") && checkExtension("GL_NV_texture_array", NVTextureArray.isAvailable(this));
         GL_NV_texture_barrier = ext.contains("GL_NV_texture_barrier") && checkExtension("GL_NV_texture_barrier", NVTextureBarrier.isAvailable(this));
         GL_NV_texture_border_clamp = ext.contains("GL_NV_texture_border_clamp");

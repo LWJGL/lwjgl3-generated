@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTSemaphore_nglGetSemaphoreParam
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTSemaphore_nglWaitSemaphoreEXT__IIJIJJ(JNIEnv *__env, jclass clazz, jint semaphore, jint numBufferBarriers, jlong buffersAddress, jint numTextureBarriers, jlong texturesAddress, jlong srcLayoutsAddress) {
-    glWaitSemaphoreEXTPROC glWaitSemaphoreEXT = (glWaitSemaphoreEXTPROC)tlsGetFunction(828);
+    glWaitSemaphoreEXTPROC glWaitSemaphoreEXT = (glWaitSemaphoreEXTPROC)tlsGetFunction(829);
     const intptr_t buffers = (const intptr_t)buffersAddress;
     const intptr_t textures = (const intptr_t)texturesAddress;
     const intptr_t srcLayouts = (const intptr_t)srcLayoutsAddress;

@@ -44,7 +44,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengles_APPLESync_nglClientWaitSyncAPPLE(
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_APPLESync_nglWaitSyncAPPLE(JNIEnv *__env, jclass clazz, jlong syncAddress, jint flags, jlong timeout) {
-    glWaitSyncAPPLEPROC glWaitSyncAPPLE = (glWaitSyncAPPLEPROC)tlsGetFunction(830);
+    glWaitSyncAPPLEPROC glWaitSyncAPPLE = (glWaitSyncAPPLEPROC)tlsGetFunction(831);
     intptr_t sync = (intptr_t)syncAddress;
     UNUSED_PARAM(clazz)
     glWaitSyncAPPLE(sync, flags, timeout);
