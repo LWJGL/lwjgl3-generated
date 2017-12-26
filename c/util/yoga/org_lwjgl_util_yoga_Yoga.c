@@ -783,6 +783,11 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigGetContext(JNIEnv
     return (jlong)(intptr_t)YGConfigGetContext(config);
 }
 
+JNIEXPORT jfloat JNICALL Java_org_lwjgl_util_yoga_Yoga_YGRoundValueToPixelGrid(JNIEnv *__env, jclass clazz, jfloat value, jfloat pointScaleFactor, jboolean forceCeil, jboolean forceFloor) {
+    UNUSED_PARAMS(__env, clazz)
+    return (jfloat)YGRoundValueToPixelGrid(value, pointScaleFactor, (bool)forceCeil, (bool)forceFloor);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGAlignToString(JNIEnv *__env, jclass clazz, jint value) {
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)YGAlignToString((YGAlign)value);

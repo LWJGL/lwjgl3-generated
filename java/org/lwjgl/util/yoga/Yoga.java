@@ -2067,6 +2067,10 @@ public class Yoga {
         return nYGConfigGetContext(config);
     }
 
+    // --- [ YGRoundValueToPixelGrid ] ---
+
+    public static native float YGRoundValueToPixelGrid(float value, float pointScaleFactor, @NativeType("bool") boolean forceCeil, @NativeType("bool") boolean forceFloor);
+
     // --- [ YGAlignToString ] ---
 
     /** Unsafe version of: {@link #YGAlignToString AlignToString} */
