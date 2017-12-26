@@ -202,6 +202,12 @@ public class GLFW {
     /** If this bit is set one or more Super keys were held down. */
     public static final int GLFW_MOD_SUPER = 0x8;
 
+    /** If this bit is set the Caps Lock key is enabled and the {@link #GLFW_LOCK_KEY_MODS LOCK_KEY_MODS} input mode is set. */
+    public static final int GLFW_MOD_CAPS_LOCK = 0x10;
+
+    /** If this bit is set the Num Lock key is enabled and the {@link #GLFW_LOCK_KEY_MODS LOCK_KEY_MODS} input mode is set. */
+    public static final int GLFW_MOD_NUM_LOCK = 0x20;
+
     /** Mouse buttons. See <a target="_blank" href="http://www.glfw.org/docs/latest/input.html#input_mouse_button">mouse button input</a> for how these are used. */
     public static final int
         GLFW_MOUSE_BUTTON_1      = 0,
@@ -434,7 +440,8 @@ public class GLFW {
     public static final int
         GLFW_CURSOR               = 0x33001,
         GLFW_STICKY_KEYS          = 0x33002,
-        GLFW_STICKY_MOUSE_BUTTONS = 0x33003;
+        GLFW_STICKY_MOUSE_BUTTONS = 0x33003,
+        GLFW_LOCK_KEY_MODS        = 0x33004;
 
     /** Cursor state. */
     public static final int
@@ -460,9 +467,7 @@ public class GLFW {
     public static final int
         GLFW_JOYSTICK_HAT_BUTTONS  = 0x50001,
         GLFW_COCOA_CHDIR_RESOURCES = 0x51001,
-        GLFW_COCOA_MENUBAR         = 0x51002,
-        GLFW_X11_WM_CLASS_NAME     = 0x52001,
-        GLFW_X11_WM_CLASS_CLASS    = 0x52002;
+        GLFW_COCOA_MENUBAR         = 0x51002;
 
     /** Don't care value. */
     public static final int GLFW_DONT_CARE = -1;
@@ -595,8 +600,11 @@ public class GLFW {
     /** Specifies whether to use full resolution framebuffers on Retina displays. This is ignored on other platforms. */
     public static final int GLFW_COCOA_RETINA_FRAMEBUFFER = 0x23001;
 
-    /** Specifies whether to activate frame autosaving on macOS. This is ignored on other platforms. */
-    public static final int GLFW_COCOA_FRAME_AUTOSAVE = 0x23002;
+    /**
+     * Specifies the UTF-8 encoded name to use for autosaving the window frame, or if empty disables frame autosaving for the window. This is ignored on other
+     * platforms. This is set with {@link #glfwWindowHintString WindowHintString}.
+     */
+    public static final int GLFW_COCOA_FRAME_NAME = 0x23002;
 
     /**
      * Specifies whether to enable Automatic Graphics Switching, i.e. to allow the system to choose the integrated GPU for the OpenGL context and move it
@@ -604,6 +612,11 @@ public class GLFW {
      * This is ignored on other platforms.
      */
     public static final int GLFW_COCOA_GRAPHICS_SWITCHING = 0x23003;
+
+    /** The desired ASCII encoded class and instance parts of the ICCCM {@code WM_CLASS} window property. These are set with {@link #glfwWindowHintString WindowHintString}. */
+    public static final int
+        GLFW_X11_CLASS_NAME    = 0x24001,
+        GLFW_X11_INSTANCE_NAME = 0x24002;
 
     /** Values for the {@link #GLFW_CLIENT_API CLIENT_API} hint. */
     public static final int
@@ -651,7 +664,6 @@ public class GLFW {
             Init                       = apiGetFunctionAddress(GLFW, "glfwInit"),
             Terminate                  = apiGetFunctionAddress(GLFW, "glfwTerminate"),
             InitHint                   = apiGetFunctionAddress(GLFW, "glfwInitHint"),
-            InitHintString             = apiGetFunctionAddress(GLFW, "glfwInitHintString"),
             GetVersion                 = apiGetFunctionAddress(GLFW, "glfwGetVersion"),
             GetVersionString           = apiGetFunctionAddress(GLFW, "glfwGetVersionString"),
             GetError                   = apiGetFunctionAddress(GLFW, "glfwGetError"),
@@ -662,6 +674,8 @@ public class GLFW {
             GetMonitorPhysicalSize     = apiGetFunctionAddress(GLFW, "glfwGetMonitorPhysicalSize"),
             GetMonitorContentScale     = apiGetFunctionAddress(GLFW, "glfwGetMonitorContentScale"),
             GetMonitorName             = apiGetFunctionAddress(GLFW, "glfwGetMonitorName"),
+            SetMonitorUserPointer      = apiGetFunctionAddress(GLFW, "glfwSetMonitorUserPointer"),
+            GetMonitorUserPointer      = apiGetFunctionAddress(GLFW, "glfwGetMonitorUserPointer"),
             SetMonitorCallback         = apiGetFunctionAddress(GLFW, "glfwSetMonitorCallback"),
             GetVideoModes              = apiGetFunctionAddress(GLFW, "glfwGetVideoModes"),
             GetVideoMode               = apiGetFunctionAddress(GLFW, "glfwGetVideoMode"),
@@ -670,6 +684,7 @@ public class GLFW {
             SetGammaRamp               = apiGetFunctionAddress(GLFW, "glfwSetGammaRamp"),
             DefaultWindowHints         = apiGetFunctionAddress(GLFW, "glfwDefaultWindowHints"),
             WindowHint                 = apiGetFunctionAddress(GLFW, "glfwWindowHint"),
+            WindowHintString           = apiGetFunctionAddress(GLFW, "glfwWindowHintString"),
             CreateWindow               = apiGetFunctionAddress(GLFW, "glfwCreateWindow"),
             DestroyWindow              = apiGetFunctionAddress(GLFW, "glfwDestroyWindow"),
             WindowShouldClose          = apiGetFunctionAddress(GLFW, "glfwWindowShouldClose"),
@@ -738,6 +753,8 @@ public class GLFW {
             GetJoystickHats            = apiGetFunctionAddress(GLFW, "glfwGetJoystickHats"),
             GetJoystickName            = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
             GetJoystickGUID            = apiGetFunctionAddress(GLFW, "glfwGetJoystickGUID"),
+            SetJoystickUserPointer     = apiGetFunctionAddress(GLFW, "glfwSetJoystickUserPointer"),
+            GetJoystickUserPointer     = apiGetFunctionAddress(GLFW, "glfwGetJoystickUserPointer"),
             JoystickIsGamepad          = apiGetFunctionAddress(GLFW, "glfwJoystickIsGamepad"),
             SetJoystickCallback        = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
             UpdateGamepadMappings      = apiGetFunctionAddress(GLFW, "glfwUpdateGamepadMappings"),
@@ -819,7 +836,7 @@ public class GLFW {
     // --- [ glfwInitHint ] ---
 
     /**
-     * Sets hints for the next initialization of GLFW. Only integer type hints can be set with this function.
+     * Sets hints for the next initialization of GLFW.
      * 
      * <p>The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you
      * set will be ignored until the library is terminated and initialized again.</p>
@@ -842,73 +859,6 @@ public class GLFW {
     public static void glfwInitHint(int hint, int value) {
         long __functionAddress = Functions.InitHint;
         invokeV(__functionAddress, hint, value);
-    }
-
-    // --- [ glfwInitHintString ] ---
-
-    /** Unsafe version of: {@link #glfwInitHintString InitHintString} */
-    public static void nglfwInitHintString(int hint, long value) {
-        long __functionAddress = Functions.InitHintString;
-        invokePV(__functionAddress, hint, value);
-    }
-
-    /**
-     * Sets hints for the next initialization of GLFW. Only string type hints can be set with this function.
-     * 
-     * <p>The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you
-     * set will be ignored until the library is terminated and initialized again.</p>
-     * 
-     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will simply
-     * ignore them. Setting these hints requires no platform specific headers or functions.</p>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <ul>
-     * <li>This function may be called before {@link #glfwInit Init}.</li>
-     * <li>This function must only be called from the main thread.</li>
-     * </ul></div>
-     *
-     * @param hint  the init hint to set. One of:<br><table><tr><td>{@link #GLFW_X11_WM_CLASS_NAME X11_WM_CLASS_NAME}</td><td>{@link #GLFW_X11_WM_CLASS_CLASS X11_WM_CLASS_CLASS}</td></tr></table>
-     * @param value the new value of the init hint
-     *
-     * @since version 3.3
-     */
-    public static void glfwInitHintString(int hint, @NativeType("const char *") ByteBuffer value) {
-        if (CHECKS) {
-            checkNT1(value);
-        }
-        nglfwInitHintString(hint, memAddress(value));
-    }
-
-    /**
-     * Sets hints for the next initialization of GLFW. Only string type hints can be set with this function.
-     * 
-     * <p>The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you
-     * set will be ignored until the library is terminated and initialized again.</p>
-     * 
-     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will simply
-     * ignore them. Setting these hints requires no platform specific headers or functions.</p>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <ul>
-     * <li>This function may be called before {@link #glfwInit Init}.</li>
-     * <li>This function must only be called from the main thread.</li>
-     * </ul></div>
-     *
-     * @param hint  the init hint to set. One of:<br><table><tr><td>{@link #GLFW_X11_WM_CLASS_NAME X11_WM_CLASS_NAME}</td><td>{@link #GLFW_X11_WM_CLASS_CLASS X11_WM_CLASS_CLASS}</td></tr></table>
-     * @param value the new value of the init hint
-     *
-     * @since version 3.3
-     */
-    public static void glfwInitHintString(@NativeType("int") int hint, @NativeType("const char *") CharSequence value) {
-        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-        try {
-            ByteBuffer valueEncoded = stack.UTF8(value);
-            nglfwInitHintString(hint, memAddress(valueEncoded));
-        } finally {
-            stack.setPointer(stackPointer);
-        }
     }
 
     // --- [ glfwGetVersion ] ---
@@ -1254,6 +1204,56 @@ public class GLFW {
         return memUTF8(__result);
     }
 
+    // --- [ glfwSetMonitorUserPointer ] ---
+
+    /**
+     * Sets the user pointer of the specified monitor.
+     * 
+     * <p>This function sets the user-defined pointer of the specified monitor. The current value is retained until the monitor is disconnected. The initial
+     * value is {@code NULL}.</p>
+     * 
+     * <p>This function may be called from the monitor callback, even for a monitor that is being disconnected.</p>
+     * 
+     * <p>This function may be called from any thread. Access is not synchronized.</p>
+     *
+     * @param monitor the monitor whose pointer to set
+     * @param pointer the new value
+     *
+     * @since version 3.3
+     */
+    public static void glfwSetMonitorUserPointer(@NativeType("GLFWmonitor *") long monitor, @NativeType("void *") long pointer) {
+        long __functionAddress = Functions.SetMonitorUserPointer;
+        if (CHECKS) {
+            check(monitor);
+            check(pointer);
+        }
+        invokePPV(__functionAddress, monitor, pointer);
+    }
+
+    // --- [ glfwGetMonitorUserPointer ] ---
+
+    /**
+     * Returns the user pointer of the specified monitor.
+     * 
+     * <p>This function returns the current value of the user-defined pointer of the specified monitor. The initial value is {@code NULL}.</p>
+     * 
+     * <p>This function may be called from the monitor callback, even for a monitor that is being disconnected.</p>
+     * 
+     * <p>This function may be called from any thread. Access is not synchronized.</p>
+     *
+     * @param monitor the monitor whose pointer to return
+     *
+     * @since version 3.3
+     */
+    @NativeType("void *")
+    public static long glfwGetMonitorUserPointer(@NativeType("GLFWmonitor *") long monitor) {
+        long __functionAddress = Functions.GetMonitorUserPointer;
+        if (CHECKS) {
+            check(monitor);
+        }
+        return invokePP(__functionAddress, monitor);
+    }
+
     // --- [ glfwSetMonitorCallback ] ---
 
     /** Unsafe version of: {@link #glfwSetMonitorCallback SetMonitorCallback} */
@@ -1478,11 +1478,16 @@ public class GLFW {
     // --- [ glfwWindowHint ] ---
 
     /**
-     * Sets hints for the next call to {@link #glfwCreateWindow CreateWindow}. The hints, once set, retain their values until changed by a call to glfwWindowHint or
+     * Sets hints for the next call to {@link #glfwCreateWindow CreateWindow}. The hints, once set, retain their values until changed by a call to this function or
      * {@link #glfwDefaultWindowHints DefaultWindowHints}, or until the library is terminated.
+     * 
+     * <p>Only integer value hints can be set with this function. String value hints are set with {@link #glfwWindowHintString WindowHintString}.</p>
      * 
      * <p>This function does not check whether the specified hint values are valid. If you set hints to invalid values this will instead be reported by the next
      * call to {@link #glfwCreateWindow CreateWindow}.</p>
+     * 
+     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will ignore them.
+     * Setting these hints requires no platform specific headers or functions.</p>
      * 
      * <h5>Supported and default values</h5>
      * 
@@ -1524,13 +1529,12 @@ public class GLFW {
      * <tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
      * <tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE}</td><td>{@link #GLFW_OPENGL_ANY_PROFILE OPENGL_ANY_PROFILE} {@link #GLFW_OPENGL_CORE_PROFILE OPENGL_CORE_PROFILE} {@link #GLFW_OPENGL_COMPAT_PROFILE OPENGL_COMPAT_PROFILE}</td></tr>
      * <tr><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td><td>{@link #GLFW_TRUE TRUE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
-     * <tr><td>{@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
      * <tr><td>{@link #GLFW_COCOA_GRAPHICS_SWITCHING COCOA_GRAPHICS_SWITCHING}</td><td>{@link #GLFW_FALSE FALSE}</td><td>{@link #GLFW_TRUE TRUE} or {@link #GLFW_FALSE FALSE}</td></tr>
      * </table>
      * 
      * <p>This function must only be called from the main thread.</p>
      *
-     * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td></tr><tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_RED_BITS RED_BITS}</td></tr><tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td></tr><tr><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td></tr><tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td></tr><tr><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td></tr></table>
+     * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td><td>{@link #GLFW_AUTO_ICONIFY AUTO_ICONIFY}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td></tr><tr><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td><td>{@link #GLFW_RED_BITS RED_BITS}</td></tr><tr><td>{@link #GLFW_GREEN_BITS GREEN_BITS}</td><td>{@link #GLFW_BLUE_BITS BLUE_BITS}</td><td>{@link #GLFW_ALPHA_BITS ALPHA_BITS}</td><td>{@link #GLFW_DEPTH_BITS DEPTH_BITS}</td><td>{@link #GLFW_STENCIL_BITS STENCIL_BITS}</td></tr><tr><td>{@link #GLFW_ACCUM_RED_BITS ACCUM_RED_BITS}</td><td>{@link #GLFW_ACCUM_GREEN_BITS ACCUM_GREEN_BITS}</td><td>{@link #GLFW_ACCUM_BLUE_BITS ACCUM_BLUE_BITS}</td><td>{@link #GLFW_ACCUM_ALPHA_BITS ACCUM_ALPHA_BITS}</td><td>{@link #GLFW_AUX_BUFFERS AUX_BUFFERS}</td></tr><tr><td>{@link #GLFW_STEREO STEREO}</td><td>{@link #GLFW_SAMPLES SAMPLES}</td><td>{@link #GLFW_SRGB_CAPABLE SRGB_CAPABLE}</td><td>{@link #GLFW_REFRESH_RATE REFRESH_RATE}</td><td>{@link #GLFW_DOUBLEBUFFER DOUBLEBUFFER}</td></tr><tr><td>{@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER}</td><td>{@link #GLFW_COCOA_GRAPHICS_SWITCHING COCOA_GRAPHICS_SWITCHING}</td></tr></table>
      * @param value the new value of the window hint
      *
      * @since version 2.2
@@ -1538,6 +1542,91 @@ public class GLFW {
     public static void glfwWindowHint(int hint, int value) {
         long __functionAddress = Functions.WindowHint;
         invokeV(__functionAddress, hint, value);
+    }
+
+    // --- [ glfwWindowHintString ] ---
+
+    /** Unsafe version of: {@link #glfwWindowHintString WindowHintString} */
+    public static void nglfwWindowHintString(int hint, long value) {
+        long __functionAddress = Functions.WindowHintString;
+        invokePV(__functionAddress, hint, value);
+    }
+
+    /**
+     * Sets the specified window hint to the desired value.
+     * 
+     * <p>This function sets hints for the next call to {@link #glfwCreateWindow CreateWindow}. The hints, once set, retain their values until changed by a call to this function or
+     * {@link #glfwDefaultWindowHints DefaultWindowHints}, or until the library is terminated.</p>
+     * 
+     * <p>Only string type hints can be set with this function. Integer value hints are set with {@link #glfwWindowHint WindowHint}.</p>
+     * 
+     * <p>This function does not check whether the specified hint values are valid. If you set hints to invalid values this will instead be reported by the next
+     * call to {@link #glfwCreateWindow CreateWindow}.</p>
+     * 
+     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will ignore them.
+     * Setting these hints requires no platform specific headers or functions.</p>
+     * 
+     * <h5>Supported and default values</h5>
+     * 
+     * <table class=lwjgl>
+     * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>
+     * <tr><td>{@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}</td><td>""</td><td>A UTF-8 encoded frame autosave name</td></tr>
+     * <tr><td>{@link #GLFW_X11_CLASS_NAME X11_CLASS_NAME}</td><td>""</td><td>An ASCII encoded {@code WM_CLASS} class name</td></tr>
+     * <tr><td>{@link #GLFW_X11_INSTANCE_NAME X11_INSTANCE_NAME}</td><td>""</td><td>An ASCII encoded {@code WM_CLASS} instance name</td></tr>
+     * </table>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}</td><td>{@link #GLFW_X11_CLASS_NAME X11_CLASS_NAME}</td><td>{@link #GLFW_X11_INSTANCE_NAME X11_INSTANCE_NAME}</td></tr></table>
+     * @param value the new value of the window hint. The specified string is copied before this function returns.
+     *
+     * @since version 3.3
+     */
+    public static void glfwWindowHintString(int hint, @NativeType("const char *") ByteBuffer value) {
+        if (CHECKS) {
+            checkNT1(value);
+        }
+        nglfwWindowHintString(hint, memAddress(value));
+    }
+
+    /**
+     * Sets the specified window hint to the desired value.
+     * 
+     * <p>This function sets hints for the next call to {@link #glfwCreateWindow CreateWindow}. The hints, once set, retain their values until changed by a call to this function or
+     * {@link #glfwDefaultWindowHints DefaultWindowHints}, or until the library is terminated.</p>
+     * 
+     * <p>Only string type hints can be set with this function. Integer value hints are set with {@link #glfwWindowHint WindowHint}.</p>
+     * 
+     * <p>This function does not check whether the specified hint values are valid. If you set hints to invalid values this will instead be reported by the next
+     * call to {@link #glfwCreateWindow CreateWindow}.</p>
+     * 
+     * <p>Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will ignore them.
+     * Setting these hints requires no platform specific headers or functions.</p>
+     * 
+     * <h5>Supported and default values</h5>
+     * 
+     * <table class=lwjgl>
+     * <tr><th>Name</th><th>Default value</th><th>Supported values</th></tr>
+     * <tr><td>{@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}</td><td>""</td><td>A UTF-8 encoded frame autosave name</td></tr>
+     * <tr><td>{@link #GLFW_X11_CLASS_NAME X11_CLASS_NAME}</td><td>""</td><td>An ASCII encoded {@code WM_CLASS} class name</td></tr>
+     * <tr><td>{@link #GLFW_X11_INSTANCE_NAME X11_INSTANCE_NAME}</td><td>""</td><td>An ASCII encoded {@code WM_CLASS} instance name</td></tr>
+     * </table>
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param hint  the window hint to set. One of:<br><table><tr><td>{@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}</td><td>{@link #GLFW_X11_CLASS_NAME X11_CLASS_NAME}</td><td>{@link #GLFW_X11_INSTANCE_NAME X11_INSTANCE_NAME}</td></tr></table>
+     * @param value the new value of the window hint. The specified string is copied before this function returns.
+     *
+     * @since version 3.3
+     */
+    public static void glfwWindowHintString(@NativeType("int") int hint, @NativeType("const char *") CharSequence value) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer valueEncoded = stack.UTF8(value);
+            nglfwWindowHintString(hint, memAddress(valueEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
     }
 
     // --- [ glfwCreateWindow ] ---
@@ -1604,10 +1693,14 @@ public class GLFW {
      * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
      * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
      * more information, see <a target="_blank" href="https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
-     * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
+     * <li><b>macOS</b>: When activating frame autosaving with {@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}, the specified window size and position may be overriden by previously saved
+     * values.</li>
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
      * to query the final size, position or other attributes directly after window creation.</li>
+     * <li><b>X11</b>: The class part of the {@code WM_CLASS} window property will by default be set to the window title passed to this function. The instance
+     * part will use the contents of the {@code RESOURCE_NAME} environment variable, if present and not empty, or fall back to the window title. Set the
+     * {@link #GLFW_X11_CLASS_NAME X11_CLASS_NAME} and {@link #GLFW_X11_INSTANCE_NAME X11_INSTANCE_NAME} window hints to override this.</li>
      * <li><b>Wayland</b>: The window frame is currently unimplemented, as if {@link #GLFW_DECORATED DECORATED}) was always set to {@link #GLFW_FALSE FALSE}. A compositor can still emit close, resize
      * or maximize events, using for example a keybind mechanism.</li>
      * <li><b>Wayland</b>: A full screen window will not attempt to change the mode, no matter what the requested size or refresh rate.</li>
@@ -1689,10 +1782,14 @@ public class GLFW {
      * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
      * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
      * more information, see <a target="_blank" href="https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
-     * <li>When activating frame autosaving with {@link #GLFW_COCOA_FRAME_AUTOSAVE COCOA_FRAME_AUTOSAVE}, the specified window size may be overriden by a previously saved size and position.</li>
+     * <li><b>macOS</b>: When activating frame autosaving with {@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}, the specified window size and position may be overriden by previously saved
+     * values.</li>
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
      * to query the final size, position or other attributes directly after window creation.</li>
+     * <li><b>X11</b>: The class part of the {@code WM_CLASS} window property will by default be set to the window title passed to this function. The instance
+     * part will use the contents of the {@code RESOURCE_NAME} environment variable, if present and not empty, or fall back to the window title. Set the
+     * {@link #GLFW_X11_CLASS_NAME X11_CLASS_NAME} and {@link #GLFW_X11_INSTANCE_NAME X11_INSTANCE_NAME} window hints to override this.</li>
      * <li><b>Wayland</b>: The window frame is currently unimplemented, as if {@link #GLFW_DECORATED DECORATED}) was always set to {@link #GLFW_FALSE FALSE}. A compositor can still emit close, resize
      * or maximize events, using for example a keybind mechanism.</li>
      * <li><b>Wayland</b>: A full screen window will not attempt to change the mode, no matter what the requested size or refresh rate.</li>
@@ -2984,7 +3081,7 @@ public class GLFW {
      * <p>This function must only be called from the main thread.</p>
      *
      * @param window the window to query
-     * @param mode   the input mode whose value to return. One of:<br><table><tr><td>{@link #GLFW_CURSOR CURSOR}</td><td>{@link #GLFW_STICKY_KEYS STICKY_KEYS}</td><td>{@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}</td></tr></table>
+     * @param mode   the input mode whose value to return. One of:<br><table><tr><td>{@link #GLFW_CURSOR CURSOR}</td><td>{@link #GLFW_STICKY_KEYS STICKY_KEYS}</td><td>{@link #GLFW_STICKY_MOUSE_BUTTONS STICKY_MOUSE_BUTTONS}</td><td>{@link #GLFW_LOCK_KEY_MODS LOCK_KEY_MODS}</td></tr></table>
      *
      * @return the input mode value
      *
@@ -3020,6 +3117,10 @@ public class GLFW {
      * disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that {@link #glfwGetMouseButton GetMouseButton} returns {@link #GLFW_PRESS PRESS} the next
      * time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have
      * been pressed but not when or in which order.</p>
+     * 
+     * <p>If {@code mode} is {@link #GLFW_LOCK_KEY_MODS LOCK_KEY_MODS}, the value must be either {@link #GLFW_TRUE TRUE} to enable lock key modifier bits, or {@link #GLFW_FALSE FALSE} to disable them. If enabled, callbacks
+     * that receive modifier bits will also have the {@link #GLFW_MOD_CAPS_LOCK MOD_CAPS_LOCK} bit set when the event was generated with Caps Lock on, and the {@link #GLFW_MOD_NUM_LOCK MOD_NUM_LOCK} bit when Num
+     * Lock was on.</p>
      * 
      * <p>This function must only be called from the main thread.</p>
      *
@@ -3881,6 +3982,52 @@ public class GLFW {
         return memUTF8(__result);
     }
 
+    // --- [ glfwSetJoystickUserPointer ] ---
+
+    /**
+     * Sets the user pointer of the specified joystick.
+     * 
+     * <p>This function sets the user-defined pointer of the specified joystick. The current value is retained until the joystick is disconnected. The initial
+     * value is {@code NULL}.</p>
+     * 
+     * <p>This function may be called from the joystick callback, even for a joystick that is being disconnected.</p>
+     * 
+     * <p>This function may be called from any thread. Access is not synchronized.</p>
+     *
+     * @param jid     the joystick whose pointer to set
+     * @param pointer the new value
+     *
+     * @since version 3.3
+     */
+    public static void glfwSetJoystickUserPointer(int jid, @NativeType("void *") long pointer) {
+        long __functionAddress = Functions.SetJoystickUserPointer;
+        if (CHECKS) {
+            check(pointer);
+        }
+        invokePV(__functionAddress, jid, pointer);
+    }
+
+    // --- [ glfwGetJoystickUserPointer ] ---
+
+    /**
+     * Returns the user pointer of the specified joystick.
+     * 
+     * <p>This function returns the current value of the user-defined pointer of the specified joystick. The initial value is {@code NULL}.</p>
+     * 
+     * <p>This function may be called from the joystick callback, even for a joystick that is being disconnected.</p>
+     * 
+     * <p>This function may be called from any thread. Access is not synchronized.</p>
+     *
+     * @param jid the joystick whose pointer to set
+     *
+     * @since version 3.3
+     */
+    @NativeType("void *")
+    public static long glfwGetJoystickUserPointer(int jid) {
+        long __functionAddress = Functions.GetJoystickUserPointer;
+        return invokeP(__functionAddress, jid);
+    }
+
     // --- [ glfwJoystickIsGamepad ] ---
 
     /**
@@ -4309,11 +4456,11 @@ public class GLFW {
      * before swapping the buffers and returning. This is sometimes called <i>vertical synchronization</i>, <i>vertical retrace synchronization</i> or just
      * <i>vsync</i>.
      * 
-     * <p>Contexts that support either of the
+     * <p>A context that supports either of the
      * <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/WGL_EXT_swap_control_tear.txt">WGL_EXT_swap_control_tear</a> and
-     * <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/GLX_EXT_swap_control_tear.txt">GLX_EXT_swap_control_tear</a> extensions also accept
-     * negative swap intervals, which allow the driver to swap even if a frame arrives a little bit late. You can check for the presence of these extensions
-     * using {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.</p>
+     * <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/GLX_EXT_swap_control_tear.txt">GLX_EXT_swap_control_tear</a> extensions also accepts
+     * <b>negative</b> swap intervals, which allows the driver to swap immediately even if a frame arrives a little bit late. You can check for these
+     * extensions with {@link #glfwExtensionSupported ExtensionSupported}. For more information about swap tearing, see the extension specifications.</p>
      * 
      * <p>A context must be current on the calling thread. Calling this function without a current context will cause a {@link #GLFW_NO_CURRENT_CONTEXT NO_CURRENT_CONTEXT} error.</p>
      * 
