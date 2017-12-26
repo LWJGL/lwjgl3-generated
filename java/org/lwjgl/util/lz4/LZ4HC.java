@@ -37,7 +37,7 @@ public class LZ4HC {
     public static final int
         LZ4HC_CLEVEL_MIN     = 3,
         LZ4HC_CLEVEL_DEFAULT = 9,
-        LZ4HC_CLEVEL_OPT_MIN = 11,
+        LZ4HC_CLEVEL_OPT_MIN = 10,
         LZ4HC_CLEVEL_MAX     = 12;
 
     public static final int LZ4HC_DICTIONARY_LOGSIZE = 16;

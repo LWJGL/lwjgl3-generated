@@ -95,29 +95,28 @@ public class LZ4 {
     /**
      * Unsafe version of: {@link #LZ4_compress_default compress_default}
      *
-     * @param sourceSize  max supported value is {@link #LZ4_MAX_INPUT_SIZE MAX_INPUT_SIZE}
-     * @param maxDestSize full or partial size of buffer {@code dest} (which must be already allocated)
+     * @param srcSize     supported max value is {@link #LZ4_MAX_INPUT_SIZE MAX_INPUT_SIZE}
+     * @param dstCapacity full or partial size of buffer {@code dst} (which must be already allocated)
      */
-    public static native int nLZ4_compress_default(long source, long dest, int sourceSize, int maxDestSize);
+    public static native int nLZ4_compress_default(long src, long dst, int srcSize, int dstCapacity);
 
     /**
-     * Compresses {@code sourceSize} bytes from buffer {@code source} into already allocated {@code dest} buffer of size {@code maxDestSize}.
+     * Compresses {@code srcSize} bytes from buffer {@code src} into already allocated {@code dst} buffer of size {@code dstCapacity}.
      * 
-     * <p>Compression is guaranteed to succeed if {@code maxDestSize} &ge; {@link #LZ4_compressBound compressBound}{@code (sourceSize)}. It also runs faster, so it's a recommended
-     * setting.</p>
+     * <p>Compression is guaranteed to succeed if {@code dstCapacity} &ge; {@link #LZ4_compressBound compressBound}{@code (srcSize)}. It also runs faster, so it's a recommended setting.</p>
      * 
-     * <p>If the function cannot compress {@code source} into a more limited {@code dest} budget, compression stops <i>immediately</i>, and the function result
-     * is zero. As a consequence, {@code dest} content is not valid.</p>
+     * <p>If the function cannot compress {@code src} into a limited {@code dst} budget, compression stops <i>immediately</i>, and the function result is
+     * zero. As a consequence, {@code dst} content is not valid.</p>
      * 
-     * <p>This function never writes outside {@code dest} buffer, nor read outside {@code source} buffer.</p>
+     * <p>This function never writes outside {@code dst} buffer, nor read outside {@code src} buffer.</p>
      *
-     * @param source 
-     * @param dest   
+     * @param src 
+     * @param dst 
      *
      * @return the number of bytes written into buffer {@code dest} (necessarily &le; {@code maxOutputSize}) or 0 if compression fails
      */
-    public static int LZ4_compress_default(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest) {
-        return nLZ4_compress_default(memAddress(source), memAddress(dest), source.remaining(), dest.remaining());
+    public static int LZ4_compress_default(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+        return nLZ4_compress_default(memAddress(src), memAddress(dst), src.remaining(), dst.remaining());
     }
 
     // --- [ LZ4_decompress_safe ] ---
@@ -125,26 +124,26 @@ public class LZ4 {
     /**
      * Unsafe version of: {@link #LZ4_decompress_safe decompress_safe}
      *
-     * @param compressedSize      is the precise full size of the compressed block
-     * @param maxDecompressedSize is the size of destination buffer, which must be already allocated
+     * @param compressedSize is the exact complete size of the compressed block
+     * @param dstCapacity    is the size of destination buffer, which must be already allocated
      */
-    public static native int nLZ4_decompress_safe(long source, long dest, int compressedSize, int maxDecompressedSize);
+    public static native int nLZ4_decompress_safe(long src, long dst, int compressedSize, int dstCapacity);
 
     /**
-     * If destination buffer is not large enough, decoding will stop and output an error code (&lt;0).
+     * If destination buffer is not large enough, decoding will stop and output an error code (negative value).
      * 
      * <p>If the source stream is detected malformed, the function will stop decoding and return a negative result.</p>
      * 
      * <p>This function is protected against buffer overflow exploits, including malicious data packets. It never writes outside output buffer, nor reads outside
      * input buffer.</p>
      *
-     * @param source 
-     * @param dest   
+     * @param src 
+     * @param dst 
      *
-     * @return the number of bytes decompressed into destination buffer (necessarily &le; {@code maxDecompressedSize})
+     * @return the number of bytes decompressed into destination buffer (necessarily &le; {@code dstCapacity})
      */
-    public static int LZ4_decompress_safe(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest) {
-        return nLZ4_decompress_safe(memAddress(source), memAddress(dest), source.remaining(), dest.remaining());
+    public static int LZ4_decompress_safe(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+        return nLZ4_decompress_safe(memAddress(src), memAddress(dst), src.remaining(), dst.remaining());
     }
 
     // --- [ LZ4_COMPRESSBOUND ] ---
@@ -177,7 +176,7 @@ public class LZ4 {
     // --- [ LZ4_compress_fast ] ---
 
     /** Unsafe version of: {@link #LZ4_compress_fast compress_fast} */
-    public static native int nLZ4_compress_fast(long source, long dest, int sourceSize, int maxDestSize, int acceleration);
+    public static native int nLZ4_compress_fast(long src, long dst, int srcSize, int dstCapacity, int acceleration);
 
     /**
      * Same as {@link #LZ4_compress_default compress_default}, but allows to select an "acceleration" factor.
@@ -186,12 +185,12 @@ public class LZ4 {
      * successive value providing roughly +~3% to speed. An acceleration value of "1" is the same as regular {@link #LZ4_compress_default compress_default}. Values &le; 0 will be
      * replaced by {@code ACCELERATION_DEFAULT} (see {@code lz4.c}), which is 1.</p>
      *
-     * @param source       
-     * @param dest         
+     * @param src          
+     * @param dst          
      * @param acceleration 
      */
-    public static int LZ4_compress_fast(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest, @NativeType("int") int acceleration) {
-        return nLZ4_compress_fast(memAddress(source), memAddress(dest), source.remaining(), dest.remaining(), acceleration);
+    public static int LZ4_compress_fast(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int acceleration) {
+        return nLZ4_compress_fast(memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), acceleration);
     }
 
     // --- [ LZ4_sizeofState ] ---
@@ -201,7 +200,7 @@ public class LZ4 {
     // --- [ LZ4_compress_fast_extState ] ---
 
     /** Unsafe version of: {@link #LZ4_compress_fast_extState compress_fast_extState} */
-    public static native int nLZ4_compress_fast_extState(long state, long source, long dest, int inputSize, int maxDestSize, int acceleration);
+    public static native int nLZ4_compress_fast_extState(long state, long src, long dst, int srcSize, int dstCapacity, int acceleration);
 
     /**
      * Same as {@link #LZ4_compress_fast compress_fast}, just using an externally allocated memory space to store compression state.
@@ -210,12 +209,12 @@ public class LZ4 {
      * it as {@code void* state} to compression function.</p>
      *
      * @param state        
-     * @param source       
-     * @param dest         
+     * @param src          
+     * @param dst          
      * @param acceleration 
      */
-    public static int LZ4_compress_fast_extState(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest, @NativeType("int") int acceleration) {
-        return nLZ4_compress_fast_extState(memAddress(state), memAddress(source), memAddress(dest), source.remaining(), dest.remaining(), acceleration);
+    public static int LZ4_compress_fast_extState(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int acceleration) {
+        return nLZ4_compress_fast_extState(memAddress(state), memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), acceleration);
     }
 
     // --- [ LZ4_compress_destSize ] ---
@@ -223,29 +222,29 @@ public class LZ4 {
     /**
      * Unsafe version of: {@link #LZ4_compress_destSize compress_destSize}
      *
-     * @param sourceSizePtr will be modified to indicate how many bytes where read from {@code source} to fill {@code dest}. New value is necessarily &le; old value.
+     * @param srcSizePtr will be modified to indicate how many bytes where read from {@code source} to fill {@code dest}. New value is necessarily &le; old value.
      */
-    public static native int nLZ4_compress_destSize(long source, long dest, long sourceSizePtr, int targetDestSize);
+    public static native int nLZ4_compress_destSize(long src, long dst, long srcSizePtr, int targetDstSize);
 
     /**
-     * Reverse the logic, by compressing as much data as possible from {@code source} buffer into already allocated buffer {@code dest} of size
-     * {@code targetDestSize}.
+     * Reverse the logic: compresses as much data as possible from {@code src} buffer into already allocated buffer {@code dst} of size
+     * {@code targetDstSize}.
      * 
-     * <p>This function either compresses the entire {@code source} content into {@code dest} if it's large enough, or fill {@code dest} buffer completely with
-     * as much data as possible from {@code source}.</p>
+     * <p>This function either compresses the entire {@code src} content into {@code dst} if it's large enough, or fill {@code dst} buffer completely with as
+     * much data as possible from {@code src}.</p>
      *
-     * @param source        
-     * @param dest          
-     * @param sourceSizePtr will be modified to indicate how many bytes where read from {@code source} to fill {@code dest}. New value is necessarily &le; old value.
+     * @param src        
+     * @param dst        
+     * @param srcSizePtr will be modified to indicate how many bytes where read from {@code source} to fill {@code dest}. New value is necessarily &le; old value.
      *
      * @return nb bytes written into {@code dest} (necessarily &le; {@code targetDestSize}) or 0 if compression fails
      */
-    public static int LZ4_compress_destSize(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest, @NativeType("int *") IntBuffer sourceSizePtr) {
+    public static int LZ4_compress_destSize(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int *") IntBuffer srcSizePtr) {
         if (CHECKS) {
-            check(sourceSizePtr, 1);
-            check(source, sourceSizePtr.get(sourceSizePtr.position()));
+            check(srcSizePtr, 1);
+            check(src, srcSizePtr.get(srcSizePtr.position()));
         }
-        return nLZ4_compress_destSize(memAddress(source), memAddress(dest), memAddress(sourceSizePtr), dest.remaining());
+        return nLZ4_compress_destSize(memAddress(src), memAddress(dst), memAddress(srcSizePtr), dst.remaining());
     }
 
     // --- [ LZ4_decompress_fast ] ---
@@ -253,49 +252,50 @@ public class LZ4 {
     /**
      * Unsafe version of: {@link #LZ4_decompress_fast decompress_fast}
      *
-     * @param originalSize is the original and therefore uncompressed size
+     * @param originalSize is the original uncompressed size
      */
-    public static native int nLZ4_decompress_fast(long source, long dest, int originalSize);
+    public static native int nLZ4_decompress_fast(long src, long dst, int originalSize);
 
     /**
-     * This function fully respect memory boundaries for properly formed compressed data. It is a bit faster than {@link #LZ4_decompress_safe decompress_safe}. However, it does not
+     * This function respects memory boundaries for properly formed compressed data. It is a bit faster than {@link #LZ4_decompress_safe decompress_safe}. However, it does not
      * provide any protection against intentionally modified data stream (malicious input). Use this function in trusted environment only (data to decode
      * comes from a trusted source).
      *
-     * @param source 
-     * @param dest   
+     * @param src 
+     * @param dst 
      *
      * @return the number of bytes read from the source buffer (in other words, the compressed size). If the source stream is detected malformed, the function will
-     *         stop decoding and return a negative result. Destination buffer must be already allocated. Its size must be a minimum of {@code originalSize} bytes.
+     *         stop decoding and return a negative result. Destination buffer must be already allocated. Its size must be &ge; {@code originalSize} bytes.
      */
-    public static int LZ4_decompress_fast(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest) {
-        return nLZ4_decompress_fast(memAddress(source), memAddress(dest), dest.remaining());
+    public static int LZ4_decompress_fast(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+        return nLZ4_decompress_fast(memAddress(src), memAddress(dst), dst.remaining());
     }
 
     // --- [ LZ4_decompress_safe_partial ] ---
 
     /** Unsafe version of: {@link #LZ4_decompress_safe_partial decompress_safe_partial} */
-    public static native int nLZ4_decompress_safe_partial(long source, long dest, int compressedSize, int targetOutputSize, int maxDecompressedSize);
+    public static native int nLZ4_decompress_safe_partial(long src, long dst, int compressedSize, int targetOutputSize, int dstCapacity);
 
     /**
-     * This function decompress a compressed block of size {@code compressedSize} at position {@code source} into destination buffer {@code dest} of size
-     * {@code maxDecompressedSize}.
+     * This function decompress a compressed block of size {@code compressedSize} at position {@code src} into destination buffer {@code dst} of size
+     * {@code dstCapacity}.
      * 
-     * <p>The function tries to stop decompressing operation as soon as {@code targetOutputSize} has been reached, reducing decompression time.</p>
+     * <p>The function will decompress a minimum of {@code targetOutputSize} bytes, and stop after that. However, it's not accurate, and may write more than
+     * {@code targetOutputSize} (but &le; {@code dstCapacity}).</p>
      * 
      * <p>This function never writes outside of output buffer, and never reads outside of input buffer. It is therefore protected against malicious data packets.</p>
      *
-     * @param source           
-     * @param dest             
+     * @param src              
+     * @param dst              
      * @param targetOutputSize 
      *
-     * @return the number of bytes decoded in the destination buffer (necessarily &le; {@code maxDecompressedSize})
+     * @return the number of bytes decoded in the destination buffer (necessarily &le; {@code dstCapacity})
      *         
      *         <p>Note: this number can be &lt; {@code targetOutputSize} should the compressed block to decode be smaller. Always control how many bytes were decoded. If
      *         the source stream is detected malformed, the function will stop decoding and return a negative result.</p>
      */
-    public static int LZ4_decompress_safe_partial(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest, @NativeType("int") int targetOutputSize) {
-        return nLZ4_decompress_safe_partial(memAddress(source), memAddress(dest), source.remaining(), targetOutputSize, dest.remaining());
+    public static int LZ4_decompress_safe_partial(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int targetOutputSize) {
+        return nLZ4_decompress_safe_partial(memAddress(src), memAddress(dst), src.remaining(), targetOutputSize, dst.remaining());
     }
 
     // --- [ LZ4_createStream ] ---
@@ -470,7 +470,7 @@ public class LZ4 {
     // --- [ LZ4_decompress_safe_continue ] ---
 
     /** Unsafe version of: {@link #LZ4_decompress_safe_continue decompress_safe_continue} */
-    public static native int nLZ4_decompress_safe_continue(long LZ4_streamDecode, long source, long dest, int compressedSize, int maxDecompressedSize);
+    public static native int nLZ4_decompress_safe_continue(long LZ4_streamDecode, long src, long dst, int srcSize, int dstCapacity);
 
     /**
      * These decoding functions allow decompression of consecutive blocks in "streaming" mode.
@@ -497,66 +497,66 @@ public class LZ4 {
      * {@link #LZ4_setStreamDecode setStreamDecode} before decompressing next block.</p>
      *
      * @param LZ4_streamDecode 
-     * @param source           
-     * @param dest             
+     * @param src              
+     * @param dst              
      */
-    public static int LZ4_decompress_safe_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest) {
+    public static int LZ4_decompress_safe_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         if (CHECKS) {
             check(LZ4_streamDecode);
         }
-        return nLZ4_decompress_safe_continue(LZ4_streamDecode, memAddress(source), memAddress(dest), source.remaining(), dest.remaining());
+        return nLZ4_decompress_safe_continue(LZ4_streamDecode, memAddress(src), memAddress(dst), src.remaining(), dst.remaining());
     }
 
     // --- [ LZ4_decompress_fast_continue ] ---
 
     /** Unsafe version of: {@link #LZ4_decompress_fast_continue decompress_fast_continue} */
-    public static native int nLZ4_decompress_fast_continue(long LZ4_streamDecode, long source, long dest, int originalSize);
+    public static native int nLZ4_decompress_fast_continue(long LZ4_streamDecode, long src, long dst, int originalSize);
 
     /**
      * See {@link #LZ4_decompress_safe_continue decompress_safe_continue}.
      *
      * @param LZ4_streamDecode 
-     * @param source           
-     * @param dest             
+     * @param src              
+     * @param dst              
      */
-    public static int LZ4_decompress_fast_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest) {
+    public static int LZ4_decompress_fast_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         if (CHECKS) {
             check(LZ4_streamDecode);
         }
-        return nLZ4_decompress_fast_continue(LZ4_streamDecode, memAddress(source), memAddress(dest), dest.remaining());
+        return nLZ4_decompress_fast_continue(LZ4_streamDecode, memAddress(src), memAddress(dst), dst.remaining());
     }
 
     // --- [ LZ4_decompress_safe_usingDict ] ---
 
     /** Unsafe version of: {@link #LZ4_decompress_safe_usingDict decompress_safe_usingDict} */
-    public static native int nLZ4_decompress_safe_usingDict(long source, long dest, int compressedSize, int maxDecompressedSize, long dictStart, int dictSize);
+    public static native int nLZ4_decompress_safe_usingDict(long src, long dst, int srcSize, int dstCapacity, long dictStart, int dictSize);
 
     /**
      * These decoding functions work the same as a combination of {@link #LZ4_setStreamDecode setStreamDecode} followed by {@code LZ4_decompress_*_continue()}. They are stand-alone,
      * and don't need an {@code LZ4_streamDecode_t} structure.
      *
-     * @param source    
-     * @param dest      
+     * @param src       
+     * @param dst       
      * @param dictStart 
      */
-    public static int LZ4_decompress_safe_usingDict(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest, @NativeType("const char *") ByteBuffer dictStart) {
-        return nLZ4_decompress_safe_usingDict(memAddress(source), memAddress(dest), source.remaining(), dest.remaining(), memAddress(dictStart), dictStart.remaining());
+    public static int LZ4_decompress_safe_usingDict(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("const char *") ByteBuffer dictStart) {
+        return nLZ4_decompress_safe_usingDict(memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), memAddress(dictStart), dictStart.remaining());
     }
 
     // --- [ LZ4_decompress_fast_usingDict ] ---
 
     /** Unsafe version of: {@link #LZ4_decompress_fast_usingDict decompress_fast_usingDict} */
-    public static native int nLZ4_decompress_fast_usingDict(long source, long dest, int originalSize, long dictStart, int dictSize);
+    public static native int nLZ4_decompress_fast_usingDict(long src, long dst, int originalSize, long dictStart, int dictSize);
 
     /**
      * See {@code decompress_safe_usingDict}.
      *
-     * @param source    
-     * @param dest      
+     * @param src       
+     * @param dst       
      * @param dictStart 
      */
-    public static int LZ4_decompress_fast_usingDict(@NativeType("const char *") ByteBuffer source, @NativeType("char *") ByteBuffer dest, @NativeType("const char *") ByteBuffer dictStart) {
-        return nLZ4_decompress_fast_usingDict(memAddress(source), memAddress(dest), dest.remaining(), memAddress(dictStart), dictStart.remaining());
+    public static int LZ4_decompress_fast_usingDict(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("const char *") ByteBuffer dictStart) {
+        return nLZ4_decompress_fast_usingDict(memAddress(src), memAddress(dst), dst.remaining(), memAddress(dictStart), dictStart.remaining());
     }
 
 }
