@@ -43,6 +43,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Data of the texture. Points to an array of {@code mWidth * mHeight} {@link AITexel}'s. The format of the texture data is always ARGB8888 to make the
  * implementation for user of the library as easy as possible. If {@code mHeight = 0} this is a pointer to a memory buffer of size mWidth containing the
  * compressed texture data. Good luck, have fun!</li>
+ * <li>{@code mFilename} &ndash; texture original filename. Used to get the texture reference.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -53,6 +54,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     unsigned int mHeight;
  *     char achFormatHint[4];
  *     {@link AITexel struct aiTexel} * pcData;
+ *     {@link AIString struct aiString} mFilename;
  * }</pre></code>
  */
 @NativeType("struct aiTexture")
@@ -68,14 +70,16 @@ public class AITexture extends Struct {
         MWIDTH,
         MHEIGHT,
         ACHFORMATHINT,
-        PCDATA;
+        PCDATA,
+        MFILENAME;
 
     static {
         Layout layout = __struct(
             __member(4),
             __member(4),
             __array(1, 4),
-            __member(POINTER_SIZE)
+            __member(POINTER_SIZE),
+            __member(AIString.SIZEOF, AIString.ALIGNOF)
         );
 
         SIZEOF = layout.getSize();
@@ -85,6 +89,7 @@ public class AITexture extends Struct {
         MHEIGHT = layout.offsetof(1);
         ACHFORMATHINT = layout.offsetof(2);
         PCDATA = layout.offsetof(3);
+        MFILENAME = layout.offsetof(4);
     }
 
     AITexture(long address, ByteBuffer container) {
@@ -123,6 +128,9 @@ public class AITexture extends Struct {
      */
     @NativeType("struct aiTexel *")
     public AITexel.Buffer pcData(int capacity) { return npcData(address(), capacity); }
+    /** Returns a {@link AIString} view of the {@code mFilename} field. */
+    @NativeType("struct aiString")
+    public AIString mFilename() { return nmFilename(address()); }
 
     // -----------------------------------
 
@@ -153,6 +161,8 @@ public class AITexture extends Struct {
     public static String nachFormatHintString(long struct) { return memASCII(struct + AITexture.ACHFORMATHINT); }
     /** Unsafe version of {@link #pcData}. */
     public static AITexel.Buffer npcData(long struct, int capacity) { return AITexel.create(memGetAddress(struct + AITexture.PCDATA), capacity); }
+    /** Unsafe version of {@link #mFilename}. */
+    public static AIString nmFilename(long struct) { return AIString.create(struct + AITexture.MFILENAME); }
 
     // -----------------------------------
 
@@ -215,6 +225,9 @@ public class AITexture extends Struct {
          */
         @NativeType("struct aiTexel *")
         public AITexel.Buffer pcData(int capacity) { return AITexture.npcData(address(), capacity); }
+        /** Returns a {@link AIString} view of the {@code mFilename} field. */
+        @NativeType("struct aiString")
+        public AIString mFilename() { return AITexture.nmFilename(address()); }
 
     }
 
