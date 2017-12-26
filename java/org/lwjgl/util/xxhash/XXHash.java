@@ -39,7 +39,7 @@ public class XXHash {
     public static final int XXH_VERSION_MINOR = 6;
 
     /** The release version number. */
-    public static final int XXH_VERSION_RELEASE = 2;
+    public static final int XXH_VERSION_RELEASE = 4;
 
     /** The version number */
     public static final int XXH_VERSION_NUMBER = (XXH_VERSION_MAJOR *100*100 + XXH_VERSION_MINOR *100 + XXH_VERSION_RELEASE);
