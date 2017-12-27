@@ -266,8 +266,9 @@ public class ZstdX {
      * <li>{@link #ZSTD_p_jobSize p_jobSize} - 
      * Size of a compression job.
      * 
-     * <p>Each compression job is completed in parallel. 0 means default, which is dynamically determined based on compression parameters. Job size must be a
-     * minimum of {@code overlapSize}, or 1 KB, whichever is largest. The minimum size is automatically and transparently enforced.</p>
+     * <p>This value is only enforced in streaming (non-blocking) mode. Each compression job is completed in parallel, so indirectly controls the {@code nb}
+     * of active threads. 0 means default, which is dynamically determined based on compression parameters. Job size must be a minimum of
+     * {@code overlapSize}, or 1 KB, whichever is largest. The minimum size is automatically and transparently enforced.</p>
      * </li>
      * <li>{@link #ZSTD_p_overlapSizeLog p_overlapSizeLog} - 
      * Size of previous input reloaded at the beginning of each job.
@@ -368,7 +369,7 @@ public class ZstdX {
     /**
      * Unsafe version of: {@link #ZSTD_findFrameCompressedSize findFrameCompressedSize}
      *
-     * @param srcSize must be at least as large as the frame
+     * @param srcSize must be &ge; first frame size
      */
     public static native long nZSTD_findFrameCompressedSize(long src, long srcSize);
 
@@ -694,7 +695,7 @@ public class ZstdX {
      *
      * @param workspace the memory area to emplace the context into. Provided pointer must 8-bytes aligned. It must outlive context usage.
      *
-     * @return pointer to {@code ZSTD_CCtx*}, or {@code NULL} if error (size too small)
+     * @return pointer to {@code ZSTD_CCtx*} (same address as workspace, but different type), or {@code NULL} if error (typically size too small)
      */
     @NativeType("ZSTD_CCtx *")
     public static long ZSTD_initStaticCCtx(@NativeType("void *") ByteBuffer workspace) {
@@ -764,7 +765,7 @@ public class ZstdX {
      *
      * @param workspace The memory area to emplace the context into. Provided pointer must 8-bytes aligned. It must outlive context usage.
      *
-     * @return pointer to {@code ZSTD_DCtx*}, or {@code NULL} if error (size too small)
+     * @return pointer to {@code ZSTD_DCtx*} (same address as workspace, but different type), or {@code NULL} if error (typically size too small)
      */
     @NativeType("ZSTD_DCtx *")
     public static long ZSTD_initStaticDCtx(@NativeType("void *") ByteBuffer workspace) {
@@ -1199,8 +1200,14 @@ public class ZstdX {
      * <li>Compression parameters cannot be changed once compression is started.</li>
      * <li>{@code output->pos} must be &le; {@code dstCapacity}, {@code input->pos} must be &le; {@code srcSize}.</li>
      * <li>{@code outpot->pos} and {@code input->pos} will be updated. They are guaranteed to remain below their respective limit.</li>
-     * <li>after a {@link #ZSTD_e_end e_end} directive, if internal buffer is not fully flushed, only {@link #ZSTD_e_end e_end} or {@link #ZSTD_e_flush e_flush} operations are allowed. It is necessary to fully flush
-     * internal buffers before starting a new compression job, or changing compression parameters.</li>
+     * <li>In single-thread mode (default), function is blocking: it completed its job before returning to caller.</li>
+     * <li>In multi-thread mode, function is non-blocking: it just acquires a copy of input, and distribute job to internal worker threads, and then
+     * immediately returns, just indicating that there is some data remaining to be flushed. The function nonetheless guarantees forward progress: it will
+     * return only after it reads or write at least 1+ byte.</li>
+     * <li>Exception: in multi-threading mode, if the first call requests a {@link #ZSTD_e_end e_end} directive, it is blocking: it will complete compression before giving back
+     * control to caller.</li>
+     * <li>after a {@link #ZSTD_e_end e_end} directive, if internal buffer is not fully flushed (return != 0), only {@link #ZSTD_e_end e_end} or {@link #ZSTD_e_flush e_flush} operations are allowed. Before starting a
+     * new compression job, or changing compression parameters, it is required to fully flush internal buffers.</li>
      * </ul>
      *
      * @param cctx   
@@ -1208,8 +1215,9 @@ public class ZstdX {
      * @param input  
      * @param endOp  one of:<br><table><tr><td>{@link #ZSTD_e_continue e_continue}</td><td>{@link #ZSTD_e_flush e_flush}</td><td>{@link #ZSTD_e_end e_end}</td></tr></table>
      *
-     * @return provides the minimum amount of data still to flush from internal buffers or an error code, which can be tested using {@link Zstd#ZSTD_isError isError}. If
-     *         {@code @return != 0}, flush is not fully completed, there is some data left within internal buffers.
+     * @return provides the minimum amount of data remaining to be flushed from internal buffers or an error code, which can be tested using {@link Zstd#ZSTD_isError isError}. If
+     *         {@code @return != 0}, flush is not fully completed, there is still some data left within internal buffers. This is useful to determine if a {@link #ZSTD_e_flush e_flush} or
+     *         {@link #ZSTD_e_end e_end} directive is completed.
      */
     @NativeType("size_t")
     public static long ZSTD_compress_generic(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("ZSTD_outBuffer *") ZSTDOutBuffer output, @NativeType("ZSTD_inBuffer *") ZSTDInBuffer input, @NativeType("ZSTD_EndDirective") int endOp) {
