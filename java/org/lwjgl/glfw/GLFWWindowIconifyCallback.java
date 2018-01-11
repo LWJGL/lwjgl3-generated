@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWWindowIconifyCallback extends Callback implements GLFWWindowIconifyCallbackI {
 
     /** Creates a {@code GLFWWindowIconifyCallback} instance from the specified function pointer. */

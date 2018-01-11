@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetCharCallback SetCharCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetCharCallback SetCharCallback} method.
+ *
+ * @since version 2.4
+ */
 @FunctionalInterface
 @NativeType("GLFWcharfun")
 public interface GLFWCharCallbackI extends CallbackI.V {

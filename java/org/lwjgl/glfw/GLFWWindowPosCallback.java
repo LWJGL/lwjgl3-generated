@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowPosCallback SetWindowPosCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetWindowPosCallback SetWindowPosCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWWindowPosCallback extends Callback implements GLFWWindowPosCallbackI {
 
     /** Creates a {@code GLFWWindowPosCallback} instance from the specified function pointer. */

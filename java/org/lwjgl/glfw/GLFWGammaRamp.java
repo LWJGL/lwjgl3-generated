@@ -35,6 +35,8 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned short * blue;
  *     unsigned int size;
  * }</pre></code>
+ *
+ * @since version 3.0
  */
 @NativeType("struct GLFWgammaramp")
 public class GLFWGammaRamp extends Struct implements NativeResource {

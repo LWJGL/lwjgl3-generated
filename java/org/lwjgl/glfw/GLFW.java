@@ -422,6 +422,7 @@ public class GLFW {
      * {@code WindowHint}: specifies whether the window framebuffer will be transparent. If enabled and supported by the system, the window framebuffer
      * alpha channel will be used to combine the framebuffer with the background. This does not affect window decorations.
      * </li>
+     * <li>{@link #GLFW_HOVERED HOVERED} - {@code GetWindowAttrib}: indicates whether the cursor is currently directly over the client area of the window, with no other windows between.</li>
      * </ul>
      */
     public static final int
@@ -434,7 +435,8 @@ public class GLFW {
         GLFW_FLOATING                = 0x20007,
         GLFW_MAXIMIZED               = 0x20008,
         GLFW_CENTER_CURSOR           = 0x20009,
-        GLFW_TRANSPARENT_FRAMEBUFFER = 0x2000A;
+        GLFW_TRANSPARENT_FRAMEBUFFER = 0x2000A,
+        GLFW_HOVERED                 = 0x2000A;
 
     /** Input options. */
     public static final int
@@ -661,117 +663,118 @@ public class GLFW {
 
         /** Function address. */
         public static final long
-            Init                       = apiGetFunctionAddress(GLFW, "glfwInit"),
-            Terminate                  = apiGetFunctionAddress(GLFW, "glfwTerminate"),
-            InitHint                   = apiGetFunctionAddress(GLFW, "glfwInitHint"),
-            GetVersion                 = apiGetFunctionAddress(GLFW, "glfwGetVersion"),
-            GetVersionString           = apiGetFunctionAddress(GLFW, "glfwGetVersionString"),
-            GetError                   = apiGetFunctionAddress(GLFW, "glfwGetError"),
-            SetErrorCallback           = apiGetFunctionAddress(GLFW, "glfwSetErrorCallback"),
-            GetMonitors                = apiGetFunctionAddress(GLFW, "glfwGetMonitors"),
-            GetPrimaryMonitor          = apiGetFunctionAddress(GLFW, "glfwGetPrimaryMonitor"),
-            GetMonitorPos              = apiGetFunctionAddress(GLFW, "glfwGetMonitorPos"),
-            GetMonitorPhysicalSize     = apiGetFunctionAddress(GLFW, "glfwGetMonitorPhysicalSize"),
-            GetMonitorContentScale     = apiGetFunctionAddress(GLFW, "glfwGetMonitorContentScale"),
-            GetMonitorName             = apiGetFunctionAddress(GLFW, "glfwGetMonitorName"),
-            SetMonitorUserPointer      = apiGetFunctionAddress(GLFW, "glfwSetMonitorUserPointer"),
-            GetMonitorUserPointer      = apiGetFunctionAddress(GLFW, "glfwGetMonitorUserPointer"),
-            SetMonitorCallback         = apiGetFunctionAddress(GLFW, "glfwSetMonitorCallback"),
-            GetVideoModes              = apiGetFunctionAddress(GLFW, "glfwGetVideoModes"),
-            GetVideoMode               = apiGetFunctionAddress(GLFW, "glfwGetVideoMode"),
-            SetGamma                   = apiGetFunctionAddress(GLFW, "glfwSetGamma"),
-            GetGammaRamp               = apiGetFunctionAddress(GLFW, "glfwGetGammaRamp"),
-            SetGammaRamp               = apiGetFunctionAddress(GLFW, "glfwSetGammaRamp"),
-            DefaultWindowHints         = apiGetFunctionAddress(GLFW, "glfwDefaultWindowHints"),
-            WindowHint                 = apiGetFunctionAddress(GLFW, "glfwWindowHint"),
-            WindowHintString           = apiGetFunctionAddress(GLFW, "glfwWindowHintString"),
-            CreateWindow               = apiGetFunctionAddress(GLFW, "glfwCreateWindow"),
-            DestroyWindow              = apiGetFunctionAddress(GLFW, "glfwDestroyWindow"),
-            WindowShouldClose          = apiGetFunctionAddress(GLFW, "glfwWindowShouldClose"),
-            SetWindowShouldClose       = apiGetFunctionAddress(GLFW, "glfwSetWindowShouldClose"),
-            SetWindowTitle             = apiGetFunctionAddress(GLFW, "glfwSetWindowTitle"),
-            SetWindowIcon              = apiGetFunctionAddress(GLFW, "glfwSetWindowIcon"),
-            GetWindowPos               = apiGetFunctionAddress(GLFW, "glfwGetWindowPos"),
-            SetWindowPos               = apiGetFunctionAddress(GLFW, "glfwSetWindowPos"),
-            GetWindowSize              = apiGetFunctionAddress(GLFW, "glfwGetWindowSize"),
-            SetWindowSizeLimits        = apiGetFunctionAddress(GLFW, "glfwSetWindowSizeLimits"),
-            SetWindowAspectRatio       = apiGetFunctionAddress(GLFW, "glfwSetWindowAspectRatio"),
-            SetWindowSize              = apiGetFunctionAddress(GLFW, "glfwSetWindowSize"),
-            GetFramebufferSize         = apiGetFunctionAddress(GLFW, "glfwGetFramebufferSize"),
-            GetWindowFrameSize         = apiGetFunctionAddress(GLFW, "glfwGetWindowFrameSize"),
-            GetWindowContentScale      = apiGetFunctionAddress(GLFW, "glfwGetWindowContentScale"),
-            GetWindowOpacity           = apiGetFunctionAddress(GLFW, "glfwGetWindowOpacity"),
-            SetWindowOpacity           = apiGetFunctionAddress(GLFW, "glfwSetWindowOpacity"),
-            IconifyWindow              = apiGetFunctionAddress(GLFW, "glfwIconifyWindow"),
-            RestoreWindow              = apiGetFunctionAddress(GLFW, "glfwRestoreWindow"),
-            MaximizeWindow             = apiGetFunctionAddress(GLFW, "glfwMaximizeWindow"),
-            ShowWindow                 = apiGetFunctionAddress(GLFW, "glfwShowWindow"),
-            HideWindow                 = apiGetFunctionAddress(GLFW, "glfwHideWindow"),
-            FocusWindow                = apiGetFunctionAddress(GLFW, "glfwFocusWindow"),
-            RequestWindowAttention     = apiGetFunctionAddress(GLFW, "glfwRequestWindowAttention"),
-            GetWindowMonitor           = apiGetFunctionAddress(GLFW, "glfwGetWindowMonitor"),
-            SetWindowMonitor           = apiGetFunctionAddress(GLFW, "glfwSetWindowMonitor"),
-            GetWindowAttrib            = apiGetFunctionAddress(GLFW, "glfwGetWindowAttrib"),
-            SetWindowAttrib            = apiGetFunctionAddress(GLFW, "glfwSetWindowAttrib"),
-            SetWindowUserPointer       = apiGetFunctionAddress(GLFW, "glfwSetWindowUserPointer"),
-            GetWindowUserPointer       = apiGetFunctionAddress(GLFW, "glfwGetWindowUserPointer"),
-            SetWindowPosCallback       = apiGetFunctionAddress(GLFW, "glfwSetWindowPosCallback"),
-            SetWindowSizeCallback      = apiGetFunctionAddress(GLFW, "glfwSetWindowSizeCallback"),
-            SetWindowCloseCallback     = apiGetFunctionAddress(GLFW, "glfwSetWindowCloseCallback"),
-            SetWindowRefreshCallback   = apiGetFunctionAddress(GLFW, "glfwSetWindowRefreshCallback"),
-            SetWindowFocusCallback     = apiGetFunctionAddress(GLFW, "glfwSetWindowFocusCallback"),
-            SetWindowIconifyCallback   = apiGetFunctionAddress(GLFW, "glfwSetWindowIconifyCallback"),
-            SetWindowMaximizeCallback  = apiGetFunctionAddress(GLFW, "glfwSetWindowMaximizeCallback"),
-            SetFramebufferSizeCallback = apiGetFunctionAddress(GLFW, "glfwSetFramebufferSizeCallback"),
-            PollEvents                 = apiGetFunctionAddress(GLFW, "glfwPollEvents"),
-            WaitEvents                 = apiGetFunctionAddress(GLFW, "glfwWaitEvents"),
-            WaitEventsTimeout          = apiGetFunctionAddress(GLFW, "glfwWaitEventsTimeout"),
-            PostEmptyEvent             = apiGetFunctionAddress(GLFW, "glfwPostEmptyEvent"),
-            GetInputMode               = apiGetFunctionAddress(GLFW, "glfwGetInputMode"),
-            SetInputMode               = apiGetFunctionAddress(GLFW, "glfwSetInputMode"),
-            GetKeyName                 = apiGetFunctionAddress(GLFW, "glfwGetKeyName"),
-            GetKeyScancode             = apiGetFunctionAddress(GLFW, "glfwGetKeyScancode"),
-            GetKey                     = apiGetFunctionAddress(GLFW, "glfwGetKey"),
-            GetMouseButton             = apiGetFunctionAddress(GLFW, "glfwGetMouseButton"),
-            GetCursorPos               = apiGetFunctionAddress(GLFW, "glfwGetCursorPos"),
-            SetCursorPos               = apiGetFunctionAddress(GLFW, "glfwSetCursorPos"),
-            CreateCursor               = apiGetFunctionAddress(GLFW, "glfwCreateCursor"),
-            CreateStandardCursor       = apiGetFunctionAddress(GLFW, "glfwCreateStandardCursor"),
-            DestroyCursor              = apiGetFunctionAddress(GLFW, "glfwDestroyCursor"),
-            SetCursor                  = apiGetFunctionAddress(GLFW, "glfwSetCursor"),
-            SetKeyCallback             = apiGetFunctionAddress(GLFW, "glfwSetKeyCallback"),
-            SetCharCallback            = apiGetFunctionAddress(GLFW, "glfwSetCharCallback"),
-            SetCharModsCallback        = apiGetFunctionAddress(GLFW, "glfwSetCharModsCallback"),
-            SetMouseButtonCallback     = apiGetFunctionAddress(GLFW, "glfwSetMouseButtonCallback"),
-            SetCursorPosCallback       = apiGetFunctionAddress(GLFW, "glfwSetCursorPosCallback"),
-            SetCursorEnterCallback     = apiGetFunctionAddress(GLFW, "glfwSetCursorEnterCallback"),
-            SetScrollCallback          = apiGetFunctionAddress(GLFW, "glfwSetScrollCallback"),
-            SetDropCallback            = apiGetFunctionAddress(GLFW, "glfwSetDropCallback"),
-            JoystickPresent            = apiGetFunctionAddress(GLFW, "glfwJoystickPresent"),
-            GetJoystickAxes            = apiGetFunctionAddress(GLFW, "glfwGetJoystickAxes"),
-            GetJoystickButtons         = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
-            GetJoystickHats            = apiGetFunctionAddress(GLFW, "glfwGetJoystickHats"),
-            GetJoystickName            = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
-            GetJoystickGUID            = apiGetFunctionAddress(GLFW, "glfwGetJoystickGUID"),
-            SetJoystickUserPointer     = apiGetFunctionAddress(GLFW, "glfwSetJoystickUserPointer"),
-            GetJoystickUserPointer     = apiGetFunctionAddress(GLFW, "glfwGetJoystickUserPointer"),
-            JoystickIsGamepad          = apiGetFunctionAddress(GLFW, "glfwJoystickIsGamepad"),
-            SetJoystickCallback        = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
-            UpdateGamepadMappings      = apiGetFunctionAddress(GLFW, "glfwUpdateGamepadMappings"),
-            GetGamepadName             = apiGetFunctionAddress(GLFW, "glfwGetGamepadName"),
-            GetGamepadState            = apiGetFunctionAddress(GLFW, "glfwGetGamepadState"),
-            SetClipboardString         = apiGetFunctionAddress(GLFW, "glfwSetClipboardString"),
-            GetClipboardString         = apiGetFunctionAddress(GLFW, "glfwGetClipboardString"),
-            GetTime                    = apiGetFunctionAddress(GLFW, "glfwGetTime"),
-            SetTime                    = apiGetFunctionAddress(GLFW, "glfwSetTime"),
-            GetTimerValue              = apiGetFunctionAddress(GLFW, "glfwGetTimerValue"),
-            GetTimerFrequency          = apiGetFunctionAddress(GLFW, "glfwGetTimerFrequency"),
-            MakeContextCurrent         = apiGetFunctionAddress(GLFW, "glfwMakeContextCurrent"),
-            GetCurrentContext          = apiGetFunctionAddress(GLFW, "glfwGetCurrentContext"),
-            SwapBuffers                = apiGetFunctionAddress(GLFW, "glfwSwapBuffers"),
-            SwapInterval               = apiGetFunctionAddress(GLFW, "glfwSwapInterval"),
-            ExtensionSupported         = apiGetFunctionAddress(GLFW, "glfwExtensionSupported"),
-            GetProcAddress             = apiGetFunctionAddress(GLFW, "glfwGetProcAddress");
+            Init                          = apiGetFunctionAddress(GLFW, "glfwInit"),
+            Terminate                     = apiGetFunctionAddress(GLFW, "glfwTerminate"),
+            InitHint                      = apiGetFunctionAddress(GLFW, "glfwInitHint"),
+            GetVersion                    = apiGetFunctionAddress(GLFW, "glfwGetVersion"),
+            GetVersionString              = apiGetFunctionAddress(GLFW, "glfwGetVersionString"),
+            GetError                      = apiGetFunctionAddress(GLFW, "glfwGetError"),
+            SetErrorCallback              = apiGetFunctionAddress(GLFW, "glfwSetErrorCallback"),
+            GetMonitors                   = apiGetFunctionAddress(GLFW, "glfwGetMonitors"),
+            GetPrimaryMonitor             = apiGetFunctionAddress(GLFW, "glfwGetPrimaryMonitor"),
+            GetMonitorPos                 = apiGetFunctionAddress(GLFW, "glfwGetMonitorPos"),
+            GetMonitorPhysicalSize        = apiGetFunctionAddress(GLFW, "glfwGetMonitorPhysicalSize"),
+            GetMonitorContentScale        = apiGetFunctionAddress(GLFW, "glfwGetMonitorContentScale"),
+            GetMonitorName                = apiGetFunctionAddress(GLFW, "glfwGetMonitorName"),
+            SetMonitorUserPointer         = apiGetFunctionAddress(GLFW, "glfwSetMonitorUserPointer"),
+            GetMonitorUserPointer         = apiGetFunctionAddress(GLFW, "glfwGetMonitorUserPointer"),
+            SetMonitorCallback            = apiGetFunctionAddress(GLFW, "glfwSetMonitorCallback"),
+            GetVideoModes                 = apiGetFunctionAddress(GLFW, "glfwGetVideoModes"),
+            GetVideoMode                  = apiGetFunctionAddress(GLFW, "glfwGetVideoMode"),
+            SetGamma                      = apiGetFunctionAddress(GLFW, "glfwSetGamma"),
+            GetGammaRamp                  = apiGetFunctionAddress(GLFW, "glfwGetGammaRamp"),
+            SetGammaRamp                  = apiGetFunctionAddress(GLFW, "glfwSetGammaRamp"),
+            DefaultWindowHints            = apiGetFunctionAddress(GLFW, "glfwDefaultWindowHints"),
+            WindowHint                    = apiGetFunctionAddress(GLFW, "glfwWindowHint"),
+            WindowHintString              = apiGetFunctionAddress(GLFW, "glfwWindowHintString"),
+            CreateWindow                  = apiGetFunctionAddress(GLFW, "glfwCreateWindow"),
+            DestroyWindow                 = apiGetFunctionAddress(GLFW, "glfwDestroyWindow"),
+            WindowShouldClose             = apiGetFunctionAddress(GLFW, "glfwWindowShouldClose"),
+            SetWindowShouldClose          = apiGetFunctionAddress(GLFW, "glfwSetWindowShouldClose"),
+            SetWindowTitle                = apiGetFunctionAddress(GLFW, "glfwSetWindowTitle"),
+            SetWindowIcon                 = apiGetFunctionAddress(GLFW, "glfwSetWindowIcon"),
+            GetWindowPos                  = apiGetFunctionAddress(GLFW, "glfwGetWindowPos"),
+            SetWindowPos                  = apiGetFunctionAddress(GLFW, "glfwSetWindowPos"),
+            GetWindowSize                 = apiGetFunctionAddress(GLFW, "glfwGetWindowSize"),
+            SetWindowSizeLimits           = apiGetFunctionAddress(GLFW, "glfwSetWindowSizeLimits"),
+            SetWindowAspectRatio          = apiGetFunctionAddress(GLFW, "glfwSetWindowAspectRatio"),
+            SetWindowSize                 = apiGetFunctionAddress(GLFW, "glfwSetWindowSize"),
+            GetFramebufferSize            = apiGetFunctionAddress(GLFW, "glfwGetFramebufferSize"),
+            GetWindowFrameSize            = apiGetFunctionAddress(GLFW, "glfwGetWindowFrameSize"),
+            GetWindowContentScale         = apiGetFunctionAddress(GLFW, "glfwGetWindowContentScale"),
+            GetWindowOpacity              = apiGetFunctionAddress(GLFW, "glfwGetWindowOpacity"),
+            SetWindowOpacity              = apiGetFunctionAddress(GLFW, "glfwSetWindowOpacity"),
+            IconifyWindow                 = apiGetFunctionAddress(GLFW, "glfwIconifyWindow"),
+            RestoreWindow                 = apiGetFunctionAddress(GLFW, "glfwRestoreWindow"),
+            MaximizeWindow                = apiGetFunctionAddress(GLFW, "glfwMaximizeWindow"),
+            ShowWindow                    = apiGetFunctionAddress(GLFW, "glfwShowWindow"),
+            HideWindow                    = apiGetFunctionAddress(GLFW, "glfwHideWindow"),
+            FocusWindow                   = apiGetFunctionAddress(GLFW, "glfwFocusWindow"),
+            RequestWindowAttention        = apiGetFunctionAddress(GLFW, "glfwRequestWindowAttention"),
+            GetWindowMonitor              = apiGetFunctionAddress(GLFW, "glfwGetWindowMonitor"),
+            SetWindowMonitor              = apiGetFunctionAddress(GLFW, "glfwSetWindowMonitor"),
+            GetWindowAttrib               = apiGetFunctionAddress(GLFW, "glfwGetWindowAttrib"),
+            SetWindowAttrib               = apiGetFunctionAddress(GLFW, "glfwSetWindowAttrib"),
+            SetWindowUserPointer          = apiGetFunctionAddress(GLFW, "glfwSetWindowUserPointer"),
+            GetWindowUserPointer          = apiGetFunctionAddress(GLFW, "glfwGetWindowUserPointer"),
+            SetWindowPosCallback          = apiGetFunctionAddress(GLFW, "glfwSetWindowPosCallback"),
+            SetWindowSizeCallback         = apiGetFunctionAddress(GLFW, "glfwSetWindowSizeCallback"),
+            SetWindowCloseCallback        = apiGetFunctionAddress(GLFW, "glfwSetWindowCloseCallback"),
+            SetWindowRefreshCallback      = apiGetFunctionAddress(GLFW, "glfwSetWindowRefreshCallback"),
+            SetWindowFocusCallback        = apiGetFunctionAddress(GLFW, "glfwSetWindowFocusCallback"),
+            SetWindowIconifyCallback      = apiGetFunctionAddress(GLFW, "glfwSetWindowIconifyCallback"),
+            SetWindowMaximizeCallback     = apiGetFunctionAddress(GLFW, "glfwSetWindowMaximizeCallback"),
+            SetFramebufferSizeCallback    = apiGetFunctionAddress(GLFW, "glfwSetFramebufferSizeCallback"),
+            SetWindowContentScaleCallback = apiGetFunctionAddress(GLFW, "glfwSetWindowContentScaleCallback"),
+            PollEvents                    = apiGetFunctionAddress(GLFW, "glfwPollEvents"),
+            WaitEvents                    = apiGetFunctionAddress(GLFW, "glfwWaitEvents"),
+            WaitEventsTimeout             = apiGetFunctionAddress(GLFW, "glfwWaitEventsTimeout"),
+            PostEmptyEvent                = apiGetFunctionAddress(GLFW, "glfwPostEmptyEvent"),
+            GetInputMode                  = apiGetFunctionAddress(GLFW, "glfwGetInputMode"),
+            SetInputMode                  = apiGetFunctionAddress(GLFW, "glfwSetInputMode"),
+            GetKeyName                    = apiGetFunctionAddress(GLFW, "glfwGetKeyName"),
+            GetKeyScancode                = apiGetFunctionAddress(GLFW, "glfwGetKeyScancode"),
+            GetKey                        = apiGetFunctionAddress(GLFW, "glfwGetKey"),
+            GetMouseButton                = apiGetFunctionAddress(GLFW, "glfwGetMouseButton"),
+            GetCursorPos                  = apiGetFunctionAddress(GLFW, "glfwGetCursorPos"),
+            SetCursorPos                  = apiGetFunctionAddress(GLFW, "glfwSetCursorPos"),
+            CreateCursor                  = apiGetFunctionAddress(GLFW, "glfwCreateCursor"),
+            CreateStandardCursor          = apiGetFunctionAddress(GLFW, "glfwCreateStandardCursor"),
+            DestroyCursor                 = apiGetFunctionAddress(GLFW, "glfwDestroyCursor"),
+            SetCursor                     = apiGetFunctionAddress(GLFW, "glfwSetCursor"),
+            SetKeyCallback                = apiGetFunctionAddress(GLFW, "glfwSetKeyCallback"),
+            SetCharCallback               = apiGetFunctionAddress(GLFW, "glfwSetCharCallback"),
+            SetCharModsCallback           = apiGetFunctionAddress(GLFW, "glfwSetCharModsCallback"),
+            SetMouseButtonCallback        = apiGetFunctionAddress(GLFW, "glfwSetMouseButtonCallback"),
+            SetCursorPosCallback          = apiGetFunctionAddress(GLFW, "glfwSetCursorPosCallback"),
+            SetCursorEnterCallback        = apiGetFunctionAddress(GLFW, "glfwSetCursorEnterCallback"),
+            SetScrollCallback             = apiGetFunctionAddress(GLFW, "glfwSetScrollCallback"),
+            SetDropCallback               = apiGetFunctionAddress(GLFW, "glfwSetDropCallback"),
+            JoystickPresent               = apiGetFunctionAddress(GLFW, "glfwJoystickPresent"),
+            GetJoystickAxes               = apiGetFunctionAddress(GLFW, "glfwGetJoystickAxes"),
+            GetJoystickButtons            = apiGetFunctionAddress(GLFW, "glfwGetJoystickButtons"),
+            GetJoystickHats               = apiGetFunctionAddress(GLFW, "glfwGetJoystickHats"),
+            GetJoystickName               = apiGetFunctionAddress(GLFW, "glfwGetJoystickName"),
+            GetJoystickGUID               = apiGetFunctionAddress(GLFW, "glfwGetJoystickGUID"),
+            SetJoystickUserPointer        = apiGetFunctionAddress(GLFW, "glfwSetJoystickUserPointer"),
+            GetJoystickUserPointer        = apiGetFunctionAddress(GLFW, "glfwGetJoystickUserPointer"),
+            JoystickIsGamepad             = apiGetFunctionAddress(GLFW, "glfwJoystickIsGamepad"),
+            SetJoystickCallback           = apiGetFunctionAddress(GLFW, "glfwSetJoystickCallback"),
+            UpdateGamepadMappings         = apiGetFunctionAddress(GLFW, "glfwUpdateGamepadMappings"),
+            GetGamepadName                = apiGetFunctionAddress(GLFW, "glfwGetGamepadName"),
+            GetGamepadState               = apiGetFunctionAddress(GLFW, "glfwGetGamepadState"),
+            SetClipboardString            = apiGetFunctionAddress(GLFW, "glfwSetClipboardString"),
+            GetClipboardString            = apiGetFunctionAddress(GLFW, "glfwGetClipboardString"),
+            GetTime                       = apiGetFunctionAddress(GLFW, "glfwGetTime"),
+            SetTime                       = apiGetFunctionAddress(GLFW, "glfwSetTime"),
+            GetTimerValue                 = apiGetFunctionAddress(GLFW, "glfwGetTimerValue"),
+            GetTimerFrequency             = apiGetFunctionAddress(GLFW, "glfwGetTimerFrequency"),
+            MakeContextCurrent            = apiGetFunctionAddress(GLFW, "glfwMakeContextCurrent"),
+            GetCurrentContext             = apiGetFunctionAddress(GLFW, "glfwGetCurrentContext"),
+            SwapBuffers                   = apiGetFunctionAddress(GLFW, "glfwSwapBuffers"),
+            SwapInterval                  = apiGetFunctionAddress(GLFW, "glfwSwapInterval"),
+            ExtensionSupported            = apiGetFunctionAddress(GLFW, "glfwExtensionSupported"),
+            GetProcAddress                = apiGetFunctionAddress(GLFW, "glfwGetProcAddress");
 
     }
 
@@ -2603,7 +2606,7 @@ public class GLFW {
      * function should not fail as long as it is passed valid arguments and the library has been initialized.</p>
      *
      * @param window the window to query
-     * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER}</td><td>{@link #GLFW_CLIENT_API CLIENT_API}</td></tr><tr><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td></tr><tr><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
+     * @param attrib the <a href="http://www.glfw.org/docs/latest/window.html#window_attribs">window attribute</a> whose value to return. One of:<br><table><tr><td>{@link #GLFW_FOCUSED FOCUSED}</td><td>{@link #GLFW_ICONIFIED ICONIFIED}</td><td>{@link #GLFW_RESIZABLE RESIZABLE}</td><td>{@link #GLFW_VISIBLE VISIBLE}</td><td>{@link #GLFW_DECORATED DECORATED}</td></tr><tr><td>{@link #GLFW_FLOATING FLOATING}</td><td>{@link #GLFW_MAXIMIZED MAXIMIZED}</td><td>{@link #GLFW_CENTER_CURSOR CENTER_CURSOR}</td><td>{@link #GLFW_TRANSPARENT_FRAMEBUFFER TRANSPARENT_FRAMEBUFFER}</td><td>{@link #GLFW_HOVERED HOVERED}</td></tr><tr><td>{@link #GLFW_CLIENT_API CLIENT_API}</td><td>{@link #GLFW_CONTEXT_VERSION_MAJOR CONTEXT_VERSION_MAJOR}</td><td>{@link #GLFW_CONTEXT_VERSION_MINOR CONTEXT_VERSION_MINOR}</td><td>{@link #GLFW_CONTEXT_REVISION CONTEXT_REVISION}</td><td>{@link #GLFW_CONTEXT_ROBUSTNESS CONTEXT_ROBUSTNESS}</td></tr><tr><td>{@link #GLFW_OPENGL_FORWARD_COMPAT OPENGL_FORWARD_COMPAT}</td><td>{@link #GLFW_OPENGL_DEBUG_CONTEXT OPENGL_DEBUG_CONTEXT}</td><td>{@link #GLFW_OPENGL_PROFILE OPENGL_PROFILE}</td><td>{@link #GLFW_CONTEXT_RELEASE_BEHAVIOR CONTEXT_RELEASE_BEHAVIOR}</td><td>{@link #GLFW_CONTEXT_NO_ERROR CONTEXT_NO_ERROR}</td></tr><tr><td>{@link #GLFW_CONTEXT_CREATION_API CONTEXT_CREATION_API}</td></tr></table>
      *
      * @return the value of the attribute, or zero if an error occurred
      *
@@ -2943,6 +2946,35 @@ public class GLFW {
     @NativeType("GLFWframebuffersizefun")
     public static GLFWFramebufferSizeCallback glfwSetFramebufferSizeCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWframebuffersizefun") GLFWFramebufferSizeCallbackI cbfun) {
         return GLFWFramebufferSizeCallback.create(nglfwSetFramebufferSizeCallback(window, memAddressSafe(cbfun)));
+    }
+
+    // --- [ glfwSetWindowContentScaleCallback ] ---
+
+    /** Unsafe version of: {@link #glfwSetWindowContentScaleCallback SetWindowContentScaleCallback} */
+    public static long nglfwSetWindowContentScaleCallback(long window, long cbfun) {
+        long __functionAddress = Functions.SetWindowContentScaleCallback;
+        if (CHECKS) {
+            check(window);
+        }
+        return invokePPP(__functionAddress, window, cbfun);
+    }
+
+    /**
+     * Sets the window content scale callback for the specified window, which is called when the content scale of the specified window changes.
+     * 
+     * <p>This function must only be called from the main thread.</p>
+     *
+     * @param window the window whose callback to set
+     * @param cbfun  the new callback or {@code NULL} to remove the currently set callback
+     *
+     * @return the previously set callback, or {@code NULL} if no callback was set or the library had not been
+     *         <a target="_blank" href="http://www.glfw.org/docs/latest/intro.html#intro_init">initialized</a>
+     *
+     * @since version 3.3
+     */
+    @NativeType("GLFWwindowcontentscalefun")
+    public static GLFWWindowContentScaleCallback glfwSetWindowContentScaleCallback(@NativeType("GLFWwindow *") long window, @NativeType("GLFWwindowcontentscalefun") GLFWWindowContentScaleCallbackI cbfun) {
+        return GLFWWindowContentScaleCallback.create(nglfwSetWindowContentScaleCallback(window, memAddressSafe(cbfun)));
     }
 
     // --- [ glfwPollEvents ] ---

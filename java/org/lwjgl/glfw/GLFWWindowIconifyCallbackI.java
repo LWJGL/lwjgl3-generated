@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetWindowIconifyCallback SetWindowIconifyCallback} method.
+ *
+ * @since version 3.0
+ */
 @FunctionalInterface
 @NativeType("GLFWwindowiconifyfun")
 public interface GLFWWindowIconifyCallbackI extends CallbackI.V {

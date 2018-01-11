@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method.
+ *
+ * @since version 3.0
+ */
 @FunctionalInterface
 @NativeType("GLFWcursorenterfun")
 public interface GLFWCursorEnterCallbackI extends CallbackI.V {

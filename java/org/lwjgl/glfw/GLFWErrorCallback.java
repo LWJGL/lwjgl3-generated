@@ -14,7 +14,11 @@ import java.util.Map;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWErrorCallback extends Callback implements GLFWErrorCallbackI {
 
     /** Creates a {@code GLFWErrorCallback} instance from the specified function pointer. */

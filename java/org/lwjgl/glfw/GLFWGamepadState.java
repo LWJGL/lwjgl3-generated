@@ -31,6 +31,8 @@ import static org.lwjgl.system.MemoryStack.*;
  *     unsigned char buttons[15];
  *     float axes[6];
  * }</pre></code>
+ *
+ * @since version 3.3
  */
 @NativeType("struct GLFWgamepadstate")
 public class GLFWGamepadState extends Struct implements NativeResource {

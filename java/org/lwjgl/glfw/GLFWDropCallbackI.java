@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method.
+ *
+ * @since version 3.1
+ */
 @FunctionalInterface
 @NativeType("GLFWdropfun")
 public interface GLFWDropCallbackI extends CallbackI.V {

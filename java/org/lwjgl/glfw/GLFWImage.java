@@ -35,6 +35,8 @@ import static org.lwjgl.system.MemoryStack.*;
  *     int height;
  *     unsigned char * pixels;
  * }</pre></code>
+ *
+ * @since version 2.1
  */
 @NativeType("struct GLFWimage")
 public class GLFWImage extends Struct implements NativeResource {

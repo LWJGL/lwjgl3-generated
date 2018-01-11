@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method.
+ *
+ * @since version 3.0
+ */
 @FunctionalInterface
 @NativeType("GLFWscrollfun")
 public interface GLFWScrollCallbackI extends CallbackI.V {

@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWFramebufferSizeCallback extends Callback implements GLFWFramebufferSizeCallbackI {
 
     /** Creates a {@code GLFWFramebufferSizeCallback} instance from the specified function pointer. */

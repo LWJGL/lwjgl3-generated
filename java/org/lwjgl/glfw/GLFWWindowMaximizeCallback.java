@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowMaximizeCallback SetWindowMaximizeCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetWindowMaximizeCallback SetWindowMaximizeCallback} method.
+ *
+ * @since version 3.3
+ */
 public abstract class GLFWWindowMaximizeCallback extends Callback implements GLFWWindowMaximizeCallbackI {
 
     /** Creates a {@code GLFWWindowMaximizeCallback} instance from the specified function pointer. */

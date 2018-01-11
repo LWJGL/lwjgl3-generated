@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method.
+ *
+ * @since version 3.2
+ */
 @FunctionalInterface
 @NativeType("GLFWjoystickfun")
 public interface GLFWJoystickCallbackI extends CallbackI.V {

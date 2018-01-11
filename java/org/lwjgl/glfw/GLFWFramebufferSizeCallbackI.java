@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetFramebufferSizeCallback SetFramebufferSizeCallback} method.
+ *
+ * @since version 3.0
+ */
 @FunctionalInterface
 @NativeType("GLFWframebuffersizefun")
 public interface GLFWFramebufferSizeCallbackI extends CallbackI.V {

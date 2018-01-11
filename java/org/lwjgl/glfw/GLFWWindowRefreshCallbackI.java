@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowRefreshCallback SetWindowRefreshCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetWindowRefreshCallback SetWindowRefreshCallback} method.
+ *
+ * @since version 2.5
+ */
 @FunctionalInterface
 @NativeType("GLFWwindowrefreshfun")
 public interface GLFWWindowRefreshCallbackI extends CallbackI.V {

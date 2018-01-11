@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowFocusCallback SetWindowFocusCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetWindowFocusCallback SetWindowFocusCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWWindowFocusCallback extends Callback implements GLFWWindowFocusCallbackI {
 
     /** Creates a {@code GLFWWindowFocusCallback} instance from the specified function pointer. */

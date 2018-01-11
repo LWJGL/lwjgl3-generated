@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowMaximizeCallback SetWindowMaximizeCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetWindowMaximizeCallback SetWindowMaximizeCallback} method.
+ *
+ * @since version 3.3
+ */
 @FunctionalInterface
 @NativeType("GLFWwindowmaximizefun")
 public interface GLFWWindowMaximizeCallbackI extends CallbackI.V {

@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWMonitorCallback extends Callback implements GLFWMonitorCallbackI {
 
     /** Creates a {@code GLFWMonitorCallback} instance from the specified function pointer. */

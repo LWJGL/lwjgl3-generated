@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method.
+ *
+ * @since version 2.5
+ */
 public abstract class GLFWWindowCloseCallback extends Callback implements GLFWWindowCloseCallbackI {
 
     /** Creates a {@code GLFWWindowCloseCallback} instance from the specified function pointer. */

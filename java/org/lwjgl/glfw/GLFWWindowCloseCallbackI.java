@@ -9,7 +9,11 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetWindowCloseCallback SetWindowCloseCallback} method.
+ *
+ * @since version 2.5
+ */
 @FunctionalInterface
 @NativeType("GLFWwindowclosefun")
 public interface GLFWWindowCloseCallbackI extends CallbackI.V {

@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetWindowRefreshCallback SetWindowRefreshCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetWindowRefreshCallback SetWindowRefreshCallback} method.
+ *
+ * @since version 2.5
+ */
 public abstract class GLFWWindowRefreshCallback extends Callback implements GLFWWindowRefreshCallbackI {
 
     /** Creates a {@code GLFWWindowRefreshCallback} instance from the specified function pointer. */

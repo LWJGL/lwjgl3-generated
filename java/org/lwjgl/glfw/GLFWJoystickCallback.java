@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetJoystickCallback SetJoystickCallback} method.
+ *
+ * @since version 3.2
+ */
 public abstract class GLFWJoystickCallback extends Callback implements GLFWJoystickCallbackI {
 
     /** Creates a {@code GLFWJoystickCallback} instance from the specified function pointer. */

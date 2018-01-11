@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetCursorPosCallback SetCursorPosCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetCursorPosCallback SetCursorPosCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWCursorPosCallback extends Callback implements GLFWCursorPosCallbackI {
 
     /** Creates a {@code GLFWCursorPosCallback} instance from the specified function pointer. */

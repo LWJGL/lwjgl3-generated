@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method.
+ *
+ * @since version 3.0
+ */
 public abstract class GLFWScrollCallback extends Callback implements GLFWScrollCallbackI {
 
     /** Creates a {@code GLFWScrollCallback} instance from the specified function pointer. */

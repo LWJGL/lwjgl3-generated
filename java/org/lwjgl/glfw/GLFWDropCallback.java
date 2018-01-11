@@ -11,7 +11,11 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method.
+ *
+ * @since version 3.1
+ */
 public abstract class GLFWDropCallback extends Callback implements GLFWDropCallbackI {
 
     /** Creates a {@code GLFWDropCallback} instance from the specified function pointer. */
