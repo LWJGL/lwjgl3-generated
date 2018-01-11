@@ -135,6 +135,7 @@ public final class OpenVR {
             GetInt32TrackedDeviceProperty,
             GetUint64TrackedDeviceProperty,
             GetMatrix34TrackedDeviceProperty,
+            GetArrayTrackedDeviceProperty,
             GetStringTrackedDeviceProperty,
             GetPropErrorNameFromEnum,
             PollNextEvent,
@@ -146,16 +147,17 @@ public final class OpenVR {
             TriggerHapticPulse,
             GetButtonIdNameFromEnum,
             GetControllerAxisTypeNameFromEnum,
-            CaptureInputFocus,
-            ReleaseInputFocus,
-            IsInputFocusCapturedByAnotherProcess,
+            IsInputAvailable,
+            IsSteamVRDrawingControllers,
+            ShouldApplicationPause,
+            ShouldApplicationReduceRenderingWork,
             DriverDebugRequest,
             PerformFirmwareUpdate,
             AcknowledgeQuit_Exiting,
             AcknowledgeQuit_UserPrompt;
 
         public IVRSystem(long tableAddress) {
-            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 45);
+            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 47);
             GetRecommendedRenderTargetSize = table.get(0);
             GetProjectionMatrix = table.get(1);
             GetProjectionRaw = table.get(2);
@@ -183,24 +185,26 @@ public final class OpenVR {
             GetInt32TrackedDeviceProperty = table.get(24);
             GetUint64TrackedDeviceProperty = table.get(25);
             GetMatrix34TrackedDeviceProperty = table.get(26);
-            GetStringTrackedDeviceProperty = table.get(27);
-            GetPropErrorNameFromEnum = table.get(28);
-            PollNextEvent = table.get(29);
-            PollNextEventWithPose = table.get(30);
-            GetEventTypeNameFromEnum = table.get(31);
-            GetHiddenAreaMesh = table.get(32);
-            GetControllerState = table.get(33);
-            GetControllerStateWithPose = table.get(34);
-            TriggerHapticPulse = table.get(35);
-            GetButtonIdNameFromEnum = table.get(36);
-            GetControllerAxisTypeNameFromEnum = table.get(37);
-            CaptureInputFocus = table.get(38);
-            ReleaseInputFocus = table.get(39);
-            IsInputFocusCapturedByAnotherProcess = table.get(40);
-            DriverDebugRequest = table.get(41);
-            PerformFirmwareUpdate = table.get(42);
-            AcknowledgeQuit_Exiting = table.get(43);
-            AcknowledgeQuit_UserPrompt = table.get(44);
+            GetArrayTrackedDeviceProperty = table.get(27);
+            GetStringTrackedDeviceProperty = table.get(28);
+            GetPropErrorNameFromEnum = table.get(29);
+            PollNextEvent = table.get(30);
+            PollNextEventWithPose = table.get(31);
+            GetEventTypeNameFromEnum = table.get(32);
+            GetHiddenAreaMesh = table.get(33);
+            GetControllerState = table.get(34);
+            GetControllerStateWithPose = table.get(35);
+            TriggerHapticPulse = table.get(36);
+            GetButtonIdNameFromEnum = table.get(37);
+            GetControllerAxisTypeNameFromEnum = table.get(38);
+            IsInputAvailable = table.get(39);
+            IsSteamVRDrawingControllers = table.get(40);
+            ShouldApplicationPause = table.get(41);
+            ShouldApplicationReduceRenderingWork = table.get(42);
+            DriverDebugRequest = table.get(43);
+            PerformFirmwareUpdate = table.get(44);
+            AcknowledgeQuit_Exiting = table.get(45);
+            AcknowledgeQuit_UserPrompt = table.get(46);
         }
 
     }
@@ -547,7 +551,6 @@ public final class OpenVR {
             GetOverlayMouseScale,
             SetOverlayMouseScale,
             ComputeOverlayIntersection,
-            HandleControllerOverlayInteractionAsMouse,
             IsHoverTargetOverlay,
             GetGamepadFocusOverlay,
             SetGamepadFocusOverlay,
@@ -581,7 +584,7 @@ public final class OpenVR {
             CloseMessageOverlay;
 
         public IVROverlay(long tableAddress) {
-            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 83);
+            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 82);
             FindOverlay = table.get(0);
             CreateOverlay = table.get(1);
             DestroyOverlay = table.get(2);
@@ -633,38 +636,37 @@ public final class OpenVR {
             GetOverlayMouseScale = table.get(48);
             SetOverlayMouseScale = table.get(49);
             ComputeOverlayIntersection = table.get(50);
-            HandleControllerOverlayInteractionAsMouse = table.get(51);
-            IsHoverTargetOverlay = table.get(52);
-            GetGamepadFocusOverlay = table.get(53);
-            SetGamepadFocusOverlay = table.get(54);
-            SetOverlayNeighbor = table.get(55);
-            MoveGamepadFocusToNeighbor = table.get(56);
-            SetOverlayDualAnalogTransform = table.get(57);
-            GetOverlayDualAnalogTransform = table.get(58);
-            SetOverlayTexture = table.get(59);
-            ClearOverlayTexture = table.get(60);
-            SetOverlayRaw = table.get(61);
-            SetOverlayFromFile = table.get(62);
-            GetOverlayTexture = table.get(63);
-            ReleaseNativeOverlayHandle = table.get(64);
-            GetOverlayTextureSize = table.get(65);
-            CreateDashboardOverlay = table.get(66);
-            IsDashboardVisible = table.get(67);
-            IsActiveDashboardOverlay = table.get(68);
-            SetDashboardOverlaySceneProcess = table.get(69);
-            GetDashboardOverlaySceneProcess = table.get(70);
-            ShowDashboard = table.get(71);
-            GetPrimaryDashboardDevice = table.get(72);
-            ShowKeyboard = table.get(73);
-            ShowKeyboardForOverlay = table.get(74);
-            GetKeyboardText = table.get(75);
-            HideKeyboard = table.get(76);
-            SetKeyboardTransformAbsolute = table.get(77);
-            SetKeyboardPositionForOverlay = table.get(78);
-            SetOverlayIntersectionMask = table.get(79);
-            GetOverlayFlags = table.get(80);
-            ShowMessageOverlay = table.get(81);
-            CloseMessageOverlay = table.get(82);
+            IsHoverTargetOverlay = table.get(51);
+            GetGamepadFocusOverlay = table.get(52);
+            SetGamepadFocusOverlay = table.get(53);
+            SetOverlayNeighbor = table.get(54);
+            MoveGamepadFocusToNeighbor = table.get(55);
+            SetOverlayDualAnalogTransform = table.get(56);
+            GetOverlayDualAnalogTransform = table.get(57);
+            SetOverlayTexture = table.get(58);
+            ClearOverlayTexture = table.get(59);
+            SetOverlayRaw = table.get(60);
+            SetOverlayFromFile = table.get(61);
+            GetOverlayTexture = table.get(62);
+            ReleaseNativeOverlayHandle = table.get(63);
+            GetOverlayTextureSize = table.get(64);
+            CreateDashboardOverlay = table.get(65);
+            IsDashboardVisible = table.get(66);
+            IsActiveDashboardOverlay = table.get(67);
+            SetDashboardOverlaySceneProcess = table.get(68);
+            GetDashboardOverlaySceneProcess = table.get(69);
+            ShowDashboard = table.get(70);
+            GetPrimaryDashboardDevice = table.get(71);
+            ShowKeyboard = table.get(72);
+            ShowKeyboardForOverlay = table.get(73);
+            GetKeyboardText = table.get(74);
+            HideKeyboard = table.get(75);
+            SetKeyboardTransformAbsolute = table.get(76);
+            SetKeyboardPositionForOverlay = table.get(77);
+            SetOverlayIntersectionMask = table.get(78);
+            GetOverlayFlags = table.get(79);
+            ShowMessageOverlay = table.get(80);
+            CloseMessageOverlay = table.get(81);
         }
 
     }

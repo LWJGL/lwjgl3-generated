@@ -243,6 +243,7 @@ public final class JNI {
     public static native int callPI(long __functionAddress, int param0, int param1, int param2, int param3, int param4, long param5);
     public static native int callPI(long __functionAddress, int param0, int param1, int param2, int param3, long param4);
     public static native int callPI(long __functionAddress, int param0, int param1, int param2, long param3);
+    public static native int callPPI(long __functionAddress, int param0, int param1, int param2, long param3, int param4, long param5);
     public static native int callPI(long __functionAddress, int param0, int param1, long param2);
     public static native int callPI(long __functionAddress, int param0, int param1, long param2, int param3, int param4, int param5, int param6, float param7);
     public static native int callPPI(long __functionAddress, int param0, int param1, long param2, int param3, long param4);
@@ -702,7 +703,6 @@ public final class JNI {
     public static native boolean callPZ(long __functionAddress, long param0);
     public static native boolean callJZ(long __functionAddress, long param0);
     public static native boolean callPZ(long __functionAddress, long param0, int param1);
-    public static native boolean callJZ(long __functionAddress, long param0, int param1);
     public static native boolean callPPZ(long __functionAddress, long param0, int param1, long param2);
     public static native boolean callPPZ(long __functionAddress, long param0, long param1);
     public static native boolean callPPZ(long __functionAddress, long param0, long param1, int param2);

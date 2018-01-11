@@ -356,7 +356,7 @@ public class VROverlay {
     /**
      * Returns a string that corresponds with the specified overlay error. The string will be the name of the error enum value for all valid error codes.
      *
-     * @param error one of:<br><table><tr><td>{@link VR#EVROverlayError_VROverlayError_None}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_UnknownOverlay}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidHandle}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_PermissionDenied}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_OverlayLimitExceeded}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_WrongVisibilityType}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyTooLong}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_NameTooLong}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyInUse}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_WrongTransformType}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidTrackedDevice}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidParameter}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_ThumbnailCantBeDestroyed}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_ArrayTooSmall}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_RequestFailed}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidTexture}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_UnableToLoadFile}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyboardAlreadyInUse}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_NoNeighbor}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TooManyMaskPrimitives}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_BadMaskPrimitive}</td></tr></table>
+     * @param error one of:<br><table><tr><td>{@link VR#EVROverlayError_VROverlayError_None}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_UnknownOverlay}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidHandle}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_PermissionDenied}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_OverlayLimitExceeded}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_WrongVisibilityType}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyTooLong}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_NameTooLong}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyInUse}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_WrongTransformType}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidTrackedDevice}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidParameter}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_ThumbnailCantBeDestroyed}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_ArrayTooSmall}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_RequestFailed}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidTexture}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_UnableToLoadFile}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyboardAlreadyInUse}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_NoNeighbor}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TooManyMaskPrimitives}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_BadMaskPrimitive}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TextureAlreadyLocked}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TextureLockCapacityReached}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TextureNotLocked}</td></tr></table>
      */
     @NativeType("const char *")
     public static String VROverlay_GetOverlayErrorNameFromEnum(@NativeType("EVROverlayError") int error) {
@@ -1309,27 +1309,6 @@ public class VROverlay {
     @NativeType("bool")
     public static boolean VROverlay_ComputeOverlayIntersection(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("const VROverlayIntersectionParams_t *") VROverlayIntersectionParams pParams, @NativeType("VROverlayIntersectionResults_t *") VROverlayIntersectionResults pResults) {
         return nVROverlay_ComputeOverlayIntersection(ulOverlayHandle, pParams.address(), pResults.address());
-    }
-
-    // --- [ VROverlay_HandleControllerOverlayInteractionAsMouse ] ---
-
-    /**
-     * Processes mouse input from the specified controller as though it were a mouse pointed at a compositor overlay with the specified settings. The
-     * controller is treated like a laser pointer on the -z axis. The point where the laser pointer would intersect with the overlay is the mouse position,
-     * the trigger is left mouse, and the track pad is right mouse.
-     *
-     * @param ulOverlayHandle         
-     * @param unControllerDeviceIndex 
-     *
-     * @return true if the controller is pointed at the overlay and an event was generated.
-     */
-    @NativeType("bool")
-    public static boolean VROverlay_HandleControllerOverlayInteractionAsMouse(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("TrackedDeviceIndex_t") int unControllerDeviceIndex) {
-        long __functionAddress = OpenVR.VROverlay.HandleControllerOverlayInteractionAsMouse;
-        if (CHECKS) {
-            check(__functionAddress);
-        }
-        return callJZ(__functionAddress, ulOverlayHandle, unControllerDeviceIndex);
     }
 
     // --- [ VROverlay_IsHoverTargetOverlay ] ---

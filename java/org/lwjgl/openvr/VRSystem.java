@@ -271,7 +271,13 @@ public class VRSystem {
      * 
      * <h3>macOS Only</h3>
      * 
-     * <p>Returns an {@code id<MTLDevice>} that should be used by the application.</p>
+     * <p>For {@link VR#ETextureType_TextureType_IOSurface} returns the {@code id<MTLDevice>} that should be used by the application.</p>
+     * 
+     * <p>On 10.13+ for {@link VR#ETextureType_TextureType_OpenGL} returns the {@code registryId} of the renderer which should be used by the application. See Apple
+     * Technical Q&A QA1168 for information on enumerating GL Renderers, and the new {@code kCGLRPRegistryIDLow} and {@code kCGLRPRegistryIDHigh}
+     * {@code CGLRendererProperty} values in the 10.13 SDK.</p>
+     * 
+     * <p>Pre 10.13 for {@link VR#ETextureType_TextureType_OpenGL} returns 0, as there is no dependable way to correlate the HMDs {@code MTLDevice} with a GL Renderer.</p>
      *
      * @param pnDevice    
      * @param textureType one of:<br><table><tr><td>{@link VR#ETextureType_TextureType_DirectX}</td><td>{@link VR#ETextureType_TextureType_OpenGL}</td></tr><tr><td>{@link VR#ETextureType_TextureType_Vulkan}</td><td>{@link VR#ETextureType_TextureType_IOSurface}</td></tr><tr><td>{@link VR#ETextureType_TextureType_DirectX12}</td></tr></table>
@@ -685,6 +691,38 @@ public class VRSystem {
         return __result;
     }
 
+    // --- [ VRSystem_GetArrayTrackedDeviceProperty ] ---
+
+    /** Unsafe version of: {@link #VRSystem_GetArrayTrackedDeviceProperty GetArrayTrackedDeviceProperty} */
+    public static int nVRSystem_GetArrayTrackedDeviceProperty(int unDeviceIndex, int prop, int propType, long pBuffer, int unBufferSize, long pError) {
+        long __functionAddress = OpenVR.VRSystem.GetArrayTrackedDeviceProperty;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPPI(__functionAddress, unDeviceIndex, prop, propType, pBuffer, unBufferSize, pError);
+    }
+
+    /**
+     * Returns an array of one type of property.
+     * 
+     * <p>If the device index is not valid or the property is not a single value or an array of the specified type, this function will return 0. Otherwise it
+     * returns the number of bytes necessary to hold the array of properties. If {@code unBufferSize} is greater than the returned size and {@code pBuffer} is
+     * non-{@code NULL}, {@code pBuffer} is filled with the contents of array of properties.</p>
+     *
+     * @param unDeviceIndex index of the device to get the property for
+     * @param prop          which property to get
+     * @param propType      
+     * @param pBuffer       
+     * @param pError        the error returned when attempting to fetch this property. This can be {@code NULL} if the caller doesn't care about the source of a property error.
+     */
+    @NativeType("uint32_t")
+    public static int VRSystem_GetArrayTrackedDeviceProperty(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("ETrackedDeviceProperty") int prop, @NativeType("PropertyTypeTag_t") int propType, @NativeType("void *") ByteBuffer pBuffer, @NativeType("ETrackedPropertyError *") IntBuffer pError) {
+        if (CHECKS) {
+            checkSafe(pError, 1);
+        }
+        return nVRSystem_GetArrayTrackedDeviceProperty(unDeviceIndex, prop, propType, memAddressSafe(pBuffer), remainingSafe(pBuffer), memAddressSafe(pError));
+    }
+
     // --- [ VRSystem_GetStringTrackedDeviceProperty ] ---
 
     /**
@@ -865,7 +903,7 @@ public class VRSystem {
     /**
      * Returns the name of an {@code EVREvent} enum value.
      *
-     * @param eType the event type to return a string for. One of:<br><table><tr><td>{@link VR#EVREventType_VREvent_None}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceActivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceDeactivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUserInteractionStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUserInteractionEnded}</td></tr><tr><td>{@link VR#EVREventType_VREvent_IpdChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnterStandbyMode}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LeaveStandbyMode}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceRoleChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WatchdogWakeUpRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LensDistortionChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PropertyChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WirelessDisconnect}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WirelessReconnect}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonPress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonUnpress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonTouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonUntouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Press}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Unpress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Touch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Untouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Move}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_ModeSwitch1}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_ModeSwitch2}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Cancel}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseMove}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseButtonDown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseButtonUp}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FocusEnter}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FocusLeave}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Scroll}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TouchPadMove}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusCaptured}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusReleased}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusLost}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusGained}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneApplicationChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_HideRenderModels}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ShowRenderModels}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ConsoleOpened}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ConsoleClosed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardActivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardDeactivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardThumbSelected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ResetDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_RenderToast}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ImageLoaded}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ShowKeyboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_HideKeyboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayGamepadFocusGained}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayGamepadFocusLost}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlaySharedTextureChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardGuideButtonDown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardGuideButtonUp}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotTriggered}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ImageFailed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardOverlayCreated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_RequestScreenshot}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotTaken}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotFailed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SubmitScreenshotToDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotProgressToDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PrimaryDashboardDeviceChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Shown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Hidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_BeginInteraction}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Destroyed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Quit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessQuit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_QuitAborted_UserPrompt}</td></tr><tr><td>{@link VR#EVREventType_VREvent_QuitAcknowledged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DriverRequestedQuit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneDataHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneUniverseHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneTempDataHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SeatedZeroPoseReset}</td></tr><tr><td>{@link VR#EVREventType_VREvent_AudioSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_BackgroundSettingHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_CameraSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ReprojectionSettingHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ModelSkinSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnvironmentSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PowerSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnableHomeAppSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SteamVRSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LighthouseSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_NullSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_UserInterfaceSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_NotificationsSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerfSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_StatusUpdate}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MCImageUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FirmwareUpdateStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FirmwareUpdateFinished}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardClosed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardCharInput}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardDone}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionAborted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionNewAppStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationListUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationMimeTypeLoad}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessConnected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessDisconnected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_MirrorWindowShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_MirrorWindowHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_ChaperoneBoundsShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_ChaperoneBoundsHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_StartVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_StopVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_PauseVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_ResumeVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_EditingSurface}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_EnableCapture}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_DisableCapture}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_FidelityLevel}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MessageOverlay_Closed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MessageOverlayCloseRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_VendorSpecific_Reserved_Start}</td></tr><tr><td>{@link VR#EVREventType_VREvent_VendorSpecific_Reserved_End}</td></tr></table>
+     * @param eType the event type to return a string for. One of:<br><table><tr><td>{@link VR#EVREventType_VREvent_None}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceActivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceDeactivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUserInteractionStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceUserInteractionEnded}</td></tr><tr><td>{@link VR#EVREventType_VREvent_IpdChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnterStandbyMode}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LeaveStandbyMode}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedDeviceRoleChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WatchdogWakeUpRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LensDistortionChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PropertyChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WirelessDisconnect}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WirelessReconnect}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonPress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonUnpress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonTouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ButtonUntouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Press}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Unpress}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Touch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Untouch}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Move}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_ModeSwitch1}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_ModeSwitch2}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DualAnalog_Cancel}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseMove}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseButtonDown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MouseButtonUp}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FocusEnter}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FocusLeave}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Scroll}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TouchPadMove}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusCaptured}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusReleased}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusLost}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusGained}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneApplicationChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_InputFocusChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_HideRenderModels}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ShowRenderModels}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ConsoleOpened}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ConsoleClosed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardActivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardDeactivated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardThumbSelected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ResetDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_RenderToast}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ImageLoaded}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ShowKeyboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_HideKeyboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayGamepadFocusGained}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlayGamepadFocusLost}</td></tr><tr><td>{@link VR#EVREventType_VREvent_OverlaySharedTextureChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardGuideButtonDown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardGuideButtonUp}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotTriggered}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ImageFailed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardOverlayCreated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_RequestScreenshot}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotTaken}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotFailed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SubmitScreenshotToDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ScreenshotProgressToDashboard}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PrimaryDashboardDeviceChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Shown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Hidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_BeginInteraction}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Notification_Destroyed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Quit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessQuit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_QuitAborted_UserPrompt}</td></tr><tr><td>{@link VR#EVREventType_VREvent_QuitAcknowledged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DriverRequestedQuit}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneDataHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneUniverseHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneTempDataHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ChaperoneSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SeatedZeroPoseReset}</td></tr><tr><td>{@link VR#EVREventType_VREvent_AudioSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_BackgroundSettingHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_CameraSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ReprojectionSettingHasChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ModelSkinSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnvironmentSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PowerSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_EnableHomeAppSettingsHaveChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_SteamVRSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_LighthouseSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_NullSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_UserInterfaceSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_NotificationsSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerfSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_DashboardSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WebInterfaceSectionSettingChanged}</td></tr><tr><td>{@link VR#EVREventType_VREvent_StatusUpdate}</td></tr><tr><td>{@link VR#EVREventType_VREvent_WebInterface_InstallDriverCompleted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MCImageUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FirmwareUpdateStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_FirmwareUpdateFinished}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardClosed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardCharInput}</td></tr><tr><td>{@link VR#EVREventType_VREvent_KeyboardDone}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionAborted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionNewAppStarted}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationListUpdated}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationMimeTypeLoad}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ApplicationTransitionNewAppLaunchComplete}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessConnected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_ProcessDisconnected}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_MirrorWindowShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_MirrorWindowHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_ChaperoneBoundsShown}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Compositor_ChaperoneBoundsHidden}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_StartVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_StopVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_PauseVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_ResumeVideoStream}</td></tr><tr><td>{@link VR#EVREventType_VREvent_TrackedCamera_EditingSurface}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_EnableCapture}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_DisableCapture}</td></tr><tr><td>{@link VR#EVREventType_VREvent_PerformanceTest_FidelityLevel}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MessageOverlay_Closed}</td></tr><tr><td>{@link VR#EVREventType_VREvent_MessageOverlayCloseRequested}</td></tr><tr><td>{@link VR#EVREventType_VREvent_Input_HapticVibration}</td></tr><tr><td>{@link VR#EVREventType_VREvent_VendorSpecific_Reserved_Start}</td></tr><tr><td>{@link VR#EVREventType_VREvent_VendorSpecific_Reserved_End}</td></tr></table>
      */
     @NativeType("char *")
     public static String VRSystem_GetEventTypeNameFromEnum(@NativeType("EVREventType") int eType) {
@@ -1033,41 +1071,60 @@ public class VRSystem {
         return memASCII(__result);
     }
 
-    // --- [ VRSystem_CaptureInputFocus ] ---
+    // --- [ VRSystem_IsInputAvailable ] ---
 
     /**
-     * Tells OpenVR that this process wants exclusive access to controller button states and button events. Other apps will be notified that they have lost
-     * input focus with a {@link VR#EVREventType_VREvent_InputFocusCaptured} event. Returns false if input focus could not be captured for some reason.
+     * Returns true if this application is receiving input from the system. This would return false if system-related functionality is consuming the input
+     * stream.
      */
     @NativeType("bool")
-    public static boolean VRSystem_CaptureInputFocus() {
-        long __functionAddress = OpenVR.VRSystem.CaptureInputFocus;
+    public static boolean VRSystem_IsInputAvailable() {
+        long __functionAddress = OpenVR.VRSystem.IsInputAvailable;
         if (CHECKS) {
             check(__functionAddress);
         }
         return callZ(__functionAddress);
     }
 
-    // --- [ VRSystem_ReleaseInputFocus ] ---
+    // --- [ VRSystem_IsSteamVRDrawingControllers ] ---
 
     /**
-     * Tells OpenVR that this process no longer wants exclusive access to button states and button events. Other apps will be notified that input focus has
-     * been released with a {@link VR#EVREventType_VREvent_InputFocusReleased} event.
+     * Returns true if SteamVR is drawing controllers on top of the application. Applications should consider not drawing anything attached to the user's
+     * hands in this case.
      */
-    public static void VRSystem_ReleaseInputFocus() {
-        long __functionAddress = OpenVR.VRSystem.ReleaseInputFocus;
+    @NativeType("bool")
+    public static boolean VRSystem_IsSteamVRDrawingControllers() {
+        long __functionAddress = OpenVR.VRSystem.IsSteamVRDrawingControllers;
         if (CHECKS) {
             check(__functionAddress);
         }
-        callV(__functionAddress);
+        return callZ(__functionAddress);
     }
 
-    // --- [ VRSystem_IsInputFocusCapturedByAnotherProcess ] ---
+    // --- [ VRSystem_ShouldApplicationPause ] ---
 
-    /** Returns true if input focus is captured by another process. */
+    /**
+     * Returns true if the user has put SteamVR into a mode that is distracting them from the application. For applications where this is appropriate, the
+     * application should pause ongoing activity.
+     */
     @NativeType("bool")
-    public static boolean VRSystem_IsInputFocusCapturedByAnotherProcess() {
-        long __functionAddress = OpenVR.VRSystem.IsInputFocusCapturedByAnotherProcess;
+    public static boolean VRSystem_ShouldApplicationPause() {
+        long __functionAddress = OpenVR.VRSystem.ShouldApplicationPause;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callZ(__functionAddress);
+    }
+
+    // --- [ VRSystem_ShouldApplicationReduceRenderingWork ] ---
+
+    /**
+     * Returns true if SteamVR is doing significant rendering work and the game should do what it can to reduce its own workload. One common way to do this is
+     * to reduce the size of the render target provided for each eye.
+     */
+    @NativeType("bool")
+    public static boolean VRSystem_ShouldApplicationReduceRenderingWork() {
+        long __functionAddress = OpenVR.VRSystem.ShouldApplicationReduceRenderingWork;
         if (CHECKS) {
             check(__functionAddress);
         }
