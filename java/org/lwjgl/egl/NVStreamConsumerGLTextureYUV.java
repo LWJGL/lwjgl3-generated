@@ -63,7 +63,7 @@ public class NVStreamConsumerGLTextureYUV {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglStreamConsumerGLTextureExternalAttribsNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLAttrib *") PointerBuffer attrib_list) {
+    public static boolean eglStreamConsumerGLTextureExternalAttribsNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }

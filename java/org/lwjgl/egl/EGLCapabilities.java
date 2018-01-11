@@ -444,6 +444,8 @@ public class EGLCapabilities {
     public final boolean EGL_NOK_texture_from_pixmap;
     /** When true, {@link NV3dvisionSurface} is supported. */
     public final boolean EGL_NV_3dvision_surface;
+    /** When true, {@link NVContextPriorityRealtime} is supported. */
+    public final boolean EGL_NV_context_priority_realtime;
     /** When true, {@link NVCoverageSample} is supported. */
     public final boolean EGL_NV_coverage_sample;
     /** When true, {@link NVCoverageSampleResolve} is supported. */
@@ -1026,6 +1028,7 @@ public class EGLCapabilities {
         EGL_NOK_swap_region2 = ext.contains("EGL_NOK_swap_region2") && EGL.checkExtension("EGL_NOK_swap_region2", NOKSwapRegion2.isAvailable(this));
         EGL_NOK_texture_from_pixmap = ext.contains("EGL_NOK_texture_from_pixmap");
         EGL_NV_3dvision_surface = ext.contains("EGL_NV_3dvision_surface");
+        EGL_NV_context_priority_realtime = ext.contains("EGL_NV_context_priority_realtime");
         EGL_NV_coverage_sample = ext.contains("EGL_NV_coverage_sample");
         EGL_NV_coverage_sample_resolve = ext.contains("EGL_NV_coverage_sample_resolve");
         EGL_NV_cuda_event = ext.contains("EGL_NV_cuda_event");
