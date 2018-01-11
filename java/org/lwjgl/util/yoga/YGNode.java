@@ -12,6 +12,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * <h3>Layout</h3>
@@ -24,6 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     YGNodeType nodeType;
  *     {@link YGMeasureFuncI YGMeasureFunc} measure;
  *     {@link YGBaselineFuncI YGBaselineFunc} baseline;
+ *     {@link YGDirtiedFuncI YGDirtiedFunc} dirtied;
  *     {@link YGStyle YGStyle} style;
  *     {@link YGLayout YGLayout} layout;
  *     uint32_t lineIndex;
@@ -35,7 +37,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link YGValue YGValue} * resolvedDimensions[2];
  * }</pre></code>
  */
-public class YGNode extends Struct {
+public class YGNode extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -50,6 +52,7 @@ public class YGNode extends Struct {
         NODETYPE,
         MEASURE,
         BASELINE,
+        DIRTIED,
         STYLE,
         LAYOUT,
         LINEINDEX,
@@ -66,6 +69,7 @@ public class YGNode extends Struct {
             __member(POINTER_SIZE),
             __member(1),
             __member(4),
+            __member(POINTER_SIZE),
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
             __member(YGStyle.SIZEOF, YGStyle.ALIGNOF),
@@ -88,15 +92,16 @@ public class YGNode extends Struct {
         NODETYPE = layout.offsetof(3);
         MEASURE = layout.offsetof(4);
         BASELINE = layout.offsetof(5);
-        STYLE = layout.offsetof(6);
-        LAYOUT = layout.offsetof(7);
-        LINEINDEX = layout.offsetof(8);
-        PARENT = layout.offsetof(9);
-        CHILDREN = layout.offsetof(10);
-        NEXTCHILD = layout.offsetof(11);
-        CONFIG = layout.offsetof(12);
-        ISDIRTY = layout.offsetof(13);
-        RESOLVEDDIMENSIONS = layout.offsetof(14);
+        DIRTIED = layout.offsetof(6);
+        STYLE = layout.offsetof(7);
+        LAYOUT = layout.offsetof(8);
+        LINEINDEX = layout.offsetof(9);
+        PARENT = layout.offsetof(10);
+        CHILDREN = layout.offsetof(11);
+        NEXTCHILD = layout.offsetof(12);
+        CONFIG = layout.offsetof(13);
+        ISDIRTY = layout.offsetof(14);
+        RESOLVEDDIMENSIONS = layout.offsetof(15);
     }
 
     YGNode(long address, ByteBuffer container) {
@@ -131,6 +136,8 @@ public class YGNode extends Struct {
     public YGMeasureFunc measure() { return nmeasure(address()); }
     /** Returns the value of the {@code baseline} field. */
     public YGBaselineFunc baseline() { return nbaseline(address()); }
+    /** Returns the value of the {@code dirtied} field. */
+    public YGDirtiedFunc dirtied() { return ndirtied(address()); }
     /** Returns a {@link YGStyle} view of the {@code style} field. */
     public YGStyle style() { return nstyle(address()); }
     /** Returns a {@link YGLayout} view of the {@code layout} field. */
@@ -160,11 +167,139 @@ public class YGNode extends Struct {
     @NativeType("YGValue *")
     public YGValue resolvedDimensions(int index) { return nresolvedDimensions(address(), index); }
 
+    /** Sets the specified value to the {@code context} field. */
+    public YGNode context(@NativeType("void *") long value) { ncontext(address(), value); return this; }
+    /** Sets the specified value to the {@code print} field. */
+    public YGNode print(@NativeType("YGPrintFunc") YGPrintFuncI value) { nprint(address(), value); return this; }
+    /** Sets the specified value to the {@code hasNewLayout} field. */
+    public YGNode hasNewLayout(@NativeType("bool") boolean value) { nhasNewLayout(address(), value); return this; }
+    /** Sets the specified value to the {@code nodeType} field. */
+    public YGNode nodeType(@NativeType("YGNodeType") int value) { nnodeType(address(), value); return this; }
+    /** Sets the specified value to the {@code measure} field. */
+    public YGNode measure(@NativeType("YGMeasureFunc") YGMeasureFuncI value) { nmeasure(address(), value); return this; }
+    /** Sets the specified value to the {@code baseline} field. */
+    public YGNode baseline(@NativeType("YGBaselineFunc") YGBaselineFuncI value) { nbaseline(address(), value); return this; }
+    /** Sets the specified value to the {@code dirtied} field. */
+    public YGNode dirtied(@NativeType("YGDirtiedFunc") YGDirtiedFuncI value) { ndirtied(address(), value); return this; }
+    /** Copies the specified {@link YGStyle} to the {@code style} field. */
+    public YGNode style(YGStyle value) { nstyle(address(), value); return this; }
+    /** Copies the specified {@link YGLayout} to the {@code layout} field. */
+    public YGNode layout(YGLayout value) { nlayout(address(), value); return this; }
+    /** Sets the specified value to the {@code lineIndex} field. */
+    public YGNode lineIndex(@NativeType("uint32_t") int value) { nlineIndex(address(), value); return this; }
+    /** Sets the specified value to the {@code parent} field. */
+    public YGNode parent(@NativeType("YGNodeRef") long value) { nparent(address(), value); return this; }
+    /** Sets the specified value to the {@code children} field. */
+    public YGNode children(@NativeType("YGNodeListRef") long value) { nchildren(address(), value); return this; }
+    /** Sets the address of the specified {@link YGNode} to the {@code nextChild} field. */
+    public YGNode nextChild(@NativeType("YGNode *") YGNode value) { nnextChild(address(), value); return this; }
+    /** Sets the specified value to the {@code config} field. */
+    public YGNode config(@NativeType("YGConfigRef") long value) { nconfig(address(), value); return this; }
+    /** Sets the specified value to the {@code isDirty} field. */
+    public YGNode isDirty(@NativeType("bool") boolean value) { nisDirty(address(), value); return this; }
+    /** Copies the specified {@link PointerBuffer} to the {@code resolvedDimensions} field. */
+    public YGNode resolvedDimensions(@NativeType("YGValue *[2]") PointerBuffer value) { nresolvedDimensions(address(), value); return this; }
+    /** Copies the address of the specified {@link YGValue} at the specified index of the {@code resolvedDimensions} field. */
+    public YGNode resolvedDimensions(int index, @NativeType("YGValue *") YGValue value) { nresolvedDimensions(address(), index, value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public YGNode set(
+        long context,
+        YGPrintFuncI print,
+        boolean hasNewLayout,
+        int nodeType,
+        YGMeasureFuncI measure,
+        YGBaselineFuncI baseline,
+        YGDirtiedFuncI dirtied,
+        YGStyle style,
+        YGLayout layout,
+        int lineIndex,
+        long parent,
+        long children,
+        YGNode nextChild,
+        long config,
+        boolean isDirty,
+        PointerBuffer resolvedDimensions
+    ) {
+        context(context);
+        print(print);
+        hasNewLayout(hasNewLayout);
+        nodeType(nodeType);
+        measure(measure);
+        baseline(baseline);
+        dirtied(dirtied);
+        style(style);
+        layout(layout);
+        lineIndex(lineIndex);
+        parent(parent);
+        children(children);
+        nextChild(nextChild);
+        config(config);
+        isDirty(isDirty);
+        resolvedDimensions(resolvedDimensions);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public YGNode set(YGNode src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
+
+    /** Returns a new {@link YGNode} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static YGNode malloc() {
+        return create(nmemAlloc(SIZEOF));
+    }
+
+    /** Returns a new {@link YGNode} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static YGNode calloc() {
+        return create(nmemCalloc(1, SIZEOF));
+    }
+
+    /** Returns a new {@link YGNode} instance allocated with {@link BufferUtils}. */
+    public static YGNode create() {
+        return new YGNode(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
     /** Returns a new {@link YGNode} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
     public static YGNode create(long address) {
         return address == NULL ? null : new YGNode(address, null);
+    }
+
+    /**
+     * Returns a new {@link YGNode.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer malloc(int capacity) {
+        return create(__malloc(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link YGNode.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer calloc(int capacity) {
+        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link YGNode.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer create(int capacity) {
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -175,6 +310,74 @@ public class YGNode extends Struct {
      */
     public static Buffer create(long address, int capacity) {
         return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    }
+
+    // -----------------------------------
+
+    /** Returns a new {@link YGNode} instance allocated on the thread-local {@link MemoryStack}. */
+    public static YGNode mallocStack() {
+        return mallocStack(stackGet());
+    }
+
+    /** Returns a new {@link YGNode} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static YGNode callocStack() {
+        return callocStack(stackGet());
+    }
+
+    /**
+     * Returns a new {@link YGNode} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static YGNode mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link YGNode} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static YGNode callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link YGNode.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link YGNode.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link YGNode.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link YGNode.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
     // -----------------------------------
@@ -191,6 +394,8 @@ public class YGNode extends Struct {
     public static YGMeasureFunc nmeasure(long struct) { return YGMeasureFunc.create(memGetAddress(struct + YGNode.MEASURE)); }
     /** Unsafe version of {@link #baseline}. */
     public static YGBaselineFunc nbaseline(long struct) { return YGBaselineFunc.create(memGetAddress(struct + YGNode.BASELINE)); }
+    /** Unsafe version of {@link #dirtied}. */
+    public static YGDirtiedFunc ndirtied(long struct) { return YGDirtiedFunc.create(memGetAddress(struct + YGNode.DIRTIED)); }
     /** Unsafe version of {@link #style}. */
     public static YGStyle nstyle(long struct) { return YGStyle.create(struct + YGNode.STYLE); }
     /** Unsafe version of {@link #layout}. */
@@ -215,10 +420,72 @@ public class YGNode extends Struct {
         return YGValue.create(memGetAddress(struct + YGNode.RESOLVEDDIMENSIONS + index * POINTER_SIZE));
     }
 
+    /** Unsafe version of {@link #context(long) context}. */
+    public static void ncontext(long struct, long value) { memPutAddress(struct + YGNode.CONTEXT, value); }
+    /** Unsafe version of {@link #print(YGPrintFuncI) print}. */
+    public static void nprint(long struct, YGPrintFuncI value) { memPutAddress(struct + YGNode.PRINT, memAddressSafe(value)); }
+    /** Unsafe version of {@link #hasNewLayout(boolean) hasNewLayout}. */
+    public static void nhasNewLayout(long struct, boolean value) { memPutByte(struct + YGNode.HASNEWLAYOUT, value ? (byte)1 : (byte)0); }
+    /** Unsafe version of {@link #nodeType(int) nodeType}. */
+    public static void nnodeType(long struct, int value) { memPutInt(struct + YGNode.NODETYPE, value); }
+    /** Unsafe version of {@link #measure(YGMeasureFuncI) measure}. */
+    public static void nmeasure(long struct, YGMeasureFuncI value) { memPutAddress(struct + YGNode.MEASURE, memAddressSafe(value)); }
+    /** Unsafe version of {@link #baseline(YGBaselineFuncI) baseline}. */
+    public static void nbaseline(long struct, YGBaselineFuncI value) { memPutAddress(struct + YGNode.BASELINE, memAddressSafe(value)); }
+    /** Unsafe version of {@link #dirtied(YGDirtiedFuncI) dirtied}. */
+    public static void ndirtied(long struct, YGDirtiedFuncI value) { memPutAddress(struct + YGNode.DIRTIED, memAddressSafe(value)); }
+    /** Unsafe version of {@link #style(YGStyle) style}. */
+    public static void nstyle(long struct, YGStyle value) { memCopy(value.address(), struct + YGNode.STYLE, YGStyle.SIZEOF); }
+    /** Unsafe version of {@link #layout(YGLayout) layout}. */
+    public static void nlayout(long struct, YGLayout value) { memCopy(value.address(), struct + YGNode.LAYOUT, YGLayout.SIZEOF); }
+    /** Unsafe version of {@link #lineIndex(int) lineIndex}. */
+    public static void nlineIndex(long struct, int value) { memPutInt(struct + YGNode.LINEINDEX, value); }
+    /** Unsafe version of {@link #parent(long) parent}. */
+    public static void nparent(long struct, long value) { memPutAddress(struct + YGNode.PARENT, value); }
+    /** Unsafe version of {@link #children(long) children}. */
+    public static void nchildren(long struct, long value) { memPutAddress(struct + YGNode.CHILDREN, value); }
+    /** Unsafe version of {@link #nextChild(YGNode) nextChild}. */
+    public static void nnextChild(long struct, YGNode value) { memPutAddress(struct + YGNode.NEXTCHILD, memAddressSafe(value)); }
+    /** Unsafe version of {@link #config(long) config}. */
+    public static void nconfig(long struct, long value) { memPutAddress(struct + YGNode.CONFIG, value); }
+    /** Unsafe version of {@link #isDirty(boolean) isDirty}. */
+    public static void nisDirty(long struct, boolean value) { memPutByte(struct + YGNode.ISDIRTY, value ? (byte)1 : (byte)0); }
+    /** Unsafe version of {@link #resolvedDimensions(PointerBuffer) resolvedDimensions}. */
+    public static void nresolvedDimensions(long struct, PointerBuffer value) {
+        if (CHECKS) { checkGT(value, 2); }
+        memCopy(memAddress(value), struct + YGNode.RESOLVEDDIMENSIONS, value.remaining() * POINTER_SIZE);
+    }
+    /** Unsafe version of {@link #resolvedDimensions(int, YGValue) resolvedDimensions}. */
+    public static void nresolvedDimensions(long struct, int index, YGValue value) {
+        if (CHECKS) { check(index, 2); }
+        memPutAddress(struct + YGNode.RESOLVEDDIMENSIONS + index * POINTER_SIZE, value.address());
+    }
+
+    /**
+     * Validates pointer members that should not be {@code NULL}.
+     *
+     * @param struct the struct to validate
+     */
+    public static void validate(long struct) {
+        check(memGetAddress(struct + YGNode.RESOLVEDDIMENSIONS));
+    }
+
+    /**
+     * Calls {@link #validate(long)} for each struct contained in the specified struct array.
+     *
+     * @param array the struct array to validate
+     * @param count the number of structs in {@code array}
+     */
+    public static void validate(long array, int count) {
+        for (int i = 0; i < count; i++) {
+            validate(array + i * SIZEOF);
+        }
+    }
+
     // -----------------------------------
 
     /** An array of {@link YGNode} structs. */
-    public static class Buffer extends StructBuffer<YGNode, Buffer> {
+    public static class Buffer extends StructBuffer<YGNode, Buffer> implements NativeResource {
 
         /**
          * Creates a new {@link YGNode.Buffer} instance backed by the specified container.
@@ -272,6 +539,8 @@ public class YGNode extends Struct {
         public YGMeasureFunc measure() { return YGNode.nmeasure(address()); }
         /** Returns the value of the {@code baseline} field. */
         public YGBaselineFunc baseline() { return YGNode.nbaseline(address()); }
+        /** Returns the value of the {@code dirtied} field. */
+        public YGDirtiedFunc dirtied() { return YGNode.ndirtied(address()); }
         /** Returns a {@link YGStyle} view of the {@code style} field. */
         public YGStyle style() { return YGNode.nstyle(address()); }
         /** Returns a {@link YGLayout} view of the {@code layout} field. */
@@ -300,6 +569,41 @@ public class YGNode extends Struct {
         /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions}. */
         @NativeType("YGValue *")
         public YGValue resolvedDimensions(int index) { return YGNode.nresolvedDimensions(address(), index); }
+
+        /** Sets the specified value to the {@code context} field. */
+        public YGNode.Buffer context(@NativeType("void *") long value) { YGNode.ncontext(address(), value); return this; }
+        /** Sets the specified value to the {@code print} field. */
+        public YGNode.Buffer print(@NativeType("YGPrintFunc") YGPrintFuncI value) { YGNode.nprint(address(), value); return this; }
+        /** Sets the specified value to the {@code hasNewLayout} field. */
+        public YGNode.Buffer hasNewLayout(@NativeType("bool") boolean value) { YGNode.nhasNewLayout(address(), value); return this; }
+        /** Sets the specified value to the {@code nodeType} field. */
+        public YGNode.Buffer nodeType(@NativeType("YGNodeType") int value) { YGNode.nnodeType(address(), value); return this; }
+        /** Sets the specified value to the {@code measure} field. */
+        public YGNode.Buffer measure(@NativeType("YGMeasureFunc") YGMeasureFuncI value) { YGNode.nmeasure(address(), value); return this; }
+        /** Sets the specified value to the {@code baseline} field. */
+        public YGNode.Buffer baseline(@NativeType("YGBaselineFunc") YGBaselineFuncI value) { YGNode.nbaseline(address(), value); return this; }
+        /** Sets the specified value to the {@code dirtied} field. */
+        public YGNode.Buffer dirtied(@NativeType("YGDirtiedFunc") YGDirtiedFuncI value) { YGNode.ndirtied(address(), value); return this; }
+        /** Copies the specified {@link YGStyle} to the {@code style} field. */
+        public YGNode.Buffer style(YGStyle value) { YGNode.nstyle(address(), value); return this; }
+        /** Copies the specified {@link YGLayout} to the {@code layout} field. */
+        public YGNode.Buffer layout(YGLayout value) { YGNode.nlayout(address(), value); return this; }
+        /** Sets the specified value to the {@code lineIndex} field. */
+        public YGNode.Buffer lineIndex(@NativeType("uint32_t") int value) { YGNode.nlineIndex(address(), value); return this; }
+        /** Sets the specified value to the {@code parent} field. */
+        public YGNode.Buffer parent(@NativeType("YGNodeRef") long value) { YGNode.nparent(address(), value); return this; }
+        /** Sets the specified value to the {@code children} field. */
+        public YGNode.Buffer children(@NativeType("YGNodeListRef") long value) { YGNode.nchildren(address(), value); return this; }
+        /** Sets the address of the specified {@link YGNode} to the {@code nextChild} field. */
+        public YGNode.Buffer nextChild(@NativeType("YGNode *") YGNode value) { YGNode.nnextChild(address(), value); return this; }
+        /** Sets the specified value to the {@code config} field. */
+        public YGNode.Buffer config(@NativeType("YGConfigRef") long value) { YGNode.nconfig(address(), value); return this; }
+        /** Sets the specified value to the {@code isDirty} field. */
+        public YGNode.Buffer isDirty(@NativeType("bool") boolean value) { YGNode.nisDirty(address(), value); return this; }
+        /** Copies the specified {@link PointerBuffer} to the {@code resolvedDimensions} field. */
+        public YGNode.Buffer resolvedDimensions(@NativeType("YGValue *[2]") PointerBuffer value) { YGNode.nresolvedDimensions(address(), value); return this; }
+        /** Copies the address of the specified {@link YGValue} at the specified index of the {@code resolvedDimensions} field. */
+        public YGNode.Buffer resolvedDimensions(int index, @NativeType("YGValue *") YGValue value) { YGNode.nresolvedDimensions(address(), index, value); return this; }
 
     }
 
