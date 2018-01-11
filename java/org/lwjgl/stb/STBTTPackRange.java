@@ -25,6 +25,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code array_of_unicode_codepoints} &ndash; if non-zero, then this is an array of unicode codepoints</li>
  * <li>{@code num_chars} &ndash; the number of codepoints in the range</li>
  * <li>{@code chardata_for_range} &ndash; output</li>
+ * <li>{@code h_oversample} &ndash; used internally</li>
+ * <li>{@code v_oversample} &ndash; used internally</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -110,6 +112,12 @@ public class STBTTPackRange extends Struct implements NativeResource {
     /** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
     @NativeType("stbtt_packedchar *")
     public STBTTPackedchar.Buffer chardata_for_range() { return nchardata_for_range(address()); }
+    /** Returns the value of the {@code h_oversample} field. */
+    @NativeType("unsigned char")
+    public byte h_oversample() { return nh_oversample(address()); }
+    /** Returns the value of the {@code v_oversample} field. */
+    @NativeType("unsigned char")
+    public byte v_oversample() { return nv_oversample(address()); }
 
     /** Sets the specified value to the {@code font_size} field. */
     public STBTTPackRange font_size(float value) { nfont_size(address(), value); return this; }
@@ -121,6 +129,10 @@ public class STBTTPackRange extends Struct implements NativeResource {
     public STBTTPackRange num_chars(int value) { nnum_chars(address(), value); return this; }
     /** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
     public STBTTPackRange chardata_for_range(@NativeType("stbtt_packedchar *") STBTTPackedchar.Buffer value) { nchardata_for_range(address(), value); return this; }
+    /** Sets the specified value to the {@code h_oversample} field. */
+    public STBTTPackRange h_oversample(@NativeType("unsigned char") byte value) { nh_oversample(address(), value); return this; }
+    /** Sets the specified value to the {@code v_oversample} field. */
+    public STBTTPackRange v_oversample(@NativeType("unsigned char") byte value) { nv_oversample(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public STBTTPackRange set(
@@ -128,13 +140,17 @@ public class STBTTPackRange extends Struct implements NativeResource {
         int first_unicode_codepoint_in_range,
         IntBuffer array_of_unicode_codepoints,
         int num_chars,
-        STBTTPackedchar.Buffer chardata_for_range
+        STBTTPackedchar.Buffer chardata_for_range,
+        byte h_oversample,
+        byte v_oversample
     ) {
         font_size(font_size);
         first_unicode_codepoint_in_range(first_unicode_codepoint_in_range);
         array_of_unicode_codepoints(array_of_unicode_codepoints);
         num_chars(num_chars);
         chardata_for_range(chardata_for_range);
+        h_oversample(h_oversample);
+        v_oversample(v_oversample);
 
         return this;
     }
@@ -290,7 +306,9 @@ public class STBTTPackRange extends Struct implements NativeResource {
     public static int nnum_chars(long struct) { return memGetInt(struct + STBTTPackRange.NUM_CHARS); }
     /** Unsafe version of {@link #chardata_for_range}. */
     public static STBTTPackedchar.Buffer nchardata_for_range(long struct) { return STBTTPackedchar.create(memGetAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE), nnum_chars(struct)); }
+    /** Unsafe version of {@link #h_oversample}. */
     public static byte nh_oversample(long struct) { return memGetByte(struct + STBTTPackRange.H_OVERSAMPLE); }
+    /** Unsafe version of {@link #v_oversample}. */
     public static byte nv_oversample(long struct) { return memGetByte(struct + STBTTPackRange.V_OVERSAMPLE); }
 
     /** Unsafe version of {@link #font_size(float) font_size}. */
@@ -303,7 +321,9 @@ public class STBTTPackRange extends Struct implements NativeResource {
     public static void nnum_chars(long struct, int value) { memPutInt(struct + STBTTPackRange.NUM_CHARS, value); }
     /** Unsafe version of {@link #chardata_for_range(STBTTPackedchar.Buffer) chardata_for_range}. */
     public static void nchardata_for_range(long struct, STBTTPackedchar.Buffer value) { memPutAddress(struct + STBTTPackRange.CHARDATA_FOR_RANGE, value.address()); }
+    /** Unsafe version of {@link #h_oversample(byte) h_oversample}. */
     public static void nh_oversample(long struct, byte value) { memPutByte(struct + STBTTPackRange.H_OVERSAMPLE, value); }
+    /** Unsafe version of {@link #v_oversample(byte) v_oversample}. */
     public static void nv_oversample(long struct, byte value) { memPutByte(struct + STBTTPackRange.V_OVERSAMPLE, value); }
 
     /**
@@ -381,6 +401,12 @@ public class STBTTPackRange extends Struct implements NativeResource {
         /** Returns a {@link STBTTPackedchar.Buffer} view of the struct array pointed to by the {@code chardata_for_range} field. */
         @NativeType("stbtt_packedchar *")
         public STBTTPackedchar.Buffer chardata_for_range() { return STBTTPackRange.nchardata_for_range(address()); }
+        /** Returns the value of the {@code h_oversample} field. */
+        @NativeType("unsigned char")
+        public byte h_oversample() { return STBTTPackRange.nh_oversample(address()); }
+        /** Returns the value of the {@code v_oversample} field. */
+        @NativeType("unsigned char")
+        public byte v_oversample() { return STBTTPackRange.nv_oversample(address()); }
 
         /** Sets the specified value to the {@code font_size} field. */
         public STBTTPackRange.Buffer font_size(float value) { STBTTPackRange.nfont_size(address(), value); return this; }
@@ -392,6 +418,10 @@ public class STBTTPackRange extends Struct implements NativeResource {
         public STBTTPackRange.Buffer num_chars(int value) { STBTTPackRange.nnum_chars(address(), value); return this; }
         /** Sets the address of the specified {@link STBTTPackedchar.Buffer} to the {@code chardata_for_range} field. */
         public STBTTPackRange.Buffer chardata_for_range(@NativeType("stbtt_packedchar *") STBTTPackedchar.Buffer value) { STBTTPackRange.nchardata_for_range(address(), value); return this; }
+        /** Sets the specified value to the {@code h_oversample} field. */
+        public STBTTPackRange.Buffer h_oversample(@NativeType("unsigned char") byte value) { STBTTPackRange.nh_oversample(address(), value); return this; }
+        /** Sets the specified value to the {@code v_oversample} field. */
+        public STBTTPackRange.Buffer v_oversample(@NativeType("unsigned char") byte value) { STBTTPackRange.nv_oversample(address(), value); return this; }
 
     }
 
