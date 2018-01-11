@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>The {@code queueFamilyIndex} member of each element of {@code pQueueCreateInfos} <b>must</b> be unique within {@code pQueueCreateInfos}</li>
  * <li>If the {@code pNext} chain includes a {@link VkPhysicalDeviceFeatures2KHR} structure, then {@code pEnabledFeatures} <b>must</b> be {@code NULL}</li>
- * <li>{@code ppEnabledExtensionNames} <b>must</b> not contain both <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_maintenance1">VK_KHR_maintenance1</a> and <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_AMD_negative_viewport_height">VK_AMD_negative_viewport_height</a></li>
+ * <li>{@code ppEnabledExtensionNames} <b>must</b> not contain both {@link KHRMaintenance1 VK_KHR_maintenance1} and {@link AMDNegativeViewportHeight VK_AMD_negative_viewport_height}</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

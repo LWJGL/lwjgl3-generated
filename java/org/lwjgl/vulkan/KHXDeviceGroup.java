@@ -14,7 +14,7 @@ import static org.lwjgl.system.JNI.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * This extension provides functionality to use a logical device that consists of multiple physical devices, as created with the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation">VK_KHX_device_group_creation</a> extension. A device group can allocate memory across the subdevices, bind memory from one subdevice to a resource on another subdevice, record command buffers where some work executes on an arbitrary subset of the subdevices, and potentially present a swapchain image from one or more subdevices.
+ * This extension provides functionality to use a logical device that consists of multiple physical devices, as created with the {@link KHXDeviceGroupCreation VK_KHX_device_group_creation} extension. A device group can allocate memory across the subdevices, bind memory from one subdevice to a resource on another subdevice, record command buffers where some work executes on an arbitrary subset of the subdevices, and potentially present a swapchain image from one or more subdevices.
  * 
  * <h5>Examples</h5>
  * 
@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group_creation">VK_KHX_device_group_creation</a></li>
+ * <li>Requires {@link KHXDeviceGroupCreation VK_KHX_device_group_creation}</li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>

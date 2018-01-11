@@ -329,6 +329,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_AMD_texture_gather_bias_lod;
     /** When true, {@link EXTBlendOperationAdvanced} is supported. */
     public final boolean VK_EXT_blend_operation_advanced;
+    /** When true, {@link EXTConservativeRasterization} is supported. */
+    public final boolean VK_EXT_conservative_rasterization;
     /** When true, {@link EXTDebugMarker} is supported. */
     public final boolean VK_EXT_debug_marker;
     /** When true, {@link EXTDepthRangeUnrestricted} is supported. */
@@ -616,6 +618,7 @@ public class VKCapabilitiesDevice {
         VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
         VK_AMD_texture_gather_bias_lod = ext.contains("VK_AMD_texture_gather_bias_lod");
         VK_EXT_blend_operation_advanced = ext.contains("VK_EXT_blend_operation_advanced");
+        VK_EXT_conservative_rasterization = ext.contains("VK_EXT_conservative_rasterization");
         {
             supported = ext.contains("VK_EXT_debug_marker");
             vkDebugMarkerSetObjectTagEXT = isSupported(provider, "vkDebugMarkerSetObjectTagEXT", supported);

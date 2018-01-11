@@ -36,6 +36,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
+ * <li>{@code pipelineLayout} &ndash; specifies the {@code VkPipelineLayout} that the {@code descriptorSet} is used with.</li>
  * <li>{@code descriptorSet} &ndash; specifies the {@code VkDescriptorSet} that can be bound with this entry.</li>
  * </ul>
  * 

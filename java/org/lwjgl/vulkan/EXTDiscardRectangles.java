@@ -15,7 +15,7 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>From zero to an implementation-dependent limit (specified by {@code maxDiscardRectangles}) number of discard rectangles can be operational at once. When one or more discard rectangles are active, rasterized fragments can either survive if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT} mode) or be rejected if the fragment is within any of the operational discard rectangles ({@link #VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT} mode).</p>
  * 
- * <p>These discard rectangles operate orthogonally to the existing scissor test functionality. If the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHX_device_group">VK_KHX_device_group</a> extension is enabled the discard rectangles can be different for each physical device in the device group by specifying the device mask and setting discard rectangle dynamic state.</p>
+ * <p>These discard rectangles operate orthogonally to the existing scissor test functionality. If the {@link KHXDeviceGroup VK_KHX_device_group} extension is enabled the discard rectangles can be different for each physical device in the device group by specifying the device mask and setting discard rectangle dynamic state.</p>
  * 
  * <dl>
  * <dt><b>Name String</b></dt>
@@ -29,7 +29,7 @@ import static org.lwjgl.system.JNI.*;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_get_physical_device_properties2">VK_KHR_get_physical_device_properties2</a></li>
+ * <li>Requires {@link KHRGetPhysicalDeviceProperties2 VK_KHR_get_physical_device_properties2}</li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>

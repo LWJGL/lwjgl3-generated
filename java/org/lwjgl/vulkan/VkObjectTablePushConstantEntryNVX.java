@@ -33,6 +33,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code stageFlags} <b>must</b> not be 0</li>
  * </ul>
  * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code pipelineLayout} &ndash; specifies the {@code VkPipelineLayout} that the pushconstants are used with</li>
+ * <li>{@code stageFlags} &ndash; specifies the {@code VkShaderStageFlags} that the pushconstants are used with</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <code><pre>

@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dd>No known IP claims.</dd>
  * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
- * <li>Interacts with <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#VK_KHR_push_descriptor">VK_KHR_push_descriptor</a></li>
+ * <li>Interacts with {@link KHRPushDescriptor VK_KHR_push_descriptor}</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
