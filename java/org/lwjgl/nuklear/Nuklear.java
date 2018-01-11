@@ -4540,8 +4540,8 @@ public class Nuklear {
      * @param color 
      * @param fmt   one of:<br><table><tr><td>{@link #NK_RGB RGB}</td><td>{@link #NK_RGBA RGBA}</td></tr></table>
      */
-    @NativeType("struct nk_color")
-    public static NkColor nk_color_picker(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_color") NkColor color, @NativeType("enum nk_color_format") int fmt) {
+    @NativeType("struct nk_colorf")
+    public static NkColorf nk_color_picker(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_colorf") NkColorf color, @NativeType("enum nk_color_format") int fmt) {
         nnk_color_picker(ctx.address(), color.address(), fmt);
         return color;
     }
@@ -4557,7 +4557,7 @@ public class Nuklear {
      * @param fmt   one of:<br><table><tr><td>{@link #NK_RGB RGB}</td><td>{@link #NK_RGBA RGBA}</td></tr></table>
      */
     @NativeType("int")
-    public static boolean nk_color_pick(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_color *") NkColor color, @NativeType("enum nk_color_format") int fmt) {
+    public static boolean nk_color_pick(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_colorf *") NkColorf color, @NativeType("enum nk_color_format") int fmt) {
         return nnk_color_pick(ctx.address(), color.address(), fmt) != 0;
     }
 
@@ -7306,6 +7306,16 @@ public class Nuklear {
         return __result;
     }
 
+    // --- [ nk_rgb_cf ] ---
+
+    public static native void nnk_rgb_cf(long c, long __result);
+
+    @NativeType("struct nk_color")
+    public static NkColor nk_rgb_cf(@NativeType("struct nk_colorf") NkColorf c, NkColor __result) {
+        nnk_rgb_cf(c.address(), __result.address());
+        return __result;
+    }
+
     // --- [ nk_rgb_hex ] ---
 
     public static native void nnk_rgb_hex(long rgb, long __result);
@@ -7403,6 +7413,16 @@ public class Nuklear {
         return __result;
     }
 
+    // --- [ nk_rgba_cf ] ---
+
+    public static native void nnk_rgba_cf(long c, long __result);
+
+    @NativeType("struct nk_color")
+    public static NkColor nk_rgba_cf(@NativeType("struct nk_colorf") NkColorf c, NkColor __result) {
+        nnk_rgba_cf(c.address(), __result.address());
+        return __result;
+    }
+
     // --- [ nk_rgba_hex ] ---
 
     public static native void nnk_rgba_hex(long rgba, long __result);
@@ -7429,6 +7449,54 @@ public class Nuklear {
         } finally {
             stack.setPointer(stackPointer);
         }
+    }
+
+    // --- [ nk_hsva_colorf ] ---
+
+    public static native void nnk_hsva_colorf(float h, float s, float v, float a, long __result);
+
+    @NativeType("struct nk_colorf")
+    public static NkColorf nk_hsva_colorf(float h, float s, float v, float a, NkColorf __result) {
+        nnk_hsva_colorf(h, s, v, a, __result.address());
+        return __result;
+    }
+
+    // --- [ nk_hsva_colorfv ] ---
+
+    public static native void nnk_hsva_colorfv(long c, long __result);
+
+    @NativeType("struct nk_colorf")
+    public static NkColorf nk_hsva_colorfv(@NativeType("float *") FloatBuffer c, NkColorf __result) {
+        if (CHECKS) {
+            check(c, 4);
+        }
+        nnk_hsva_colorfv(memAddress(c), __result.address());
+        return __result;
+    }
+
+    // --- [ nk_colorf_hsva_f ] ---
+
+    public static native void nnk_colorf_hsva_f(long out_h, long out_s, long out_v, long out_a, long in);
+
+    public static void nk_colorf_hsva_f(@NativeType("float *") FloatBuffer out_h, @NativeType("float *") FloatBuffer out_s, @NativeType("float *") FloatBuffer out_v, @NativeType("float *") FloatBuffer out_a, @NativeType("struct nk_colorf") NkColorf in) {
+        if (CHECKS) {
+            check(out_h, 1);
+            check(out_s, 1);
+            check(out_v, 1);
+            check(out_a, 1);
+        }
+        nnk_colorf_hsva_f(memAddress(out_h), memAddress(out_s), memAddress(out_v), memAddress(out_a), in.address());
+    }
+
+    // --- [ nk_colorf_hsva_fv ] ---
+
+    public static native void nnk_colorf_hsva_fv(long hsva, long in);
+
+    public static void nk_colorf_hsva_fv(@NativeType("float *") FloatBuffer hsva, @NativeType("struct nk_colorf") NkColorf in) {
+        if (CHECKS) {
+            check(hsva, 4);
+        }
+        nnk_colorf_hsva_fv(memAddress(hsva), in.address());
     }
 
     // --- [ nk_hsv ] ---
@@ -7572,6 +7640,16 @@ public class Nuklear {
             check(rgba_out, 4);
         }
         nnk_color_fv(memAddress(rgba_out), color.address());
+    }
+
+    // --- [ nk_color_cf ] ---
+
+    public static native void nnk_color_cf(long color, long __result);
+
+    @NativeType("struct nk_colorf")
+    public static NkColorf nk_color_cf(@NativeType("struct nk_color") NkColor color, NkColorf __result) {
+        nnk_color_cf(color.address(), __result.address());
+        return __result;
     }
 
     // --- [ nk_color_d ] ---
@@ -10304,6 +10382,44 @@ public class Nuklear {
         }
         nnk_rgba_fv(rgba, __result.address());
         return __result;
+    }
+
+    /** Array version of: {@link #nnk_hsva_colorfv} */
+    public static native void nnk_hsva_colorfv(float[] c, long __result);
+
+    /** Array version of: {@link #nk_hsva_colorfv hsva_colorfv} */
+    @NativeType("struct nk_colorf")
+    public static NkColorf nk_hsva_colorfv(@NativeType("float *") float[] c, NkColorf __result) {
+        if (CHECKS) {
+            check(c, 4);
+        }
+        nnk_hsva_colorfv(c, __result.address());
+        return __result;
+    }
+
+    /** Array version of: {@link #nnk_colorf_hsva_f} */
+    public static native void nnk_colorf_hsva_f(float[] out_h, float[] out_s, float[] out_v, float[] out_a, long in);
+
+    /** Array version of: {@link #nk_colorf_hsva_f colorf_hsva_f} */
+    public static void nk_colorf_hsva_f(@NativeType("float *") float[] out_h, @NativeType("float *") float[] out_s, @NativeType("float *") float[] out_v, @NativeType("float *") float[] out_a, @NativeType("struct nk_colorf") NkColorf in) {
+        if (CHECKS) {
+            check(out_h, 1);
+            check(out_s, 1);
+            check(out_v, 1);
+            check(out_a, 1);
+        }
+        nnk_colorf_hsva_f(out_h, out_s, out_v, out_a, in.address());
+    }
+
+    /** Array version of: {@link #nnk_colorf_hsva_fv} */
+    public static native void nnk_colorf_hsva_fv(float[] hsva, long in);
+
+    /** Array version of: {@link #nk_colorf_hsva_fv colorf_hsva_fv} */
+    public static void nk_colorf_hsva_fv(@NativeType("float *") float[] hsva, @NativeType("struct nk_colorf") NkColorf in) {
+        if (CHECKS) {
+            check(hsva, 4);
+        }
+        nnk_colorf_hsva_fv(hsva, in.address());
     }
 
     /** Array version of: {@link #nnk_hsv_iv} */
