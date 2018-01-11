@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * For all values 0 means default. {@code k} and {@code d} are the only required parameters.
+ * {@code k} and {@code d} are the only required parameters. For others, value 0 means default.
  * 
  * <h3>Member documentation</h3>
  * 

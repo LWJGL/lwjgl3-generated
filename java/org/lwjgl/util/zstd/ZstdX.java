@@ -72,9 +72,9 @@ public class ZstdX {
         ZSTD_WINDOWLOG_MAX_64       = 31,
         ZSTD_WINDOWLOG_MAX          = (Pointer.BITS32 ? ZSTD_WINDOWLOG_MAX_32 : ZSTD_WINDOWLOG_MAX_64),
         ZSTD_WINDOWLOG_MIN          = 10,
-        ZSTD_HASHLOG_MAX            = Math.min(ZSTD_WINDOWLOG_MAX, 30),
+        ZSTD_HASHLOG_MAX            = (ZSTD_WINDOWLOG_MAX < 30) ? ZSTD_WINDOWLOG_MAX : 30,
         ZSTD_HASHLOG_MIN            = 6,
-        ZSTD_CHAINLOG_MAX           = Math.min(ZSTD_WINDOWLOG_MAX+1, 30),
+        ZSTD_CHAINLOG_MAX           = (ZSTD_WINDOWLOG_MAX < 29) ? ZSTD_WINDOWLOG_MAX+1 : 30,
         ZSTD_CHAINLOG_MIN           = ZSTD_HASHLOG_MIN,
         ZSTD_HASHLOG3_MAX           = 17,
         ZSTD_SEARCHLOG_MAX          = (ZSTD_WINDOWLOG_MAX-1),
@@ -516,7 +516,7 @@ public class ZstdX {
      * <p>Will provide a budget large enough for any compression level up to selected one. It will also consider {@code src} size to be arbitrarily "large",
      * which is worst case. If {@code srcSize} is known to always be small, {@link #ZSTD_estimateCCtxSize_usingCCtxParams estimateCCtxSize_usingCCtxParams} can provide a tighter estimation.</p>
      * 
-     * <p>Note: {@code CCtx} estimation is only correct for single-threaded compression.</p>
+     * <p>Note: {@code CCtx} size estimation is only correct for single-threaded compression.</p>
      *
      * @param compressionLevel 
      */

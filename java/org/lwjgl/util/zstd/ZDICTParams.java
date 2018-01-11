@@ -17,9 +17,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code compressionLevel} &ndash; 0 means default; target a specific zstd compression level</li>
- * <li>{@code notificationLevel} &ndash; write to {@code stderr}; 0 = none (default); 1 = errors; 2 = progression; 3 = details; 4 = debug;</li>
- * <li>{@code dictID} &ndash; 0 means auto mode (32-bits random value); other : force {@code dictID} value</li>
+ * <li>{@code compressionLevel} &ndash; optimize for a specific zstd compression level; 0 means default</li>
+ * <li>{@code notificationLevel} &ndash; write log to {@code stderr}; 0 = none (default); 1 = errors; 2 = progression; 3 = details; 4 = debug;</li>
+ * <li>{@code dictID} &ndash; force {@code dictID} value; 0 means auto mode (32-bits random value)</li>
  * </ul>
  * 
  * <h3>Layout</h3>

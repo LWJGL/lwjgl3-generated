@@ -26,7 +26,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <ul>
  * <li>a single step (described as Simple API)</li>
- * <li>a single step, reusing a context (described as Explicit memory management)</li>
+ * <li>a single step, reusing a context (described as Explicit context)</li>
  * <li>unbounded multiple steps (described as Streaming compression)</li>
  * </ul>
  * 
@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <ul>
  * <li>a single step (described as Simple dictionary API)</li>
- * <li>a single step, reusing a dictionary (described as Fast dictionary API)</li>
+ * <li>a single step, reusing a dictionary (described as Bulk-processing dictionary API)</li>
  * </ul>
  * 
  * <p>Advanced experimental functions can be accessed using {@code #define ZSTD_STATIC_LINKING_ONLY} before including {@code zstd.h}. Advanced experimental
@@ -205,7 +205,7 @@ public class Zstd {
     // --- [ ZSTD_compressBound ] ---
 
     /**
-     * Returns the maximum compressed size in worst case scenario.
+     * Returns the maximum compressed size in worst case single-pass scenario.
      *
      * @param srcSize 
      */

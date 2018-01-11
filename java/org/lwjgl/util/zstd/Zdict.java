@@ -35,7 +35,7 @@ public class Zdict {
     /**
      * Train a dictionary from an array of samples.
      * 
-     * <p>Uses {@link #ZDICT_optimizeTrainFromBuffer_cover optimizeTrainFromBuffer_cover} single-threaded, with {@code d=8} and {@code steps=4}.</p>
+     * <p>Redirect towards {@link #ZDICT_optimizeTrainFromBuffer_cover optimizeTrainFromBuffer_cover} single-threaded, with {@code d=8} and {@code steps=4}.</p>
      * 
      * <p>Samples must be stored concatenated in a single flat buffer {@code samplesBuffer}, supplied with an array of sizes {@code samplesSizes}, providing the
      * size of each sample, in order.</p>
@@ -48,8 +48,8 @@ public class Zdict {
      * 
      * <ul>
      * <li>In general, a reasonable dictionary has a size of ~ 100 KB.</li>
-     * <li>It's obviously possible to target smaller or larger ones, just by specifying different {@code dictBufferCapacity}.</li>
-     * <li>In general, it's recommended to provide a few thousands samples, but this can vary a lot.</li>
+     * <li>It's possible to select smaller or larger size, just by specifying {@code dictBufferCapacity}.</li>
+     * <li>In general, it's recommended to provide a few thousands samples, though this can vary a lot.</li>
      * <li>It's recommended that total size of all samples be about ~x100 times the target size of dictionary.</li>
      * </ul>
      *
@@ -124,8 +124,8 @@ public class Zdict {
      * 
      * <ul>
      * <li>In general, a reasonable dictionary has a size of ~ 100 KB.</li>
-     * <li>It's obviously possible to target smaller or larger ones, just by specifying different {@code dictBufferCapacity}.</li>
-     * <li>In general, it's recommended to provide a few thousands samples, but this can vary a lot.</li>
+     * <li>It's possible to select smaller or larger szie, just by specifying {@code dictBufferCapacity}.</li>
+     * <li>In general, it's recommended to provide a few thousands samples, though this can vary a lot.</li>
      * <li>It's recommended that total size of all samples be about ~x100 times the target size of dictionary.</li>
      * </ul>
      *
@@ -154,8 +154,8 @@ public class Zdict {
     /**
      * The same requirements as {@link #ZDICT_trainFromBuffer_cover trainFromBuffer_cover} hold for all the parameters except {@code parameters}.
      * 
-     * <p>This function tries many parameter combinations and picks the best parameters. {@code *parameters} is filled with the best parameters found, and the
-     * dictionary constructed with those parameters is stored in {@code dictBuffer}.</p>
+     * <p>This function tries many parameter combinations and picks the best parameters. {@code *parameters} is filled with the best parameters found, dictionary
+     * constructed with those parameters is stored in {@code dictBuffer}.</p>
      * 
      * <ul>
      * <li>All of the parameters {@code d}, {@code k}, {@code steps} are optional.</li>
