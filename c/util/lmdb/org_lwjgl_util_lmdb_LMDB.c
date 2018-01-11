@@ -11,6 +11,9 @@ DISABLE_WARNINGS()
 #ifdef LWJGL_WINDOWS
     __pragma(warning(disable : 4172 4701 4706))
 #endif
+#ifdef LWJGL_x86
+    #define MDB_VL32 1
+#endif
 #define MDB_DEVEL 2
 #include "lmdb.h"
 ENABLE_WARNINGS()
