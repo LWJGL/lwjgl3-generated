@@ -14,7 +14,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Frame buffer texture attachemnt info.
+ * Frame buffer texture attachment info.
  * 
  * <h3>Member documentation</h3>
  * 

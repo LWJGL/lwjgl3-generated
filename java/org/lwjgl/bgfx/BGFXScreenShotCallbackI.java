@@ -38,10 +38,10 @@ public interface BGFXScreenShotCallbackI extends CallbackI.V {
      * @param _filePath file path
      * @param _width    image width
      * @param _height   image height
-     * @param _pitch    number of bytes to skip to next line
+     * @param _pitch    number of bytes to skip between the start of each horizontal line of the image
      * @param _data     image data
      * @param _size     image size
-     * @param _yflip    if true image origin is bottom left
+     * @param _yflip    if true, image origin is bottom left
      */
     void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("char *") long _filePath, @NativeType("uint32_t") int _width, @NativeType("uint32_t") int _height, @NativeType("uint32_t") int _pitch, @NativeType("const void *") long _data, @NativeType("uint32_t") int _size, @NativeType("bool") boolean _yflip);
 

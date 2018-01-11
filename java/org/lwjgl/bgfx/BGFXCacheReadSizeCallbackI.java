@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Returns size of cached item. Returns 0 if no cached item was found. */
+/** Returns the size of a cached item. Returns 0 if no cached item was found. */
 @FunctionalInterface
 @NativeType("cache_read_size")
 public interface BGFXCacheReadSizeCallbackI extends CallbackI.I {

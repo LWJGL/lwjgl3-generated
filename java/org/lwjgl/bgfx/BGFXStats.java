@@ -14,13 +14,15 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * Renderer statistics data.
  * 
+ * <p>All time values are high-resolution timestamps, while time frequencies define timestamps-per-second for that hardware.</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
  * <li>{@code cpuTimeFrame} &ndash; CPU time between two {@link BGFX#bgfx_frame frame} calls</li>
  * <li>{@code cpuTimeBegin} &ndash; Render thread CPU submit begin time</li>
  * <li>{@code cpuTimeEnd} &ndash; Render thread CPU submit end time</li>
- * <li>{@code cpuTimerFreq} &ndash; CPU timer frequency</li>
+ * <li>{@code cpuTimerFreq} &ndash; CPU timer frequency. Timestamps-per-second.</li>
  * <li>{@code gpuTimeBegin} &ndash; GPU frame begin time</li>
  * <li>{@code gpuTimeEnd} &ndash; GPU frame end time</li>
  * <li>{@code gpuTimerFreq} &ndash; GPU timer frequency</li>
@@ -41,15 +43,15 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>{@code numVertexBuffers} &ndash; number of used vertex buffers</li>
  * <li>{@code numVertexDecls} &ndash; number of used vertex declarations</li>
  * <li>{@code gpuMemoryMax} &ndash; maximum available GPU memory for application</li>
- * <li>{@code gpuMemoryUsed} &ndash; amount of GPU memory used</li>
+ * <li>{@code gpuMemoryUsed} &ndash; amount of GPU memory used by the application</li>
  * <li>{@code width} &ndash; backbuffer width in pixels</li>
  * <li>{@code height} &ndash; backbuffer height in pixels</li>
  * <li>{@code textWidth} &ndash; debug text width in characters</li>
  * <li>{@code textHeight} &ndash; debug text height in characters</li>
  * <li>{@code numViews} &ndash; number of view stats</li>
- * <li>{@code viewStats} &ndash; view stats</li>
+ * <li>{@code viewStats} &ndash; array of view stats</li>
  * <li>{@code numEncoder} &ndash; number of encoders used during frame</li>
- * <li>{@code encoderStats} &ndash; encoder stats</li>
+ * <li>{@code encoderStats} &ndash; array of encoder stats</li>
  * </ul>
  * 
  * <h3>Layout</h3>

@@ -34,7 +34,7 @@ public interface BGFXFatalCallbackI extends CallbackI.V {
     }
 
     /**
-     * Will be called when a fatal error occurs.
+     * This callback is called on unrecoverable errors.
      *
      * @param _this the callback interface
      * @param _code the error code

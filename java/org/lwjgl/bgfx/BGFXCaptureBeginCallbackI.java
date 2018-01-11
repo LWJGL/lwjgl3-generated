@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Called when capture begins. */
+/** Called when video capture begins. */
 @FunctionalInterface
 @NativeType("capture_begin")
 public interface BGFXCaptureBeginCallbackI extends CallbackI.V {
@@ -32,7 +32,7 @@ public interface BGFXCaptureBeginCallbackI extends CallbackI.V {
     }
 
     /**
-     * Will be called when capture begins.
+     * Will be called when video capture begins.
      *
      * @param _this   the callback interface
      * @param _width  image width

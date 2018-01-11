@@ -9,7 +9,7 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Called when capture ends. */
+/** Called when video capture ends. */
 @FunctionalInterface
 @NativeType("capture_end")
 public interface BGFXCaptureEndCallbackI extends CallbackI.V {
@@ -27,7 +27,7 @@ public interface BGFXCaptureEndCallbackI extends CallbackI.V {
     }
 
     /**
-     * Will be called when capture ends.
+     * Will be called when video capture ends.
      *
      * @param _this the callback interface
      */

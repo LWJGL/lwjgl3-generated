@@ -196,12 +196,12 @@ public class BGFX {
      * <li>{@link #BGFX_DEBUG_NONE DEBUG_NONE}</li>
      * <li>{@link #BGFX_DEBUG_WIREFRAME DEBUG_WIREFRAME} - Wireframe rendering. All rendering primitives will be rendered as lines.</li>
      * <li>{@link #BGFX_DEBUG_IFH DEBUG_IFH} - 
-     * Infinitely fast hardware. When this flag is set all rendering calls will be skipped. It's useful when profiling to quickly assess bottleneck
-     * between CPU and GPU.
+     * Infinitely fast hardware. When this flag is set all rendering calls will be skipped. This is useful when profiling to quickly assess potential
+     * bottlenecks between CPU and GPU.
      * </li>
      * <li>{@link #BGFX_DEBUG_STATS DEBUG_STATS} - Display internal statistics.</li>
      * <li>{@link #BGFX_DEBUG_TEXT DEBUG_TEXT} - Display debug text.</li>
-     * <li>{@link #BGFX_DEBUG_PROFILER DEBUG_PROFILER} - Enabled profiler.</li>
+     * <li>{@link #BGFX_DEBUG_PROFILER DEBUG_PROFILER} - Enable profiler.</li>
      * </ul>
      */
     public static final int
@@ -1451,11 +1451,11 @@ public class BGFX {
     /**
      * Initializes bgfx library.
      *
-     * @param _type      select rendering backend. When set to {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}, default rendering backend will be selected. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
+     * @param _type      select rendering backend. When set to {@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}, a default rendering backend will be selected appropriate to the platform. One of:<br><table><tr><td>{@link #BGFX_RENDERER_TYPE_NOOP RENDERER_TYPE_NOOP}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D9 RENDERER_TYPE_DIRECT3D9}</td><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D11 RENDERER_TYPE_DIRECT3D11}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_DIRECT3D12 RENDERER_TYPE_DIRECT3D12}</td><td>{@link #BGFX_RENDERER_TYPE_GNM RENDERER_TYPE_GNM}</td><td>{@link #BGFX_RENDERER_TYPE_METAL RENDERER_TYPE_METAL}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_OPENGLES RENDERER_TYPE_OPENGLES}</td><td>{@link #BGFX_RENDERER_TYPE_OPENGL RENDERER_TYPE_OPENGL}</td><td>{@link #BGFX_RENDERER_TYPE_VULKAN RENDERER_TYPE_VULKAN}</td></tr><tr><td>{@link #BGFX_RENDERER_TYPE_COUNT RENDERER_TYPE_COUNT}</td></tr></table>
      * @param _vendorId  vendor PCI id. If set to {@link #BGFX_PCI_ID_NONE PCI_ID_NONE} it will select the first device.
      * @param _deviceId  device id. If set to 0 it will select first device, or device with matching id.
      * @param _callback  provide application specific callback interface
-     * @param _allocator custom allocator. When custom allocator is not specified, library uses default CRT allocator. The library assumes custom allocator is thread safe.
+     * @param _allocator custom allocator. When custom allocator is not specified, bgfx uses the CRT allocator. Bgfx assumes custom allocator is thread safe.
      *
      * @return `true` if initialization was successful
      */
@@ -1712,7 +1712,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
@@ -1725,7 +1725,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
@@ -1738,7 +1738,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
@@ -1751,7 +1751,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
@@ -1764,7 +1764,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
@@ -1777,7 +1777,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
@@ -1790,7 +1790,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>Data passed must be available for at least 2 {@link #bgfx_frame frame} calls.</p>
      *
@@ -1815,7 +1815,7 @@ public class BGFX {
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
      * called from any thread.</p>
@@ -1826,12 +1826,12 @@ public class BGFX {
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_make_ref_release(@NativeType("const void *") ByteBuffer _data, @NativeType("bgfx_release_fn_t") BGFXReleaseFunctionCallbackI _releaseFn, @NativeType("void *") long _userData) {
-        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining(), memAddressSafe(_releaseFn), _userData);
+        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining(), _releaseFn.address(), _userData);
         return BGFXMemory.create(__result);
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
      * called from any thread.</p>
@@ -1842,12 +1842,12 @@ public class BGFX {
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_make_ref_release(@NativeType("const void *") ShortBuffer _data, @NativeType("bgfx_release_fn_t") BGFXReleaseFunctionCallbackI _releaseFn, @NativeType("void *") long _userData) {
-        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 1, memAddressSafe(_releaseFn), _userData);
+        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 1, _releaseFn.address(), _userData);
         return BGFXMemory.create(__result);
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
      * called from any thread.</p>
@@ -1858,12 +1858,12 @@ public class BGFX {
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_make_ref_release(@NativeType("const void *") IntBuffer _data, @NativeType("bgfx_release_fn_t") BGFXReleaseFunctionCallbackI _releaseFn, @NativeType("void *") long _userData) {
-        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 2, memAddressSafe(_releaseFn), _userData);
+        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 2, _releaseFn.address(), _userData);
         return BGFXMemory.create(__result);
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
      * called from any thread.</p>
@@ -1874,12 +1874,12 @@ public class BGFX {
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_make_ref_release(@NativeType("const void *") LongBuffer _data, @NativeType("bgfx_release_fn_t") BGFXReleaseFunctionCallbackI _releaseFn, @NativeType("void *") long _userData) {
-        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 3, memAddressSafe(_releaseFn), _userData);
+        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 3, _releaseFn.address(), _userData);
         return BGFXMemory.create(__result);
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
      * called from any thread.</p>
@@ -1890,12 +1890,12 @@ public class BGFX {
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_make_ref_release(@NativeType("const void *") FloatBuffer _data, @NativeType("bgfx_release_fn_t") BGFXReleaseFunctionCallbackI _releaseFn, @NativeType("void *") long _userData) {
-        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 2, memAddressSafe(_releaseFn), _userData);
+        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 2, _releaseFn.address(), _userData);
         return BGFXMemory.create(__result);
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
      * called from any thread.</p>
@@ -1906,12 +1906,12 @@ public class BGFX {
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_make_ref_release(@NativeType("const void *") DoubleBuffer _data, @NativeType("bgfx_release_fn_t") BGFXReleaseFunctionCallbackI _releaseFn, @NativeType("void *") long _userData) {
-        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 3, memAddressSafe(_releaseFn), _userData);
+        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << 3, _releaseFn.address(), _userData);
         return BGFXMemory.create(__result);
     }
 
     /**
-     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc} this call doesn't allocate memory for data. It just copies pointer to data.
+     * Makes reference to data to pass to bgfx. Unlike {@link #bgfx_alloc alloc}, this call doesn't allocate memory for data. It just copies the {@code _data} pointer.
      * 
      * <p>The {@code bgfx_release_fn_t} function pointer will release this memory after it's consumed. The {@code bgfx_release_fn_t} function must be able to be
      * called from any thread.</p>
@@ -1922,7 +1922,7 @@ public class BGFX {
      */
     @NativeType("const bgfx_memory_t *")
     public static BGFXMemory bgfx_make_ref_release(@NativeType("const void *") PointerBuffer _data, @NativeType("bgfx_release_fn_t") BGFXReleaseFunctionCallbackI _releaseFn, @NativeType("void *") long _userData) {
-        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << POINTER_SHIFT, memAddressSafe(_releaseFn), _userData);
+        long __result = nbgfx_make_ref_release(memAddress(_data), _data.remaining() << POINTER_SHIFT, _releaseFn.address(), _userData);
         return BGFXMemory.create(__result);
     }
 
@@ -2481,7 +2481,7 @@ public class BGFX {
     }
 
     /**
-     * Returns num of uniforms, and uniform handles used inside shader.
+     * Returns the number of uniforms and uniform handles used inside shader.
      * 
      * <p>Only non-predefined uniforms are returned.</p>
      *
@@ -2535,7 +2535,7 @@ public class BGFX {
     // --- [ bgfx_destroy_shader ] ---
 
     /**
-     * Destroys shader. Once program is created with shader it is safe to destroy shader.
+     * Destroys shader. Once a shader program is created with {@code _handle}, it is safe to destroy that shader.
      *
      * @param _handle the shader  to destroy
      */
@@ -3176,7 +3176,7 @@ public class BGFX {
      * <p>Predefined uniforms (declared in `bgfx_shader.sh`):</p>
      * 
      * <ul>
-     * <li>{@code u_viewRect vec4(x, y, width, height)} - view rectangle for current view.</li>
+     * <li>{@code u_viewRect vec4(x, y, width, height)} - view rectangle for current view, in pixels.</li>
      * <li>{@code u_viewTexel vec4(1.0/width, 1.0/height, undef, undef)} - inverse width and height</li>
      * <li>{@code u_view mat4} - view matrix</li>
      * <li>{@code u_invView mat4} - inverted view matrix</li>
@@ -3214,7 +3214,7 @@ public class BGFX {
      * <p>Predefined uniforms (declared in `bgfx_shader.sh`):</p>
      * 
      * <ul>
-     * <li>{@code u_viewRect vec4(x, y, width, height)} - view rectangle for current view.</li>
+     * <li>{@code u_viewRect vec4(x, y, width, height)} - view rectangle for current view, in pixels.</li>
      * <li>{@code u_viewTexel vec4(1.0/width, 1.0/height, undef, undef)} - inverse width and height</li>
      * <li>{@code u_view mat4} - view matrix</li>
      * <li>{@code u_invView mat4} - inverted view matrix</li>
@@ -4408,24 +4408,24 @@ public class BGFX {
     /**
      * Blits texture region between two textures.
      * 
-     * <p>Destination texture must be create with {@link #BGFX_TEXTURE_BLIT_DST TEXTURE_BLIT_DST} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_BLIT CAPS_TEXTURE_BLIT}.</p>
+     * <p>Destination texture must be created with {@link #BGFX_TEXTURE_BLIT_DST TEXTURE_BLIT_DST} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_BLIT CAPS_TEXTURE_BLIT}.</p>
      *
      * @param _id     view id
      * @param _dst    destination texture handle
      * @param _dstMip destination texture mip level
      * @param _dstX   destination texture X position
      * @param _dstY   destination texture Y position
-     * @param _dstZ   if texture is 2D this argument should be 0. If destination texture is cube this argument represent destination texture cube face. For 3D texture
-     *                this argument represent destination texture Z position.
+     * @param _dstZ   if texture is 2D this argument should be 0. If destination texture is cube this argument represents destination texture cube face. For 3D texture
+     *                this argument represents destination texture Z position.
      * @param _src    source texture handle
      * @param _srcMip source texture mip level
      * @param _srcX   source texture X position
      * @param _srcY   source texture Y position
-     * @param _srcZ   if texture is 2D this argument should be 0. If destination texture is cube this argument represent destination texture cube face. For 3D texture
-     *                this argument represent destination texture Z position.
+     * @param _srcZ   if texture is 2D this argument should be 0. If destination texture is cube this argument represents destination texture cube face. For 3D texture
+     *                this argument represents destination texture Z position.
      * @param _width  width of region
      * @param _height height of region
-     * @param _depth  if texture is 3D this argument represent depth of region, otherwise is unused
+     * @param _depth  if texture is 3D this argument represents depth of region, otherwise it's unused
      */
     public static void bgfx_blit(@NativeType("bgfx_view_id_t") int _id, @NativeType("bgfx_texture_handle_t") short _dst, @NativeType("uint8_t") int _dstMip, @NativeType("uint16_t") int _dstX, @NativeType("uint16_t") int _dstY, @NativeType("uint16_t") int _dstZ, @NativeType("bgfx_texture_handle_t") short _src, @NativeType("uint8_t") int _srcMip, @NativeType("uint16_t") int _srcX, @NativeType("uint16_t") int _srcY, @NativeType("uint16_t") int _srcZ, @NativeType("uint16_t") int _width, @NativeType("uint16_t") int _height, @NativeType("uint16_t") int _depth) {
         nbgfx_blit((short)_id, _dst, (byte)_dstMip, (short)_dstX, (short)_dstY, (short)_dstZ, _src, (byte)_srcMip, (short)_srcX, (short)_srcY, (short)_srcZ, (short)_width, (short)_height, (short)_depth);
@@ -4549,11 +4549,11 @@ public class BGFX {
     }
 
     /**
-     * Sets scissor for draw primitive. For scissor for all primitives in view see {@link #bgfx_set_view_scissor set_view_scissor}.
+     * Sets scissor for draw primitive. To scissor for all primitives in view see {@link #bgfx_set_view_scissor set_view_scissor}.
      *
      * @param _encoder the encoder
-     * @param _x       position x from the left corner of the window
-     * @param _y       position y from the top corner of the window
+     * @param _x       position x from the left side of the window
+     * @param _y       position y from the top side of the window
      * @param _width   width of scissor region
      * @param _height  height of scissor region
      *
@@ -4579,7 +4579,7 @@ public class BGFX {
      * Sets scissor from cache for draw primitive.
      *
      * @param _encoder the encoder
-     * @param _cache   index in scissor cache. Passing {@code UINT16_MAX} unsets primitive scissor and primitive will use view scissor instead.
+     * @param _cache   index in scissor cache. Pass {@code UINT16_MAX} to have primitive use view scissor instead.
      */
     public static void bgfx_encoder_set_scissor_cached(@NativeType("struct bgfx_encoder *") long _encoder, @NativeType("uint16_t") int _cache) {
         nbgfx_encoder_set_scissor_cached(_encoder, (short)_cache);
@@ -4601,7 +4601,7 @@ public class BGFX {
     }
 
     /**
-     * Sets model matrix for draw primitive. If it is not called model will be rendered with identity model matrix.
+     * Sets model matrix for draw primitive. If it is not called, the model will be rendered with identity model matrix.
      *
      * @param _encoder the encoder
      * @param _mtx     pointer to first matrix in array
@@ -4614,7 +4614,7 @@ public class BGFX {
     }
 
     /**
-     * Sets model matrix for draw primitive. If it is not called model will be rendered with identity model matrix.
+     * Sets model matrix for draw primitive. If it is not called, the model will be rendered with identity model matrix.
      *
      * @param _encoder the encoder
      * @param _mtx     pointer to first matrix in array
@@ -5307,7 +5307,7 @@ public class BGFX {
     /**
      * Blits texture region between two textures.
      * 
-     * <p>Destination texture must be create with {@link #BGFX_TEXTURE_BLIT_DST TEXTURE_BLIT_DST} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_BLIT CAPS_TEXTURE_BLIT}.</p>
+     * <p>Destination texture must be created with {@link #BGFX_TEXTURE_BLIT_DST TEXTURE_BLIT_DST} flag. Availability depends on {@link #BGFX_CAPS_TEXTURE_BLIT CAPS_TEXTURE_BLIT}.</p>
      *
      * @param _encoder the encoder
      * @param _id      view id
@@ -5315,17 +5315,17 @@ public class BGFX {
      * @param _dstMip  destination texture mip level
      * @param _dstX    destination texture X position
      * @param _dstY    destination texture Y position
-     * @param _dstZ    if texture is 2D this argument should be 0. If destination texture is cube this argument represent destination texture cube face. For 3D texture
-     *                 this argument represent destination texture Z position.
+     * @param _dstZ    if texture is 2D this argument should be 0. If destination texture is cube this argument represents destination texture cube face. For 3D texture
+     *                 this argument represents destination texture Z position.
      * @param _src     source texture handle
      * @param _srcMip  source texture mip level
      * @param _srcX    source texture X position
      * @param _srcY    source texture Y position
-     * @param _srcZ    if texture is 2D this argument should be 0. If destination texture is cube this argument represent destination texture cube face. For 3D texture
+     * @param _srcZ    if texture is 2D this argument should be 0. If destination texture is cube this argument represents destination texture cube face. For 3D texture
      *                 this argument represent destination texture Z position.
      * @param _width   width of region
      * @param _height  height of region
-     * @param _depth   if texture is 3D this argument represent depth of region, otherwise is unused
+     * @param _depth   if texture is 3D this argument represents depth of region, otherwise it's unused
      */
     public static void bgfx_encoder_blit(@NativeType("struct bgfx_encoder *") long _encoder, @NativeType("bgfx_view_id_t") int _id, @NativeType("bgfx_texture_handle_t") short _dst, @NativeType("uint8_t") int _dstMip, @NativeType("uint16_t") int _dstX, @NativeType("uint16_t") int _dstY, @NativeType("uint16_t") int _dstZ, @NativeType("bgfx_texture_handle_t") short _src, @NativeType("uint8_t") int _srcMip, @NativeType("uint16_t") int _srcX, @NativeType("uint16_t") int _srcY, @NativeType("uint16_t") int _srcZ, @NativeType("uint16_t") int _width, @NativeType("uint16_t") int _height, @NativeType("uint16_t") int _depth) {
         nbgfx_encoder_blit(_encoder, (short)_id, _dst, (byte)_dstMip, (short)_dstX, (short)_dstY, (short)_dstZ, _src, (byte)_srcMip, (short)_srcX, (short)_srcY, (short)_srcZ, (short)_width, (short)_height, (short)_depth);
