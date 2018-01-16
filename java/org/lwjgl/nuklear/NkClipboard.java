@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -52,7 +54,7 @@ public class NkClipboard extends Struct implements NativeResource {
         COPY = layout.offsetof(2);
     }
 
-    NkClipboard(long address, ByteBuffer container) {
+    NkClipboard(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -63,7 +65,7 @@ public class NkClipboard extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public NkClipboard(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -73,18 +75,20 @@ public class NkClipboard extends Struct implements NativeResource {
     @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code paste} field. */
+    @Nullable
     @NativeType("nk_plugin_paste")
     public NkPluginPaste paste() { return npaste(address()); }
     /** Returns the value of the {@code copy} field. */
+    @Nullable
     @NativeType("nk_plugin_copy")
     public NkPluginCopy copy() { return ncopy(address()); }
 
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
     public NkClipboard userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code paste} field. */
-    public NkClipboard paste(@NativeType("nk_plugin_paste") NkPluginPasteI value) { npaste(address(), value); return this; }
+    public NkClipboard paste(@Nullable @NativeType("nk_plugin_paste") NkPluginPasteI value) { npaste(address(), value); return this; }
     /** Sets the specified value to the {@code copy} field. */
-    public NkClipboard copy(@NativeType("nk_plugin_copy") NkPluginCopyI value) { ncopy(address(), value); return this; }
+    public NkClipboard copy(@Nullable @NativeType("nk_plugin_copy") NkPluginCopyI value) { ncopy(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkClipboard set(
@@ -115,12 +119,12 @@ public class NkClipboard extends Struct implements NativeResource {
 
     /** Returns a new {@link NkClipboard} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static NkClipboard malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link NkClipboard} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static NkClipboard calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link NkClipboard} instance allocated with {@link BufferUtils}. */
@@ -128,9 +132,15 @@ public class NkClipboard extends Struct implements NativeResource {
         return new NkClipboard(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link NkClipboard} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link NkClipboard} instance for the specified memory address. */
     public static NkClipboard create(long address) {
-        return address == NULL ? null : new NkClipboard(address, null);
+        return new NkClipboard(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkClipboard createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -138,7 +148,7 @@ public class NkClipboard extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static NkClipboard.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -147,8 +157,8 @@ public class NkClipboard extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static NkClipboard.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -156,7 +166,7 @@ public class NkClipboard extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static NkClipboard.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -166,8 +176,14 @@ public class NkClipboard extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static NkClipboard.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkClipboard.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -205,7 +221,7 @@ public class NkClipboard extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static NkClipboard.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -214,7 +230,7 @@ public class NkClipboard extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static NkClipboard.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -224,7 +240,7 @@ public class NkClipboard extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static NkClipboard.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -234,7 +250,7 @@ public class NkClipboard extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static NkClipboard.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -243,16 +259,16 @@ public class NkClipboard extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata}. */
     public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkClipboard.USERDATA); }
     /** Unsafe version of {@link #paste}. */
-    public static NkPluginPaste npaste(long struct) { return NkPluginPaste.create(memGetAddress(struct + NkClipboard.PASTE)); }
+    @Nullable public static NkPluginPaste npaste(long struct) { return NkPluginPaste.createSafe(memGetAddress(struct + NkClipboard.PASTE)); }
     /** Unsafe version of {@link #copy}. */
-    public static NkPluginCopy ncopy(long struct) { return NkPluginCopy.create(memGetAddress(struct + NkClipboard.COPY)); }
+    @Nullable public static NkPluginCopy ncopy(long struct) { return NkPluginCopy.createSafe(memGetAddress(struct + NkClipboard.COPY)); }
 
     /** Unsafe version of {@link #userdata(NkHandle) userdata}. */
     public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkClipboard.USERDATA, NkHandle.SIZEOF); }
     /** Unsafe version of {@link #paste(NkPluginPasteI) paste}. */
-    public static void npaste(long struct, NkPluginPasteI value) { memPutAddress(struct + NkClipboard.PASTE, memAddressSafe(value)); }
+    public static void npaste(long struct, @Nullable NkPluginPasteI value) { memPutAddress(struct + NkClipboard.PASTE, memAddressSafe(value)); }
     /** Unsafe version of {@link #copy(NkPluginCopyI) copy}. */
-    public static void ncopy(long struct, NkPluginCopyI value) { memPutAddress(struct + NkClipboard.COPY, memAddressSafe(value)); }
+    public static void ncopy(long struct, @Nullable NkPluginCopyI value) { memPutAddress(struct + NkClipboard.COPY, memAddressSafe(value)); }
 
     // -----------------------------------
 
@@ -272,7 +288,11 @@ public class NkClipboard extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -282,7 +302,7 @@ public class NkClipboard extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -300,18 +320,20 @@ public class NkClipboard extends Struct implements NativeResource {
         @NativeType("nk_handle")
         public NkHandle userdata() { return NkClipboard.nuserdata(address()); }
         /** Returns the value of the {@code paste} field. */
+        @Nullable
         @NativeType("nk_plugin_paste")
         public NkPluginPaste paste() { return NkClipboard.npaste(address()); }
         /** Returns the value of the {@code copy} field. */
+        @Nullable
         @NativeType("nk_plugin_copy")
         public NkPluginCopy copy() { return NkClipboard.ncopy(address()); }
 
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
         public NkClipboard.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkClipboard.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code paste} field. */
-        public NkClipboard.Buffer paste(@NativeType("nk_plugin_paste") NkPluginPasteI value) { NkClipboard.npaste(address(), value); return this; }
+        public NkClipboard.Buffer paste(@Nullable @NativeType("nk_plugin_paste") NkPluginPasteI value) { NkClipboard.npaste(address(), value); return this; }
         /** Sets the specified value to the {@code copy} field. */
-        public NkClipboard.Buffer copy(@NativeType("nk_plugin_copy") NkPluginCopyI value) { NkClipboard.ncopy(address(), value); return this; }
+        public NkClipboard.Buffer copy(@Nullable @NativeType("nk_plugin_copy") NkPluginCopyI value) { NkClipboard.ncopy(address(), value); return this; }
 
     }
 

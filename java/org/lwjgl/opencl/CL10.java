@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -414,7 +416,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetPlatformIDs(@NativeType("cl_platform_id *") PointerBuffer platforms, @NativeType("cl_uint *") IntBuffer num_platforms) {
+    public static int clGetPlatformIDs(@Nullable @NativeType("cl_platform_id *") PointerBuffer platforms, @Nullable @NativeType("cl_uint *") IntBuffer num_platforms) {
         if (CHECKS) {
             checkSafe(num_platforms, 1);
         }
@@ -456,7 +458,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetPlatformInfo(@NativeType("cl_platform_id") long platform, @NativeType("cl_platform_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetPlatformInfo(@NativeType("cl_platform_id") long platform, @NativeType("cl_platform_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -483,7 +485,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetPlatformInfo(@NativeType("cl_platform_id") long platform, @NativeType("cl_platform_info") int param_name, @NativeType("void *") LongBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetPlatformInfo(@NativeType("cl_platform_id") long platform, @NativeType("cl_platform_info") int param_name, @Nullable @NativeType("void *") LongBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -528,7 +530,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetDeviceIDs(@NativeType("cl_platform_id") long platform, @NativeType("cl_device_type") long device_type, @NativeType("cl_device_id *") PointerBuffer devices, @NativeType("cl_uint *") IntBuffer num_devices) {
+    public static int clGetDeviceIDs(@NativeType("cl_platform_id") long platform, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("cl_device_id *") PointerBuffer devices, @Nullable @NativeType("cl_uint *") IntBuffer num_devices) {
         if (CHECKS) {
             checkSafe(num_devices, 1);
         }
@@ -573,7 +575,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -603,7 +605,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -633,7 +635,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @NativeType("void *") LongBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @Nullable @NativeType("void *") LongBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -663,7 +665,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -717,7 +719,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -759,7 +761,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") long device, @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") long device, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -794,7 +796,7 @@ public class CL10 {
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
     @NativeType("cl_context")
-    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -897,7 +899,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -925,7 +927,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -953,7 +955,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1001,7 +1003,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_command_queue")
-    public static long clCreateCommandQueue(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("cl_command_queue_properties") long properties, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateCommandQueue(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("cl_command_queue_properties") long properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1105,7 +1107,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1133,7 +1135,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1161,7 +1163,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @NativeType("void *") LongBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @Nullable @NativeType("void *") LongBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1189,7 +1191,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -1238,7 +1240,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("size_t") long size, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("size_t") long size, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1273,7 +1275,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") ByteBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1308,7 +1310,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") ShortBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") ShortBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1343,7 +1345,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") IntBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") IntBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1378,7 +1380,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") FloatBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") FloatBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1413,7 +1415,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") DoubleBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") DoubleBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -1497,7 +1499,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") ByteBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") ByteBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1564,7 +1566,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") ShortBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") ShortBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1631,7 +1633,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") IntBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") IntBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1698,7 +1700,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") FloatBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") FloatBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1765,7 +1767,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") DoubleBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") DoubleBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1848,7 +1850,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") ByteBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") ByteBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1914,7 +1916,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") ShortBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") ShortBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -1980,7 +1982,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") IntBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") IntBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -2046,7 +2048,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") FloatBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") FloatBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -2112,7 +2114,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") DoubleBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") DoubleBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -2182,7 +2184,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueCopyBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_buffer, @NativeType("cl_mem") long dst_buffer, @NativeType("size_t") long src_offset, @NativeType("size_t") long dst_offset, @NativeType("size_t") long size, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueCopyBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_buffer, @NativeType("cl_mem") long dst_buffer, @NativeType("size_t") long src_offset, @NativeType("size_t") long dst_offset, @NativeType("size_t") long size, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -2272,8 +2274,9 @@ public class CL10 {
      *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer clEnqueueMapBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("size_t") long offset, @NativeType("size_t") long size, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event, @NativeType("cl_int *") IntBuffer errcode_ret, ByteBuffer old_buffer) {
+    public static ByteBuffer clEnqueueMapBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("size_t") long offset, @NativeType("size_t") long size, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret, @Nullable ByteBuffer old_buffer) {
         if (CHECKS) {
             checkSafe(event, 1);
             checkSafe(errcode_ret, 1);
@@ -2332,7 +2335,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") ByteBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2378,7 +2381,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") ShortBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") ShortBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2424,7 +2427,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") IntBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") IntBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2470,7 +2473,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") FloatBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") FloatBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2534,7 +2537,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") ByteBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2587,7 +2590,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") ShortBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") ShortBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2640,7 +2643,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") IntBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") IntBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2693,7 +2696,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") FloatBuffer host_ptr, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") FloatBuffer host_ptr, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -2747,7 +2750,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetSupportedImageFormats(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_mem_object_type") int image_type, @NativeType("cl_image_format *") CLImageFormat.Buffer image_formats, @NativeType("cl_uint *") IntBuffer num_image_formats) {
+    public static int clGetSupportedImageFormats(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_mem_object_type") int image_type, @Nullable @NativeType("cl_image_format *") CLImageFormat.Buffer image_formats, @Nullable @NativeType("cl_uint *") IntBuffer num_image_formats) {
         if (CHECKS) {
             checkSafe(num_image_formats, 1);
         }
@@ -2852,7 +2855,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") ByteBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") ByteBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -2943,7 +2946,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") ShortBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") ShortBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3034,7 +3037,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") IntBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") IntBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3125,7 +3128,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") FloatBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") FloatBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3216,7 +3219,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") DoubleBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") DoubleBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3323,7 +3326,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") ByteBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") ByteBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3414,7 +3417,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") ShortBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") ShortBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3505,7 +3508,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") IntBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") IntBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3596,7 +3599,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") FloatBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") FloatBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3687,7 +3690,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") DoubleBuffer ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") DoubleBuffer ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -3787,7 +3790,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueCopyImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_image, @NativeType("cl_mem") long dst_image, @NativeType("const size_t *") PointerBuffer src_origin, @NativeType("const size_t *") PointerBuffer dst_origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueCopyImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_image, @NativeType("cl_mem") long dst_image, @NativeType("const size_t *") PointerBuffer src_origin, @NativeType("const size_t *") PointerBuffer dst_origin, @NativeType("const size_t *") PointerBuffer region, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(src_origin, 3);
             check(dst_origin, 3);
@@ -3874,7 +3877,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueCopyImageToBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_image, @NativeType("cl_mem") long dst_buffer, @NativeType("const size_t *") PointerBuffer src_origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long dst_offset, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueCopyImageToBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_image, @NativeType("cl_mem") long dst_buffer, @NativeType("const size_t *") PointerBuffer src_origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long dst_offset, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(src_origin, 3);
             check(region, 3);
@@ -3956,7 +3959,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueCopyBufferToImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_buffer, @NativeType("cl_mem") long dst_image, @NativeType("size_t") long src_offset, @NativeType("const size_t *") PointerBuffer dst_origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueCopyBufferToImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long src_buffer, @NativeType("cl_mem") long dst_image, @NativeType("size_t") long src_offset, @NativeType("const size_t *") PointerBuffer dst_origin, @NativeType("const size_t *") PointerBuffer region, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(dst_origin, 3);
             check(region, 3);
@@ -4068,8 +4071,9 @@ public class CL10 {
      *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @NativeType("size_t *") PointerBuffer image_slice_pitch, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event, @NativeType("cl_int *") IntBuffer errcode_ret, ByteBuffer old_buffer) {
+    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @Nullable @NativeType("size_t *") PointerBuffer image_slice_pitch, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret, @Nullable ByteBuffer old_buffer) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -4170,8 +4174,9 @@ public class CL10 {
      *         <li>{@link #CL_OUT_OF_HOST_MEMORY OUT_OF_HOST_MEMORY} if there is a failure to allocate resources required by the OpenCL implementation on the host.</li>
      *         </ul>
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @NativeType("size_t *") PointerBuffer image_slice_pitch, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event, @NativeType("cl_int *") IntBuffer errcode_ret, long length, ByteBuffer old_buffer) {
+    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @Nullable @NativeType("size_t *") PointerBuffer image_slice_pitch, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret, long length, @Nullable ByteBuffer old_buffer) {
         if (CHECKS) {
             check(origin, 3);
             check(region, 3);
@@ -4220,7 +4225,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4248,7 +4253,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4276,7 +4281,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4394,7 +4399,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueUnmapMemObject(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long memobj, @NativeType("void *") ByteBuffer mapped_ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueUnmapMemObject(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long memobj, @NativeType("void *") ByteBuffer mapped_ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -4437,7 +4442,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4465,7 +4470,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4493,7 +4498,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @NativeType("void *") LongBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @Nullable @NativeType("void *") LongBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4521,7 +4526,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4568,7 +4573,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_sampler")
-    public static long clCreateSampler(@NativeType("cl_context") long context, @NativeType("cl_bool") boolean normalized_coords, @NativeType("cl_addressing_mode") int addressing_mode, @NativeType("cl_filter_mode") int filter_mode, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateSampler(@NativeType("cl_context") long context, @NativeType("cl_bool") boolean normalized_coords, @NativeType("cl_addressing_mode") int addressing_mode, @NativeType("cl_filter_mode") int filter_mode, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -4664,7 +4669,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4692,7 +4697,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4720,7 +4725,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -4767,7 +4772,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") PointerBuffer strings, @NativeType("const size_t *") PointerBuffer lengths, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") PointerBuffer strings, @Nullable @NativeType("const size_t *") PointerBuffer lengths, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(lengths, strings.remaining());
             checkSafe(errcode_ret, 1);
@@ -4797,7 +4802,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") CharSequence[] strings, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") CharSequence[] strings, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -4833,7 +4838,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") CharSequence string, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") CharSequence string, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -4916,7 +4921,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const size_t *") PointerBuffer lengths, @NativeType("const cl_uchar **") PointerBuffer binaries, @NativeType("cl_int *") IntBuffer binary_status, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const size_t *") PointerBuffer lengths, @NativeType("const cl_uchar **") PointerBuffer binaries, @Nullable @NativeType("cl_int *") IntBuffer binary_status, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             check(device_list, binaries.remaining());
             check(lengths, binaries.remaining());
@@ -4978,7 +4983,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_uchar **") ByteBuffer[] binaries, @NativeType("cl_int *") IntBuffer binary_status, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_uchar **") ByteBuffer[] binaries, @Nullable @NativeType("cl_int *") IntBuffer binary_status, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             check(device_list, binaries.length);
             checkSafe(binary_status, binaries.length);
@@ -5042,7 +5047,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_uchar **") ByteBuffer binary, @NativeType("cl_int *") IntBuffer binary_status, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_uchar **") ByteBuffer binary, @Nullable @NativeType("cl_int *") IntBuffer binary_status, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             check(device_list, 1);
             checkSafe(binary_status, 1);
@@ -5173,7 +5178,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clBuildProgram(@NativeType("cl_program") long program, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer options, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer options, @Nullable @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         if (CHECKS) {
             checkNT1(options);
         }
@@ -5228,7 +5233,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clBuildProgram(@NativeType("cl_program") long program, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence options, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence options, @Nullable @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -5283,7 +5288,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clBuildProgram(@NativeType("cl_program") long program, @NativeType("const cl_device_id *") long device, @NativeType("const cl_char *") CharSequence options, @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") long device, @NativeType("const cl_char *") CharSequence options, @Nullable @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -5350,7 +5355,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -5380,7 +5385,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -5410,7 +5415,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -5456,7 +5461,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -5486,7 +5491,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -5516,7 +5521,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -5569,7 +5574,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_kernel")
-    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") ByteBuffer kernel_name, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") ByteBuffer kernel_name, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT1(kernel_name);
             checkSafe(errcode_ret, 1);
@@ -5612,7 +5617,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_kernel")
-    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") CharSequence kernel_name, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") CharSequence kernel_name, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -5664,7 +5669,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clCreateKernelsInProgram(@NativeType("cl_program") long program, @NativeType("cl_kernel *") PointerBuffer kernels, @NativeType("cl_uint *") IntBuffer num_kernels_ret) {
+    public static int clCreateKernelsInProgram(@NativeType("cl_program") long program, @Nullable @NativeType("cl_kernel *") PointerBuffer kernels, @Nullable @NativeType("cl_uint *") IntBuffer num_kernels_ret) {
         if (CHECKS) {
             checkSafe(num_kernels_ret, 1);
         }
@@ -8071,7 +8076,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8099,7 +8104,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8127,7 +8132,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8177,7 +8182,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8211,7 +8216,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8245,7 +8250,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @NativeType("void *") LongBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @Nullable @NativeType("void *") LongBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8279,7 +8284,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8383,7 +8388,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueNDRangeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int work_dim, @NativeType("const size_t *") PointerBuffer global_work_offset, @NativeType("const size_t *") PointerBuffer global_work_size, @NativeType("const size_t *") PointerBuffer local_work_size, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueNDRangeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int work_dim, @Nullable @NativeType("const size_t *") PointerBuffer global_work_offset, @Nullable @NativeType("const size_t *") PointerBuffer global_work_size, @Nullable @NativeType("const size_t *") PointerBuffer local_work_size, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(global_work_offset, work_dim);
             checkSafe(global_work_size, work_dim);
@@ -8430,7 +8435,7 @@ public class CL10 {
      * @return {@link #CL_SUCCESS SUCCESS} if the kernel execution was successfully queued. Otherwise, see {@link #clEnqueueNDRangeKernel EnqueueNDRangeKernel}.
      */
     @NativeType("cl_int")
-    public static int clEnqueueTask(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_kernel") long kernel, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueTask(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_kernel") long kernel, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -8504,7 +8509,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_native_kernel") CLNativeKernelI user_func, @NativeType("void *") ByteBuffer args, @NativeType("const cl_mem *") PointerBuffer mem_list, @NativeType("const void **") PointerBuffer args_mem_loc, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_native_kernel") CLNativeKernelI user_func, @Nullable @NativeType("void *") ByteBuffer args, @Nullable @NativeType("const cl_mem *") PointerBuffer mem_list, @Nullable @NativeType("const void **") PointerBuffer args_mem_loc, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(args_mem_loc, remainingSafe(mem_list));
             checkSafe(event, 1);
@@ -8553,7 +8558,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_native_kernel") CLNativeKernelI user_func, @NativeType("void *") ByteBuffer args, @NativeType("const cl_mem *") long memobj, @NativeType("const void **") long memobj_loc, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_native_kernel") CLNativeKernelI user_func, @Nullable @NativeType("void *") ByteBuffer args, @Nullable @NativeType("const cl_mem *") long memobj, @Nullable @NativeType("const void **") long memobj_loc, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -8672,7 +8677,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8705,7 +8710,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8738,7 +8743,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -8842,7 +8847,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueMarker(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueMarker(@NativeType("cl_command_queue") long command_queue, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -8982,7 +8987,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetEventProfilingInfo(@NativeType("cl_event") long event, @NativeType("cl_profiling_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetEventProfilingInfo(@NativeType("cl_event") long event, @NativeType("cl_profiling_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -9012,7 +9017,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetEventProfilingInfo(@NativeType("cl_event") long event, @NativeType("cl_profiling_info") int param_name, @NativeType("void *") LongBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetEventProfilingInfo(@NativeType("cl_event") long event, @NativeType("cl_profiling_info") int param_name, @Nullable @NativeType("void *") LongBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -9143,7 +9148,7 @@ public class CL10 {
      * Array version of: {@link #clGetPlatformIDs GetPlatformIDs}
      */
     @NativeType("cl_int")
-    public static int clGetPlatformIDs(@NativeType("cl_platform_id *") PointerBuffer platforms, @NativeType("cl_uint *") int[] num_platforms) {
+    public static int clGetPlatformIDs(@Nullable @NativeType("cl_platform_id *") PointerBuffer platforms, @Nullable @NativeType("cl_uint *") int[] num_platforms) {
         long __functionAddress = CL.getICD().clGetPlatformIDs;
         if (CHECKS) {
             checkSafe(num_platforms, 1);
@@ -9157,7 +9162,7 @@ public class CL10 {
      * Array version of: {@link #clGetPlatformInfo GetPlatformInfo}
      */
     @NativeType("cl_int")
-    public static int clGetPlatformInfo(@NativeType("cl_platform_id") long platform, @NativeType("cl_platform_info") int param_name, @NativeType("void *") long[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetPlatformInfo(@NativeType("cl_platform_id") long platform, @NativeType("cl_platform_info") int param_name, @Nullable @NativeType("void *") long[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetPlatformInfo;
         if (CHECKS) {
             check(platform);
@@ -9172,7 +9177,7 @@ public class CL10 {
      * Array version of: {@link #clGetDeviceIDs GetDeviceIDs}
      */
     @NativeType("cl_int")
-    public static int clGetDeviceIDs(@NativeType("cl_platform_id") long platform, @NativeType("cl_device_type") long device_type, @NativeType("cl_device_id *") PointerBuffer devices, @NativeType("cl_uint *") int[] num_devices) {
+    public static int clGetDeviceIDs(@NativeType("cl_platform_id") long platform, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("cl_device_id *") PointerBuffer devices, @Nullable @NativeType("cl_uint *") int[] num_devices) {
         long __functionAddress = CL.getICD().clGetDeviceIDs;
         if (CHECKS) {
             checkSafe(num_devices, 1);
@@ -9186,7 +9191,7 @@ public class CL10 {
      * Array version of: {@link #clGetDeviceInfo GetDeviceInfo}
      */
     @NativeType("cl_int")
-    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetDeviceInfo;
         if (CHECKS) {
             check(device);
@@ -9201,7 +9206,7 @@ public class CL10 {
      * Array version of: {@link #clGetDeviceInfo GetDeviceInfo}
      */
     @NativeType("cl_int")
-    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @NativeType("void *") long[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetDeviceInfo(@NativeType("cl_device_id") long device, @NativeType("cl_device_info") int param_name, @Nullable @NativeType("void *") long[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetDeviceInfo;
         if (CHECKS) {
             check(device);
@@ -9216,7 +9221,7 @@ public class CL10 {
      * Array version of: {@link #clCreateContext CreateContext}
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateContext;
         if (CHECKS) {
             checkNT(properties);
@@ -9231,7 +9236,7 @@ public class CL10 {
      * Array version of: {@link #clCreateContextFromType CreateContextFromType}
      */
     @NativeType("cl_context")
-    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateContextFromType;
         if (CHECKS) {
             checkNT(properties);
@@ -9246,7 +9251,7 @@ public class CL10 {
      * Array version of: {@link #clGetContextInfo GetContextInfo}
      */
     @NativeType("cl_int")
-    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetContextInfo(@NativeType("cl_context") long context, @NativeType("cl_context_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetContextInfo;
         if (CHECKS) {
             check(context);
@@ -9261,7 +9266,7 @@ public class CL10 {
      * Array version of: {@link #clCreateCommandQueue CreateCommandQueue}
      */
     @NativeType("cl_command_queue")
-    public static long clCreateCommandQueue(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("cl_command_queue_properties") long properties, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateCommandQueue(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("cl_command_queue_properties") long properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateCommandQueue;
         if (CHECKS) {
             check(context);
@@ -9277,7 +9282,7 @@ public class CL10 {
      * Array version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo}
      */
     @NativeType("cl_int")
-    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetCommandQueueInfo;
         if (CHECKS) {
             check(command_queue);
@@ -9292,7 +9297,7 @@ public class CL10 {
      * Array version of: {@link #clGetCommandQueueInfo GetCommandQueueInfo}
      */
     @NativeType("cl_int")
-    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @NativeType("void *") long[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetCommandQueueInfo(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_command_queue_info") int param_name, @Nullable @NativeType("void *") long[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetCommandQueueInfo;
         if (CHECKS) {
             check(command_queue);
@@ -9307,7 +9312,7 @@ public class CL10 {
      * Array version of: {@link #clCreateBuffer CreateBuffer}
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") ByteBuffer host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateBuffer;
         if (CHECKS) {
             check(context);
@@ -9322,7 +9327,7 @@ public class CL10 {
      * Array version of: {@link #clCreateBuffer CreateBuffer}
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") short[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") short[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateBuffer;
         if (CHECKS) {
             check(context);
@@ -9337,7 +9342,7 @@ public class CL10 {
      * Array version of: {@link #clCreateBuffer CreateBuffer}
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") int[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") int[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateBuffer;
         if (CHECKS) {
             check(context);
@@ -9352,7 +9357,7 @@ public class CL10 {
      * Array version of: {@link #clCreateBuffer CreateBuffer}
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") float[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") float[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateBuffer;
         if (CHECKS) {
             check(context);
@@ -9367,7 +9372,7 @@ public class CL10 {
      * Array version of: {@link #clCreateBuffer CreateBuffer}
      */
     @NativeType("cl_mem")
-    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") double[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("void *") double[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateBuffer;
         if (CHECKS) {
             check(context);
@@ -9382,7 +9387,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") short[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") short[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9398,7 +9403,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") int[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") int[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9414,7 +9419,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") float[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") float[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9430,7 +9435,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadBuffer EnqueueReadBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") double[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_read, @NativeType("size_t") long offset, @NativeType("void *") double[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9446,7 +9451,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") short[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") short[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9462,7 +9467,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") int[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") int[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9478,7 +9483,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") float[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") float[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9494,7 +9499,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteBuffer EnqueueWriteBuffer}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") double[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_write, @NativeType("size_t") long offset, @NativeType("const void *") double[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9509,8 +9514,9 @@ public class CL10 {
      * 
      * Array version of: {@link #clEnqueueMapBuffer EnqueueMapBuffer}
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer clEnqueueMapBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("size_t") long offset, @NativeType("size_t") long size, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event, @NativeType("cl_int *") int[] errcode_ret, ByteBuffer old_buffer) {
+    public static ByteBuffer clEnqueueMapBuffer(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long buffer, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("size_t") long offset, @NativeType("size_t") long size, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event, @Nullable @NativeType("cl_int *") int[] errcode_ret, @Nullable ByteBuffer old_buffer) {
         long __functionAddress = CL.getICD().clEnqueueMapBuffer;
         if (CHECKS) {
             check(command_queue);
@@ -9528,7 +9534,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage2D CreateImage2D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") ByteBuffer host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage2D;
         if (CHECKS) {
             check(context);
@@ -9543,7 +9549,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage2D CreateImage2D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") short[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") short[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage2D;
         if (CHECKS) {
             check(context);
@@ -9558,7 +9564,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage2D CreateImage2D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") int[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") int[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage2D;
         if (CHECKS) {
             check(context);
@@ -9573,7 +9579,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage2D CreateImage2D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @NativeType("void *") float[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_row_pitch, @Nullable @NativeType("void *") float[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage2D;
         if (CHECKS) {
             check(context);
@@ -9588,7 +9594,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage3D CreateImage3D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") ByteBuffer host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") ByteBuffer host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage3D;
         if (CHECKS) {
             check(context);
@@ -9603,7 +9609,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage3D CreateImage3D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") short[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") short[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage3D;
         if (CHECKS) {
             check(context);
@@ -9618,7 +9624,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage3D CreateImage3D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") int[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") int[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage3D;
         if (CHECKS) {
             check(context);
@@ -9633,7 +9639,7 @@ public class CL10 {
      * Array version of: {@link #clCreateImage3D CreateImage3D}
      */
     @NativeType("cl_mem")
-    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @NativeType("void *") float[] host_ptr, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateImage3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("const cl_image_format *") CLImageFormat image_format, @NativeType("size_t") long image_width, @NativeType("size_t") long image_height, @NativeType("size_t") long image_depth, @NativeType("size_t") long image_row_pitch, @NativeType("size_t") long image_slice_pitch, @Nullable @NativeType("void *") float[] host_ptr, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateImage3D;
         if (CHECKS) {
             check(context);
@@ -9648,7 +9654,7 @@ public class CL10 {
      * Array version of: {@link #clGetSupportedImageFormats GetSupportedImageFormats}
      */
     @NativeType("cl_int")
-    public static int clGetSupportedImageFormats(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_mem_object_type") int image_type, @NativeType("cl_image_format *") CLImageFormat.Buffer image_formats, @NativeType("cl_uint *") int[] num_image_formats) {
+    public static int clGetSupportedImageFormats(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_mem_object_type") int image_type, @Nullable @NativeType("cl_image_format *") CLImageFormat.Buffer image_formats, @Nullable @NativeType("cl_uint *") int[] num_image_formats) {
         long __functionAddress = CL.getICD().clGetSupportedImageFormats;
         if (CHECKS) {
             check(context);
@@ -9663,7 +9669,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") short[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") short[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadImage;
         if (CHECKS) {
             check(command_queue);
@@ -9681,7 +9687,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") int[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") int[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadImage;
         if (CHECKS) {
             check(command_queue);
@@ -9699,7 +9705,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") float[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") float[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadImage;
         if (CHECKS) {
             check(command_queue);
@@ -9717,7 +9723,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueReadImage EnqueueReadImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") double[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReadImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_read, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long row_pitch, @NativeType("size_t") long slice_pitch, @NativeType("void *") double[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueReadImage;
         if (CHECKS) {
             check(command_queue);
@@ -9735,7 +9741,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") short[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") short[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteImage;
         if (CHECKS) {
             check(command_queue);
@@ -9753,7 +9759,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") int[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") int[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteImage;
         if (CHECKS) {
             check(command_queue);
@@ -9771,7 +9777,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") float[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") float[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteImage;
         if (CHECKS) {
             check(command_queue);
@@ -9789,7 +9795,7 @@ public class CL10 {
      * Array version of: {@link #clEnqueueWriteImage EnqueueWriteImage}
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") double[] ptr, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_write, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t") long input_row_pitch, @NativeType("size_t") long input_slice_pitch, @NativeType("const void *") double[] ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         long __functionAddress = CL.getICD().clEnqueueWriteImage;
         if (CHECKS) {
             check(command_queue);
@@ -9806,8 +9812,9 @@ public class CL10 {
      * 
      * Array version of: {@link #clEnqueueMapImage EnqueueMapImage}
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @NativeType("size_t *") PointerBuffer image_slice_pitch, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event, @NativeType("cl_int *") int[] errcode_ret, ByteBuffer old_buffer) {
+    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @Nullable @NativeType("size_t *") PointerBuffer image_slice_pitch, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event, @Nullable @NativeType("cl_int *") int[] errcode_ret, @Nullable ByteBuffer old_buffer) {
         long __functionAddress = CL.getICD().clEnqueueMapImage;
         if (CHECKS) {
             check(command_queue);
@@ -9829,8 +9836,9 @@ public class CL10 {
      * 
      * Array version of: {@link #clEnqueueMapImage EnqueueMapImage}
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @NativeType("size_t *") PointerBuffer image_slice_pitch, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event, @NativeType("cl_int *") int[] errcode_ret, long length, ByteBuffer old_buffer) {
+    public static ByteBuffer clEnqueueMapImage(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long image, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("const size_t *") PointerBuffer origin, @NativeType("const size_t *") PointerBuffer region, @NativeType("size_t *") PointerBuffer image_row_pitch, @Nullable @NativeType("size_t *") PointerBuffer image_slice_pitch, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event, @Nullable @NativeType("cl_int *") int[] errcode_ret, long length, @Nullable ByteBuffer old_buffer) {
         long __functionAddress = CL.getICD().clEnqueueMapImage;
         if (CHECKS) {
             check(command_queue);
@@ -9852,7 +9860,7 @@ public class CL10 {
      * Array version of: {@link #clGetImageInfo GetImageInfo}
      */
     @NativeType("cl_int")
-    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetImageInfo(@NativeType("cl_mem") long image, @NativeType("cl_image_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetImageInfo;
         if (CHECKS) {
             check(image);
@@ -9867,7 +9875,7 @@ public class CL10 {
      * Array version of: {@link #clGetMemObjectInfo GetMemObjectInfo}
      */
     @NativeType("cl_int")
-    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetMemObjectInfo;
         if (CHECKS) {
             check(memobj);
@@ -9882,7 +9890,7 @@ public class CL10 {
      * Array version of: {@link #clGetMemObjectInfo GetMemObjectInfo}
      */
     @NativeType("cl_int")
-    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @NativeType("void *") long[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetMemObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_info") int param_name, @Nullable @NativeType("void *") long[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetMemObjectInfo;
         if (CHECKS) {
             check(memobj);
@@ -9897,7 +9905,7 @@ public class CL10 {
      * Array version of: {@link #clCreateSampler CreateSampler}
      */
     @NativeType("cl_sampler")
-    public static long clCreateSampler(@NativeType("cl_context") long context, @NativeType("cl_bool") boolean normalized_coords, @NativeType("cl_addressing_mode") int addressing_mode, @NativeType("cl_filter_mode") int filter_mode, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateSampler(@NativeType("cl_context") long context, @NativeType("cl_bool") boolean normalized_coords, @NativeType("cl_addressing_mode") int addressing_mode, @NativeType("cl_filter_mode") int filter_mode, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateSampler;
         if (CHECKS) {
             check(context);
@@ -9912,7 +9920,7 @@ public class CL10 {
      * Array version of: {@link #clGetSamplerInfo GetSamplerInfo}
      */
     @NativeType("cl_int")
-    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetSamplerInfo(@NativeType("cl_sampler") long sampler, @NativeType("cl_sampler_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetSamplerInfo;
         if (CHECKS) {
             check(sampler);
@@ -9927,7 +9935,7 @@ public class CL10 {
      * Array version of: {@link #clCreateProgramWithSource CreateProgramWithSource}
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") PointerBuffer strings, @NativeType("const size_t *") PointerBuffer lengths, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateProgramWithSource(@NativeType("cl_context") long context, @NativeType("const cl_char **") PointerBuffer strings, @Nullable @NativeType("const size_t *") PointerBuffer lengths, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateProgramWithSource;
         if (CHECKS) {
             check(context);
@@ -9943,7 +9951,7 @@ public class CL10 {
      * Array version of: {@link #clCreateProgramWithBinary CreateProgramWithBinary}
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const size_t *") PointerBuffer lengths, @NativeType("const cl_uchar **") PointerBuffer binaries, @NativeType("cl_int *") int[] binary_status, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateProgramWithBinary(@NativeType("cl_context") long context, @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const size_t *") PointerBuffer lengths, @NativeType("const cl_uchar **") PointerBuffer binaries, @Nullable @NativeType("cl_int *") int[] binary_status, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateProgramWithBinary;
         if (CHECKS) {
             check(context);
@@ -9961,7 +9969,7 @@ public class CL10 {
      * Array version of: {@link #clGetProgramInfo GetProgramInfo}
      */
     @NativeType("cl_int")
-    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramInfo(@NativeType("cl_program") long program, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetProgramInfo;
         if (CHECKS) {
             check(program);
@@ -9976,7 +9984,7 @@ public class CL10 {
      * Array version of: {@link #clGetProgramBuildInfo GetProgramBuildInfo}
      */
     @NativeType("cl_int")
-    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetProgramBuildInfo(@NativeType("cl_program") long program, @NativeType("cl_device_id") long device, @NativeType("cl_program_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetProgramBuildInfo;
         if (CHECKS) {
             check(program);
@@ -9992,7 +10000,7 @@ public class CL10 {
      * Array version of: {@link #clCreateKernel CreateKernel}
      */
     @NativeType("cl_kernel")
-    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") ByteBuffer kernel_name, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") ByteBuffer kernel_name, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateKernel;
         if (CHECKS) {
             check(program);
@@ -10008,7 +10016,7 @@ public class CL10 {
      * Array version of: {@link #clCreateKernel CreateKernel}
      */
     @NativeType("cl_kernel")
-    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") CharSequence kernel_name, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateKernel(@NativeType("cl_program") long program, @NativeType("const cl_char *") CharSequence kernel_name, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateKernel;
         if (CHECKS) {
             check(program);
@@ -10029,7 +10037,7 @@ public class CL10 {
      * Array version of: {@link #clCreateKernelsInProgram CreateKernelsInProgram}
      */
     @NativeType("cl_int")
-    public static int clCreateKernelsInProgram(@NativeType("cl_program") long program, @NativeType("cl_kernel *") PointerBuffer kernels, @NativeType("cl_uint *") int[] num_kernels_ret) {
+    public static int clCreateKernelsInProgram(@NativeType("cl_program") long program, @Nullable @NativeType("cl_kernel *") PointerBuffer kernels, @Nullable @NativeType("cl_uint *") int[] num_kernels_ret) {
         long __functionAddress = CL.getICD().clCreateKernelsInProgram;
         if (CHECKS) {
             check(program);
@@ -10114,7 +10122,7 @@ public class CL10 {
      * Array version of: {@link #clGetKernelInfo GetKernelInfo}
      */
     @NativeType("cl_int")
-    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetKernelInfo;
         if (CHECKS) {
             check(kernel);
@@ -10129,7 +10137,7 @@ public class CL10 {
      * Array version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo}
      */
     @NativeType("cl_int")
-    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
         if (CHECKS) {
             check(kernel);
@@ -10145,7 +10153,7 @@ public class CL10 {
      * Array version of: {@link #clGetKernelWorkGroupInfo GetKernelWorkGroupInfo}
      */
     @NativeType("cl_int")
-    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @NativeType("void *") long[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelWorkGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_work_group_info") int param_name, @Nullable @NativeType("void *") long[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetKernelWorkGroupInfo;
         if (CHECKS) {
             check(kernel);
@@ -10161,7 +10169,7 @@ public class CL10 {
      * Array version of: {@link #clGetEventInfo GetEventInfo}
      */
     @NativeType("cl_int")
-    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetEventInfo(@NativeType("cl_event") long event, @NativeType("cl_event_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetEventInfo;
         if (CHECKS) {
             check(event);
@@ -10176,7 +10184,7 @@ public class CL10 {
      * Array version of: {@link #clGetEventProfilingInfo GetEventProfilingInfo}
      */
     @NativeType("cl_int")
-    public static int clGetEventProfilingInfo(@NativeType("cl_event") long event, @NativeType("cl_profiling_info") int param_name, @NativeType("void *") long[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetEventProfilingInfo(@NativeType("cl_event") long event, @NativeType("cl_profiling_info") int param_name, @Nullable @NativeType("void *") long[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetEventProfilingInfo;
         if (CHECKS) {
             check(event);

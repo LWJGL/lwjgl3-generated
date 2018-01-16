@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -14,16 +16,22 @@ import java.nio.*;
 /** Instances of this class may be used with the {@link STBImageWrite} {@code write_type_to_func} functions. */
 public abstract class STBIWriteCallback extends Callback implements STBIWriteCallbackI {
 
-    /** Creates a {@code STBIWriteCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code STBIWriteCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code STBIWriteCallback}
+     */
     public static STBIWriteCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         STBIWriteCallbackI instance = Callback.get(functionPointer);
         return instance instanceof STBIWriteCallback
             ? (STBIWriteCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static STBIWriteCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code STBIWriteCallback} instance that delegates to the specified {@code STBIWriteCallbackI} instance. */

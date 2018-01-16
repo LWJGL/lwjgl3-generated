@@ -5,6 +5,8 @@
  */
 package org.lwjgl.odbc;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -2221,7 +2223,7 @@ public class SQL {
      * @return {@link #SQL_SUCCESS SUCCESS}, {@link #SQL_SUCCESS_WITH_INFO SUCCESS_WITH_INFO}, {@link #SQL_NO_DATA NO_DATA}, {@link #SQL_ERROR ERROR}, or {@link #SQL_INVALID_HANDLE INVALID_HANDLE}
      */
     @NativeType("SQLRETURN")
-    public static short SQLDataSources(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLUSMALLINT") short Direction, @NativeType("SQLWCHAR *") ByteBuffer ServerName, @NativeType("SQLSMALLINT *") ShortBuffer NameLength1Ptr, @NativeType("SQLWCHAR *") ByteBuffer Description, @NativeType("SQLSMALLINT *") ShortBuffer NameLength2Ptr) {
+    public static short SQLDataSources(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLUSMALLINT") short Direction, @Nullable @NativeType("SQLWCHAR *") ByteBuffer ServerName, @NativeType("SQLSMALLINT *") ShortBuffer NameLength1Ptr, @Nullable @NativeType("SQLWCHAR *") ByteBuffer Description, @NativeType("SQLSMALLINT *") ShortBuffer NameLength2Ptr) {
         if (CHECKS) {
             check(NameLength1Ptr, 1);
             check(NameLength2Ptr, 1);
@@ -2251,7 +2253,7 @@ public class SQL {
      * @param StringLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @NativeType("SQLPOINTER") ByteBuffer InfoValuePtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
+    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @Nullable @NativeType("SQLPOINTER") ByteBuffer InfoValuePtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
         if (CHECKS) {
             checkSafe(StringLengthPtr, 1);
         }
@@ -2269,7 +2271,7 @@ public class SQL {
      * @param StringLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @NativeType("SQLPOINTER") ShortBuffer InfoValuePtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
+    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @Nullable @NativeType("SQLPOINTER") ShortBuffer InfoValuePtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
         if (CHECKS) {
             checkSafe(StringLengthPtr, 1);
         }
@@ -2287,7 +2289,7 @@ public class SQL {
      * @param StringLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @NativeType("SQLPOINTER") IntBuffer InfoValuePtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
+    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @Nullable @NativeType("SQLPOINTER") IntBuffer InfoValuePtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
         if (CHECKS) {
             checkSafe(StringLengthPtr, 1);
         }
@@ -2305,7 +2307,7 @@ public class SQL {
      * @param StringLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @NativeType("SQLPOINTER") PointerBuffer InfoValuePtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
+    public static short SQLGetInfo(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short InfoType, @Nullable @NativeType("SQLPOINTER") PointerBuffer InfoValuePtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
         if (CHECKS) {
             checkSafe(StringLengthPtr, 1);
         }
@@ -2407,7 +2409,7 @@ public class SQL {
      * @return {@link #SQL_SUCCESS SUCCESS}, {@link #SQL_SUCCESS_WITH_INFO SUCCESS_WITH_INFO}, {@link #SQL_ERROR ERROR}, {@link #SQL_INVALID_HANDLE INVALID_HANDLE}, or {@link #SQL_STILL_EXECUTING STILL_EXECUTING}
      */
     @NativeType("SQLRETURN")
-    public static short SQLSetConnectAttr(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLINTEGER") int Attribute, @NativeType("SQLPOINTER") ByteBuffer Value) {
+    public static short SQLSetConnectAttr(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLINTEGER") int Attribute, @Nullable @NativeType("SQLPOINTER") ByteBuffer Value) {
         return nSQLSetConnectAttr(ConnectionHandle, Attribute, memAddressSafe(Value), remainingSafe(Value));
     }
 
@@ -2433,7 +2435,7 @@ public class SQL {
      * @param StringLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetConnectAttr(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLINTEGER") int Attribute, @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
+    public static short SQLGetConnectAttr(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLINTEGER") int Attribute, @Nullable @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
         if (CHECKS) {
             check(StringLengthPtr, 1);
         }
@@ -2469,7 +2471,7 @@ public class SQL {
      * @return {@link #SQL_SUCCESS SUCCESS}, {@link #SQL_SUCCESS_WITH_INFO SUCCESS_WITH_INFO}, {@link #SQL_ERROR ERROR}, or {@link #SQL_INVALID_HANDLE INVALID_HANDLE}
      */
     @NativeType("SQLRETURN")
-    public static short SQLSetEnvAttr(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLINTEGER") int Attribute, @NativeType("SQLPOINTER") ByteBuffer Value) {
+    public static short SQLSetEnvAttr(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLINTEGER") int Attribute, @Nullable @NativeType("SQLPOINTER") ByteBuffer Value) {
         return nSQLSetEnvAttr(EnvironmentHandle, Attribute, memAddressSafe(Value), remainingSafe(Value));
     }
 
@@ -2495,7 +2497,7 @@ public class SQL {
      * @param StringLengthPtr   
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetEnvAttr(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLINTEGER") int Attribute, @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
+    public static short SQLGetEnvAttr(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLINTEGER") int Attribute, @Nullable @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
         if (CHECKS) {
             check(StringLengthPtr, 1);
         }
@@ -2523,7 +2525,7 @@ public class SQL {
      * @param Value           
      */
     @NativeType("SQLRETURN")
-    public static short SQLSetStmtAttr(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLINTEGER") int Attribute, @NativeType("SQLPOINTER") ByteBuffer Value) {
+    public static short SQLSetStmtAttr(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLINTEGER") int Attribute, @Nullable @NativeType("SQLPOINTER") ByteBuffer Value) {
         return nSQLSetStmtAttr(StatementHandle, Attribute, memAddressSafe(Value), remainingSafe(Value));
     }
 
@@ -2549,7 +2551,7 @@ public class SQL {
      * @param StringLengthPtr 
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetStmtAttr(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLINTEGER") int Attribute, @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
+    public static short SQLGetStmtAttr(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLINTEGER") int Attribute, @Nullable @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @Nullable @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
         if (CHECKS) {
             checkSafe(StringLengthPtr, 1);
         }
@@ -2579,7 +2581,7 @@ public class SQL {
      * @param StringLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetDescField(@NativeType("SQLHDESC") long DescriptorHandle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLSMALLINT") short FieldIdentifier, @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
+    public static short SQLGetDescField(@NativeType("SQLHDESC") long DescriptorHandle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLSMALLINT") short FieldIdentifier, @Nullable @NativeType("SQLPOINTER") ByteBuffer ValuePtr, @Nullable @NativeType("SQLINTEGER *") IntBuffer StringLengthPtr) {
         if (CHECKS) {
             checkSafe(StringLengthPtr, 1);
         }
@@ -2615,7 +2617,7 @@ public class SQL {
      * @param NullablePtr      
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetDescRec(@NativeType("SQLHDESC") long DescriptorHandle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLWCHAR *") ByteBuffer Name, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr, @NativeType("SQLSMALLINT *") ShortBuffer TypePtr, @NativeType("SQLSMALLINT *") ShortBuffer SubTypePtr, @NativeType("SQLLEN *") PointerBuffer LengthPtr, @NativeType("SQLSMALLINT *") ShortBuffer PrecisionPtr, @NativeType("SQLSMALLINT *") ShortBuffer ScalePtr, @NativeType("SQLSMALLINT *") ShortBuffer NullablePtr) {
+    public static short SQLGetDescRec(@NativeType("SQLHDESC") long DescriptorHandle, @NativeType("SQLSMALLINT") short RecNumber, @Nullable @NativeType("SQLWCHAR *") ByteBuffer Name, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer TypePtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer SubTypePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer LengthPtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer PrecisionPtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer ScalePtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer NullablePtr) {
         if (CHECKS) {
             checkSafe(StringLengthPtr, 1);
             checkSafe(TypePtr, 1);
@@ -2682,7 +2684,7 @@ public class SQL {
      * @param IndicatorPtr     
      */
     @NativeType("SQLRETURN")
-    public static short SQLSetDescRec(@NativeType("SQLHDESC") long DescriptorHandle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLSMALLINT") short Type, @NativeType("SQLSMALLINT") short SubType, @NativeType("SQLLEN") long Length, @NativeType("SQLSMALLINT") short Precision, @NativeType("SQLSMALLINT") short Scale, @NativeType("SQLPOINTER") ByteBuffer DataPtr, @NativeType("SQLLEN *") PointerBuffer StringLengthPtr, @NativeType("SQLLEN *") PointerBuffer IndicatorPtr) {
+    public static short SQLSetDescRec(@NativeType("SQLHDESC") long DescriptorHandle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLSMALLINT") short Type, @NativeType("SQLSMALLINT") short SubType, @NativeType("SQLLEN") long Length, @NativeType("SQLSMALLINT") short Precision, @NativeType("SQLSMALLINT") short Scale, @Nullable @NativeType("SQLPOINTER") ByteBuffer DataPtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StringLengthPtr, @Nullable @NativeType("SQLLEN *") PointerBuffer IndicatorPtr) {
         if (CHECKS) {
             checkSafe(DataPtr, 1);
             checkSafe(StringLengthPtr, 1);
@@ -2775,7 +2777,7 @@ public class SQL {
      * @param NameLengthPtr   
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetCursorName(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLWCHAR *") ByteBuffer CursorName, @NativeType("SQLSMALLINT *") ShortBuffer NameLengthPtr) {
+    public static short SQLGetCursorName(@NativeType("SQLHSTMT") long StatementHandle, @Nullable @NativeType("SQLWCHAR *") ByteBuffer CursorName, @NativeType("SQLSMALLINT *") ShortBuffer NameLengthPtr) {
         if (CHECKS) {
             check(NameLengthPtr, 1);
         }
@@ -3010,7 +3012,7 @@ public class SQL {
      * @param NullablePtr      
      */
     @NativeType("SQLRETURN")
-    public static short SQLDescribeCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLWCHAR *") ByteBuffer ColumnName, @NativeType("SQLSMALLINT *") ShortBuffer NameLengthPtr, @NativeType("SQLSMALLINT *") ShortBuffer DataTypePtr, @NativeType("SQLULEN *") PointerBuffer ColumnSizePtr, @NativeType("SQLSMALLINT *") ShortBuffer DecimalDigitsPtr, @NativeType("SQLSMALLINT *") ShortBuffer NullablePtr) {
+    public static short SQLDescribeCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @Nullable @NativeType("SQLWCHAR *") ByteBuffer ColumnName, @NativeType("SQLSMALLINT *") ShortBuffer NameLengthPtr, @NativeType("SQLSMALLINT *") ShortBuffer DataTypePtr, @NativeType("SQLULEN *") PointerBuffer ColumnSizePtr, @NativeType("SQLSMALLINT *") ShortBuffer DecimalDigitsPtr, @NativeType("SQLSMALLINT *") ShortBuffer NullablePtr) {
         if (CHECKS) {
             check(NameLengthPtr, 1);
             check(DataTypePtr, 1);
@@ -3046,7 +3048,7 @@ public class SQL {
      * @param NumericAttributePtr   
      */
     @NativeType("SQLRETURN")
-    public static short SQLColAttribute(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLUSMALLINT") short FieldIdentifier, @NativeType("SQLPOINTER") ByteBuffer CharacterAttributePtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr, @NativeType("SQLLEN *") PointerBuffer NumericAttributePtr) {
+    public static short SQLColAttribute(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLUSMALLINT") short FieldIdentifier, @Nullable @NativeType("SQLPOINTER") ByteBuffer CharacterAttributePtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr, @NativeType("SQLLEN *") PointerBuffer NumericAttributePtr) {
         if (CHECKS) {
             check(StringLengthPtr, 1);
             check(NumericAttributePtr, 1);
@@ -3077,7 +3079,7 @@ public class SQL {
      * @param StrLen_or_Ind   
      */
     @NativeType("SQLRETURN")
-    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @NativeType("SQLPOINTER") ByteBuffer TargetValuePtr, @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
+    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @Nullable @NativeType("SQLPOINTER") ByteBuffer TargetValuePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
@@ -3096,7 +3098,7 @@ public class SQL {
      * @param StrLen_or_Ind   
      */
     @NativeType("SQLRETURN")
-    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @NativeType("SQLPOINTER") ShortBuffer TargetValuePtr, @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
+    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @Nullable @NativeType("SQLPOINTER") ShortBuffer TargetValuePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
@@ -3115,7 +3117,7 @@ public class SQL {
      * @param StrLen_or_Ind   
      */
     @NativeType("SQLRETURN")
-    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @NativeType("SQLPOINTER") IntBuffer TargetValuePtr, @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
+    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @Nullable @NativeType("SQLPOINTER") IntBuffer TargetValuePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
@@ -3134,7 +3136,7 @@ public class SQL {
      * @param StrLen_or_Ind   
      */
     @NativeType("SQLRETURN")
-    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @NativeType("SQLPOINTER") LongBuffer TargetValuePtr, @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
+    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @Nullable @NativeType("SQLPOINTER") LongBuffer TargetValuePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
@@ -3153,7 +3155,7 @@ public class SQL {
      * @param StrLen_or_Ind   
      */
     @NativeType("SQLRETURN")
-    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @NativeType("SQLPOINTER") FloatBuffer TargetValuePtr, @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
+    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @Nullable @NativeType("SQLPOINTER") FloatBuffer TargetValuePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
@@ -3172,7 +3174,7 @@ public class SQL {
      * @param StrLen_or_Ind   
      */
     @NativeType("SQLRETURN")
-    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @NativeType("SQLPOINTER") DoubleBuffer TargetValuePtr, @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
+    public static short SQLBindCol(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ColumnNumber, @NativeType("SQLSMALLINT") short TargetType, @Nullable @NativeType("SQLPOINTER") DoubleBuffer TargetValuePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StrLen_or_Ind) {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
@@ -3303,7 +3305,7 @@ public class SQL {
      *                        {@code BufferLength}, the text in {@code *DiagInfoPtr} is truncated to {@code BufferLength} minus the length of a null-termination character.
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetDiagField(@NativeType("SQLSMALLINT") short HandleType, @NativeType("SQLHANDLE") long Handle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLSMALLINT") short DiagIdentifier, @NativeType("SQLPOINTER") ByteBuffer DiagInfoPtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
+    public static short SQLGetDiagField(@NativeType("SQLSMALLINT") short HandleType, @NativeType("SQLHANDLE") long Handle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLSMALLINT") short DiagIdentifier, @Nullable @NativeType("SQLPOINTER") ByteBuffer DiagInfoPtr, @NativeType("SQLSMALLINT *") ShortBuffer StringLengthPtr) {
         if (CHECKS) {
             check(StringLengthPtr, 1);
         }
@@ -3337,7 +3339,7 @@ public class SQL {
      * @param TextLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLGetDiagRec(@NativeType("SQLSMALLINT") short HandleType, @NativeType("SQLHANDLE") long Handle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLWCHAR *") ByteBuffer SQLState, @NativeType("SQLINTEGER *") IntBuffer NativeErrorPtr, @NativeType("SQLWCHAR *") ByteBuffer MessageText, @NativeType("SQLSMALLINT *") ShortBuffer TextLengthPtr) {
+    public static short SQLGetDiagRec(@NativeType("SQLSMALLINT") short HandleType, @NativeType("SQLHANDLE") long Handle, @NativeType("SQLSMALLINT") short RecNumber, @NativeType("SQLWCHAR *") ByteBuffer SQLState, @NativeType("SQLINTEGER *") IntBuffer NativeErrorPtr, @Nullable @NativeType("SQLWCHAR *") ByteBuffer MessageText, @NativeType("SQLSMALLINT *") ShortBuffer TextLengthPtr) {
         if (CHECKS) {
             check(SQLState, 6);
             check(NativeErrorPtr, 1);
@@ -3536,7 +3538,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLColumns(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @NativeType("SQLWCHAR *") ByteBuffer TableName, @NativeType("SQLWCHAR *") ByteBuffer ColumnName) {
+    public static short SQLColumns(@NativeType("SQLHSTMT") long StatementHandle, @Nullable @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer TableName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer ColumnName) {
         return nSQLColumns(StatementHandle, memAddressSafe(CatalogName), (short)(remainingSafe(CatalogName) >> 1), memAddressSafe(SchemaName), (short)(remainingSafe(SchemaName) >> 1), memAddressSafe(TableName), (short)(remainingSafe(TableName) >> 1), memAddressSafe(ColumnName), (short)(remainingSafe(ColumnName) >> 1));
     }
 
@@ -3551,7 +3553,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLSpecialColumns(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short IdentifierType, @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @NativeType("SQLWCHAR *") ByteBuffer TableName, @NativeType("SQLUSMALLINT") short Scope, @NativeType("SQLUSMALLINT") short Nullable) {
+    public static short SQLSpecialColumns(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short IdentifierType, @Nullable @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer TableName, @NativeType("SQLUSMALLINT") short Scope, @NativeType("SQLUSMALLINT") short Nullable) {
         return nSQLSpecialColumns(StatementHandle, IdentifierType, memAddressSafe(CatalogName), (short)(remainingSafe(CatalogName) >> 1), memAddressSafe(SchemaName), (short)(remainingSafe(SchemaName) >> 1), memAddressSafe(TableName), (short)(remainingSafe(TableName) >> 1), Scope, Nullable);
     }
 
@@ -3566,7 +3568,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLStatistics(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @NativeType("SQLWCHAR *") ByteBuffer TableName, @NativeType("SQLUSMALLINT") short Unique, @NativeType("SQLUSMALLINT") short Reserved) {
+    public static short SQLStatistics(@NativeType("SQLHSTMT") long StatementHandle, @Nullable @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer TableName, @NativeType("SQLUSMALLINT") short Unique, @NativeType("SQLUSMALLINT") short Reserved) {
         return nSQLStatistics(StatementHandle, memAddressSafe(CatalogName), (short)(remainingSafe(CatalogName) >> 1), memAddressSafe(SchemaName), (short)(remainingSafe(SchemaName) >> 1), memAddressSafe(TableName), (short)(remainingSafe(TableName) >> 1), Unique, Reserved);
     }
 
@@ -3581,7 +3583,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLTables(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @NativeType("SQLWCHAR *") ByteBuffer TableName, @NativeType("SQLWCHAR *") ByteBuffer TableType) {
+    public static short SQLTables(@NativeType("SQLHSTMT") long StatementHandle, @Nullable @NativeType("SQLWCHAR *") ByteBuffer CatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer SchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer TableName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer TableType) {
         return nSQLTables(StatementHandle, memAddressSafe(CatalogName), (short)(remainingSafe(CatalogName) >> 1), memAddressSafe(SchemaName), (short)(remainingSafe(SchemaName) >> 1), memAddressSafe(TableName), (short)(remainingSafe(TableName) >> 1), memAddressSafe(TableType), (short)(remainingSafe(TableType) >> 1));
     }
 
@@ -3655,7 +3657,7 @@ public class SQL {
      * @return {@link #SQL_SUCCESS SUCCESS}, {@link #SQL_SUCCESS_WITH_INFO SUCCESS_WITH_INFO}, {@link #SQL_NO_DATA NO_DATA}, {@link #SQL_ERROR ERROR}, {@link #SQL_INVALID_HANDLE INVALID_HANDLE}, or {@link #SQL_STILL_EXECUTING STILL_EXECUTING}
      */
     @NativeType("SQLRETURN")
-    public static short SQLDriverConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLHWND") long WindowHandle, @NativeType("SQLWCHAR *") ByteBuffer InConnectionString, @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr, @NativeType("SQLUSMALLINT") short DriverCompletion) {
+    public static short SQLDriverConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLHWND") long WindowHandle, @NativeType("SQLWCHAR *") ByteBuffer InConnectionString, @Nullable @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr, @NativeType("SQLUSMALLINT") short DriverCompletion) {
         if (CHECKS) {
             checkSafe(StringLength2Ptr, 1);
         }
@@ -3699,7 +3701,7 @@ public class SQL {
      * @return {@link #SQL_SUCCESS SUCCESS}, {@link #SQL_SUCCESS_WITH_INFO SUCCESS_WITH_INFO}, {@link #SQL_NO_DATA NO_DATA}, {@link #SQL_ERROR ERROR}, {@link #SQL_INVALID_HANDLE INVALID_HANDLE}, or {@link #SQL_STILL_EXECUTING STILL_EXECUTING}
      */
     @NativeType("SQLRETURN")
-    public static short SQLDriverConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLHWND") long WindowHandle, @NativeType("SQLWCHAR *") CharSequence InConnectionString, @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr, @NativeType("SQLUSMALLINT") short DriverCompletion) {
+    public static short SQLDriverConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLHWND") long WindowHandle, @NativeType("SQLWCHAR *") CharSequence InConnectionString, @Nullable @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr, @NativeType("SQLUSMALLINT") short DriverCompletion) {
         if (CHECKS) {
             checkSafe(StringLength2Ptr, 1);
         }
@@ -3748,7 +3750,7 @@ public class SQL {
      * @return {@link #SQL_SUCCESS SUCCESS}, {@link #SQL_SUCCESS_WITH_INFO SUCCESS_WITH_INFO}, {@link #SQL_NEED_DATA NEED_DATA}, {@link #SQL_ERROR ERROR}, {@link #SQL_INVALID_HANDLE INVALID_HANDLE}, or {@link #SQL_STILL_EXECUTING STILL_EXECUTING}
      */
     @NativeType("SQLRETURN")
-    public static short SQLBrowseConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") ByteBuffer InConnectionString, @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr) {
+    public static short SQLBrowseConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") ByteBuffer InConnectionString, @Nullable @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr) {
         if (CHECKS) {
             checkSafe(StringLength2Ptr, 1);
         }
@@ -3775,7 +3777,7 @@ public class SQL {
      * @return {@link #SQL_SUCCESS SUCCESS}, {@link #SQL_SUCCESS_WITH_INFO SUCCESS_WITH_INFO}, {@link #SQL_NEED_DATA NEED_DATA}, {@link #SQL_ERROR ERROR}, {@link #SQL_INVALID_HANDLE INVALID_HANDLE}, or {@link #SQL_STILL_EXECUTING STILL_EXECUTING}
      */
     @NativeType("SQLRETURN")
-    public static short SQLBrowseConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") CharSequence InConnectionString, @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr) {
+    public static short SQLBrowseConnect(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") CharSequence InConnectionString, @Nullable @NativeType("SQLWCHAR *") ByteBuffer OutConnectionString, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer StringLength2Ptr) {
         if (CHECKS) {
             checkSafe(StringLength2Ptr, 1);
         }
@@ -3818,7 +3820,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLColumnPrivileges(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @NativeType("SQLWCHAR *") ByteBuffer szTableName, @NativeType("SQLWCHAR *") ByteBuffer szColumnName) {
+    public static short SQLColumnPrivileges(@NativeType("SQLHSTMT") long hstmt, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szTableName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szColumnName) {
         return nSQLColumnPrivileges(hstmt, memAddressSafe(szCatalogName), (short)(remainingSafe(szCatalogName) >> 1), memAddressSafe(szSchemaName), (short)(remainingSafe(szSchemaName) >> 1), memAddressSafe(szTableName), (short)(remainingSafe(szTableName) >> 1), memAddressSafe(szColumnName), (short)(remainingSafe(szColumnName) >> 1));
     }
 
@@ -3846,7 +3848,7 @@ public class SQL {
      * @param NullablePtr      
      */
     @NativeType("SQLRETURN")
-    public static short SQLDescribeParam(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ParameterNumber, @NativeType("SQLSMALLINT *") ShortBuffer DataTypePtr, @NativeType("SQLULEN *") PointerBuffer ParameterSizePtr, @NativeType("SQLSMALLINT *") ShortBuffer DecimalDigitsPtr, @NativeType("SQLSMALLINT *") ShortBuffer NullablePtr) {
+    public static short SQLDescribeParam(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ParameterNumber, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer DataTypePtr, @Nullable @NativeType("SQLULEN *") PointerBuffer ParameterSizePtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer DecimalDigitsPtr, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer NullablePtr) {
         if (CHECKS) {
             checkSafe(DataTypePtr, 1);
             checkSafe(ParameterSizePtr, 1);
@@ -3867,7 +3869,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLExtendedFetch(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLUSMALLINT") short fFetchType, @NativeType("SQLLEN") long irow, @NativeType("SQLULEN *") PointerBuffer pcrow, @NativeType("SQLUSMALLINT *") ShortBuffer rgfRowStatus) {
+    public static short SQLExtendedFetch(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLUSMALLINT") short fFetchType, @NativeType("SQLLEN") long irow, @Nullable @NativeType("SQLULEN *") PointerBuffer pcrow, @Nullable @NativeType("SQLUSMALLINT *") ShortBuffer rgfRowStatus) {
         if (CHECKS) {
             checkSafe(pcrow, 1);
             checkSafe(rgfRowStatus, 1);
@@ -3886,7 +3888,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLForeignKeys(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLWCHAR *") ByteBuffer szPkCatalogName, @NativeType("SQLWCHAR *") ByteBuffer szPkSchemaName, @NativeType("SQLWCHAR *") ByteBuffer szPkTableName, @NativeType("SQLWCHAR *") ByteBuffer szFkCatalogName, @NativeType("SQLWCHAR *") ByteBuffer szFkSchemaName, @NativeType("SQLWCHAR *") ByteBuffer szFkTableName) {
+    public static short SQLForeignKeys(@NativeType("SQLHSTMT") long hstmt, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szPkCatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szPkSchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szPkTableName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szFkCatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szFkSchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szFkTableName) {
         return nSQLForeignKeys(hstmt, memAddressSafe(szPkCatalogName), (short)(remainingSafe(szPkCatalogName) >> 1), memAddressSafe(szPkSchemaName), (short)(remainingSafe(szPkSchemaName) >> 1), memAddressSafe(szPkTableName), (short)(remainingSafe(szPkTableName) >> 1), memAddressSafe(szFkCatalogName), (short)(remainingSafe(szFkCatalogName) >> 1), memAddressSafe(szFkSchemaName), (short)(remainingSafe(szFkSchemaName) >> 1), memAddressSafe(szFkTableName), (short)(remainingSafe(szFkTableName) >> 1));
     }
 
@@ -3931,7 +3933,7 @@ public class SQL {
      * @param TextLength2Ptr   
      */
     @NativeType("SQLRETURN")
-    public static short SQLNativeSql(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") ByteBuffer InStatementText, @NativeType("SQLWCHAR *") ByteBuffer OutStatementText, @NativeType("SQLINTEGER *") IntBuffer TextLength2Ptr) {
+    public static short SQLNativeSql(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") ByteBuffer InStatementText, @Nullable @NativeType("SQLWCHAR *") ByteBuffer OutStatementText, @NativeType("SQLINTEGER *") IntBuffer TextLength2Ptr) {
         if (CHECKS) {
             check(TextLength2Ptr, 1);
         }
@@ -3949,7 +3951,7 @@ public class SQL {
      * @param TextLength2Ptr   
      */
     @NativeType("SQLRETURN")
-    public static short SQLNativeSql(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") CharSequence InStatementText, @NativeType("SQLWCHAR *") ByteBuffer OutStatementText, @NativeType("SQLINTEGER *") IntBuffer TextLength2Ptr) {
+    public static short SQLNativeSql(@NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLWCHAR *") CharSequence InStatementText, @Nullable @NativeType("SQLWCHAR *") ByteBuffer OutStatementText, @NativeType("SQLINTEGER *") IntBuffer TextLength2Ptr) {
         if (CHECKS) {
             check(TextLength2Ptr, 1);
         }
@@ -3982,7 +3984,7 @@ public class SQL {
      * @param ParameterCountPtr 
      */
     @NativeType("SQLRETURN")
-    public static short SQLNumParams(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLSMALLINT *") ShortBuffer ParameterCountPtr) {
+    public static short SQLNumParams(@NativeType("SQLHSTMT") long StatementHandle, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer ParameterCountPtr) {
         if (CHECKS) {
             checkSafe(ParameterCountPtr, 1);
         }
@@ -4018,7 +4020,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLPrimaryKeys(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @NativeType("SQLWCHAR *") ByteBuffer szTableName) {
+    public static short SQLPrimaryKeys(@NativeType("SQLHSTMT") long hstmt, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szTableName) {
         return nSQLPrimaryKeys(hstmt, memAddressSafe(szCatalogName), (short)(remainingSafe(szCatalogName) >> 1), memAddressSafe(szSchemaName), (short)(remainingSafe(szSchemaName) >> 1), memAddressSafe(szTableName), (short)(remainingSafe(szTableName) >> 1));
     }
 
@@ -4033,7 +4035,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLProcedureColumns(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @NativeType("SQLWCHAR *") ByteBuffer szProcName, @NativeType("SQLWCHAR *") ByteBuffer szColumnName) {
+    public static short SQLProcedureColumns(@NativeType("SQLHSTMT") long hstmt, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szProcName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szColumnName) {
         return nSQLProcedureColumns(hstmt, memAddressSafe(szCatalogName), (short)(remainingSafe(szCatalogName) >> 1), memAddressSafe(szSchemaName), (short)(remainingSafe(szSchemaName) >> 1), memAddressSafe(szProcName), (short)(remainingSafe(szProcName) >> 1), memAddressSafe(szColumnName), (short)(remainingSafe(szColumnName) >> 1));
     }
 
@@ -4048,7 +4050,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLProcedures(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @NativeType("SQLWCHAR *") ByteBuffer szProcName) {
+    public static short SQLProcedures(@NativeType("SQLHSTMT") long hstmt, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szProcName) {
         return nSQLProcedures(hstmt, memAddressSafe(szCatalogName), (short)(remainingSafe(szCatalogName) >> 1), memAddressSafe(szSchemaName), (short)(remainingSafe(szSchemaName) >> 1), memAddressSafe(szProcName), (short)(remainingSafe(szProcName) >> 1));
     }
 
@@ -4084,7 +4086,7 @@ public class SQL {
     }
 
     @NativeType("SQLRETURN")
-    public static short SQLTablePrivileges(@NativeType("SQLHSTMT") long hstmt, @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @NativeType("SQLWCHAR *") ByteBuffer szTableName) {
+    public static short SQLTablePrivileges(@NativeType("SQLHSTMT") long hstmt, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szCatalogName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szSchemaName, @Nullable @NativeType("SQLWCHAR *") ByteBuffer szTableName) {
         return nSQLTablePrivileges(hstmt, memAddressSafe(szCatalogName), (short)(remainingSafe(szCatalogName) >> 1), memAddressSafe(szSchemaName), (short)(remainingSafe(szSchemaName) >> 1), memAddressSafe(szTableName), (short)(remainingSafe(szTableName) >> 1));
     }
 
@@ -4112,7 +4114,7 @@ public class SQL {
      * @param AttributesLengthPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLDrivers(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLUSMALLINT") short Direction, @NativeType("SQLWCHAR *") ByteBuffer DriverDescription, @NativeType("SQLSMALLINT *") ShortBuffer DescriptionLengthPtr, @NativeType("SQLWCHAR *") ByteBuffer DriverAttributes, @NativeType("SQLSMALLINT *") ShortBuffer AttributesLengthPtr) {
+    public static short SQLDrivers(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLUSMALLINT") short Direction, @Nullable @NativeType("SQLWCHAR *") ByteBuffer DriverDescription, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer DescriptionLengthPtr, @Nullable @NativeType("SQLWCHAR *") ByteBuffer DriverAttributes, @Nullable @NativeType("SQLSMALLINT *") ShortBuffer AttributesLengthPtr) {
         if (CHECKS) {
             checkSafe(DescriptionLengthPtr, 1);
             checkSafe(AttributesLengthPtr, 1);
@@ -4148,7 +4150,7 @@ public class SQL {
      * @param StrLen_or_IndPtr  
      */
     @NativeType("SQLRETURN")
-    public static short SQLBindParameter(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ParameterNumber, @NativeType("SQLSMALLINT") short InputOutputType, @NativeType("SQLSMALLINT") short ValueType, @NativeType("SQLSMALLINT") short ParameterType, @NativeType("SQLULEN") long ColumnSize, @NativeType("SQLSMALLINT") short DecimalDigits, @NativeType("SQLPOINTER") ByteBuffer ParameterValuePtr, @NativeType("SQLLEN *") PointerBuffer StrLen_or_IndPtr) {
+    public static short SQLBindParameter(@NativeType("SQLHSTMT") long StatementHandle, @NativeType("SQLUSMALLINT") short ParameterNumber, @NativeType("SQLSMALLINT") short InputOutputType, @NativeType("SQLSMALLINT") short ValueType, @NativeType("SQLSMALLINT") short ParameterType, @NativeType("SQLULEN") long ColumnSize, @NativeType("SQLSMALLINT") short DecimalDigits, @Nullable @NativeType("SQLPOINTER") ByteBuffer ParameterValuePtr, @Nullable @NativeType("SQLLEN *") PointerBuffer StrLen_or_IndPtr) {
         if (CHECKS) {
             checkSafe(StrLen_or_IndPtr, 1);
         }

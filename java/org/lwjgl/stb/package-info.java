@@ -19,5 +19,6 @@
  * <li>Computing Perlin noise.</li>
  * </ul>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.stb;
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.lmdb;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -346,15 +348,16 @@ public class LMDB {
      *
      * @return the library version as a string
      */
+    @Nullable
     @NativeType("char *")
-    public static String mdb_version(@NativeType("int *") IntBuffer major, @NativeType("int *") IntBuffer minor, @NativeType("int *") IntBuffer patch) {
+    public static String mdb_version(@Nullable @NativeType("int *") IntBuffer major, @Nullable @NativeType("int *") IntBuffer minor, @Nullable @NativeType("int *") IntBuffer patch) {
         if (CHECKS) {
             checkSafe(major, 1);
             checkSafe(minor, 1);
             checkSafe(patch, 1);
         }
         long __result = nmdb_version(memAddressSafe(major), memAddressSafe(minor), memAddressSafe(patch));
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ mdb_strerror ] ---
@@ -1335,7 +1338,7 @@ public class LMDB {
      *         <li>{@link #MDB_DBS_FULL DBS_FULL} - too many databases have been opened. See {@link #mdb_env_set_maxdbs env_set_maxdbs}.</li>
      *         </ul>
      */
-    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") ByteBuffer name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") IntBuffer dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @Nullable @NativeType("const char *") ByteBuffer name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") IntBuffer dbi) {
         if (CHECKS) {
             check(txn);
             checkNT1Safe(name);
@@ -1400,14 +1403,14 @@ public class LMDB {
      *         <li>{@link #MDB_DBS_FULL DBS_FULL} - too many databases have been opened. See {@link #mdb_env_set_maxdbs env_set_maxdbs}.</li>
      *         </ul>
      */
-    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") CharSequence name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") IntBuffer dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @Nullable @NativeType("const char *") CharSequence name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") IntBuffer dbi) {
         if (CHECKS) {
             check(txn);
             check(dbi, 1);
         }
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer nameEncoded = stack.UTF8(name);
+            ByteBuffer nameEncoded = stack.UTF8Safe(name);
             return nmdb_dbi_open(txn, memAddressSafe(nameEncoded), flags, memAddress(dbi));
         } finally {
             stack.setPointer(stackPointer);
@@ -1696,7 +1699,7 @@ public class LMDB {
      * @param key  the key to delete from the database
      * @param data the data to delete
      */
-    public static int mdb_del(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_val *") MDBVal key, @NativeType("MDB_val *") MDBVal data) {
+    public static int mdb_del(@NativeType("MDB_txn *") long txn, @NativeType("MDB_dbi") int dbi, @NativeType("MDB_val *") MDBVal key, @Nullable @NativeType("MDB_val *") MDBVal data) {
         if (CHECKS) {
             check(txn);
         }
@@ -2020,15 +2023,16 @@ public class LMDB {
     public static native long nmdb_version(int[] major, int[] minor, int[] patch);
 
     /** Array version of: {@link #mdb_version version} */
+    @Nullable
     @NativeType("char *")
-    public static String mdb_version(@NativeType("int *") int[] major, @NativeType("int *") int[] minor, @NativeType("int *") int[] patch) {
+    public static String mdb_version(@Nullable @NativeType("int *") int[] major, @Nullable @NativeType("int *") int[] minor, @Nullable @NativeType("int *") int[] patch) {
         if (CHECKS) {
             checkSafe(major, 1);
             checkSafe(minor, 1);
             checkSafe(patch, 1);
         }
         long __result = nmdb_version(major, minor, patch);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     /** Array version of: {@link #nmdb_env_get_flags} */
@@ -2059,7 +2063,7 @@ public class LMDB {
     public static native int nmdb_dbi_open(long txn, long name, int flags, int[] dbi);
 
     /** Array version of: {@link #mdb_dbi_open dbi_open} */
-    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") ByteBuffer name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") int[] dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @Nullable @NativeType("const char *") ByteBuffer name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") int[] dbi) {
         if (CHECKS) {
             check(txn);
             checkNT1Safe(name);
@@ -2069,14 +2073,14 @@ public class LMDB {
     }
 
     /** Array version of: {@link #mdb_dbi_open dbi_open} */
-    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @NativeType("const char *") CharSequence name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") int[] dbi) {
+    public static int mdb_dbi_open(@NativeType("MDB_txn *") long txn, @Nullable @NativeType("const char *") CharSequence name, @NativeType("unsigned int") int flags, @NativeType("MDB_dbi *") int[] dbi) {
         if (CHECKS) {
             check(txn);
             check(dbi, 1);
         }
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer nameEncoded = stack.UTF8(name);
+            ByteBuffer nameEncoded = stack.UTF8Safe(name);
             return nmdb_dbi_open(txn, memAddressSafe(nameEncoded), flags, dbi);
         } finally {
             stack.setPointer(stackPointer);

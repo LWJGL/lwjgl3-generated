@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -81,7 +83,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
             PCIE_FUNCTION = layout.offsetof(8);
     }
 
-    CLDeviceTopologyAMD(long address, ByteBuffer container) {
+    CLDeviceTopologyAMD(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -92,31 +94,31 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public CLDeviceTopologyAMD(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
     public int sizeof() { return SIZEOF; }
 
-    /** Returns the value of the {@code raw_type} field. */
+    /** Returns the value of the {@code raw.type} field. */
     @NativeType("cl_uint")
     public int raw_type() { return nraw_type(address()); }
-    /** Returns a {@link IntBuffer} view of the {@code raw_data} field. */
+    /** Returns a {@link IntBuffer} view of the {@code raw.data} field. */
     @NativeType("cl_uint[5]")
     public IntBuffer raw_data() { return nraw_data(address()); }
-    /** Returns the value at the specified index of the {@code raw_data} field. */
+    /** Returns the value at the specified index of the {@code raw.data} field. */
     @NativeType("cl_uint")
     public int raw_data(int index) { return nraw_data(address(), index); }
-    /** Returns the value of the {@code pcie_type} field. */
+    /** Returns the value of the {@code pcie.type} field. */
     @NativeType("cl_uint")
     public int pcie_type() { return npcie_type(address()); }
-    /** Returns the value of the {@code pcie_bus} field. */
+    /** Returns the value of the {@code pcie.bus} field. */
     @NativeType("cl_char")
     public byte pcie_bus() { return npcie_bus(address()); }
-    /** Returns the value of the {@code pcie_device} field. */
+    /** Returns the value of the {@code pcie.device} field. */
     @NativeType("cl_char")
     public byte pcie_device() { return npcie_device(address()); }
-    /** Returns the value of the {@code pcie_function} field. */
+    /** Returns the value of the {@code pcie.function} field. */
     @NativeType("cl_char")
     public byte pcie_function() { return npcie_function(address()); }
 
@@ -124,12 +126,12 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
 
     /** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static CLDeviceTopologyAMD malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static CLDeviceTopologyAMD calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link CLDeviceTopologyAMD} instance allocated with {@link BufferUtils}. */
@@ -137,9 +139,15 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
         return new CLDeviceTopologyAMD(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link CLDeviceTopologyAMD} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link CLDeviceTopologyAMD} instance for the specified memory address. */
     public static CLDeviceTopologyAMD create(long address) {
-        return address == NULL ? null : new CLDeviceTopologyAMD(address, null);
+        return new CLDeviceTopologyAMD(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static CLDeviceTopologyAMD createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -147,7 +155,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static CLDeviceTopologyAMD.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -156,8 +164,8 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static CLDeviceTopologyAMD.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -165,7 +173,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static CLDeviceTopologyAMD.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -175,8 +183,14 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static CLDeviceTopologyAMD.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static CLDeviceTopologyAMD.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -214,7 +228,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static CLDeviceTopologyAMD.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -223,7 +237,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static CLDeviceTopologyAMD.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -233,7 +247,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static CLDeviceTopologyAMD.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -243,7 +257,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static CLDeviceTopologyAMD.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -285,7 +299,11 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -295,7 +313,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -309,25 +327,25 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
             return SIZEOF;
         }
 
-        /** Returns the value of the {@code raw_type} field. */
+        /** Returns the value of the {@code raw.type} field. */
         @NativeType("cl_uint")
         public int raw_type() { return CLDeviceTopologyAMD.nraw_type(address()); }
-        /** Returns a {@link IntBuffer} view of the {@code raw_data} field. */
+        /** Returns a {@link IntBuffer} view of the {@code raw.data} field. */
         @NativeType("cl_uint[5]")
         public IntBuffer raw_data() { return CLDeviceTopologyAMD.nraw_data(address()); }
-        /** Returns the value at the specified index of the {@code raw_data} field. */
+        /** Returns the value at the specified index of the {@code raw.data} field. */
         @NativeType("cl_uint")
         public int raw_data(int index) { return CLDeviceTopologyAMD.nraw_data(address(), index); }
-        /** Returns the value of the {@code pcie_type} field. */
+        /** Returns the value of the {@code pcie.type} field. */
         @NativeType("cl_uint")
         public int pcie_type() { return CLDeviceTopologyAMD.npcie_type(address()); }
-        /** Returns the value of the {@code pcie_bus} field. */
+        /** Returns the value of the {@code pcie.bus} field. */
         @NativeType("cl_char")
         public byte pcie_bus() { return CLDeviceTopologyAMD.npcie_bus(address()); }
-        /** Returns the value of the {@code pcie_device} field. */
+        /** Returns the value of the {@code pcie.device} field. */
         @NativeType("cl_char")
         public byte pcie_device() { return CLDeviceTopologyAMD.npcie_device(address()); }
-        /** Returns the value of the {@code pcie_function} field. */
+        /** Returns the value of the {@code pcie.function} field. */
         @NativeType("cl_char")
         public byte pcie_function() { return CLDeviceTopologyAMD.npcie_function(address()); }
 

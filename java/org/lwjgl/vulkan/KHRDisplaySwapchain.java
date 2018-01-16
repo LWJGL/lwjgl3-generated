@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -160,7 +162,7 @@ public class KHRDisplaySwapchain {
      * @param pSwapchains  a pointer to an array of {@code VkSwapchainKHR} handles in which the created swapchain objects will be returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateSharedSwapchainsKHR(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchains) {
+    public static int vkCreateSharedSwapchainsKHR(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchains) {
         if (CHECKS) {
             check(pSwapchains, pCreateInfos.remaining());
         }
@@ -169,7 +171,7 @@ public class KHRDisplaySwapchain {
 
     /** Array version of: {@link #vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR} */
     @NativeType("VkResult")
-    public static int vkCreateSharedSwapchainsKHR(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR.Buffer pCreateInfos, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchains) {
+    public static int vkCreateSharedSwapchainsKHR(@NativeType("VkDevice") VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchains) {
         long __functionAddress = device.getCapabilities().vkCreateSharedSwapchainsKHR;
         if (CHECKS) {
             check(__functionAddress);

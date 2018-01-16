@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -233,7 +235,7 @@ public class ARBSync {
      * @param length the address of an variable to receive the number of integers placed in {@code values}
      * @param values the address of an array to receive the values of the queried parameter
      */
-    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer values) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -249,7 +251,7 @@ public class ARBSync {
      * @param length the address of an variable to receive the number of integers placed in {@code values}
      */
     @NativeType("void")
-    public static int glGetSynci(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") IntBuffer length) {
+    public static int glGetSynci(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @Nullable @NativeType("GLsizei *") IntBuffer length) {
         if (CHECKS) {
             check(sync);
             checkSafe(length, 1);
@@ -275,7 +277,7 @@ public class ARBSync {
     }
 
     /** Array version of: {@link #glGetSynciv GetSynciv} */
-    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] values) {
+    public static void glGetSynciv(@NativeType("GLsync") long sync, @NativeType("GLenum") int pname, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] values) {
         long __functionAddress = GL.getICD().glGetSynciv;
         if (CHECKS) {
             check(__functionAddress);

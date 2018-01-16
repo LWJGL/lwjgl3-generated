@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -84,7 +86,7 @@ public class SOFTLoopback {
      *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
      */
     @NativeType("ALCdevice *")
-    public static long alcLoopbackOpenDeviceSOFT(@NativeType("const ALCchar *") ByteBuffer deviceName) {
+    public static long alcLoopbackOpenDeviceSOFT(@Nullable @NativeType("const ALCchar *") ByteBuffer deviceName) {
         if (CHECKS) {
             checkNT1Safe(deviceName);
         }
@@ -108,10 +110,10 @@ public class SOFTLoopback {
      *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
      */
     @NativeType("ALCdevice *")
-    public static long alcLoopbackOpenDeviceSOFT(@NativeType("const ALCchar *") CharSequence deviceName) {
+    public static long alcLoopbackOpenDeviceSOFT(@Nullable @NativeType("const ALCchar *") CharSequence deviceName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer deviceNameEncoded = stack.UTF8(deviceName);
+            ByteBuffer deviceNameEncoded = stack.UTF8Safe(deviceName);
             return nalcLoopbackOpenDeviceSOFT(memAddressSafe(deviceNameEncoded));
         } finally {
             stack.setPointer(stackPointer);

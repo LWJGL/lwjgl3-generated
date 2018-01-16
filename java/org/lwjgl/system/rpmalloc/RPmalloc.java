@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.rpmalloc;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -124,41 +126,42 @@ public class RPmalloc {
 
     public static native long nrpmalloc(long size);
 
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer rpmalloc(@NativeType("size_t") long size) {
         long __result = nrpmalloc(size);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ rpfree ] ---
 
     public static native void nrpfree(long ptr);
 
-    public static void rpfree(@NativeType("void *") ByteBuffer ptr) {
+    public static void rpfree(@Nullable @NativeType("void *") ByteBuffer ptr) {
         nrpfree(memAddressSafe(ptr));
     }
 
-    public static void rpfree(@NativeType("void *") ShortBuffer ptr) {
+    public static void rpfree(@Nullable @NativeType("void *") ShortBuffer ptr) {
         nrpfree(memAddressSafe(ptr));
     }
 
-    public static void rpfree(@NativeType("void *") IntBuffer ptr) {
+    public static void rpfree(@Nullable @NativeType("void *") IntBuffer ptr) {
         nrpfree(memAddressSafe(ptr));
     }
 
-    public static void rpfree(@NativeType("void *") LongBuffer ptr) {
+    public static void rpfree(@Nullable @NativeType("void *") LongBuffer ptr) {
         nrpfree(memAddressSafe(ptr));
     }
 
-    public static void rpfree(@NativeType("void *") FloatBuffer ptr) {
+    public static void rpfree(@Nullable @NativeType("void *") FloatBuffer ptr) {
         nrpfree(memAddressSafe(ptr));
     }
 
-    public static void rpfree(@NativeType("void *") DoubleBuffer ptr) {
+    public static void rpfree(@Nullable @NativeType("void *") DoubleBuffer ptr) {
         nrpfree(memAddressSafe(ptr));
     }
 
-    public static void rpfree(@NativeType("void *") PointerBuffer ptr) {
+    public static void rpfree(@Nullable @NativeType("void *") PointerBuffer ptr) {
         nrpfree(memAddressSafe(ptr));
     }
 
@@ -166,50 +169,55 @@ public class RPmalloc {
 
     public static native long nrpcalloc(long num, long size);
 
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer rpcalloc(@NativeType("size_t") long num, @NativeType("size_t") long size) {
         long __result = nrpcalloc(num, size);
-        return memByteBuffer(__result, (int)num * (int)size);
+        return memByteBufferSafe(__result, (int)num * (int)size);
     }
 
     // --- [ rprealloc ] ---
 
     public static native long nrprealloc(long ptr, long size);
 
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer rprealloc(@NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size) {
+    public static ByteBuffer rprealloc(@Nullable @NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size) {
         long __result = nrprealloc(memAddressSafe(ptr), size);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ rpaligned_realloc ] ---
 
     public static native long nrpaligned_realloc(long ptr, long alignment, long size, long oldsize, int flags);
 
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer rpaligned_realloc(@NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long alignment, @NativeType("size_t") long size, @NativeType("unsigned int") int flags) {
+    public static ByteBuffer rpaligned_realloc(@Nullable @NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long alignment, @NativeType("size_t") long size, @NativeType("unsigned int") int flags) {
         long __result = nrpaligned_realloc(memAddressSafe(ptr), alignment, size, remainingSafe(ptr), flags);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ rpaligned_alloc ] ---
 
     public static native long nrpaligned_alloc(long alignment, long size);
 
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer rpaligned_alloc(@NativeType("size_t") long alignment, @NativeType("size_t") long size) {
         long __result = nrpaligned_alloc(alignment, size);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ rpmemalign ] ---
 
     public static native long nrpmemalign(long alignment, long size);
 
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer rpmemalign(@NativeType("size_t") long alignment, @NativeType("size_t") long size) {
         long __result = nrpmemalign(alignment, size);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ rpposix_memalign ] ---

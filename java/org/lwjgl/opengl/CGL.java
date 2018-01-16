@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -351,7 +353,7 @@ public class CGL {
      * @param npix    on return, points to the number of virtual screens referenced by pix. If pix is {@code NULL}, the value of {@code npix} is set to 0.
      */
     @NativeType("CGLError")
-    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") IntBuffer attribs, @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") IntBuffer npix) {
+    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") IntBuffer attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") IntBuffer npix) {
         if (CHECKS) {
             checkNT(attribs);
             checkSafe(pix, 1);
@@ -1480,15 +1482,16 @@ public class CGL {
      *
      * @param error the CGL result code constant returned from a CGL function. One of:<br><table><tr><td>{@link #kCGLNoError NoError}</td><td>{@link #kCGLBadAttribute BadAttribute}</td><td>{@link #kCGLBadProperty BadProperty}</td><td>{@link #kCGLBadPixelFormat BadPixelFormat}</td><td>{@link #kCGLBadRendererInfo BadRendererInfo}</td><td>{@link #kCGLBadContext BadContext}</td><td>{@link #kCGLBadDrawable BadDrawable}</td></tr><tr><td>{@link #kCGLBadDisplay BadDisplay}</td><td>{@link #kCGLBadState BadState}</td><td>{@link #kCGLBadValue BadValue}</td><td>{@link #kCGLBadMatch BadMatch}</td><td>{@link #kCGLBadEnumeration BadEnumeration}</td><td>{@link #kCGLBadOffScreen BadOffScreen}</td><td>{@link #kCGLBadFullScreen BadFullScreen}</td></tr><tr><td>{@link #kCGLBadWindow BadWindow}</td><td>{@link #kCGLBadAddress BadAddress}</td><td>{@link #kCGLBadCodeModule BadCodeModule}</td><td>{@link #kCGLBadAlloc BadAlloc}</td><td>{@link #kCGLBadConnection BadConnection}</td></tr></table>
      */
+    @Nullable
     @NativeType("const char *")
     public static String CGLErrorString(@NativeType("CGLError") int error) {
         long __result = nCGLErrorString(error);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     /** Array version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
     @NativeType("CGLError")
-    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") int[] attribs, @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") int[] npix) {
+    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") int[] attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") int[] npix) {
         long __functionAddress = Functions.ChoosePixelFormat;
         if (CHECKS) {
             checkNT(attribs);

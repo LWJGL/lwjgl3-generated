@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.dyncall;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -198,13 +200,14 @@ public class DynLoad {
      * @param pSyms a {@code DLSyms} object
      * @param index 
      */
+    @Nullable
     @NativeType("const char *")
     public static String dlSymsName(@NativeType("DLSyms *") long pSyms, @NativeType("int") int index) {
         if (CHECKS) {
             check(pSyms);
         }
         long __result = ndlSymsName(pSyms, index);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ dlSymsNameFromValue ] ---
@@ -218,6 +221,7 @@ public class DynLoad {
      * @param pSyms a {@code DLSyms} object
      * @param value the symbol address
      */
+    @Nullable
     @NativeType("const char *")
     public static String dlSymsNameFromValue(@NativeType("DLSyms *") long pSyms, @NativeType("void *") long value) {
         if (CHECKS) {
@@ -225,7 +229,7 @@ public class DynLoad {
             check(value);
         }
         long __result = ndlSymsNameFromValue(pSyms, value);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
 }

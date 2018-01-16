@@ -5,6 +5,8 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -1997,10 +1999,11 @@ public class Assimp {
      *
      * @return A description of that specific export format. {@code NULL} if {@code pIndex} is out of range.
      */
+    @Nullable
     @NativeType("struct aiExportFormatDesc *")
     public static AIExportFormatDesc aiGetExportFormatDescription(@NativeType("size_t") long pIndex) {
         long __result = naiGetExportFormatDescription(pIndex);
-        return AIExportFormatDesc.create(__result);
+        return AIExportFormatDesc.createSafe(__result);
     }
 
     // --- [ aiReleaseExportFormatDescription ] ---
@@ -2064,7 +2067,7 @@ public class Assimp {
         try {
             PointerBuffer pOut = stack.callocPointer(1);
             naiCopyScene(pIn.address(), memAddress(pOut));
-            return AIScene.create(pOut.get(0));
+            return AIScene.createSafe(pOut.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2226,7 +2229,7 @@ public class Assimp {
      * @return a status code indicating the result of the export
      */
     @NativeType("aiReturn")
-    public static int aiExportSceneEx(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") ByteBuffer pFormatId, @NativeType("const char *") ByteBuffer pFileName, @NativeType("const struct aiFileIO *") AIFileIO pIO, @NativeType("unsigned int") int pPreProcessing) {
+    public static int aiExportSceneEx(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") ByteBuffer pFormatId, @NativeType("const char *") ByteBuffer pFileName, @Nullable @NativeType("const struct aiFileIO *") AIFileIO pIO, @NativeType("unsigned int") int pPreProcessing) {
         if (CHECKS) {
             checkNT1(pFormatId);
             checkNT1(pFileName);
@@ -2267,7 +2270,7 @@ public class Assimp {
      * @return a status code indicating the result of the export
      */
     @NativeType("aiReturn")
-    public static int aiExportSceneEx(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") CharSequence pFormatId, @NativeType("const char *") CharSequence pFileName, @NativeType("const struct aiFileIO *") AIFileIO pIO, @NativeType("unsigned int") int pPreProcessing) {
+    public static int aiExportSceneEx(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") CharSequence pFormatId, @NativeType("const char *") CharSequence pFileName, @Nullable @NativeType("const struct aiFileIO *") AIFileIO pIO, @NativeType("unsigned int") int pPreProcessing) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFormatIdEncoded = stack.UTF8(pFormatId);
@@ -2315,13 +2318,14 @@ public class Assimp {
      *
      * @return the exported data or {@code NULL} in case of error
      */
+    @Nullable
     @NativeType("struct aiExportDataBlob *")
     public static AIExportDataBlob aiExportSceneToBlob(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") ByteBuffer pFormatId, @NativeType("unsigned int") int pPreProcessing) {
         if (CHECKS) {
             checkNT1(pFormatId);
         }
         long __result = naiExportSceneToBlob(pScene.address(), memAddress(pFormatId), pPreProcessing);
-        return AIExportDataBlob.create(__result);
+        return AIExportDataBlob.createSafe(__result);
     }
 
     /**
@@ -2350,13 +2354,14 @@ public class Assimp {
      *
      * @return the exported data or {@code NULL} in case of error
      */
+    @Nullable
     @NativeType("struct aiExportDataBlob *")
     public static AIExportDataBlob aiExportSceneToBlob(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("const char *") CharSequence pFormatId, @NativeType("unsigned int") int pPreProcessing) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFormatIdEncoded = stack.UTF8(pFormatId);
             long __result = naiExportSceneToBlob(pScene.address(), memAddress(pFormatIdEncoded), pPreProcessing);
-            return AIExportDataBlob.create(__result);
+            return AIExportDataBlob.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2400,13 +2405,14 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
     public static AIScene aiImportFile(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags) {
         if (CHECKS) {
             checkNT1(pFile);
         }
         long __result = naiImportFile(memAddress(pFile), pFlags);
-        return AIScene.create(__result);
+        return AIScene.createSafe(__result);
     }
 
     /**
@@ -2422,13 +2428,14 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
     public static AIScene aiImportFile(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFileEncoded = stack.UTF8(pFile);
             long __result = naiImportFile(memAddress(pFileEncoded), pFlags);
-            return AIScene.create(__result);
+            return AIScene.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2454,15 +2461,16 @@ public class Assimp {
      *               your post-processing setup, consider to use {@link #aiApplyPostProcessing ApplyPostProcessing}. One or more of:<br><table><tr><td>{@link #aiProcess_CalcTangentSpace Process_CalcTangentSpace}</td><td>{@link #aiProcess_JoinIdenticalVertices Process_JoinIdenticalVertices}</td><td>{@link #aiProcess_MakeLeftHanded Process_MakeLeftHanded}</td></tr><tr><td>{@link #aiProcess_Triangulate Process_Triangulate}</td><td>{@link #aiProcess_RemoveComponent Process_RemoveComponent}</td><td>{@link #aiProcess_GenNormals Process_GenNormals}</td></tr><tr><td>{@link #aiProcess_GenSmoothNormals Process_GenSmoothNormals}</td><td>{@link #aiProcess_SplitLargeMeshes Process_SplitLargeMeshes}</td><td>{@link #aiProcess_PreTransformVertices Process_PreTransformVertices}</td></tr><tr><td>{@link #aiProcess_LimitBoneWeights Process_LimitBoneWeights}</td><td>{@link #aiProcess_ValidateDataStructure Process_ValidateDataStructure}</td><td>{@link #aiProcess_ImproveCacheLocality Process_ImproveCacheLocality}</td></tr><tr><td>{@link #aiProcess_RemoveRedundantMaterials Process_RemoveRedundantMaterials}</td><td>{@link #aiProcess_FixInfacingNormals Process_FixInfacingNormals}</td><td>{@link #aiProcess_SortByPType Process_SortByPType}</td></tr><tr><td>{@link #aiProcess_FindDegenerates Process_FindDegenerates}</td><td>{@link #aiProcess_FindInvalidData Process_FindInvalidData}</td><td>{@link #aiProcess_GenUVCoords Process_GenUVCoords}</td></tr><tr><td>{@link #aiProcess_TransformUVCoords Process_TransformUVCoords}</td><td>{@link #aiProcess_FindInstances Process_FindInstances}</td><td>{@link #aiProcess_OptimizeMeshes Process_OptimizeMeshes}</td></tr><tr><td>{@link #aiProcess_OptimizeGraph Process_OptimizeGraph}</td><td>{@link #aiProcess_FlipUVs Process_FlipUVs}</td><td>{@link #aiProcess_FlipWindingOrder Process_FlipWindingOrder}</td></tr><tr><td>{@link #aiProcess_SplitByBoneCount Process_SplitByBoneCount}</td><td>{@link #aiProcess_Debone Process_Debone}</td><td>{@link #aiProcess_GlobalScale Process_GlobalScale}</td></tr><tr><td>{@link #aiProcess_EmbedTextures Process_EmbedTextures}</td><td>{@link #aiProcess_ConvertToLeftHanded Process_ConvertToLeftHanded}</td><td>{@link #aiProcessPreset_TargetRealtime_Fast ProcessPreset_TargetRealtime_Fast}</td></tr><tr><td>{@link #aiProcessPreset_TargetRealtime_Quality ProcessPreset_TargetRealtime_Quality}</td><td>{@link #aiProcessPreset_TargetRealtime_MaxQuality ProcessPreset_TargetRealtime_MaxQuality}</td></tr></table>
      * @param pFS    Will be used to open the model file itself and any other files the loader needs to open. Pass {@code NULL} to use the default implementation.
      *
-     * @return Pointer to the imported data or NULL if the import failed.
+     * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileEx(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS) {
+    public static AIScene aiImportFileEx(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("struct aiFileIO *") AIFileIO pFS) {
         if (CHECKS) {
             checkNT1(pFile);
         }
         long __result = naiImportFileEx(memAddress(pFile), pFlags, memAddressSafe(pFS));
-        return AIScene.create(__result);
+        return AIScene.createSafe(__result);
     }
 
     /**
@@ -2477,15 +2485,16 @@ public class Assimp {
      *               your post-processing setup, consider to use {@link #aiApplyPostProcessing ApplyPostProcessing}. One or more of:<br><table><tr><td>{@link #aiProcess_CalcTangentSpace Process_CalcTangentSpace}</td><td>{@link #aiProcess_JoinIdenticalVertices Process_JoinIdenticalVertices}</td><td>{@link #aiProcess_MakeLeftHanded Process_MakeLeftHanded}</td></tr><tr><td>{@link #aiProcess_Triangulate Process_Triangulate}</td><td>{@link #aiProcess_RemoveComponent Process_RemoveComponent}</td><td>{@link #aiProcess_GenNormals Process_GenNormals}</td></tr><tr><td>{@link #aiProcess_GenSmoothNormals Process_GenSmoothNormals}</td><td>{@link #aiProcess_SplitLargeMeshes Process_SplitLargeMeshes}</td><td>{@link #aiProcess_PreTransformVertices Process_PreTransformVertices}</td></tr><tr><td>{@link #aiProcess_LimitBoneWeights Process_LimitBoneWeights}</td><td>{@link #aiProcess_ValidateDataStructure Process_ValidateDataStructure}</td><td>{@link #aiProcess_ImproveCacheLocality Process_ImproveCacheLocality}</td></tr><tr><td>{@link #aiProcess_RemoveRedundantMaterials Process_RemoveRedundantMaterials}</td><td>{@link #aiProcess_FixInfacingNormals Process_FixInfacingNormals}</td><td>{@link #aiProcess_SortByPType Process_SortByPType}</td></tr><tr><td>{@link #aiProcess_FindDegenerates Process_FindDegenerates}</td><td>{@link #aiProcess_FindInvalidData Process_FindInvalidData}</td><td>{@link #aiProcess_GenUVCoords Process_GenUVCoords}</td></tr><tr><td>{@link #aiProcess_TransformUVCoords Process_TransformUVCoords}</td><td>{@link #aiProcess_FindInstances Process_FindInstances}</td><td>{@link #aiProcess_OptimizeMeshes Process_OptimizeMeshes}</td></tr><tr><td>{@link #aiProcess_OptimizeGraph Process_OptimizeGraph}</td><td>{@link #aiProcess_FlipUVs Process_FlipUVs}</td><td>{@link #aiProcess_FlipWindingOrder Process_FlipWindingOrder}</td></tr><tr><td>{@link #aiProcess_SplitByBoneCount Process_SplitByBoneCount}</td><td>{@link #aiProcess_Debone Process_Debone}</td><td>{@link #aiProcess_GlobalScale Process_GlobalScale}</td></tr><tr><td>{@link #aiProcess_EmbedTextures Process_EmbedTextures}</td><td>{@link #aiProcess_ConvertToLeftHanded Process_ConvertToLeftHanded}</td><td>{@link #aiProcessPreset_TargetRealtime_Fast ProcessPreset_TargetRealtime_Fast}</td></tr><tr><td>{@link #aiProcessPreset_TargetRealtime_Quality ProcessPreset_TargetRealtime_Quality}</td><td>{@link #aiProcessPreset_TargetRealtime_MaxQuality ProcessPreset_TargetRealtime_MaxQuality}</td></tr></table>
      * @param pFS    Will be used to open the model file itself and any other files the loader needs to open. Pass {@code NULL} to use the default implementation.
      *
-     * @return Pointer to the imported data or NULL if the import failed.
+     * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileEx(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS) {
+    public static AIScene aiImportFileEx(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("struct aiFileIO *") AIFileIO pFS) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFileEncoded = stack.UTF8(pFile);
             long __result = naiImportFileEx(memAddress(pFileEncoded), pFlags, memAddressSafe(pFS));
-            return AIScene.create(__result);
+            return AIScene.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2510,13 +2519,14 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileExWithProperties(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
+    public static AIScene aiImportFileExWithProperties(@NativeType("const char *") ByteBuffer pFile, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("struct aiFileIO *") AIFileIO pFS, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         if (CHECKS) {
             checkNT1(pFile);
         }
         long __result = naiImportFileExWithProperties(memAddress(pFile), pFlags, memAddressSafe(pFS), pProps.address());
-        return AIScene.create(__result);
+        return AIScene.createSafe(__result);
     }
 
     /**
@@ -2530,13 +2540,14 @@ public class Assimp {
      *
      * @return Pointer to the imported data or {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileExWithProperties(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags, @NativeType("struct aiFileIO *") AIFileIO pFS, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
+    public static AIScene aiImportFileExWithProperties(@NativeType("const char *") CharSequence pFile, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("struct aiFileIO *") AIFileIO pFS, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pFileEncoded = stack.UTF8(pFile);
             long __result = naiImportFileExWithProperties(memAddress(pFileEncoded), pFlags, memAddressSafe(pFS), pProps.address());
-            return AIScene.create(__result);
+            return AIScene.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2577,13 +2588,14 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileFromMemory(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") ByteBuffer pHint) {
+    public static AIScene aiImportFileFromMemory(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("const char *") ByteBuffer pHint) {
         if (CHECKS) {
             checkNT1Safe(pHint);
         }
         long __result = naiImportFileFromMemory(memAddress(pBuffer), pBuffer.remaining(), pFlags, memAddressSafe(pHint));
-        return AIScene.create(__result);
+        return AIScene.createSafe(__result);
     }
 
     /**
@@ -2609,13 +2621,14 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileFromMemory(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") CharSequence pHint) {
+    public static AIScene aiImportFileFromMemory(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("const char *") CharSequence pHint) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer pHintEncoded = stack.UTF8(pHint);
+            ByteBuffer pHintEncoded = stack.UTF8Safe(pHint);
             long __result = naiImportFileFromMemory(memAddress(pBuffer), pBuffer.remaining(), pFlags, memAddressSafe(pHintEncoded));
-            return AIScene.create(__result);
+            return AIScene.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2646,13 +2659,14 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileFromMemoryWithProperties(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") ByteBuffer pHint, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
+    public static AIScene aiImportFileFromMemoryWithProperties(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("const char *") ByteBuffer pHint, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         if (CHECKS) {
             checkNT1Safe(pHint);
         }
         long __result = naiImportFileFromMemoryWithProperties(memAddress(pBuffer), pBuffer.remaining(), pFlags, memAddressSafe(pHint), pProps.address());
-        return AIScene.create(__result);
+        return AIScene.createSafe(__result);
     }
 
     /**
@@ -2668,13 +2682,14 @@ public class Assimp {
      *
      * @return A pointer to the imported data, {@code NULL} if the import failed.
      */
+    @Nullable
     @NativeType("struct aiScene *")
-    public static AIScene aiImportFileFromMemoryWithProperties(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @NativeType("const char *") CharSequence pHint, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
+    public static AIScene aiImportFileFromMemoryWithProperties(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("unsigned int") int pFlags, @Nullable @NativeType("const char *") CharSequence pHint, @NativeType("const struct aiPropertyStore *") AIPropertyStore pProps) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer pHintEncoded = stack.UTF8(pHint);
+            ByteBuffer pHintEncoded = stack.UTF8Safe(pHint);
             long __result = naiImportFileFromMemoryWithProperties(memAddress(pBuffer), pBuffer.remaining(), pFlags, memAddressSafe(pHintEncoded), pProps.address());
-            return AIScene.create(__result);
+            return AIScene.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2705,10 +2720,11 @@ public class Assimp {
      *         'fail'. To be exact, the {@link #aiProcess_ValidateDataStructure Process_ValidateDataStructure} flag is currently the only post processing step which can actually cause the scene to be reset
      *         to {@code NULL}.
      */
+    @Nullable
     @NativeType("struct aiScene *")
     public static AIScene aiApplyPostProcessing(@NativeType("const struct aiScene *") AIScene pScene, @NativeType("unsigned int") int pFlags) {
         long __result = naiApplyPostProcessing(pScene.address(), pFlags);
-        return AIScene.create(__result);
+        return AIScene.createSafe(__result);
     }
 
     // --- [ aiAttachLogStream ] ---
@@ -2806,7 +2822,7 @@ public class Assimp {
      *
      * @param pScene The imported data to release. {@code NULL} is a valid value.
      */
-    public static void aiReleaseImport(@NativeType("const struct aiScene *") AIScene pScene) {
+    public static void aiReleaseImport(@Nullable @NativeType("const struct aiScene *") AIScene pScene) {
         naiReleaseImport(memAddressSafe(pScene));
     }
 
@@ -2824,10 +2840,11 @@ public class Assimp {
      * @return A textual description of the error that occurred at the last import process. {@code NULL} if there was no error. There can't be an error if you got a
      *         non-{@code NULL} {@link AIScene} from {@link #aiImportFile ImportFile}/{@link #aiImportFileEx ImportFileEx}/{@link #aiApplyPostProcessing ApplyPostProcessing}.
      */
+    @Nullable
     @NativeType("char *")
     public static String aiGetErrorString() {
         long __result = naiGetErrorString();
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ aiIsExtensionSupported ] ---
@@ -2924,10 +2941,11 @@ public class Assimp {
      *
      * @return New property store. Property stores need to be manually destroyed using the {@link #aiReleasePropertyStore ReleasePropertyStore} API function.
      */
+    @Nullable
     @NativeType("struct aiPropertyStore *")
     public static AIPropertyStore aiCreatePropertyStore() {
         long __result = naiCreatePropertyStore();
-        return AIPropertyStore.create(__result);
+        return AIPropertyStore.createSafe(__result);
     }
 
     // --- [ aiReleasePropertyStore ] ---
@@ -3332,10 +3350,11 @@ public class Assimp {
      *
      * @return A description of that specific import format. {@code NULL} if {@code pIndex} is out of range.
      */
+    @Nullable
     @NativeType("struct aiImporterDesc *")
     public static AIImporterDesc aiGetImportFormatDescription(@NativeType("size_t") long pIndex) {
         long __result = naiGetImportFormatDescription(pIndex);
-        return AIImporterDesc.create(__result);
+        return AIImporterDesc.createSafe(__result);
     }
 
     // --- [ aiGetImporterDesc ] ---
@@ -3355,13 +3374,14 @@ public class Assimp {
      *
      * @return A pointer showing to the ImporterDesc, {@link AIImporterDesc}.
      */
+    @Nullable
     @NativeType("struct aiImporterDesc *")
     public static AIImporterDesc aiGetImporterDesc(@NativeType("const char *") ByteBuffer extension) {
         if (CHECKS) {
             checkNT1(extension);
         }
         long __result = naiGetImporterDesc(memAddress(extension));
-        return AIImporterDesc.create(__result);
+        return AIImporterDesc.createSafe(__result);
     }
 
     /**
@@ -3373,13 +3393,14 @@ public class Assimp {
      *
      * @return A pointer showing to the ImporterDesc, {@link AIImporterDesc}.
      */
+    @Nullable
     @NativeType("struct aiImporterDesc *")
     public static AIImporterDesc aiGetImporterDesc(@NativeType("const char *") CharSequence extension) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer extensionEncoded = stack.ASCII(extension);
             long __result = naiGetImporterDesc(memAddress(extensionEncoded));
-            return AIImporterDesc.create(__result);
+            return AIImporterDesc.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -3499,7 +3520,7 @@ public class Assimp {
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
     @NativeType("aiReturn")
-    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") FloatBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") FloatBuffer pOut, @Nullable @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkNT1(pKey);
             checkSafe(pMax, 1);
@@ -3521,7 +3542,7 @@ public class Assimp {
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
     @NativeType("aiReturn")
-    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") FloatBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") FloatBuffer pOut, @Nullable @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkSafe(pMax, 1);
             check(pOut, pMax.get(pMax.position()));
@@ -3563,7 +3584,7 @@ public class Assimp {
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
     @NativeType("aiReturn")
-    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") IntBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") IntBuffer pOut, @Nullable @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkNT1(pKey);
             checkSafe(pMax, 1);
@@ -3585,7 +3606,7 @@ public class Assimp {
      * @return Specifies whether the key has been found. If not, the output arrays remains unmodified and {@code pMax} is set to 0.
      */
     @NativeType("aiReturn")
-    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") IntBuffer pOut, @NativeType("unsigned int *") IntBuffer pMax) {
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") IntBuffer pOut, @Nullable @NativeType("unsigned int *") IntBuffer pMax) {
         if (CHECKS) {
             checkSafe(pMax, 1);
             check(pOut, pMax.get(pMax.position()));
@@ -3814,7 +3835,7 @@ public class Assimp {
      * @return {@link #aiReturn_SUCCESS Return_SUCCESS} on success, otherwise something else. Have fun.
      */
     @NativeType("aiReturn")
-    public static int aiGetMaterialTexture(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("aiTextureType") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString path, @NativeType("aiTextureMapping *") IntBuffer mapping, @NativeType("unsigned int *") IntBuffer uvindex, @NativeType("float *") FloatBuffer blend, @NativeType("aiTextureOp *") IntBuffer op, @NativeType("aiTextureMapMode *") IntBuffer mapmode, @NativeType("unsigned int *") IntBuffer flags) {
+    public static int aiGetMaterialTexture(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("aiTextureType") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString path, @Nullable @NativeType("aiTextureMapping *") IntBuffer mapping, @Nullable @NativeType("unsigned int *") IntBuffer uvindex, @Nullable @NativeType("float *") FloatBuffer blend, @Nullable @NativeType("aiTextureOp *") IntBuffer op, @Nullable @NativeType("aiTextureMapMode *") IntBuffer mapmode, @Nullable @NativeType("unsigned int *") IntBuffer flags) {
         if (CHECKS) {
             checkSafe(mapping, 1);
             checkSafe(uvindex, 1);
@@ -3897,10 +3918,11 @@ public class Assimp {
      *
      * @return the current branch name
      */
+    @Nullable
     @NativeType("const char *")
     public static String aiGetBranchName() {
         long __result = naiGetBranchName();
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ aiGetCompileFlags ] ---
@@ -3918,7 +3940,7 @@ public class Assimp {
 
     /** Array version of: {@link #aiGetMaterialFloatArray GetMaterialFloatArray} */
     @NativeType("aiReturn")
-    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") float[] pOut, @NativeType("unsigned int *") int[] pMax) {
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") float[] pOut, @Nullable @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialFloatArray;
         if (CHECKS) {
             checkNT1(pKey);
@@ -3931,7 +3953,7 @@ public class Assimp {
 
     /** Array version of: {@link #aiGetMaterialFloatArray GetMaterialFloatArray} */
     @NativeType("aiReturn")
-    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") float[] pOut, @NativeType("unsigned int *") int[] pMax) {
+    public static int aiGetMaterialFloatArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("float *") float[] pOut, @Nullable @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialFloatArray;
         if (CHECKS) {
             checkSafe(pMax, 1);
@@ -3949,7 +3971,7 @@ public class Assimp {
 
     /** Array version of: {@link #aiGetMaterialIntegerArray GetMaterialIntegerArray} */
     @NativeType("aiReturn")
-    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") int[] pOut, @NativeType("unsigned int *") int[] pMax) {
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") ByteBuffer pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") int[] pOut, @Nullable @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialIntegerArray;
         if (CHECKS) {
             checkNT1(pKey);
@@ -3962,7 +3984,7 @@ public class Assimp {
 
     /** Array version of: {@link #aiGetMaterialIntegerArray GetMaterialIntegerArray} */
     @NativeType("aiReturn")
-    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") int[] pOut, @NativeType("unsigned int *") int[] pMax) {
+    public static int aiGetMaterialIntegerArray(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("char *") CharSequence pKey, @NativeType("unsigned int") int type, @NativeType("unsigned int") int index, @NativeType("int *") int[] pOut, @Nullable @NativeType("unsigned int *") int[] pMax) {
         long __functionAddress = Functions.GetMaterialIntegerArray;
         if (CHECKS) {
             checkSafe(pMax, 1);
@@ -3980,7 +4002,7 @@ public class Assimp {
 
     /** Array version of: {@link #aiGetMaterialTexture GetMaterialTexture} */
     @NativeType("aiReturn")
-    public static int aiGetMaterialTexture(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("aiTextureType") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString path, @NativeType("aiTextureMapping *") int[] mapping, @NativeType("unsigned int *") int[] uvindex, @NativeType("float *") float[] blend, @NativeType("aiTextureOp *") int[] op, @NativeType("aiTextureMapMode *") int[] mapmode, @NativeType("unsigned int *") int[] flags) {
+    public static int aiGetMaterialTexture(@NativeType("struct aiMaterial *") AIMaterial pMat, @NativeType("aiTextureType") int type, @NativeType("unsigned int") int index, @NativeType("struct aiString *") AIString path, @Nullable @NativeType("aiTextureMapping *") int[] mapping, @Nullable @NativeType("unsigned int *") int[] uvindex, @Nullable @NativeType("float *") float[] blend, @Nullable @NativeType("aiTextureOp *") int[] op, @Nullable @NativeType("aiTextureMapMode *") int[] mapmode, @Nullable @NativeType("unsigned int *") int[] flags) {
         long __functionAddress = Functions.GetMaterialTexture;
         if (CHECKS) {
             checkSafe(mapping, 1);

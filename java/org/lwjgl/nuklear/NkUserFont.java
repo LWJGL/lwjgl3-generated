@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -70,7 +72,7 @@ public class NkUserFont extends Struct implements NativeResource {
         TEXTURE = layout.offsetof(4);
     }
 
-    NkUserFont(long address, ByteBuffer container) {
+    NkUserFont(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -81,7 +83,7 @@ public class NkUserFont extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public NkUserFont(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -93,9 +95,11 @@ public class NkUserFont extends Struct implements NativeResource {
     /** Returns the value of the {@code height} field. */
     public float height() { return nheight(address()); }
     /** Returns the value of the {@code width} field. */
+    @Nullable
     @NativeType("nk_text_width_f")
     public NkTextWidthCallback width() { return nwidth(address()); }
     /** Returns the value of the {@code query} field. */
+    @Nullable
     @NativeType("nk_query_font_glyph_f")
     public NkQueryFontGlyphCallback query() { return nquery(address()); }
     /** Returns a {@link NkHandle} view of the {@code texture} field. */
@@ -107,9 +111,9 @@ public class NkUserFont extends Struct implements NativeResource {
     /** Sets the specified value to the {@code height} field. */
     public NkUserFont height(float value) { nheight(address(), value); return this; }
     /** Sets the specified value to the {@code width} field. */
-    public NkUserFont width(@NativeType("nk_text_width_f") NkTextWidthCallbackI value) { nwidth(address(), value); return this; }
+    public NkUserFont width(@Nullable @NativeType("nk_text_width_f") NkTextWidthCallbackI value) { nwidth(address(), value); return this; }
     /** Sets the specified value to the {@code query} field. */
-    public NkUserFont query(@NativeType("nk_query_font_glyph_f") NkQueryFontGlyphCallbackI value) { nquery(address(), value); return this; }
+    public NkUserFont query(@Nullable @NativeType("nk_query_font_glyph_f") NkQueryFontGlyphCallbackI value) { nquery(address(), value); return this; }
     /** Copies the specified {@link NkHandle} to the {@code texture} field. */
     public NkUserFont texture(@NativeType("nk_handle") NkHandle value) { ntexture(address(), value); return this; }
 
@@ -146,12 +150,12 @@ public class NkUserFont extends Struct implements NativeResource {
 
     /** Returns a new {@link NkUserFont} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static NkUserFont malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link NkUserFont} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static NkUserFont calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link NkUserFont} instance allocated with {@link BufferUtils}. */
@@ -159,9 +163,15 @@ public class NkUserFont extends Struct implements NativeResource {
         return new NkUserFont(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link NkUserFont} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link NkUserFont} instance for the specified memory address. */
     public static NkUserFont create(long address) {
-        return address == NULL ? null : new NkUserFont(address, null);
+        return new NkUserFont(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkUserFont createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -169,7 +179,7 @@ public class NkUserFont extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static NkUserFont.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -178,8 +188,8 @@ public class NkUserFont extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static NkUserFont.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -187,7 +197,7 @@ public class NkUserFont extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static NkUserFont.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -197,8 +207,14 @@ public class NkUserFont extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static NkUserFont.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkUserFont.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -236,7 +252,7 @@ public class NkUserFont extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static NkUserFont.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -245,7 +261,7 @@ public class NkUserFont extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static NkUserFont.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -255,7 +271,7 @@ public class NkUserFont extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static NkUserFont.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -265,7 +281,7 @@ public class NkUserFont extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static NkUserFont.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -276,9 +292,9 @@ public class NkUserFont extends Struct implements NativeResource {
     /** Unsafe version of {@link #height}. */
     public static float nheight(long struct) { return memGetFloat(struct + NkUserFont.HEIGHT); }
     /** Unsafe version of {@link #width}. */
-    public static NkTextWidthCallback nwidth(long struct) { return NkTextWidthCallback.create(memGetAddress(struct + NkUserFont.WIDTH)); }
+    @Nullable public static NkTextWidthCallback nwidth(long struct) { return NkTextWidthCallback.createSafe(memGetAddress(struct + NkUserFont.WIDTH)); }
     /** Unsafe version of {@link #query}. */
-    public static NkQueryFontGlyphCallback nquery(long struct) { return NkQueryFontGlyphCallback.create(memGetAddress(struct + NkUserFont.QUERY)); }
+    @Nullable public static NkQueryFontGlyphCallback nquery(long struct) { return NkQueryFontGlyphCallback.createSafe(memGetAddress(struct + NkUserFont.QUERY)); }
     /** Unsafe version of {@link #texture}. */
     public static NkHandle ntexture(long struct) { return NkHandle.create(struct + NkUserFont.TEXTURE); }
 
@@ -287,9 +303,9 @@ public class NkUserFont extends Struct implements NativeResource {
     /** Unsafe version of {@link #height(float) height}. */
     public static void nheight(long struct, float value) { memPutFloat(struct + NkUserFont.HEIGHT, value); }
     /** Unsafe version of {@link #width(NkTextWidthCallbackI) width}. */
-    public static void nwidth(long struct, NkTextWidthCallbackI value) { memPutAddress(struct + NkUserFont.WIDTH, memAddressSafe(value)); }
+    public static void nwidth(long struct, @Nullable NkTextWidthCallbackI value) { memPutAddress(struct + NkUserFont.WIDTH, memAddressSafe(value)); }
     /** Unsafe version of {@link #query(NkQueryFontGlyphCallbackI) query}. */
-    public static void nquery(long struct, NkQueryFontGlyphCallbackI value) { memPutAddress(struct + NkUserFont.QUERY, memAddressSafe(value)); }
+    public static void nquery(long struct, @Nullable NkQueryFontGlyphCallbackI value) { memPutAddress(struct + NkUserFont.QUERY, memAddressSafe(value)); }
     /** Unsafe version of {@link #texture(NkHandle) texture}. */
     public static void ntexture(long struct, NkHandle value) { memCopy(value.address(), struct + NkUserFont.TEXTURE, NkHandle.SIZEOF); }
 
@@ -311,7 +327,11 @@ public class NkUserFont extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -321,7 +341,7 @@ public class NkUserFont extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -341,9 +361,11 @@ public class NkUserFont extends Struct implements NativeResource {
         /** Returns the value of the {@code height} field. */
         public float height() { return NkUserFont.nheight(address()); }
         /** Returns the value of the {@code width} field. */
+        @Nullable
         @NativeType("nk_text_width_f")
         public NkTextWidthCallback width() { return NkUserFont.nwidth(address()); }
         /** Returns the value of the {@code query} field. */
+        @Nullable
         @NativeType("nk_query_font_glyph_f")
         public NkQueryFontGlyphCallback query() { return NkUserFont.nquery(address()); }
         /** Returns a {@link NkHandle} view of the {@code texture} field. */
@@ -355,9 +377,9 @@ public class NkUserFont extends Struct implements NativeResource {
         /** Sets the specified value to the {@code height} field. */
         public NkUserFont.Buffer height(float value) { NkUserFont.nheight(address(), value); return this; }
         /** Sets the specified value to the {@code width} field. */
-        public NkUserFont.Buffer width(@NativeType("nk_text_width_f") NkTextWidthCallbackI value) { NkUserFont.nwidth(address(), value); return this; }
+        public NkUserFont.Buffer width(@Nullable @NativeType("nk_text_width_f") NkTextWidthCallbackI value) { NkUserFont.nwidth(address(), value); return this; }
         /** Sets the specified value to the {@code query} field. */
-        public NkUserFont.Buffer query(@NativeType("nk_query_font_glyph_f") NkQueryFontGlyphCallbackI value) { NkUserFont.nquery(address(), value); return this; }
+        public NkUserFont.Buffer query(@Nullable @NativeType("nk_query_font_glyph_f") NkQueryFontGlyphCallbackI value) { NkUserFont.nquery(address(), value); return this; }
         /** Copies the specified {@link NkHandle} to the {@code texture} field. */
         public NkUserFont.Buffer texture(@NativeType("nk_handle") NkHandle value) { NkUserFont.ntexture(address(), value); return this; }
 

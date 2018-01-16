@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import org.lwjgl.*;
 
 import org.lwjgl.system.*;
@@ -63,7 +65,7 @@ public class NVStreamConsumerGLTextureYUV {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglStreamConsumerGLTextureExternalAttribsNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static boolean eglStreamConsumerGLTextureExternalAttribsNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nanovg;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -65,7 +67,7 @@ public class NVGLUFramebuffer extends Struct {
         IMAGE = layout.offsetof(3);
     }
 
-    NVGLUFramebuffer(long address, ByteBuffer container) {
+    NVGLUFramebuffer(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -76,7 +78,7 @@ public class NVGLUFramebuffer extends Struct {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public NVGLUFramebuffer(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -96,9 +98,15 @@ public class NVGLUFramebuffer extends Struct {
 
     // -----------------------------------
 
-    /** Returns a new {@link NVGLUFramebuffer} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link NVGLUFramebuffer} instance for the specified memory address. */
     public static NVGLUFramebuffer create(long address) {
-        return address == NULL ? null : new NVGLUFramebuffer(address, null);
+        return new NVGLUFramebuffer(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NVGLUFramebuffer createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -107,8 +115,14 @@ public class NVGLUFramebuffer extends Struct {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static NVGLUFramebuffer.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NVGLUFramebuffer.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -140,7 +154,11 @@ public class NVGLUFramebuffer extends Struct {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -150,7 +168,7 @@ public class NVGLUFramebuffer extends Struct {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 

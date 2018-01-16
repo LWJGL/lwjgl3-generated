@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -126,8 +128,9 @@ public class GLXSGIXFBConfig {
      * @param screen      the screen number
      * @param attrib_list an optional list of attributes, terminated with org.lwjgl.system.linux.{@code None}
      */
+    @Nullable
     @NativeType("GLXFBConfigSGIX *")
-    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @NativeType("const int *") IntBuffer attrib_list) {
+    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -135,7 +138,7 @@ public class GLXSGIXFBConfig {
         IntBuffer nelements = stack.callocInt(1);
         try {
             long __result = nglXChooseFBConfigSGIX(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
-            return memPointerBuffer(__result, nelements.get(0));
+            return memPointerBufferSafe(__result, nelements.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -203,10 +206,11 @@ public class GLXSGIXFBConfig {
      * @param display the connection to the X server
      * @param config  the {@code GLXFBConfigSGIX}
      */
+    @Nullable
     @NativeType("XVisualInfo *")
     public static XVisualInfo glXGetVisualFromFBConfigSGIX(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config) {
         long __result = nglXGetVisualFromFBConfigSGIX(display, config);
-        return XVisualInfo.create(__result);
+        return XVisualInfo.createSafe(__result);
     }
 
     // --- [ glXGetFBConfigFromVisualSGIX ] ---
@@ -246,8 +250,9 @@ public class GLXSGIXFBConfig {
     }
 
     /** Array version of: {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
+    @Nullable
     @NativeType("GLXFBConfigSGIX *")
-    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @NativeType("const int *") int[] attrib_list) {
+    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @Nullable @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
         if (CHECKS) {
             check(__functionAddress);
@@ -258,7 +263,7 @@ public class GLXSGIXFBConfig {
         IntBuffer nelements = stack.callocInt(1);
         try {
             long __result = callPPPP(__functionAddress, display, screen, attrib_list, memAddress(nelements));
-            return memPointerBuffer(__result, nelements.get(0));
+            return memPointerBufferSafe(__result, nelements.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }

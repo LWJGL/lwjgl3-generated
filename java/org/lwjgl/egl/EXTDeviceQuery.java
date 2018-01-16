@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import org.lwjgl.*;
 
 import org.lwjgl.system.*;
@@ -71,10 +73,11 @@ public class EXTDeviceQuery {
         return callPP(__functionAddress, device, name);
     }
 
+    @Nullable
     @NativeType("char *")
     public static String eglQueryDeviceStringEXT(@NativeType("EGLDeviceEXT") long device, @NativeType("EGLint") int name) {
         long __result = neglQueryDeviceStringEXT(device, name);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ eglQueryDisplayAttribEXT ] ---

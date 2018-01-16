@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -18,16 +20,22 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public abstract class GLFWWindowMaximizeCallback extends Callback implements GLFWWindowMaximizeCallbackI {
 
-    /** Creates a {@code GLFWWindowMaximizeCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLFWWindowMaximizeCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLFWWindowMaximizeCallback}
+     */
     public static GLFWWindowMaximizeCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLFWWindowMaximizeCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLFWWindowMaximizeCallback
             ? (GLFWWindowMaximizeCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLFWWindowMaximizeCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLFWWindowMaximizeCallback} instance that delegates to the specified {@code GLFWWindowMaximizeCallbackI} instance. */

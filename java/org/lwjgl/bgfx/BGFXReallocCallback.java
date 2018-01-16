@@ -5,6 +5,8 @@
  */
 package org.lwjgl.bgfx;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Allocates memory. */
 public abstract class BGFXReallocCallback extends Callback implements BGFXReallocCallbackI {
 
-    /** Creates a {@code BGFXReallocCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code BGFXReallocCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code BGFXReallocCallback}
+     */
     public static BGFXReallocCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         BGFXReallocCallbackI instance = Callback.get(functionPointer);
         return instance instanceof BGFXReallocCallback
             ? (BGFXReallocCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static BGFXReallocCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code BGFXReallocCallback} instance that delegates to the specified {@code BGFXReallocCallbackI} instance. */

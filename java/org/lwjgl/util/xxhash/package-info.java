@@ -10,5 +10,6 @@
  * <p>xxHash successfully completes the <a target="_blank" href="https://github.com/aappleby/smhasher">SMHasher</a> test suite which evaluates collision, dispersion and
  * randomness qualities of hash functions.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.util.xxhash;
 

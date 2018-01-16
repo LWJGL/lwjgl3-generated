@@ -5,6 +5,8 @@
  */
 package org.lwjgl.ovr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -813,7 +815,7 @@ public class OVR {
      *         </ul>
      */
     @NativeType("ovrResult")
-    public static int ovr_Initialize(@NativeType("const ovrInitParams *") OVRInitParams params) {
+    public static int ovr_Initialize(@Nullable @NativeType("const ovrInitParams *") OVRInitParams params) {
         return novr_Initialize(memAddressSafe(params));
     }
 
@@ -1644,7 +1646,7 @@ public class OVR {
      *         </ul>
      */
     @NativeType("ovrResult")
-    public static int ovr_GetBoundaryGeometry(@NativeType("ovrSession") long session, @NativeType("ovrBoundaryType") int boundaryType, @NativeType("ovrVector3f *") OVRVector3f outFloorPoints, @NativeType("int *") IntBuffer outFloorPointsCount) {
+    public static int ovr_GetBoundaryGeometry(@NativeType("ovrSession") long session, @NativeType("ovrBoundaryType") int boundaryType, @Nullable @NativeType("ovrVector3f *") OVRVector3f outFloorPoints, @Nullable @NativeType("int *") IntBuffer outFloorPointsCount) {
         if (CHECKS) {
             check(session);
             checkSafe(outFloorPointsCount, 1);
@@ -2028,7 +2030,7 @@ public class OVR {
      *         </ul>
      */
     @NativeType("ovrResult")
-    public static int ovr_EndFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("const ovrViewScaleDesc *") OVRViewScaleDesc viewScaleDesc, @NativeType("const ovrLayerHeader * const *") PointerBuffer layerPtrList) {
+    public static int ovr_EndFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @Nullable @NativeType("const ovrViewScaleDesc *") OVRViewScaleDesc viewScaleDesc, @NativeType("const ovrLayerHeader * const *") PointerBuffer layerPtrList) {
         if (CHECKS) {
             check(session);
         }
@@ -2095,7 +2097,7 @@ public class OVR {
      *         </ul>
      */
     @NativeType("ovrResult")
-    public static int ovr_SubmitFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("const ovrViewScaleDesc *") OVRViewScaleDesc viewScaleDesc, @NativeType("const ovrLayerHeader * const *") PointerBuffer layerPtrList) {
+    public static int ovr_SubmitFrame(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @Nullable @NativeType("const ovrViewScaleDesc *") OVRViewScaleDesc viewScaleDesc, @NativeType("const ovrLayerHeader * const *") PointerBuffer layerPtrList) {
         if (CHECKS) {
             check(session);
         }
@@ -2225,7 +2227,7 @@ public class OVR {
      * @return the ids of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
      */
     @NativeType("ovrResult")
-    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") IntBuffer inoutCameraCount) {
+    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @Nullable @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") IntBuffer inoutCameraCount) {
         if (CHECKS) {
             check(session);
             check(inoutCameraCount, 1);
@@ -2250,7 +2252,7 @@ public class OVR {
      * @param extrinsics contains the extrinsic parameters to set, can be null
      */
     @NativeType("ovrResult")
-    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer name, @NativeType("const ovrCameraIntrinsics *") OVRCameraIntrinsics intrinsics, @NativeType("const ovrCameraExtrinsics *") OVRCameraExtrinsics extrinsics) {
+    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer name, @Nullable @NativeType("const ovrCameraIntrinsics *") OVRCameraIntrinsics intrinsics, @Nullable @NativeType("const ovrCameraExtrinsics *") OVRCameraExtrinsics extrinsics) {
         if (CHECKS) {
             check(session);
             checkNT1(name);
@@ -2269,7 +2271,7 @@ public class OVR {
      * @param extrinsics contains the extrinsic parameters to set, can be null
      */
     @NativeType("ovrResult")
-    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence name, @NativeType("const ovrCameraIntrinsics *") OVRCameraIntrinsics intrinsics, @NativeType("const ovrCameraExtrinsics *") OVRCameraExtrinsics extrinsics) {
+    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence name, @Nullable @NativeType("const ovrCameraIntrinsics *") OVRCameraIntrinsics intrinsics, @Nullable @NativeType("const ovrCameraExtrinsics *") OVRCameraExtrinsics extrinsics) {
         if (CHECKS) {
             check(session);
         }
@@ -2683,15 +2685,16 @@ public class OVR {
      * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
      *         until next call to {@code ovr_GetString} or until the HMD is destroyed, whichever occurs first.
      */
+    @Nullable
     @NativeType("const char *")
-    public static String ovr_GetString(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @NativeType("const char *") ByteBuffer defaultVal) {
+    public static String ovr_GetString(@NativeType("ovrSession") long session, @NativeType("const char *") ByteBuffer propertyName, @Nullable @NativeType("const char *") ByteBuffer defaultVal) {
         if (CHECKS) {
             check(session);
             checkNT1(propertyName);
             checkNT1Safe(defaultVal);
         }
         long __result = novr_GetString(session, memAddress(propertyName), memAddressSafe(defaultVal));
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     /**
@@ -2706,17 +2709,18 @@ public class OVR {
      * @return the string property if it exists. Otherwise returns {@code defaultVal}, which can be specified as {@code NULL}. The return memory is guaranteed to be valid
      *         until next call to {@code ovr_GetString} or until the HMD is destroyed, whichever occurs first.
      */
+    @Nullable
     @NativeType("const char *")
-    public static String ovr_GetString(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("const char *") CharSequence defaultVal) {
+    public static String ovr_GetString(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @Nullable @NativeType("const char *") CharSequence defaultVal) {
         if (CHECKS) {
             check(session);
         }
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer propertyNameEncoded = stack.ASCII(propertyName);
-            ByteBuffer defaultValEncoded = stack.UTF8(defaultVal);
+            ByteBuffer defaultValEncoded = stack.UTF8Safe(defaultVal);
             long __result = novr_GetString(session, memAddress(propertyNameEncoded), memAddressSafe(defaultValEncoded));
-            return memUTF8(__result);
+            return memUTF8Safe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2792,7 +2796,7 @@ public class OVR {
 
     /** Array version of: {@link #ovr_GetBoundaryGeometry GetBoundaryGeometry} */
     @NativeType("ovrResult")
-    public static int ovr_GetBoundaryGeometry(@NativeType("ovrSession") long session, @NativeType("ovrBoundaryType") int boundaryType, @NativeType("ovrVector3f *") OVRVector3f outFloorPoints, @NativeType("int *") int[] outFloorPointsCount) {
+    public static int ovr_GetBoundaryGeometry(@NativeType("ovrSession") long session, @NativeType("ovrBoundaryType") int boundaryType, @Nullable @NativeType("ovrVector3f *") OVRVector3f outFloorPoints, @Nullable @NativeType("int *") int[] outFloorPointsCount) {
         if (CHECKS) {
             check(session);
             checkSafe(outFloorPointsCount, 1);
@@ -2833,7 +2837,7 @@ public class OVR {
 
     /** Array version of: {@link #ovr_GetExternalCameras GetExternalCameras} */
     @NativeType("ovrResult")
-    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") int[] inoutCameraCount) {
+    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @Nullable @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") int[] inoutCameraCount) {
         if (CHECKS) {
             check(session);
             check(inoutCameraCount, 1);

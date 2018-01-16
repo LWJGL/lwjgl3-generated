@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.yoga;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -629,11 +631,12 @@ public class Yoga {
 
     public static native long nYGNodeGetMeasureFunc(long node);
 
+    @Nullable
     public static YGMeasureFunc YGNodeGetMeasureFunc(@NativeType("const YGNodeRef") long node) {
         if (CHECKS) {
             check(node);
         }
-        return YGMeasureFunc.create(nYGNodeGetMeasureFunc(node));
+        return YGMeasureFunc.createSafe(nYGNodeGetMeasureFunc(node));
     }
 
     // --- [ YGNodeSetBaselineFunc ] ---
@@ -651,11 +654,12 @@ public class Yoga {
 
     public static native long nYGNodeGetBaselineFunc(long node);
 
+    @Nullable
     public static YGBaselineFunc YGNodeGetBaselineFunc(@NativeType("const YGNodeRef") long node) {
         if (CHECKS) {
             check(node);
         }
-        return YGBaselineFunc.create(nYGNodeGetBaselineFunc(node));
+        return YGBaselineFunc.createSafe(nYGNodeGetBaselineFunc(node));
     }
 
     // --- [ YGNodeSetPrintFunc ] ---
@@ -673,11 +677,12 @@ public class Yoga {
 
     public static native long nYGNodeGetPrintFunc(long node);
 
+    @Nullable
     public static YGPrintFunc YGNodeGetPrintFunc(@NativeType("const YGNodeRef") long node) {
         if (CHECKS) {
             check(node);
         }
-        return YGPrintFunc.create(nYGNodeGetPrintFunc(node));
+        return YGPrintFunc.createSafe(nYGNodeGetPrintFunc(node));
     }
 
     // --- [ YGNodeSetHasNewLayout ] ---

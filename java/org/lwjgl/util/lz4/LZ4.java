@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.lz4;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -351,7 +353,7 @@ public class LZ4 {
      * @param streamPtr  
      * @param dictionary 
      */
-    public static int LZ4_loadDict(@NativeType("LZ4_stream_t *") long streamPtr, @NativeType("const char *") ByteBuffer dictionary) {
+    public static int LZ4_loadDict(@NativeType("LZ4_stream_t *") long streamPtr, @Nullable @NativeType("const char *") ByteBuffer dictionary) {
         if (CHECKS) {
             check(streamPtr);
         }

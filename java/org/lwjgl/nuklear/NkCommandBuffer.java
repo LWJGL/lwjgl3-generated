@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -66,7 +68,7 @@ public class NkCommandBuffer extends Struct {
         LAST = layout.offsetof(6);
     }
 
-    NkCommandBuffer(long address, ByteBuffer container) {
+    NkCommandBuffer(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -77,13 +79,14 @@ public class NkCommandBuffer extends Struct {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public NkCommandBuffer(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link NkBuffer} view of the struct pointed to by the {@code base} field. */
+    @Nullable
     @NativeType("struct nk_buffer *")
     public NkBuffer base() { return nbase(address()); }
     /** Returns a {@link NkRect} view of the {@code clip} field. */
@@ -106,9 +109,15 @@ public class NkCommandBuffer extends Struct {
 
     // -----------------------------------
 
-    /** Returns a new {@link NkCommandBuffer} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link NkCommandBuffer} instance for the specified memory address. */
     public static NkCommandBuffer create(long address) {
-        return address == NULL ? null : new NkCommandBuffer(address, null);
+        return new NkCommandBuffer(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkCommandBuffer createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -117,14 +126,20 @@ public class NkCommandBuffer extends Struct {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static NkCommandBuffer.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkCommandBuffer.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
 
     /** Unsafe version of {@link #base}. */
-    public static NkBuffer nbase(long struct) { return NkBuffer.create(memGetAddress(struct + NkCommandBuffer.BASE)); }
+    @Nullable public static NkBuffer nbase(long struct) { return NkBuffer.createSafe(memGetAddress(struct + NkCommandBuffer.BASE)); }
     /** Unsafe version of {@link #clip}. */
     public static NkRect nclip(long struct) { return NkRect.create(struct + NkCommandBuffer.CLIP); }
     /** Unsafe version of {@link #use_clipping}. */
@@ -156,7 +171,11 @@ public class NkCommandBuffer extends Struct {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -166,7 +185,7 @@ public class NkCommandBuffer extends Struct {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -181,6 +200,7 @@ public class NkCommandBuffer extends Struct {
         }
 
         /** Returns a {@link NkBuffer} view of the struct pointed to by the {@code base} field. */
+        @Nullable
         @NativeType("struct nk_buffer *")
         public NkBuffer base() { return NkCommandBuffer.nbase(address()); }
         /** Returns a {@link NkRect} view of the {@code clip} field. */

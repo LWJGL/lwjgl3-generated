@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -44,16 +46,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class VkAllocationFunction extends Callback implements VkAllocationFunctionI {
 
-    /** Creates a {@code VkAllocationFunction} instance from the specified function pointer. */
+    /**
+     * Creates a {@code VkAllocationFunction} instance from the specified function pointer.
+     *
+     * @return the new {@code VkAllocationFunction}
+     */
     public static VkAllocationFunction create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         VkAllocationFunctionI instance = Callback.get(functionPointer);
         return instance instanceof VkAllocationFunction
             ? (VkAllocationFunction)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static VkAllocationFunction createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code VkAllocationFunction} instance that delegates to the specified {@code VkAllocationFunctionI} instance. */

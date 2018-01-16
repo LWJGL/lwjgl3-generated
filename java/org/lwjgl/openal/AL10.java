@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -347,10 +349,11 @@ public class AL10 {
      *
      * @param paramName the parameter to query. One of:<br><table><tr><td>{@link #AL_VENDOR VENDOR}</td><td>{@link #AL_VERSION VERSION}</td><td>{@link #AL_RENDERER RENDERER}</td><td>{@link #AL_EXTENSIONS EXTENSIONS}</td></tr></table>
      */
+    @Nullable
     @NativeType("const ALchar *")
     public static String alGetString(@NativeType("ALenum") int paramName) {
         long __result = nalGetString(paramName);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ alDistanceModel ] ---

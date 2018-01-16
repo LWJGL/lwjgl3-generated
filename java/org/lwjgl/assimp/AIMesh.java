@@ -5,6 +5,8 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -169,7 +171,7 @@ public class AIMesh extends Struct implements NativeResource {
         MANIMMESHES = layout.offsetof(16);
     }
 
-    AIMesh(long address, ByteBuffer container) {
+    AIMesh(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -180,7 +182,7 @@ public class AIMesh extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public AIMesh(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -199,24 +201,29 @@ public class AIMesh extends Struct implements NativeResource {
     @NativeType("struct aiVector3D *")
     public AIVector3D.Buffer mVertices() { return nmVertices(address()); }
     /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mNormals} field. */
+    @Nullable
     @NativeType("struct aiVector3D *")
     public AIVector3D.Buffer mNormals() { return nmNormals(address()); }
     /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mTangents} field. */
+    @Nullable
     @NativeType("struct aiVector3D *")
     public AIVector3D.Buffer mTangents() { return nmTangents(address()); }
     /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mBitangents} field. */
+    @Nullable
     @NativeType("struct aiVector3D *")
     public AIVector3D.Buffer mBitangents() { return nmBitangents(address()); }
     /** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
     @NativeType("struct aiColor4D *[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS]")
     public PointerBuffer mColors() { return nmColors(address()); }
-    /** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
+    /** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors} field. */
+    @Nullable
     @NativeType("struct aiColor4D *")
     public AIColor4D.Buffer mColors(int index) { return nmColors(address(), index); }
     /** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
     @NativeType("struct aiVector3D *[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS]")
     public PointerBuffer mTextureCoords() { return nmTextureCoords(address()); }
-    /** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
+    /** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords} field. */
+    @Nullable
     @NativeType("struct aiVector3D *")
     public AIVector3D.Buffer mTextureCoords(int index) { return nmTextureCoords(address(), index); }
     /** Returns a {@link IntBuffer} view of the {@code mNumUVComponents} field. */
@@ -232,6 +239,7 @@ public class AIMesh extends Struct implements NativeResource {
     @NativeType("unsigned int")
     public int mNumBones() { return nmNumBones(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mBones} field. */
+    @Nullable
     @NativeType("struct aiBone **")
     public PointerBuffer mBones() { return nmBones(address()); }
     /** Returns the value of the {@code mMaterialIndex} field. */
@@ -244,6 +252,7 @@ public class AIMesh extends Struct implements NativeResource {
     @NativeType("unsigned int")
     public int mNumAnimMeshes() { return nmNumAnimMeshes(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimMeshes} field. */
+    @Nullable
     @NativeType("struct aiAnimMesh **")
     public PointerBuffer mAnimMeshes() { return nmAnimMeshes(address()); }
 
@@ -254,19 +263,19 @@ public class AIMesh extends Struct implements NativeResource {
     /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mVertices} field. */
     public AIMesh mVertices(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmVertices(address(), value); return this; }
     /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mNormals} field. */
-    public AIMesh mNormals(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmNormals(address(), value); return this; }
+    public AIMesh mNormals(@Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmNormals(address(), value); return this; }
     /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mTangents} field. */
-    public AIMesh mTangents(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmTangents(address(), value); return this; }
+    public AIMesh mTangents(@Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmTangents(address(), value); return this; }
     /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mBitangents} field. */
-    public AIMesh mBitangents(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmBitangents(address(), value); return this; }
+    public AIMesh mBitangents(@Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmBitangents(address(), value); return this; }
     /** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
     public AIMesh mColors(@NativeType("struct aiColor4D *[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS]") PointerBuffer value) { nmColors(address(), value); return this; }
     /** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
-    public AIMesh mColors(int index, @NativeType("struct aiColor4D *") AIColor4D.Buffer value) { nmColors(address(), index, value); return this; }
+    public AIMesh mColors(int index, @Nullable @NativeType("struct aiColor4D *") AIColor4D.Buffer value) { nmColors(address(), index, value); return this; }
     /** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
     public AIMesh mTextureCoords(@NativeType("struct aiVector3D *[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS]") PointerBuffer value) { nmTextureCoords(address(), value); return this; }
     /** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
-    public AIMesh mTextureCoords(int index, @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmTextureCoords(address(), index, value); return this; }
+    public AIMesh mTextureCoords(int index, @Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { nmTextureCoords(address(), index, value); return this; }
     /** Copies the specified {@link IntBuffer} to the {@code mNumUVComponents} field. */
     public AIMesh mNumUVComponents(@NativeType("unsigned int[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS]") IntBuffer value) { nmNumUVComponents(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code mNumUVComponents} field. */
@@ -274,13 +283,13 @@ public class AIMesh extends Struct implements NativeResource {
     /** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
     public AIMesh mFaces(@NativeType("struct aiFace *") AIFace.Buffer value) { nmFaces(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
-    public AIMesh mBones(@NativeType("struct aiBone **") PointerBuffer value) { nmBones(address(), value); return this; }
+    public AIMesh mBones(@Nullable @NativeType("struct aiBone **") PointerBuffer value) { nmBones(address(), value); return this; }
     /** Sets the specified value to the {@code mMaterialIndex} field. */
     public AIMesh mMaterialIndex(@NativeType("unsigned int") int value) { nmMaterialIndex(address(), value); return this; }
     /** Copies the specified {@link AIString} to the {@code mName} field. */
     public AIMesh mName(@NativeType("struct aiString") AIString value) { nmName(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
-    public AIMesh mAnimMeshes(@NativeType("struct aiAnimMesh **") PointerBuffer value) { nmAnimMeshes(address(), value); return this; }
+    public AIMesh mAnimMeshes(@Nullable @NativeType("struct aiAnimMesh **") PointerBuffer value) { nmAnimMeshes(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIMesh set(
@@ -333,12 +342,12 @@ public class AIMesh extends Struct implements NativeResource {
 
     /** Returns a new {@link AIMesh} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static AIMesh malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link AIMesh} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static AIMesh calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link AIMesh} instance allocated with {@link BufferUtils}. */
@@ -346,9 +355,15 @@ public class AIMesh extends Struct implements NativeResource {
         return new AIMesh(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link AIMesh} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link AIMesh} instance for the specified memory address. */
     public static AIMesh create(long address) {
-        return address == NULL ? null : new AIMesh(address, null);
+        return new AIMesh(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AIMesh createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -356,7 +371,7 @@ public class AIMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static AIMesh.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -365,8 +380,8 @@ public class AIMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static AIMesh.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -374,7 +389,7 @@ public class AIMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static AIMesh.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -384,8 +399,14 @@ public class AIMesh extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static AIMesh.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AIMesh.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -423,7 +444,7 @@ public class AIMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static AIMesh.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -432,7 +453,7 @@ public class AIMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static AIMesh.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -442,7 +463,7 @@ public class AIMesh extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static AIMesh.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -452,7 +473,7 @@ public class AIMesh extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static AIMesh.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -467,24 +488,24 @@ public class AIMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #mVertices}. */
     public static AIVector3D.Buffer nmVertices(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MVERTICES), nmNumVertices(struct)); }
     /** Unsafe version of {@link #mNormals}. */
-    public static AIVector3D.Buffer nmNormals(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MNORMALS), nmNumVertices(struct)); }
+    @Nullable public static AIVector3D.Buffer nmNormals(long struct) { return AIVector3D.createSafe(memGetAddress(struct + AIMesh.MNORMALS), nmNumVertices(struct)); }
     /** Unsafe version of {@link #mTangents}. */
-    public static AIVector3D.Buffer nmTangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MTANGENTS), nmNumVertices(struct)); }
+    @Nullable public static AIVector3D.Buffer nmTangents(long struct) { return AIVector3D.createSafe(memGetAddress(struct + AIMesh.MTANGENTS), nmNumVertices(struct)); }
     /** Unsafe version of {@link #mBitangents}. */
-    public static AIVector3D.Buffer nmBitangents(long struct) { return AIVector3D.create(memGetAddress(struct + AIMesh.MBITANGENTS), nmNumVertices(struct)); }
+    @Nullable public static AIVector3D.Buffer nmBitangents(long struct) { return AIVector3D.createSafe(memGetAddress(struct + AIMesh.MBITANGENTS), nmNumVertices(struct)); }
     /** Unsafe version of {@link #mColors}. */
     public static PointerBuffer nmColors(long struct) { return memPointerBuffer(struct + AIMesh.MCOLORS, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
     /** Unsafe version of {@link #mColors(int) mColors}. */
-    public static AIColor4D.Buffer nmColors(long struct, int index) {
+    @Nullable public static AIColor4D.Buffer nmColors(long struct, int index) {
         if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
-        return AIColor4D.create(memGetAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE), nmNumVertices(struct));
+        return AIColor4D.createSafe(memGetAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE), nmNumVertices(struct));
     }
     /** Unsafe version of {@link #mTextureCoords}. */
     public static PointerBuffer nmTextureCoords(long struct) { return memPointerBuffer(struct + AIMesh.MTEXTURECOORDS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
     /** Unsafe version of {@link #mTextureCoords(int) mTextureCoords}. */
-    public static AIVector3D.Buffer nmTextureCoords(long struct, int index) {
+    @Nullable public static AIVector3D.Buffer nmTextureCoords(long struct, int index) {
         if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-        return AIVector3D.create(memGetAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE), nmNumVertices(struct));
+        return AIVector3D.createSafe(memGetAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE), nmNumVertices(struct));
     }
     /** Unsafe version of {@link #mNumUVComponents}. */
     public static IntBuffer nmNumUVComponents(long struct) { return memIntBuffer(struct + AIMesh.MNUMUVCOMPONENTS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
@@ -498,7 +519,7 @@ public class AIMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #mNumBones}. */
     public static int nmNumBones(long struct) { return memGetInt(struct + AIMesh.MNUMBONES); }
     /** Unsafe version of {@link #mBones() mBones}. */
-    public static PointerBuffer nmBones(long struct) { return memPointerBuffer(memGetAddress(struct + AIMesh.MBONES), nmNumBones(struct)); }
+    @Nullable public static PointerBuffer nmBones(long struct) { return memPointerBufferSafe(memGetAddress(struct + AIMesh.MBONES), nmNumBones(struct)); }
     /** Unsafe version of {@link #mMaterialIndex}. */
     public static int nmMaterialIndex(long struct) { return memGetInt(struct + AIMesh.MMATERIALINDEX); }
     /** Unsafe version of {@link #mName}. */
@@ -506,7 +527,7 @@ public class AIMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #mNumAnimMeshes}. */
     public static int nmNumAnimMeshes(long struct) { return memGetInt(struct + AIMesh.MNUMANIMMESHES); }
     /** Unsafe version of {@link #mAnimMeshes() mAnimMeshes}. */
-    public static PointerBuffer nmAnimMeshes(long struct) { return memPointerBuffer(memGetAddress(struct + AIMesh.MANIMMESHES), nmNumAnimMeshes(struct)); }
+    @Nullable public static PointerBuffer nmAnimMeshes(long struct) { return memPointerBufferSafe(memGetAddress(struct + AIMesh.MANIMMESHES), nmNumAnimMeshes(struct)); }
 
     /** Unsafe version of {@link #mPrimitiveTypes(int) mPrimitiveTypes}. */
     public static void nmPrimitiveTypes(long struct, int value) { memPutInt(struct + AIMesh.MPRIMITIVETYPES, value); }
@@ -517,18 +538,18 @@ public class AIMesh extends Struct implements NativeResource {
     /** Unsafe version of {@link #mVertices(AIVector3D.Buffer) mVertices}. */
     public static void nmVertices(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MVERTICES, value.address()); }
     /** Unsafe version of {@link #mNormals(AIVector3D.Buffer) mNormals}. */
-    public static void nmNormals(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MNORMALS, memAddressSafe(value)); }
+    public static void nmNormals(long struct, @Nullable AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MNORMALS, memAddressSafe(value)); }
     /** Unsafe version of {@link #mTangents(AIVector3D.Buffer) mTangents}. */
-    public static void nmTangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MTANGENTS, memAddressSafe(value)); }
+    public static void nmTangents(long struct, @Nullable AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MTANGENTS, memAddressSafe(value)); }
     /** Unsafe version of {@link #mBitangents(AIVector3D.Buffer) mBitangents}. */
-    public static void nmBitangents(long struct, AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MBITANGENTS, memAddressSafe(value)); }
+    public static void nmBitangents(long struct, @Nullable AIVector3D.Buffer value) { memPutAddress(struct + AIMesh.MBITANGENTS, memAddressSafe(value)); }
     /** Unsafe version of {@link #mColors(PointerBuffer) mColors}. */
     public static void nmColors(long struct, PointerBuffer value) {
         if (CHECKS) { checkGT(value, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
         memCopy(memAddress(value), struct + AIMesh.MCOLORS, value.remaining() * POINTER_SIZE);
     }
     /** Unsafe version of {@link #mColors(int, AIColor4D.Buffer) mColors}. */
-    public static void nmColors(long struct, int index, AIColor4D.Buffer value) {
+    public static void nmColors(long struct, int index, @Nullable AIColor4D.Buffer value) {
         if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
         memPutAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE, memAddressSafe(value));
     }
@@ -538,7 +559,7 @@ public class AIMesh extends Struct implements NativeResource {
         memCopy(memAddress(value), struct + AIMesh.MTEXTURECOORDS, value.remaining() * POINTER_SIZE);
     }
     /** Unsafe version of {@link #mTextureCoords(int, AIVector3D.Buffer) mTextureCoords}. */
-    public static void nmTextureCoords(long struct, int index, AIVector3D.Buffer value) {
+    public static void nmTextureCoords(long struct, int index, @Nullable AIVector3D.Buffer value) {
         if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
         memPutAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE, memAddressSafe(value));
     }
@@ -557,7 +578,7 @@ public class AIMesh extends Struct implements NativeResource {
     /** Sets the specified value to the {@code mNumBones} field of the specified {@code struct}. */
     public static void nmNumBones(long struct, int value) { memPutInt(struct + AIMesh.MNUMBONES, value); }
     /** Unsafe version of {@link #mBones(PointerBuffer) mBones}. */
-    public static void nmBones(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MBONES, memAddressSafe(value)); nmNumBones(struct, value == null ? 0 : value.remaining()); }
+    public static void nmBones(long struct, @Nullable PointerBuffer value) { memPutAddress(struct + AIMesh.MBONES, memAddressSafe(value)); nmNumBones(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #mMaterialIndex(int) mMaterialIndex}. */
     public static void nmMaterialIndex(long struct, int value) { memPutInt(struct + AIMesh.MMATERIALINDEX, value); }
     /** Unsafe version of {@link #mName(AIString) mName}. */
@@ -565,7 +586,7 @@ public class AIMesh extends Struct implements NativeResource {
     /** Sets the specified value to the {@code mNumAnimMeshes} field of the specified {@code struct}. */
     public static void nmNumAnimMeshes(long struct, int value) { memPutInt(struct + AIMesh.MNUMANIMMESHES, value); }
     /** Unsafe version of {@link #mAnimMeshes(PointerBuffer) mAnimMeshes}. */
-    public static void nmAnimMeshes(long struct, PointerBuffer value) { memPutAddress(struct + AIMesh.MANIMMESHES, memAddressSafe(value)); nmNumAnimMeshes(struct, value == null ? 0 : value.remaining()); }
+    public static void nmAnimMeshes(long struct, @Nullable PointerBuffer value) { memPutAddress(struct + AIMesh.MANIMMESHES, memAddressSafe(value)); nmNumAnimMeshes(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -616,7 +637,11 @@ public class AIMesh extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -626,7 +651,7 @@ public class AIMesh extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -653,24 +678,29 @@ public class AIMesh extends Struct implements NativeResource {
         @NativeType("struct aiVector3D *")
         public AIVector3D.Buffer mVertices() { return AIMesh.nmVertices(address()); }
         /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mNormals} field. */
+        @Nullable
         @NativeType("struct aiVector3D *")
         public AIVector3D.Buffer mNormals() { return AIMesh.nmNormals(address()); }
         /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mTangents} field. */
+        @Nullable
         @NativeType("struct aiVector3D *")
         public AIVector3D.Buffer mTangents() { return AIMesh.nmTangents(address()); }
         /** Returns a {@link AIVector3D.Buffer} view of the struct array pointed to by the {@code mBitangents} field. */
+        @Nullable
         @NativeType("struct aiVector3D *")
         public AIVector3D.Buffer mBitangents() { return AIMesh.nmBitangents(address()); }
         /** Returns a {@link PointerBuffer} view of the {@code mColors} field. */
         @NativeType("struct aiColor4D *[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS]")
         public PointerBuffer mColors() { return AIMesh.nmColors(address()); }
-        /** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors}. */
+        /** Returns a {@link AIColor4D} view of the pointer at the specified index of the {@code mColors} field. */
+        @Nullable
         @NativeType("struct aiColor4D *")
         public AIColor4D.Buffer mColors(int index) { return AIMesh.nmColors(address(), index); }
         /** Returns a {@link PointerBuffer} view of the {@code mTextureCoords} field. */
         @NativeType("struct aiVector3D *[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS]")
         public PointerBuffer mTextureCoords() { return AIMesh.nmTextureCoords(address()); }
-        /** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords}. */
+        /** Returns a {@link AIVector3D} view of the pointer at the specified index of the {@code mTextureCoords} field. */
+        @Nullable
         @NativeType("struct aiVector3D *")
         public AIVector3D.Buffer mTextureCoords(int index) { return AIMesh.nmTextureCoords(address(), index); }
         /** Returns a {@link IntBuffer} view of the {@code mNumUVComponents} field. */
@@ -686,6 +716,7 @@ public class AIMesh extends Struct implements NativeResource {
         @NativeType("unsigned int")
         public int mNumBones() { return AIMesh.nmNumBones(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mBones} field. */
+        @Nullable
         @NativeType("struct aiBone **")
         public PointerBuffer mBones() { return AIMesh.nmBones(address()); }
         /** Returns the value of the {@code mMaterialIndex} field. */
@@ -698,6 +729,7 @@ public class AIMesh extends Struct implements NativeResource {
         @NativeType("unsigned int")
         public int mNumAnimMeshes() { return AIMesh.nmNumAnimMeshes(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code mAnimMeshes} field. */
+        @Nullable
         @NativeType("struct aiAnimMesh **")
         public PointerBuffer mAnimMeshes() { return AIMesh.nmAnimMeshes(address()); }
 
@@ -708,19 +740,19 @@ public class AIMesh extends Struct implements NativeResource {
         /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mVertices} field. */
         public AIMesh.Buffer mVertices(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmVertices(address(), value); return this; }
         /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mNormals} field. */
-        public AIMesh.Buffer mNormals(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmNormals(address(), value); return this; }
+        public AIMesh.Buffer mNormals(@Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmNormals(address(), value); return this; }
         /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mTangents} field. */
-        public AIMesh.Buffer mTangents(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmTangents(address(), value); return this; }
+        public AIMesh.Buffer mTangents(@Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmTangents(address(), value); return this; }
         /** Sets the address of the specified {@link AIVector3D.Buffer} to the {@code mBitangents} field. */
-        public AIMesh.Buffer mBitangents(@NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmBitangents(address(), value); return this; }
+        public AIMesh.Buffer mBitangents(@Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmBitangents(address(), value); return this; }
         /** Copies the specified {@link PointerBuffer} to the {@code mColors} field. */
         public AIMesh.Buffer mColors(@NativeType("struct aiColor4D *[Assimp.AI_MAX_NUMBER_OF_COLOR_SETS]") PointerBuffer value) { AIMesh.nmColors(address(), value); return this; }
         /** Copies the address of the specified {@link AIColor4D} at the specified index of the {@code mColors} field. */
-        public AIMesh.Buffer mColors(int index, @NativeType("struct aiColor4D *") AIColor4D.Buffer value) { AIMesh.nmColors(address(), index, value); return this; }
+        public AIMesh.Buffer mColors(int index, @Nullable @NativeType("struct aiColor4D *") AIColor4D.Buffer value) { AIMesh.nmColors(address(), index, value); return this; }
         /** Copies the specified {@link PointerBuffer} to the {@code mTextureCoords} field. */
         public AIMesh.Buffer mTextureCoords(@NativeType("struct aiVector3D *[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS]") PointerBuffer value) { AIMesh.nmTextureCoords(address(), value); return this; }
         /** Copies the address of the specified {@link AIVector3D} at the specified index of the {@code mTextureCoords} field. */
-        public AIMesh.Buffer mTextureCoords(int index, @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmTextureCoords(address(), index, value); return this; }
+        public AIMesh.Buffer mTextureCoords(int index, @Nullable @NativeType("struct aiVector3D *") AIVector3D.Buffer value) { AIMesh.nmTextureCoords(address(), index, value); return this; }
         /** Copies the specified {@link IntBuffer} to the {@code mNumUVComponents} field. */
         public AIMesh.Buffer mNumUVComponents(@NativeType("unsigned int[Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS]") IntBuffer value) { AIMesh.nmNumUVComponents(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code mNumUVComponents} field. */
@@ -728,13 +760,13 @@ public class AIMesh extends Struct implements NativeResource {
         /** Sets the address of the specified {@link AIFace.Buffer} to the {@code mFaces} field. */
         public AIMesh.Buffer mFaces(@NativeType("struct aiFace *") AIFace.Buffer value) { AIMesh.nmFaces(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mBones} field. */
-        public AIMesh.Buffer mBones(@NativeType("struct aiBone **") PointerBuffer value) { AIMesh.nmBones(address(), value); return this; }
+        public AIMesh.Buffer mBones(@Nullable @NativeType("struct aiBone **") PointerBuffer value) { AIMesh.nmBones(address(), value); return this; }
         /** Sets the specified value to the {@code mMaterialIndex} field. */
         public AIMesh.Buffer mMaterialIndex(@NativeType("unsigned int") int value) { AIMesh.nmMaterialIndex(address(), value); return this; }
         /** Copies the specified {@link AIString} to the {@code mName} field. */
         public AIMesh.Buffer mName(@NativeType("struct aiString") AIString value) { AIMesh.nmName(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code mAnimMeshes} field. */
-        public AIMesh.Buffer mAnimMeshes(@NativeType("struct aiAnimMesh **") PointerBuffer value) { AIMesh.nmAnimMeshes(address(), value); return this; }
+        public AIMesh.Buffer mAnimMeshes(@Nullable @NativeType("struct aiAnimMesh **") PointerBuffer value) { AIMesh.nmAnimMeshes(address(), value); return this; }
 
     }
 

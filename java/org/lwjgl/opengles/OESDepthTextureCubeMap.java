@@ -10,7 +10,7 @@ package org.lwjgl.opengles;
  * 
  * <p>This extension extends OES_depth_texture and OES_packed_depth_stencil to support depth and depth-stencil cube-map textures.</p>
  * 
- * <p>Requires {@link GLES20 GLES 2.0} and {@link  OES_depth_texture}.</p>
+ * <p>Requires {@link GLES20 GLES 2.0} and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/OES/OES_depth_texture.txt">OES_depth_texture</a>.</p>
  */
 public final class OESDepthTextureCubeMap {
 

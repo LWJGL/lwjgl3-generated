@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -90,7 +92,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
         PDEVICEINDICES = layout.offsetof(3);
     }
 
-    VkBindBufferMemoryDeviceGroupInfoKHX(long address, ByteBuffer container) {
+    VkBindBufferMemoryDeviceGroupInfoKHX(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -101,7 +103,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkBindBufferMemoryDeviceGroupInfoKHX(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -117,6 +119,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
     @NativeType("uint32_t")
     public int deviceIndexCount() { return ndeviceIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
+    @Nullable
     @NativeType("const uint32_t *")
     public IntBuffer pDeviceIndices() { return npDeviceIndices(address()); }
 
@@ -125,7 +128,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
     /** Sets the specified value to the {@code pNext} field. */
     public VkBindBufferMemoryDeviceGroupInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-    public VkBindBufferMemoryDeviceGroupInfoKHX pDeviceIndices(@NativeType("const uint32_t *") IntBuffer value) { npDeviceIndices(address(), value); return this; }
+    public VkBindBufferMemoryDeviceGroupInfoKHX pDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npDeviceIndices(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBindBufferMemoryDeviceGroupInfoKHX set(
@@ -156,12 +159,12 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
 
     /** Returns a new {@link VkBindBufferMemoryDeviceGroupInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkBindBufferMemoryDeviceGroupInfoKHX malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkBindBufferMemoryDeviceGroupInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkBindBufferMemoryDeviceGroupInfoKHX calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkBindBufferMemoryDeviceGroupInfoKHX} instance allocated with {@link BufferUtils}. */
@@ -169,9 +172,15 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
         return new VkBindBufferMemoryDeviceGroupInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkBindBufferMemoryDeviceGroupInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkBindBufferMemoryDeviceGroupInfoKHX} instance for the specified memory address. */
     public static VkBindBufferMemoryDeviceGroupInfoKHX create(long address) {
-        return address == NULL ? null : new VkBindBufferMemoryDeviceGroupInfoKHX(address, null);
+        return new VkBindBufferMemoryDeviceGroupInfoKHX(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkBindBufferMemoryDeviceGroupInfoKHX createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -179,7 +188,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -188,8 +197,8 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -197,7 +206,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -207,8 +216,14 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -246,7 +261,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -255,7 +270,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -265,7 +280,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -275,7 +290,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkBindBufferMemoryDeviceGroupInfoKHX.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -288,7 +303,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
     /** Unsafe version of {@link #deviceIndexCount}. */
     public static int ndeviceIndexCount(long struct) { return memGetInt(struct + VkBindBufferMemoryDeviceGroupInfoKHX.DEVICEINDEXCOUNT); }
     /** Unsafe version of {@link #pDeviceIndices() pDeviceIndices}. */
-    public static IntBuffer npDeviceIndices(long struct) { return memIntBuffer(memGetAddress(struct + VkBindBufferMemoryDeviceGroupInfoKHX.PDEVICEINDICES), ndeviceIndexCount(struct)); }
+    @Nullable public static IntBuffer npDeviceIndices(long struct) { return memIntBufferSafe(memGetAddress(struct + VkBindBufferMemoryDeviceGroupInfoKHX.PDEVICEINDICES), ndeviceIndexCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkBindBufferMemoryDeviceGroupInfoKHX.STYPE, value); }
@@ -297,7 +312,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
     /** Sets the specified value to the {@code deviceIndexCount} field of the specified {@code struct}. */
     public static void ndeviceIndexCount(long struct, int value) { memPutInt(struct + VkBindBufferMemoryDeviceGroupInfoKHX.DEVICEINDEXCOUNT, value); }
     /** Unsafe version of {@link #pDeviceIndices(IntBuffer) pDeviceIndices}. */
-    public static void npDeviceIndices(long struct, IntBuffer value) { memPutAddress(struct + VkBindBufferMemoryDeviceGroupInfoKHX.PDEVICEINDICES, memAddressSafe(value)); ndeviceIndexCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npDeviceIndices(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkBindBufferMemoryDeviceGroupInfoKHX.PDEVICEINDICES, memAddressSafe(value)); ndeviceIndexCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -340,7 +355,11 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -350,7 +369,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -374,6 +393,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
         @NativeType("uint32_t")
         public int deviceIndexCount() { return VkBindBufferMemoryDeviceGroupInfoKHX.ndeviceIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
+        @Nullable
         @NativeType("const uint32_t *")
         public IntBuffer pDeviceIndices() { return VkBindBufferMemoryDeviceGroupInfoKHX.npDeviceIndices(address()); }
 
@@ -382,7 +402,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
         /** Sets the specified value to the {@code pNext} field. */
         public VkBindBufferMemoryDeviceGroupInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkBindBufferMemoryDeviceGroupInfoKHX.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-        public VkBindBufferMemoryDeviceGroupInfoKHX.Buffer pDeviceIndices(@NativeType("const uint32_t *") IntBuffer value) { VkBindBufferMemoryDeviceGroupInfoKHX.npDeviceIndices(address(), value); return this; }
+        public VkBindBufferMemoryDeviceGroupInfoKHX.Buffer pDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkBindBufferMemoryDeviceGroupInfoKHX.npDeviceIndices(address(), value); return this; }
 
     }
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -163,7 +165,7 @@ public class KHRDescriptorUpdateTemplate {
      * @param pDescriptorUpdateTemplate points to a {@code VkDescriptorUpdateTemplateKHR} handle in which the resulting descriptor update template object is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateDescriptorUpdateTemplateKHR(VkDevice device, @NativeType("const VkDescriptorUpdateTemplateCreateInfoKHR *") VkDescriptorUpdateTemplateCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorUpdateTemplateKHR *") LongBuffer pDescriptorUpdateTemplate) {
+    public static int vkCreateDescriptorUpdateTemplateKHR(VkDevice device, @NativeType("const VkDescriptorUpdateTemplateCreateInfoKHR *") VkDescriptorUpdateTemplateCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorUpdateTemplateKHR *") LongBuffer pDescriptorUpdateTemplate) {
         if (CHECKS) {
             check(pDescriptorUpdateTemplate, 1);
         }
@@ -225,7 +227,7 @@ public class KHRDescriptorUpdateTemplate {
      * @param descriptorUpdateTemplate the descriptor update template to destroy.
      * @param pAllocator               controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyDescriptorUpdateTemplateKHR(VkDevice device, @NativeType("VkDescriptorUpdateTemplateKHR") long descriptorUpdateTemplate, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyDescriptorUpdateTemplateKHR(VkDevice device, @NativeType("VkDescriptorUpdateTemplateKHR") long descriptorUpdateTemplate, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyDescriptorUpdateTemplateKHR(device, descriptorUpdateTemplate, memAddressSafe(pAllocator));
     }
 
@@ -475,7 +477,7 @@ public class KHRDescriptorUpdateTemplate {
 
     /** Array version of: {@link #vkCreateDescriptorUpdateTemplateKHR CreateDescriptorUpdateTemplateKHR} */
     @NativeType("VkResult")
-    public static int vkCreateDescriptorUpdateTemplateKHR(VkDevice device, @NativeType("const VkDescriptorUpdateTemplateCreateInfoKHR *") VkDescriptorUpdateTemplateCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorUpdateTemplateKHR *") long[] pDescriptorUpdateTemplate) {
+    public static int vkCreateDescriptorUpdateTemplateKHR(VkDevice device, @NativeType("const VkDescriptorUpdateTemplateCreateInfoKHR *") VkDescriptorUpdateTemplateCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDescriptorUpdateTemplateKHR *") long[] pDescriptorUpdateTemplate) {
         long __functionAddress = device.getCapabilities().vkCreateDescriptorUpdateTemplateKHR;
         if (CHECKS) {
             check(__functionAddress);

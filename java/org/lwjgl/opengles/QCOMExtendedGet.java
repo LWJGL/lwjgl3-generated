@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -55,7 +57,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetTexturesQCOM(long textures, int maxTextures, long numTextures);
 
-    public static void glExtGetTexturesQCOM(@NativeType("GLuint *") IntBuffer textures, @NativeType("GLint *") IntBuffer numTextures) {
+    public static void glExtGetTexturesQCOM(@Nullable @NativeType("GLuint *") IntBuffer textures, @Nullable @NativeType("GLint *") IntBuffer numTextures) {
         if (CHECKS) {
             checkSafe(numTextures, 1);
         }
@@ -66,7 +68,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetBuffersQCOM(long buffers, int maxBuffers, long numBuffers);
 
-    public static void glExtGetBuffersQCOM(@NativeType("GLuint *") IntBuffer buffers, @NativeType("GLint *") IntBuffer numBuffers) {
+    public static void glExtGetBuffersQCOM(@Nullable @NativeType("GLuint *") IntBuffer buffers, @Nullable @NativeType("GLint *") IntBuffer numBuffers) {
         if (CHECKS) {
             checkSafe(numBuffers, 1);
         }
@@ -77,7 +79,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetRenderbuffersQCOM(long renderbuffers, int maxRenderbuffers, long numRenderbuffers);
 
-    public static void glExtGetRenderbuffersQCOM(@NativeType("GLuint *") IntBuffer renderbuffers, @NativeType("GLint *") IntBuffer numRenderbuffers) {
+    public static void glExtGetRenderbuffersQCOM(@Nullable @NativeType("GLuint *") IntBuffer renderbuffers, @Nullable @NativeType("GLint *") IntBuffer numRenderbuffers) {
         if (CHECKS) {
             checkSafe(numRenderbuffers, 1);
         }
@@ -88,7 +90,7 @@ public class QCOMExtendedGet {
 
     public static native void nglExtGetFramebuffersQCOM(long framebuffers, int maxFramebuffers, long numFramebuffers);
 
-    public static void glExtGetFramebuffersQCOM(@NativeType("GLuint *") IntBuffer framebuffers, @NativeType("GLint *") IntBuffer numFramebuffers) {
+    public static void glExtGetFramebuffersQCOM(@Nullable @NativeType("GLuint *") IntBuffer framebuffers, @Nullable @NativeType("GLint *") IntBuffer numFramebuffers) {
         if (CHECKS) {
             checkSafe(numFramebuffers, 1);
         }
@@ -154,7 +156,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetTexturesQCOM ExtGetTexturesQCOM} */
-    public static void glExtGetTexturesQCOM(@NativeType("GLuint *") int[] textures, @NativeType("GLint *") int[] numTextures) {
+    public static void glExtGetTexturesQCOM(@Nullable @NativeType("GLuint *") int[] textures, @Nullable @NativeType("GLint *") int[] numTextures) {
         long __functionAddress = GLES.getICD().glExtGetTexturesQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -164,7 +166,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetBuffersQCOM ExtGetBuffersQCOM} */
-    public static void glExtGetBuffersQCOM(@NativeType("GLuint *") int[] buffers, @NativeType("GLint *") int[] numBuffers) {
+    public static void glExtGetBuffersQCOM(@Nullable @NativeType("GLuint *") int[] buffers, @Nullable @NativeType("GLint *") int[] numBuffers) {
         long __functionAddress = GLES.getICD().glExtGetBuffersQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -174,7 +176,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetRenderbuffersQCOM ExtGetRenderbuffersQCOM} */
-    public static void glExtGetRenderbuffersQCOM(@NativeType("GLuint *") int[] renderbuffers, @NativeType("GLint *") int[] numRenderbuffers) {
+    public static void glExtGetRenderbuffersQCOM(@Nullable @NativeType("GLuint *") int[] renderbuffers, @Nullable @NativeType("GLint *") int[] numRenderbuffers) {
         long __functionAddress = GLES.getICD().glExtGetRenderbuffersQCOM;
         if (CHECKS) {
             check(__functionAddress);
@@ -184,7 +186,7 @@ public class QCOMExtendedGet {
     }
 
     /** Array version of: {@link #glExtGetFramebuffersQCOM ExtGetFramebuffersQCOM} */
-    public static void glExtGetFramebuffersQCOM(@NativeType("GLuint *") int[] framebuffers, @NativeType("GLint *") int[] numFramebuffers) {
+    public static void glExtGetFramebuffersQCOM(@Nullable @NativeType("GLuint *") int[] framebuffers, @Nullable @NativeType("GLint *") int[] numFramebuffers) {
         long __functionAddress = GLES.getICD().glExtGetFramebuffersQCOM;
         if (CHECKS) {
             check(__functionAddress);

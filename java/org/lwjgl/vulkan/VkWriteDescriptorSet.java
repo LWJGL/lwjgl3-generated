@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -148,7 +150,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
         PTEXELBUFFERVIEW = layout.offsetof(9);
     }
 
-    VkWriteDescriptorSet(long address, ByteBuffer container) {
+    VkWriteDescriptorSet(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -159,7 +161,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkWriteDescriptorSet(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -187,12 +189,15 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
     @NativeType("VkDescriptorType")
     public int descriptorType() { return ndescriptorType(address()); }
     /** Returns a {@link VkDescriptorImageInfo.Buffer} view of the struct array pointed to by the {@code pImageInfo} field. */
+    @Nullable
     @NativeType("const VkDescriptorImageInfo *")
     public VkDescriptorImageInfo.Buffer pImageInfo() { return npImageInfo(address()); }
     /** Returns a {@link VkDescriptorBufferInfo.Buffer} view of the struct array pointed to by the {@code pBufferInfo} field. */
+    @Nullable
     @NativeType("const VkDescriptorBufferInfo *")
     public VkDescriptorBufferInfo.Buffer pBufferInfo() { return npBufferInfo(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pTexelBufferView} field. */
+    @Nullable
     @NativeType("const VkBufferView *")
     public LongBuffer pTexelBufferView() { return npTexelBufferView(address()); }
 
@@ -209,11 +214,11 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
     /** Sets the specified value to the {@code descriptorType} field. */
     public VkWriteDescriptorSet descriptorType(@NativeType("VkDescriptorType") int value) { ndescriptorType(address(), value); return this; }
     /** Sets the address of the specified {@link VkDescriptorImageInfo.Buffer} to the {@code pImageInfo} field. */
-    public VkWriteDescriptorSet pImageInfo(@NativeType("const VkDescriptorImageInfo *") VkDescriptorImageInfo.Buffer value) { npImageInfo(address(), value); return this; }
+    public VkWriteDescriptorSet pImageInfo(@Nullable @NativeType("const VkDescriptorImageInfo *") VkDescriptorImageInfo.Buffer value) { npImageInfo(address(), value); return this; }
     /** Sets the address of the specified {@link VkDescriptorBufferInfo.Buffer} to the {@code pBufferInfo} field. */
-    public VkWriteDescriptorSet pBufferInfo(@NativeType("const VkDescriptorBufferInfo *") VkDescriptorBufferInfo.Buffer value) { npBufferInfo(address(), value); return this; }
+    public VkWriteDescriptorSet pBufferInfo(@Nullable @NativeType("const VkDescriptorBufferInfo *") VkDescriptorBufferInfo.Buffer value) { npBufferInfo(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pTexelBufferView} field. */
-    public VkWriteDescriptorSet pTexelBufferView(@NativeType("const VkBufferView *") LongBuffer value) { npTexelBufferView(address(), value); return this; }
+    public VkWriteDescriptorSet pTexelBufferView(@Nullable @NativeType("const VkBufferView *") LongBuffer value) { npTexelBufferView(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkWriteDescriptorSet set(
@@ -256,12 +261,12 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
 
     /** Returns a new {@link VkWriteDescriptorSet} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkWriteDescriptorSet malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkWriteDescriptorSet} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkWriteDescriptorSet calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkWriteDescriptorSet} instance allocated with {@link BufferUtils}. */
@@ -269,9 +274,15 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
         return new VkWriteDescriptorSet(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkWriteDescriptorSet} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkWriteDescriptorSet} instance for the specified memory address. */
     public static VkWriteDescriptorSet create(long address) {
-        return address == NULL ? null : new VkWriteDescriptorSet(address, null);
+        return new VkWriteDescriptorSet(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkWriteDescriptorSet createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -279,7 +290,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkWriteDescriptorSet.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -288,8 +299,8 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkWriteDescriptorSet.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -297,7 +308,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkWriteDescriptorSet.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -307,8 +318,14 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkWriteDescriptorSet.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkWriteDescriptorSet.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -346,7 +363,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkWriteDescriptorSet.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -355,7 +372,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkWriteDescriptorSet.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -365,7 +382,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkWriteDescriptorSet.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -375,7 +392,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkWriteDescriptorSet.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -396,11 +413,11 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
     /** Unsafe version of {@link #descriptorType}. */
     public static int ndescriptorType(long struct) { return memGetInt(struct + VkWriteDescriptorSet.DESCRIPTORTYPE); }
     /** Unsafe version of {@link #pImageInfo}. */
-    public static VkDescriptorImageInfo.Buffer npImageInfo(long struct) { return VkDescriptorImageInfo.create(memGetAddress(struct + VkWriteDescriptorSet.PIMAGEINFO), ndescriptorCount(struct)); }
+    @Nullable public static VkDescriptorImageInfo.Buffer npImageInfo(long struct) { return VkDescriptorImageInfo.createSafe(memGetAddress(struct + VkWriteDescriptorSet.PIMAGEINFO), ndescriptorCount(struct)); }
     /** Unsafe version of {@link #pBufferInfo}. */
-    public static VkDescriptorBufferInfo.Buffer npBufferInfo(long struct) { return VkDescriptorBufferInfo.create(memGetAddress(struct + VkWriteDescriptorSet.PBUFFERINFO), ndescriptorCount(struct)); }
+    @Nullable public static VkDescriptorBufferInfo.Buffer npBufferInfo(long struct) { return VkDescriptorBufferInfo.createSafe(memGetAddress(struct + VkWriteDescriptorSet.PBUFFERINFO), ndescriptorCount(struct)); }
     /** Unsafe version of {@link #pTexelBufferView() pTexelBufferView}. */
-    public static LongBuffer npTexelBufferView(long struct) { return memLongBuffer(memGetAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW), ndescriptorCount(struct)); }
+    @Nullable public static LongBuffer npTexelBufferView(long struct) { return memLongBufferSafe(memGetAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW), ndescriptorCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkWriteDescriptorSet.STYPE, value); }
@@ -417,11 +434,11 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
     /** Unsafe version of {@link #descriptorType(int) descriptorType}. */
     public static void ndescriptorType(long struct, int value) { memPutInt(struct + VkWriteDescriptorSet.DESCRIPTORTYPE, value); }
     /** Unsafe version of {@link #pImageInfo(VkDescriptorImageInfo.Buffer) pImageInfo}. */
-    public static void npImageInfo(long struct, VkDescriptorImageInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
+    public static void npImageInfo(long struct, @Nullable VkDescriptorImageInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PIMAGEINFO, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
     /** Unsafe version of {@link #pBufferInfo(VkDescriptorBufferInfo.Buffer) pBufferInfo}. */
-    public static void npBufferInfo(long struct, VkDescriptorBufferInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
+    public static void npBufferInfo(long struct, @Nullable VkDescriptorBufferInfo.Buffer value) { memPutAddress(struct + VkWriteDescriptorSet.PBUFFERINFO, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
     /** Unsafe version of {@link #pTexelBufferView(LongBuffer) pTexelBufferView}. */
-    public static void npTexelBufferView(long struct, LongBuffer value) { memPutAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
+    public static void npTexelBufferView(long struct, @Nullable LongBuffer value) { memPutAddress(struct + VkWriteDescriptorSet.PTEXELBUFFERVIEW, memAddressSafe(value)); if (value != null) { ndescriptorCount(struct, value.remaining()); } }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -470,7 +487,11 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -480,7 +501,7 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -516,12 +537,15 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
         @NativeType("VkDescriptorType")
         public int descriptorType() { return VkWriteDescriptorSet.ndescriptorType(address()); }
         /** Returns a {@link VkDescriptorImageInfo.Buffer} view of the struct array pointed to by the {@code pImageInfo} field. */
+        @Nullable
         @NativeType("const VkDescriptorImageInfo *")
         public VkDescriptorImageInfo.Buffer pImageInfo() { return VkWriteDescriptorSet.npImageInfo(address()); }
         /** Returns a {@link VkDescriptorBufferInfo.Buffer} view of the struct array pointed to by the {@code pBufferInfo} field. */
+        @Nullable
         @NativeType("const VkDescriptorBufferInfo *")
         public VkDescriptorBufferInfo.Buffer pBufferInfo() { return VkWriteDescriptorSet.npBufferInfo(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pTexelBufferView} field. */
+        @Nullable
         @NativeType("const VkBufferView *")
         public LongBuffer pTexelBufferView() { return VkWriteDescriptorSet.npTexelBufferView(address()); }
 
@@ -538,11 +562,11 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
         /** Sets the specified value to the {@code descriptorType} field. */
         public VkWriteDescriptorSet.Buffer descriptorType(@NativeType("VkDescriptorType") int value) { VkWriteDescriptorSet.ndescriptorType(address(), value); return this; }
         /** Sets the address of the specified {@link VkDescriptorImageInfo.Buffer} to the {@code pImageInfo} field. */
-        public VkWriteDescriptorSet.Buffer pImageInfo(@NativeType("const VkDescriptorImageInfo *") VkDescriptorImageInfo.Buffer value) { VkWriteDescriptorSet.npImageInfo(address(), value); return this; }
+        public VkWriteDescriptorSet.Buffer pImageInfo(@Nullable @NativeType("const VkDescriptorImageInfo *") VkDescriptorImageInfo.Buffer value) { VkWriteDescriptorSet.npImageInfo(address(), value); return this; }
         /** Sets the address of the specified {@link VkDescriptorBufferInfo.Buffer} to the {@code pBufferInfo} field. */
-        public VkWriteDescriptorSet.Buffer pBufferInfo(@NativeType("const VkDescriptorBufferInfo *") VkDescriptorBufferInfo.Buffer value) { VkWriteDescriptorSet.npBufferInfo(address(), value); return this; }
+        public VkWriteDescriptorSet.Buffer pBufferInfo(@Nullable @NativeType("const VkDescriptorBufferInfo *") VkDescriptorBufferInfo.Buffer value) { VkWriteDescriptorSet.npBufferInfo(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pTexelBufferView} field. */
-        public VkWriteDescriptorSet.Buffer pTexelBufferView(@NativeType("const VkBufferView *") LongBuffer value) { VkWriteDescriptorSet.npTexelBufferView(address(), value); return this; }
+        public VkWriteDescriptorSet.Buffer pTexelBufferView(@Nullable @NativeType("const VkBufferView *") LongBuffer value) { VkWriteDescriptorSet.npTexelBufferView(address(), value); return this; }
 
     }
 

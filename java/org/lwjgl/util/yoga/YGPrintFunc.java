@@ -5,22 +5,30 @@
  */
 package org.lwjgl.util.yoga;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class YGPrintFunc extends Callback implements YGPrintFuncI {
 
-    /** Creates a {@code YGPrintFunc} instance from the specified function pointer. */
+    /**
+     * Creates a {@code YGPrintFunc} instance from the specified function pointer.
+     *
+     * @return the new {@code YGPrintFunc}
+     */
     public static YGPrintFunc create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         YGPrintFuncI instance = Callback.get(functionPointer);
         return instance instanceof YGPrintFunc
             ? (YGPrintFunc)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static YGPrintFunc createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code YGPrintFunc} instance that delegates to the specified {@code YGPrintFuncI} instance. */

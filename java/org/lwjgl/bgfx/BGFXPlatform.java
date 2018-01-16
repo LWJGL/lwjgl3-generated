@@ -5,6 +5,8 @@
  */
 package org.lwjgl.bgfx;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
@@ -101,10 +103,11 @@ public class BGFXPlatform {
     }
 
     /** Gets internal data for interop. */
+    @Nullable
     @NativeType("const bgfx_internal_data_t *")
     public static BGFXInternalData bgfx_get_internal_data() {
         long __result = nbgfx_get_internal_data();
-        return BGFXInternalData.create(__result);
+        return BGFXInternalData.createSafe(__result);
     }
 
     // --- [ bgfx_override_internal_texture_ptr ] ---

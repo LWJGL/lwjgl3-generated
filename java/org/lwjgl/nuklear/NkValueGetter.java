@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link Nuklear#nk_plot_function plot_function} function. */
 public abstract class NkValueGetter extends Callback implements NkValueGetterI {
 
-    /** Creates a {@code NkValueGetter} instance from the specified function pointer. */
+    /**
+     * Creates a {@code NkValueGetter} instance from the specified function pointer.
+     *
+     * @return the new {@code NkValueGetter}
+     */
     public static NkValueGetter create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         NkValueGetterI instance = Callback.get(functionPointer);
         return instance instanceof NkValueGetter
             ? (NkValueGetter)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static NkValueGetter createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code NkValueGetter} instance that delegates to the specified {@code NkValueGetterI} instance. */

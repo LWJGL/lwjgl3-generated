@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -54,13 +56,13 @@ public class NOKSwapRegion2 {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglSwapBuffersRegion2NOK(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("const EGLint *") IntBuffer rects) {
+    public static boolean eglSwapBuffersRegion2NOK(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @Nullable @NativeType("const EGLint *") IntBuffer rects) {
         return neglSwapBuffersRegion2NOK(dpy, surface, remainingSafe(rects), memAddressSafe(rects)) != 0;
     }
 
     /** Array version of: {@link #eglSwapBuffersRegion2NOK SwapBuffersRegion2NOK} */
     @NativeType("EGLBoolean")
-    public static boolean eglSwapBuffersRegion2NOK(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @NativeType("const EGLint *") int[] rects) {
+    public static boolean eglSwapBuffersRegion2NOK(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSurface") long surface, @Nullable @NativeType("const EGLint *") int[] rects) {
         long __functionAddress = EGL.getCapabilities().eglSwapBuffersRegion2NOK;
         if (CHECKS) {
             check(__functionAddress);

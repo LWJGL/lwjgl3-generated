@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@code nk_style_*} structs. */
 public abstract class NkDrawEndCallback extends Callback implements NkDrawEndCallbackI {
 
-    /** Creates a {@code NkDrawEndCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code NkDrawEndCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code NkDrawEndCallback}
+     */
     public static NkDrawEndCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         NkDrawEndCallbackI instance = Callback.get(functionPointer);
         return instance instanceof NkDrawEndCallback
             ? (NkDrawEndCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static NkDrawEndCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code NkDrawEndCallback} instance that delegates to the specified {@code NkDrawEndCallbackI} instance. */

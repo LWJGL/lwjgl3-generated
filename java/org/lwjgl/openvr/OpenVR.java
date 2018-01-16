@@ -9,6 +9,7 @@ import org.lwjgl.system.*;
 import java.util.Set;
 import java.nio.*;
 import java.util.function.*;
+import javax.annotation.Nullable;
 import org.lwjgl.*;
 
 import static org.lwjgl.openvr.VR.*;
@@ -18,20 +19,20 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** The OpenVR function tables. */
 public final class OpenVR {
 
-    public static IVRSystem VRSystem;
-    public static IVRApplications VRApplications;
-    public static IVRChaperone VRChaperone;
-    public static IVRChaperoneSetup VRChaperoneSetup;
-    public static IVRCompositor VRCompositor;
-    public static IVRDriverManager VRDriverManager;
-    public static IVRExtendedDisplay VRExtendedDisplay;
-    public static IVRNotifications VRNotifications;
-    public static IVROverlay VROverlay;
-    public static IVRRenderModels VRRenderModels;
-    public static IVRResources VRResources;
-    public static IVRScreenshots VRScreenshots;
-    public static IVRSettings VRSettings;
-    public static IVRTrackedCamera VRTrackedCamera;
+    @Nullable public static IVRSystem VRSystem;
+    @Nullable public static IVRApplications VRApplications;
+    @Nullable public static IVRChaperone VRChaperone;
+    @Nullable public static IVRChaperoneSetup VRChaperoneSetup;
+    @Nullable public static IVRCompositor VRCompositor;
+    @Nullable public static IVRDriverManager VRDriverManager;
+    @Nullable public static IVRExtendedDisplay VRExtendedDisplay;
+    @Nullable public static IVRNotifications VRNotifications;
+    @Nullable public static IVROverlay VROverlay;
+    @Nullable public static IVRRenderModels VRRenderModels;
+    @Nullable public static IVRResources VRResources;
+    @Nullable public static IVRScreenshots VRScreenshots;
+    @Nullable public static IVRSettings VRSettings;
+    @Nullable public static IVRTrackedCamera VRTrackedCamera;
 
     private static int token;
 
@@ -66,6 +67,7 @@ public final class OpenVR {
         VRTrackedCamera = getGenericInterface(IVRTrackedCamera_Version, IVRTrackedCamera::new);
     }
 
+    @Nullable
     private static <T> T getGenericInterface(String interfaceNameVersion, LongFunction<T> supplier) {
         try (MemoryStack stack = stackPush()) {
             IntBuffer peError = stack.mallocInt(1);

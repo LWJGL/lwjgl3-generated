@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -35,10 +37,11 @@ public class WGLNVVertexArrayRange {
         return callP(__functionAddress, size, readfreq, writefreq, priority);
     }
 
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer wglAllocateMemoryNV(@NativeType("GLsizei") int size, @NativeType("GLfloat") float readfreq, @NativeType("GLfloat") float writefreq, @NativeType("GLfloat") float priority) {
         long __result = nwglAllocateMemoryNV(size, readfreq, writefreq, priority);
-        return memByteBuffer(__result, size);
+        return memByteBufferSafe(__result, size);
     }
 
     // --- [ wglFreeMemoryNV ] ---

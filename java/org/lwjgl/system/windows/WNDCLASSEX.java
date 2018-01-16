@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.windows;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -115,7 +117,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
         HICONSM = layout.offsetof(11);
     }
 
-    WNDCLASSEX(long address, ByteBuffer container) {
+    WNDCLASSEX(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -126,7 +128,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public WNDCLASSEX(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -158,9 +160,11 @@ public class WNDCLASSEX extends Struct implements NativeResource {
     @NativeType("HBRUSH")
     public long hbrBackground() { return nhbrBackground(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszMenuName} field. */
+    @Nullable
     @NativeType("LPCTSTR")
     public ByteBuffer lpszMenuName() { return nlpszMenuName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code lpszMenuName} field. */
+    @Nullable
     @NativeType("LPCTSTR")
     public String lpszMenuNameString() { return nlpszMenuNameString(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszClassName} field. */
@@ -192,7 +196,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
     /** Sets the specified value to the {@code hbrBackground} field. */
     public WNDCLASSEX hbrBackground(@NativeType("HBRUSH") long value) { nhbrBackground(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code lpszMenuName} field. */
-    public WNDCLASSEX lpszMenuName(@NativeType("LPCTSTR") ByteBuffer value) { nlpszMenuName(address(), value); return this; }
+    public WNDCLASSEX lpszMenuName(@Nullable @NativeType("LPCTSTR") ByteBuffer value) { nlpszMenuName(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code lpszClassName} field. */
     public WNDCLASSEX lpszClassName(@NativeType("LPCTSTR") ByteBuffer value) { nlpszClassName(address(), value); return this; }
     /** Sets the specified value to the {@code hIconSm} field. */
@@ -245,12 +249,12 @@ public class WNDCLASSEX extends Struct implements NativeResource {
 
     /** Returns a new {@link WNDCLASSEX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static WNDCLASSEX malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link WNDCLASSEX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static WNDCLASSEX calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link WNDCLASSEX} instance allocated with {@link BufferUtils}. */
@@ -258,9 +262,15 @@ public class WNDCLASSEX extends Struct implements NativeResource {
         return new WNDCLASSEX(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link WNDCLASSEX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link WNDCLASSEX} instance for the specified memory address. */
     public static WNDCLASSEX create(long address) {
-        return address == NULL ? null : new WNDCLASSEX(address, null);
+        return new WNDCLASSEX(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static WNDCLASSEX createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -268,7 +278,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static WNDCLASSEX.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -277,8 +287,8 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static WNDCLASSEX.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -286,7 +296,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static WNDCLASSEX.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -296,8 +306,14 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static WNDCLASSEX.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static WNDCLASSEX.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -335,7 +351,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static WNDCLASSEX.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -344,7 +360,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static WNDCLASSEX.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -354,7 +370,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static WNDCLASSEX.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -364,7 +380,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static WNDCLASSEX.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -389,9 +405,9 @@ public class WNDCLASSEX extends Struct implements NativeResource {
     /** Unsafe version of {@link #hbrBackground}. */
     public static long nhbrBackground(long struct) { return memGetAddress(struct + WNDCLASSEX.HBRBACKGROUND); }
     /** Unsafe version of {@link #lpszMenuName}. */
-    public static ByteBuffer nlpszMenuName(long struct) { return memByteBufferNT2(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
+    @Nullable public static ByteBuffer nlpszMenuName(long struct) { return memByteBufferNT2Safe(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
     /** Unsafe version of {@link #lpszMenuNameString}. */
-    public static String nlpszMenuNameString(long struct) { return memUTF16(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
+    @Nullable public static String nlpszMenuNameString(long struct) { return memUTF16Safe(memGetAddress(struct + WNDCLASSEX.LPSZMENUNAME)); }
     /** Unsafe version of {@link #lpszClassName}. */
     public static ByteBuffer nlpszClassName(long struct) { return memByteBufferNT2(memGetAddress(struct + WNDCLASSEX.LPSZCLASSNAME)); }
     /** Unsafe version of {@link #lpszClassNameString}. */
@@ -418,13 +434,13 @@ public class WNDCLASSEX extends Struct implements NativeResource {
     /** Unsafe version of {@link #hbrBackground(long) hbrBackground}. */
     public static void nhbrBackground(long struct, long value) { memPutAddress(struct + WNDCLASSEX.HBRBACKGROUND, value); }
     /** Unsafe version of {@link #lpszMenuName(ByteBuffer) lpszMenuName}. */
-    public static void nlpszMenuName(long struct, ByteBuffer value) {
+    public static void nlpszMenuName(long struct, @Nullable ByteBuffer value) {
         if (CHECKS) { checkNT2Safe(value); }
         memPutAddress(struct + WNDCLASSEX.LPSZMENUNAME, memAddressSafe(value));
     }
     /** Unsafe version of {@link #lpszClassName(ByteBuffer) lpszClassName}. */
     public static void nlpszClassName(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT2Safe(value); }
+        if (CHECKS) { checkNT2(value); }
         memPutAddress(struct + WNDCLASSEX.LPSZCLASSNAME, memAddress(value));
     }
     /** Unsafe version of {@link #hIconSm(long) hIconSm}. */
@@ -471,7 +487,11 @@ public class WNDCLASSEX extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -481,7 +501,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -521,9 +541,11 @@ public class WNDCLASSEX extends Struct implements NativeResource {
         @NativeType("HBRUSH")
         public long hbrBackground() { return WNDCLASSEX.nhbrBackground(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszMenuName} field. */
+        @Nullable
         @NativeType("LPCTSTR")
         public ByteBuffer lpszMenuName() { return WNDCLASSEX.nlpszMenuName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code lpszMenuName} field. */
+        @Nullable
         @NativeType("LPCTSTR")
         public String lpszMenuNameString() { return WNDCLASSEX.nlpszMenuNameString(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code lpszClassName} field. */
@@ -555,7 +577,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
         /** Sets the specified value to the {@code hbrBackground} field. */
         public WNDCLASSEX.Buffer hbrBackground(@NativeType("HBRUSH") long value) { WNDCLASSEX.nhbrBackground(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code lpszMenuName} field. */
-        public WNDCLASSEX.Buffer lpszMenuName(@NativeType("LPCTSTR") ByteBuffer value) { WNDCLASSEX.nlpszMenuName(address(), value); return this; }
+        public WNDCLASSEX.Buffer lpszMenuName(@Nullable @NativeType("LPCTSTR") ByteBuffer value) { WNDCLASSEX.nlpszMenuName(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code lpszClassName} field. */
         public WNDCLASSEX.Buffer lpszClassName(@NativeType("LPCTSTR") ByteBuffer value) { WNDCLASSEX.nlpszClassName(address(), value); return this; }
         /** Sets the specified value to the {@code hIconSm} field. */

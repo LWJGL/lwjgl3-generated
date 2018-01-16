@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -316,7 +318,7 @@ public class EXTDebugReport {
      * @param pCallback   a pointer to record the {@code VkDebugReportCallbackEXT} object created.
      */
     @NativeType("VkResult")
-    public static int vkCreateDebugReportCallbackEXT(VkInstance instance, @NativeType("const VkDebugReportCallbackCreateInfoEXT *") VkDebugReportCallbackCreateInfoEXT pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDebugReportCallbackEXT *") LongBuffer pCallback) {
+    public static int vkCreateDebugReportCallbackEXT(VkInstance instance, @NativeType("const VkDebugReportCallbackCreateInfoEXT *") VkDebugReportCallbackCreateInfoEXT pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDebugReportCallbackEXT *") LongBuffer pCallback) {
         if (CHECKS) {
             check(pCallback, 1);
         }
@@ -378,7 +380,7 @@ public class EXTDebugReport {
      * @param callback   the {@code VkDebugReportCallbackEXT} object to destroy. {@code callback} is an externally synchronized object and <b>must</b> not be used on more than one thread at a time. This means that {@link #vkDestroyDebugReportCallbackEXT DestroyDebugReportCallbackEXT} <b>must</b> not be called when a callback is active.
      * @param pAllocator controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyDebugReportCallbackEXT(VkInstance instance, @NativeType("VkDebugReportCallbackEXT") long callback, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyDebugReportCallbackEXT(VkInstance instance, @NativeType("VkDebugReportCallbackEXT") long callback, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyDebugReportCallbackEXT(instance, callback, memAddressSafe(pAllocator));
     }
 
@@ -512,7 +514,7 @@ public class EXTDebugReport {
 
     /** Array version of: {@link #vkCreateDebugReportCallbackEXT CreateDebugReportCallbackEXT} */
     @NativeType("VkResult")
-    public static int vkCreateDebugReportCallbackEXT(VkInstance instance, @NativeType("const VkDebugReportCallbackCreateInfoEXT *") VkDebugReportCallbackCreateInfoEXT pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDebugReportCallbackEXT *") long[] pCallback) {
+    public static int vkCreateDebugReportCallbackEXT(VkInstance instance, @NativeType("const VkDebugReportCallbackCreateInfoEXT *") VkDebugReportCallbackCreateInfoEXT pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkDebugReportCallbackEXT *") long[] pCallback) {
         long __functionAddress = instance.getCapabilities().vkCreateDebugReportCallbackEXT;
         if (CHECKS) {
             check(__functionAddress);

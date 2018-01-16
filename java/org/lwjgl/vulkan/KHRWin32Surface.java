@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -140,7 +142,7 @@ public class KHRWin32Surface {
      * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateWin32SurfaceKHR(VkInstance instance, @NativeType("const VkWin32SurfaceCreateInfoKHR *") VkWin32SurfaceCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
+    public static int vkCreateWin32SurfaceKHR(VkInstance instance, @NativeType("const VkWin32SurfaceCreateInfoKHR *") VkWin32SurfaceCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
         if (CHECKS) {
             check(pSurface, 1);
         }
@@ -191,7 +193,7 @@ public class KHRWin32Surface {
 
     /** Array version of: {@link #vkCreateWin32SurfaceKHR CreateWin32SurfaceKHR} */
     @NativeType("VkResult")
-    public static int vkCreateWin32SurfaceKHR(VkInstance instance, @NativeType("const VkWin32SurfaceCreateInfoKHR *") VkWin32SurfaceCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
+    public static int vkCreateWin32SurfaceKHR(VkInstance instance, @NativeType("const VkWin32SurfaceCreateInfoKHR *") VkWin32SurfaceCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
         long __functionAddress = instance.getCapabilities().vkCreateWin32SurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);

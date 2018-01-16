@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -114,13 +116,14 @@ public class GLX13 {
      * @param display the connection to the X server
      * @param screen  the screen number
      */
+    @Nullable
     @NativeType("GLXFBConfig *")
     public static PointerBuffer glXGetFBConfigs(@NativeType("Display *") long display, int screen) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer nelements = stack.callocInt(1);
         try {
             long __result = nglXGetFBConfigs(display, screen, memAddress(nelements));
-            return memPointerBuffer(__result, nelements.get(0));
+            return memPointerBufferSafe(__result, nelements.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -149,8 +152,9 @@ public class GLX13 {
      * @param screen      the screen number
      * @param attrib_list a list of attributes terminated with {@code None}
      */
+    @Nullable
     @NativeType("GLXFBConfig *")
-    public static PointerBuffer glXChooseFBConfig(@NativeType("Display *") long display, int screen, @NativeType("const int *") IntBuffer attrib_list) {
+    public static PointerBuffer glXChooseFBConfig(@NativeType("Display *") long display, int screen, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -158,7 +162,7 @@ public class GLX13 {
         IntBuffer nelements = stack.callocInt(1);
         try {
             long __result = nglXChooseFBConfig(display, screen, memAddressSafe(attrib_list), memAddress(nelements));
-            return memPointerBuffer(__result, nelements.get(0));
+            return memPointerBufferSafe(__result, nelements.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -211,10 +215,11 @@ public class GLX13 {
      * @param display the connection to the X server
      * @param config  the GLXFBConfig
      */
+    @Nullable
     @NativeType("XVisualInfo *")
     public static XVisualInfo glXGetVisualFromFBConfig(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config) {
         long __result = nglXGetVisualFromFBConfig(display, config);
-        return XVisualInfo.create(__result);
+        return XVisualInfo.createSafe(__result);
     }
 
     // --- [ glXCreateWindow ] ---
@@ -239,7 +244,7 @@ public class GLX13 {
      * @param attrib_list a list of attributes terminated with {@code None}
      */
     @NativeType("GLXWindow")
-    public static long glXCreateWindow(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Window") long win, @NativeType("const int *") IntBuffer attrib_list) {
+    public static long glXCreateWindow(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Window") long win, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -268,7 +273,7 @@ public class GLX13 {
      * @param attrib_list a list of attributes terminated with {@code None}
      */
     @NativeType("GLXPixmap")
-    public static long glXCreatePixmap(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Pixmap") long pixmap, @NativeType("const int *") IntBuffer attrib_list) {
+    public static long glXCreatePixmap(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Pixmap") long pixmap, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -314,7 +319,7 @@ public class GLX13 {
      * @param attrib_list a list of attributes terminated with {@code None}
      */
     @NativeType("GLXPbuffer")
-    public static long glXCreatePbuffer(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("const int *") IntBuffer attrib_list) {
+    public static long glXCreatePbuffer(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -515,8 +520,9 @@ public class GLX13 {
     }
 
     /** Array version of: {@link #glXChooseFBConfig ChooseFBConfig} */
+    @Nullable
     @NativeType("GLXFBConfig *")
-    public static PointerBuffer glXChooseFBConfig(@NativeType("Display *") long display, int screen, @NativeType("const int *") int[] attrib_list) {
+    public static PointerBuffer glXChooseFBConfig(@NativeType("Display *") long display, int screen, @Nullable @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfig;
         if (CHECKS) {
             check(__functionAddress);
@@ -527,7 +533,7 @@ public class GLX13 {
         IntBuffer nelements = stack.callocInt(1);
         try {
             long __result = callPPPP(__functionAddress, display, screen, attrib_list, memAddress(nelements));
-            return memPointerBuffer(__result, nelements.get(0));
+            return memPointerBufferSafe(__result, nelements.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -547,7 +553,7 @@ public class GLX13 {
 
     /** Array version of: {@link #glXCreateWindow CreateWindow} */
     @NativeType("GLXWindow")
-    public static long glXCreateWindow(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Window") long win, @NativeType("const int *") int[] attrib_list) {
+    public static long glXCreateWindow(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Window") long win, @Nullable @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateWindow;
         if (CHECKS) {
             check(__functionAddress);
@@ -560,7 +566,7 @@ public class GLX13 {
 
     /** Array version of: {@link #glXCreatePixmap CreatePixmap} */
     @NativeType("GLXPixmap")
-    public static long glXCreatePixmap(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Pixmap") long pixmap, @NativeType("const int *") int[] attrib_list) {
+    public static long glXCreatePixmap(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("Pixmap") long pixmap, @Nullable @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePixmap;
         if (CHECKS) {
             check(__functionAddress);
@@ -573,7 +579,7 @@ public class GLX13 {
 
     /** Array version of: {@link #glXCreatePbuffer CreatePbuffer} */
     @NativeType("GLXPbuffer")
-    public static long glXCreatePbuffer(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("const int *") int[] attrib_list) {
+    public static long glXCreatePbuffer(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @Nullable @NativeType("const int *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreatePbuffer;
         if (CHECKS) {
             check(__functionAddress);

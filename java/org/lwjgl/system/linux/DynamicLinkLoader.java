@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.linux;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -58,7 +60,7 @@ public class DynamicLinkLoader {
      * @param mode     a bitfield. One or more of:<br><table><tr><td>{@link #RTLD_LAZY}</td><td>{@link #RTLD_NOW}</td><td>{@link #RTLD_BINDING_MASK}</td><td>{@link #RTLD_NOLOAD}</td><td>{@link #RTLD_DEEPBIND}</td><td>{@link #RTLD_GLOBAL}</td></tr><tr><td>{@link #RTLD_LOCAL}</td><td>{@link #RTLD_NODELETE}</td></tr></table>
      */
     @NativeType("void *")
-    public static long dlopen(@NativeType("const char *") ByteBuffer filename, int mode) {
+    public static long dlopen(@Nullable @NativeType("const char *") ByteBuffer filename, int mode) {
         if (CHECKS) {
             checkNT1Safe(filename);
         }
@@ -73,10 +75,10 @@ public class DynamicLinkLoader {
      * @param mode     a bitfield. One or more of:<br><table><tr><td>{@link #RTLD_LAZY}</td><td>{@link #RTLD_NOW}</td><td>{@link #RTLD_BINDING_MASK}</td><td>{@link #RTLD_NOLOAD}</td><td>{@link #RTLD_DEEPBIND}</td><td>{@link #RTLD_GLOBAL}</td></tr><tr><td>{@link #RTLD_LOCAL}</td><td>{@link #RTLD_NODELETE}</td></tr></table>
      */
     @NativeType("void *")
-    public static long dlopen(@NativeType("const char *") CharSequence filename, @NativeType("int") int mode) {
+    public static long dlopen(@Nullable @NativeType("const char *") CharSequence filename, @NativeType("int") int mode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer filenameEncoded = stack.ASCII(filename);
+            ByteBuffer filenameEncoded = stack.ASCIISafe(filename);
             return ndlopen(memAddressSafe(filenameEncoded), mode);
         } finally {
             stack.setPointer(stackPointer);
@@ -92,10 +94,11 @@ public class DynamicLinkLoader {
      * Returns a human readable string describing the most recent error that occurred from {@link #dlopen}, {@link #dlsym} or {@link #dlclose} since
      * the last call to {@code dlerror()}. It returns {@code NULL} if no errors have occurred since initialization or since it was last called.
      */
+    @Nullable
     @NativeType("char *")
     public static String dlerror() {
         long __result = ndlerror();
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ dlsym ] ---

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.windows;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -67,7 +69,7 @@ public class WinBase {
      *                   <p>If this parameter is {@code NULL}, {@code GetModuleHandle} returns a handle to the file used to create the calling process (.exe file).</p>
      */
     @NativeType("HMODULE")
-    public static long GetModuleHandle(@NativeType("LPCTSTR") ByteBuffer moduleName) {
+    public static long GetModuleHandle(@Nullable @NativeType("LPCTSTR") ByteBuffer moduleName) {
         if (CHECKS) {
             checkNT2Safe(moduleName);
         }
@@ -85,10 +87,10 @@ public class WinBase {
      *                   <p>If this parameter is {@code NULL}, {@code GetModuleHandle} returns a handle to the file used to create the calling process (.exe file).</p>
      */
     @NativeType("HMODULE")
-    public static long GetModuleHandle(@NativeType("LPCTSTR") CharSequence moduleName) {
+    public static long GetModuleHandle(@Nullable @NativeType("LPCTSTR") CharSequence moduleName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer moduleNameEncoded = stack.UTF16(moduleName);
+            ByteBuffer moduleNameEncoded = stack.UTF16Safe(moduleName);
             return nGetModuleHandle(memAddressSafe(moduleNameEncoded));
         } finally {
             stack.setPointer(stackPointer);

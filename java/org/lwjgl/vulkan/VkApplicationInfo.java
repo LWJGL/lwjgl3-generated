@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -95,7 +97,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
         APIVERSION = layout.offsetof(6);
     }
 
-    VkApplicationInfo(long address, ByteBuffer container) {
+    VkApplicationInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -106,7 +108,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkApplicationInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -119,18 +121,22 @@ public class VkApplicationInfo extends Struct implements NativeResource {
     @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pApplicationName} field. */
+    @Nullable
     @NativeType("const char *")
     public ByteBuffer pApplicationName() { return npApplicationName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pApplicationName} field. */
+    @Nullable
     @NativeType("const char *")
     public String pApplicationNameString() { return npApplicationNameString(address()); }
     /** Returns the value of the {@code applicationVersion} field. */
     @NativeType("uint32_t")
     public int applicationVersion() { return napplicationVersion(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pEngineName} field. */
+    @Nullable
     @NativeType("const char *")
     public ByteBuffer pEngineName() { return npEngineName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pEngineName} field. */
+    @Nullable
     @NativeType("const char *")
     public String pEngineNameString() { return npEngineNameString(address()); }
     /** Returns the value of the {@code engineVersion} field. */
@@ -145,11 +151,11 @@ public class VkApplicationInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code pNext} field. */
     public VkApplicationInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code pApplicationName} field. */
-    public VkApplicationInfo pApplicationName(@NativeType("const char *") ByteBuffer value) { npApplicationName(address(), value); return this; }
+    public VkApplicationInfo pApplicationName(@Nullable @NativeType("const char *") ByteBuffer value) { npApplicationName(address(), value); return this; }
     /** Sets the specified value to the {@code applicationVersion} field. */
     public VkApplicationInfo applicationVersion(@NativeType("uint32_t") int value) { napplicationVersion(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code pEngineName} field. */
-    public VkApplicationInfo pEngineName(@NativeType("const char *") ByteBuffer value) { npEngineName(address(), value); return this; }
+    public VkApplicationInfo pEngineName(@Nullable @NativeType("const char *") ByteBuffer value) { npEngineName(address(), value); return this; }
     /** Sets the specified value to the {@code engineVersion} field. */
     public VkApplicationInfo engineVersion(@NativeType("uint32_t") int value) { nengineVersion(address(), value); return this; }
     /** Sets the specified value to the {@code apiVersion} field. */
@@ -192,12 +198,12 @@ public class VkApplicationInfo extends Struct implements NativeResource {
 
     /** Returns a new {@link VkApplicationInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkApplicationInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkApplicationInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkApplicationInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkApplicationInfo} instance allocated with {@link BufferUtils}. */
@@ -205,9 +211,15 @@ public class VkApplicationInfo extends Struct implements NativeResource {
         return new VkApplicationInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkApplicationInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkApplicationInfo} instance for the specified memory address. */
     public static VkApplicationInfo create(long address) {
-        return address == NULL ? null : new VkApplicationInfo(address, null);
+        return new VkApplicationInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkApplicationInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -215,7 +227,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkApplicationInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -224,8 +236,8 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkApplicationInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -233,7 +245,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkApplicationInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -243,8 +255,14 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkApplicationInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkApplicationInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -282,7 +300,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkApplicationInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -291,7 +309,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkApplicationInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -301,7 +319,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkApplicationInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -311,7 +329,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkApplicationInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -322,15 +340,15 @@ public class VkApplicationInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #pNext}. */
     public static long npNext(long struct) { return memGetAddress(struct + VkApplicationInfo.PNEXT); }
     /** Unsafe version of {@link #pApplicationName}. */
-    public static ByteBuffer npApplicationName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
+    @Nullable public static ByteBuffer npApplicationName(long struct) { return memByteBufferNT1Safe(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
     /** Unsafe version of {@link #pApplicationNameString}. */
-    public static String npApplicationNameString(long struct) { return memUTF8(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
+    @Nullable public static String npApplicationNameString(long struct) { return memUTF8Safe(memGetAddress(struct + VkApplicationInfo.PAPPLICATIONNAME)); }
     /** Unsafe version of {@link #applicationVersion}. */
     public static int napplicationVersion(long struct) { return memGetInt(struct + VkApplicationInfo.APPLICATIONVERSION); }
     /** Unsafe version of {@link #pEngineName}. */
-    public static ByteBuffer npEngineName(long struct) { return memByteBufferNT1(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
+    @Nullable public static ByteBuffer npEngineName(long struct) { return memByteBufferNT1Safe(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
     /** Unsafe version of {@link #pEngineNameString}. */
-    public static String npEngineNameString(long struct) { return memUTF8(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
+    @Nullable public static String npEngineNameString(long struct) { return memUTF8Safe(memGetAddress(struct + VkApplicationInfo.PENGINENAME)); }
     /** Unsafe version of {@link #engineVersion}. */
     public static int nengineVersion(long struct) { return memGetInt(struct + VkApplicationInfo.ENGINEVERSION); }
     /** Unsafe version of {@link #apiVersion}. */
@@ -341,14 +359,14 @@ public class VkApplicationInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #pNext(long) pNext}. */
     public static void npNext(long struct, long value) { memPutAddress(struct + VkApplicationInfo.PNEXT, value); }
     /** Unsafe version of {@link #pApplicationName(ByteBuffer) pApplicationName}. */
-    public static void npApplicationName(long struct, ByteBuffer value) {
+    public static void npApplicationName(long struct, @Nullable ByteBuffer value) {
         if (CHECKS) { checkNT1Safe(value); }
         memPutAddress(struct + VkApplicationInfo.PAPPLICATIONNAME, memAddressSafe(value));
     }
     /** Unsafe version of {@link #applicationVersion(int) applicationVersion}. */
     public static void napplicationVersion(long struct, int value) { memPutInt(struct + VkApplicationInfo.APPLICATIONVERSION, value); }
     /** Unsafe version of {@link #pEngineName(ByteBuffer) pEngineName}. */
-    public static void npEngineName(long struct, ByteBuffer value) {
+    public static void npEngineName(long struct, @Nullable ByteBuffer value) {
         if (CHECKS) { checkNT1Safe(value); }
         memPutAddress(struct + VkApplicationInfo.PENGINENAME, memAddressSafe(value));
     }
@@ -375,7 +393,11 @@ public class VkApplicationInfo extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -385,7 +407,7 @@ public class VkApplicationInfo extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -406,18 +428,22 @@ public class VkApplicationInfo extends Struct implements NativeResource {
         @NativeType("const void *")
         public long pNext() { return VkApplicationInfo.npNext(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pApplicationName} field. */
+        @Nullable
         @NativeType("const char *")
         public ByteBuffer pApplicationName() { return VkApplicationInfo.npApplicationName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pApplicationName} field. */
+        @Nullable
         @NativeType("const char *")
         public String pApplicationNameString() { return VkApplicationInfo.npApplicationNameString(address()); }
         /** Returns the value of the {@code applicationVersion} field. */
         @NativeType("uint32_t")
         public int applicationVersion() { return VkApplicationInfo.napplicationVersion(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pEngineName} field. */
+        @Nullable
         @NativeType("const char *")
         public ByteBuffer pEngineName() { return VkApplicationInfo.npEngineName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pEngineName} field. */
+        @Nullable
         @NativeType("const char *")
         public String pEngineNameString() { return VkApplicationInfo.npEngineNameString(address()); }
         /** Returns the value of the {@code engineVersion} field. */
@@ -432,11 +458,11 @@ public class VkApplicationInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code pNext} field. */
         public VkApplicationInfo.Buffer pNext(@NativeType("const void *") long value) { VkApplicationInfo.npNext(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code pApplicationName} field. */
-        public VkApplicationInfo.Buffer pApplicationName(@NativeType("const char *") ByteBuffer value) { VkApplicationInfo.npApplicationName(address(), value); return this; }
+        public VkApplicationInfo.Buffer pApplicationName(@Nullable @NativeType("const char *") ByteBuffer value) { VkApplicationInfo.npApplicationName(address(), value); return this; }
         /** Sets the specified value to the {@code applicationVersion} field. */
         public VkApplicationInfo.Buffer applicationVersion(@NativeType("uint32_t") int value) { VkApplicationInfo.napplicationVersion(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code pEngineName} field. */
-        public VkApplicationInfo.Buffer pEngineName(@NativeType("const char *") ByteBuffer value) { VkApplicationInfo.npEngineName(address(), value); return this; }
+        public VkApplicationInfo.Buffer pEngineName(@Nullable @NativeType("const char *") ByteBuffer value) { VkApplicationInfo.npEngineName(address(), value); return this; }
         /** Sets the specified value to the {@code engineVersion} field. */
         public VkApplicationInfo.Buffer engineVersion(@NativeType("uint32_t") int value) { VkApplicationInfo.nengineVersion(address(), value); return this; }
         /** Sets the specified value to the {@code apiVersion} field. */

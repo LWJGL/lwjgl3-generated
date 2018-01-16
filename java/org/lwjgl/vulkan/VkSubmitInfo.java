@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -123,7 +125,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
         PSIGNALSEMAPHORES = layout.offsetof(8);
     }
 
-    VkSubmitInfo(long address, ByteBuffer container) {
+    VkSubmitInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -134,7 +136,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkSubmitInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -150,21 +152,25 @@ public class VkSubmitInfo extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+    @Nullable
     @NativeType("const VkSemaphore *")
     public LongBuffer pWaitSemaphores() { return npWaitSemaphores(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field. */
+    @Nullable
     @NativeType("const VkPipelineStageFlags *")
     public IntBuffer pWaitDstStageMask() { return npWaitDstStageMask(address()); }
     /** Returns the value of the {@code commandBufferCount} field. */
     @NativeType("uint32_t")
     public int commandBufferCount() { return ncommandBufferCount(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field. */
+    @Nullable
     @NativeType("const VkCommandBuffer *")
     public PointerBuffer pCommandBuffers() { return npCommandBuffers(address()); }
     /** Returns the value of the {@code signalSemaphoreCount} field. */
     @NativeType("uint32_t")
     public int signalSemaphoreCount() { return nsignalSemaphoreCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field. */
+    @Nullable
     @NativeType("const VkSemaphore *")
     public LongBuffer pSignalSemaphores() { return npSignalSemaphores(address()); }
 
@@ -175,13 +181,13 @@ public class VkSubmitInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code waitSemaphoreCount} field. */
     public VkSubmitInfo waitSemaphoreCount(@NativeType("uint32_t") int value) { nwaitSemaphoreCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-    public VkSubmitInfo pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { npWaitSemaphores(address(), value); return this; }
+    public VkSubmitInfo pWaitSemaphores(@Nullable @NativeType("const VkSemaphore *") LongBuffer value) { npWaitSemaphores(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */
-    public VkSubmitInfo pWaitDstStageMask(@NativeType("const VkPipelineStageFlags *") IntBuffer value) { npWaitDstStageMask(address(), value); return this; }
+    public VkSubmitInfo pWaitDstStageMask(@Nullable @NativeType("const VkPipelineStageFlags *") IntBuffer value) { npWaitDstStageMask(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code pCommandBuffers} field. */
-    public VkSubmitInfo pCommandBuffers(@NativeType("const VkCommandBuffer *") PointerBuffer value) { npCommandBuffers(address(), value); return this; }
+    public VkSubmitInfo pCommandBuffers(@Nullable @NativeType("const VkCommandBuffer *") PointerBuffer value) { npCommandBuffers(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
-    public VkSubmitInfo pSignalSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { npSignalSemaphores(address(), value); return this; }
+    public VkSubmitInfo pSignalSemaphores(@Nullable @NativeType("const VkSemaphore *") LongBuffer value) { npSignalSemaphores(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSubmitInfo set(
@@ -220,12 +226,12 @@ public class VkSubmitInfo extends Struct implements NativeResource {
 
     /** Returns a new {@link VkSubmitInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkSubmitInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkSubmitInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkSubmitInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkSubmitInfo} instance allocated with {@link BufferUtils}. */
@@ -233,9 +239,15 @@ public class VkSubmitInfo extends Struct implements NativeResource {
         return new VkSubmitInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkSubmitInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkSubmitInfo} instance for the specified memory address. */
     public static VkSubmitInfo create(long address) {
-        return address == NULL ? null : new VkSubmitInfo(address, null);
+        return new VkSubmitInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkSubmitInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -243,7 +255,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkSubmitInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -252,8 +264,8 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkSubmitInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -261,7 +273,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkSubmitInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -271,8 +283,14 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkSubmitInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkSubmitInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -310,7 +328,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkSubmitInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -319,7 +337,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkSubmitInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -329,7 +347,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkSubmitInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -339,7 +357,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkSubmitInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -352,17 +370,17 @@ public class VkSubmitInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #waitSemaphoreCount}. */
     public static int nwaitSemaphoreCount(long struct) { return memGetInt(struct + VkSubmitInfo.WAITSEMAPHORECOUNT); }
     /** Unsafe version of {@link #pWaitSemaphores() pWaitSemaphores}. */
-    public static LongBuffer npWaitSemaphores(long struct) { return memLongBuffer(memGetAddress(struct + VkSubmitInfo.PWAITSEMAPHORES), nwaitSemaphoreCount(struct)); }
+    @Nullable public static LongBuffer npWaitSemaphores(long struct) { return memLongBufferSafe(memGetAddress(struct + VkSubmitInfo.PWAITSEMAPHORES), nwaitSemaphoreCount(struct)); }
     /** Unsafe version of {@link #pWaitDstStageMask() pWaitDstStageMask}. */
-    public static IntBuffer npWaitDstStageMask(long struct) { return memIntBuffer(memGetAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK), nwaitSemaphoreCount(struct)); }
+    @Nullable public static IntBuffer npWaitDstStageMask(long struct) { return memIntBufferSafe(memGetAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK), nwaitSemaphoreCount(struct)); }
     /** Unsafe version of {@link #commandBufferCount}. */
     public static int ncommandBufferCount(long struct) { return memGetInt(struct + VkSubmitInfo.COMMANDBUFFERCOUNT); }
     /** Unsafe version of {@link #pCommandBuffers() pCommandBuffers}. */
-    public static PointerBuffer npCommandBuffers(long struct) { return memPointerBuffer(memGetAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS), ncommandBufferCount(struct)); }
+    @Nullable public static PointerBuffer npCommandBuffers(long struct) { return memPointerBufferSafe(memGetAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS), ncommandBufferCount(struct)); }
     /** Unsafe version of {@link #signalSemaphoreCount}. */
     public static int nsignalSemaphoreCount(long struct) { return memGetInt(struct + VkSubmitInfo.SIGNALSEMAPHORECOUNT); }
     /** Unsafe version of {@link #pSignalSemaphores() pSignalSemaphores}. */
-    public static LongBuffer npSignalSemaphores(long struct) { return memLongBuffer(memGetAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES), nsignalSemaphoreCount(struct)); }
+    @Nullable public static LongBuffer npSignalSemaphores(long struct) { return memLongBufferSafe(memGetAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES), nsignalSemaphoreCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkSubmitInfo.STYPE, value); }
@@ -371,17 +389,17 @@ public class VkSubmitInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code waitSemaphoreCount} field of the specified {@code struct}. */
     public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.WAITSEMAPHORECOUNT, value); }
     /** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
-    public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITSEMAPHORES, memAddressSafe(value)); }
+    public static void npWaitSemaphores(long struct, @Nullable LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITSEMAPHORES, memAddressSafe(value)); }
     /** Unsafe version of {@link #pWaitDstStageMask(IntBuffer) pWaitDstStageMask}. */
-    public static void npWaitDstStageMask(long struct, IntBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK, memAddressSafe(value)); }
+    public static void npWaitDstStageMask(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkSubmitInfo.PWAITDSTSTAGEMASK, memAddressSafe(value)); }
     /** Sets the specified value to the {@code commandBufferCount} field of the specified {@code struct}. */
     public static void ncommandBufferCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.COMMANDBUFFERCOUNT, value); }
     /** Unsafe version of {@link #pCommandBuffers(PointerBuffer) pCommandBuffers}. */
-    public static void npCommandBuffers(long struct, PointerBuffer value) { memPutAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS, memAddressSafe(value)); ncommandBufferCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npCommandBuffers(long struct, @Nullable PointerBuffer value) { memPutAddress(struct + VkSubmitInfo.PCOMMANDBUFFERS, memAddressSafe(value)); ncommandBufferCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code signalSemaphoreCount} field of the specified {@code struct}. */
     public static void nsignalSemaphoreCount(long struct, int value) { memPutInt(struct + VkSubmitInfo.SIGNALSEMAPHORECOUNT, value); }
     /** Unsafe version of {@link #pSignalSemaphores(LongBuffer) pSignalSemaphores}. */
-    public static void npSignalSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES, memAddressSafe(value)); nsignalSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npSignalSemaphores(long struct, @Nullable LongBuffer value) { memPutAddress(struct + VkSubmitInfo.PSIGNALSEMAPHORES, memAddressSafe(value)); nsignalSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -431,7 +449,11 @@ public class VkSubmitInfo extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -441,7 +463,7 @@ public class VkSubmitInfo extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -465,21 +487,25 @@ public class VkSubmitInfo extends Struct implements NativeResource {
         @NativeType("uint32_t")
         public int waitSemaphoreCount() { return VkSubmitInfo.nwaitSemaphoreCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+        @Nullable
         @NativeType("const VkSemaphore *")
         public LongBuffer pWaitSemaphores() { return VkSubmitInfo.npWaitSemaphores(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitDstStageMask} field. */
+        @Nullable
         @NativeType("const VkPipelineStageFlags *")
         public IntBuffer pWaitDstStageMask() { return VkSubmitInfo.npWaitDstStageMask(address()); }
         /** Returns the value of the {@code commandBufferCount} field. */
         @NativeType("uint32_t")
         public int commandBufferCount() { return VkSubmitInfo.ncommandBufferCount(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pCommandBuffers} field. */
+        @Nullable
         @NativeType("const VkCommandBuffer *")
         public PointerBuffer pCommandBuffers() { return VkSubmitInfo.npCommandBuffers(address()); }
         /** Returns the value of the {@code signalSemaphoreCount} field. */
         @NativeType("uint32_t")
         public int signalSemaphoreCount() { return VkSubmitInfo.nsignalSemaphoreCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pSignalSemaphores} field. */
+        @Nullable
         @NativeType("const VkSemaphore *")
         public LongBuffer pSignalSemaphores() { return VkSubmitInfo.npSignalSemaphores(address()); }
 
@@ -490,13 +516,13 @@ public class VkSubmitInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code waitSemaphoreCount} field. */
         public VkSubmitInfo.Buffer waitSemaphoreCount(@NativeType("uint32_t") int value) { VkSubmitInfo.nwaitSemaphoreCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-        public VkSubmitInfo.Buffer pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { VkSubmitInfo.npWaitSemaphores(address(), value); return this; }
+        public VkSubmitInfo.Buffer pWaitSemaphores(@Nullable @NativeType("const VkSemaphore *") LongBuffer value) { VkSubmitInfo.npWaitSemaphores(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pWaitDstStageMask} field. */
-        public VkSubmitInfo.Buffer pWaitDstStageMask(@NativeType("const VkPipelineStageFlags *") IntBuffer value) { VkSubmitInfo.npWaitDstStageMask(address(), value); return this; }
+        public VkSubmitInfo.Buffer pWaitDstStageMask(@Nullable @NativeType("const VkPipelineStageFlags *") IntBuffer value) { VkSubmitInfo.npWaitDstStageMask(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code pCommandBuffers} field. */
-        public VkSubmitInfo.Buffer pCommandBuffers(@NativeType("const VkCommandBuffer *") PointerBuffer value) { VkSubmitInfo.npCommandBuffers(address(), value); return this; }
+        public VkSubmitInfo.Buffer pCommandBuffers(@Nullable @NativeType("const VkCommandBuffer *") PointerBuffer value) { VkSubmitInfo.npCommandBuffers(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pSignalSemaphores} field. */
-        public VkSubmitInfo.Buffer pSignalSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { VkSubmitInfo.npSignalSemaphores(address(), value); return this; }
+        public VkSubmitInfo.Buffer pSignalSemaphores(@Nullable @NativeType("const VkSemaphore *") LongBuffer value) { VkSubmitInfo.npSignalSemaphores(address(), value); return this; }
 
     }
 

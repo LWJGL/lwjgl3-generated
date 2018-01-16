@@ -12,5 +12,6 @@
  * <p>The <a target="_blank" href="https://www.khronos.org/registry/EGL/">Khronos EGL registry</a> is a useful online resource that contains the EGL specification, as well
  * as specifications of EGL extensions.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.egl;
 

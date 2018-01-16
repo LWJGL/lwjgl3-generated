@@ -5,6 +5,8 @@
  */
 package org.lwjgl.bgfx;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -140,7 +142,7 @@ public class BGFXCapsLimits extends Struct {
         MAXENCODERS = layout.offsetof(18);
     }
 
-    BGFXCapsLimits(long address, ByteBuffer container) {
+    BGFXCapsLimits(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -151,7 +153,7 @@ public class BGFXCapsLimits extends Struct {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public BGFXCapsLimits(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -217,9 +219,15 @@ public class BGFXCapsLimits extends Struct {
 
     // -----------------------------------
 
-    /** Returns a new {@link BGFXCapsLimits} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link BGFXCapsLimits} instance for the specified memory address. */
     public static BGFXCapsLimits create(long address) {
-        return address == NULL ? null : new BGFXCapsLimits(address, null);
+        return new BGFXCapsLimits(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static BGFXCapsLimits createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -228,8 +236,14 @@ public class BGFXCapsLimits extends Struct {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static BGFXCapsLimits.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static BGFXCapsLimits.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -291,7 +305,11 @@ public class BGFXCapsLimits extends Struct {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -301,7 +319,7 @@ public class BGFXCapsLimits extends Struct {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 

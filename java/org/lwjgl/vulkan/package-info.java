@@ -13,5 +13,6 @@
  * 
  * <p><b>macOS</b>: Vulkan can be used on macOS with a solution that emulates it over Metal, like <a target="_blank" href="https://moltengl.com/moltenvk/">MoltenVK</a>.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.vulkan;
 

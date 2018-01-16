@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -52,10 +54,11 @@ public class SOFTSourceResampler {
         return invokeP(__functionAddress, pname, index);
     }
 
+    @Nullable
     @NativeType("const ALchar *")
     public static String alGetStringiSOFT(@NativeType("ALenum") int pname, @NativeType("ALsizei") int index) {
         long __result = nalGetStringiSOFT(pname, index);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
 }

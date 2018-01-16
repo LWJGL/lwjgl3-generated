@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -124,7 +126,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
         PCORRELATIONMASKS = layout.offsetof(7);
     }
 
-    VkRenderPassMultiviewCreateInfoKHX(long address, ByteBuffer container) {
+    VkRenderPassMultiviewCreateInfoKHX(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -135,7 +137,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkRenderPassMultiviewCreateInfoKHX(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -151,18 +153,21 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
     @NativeType("uint32_t")
     public int subpassCount() { return nsubpassCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewMasks} field. */
+    @Nullable
     @NativeType("const uint32_t *")
     public IntBuffer pViewMasks() { return npViewMasks(address()); }
     /** Returns the value of the {@code dependencyCount} field. */
     @NativeType("uint32_t")
     public int dependencyCount() { return ndependencyCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewOffsets} field. */
+    @Nullable
     @NativeType("const int32_t *")
     public IntBuffer pViewOffsets() { return npViewOffsets(address()); }
     /** Returns the value of the {@code correlationMaskCount} field. */
     @NativeType("uint32_t")
     public int correlationMaskCount() { return ncorrelationMaskCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pCorrelationMasks} field. */
+    @Nullable
     @NativeType("const uint32_t *")
     public IntBuffer pCorrelationMasks() { return npCorrelationMasks(address()); }
 
@@ -171,11 +176,11 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
     /** Sets the specified value to the {@code pNext} field. */
     public VkRenderPassMultiviewCreateInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pViewMasks} field. */
-    public VkRenderPassMultiviewCreateInfoKHX pViewMasks(@NativeType("const uint32_t *") IntBuffer value) { npViewMasks(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX pViewMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npViewMasks(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pViewOffsets} field. */
-    public VkRenderPassMultiviewCreateInfoKHX pViewOffsets(@NativeType("const int32_t *") IntBuffer value) { npViewOffsets(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX pViewOffsets(@Nullable @NativeType("const int32_t *") IntBuffer value) { npViewOffsets(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pCorrelationMasks} field. */
-    public VkRenderPassMultiviewCreateInfoKHX pCorrelationMasks(@NativeType("const uint32_t *") IntBuffer value) { npCorrelationMasks(address(), value); return this; }
+    public VkRenderPassMultiviewCreateInfoKHX pCorrelationMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npCorrelationMasks(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkRenderPassMultiviewCreateInfoKHX set(
@@ -210,12 +215,12 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
 
     /** Returns a new {@link VkRenderPassMultiviewCreateInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkRenderPassMultiviewCreateInfoKHX malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkRenderPassMultiviewCreateInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkRenderPassMultiviewCreateInfoKHX calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkRenderPassMultiviewCreateInfoKHX} instance allocated with {@link BufferUtils}. */
@@ -223,9 +228,15 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
         return new VkRenderPassMultiviewCreateInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkRenderPassMultiviewCreateInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkRenderPassMultiviewCreateInfoKHX} instance for the specified memory address. */
     public static VkRenderPassMultiviewCreateInfoKHX create(long address) {
-        return address == NULL ? null : new VkRenderPassMultiviewCreateInfoKHX(address, null);
+        return new VkRenderPassMultiviewCreateInfoKHX(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkRenderPassMultiviewCreateInfoKHX createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -233,7 +244,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -242,8 +253,8 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -251,7 +262,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -261,8 +272,14 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -300,7 +317,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -309,7 +326,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -319,7 +336,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -329,7 +346,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkRenderPassMultiviewCreateInfoKHX.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -342,15 +359,15 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
     /** Unsafe version of {@link #subpassCount}. */
     public static int nsubpassCount(long struct) { return memGetInt(struct + VkRenderPassMultiviewCreateInfoKHX.SUBPASSCOUNT); }
     /** Unsafe version of {@link #pViewMasks() pViewMasks}. */
-    public static IntBuffer npViewMasks(long struct) { return memIntBuffer(memGetAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWMASKS), nsubpassCount(struct)); }
+    @Nullable public static IntBuffer npViewMasks(long struct) { return memIntBufferSafe(memGetAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWMASKS), nsubpassCount(struct)); }
     /** Unsafe version of {@link #dependencyCount}. */
     public static int ndependencyCount(long struct) { return memGetInt(struct + VkRenderPassMultiviewCreateInfoKHX.DEPENDENCYCOUNT); }
     /** Unsafe version of {@link #pViewOffsets() pViewOffsets}. */
-    public static IntBuffer npViewOffsets(long struct) { return memIntBuffer(memGetAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWOFFSETS), ndependencyCount(struct)); }
+    @Nullable public static IntBuffer npViewOffsets(long struct) { return memIntBufferSafe(memGetAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWOFFSETS), ndependencyCount(struct)); }
     /** Unsafe version of {@link #correlationMaskCount}. */
     public static int ncorrelationMaskCount(long struct) { return memGetInt(struct + VkRenderPassMultiviewCreateInfoKHX.CORRELATIONMASKCOUNT); }
     /** Unsafe version of {@link #pCorrelationMasks() pCorrelationMasks}. */
-    public static IntBuffer npCorrelationMasks(long struct) { return memIntBuffer(memGetAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PCORRELATIONMASKS), ncorrelationMaskCount(struct)); }
+    @Nullable public static IntBuffer npCorrelationMasks(long struct) { return memIntBufferSafe(memGetAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PCORRELATIONMASKS), ncorrelationMaskCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkRenderPassMultiviewCreateInfoKHX.STYPE, value); }
@@ -359,15 +376,15 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
     /** Sets the specified value to the {@code subpassCount} field of the specified {@code struct}. */
     public static void nsubpassCount(long struct, int value) { memPutInt(struct + VkRenderPassMultiviewCreateInfoKHX.SUBPASSCOUNT, value); }
     /** Unsafe version of {@link #pViewMasks(IntBuffer) pViewMasks}. */
-    public static void npViewMasks(long struct, IntBuffer value) { memPutAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWMASKS, memAddressSafe(value)); nsubpassCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npViewMasks(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWMASKS, memAddressSafe(value)); nsubpassCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code dependencyCount} field of the specified {@code struct}. */
     public static void ndependencyCount(long struct, int value) { memPutInt(struct + VkRenderPassMultiviewCreateInfoKHX.DEPENDENCYCOUNT, value); }
     /** Unsafe version of {@link #pViewOffsets(IntBuffer) pViewOffsets}. */
-    public static void npViewOffsets(long struct, IntBuffer value) { memPutAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWOFFSETS, memAddressSafe(value)); ndependencyCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npViewOffsets(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PVIEWOFFSETS, memAddressSafe(value)); ndependencyCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code correlationMaskCount} field of the specified {@code struct}. */
     public static void ncorrelationMaskCount(long struct, int value) { memPutInt(struct + VkRenderPassMultiviewCreateInfoKHX.CORRELATIONMASKCOUNT, value); }
     /** Unsafe version of {@link #pCorrelationMasks(IntBuffer) pCorrelationMasks}. */
-    public static void npCorrelationMasks(long struct, IntBuffer value) { memPutAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PCORRELATIONMASKS, memAddressSafe(value)); ncorrelationMaskCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npCorrelationMasks(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkRenderPassMultiviewCreateInfoKHX.PCORRELATIONMASKS, memAddressSafe(value)); ncorrelationMaskCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -416,7 +433,11 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -426,7 +447,7 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -450,18 +471,21 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
         @NativeType("uint32_t")
         public int subpassCount() { return VkRenderPassMultiviewCreateInfoKHX.nsubpassCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewMasks} field. */
+        @Nullable
         @NativeType("const uint32_t *")
         public IntBuffer pViewMasks() { return VkRenderPassMultiviewCreateInfoKHX.npViewMasks(address()); }
         /** Returns the value of the {@code dependencyCount} field. */
         @NativeType("uint32_t")
         public int dependencyCount() { return VkRenderPassMultiviewCreateInfoKHX.ndependencyCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pViewOffsets} field. */
+        @Nullable
         @NativeType("const int32_t *")
         public IntBuffer pViewOffsets() { return VkRenderPassMultiviewCreateInfoKHX.npViewOffsets(address()); }
         /** Returns the value of the {@code correlationMaskCount} field. */
         @NativeType("uint32_t")
         public int correlationMaskCount() { return VkRenderPassMultiviewCreateInfoKHX.ncorrelationMaskCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pCorrelationMasks} field. */
+        @Nullable
         @NativeType("const uint32_t *")
         public IntBuffer pCorrelationMasks() { return VkRenderPassMultiviewCreateInfoKHX.npCorrelationMasks(address()); }
 
@@ -470,11 +494,11 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
         /** Sets the specified value to the {@code pNext} field. */
         public VkRenderPassMultiviewCreateInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkRenderPassMultiviewCreateInfoKHX.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pViewMasks} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewMasks(@NativeType("const uint32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewMasks(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewMasks(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pViewOffsets} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewOffsets(@NativeType("const int32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewOffsets(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer pViewOffsets(@Nullable @NativeType("const int32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npViewOffsets(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pCorrelationMasks} field. */
-        public VkRenderPassMultiviewCreateInfoKHX.Buffer pCorrelationMasks(@NativeType("const uint32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npCorrelationMasks(address(), value); return this; }
+        public VkRenderPassMultiviewCreateInfoKHX.Buffer pCorrelationMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkRenderPassMultiviewCreateInfoKHX.npCorrelationMasks(address(), value); return this; }
 
     }
 

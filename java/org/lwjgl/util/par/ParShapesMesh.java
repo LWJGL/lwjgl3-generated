@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.par;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -77,7 +79,7 @@ public class ParShapesMesh extends Struct {
         TCOORDS = layout.offsetof(5);
     }
 
-    ParShapesMesh(long address, ByteBuffer container) {
+    ParShapesMesh(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -88,7 +90,7 @@ public class ParShapesMesh extends Struct {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public ParShapesMesh(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -117,6 +119,7 @@ public class ParShapesMesh extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @Nullable
     @NativeType("float *")
     public FloatBuffer normals(int capacity) { return nnormals(address(), capacity); }
     /**
@@ -124,14 +127,21 @@ public class ParShapesMesh extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @Nullable
     @NativeType("float *")
     public FloatBuffer tcoords(int capacity) { return ntcoords(address(), capacity); }
 
     // -----------------------------------
 
-    /** Returns a new {@link ParShapesMesh} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link ParShapesMesh} instance for the specified memory address. */
     public static ParShapesMesh create(long address) {
-        return address == NULL ? null : new ParShapesMesh(address, null);
+        return new ParShapesMesh(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static ParShapesMesh createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -140,8 +150,14 @@ public class ParShapesMesh extends Struct {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static ParShapesMesh.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static ParShapesMesh.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -155,9 +171,9 @@ public class ParShapesMesh extends Struct {
     /** Unsafe version of {@link #ntriangles}. */
     public static int nntriangles(long struct) { return memGetInt(struct + ParShapesMesh.NTRIANGLES); }
     /** Unsafe version of {@link #normals(int) normals}. */
-    public static FloatBuffer nnormals(long struct, int capacity) { return memFloatBuffer(memGetAddress(struct + ParShapesMesh.NORMALS), capacity); }
+    @Nullable public static FloatBuffer nnormals(long struct, int capacity) { return memFloatBufferSafe(memGetAddress(struct + ParShapesMesh.NORMALS), capacity); }
     /** Unsafe version of {@link #tcoords(int) tcoords}. */
-    public static FloatBuffer ntcoords(long struct, int capacity) { return memFloatBuffer(memGetAddress(struct + ParShapesMesh.TCOORDS), capacity); }
+    @Nullable public static FloatBuffer ntcoords(long struct, int capacity) { return memFloatBufferSafe(memGetAddress(struct + ParShapesMesh.TCOORDS), capacity); }
 
     // -----------------------------------
 
@@ -177,7 +193,11 @@ public class ParShapesMesh extends Struct {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -187,7 +207,7 @@ public class ParShapesMesh extends Struct {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -224,6 +244,7 @@ public class ParShapesMesh extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @Nullable
         @NativeType("float *")
         public FloatBuffer normals(int capacity) { return ParShapesMesh.nnormals(address(), capacity); }
         /**
@@ -231,6 +252,7 @@ public class ParShapesMesh extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @Nullable
         @NativeType("float *")
         public FloatBuffer tcoords(int capacity) { return ParShapesMesh.ntcoords(address(), capacity); }
 

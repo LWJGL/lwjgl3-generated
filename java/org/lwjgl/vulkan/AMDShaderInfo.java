@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -220,7 +222,7 @@ public class AMDShaderInfo {
      * @param pInfo       either NULL or a pointer to a buffer.
      */
     @NativeType("VkResult")
-    public static int vkGetShaderInfoAMD(VkDevice device, @NativeType("VkPipeline") long pipeline, @NativeType("VkShaderStageFlagBits") int shaderStage, @NativeType("VkShaderInfoTypeAMD") int infoType, @NativeType("size_t *") PointerBuffer pInfoSize, @NativeType("void *") ByteBuffer pInfo) {
+    public static int vkGetShaderInfoAMD(VkDevice device, @NativeType("VkPipeline") long pipeline, @NativeType("VkShaderStageFlagBits") int shaderStage, @NativeType("VkShaderInfoTypeAMD") int infoType, @NativeType("size_t *") PointerBuffer pInfoSize, @Nullable @NativeType("void *") ByteBuffer pInfo) {
         if (CHECKS) {
             check(pInfoSize, 1);
             checkSafe(pInfo, pInfoSize.get(pInfoSize.position()));

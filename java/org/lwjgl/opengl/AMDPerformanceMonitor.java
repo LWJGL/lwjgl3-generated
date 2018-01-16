@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -58,7 +60,7 @@ public class AMDPerformanceMonitor {
 
     public static native void nglGetPerfMonitorGroupsAMD(long numGroups, int groupsSize, long groups);
 
-    public static void glGetPerfMonitorGroupsAMD(@NativeType("GLint *") IntBuffer numGroups, @NativeType("GLuint *") IntBuffer groups) {
+    public static void glGetPerfMonitorGroupsAMD(@Nullable @NativeType("GLint *") IntBuffer numGroups, @Nullable @NativeType("GLuint *") IntBuffer groups) {
         if (CHECKS) {
             checkSafe(numGroups, 1);
         }
@@ -92,7 +94,7 @@ public class AMDPerformanceMonitor {
 
     public static native void nglGetPerfMonitorCounterStringAMD(int group, int counter, int bufSize, long length, long counterString);
 
-    public static void glGetPerfMonitorCounterStringAMD(@NativeType("GLuint") int group, @NativeType("GLuint") int counter, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer counterString) {
+    public static void glGetPerfMonitorCounterStringAMD(@NativeType("GLuint") int group, @NativeType("GLuint") int counter, @Nullable @NativeType("GLsizei *") IntBuffer length, @Nullable @NativeType("GLchar *") ByteBuffer counterString) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -182,7 +184,7 @@ public class AMDPerformanceMonitor {
 
     public static native void nglGetPerfMonitorCounterDataAMD(int monitor, int pname, int dataSize, long data, long bytesWritten);
 
-    public static void glGetPerfMonitorCounterDataAMD(@NativeType("GLuint") int monitor, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer data, @NativeType("GLint *") IntBuffer bytesWritten) {
+    public static void glGetPerfMonitorCounterDataAMD(@NativeType("GLuint") int monitor, @NativeType("GLenum") int pname, @NativeType("GLuint *") IntBuffer data, @Nullable @NativeType("GLint *") IntBuffer bytesWritten) {
         if (CHECKS) {
             checkSafe(bytesWritten, 1);
         }
@@ -190,7 +192,7 @@ public class AMDPerformanceMonitor {
     }
 
     /** Array version of: {@link #glGetPerfMonitorGroupsAMD GetPerfMonitorGroupsAMD} */
-    public static void glGetPerfMonitorGroupsAMD(@NativeType("GLint *") int[] numGroups, @NativeType("GLuint *") int[] groups) {
+    public static void glGetPerfMonitorGroupsAMD(@Nullable @NativeType("GLint *") int[] numGroups, @Nullable @NativeType("GLuint *") int[] groups) {
         long __functionAddress = GL.getICD().glGetPerfMonitorGroupsAMD;
         if (CHECKS) {
             check(__functionAddress);
@@ -221,7 +223,7 @@ public class AMDPerformanceMonitor {
     }
 
     /** Array version of: {@link #glGetPerfMonitorCounterStringAMD GetPerfMonitorCounterStringAMD} */
-    public static void glGetPerfMonitorCounterStringAMD(@NativeType("GLuint") int group, @NativeType("GLuint") int counter, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer counterString) {
+    public static void glGetPerfMonitorCounterStringAMD(@NativeType("GLuint") int group, @NativeType("GLuint") int counter, @Nullable @NativeType("GLsizei *") int[] length, @Nullable @NativeType("GLchar *") ByteBuffer counterString) {
         long __functionAddress = GL.getICD().glGetPerfMonitorCounterStringAMD;
         if (CHECKS) {
             check(__functionAddress);
@@ -278,7 +280,7 @@ public class AMDPerformanceMonitor {
     }
 
     /** Array version of: {@link #glGetPerfMonitorCounterDataAMD GetPerfMonitorCounterDataAMD} */
-    public static void glGetPerfMonitorCounterDataAMD(@NativeType("GLuint") int monitor, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] data, @NativeType("GLint *") int[] bytesWritten) {
+    public static void glGetPerfMonitorCounterDataAMD(@NativeType("GLuint") int monitor, @NativeType("GLenum") int pname, @NativeType("GLuint *") int[] data, @Nullable @NativeType("GLint *") int[] bytesWritten) {
         long __functionAddress = GL.getICD().glGetPerfMonitorCounterDataAMD;
         if (CHECKS) {
             check(__functionAddress);

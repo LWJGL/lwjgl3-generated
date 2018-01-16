@@ -5,6 +5,8 @@
  */
 package org.lwjgl.bgfx;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Writes cached item. */
 public abstract class BGFXCacheWriteCallback extends Callback implements BGFXCacheWriteCallbackI {
 
-    /** Creates a {@code BGFXCacheWriteCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code BGFXCacheWriteCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code BGFXCacheWriteCallback}
+     */
     public static BGFXCacheWriteCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         BGFXCacheWriteCallbackI instance = Callback.get(functionPointer);
         return instance instanceof BGFXCacheWriteCallback
             ? (BGFXCacheWriteCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static BGFXCacheWriteCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code BGFXCacheWriteCallback} instance that delegates to the specified {@code BGFXCacheWriteCallbackI} instance. */

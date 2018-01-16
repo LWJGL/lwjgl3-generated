@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -104,7 +106,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
         MODE = layout.offsetof(4);
     }
 
-    VkDeviceGroupPresentInfoKHX(long address, ByteBuffer container) {
+    VkDeviceGroupPresentInfoKHX(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -115,7 +117,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkDeviceGroupPresentInfoKHX(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -131,6 +133,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
     @NativeType("uint32_t")
     public int swapchainCount() { return nswapchainCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceMasks} field. */
+    @Nullable
     @NativeType("const uint32_t *")
     public IntBuffer pDeviceMasks() { return npDeviceMasks(address()); }
     /** Returns the value of the {@code mode} field. */
@@ -142,7 +145,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
     /** Sets the specified value to the {@code pNext} field. */
     public VkDeviceGroupPresentInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceMasks} field. */
-    public VkDeviceGroupPresentInfoKHX pDeviceMasks(@NativeType("const uint32_t *") IntBuffer value) { npDeviceMasks(address(), value); return this; }
+    public VkDeviceGroupPresentInfoKHX pDeviceMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npDeviceMasks(address(), value); return this; }
     /** Sets the specified value to the {@code mode} field. */
     public VkDeviceGroupPresentInfoKHX mode(@NativeType("VkDeviceGroupPresentModeFlagBitsKHX") int value) { nmode(address(), value); return this; }
 
@@ -177,12 +180,12 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
 
     /** Returns a new {@link VkDeviceGroupPresentInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkDeviceGroupPresentInfoKHX malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkDeviceGroupPresentInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkDeviceGroupPresentInfoKHX calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkDeviceGroupPresentInfoKHX} instance allocated with {@link BufferUtils}. */
@@ -190,9 +193,15 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
         return new VkDeviceGroupPresentInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkDeviceGroupPresentInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkDeviceGroupPresentInfoKHX} instance for the specified memory address. */
     public static VkDeviceGroupPresentInfoKHX create(long address) {
-        return address == NULL ? null : new VkDeviceGroupPresentInfoKHX(address, null);
+        return new VkDeviceGroupPresentInfoKHX(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkDeviceGroupPresentInfoKHX createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -200,7 +209,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkDeviceGroupPresentInfoKHX.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -209,8 +218,8 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkDeviceGroupPresentInfoKHX.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -218,7 +227,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkDeviceGroupPresentInfoKHX.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -228,8 +237,14 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkDeviceGroupPresentInfoKHX.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkDeviceGroupPresentInfoKHX.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -267,7 +282,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkDeviceGroupPresentInfoKHX.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -276,7 +291,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkDeviceGroupPresentInfoKHX.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -286,7 +301,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkDeviceGroupPresentInfoKHX.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -296,7 +311,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkDeviceGroupPresentInfoKHX.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -309,7 +324,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
     /** Unsafe version of {@link #swapchainCount}. */
     public static int nswapchainCount(long struct) { return memGetInt(struct + VkDeviceGroupPresentInfoKHX.SWAPCHAINCOUNT); }
     /** Unsafe version of {@link #pDeviceMasks() pDeviceMasks}. */
-    public static IntBuffer npDeviceMasks(long struct) { return memIntBuffer(memGetAddress(struct + VkDeviceGroupPresentInfoKHX.PDEVICEMASKS), nswapchainCount(struct)); }
+    @Nullable public static IntBuffer npDeviceMasks(long struct) { return memIntBufferSafe(memGetAddress(struct + VkDeviceGroupPresentInfoKHX.PDEVICEMASKS), nswapchainCount(struct)); }
     /** Unsafe version of {@link #mode}. */
     public static int nmode(long struct) { return memGetInt(struct + VkDeviceGroupPresentInfoKHX.MODE); }
 
@@ -320,7 +335,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
     /** Sets the specified value to the {@code swapchainCount} field of the specified {@code struct}. */
     public static void nswapchainCount(long struct, int value) { memPutInt(struct + VkDeviceGroupPresentInfoKHX.SWAPCHAINCOUNT, value); }
     /** Unsafe version of {@link #pDeviceMasks(IntBuffer) pDeviceMasks}. */
-    public static void npDeviceMasks(long struct, IntBuffer value) { memPutAddress(struct + VkDeviceGroupPresentInfoKHX.PDEVICEMASKS, memAddressSafe(value)); nswapchainCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npDeviceMasks(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkDeviceGroupPresentInfoKHX.PDEVICEMASKS, memAddressSafe(value)); nswapchainCount(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #mode(int) mode}. */
     public static void nmode(long struct, int value) { memPutInt(struct + VkDeviceGroupPresentInfoKHX.MODE, value); }
 
@@ -365,7 +380,11 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -375,7 +394,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -399,6 +418,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
         @NativeType("uint32_t")
         public int swapchainCount() { return VkDeviceGroupPresentInfoKHX.nswapchainCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceMasks} field. */
+        @Nullable
         @NativeType("const uint32_t *")
         public IntBuffer pDeviceMasks() { return VkDeviceGroupPresentInfoKHX.npDeviceMasks(address()); }
         /** Returns the value of the {@code mode} field. */
@@ -410,7 +430,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
         /** Sets the specified value to the {@code pNext} field. */
         public VkDeviceGroupPresentInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGroupPresentInfoKHX.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceMasks} field. */
-        public VkDeviceGroupPresentInfoKHX.Buffer pDeviceMasks(@NativeType("const uint32_t *") IntBuffer value) { VkDeviceGroupPresentInfoKHX.npDeviceMasks(address(), value); return this; }
+        public VkDeviceGroupPresentInfoKHX.Buffer pDeviceMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkDeviceGroupPresentInfoKHX.npDeviceMasks(address(), value); return this; }
         /** Sets the specified value to the {@code mode} field. */
         public VkDeviceGroupPresentInfoKHX.Buffer mode(@NativeType("VkDeviceGroupPresentModeFlagBitsKHX") int value) { VkDeviceGroupPresentInfoKHX.nmode(address(), value); return this; }
 

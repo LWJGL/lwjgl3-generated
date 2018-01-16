@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openvr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -48,7 +50,7 @@ public class VRNotifications {
      * @param pNotificationId 
      */
     @NativeType("EVRNotificationError")
-    public static int VRNotifications_CreateNotification(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("uint64_t") long ulUserValue, @NativeType("EVRNotificationType") int type, @NativeType("const char *") ByteBuffer pchText, @NativeType("EVRNotificationStyle") int style, @NativeType("const NotificationBitmap_t *") NotificationBitmap pImage, @NativeType("VRNotificationId *") IntBuffer pNotificationId) {
+    public static int VRNotifications_CreateNotification(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("uint64_t") long ulUserValue, @NativeType("EVRNotificationType") int type, @NativeType("const char *") ByteBuffer pchText, @NativeType("EVRNotificationStyle") int style, @Nullable @NativeType("const NotificationBitmap_t *") NotificationBitmap pImage, @NativeType("VRNotificationId *") IntBuffer pNotificationId) {
         if (CHECKS) {
             checkNT1(pchText);
             check(pNotificationId, 1);
@@ -72,7 +74,7 @@ public class VRNotifications {
      * @param pNotificationId 
      */
     @NativeType("EVRNotificationError")
-    public static int VRNotifications_CreateNotification(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("uint64_t") long ulUserValue, @NativeType("EVRNotificationType") int type, @NativeType("const char *") CharSequence pchText, @NativeType("EVRNotificationStyle") int style, @NativeType("const NotificationBitmap_t *") NotificationBitmap pImage, @NativeType("VRNotificationId *") IntBuffer pNotificationId) {
+    public static int VRNotifications_CreateNotification(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("uint64_t") long ulUserValue, @NativeType("EVRNotificationType") int type, @NativeType("const char *") CharSequence pchText, @NativeType("EVRNotificationStyle") int style, @Nullable @NativeType("const NotificationBitmap_t *") NotificationBitmap pImage, @NativeType("VRNotificationId *") IntBuffer pNotificationId) {
         if (CHECKS) {
             check(pNotificationId, 1);
         }

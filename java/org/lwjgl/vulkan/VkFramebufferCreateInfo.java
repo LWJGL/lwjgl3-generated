@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -141,7 +143,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
         LAYERS = layout.offsetof(8);
     }
 
-    VkFramebufferCreateInfo(long address, ByteBuffer container) {
+    VkFramebufferCreateInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -152,7 +154,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkFramebufferCreateInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -174,6 +176,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int attachmentCount() { return nattachmentCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field. */
+    @Nullable
     @NativeType("const VkImageView *")
     public LongBuffer pAttachments() { return npAttachments(address()); }
     /** Returns the value of the {@code width} field. */
@@ -195,7 +198,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code renderPass} field. */
     public VkFramebufferCreateInfo renderPass(@NativeType("VkRenderPass") long value) { nrenderPass(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pAttachments} field. */
-    public VkFramebufferCreateInfo pAttachments(@NativeType("const VkImageView *") LongBuffer value) { npAttachments(address(), value); return this; }
+    public VkFramebufferCreateInfo pAttachments(@Nullable @NativeType("const VkImageView *") LongBuffer value) { npAttachments(address(), value); return this; }
     /** Sets the specified value to the {@code width} field. */
     public VkFramebufferCreateInfo width(@NativeType("uint32_t") int value) { nwidth(address(), value); return this; }
     /** Sets the specified value to the {@code height} field. */
@@ -242,12 +245,12 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
 
     /** Returns a new {@link VkFramebufferCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkFramebufferCreateInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkFramebufferCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkFramebufferCreateInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkFramebufferCreateInfo} instance allocated with {@link BufferUtils}. */
@@ -255,9 +258,15 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
         return new VkFramebufferCreateInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkFramebufferCreateInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkFramebufferCreateInfo} instance for the specified memory address. */
     public static VkFramebufferCreateInfo create(long address) {
-        return address == NULL ? null : new VkFramebufferCreateInfo(address, null);
+        return new VkFramebufferCreateInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkFramebufferCreateInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -265,7 +274,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkFramebufferCreateInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -274,8 +283,8 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkFramebufferCreateInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -283,7 +292,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkFramebufferCreateInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -293,8 +302,14 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkFramebufferCreateInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkFramebufferCreateInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -332,7 +347,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkFramebufferCreateInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -341,7 +356,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkFramebufferCreateInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -351,7 +366,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkFramebufferCreateInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -361,7 +376,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkFramebufferCreateInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -378,7 +393,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #attachmentCount}. */
     public static int nattachmentCount(long struct) { return memGetInt(struct + VkFramebufferCreateInfo.ATTACHMENTCOUNT); }
     /** Unsafe version of {@link #pAttachments() pAttachments}. */
-    public static LongBuffer npAttachments(long struct) { return memLongBuffer(memGetAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS), nattachmentCount(struct)); }
+    @Nullable public static LongBuffer npAttachments(long struct) { return memLongBufferSafe(memGetAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS), nattachmentCount(struct)); }
     /** Unsafe version of {@link #width}. */
     public static int nwidth(long struct) { return memGetInt(struct + VkFramebufferCreateInfo.WIDTH); }
     /** Unsafe version of {@link #height}. */
@@ -397,7 +412,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code attachmentCount} field of the specified {@code struct}. */
     public static void nattachmentCount(long struct, int value) { memPutInt(struct + VkFramebufferCreateInfo.ATTACHMENTCOUNT, value); }
     /** Unsafe version of {@link #pAttachments(LongBuffer) pAttachments}. */
-    public static void npAttachments(long struct, LongBuffer value) { memPutAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS, memAddressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npAttachments(long struct, @Nullable LongBuffer value) { memPutAddress(struct + VkFramebufferCreateInfo.PATTACHMENTS, memAddressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #width(int) width}. */
     public static void nwidth(long struct, int value) { memPutInt(struct + VkFramebufferCreateInfo.WIDTH, value); }
     /** Unsafe version of {@link #height(int) height}. */
@@ -446,7 +461,11 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -456,7 +475,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -486,6 +505,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
         @NativeType("uint32_t")
         public int attachmentCount() { return VkFramebufferCreateInfo.nattachmentCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pAttachments} field. */
+        @Nullable
         @NativeType("const VkImageView *")
         public LongBuffer pAttachments() { return VkFramebufferCreateInfo.npAttachments(address()); }
         /** Returns the value of the {@code width} field. */
@@ -507,7 +527,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code renderPass} field. */
         public VkFramebufferCreateInfo.Buffer renderPass(@NativeType("VkRenderPass") long value) { VkFramebufferCreateInfo.nrenderPass(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pAttachments} field. */
-        public VkFramebufferCreateInfo.Buffer pAttachments(@NativeType("const VkImageView *") LongBuffer value) { VkFramebufferCreateInfo.npAttachments(address(), value); return this; }
+        public VkFramebufferCreateInfo.Buffer pAttachments(@Nullable @NativeType("const VkImageView *") LongBuffer value) { VkFramebufferCreateInfo.npAttachments(address(), value); return this; }
         /** Sets the specified value to the {@code width} field. */
         public VkFramebufferCreateInfo.Buffer width(@NativeType("uint32_t") int value) { VkFramebufferCreateInfo.nwidth(address(), value); return this; }
         /** Sets the specified value to the {@code height} field. */

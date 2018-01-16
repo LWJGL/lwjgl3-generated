@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -112,7 +114,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
         DRAW_END = layout.offsetof(17);
     }
 
-    NkStyleToggle(long address, ByteBuffer container) {
+    NkStyleToggle(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -123,7 +125,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public NkStyleToggle(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -176,9 +178,11 @@ public class NkStyleToggle extends Struct implements NativeResource {
     @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code draw_begin} field. */
+    @Nullable
     @NativeType("nk_draw_begin")
     public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
     /** Returns the value of the {@code draw_end} field. */
+    @Nullable
     @NativeType("nk_draw_end")
     public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
@@ -215,9 +219,9 @@ public class NkStyleToggle extends Struct implements NativeResource {
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
     public NkStyleToggle userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code draw_begin} field. */
-    public NkStyleToggle draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+    public NkStyleToggle draw_begin(@Nullable @NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
     /** Sets the specified value to the {@code draw_end} field. */
-    public NkStyleToggle draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
+    public NkStyleToggle draw_end(@Nullable @NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleToggle set(
@@ -278,12 +282,12 @@ public class NkStyleToggle extends Struct implements NativeResource {
 
     /** Returns a new {@link NkStyleToggle} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static NkStyleToggle malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link NkStyleToggle} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static NkStyleToggle calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link NkStyleToggle} instance allocated with {@link BufferUtils}. */
@@ -291,9 +295,15 @@ public class NkStyleToggle extends Struct implements NativeResource {
         return new NkStyleToggle(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link NkStyleToggle} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link NkStyleToggle} instance for the specified memory address. */
     public static NkStyleToggle create(long address) {
-        return address == NULL ? null : new NkStyleToggle(address, null);
+        return new NkStyleToggle(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkStyleToggle createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -301,7 +311,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static NkStyleToggle.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -310,8 +320,8 @@ public class NkStyleToggle extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static NkStyleToggle.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -319,7 +329,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static NkStyleToggle.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -329,8 +339,14 @@ public class NkStyleToggle extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static NkStyleToggle.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkStyleToggle.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -368,7 +384,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static NkStyleToggle.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -377,7 +393,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static NkStyleToggle.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -387,7 +403,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static NkStyleToggle.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -397,7 +413,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static NkStyleToggle.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -436,9 +452,9 @@ public class NkStyleToggle extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata}. */
     public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleToggle.USERDATA); }
     /** Unsafe version of {@link #draw_begin}. */
-    public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.create(memGetAddress(struct + NkStyleToggle.DRAW_BEGIN)); }
+    @Nullable public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.createSafe(memGetAddress(struct + NkStyleToggle.DRAW_BEGIN)); }
     /** Unsafe version of {@link #draw_end}. */
-    public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.create(memGetAddress(struct + NkStyleToggle.DRAW_END)); }
+    @Nullable public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.createSafe(memGetAddress(struct + NkStyleToggle.DRAW_END)); }
 
     /** Unsafe version of {@link #normal(NkStyleItem) normal}. */
     public static void nnormal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleToggle.NORMAL, NkStyleItem.SIZEOF); }
@@ -473,9 +489,9 @@ public class NkStyleToggle extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata(NkHandle) userdata}. */
     public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleToggle.USERDATA, NkHandle.SIZEOF); }
     /** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-    public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleToggle.DRAW_BEGIN, memAddressSafe(value)); }
+    public static void ndraw_begin(long struct, @Nullable NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleToggle.DRAW_BEGIN, memAddressSafe(value)); }
     /** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-    public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleToggle.DRAW_END, memAddressSafe(value)); }
+    public static void ndraw_end(long struct, @Nullable NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleToggle.DRAW_END, memAddressSafe(value)); }
 
     // -----------------------------------
 
@@ -495,7 +511,11 @@ public class NkStyleToggle extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -505,7 +525,7 @@ public class NkStyleToggle extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -566,9 +586,11 @@ public class NkStyleToggle extends Struct implements NativeResource {
         @NativeType("nk_handle")
         public NkHandle userdata() { return NkStyleToggle.nuserdata(address()); }
         /** Returns the value of the {@code draw_begin} field. */
+        @Nullable
         @NativeType("nk_draw_begin")
         public NkDrawBeginCallback draw_begin() { return NkStyleToggle.ndraw_begin(address()); }
         /** Returns the value of the {@code draw_end} field. */
+        @Nullable
         @NativeType("nk_draw_end")
         public NkDrawEndCallback draw_end() { return NkStyleToggle.ndraw_end(address()); }
 
@@ -605,9 +627,9 @@ public class NkStyleToggle extends Struct implements NativeResource {
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
         public NkStyleToggle.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkStyleToggle.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code draw_begin} field. */
-        public NkStyleToggle.Buffer draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleToggle.ndraw_begin(address(), value); return this; }
+        public NkStyleToggle.Buffer draw_begin(@Nullable @NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleToggle.ndraw_begin(address(), value); return this; }
         /** Sets the specified value to the {@code draw_end} field. */
-        public NkStyleToggle.Buffer draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleToggle.ndraw_end(address(), value); return this; }
+        public NkStyleToggle.Buffer draw_end(@Nullable @NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleToggle.ndraw_end(address(), value); return this; }
 
     }
 

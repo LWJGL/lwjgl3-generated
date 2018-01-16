@@ -21,5 +21,6 @@
  * small call kernels written in assembly. Instead of providing code for every bridged function call, which unnecessarily results in code bloat, only a
  * couple of instructions are used to invoke every possible call.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.system.dyncall;
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera} method. */
 public abstract class CLReportLiveObjectsAlteraCallback extends Callback implements CLReportLiveObjectsAlteraCallbackI {
 
-    /** Creates a {@code CLReportLiveObjectsAlteraCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code CLReportLiveObjectsAlteraCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code CLReportLiveObjectsAlteraCallback}
+     */
     public static CLReportLiveObjectsAlteraCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         CLReportLiveObjectsAlteraCallbackI instance = Callback.get(functionPointer);
         return instance instanceof CLReportLiveObjectsAlteraCallback
             ? (CLReportLiveObjectsAlteraCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static CLReportLiveObjectsAlteraCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code CLReportLiveObjectsAlteraCallback} instance that delegates to the specified {@code CLReportLiveObjectsAlteraCallbackI} instance. */

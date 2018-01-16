@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openvr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -166,7 +168,7 @@ public class VRScreenshots {
      * @return the size of the string
      */
     @NativeType("uint32_t")
-    public static int VRScreenshots_GetScreenshotPropertyFilename(@NativeType("ScreenshotHandle_t") int screenshotHandle, @NativeType("EVRScreenshotPropertyFilenames") int filenameType, @NativeType("char *") ByteBuffer pchFilename, @NativeType("EVRScreenshotError *") IntBuffer pError) {
+    public static int VRScreenshots_GetScreenshotPropertyFilename(@NativeType("ScreenshotHandle_t") int screenshotHandle, @NativeType("EVRScreenshotPropertyFilenames") int filenameType, @Nullable @NativeType("char *") ByteBuffer pchFilename, @NativeType("EVRScreenshotError *") IntBuffer pError) {
         if (CHECKS) {
             check(pError, 1);
         }

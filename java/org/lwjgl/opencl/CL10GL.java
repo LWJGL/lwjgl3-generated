@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -125,7 +127,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int bufobj, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateFromGLBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int bufobj, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -185,7 +187,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLTexture2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateFromGLTexture2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -244,7 +246,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLTexture3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateFromGLTexture3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -295,7 +297,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLRenderbuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int renderbuffer, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateFromGLRenderbuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int renderbuffer, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -334,7 +336,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetGLObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_object_type *") IntBuffer gl_object_type, @NativeType("GLuint *") IntBuffer gl_object_name) {
+    public static int clGetGLObjectInfo(@NativeType("cl_mem") long memobj, @Nullable @NativeType("cl_gl_object_type *") IntBuffer gl_object_type, @Nullable @NativeType("GLuint *") IntBuffer gl_object_name) {
         if (CHECKS) {
             checkSafe(gl_object_type, 1);
             checkSafe(gl_object_name, 1);
@@ -380,7 +382,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -409,7 +411,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @NativeType("void *") IntBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @Nullable @NativeType("void *") IntBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -475,7 +477,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -523,7 +525,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -591,7 +593,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -635,7 +637,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -654,7 +656,7 @@ public class CL10GL {
      * Array version of: {@link #clCreateFromGLBuffer CreateFromGLBuffer}
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int bufobj, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateFromGLBuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int bufobj, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLBuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -670,7 +672,7 @@ public class CL10GL {
      * Array version of: {@link #clCreateFromGLTexture2D CreateFromGLTexture2D}
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLTexture2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateFromGLTexture2D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLTexture2D;
         if (CHECKS) {
             check(__functionAddress);
@@ -686,7 +688,7 @@ public class CL10GL {
      * Array version of: {@link #clCreateFromGLTexture3D CreateFromGLTexture3D}
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLTexture3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateFromGLTexture3D(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLenum") int texture_target, @NativeType("GLint") int miplevel, @NativeType("GLuint") int texture, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLTexture3D;
         if (CHECKS) {
             check(__functionAddress);
@@ -702,7 +704,7 @@ public class CL10GL {
      * Array version of: {@link #clCreateFromGLRenderbuffer CreateFromGLRenderbuffer}
      */
     @NativeType("cl_mem")
-    public static long clCreateFromGLRenderbuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int renderbuffer, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateFromGLRenderbuffer(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("GLuint") int renderbuffer, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateFromGLRenderbuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -718,7 +720,7 @@ public class CL10GL {
      * Array version of: {@link #clGetGLObjectInfo GetGLObjectInfo}
      */
     @NativeType("cl_int")
-    public static int clGetGLObjectInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_object_type *") int[] gl_object_type, @NativeType("GLuint *") int[] gl_object_name) {
+    public static int clGetGLObjectInfo(@NativeType("cl_mem") long memobj, @Nullable @NativeType("cl_gl_object_type *") int[] gl_object_type, @Nullable @NativeType("GLuint *") int[] gl_object_name) {
         long __functionAddress = CL.getICD().clGetGLObjectInfo;
         if (CHECKS) {
             check(__functionAddress);
@@ -735,7 +737,7 @@ public class CL10GL {
      * Array version of: {@link #clGetGLTextureInfo GetGLTextureInfo}
      */
     @NativeType("cl_int")
-    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @NativeType("void *") int[] param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetGLTextureInfo(@NativeType("cl_mem") long memobj, @NativeType("cl_gl_texture_info") int param_name, @Nullable @NativeType("void *") int[] param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         long __functionAddress = CL.getICD().clGetGLTextureInfo;
         if (CHECKS) {
             check(__functionAddress);

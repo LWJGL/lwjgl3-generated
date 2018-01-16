@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.jemalloc;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -109,10 +111,11 @@ public class JEmalloc {
     // --- [ je_malloc_message ] ---
 
     /** Returns the {@code je_malloc_message} variable. */
+    @Nullable
     @NativeType("void **")
     public static PointerBuffer je_malloc_message() {
         long __result = Functions.malloc_message;
-        return memPointerBuffer(__result, 1);
+        return memPointerBufferSafe(__result, 1);
     }
 
     // --- [ je_malloc ] ---
@@ -129,10 +132,11 @@ public class JEmalloc {
      *
      * @param size the number of bytes to allocate
      */
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer je_malloc(@NativeType("size_t") long size) {
         long __result = nje_malloc(size);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ je_calloc ] ---
@@ -150,10 +154,11 @@ public class JEmalloc {
      * @param num  the number of objects to allocate
      * @param size the size of each object, in bytes
      */
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer je_calloc(@NativeType("size_t") long num, @NativeType("size_t") long size) {
         long __result = nje_calloc(num, size);
-        return memByteBuffer(__result, (int)num * (int)size);
+        return memByteBufferSafe(__result, (int)num * (int)size);
     }
 
     // --- [ je_posix_memalign ] ---
@@ -194,10 +199,11 @@ public class JEmalloc {
      * @param alignment the allocation alignment, in bytes
      * @param size      the number of bytes to allocate
      */
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer je_aligned_alloc(@NativeType("size_t") long alignment, @NativeType("size_t") long size) {
         long __result = nje_aligned_alloc(alignment, size);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ je_realloc ] ---
@@ -218,10 +224,11 @@ public class JEmalloc {
      * @param ptr  the previously allocated memory or {@code NULL}
      * @param size the number of bytes to allocate
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer je_realloc(@NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size) {
+    public static ByteBuffer je_realloc(@Nullable @NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size) {
         long __result = nje_realloc(memAddressSafe(ptr), size);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ je_free ] ---
@@ -237,7 +244,7 @@ public class JEmalloc {
      *
      * @param ptr the allocated memory to free
      */
-    public static void je_free(@NativeType("void *") ByteBuffer ptr) {
+    public static void je_free(@Nullable @NativeType("void *") ByteBuffer ptr) {
         nje_free(memAddressSafe(ptr));
     }
 
@@ -246,7 +253,7 @@ public class JEmalloc {
      *
      * @param ptr the allocated memory to free
      */
-    public static void je_free(@NativeType("void *") ShortBuffer ptr) {
+    public static void je_free(@Nullable @NativeType("void *") ShortBuffer ptr) {
         nje_free(memAddressSafe(ptr));
     }
 
@@ -255,7 +262,7 @@ public class JEmalloc {
      *
      * @param ptr the allocated memory to free
      */
-    public static void je_free(@NativeType("void *") IntBuffer ptr) {
+    public static void je_free(@Nullable @NativeType("void *") IntBuffer ptr) {
         nje_free(memAddressSafe(ptr));
     }
 
@@ -264,7 +271,7 @@ public class JEmalloc {
      *
      * @param ptr the allocated memory to free
      */
-    public static void je_free(@NativeType("void *") LongBuffer ptr) {
+    public static void je_free(@Nullable @NativeType("void *") LongBuffer ptr) {
         nje_free(memAddressSafe(ptr));
     }
 
@@ -273,7 +280,7 @@ public class JEmalloc {
      *
      * @param ptr the allocated memory to free
      */
-    public static void je_free(@NativeType("void *") FloatBuffer ptr) {
+    public static void je_free(@Nullable @NativeType("void *") FloatBuffer ptr) {
         nje_free(memAddressSafe(ptr));
     }
 
@@ -282,7 +289,7 @@ public class JEmalloc {
      *
      * @param ptr the allocated memory to free
      */
-    public static void je_free(@NativeType("void *") DoubleBuffer ptr) {
+    public static void je_free(@Nullable @NativeType("void *") DoubleBuffer ptr) {
         nje_free(memAddressSafe(ptr));
     }
 
@@ -291,7 +298,7 @@ public class JEmalloc {
      *
      * @param ptr the allocated memory to free
      */
-    public static void je_free(@NativeType("void *") PointerBuffer ptr) {
+    public static void je_free(@Nullable @NativeType("void *") PointerBuffer ptr) {
         nje_free(memAddressSafe(ptr));
     }
 
@@ -310,10 +317,11 @@ public class JEmalloc {
      * @param size  the number of bytes to allocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer je_mallocx(@NativeType("size_t") long size, int flags) {
         long __result = nje_mallocx(size, flags);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ je_rallocx ] ---
@@ -333,10 +341,11 @@ public class JEmalloc {
      * @param size  the number of bytes to allocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer je_rallocx(@NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size, int flags) {
+    public static ByteBuffer je_rallocx(@Nullable @NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size, int flags) {
         long __result = nje_rallocx(memAddressSafe(ptr), size, flags);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ je_xallocx ] ---
@@ -358,7 +367,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     @NativeType("size_t")
-    public static long je_xallocx(@NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size, @NativeType("size_t") long extra, int flags) {
+    public static long je_xallocx(@Nullable @NativeType("void *") ByteBuffer ptr, @NativeType("size_t") long size, @NativeType("size_t") long extra, int flags) {
         return nje_xallocx(memAddressSafe(ptr), size, extra, flags);
     }
 
@@ -557,10 +566,11 @@ public class JEmalloc {
      * @param size  the number of bytes to allocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer je_nallocx(@NativeType("size_t") long size, int flags) {
         long __result = nje_nallocx(size, flags);
-        return memByteBuffer(__result, (int)size);
+        return memByteBufferSafe(__result, (int)size);
     }
 
     // --- [ je_mallctl ] ---
@@ -588,7 +598,7 @@ public class JEmalloc {
      * @param oldlenp returns the value length
      * @param newp    the new value
      */
-    public static int je_mallctl(@NativeType("const char *") ByteBuffer name, @NativeType("void *") ByteBuffer oldp, @NativeType("size_t *") PointerBuffer oldlenp, @NativeType("void *") ByteBuffer newp) {
+    public static int je_mallctl(@NativeType("const char *") ByteBuffer name, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
         if (CHECKS) {
             checkNT1(name);
             checkSafe(oldlenp, 1);
@@ -609,7 +619,7 @@ public class JEmalloc {
      * @param oldlenp returns the value length
      * @param newp    the new value
      */
-    public static int je_mallctl(@NativeType("const char *") CharSequence name, @NativeType("void *") ByteBuffer oldp, @NativeType("size_t *") PointerBuffer oldlenp, @NativeType("void *") ByteBuffer newp) {
+    public static int je_mallctl(@NativeType("const char *") CharSequence name, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
         if (CHECKS) {
             checkSafe(oldlenp, 1);
         }
@@ -740,7 +750,7 @@ public class JEmalloc {
      * @param oldlenp returns the value length
      * @param newp    the new value
      */
-    public static int je_mallctlbymib(@NativeType("const size_t *") PointerBuffer mib, @NativeType("void *") ByteBuffer oldp, @NativeType("size_t *") PointerBuffer oldlenp, @NativeType("void *") ByteBuffer newp) {
+    public static int je_mallctlbymib(@NativeType("const size_t *") PointerBuffer mib, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
         if (CHECKS) {
             checkSafe(oldlenp, 1);
         }
@@ -768,7 +778,7 @@ public class JEmalloc {
      * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
      * @param opts        an options string
      */
-    public static void je_malloc_stats_print(@NativeType("je_malloc_message_cb") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @NativeType("const char *") ByteBuffer opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("je_malloc_message_cb") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") ByteBuffer opts) {
         if (CHECKS) {
             checkNT1Safe(opts);
         }
@@ -788,10 +798,10 @@ public class JEmalloc {
      * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
      * @param opts        an options string
      */
-    public static void je_malloc_stats_print(@NativeType("je_malloc_message_cb") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @NativeType("const char *") CharSequence opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("je_malloc_message_cb") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") CharSequence opts) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer optsEncoded = stack.ASCII(opts);
+            ByteBuffer optsEncoded = stack.ASCIISafe(opts);
             nje_malloc_stats_print(memAddressSafe(write_cb), je_cbopaque, memAddressSafe(optsEncoded));
         } finally {
             stack.setPointer(stackPointer);

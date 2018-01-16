@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -40,10 +42,11 @@ public class WGLEXTExtensionsString {
      * will contain a space-separated list of extension names. (The extension names themselves do not contain spaces.) If there are no extensions then the
      * empty string is returned.
      */
+    @Nullable
     @NativeType("const char *")
     public static String wglGetExtensionsStringEXT() {
         long __result = nwglGetExtensionsStringEXT();
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
 }

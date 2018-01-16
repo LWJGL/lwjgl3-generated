@@ -5,5 +5,6 @@
  */
 
 /** Contains bindings to <a target="_blank" href="https://sourceforge.net/projects/tinyfiledialogs/">tiny file dialogs</a>. */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.util.tinyfd;
 

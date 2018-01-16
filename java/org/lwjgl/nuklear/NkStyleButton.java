@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -108,7 +110,7 @@ public class NkStyleButton extends Struct implements NativeResource {
         DRAW_END = layout.offsetof(16);
     }
 
-    NkStyleButton(long address, ByteBuffer container) {
+    NkStyleButton(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -119,7 +121,7 @@ public class NkStyleButton extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public NkStyleButton(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -169,9 +171,11 @@ public class NkStyleButton extends Struct implements NativeResource {
     @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code draw_begin} field. */
+    @Nullable
     @NativeType("nk_draw_begin")
     public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
     /** Returns the value of the {@code draw_end} field. */
+    @Nullable
     @NativeType("nk_draw_end")
     public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
@@ -206,9 +210,9 @@ public class NkStyleButton extends Struct implements NativeResource {
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
     public NkStyleButton userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code draw_begin} field. */
-    public NkStyleButton draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+    public NkStyleButton draw_begin(@Nullable @NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
     /** Sets the specified value to the {@code draw_end} field. */
-    public NkStyleButton draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
+    public NkStyleButton draw_end(@Nullable @NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleButton set(
@@ -267,12 +271,12 @@ public class NkStyleButton extends Struct implements NativeResource {
 
     /** Returns a new {@link NkStyleButton} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static NkStyleButton malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link NkStyleButton} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static NkStyleButton calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link NkStyleButton} instance allocated with {@link BufferUtils}. */
@@ -280,9 +284,15 @@ public class NkStyleButton extends Struct implements NativeResource {
         return new NkStyleButton(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link NkStyleButton} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link NkStyleButton} instance for the specified memory address. */
     public static NkStyleButton create(long address) {
-        return address == NULL ? null : new NkStyleButton(address, null);
+        return new NkStyleButton(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkStyleButton createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -290,7 +300,7 @@ public class NkStyleButton extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static NkStyleButton.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -299,8 +309,8 @@ public class NkStyleButton extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static NkStyleButton.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -308,7 +318,7 @@ public class NkStyleButton extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static NkStyleButton.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -318,8 +328,14 @@ public class NkStyleButton extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static NkStyleButton.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkStyleButton.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -357,7 +373,7 @@ public class NkStyleButton extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static NkStyleButton.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -366,7 +382,7 @@ public class NkStyleButton extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static NkStyleButton.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -376,7 +392,7 @@ public class NkStyleButton extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static NkStyleButton.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -386,7 +402,7 @@ public class NkStyleButton extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static NkStyleButton.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -423,9 +439,9 @@ public class NkStyleButton extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata}. */
     public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleButton.USERDATA); }
     /** Unsafe version of {@link #draw_begin}. */
-    public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.create(memGetAddress(struct + NkStyleButton.DRAW_BEGIN)); }
+    @Nullable public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.createSafe(memGetAddress(struct + NkStyleButton.DRAW_BEGIN)); }
     /** Unsafe version of {@link #draw_end}. */
-    public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.create(memGetAddress(struct + NkStyleButton.DRAW_END)); }
+    @Nullable public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.createSafe(memGetAddress(struct + NkStyleButton.DRAW_END)); }
 
     /** Unsafe version of {@link #normal(NkStyleItem) normal}. */
     public static void nnormal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleButton.NORMAL, NkStyleItem.SIZEOF); }
@@ -458,9 +474,9 @@ public class NkStyleButton extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata(NkHandle) userdata}. */
     public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleButton.USERDATA, NkHandle.SIZEOF); }
     /** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-    public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleButton.DRAW_BEGIN, memAddressSafe(value)); }
+    public static void ndraw_begin(long struct, @Nullable NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleButton.DRAW_BEGIN, memAddressSafe(value)); }
     /** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-    public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleButton.DRAW_END, memAddressSafe(value)); }
+    public static void ndraw_end(long struct, @Nullable NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleButton.DRAW_END, memAddressSafe(value)); }
 
     // -----------------------------------
 
@@ -480,7 +496,11 @@ public class NkStyleButton extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -490,7 +510,7 @@ public class NkStyleButton extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -548,9 +568,11 @@ public class NkStyleButton extends Struct implements NativeResource {
         @NativeType("nk_handle")
         public NkHandle userdata() { return NkStyleButton.nuserdata(address()); }
         /** Returns the value of the {@code draw_begin} field. */
+        @Nullable
         @NativeType("nk_draw_begin")
         public NkDrawBeginCallback draw_begin() { return NkStyleButton.ndraw_begin(address()); }
         /** Returns the value of the {@code draw_end} field. */
+        @Nullable
         @NativeType("nk_draw_end")
         public NkDrawEndCallback draw_end() { return NkStyleButton.ndraw_end(address()); }
 
@@ -585,9 +607,9 @@ public class NkStyleButton extends Struct implements NativeResource {
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
         public NkStyleButton.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkStyleButton.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code draw_begin} field. */
-        public NkStyleButton.Buffer draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleButton.ndraw_begin(address(), value); return this; }
+        public NkStyleButton.Buffer draw_begin(@Nullable @NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleButton.ndraw_begin(address(), value); return this; }
         /** Sets the specified value to the {@code draw_end} field. */
-        public NkStyleButton.Buffer draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleButton.ndraw_end(address(), value); return this; }
+        public NkStyleButton.Buffer draw_end(@Nullable @NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleButton.ndraw_end(address(), value); return this; }
 
     }
 

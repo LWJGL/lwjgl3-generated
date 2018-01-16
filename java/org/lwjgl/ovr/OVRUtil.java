@@ -5,6 +5,8 @@
  */
 package org.lwjgl.ovr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -195,7 +197,7 @@ public class OVRUtil {
      * @param outEyePoses         the predicted eye poses
      * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
      */
-    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") DoubleBuffer outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @Nullable @NativeType("double *") DoubleBuffer outSensorSampleTime) {
         if (CHECKS) {
             check(session);
             check(HmdToEyePose, 2);
@@ -299,7 +301,7 @@ public class OVRUtil {
     public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyePose, long outEyePoses, double[] outSensorSampleTime);
 
     /** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
-    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @NativeType("double *") double[] outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @Nullable @NativeType("double *") double[] outSensorSampleTime) {
         if (CHECKS) {
             check(session);
             check(HmdToEyePose, 2);

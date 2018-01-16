@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -52,7 +54,7 @@ public class STBRPNode extends Struct {
         NEXT = layout.offsetof(2);
     }
 
-    STBRPNode(long address, ByteBuffer container) {
+    STBRPNode(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -63,7 +65,7 @@ public class STBRPNode extends Struct {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public STBRPNode(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -76,14 +78,21 @@ public class STBRPNode extends Struct {
     @NativeType("stbrp_coord")
     public short y() { return ny(address()); }
     /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code next} field. */
+    @Nullable
     @NativeType("stbrp_node *")
     public STBRPNode next() { return nnext(address()); }
 
     // -----------------------------------
 
-    /** Returns a new {@link STBRPNode} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link STBRPNode} instance for the specified memory address. */
     public static STBRPNode create(long address) {
-        return address == NULL ? null : new STBRPNode(address, null);
+        return new STBRPNode(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static STBRPNode createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -92,8 +101,14 @@ public class STBRPNode extends Struct {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static STBRPNode.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static STBRPNode.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -103,7 +118,7 @@ public class STBRPNode extends Struct {
     /** Unsafe version of {@link #y}. */
     public static short ny(long struct) { return memGetShort(struct + STBRPNode.Y); }
     /** Unsafe version of {@link #next}. */
-    public static STBRPNode nnext(long struct) { return STBRPNode.create(memGetAddress(struct + STBRPNode.NEXT)); }
+    @Nullable public static STBRPNode nnext(long struct) { return STBRPNode.createSafe(memGetAddress(struct + STBRPNode.NEXT)); }
 
     // -----------------------------------
 
@@ -123,7 +138,11 @@ public class STBRPNode extends Struct {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -133,7 +152,7 @@ public class STBRPNode extends Struct {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -154,6 +173,7 @@ public class STBRPNode extends Struct {
         @NativeType("stbrp_coord")
         public short y() { return STBRPNode.ny(address()); }
         /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code next} field. */
+        @Nullable
         @NativeType("stbrp_node *")
         public STBRPNode next() { return STBRPNode.nnext(address()); }
 

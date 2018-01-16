@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -54,7 +56,7 @@ public class MESADRMImage {
     }
 
     @NativeType("EGLImageKHR")
-    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -74,7 +76,7 @@ public class MESADRMImage {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglExportDRMImageMESA(@NativeType("EGLDisplay") long dpy, @NativeType("EGLImageKHR") long image, @NativeType("EGLint *") IntBuffer name, @NativeType("EGLint *") IntBuffer handle, @NativeType("EGLint *") IntBuffer stride) {
+    public static boolean eglExportDRMImageMESA(@NativeType("EGLDisplay") long dpy, @NativeType("EGLImageKHR") long image, @Nullable @NativeType("EGLint *") IntBuffer name, @Nullable @NativeType("EGLint *") IntBuffer handle, @Nullable @NativeType("EGLint *") IntBuffer stride) {
         if (CHECKS) {
             checkSafe(name, 1);
             checkSafe(handle, 1);
@@ -85,7 +87,7 @@ public class MESADRMImage {
 
     /** Array version of: {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
     @NativeType("EGLImageKHR")
-    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateDRMImageMESA;
         if (CHECKS) {
             check(__functionAddress);
@@ -97,7 +99,7 @@ public class MESADRMImage {
 
     /** Array version of: {@link #eglExportDRMImageMESA ExportDRMImageMESA} */
     @NativeType("EGLBoolean")
-    public static boolean eglExportDRMImageMESA(@NativeType("EGLDisplay") long dpy, @NativeType("EGLImageKHR") long image, @NativeType("EGLint *") int[] name, @NativeType("EGLint *") int[] handle, @NativeType("EGLint *") int[] stride) {
+    public static boolean eglExportDRMImageMESA(@NativeType("EGLDisplay") long dpy, @NativeType("EGLImageKHR") long image, @Nullable @NativeType("EGLint *") int[] name, @Nullable @NativeType("EGLint *") int[] handle, @Nullable @NativeType("EGLint *") int[] stride) {
         long __functionAddress = EGL.getCapabilities().eglExportDRMImageMESA;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.tinyfd;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -44,10 +46,11 @@ public class TinyFileDialogs {
 
     private static native long ntinyfd_version();
 
+    @Nullable
     @NativeType("char *")
     private static String tinyfd_version() {
         long __result = ntinyfd_version();
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     /** The library version. */
@@ -57,20 +60,22 @@ public class TinyFileDialogs {
 
     private static native long ntinyfd_winUtf8();
 
+    @Nullable
     @NativeType("int *")
     private static IntBuffer tinyfd_winUtf8() {
         long __result = ntinyfd_winUtf8();
-        return memIntBuffer(__result, 1);
+        return memIntBufferSafe(__result, 1);
     }
 
     // --- [ tinyfd_forceConsole ] ---
 
     private static native long ntinyfd_forceConsole();
 
+    @Nullable
     @NativeType("int *")
     private static IntBuffer tinyfd_forceConsole() {
         long __result = ntinyfd_forceConsole();
-        return memIntBuffer(__result, 1);
+        return memIntBufferSafe(__result, 1);
     }
 
     /**
@@ -98,10 +103,11 @@ public class TinyFileDialogs {
      * 
      * <p>For the console mode: dialog whiptail basicinput</p>
      */
+    @Nullable
     @NativeType("char *")
     public static String tinyfd_response() {
         long __result = ntinyfd_response();
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ tinyfd_beep ] ---
@@ -120,7 +126,7 @@ public class TinyFileDialogs {
      * @param aMessage  the message or {@code NULL}. It may contain \n and \t characters.
      * @param aIconType the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td></tr></table>
      */
-    public static int tinyfd_notifyPopup(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aMessage, @NativeType("const char *") ByteBuffer aIconType) {
+    public static int tinyfd_notifyPopup(@Nullable @NativeType("const char *") ByteBuffer aTitle, @Nullable @NativeType("const char *") ByteBuffer aMessage, @NativeType("const char *") ByteBuffer aIconType) {
         if (CHECKS) {
             checkNT1Safe(aTitle);
             checkNT1Safe(aMessage);
@@ -136,11 +142,11 @@ public class TinyFileDialogs {
      * @param aMessage  the message or {@code NULL}. It may contain \n and \t characters.
      * @param aIconType the icon type. One of:<br><table><tr><td>"info"</td><td>"warning"</td><td>"error"</td></tr></table>
      */
-    public static int tinyfd_notifyPopup(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aMessage, @NativeType("const char *") CharSequence aIconType) {
+    public static int tinyfd_notifyPopup(@Nullable @NativeType("const char *") CharSequence aTitle, @Nullable @NativeType("const char *") CharSequence aMessage, @NativeType("const char *") CharSequence aIconType) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
-            ByteBuffer aMessageEncoded = stack.UTF8(aMessage);
+            ByteBuffer aTitleEncoded = stack.UTF8Safe(aTitle);
+            ByteBuffer aMessageEncoded = stack.UTF8Safe(aMessage);
             ByteBuffer aIconTypeEncoded = stack.ASCII(aIconType);
             return ntinyfd_notifyPopup(memAddressSafe(aTitleEncoded), memAddressSafe(aMessageEncoded), memAddress(aIconTypeEncoded));
         } finally {
@@ -165,7 +171,7 @@ public class TinyFileDialogs {
      * @return 0 for cancel/no, 1 for ok/yes, 2 for no in yesnocancel
      */
     @NativeType("int")
-    public static boolean tinyfd_messageBox(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aMessage, @NativeType("const char *") ByteBuffer aDialogType, @NativeType("const char *") ByteBuffer aIconType, @NativeType("int") boolean aDefaultButton) {
+    public static boolean tinyfd_messageBox(@Nullable @NativeType("const char *") ByteBuffer aTitle, @Nullable @NativeType("const char *") ByteBuffer aMessage, @NativeType("const char *") ByteBuffer aDialogType, @NativeType("const char *") ByteBuffer aIconType, @NativeType("int") boolean aDefaultButton) {
         if (CHECKS) {
             checkNT1Safe(aTitle);
             checkNT1Safe(aMessage);
@@ -187,11 +193,11 @@ public class TinyFileDialogs {
      * @return 0 for cancel/no, 1 for ok/yes, 2 for no in yesnocancel
      */
     @NativeType("int")
-    public static boolean tinyfd_messageBox(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aMessage, @NativeType("const char *") CharSequence aDialogType, @NativeType("const char *") CharSequence aIconType, @NativeType("int") boolean aDefaultButton) {
+    public static boolean tinyfd_messageBox(@Nullable @NativeType("const char *") CharSequence aTitle, @Nullable @NativeType("const char *") CharSequence aMessage, @NativeType("const char *") CharSequence aDialogType, @NativeType("const char *") CharSequence aIconType, @NativeType("int") boolean aDefaultButton) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
-            ByteBuffer aMessageEncoded = stack.UTF8(aMessage);
+            ByteBuffer aTitleEncoded = stack.UTF8Safe(aTitle);
+            ByteBuffer aMessageEncoded = stack.UTF8Safe(aMessage);
             ByteBuffer aDialogTypeEncoded = stack.ASCII(aDialogType);
             ByteBuffer aIconTypeEncoded = stack.ASCII(aIconType);
             return ntinyfd_messageBox(memAddressSafe(aTitleEncoded), memAddressSafe(aMessageEncoded), memAddress(aDialogTypeEncoded), memAddress(aIconTypeEncoded), aDefaultButton ? 1 : 0) != 0;
@@ -214,15 +220,16 @@ public class TinyFileDialogs {
      *
      * @return the input value or {@code NULL} on cancel
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_inputBox(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aMessage, @NativeType("const char *") ByteBuffer aDefaultInput) {
+    public static String tinyfd_inputBox(@Nullable @NativeType("const char *") ByteBuffer aTitle, @Nullable @NativeType("const char *") ByteBuffer aMessage, @Nullable @NativeType("const char *") ByteBuffer aDefaultInput) {
         if (CHECKS) {
             checkNT1Safe(aTitle);
             checkNT1Safe(aMessage);
             checkNT1Safe(aDefaultInput);
         }
         long __result = ntinyfd_inputBox(memAddressSafe(aTitle), memAddressSafe(aMessage), memAddressSafe(aDefaultInput));
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     /**
@@ -234,15 +241,16 @@ public class TinyFileDialogs {
      *
      * @return the input value or {@code NULL} on cancel
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_inputBox(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aMessage, @NativeType("const char *") CharSequence aDefaultInput) {
+    public static String tinyfd_inputBox(@Nullable @NativeType("const char *") CharSequence aTitle, @Nullable @NativeType("const char *") CharSequence aMessage, @Nullable @NativeType("const char *") CharSequence aDefaultInput) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
-            ByteBuffer aMessageEncoded = stack.UTF8(aMessage);
-            ByteBuffer aDefaultInputEncoded = stack.UTF8(aDefaultInput);
+            ByteBuffer aTitleEncoded = stack.UTF8Safe(aTitle);
+            ByteBuffer aMessageEncoded = stack.UTF8Safe(aMessage);
+            ByteBuffer aDefaultInputEncoded = stack.UTF8Safe(aDefaultInput);
             long __result = ntinyfd_inputBox(memAddressSafe(aTitleEncoded), memAddressSafe(aMessageEncoded), memAddressSafe(aDefaultInputEncoded));
-            return memUTF8(__result);
+            return memUTF8Safe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -267,15 +275,16 @@ public class TinyFileDialogs {
      *
      * @return the selected file path or {@code NULL} on cancel
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_saveFileDialog(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aDefaultPathAndFile, @NativeType("const char * const *") PointerBuffer aFilterPatterns, @NativeType("const char *") ByteBuffer aSingleFilterDescription) {
+    public static String tinyfd_saveFileDialog(@Nullable @NativeType("const char *") ByteBuffer aTitle, @Nullable @NativeType("const char *") ByteBuffer aDefaultPathAndFile, @Nullable @NativeType("const char * const *") PointerBuffer aFilterPatterns, @Nullable @NativeType("const char *") ByteBuffer aSingleFilterDescription) {
         if (CHECKS) {
             checkNT1Safe(aTitle);
             checkNT1Safe(aDefaultPathAndFile);
             checkNT1Safe(aSingleFilterDescription);
         }
         long __result = ntinyfd_saveFileDialog(memAddressSafe(aTitle), memAddressSafe(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription));
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     /**
@@ -288,15 +297,16 @@ public class TinyFileDialogs {
      *
      * @return the selected file path or {@code NULL} on cancel
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_saveFileDialog(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aDefaultPathAndFile, @NativeType("const char * const *") PointerBuffer aFilterPatterns, @NativeType("const char *") CharSequence aSingleFilterDescription) {
+    public static String tinyfd_saveFileDialog(@Nullable @NativeType("const char *") CharSequence aTitle, @Nullable @NativeType("const char *") CharSequence aDefaultPathAndFile, @Nullable @NativeType("const char * const *") PointerBuffer aFilterPatterns, @Nullable @NativeType("const char *") CharSequence aSingleFilterDescription) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
-            ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8(aDefaultPathAndFile);
-            ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8(aSingleFilterDescription);
+            ByteBuffer aTitleEncoded = stack.UTF8Safe(aTitle);
+            ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8Safe(aDefaultPathAndFile);
+            ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8Safe(aSingleFilterDescription);
             long __result = ntinyfd_saveFileDialog(memAddressSafe(aTitleEncoded), memAddressSafe(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded));
-            return memUTF8(__result);
+            return memUTF8Safe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -322,15 +332,16 @@ public class TinyFileDialogs {
      *
      * @return the file(s) selected or {@code NULL} on cancel. In case of multiple files, the separator is '|'.
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_openFileDialog(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aDefaultPathAndFile, @NativeType("const char * const *") PointerBuffer aFilterPatterns, @NativeType("const char *") ByteBuffer aSingleFilterDescription, @NativeType("int") boolean aAllowMultipleSelects) {
+    public static String tinyfd_openFileDialog(@Nullable @NativeType("const char *") ByteBuffer aTitle, @Nullable @NativeType("const char *") ByteBuffer aDefaultPathAndFile, @Nullable @NativeType("const char * const *") PointerBuffer aFilterPatterns, @Nullable @NativeType("const char *") ByteBuffer aSingleFilterDescription, @NativeType("int") boolean aAllowMultipleSelects) {
         if (CHECKS) {
             checkNT1Safe(aTitle);
             checkNT1Safe(aDefaultPathAndFile);
             checkNT1Safe(aSingleFilterDescription);
         }
         long __result = ntinyfd_openFileDialog(memAddressSafe(aTitle), memAddressSafe(aDefaultPathAndFile), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescription), aAllowMultipleSelects ? 1 : 0);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     /**
@@ -344,15 +355,16 @@ public class TinyFileDialogs {
      *
      * @return the file(s) selected or {@code NULL} on cancel. In case of multiple files, the separator is '|'.
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_openFileDialog(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aDefaultPathAndFile, @NativeType("const char * const *") PointerBuffer aFilterPatterns, @NativeType("const char *") CharSequence aSingleFilterDescription, @NativeType("int") boolean aAllowMultipleSelects) {
+    public static String tinyfd_openFileDialog(@Nullable @NativeType("const char *") CharSequence aTitle, @Nullable @NativeType("const char *") CharSequence aDefaultPathAndFile, @Nullable @NativeType("const char * const *") PointerBuffer aFilterPatterns, @Nullable @NativeType("const char *") CharSequence aSingleFilterDescription, @NativeType("int") boolean aAllowMultipleSelects) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
-            ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8(aDefaultPathAndFile);
-            ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8(aSingleFilterDescription);
+            ByteBuffer aTitleEncoded = stack.UTF8Safe(aTitle);
+            ByteBuffer aDefaultPathAndFileEncoded = stack.UTF8Safe(aDefaultPathAndFile);
+            ByteBuffer aSingleFilterDescriptionEncoded = stack.UTF8Safe(aSingleFilterDescription);
             long __result = ntinyfd_openFileDialog(memAddressSafe(aTitleEncoded), memAddressSafe(aDefaultPathAndFileEncoded), remainingSafe(aFilterPatterns), memAddressSafe(aFilterPatterns), memAddressSafe(aSingleFilterDescriptionEncoded), aAllowMultipleSelects ? 1 : 0);
-            return memUTF8(__result);
+            return memUTF8Safe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -369,14 +381,15 @@ public class TinyFileDialogs {
      * @param aTitle       the dialog title or {@code NULL}
      * @param aDefaultPath the default path or {@code NULL}
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_selectFolderDialog(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aDefaultPath) {
+    public static String tinyfd_selectFolderDialog(@Nullable @NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aDefaultPath) {
         if (CHECKS) {
             checkNT1Safe(aTitle);
             checkNT1(aDefaultPath);
         }
         long __result = ntinyfd_selectFolderDialog(memAddressSafe(aTitle), memAddress(aDefaultPath));
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     /**
@@ -385,14 +398,15 @@ public class TinyFileDialogs {
      * @param aTitle       the dialog title or {@code NULL}
      * @param aDefaultPath the default path or {@code NULL}
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_selectFolderDialog(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aDefaultPath) {
+    public static String tinyfd_selectFolderDialog(@Nullable @NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aDefaultPath) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
+            ByteBuffer aTitleEncoded = stack.UTF8Safe(aTitle);
             ByteBuffer aDefaultPathEncoded = stack.UTF8(aDefaultPath);
             long __result = ntinyfd_selectFolderDialog(memAddressSafe(aTitleEncoded), memAddress(aDefaultPathEncoded));
-            return memUTF8(__result);
+            return memUTF8Safe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -413,8 +427,9 @@ public class TinyFileDialogs {
      *
      * @return the selected hexcolor as a string "#FF0000" or {@code NULL} on cancel
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_colorChooser(@NativeType("const char *") ByteBuffer aTitle, @NativeType("const char *") ByteBuffer aDefaultHexRGB, @NativeType("unsigned char *") ByteBuffer aDefaultRGB, @NativeType("unsigned char *") ByteBuffer aoResultRGB) {
+    public static String tinyfd_colorChooser(@Nullable @NativeType("const char *") ByteBuffer aTitle, @Nullable @NativeType("const char *") ByteBuffer aDefaultHexRGB, @Nullable @NativeType("unsigned char *") ByteBuffer aDefaultRGB, @NativeType("unsigned char *") ByteBuffer aoResultRGB) {
         if (CHECKS) {
             checkNT1Safe(aTitle);
             checkNT1Safe(aDefaultHexRGB);
@@ -422,7 +437,7 @@ public class TinyFileDialogs {
             check(aoResultRGB, 3);
         }
         long __result = ntinyfd_colorChooser(memAddressSafe(aTitle), memAddressSafe(aDefaultHexRGB), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     /**
@@ -435,18 +450,19 @@ public class TinyFileDialogs {
      *
      * @return the selected hexcolor as a string "#FF0000" or {@code NULL} on cancel
      */
+    @Nullable
     @NativeType("const char *")
-    public static String tinyfd_colorChooser(@NativeType("const char *") CharSequence aTitle, @NativeType("const char *") CharSequence aDefaultHexRGB, @NativeType("unsigned char *") ByteBuffer aDefaultRGB, @NativeType("unsigned char *") ByteBuffer aoResultRGB) {
+    public static String tinyfd_colorChooser(@Nullable @NativeType("const char *") CharSequence aTitle, @Nullable @NativeType("const char *") CharSequence aDefaultHexRGB, @Nullable @NativeType("unsigned char *") ByteBuffer aDefaultRGB, @NativeType("unsigned char *") ByteBuffer aoResultRGB) {
         if (CHECKS) {
             checkSafe(aDefaultRGB, 3);
             check(aoResultRGB, 3);
         }
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer aTitleEncoded = stack.UTF8(aTitle);
-            ByteBuffer aDefaultHexRGBEncoded = stack.ASCII(aDefaultHexRGB);
+            ByteBuffer aTitleEncoded = stack.UTF8Safe(aTitle);
+            ByteBuffer aDefaultHexRGBEncoded = stack.ASCIISafe(aDefaultHexRGB);
             long __result = ntinyfd_colorChooser(memAddressSafe(aTitleEncoded), memAddressSafe(aDefaultHexRGBEncoded), memAddressSafe(aDefaultRGB), memAddress(aoResultRGB));
-            return memUTF8(__result);
+            return memUTF8Safe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }

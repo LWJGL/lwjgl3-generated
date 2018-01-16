@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.linux;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -445,7 +447,7 @@ public class X11 {
      *                     {@code display_name} is {@code NULL}, it defaults to the value of the DISPLAY environment variable.
      */
     @NativeType("Display *")
-    public static long XOpenDisplay(@NativeType("const char *") ByteBuffer display_name) {
+    public static long XOpenDisplay(@Nullable @NativeType("const char *") ByteBuffer display_name) {
         if (CHECKS) {
             checkNT1Safe(display_name);
         }
@@ -464,10 +466,10 @@ public class X11 {
      *                     {@code display_name} is {@code NULL}, it defaults to the value of the DISPLAY environment variable.
      */
     @NativeType("Display *")
-    public static long XOpenDisplay(@NativeType("const char *") CharSequence display_name) {
+    public static long XOpenDisplay(@Nullable @NativeType("const char *") CharSequence display_name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer display_nameEncoded = stack.ASCII(display_name);
+            ByteBuffer display_nameEncoded = stack.ASCIISafe(display_name);
             return nXOpenDisplay(memAddressSafe(display_nameEncoded));
         } finally {
             stack.setPointer(stackPointer);

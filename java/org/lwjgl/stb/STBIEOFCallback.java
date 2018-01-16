@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
 public abstract class STBIEOFCallback extends Callback implements STBIEOFCallbackI {
 
-    /** Creates a {@code STBIEOFCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code STBIEOFCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code STBIEOFCallback}
+     */
     public static STBIEOFCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         STBIEOFCallbackI instance = Callback.get(functionPointer);
         return instance instanceof STBIEOFCallback
             ? (STBIEOFCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static STBIEOFCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code STBIEOFCallback} instance that delegates to the specified {@code STBIEOFCallbackI} instance. */

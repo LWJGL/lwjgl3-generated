@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@link NkClipboard} struct. */
 public abstract class NkPluginCopy extends Callback implements NkPluginCopyI {
 
-    /** Creates a {@code NkPluginCopy} instance from the specified function pointer. */
+    /**
+     * Creates a {@code NkPluginCopy} instance from the specified function pointer.
+     *
+     * @return the new {@code NkPluginCopy}
+     */
     public static NkPluginCopy create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         NkPluginCopyI instance = Callback.get(functionPointer);
         return instance instanceof NkPluginCopy
             ? (NkPluginCopy)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static NkPluginCopy createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code NkPluginCopy} instance that delegates to the specified {@code NkPluginCopyI} instance. */

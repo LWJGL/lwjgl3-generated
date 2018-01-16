@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -1240,7 +1242,7 @@ public class Nuklear {
      * @param font   must point to a previously initialized font handle
      */
     @NativeType("int")
-    public static boolean nk_init_fixed(@NativeType("struct nk_context *") NkContext ctx, @NativeType("void *") ByteBuffer memory, @NativeType("const struct nk_user_font *") NkUserFont font) {
+    public static boolean nk_init_fixed(@NativeType("struct nk_context *") NkContext ctx, @NativeType("void *") ByteBuffer memory, @Nullable @NativeType("const struct nk_user_font *") NkUserFont font) {
         return nnk_init_fixed(ctx.address(), memAddress(memory), memory.remaining(), memAddressSafe(font)) != 0;
     }
 
@@ -1260,7 +1262,7 @@ public class Nuklear {
      * @param font      must point to a previously initialized font handle
      */
     @NativeType("int")
-    public static boolean nk_init(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_allocator *") NkAllocator allocator, @NativeType("const struct nk_user_font *") NkUserFont font) {
+    public static boolean nk_init(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_allocator *") NkAllocator allocator, @Nullable @NativeType("const struct nk_user_font *") NkUserFont font) {
         return nnk_init(ctx.address(), allocator.address(), memAddressSafe(font)) != 0;
     }
 
@@ -1278,7 +1280,7 @@ public class Nuklear {
      * @param font must point to a previously initialized font handle
      */
     @NativeType("int")
-    public static boolean nk_init_custom(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_buffer *") NkBuffer cmds, @NativeType("struct nk_buffer *") NkBuffer pool, @NativeType("const struct nk_user_font *") NkUserFont font) {
+    public static boolean nk_init_custom(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_buffer *") NkBuffer cmds, @NativeType("struct nk_buffer *") NkBuffer pool, @Nullable @NativeType("const struct nk_user_font *") NkUserFont font) {
         return nnk_init_custom(ctx.address(), cmds.address(), pool.address(), memAddressSafe(font)) != 0;
     }
 
@@ -1439,13 +1441,14 @@ public class Nuklear {
      * @param ctx  the nuklear context
      * @param name 
      */
+    @Nullable
     @NativeType("struct nk_window *")
     public static NkWindow nk_window_find(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
         long __result = nnk_window_find(ctx.address(), memAddress(name));
-        return NkWindow.create(__result);
+        return NkWindow.createSafe(__result);
     }
 
     /**
@@ -1454,13 +1457,14 @@ public class Nuklear {
      * @param ctx  the nuklear context
      * @param name 
      */
+    @Nullable
     @NativeType("struct nk_window *")
     public static NkWindow nk_window_find(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
             long __result = nnk_window_find(ctx.address(), memAddress(nameEncoded));
-            return NkWindow.create(__result);
+            return NkWindow.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -1552,10 +1556,11 @@ public class Nuklear {
      *
      * @param ctx the nuklear context
      */
+    @Nullable
     @NativeType("struct nk_panel *")
     public static NkPanel nk_window_get_panel(@NativeType("struct nk_context *") NkContext ctx) {
         long __result = nnk_window_get_panel(ctx.address());
-        return NkPanel.create(__result);
+        return NkPanel.createSafe(__result);
     }
 
     // --- [ nk_window_get_content_region ] ---
@@ -1632,10 +1637,11 @@ public class Nuklear {
      *
      * @param ctx the nuklear context
      */
+    @Nullable
     @NativeType("struct nk_command_buffer *")
     public static NkCommandBuffer nk_window_get_canvas(@NativeType("struct nk_context *") NkContext ctx) {
         long __result = nnk_window_get_canvas(ctx.address());
-        return NkCommandBuffer.create(__result);
+        return NkCommandBuffer.createSafe(__result);
     }
 
     // --- [ nk_window_has_focus ] ---
@@ -4850,7 +4856,7 @@ public class Nuklear {
      * @param filter 
      */
     @NativeType("nk_flags")
-    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") ByteBuffer memory, @NativeType("int *") IntBuffer len, int max, @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") ByteBuffer memory, @NativeType("int *") IntBuffer len, int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         if (CHECKS) {
             checkNT1(memory);
             check(len, 1);
@@ -4867,7 +4873,7 @@ public class Nuklear {
      * @param filter 
      */
     @NativeType("nk_flags")
-    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") IntBuffer len, @NativeType("int") int max, @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") IntBuffer len, @NativeType("int") int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         if (CHECKS) {
             check(len, 1);
         }
@@ -4892,7 +4898,7 @@ public class Nuklear {
      * @param filter 
      */
     @NativeType("nk_flags")
-    public static int nk_edit_buffer(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("struct nk_text_edit *") NkTextEdit edit, @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_buffer(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("struct nk_text_edit *") NkTextEdit edit, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         return nnk_edit_buffer(ctx.address(), flags, edit.address(), memAddressSafe(filter));
     }
 
@@ -4909,7 +4915,7 @@ public class Nuklear {
      * @param filter 
      */
     @NativeType("nk_flags")
-    public static int nk_edit_string_zero_terminated(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") ByteBuffer buffer, int max, @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string_zero_terminated(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") ByteBuffer buffer, int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         if (CHECKS) {
             checkNT1(buffer);
         }
@@ -4924,7 +4930,7 @@ public class Nuklear {
      * @param filter 
      */
     @NativeType("nk_flags")
-    public static int nk_edit_string_zero_terminated(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence buffer, @NativeType("int") int max, @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string_zero_terminated(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence buffer, @NativeType("int") int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer bufferEncoded = stack.UTF8(buffer);
@@ -6908,10 +6914,11 @@ public class Nuklear {
     public static native long nnk_style_get_color_by_name(int c);
 
     /** @param c one of:<br><table><tr><td>{@link #NK_COLOR_TEXT COLOR_TEXT}</td><td>{@link #NK_COLOR_WINDOW COLOR_WINDOW}</td><td>{@link #NK_COLOR_HEADER COLOR_HEADER}</td><td>{@link #NK_COLOR_BORDER COLOR_BORDER}</td></tr><tr><td>{@link #NK_COLOR_BUTTON COLOR_BUTTON}</td><td>{@link #NK_COLOR_BUTTON_HOVER COLOR_BUTTON_HOVER}</td><td>{@link #NK_COLOR_BUTTON_ACTIVE COLOR_BUTTON_ACTIVE}</td><td>{@link #NK_COLOR_TOGGLE COLOR_TOGGLE}</td></tr><tr><td>{@link #NK_COLOR_TOGGLE_HOVER COLOR_TOGGLE_HOVER}</td><td>{@link #NK_COLOR_TOGGLE_CURSOR COLOR_TOGGLE_CURSOR}</td><td>{@link #NK_COLOR_SELECT COLOR_SELECT}</td><td>{@link #NK_COLOR_SELECT_ACTIVE COLOR_SELECT_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_SLIDER COLOR_SLIDER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR COLOR_SLIDER_CURSOR}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_HOVER COLOR_SLIDER_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SLIDER_CURSOR_ACTIVE COLOR_SLIDER_CURSOR_ACTIVE}</td></tr><tr><td>{@link #NK_COLOR_PROPERTY COLOR_PROPERTY}</td><td>{@link #NK_COLOR_EDIT COLOR_EDIT}</td><td>{@link #NK_COLOR_EDIT_CURSOR COLOR_EDIT_CURSOR}</td><td>{@link #NK_COLOR_COMBO COLOR_COMBO}</td></tr><tr><td>{@link #NK_COLOR_CHART COLOR_CHART}</td><td>{@link #NK_COLOR_CHART_COLOR COLOR_CHART_COLOR}</td><td>{@link #NK_COLOR_CHART_COLOR_HIGHLIGHT COLOR_CHART_COLOR_HIGHLIGHT}</td><td>{@link #NK_COLOR_SCROLLBAR COLOR_SCROLLBAR}</td></tr><tr><td>{@link #NK_COLOR_SCROLLBAR_CURSOR COLOR_SCROLLBAR_CURSOR}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_HOVER COLOR_SCROLLBAR_CURSOR_HOVER}</td><td>{@link #NK_COLOR_SCROLLBAR_CURSOR_ACTIVE COLOR_SCROLLBAR_CURSOR_ACTIVE}</td><td>{@link #NK_COLOR_TAB_HEADER COLOR_TAB_HEADER}</td></tr></table> */
+    @Nullable
     @NativeType("const char *")
     public static String nk_style_get_color_by_name(@NativeType("enum nk_style_colors") int c) {
         long __result = nnk_style_get_color_by_name(c);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ nk_style_set_font ] ---
@@ -8405,6 +8412,7 @@ public class Nuklear {
 
     public static native long nnk_utf_at(long buffer, int length, int index, long unicode, long len);
 
+    @Nullable
     @NativeType("const char *")
     public static ByteBuffer nk_utf_at(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int index, @NativeType("nk_rune *") IntBuffer unicode) {
         if (CHECKS) {
@@ -8414,7 +8422,7 @@ public class Nuklear {
         try {
             IntBuffer len = stack.callocInt(1);
             long __result = nnk_utf_at(memAddress(buffer), buffer.remaining(), index, memAddress(unicode), memAddress(len));
-            return memByteBuffer(__result, len.get(0));
+            return memByteBufferSafe(__result, len.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -8726,16 +8734,18 @@ public class Nuklear {
 
     public static native long nnk_str_at_char(long s, int pos);
 
+    @Nullable
     @NativeType("char *")
     public static String nk_str_at_char(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos) {
         long __result = nnk_str_at_char(s.address(), pos);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ nk_str_at_rune ] ---
 
     public static native long nnk_str_at_rune(long s, int pos, long unicode, long len);
 
+    @Nullable
     @NativeType("char *")
     public static ByteBuffer nk_str_at_rune(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("nk_rune *") IntBuffer unicode) {
         if (CHECKS) {
@@ -8745,7 +8755,7 @@ public class Nuklear {
         IntBuffer len = stack.callocInt(1);
         try {
             long __result = nnk_str_at_rune(s.address(), pos, memAddress(unicode), memAddress(len));
-            return memByteBuffer(__result, len.get(0));
+            return memByteBufferSafe(__result, len.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -8764,16 +8774,18 @@ public class Nuklear {
 
     public static native long nnk_str_at_char_const(long s, int pos);
 
+    @Nullable
     @NativeType("const char *")
     public static String nk_str_at_char_const(@NativeType("const struct nk_str *") NkStr s, @NativeType("int") int pos) {
         long __result = nnk_str_at_char_const(s.address(), pos);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ nk_str_at_const ] ---
 
     public static native long nnk_str_at_const(long s, int pos, long unicode, long len);
 
+    @Nullable
     @NativeType("const char *")
     public static ByteBuffer nk_str_at_const(@NativeType("const struct nk_str *") NkStr s, int pos, @NativeType("nk_rune *") IntBuffer unicode) {
         if (CHECKS) {
@@ -8783,7 +8795,7 @@ public class Nuklear {
         IntBuffer len = stack.callocInt(1);
         try {
             long __result = nnk_str_at_const(s.address(), pos, memAddress(unicode), memAddress(len));
-            return memByteBuffer(__result, len.get(0));
+            return memByteBufferSafe(__result, len.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -8793,20 +8805,22 @@ public class Nuklear {
 
     public static native long nnk_str_get(long s);
 
+    @Nullable
     @NativeType("char *")
     public static String nk_str_get(@NativeType("struct nk_str *") NkStr s) {
         long __result = nnk_str_get(s.address());
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ nk_str_get_const ] ---
 
     public static native long nnk_str_get_const(long s);
 
+    @Nullable
     @NativeType("const char *")
     public static String nk_str_get_const(@NativeType("const struct nk_str *") NkStr s) {
         long __result = nnk_str_get_const(s.address());
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ nk_str_len ] ---
@@ -9164,10 +9178,11 @@ public class Nuklear {
      * @param ctx the nuklear context
      * @param cmd 
      */
+    @Nullable
     @NativeType("const struct nk_command *")
     public static NkCommand nk__next(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const struct nk_command *") NkCommand cmd) {
         long __result = nnk__next(ctx.address(), cmd.address());
-        return NkCommand.create(__result);
+        return NkCommand.createSafe(__result);
     }
 
     // --- [ nk__begin ] ---
@@ -9180,10 +9195,11 @@ public class Nuklear {
      *
      * @param ctx the nuklear context
      */
+    @Nullable
     @NativeType("const struct nk_command *")
     public static NkCommand nk__begin(@NativeType("struct nk_context *") NkContext ctx) {
         long __result = nnk__begin(ctx.address());
-        return NkCommand.create(__result);
+        return NkCommand.createSafe(__result);
     }
 
     // --- [ nk_input_has_mouse_click ] ---
@@ -9419,20 +9435,22 @@ public class Nuklear {
 
     public static native long nnk__draw_list_begin(long list, long buffer);
 
+    @Nullable
     @NativeType("const struct nk_draw_command *")
     public static NkDrawCommand nk__draw_list_begin(@NativeType("const struct nk_draw_list *") NkDrawList list, @NativeType("const struct nk_buffer *") NkBuffer buffer) {
         long __result = nnk__draw_list_begin(list.address(), buffer.address());
-        return NkDrawCommand.create(__result);
+        return NkDrawCommand.createSafe(__result);
     }
 
     // --- [ nk__draw_list_next ] ---
 
     public static native long nnk__draw_list_next(long cmd, long buffer, long list);
 
+    @Nullable
     @NativeType("const struct nk_draw_command *")
     public static NkDrawCommand nk__draw_list_next(@NativeType("const struct nk_draw_command *") NkDrawCommand cmd, @NativeType("const struct nk_buffer *") NkBuffer buffer, @NativeType("const struct nk_draw_list *") NkDrawList list) {
         long __result = nnk__draw_list_next(cmd.address(), buffer.address(), list.address());
-        return NkDrawCommand.create(__result);
+        return NkDrawCommand.createSafe(__result);
     }
 
     // --- [ nk__draw_begin ] ---
@@ -9446,10 +9464,11 @@ public class Nuklear {
      * @param ctx    the nuklear context
      * @param buffer 
      */
+    @Nullable
     @NativeType("const struct nk_draw_command *")
     public static NkDrawCommand nk__draw_begin(@NativeType("const struct nk_context *") NkContext ctx, @NativeType("const struct nk_buffer *") NkBuffer buffer) {
         long __result = nnk__draw_begin(ctx.address(), buffer.address());
-        return NkDrawCommand.create(__result);
+        return NkDrawCommand.createSafe(__result);
     }
 
     // --- [ nk__draw_end ] ---
@@ -9463,10 +9482,11 @@ public class Nuklear {
      * @param ctx    the nuklear context
      * @param buffer 
      */
+    @Nullable
     @NativeType("const struct nk_draw_command *")
     public static NkDrawCommand nk__draw_end(@NativeType("const struct nk_context *") NkContext ctx, @NativeType("const struct nk_buffer *") NkBuffer buffer) {
         long __result = nnk__draw_end(ctx.address(), buffer.address());
-        return NkDrawCommand.create(__result);
+        return NkDrawCommand.createSafe(__result);
     }
 
     // --- [ nk__draw_next ] ---
@@ -9481,10 +9501,11 @@ public class Nuklear {
      * @param buffer 
      * @param ctx    the nuklear context
      */
+    @Nullable
     @NativeType("const struct nk_draw_command *")
     public static NkDrawCommand nk__draw_next(@NativeType("const struct nk_draw_command *") NkDrawCommand cmd, @NativeType("const struct nk_buffer *") NkBuffer buffer, @NativeType("const struct nk_context *") NkContext ctx) {
         long __result = nnk__draw_next(cmd.address(), buffer.address(), ctx.address());
-        return NkDrawCommand.create(__result);
+        return NkDrawCommand.createSafe(__result);
     }
 
     // --- [ nk_draw_list_path_clear ] ---
@@ -10201,7 +10222,7 @@ public class Nuklear {
 
     /** Array version of: {@link #nk_edit_string edit_string} */
     @NativeType("nk_flags")
-    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") ByteBuffer memory, @NativeType("int *") int[] len, int max, @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") ByteBuffer memory, @NativeType("int *") int[] len, int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         if (CHECKS) {
             checkNT1(memory);
             check(len, 1);
@@ -10211,7 +10232,7 @@ public class Nuklear {
 
     /** Array version of: {@link #nk_edit_string edit_string} */
     @NativeType("nk_flags")
-    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") int[] len, @NativeType("int") int max, @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") int[] len, @NativeType("int") int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         if (CHECKS) {
             check(len, 1);
         }
@@ -10746,6 +10767,7 @@ public class Nuklear {
     public static native long nnk_utf_at(long buffer, int length, int index, int[] unicode, long len);
 
     /** Array version of: {@link #nk_utf_at utf_at} */
+    @Nullable
     @NativeType("const char *")
     public static ByteBuffer nk_utf_at(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int index, @NativeType("nk_rune *") int[] unicode) {
         if (CHECKS) {
@@ -10755,7 +10777,7 @@ public class Nuklear {
         try {
             IntBuffer len = stack.callocInt(1);
             long __result = nnk_utf_at(memAddress(buffer), buffer.remaining(), index, unicode, memAddress(len));
-            return memByteBuffer(__result, len.get(0));
+            return memByteBufferSafe(__result, len.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -10803,6 +10825,7 @@ public class Nuklear {
     public static native long nnk_str_at_rune(long s, int pos, int[] unicode, long len);
 
     /** Array version of: {@link #nk_str_at_rune str_at_rune} */
+    @Nullable
     @NativeType("char *")
     public static ByteBuffer nk_str_at_rune(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("nk_rune *") int[] unicode) {
         if (CHECKS) {
@@ -10812,7 +10835,7 @@ public class Nuklear {
         IntBuffer len = stack.callocInt(1);
         try {
             long __result = nnk_str_at_rune(s.address(), pos, unicode, memAddress(len));
-            return memByteBuffer(__result, len.get(0));
+            return memByteBufferSafe(__result, len.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -10822,6 +10845,7 @@ public class Nuklear {
     public static native long nnk_str_at_const(long s, int pos, int[] unicode, long len);
 
     /** Array version of: {@link #nk_str_at_const str_at_const} */
+    @Nullable
     @NativeType("const char *")
     public static ByteBuffer nk_str_at_const(@NativeType("const struct nk_str *") NkStr s, int pos, @NativeType("nk_rune *") int[] unicode) {
         if (CHECKS) {
@@ -10831,7 +10855,7 @@ public class Nuklear {
         IntBuffer len = stack.callocInt(1);
         try {
             long __result = nnk_str_at_const(s.address(), pos, unicode, memAddress(len));
-            return memByteBuffer(__result, len.get(0));
+            return memByteBufferSafe(__result, len.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }

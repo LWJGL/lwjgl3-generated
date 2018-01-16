@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -238,10 +240,11 @@ public class STBImageWrite {
 
     private static native long nstbi_write_tga_with_rle();
 
+    @Nullable
     @NativeType("int *")
     private static IntBuffer stbi_write_tga_with_rle() {
         long __result = nstbi_write_tga_with_rle();
-        return memIntBuffer(__result, 1);
+        return memIntBufferSafe(__result, 1);
     }
 
     /** Returns the address of the global variable {@code stbi_write_tga_with_rle}. */

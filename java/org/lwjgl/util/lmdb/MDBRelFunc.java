@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.lmdb;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -18,16 +20,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class MDBRelFunc extends Callback implements MDBRelFuncI {
 
-    /** Creates a {@code MDBRelFunc} instance from the specified function pointer. */
+    /**
+     * Creates a {@code MDBRelFunc} instance from the specified function pointer.
+     *
+     * @return the new {@code MDBRelFunc}
+     */
     public static MDBRelFunc create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         MDBRelFuncI instance = Callback.get(functionPointer);
         return instance instanceof MDBRelFunc
             ? (MDBRelFunc)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static MDBRelFunc createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code MDBRelFunc} instance that delegates to the specified {@code MDBRelFuncI} instance. */

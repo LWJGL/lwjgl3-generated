@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -90,7 +92,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
         PFNINTERNALFREE = layout.offsetof(5);
     }
 
-    VkAllocationCallbacks(long address, ByteBuffer container) {
+    VkAllocationCallbacks(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -101,7 +103,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkAllocationCallbacks(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -120,9 +122,11 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
     @NativeType("PFN_vkFreeFunction")
     public VkFreeFunction pfnFree() { return npfnFree(address()); }
     /** Returns the value of the {@code pfnInternalAllocation} field. */
+    @Nullable
     @NativeType("PFN_vkInternalAllocationNotification")
     public VkInternalAllocationNotification pfnInternalAllocation() { return npfnInternalAllocation(address()); }
     /** Returns the value of the {@code pfnInternalFree} field. */
+    @Nullable
     @NativeType("PFN_vkInternalFreeNotification")
     public VkInternalFreeNotification pfnInternalFree() { return npfnInternalFree(address()); }
 
@@ -135,9 +139,9 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
     /** Sets the specified value to the {@code pfnFree} field. */
     public VkAllocationCallbacks pfnFree(@NativeType("PFN_vkFreeFunction") VkFreeFunctionI value) { npfnFree(address(), value); return this; }
     /** Sets the specified value to the {@code pfnInternalAllocation} field. */
-    public VkAllocationCallbacks pfnInternalAllocation(@NativeType("PFN_vkInternalAllocationNotification") VkInternalAllocationNotificationI value) { npfnInternalAllocation(address(), value); return this; }
+    public VkAllocationCallbacks pfnInternalAllocation(@Nullable @NativeType("PFN_vkInternalAllocationNotification") VkInternalAllocationNotificationI value) { npfnInternalAllocation(address(), value); return this; }
     /** Sets the specified value to the {@code pfnInternalFree} field. */
-    public VkAllocationCallbacks pfnInternalFree(@NativeType("PFN_vkInternalFreeNotification") VkInternalFreeNotificationI value) { npfnInternalFree(address(), value); return this; }
+    public VkAllocationCallbacks pfnInternalFree(@Nullable @NativeType("PFN_vkInternalFreeNotification") VkInternalFreeNotificationI value) { npfnInternalFree(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkAllocationCallbacks set(
@@ -174,12 +178,12 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
 
     /** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkAllocationCallbacks malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkAllocationCallbacks calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkAllocationCallbacks} instance allocated with {@link BufferUtils}. */
@@ -187,9 +191,15 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
         return new VkAllocationCallbacks(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkAllocationCallbacks} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkAllocationCallbacks} instance for the specified memory address. */
     public static VkAllocationCallbacks create(long address) {
-        return address == NULL ? null : new VkAllocationCallbacks(address, null);
+        return new VkAllocationCallbacks(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkAllocationCallbacks createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -197,7 +207,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkAllocationCallbacks.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -206,8 +216,8 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkAllocationCallbacks.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -215,7 +225,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkAllocationCallbacks.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -225,8 +235,14 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkAllocationCallbacks.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkAllocationCallbacks.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -264,7 +280,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkAllocationCallbacks.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -273,7 +289,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkAllocationCallbacks.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -283,7 +299,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkAllocationCallbacks.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -293,7 +309,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkAllocationCallbacks.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -308,9 +324,9 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
     /** Unsafe version of {@link #pfnFree}. */
     public static VkFreeFunction npfnFree(long struct) { return VkFreeFunction.create(memGetAddress(struct + VkAllocationCallbacks.PFNFREE)); }
     /** Unsafe version of {@link #pfnInternalAllocation}. */
-    public static VkInternalAllocationNotification npfnInternalAllocation(long struct) { return VkInternalAllocationNotification.create(memGetAddress(struct + VkAllocationCallbacks.PFNINTERNALALLOCATION)); }
+    @Nullable public static VkInternalAllocationNotification npfnInternalAllocation(long struct) { return VkInternalAllocationNotification.createSafe(memGetAddress(struct + VkAllocationCallbacks.PFNINTERNALALLOCATION)); }
     /** Unsafe version of {@link #pfnInternalFree}. */
-    public static VkInternalFreeNotification npfnInternalFree(long struct) { return VkInternalFreeNotification.create(memGetAddress(struct + VkAllocationCallbacks.PFNINTERNALFREE)); }
+    @Nullable public static VkInternalFreeNotification npfnInternalFree(long struct) { return VkInternalFreeNotification.createSafe(memGetAddress(struct + VkAllocationCallbacks.PFNINTERNALFREE)); }
 
     /** Unsafe version of {@link #pUserData(long) pUserData}. */
     public static void npUserData(long struct, long value) { memPutAddress(struct + VkAllocationCallbacks.PUSERDATA, value); }
@@ -321,9 +337,9 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
     /** Unsafe version of {@link #pfnFree(VkFreeFunctionI) pfnFree}. */
     public static void npfnFree(long struct, VkFreeFunctionI value) { memPutAddress(struct + VkAllocationCallbacks.PFNFREE, value.address()); }
     /** Unsafe version of {@link #pfnInternalAllocation(VkInternalAllocationNotificationI) pfnInternalAllocation}. */
-    public static void npfnInternalAllocation(long struct, VkInternalAllocationNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALALLOCATION, memAddressSafe(value)); }
+    public static void npfnInternalAllocation(long struct, @Nullable VkInternalAllocationNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALALLOCATION, memAddressSafe(value)); }
     /** Unsafe version of {@link #pfnInternalFree(VkInternalFreeNotificationI) pfnInternalFree}. */
-    public static void npfnInternalFree(long struct, VkInternalFreeNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALFREE, memAddressSafe(value)); }
+    public static void npfnInternalFree(long struct, @Nullable VkInternalFreeNotificationI value) { memPutAddress(struct + VkAllocationCallbacks.PFNINTERNALFREE, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -366,7 +382,11 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -376,7 +396,7 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -403,9 +423,11 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
         @NativeType("PFN_vkFreeFunction")
         public VkFreeFunction pfnFree() { return VkAllocationCallbacks.npfnFree(address()); }
         /** Returns the value of the {@code pfnInternalAllocation} field. */
+        @Nullable
         @NativeType("PFN_vkInternalAllocationNotification")
         public VkInternalAllocationNotification pfnInternalAllocation() { return VkAllocationCallbacks.npfnInternalAllocation(address()); }
         /** Returns the value of the {@code pfnInternalFree} field. */
+        @Nullable
         @NativeType("PFN_vkInternalFreeNotification")
         public VkInternalFreeNotification pfnInternalFree() { return VkAllocationCallbacks.npfnInternalFree(address()); }
 
@@ -418,9 +440,9 @@ public class VkAllocationCallbacks extends Struct implements NativeResource {
         /** Sets the specified value to the {@code pfnFree} field. */
         public VkAllocationCallbacks.Buffer pfnFree(@NativeType("PFN_vkFreeFunction") VkFreeFunctionI value) { VkAllocationCallbacks.npfnFree(address(), value); return this; }
         /** Sets the specified value to the {@code pfnInternalAllocation} field. */
-        public VkAllocationCallbacks.Buffer pfnInternalAllocation(@NativeType("PFN_vkInternalAllocationNotification") VkInternalAllocationNotificationI value) { VkAllocationCallbacks.npfnInternalAllocation(address(), value); return this; }
+        public VkAllocationCallbacks.Buffer pfnInternalAllocation(@Nullable @NativeType("PFN_vkInternalAllocationNotification") VkInternalAllocationNotificationI value) { VkAllocationCallbacks.npfnInternalAllocation(address(), value); return this; }
         /** Sets the specified value to the {@code pfnInternalFree} field. */
-        public VkAllocationCallbacks.Buffer pfnInternalFree(@NativeType("PFN_vkInternalFreeNotification") VkInternalFreeNotificationI value) { VkAllocationCallbacks.npfnInternalFree(address(), value); return this; }
+        public VkAllocationCallbacks.Buffer pfnInternalFree(@Nullable @NativeType("PFN_vkInternalFreeNotification") VkInternalFreeNotificationI value) { VkAllocationCallbacks.npfnInternalFree(address(), value); return this; }
 
     }
 

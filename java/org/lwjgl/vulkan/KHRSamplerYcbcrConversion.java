@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -389,7 +391,7 @@ public class KHRSamplerYcbcrConversion {
      * @param pYcbcrConversion points to a {@code VkSamplerYcbcrConversionKHR} handle in which the resulting sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("const VkSamplerYcbcrConversionCreateInfoKHR *") VkSamplerYcbcrConversionCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversionKHR *") LongBuffer pYcbcrConversion) {
+    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("const VkSamplerYcbcrConversionCreateInfoKHR *") VkSamplerYcbcrConversionCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversionKHR *") LongBuffer pYcbcrConversion) {
         if (CHECKS) {
             check(pYcbcrConversion, 1);
         }
@@ -444,13 +446,13 @@ public class KHRSamplerYcbcrConversion {
      * @param ycbcrConversion the conversion to destroy.
      * @param pAllocator      controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroySamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversionKHR") long ycbcrConversion, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversionKHR") long ycbcrConversion, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroySamplerYcbcrConversionKHR(device, ycbcrConversion, memAddressSafe(pAllocator));
     }
 
     /** Array version of: {@link #vkCreateSamplerYcbcrConversionKHR CreateSamplerYcbcrConversionKHR} */
     @NativeType("VkResult")
-    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("const VkSamplerYcbcrConversionCreateInfoKHR *") VkSamplerYcbcrConversionCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversionKHR *") long[] pYcbcrConversion) {
+    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("const VkSamplerYcbcrConversionCreateInfoKHR *") VkSamplerYcbcrConversionCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversionKHR *") long[] pYcbcrConversion) {
         long __functionAddress = device.getCapabilities().vkCreateSamplerYcbcrConversionKHR;
         if (CHECKS) {
             check(__functionAddress);

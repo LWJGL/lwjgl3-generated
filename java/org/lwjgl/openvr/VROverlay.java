@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openvr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -191,7 +193,7 @@ public class VROverlay {
      * @param pError          
      */
     @NativeType("uint32_t")
-    public static int VROverlay_GetOverlayKey(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("char *") ByteBuffer pchValue, @NativeType("EVROverlayError *") IntBuffer pError) {
+    public static int VROverlay_GetOverlayKey(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @Nullable @NativeType("char *") ByteBuffer pchValue, @NativeType("EVROverlayError *") IntBuffer pError) {
         if (CHECKS) {
             check(pError, 1);
         }
@@ -241,7 +243,7 @@ public class VROverlay {
      * @param pError          
      */
     @NativeType("uint32_t")
-    public static int VROverlay_GetOverlayName(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @NativeType("char *") ByteBuffer pchValue, @NativeType("EVROverlayError *") IntBuffer pError) {
+    public static int VROverlay_GetOverlayName(@NativeType("VROverlayHandle_t") long ulOverlayHandle, @Nullable @NativeType("char *") ByteBuffer pchValue, @NativeType("EVROverlayError *") IntBuffer pError) {
         if (CHECKS) {
             check(pError, 1);
         }
@@ -358,10 +360,11 @@ public class VROverlay {
      *
      * @param error one of:<br><table><tr><td>{@link VR#EVROverlayError_VROverlayError_None}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_UnknownOverlay}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidHandle}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_PermissionDenied}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_OverlayLimitExceeded}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_WrongVisibilityType}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyTooLong}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_NameTooLong}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyInUse}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_WrongTransformType}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidTrackedDevice}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidParameter}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_ThumbnailCantBeDestroyed}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_ArrayTooSmall}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_RequestFailed}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_InvalidTexture}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_UnableToLoadFile}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_KeyboardAlreadyInUse}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_NoNeighbor}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TooManyMaskPrimitives}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_BadMaskPrimitive}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TextureAlreadyLocked}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TextureLockCapacityReached}</td></tr><tr><td>{@link VR#EVROverlayError_VROverlayError_TextureNotLocked}</td></tr></table>
      */
+    @Nullable
     @NativeType("const char *")
     public static String VROverlay_GetOverlayErrorNameFromEnum(@NativeType("EVROverlayError") int error) {
         long __result = nVROverlay_GetOverlayErrorNameFromEnum(error);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ VROverlay_SetOverlayRenderingPid ] ---
@@ -1946,7 +1949,7 @@ public class VROverlay {
      * @param pchText 
      */
     @NativeType("uint32_t")
-    public static int VROverlay_GetKeyboardText(@NativeType("char *") ByteBuffer pchText) {
+    public static int VROverlay_GetKeyboardText(@Nullable @NativeType("char *") ByteBuffer pchText) {
         return nVROverlay_GetKeyboardText(memAddressSafe(pchText), remainingSafe(pchText));
     }
 
@@ -2082,7 +2085,7 @@ public class VROverlay {
      * @param pchButton3Text 
      */
     @NativeType("VRMessageOverlayResponse")
-    public static int VROverlay_ShowMessageOverlay(@NativeType("const char *") ByteBuffer pchText, @NativeType("const char *") ByteBuffer pchCaption, @NativeType("const char *") ByteBuffer pchButton0Text, @NativeType("const char *") ByteBuffer pchButton1Text, @NativeType("const char *") ByteBuffer pchButton2Text, @NativeType("const char *") ByteBuffer pchButton3Text) {
+    public static int VROverlay_ShowMessageOverlay(@NativeType("const char *") ByteBuffer pchText, @NativeType("const char *") ByteBuffer pchCaption, @NativeType("const char *") ByteBuffer pchButton0Text, @Nullable @NativeType("const char *") ByteBuffer pchButton1Text, @Nullable @NativeType("const char *") ByteBuffer pchButton2Text, @Nullable @NativeType("const char *") ByteBuffer pchButton3Text) {
         if (CHECKS) {
             checkNT1(pchText);
             checkNT1(pchCaption);
@@ -2105,15 +2108,15 @@ public class VROverlay {
      * @param pchButton3Text 
      */
     @NativeType("VRMessageOverlayResponse")
-    public static int VROverlay_ShowMessageOverlay(@NativeType("const char *") CharSequence pchText, @NativeType("const char *") CharSequence pchCaption, @NativeType("const char *") CharSequence pchButton0Text, @NativeType("const char *") CharSequence pchButton1Text, @NativeType("const char *") CharSequence pchButton2Text, @NativeType("const char *") CharSequence pchButton3Text) {
+    public static int VROverlay_ShowMessageOverlay(@NativeType("const char *") CharSequence pchText, @NativeType("const char *") CharSequence pchCaption, @NativeType("const char *") CharSequence pchButton0Text, @Nullable @NativeType("const char *") CharSequence pchButton1Text, @Nullable @NativeType("const char *") CharSequence pchButton2Text, @Nullable @NativeType("const char *") CharSequence pchButton3Text) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchTextEncoded = stack.ASCII(pchText);
             ByteBuffer pchCaptionEncoded = stack.ASCII(pchCaption);
             ByteBuffer pchButton0TextEncoded = stack.ASCII(pchButton0Text);
-            ByteBuffer pchButton1TextEncoded = stack.ASCII(pchButton1Text);
-            ByteBuffer pchButton2TextEncoded = stack.ASCII(pchButton2Text);
-            ByteBuffer pchButton3TextEncoded = stack.ASCII(pchButton3Text);
+            ByteBuffer pchButton1TextEncoded = stack.ASCIISafe(pchButton1Text);
+            ByteBuffer pchButton2TextEncoded = stack.ASCIISafe(pchButton2Text);
+            ByteBuffer pchButton3TextEncoded = stack.ASCIISafe(pchButton3Text);
             return nVROverlay_ShowMessageOverlay(memAddress(pchTextEncoded), memAddress(pchCaptionEncoded), memAddress(pchButton0TextEncoded), memAddressSafe(pchButton1TextEncoded), memAddressSafe(pchButton2TextEncoded), memAddressSafe(pchButton3TextEncoded));
         } finally {
             stack.setPointer(stackPointer);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -120,7 +122,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         PSPECIALIZATIONINFO = layout.offsetof(6);
     }
 
-    VkPipelineShaderStageCreateInfo(long address, ByteBuffer container) {
+    VkPipelineShaderStageCreateInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -131,7 +133,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkPipelineShaderStageCreateInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -159,6 +161,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
     @NativeType("const char *")
     public String pNameString() { return npNameString(address()); }
     /** Returns a {@link VkSpecializationInfo} view of the struct pointed to by the {@code pSpecializationInfo} field. */
+    @Nullable
     @NativeType("const VkSpecializationInfo *")
     public VkSpecializationInfo pSpecializationInfo() { return npSpecializationInfo(address()); }
 
@@ -175,7 +178,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
     /** Sets the address of the specified encoded string to the {@code pName} field. */
     public VkPipelineShaderStageCreateInfo pName(@NativeType("const char *") ByteBuffer value) { npName(address(), value); return this; }
     /** Sets the address of the specified {@link VkSpecializationInfo} to the {@code pSpecializationInfo} field. */
-    public VkPipelineShaderStageCreateInfo pSpecializationInfo(@NativeType("const VkSpecializationInfo *") VkSpecializationInfo value) { npSpecializationInfo(address(), value); return this; }
+    public VkPipelineShaderStageCreateInfo pSpecializationInfo(@Nullable @NativeType("const VkSpecializationInfo *") VkSpecializationInfo value) { npSpecializationInfo(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineShaderStageCreateInfo set(
@@ -214,12 +217,12 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
 
     /** Returns a new {@link VkPipelineShaderStageCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkPipelineShaderStageCreateInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineShaderStageCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkPipelineShaderStageCreateInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineShaderStageCreateInfo} instance allocated with {@link BufferUtils}. */
@@ -227,9 +230,15 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         return new VkPipelineShaderStageCreateInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkPipelineShaderStageCreateInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkPipelineShaderStageCreateInfo} instance for the specified memory address. */
     public static VkPipelineShaderStageCreateInfo create(long address) {
-        return address == NULL ? null : new VkPipelineShaderStageCreateInfo(address, null);
+        return new VkPipelineShaderStageCreateInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineShaderStageCreateInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -237,7 +246,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkPipelineShaderStageCreateInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -246,8 +255,8 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkPipelineShaderStageCreateInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -255,7 +264,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkPipelineShaderStageCreateInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -265,8 +274,14 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkPipelineShaderStageCreateInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineShaderStageCreateInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -304,7 +319,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkPipelineShaderStageCreateInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -313,7 +328,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkPipelineShaderStageCreateInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -323,7 +338,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineShaderStageCreateInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -333,7 +348,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineShaderStageCreateInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -354,7 +369,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
     /** Unsafe version of {@link #pNameString}. */
     public static String npNameString(long struct) { return memUTF8(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PNAME)); }
     /** Unsafe version of {@link #pSpecializationInfo}. */
-    public static VkSpecializationInfo npSpecializationInfo(long struct) { return VkSpecializationInfo.create(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO)); }
+    @Nullable public static VkSpecializationInfo npSpecializationInfo(long struct) { return VkSpecializationInfo.createSafe(memGetAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkPipelineShaderStageCreateInfo.STYPE, value); }
@@ -368,11 +383,11 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
     public static void nmodule(long struct, long value) { memPutLong(struct + VkPipelineShaderStageCreateInfo.MODULE, value); }
     /** Unsafe version of {@link #pName(ByteBuffer) pName}. */
     public static void npName(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT1Safe(value); }
+        if (CHECKS) { checkNT1(value); }
         memPutAddress(struct + VkPipelineShaderStageCreateInfo.PNAME, memAddress(value));
     }
     /** Unsafe version of {@link #pSpecializationInfo(VkSpecializationInfo) pSpecializationInfo}. */
-    public static void npSpecializationInfo(long struct, VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, memAddressSafe(value)); }
+    public static void npSpecializationInfo(long struct, @Nullable VkSpecializationInfo value) { memPutAddress(struct + VkPipelineShaderStageCreateInfo.PSPECIALIZATIONINFO, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -417,7 +432,11 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -427,7 +446,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -463,6 +482,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         @NativeType("const char *")
         public String pNameString() { return VkPipelineShaderStageCreateInfo.npNameString(address()); }
         /** Returns a {@link VkSpecializationInfo} view of the struct pointed to by the {@code pSpecializationInfo} field. */
+        @Nullable
         @NativeType("const VkSpecializationInfo *")
         public VkSpecializationInfo pSpecializationInfo() { return VkPipelineShaderStageCreateInfo.npSpecializationInfo(address()); }
 
@@ -479,7 +499,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         /** Sets the address of the specified encoded string to the {@code pName} field. */
         public VkPipelineShaderStageCreateInfo.Buffer pName(@NativeType("const char *") ByteBuffer value) { VkPipelineShaderStageCreateInfo.npName(address(), value); return this; }
         /** Sets the address of the specified {@link VkSpecializationInfo} to the {@code pSpecializationInfo} field. */
-        public VkPipelineShaderStageCreateInfo.Buffer pSpecializationInfo(@NativeType("const VkSpecializationInfo *") VkSpecializationInfo value) { VkPipelineShaderStageCreateInfo.npSpecializationInfo(address(), value); return this; }
+        public VkPipelineShaderStageCreateInfo.Buffer pSpecializationInfo(@Nullable @NativeType("const VkSpecializationInfo *") VkSpecializationInfo value) { VkPipelineShaderStageCreateInfo.npSpecializationInfo(address(), value); return this; }
 
     }
 

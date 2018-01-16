@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.jemalloc;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@link ExtentHooks} struct. */
 public abstract class ExtentCommit extends Callback implements ExtentCommitI {
 
-    /** Creates a {@code ExtentCommit} instance from the specified function pointer. */
+    /**
+     * Creates a {@code ExtentCommit} instance from the specified function pointer.
+     *
+     * @return the new {@code ExtentCommit}
+     */
     public static ExtentCommit create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         ExtentCommitI instance = Callback.get(functionPointer);
         return instance instanceof ExtentCommit
             ? (ExtentCommit)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static ExtentCommit createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code ExtentCommit} instance that delegates to the specified {@code ExtentCommitI} instance. */

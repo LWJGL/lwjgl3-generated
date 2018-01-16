@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method. */
 public abstract class CLSVMFreeCallback extends Callback implements CLSVMFreeCallbackI {
 
-    /** Creates a {@code CLSVMFreeCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code CLSVMFreeCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code CLSVMFreeCallback}
+     */
     public static CLSVMFreeCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         CLSVMFreeCallbackI instance = Callback.get(functionPointer);
         return instance instanceof CLSVMFreeCallback
             ? (CLSVMFreeCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static CLSVMFreeCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code CLSVMFreeCallback} instance that delegates to the specified {@code CLSVMFreeCallbackI} instance. */

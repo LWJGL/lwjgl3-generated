@@ -5,5 +5,6 @@
  */
 
 /** Contains bindings to the <a target="_blank" href="https://github.com/prideout/par">par</a> library. */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.util.par;
 

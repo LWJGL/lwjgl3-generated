@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -511,7 +513,7 @@ public class NVXDeviceGeneratedCommands {
      * @param pIndirectCommandsLayout points to a {@code VkObjectTableNVX} handle in which the resulting object table is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, @NativeType("const VkIndirectCommandsLayoutCreateInfoNVX *") VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkIndirectCommandsLayoutNVX *") LongBuffer pIndirectCommandsLayout) {
+    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, @NativeType("const VkIndirectCommandsLayoutCreateInfoNVX *") VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkIndirectCommandsLayoutNVX *") LongBuffer pIndirectCommandsLayout) {
         if (CHECKS) {
             check(pIndirectCommandsLayout, 1);
         }
@@ -568,7 +570,7 @@ public class NVXDeviceGeneratedCommands {
      * @param indirectCommandsLayout the table to destroy.
      * @param pAllocator             controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyIndirectCommandsLayoutNVX(VkDevice device, @NativeType("VkIndirectCommandsLayoutNVX") long indirectCommandsLayout, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyIndirectCommandsLayoutNVX(VkDevice device, @NativeType("VkIndirectCommandsLayoutNVX") long indirectCommandsLayout, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyIndirectCommandsLayoutNVX(device, indirectCommandsLayout, memAddressSafe(pAllocator));
     }
 
@@ -632,7 +634,7 @@ public class NVXDeviceGeneratedCommands {
      * @param pObjectTable points to a {@code VkObjectTableNVX} handle in which the resulting object table is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateObjectTableNVX(VkDevice device, @NativeType("const VkObjectTableCreateInfoNVX *") VkObjectTableCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkObjectTableNVX *") LongBuffer pObjectTable) {
+    public static int vkCreateObjectTableNVX(VkDevice device, @NativeType("const VkObjectTableCreateInfoNVX *") VkObjectTableCreateInfoNVX pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkObjectTableNVX *") LongBuffer pObjectTable) {
         if (CHECKS) {
             check(pObjectTable, 1);
         }
@@ -695,7 +697,7 @@ public class NVXDeviceGeneratedCommands {
      * @param objectTable the table to destroy.
      * @param pAllocator  controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroyObjectTableNVX(VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroyObjectTableNVX(VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroyObjectTableNVX(device, objectTable, memAddressSafe(pAllocator));
     }
 
@@ -913,7 +915,7 @@ public class NVXDeviceGeneratedCommands {
 
     /** Array version of: {@link #vkCreateIndirectCommandsLayoutNVX CreateIndirectCommandsLayoutNVX} */
     @NativeType("VkResult")
-    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, @NativeType("const VkIndirectCommandsLayoutCreateInfoNVX *") VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkIndirectCommandsLayoutNVX *") long[] pIndirectCommandsLayout) {
+    public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, @NativeType("const VkIndirectCommandsLayoutCreateInfoNVX *") VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkIndirectCommandsLayoutNVX *") long[] pIndirectCommandsLayout) {
         long __functionAddress = device.getCapabilities().vkCreateIndirectCommandsLayoutNVX;
         if (CHECKS) {
             check(__functionAddress);
@@ -926,7 +928,7 @@ public class NVXDeviceGeneratedCommands {
 
     /** Array version of: {@link #vkCreateObjectTableNVX CreateObjectTableNVX} */
     @NativeType("VkResult")
-    public static int vkCreateObjectTableNVX(VkDevice device, @NativeType("const VkObjectTableCreateInfoNVX *") VkObjectTableCreateInfoNVX pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkObjectTableNVX *") long[] pObjectTable) {
+    public static int vkCreateObjectTableNVX(VkDevice device, @NativeType("const VkObjectTableCreateInfoNVX *") VkObjectTableCreateInfoNVX pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkObjectTableNVX *") long[] pObjectTable) {
         long __functionAddress = device.getCapabilities().vkCreateObjectTableNVX;
         if (CHECKS) {
             check(__functionAddress);

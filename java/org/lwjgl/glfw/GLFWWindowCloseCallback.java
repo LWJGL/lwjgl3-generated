@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -18,16 +20,22 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public abstract class GLFWWindowCloseCallback extends Callback implements GLFWWindowCloseCallbackI {
 
-    /** Creates a {@code GLFWWindowCloseCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLFWWindowCloseCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLFWWindowCloseCallback}
+     */
     public static GLFWWindowCloseCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLFWWindowCloseCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLFWWindowCloseCallback
             ? (GLFWWindowCloseCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLFWWindowCloseCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLFWWindowCloseCallback} instance that delegates to the specified {@code GLFWWindowCloseCallbackI} instance. */

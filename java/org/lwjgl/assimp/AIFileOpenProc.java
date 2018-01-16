@@ -5,22 +5,30 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class AIFileOpenProc extends Callback implements AIFileOpenProcI {
 
-    /** Creates a {@code AIFileOpenProc} instance from the specified function pointer. */
+    /**
+     * Creates a {@code AIFileOpenProc} instance from the specified function pointer.
+     *
+     * @return the new {@code AIFileOpenProc}
+     */
     public static AIFileOpenProc create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         AIFileOpenProcI instance = Callback.get(functionPointer);
         return instance instanceof AIFileOpenProc
             ? (AIFileOpenProc)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static AIFileOpenProc createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code AIFileOpenProc} instance that delegates to the specified {@code AIFileOpenProcI} instance. */

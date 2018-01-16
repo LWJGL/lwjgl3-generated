@@ -5,6 +5,8 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -78,7 +80,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
         NEXT = layout.offsetof(3);
     }
 
-    AIExportDataBlob(long address, ByteBuffer container) {
+    AIExportDataBlob(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -89,7 +91,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public AIExportDataBlob(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -105,6 +107,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
     @NativeType("struct aiString")
     public AIString name() { return nname(address()); }
     /** Returns a {@link AIExportDataBlob} view of the struct pointed to by the {@code next} field. */
+    @Nullable
     @NativeType("struct aiExportDataBlob *")
     public AIExportDataBlob next() { return nnext(address()); }
 
@@ -113,7 +116,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
     /** Copies the specified {@link AIString} to the {@code name} field. */
     public AIExportDataBlob name(@NativeType("struct aiString") AIString value) { nname(address(), value); return this; }
     /** Sets the address of the specified {@link AIExportDataBlob} to the {@code next} field. */
-    public AIExportDataBlob next(@NativeType("struct aiExportDataBlob *") AIExportDataBlob value) { nnext(address(), value); return this; }
+    public AIExportDataBlob next(@Nullable @NativeType("struct aiExportDataBlob *") AIExportDataBlob value) { nnext(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIExportDataBlob set(
@@ -144,12 +147,12 @@ public class AIExportDataBlob extends Struct implements NativeResource {
 
     /** Returns a new {@link AIExportDataBlob} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static AIExportDataBlob malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link AIExportDataBlob} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static AIExportDataBlob calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link AIExportDataBlob} instance allocated with {@link BufferUtils}. */
@@ -157,9 +160,15 @@ public class AIExportDataBlob extends Struct implements NativeResource {
         return new AIExportDataBlob(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link AIExportDataBlob} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link AIExportDataBlob} instance for the specified memory address. */
     public static AIExportDataBlob create(long address) {
-        return address == NULL ? null : new AIExportDataBlob(address, null);
+        return new AIExportDataBlob(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AIExportDataBlob createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -167,7 +176,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static AIExportDataBlob.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -176,8 +185,8 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static AIExportDataBlob.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -185,7 +194,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static AIExportDataBlob.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -195,8 +204,14 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static AIExportDataBlob.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AIExportDataBlob.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -234,7 +249,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static AIExportDataBlob.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -243,7 +258,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static AIExportDataBlob.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -253,7 +268,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static AIExportDataBlob.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -263,7 +278,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static AIExportDataBlob.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -276,7 +291,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
     /** Unsafe version of {@link #name}. */
     public static AIString nname(long struct) { return AIString.create(struct + AIExportDataBlob.NAME); }
     /** Unsafe version of {@link #next}. */
-    public static AIExportDataBlob nnext(long struct) { return AIExportDataBlob.create(memGetAddress(struct + AIExportDataBlob.NEXT)); }
+    @Nullable public static AIExportDataBlob nnext(long struct) { return AIExportDataBlob.createSafe(memGetAddress(struct + AIExportDataBlob.NEXT)); }
 
     /** Sets the specified value to the {@code size} field of the specified {@code struct}. */
     public static void nsize(long struct, long value) { memPutAddress(struct + AIExportDataBlob.SIZE, value); }
@@ -285,7 +300,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
     /** Unsafe version of {@link #name(AIString) name}. */
     public static void nname(long struct, AIString value) { memCopy(value.address(), struct + AIExportDataBlob.NAME, AIString.SIZEOF); }
     /** Unsafe version of {@link #next(AIExportDataBlob) next}. */
-    public static void nnext(long struct, AIExportDataBlob value) { memPutAddress(struct + AIExportDataBlob.NEXT, memAddressSafe(value)); }
+    public static void nnext(long struct, @Nullable AIExportDataBlob value) { memPutAddress(struct + AIExportDataBlob.NEXT, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -326,7 +341,11 @@ public class AIExportDataBlob extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -336,7 +355,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -360,6 +379,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
         @NativeType("struct aiString")
         public AIString name() { return AIExportDataBlob.nname(address()); }
         /** Returns a {@link AIExportDataBlob} view of the struct pointed to by the {@code next} field. */
+        @Nullable
         @NativeType("struct aiExportDataBlob *")
         public AIExportDataBlob next() { return AIExportDataBlob.nnext(address()); }
 
@@ -368,7 +388,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
         /** Copies the specified {@link AIString} to the {@code name} field. */
         public AIExportDataBlob.Buffer name(@NativeType("struct aiString") AIString value) { AIExportDataBlob.nname(address(), value); return this; }
         /** Sets the address of the specified {@link AIExportDataBlob} to the {@code next} field. */
-        public AIExportDataBlob.Buffer next(@NativeType("struct aiExportDataBlob *") AIExportDataBlob value) { AIExportDataBlob.nnext(address(), value); return this; }
+        public AIExportDataBlob.Buffer next(@Nullable @NativeType("struct aiExportDataBlob *") AIExportDataBlob value) { AIExportDataBlob.nnext(address(), value); return this; }
 
     }
 

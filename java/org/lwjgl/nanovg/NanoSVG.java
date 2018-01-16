@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nanovg;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -133,6 +135,7 @@ public class NanoSVG {
      * @param units    
      * @param dpi      
      */
+    @Nullable
     @NativeType("NSVGimage *")
     public static NSVGImage nsvgParseFromFile(@NativeType("const char *") ByteBuffer filename, @NativeType("const char *") ByteBuffer units, float dpi) {
         if (CHECKS) {
@@ -140,7 +143,7 @@ public class NanoSVG {
             checkNT1(units);
         }
         long __result = nnsvgParseFromFile(memAddress(filename), memAddress(units), dpi);
-        return NSVGImage.create(__result);
+        return NSVGImage.createSafe(__result);
     }
 
     /**
@@ -150,6 +153,7 @@ public class NanoSVG {
      * @param units    
      * @param dpi      
      */
+    @Nullable
     @NativeType("NSVGimage *")
     public static NSVGImage nsvgParseFromFile(@NativeType("const char *") CharSequence filename, @NativeType("const char *") CharSequence units, @NativeType("float") float dpi) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -157,7 +161,7 @@ public class NanoSVG {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             ByteBuffer unitsEncoded = stack.ASCII(units);
             long __result = nnsvgParseFromFile(memAddress(filenameEncoded), memAddress(unitsEncoded), dpi);
-            return NSVGImage.create(__result);
+            return NSVGImage.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -177,6 +181,7 @@ public class NanoSVG {
      * @param units 
      * @param dpi   
      */
+    @Nullable
     @NativeType("NSVGimage *")
     public static NSVGImage nsvgParse(@NativeType("char *") ByteBuffer input, @NativeType("const char *") ByteBuffer units, float dpi) {
         if (CHECKS) {
@@ -184,7 +189,7 @@ public class NanoSVG {
             checkNT1(units);
         }
         long __result = nnsvgParse(memAddress(input), memAddress(units), dpi);
-        return NSVGImage.create(__result);
+        return NSVGImage.createSafe(__result);
     }
 
     /**
@@ -196,6 +201,7 @@ public class NanoSVG {
      * @param units 
      * @param dpi   
      */
+    @Nullable
     @NativeType("NSVGimage *")
     public static NSVGImage nsvgParse(@NativeType("char *") CharSequence input, @NativeType("const char *") CharSequence units, @NativeType("float") float dpi) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
@@ -203,7 +209,7 @@ public class NanoSVG {
             ByteBuffer inputEncoded = stack.ASCII(input);
             ByteBuffer unitsEncoded = stack.ASCII(units);
             long __result = nnsvgParse(memAddress(inputEncoded), memAddress(unitsEncoded), dpi);
-            return NSVGImage.create(__result);
+            return NSVGImage.createSafe(__result);
         } finally {
             stack.setPointer(stackPointer);
         }

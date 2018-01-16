@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import org.lwjgl.*;
 
 import org.lwjgl.system.*;
@@ -78,7 +80,7 @@ public class EXTMigrateMemobject {
      *                        {@code event_wait_list} array.
      */
     @NativeType("cl_int")
-    public static int clEnqueueMigrateMemObjectEXT(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("cl_mem_migration_flags_ext") long flags, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueMigrateMemObjectEXT(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("cl_mem_migration_flags_ext") long flags, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }

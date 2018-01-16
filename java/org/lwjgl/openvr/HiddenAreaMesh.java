@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openvr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -53,7 +55,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
         UNTRIANGLECOUNT = layout.offsetof(1);
     }
 
-    HiddenAreaMesh(long address, ByteBuffer container) {
+    HiddenAreaMesh(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -64,13 +66,14 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public HiddenAreaMesh(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link HmdVector2.Buffer} view of the struct array pointed to by the {@code pVertexData} field. */
+    @Nullable
     @NativeType("HmdVector2_t *")
     public HmdVector2.Buffer pVertexData() { return npVertexData(address()); }
     /** Returns the value of the {@code unTriangleCount} field. */
@@ -81,12 +84,12 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
 
     /** Returns a new {@link HiddenAreaMesh} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static HiddenAreaMesh malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link HiddenAreaMesh} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static HiddenAreaMesh calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link HiddenAreaMesh} instance allocated with {@link BufferUtils}. */
@@ -94,9 +97,15 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
         return new HiddenAreaMesh(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link HiddenAreaMesh} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link HiddenAreaMesh} instance for the specified memory address. */
     public static HiddenAreaMesh create(long address) {
-        return address == NULL ? null : new HiddenAreaMesh(address, null);
+        return new HiddenAreaMesh(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static HiddenAreaMesh createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -104,7 +113,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static HiddenAreaMesh.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -113,8 +122,8 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static HiddenAreaMesh.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -122,7 +131,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static HiddenAreaMesh.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -132,8 +141,14 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static HiddenAreaMesh.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static HiddenAreaMesh.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -171,7 +186,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static HiddenAreaMesh.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -180,7 +195,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static HiddenAreaMesh.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -190,7 +205,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static HiddenAreaMesh.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -200,14 +215,14 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static HiddenAreaMesh.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
     // -----------------------------------
 
     /** Unsafe version of {@link #pVertexData}. */
-    public static HmdVector2.Buffer npVertexData(long struct) { return HmdVector2.create(memGetAddress(struct + HiddenAreaMesh.PVERTEXDATA), nunTriangleCount(struct)); }
+    @Nullable public static HmdVector2.Buffer npVertexData(long struct) { return HmdVector2.createSafe(memGetAddress(struct + HiddenAreaMesh.PVERTEXDATA), nunTriangleCount(struct)); }
     /** Unsafe version of {@link #unTriangleCount}. */
     public static int nunTriangleCount(long struct) { return memGetInt(struct + HiddenAreaMesh.UNTRIANGLECOUNT); }
 
@@ -229,7 +244,11 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -239,7 +258,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -254,6 +273,7 @@ public class HiddenAreaMesh extends Struct implements NativeResource {
         }
 
         /** Returns a {@link HmdVector2.Buffer} view of the struct array pointed to by the {@code pVertexData} field. */
+        @Nullable
         @NativeType("HmdVector2_t *")
         public HmdVector2.Buffer pVertexData() { return HiddenAreaMesh.npVertexData(address()); }
         /** Returns the value of the {@code unTriangleCount} field. */

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
@@ -54,10 +56,11 @@ public class GLFWNativeWin32 {
      *
      * @since version 3.1
      */
+    @Nullable
     @NativeType("const char *")
     public static String glfwGetWin32Adapter(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetWin32Adapter(monitor);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ glfwGetWin32Monitor ] ---
@@ -82,10 +85,11 @@ public class GLFWNativeWin32 {
      *
      * @since version 3.1
      */
+    @Nullable
     @NativeType("const char *")
     public static String glfwGetWin32Monitor(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetWin32Monitor(monitor);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ glfwGetWin32Window ] ---

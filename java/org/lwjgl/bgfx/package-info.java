@@ -20,5 +20,6 @@
  * <p>By default, lwjgl-bgfx searches for bgfx[32].dll (Windows), libbgfx.so (Linux) or libbgfx.dylib (MacOS). This can be customized by defining
  * {@code org.lwjgl.bgfx.libname}.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.bgfx;
 

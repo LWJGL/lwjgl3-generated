@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -181,7 +183,7 @@ public class KHRGetMemoryRequirements2 {
         callPPPPV(__functionAddress, device.address(), pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
     }
 
-    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("const VkImageSparseMemoryRequirementsInfo2KHR *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") IntBuffer pSparseMemoryRequirementCount, @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
+    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("const VkImageSparseMemoryRequirementsInfo2KHR *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") IntBuffer pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
         if (CHECKS) {
             check(pSparseMemoryRequirementCount, 1);
             checkSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
@@ -190,7 +192,7 @@ public class KHRGetMemoryRequirements2 {
     }
 
     /** Array version of: {@link #vkGetImageSparseMemoryRequirements2KHR GetImageSparseMemoryRequirements2KHR} */
-    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("const VkImageSparseMemoryRequirementsInfo2KHR *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") int[] pSparseMemoryRequirementCount, @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
+    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("const VkImageSparseMemoryRequirementsInfo2KHR *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") int[] pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
         long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements2KHR;
         if (CHECKS) {
             check(__functionAddress);

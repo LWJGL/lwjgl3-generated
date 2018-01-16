@@ -5,6 +5,8 @@
  */
 package org.lwjgl.bgfx;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link BGFX#bgfx_make_ref_release make_ref_release} method. */
 public abstract class BGFXReleaseFunctionCallback extends Callback implements BGFXReleaseFunctionCallbackI {
 
-    /** Creates a {@code BGFXReleaseFunctionCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code BGFXReleaseFunctionCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code BGFXReleaseFunctionCallback}
+     */
     public static BGFXReleaseFunctionCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         BGFXReleaseFunctionCallbackI instance = Callback.get(functionPointer);
         return instance instanceof BGFXReleaseFunctionCallback
             ? (BGFXReleaseFunctionCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static BGFXReleaseFunctionCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code BGFXReleaseFunctionCallback} instance that delegates to the specified {@code BGFXReleaseFunctionCallbackI} instance. */

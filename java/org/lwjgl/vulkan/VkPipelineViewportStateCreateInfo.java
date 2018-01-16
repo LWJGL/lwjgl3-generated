@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -107,7 +109,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
         PSCISSORS = layout.offsetof(6);
     }
 
-    VkPipelineViewportStateCreateInfo(long address, ByteBuffer container) {
+    VkPipelineViewportStateCreateInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -118,7 +120,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkPipelineViewportStateCreateInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -137,12 +139,14 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
     @NativeType("uint32_t")
     public int viewportCount() { return nviewportCount(address()); }
     /** Returns a {@link VkViewport.Buffer} view of the struct array pointed to by the {@code pViewports} field. */
+    @Nullable
     @NativeType("const VkViewport *")
     public VkViewport.Buffer pViewports() { return npViewports(address()); }
     /** Returns the value of the {@code scissorCount} field. */
     @NativeType("uint32_t")
     public int scissorCount() { return nscissorCount(address()); }
     /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pScissors} field. */
+    @Nullable
     @NativeType("const VkRect2D *")
     public VkRect2D.Buffer pScissors() { return npScissors(address()); }
 
@@ -155,11 +159,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
     /** Sets the specified value to the {@code viewportCount} field. */
     public VkPipelineViewportStateCreateInfo viewportCount(@NativeType("uint32_t") int value) { nviewportCount(address(), value); return this; }
     /** Sets the address of the specified {@link VkViewport.Buffer} to the {@code pViewports} field. */
-    public VkPipelineViewportStateCreateInfo pViewports(@NativeType("const VkViewport *") VkViewport.Buffer value) { npViewports(address(), value); return this; }
+    public VkPipelineViewportStateCreateInfo pViewports(@Nullable @NativeType("const VkViewport *") VkViewport.Buffer value) { npViewports(address(), value); return this; }
     /** Sets the specified value to the {@code scissorCount} field. */
     public VkPipelineViewportStateCreateInfo scissorCount(@NativeType("uint32_t") int value) { nscissorCount(address(), value); return this; }
     /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pScissors} field. */
-    public VkPipelineViewportStateCreateInfo pScissors(@NativeType("const VkRect2D *") VkRect2D.Buffer value) { npScissors(address(), value); return this; }
+    public VkPipelineViewportStateCreateInfo pScissors(@Nullable @NativeType("const VkRect2D *") VkRect2D.Buffer value) { npScissors(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineViewportStateCreateInfo set(
@@ -198,12 +202,12 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
 
     /** Returns a new {@link VkPipelineViewportStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkPipelineViewportStateCreateInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineViewportStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkPipelineViewportStateCreateInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineViewportStateCreateInfo} instance allocated with {@link BufferUtils}. */
@@ -211,9 +215,15 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
         return new VkPipelineViewportStateCreateInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkPipelineViewportStateCreateInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkPipelineViewportStateCreateInfo} instance for the specified memory address. */
     public static VkPipelineViewportStateCreateInfo create(long address) {
-        return address == NULL ? null : new VkPipelineViewportStateCreateInfo(address, null);
+        return new VkPipelineViewportStateCreateInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineViewportStateCreateInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -221,7 +231,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkPipelineViewportStateCreateInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -230,8 +240,8 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkPipelineViewportStateCreateInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -239,7 +249,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkPipelineViewportStateCreateInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -249,8 +259,14 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkPipelineViewportStateCreateInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineViewportStateCreateInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -288,7 +304,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkPipelineViewportStateCreateInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -297,7 +313,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkPipelineViewportStateCreateInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -307,7 +323,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineViewportStateCreateInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -317,7 +333,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineViewportStateCreateInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -332,11 +348,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
     /** Unsafe version of {@link #viewportCount}. */
     public static int nviewportCount(long struct) { return memGetInt(struct + VkPipelineViewportStateCreateInfo.VIEWPORTCOUNT); }
     /** Unsafe version of {@link #pViewports}. */
-    public static VkViewport.Buffer npViewports(long struct) { return VkViewport.create(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS), nviewportCount(struct)); }
+    @Nullable public static VkViewport.Buffer npViewports(long struct) { return VkViewport.createSafe(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS), nviewportCount(struct)); }
     /** Unsafe version of {@link #scissorCount}. */
     public static int nscissorCount(long struct) { return memGetInt(struct + VkPipelineViewportStateCreateInfo.SCISSORCOUNT); }
     /** Unsafe version of {@link #pScissors}. */
-    public static VkRect2D.Buffer npScissors(long struct) { return VkRect2D.create(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS), nscissorCount(struct)); }
+    @Nullable public static VkRect2D.Buffer npScissors(long struct) { return VkRect2D.createSafe(memGetAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS), nscissorCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.STYPE, value); }
@@ -347,11 +363,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
     /** Sets the specified value to the {@code viewportCount} field of the specified {@code struct}. */
     public static void nviewportCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.VIEWPORTCOUNT, value); }
     /** Unsafe version of {@link #pViewports(VkViewport.Buffer) pViewports}. */
-    public static void npViewports(long struct, VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, memAddressSafe(value)); if (value != null) { nviewportCount(struct, value.remaining()); } }
+    public static void npViewports(long struct, @Nullable VkViewport.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PVIEWPORTS, memAddressSafe(value)); if (value != null) { nviewportCount(struct, value.remaining()); } }
     /** Sets the specified value to the {@code scissorCount} field of the specified {@code struct}. */
     public static void nscissorCount(long struct, int value) { memPutInt(struct + VkPipelineViewportStateCreateInfo.SCISSORCOUNT, value); }
     /** Unsafe version of {@link #pScissors(VkRect2D.Buffer) pScissors}. */
-    public static void npScissors(long struct, VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, memAddressSafe(value)); if (value != null) { nscissorCount(struct, value.remaining()); } }
+    public static void npScissors(long struct, @Nullable VkRect2D.Buffer value) { memPutAddress(struct + VkPipelineViewportStateCreateInfo.PSCISSORS, memAddressSafe(value)); if (value != null) { nscissorCount(struct, value.remaining()); } }
 
     // -----------------------------------
 
@@ -371,7 +387,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -381,7 +401,7 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -408,12 +428,14 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
         @NativeType("uint32_t")
         public int viewportCount() { return VkPipelineViewportStateCreateInfo.nviewportCount(address()); }
         /** Returns a {@link VkViewport.Buffer} view of the struct array pointed to by the {@code pViewports} field. */
+        @Nullable
         @NativeType("const VkViewport *")
         public VkViewport.Buffer pViewports() { return VkPipelineViewportStateCreateInfo.npViewports(address()); }
         /** Returns the value of the {@code scissorCount} field. */
         @NativeType("uint32_t")
         public int scissorCount() { return VkPipelineViewportStateCreateInfo.nscissorCount(address()); }
         /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pScissors} field. */
+        @Nullable
         @NativeType("const VkRect2D *")
         public VkRect2D.Buffer pScissors() { return VkPipelineViewportStateCreateInfo.npScissors(address()); }
 
@@ -426,11 +448,11 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
         /** Sets the specified value to the {@code viewportCount} field. */
         public VkPipelineViewportStateCreateInfo.Buffer viewportCount(@NativeType("uint32_t") int value) { VkPipelineViewportStateCreateInfo.nviewportCount(address(), value); return this; }
         /** Sets the address of the specified {@link VkViewport.Buffer} to the {@code pViewports} field. */
-        public VkPipelineViewportStateCreateInfo.Buffer pViewports(@NativeType("const VkViewport *") VkViewport.Buffer value) { VkPipelineViewportStateCreateInfo.npViewports(address(), value); return this; }
+        public VkPipelineViewportStateCreateInfo.Buffer pViewports(@Nullable @NativeType("const VkViewport *") VkViewport.Buffer value) { VkPipelineViewportStateCreateInfo.npViewports(address(), value); return this; }
         /** Sets the specified value to the {@code scissorCount} field. */
         public VkPipelineViewportStateCreateInfo.Buffer scissorCount(@NativeType("uint32_t") int value) { VkPipelineViewportStateCreateInfo.nscissorCount(address(), value); return this; }
         /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pScissors} field. */
-        public VkPipelineViewportStateCreateInfo.Buffer pScissors(@NativeType("const VkRect2D *") VkRect2D.Buffer value) { VkPipelineViewportStateCreateInfo.npScissors(address(), value); return this; }
+        public VkPipelineViewportStateCreateInfo.Buffer pScissors(@Nullable @NativeType("const VkRect2D *") VkRect2D.Buffer value) { VkPipelineViewportStateCreateInfo.npScissors(address(), value); return this; }
 
     }
 

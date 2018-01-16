@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -103,7 +105,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
         PPENABLEDEXTENSIONNAMES = layout.offsetof(7);
     }
 
-    VkInstanceCreateInfo(long address, ByteBuffer container) {
+    VkInstanceCreateInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -114,7 +116,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkInstanceCreateInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -130,18 +132,21 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
     @NativeType("VkInstanceCreateFlags")
     public int flags() { return nflags(address()); }
     /** Returns a {@link VkApplicationInfo} view of the struct pointed to by the {@code pApplicationInfo} field. */
+    @Nullable
     @NativeType("const VkApplicationInfo *")
     public VkApplicationInfo pApplicationInfo() { return npApplicationInfo(address()); }
     /** Returns the value of the {@code enabledLayerCount} field. */
     @NativeType("uint32_t")
     public int enabledLayerCount() { return nenabledLayerCount(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
+    @Nullable
     @NativeType("const char * const *")
     public PointerBuffer ppEnabledLayerNames() { return nppEnabledLayerNames(address()); }
     /** Returns the value of the {@code enabledExtensionCount} field. */
     @NativeType("uint32_t")
     public int enabledExtensionCount() { return nenabledExtensionCount(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
+    @Nullable
     @NativeType("const char * const *")
     public PointerBuffer ppEnabledExtensionNames() { return nppEnabledExtensionNames(address()); }
 
@@ -152,11 +157,11 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code flags} field. */
     public VkInstanceCreateInfo flags(@NativeType("VkInstanceCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link VkApplicationInfo} to the {@code pApplicationInfo} field. */
-    public VkInstanceCreateInfo pApplicationInfo(@NativeType("const VkApplicationInfo *") VkApplicationInfo value) { npApplicationInfo(address(), value); return this; }
+    public VkInstanceCreateInfo pApplicationInfo(@Nullable @NativeType("const VkApplicationInfo *") VkApplicationInfo value) { npApplicationInfo(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
-    public VkInstanceCreateInfo ppEnabledLayerNames(@NativeType("const char * const *") PointerBuffer value) { nppEnabledLayerNames(address(), value); return this; }
+    public VkInstanceCreateInfo ppEnabledLayerNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { nppEnabledLayerNames(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
-    public VkInstanceCreateInfo ppEnabledExtensionNames(@NativeType("const char * const *") PointerBuffer value) { nppEnabledExtensionNames(address(), value); return this; }
+    public VkInstanceCreateInfo ppEnabledExtensionNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { nppEnabledExtensionNames(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkInstanceCreateInfo set(
@@ -193,12 +198,12 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
 
     /** Returns a new {@link VkInstanceCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkInstanceCreateInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkInstanceCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkInstanceCreateInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkInstanceCreateInfo} instance allocated with {@link BufferUtils}. */
@@ -206,9 +211,15 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
         return new VkInstanceCreateInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkInstanceCreateInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkInstanceCreateInfo} instance for the specified memory address. */
     public static VkInstanceCreateInfo create(long address) {
-        return address == NULL ? null : new VkInstanceCreateInfo(address, null);
+        return new VkInstanceCreateInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkInstanceCreateInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -216,7 +227,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkInstanceCreateInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -225,8 +236,8 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkInstanceCreateInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -234,7 +245,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkInstanceCreateInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -244,8 +255,14 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkInstanceCreateInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkInstanceCreateInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -283,7 +300,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkInstanceCreateInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -292,7 +309,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkInstanceCreateInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -302,7 +319,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkInstanceCreateInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -312,7 +329,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkInstanceCreateInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -325,15 +342,15 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #flags}. */
     public static int nflags(long struct) { return memGetInt(struct + VkInstanceCreateInfo.FLAGS); }
     /** Unsafe version of {@link #pApplicationInfo}. */
-    public static VkApplicationInfo npApplicationInfo(long struct) { return VkApplicationInfo.create(memGetAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO)); }
+    @Nullable public static VkApplicationInfo npApplicationInfo(long struct) { return VkApplicationInfo.createSafe(memGetAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO)); }
     /** Unsafe version of {@link #enabledLayerCount}. */
     public static int nenabledLayerCount(long struct) { return memGetInt(struct + VkInstanceCreateInfo.ENABLEDLAYERCOUNT); }
     /** Unsafe version of {@link #ppEnabledLayerNames() ppEnabledLayerNames}. */
-    public static PointerBuffer nppEnabledLayerNames(long struct) { return memPointerBuffer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES), nenabledLayerCount(struct)); }
+    @Nullable public static PointerBuffer nppEnabledLayerNames(long struct) { return memPointerBufferSafe(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES), nenabledLayerCount(struct)); }
     /** Unsafe version of {@link #enabledExtensionCount}. */
     public static int nenabledExtensionCount(long struct) { return memGetInt(struct + VkInstanceCreateInfo.ENABLEDEXTENSIONCOUNT); }
     /** Unsafe version of {@link #ppEnabledExtensionNames() ppEnabledExtensionNames}. */
-    public static PointerBuffer nppEnabledExtensionNames(long struct) { return memPointerBuffer(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES), nenabledExtensionCount(struct)); }
+    @Nullable public static PointerBuffer nppEnabledExtensionNames(long struct) { return memPointerBufferSafe(memGetAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES), nenabledExtensionCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.STYPE, value); }
@@ -342,15 +359,15 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #flags(int) flags}. */
     public static void nflags(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.FLAGS, value); }
     /** Unsafe version of {@link #pApplicationInfo(VkApplicationInfo) pApplicationInfo}. */
-    public static void npApplicationInfo(long struct, VkApplicationInfo value) { memPutAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO, memAddressSafe(value)); }
+    public static void npApplicationInfo(long struct, @Nullable VkApplicationInfo value) { memPutAddress(struct + VkInstanceCreateInfo.PAPPLICATIONINFO, memAddressSafe(value)); }
     /** Sets the specified value to the {@code enabledLayerCount} field of the specified {@code struct}. */
     public static void nenabledLayerCount(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.ENABLEDLAYERCOUNT, value); }
     /** Unsafe version of {@link #ppEnabledLayerNames(PointerBuffer) ppEnabledLayerNames}. */
-    public static void nppEnabledLayerNames(long struct, PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES, memAddressSafe(value)); nenabledLayerCount(struct, value == null ? 0 : value.remaining()); }
+    public static void nppEnabledLayerNames(long struct, @Nullable PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDLAYERNAMES, memAddressSafe(value)); nenabledLayerCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code enabledExtensionCount} field of the specified {@code struct}. */
     public static void nenabledExtensionCount(long struct, int value) { memPutInt(struct + VkInstanceCreateInfo.ENABLEDEXTENSIONCOUNT, value); }
     /** Unsafe version of {@link #ppEnabledExtensionNames(PointerBuffer) ppEnabledExtensionNames}. */
-    public static void nppEnabledExtensionNames(long struct, PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); nenabledExtensionCount(struct, value == null ? 0 : value.remaining()); }
+    public static void nppEnabledExtensionNames(long struct, @Nullable PointerBuffer value) { memPutAddress(struct + VkInstanceCreateInfo.PPENABLEDEXTENSIONNAMES, memAddressSafe(value)); nenabledExtensionCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -396,7 +413,11 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -406,7 +427,7 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -430,18 +451,21 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
         @NativeType("VkInstanceCreateFlags")
         public int flags() { return VkInstanceCreateInfo.nflags(address()); }
         /** Returns a {@link VkApplicationInfo} view of the struct pointed to by the {@code pApplicationInfo} field. */
+        @Nullable
         @NativeType("const VkApplicationInfo *")
         public VkApplicationInfo pApplicationInfo() { return VkInstanceCreateInfo.npApplicationInfo(address()); }
         /** Returns the value of the {@code enabledLayerCount} field. */
         @NativeType("uint32_t")
         public int enabledLayerCount() { return VkInstanceCreateInfo.nenabledLayerCount(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
+        @Nullable
         @NativeType("const char * const *")
         public PointerBuffer ppEnabledLayerNames() { return VkInstanceCreateInfo.nppEnabledLayerNames(address()); }
         /** Returns the value of the {@code enabledExtensionCount} field. */
         @NativeType("uint32_t")
         public int enabledExtensionCount() { return VkInstanceCreateInfo.nenabledExtensionCount(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
+        @Nullable
         @NativeType("const char * const *")
         public PointerBuffer ppEnabledExtensionNames() { return VkInstanceCreateInfo.nppEnabledExtensionNames(address()); }
 
@@ -452,11 +476,11 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code flags} field. */
         public VkInstanceCreateInfo.Buffer flags(@NativeType("VkInstanceCreateFlags") int value) { VkInstanceCreateInfo.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link VkApplicationInfo} to the {@code pApplicationInfo} field. */
-        public VkInstanceCreateInfo.Buffer pApplicationInfo(@NativeType("const VkApplicationInfo *") VkApplicationInfo value) { VkInstanceCreateInfo.npApplicationInfo(address(), value); return this; }
+        public VkInstanceCreateInfo.Buffer pApplicationInfo(@Nullable @NativeType("const VkApplicationInfo *") VkApplicationInfo value) { VkInstanceCreateInfo.npApplicationInfo(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
-        public VkInstanceCreateInfo.Buffer ppEnabledLayerNames(@NativeType("const char * const *") PointerBuffer value) { VkInstanceCreateInfo.nppEnabledLayerNames(address(), value); return this; }
+        public VkInstanceCreateInfo.Buffer ppEnabledLayerNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { VkInstanceCreateInfo.nppEnabledLayerNames(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
-        public VkInstanceCreateInfo.Buffer ppEnabledExtensionNames(@NativeType("const char * const *") PointerBuffer value) { VkInstanceCreateInfo.nppEnabledExtensionNames(address(), value); return this; }
+        public VkInstanceCreateInfo.Buffer ppEnabledExtensionNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { VkInstanceCreateInfo.nppEnabledExtensionNames(address(), value); return this; }
 
     }
 

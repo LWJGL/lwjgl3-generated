@@ -5,22 +5,30 @@
  */
 package org.lwjgl.util.remotery;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class RMTInputHandler extends Callback implements RMTInputHandlerI {
 
-    /** Creates a {@code RMTInputHandler} instance from the specified function pointer. */
+    /**
+     * Creates a {@code RMTInputHandler} instance from the specified function pointer.
+     *
+     * @return the new {@code RMTInputHandler}
+     */
     public static RMTInputHandler create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         RMTInputHandlerI instance = Callback.get(functionPointer);
         return instance instanceof RMTInputHandler
             ? (RMTInputHandler)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static RMTInputHandler createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code RMTInputHandler} instance that delegates to the specified {@code RMTInputHandlerI} instance. */

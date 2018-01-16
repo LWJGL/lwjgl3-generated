@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.yoga;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -104,7 +106,7 @@ public class YGNode extends Struct implements NativeResource {
         RESOLVEDDIMENSIONS = layout.offsetof(15);
     }
 
-    YGNode(long address, ByteBuffer container) {
+    YGNode(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -115,7 +117,7 @@ public class YGNode extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public YGNode(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -125,6 +127,7 @@ public class YGNode extends Struct implements NativeResource {
     @NativeType("void *")
     public long context() { return ncontext(address()); }
     /** Returns the value of the {@code print} field. */
+    @Nullable
     public YGPrintFunc print() { return nprint(address()); }
     /** Returns the value of the {@code hasNewLayout} field. */
     @NativeType("bool")
@@ -133,10 +136,13 @@ public class YGNode extends Struct implements NativeResource {
     @NativeType("YGNodeType")
     public int nodeType() { return nnodeType(address()); }
     /** Returns the value of the {@code measure} field. */
+    @Nullable
     public YGMeasureFunc measure() { return nmeasure(address()); }
     /** Returns the value of the {@code baseline} field. */
+    @Nullable
     public YGBaselineFunc baseline() { return nbaseline(address()); }
     /** Returns the value of the {@code dirtied} field. */
+    @Nullable
     public YGDirtiedFunc dirtied() { return ndirtied(address()); }
     /** Returns a {@link YGStyle} view of the {@code style} field. */
     public YGStyle style() { return nstyle(address()); }
@@ -152,6 +158,7 @@ public class YGNode extends Struct implements NativeResource {
     @NativeType("YGNodeListRef")
     public long children() { return nchildren(address()); }
     /** Returns a {@link YGNode} view of the struct pointed to by the {@code nextChild} field. */
+    @Nullable
     @NativeType("YGNode *")
     public YGNode nextChild() { return nnextChild(address()); }
     /** Returns the value of the {@code config} field. */
@@ -163,24 +170,24 @@ public class YGNode extends Struct implements NativeResource {
     /** Returns a {@link PointerBuffer} view of the {@code resolvedDimensions} field. */
     @NativeType("YGValue *[2]")
     public PointerBuffer resolvedDimensions() { return nresolvedDimensions(address()); }
-    /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions}. */
+    /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions} field. */
     @NativeType("YGValue *")
     public YGValue resolvedDimensions(int index) { return nresolvedDimensions(address(), index); }
 
     /** Sets the specified value to the {@code context} field. */
     public YGNode context(@NativeType("void *") long value) { ncontext(address(), value); return this; }
     /** Sets the specified value to the {@code print} field. */
-    public YGNode print(@NativeType("YGPrintFunc") YGPrintFuncI value) { nprint(address(), value); return this; }
+    public YGNode print(@Nullable @NativeType("YGPrintFunc") YGPrintFuncI value) { nprint(address(), value); return this; }
     /** Sets the specified value to the {@code hasNewLayout} field. */
     public YGNode hasNewLayout(@NativeType("bool") boolean value) { nhasNewLayout(address(), value); return this; }
     /** Sets the specified value to the {@code nodeType} field. */
     public YGNode nodeType(@NativeType("YGNodeType") int value) { nnodeType(address(), value); return this; }
     /** Sets the specified value to the {@code measure} field. */
-    public YGNode measure(@NativeType("YGMeasureFunc") YGMeasureFuncI value) { nmeasure(address(), value); return this; }
+    public YGNode measure(@Nullable @NativeType("YGMeasureFunc") YGMeasureFuncI value) { nmeasure(address(), value); return this; }
     /** Sets the specified value to the {@code baseline} field. */
-    public YGNode baseline(@NativeType("YGBaselineFunc") YGBaselineFuncI value) { nbaseline(address(), value); return this; }
+    public YGNode baseline(@Nullable @NativeType("YGBaselineFunc") YGBaselineFuncI value) { nbaseline(address(), value); return this; }
     /** Sets the specified value to the {@code dirtied} field. */
-    public YGNode dirtied(@NativeType("YGDirtiedFunc") YGDirtiedFuncI value) { ndirtied(address(), value); return this; }
+    public YGNode dirtied(@Nullable @NativeType("YGDirtiedFunc") YGDirtiedFuncI value) { ndirtied(address(), value); return this; }
     /** Copies the specified {@link YGStyle} to the {@code style} field. */
     public YGNode style(YGStyle value) { nstyle(address(), value); return this; }
     /** Copies the specified {@link YGLayout} to the {@code layout} field. */
@@ -192,7 +199,7 @@ public class YGNode extends Struct implements NativeResource {
     /** Sets the specified value to the {@code children} field. */
     public YGNode children(@NativeType("YGNodeListRef") long value) { nchildren(address(), value); return this; }
     /** Sets the address of the specified {@link YGNode} to the {@code nextChild} field. */
-    public YGNode nextChild(@NativeType("YGNode *") YGNode value) { nnextChild(address(), value); return this; }
+    public YGNode nextChild(@Nullable @NativeType("YGNode *") YGNode value) { nnextChild(address(), value); return this; }
     /** Sets the specified value to the {@code config} field. */
     public YGNode config(@NativeType("YGConfigRef") long value) { nconfig(address(), value); return this; }
     /** Sets the specified value to the {@code isDirty} field. */
@@ -257,12 +264,12 @@ public class YGNode extends Struct implements NativeResource {
 
     /** Returns a new {@link YGNode} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static YGNode malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link YGNode} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static YGNode calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link YGNode} instance allocated with {@link BufferUtils}. */
@@ -270,9 +277,15 @@ public class YGNode extends Struct implements NativeResource {
         return new YGNode(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link YGNode} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link YGNode} instance for the specified memory address. */
     public static YGNode create(long address) {
-        return address == NULL ? null : new YGNode(address, null);
+        return new YGNode(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static YGNode createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -280,7 +293,7 @@ public class YGNode extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static YGNode.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -289,8 +302,8 @@ public class YGNode extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static YGNode.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -298,7 +311,7 @@ public class YGNode extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static YGNode.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -308,8 +321,14 @@ public class YGNode extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static YGNode.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static YGNode.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -347,7 +366,7 @@ public class YGNode extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static YGNode.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -356,7 +375,7 @@ public class YGNode extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static YGNode.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -366,7 +385,7 @@ public class YGNode extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static YGNode.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -376,7 +395,7 @@ public class YGNode extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static YGNode.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -385,17 +404,17 @@ public class YGNode extends Struct implements NativeResource {
     /** Unsafe version of {@link #context}. */
     public static long ncontext(long struct) { return memGetAddress(struct + YGNode.CONTEXT); }
     /** Unsafe version of {@link #print}. */
-    public static YGPrintFunc nprint(long struct) { return YGPrintFunc.create(memGetAddress(struct + YGNode.PRINT)); }
+    @Nullable public static YGPrintFunc nprint(long struct) { return YGPrintFunc.createSafe(memGetAddress(struct + YGNode.PRINT)); }
     /** Unsafe version of {@link #hasNewLayout}. */
     public static boolean nhasNewLayout(long struct) { return memGetByte(struct + YGNode.HASNEWLAYOUT) != 0; }
     /** Unsafe version of {@link #nodeType}. */
     public static int nnodeType(long struct) { return memGetInt(struct + YGNode.NODETYPE); }
     /** Unsafe version of {@link #measure}. */
-    public static YGMeasureFunc nmeasure(long struct) { return YGMeasureFunc.create(memGetAddress(struct + YGNode.MEASURE)); }
+    @Nullable public static YGMeasureFunc nmeasure(long struct) { return YGMeasureFunc.createSafe(memGetAddress(struct + YGNode.MEASURE)); }
     /** Unsafe version of {@link #baseline}. */
-    public static YGBaselineFunc nbaseline(long struct) { return YGBaselineFunc.create(memGetAddress(struct + YGNode.BASELINE)); }
+    @Nullable public static YGBaselineFunc nbaseline(long struct) { return YGBaselineFunc.createSafe(memGetAddress(struct + YGNode.BASELINE)); }
     /** Unsafe version of {@link #dirtied}. */
-    public static YGDirtiedFunc ndirtied(long struct) { return YGDirtiedFunc.create(memGetAddress(struct + YGNode.DIRTIED)); }
+    @Nullable public static YGDirtiedFunc ndirtied(long struct) { return YGDirtiedFunc.createSafe(memGetAddress(struct + YGNode.DIRTIED)); }
     /** Unsafe version of {@link #style}. */
     public static YGStyle nstyle(long struct) { return YGStyle.create(struct + YGNode.STYLE); }
     /** Unsafe version of {@link #layout}. */
@@ -407,7 +426,7 @@ public class YGNode extends Struct implements NativeResource {
     /** Unsafe version of {@link #children}. */
     public static long nchildren(long struct) { return memGetAddress(struct + YGNode.CHILDREN); }
     /** Unsafe version of {@link #nextChild}. */
-    public static YGNode nnextChild(long struct) { return YGNode.create(memGetAddress(struct + YGNode.NEXTCHILD)); }
+    @Nullable public static YGNode nnextChild(long struct) { return YGNode.createSafe(memGetAddress(struct + YGNode.NEXTCHILD)); }
     /** Unsafe version of {@link #config}. */
     public static long nconfig(long struct) { return memGetAddress(struct + YGNode.CONFIG); }
     /** Unsafe version of {@link #isDirty}. */
@@ -423,17 +442,17 @@ public class YGNode extends Struct implements NativeResource {
     /** Unsafe version of {@link #context(long) context}. */
     public static void ncontext(long struct, long value) { memPutAddress(struct + YGNode.CONTEXT, value); }
     /** Unsafe version of {@link #print(YGPrintFuncI) print}. */
-    public static void nprint(long struct, YGPrintFuncI value) { memPutAddress(struct + YGNode.PRINT, memAddressSafe(value)); }
+    public static void nprint(long struct, @Nullable YGPrintFuncI value) { memPutAddress(struct + YGNode.PRINT, memAddressSafe(value)); }
     /** Unsafe version of {@link #hasNewLayout(boolean) hasNewLayout}. */
     public static void nhasNewLayout(long struct, boolean value) { memPutByte(struct + YGNode.HASNEWLAYOUT, value ? (byte)1 : (byte)0); }
     /** Unsafe version of {@link #nodeType(int) nodeType}. */
     public static void nnodeType(long struct, int value) { memPutInt(struct + YGNode.NODETYPE, value); }
     /** Unsafe version of {@link #measure(YGMeasureFuncI) measure}. */
-    public static void nmeasure(long struct, YGMeasureFuncI value) { memPutAddress(struct + YGNode.MEASURE, memAddressSafe(value)); }
+    public static void nmeasure(long struct, @Nullable YGMeasureFuncI value) { memPutAddress(struct + YGNode.MEASURE, memAddressSafe(value)); }
     /** Unsafe version of {@link #baseline(YGBaselineFuncI) baseline}. */
-    public static void nbaseline(long struct, YGBaselineFuncI value) { memPutAddress(struct + YGNode.BASELINE, memAddressSafe(value)); }
+    public static void nbaseline(long struct, @Nullable YGBaselineFuncI value) { memPutAddress(struct + YGNode.BASELINE, memAddressSafe(value)); }
     /** Unsafe version of {@link #dirtied(YGDirtiedFuncI) dirtied}. */
-    public static void ndirtied(long struct, YGDirtiedFuncI value) { memPutAddress(struct + YGNode.DIRTIED, memAddressSafe(value)); }
+    public static void ndirtied(long struct, @Nullable YGDirtiedFuncI value) { memPutAddress(struct + YGNode.DIRTIED, memAddressSafe(value)); }
     /** Unsafe version of {@link #style(YGStyle) style}. */
     public static void nstyle(long struct, YGStyle value) { memCopy(value.address(), struct + YGNode.STYLE, YGStyle.SIZEOF); }
     /** Unsafe version of {@link #layout(YGLayout) layout}. */
@@ -445,7 +464,7 @@ public class YGNode extends Struct implements NativeResource {
     /** Unsafe version of {@link #children(long) children}. */
     public static void nchildren(long struct, long value) { memPutAddress(struct + YGNode.CHILDREN, value); }
     /** Unsafe version of {@link #nextChild(YGNode) nextChild}. */
-    public static void nnextChild(long struct, YGNode value) { memPutAddress(struct + YGNode.NEXTCHILD, memAddressSafe(value)); }
+    public static void nnextChild(long struct, @Nullable YGNode value) { memPutAddress(struct + YGNode.NEXTCHILD, memAddressSafe(value)); }
     /** Unsafe version of {@link #config(long) config}. */
     public static void nconfig(long struct, long value) { memPutAddress(struct + YGNode.CONFIG, value); }
     /** Unsafe version of {@link #isDirty(boolean) isDirty}. */
@@ -500,7 +519,11 @@ public class YGNode extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -510,7 +533,7 @@ public class YGNode extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -528,6 +551,7 @@ public class YGNode extends Struct implements NativeResource {
         @NativeType("void *")
         public long context() { return YGNode.ncontext(address()); }
         /** Returns the value of the {@code print} field. */
+        @Nullable
         public YGPrintFunc print() { return YGNode.nprint(address()); }
         /** Returns the value of the {@code hasNewLayout} field. */
         @NativeType("bool")
@@ -536,10 +560,13 @@ public class YGNode extends Struct implements NativeResource {
         @NativeType("YGNodeType")
         public int nodeType() { return YGNode.nnodeType(address()); }
         /** Returns the value of the {@code measure} field. */
+        @Nullable
         public YGMeasureFunc measure() { return YGNode.nmeasure(address()); }
         /** Returns the value of the {@code baseline} field. */
+        @Nullable
         public YGBaselineFunc baseline() { return YGNode.nbaseline(address()); }
         /** Returns the value of the {@code dirtied} field. */
+        @Nullable
         public YGDirtiedFunc dirtied() { return YGNode.ndirtied(address()); }
         /** Returns a {@link YGStyle} view of the {@code style} field. */
         public YGStyle style() { return YGNode.nstyle(address()); }
@@ -555,6 +582,7 @@ public class YGNode extends Struct implements NativeResource {
         @NativeType("YGNodeListRef")
         public long children() { return YGNode.nchildren(address()); }
         /** Returns a {@link YGNode} view of the struct pointed to by the {@code nextChild} field. */
+        @Nullable
         @NativeType("YGNode *")
         public YGNode nextChild() { return YGNode.nnextChild(address()); }
         /** Returns the value of the {@code config} field. */
@@ -566,24 +594,24 @@ public class YGNode extends Struct implements NativeResource {
         /** Returns a {@link PointerBuffer} view of the {@code resolvedDimensions} field. */
         @NativeType("YGValue *[2]")
         public PointerBuffer resolvedDimensions() { return YGNode.nresolvedDimensions(address()); }
-        /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions}. */
+        /** Returns a {@link YGValue} view of the pointer at the specified index of the {@code resolvedDimensions} field. */
         @NativeType("YGValue *")
         public YGValue resolvedDimensions(int index) { return YGNode.nresolvedDimensions(address(), index); }
 
         /** Sets the specified value to the {@code context} field. */
         public YGNode.Buffer context(@NativeType("void *") long value) { YGNode.ncontext(address(), value); return this; }
         /** Sets the specified value to the {@code print} field. */
-        public YGNode.Buffer print(@NativeType("YGPrintFunc") YGPrintFuncI value) { YGNode.nprint(address(), value); return this; }
+        public YGNode.Buffer print(@Nullable @NativeType("YGPrintFunc") YGPrintFuncI value) { YGNode.nprint(address(), value); return this; }
         /** Sets the specified value to the {@code hasNewLayout} field. */
         public YGNode.Buffer hasNewLayout(@NativeType("bool") boolean value) { YGNode.nhasNewLayout(address(), value); return this; }
         /** Sets the specified value to the {@code nodeType} field. */
         public YGNode.Buffer nodeType(@NativeType("YGNodeType") int value) { YGNode.nnodeType(address(), value); return this; }
         /** Sets the specified value to the {@code measure} field. */
-        public YGNode.Buffer measure(@NativeType("YGMeasureFunc") YGMeasureFuncI value) { YGNode.nmeasure(address(), value); return this; }
+        public YGNode.Buffer measure(@Nullable @NativeType("YGMeasureFunc") YGMeasureFuncI value) { YGNode.nmeasure(address(), value); return this; }
         /** Sets the specified value to the {@code baseline} field. */
-        public YGNode.Buffer baseline(@NativeType("YGBaselineFunc") YGBaselineFuncI value) { YGNode.nbaseline(address(), value); return this; }
+        public YGNode.Buffer baseline(@Nullable @NativeType("YGBaselineFunc") YGBaselineFuncI value) { YGNode.nbaseline(address(), value); return this; }
         /** Sets the specified value to the {@code dirtied} field. */
-        public YGNode.Buffer dirtied(@NativeType("YGDirtiedFunc") YGDirtiedFuncI value) { YGNode.ndirtied(address(), value); return this; }
+        public YGNode.Buffer dirtied(@Nullable @NativeType("YGDirtiedFunc") YGDirtiedFuncI value) { YGNode.ndirtied(address(), value); return this; }
         /** Copies the specified {@link YGStyle} to the {@code style} field. */
         public YGNode.Buffer style(YGStyle value) { YGNode.nstyle(address(), value); return this; }
         /** Copies the specified {@link YGLayout} to the {@code layout} field. */
@@ -595,7 +623,7 @@ public class YGNode extends Struct implements NativeResource {
         /** Sets the specified value to the {@code children} field. */
         public YGNode.Buffer children(@NativeType("YGNodeListRef") long value) { YGNode.nchildren(address(), value); return this; }
         /** Sets the address of the specified {@link YGNode} to the {@code nextChild} field. */
-        public YGNode.Buffer nextChild(@NativeType("YGNode *") YGNode value) { YGNode.nnextChild(address(), value); return this; }
+        public YGNode.Buffer nextChild(@Nullable @NativeType("YGNode *") YGNode value) { YGNode.nnextChild(address(), value); return this; }
         /** Sets the specified value to the {@code config} field. */
         public YGNode.Buffer config(@NativeType("YGConfigRef") long value) { YGNode.nconfig(address(), value); return this; }
         /** Sets the specified value to the {@code isDirty} field. */

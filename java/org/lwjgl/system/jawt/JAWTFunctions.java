@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.jawt;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.APIUtil.*;
@@ -159,10 +161,11 @@ public class JAWTFunctions {
      *
      * @return {@code NULL} if an error has occurred.
      */
+    @Nullable
     @NativeType("JAWT_DrawingSurfaceInfo *")
     public static JAWTDrawingSurfaceInfo JAWT_DrawingSurface_GetDrawingSurfaceInfo(@NativeType("void *") long __functionAddress, @NativeType("JAWT_DrawingSurface *") JAWTDrawingSurface ds) {
         long __result = nJAWT_DrawingSurface_GetDrawingSurfaceInfo(__functionAddress, ds.address());
-        return JAWTDrawingSurfaceInfo.create(__result);
+        return JAWTDrawingSurfaceInfo.createSafe(__result);
     }
 
     // --- [ JAWT_DrawingSurface_FreeDrawingSurfaceInfo ] ---
@@ -220,13 +223,14 @@ public class JAWTFunctions {
      *
      * @return {@code NULL} if an error has occurred
      */
+    @Nullable
     @NativeType("JAWT_DrawingSurface *")
     public static JAWTDrawingSurface JAWT_GetDrawingSurface(@NativeType("void *") long __functionAddress, @NativeType("jobject") Object target) {
         if (CHECKS) {
             check(__functionAddress);
         }
         long __result = nJAWT_GetDrawingSurface(__functionAddress, target);
-        return JAWTDrawingSurface.create(__result);
+        return JAWTDrawingSurface.createSafe(__result);
     }
 
     // --- [ JAWT_FreeDrawingSurface ] ---
@@ -286,6 +290,7 @@ public class JAWTFunctions {
     // --- [ JAWT_GetComponent ] ---
 
     /** Unsafe version of: {@link #JAWT_GetComponent GetComponent} */
+    @Nullable
     public static native Component nJAWT_GetComponent(long __functionAddress, long platformInfo);
 
     /**
@@ -297,6 +302,7 @@ public class JAWTFunctions {
      * @param __functionAddress the function address
      * @param platformInfo      the native platform handle
      */
+    @Nullable
     @NativeType("jobject")
     public static Component JAWT_GetComponent(@NativeType("void *") long __functionAddress, @NativeType("void *") long platformInfo) {
         if (CHECKS) {
@@ -309,6 +315,7 @@ public class JAWTFunctions {
     // --- [ JAWT_CreateEmbeddedFrame ] ---
 
     /** Unsafe version of: {@link #JAWT_CreateEmbeddedFrame CreateEmbeddedFrame} */
+    @Nullable
     public static native Frame nJAWT_CreateEmbeddedFrame(long __functionAddress, long platformInfo);
 
     /**
@@ -322,6 +329,7 @@ public class JAWTFunctions {
      *
      * @since Java 9
      */
+    @Nullable
     @NativeType("jobject")
     public static Frame JAWT_CreateEmbeddedFrame(@NativeType("void *") long __functionAddress, @NativeType("void *") long platformInfo) {
         if (CHECKS) {

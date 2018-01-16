@@ -12,7 +12,7 @@ package org.lwjgl.opengl;
  * allows an application to modify the uniform values without requiring a GL query like {@link GL20#glGetUniformLocation GetUniformLocation}, {@link GL40#glGetSubroutineUniformLocation GetSubroutineUniformLocation} and
  * {@link GL40#glGetSubroutineIndex GetSubroutineIndex}.</p>
  * 
- * <p>Requires {@link GL33 OpenGL 3.3} or {@link  ARB_explicit_attrib_location}. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
+ * <p>Requires {@link GL33 OpenGL 3.3} or <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_explicit_attrib_location.txt">ARB_explicit_attrib_location</a>. Promoted to core in {@link GL43 OpenGL 4.3}.</p>
  */
 public final class ARBExplicitUniformLocation {
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openvr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -41,7 +43,7 @@ public class VRResources {
      * @return the size in bytes of the buffer required to hold the specified resource
      */
     @NativeType("uint32_t")
-    public static int VRResources_LoadSharedResource(@NativeType("const char *") ByteBuffer pchResourceName, @NativeType("char *") ByteBuffer pchBuffer) {
+    public static int VRResources_LoadSharedResource(@NativeType("const char *") ByteBuffer pchResourceName, @Nullable @NativeType("char *") ByteBuffer pchBuffer) {
         if (CHECKS) {
             checkNT1(pchResourceName);
         }
@@ -57,7 +59,7 @@ public class VRResources {
      * @return the size in bytes of the buffer required to hold the specified resource
      */
     @NativeType("uint32_t")
-    public static int VRResources_LoadSharedResource(@NativeType("const char *") CharSequence pchResourceName, @NativeType("char *") ByteBuffer pchBuffer) {
+    public static int VRResources_LoadSharedResource(@NativeType("const char *") CharSequence pchResourceName, @Nullable @NativeType("char *") ByteBuffer pchBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);
@@ -108,7 +110,7 @@ public class VRResources {
      * @param pchPathBuffer            
      */
     @NativeType("uint32_t")
-    public static int VRResources_GetResourceFullPath(@NativeType("const char *") ByteBuffer pchResourceName, @NativeType("const char *") ByteBuffer pchResourceTypeDirectory, @NativeType("char *") ByteBuffer pchPathBuffer) {
+    public static int VRResources_GetResourceFullPath(@NativeType("const char *") ByteBuffer pchResourceName, @NativeType("const char *") ByteBuffer pchResourceTypeDirectory, @Nullable @NativeType("char *") ByteBuffer pchPathBuffer) {
         if (CHECKS) {
             checkNT1(pchResourceName);
             checkNT1(pchResourceTypeDirectory);
@@ -125,7 +127,7 @@ public class VRResources {
      * @param pchPathBuffer            
      */
     @NativeType("uint32_t")
-    public static int VRResources_GetResourceFullPath(@NativeType("const char *") CharSequence pchResourceName, @NativeType("const char *") CharSequence pchResourceTypeDirectory, @NativeType("char *") ByteBuffer pchPathBuffer) {
+    public static int VRResources_GetResourceFullPath(@NativeType("const char *") CharSequence pchResourceName, @NativeType("const char *") CharSequence pchResourceTypeDirectory, @Nullable @NativeType("char *") ByteBuffer pchPathBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchResourceNameEncoded = stack.ASCII(pchResourceName);

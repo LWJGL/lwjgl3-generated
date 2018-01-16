@@ -5,6 +5,8 @@
  */
 package org.lwjgl.ovr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -81,7 +83,7 @@ public class OVRInitParams extends Struct implements NativeResource {
         CONNECTIONTIMEOUTMS = layout.offsetof(4);
     }
 
-    OVRInitParams(long address, ByteBuffer container) {
+    OVRInitParams(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -92,7 +94,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public OVRInitParams(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -105,6 +107,7 @@ public class OVRInitParams extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int RequestedMinorVersion() { return nRequestedMinorVersion(address()); }
     /** Returns the value of the {@code LogCallback} field. */
+    @Nullable
     @NativeType("ovrLogCallback")
     public OVRLogCallback LogCallback() { return nLogCallback(address()); }
     /** Returns the value of the {@code UserData} field. */
@@ -119,7 +122,7 @@ public class OVRInitParams extends Struct implements NativeResource {
     /** Sets the specified value to the {@code RequestedMinorVersion} field. */
     public OVRInitParams RequestedMinorVersion(@NativeType("uint32_t") int value) { nRequestedMinorVersion(address(), value); return this; }
     /** Sets the specified value to the {@code LogCallback} field. */
-    public OVRInitParams LogCallback(@NativeType("ovrLogCallback") OVRLogCallbackI value) { nLogCallback(address(), value); return this; }
+    public OVRInitParams LogCallback(@Nullable @NativeType("ovrLogCallback") OVRLogCallbackI value) { nLogCallback(address(), value); return this; }
     /** Sets the specified value to the {@code UserData} field. */
     public OVRInitParams UserData(@NativeType("uintptr_t") long value) { nUserData(address(), value); return this; }
     /** Sets the specified value to the {@code ConnectionTimeoutMS} field. */
@@ -158,12 +161,12 @@ public class OVRInitParams extends Struct implements NativeResource {
 
     /** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static OVRInitParams malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link OVRInitParams} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static OVRInitParams calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link OVRInitParams} instance allocated with {@link BufferUtils}. */
@@ -171,9 +174,15 @@ public class OVRInitParams extends Struct implements NativeResource {
         return new OVRInitParams(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link OVRInitParams} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link OVRInitParams} instance for the specified memory address. */
     public static OVRInitParams create(long address) {
-        return address == NULL ? null : new OVRInitParams(address, null);
+        return new OVRInitParams(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static OVRInitParams createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -181,7 +190,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static OVRInitParams.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -190,8 +199,8 @@ public class OVRInitParams extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static OVRInitParams.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -199,7 +208,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static OVRInitParams.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -209,8 +218,14 @@ public class OVRInitParams extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static OVRInitParams.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static OVRInitParams.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -248,7 +263,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static OVRInitParams.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -257,7 +272,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static OVRInitParams.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -267,7 +282,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static OVRInitParams.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -277,7 +292,7 @@ public class OVRInitParams extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static OVRInitParams.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -288,7 +303,7 @@ public class OVRInitParams extends Struct implements NativeResource {
     /** Unsafe version of {@link #RequestedMinorVersion}. */
     public static int nRequestedMinorVersion(long struct) { return memGetInt(struct + OVRInitParams.REQUESTEDMINORVERSION); }
     /** Unsafe version of {@link #LogCallback}. */
-    public static OVRLogCallback nLogCallback(long struct) { return OVRLogCallback.create(memGetAddress(struct + OVRInitParams.LOGCALLBACK)); }
+    @Nullable public static OVRLogCallback nLogCallback(long struct) { return OVRLogCallback.createSafe(memGetAddress(struct + OVRInitParams.LOGCALLBACK)); }
     /** Unsafe version of {@link #UserData}. */
     public static long nUserData(long struct) { return memGetAddress(struct + OVRInitParams.USERDATA); }
     /** Unsafe version of {@link #ConnectionTimeoutMS}. */
@@ -299,7 +314,7 @@ public class OVRInitParams extends Struct implements NativeResource {
     /** Unsafe version of {@link #RequestedMinorVersion(int) RequestedMinorVersion}. */
     public static void nRequestedMinorVersion(long struct, int value) { memPutInt(struct + OVRInitParams.REQUESTEDMINORVERSION, value); }
     /** Unsafe version of {@link #LogCallback(OVRLogCallbackI) LogCallback}. */
-    public static void nLogCallback(long struct, OVRLogCallbackI value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, memAddressSafe(value)); }
+    public static void nLogCallback(long struct, @Nullable OVRLogCallbackI value) { memPutAddress(struct + OVRInitParams.LOGCALLBACK, memAddressSafe(value)); }
     /** Unsafe version of {@link #UserData(long) UserData}. */
     public static void nUserData(long struct, long value) { memPutAddress(struct + OVRInitParams.USERDATA, value); }
     /** Unsafe version of {@link #ConnectionTimeoutMS(int) ConnectionTimeoutMS}. */
@@ -323,7 +338,11 @@ public class OVRInitParams extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -333,7 +352,7 @@ public class OVRInitParams extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -354,6 +373,7 @@ public class OVRInitParams extends Struct implements NativeResource {
         @NativeType("uint32_t")
         public int RequestedMinorVersion() { return OVRInitParams.nRequestedMinorVersion(address()); }
         /** Returns the value of the {@code LogCallback} field. */
+        @Nullable
         @NativeType("ovrLogCallback")
         public OVRLogCallback LogCallback() { return OVRInitParams.nLogCallback(address()); }
         /** Returns the value of the {@code UserData} field. */
@@ -368,7 +388,7 @@ public class OVRInitParams extends Struct implements NativeResource {
         /** Sets the specified value to the {@code RequestedMinorVersion} field. */
         public OVRInitParams.Buffer RequestedMinorVersion(@NativeType("uint32_t") int value) { OVRInitParams.nRequestedMinorVersion(address(), value); return this; }
         /** Sets the specified value to the {@code LogCallback} field. */
-        public OVRInitParams.Buffer LogCallback(@NativeType("ovrLogCallback") OVRLogCallbackI value) { OVRInitParams.nLogCallback(address(), value); return this; }
+        public OVRInitParams.Buffer LogCallback(@Nullable @NativeType("ovrLogCallback") OVRLogCallbackI value) { OVRInitParams.nLogCallback(address(), value); return this; }
         /** Sets the specified value to the {@code UserData} field. */
         public OVRInitParams.Buffer UserData(@NativeType("uintptr_t") long value) { OVRInitParams.nUserData(address(), value); return this; }
         /** Sets the specified value to the {@code ConnectionTimeoutMS} field. */

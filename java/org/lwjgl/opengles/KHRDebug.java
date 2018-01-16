@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -216,7 +218,7 @@ public class KHRDebug {
      * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
      * @param enabled  whether the selected messages should be enabled or disabled
      */
-    public static void glDebugMessageControlKHR(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControlKHR(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
         nglDebugMessageControlKHR(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
     }
 
@@ -252,7 +254,7 @@ public class KHRDebug {
      * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_KHR DEBUG_SEVERITY_HIGH_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_KHR DEBUG_SEVERITY_MEDIUM_KHR}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_KHR DEBUG_SEVERITY_LOW_KHR}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION_KHR DEBUG_SEVERITY_NOTIFICATION_KHR}</td></tr></table>
      * @param enabled  whether the selected messages should be enabled or disabled
      */
-    public static void glDebugMessageControlKHR(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControlKHR(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -357,7 +359,7 @@ public class KHRDebug {
      * @param callback  a callback function that will be called when a debug message is generated
      * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
      */
-    public static void glDebugMessageCallbackKHR(@NativeType("GLDEBUGPROCKHR") GLDebugMessageKHRCallbackI callback, @NativeType("const void *") long userParam) {
+    public static void glDebugMessageCallbackKHR(@Nullable @NativeType("GLDEBUGPROCKHR") GLDebugMessageKHRCallbackI callback, @NativeType("const void *") long userParam) {
         nglDebugMessageCallbackKHR(memAddressSafe(callback), userParam);
     }
 
@@ -403,7 +405,7 @@ public class KHRDebug {
      * @param messageLog an array of characters that will receive the messages
      */
     @NativeType("GLuint")
-    public static int glGetDebugMessageLogKHR(@NativeType("GLuint") int count, @NativeType("GLenum *") IntBuffer sources, @NativeType("GLenum *") IntBuffer types, @NativeType("GLuint *") IntBuffer ids, @NativeType("GLenum *") IntBuffer severities, @NativeType("GLsizei *") IntBuffer lengths, @NativeType("GLchar *") ByteBuffer messageLog) {
+    public static int glGetDebugMessageLogKHR(@NativeType("GLuint") int count, @Nullable @NativeType("GLenum *") IntBuffer sources, @Nullable @NativeType("GLenum *") IntBuffer types, @Nullable @NativeType("GLuint *") IntBuffer ids, @Nullable @NativeType("GLenum *") IntBuffer severities, @Nullable @NativeType("GLsizei *") IntBuffer lengths, @Nullable @NativeType("GLchar *") ByteBuffer messageLog) {
         if (CHECKS) {
             checkSafe(sources, count);
             checkSafe(types, count);
@@ -562,7 +564,7 @@ public class KHRDebug {
      * @param length     the address of a variable to receive the length of the object label
      * @param label      a string that will receive the object label
      */
-    public static void glGetObjectLabelKHR(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer label) {
+    public static void glGetObjectLabelKHR(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer label) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -657,7 +659,7 @@ public class KHRDebug {
      * @param length a variable to receive the length of the object label
      * @param label  a string that will receive the object label
      */
-    public static void glGetObjectPtrLabelKHR(@NativeType("void *") long ptr, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer label) {
+    public static void glGetObjectPtrLabelKHR(@NativeType("void *") long ptr, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer label) {
         if (CHECKS) {
             check(ptr);
             checkSafe(length, 1);
@@ -698,7 +700,7 @@ public class KHRDebug {
     }
 
     /** Array version of: {@link #glDebugMessageControlKHR DebugMessageControlKHR} */
-    public static void glDebugMessageControlKHR(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControlKHR(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
         long __functionAddress = GLES.getICD().glDebugMessageControlKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -708,7 +710,7 @@ public class KHRDebug {
 
     /** Array version of: {@link #glGetDebugMessageLogKHR GetDebugMessageLogKHR} */
     @NativeType("GLuint")
-    public static int glGetDebugMessageLogKHR(@NativeType("GLuint") int count, @NativeType("GLenum *") int[] sources, @NativeType("GLenum *") int[] types, @NativeType("GLuint *") int[] ids, @NativeType("GLenum *") int[] severities, @NativeType("GLsizei *") int[] lengths, @NativeType("GLchar *") ByteBuffer messageLog) {
+    public static int glGetDebugMessageLogKHR(@NativeType("GLuint") int count, @Nullable @NativeType("GLenum *") int[] sources, @Nullable @NativeType("GLenum *") int[] types, @Nullable @NativeType("GLuint *") int[] ids, @Nullable @NativeType("GLenum *") int[] severities, @Nullable @NativeType("GLsizei *") int[] lengths, @Nullable @NativeType("GLchar *") ByteBuffer messageLog) {
         long __functionAddress = GLES.getICD().glGetDebugMessageLogKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -722,7 +724,7 @@ public class KHRDebug {
     }
 
     /** Array version of: {@link #glGetObjectLabelKHR GetObjectLabelKHR} */
-    public static void glGetObjectLabelKHR(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer label) {
+    public static void glGetObjectLabelKHR(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer label) {
         long __functionAddress = GLES.getICD().glGetObjectLabelKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -732,7 +734,7 @@ public class KHRDebug {
     }
 
     /** Array version of: {@link #glGetObjectPtrLabelKHR GetObjectPtrLabelKHR} */
-    public static void glGetObjectPtrLabelKHR(@NativeType("void *") long ptr, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer label) {
+    public static void glGetObjectPtrLabelKHR(@NativeType("void *") long ptr, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer label) {
         long __functionAddress = GLES.getICD().glGetObjectPtrLabelKHR;
         if (CHECKS) {
             check(__functionAddress);

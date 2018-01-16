@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.macosx;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** A mutation handler. */
 public abstract class EnumerationMutationHandler extends Callback implements EnumerationMutationHandlerI {
 
-    /** Creates a {@code EnumerationMutationHandler} instance from the specified function pointer. */
+    /**
+     * Creates a {@code EnumerationMutationHandler} instance from the specified function pointer.
+     *
+     * @return the new {@code EnumerationMutationHandler}
+     */
     public static EnumerationMutationHandler create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         EnumerationMutationHandlerI instance = Callback.get(functionPointer);
         return instance instanceof EnumerationMutationHandler
             ? (EnumerationMutationHandler)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static EnumerationMutationHandler createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code EnumerationMutationHandler} instance that delegates to the specified {@code EnumerationMutationHandlerI} instance. */

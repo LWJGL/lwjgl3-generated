@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -131,7 +133,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         DRAW_END = layout.offsetof(20);
     }
 
-    NkStyleScrollbar(long address, ByteBuffer container) {
+    NkStyleScrollbar(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -142,7 +144,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public NkStyleScrollbar(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -201,9 +203,11 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
     @NativeType("nk_handle")
     public NkHandle userdata() { return nuserdata(address()); }
     /** Returns the value of the {@code draw_begin} field. */
+    @Nullable
     @NativeType("nk_draw_begin")
     public NkDrawBeginCallback draw_begin() { return ndraw_begin(address()); }
     /** Returns the value of the {@code draw_end} field. */
+    @Nullable
     @NativeType("nk_draw_end")
     public NkDrawEndCallback draw_end() { return ndraw_end(address()); }
 
@@ -246,9 +250,9 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
     /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
     public NkStyleScrollbar userdata(@NativeType("nk_handle") NkHandle value) { nuserdata(address(), value); return this; }
     /** Sets the specified value to the {@code draw_begin} field. */
-    public NkStyleScrollbar draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
+    public NkStyleScrollbar draw_begin(@Nullable @NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { ndraw_begin(address(), value); return this; }
     /** Sets the specified value to the {@code draw_end} field. */
-    public NkStyleScrollbar draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
+    public NkStyleScrollbar draw_end(@Nullable @NativeType("nk_draw_end") NkDrawEndCallbackI value) { ndraw_end(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public NkStyleScrollbar set(
@@ -315,12 +319,12 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
 
     /** Returns a new {@link NkStyleScrollbar} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static NkStyleScrollbar malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link NkStyleScrollbar} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static NkStyleScrollbar calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link NkStyleScrollbar} instance allocated with {@link BufferUtils}. */
@@ -328,9 +332,15 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         return new NkStyleScrollbar(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link NkStyleScrollbar} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link NkStyleScrollbar} instance for the specified memory address. */
     public static NkStyleScrollbar create(long address) {
-        return address == NULL ? null : new NkStyleScrollbar(address, null);
+        return new NkStyleScrollbar(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkStyleScrollbar createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -338,7 +348,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static NkStyleScrollbar.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -347,8 +357,8 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static NkStyleScrollbar.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -356,7 +366,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static NkStyleScrollbar.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -366,8 +376,14 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static NkStyleScrollbar.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static NkStyleScrollbar.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -405,7 +421,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static NkStyleScrollbar.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -414,7 +430,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static NkStyleScrollbar.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -424,7 +440,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static NkStyleScrollbar.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -434,7 +450,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static NkStyleScrollbar.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -479,9 +495,9 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata}. */
     public static NkHandle nuserdata(long struct) { return NkHandle.create(struct + NkStyleScrollbar.USERDATA); }
     /** Unsafe version of {@link #draw_begin}. */
-    public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.create(memGetAddress(struct + NkStyleScrollbar.DRAW_BEGIN)); }
+    @Nullable public static NkDrawBeginCallback ndraw_begin(long struct) { return NkDrawBeginCallback.createSafe(memGetAddress(struct + NkStyleScrollbar.DRAW_BEGIN)); }
     /** Unsafe version of {@link #draw_end}. */
-    public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.create(memGetAddress(struct + NkStyleScrollbar.DRAW_END)); }
+    @Nullable public static NkDrawEndCallback ndraw_end(long struct) { return NkDrawEndCallback.createSafe(memGetAddress(struct + NkStyleScrollbar.DRAW_END)); }
 
     /** Unsafe version of {@link #normal(NkStyleItem) normal}. */
     public static void nnormal(long struct, NkStyleItem value) { memCopy(value.address(), struct + NkStyleScrollbar.NORMAL, NkStyleItem.SIZEOF); }
@@ -522,9 +538,9 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
     /** Unsafe version of {@link #userdata(NkHandle) userdata}. */
     public static void nuserdata(long struct, NkHandle value) { memCopy(value.address(), struct + NkStyleScrollbar.USERDATA, NkHandle.SIZEOF); }
     /** Unsafe version of {@link #draw_begin(NkDrawBeginCallbackI) draw_begin}. */
-    public static void ndraw_begin(long struct, NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleScrollbar.DRAW_BEGIN, memAddressSafe(value)); }
+    public static void ndraw_begin(long struct, @Nullable NkDrawBeginCallbackI value) { memPutAddress(struct + NkStyleScrollbar.DRAW_BEGIN, memAddressSafe(value)); }
     /** Unsafe version of {@link #draw_end(NkDrawEndCallbackI) draw_end}. */
-    public static void ndraw_end(long struct, NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleScrollbar.DRAW_END, memAddressSafe(value)); }
+    public static void ndraw_end(long struct, @Nullable NkDrawEndCallbackI value) { memPutAddress(struct + NkStyleScrollbar.DRAW_END, memAddressSafe(value)); }
 
     // -----------------------------------
 
@@ -544,7 +560,11 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -554,7 +574,7 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -621,9 +641,11 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         @NativeType("nk_handle")
         public NkHandle userdata() { return NkStyleScrollbar.nuserdata(address()); }
         /** Returns the value of the {@code draw_begin} field. */
+        @Nullable
         @NativeType("nk_draw_begin")
         public NkDrawBeginCallback draw_begin() { return NkStyleScrollbar.ndraw_begin(address()); }
         /** Returns the value of the {@code draw_end} field. */
+        @Nullable
         @NativeType("nk_draw_end")
         public NkDrawEndCallback draw_end() { return NkStyleScrollbar.ndraw_end(address()); }
 
@@ -666,9 +688,9 @@ public class NkStyleScrollbar extends Struct implements NativeResource {
         /** Copies the specified {@link NkHandle} to the {@code userdata} field. */
         public NkStyleScrollbar.Buffer userdata(@NativeType("nk_handle") NkHandle value) { NkStyleScrollbar.nuserdata(address(), value); return this; }
         /** Sets the specified value to the {@code draw_begin} field. */
-        public NkStyleScrollbar.Buffer draw_begin(@NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleScrollbar.ndraw_begin(address(), value); return this; }
+        public NkStyleScrollbar.Buffer draw_begin(@Nullable @NativeType("nk_draw_begin") NkDrawBeginCallbackI value) { NkStyleScrollbar.ndraw_begin(address(), value); return this; }
         /** Sets the specified value to the {@code draw_end} field. */
-        public NkStyleScrollbar.Buffer draw_end(@NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleScrollbar.ndraw_end(address(), value); return this; }
+        public NkStyleScrollbar.Buffer draw_end(@Nullable @NativeType("nk_draw_end") NkDrawEndCallbackI value) { NkStyleScrollbar.ndraw_end(address(), value); return this; }
 
     }
 

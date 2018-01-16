@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.yoga;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -13,16 +15,22 @@ import static java.lang.Float.*;
 
 public abstract class YGMeasureFunc extends Callback implements YGMeasureFuncI {
 
-    /** Creates a {@code YGMeasureFunc} instance from the specified function pointer. */
+    /**
+     * Creates a {@code YGMeasureFunc} instance from the specified function pointer.
+     *
+     * @return the new {@code YGMeasureFunc}
+     */
     public static YGMeasureFunc create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         YGMeasureFuncI instance = Callback.get(functionPointer);
         return instance instanceof YGMeasureFunc
             ? (YGMeasureFunc)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static YGMeasureFunc createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code YGMeasureFunc} instance that delegates to the specified {@code YGMeasureFuncI} instance. */

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -14,16 +16,22 @@ import java.nio.*;
 /** Instances of this class may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
 public abstract class STBIReadCallback extends Callback implements STBIReadCallbackI {
 
-    /** Creates a {@code STBIReadCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code STBIReadCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code STBIReadCallback}
+     */
     public static STBIReadCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         STBIReadCallbackI instance = Callback.get(functionPointer);
         return instance instanceof STBIReadCallback
             ? (STBIReadCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static STBIReadCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code STBIReadCallback} instance that delegates to the specified {@code STBIReadCallbackI} instance. */

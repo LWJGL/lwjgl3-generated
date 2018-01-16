@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
 public abstract class CLNativeKernel extends Callback implements CLNativeKernelI {
 
-    /** Creates a {@code CLNativeKernel} instance from the specified function pointer. */
+    /**
+     * Creates a {@code CLNativeKernel} instance from the specified function pointer.
+     *
+     * @return the new {@code CLNativeKernel}
+     */
     public static CLNativeKernel create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         CLNativeKernelI instance = Callback.get(functionPointer);
         return instance instanceof CLNativeKernel
             ? (CLNativeKernel)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static CLNativeKernel createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code CLNativeKernel} instance that delegates to the specified {@code CLNativeKernelI} instance. */

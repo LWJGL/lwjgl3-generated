@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link GLES32#glDebugMessageCallback DebugMessageCallback} method. */
 public abstract class GLDebugMessageCallback extends Callback implements GLDebugMessageCallbackI {
 
-    /** Creates a {@code GLDebugMessageCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLDebugMessageCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLDebugMessageCallback}
+     */
     public static GLDebugMessageCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLDebugMessageCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLDebugMessageCallback
             ? (GLDebugMessageCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLDebugMessageCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLDebugMessageCallback} instance that delegates to the specified {@code GLDebugMessageCallbackI} instance. */

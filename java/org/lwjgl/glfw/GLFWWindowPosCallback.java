@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -18,16 +20,22 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public abstract class GLFWWindowPosCallback extends Callback implements GLFWWindowPosCallbackI {
 
-    /** Creates a {@code GLFWWindowPosCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLFWWindowPosCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLFWWindowPosCallback}
+     */
     public static GLFWWindowPosCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLFWWindowPosCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLFWWindowPosCallback
             ? (GLFWWindowPosCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLFWWindowPosCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLFWWindowPosCallback} instance that delegates to the specified {@code GLFWWindowPosCallbackI} instance. */

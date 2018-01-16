@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -65,7 +67,7 @@ public class EXTOutputBase {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglGetOutputLayersEXT(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @NativeType("EGLOutputLayerEXT *") PointerBuffer layers, @NativeType("EGLint *") IntBuffer num_layers) {
+    public static boolean eglGetOutputLayersEXT(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @Nullable @NativeType("EGLOutputLayerEXT *") PointerBuffer layers, @NativeType("EGLint *") IntBuffer num_layers) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
             check(num_layers, 1);
@@ -85,7 +87,7 @@ public class EXTOutputBase {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglGetOutputPortsEXT(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @NativeType("EGLOutputPortEXT *") PointerBuffer ports, @NativeType("EGLint *") IntBuffer num_ports) {
+    public static boolean eglGetOutputPortsEXT(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @Nullable @NativeType("EGLOutputPortEXT *") PointerBuffer ports, @NativeType("EGLint *") IntBuffer num_ports) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
             check(num_ports, 1);
@@ -138,10 +140,11 @@ public class EXTOutputBase {
         return callPPP(__functionAddress, dpy, layer, name);
     }
 
+    @Nullable
     @NativeType("char *")
     public static String eglQueryOutputLayerStringEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLOutputLayerEXT") long layer, @NativeType("EGLint") int name) {
         long __result = neglQueryOutputLayerStringEXT(dpy, layer, name);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ eglOutputPortAttribEXT ] ---
@@ -189,15 +192,16 @@ public class EXTOutputBase {
         return callPPP(__functionAddress, dpy, port, name);
     }
 
+    @Nullable
     @NativeType("char *")
     public static String eglQueryOutputPortStringEXT(@NativeType("EGLDisplay") long dpy, @NativeType("EGLOutputPortEXT") long port, @NativeType("EGLint") int name) {
         long __result = neglQueryOutputPortStringEXT(dpy, port, name);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     /** Array version of: {@link #eglGetOutputLayersEXT GetOutputLayersEXT} */
     @NativeType("EGLBoolean")
-    public static boolean eglGetOutputLayersEXT(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @NativeType("EGLOutputLayerEXT *") PointerBuffer layers, @NativeType("EGLint *") int[] num_layers) {
+    public static boolean eglGetOutputLayersEXT(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @Nullable @NativeType("EGLOutputLayerEXT *") PointerBuffer layers, @NativeType("EGLint *") int[] num_layers) {
         long __functionAddress = EGL.getCapabilities().eglGetOutputLayersEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -210,7 +214,7 @@ public class EXTOutputBase {
 
     /** Array version of: {@link #eglGetOutputPortsEXT GetOutputPortsEXT} */
     @NativeType("EGLBoolean")
-    public static boolean eglGetOutputPortsEXT(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @NativeType("EGLOutputPortEXT *") PointerBuffer ports, @NativeType("EGLint *") int[] num_ports) {
+    public static boolean eglGetOutputPortsEXT(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list, @Nullable @NativeType("EGLOutputPortEXT *") PointerBuffer ports, @NativeType("EGLint *") int[] num_ports) {
         long __functionAddress = EGL.getCapabilities().eglGetOutputPortsEXT;
         if (CHECKS) {
             check(__functionAddress);

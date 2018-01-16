@@ -5,22 +5,30 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class AIFileTellProc extends Callback implements AIFileTellProcI {
 
-    /** Creates a {@code AIFileTellProc} instance from the specified function pointer. */
+    /**
+     * Creates a {@code AIFileTellProc} instance from the specified function pointer.
+     *
+     * @return the new {@code AIFileTellProc}
+     */
     public static AIFileTellProc create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         AIFileTellProcI instance = Callback.get(functionPointer);
         return instance instanceof AIFileTellProc
             ? (AIFileTellProc)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static AIFileTellProc createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code AIFileTellProc} instance that delegates to the specified {@code AIFileTellProcI} instance. */

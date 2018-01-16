@@ -13,5 +13,6 @@
  * compression derivative, {@code LZ4_HC}, is also provided, trading CPU time for improved compression ratio. All versions feature the same decompression
  * speed.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.util.lz4;
 

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -87,7 +89,7 @@ public class KHRStream {
     }
 
     @NativeType("EGLStreamKHR")
-    public static long eglCreateStreamKHR(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateStreamKHR(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -162,7 +164,7 @@ public class KHRStream {
 
     /** Array version of: {@link #eglCreateStreamKHR CreateStreamKHR} */
     @NativeType("EGLStreamKHR")
-    public static long eglCreateStreamKHR(@NativeType("EGLDisplay") long dpy, @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateStreamKHR(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateStreamKHR;
         if (CHECKS) {
             check(__functionAddress);

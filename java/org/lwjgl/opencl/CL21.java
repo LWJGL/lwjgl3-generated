@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -220,7 +222,7 @@ public class CL21 {
      *         </ul>
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithIL(@NativeType("cl_context") long context, @NativeType("const void *") ByteBuffer il, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateProgramWithIL(@NativeType("cl_context") long context, @NativeType("const void *") ByteBuffer il, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -271,7 +273,7 @@ public class CL21 {
      *         </ul>
      */
     @NativeType("cl_kernel")
-    public static long clCloneKernel(@NativeType("cl_kernel") long source_kernel, @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCloneKernel(@NativeType("cl_kernel") long source_kernel, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -323,7 +325,7 @@ public class CL21 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelSubGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @NativeType("void *") ByteBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelSubGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @Nullable @NativeType("const void *") ByteBuffer input_value, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -358,7 +360,7 @@ public class CL21 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clGetKernelSubGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @NativeType("void *") PointerBuffer param_value, @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelSubGroupInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @Nullable @NativeType("const void *") ByteBuffer input_value, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -422,7 +424,7 @@ public class CL21 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueSVMMigrateMem(@NativeType("cl_command_queue") long command_queue, @NativeType("const void **") PointerBuffer svm_pointers, @NativeType("const size_t *") PointerBuffer sizes, @NativeType("cl_mem_migration_flags") long flags, @NativeType("const cl_event *") PointerBuffer event_wait_list, @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueSVMMigrateMem(@NativeType("cl_command_queue") long command_queue, @NativeType("const void **") PointerBuffer svm_pointers, @Nullable @NativeType("const size_t *") PointerBuffer sizes, @NativeType("cl_mem_migration_flags") long flags, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(sizes, svm_pointers.remaining());
             checkSafe(event, 1);
@@ -469,7 +471,7 @@ public class CL21 {
      * Array version of: {@link #clCreateProgramWithIL CreateProgramWithIL}
      */
     @NativeType("cl_program")
-    public static long clCreateProgramWithIL(@NativeType("cl_context") long context, @NativeType("const void *") ByteBuffer il, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateProgramWithIL(@NativeType("cl_context") long context, @NativeType("const void *") ByteBuffer il, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateProgramWithIL;
         if (CHECKS) {
             check(__functionAddress);
@@ -485,7 +487,7 @@ public class CL21 {
      * Array version of: {@link #clCloneKernel CloneKernel}
      */
     @NativeType("cl_kernel")
-    public static long clCloneKernel(@NativeType("cl_kernel") long source_kernel, @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCloneKernel(@NativeType("cl_kernel") long source_kernel, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCloneKernel;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.windows;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -1170,7 +1172,7 @@ public class User32 {
      *                     of the {@link #WM_CREATE} message.
      */
     @NativeType("HWND")
-    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @NativeType("LPCTSTR") ByteBuffer lpClassName, @NativeType("LPCTSTR") ByteBuffer lpWindowName, @NativeType("DWORD") int dwStyle, int x, int y, int nWidth, int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
+    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @Nullable @NativeType("LPCTSTR") ByteBuffer lpClassName, @Nullable @NativeType("LPCTSTR") ByteBuffer lpWindowName, @NativeType("DWORD") int dwStyle, int x, int y, int nWidth, int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
         if (CHECKS) {
             checkNT2Safe(lpClassName);
             checkNT2Safe(lpWindowName);
@@ -1196,11 +1198,11 @@ public class User32 {
      *                     of the {@link #WM_CREATE} message.
      */
     @NativeType("HWND")
-    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @NativeType("LPCTSTR") CharSequence lpClassName, @NativeType("LPCTSTR") CharSequence lpWindowName, @NativeType("DWORD") int dwStyle, @NativeType("int") int x, @NativeType("int") int y, @NativeType("int") int nWidth, @NativeType("int") int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
+    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @Nullable @NativeType("LPCTSTR") CharSequence lpClassName, @Nullable @NativeType("LPCTSTR") CharSequence lpWindowName, @NativeType("DWORD") int dwStyle, @NativeType("int") int x, @NativeType("int") int y, @NativeType("int") int nWidth, @NativeType("int") int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer lpClassNameEncoded = stack.UTF16(lpClassName);
-            ByteBuffer lpWindowNameEncoded = stack.UTF16(lpWindowName);
+            ByteBuffer lpClassNameEncoded = stack.UTF16Safe(lpClassName);
+            ByteBuffer lpWindowNameEncoded = stack.UTF16Safe(lpWindowName);
             return nCreateWindowEx(dwExStyle, memAddressSafe(lpClassNameEncoded), memAddressSafe(lpWindowNameEncoded), dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
         } finally {
             stack.setPointer(stackPointer);
@@ -2081,7 +2083,7 @@ public class User32 {
      * @since Windows 7 (desktop apps only)
      */
     @NativeType("BOOL")
-    public static boolean IsTouchWindow(@NativeType("HWND") long hWnd, @NativeType("PULONG") IntBuffer pulFlags) {
+    public static boolean IsTouchWindow(@NativeType("HWND") long hWnd, @Nullable @NativeType("PULONG") IntBuffer pulFlags) {
         if (CHECKS) {
             checkSafe(pulFlags, 1);
         }
@@ -2224,7 +2226,7 @@ public class User32 {
      *                        and SetupAPI monitor devices.
      */
     @NativeType("BOOL")
-    public static boolean EnumDisplayDevices(@NativeType("LPCTSTR") ByteBuffer lpDevice, @NativeType("DWORD") int iDevNum, @NativeType("PDISPLAY_DEVICE") DISPLAY_DEVICE lpDisplayDevice, @NativeType("DWORD") int dwFlags) {
+    public static boolean EnumDisplayDevices(@Nullable @NativeType("LPCTSTR") ByteBuffer lpDevice, @NativeType("DWORD") int iDevNum, @NativeType("PDISPLAY_DEVICE") DISPLAY_DEVICE lpDisplayDevice, @NativeType("DWORD") int dwFlags) {
         if (CHECKS) {
             checkNT2Safe(lpDevice);
         }
@@ -2249,10 +2251,10 @@ public class User32 {
      *                        and SetupAPI monitor devices.
      */
     @NativeType("BOOL")
-    public static boolean EnumDisplayDevices(@NativeType("LPCTSTR") CharSequence lpDevice, @NativeType("DWORD") int iDevNum, @NativeType("PDISPLAY_DEVICE") DISPLAY_DEVICE lpDisplayDevice, @NativeType("DWORD") int dwFlags) {
+    public static boolean EnumDisplayDevices(@Nullable @NativeType("LPCTSTR") CharSequence lpDevice, @NativeType("DWORD") int iDevNum, @NativeType("PDISPLAY_DEVICE") DISPLAY_DEVICE lpDisplayDevice, @NativeType("DWORD") int dwFlags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer lpDeviceEncoded = stack.UTF16(lpDevice);
+            ByteBuffer lpDeviceEncoded = stack.UTF16Safe(lpDevice);
             return nEnumDisplayDevices(memAddressSafe(lpDeviceEncoded), iDevNum, lpDisplayDevice.address(), dwFlags) != 0;
         } finally {
             stack.setPointer(stackPointer);
@@ -2295,7 +2297,7 @@ public class User32 {
      * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
      */
     @NativeType("BOOL")
-    public static boolean EnumDisplaySettingsEx(@NativeType("LPCTSTR") ByteBuffer lpszDeviceName, @NativeType("DWORD") int iModeNum, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("DWORD") int dwFlags) {
+    public static boolean EnumDisplaySettingsEx(@Nullable @NativeType("LPCTSTR") ByteBuffer lpszDeviceName, @NativeType("DWORD") int iModeNum, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("DWORD") int dwFlags) {
         if (CHECKS) {
             checkNT2Safe(lpszDeviceName);
         }
@@ -2330,10 +2332,10 @@ public class User32 {
      * @param dwFlags        this parameter can be one of:<br><table><tr><td>{@link #EDS_RAWMODE}</td><td>{@link #EDS_ROTATEDMODE}</td></tr></table>
      */
     @NativeType("BOOL")
-    public static boolean EnumDisplaySettingsEx(@NativeType("LPCTSTR") CharSequence lpszDeviceName, @NativeType("DWORD") int iModeNum, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("DWORD") int dwFlags) {
+    public static boolean EnumDisplaySettingsEx(@Nullable @NativeType("LPCTSTR") CharSequence lpszDeviceName, @NativeType("DWORD") int iModeNum, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("DWORD") int dwFlags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer lpszDeviceNameEncoded = stack.UTF16(lpszDeviceName);
+            ByteBuffer lpszDeviceNameEncoded = stack.UTF16Safe(lpszDeviceName);
             return nEnumDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), iModeNum, lpDevMode.address(), dwFlags) != 0;
         } finally {
             stack.setPointer(stackPointer);
@@ -2369,7 +2371,7 @@ public class User32 {
      * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
      */
     @NativeType("LONG")
-    public static int ChangeDisplaySettingsEx(@NativeType("LPCTSTR") ByteBuffer lpszDeviceName, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("HWND") long hwnd, @NativeType("DWORD") int dwflags, @NativeType("LPVOID") long lParam) {
+    public static int ChangeDisplaySettingsEx(@Nullable @NativeType("LPCTSTR") ByteBuffer lpszDeviceName, @Nullable @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("HWND") long hwnd, @NativeType("DWORD") int dwflags, @NativeType("LPVOID") long lParam) {
         if (CHECKS) {
             checkNT2Safe(lpszDeviceName);
         }
@@ -2397,10 +2399,10 @@ public class User32 {
      * @return one of the following values: {@link #DISP_CHANGE_SUCCESSFUL} {@link #DISP_CHANGE_RESTART} {@link #DISP_CHANGE_FAILED} {@link #DISP_CHANGE_BADMODE} {@link #DISP_CHANGE_NOTUPDATED} {@link #DISP_CHANGE_BADFLAGS} {@link #DISP_CHANGE_BADPARAM} {@link #DISP_CHANGE_BADDUALVIEW}
      */
     @NativeType("LONG")
-    public static int ChangeDisplaySettingsEx(@NativeType("LPCTSTR") CharSequence lpszDeviceName, @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("HWND") long hwnd, @NativeType("DWORD") int dwflags, @NativeType("LPVOID") long lParam) {
+    public static int ChangeDisplaySettingsEx(@Nullable @NativeType("LPCTSTR") CharSequence lpszDeviceName, @Nullable @NativeType("DEVMODE *") DEVMODE lpDevMode, @NativeType("HWND") long hwnd, @NativeType("DWORD") int dwflags, @NativeType("LPVOID") long lParam) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer lpszDeviceNameEncoded = stack.UTF16(lpszDeviceName);
+            ByteBuffer lpszDeviceNameEncoded = stack.UTF16Safe(lpszDeviceName);
             return nChangeDisplaySettingsEx(memAddressSafe(lpszDeviceNameEncoded), memAddressSafe(lpDevMode), hwnd, dwflags, lParam);
         } finally {
             stack.setPointer(stackPointer);
@@ -2456,7 +2458,7 @@ public class User32 {
      *             parameter is {@code NULL}, the cursor is free to move anywhere on the screen.
      */
     @NativeType("BOOL")
-    public static boolean ClipCursor(@NativeType("const RECT *") RECT rect) {
+    public static boolean ClipCursor(@Nullable @NativeType("const RECT *") RECT rect) {
         return nClipCursor(memAddressSafe(rect)) != 0;
     }
 
@@ -2657,7 +2659,7 @@ public class User32 {
 
     /** Array version of: {@link #IsTouchWindow} */
     @NativeType("BOOL")
-    public static boolean IsTouchWindow(@NativeType("HWND") long hWnd, @NativeType("PULONG") int[] pulFlags) {
+    public static boolean IsTouchWindow(@NativeType("HWND") long hWnd, @Nullable @NativeType("PULONG") int[] pulFlags) {
         long __functionAddress = Functions.IsTouchWindow;
         if (CHECKS) {
             check(__functionAddress);

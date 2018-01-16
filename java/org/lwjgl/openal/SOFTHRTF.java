@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -86,10 +88,11 @@ public class SOFTHRTF {
      * @param paramName the parameter to query. Must be:<br><table><tr><td>{@link #ALC_HRTF_SPECIFIER_SOFT HRTF_SPECIFIER_SOFT}</td></tr></table>
      * @param index     an index between 0 (inclusive) and the previously-queried HRTF count (exclusive)
      */
+    @Nullable
     @NativeType("const ALCchar *")
     public static String alcGetStringiSOFT(@NativeType("ALCdevice *") long device, @NativeType("ALCenum") int paramName, @NativeType("ALCsizei") int index) {
         long __result = nalcGetStringiSOFT(device, paramName, index);
-        return memUTF8(__result);
+        return memUTF8Safe(__result);
     }
 
     // --- [ alcResetDeviceSOFT ] ---
@@ -116,7 +119,7 @@ public class SOFTHRTF {
      *         device using {@link ALC10#alcGetIntegerv GetIntegerv} with the relevant attributes.
      */
     @NativeType("ALCboolean")
-    public static boolean alcResetDeviceSOFT(@NativeType("ALCdevice *") long device, @NativeType("const ALCint *") IntBuffer attrList) {
+    public static boolean alcResetDeviceSOFT(@NativeType("ALCdevice *") long device, @Nullable @NativeType("const ALCint *") IntBuffer attrList) {
         if (CHECKS) {
             checkNTSafe(attrList);
         }
@@ -125,7 +128,7 @@ public class SOFTHRTF {
 
     /** Array version of: {@link #alcResetDeviceSOFT ResetDeviceSOFT} */
     @NativeType("ALCboolean")
-    public static boolean alcResetDeviceSOFT(@NativeType("ALCdevice *") long device, @NativeType("const ALCint *") int[] attrList) {
+    public static boolean alcResetDeviceSOFT(@NativeType("ALCdevice *") long device, @Nullable @NativeType("const ALCint *") int[] attrList) {
 		long __functionAddress = ALC.getICD().alcResetDeviceSOFT;
         if (CHECKS) {
             check(__functionAddress);

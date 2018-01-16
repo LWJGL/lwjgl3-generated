@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.jemalloc;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method. */
 public abstract class MallocMessageCallback extends Callback implements MallocMessageCallbackI {
 
-    /** Creates a {@code MallocMessageCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code MallocMessageCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code MallocMessageCallback}
+     */
     public static MallocMessageCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         MallocMessageCallbackI instance = Callback.get(functionPointer);
         return instance instanceof MallocMessageCallback
             ? (MallocMessageCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static MallocMessageCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code MallocMessageCallback} instance that delegates to the specified {@code MallocMessageCallbackI} instance. */

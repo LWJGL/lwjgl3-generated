@@ -5,22 +5,30 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class AILogStreamCallback extends Callback implements AILogStreamCallbackI {
 
-    /** Creates a {@code AILogStreamCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code AILogStreamCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code AILogStreamCallback}
+     */
     public static AILogStreamCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         AILogStreamCallbackI instance = Callback.get(functionPointer);
         return instance instanceof AILogStreamCallback
             ? (AILogStreamCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static AILogStreamCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code AILogStreamCallback} instance that delegates to the specified {@code AILogStreamCallbackI} instance. */

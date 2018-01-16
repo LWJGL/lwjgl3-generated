@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -18,16 +20,22 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public abstract class GLFWDropCallback extends Callback implements GLFWDropCallbackI {
 
-    /** Creates a {@code GLFWDropCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLFWDropCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLFWDropCallback}
+     */
     public static GLFWDropCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLFWDropCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLFWDropCallback
             ? (GLFWDropCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLFWDropCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLFWDropCallback} instance that delegates to the specified {@code GLFWDropCallbackI} instance. */

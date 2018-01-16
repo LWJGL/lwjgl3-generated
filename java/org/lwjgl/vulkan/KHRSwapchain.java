@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -187,7 +189,7 @@ public class KHRSwapchain {
      * @param pSwapchain  a pointer to a {@code VkSwapchainKHR} handle in which the created swapchain object will be returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchain) {
+    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchain) {
         if (CHECKS) {
             check(pSwapchain, 1);
         }
@@ -256,7 +258,7 @@ public class KHRSwapchain {
      * @param swapchain  the swapchain to destroy.
      * @param pAllocator the allocator used for host memory allocated for the swapchain object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a>).
      */
-    public static void vkDestroySwapchainKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySwapchainKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
         nvkDestroySwapchainKHR(device, swapchain, memAddressSafe(pAllocator));
     }
 
@@ -324,7 +326,7 @@ public class KHRSwapchain {
      * @param pSwapchainImages     either {@code NULL} or a pointer to an array of {@code VkImage} handles.
      */
     @NativeType("VkResult")
-    public static int vkGetSwapchainImagesKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") IntBuffer pSwapchainImageCount, @NativeType("VkImage *") LongBuffer pSwapchainImages) {
+    public static int vkGetSwapchainImagesKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") IntBuffer pSwapchainImageCount, @Nullable @NativeType("VkImage *") LongBuffer pSwapchainImages) {
         if (CHECKS) {
             check(pSwapchainImageCount, 1);
             checkSafe(pSwapchainImages, pSwapchainImageCount.get(pSwapchainImageCount.position()));
@@ -522,7 +524,7 @@ public class KHRSwapchain {
 
     /** Array version of: {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
     @NativeType("VkResult")
-    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchain) {
+    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchain) {
         long __functionAddress = device.getCapabilities().vkCreateSwapchainKHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -535,7 +537,7 @@ public class KHRSwapchain {
 
     /** Array version of: {@link #vkGetSwapchainImagesKHR GetSwapchainImagesKHR} */
     @NativeType("VkResult")
-    public static int vkGetSwapchainImagesKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") int[] pSwapchainImageCount, @NativeType("VkImage *") long[] pSwapchainImages) {
+    public static int vkGetSwapchainImagesKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @NativeType("uint32_t *") int[] pSwapchainImageCount, @Nullable @NativeType("VkImage *") long[] pSwapchainImages) {
         long __functionAddress = device.getCapabilities().vkGetSwapchainImagesKHR;
         if (CHECKS) {
             check(__functionAddress);

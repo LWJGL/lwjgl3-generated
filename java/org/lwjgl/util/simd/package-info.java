@@ -5,5 +5,6 @@
  */
 
 /** Contains bindings to SSE macros. */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.util.simd;
 

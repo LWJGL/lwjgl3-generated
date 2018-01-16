@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -248,7 +250,7 @@ public class GL41 {
      * @param binaryFormat a variable to receive a token indicating the format of the binary data returned by the GL
      * @param binary       an array into which the GL will return {@code program}'s binary representation
      */
-    public static void glGetProgramBinary(@NativeType("GLuint") int program, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLenum *") IntBuffer binaryFormat, @NativeType("void *") ByteBuffer binary) {
+    public static void glGetProgramBinary(@NativeType("GLuint") int program, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLenum *") IntBuffer binaryFormat, @NativeType("void *") ByteBuffer binary) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(binaryFormat, 1);
@@ -1623,7 +1625,7 @@ public class GL41 {
      * @param length   a variable into which will be written the number of characters written into {@code infoLog}
      * @param infoLog  an array of characters into which will be written the info log for {@code pipeline}
      */
-    public static void glGetProgramPipelineInfoLog(@NativeType("GLuint") int pipeline, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer infoLog) {
+    public static void glGetProgramPipelineInfoLog(@NativeType("GLuint") int pipeline, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer infoLog) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -2139,7 +2141,7 @@ public class GL41 {
      * 
      * Array version of: {@link #glGetProgramBinary GetProgramBinary}
      */
-    public static void glGetProgramBinary(@NativeType("GLuint") int program, @NativeType("GLsizei *") int[] length, @NativeType("GLenum *") int[] binaryFormat, @NativeType("void *") ByteBuffer binary) {
+    public static void glGetProgramBinary(@NativeType("GLuint") int program, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLenum *") int[] binaryFormat, @NativeType("void *") ByteBuffer binary) {
         long __functionAddress = GL.getICD().glGetProgramBinary;
         if (CHECKS) {
             check(__functionAddress);
@@ -2636,7 +2638,7 @@ public class GL41 {
      * 
      * Array version of: {@link #glGetProgramPipelineInfoLog GetProgramPipelineInfoLog}
      */
-    public static void glGetProgramPipelineInfoLog(@NativeType("GLuint") int pipeline, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer infoLog) {
+    public static void glGetProgramPipelineInfoLog(@NativeType("GLuint") int pipeline, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer infoLog) {
         long __functionAddress = GL.getICD().glGetProgramPipelineInfoLog;
         if (CHECKS) {
             check(__functionAddress);

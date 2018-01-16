@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.lmdb;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** A callback function used to print a message from the library. */
 public abstract class MDBMsgFunc extends Callback implements MDBMsgFuncI {
 
-    /** Creates a {@code MDBMsgFunc} instance from the specified function pointer. */
+    /**
+     * Creates a {@code MDBMsgFunc} instance from the specified function pointer.
+     *
+     * @return the new {@code MDBMsgFunc}
+     */
     public static MDBMsgFunc create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         MDBMsgFuncI instance = Callback.get(functionPointer);
         return instance instanceof MDBMsgFunc
             ? (MDBMsgFunc)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static MDBMsgFunc createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code MDBMsgFunc} instance that delegates to the specified {@code MDBMsgFuncI} instance. */

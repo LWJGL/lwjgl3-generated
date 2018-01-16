@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -58,14 +60,16 @@ public class EXTMapBufferRange {
 
     public static native long nglMapBufferRangeEXT(int target, long offset, long length, int access);
 
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer glMapBufferRangeEXT(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length, @NativeType("GLbitfield") int access) {
         long __result = nglMapBufferRangeEXT(target, offset, length, access);
-        return memByteBuffer(__result, (int)length);
+        return memByteBufferSafe(__result, (int)length);
     }
 
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer glMapBufferRangeEXT(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length, @NativeType("GLbitfield") int access, ByteBuffer old_buffer) {
+    public static ByteBuffer glMapBufferRangeEXT(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long length, @NativeType("GLbitfield") int access, @Nullable ByteBuffer old_buffer) {
         long __result = nglMapBufferRangeEXT(target, offset, length, access);
         return apiGetMappedBuffer(old_buffer, __result, (int)length);
     }

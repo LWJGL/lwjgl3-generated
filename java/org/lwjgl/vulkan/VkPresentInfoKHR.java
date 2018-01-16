@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -111,7 +113,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         PRESULTS = layout.offsetof(7);
     }
 
-    VkPresentInfoKHR(long address, ByteBuffer container) {
+    VkPresentInfoKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -122,7 +124,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkPresentInfoKHR(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -138,6 +140,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
     /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+    @Nullable
     @NativeType("const VkSemaphore *")
     public LongBuffer pWaitSemaphores() { return npWaitSemaphores(address()); }
     /** Returns the value of the {@code swapchainCount} field. */
@@ -150,6 +153,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     @NativeType("const uint32_t *")
     public IntBuffer pImageIndices() { return npImageIndices(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field. */
+    @Nullable
     @NativeType("VkResult *")
     public IntBuffer pResults() { return npResults(address()); }
 
@@ -158,7 +162,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code pNext} field. */
     public VkPresentInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-    public VkPresentInfoKHR pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { npWaitSemaphores(address(), value); return this; }
+    public VkPresentInfoKHR pWaitSemaphores(@Nullable @NativeType("const VkSemaphore *") LongBuffer value) { npWaitSemaphores(address(), value); return this; }
     /** Sets the specified value to the {@code swapchainCount} field. */
     public VkPresentInfoKHR swapchainCount(@NativeType("uint32_t") int value) { nswapchainCount(address(), value); return this; }
     /** Sets the address of the specified {@link LongBuffer} to the {@code pSwapchains} field. */
@@ -166,7 +170,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     /** Sets the address of the specified {@link IntBuffer} to the {@code pImageIndices} field. */
     public VkPresentInfoKHR pImageIndices(@NativeType("const uint32_t *") IntBuffer value) { npImageIndices(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pResults} field. */
-    public VkPresentInfoKHR pResults(@NativeType("VkResult *") IntBuffer value) { npResults(address(), value); return this; }
+    public VkPresentInfoKHR pResults(@Nullable @NativeType("VkResult *") IntBuffer value) { npResults(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPresentInfoKHR set(
@@ -205,12 +209,12 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
 
     /** Returns a new {@link VkPresentInfoKHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkPresentInfoKHR malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkPresentInfoKHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkPresentInfoKHR calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkPresentInfoKHR} instance allocated with {@link BufferUtils}. */
@@ -218,9 +222,15 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         return new VkPresentInfoKHR(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkPresentInfoKHR} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkPresentInfoKHR} instance for the specified memory address. */
     public static VkPresentInfoKHR create(long address) {
-        return address == NULL ? null : new VkPresentInfoKHR(address, null);
+        return new VkPresentInfoKHR(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPresentInfoKHR createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -228,7 +238,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkPresentInfoKHR.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -237,8 +247,8 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkPresentInfoKHR.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -246,7 +256,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkPresentInfoKHR.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -256,8 +266,14 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkPresentInfoKHR.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPresentInfoKHR.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -295,7 +311,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkPresentInfoKHR.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -304,7 +320,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkPresentInfoKHR.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -314,7 +330,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkPresentInfoKHR.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -324,7 +340,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkPresentInfoKHR.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -337,7 +353,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     /** Unsafe version of {@link #waitSemaphoreCount}. */
     public static int nwaitSemaphoreCount(long struct) { return memGetInt(struct + VkPresentInfoKHR.WAITSEMAPHORECOUNT); }
     /** Unsafe version of {@link #pWaitSemaphores() pWaitSemaphores}. */
-    public static LongBuffer npWaitSemaphores(long struct) { return memLongBuffer(memGetAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES), nwaitSemaphoreCount(struct)); }
+    @Nullable public static LongBuffer npWaitSemaphores(long struct) { return memLongBufferSafe(memGetAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES), nwaitSemaphoreCount(struct)); }
     /** Unsafe version of {@link #swapchainCount}. */
     public static int nswapchainCount(long struct) { return memGetInt(struct + VkPresentInfoKHR.SWAPCHAINCOUNT); }
     /** Unsafe version of {@link #pSwapchains() pSwapchains}. */
@@ -345,7 +361,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     /** Unsafe version of {@link #pImageIndices() pImageIndices}. */
     public static IntBuffer npImageIndices(long struct) { return memIntBuffer(memGetAddress(struct + VkPresentInfoKHR.PIMAGEINDICES), nswapchainCount(struct)); }
     /** Unsafe version of {@link #pResults() pResults}. */
-    public static IntBuffer npResults(long struct) { return memIntBuffer(memGetAddress(struct + VkPresentInfoKHR.PRESULTS), nswapchainCount(struct)); }
+    @Nullable public static IntBuffer npResults(long struct) { return memIntBufferSafe(memGetAddress(struct + VkPresentInfoKHR.PRESULTS), nswapchainCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.STYPE, value); }
@@ -354,7 +370,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code waitSemaphoreCount} field of the specified {@code struct}. */
     public static void nwaitSemaphoreCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.WAITSEMAPHORECOUNT, value); }
     /** Unsafe version of {@link #pWaitSemaphores(LongBuffer) pWaitSemaphores}. */
-    public static void npWaitSemaphores(long struct, LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npWaitSemaphores(long struct, @Nullable LongBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PWAITSEMAPHORES, memAddressSafe(value)); nwaitSemaphoreCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code swapchainCount} field of the specified {@code struct}. */
     public static void nswapchainCount(long struct, int value) { memPutInt(struct + VkPresentInfoKHR.SWAPCHAINCOUNT, value); }
     /** Unsafe version of {@link #pSwapchains(LongBuffer) pSwapchains}. */
@@ -362,7 +378,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     /** Unsafe version of {@link #pImageIndices(IntBuffer) pImageIndices}. */
     public static void npImageIndices(long struct, IntBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PIMAGEINDICES, memAddress(value)); }
     /** Unsafe version of {@link #pResults(IntBuffer) pResults}. */
-    public static void npResults(long struct, IntBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PRESULTS, memAddressSafe(value)); }
+    public static void npResults(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkPresentInfoKHR.PRESULTS, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -407,7 +423,11 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -417,7 +437,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -441,6 +461,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         @NativeType("uint32_t")
         public int waitSemaphoreCount() { return VkPresentInfoKHR.nwaitSemaphoreCount(address()); }
         /** Returns a {@link LongBuffer} view of the data pointed to by the {@code pWaitSemaphores} field. */
+        @Nullable
         @NativeType("const VkSemaphore *")
         public LongBuffer pWaitSemaphores() { return VkPresentInfoKHR.npWaitSemaphores(address()); }
         /** Returns the value of the {@code swapchainCount} field. */
@@ -453,6 +474,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         @NativeType("const uint32_t *")
         public IntBuffer pImageIndices() { return VkPresentInfoKHR.npImageIndices(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pResults} field. */
+        @Nullable
         @NativeType("VkResult *")
         public IntBuffer pResults() { return VkPresentInfoKHR.npResults(address()); }
 
@@ -461,7 +483,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code pNext} field. */
         public VkPresentInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkPresentInfoKHR.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pWaitSemaphores} field. */
-        public VkPresentInfoKHR.Buffer pWaitSemaphores(@NativeType("const VkSemaphore *") LongBuffer value) { VkPresentInfoKHR.npWaitSemaphores(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer pWaitSemaphores(@Nullable @NativeType("const VkSemaphore *") LongBuffer value) { VkPresentInfoKHR.npWaitSemaphores(address(), value); return this; }
         /** Sets the specified value to the {@code swapchainCount} field. */
         public VkPresentInfoKHR.Buffer swapchainCount(@NativeType("uint32_t") int value) { VkPresentInfoKHR.nswapchainCount(address(), value); return this; }
         /** Sets the address of the specified {@link LongBuffer} to the {@code pSwapchains} field. */
@@ -469,7 +491,7 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
         /** Sets the address of the specified {@link IntBuffer} to the {@code pImageIndices} field. */
         public VkPresentInfoKHR.Buffer pImageIndices(@NativeType("const uint32_t *") IntBuffer value) { VkPresentInfoKHR.npImageIndices(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pResults} field. */
-        public VkPresentInfoKHR.Buffer pResults(@NativeType("VkResult *") IntBuffer value) { VkPresentInfoKHR.npResults(address(), value); return this; }
+        public VkPresentInfoKHR.Buffer pResults(@Nullable @NativeType("VkResult *") IntBuffer value) { VkPresentInfoKHR.npResults(address(), value); return this; }
 
     }
 

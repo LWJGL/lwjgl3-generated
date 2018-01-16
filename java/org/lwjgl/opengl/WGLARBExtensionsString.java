@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -48,10 +50,11 @@ public class WGLARBExtensionsString {
      *
      * @param hdc the device context to query extensions for
      */
+    @Nullable
     @NativeType("const char *")
     public static String wglGetExtensionsStringARB(@NativeType("HDC") long hdc) {
         long __result = nwglGetExtensionsStringARB(hdc);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
 }

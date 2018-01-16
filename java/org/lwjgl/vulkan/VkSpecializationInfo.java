@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -89,7 +91,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
         PDATA = layout.offsetof(3);
     }
 
-    VkSpecializationInfo(long address, ByteBuffer container) {
+    VkSpecializationInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -100,7 +102,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkSpecializationInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -110,19 +112,21 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int mapEntryCount() { return nmapEntryCount(address()); }
     /** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
+    @Nullable
     @NativeType("const VkSpecializationMapEntry *")
     public VkSpecializationMapEntry.Buffer pMapEntries() { return npMapEntries(address()); }
     /** Returns the value of the {@code dataSize} field. */
     @NativeType("size_t")
     public long dataSize() { return ndataSize(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
+    @Nullable
     @NativeType("const void *")
     public ByteBuffer pData() { return npData(address()); }
 
     /** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
-    public VkSpecializationInfo pMapEntries(@NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { npMapEntries(address(), value); return this; }
+    public VkSpecializationInfo pMapEntries(@Nullable @NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { npMapEntries(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
-    public VkSpecializationInfo pData(@NativeType("const void *") ByteBuffer value) { npData(address(), value); return this; }
+    public VkSpecializationInfo pData(@Nullable @NativeType("const void *") ByteBuffer value) { npData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSpecializationInfo set(
@@ -151,12 +155,12 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
 
     /** Returns a new {@link VkSpecializationInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkSpecializationInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkSpecializationInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkSpecializationInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkSpecializationInfo} instance allocated with {@link BufferUtils}. */
@@ -164,9 +168,15 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
         return new VkSpecializationInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkSpecializationInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkSpecializationInfo} instance for the specified memory address. */
     public static VkSpecializationInfo create(long address) {
-        return address == NULL ? null : new VkSpecializationInfo(address, null);
+        return new VkSpecializationInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkSpecializationInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -174,7 +184,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkSpecializationInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -183,8 +193,8 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkSpecializationInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -192,7 +202,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkSpecializationInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -202,8 +212,14 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkSpecializationInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkSpecializationInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -241,7 +257,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkSpecializationInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -250,7 +266,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkSpecializationInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -260,7 +276,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkSpecializationInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -270,7 +286,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkSpecializationInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -279,20 +295,20 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
     /** Unsafe version of {@link #mapEntryCount}. */
     public static int nmapEntryCount(long struct) { return memGetInt(struct + VkSpecializationInfo.MAPENTRYCOUNT); }
     /** Unsafe version of {@link #pMapEntries}. */
-    public static VkSpecializationMapEntry.Buffer npMapEntries(long struct) { return VkSpecializationMapEntry.create(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES), nmapEntryCount(struct)); }
+    @Nullable public static VkSpecializationMapEntry.Buffer npMapEntries(long struct) { return VkSpecializationMapEntry.createSafe(memGetAddress(struct + VkSpecializationInfo.PMAPENTRIES), nmapEntryCount(struct)); }
     /** Unsafe version of {@link #dataSize}. */
     public static long ndataSize(long struct) { return memGetAddress(struct + VkSpecializationInfo.DATASIZE); }
     /** Unsafe version of {@link #pData() pData}. */
-    public static ByteBuffer npData(long struct) { return memByteBuffer(memGetAddress(struct + VkSpecializationInfo.PDATA), (int)ndataSize(struct)); }
+    @Nullable public static ByteBuffer npData(long struct) { return memByteBufferSafe(memGetAddress(struct + VkSpecializationInfo.PDATA), (int)ndataSize(struct)); }
 
     /** Sets the specified value to the {@code mapEntryCount} field of the specified {@code struct}. */
     public static void nmapEntryCount(long struct, int value) { memPutInt(struct + VkSpecializationInfo.MAPENTRYCOUNT, value); }
     /** Unsafe version of {@link #pMapEntries(VkSpecializationMapEntry.Buffer) pMapEntries}. */
-    public static void npMapEntries(long struct, VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, memAddressSafe(value)); nmapEntryCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npMapEntries(long struct, @Nullable VkSpecializationMapEntry.Buffer value) { memPutAddress(struct + VkSpecializationInfo.PMAPENTRIES, memAddressSafe(value)); nmapEntryCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code dataSize} field of the specified {@code struct}. */
     public static void ndataSize(long struct, long value) { memPutAddress(struct + VkSpecializationInfo.DATASIZE, value); }
     /** Unsafe version of {@link #pData(ByteBuffer) pData}. */
-    public static void npData(long struct, ByteBuffer value) { memPutAddress(struct + VkSpecializationInfo.PDATA, memAddressSafe(value)); ndataSize(struct, value == null ? 0 : value.remaining()); }
+    public static void npData(long struct, @Nullable ByteBuffer value) { memPutAddress(struct + VkSpecializationInfo.PDATA, memAddressSafe(value)); ndataSize(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -338,7 +354,11 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -348,7 +368,7 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -366,19 +386,21 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
         @NativeType("uint32_t")
         public int mapEntryCount() { return VkSpecializationInfo.nmapEntryCount(address()); }
         /** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
+        @Nullable
         @NativeType("const VkSpecializationMapEntry *")
         public VkSpecializationMapEntry.Buffer pMapEntries() { return VkSpecializationInfo.npMapEntries(address()); }
         /** Returns the value of the {@code dataSize} field. */
         @NativeType("size_t")
         public long dataSize() { return VkSpecializationInfo.ndataSize(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
+        @Nullable
         @NativeType("const void *")
         public ByteBuffer pData() { return VkSpecializationInfo.npData(address()); }
 
         /** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
-        public VkSpecializationInfo.Buffer pMapEntries(@NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { VkSpecializationInfo.npMapEntries(address(), value); return this; }
+        public VkSpecializationInfo.Buffer pMapEntries(@Nullable @NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { VkSpecializationInfo.npMapEntries(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
-        public VkSpecializationInfo.Buffer pData(@NativeType("const void *") ByteBuffer value) { VkSpecializationInfo.npData(address(), value); return this; }
+        public VkSpecializationInfo.Buffer pData(@Nullable @NativeType("const void *") ByteBuffer value) { VkSpecializationInfo.npData(address(), value); return this; }
 
     }
 

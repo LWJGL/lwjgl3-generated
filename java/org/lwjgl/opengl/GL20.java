@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -328,7 +330,7 @@ public class GL20 {
      * @param strings an array of pointers to strings containing the source code to be loaded into the shader
      * @param length  an array of string lengths
      */
-    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") PointerBuffer strings, @NativeType("const GLint *") IntBuffer length) {
+    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") PointerBuffer strings, @Nullable @NativeType("const GLint *") IntBuffer length) {
         if (CHECKS) {
             checkSafe(length, strings.remaining());
         }
@@ -868,7 +870,7 @@ public class GL20 {
      * @param length  the length of the string returned in {@code infoLog} (excluding the null terminator)
      * @param infoLog an array of characters that is used to return the information log
      */
-    public static void glGetShaderInfoLog(@NativeType("GLuint") int shader, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer infoLog) {
+    public static void glGetShaderInfoLog(@NativeType("GLuint") int shader, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer infoLog) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -927,7 +929,7 @@ public class GL20 {
      * @param length  the length of the string returned in {@code infoLog} (excluding the null terminator)
      * @param infoLog an array of characters that is used to return the information log
      */
-    public static void glGetProgramInfoLog(@NativeType("GLuint") int program, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer infoLog) {
+    public static void glGetProgramInfoLog(@NativeType("GLuint") int program, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer infoLog) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -986,7 +988,7 @@ public class GL20 {
      * @param count   the number of names actually returned in {@code shaders}
      * @param shaders an array that is used to return the names of attached shader objects
      */
-    public static void glGetAttachedShaders(@NativeType("GLuint") int program, @NativeType("GLsizei *") IntBuffer count, @NativeType("GLuint *") IntBuffer shaders) {
+    public static void glGetAttachedShaders(@NativeType("GLuint") int program, @Nullable @NativeType("GLsizei *") IntBuffer count, @NativeType("GLuint *") IntBuffer shaders) {
         if (CHECKS) {
             checkSafe(count, 1);
         }
@@ -1054,7 +1056,7 @@ public class GL20 {
      * @param type    the data type of the uniform variable
      * @param name    a null terminated string containing the name of the uniform variable
      */
-    public static void glGetActiveUniform(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer size, @NativeType("GLenum *") IntBuffer type, @NativeType("GLchar *") ByteBuffer name) {
+    public static void glGetActiveUniform(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer size, @NativeType("GLenum *") IntBuffer type, @NativeType("GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(size, 1);
@@ -1206,7 +1208,7 @@ public class GL20 {
      * @param length the length of the string returned in source (excluding the null terminator)
      * @param source an array of characters that is used to return the source code string
      */
-    public static void glGetShaderSource(@NativeType("GLuint") int shader, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer source) {
+    public static void glGetShaderSource(@NativeType("GLuint") int shader, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLchar *") ByteBuffer source) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -2063,7 +2065,7 @@ public class GL20 {
      * @param type    the data type of the attribute variable
      * @param name    a null terminated string containing the name of the attribute variable
      */
-    public static void glGetActiveAttrib(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer size, @NativeType("GLenum *") IntBuffer type, @NativeType("GLchar *") ByteBuffer name) {
+    public static void glGetActiveAttrib(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer size, @NativeType("GLenum *") IntBuffer type, @NativeType("GLchar *") ByteBuffer name) {
         if (CHECKS) {
             checkSafe(length, 1);
             check(size, 1);
@@ -2373,7 +2375,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glShaderSource ShaderSource}
      */
-    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") PointerBuffer strings, @NativeType("const GLint *") int[] length) {
+    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") PointerBuffer strings, @Nullable @NativeType("const GLint *") int[] length) {
         long __functionAddress = GL.getICD().glShaderSource;
         if (CHECKS) {
             check(__functionAddress);
@@ -2558,7 +2560,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glGetShaderInfoLog GetShaderInfoLog}
      */
-    public static void glGetShaderInfoLog(@NativeType("GLuint") int shader, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer infoLog) {
+    public static void glGetShaderInfoLog(@NativeType("GLuint") int shader, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer infoLog) {
         long __functionAddress = GL.getICD().glGetShaderInfoLog;
         if (CHECKS) {
             check(__functionAddress);
@@ -2572,7 +2574,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glGetProgramInfoLog GetProgramInfoLog}
      */
-    public static void glGetProgramInfoLog(@NativeType("GLuint") int program, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer infoLog) {
+    public static void glGetProgramInfoLog(@NativeType("GLuint") int program, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer infoLog) {
         long __functionAddress = GL.getICD().glGetProgramInfoLog;
         if (CHECKS) {
             check(__functionAddress);
@@ -2586,7 +2588,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glGetAttachedShaders GetAttachedShaders}
      */
-    public static void glGetAttachedShaders(@NativeType("GLuint") int program, @NativeType("GLsizei *") int[] count, @NativeType("GLuint *") int[] shaders) {
+    public static void glGetAttachedShaders(@NativeType("GLuint") int program, @Nullable @NativeType("GLsizei *") int[] count, @NativeType("GLuint *") int[] shaders) {
         long __functionAddress = GL.getICD().glGetAttachedShaders;
         if (CHECKS) {
             check(__functionAddress);
@@ -2600,7 +2602,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glGetActiveUniform GetActiveUniform}
      */
-    public static void glGetActiveUniform(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] size, @NativeType("GLenum *") int[] type, @NativeType("GLchar *") ByteBuffer name) {
+    public static void glGetActiveUniform(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] size, @NativeType("GLenum *") int[] type, @NativeType("GLchar *") ByteBuffer name) {
         long __functionAddress = GL.getICD().glGetActiveUniform;
         if (CHECKS) {
             check(__functionAddress);
@@ -2644,7 +2646,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glGetShaderSource GetShaderSource}
      */
-    public static void glGetShaderSource(@NativeType("GLuint") int shader, @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer source) {
+    public static void glGetShaderSource(@NativeType("GLuint") int shader, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLchar *") ByteBuffer source) {
         long __functionAddress = GL.getICD().glGetShaderSource;
         if (CHECKS) {
             check(__functionAddress);
@@ -2924,7 +2926,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glGetActiveAttrib GetActiveAttrib}
      */
-    public static void glGetActiveAttrib(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] size, @NativeType("GLenum *") int[] type, @NativeType("GLchar *") ByteBuffer name) {
+    public static void glGetActiveAttrib(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] size, @NativeType("GLenum *") int[] type, @NativeType("GLchar *") ByteBuffer name) {
         long __functionAddress = GL.getICD().glGetActiveAttrib;
         if (CHECKS) {
             check(__functionAddress);

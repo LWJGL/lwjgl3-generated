@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -90,7 +92,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
         PPOSTSUBPASSSAMPLELOCATIONS = layout.offsetof(5);
     }
 
-    VkRenderPassSampleLocationsBeginInfoEXT(long address, ByteBuffer container) {
+    VkRenderPassSampleLocationsBeginInfoEXT(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -101,7 +103,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkRenderPassSampleLocationsBeginInfoEXT(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -117,12 +119,14 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
     @NativeType("uint32_t")
     public int attachmentInitialSampleLocationsCount() { return nattachmentInitialSampleLocationsCount(address()); }
     /** Returns a {@link VkAttachmentSampleLocationsEXT.Buffer} view of the struct array pointed to by the {@code pAttachmentInitialSampleLocations} field. */
+    @Nullable
     @NativeType("const VkAttachmentSampleLocationsEXT *")
     public VkAttachmentSampleLocationsEXT.Buffer pAttachmentInitialSampleLocations() { return npAttachmentInitialSampleLocations(address()); }
     /** Returns the value of the {@code postSubpassSampleLocationsCount} field. */
     @NativeType("uint32_t")
     public int postSubpassSampleLocationsCount() { return npostSubpassSampleLocationsCount(address()); }
     /** Returns a {@link VkSubpassSampleLocationsEXT.Buffer} view of the struct array pointed to by the {@code pPostSubpassSampleLocations} field. */
+    @Nullable
     @NativeType("const VkSubpassSampleLocationsEXT *")
     public VkSubpassSampleLocationsEXT.Buffer pPostSubpassSampleLocations() { return npPostSubpassSampleLocations(address()); }
 
@@ -131,9 +135,9 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
     /** Sets the specified value to the {@code pNext} field. */
     public VkRenderPassSampleLocationsBeginInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link VkAttachmentSampleLocationsEXT.Buffer} to the {@code pAttachmentInitialSampleLocations} field. */
-    public VkRenderPassSampleLocationsBeginInfoEXT pAttachmentInitialSampleLocations(@NativeType("const VkAttachmentSampleLocationsEXT *") VkAttachmentSampleLocationsEXT.Buffer value) { npAttachmentInitialSampleLocations(address(), value); return this; }
+    public VkRenderPassSampleLocationsBeginInfoEXT pAttachmentInitialSampleLocations(@Nullable @NativeType("const VkAttachmentSampleLocationsEXT *") VkAttachmentSampleLocationsEXT.Buffer value) { npAttachmentInitialSampleLocations(address(), value); return this; }
     /** Sets the address of the specified {@link VkSubpassSampleLocationsEXT.Buffer} to the {@code pPostSubpassSampleLocations} field. */
-    public VkRenderPassSampleLocationsBeginInfoEXT pPostSubpassSampleLocations(@NativeType("const VkSubpassSampleLocationsEXT *") VkSubpassSampleLocationsEXT.Buffer value) { npPostSubpassSampleLocations(address(), value); return this; }
+    public VkRenderPassSampleLocationsBeginInfoEXT pPostSubpassSampleLocations(@Nullable @NativeType("const VkSubpassSampleLocationsEXT *") VkSubpassSampleLocationsEXT.Buffer value) { npPostSubpassSampleLocations(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkRenderPassSampleLocationsBeginInfoEXT set(
@@ -166,12 +170,12 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
 
     /** Returns a new {@link VkRenderPassSampleLocationsBeginInfoEXT} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkRenderPassSampleLocationsBeginInfoEXT malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkRenderPassSampleLocationsBeginInfoEXT} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkRenderPassSampleLocationsBeginInfoEXT calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkRenderPassSampleLocationsBeginInfoEXT} instance allocated with {@link BufferUtils}. */
@@ -179,9 +183,15 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
         return new VkRenderPassSampleLocationsBeginInfoEXT(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkRenderPassSampleLocationsBeginInfoEXT} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkRenderPassSampleLocationsBeginInfoEXT} instance for the specified memory address. */
     public static VkRenderPassSampleLocationsBeginInfoEXT create(long address) {
-        return address == NULL ? null : new VkRenderPassSampleLocationsBeginInfoEXT(address, null);
+        return new VkRenderPassSampleLocationsBeginInfoEXT(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkRenderPassSampleLocationsBeginInfoEXT createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -189,7 +199,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -198,8 +208,8 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -207,7 +217,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -217,8 +227,14 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -256,7 +272,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -265,7 +281,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -275,7 +291,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -285,7 +301,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkRenderPassSampleLocationsBeginInfoEXT.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -298,11 +314,11 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
     /** Unsafe version of {@link #attachmentInitialSampleLocationsCount}. */
     public static int nattachmentInitialSampleLocationsCount(long struct) { return memGetInt(struct + VkRenderPassSampleLocationsBeginInfoEXT.ATTACHMENTINITIALSAMPLELOCATIONSCOUNT); }
     /** Unsafe version of {@link #pAttachmentInitialSampleLocations}. */
-    public static VkAttachmentSampleLocationsEXT.Buffer npAttachmentInitialSampleLocations(long struct) { return VkAttachmentSampleLocationsEXT.create(memGetAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PATTACHMENTINITIALSAMPLELOCATIONS), nattachmentInitialSampleLocationsCount(struct)); }
+    @Nullable public static VkAttachmentSampleLocationsEXT.Buffer npAttachmentInitialSampleLocations(long struct) { return VkAttachmentSampleLocationsEXT.createSafe(memGetAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PATTACHMENTINITIALSAMPLELOCATIONS), nattachmentInitialSampleLocationsCount(struct)); }
     /** Unsafe version of {@link #postSubpassSampleLocationsCount}. */
     public static int npostSubpassSampleLocationsCount(long struct) { return memGetInt(struct + VkRenderPassSampleLocationsBeginInfoEXT.POSTSUBPASSSAMPLELOCATIONSCOUNT); }
     /** Unsafe version of {@link #pPostSubpassSampleLocations}. */
-    public static VkSubpassSampleLocationsEXT.Buffer npPostSubpassSampleLocations(long struct) { return VkSubpassSampleLocationsEXT.create(memGetAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PPOSTSUBPASSSAMPLELOCATIONS), npostSubpassSampleLocationsCount(struct)); }
+    @Nullable public static VkSubpassSampleLocationsEXT.Buffer npPostSubpassSampleLocations(long struct) { return VkSubpassSampleLocationsEXT.createSafe(memGetAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PPOSTSUBPASSSAMPLELOCATIONS), npostSubpassSampleLocationsCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkRenderPassSampleLocationsBeginInfoEXT.STYPE, value); }
@@ -311,11 +327,11 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
     /** Sets the specified value to the {@code attachmentInitialSampleLocationsCount} field of the specified {@code struct}. */
     public static void nattachmentInitialSampleLocationsCount(long struct, int value) { memPutInt(struct + VkRenderPassSampleLocationsBeginInfoEXT.ATTACHMENTINITIALSAMPLELOCATIONSCOUNT, value); }
     /** Unsafe version of {@link #pAttachmentInitialSampleLocations(VkAttachmentSampleLocationsEXT.Buffer) pAttachmentInitialSampleLocations}. */
-    public static void npAttachmentInitialSampleLocations(long struct, VkAttachmentSampleLocationsEXT.Buffer value) { memPutAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PATTACHMENTINITIALSAMPLELOCATIONS, memAddressSafe(value)); nattachmentInitialSampleLocationsCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npAttachmentInitialSampleLocations(long struct, @Nullable VkAttachmentSampleLocationsEXT.Buffer value) { memPutAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PATTACHMENTINITIALSAMPLELOCATIONS, memAddressSafe(value)); nattachmentInitialSampleLocationsCount(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code postSubpassSampleLocationsCount} field of the specified {@code struct}. */
     public static void npostSubpassSampleLocationsCount(long struct, int value) { memPutInt(struct + VkRenderPassSampleLocationsBeginInfoEXT.POSTSUBPASSSAMPLELOCATIONSCOUNT, value); }
     /** Unsafe version of {@link #pPostSubpassSampleLocations(VkSubpassSampleLocationsEXT.Buffer) pPostSubpassSampleLocations}. */
-    public static void npPostSubpassSampleLocations(long struct, VkSubpassSampleLocationsEXT.Buffer value) { memPutAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PPOSTSUBPASSSAMPLELOCATIONS, memAddressSafe(value)); npostSubpassSampleLocationsCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npPostSubpassSampleLocations(long struct, @Nullable VkSubpassSampleLocationsEXT.Buffer value) { memPutAddress(struct + VkRenderPassSampleLocationsBeginInfoEXT.PPOSTSUBPASSSAMPLELOCATIONS, memAddressSafe(value)); npostSubpassSampleLocationsCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -367,7 +383,11 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -377,7 +397,7 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -401,12 +421,14 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
         @NativeType("uint32_t")
         public int attachmentInitialSampleLocationsCount() { return VkRenderPassSampleLocationsBeginInfoEXT.nattachmentInitialSampleLocationsCount(address()); }
         /** Returns a {@link VkAttachmentSampleLocationsEXT.Buffer} view of the struct array pointed to by the {@code pAttachmentInitialSampleLocations} field. */
+        @Nullable
         @NativeType("const VkAttachmentSampleLocationsEXT *")
         public VkAttachmentSampleLocationsEXT.Buffer pAttachmentInitialSampleLocations() { return VkRenderPassSampleLocationsBeginInfoEXT.npAttachmentInitialSampleLocations(address()); }
         /** Returns the value of the {@code postSubpassSampleLocationsCount} field. */
         @NativeType("uint32_t")
         public int postSubpassSampleLocationsCount() { return VkRenderPassSampleLocationsBeginInfoEXT.npostSubpassSampleLocationsCount(address()); }
         /** Returns a {@link VkSubpassSampleLocationsEXT.Buffer} view of the struct array pointed to by the {@code pPostSubpassSampleLocations} field. */
+        @Nullable
         @NativeType("const VkSubpassSampleLocationsEXT *")
         public VkSubpassSampleLocationsEXT.Buffer pPostSubpassSampleLocations() { return VkRenderPassSampleLocationsBeginInfoEXT.npPostSubpassSampleLocations(address()); }
 
@@ -415,9 +437,9 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
         /** Sets the specified value to the {@code pNext} field. */
         public VkRenderPassSampleLocationsBeginInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkRenderPassSampleLocationsBeginInfoEXT.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link VkAttachmentSampleLocationsEXT.Buffer} to the {@code pAttachmentInitialSampleLocations} field. */
-        public VkRenderPassSampleLocationsBeginInfoEXT.Buffer pAttachmentInitialSampleLocations(@NativeType("const VkAttachmentSampleLocationsEXT *") VkAttachmentSampleLocationsEXT.Buffer value) { VkRenderPassSampleLocationsBeginInfoEXT.npAttachmentInitialSampleLocations(address(), value); return this; }
+        public VkRenderPassSampleLocationsBeginInfoEXT.Buffer pAttachmentInitialSampleLocations(@Nullable @NativeType("const VkAttachmentSampleLocationsEXT *") VkAttachmentSampleLocationsEXT.Buffer value) { VkRenderPassSampleLocationsBeginInfoEXT.npAttachmentInitialSampleLocations(address(), value); return this; }
         /** Sets the address of the specified {@link VkSubpassSampleLocationsEXT.Buffer} to the {@code pPostSubpassSampleLocations} field. */
-        public VkRenderPassSampleLocationsBeginInfoEXT.Buffer pPostSubpassSampleLocations(@NativeType("const VkSubpassSampleLocationsEXT *") VkSubpassSampleLocationsEXT.Buffer value) { VkRenderPassSampleLocationsBeginInfoEXT.npPostSubpassSampleLocations(address(), value); return this; }
+        public VkRenderPassSampleLocationsBeginInfoEXT.Buffer pPostSubpassSampleLocations(@Nullable @NativeType("const VkSubpassSampleLocationsEXT *") VkSubpassSampleLocationsEXT.Buffer value) { VkRenderPassSampleLocationsBeginInfoEXT.npPostSubpassSampleLocations(address(), value); return this; }
 
     }
 

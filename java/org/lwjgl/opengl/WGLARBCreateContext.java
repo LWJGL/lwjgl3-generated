@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -74,7 +76,7 @@ public class WGLARBCreateContext {
      *                     is used.
      */
     @NativeType("HGLRC")
-    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @NativeType("const int *") IntBuffer attribList) {
+    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @Nullable @NativeType("const int *") IntBuffer attribList) {
         if (CHECKS) {
             checkNTSafe(attribList);
         }
@@ -83,7 +85,7 @@ public class WGLARBCreateContext {
 
     /** Array version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
     @NativeType("HGLRC")
-    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @NativeType("const int *") int[] attribList) {
+    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @Nullable @NativeType("const int *") int[] attribList) {
         long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
         if (CHECKS) {
             check(__functionAddress);

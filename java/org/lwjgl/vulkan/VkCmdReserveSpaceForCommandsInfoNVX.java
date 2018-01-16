@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -91,7 +93,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
         MAXSEQUENCESCOUNT = layout.offsetof(4);
     }
 
-    VkCmdReserveSpaceForCommandsInfoNVX(long address, ByteBuffer container) {
+    VkCmdReserveSpaceForCommandsInfoNVX(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -102,7 +104,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkCmdReserveSpaceForCommandsInfoNVX(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -168,12 +170,12 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
 
     /** Returns a new {@link VkCmdReserveSpaceForCommandsInfoNVX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkCmdReserveSpaceForCommandsInfoNVX malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkCmdReserveSpaceForCommandsInfoNVX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkCmdReserveSpaceForCommandsInfoNVX calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkCmdReserveSpaceForCommandsInfoNVX} instance allocated with {@link BufferUtils}. */
@@ -181,9 +183,15 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
         return new VkCmdReserveSpaceForCommandsInfoNVX(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkCmdReserveSpaceForCommandsInfoNVX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkCmdReserveSpaceForCommandsInfoNVX} instance for the specified memory address. */
     public static VkCmdReserveSpaceForCommandsInfoNVX create(long address) {
-        return address == NULL ? null : new VkCmdReserveSpaceForCommandsInfoNVX(address, null);
+        return new VkCmdReserveSpaceForCommandsInfoNVX(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkCmdReserveSpaceForCommandsInfoNVX createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -191,7 +199,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -200,8 +208,8 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -209,7 +217,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -219,8 +227,14 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -258,7 +272,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -267,7 +281,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -277,7 +291,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -287,7 +301,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkCmdReserveSpaceForCommandsInfoNVX.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -333,7 +347,11 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -343,7 +361,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 

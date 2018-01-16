@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.zstd;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -366,7 +368,7 @@ public class Zstd {
      * @param compressionLevel 
      */
     @NativeType("size_t")
-    public static long ZSTD_compress_usingDict(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @NativeType("const void *") ByteBuffer dict, @NativeType("int") int compressionLevel) {
+    public static long ZSTD_compress_usingDict(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @Nullable @NativeType("const void *") ByteBuffer dict, @NativeType("int") int compressionLevel) {
         if (CHECKS) {
             check(ctx);
         }
@@ -391,7 +393,7 @@ public class Zstd {
      * @param dict 
      */
     @NativeType("size_t")
-    public static long ZSTD_decompress_usingDict(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @NativeType("const void *") ByteBuffer dict) {
+    public static long ZSTD_decompress_usingDict(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @Nullable @NativeType("const void *") ByteBuffer dict) {
         if (CHECKS) {
             check(dctx);
         }

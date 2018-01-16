@@ -14,5 +14,6 @@
  * 
  * <p>Developed by Micha Mettke.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.nuklear;
 

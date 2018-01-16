@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -165,6 +167,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -174,7 +177,7 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load(memAddress(filename), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memByteBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     /**
@@ -208,6 +211,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -219,7 +223,7 @@ public class STBImage {
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             long __result = nstbi_load(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-            return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+            return memByteBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -243,6 +247,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -251,7 +256,7 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memByteBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_load_from_callbacks ] ---
@@ -275,6 +280,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load_from_callbacks(@NativeType("const stbi_io_callbacks *") STBIIOCallbacks clbk, @NativeType("void *") long user, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -284,7 +290,7 @@ public class STBImage {
             STBIIOCallbacks.validate(clbk.address());
         }
         long __result = nstbi_load_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memByteBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memByteBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_load_16 ] ---
@@ -301,6 +307,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -310,7 +317,7 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load_16(memAddress(filename), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memShortBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memShortBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     /**
@@ -322,6 +329,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -333,7 +341,7 @@ public class STBImage {
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             long __result = nstbi_load_16(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-            return memShortBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+            return memShortBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -357,6 +365,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -365,7 +374,7 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load_16_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memShortBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memShortBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_load_16_from_callbacks ] ---
@@ -383,6 +392,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16_from_callbacks(@NativeType("const stbi_io_callbacks *") STBIIOCallbacks clbk, @NativeType("void *") long user, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -392,7 +402,7 @@ public class STBImage {
             STBIIOCallbacks.validate(clbk.address());
         }
         long __result = nstbi_load_16_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memShortBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memShortBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_loadf ] ---
@@ -409,6 +419,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -418,7 +429,7 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_loadf(memAddress(filename), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memFloatBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     /**
@@ -430,6 +441,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -441,7 +453,7 @@ public class STBImage {
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             long __result = nstbi_loadf(memAddress(filenameEncoded), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-            return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+            return memFloatBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -465,6 +477,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -473,7 +486,7 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_loadf_from_memory(memAddress(buffer), buffer.remaining(), memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memFloatBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_loadf_from_callbacks ] ---
@@ -491,6 +504,7 @@ public class STBImage {
      * @param channels_in_file outputs number of components in image
      * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
      */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf_from_callbacks(@NativeType("const stbi_io_callbacks *") STBIIOCallbacks clbk, @NativeType("void *") long user, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -500,7 +514,7 @@ public class STBImage {
             STBIIOCallbacks.validate(clbk.address());
         }
         long __result = nstbi_loadf_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
-        return memFloatBuffer(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+        return memFloatBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_hdr_to_ldr_gamma ] ---
@@ -621,10 +635,11 @@ public class STBImage {
     public static native long nstbi_failure_reason();
 
     /** Returns a brief reason for failure. */
+    @Nullable
     @NativeType("const char *")
     public static String stbi_failure_reason() {
         long __result = nstbi_failure_reason();
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ stbi_image_free ] ---
@@ -817,13 +832,14 @@ public class STBImage {
      * @param buffer       
      * @param initial_size 
      */
+    @Nullable
     @NativeType("char *")
     public static ByteBuffer stbi_zlib_decode_malloc_guesssize(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int initial_size) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer outlen = stack.callocInt(1);
             long __result = nstbi_zlib_decode_malloc_guesssize(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen));
-            return memByteBuffer(__result, outlen.get(0));
+            return memByteBufferSafe(__result, outlen.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -841,13 +857,14 @@ public class STBImage {
      * @param initial_size 
      * @param parse_header 
      */
+    @Nullable
     @NativeType("char *")
     public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int initial_size, @NativeType("int") boolean parse_header) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer outlen = stack.callocInt(1);
             long __result = nstbi_zlib_decode_malloc_guesssize_headerflag(memAddress(buffer), buffer.remaining(), initial_size, memAddress(outlen), parse_header ? 1 : 0);
-            return memByteBuffer(__result, outlen.get(0));
+            return memByteBufferSafe(__result, outlen.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -863,13 +880,14 @@ public class STBImage {
      *
      * @param buffer 
      */
+    @Nullable
     @NativeType("char *")
     public static ByteBuffer stbi_zlib_decode_malloc(@NativeType("const char *") ByteBuffer buffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer outlen = stack.callocInt(1);
             long __result = nstbi_zlib_decode_malloc(memAddress(buffer), buffer.remaining(), memAddress(outlen));
-            return memByteBuffer(__result, outlen.get(0));
+            return memByteBufferSafe(__result, outlen.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -900,13 +918,14 @@ public class STBImage {
      *
      * @param buffer 
      */
+    @Nullable
     @NativeType("char *")
     public static ByteBuffer stbi_zlib_decode_noheader_malloc(@NativeType("const char *") ByteBuffer buffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer outlen = stack.callocInt(1);
             long __result = nstbi_zlib_decode_noheader_malloc(memAddress(buffer), buffer.remaining(), memAddress(outlen));
-            return memByteBuffer(__result, outlen.get(0));
+            return memByteBufferSafe(__result, outlen.get(0));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -931,6 +950,7 @@ public class STBImage {
     public static native long nstbi_load(long filename, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_load load} */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -940,10 +960,11 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load(memAddress(filename), x, y, channels_in_file, desired_channels);
-        return memByteBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memByteBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #stbi_load load} */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -955,7 +976,7 @@ public class STBImage {
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             long __result = nstbi_load(memAddress(filenameEncoded), x, y, channels_in_file, desired_channels);
-            return memByteBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+            return memByteBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -965,6 +986,7 @@ public class STBImage {
     public static native long nstbi_load_from_memory(long buffer, int len, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_load_from_memory load_from_memory} */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -973,13 +995,14 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load_from_memory(memAddress(buffer), buffer.remaining(), x, y, channels_in_file, desired_channels);
-        return memByteBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memByteBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_load_from_callbacks} */
     public static native long nstbi_load_from_callbacks(long clbk, long user, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_load_from_callbacks load_from_callbacks} */
+    @Nullable
     @NativeType("stbi_uc *")
     public static ByteBuffer stbi_load_from_callbacks(@NativeType("const stbi_io_callbacks *") STBIIOCallbacks clbk, @NativeType("void *") long user, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -989,13 +1012,14 @@ public class STBImage {
             STBIIOCallbacks.validate(clbk.address());
         }
         long __result = nstbi_load_from_callbacks(clbk.address(), user, x, y, channels_in_file, desired_channels);
-        return memByteBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memByteBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_load_16} */
     public static native long nstbi_load_16(long filename, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_load_16 load_16} */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -1005,10 +1029,11 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load_16(memAddress(filename), x, y, channels_in_file, desired_channels);
-        return memShortBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memShortBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #stbi_load_16 load_16} */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -1020,7 +1045,7 @@ public class STBImage {
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             long __result = nstbi_load_16(memAddress(filenameEncoded), x, y, channels_in_file, desired_channels);
-            return memShortBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+            return memShortBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -1030,6 +1055,7 @@ public class STBImage {
     public static native long nstbi_load_16_from_memory(long buffer, int len, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_load_16_from_memory load_16_from_memory} */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -1038,13 +1064,14 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_load_16_from_memory(memAddress(buffer), buffer.remaining(), x, y, channels_in_file, desired_channels);
-        return memShortBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memShortBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_load_16_from_callbacks} */
     public static native long nstbi_load_16_from_callbacks(long clbk, long user, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_load_16_from_callbacks load_16_from_callbacks} */
+    @Nullable
     @NativeType("stbi_us *")
     public static ShortBuffer stbi_load_16_from_callbacks(@NativeType("const stbi_io_callbacks *") STBIIOCallbacks clbk, @NativeType("void *") long user, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -1054,13 +1081,14 @@ public class STBImage {
             STBIIOCallbacks.validate(clbk.address());
         }
         long __result = nstbi_load_16_from_callbacks(clbk.address(), user, x, y, channels_in_file, desired_channels);
-        return memShortBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memShortBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_loadf} */
     public static native long nstbi_loadf(long filename, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_loadf loadf} */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -1070,10 +1098,11 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_loadf(memAddress(filename), x, y, channels_in_file, desired_channels);
-        return memFloatBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memFloatBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #stbi_loadf loadf} */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -1085,7 +1114,7 @@ public class STBImage {
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
             long __result = nstbi_loadf(memAddress(filenameEncoded), x, y, channels_in_file, desired_channels);
-            return memFloatBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+            return memFloatBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -1095,6 +1124,7 @@ public class STBImage {
     public static native long nstbi_loadf_from_memory(long buffer, int len, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_loadf_from_memory loadf_from_memory} */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
         if (CHECKS) {
@@ -1103,13 +1133,14 @@ public class STBImage {
             check(channels_in_file, 1);
         }
         long __result = nstbi_loadf_from_memory(memAddress(buffer), buffer.remaining(), x, y, channels_in_file, desired_channels);
-        return memFloatBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memFloatBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_loadf_from_callbacks} */
     public static native long nstbi_loadf_from_callbacks(long clbk, long user, int[] x, int[] y, int[] channels_in_file, int desired_channels);
 
     /** Array version of: {@link #stbi_loadf_from_callbacks loadf_from_callbacks} */
+    @Nullable
     @NativeType("float *")
     public static FloatBuffer stbi_loadf_from_callbacks(@NativeType("const stbi_io_callbacks *") STBIIOCallbacks clbk, @NativeType("void *") long user, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
@@ -1119,7 +1150,7 @@ public class STBImage {
             STBIIOCallbacks.validate(clbk.address());
         }
         long __result = nstbi_loadf_from_callbacks(clbk.address(), user, x, y, channels_in_file, desired_channels);
-        return memFloatBuffer(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+        return memFloatBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_info} */

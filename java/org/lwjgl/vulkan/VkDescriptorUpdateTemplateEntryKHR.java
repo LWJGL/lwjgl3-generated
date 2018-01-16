@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -98,7 +100,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
         STRIDE = layout.offsetof(5);
     }
 
-    VkDescriptorUpdateTemplateEntryKHR(long address, ByteBuffer container) {
+    VkDescriptorUpdateTemplateEntryKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -109,7 +111,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkDescriptorUpdateTemplateEntryKHR(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -182,12 +184,12 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
 
     /** Returns a new {@link VkDescriptorUpdateTemplateEntryKHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkDescriptorUpdateTemplateEntryKHR malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkDescriptorUpdateTemplateEntryKHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkDescriptorUpdateTemplateEntryKHR calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkDescriptorUpdateTemplateEntryKHR} instance allocated with {@link BufferUtils}. */
@@ -195,9 +197,15 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
         return new VkDescriptorUpdateTemplateEntryKHR(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkDescriptorUpdateTemplateEntryKHR} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkDescriptorUpdateTemplateEntryKHR} instance for the specified memory address. */
     public static VkDescriptorUpdateTemplateEntryKHR create(long address) {
-        return address == NULL ? null : new VkDescriptorUpdateTemplateEntryKHR(address, null);
+        return new VkDescriptorUpdateTemplateEntryKHR(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkDescriptorUpdateTemplateEntryKHR createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -205,7 +213,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -214,8 +222,8 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -223,7 +231,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -233,8 +241,14 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -272,7 +286,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -281,7 +295,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -291,7 +305,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -301,7 +315,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkDescriptorUpdateTemplateEntryKHR.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -351,7 +365,11 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -361,7 +379,7 @@ public class VkDescriptorUpdateTemplateEntryKHR extends Struct implements Native
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 

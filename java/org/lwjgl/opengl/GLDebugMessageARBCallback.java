@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link ARBDebugOutput#glDebugMessageCallbackARB DebugMessageCallbackARB} method. */
 public abstract class GLDebugMessageARBCallback extends Callback implements GLDebugMessageARBCallbackI {
 
-    /** Creates a {@code GLDebugMessageARBCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLDebugMessageARBCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLDebugMessageARBCallback}
+     */
     public static GLDebugMessageARBCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLDebugMessageARBCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLDebugMessageARBCallback
             ? (GLDebugMessageARBCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLDebugMessageARBCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLDebugMessageARBCallback} instance that delegates to the specified {@code GLDebugMessageARBCallbackI} instance. */

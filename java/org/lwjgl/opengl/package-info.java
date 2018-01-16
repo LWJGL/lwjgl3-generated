@@ -11,5 +11,6 @@
  * specifications, as well as specifications of OpenGL extensions. The <a target="_blank" href="https://www.khronos.org/registry/OpenGL-Refpages/">OpenGL Reference Pages</a> is another
  * convenient source of documentation.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.opengl;
 

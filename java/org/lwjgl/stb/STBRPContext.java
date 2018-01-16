@@ -5,6 +5,8 @@
  */
 package org.lwjgl.stb;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -85,7 +87,7 @@ public class STBRPContext extends Struct implements NativeResource {
         EXTRA = layout.offsetof(8);
     }
 
-    STBRPContext(long address, ByteBuffer container) {
+    STBRPContext(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -96,7 +98,7 @@ public class STBRPContext extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public STBRPContext(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -115,9 +117,11 @@ public class STBRPContext extends Struct implements NativeResource {
     /** Returns the value of the {@code num_nodes} field. */
     public int num_nodes() { return nnum_nodes(address()); }
     /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code active_head} field. */
+    @Nullable
     @NativeType("stbrp_node *")
     public STBRPNode active_head() { return nactive_head(address()); }
     /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code free_head} field. */
+    @Nullable
     @NativeType("stbrp_node *")
     public STBRPNode free_head() { return nfree_head(address()); }
     /** Returns a {@link STBRPNode}.Buffer view of the {@code extra} field. */
@@ -131,12 +135,12 @@ public class STBRPContext extends Struct implements NativeResource {
 
     /** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static STBRPContext malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link STBRPContext} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static STBRPContext calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link STBRPContext} instance allocated with {@link BufferUtils}. */
@@ -144,9 +148,15 @@ public class STBRPContext extends Struct implements NativeResource {
         return new STBRPContext(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link STBRPContext} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link STBRPContext} instance for the specified memory address. */
     public static STBRPContext create(long address) {
-        return address == NULL ? null : new STBRPContext(address, null);
+        return new STBRPContext(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static STBRPContext createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -154,7 +164,7 @@ public class STBRPContext extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static STBRPContext.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -163,8 +173,8 @@ public class STBRPContext extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static STBRPContext.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -172,7 +182,7 @@ public class STBRPContext extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static STBRPContext.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -182,8 +192,14 @@ public class STBRPContext extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static STBRPContext.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static STBRPContext.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -221,7 +237,7 @@ public class STBRPContext extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static STBRPContext.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -230,7 +246,7 @@ public class STBRPContext extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static STBRPContext.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -240,7 +256,7 @@ public class STBRPContext extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static STBRPContext.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -250,7 +266,7 @@ public class STBRPContext extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static STBRPContext.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -269,9 +285,9 @@ public class STBRPContext extends Struct implements NativeResource {
     /** Unsafe version of {@link #num_nodes}. */
     public static int nnum_nodes(long struct) { return memGetInt(struct + STBRPContext.NUM_NODES); }
     /** Unsafe version of {@link #active_head}. */
-    public static STBRPNode nactive_head(long struct) { return STBRPNode.create(memGetAddress(struct + STBRPContext.ACTIVE_HEAD)); }
+    @Nullable public static STBRPNode nactive_head(long struct) { return STBRPNode.createSafe(memGetAddress(struct + STBRPContext.ACTIVE_HEAD)); }
     /** Unsafe version of {@link #free_head}. */
-    public static STBRPNode nfree_head(long struct) { return STBRPNode.create(memGetAddress(struct + STBRPContext.FREE_HEAD)); }
+    @Nullable public static STBRPNode nfree_head(long struct) { return STBRPNode.createSafe(memGetAddress(struct + STBRPContext.FREE_HEAD)); }
     /** Unsafe version of {@link #extra}. */
     public static STBRPNode.Buffer nextra(long struct) { return STBRPNode.create(struct + STBRPContext.EXTRA, 2); }
     /** Unsafe version of {@link #extra(int) extra}. */
@@ -298,7 +314,11 @@ public class STBRPContext extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -308,7 +328,7 @@ public class STBRPContext extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -335,9 +355,11 @@ public class STBRPContext extends Struct implements NativeResource {
         /** Returns the value of the {@code num_nodes} field. */
         public int num_nodes() { return STBRPContext.nnum_nodes(address()); }
         /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code active_head} field. */
+        @Nullable
         @NativeType("stbrp_node *")
         public STBRPNode active_head() { return STBRPContext.nactive_head(address()); }
         /** Returns a {@link STBRPNode} view of the struct pointed to by the {@code free_head} field. */
+        @Nullable
         @NativeType("stbrp_node *")
         public STBRPNode free_head() { return STBRPContext.nfree_head(address()); }
         /** Returns a {@link STBRPNode}.Buffer view of the {@code extra} field. */

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openvr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -124,7 +126,7 @@ public class VRChaperoneSetup {
      * @param punQuadsCount 
      */
     @NativeType("bool")
-    public static boolean VRChaperoneSetup_GetWorkingCollisionBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
+    public static boolean VRChaperoneSetup_GetWorkingCollisionBoundsInfo(@Nullable @NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
         if (CHECKS) {
             check(punQuadsCount, 1);
             checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
@@ -150,7 +152,7 @@ public class VRChaperoneSetup {
      * @param punQuadsCount 
      */
     @NativeType("bool")
-    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
+    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsInfo(@Nullable @NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
         if (CHECKS) {
             check(punQuadsCount, 1);
             checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
@@ -337,7 +339,7 @@ public class VRChaperoneSetup {
     }
 
     @NativeType("bool")
-    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(@NativeType("uint8_t *") ByteBuffer pTagsBuffer, @NativeType("uint32_t *") IntBuffer punTagCount) {
+    public static boolean VRChaperoneSetup_GetLiveCollisionBoundsTagsInfo(@Nullable @NativeType("uint8_t *") ByteBuffer pTagsBuffer, @NativeType("uint32_t *") IntBuffer punTagCount) {
         if (CHECKS) {
             check(punTagCount, 1);
             checkSafe(pTagsBuffer, punTagCount.get(punTagCount.position()));
@@ -371,7 +373,7 @@ public class VRChaperoneSetup {
     }
 
     @NativeType("bool")
-    public static boolean VRChaperoneSetup_GetLivePhysicalBoundsInfo(@NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
+    public static boolean VRChaperoneSetup_GetLivePhysicalBoundsInfo(@Nullable @NativeType("HmdQuad_t *") HmdQuad.Buffer pQuadsBuffer, @NativeType("uint32_t *") IntBuffer punQuadsCount) {
         if (CHECKS) {
             check(punQuadsCount, 1);
             checkSafe(pQuadsBuffer, punQuadsCount.get(punQuadsCount.position()));
@@ -390,7 +392,7 @@ public class VRChaperoneSetup {
     }
 
     @NativeType("bool")
-    public static boolean VRChaperoneSetup_ExportLiveToBuffer(@NativeType("char *") ByteBuffer pBuffer, @NativeType("uint32_t *") IntBuffer pnBufferLength) {
+    public static boolean VRChaperoneSetup_ExportLiveToBuffer(@Nullable @NativeType("char *") ByteBuffer pBuffer, @NativeType("uint32_t *") IntBuffer pnBufferLength) {
         if (CHECKS) {
             check(pnBufferLength, 1);
             checkSafe(pBuffer, pnBufferLength.get(pnBufferLength.position()));

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -18,16 +20,22 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public abstract class GLFWJoystickCallback extends Callback implements GLFWJoystickCallbackI {
 
-    /** Creates a {@code GLFWJoystickCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLFWJoystickCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLFWJoystickCallback}
+     */
     public static GLFWJoystickCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLFWJoystickCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLFWJoystickCallback
             ? (GLFWJoystickCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLFWJoystickCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLFWJoystickCallback} instance that delegates to the specified {@code GLFWJoystickCallbackI} instance. */

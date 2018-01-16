@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -88,7 +90,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
         PPHYSICALDEVICES = layout.offsetof(3);
     }
 
-    VkDeviceGroupDeviceCreateInfoKHX(long address, ByteBuffer container) {
+    VkDeviceGroupDeviceCreateInfoKHX(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -99,7 +101,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkDeviceGroupDeviceCreateInfoKHX(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -115,6 +117,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
     @NativeType("uint32_t")
     public int physicalDeviceCount() { return nphysicalDeviceCount(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pPhysicalDevices} field. */
+    @Nullable
     @NativeType("const VkPhysicalDevice *")
     public PointerBuffer pPhysicalDevices() { return npPhysicalDevices(address()); }
 
@@ -123,7 +126,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
     /** Sets the specified value to the {@code pNext} field. */
     public VkDeviceGroupDeviceCreateInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code pPhysicalDevices} field. */
-    public VkDeviceGroupDeviceCreateInfoKHX pPhysicalDevices(@NativeType("const VkPhysicalDevice *") PointerBuffer value) { npPhysicalDevices(address(), value); return this; }
+    public VkDeviceGroupDeviceCreateInfoKHX pPhysicalDevices(@Nullable @NativeType("const VkPhysicalDevice *") PointerBuffer value) { npPhysicalDevices(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceGroupDeviceCreateInfoKHX set(
@@ -154,12 +157,12 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
 
     /** Returns a new {@link VkDeviceGroupDeviceCreateInfoKHX} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkDeviceGroupDeviceCreateInfoKHX malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkDeviceGroupDeviceCreateInfoKHX} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkDeviceGroupDeviceCreateInfoKHX calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkDeviceGroupDeviceCreateInfoKHX} instance allocated with {@link BufferUtils}. */
@@ -167,9 +170,15 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
         return new VkDeviceGroupDeviceCreateInfoKHX(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkDeviceGroupDeviceCreateInfoKHX} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkDeviceGroupDeviceCreateInfoKHX} instance for the specified memory address. */
     public static VkDeviceGroupDeviceCreateInfoKHX create(long address) {
-        return address == NULL ? null : new VkDeviceGroupDeviceCreateInfoKHX(address, null);
+        return new VkDeviceGroupDeviceCreateInfoKHX(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkDeviceGroupDeviceCreateInfoKHX createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -177,7 +186,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -186,8 +195,8 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -195,7 +204,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -205,8 +214,14 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -244,7 +259,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -253,7 +268,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -263,7 +278,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -273,7 +288,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkDeviceGroupDeviceCreateInfoKHX.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -286,7 +301,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
     /** Unsafe version of {@link #physicalDeviceCount}. */
     public static int nphysicalDeviceCount(long struct) { return memGetInt(struct + VkDeviceGroupDeviceCreateInfoKHX.PHYSICALDEVICECOUNT); }
     /** Unsafe version of {@link #pPhysicalDevices() pPhysicalDevices}. */
-    public static PointerBuffer npPhysicalDevices(long struct) { return memPointerBuffer(memGetAddress(struct + VkDeviceGroupDeviceCreateInfoKHX.PPHYSICALDEVICES), nphysicalDeviceCount(struct)); }
+    @Nullable public static PointerBuffer npPhysicalDevices(long struct) { return memPointerBufferSafe(memGetAddress(struct + VkDeviceGroupDeviceCreateInfoKHX.PPHYSICALDEVICES), nphysicalDeviceCount(struct)); }
 
     /** Unsafe version of {@link #sType(int) sType}. */
     public static void nsType(long struct, int value) { memPutInt(struct + VkDeviceGroupDeviceCreateInfoKHX.STYPE, value); }
@@ -295,7 +310,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
     /** Sets the specified value to the {@code physicalDeviceCount} field of the specified {@code struct}. */
     public static void nphysicalDeviceCount(long struct, int value) { memPutInt(struct + VkDeviceGroupDeviceCreateInfoKHX.PHYSICALDEVICECOUNT, value); }
     /** Unsafe version of {@link #pPhysicalDevices(PointerBuffer) pPhysicalDevices}. */
-    public static void npPhysicalDevices(long struct, PointerBuffer value) { memPutAddress(struct + VkDeviceGroupDeviceCreateInfoKHX.PPHYSICALDEVICES, memAddressSafe(value)); nphysicalDeviceCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npPhysicalDevices(long struct, @Nullable PointerBuffer value) { memPutAddress(struct + VkDeviceGroupDeviceCreateInfoKHX.PPHYSICALDEVICES, memAddressSafe(value)); nphysicalDeviceCount(struct, value == null ? 0 : value.remaining()); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -338,7 +353,11 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -348,7 +367,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -372,6 +391,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
         @NativeType("uint32_t")
         public int physicalDeviceCount() { return VkDeviceGroupDeviceCreateInfoKHX.nphysicalDeviceCount(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code pPhysicalDevices} field. */
+        @Nullable
         @NativeType("const VkPhysicalDevice *")
         public PointerBuffer pPhysicalDevices() { return VkDeviceGroupDeviceCreateInfoKHX.npPhysicalDevices(address()); }
 
@@ -380,7 +400,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
         /** Sets the specified value to the {@code pNext} field. */
         public VkDeviceGroupDeviceCreateInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGroupDeviceCreateInfoKHX.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code pPhysicalDevices} field. */
-        public VkDeviceGroupDeviceCreateInfoKHX.Buffer pPhysicalDevices(@NativeType("const VkPhysicalDevice *") PointerBuffer value) { VkDeviceGroupDeviceCreateInfoKHX.npPhysicalDevices(address(), value); return this; }
+        public VkDeviceGroupDeviceCreateInfoKHX.Buffer pPhysicalDevices(@Nullable @NativeType("const VkPhysicalDevice *") PointerBuffer value) { VkDeviceGroupDeviceCreateInfoKHX.npPhysicalDevices(address(), value); return this; }
 
     }
 

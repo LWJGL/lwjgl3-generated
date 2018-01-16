@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.jemalloc;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -98,7 +100,7 @@ public class ExtentHooks extends Struct implements NativeResource {
         MERGE = layout.offsetof(8);
     }
 
-    ExtentHooks(long address, ByteBuffer container) {
+    ExtentHooks(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -109,7 +111,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public ExtentHooks(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -119,48 +121,56 @@ public class ExtentHooks extends Struct implements NativeResource {
     @NativeType("extent_alloc_t")
     public ExtentAlloc alloc() { return nalloc(address()); }
     /** Returns the value of the {@code dalloc} field. */
+    @Nullable
     @NativeType("extent_dalloc_t")
     public ExtentDalloc dalloc() { return ndalloc(address()); }
     /** Returns the value of the {@code destroy} field. */
+    @Nullable
     @NativeType("extent_destroy_t")
     public ExtentDestroy destroy() { return ndestroy(address()); }
     /** Returns the value of the {@code commit} field. */
+    @Nullable
     @NativeType("extent_commit_t")
     public ExtentCommit commit() { return ncommit(address()); }
     /** Returns the value of the {@code decommit} field. */
+    @Nullable
     @NativeType("extent_decommit_t")
     public ExtentDecommit decommit() { return ndecommit(address()); }
     /** Returns the value of the {@code purge_lazy} field. */
+    @Nullable
     @NativeType("extent_purge_t")
     public ExtentPurge purge_lazy() { return npurge_lazy(address()); }
     /** Returns the value of the {@code purge_forced} field. */
+    @Nullable
     @NativeType("extent_purge_t")
     public ExtentPurge purge_forced() { return npurge_forced(address()); }
     /** Returns the value of the {@code split} field. */
+    @Nullable
     @NativeType("extent_split_t")
     public ExtentSplit split() { return nsplit(address()); }
     /** Returns the value of the {@code merge} field. */
+    @Nullable
     @NativeType("extent_merge_t")
     public ExtentMerge merge() { return nmerge(address()); }
 
     /** Sets the specified value to the {@code alloc} field. */
     public ExtentHooks alloc(@NativeType("extent_alloc_t") ExtentAllocI value) { nalloc(address(), value); return this; }
     /** Sets the specified value to the {@code dalloc} field. */
-    public ExtentHooks dalloc(@NativeType("extent_dalloc_t") ExtentDallocI value) { ndalloc(address(), value); return this; }
+    public ExtentHooks dalloc(@Nullable @NativeType("extent_dalloc_t") ExtentDallocI value) { ndalloc(address(), value); return this; }
     /** Sets the specified value to the {@code destroy} field. */
-    public ExtentHooks destroy(@NativeType("extent_destroy_t") ExtentDestroyI value) { ndestroy(address(), value); return this; }
+    public ExtentHooks destroy(@Nullable @NativeType("extent_destroy_t") ExtentDestroyI value) { ndestroy(address(), value); return this; }
     /** Sets the specified value to the {@code commit} field. */
-    public ExtentHooks commit(@NativeType("extent_commit_t") ExtentCommitI value) { ncommit(address(), value); return this; }
+    public ExtentHooks commit(@Nullable @NativeType("extent_commit_t") ExtentCommitI value) { ncommit(address(), value); return this; }
     /** Sets the specified value to the {@code decommit} field. */
-    public ExtentHooks decommit(@NativeType("extent_decommit_t") ExtentDecommitI value) { ndecommit(address(), value); return this; }
+    public ExtentHooks decommit(@Nullable @NativeType("extent_decommit_t") ExtentDecommitI value) { ndecommit(address(), value); return this; }
     /** Sets the specified value to the {@code purge_lazy} field. */
-    public ExtentHooks purge_lazy(@NativeType("extent_purge_t") ExtentPurgeI value) { npurge_lazy(address(), value); return this; }
+    public ExtentHooks purge_lazy(@Nullable @NativeType("extent_purge_t") ExtentPurgeI value) { npurge_lazy(address(), value); return this; }
     /** Sets the specified value to the {@code purge_forced} field. */
-    public ExtentHooks purge_forced(@NativeType("extent_purge_t") ExtentPurgeI value) { npurge_forced(address(), value); return this; }
+    public ExtentHooks purge_forced(@Nullable @NativeType("extent_purge_t") ExtentPurgeI value) { npurge_forced(address(), value); return this; }
     /** Sets the specified value to the {@code split} field. */
-    public ExtentHooks split(@NativeType("extent_split_t") ExtentSplitI value) { nsplit(address(), value); return this; }
+    public ExtentHooks split(@Nullable @NativeType("extent_split_t") ExtentSplitI value) { nsplit(address(), value); return this; }
     /** Sets the specified value to the {@code merge} field. */
-    public ExtentHooks merge(@NativeType("extent_merge_t") ExtentMergeI value) { nmerge(address(), value); return this; }
+    public ExtentHooks merge(@Nullable @NativeType("extent_merge_t") ExtentMergeI value) { nmerge(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public ExtentHooks set(
@@ -203,12 +213,12 @@ public class ExtentHooks extends Struct implements NativeResource {
 
     /** Returns a new {@link ExtentHooks} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static ExtentHooks malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link ExtentHooks} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static ExtentHooks calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link ExtentHooks} instance allocated with {@link BufferUtils}. */
@@ -216,9 +226,15 @@ public class ExtentHooks extends Struct implements NativeResource {
         return new ExtentHooks(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link ExtentHooks} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link ExtentHooks} instance for the specified memory address. */
     public static ExtentHooks create(long address) {
-        return address == NULL ? null : new ExtentHooks(address, null);
+        return new ExtentHooks(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static ExtentHooks createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -226,7 +242,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static ExtentHooks.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -235,8 +251,8 @@ public class ExtentHooks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static ExtentHooks.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -244,7 +260,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static ExtentHooks.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -254,8 +270,14 @@ public class ExtentHooks extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static ExtentHooks.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static ExtentHooks.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -293,7 +315,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static ExtentHooks.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -302,7 +324,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static ExtentHooks.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -312,7 +334,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static ExtentHooks.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -322,7 +344,7 @@ public class ExtentHooks extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static ExtentHooks.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -331,40 +353,40 @@ public class ExtentHooks extends Struct implements NativeResource {
     /** Unsafe version of {@link #alloc}. */
     public static ExtentAlloc nalloc(long struct) { return ExtentAlloc.create(memGetAddress(struct + ExtentHooks.ALLOC)); }
     /** Unsafe version of {@link #dalloc}. */
-    public static ExtentDalloc ndalloc(long struct) { return ExtentDalloc.create(memGetAddress(struct + ExtentHooks.DALLOC)); }
+    @Nullable public static ExtentDalloc ndalloc(long struct) { return ExtentDalloc.createSafe(memGetAddress(struct + ExtentHooks.DALLOC)); }
     /** Unsafe version of {@link #destroy}. */
-    public static ExtentDestroy ndestroy(long struct) { return ExtentDestroy.create(memGetAddress(struct + ExtentHooks.DESTROY)); }
+    @Nullable public static ExtentDestroy ndestroy(long struct) { return ExtentDestroy.createSafe(memGetAddress(struct + ExtentHooks.DESTROY)); }
     /** Unsafe version of {@link #commit}. */
-    public static ExtentCommit ncommit(long struct) { return ExtentCommit.create(memGetAddress(struct + ExtentHooks.COMMIT)); }
+    @Nullable public static ExtentCommit ncommit(long struct) { return ExtentCommit.createSafe(memGetAddress(struct + ExtentHooks.COMMIT)); }
     /** Unsafe version of {@link #decommit}. */
-    public static ExtentDecommit ndecommit(long struct) { return ExtentDecommit.create(memGetAddress(struct + ExtentHooks.DECOMMIT)); }
+    @Nullable public static ExtentDecommit ndecommit(long struct) { return ExtentDecommit.createSafe(memGetAddress(struct + ExtentHooks.DECOMMIT)); }
     /** Unsafe version of {@link #purge_lazy}. */
-    public static ExtentPurge npurge_lazy(long struct) { return ExtentPurge.create(memGetAddress(struct + ExtentHooks.PURGE_LAZY)); }
+    @Nullable public static ExtentPurge npurge_lazy(long struct) { return ExtentPurge.createSafe(memGetAddress(struct + ExtentHooks.PURGE_LAZY)); }
     /** Unsafe version of {@link #purge_forced}. */
-    public static ExtentPurge npurge_forced(long struct) { return ExtentPurge.create(memGetAddress(struct + ExtentHooks.PURGE_FORCED)); }
+    @Nullable public static ExtentPurge npurge_forced(long struct) { return ExtentPurge.createSafe(memGetAddress(struct + ExtentHooks.PURGE_FORCED)); }
     /** Unsafe version of {@link #split}. */
-    public static ExtentSplit nsplit(long struct) { return ExtentSplit.create(memGetAddress(struct + ExtentHooks.SPLIT)); }
+    @Nullable public static ExtentSplit nsplit(long struct) { return ExtentSplit.createSafe(memGetAddress(struct + ExtentHooks.SPLIT)); }
     /** Unsafe version of {@link #merge}. */
-    public static ExtentMerge nmerge(long struct) { return ExtentMerge.create(memGetAddress(struct + ExtentHooks.MERGE)); }
+    @Nullable public static ExtentMerge nmerge(long struct) { return ExtentMerge.createSafe(memGetAddress(struct + ExtentHooks.MERGE)); }
 
     /** Unsafe version of {@link #alloc(ExtentAllocI) alloc}. */
     public static void nalloc(long struct, ExtentAllocI value) { memPutAddress(struct + ExtentHooks.ALLOC, value.address()); }
     /** Unsafe version of {@link #dalloc(ExtentDallocI) dalloc}. */
-    public static void ndalloc(long struct, ExtentDallocI value) { memPutAddress(struct + ExtentHooks.DALLOC, memAddressSafe(value)); }
+    public static void ndalloc(long struct, @Nullable ExtentDallocI value) { memPutAddress(struct + ExtentHooks.DALLOC, memAddressSafe(value)); }
     /** Unsafe version of {@link #destroy(ExtentDestroyI) destroy}. */
-    public static void ndestroy(long struct, ExtentDestroyI value) { memPutAddress(struct + ExtentHooks.DESTROY, memAddressSafe(value)); }
+    public static void ndestroy(long struct, @Nullable ExtentDestroyI value) { memPutAddress(struct + ExtentHooks.DESTROY, memAddressSafe(value)); }
     /** Unsafe version of {@link #commit(ExtentCommitI) commit}. */
-    public static void ncommit(long struct, ExtentCommitI value) { memPutAddress(struct + ExtentHooks.COMMIT, memAddressSafe(value)); }
+    public static void ncommit(long struct, @Nullable ExtentCommitI value) { memPutAddress(struct + ExtentHooks.COMMIT, memAddressSafe(value)); }
     /** Unsafe version of {@link #decommit(ExtentDecommitI) decommit}. */
-    public static void ndecommit(long struct, ExtentDecommitI value) { memPutAddress(struct + ExtentHooks.DECOMMIT, memAddressSafe(value)); }
+    public static void ndecommit(long struct, @Nullable ExtentDecommitI value) { memPutAddress(struct + ExtentHooks.DECOMMIT, memAddressSafe(value)); }
     /** Unsafe version of {@link #purge_lazy(ExtentPurgeI) purge_lazy}. */
-    public static void npurge_lazy(long struct, ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_LAZY, memAddressSafe(value)); }
+    public static void npurge_lazy(long struct, @Nullable ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_LAZY, memAddressSafe(value)); }
     /** Unsafe version of {@link #purge_forced(ExtentPurgeI) purge_forced}. */
-    public static void npurge_forced(long struct, ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_FORCED, memAddressSafe(value)); }
+    public static void npurge_forced(long struct, @Nullable ExtentPurgeI value) { memPutAddress(struct + ExtentHooks.PURGE_FORCED, memAddressSafe(value)); }
     /** Unsafe version of {@link #split(ExtentSplitI) split}. */
-    public static void nsplit(long struct, ExtentSplitI value) { memPutAddress(struct + ExtentHooks.SPLIT, memAddressSafe(value)); }
+    public static void nsplit(long struct, @Nullable ExtentSplitI value) { memPutAddress(struct + ExtentHooks.SPLIT, memAddressSafe(value)); }
     /** Unsafe version of {@link #merge(ExtentMergeI) merge}. */
-    public static void nmerge(long struct, ExtentMergeI value) { memPutAddress(struct + ExtentHooks.MERGE, memAddressSafe(value)); }
+    public static void nmerge(long struct, @Nullable ExtentMergeI value) { memPutAddress(struct + ExtentHooks.MERGE, memAddressSafe(value)); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -405,7 +427,11 @@ public class ExtentHooks extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -415,7 +441,7 @@ public class ExtentHooks extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -433,48 +459,56 @@ public class ExtentHooks extends Struct implements NativeResource {
         @NativeType("extent_alloc_t")
         public ExtentAlloc alloc() { return ExtentHooks.nalloc(address()); }
         /** Returns the value of the {@code dalloc} field. */
+        @Nullable
         @NativeType("extent_dalloc_t")
         public ExtentDalloc dalloc() { return ExtentHooks.ndalloc(address()); }
         /** Returns the value of the {@code destroy} field. */
+        @Nullable
         @NativeType("extent_destroy_t")
         public ExtentDestroy destroy() { return ExtentHooks.ndestroy(address()); }
         /** Returns the value of the {@code commit} field. */
+        @Nullable
         @NativeType("extent_commit_t")
         public ExtentCommit commit() { return ExtentHooks.ncommit(address()); }
         /** Returns the value of the {@code decommit} field. */
+        @Nullable
         @NativeType("extent_decommit_t")
         public ExtentDecommit decommit() { return ExtentHooks.ndecommit(address()); }
         /** Returns the value of the {@code purge_lazy} field. */
+        @Nullable
         @NativeType("extent_purge_t")
         public ExtentPurge purge_lazy() { return ExtentHooks.npurge_lazy(address()); }
         /** Returns the value of the {@code purge_forced} field. */
+        @Nullable
         @NativeType("extent_purge_t")
         public ExtentPurge purge_forced() { return ExtentHooks.npurge_forced(address()); }
         /** Returns the value of the {@code split} field. */
+        @Nullable
         @NativeType("extent_split_t")
         public ExtentSplit split() { return ExtentHooks.nsplit(address()); }
         /** Returns the value of the {@code merge} field. */
+        @Nullable
         @NativeType("extent_merge_t")
         public ExtentMerge merge() { return ExtentHooks.nmerge(address()); }
 
         /** Sets the specified value to the {@code alloc} field. */
         public ExtentHooks.Buffer alloc(@NativeType("extent_alloc_t") ExtentAllocI value) { ExtentHooks.nalloc(address(), value); return this; }
         /** Sets the specified value to the {@code dalloc} field. */
-        public ExtentHooks.Buffer dalloc(@NativeType("extent_dalloc_t") ExtentDallocI value) { ExtentHooks.ndalloc(address(), value); return this; }
+        public ExtentHooks.Buffer dalloc(@Nullable @NativeType("extent_dalloc_t") ExtentDallocI value) { ExtentHooks.ndalloc(address(), value); return this; }
         /** Sets the specified value to the {@code destroy} field. */
-        public ExtentHooks.Buffer destroy(@NativeType("extent_destroy_t") ExtentDestroyI value) { ExtentHooks.ndestroy(address(), value); return this; }
+        public ExtentHooks.Buffer destroy(@Nullable @NativeType("extent_destroy_t") ExtentDestroyI value) { ExtentHooks.ndestroy(address(), value); return this; }
         /** Sets the specified value to the {@code commit} field. */
-        public ExtentHooks.Buffer commit(@NativeType("extent_commit_t") ExtentCommitI value) { ExtentHooks.ncommit(address(), value); return this; }
+        public ExtentHooks.Buffer commit(@Nullable @NativeType("extent_commit_t") ExtentCommitI value) { ExtentHooks.ncommit(address(), value); return this; }
         /** Sets the specified value to the {@code decommit} field. */
-        public ExtentHooks.Buffer decommit(@NativeType("extent_decommit_t") ExtentDecommitI value) { ExtentHooks.ndecommit(address(), value); return this; }
+        public ExtentHooks.Buffer decommit(@Nullable @NativeType("extent_decommit_t") ExtentDecommitI value) { ExtentHooks.ndecommit(address(), value); return this; }
         /** Sets the specified value to the {@code purge_lazy} field. */
-        public ExtentHooks.Buffer purge_lazy(@NativeType("extent_purge_t") ExtentPurgeI value) { ExtentHooks.npurge_lazy(address(), value); return this; }
+        public ExtentHooks.Buffer purge_lazy(@Nullable @NativeType("extent_purge_t") ExtentPurgeI value) { ExtentHooks.npurge_lazy(address(), value); return this; }
         /** Sets the specified value to the {@code purge_forced} field. */
-        public ExtentHooks.Buffer purge_forced(@NativeType("extent_purge_t") ExtentPurgeI value) { ExtentHooks.npurge_forced(address(), value); return this; }
+        public ExtentHooks.Buffer purge_forced(@Nullable @NativeType("extent_purge_t") ExtentPurgeI value) { ExtentHooks.npurge_forced(address(), value); return this; }
         /** Sets the specified value to the {@code split} field. */
-        public ExtentHooks.Buffer split(@NativeType("extent_split_t") ExtentSplitI value) { ExtentHooks.nsplit(address(), value); return this; }
+        public ExtentHooks.Buffer split(@Nullable @NativeType("extent_split_t") ExtentSplitI value) { ExtentHooks.nsplit(address(), value); return this; }
         /** Sets the specified value to the {@code merge} field. */
-        public ExtentHooks.Buffer merge(@NativeType("extent_merge_t") ExtentMergeI value) { ExtentHooks.nmerge(address(), value); return this; }
+        public ExtentHooks.Buffer merge(@Nullable @NativeType("extent_merge_t") ExtentMergeI value) { ExtentHooks.nmerge(address(), value); return this; }
 
     }
 

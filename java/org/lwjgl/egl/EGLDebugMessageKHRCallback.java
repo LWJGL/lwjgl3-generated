@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be passed to the {@link KHRDebug#eglDebugMessageControlKHR DebugMessageControlKHR} method. */
 public abstract class EGLDebugMessageKHRCallback extends Callback implements EGLDebugMessageKHRCallbackI {
 
-    /** Creates a {@code EGLDebugMessageKHRCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code EGLDebugMessageKHRCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code EGLDebugMessageKHRCallback}
+     */
     public static EGLDebugMessageKHRCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         EGLDebugMessageKHRCallbackI instance = Callback.get(functionPointer);
         return instance instanceof EGLDebugMessageKHRCallback
             ? (EGLDebugMessageKHRCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static EGLDebugMessageKHRCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code EGLDebugMessageKHRCallback} instance that delegates to the specified {@code EGLDebugMessageKHRCallbackI} instance. */

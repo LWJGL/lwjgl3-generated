@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.remotery;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -158,10 +160,11 @@ public class Remotery {
 
     public static native long nrmt_Settings();
 
+    @Nullable
     @NativeType("rmtSettings *")
     public static RMTSettings rmt_Settings() {
         long __result = nrmt_Settings();
-        return RMTSettings.create(__result);
+        return RMTSettings.createSafe(__result);
     }
 
     // --- [ rmt_CreateGlobalInstance ] ---
@@ -255,7 +258,7 @@ public class Remotery {
      * @param flags      one of:<br><table><tr><td>{@link #RMTSF_None}</td><td>{@link #RMTSF_Aggregate}</td><td>{@link #RMTSF_Recursive}</td></tr></table>
      * @param hash_cache 
      */
-    public static void rmt_BeginCPUSample(@NativeType("rmtPStr") ByteBuffer name, @NativeType("rmtU32") int flags, @NativeType("rmtU32 *") IntBuffer hash_cache) {
+    public static void rmt_BeginCPUSample(@NativeType("rmtPStr") ByteBuffer name, @NativeType("rmtU32") int flags, @Nullable @NativeType("rmtU32 *") IntBuffer hash_cache) {
         if (CHECKS) {
             checkNT1(name);
             checkSafe(hash_cache, 1);
@@ -268,7 +271,7 @@ public class Remotery {
      * @param flags      one of:<br><table><tr><td>{@link #RMTSF_None}</td><td>{@link #RMTSF_Aggregate}</td><td>{@link #RMTSF_Recursive}</td></tr></table>
      * @param hash_cache 
      */
-    public static void rmt_BeginCPUSample(@NativeType("rmtPStr") CharSequence name, @NativeType("rmtU32") int flags, @NativeType("rmtU32 *") IntBuffer hash_cache) {
+    public static void rmt_BeginCPUSample(@NativeType("rmtPStr") CharSequence name, @NativeType("rmtU32") int flags, @Nullable @NativeType("rmtU32 *") IntBuffer hash_cache) {
         if (CHECKS) {
             checkSafe(hash_cache, 1);
         }

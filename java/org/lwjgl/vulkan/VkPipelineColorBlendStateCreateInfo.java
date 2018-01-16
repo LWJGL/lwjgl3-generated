@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -112,7 +114,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
         BLENDCONSTANTS = layout.offsetof(7);
     }
 
-    VkPipelineColorBlendStateCreateInfo(long address, ByteBuffer container) {
+    VkPipelineColorBlendStateCreateInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -123,7 +125,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkPipelineColorBlendStateCreateInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -148,6 +150,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
     @NativeType("uint32_t")
     public int attachmentCount() { return nattachmentCount(address()); }
     /** Returns a {@link VkPipelineColorBlendAttachmentState.Buffer} view of the struct array pointed to by the {@code pAttachments} field. */
+    @Nullable
     @NativeType("const VkPipelineColorBlendAttachmentState *")
     public VkPipelineColorBlendAttachmentState.Buffer pAttachments() { return npAttachments(address()); }
     /** Returns a {@link FloatBuffer} view of the {@code blendConstants} field. */
@@ -167,7 +170,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
     /** Sets the specified value to the {@code logicOp} field. */
     public VkPipelineColorBlendStateCreateInfo logicOp(@NativeType("VkLogicOp") int value) { nlogicOp(address(), value); return this; }
     /** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */
-    public VkPipelineColorBlendStateCreateInfo pAttachments(@NativeType("const VkPipelineColorBlendAttachmentState *") VkPipelineColorBlendAttachmentState.Buffer value) { npAttachments(address(), value); return this; }
+    public VkPipelineColorBlendStateCreateInfo pAttachments(@Nullable @NativeType("const VkPipelineColorBlendAttachmentState *") VkPipelineColorBlendAttachmentState.Buffer value) { npAttachments(address(), value); return this; }
     /** Copies the specified {@link FloatBuffer} to the {@code blendConstants} field. */
     public VkPipelineColorBlendStateCreateInfo blendConstants(@NativeType("float[4]") FloatBuffer value) { nblendConstants(address(), value); return this; }
     /** Sets the specified value at the specified index of the {@code blendConstants} field. */
@@ -210,12 +213,12 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
 
     /** Returns a new {@link VkPipelineColorBlendStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkPipelineColorBlendStateCreateInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineColorBlendStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkPipelineColorBlendStateCreateInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineColorBlendStateCreateInfo} instance allocated with {@link BufferUtils}. */
@@ -223,9 +226,15 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
         return new VkPipelineColorBlendStateCreateInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkPipelineColorBlendStateCreateInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkPipelineColorBlendStateCreateInfo} instance for the specified memory address. */
     public static VkPipelineColorBlendStateCreateInfo create(long address) {
-        return address == NULL ? null : new VkPipelineColorBlendStateCreateInfo(address, null);
+        return new VkPipelineColorBlendStateCreateInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineColorBlendStateCreateInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -233,7 +242,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkPipelineColorBlendStateCreateInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -242,8 +251,8 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkPipelineColorBlendStateCreateInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -251,7 +260,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkPipelineColorBlendStateCreateInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -261,8 +270,14 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkPipelineColorBlendStateCreateInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineColorBlendStateCreateInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -300,7 +315,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkPipelineColorBlendStateCreateInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -309,7 +324,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkPipelineColorBlendStateCreateInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -319,7 +334,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineColorBlendStateCreateInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -329,7 +344,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineColorBlendStateCreateInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -348,7 +363,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
     /** Unsafe version of {@link #attachmentCount}. */
     public static int nattachmentCount(long struct) { return memGetInt(struct + VkPipelineColorBlendStateCreateInfo.ATTACHMENTCOUNT); }
     /** Unsafe version of {@link #pAttachments}. */
-    public static VkPipelineColorBlendAttachmentState.Buffer npAttachments(long struct) { return VkPipelineColorBlendAttachmentState.create(memGetAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS), nattachmentCount(struct)); }
+    @Nullable public static VkPipelineColorBlendAttachmentState.Buffer npAttachments(long struct) { return VkPipelineColorBlendAttachmentState.createSafe(memGetAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS), nattachmentCount(struct)); }
     /** Unsafe version of {@link #blendConstants}. */
     public static FloatBuffer nblendConstants(long struct) { return memFloatBuffer(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS, 4); }
     /** Unsafe version of {@link #blendConstants(int) blendConstants}. */
@@ -370,7 +385,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
     /** Sets the specified value to the {@code attachmentCount} field of the specified {@code struct}. */
     public static void nattachmentCount(long struct, int value) { memPutInt(struct + VkPipelineColorBlendStateCreateInfo.ATTACHMENTCOUNT, value); }
     /** Unsafe version of {@link #pAttachments(VkPipelineColorBlendAttachmentState.Buffer) pAttachments}. */
-    public static void npAttachments(long struct, VkPipelineColorBlendAttachmentState.Buffer value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS, memAddressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
+    public static void npAttachments(long struct, @Nullable VkPipelineColorBlendAttachmentState.Buffer value) { memPutAddress(struct + VkPipelineColorBlendStateCreateInfo.PATTACHMENTS, memAddressSafe(value)); nattachmentCount(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #blendConstants(FloatBuffer) blendConstants}. */
     public static void nblendConstants(long struct, FloatBuffer value) {
         if (CHECKS) { checkGT(value, 4); }
@@ -423,7 +438,11 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -433,7 +452,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -466,6 +485,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
         @NativeType("uint32_t")
         public int attachmentCount() { return VkPipelineColorBlendStateCreateInfo.nattachmentCount(address()); }
         /** Returns a {@link VkPipelineColorBlendAttachmentState.Buffer} view of the struct array pointed to by the {@code pAttachments} field. */
+        @Nullable
         @NativeType("const VkPipelineColorBlendAttachmentState *")
         public VkPipelineColorBlendAttachmentState.Buffer pAttachments() { return VkPipelineColorBlendStateCreateInfo.npAttachments(address()); }
         /** Returns a {@link FloatBuffer} view of the {@code blendConstants} field. */
@@ -485,7 +505,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
         /** Sets the specified value to the {@code logicOp} field. */
         public VkPipelineColorBlendStateCreateInfo.Buffer logicOp(@NativeType("VkLogicOp") int value) { VkPipelineColorBlendStateCreateInfo.nlogicOp(address(), value); return this; }
         /** Sets the address of the specified {@link VkPipelineColorBlendAttachmentState.Buffer} to the {@code pAttachments} field. */
-        public VkPipelineColorBlendStateCreateInfo.Buffer pAttachments(@NativeType("const VkPipelineColorBlendAttachmentState *") VkPipelineColorBlendAttachmentState.Buffer value) { VkPipelineColorBlendStateCreateInfo.npAttachments(address(), value); return this; }
+        public VkPipelineColorBlendStateCreateInfo.Buffer pAttachments(@Nullable @NativeType("const VkPipelineColorBlendAttachmentState *") VkPipelineColorBlendAttachmentState.Buffer value) { VkPipelineColorBlendStateCreateInfo.npAttachments(address(), value); return this; }
         /** Copies the specified {@link FloatBuffer} to the {@code blendConstants} field. */
         public VkPipelineColorBlendStateCreateInfo.Buffer blendConstants(@NativeType("float[4]") FloatBuffer value) { VkPipelineColorBlendStateCreateInfo.nblendConstants(address(), value); return this; }
         /** Sets the specified value at the specified index of the {@code blendConstants} field. */

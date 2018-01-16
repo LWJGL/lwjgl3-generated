@@ -5,6 +5,8 @@
  */
 package org.lwjgl.odbc;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -61,7 +63,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
             INTVAL_DAY_SECOND = layout.offsetof(4);
     }
 
-    SQL_INTERVAL_STRUCT(long address, ByteBuffer container) {
+    SQL_INTERVAL_STRUCT(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -72,7 +74,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public SQL_INTERVAL_STRUCT(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -84,18 +86,18 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
     /** Returns the value of the {@code interval_sign} field. */
     @NativeType("SQLSMALLINT")
     public short interval_sign() { return ninterval_sign(address()); }
-    /** Returns a {@link SQL_YEAR_MONTH_STRUCT} view of the {@code intval_year_month} field. */
+    /** Returns a {@link SQL_YEAR_MONTH_STRUCT} view of the {@code intval.year_month} field. */
     public SQL_YEAR_MONTH_STRUCT intval_year_month() { return nintval_year_month(address()); }
-    /** Returns a {@link SQL_DAY_SECOND_STRUCT} view of the {@code intval_day_second} field. */
+    /** Returns a {@link SQL_DAY_SECOND_STRUCT} view of the {@code intval.day_second} field. */
     public SQL_DAY_SECOND_STRUCT intval_day_second() { return nintval_day_second(address()); }
 
     /** Sets the specified value to the {@code interval_type} field. */
     public SQL_INTERVAL_STRUCT interval_type(@NativeType("SQLINTERVAL") int value) { ninterval_type(address(), value); return this; }
     /** Sets the specified value to the {@code interval_sign} field. */
     public SQL_INTERVAL_STRUCT interval_sign(@NativeType("SQLSMALLINT") short value) { ninterval_sign(address(), value); return this; }
-    /** Copies the specified {@link SQL_YEAR_MONTH_STRUCT} to the {@code year_month} field. */
+    /** Copies the specified {@link SQL_YEAR_MONTH_STRUCT} to the {@code intval.year_month} field. */
     public SQL_INTERVAL_STRUCT intval_year_month(SQL_YEAR_MONTH_STRUCT value) { nintval_year_month(address(), value); return this; }
-    /** Copies the specified {@link SQL_DAY_SECOND_STRUCT} to the {@code day_second} field. */
+    /** Copies the specified {@link SQL_DAY_SECOND_STRUCT} to the {@code intval.day_second} field. */
     public SQL_INTERVAL_STRUCT intval_day_second(SQL_DAY_SECOND_STRUCT value) { nintval_day_second(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
@@ -129,12 +131,12 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
 
     /** Returns a new {@link SQL_INTERVAL_STRUCT} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static SQL_INTERVAL_STRUCT malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link SQL_INTERVAL_STRUCT} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static SQL_INTERVAL_STRUCT calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link SQL_INTERVAL_STRUCT} instance allocated with {@link BufferUtils}. */
@@ -142,9 +144,15 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
         return new SQL_INTERVAL_STRUCT(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link SQL_INTERVAL_STRUCT} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link SQL_INTERVAL_STRUCT} instance for the specified memory address. */
     public static SQL_INTERVAL_STRUCT create(long address) {
-        return address == NULL ? null : new SQL_INTERVAL_STRUCT(address, null);
+        return new SQL_INTERVAL_STRUCT(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static SQL_INTERVAL_STRUCT createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -152,7 +160,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static SQL_INTERVAL_STRUCT.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -161,8 +169,8 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static SQL_INTERVAL_STRUCT.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -170,7 +178,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static SQL_INTERVAL_STRUCT.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -180,8 +188,14 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static SQL_INTERVAL_STRUCT.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static SQL_INTERVAL_STRUCT.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -219,7 +233,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static SQL_INTERVAL_STRUCT.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -228,7 +242,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static SQL_INTERVAL_STRUCT.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -238,7 +252,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static SQL_INTERVAL_STRUCT.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -248,7 +262,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static SQL_INTERVAL_STRUCT.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -290,7 +304,11 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -300,7 +318,7 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -320,18 +338,18 @@ public class SQL_INTERVAL_STRUCT extends Struct implements NativeResource {
         /** Returns the value of the {@code interval_sign} field. */
         @NativeType("SQLSMALLINT")
         public short interval_sign() { return SQL_INTERVAL_STRUCT.ninterval_sign(address()); }
-        /** Returns a {@link SQL_YEAR_MONTH_STRUCT} view of the {@code intval_year_month} field. */
+        /** Returns a {@link SQL_YEAR_MONTH_STRUCT} view of the {@code intval.year_month} field. */
         public SQL_YEAR_MONTH_STRUCT intval_year_month() { return SQL_INTERVAL_STRUCT.nintval_year_month(address()); }
-        /** Returns a {@link SQL_DAY_SECOND_STRUCT} view of the {@code intval_day_second} field. */
+        /** Returns a {@link SQL_DAY_SECOND_STRUCT} view of the {@code intval.day_second} field. */
         public SQL_DAY_SECOND_STRUCT intval_day_second() { return SQL_INTERVAL_STRUCT.nintval_day_second(address()); }
 
         /** Sets the specified value to the {@code interval_type} field. */
         public SQL_INTERVAL_STRUCT.Buffer interval_type(@NativeType("SQLINTERVAL") int value) { SQL_INTERVAL_STRUCT.ninterval_type(address(), value); return this; }
         /** Sets the specified value to the {@code interval_sign} field. */
         public SQL_INTERVAL_STRUCT.Buffer interval_sign(@NativeType("SQLSMALLINT") short value) { SQL_INTERVAL_STRUCT.ninterval_sign(address(), value); return this; }
-        /** Copies the specified {@link SQL_YEAR_MONTH_STRUCT} to the {@code year_month} field. */
+        /** Copies the specified {@link SQL_YEAR_MONTH_STRUCT} to the {@code intval.year_month} field. */
         public SQL_INTERVAL_STRUCT.Buffer intval_year_month(SQL_YEAR_MONTH_STRUCT value) { SQL_INTERVAL_STRUCT.nintval_year_month(address(), value); return this; }
-        /** Copies the specified {@link SQL_DAY_SECOND_STRUCT} to the {@code day_second} field. */
+        /** Copies the specified {@link SQL_DAY_SECOND_STRUCT} to the {@code intval.day_second} field. */
         public SQL_INTERVAL_STRUCT.Buffer intval_day_second(SQL_DAY_SECOND_STRUCT value) { SQL_INTERVAL_STRUCT.nintval_day_second(address(), value); return this; }
 
     }

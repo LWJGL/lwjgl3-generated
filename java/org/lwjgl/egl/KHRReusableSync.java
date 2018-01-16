@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -64,7 +66,7 @@ public class KHRReusableSync {
     }
 
     @NativeType("EGLSyncKHR")
-    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("const EGLint *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -132,7 +134,7 @@ public class KHRReusableSync {
 
     /** Array version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
     @NativeType("EGLSyncKHR")
-    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("const EGLint *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
         if (CHECKS) {
             check(__functionAddress);

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Instances of this class may be set to the {@link NkUserFont} struct. */
 public abstract class NkQueryFontGlyphCallback extends Callback implements NkQueryFontGlyphCallbackI {
 
-    /** Creates a {@code NkQueryFontGlyphCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code NkQueryFontGlyphCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code NkQueryFontGlyphCallback}
+     */
     public static NkQueryFontGlyphCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         NkQueryFontGlyphCallbackI instance = Callback.get(functionPointer);
         return instance instanceof NkQueryFontGlyphCallback
             ? (NkQueryFontGlyphCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static NkQueryFontGlyphCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code NkQueryFontGlyphCallback} instance that delegates to the specified {@code NkQueryFontGlyphCallbackI} instance. */

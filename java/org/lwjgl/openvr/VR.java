@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openvr;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -698,7 +700,7 @@ public class VR {
      * <li>{@link #EVRSubmitFlags_Submit_TextureWithDepth EVRSubmitFlags_Submit_TextureWithDepth} - 
      * Set to indicate that {@code pTexture} is a pointer to a {@link VRTextureWithDepth}.
      * 
-     * <p>This flag can be combined with {@link #EVRSubmit_TextureWithPose} to pass a {@link VRTextureWithPoseAndDepth_t}.</p>
+     * <p>This flag can be combined with {@link #EVRSubmit_TextureWithPose} to pass a {@link VRTextureWithPoseAndDepth}.</p>
      * </li>
      * </ul>
      */
@@ -2299,10 +2301,11 @@ public class VR {
     }
 
     /** Returns where the OpenVR runtime is installed. */
+    @Nullable
     @NativeType("char *")
     public static String VR_RuntimePath() {
         long __result = nVR_RuntimePath();
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ VR_IsInterfaceVersionValid ] ---
@@ -2364,10 +2367,11 @@ public class VR {
      *
      * @param error the error code
      */
+    @Nullable
     @NativeType("const char *")
     public static String VR_GetVRInitErrorAsSymbol(@NativeType("EVRInitError") int error) {
         long __result = nVR_GetVRInitErrorAsSymbol(error);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ VR_GetVRInitErrorAsEnglishDescription ] ---
@@ -2386,10 +2390,11 @@ public class VR {
      *
      * @param error the error code
      */
+    @Nullable
     @NativeType("const char *")
     public static String VR_GetVRInitErrorAsEnglishDescription(@NativeType("EVRInitError") int error) {
         long __result = nVR_GetVRInitErrorAsEnglishDescription(error);
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
 }

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.system.macosx;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -100,7 +102,7 @@ public class DynamicLinkLoader {
      *             </ul>
      */
     @NativeType("void *")
-    public static long dlopen(@NativeType("const char *") ByteBuffer path, int mode) {
+    public static long dlopen(@Nullable @NativeType("const char *") ByteBuffer path, int mode) {
         if (CHECKS) {
             checkNT1Safe(path);
         }
@@ -166,10 +168,10 @@ public class DynamicLinkLoader {
      *             </ul>
      */
     @NativeType("void *")
-    public static long dlopen(@NativeType("const char *") CharSequence path, @NativeType("int") int mode) {
+    public static long dlopen(@Nullable @NativeType("const char *") CharSequence path, @NativeType("int") int mode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer pathEncoded = stack.ASCII(path);
+            ByteBuffer pathEncoded = stack.ASCIISafe(path);
             return ndlopen(memAddressSafe(pathEncoded), mode);
         } finally {
             stack.setPointer(stackPointer);
@@ -190,10 +192,11 @@ public class DynamicLinkLoader {
      * <p>Each call to {@code dlerror} resets its diagnostic buffer. If a program needs to keep a record of past error messages, it must store them itself.
      * Subsequent calls to {@code dlerror} in the same thread with no calls to {@link #dlopen}, {@link #dlsym}, or {@link #dlclose}, return {@code NULL}.</p>
      */
+    @Nullable
     @NativeType("const char *")
     public static String dlerror() {
         long __result = ndlerror();
-        return memASCII(__result);
+        return memASCIISafe(__result);
     }
 
     // --- [ dlsym ] ---

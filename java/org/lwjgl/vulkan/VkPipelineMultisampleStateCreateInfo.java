@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -115,7 +117,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
         ALPHATOONEENABLE = layout.offsetof(8);
     }
 
-    VkPipelineMultisampleStateCreateInfo(long address, ByteBuffer container) {
+    VkPipelineMultisampleStateCreateInfo(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -126,7 +128,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkPipelineMultisampleStateCreateInfo(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -154,6 +156,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      *
      * @param capacity the number of elements in the returned buffer
      */
+    @Nullable
     @NativeType("const VkSampleMask *")
     public IntBuffer pSampleMask(int capacity) { return npSampleMask(address(), capacity); }
     /** Returns the value of the {@code alphaToCoverageEnable} field. */
@@ -176,7 +179,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
     /** Sets the specified value to the {@code minSampleShading} field. */
     public VkPipelineMultisampleStateCreateInfo minSampleShading(float value) { nminSampleShading(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pSampleMask} field. */
-    public VkPipelineMultisampleStateCreateInfo pSampleMask(@NativeType("const VkSampleMask *") IntBuffer value) { npSampleMask(address(), value); return this; }
+    public VkPipelineMultisampleStateCreateInfo pSampleMask(@Nullable @NativeType("const VkSampleMask *") IntBuffer value) { npSampleMask(address(), value); return this; }
     /** Sets the specified value to the {@code alphaToCoverageEnable} field. */
     public VkPipelineMultisampleStateCreateInfo alphaToCoverageEnable(@NativeType("VkBool32") boolean value) { nalphaToCoverageEnable(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code alphaToOneEnable} field. */
@@ -223,12 +226,12 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
 
     /** Returns a new {@link VkPipelineMultisampleStateCreateInfo} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkPipelineMultisampleStateCreateInfo malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineMultisampleStateCreateInfo} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkPipelineMultisampleStateCreateInfo calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkPipelineMultisampleStateCreateInfo} instance allocated with {@link BufferUtils}. */
@@ -236,9 +239,15 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
         return new VkPipelineMultisampleStateCreateInfo(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkPipelineMultisampleStateCreateInfo} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkPipelineMultisampleStateCreateInfo} instance for the specified memory address. */
     public static VkPipelineMultisampleStateCreateInfo create(long address) {
-        return address == NULL ? null : new VkPipelineMultisampleStateCreateInfo(address, null);
+        return new VkPipelineMultisampleStateCreateInfo(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineMultisampleStateCreateInfo createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -246,7 +255,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkPipelineMultisampleStateCreateInfo.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -255,8 +264,8 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkPipelineMultisampleStateCreateInfo.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -264,7 +273,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkPipelineMultisampleStateCreateInfo.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -274,8 +283,14 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkPipelineMultisampleStateCreateInfo.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkPipelineMultisampleStateCreateInfo.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -313,7 +328,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkPipelineMultisampleStateCreateInfo.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -322,7 +337,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkPipelineMultisampleStateCreateInfo.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -332,7 +347,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineMultisampleStateCreateInfo.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -342,7 +357,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkPipelineMultisampleStateCreateInfo.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -361,7 +376,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
     /** Unsafe version of {@link #minSampleShading}. */
     public static float nminSampleShading(long struct) { return memGetFloat(struct + VkPipelineMultisampleStateCreateInfo.MINSAMPLESHADING); }
     /** Unsafe version of {@link #pSampleMask(int) pSampleMask}. */
-    public static IntBuffer npSampleMask(long struct, int capacity) { return memIntBuffer(memGetAddress(struct + VkPipelineMultisampleStateCreateInfo.PSAMPLEMASK), capacity); }
+    @Nullable public static IntBuffer npSampleMask(long struct, int capacity) { return memIntBufferSafe(memGetAddress(struct + VkPipelineMultisampleStateCreateInfo.PSAMPLEMASK), capacity); }
     /** Unsafe version of {@link #alphaToCoverageEnable}. */
     public static int nalphaToCoverageEnable(long struct) { return memGetInt(struct + VkPipelineMultisampleStateCreateInfo.ALPHATOCOVERAGEENABLE); }
     /** Unsafe version of {@link #alphaToOneEnable}. */
@@ -380,7 +395,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
     /** Unsafe version of {@link #minSampleShading(float) minSampleShading}. */
     public static void nminSampleShading(long struct, float value) { memPutFloat(struct + VkPipelineMultisampleStateCreateInfo.MINSAMPLESHADING, value); }
     /** Unsafe version of {@link #pSampleMask(IntBuffer) pSampleMask}. */
-    public static void npSampleMask(long struct, IntBuffer value) { memPutAddress(struct + VkPipelineMultisampleStateCreateInfo.PSAMPLEMASK, memAddressSafe(value)); }
+    public static void npSampleMask(long struct, @Nullable IntBuffer value) { memPutAddress(struct + VkPipelineMultisampleStateCreateInfo.PSAMPLEMASK, memAddressSafe(value)); }
     /** Unsafe version of {@link #alphaToCoverageEnable(boolean) alphaToCoverageEnable}. */
     public static void nalphaToCoverageEnable(long struct, int value) { memPutInt(struct + VkPipelineMultisampleStateCreateInfo.ALPHATOCOVERAGEENABLE, value); }
     /** Unsafe version of {@link #alphaToOneEnable(boolean) alphaToOneEnable}. */
@@ -404,7 +419,11 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -414,7 +433,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -450,6 +469,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
          *
          * @param capacity the number of elements in the returned buffer
          */
+        @Nullable
         @NativeType("const VkSampleMask *")
         public IntBuffer pSampleMask(int capacity) { return VkPipelineMultisampleStateCreateInfo.npSampleMask(address(), capacity); }
         /** Returns the value of the {@code alphaToCoverageEnable} field. */
@@ -472,7 +492,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
         /** Sets the specified value to the {@code minSampleShading} field. */
         public VkPipelineMultisampleStateCreateInfo.Buffer minSampleShading(float value) { VkPipelineMultisampleStateCreateInfo.nminSampleShading(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pSampleMask} field. */
-        public VkPipelineMultisampleStateCreateInfo.Buffer pSampleMask(@NativeType("const VkSampleMask *") IntBuffer value) { VkPipelineMultisampleStateCreateInfo.npSampleMask(address(), value); return this; }
+        public VkPipelineMultisampleStateCreateInfo.Buffer pSampleMask(@Nullable @NativeType("const VkSampleMask *") IntBuffer value) { VkPipelineMultisampleStateCreateInfo.npSampleMask(address(), value); return this; }
         /** Sets the specified value to the {@code alphaToCoverageEnable} field. */
         public VkPipelineMultisampleStateCreateInfo.Buffer alphaToCoverageEnable(@NativeType("VkBool32") boolean value) { VkPipelineMultisampleStateCreateInfo.nalphaToCoverageEnable(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code alphaToOneEnable} field. */

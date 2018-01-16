@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -179,7 +181,7 @@ public class KHXDeviceGroupCreation {
      * @param pPhysicalDeviceGroupProperties either {@code NULL} or a pointer to an array of {@link VkPhysicalDeviceGroupPropertiesKHX} structures.
      */
     @NativeType("VkResult")
-    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, @NativeType("uint32_t *") IntBuffer pPhysicalDeviceGroupCount, @NativeType("VkPhysicalDeviceGroupPropertiesKHX *") VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
+    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, @NativeType("uint32_t *") IntBuffer pPhysicalDeviceGroupCount, @Nullable @NativeType("VkPhysicalDeviceGroupPropertiesKHX *") VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
         if (CHECKS) {
             check(pPhysicalDeviceGroupCount, 1);
             checkSafe(pPhysicalDeviceGroupProperties, pPhysicalDeviceGroupCount.get(pPhysicalDeviceGroupCount.position()));
@@ -189,7 +191,7 @@ public class KHXDeviceGroupCreation {
 
     /** Array version of: {@link #vkEnumeratePhysicalDeviceGroupsKHX EnumeratePhysicalDeviceGroupsKHX} */
     @NativeType("VkResult")
-    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, @NativeType("uint32_t *") int[] pPhysicalDeviceGroupCount, @NativeType("VkPhysicalDeviceGroupPropertiesKHX *") VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
+    public static int vkEnumeratePhysicalDeviceGroupsKHX(VkInstance instance, @NativeType("uint32_t *") int[] pPhysicalDeviceGroupCount, @Nullable @NativeType("VkPhysicalDeviceGroupPropertiesKHX *") VkPhysicalDeviceGroupPropertiesKHX.Buffer pPhysicalDeviceGroupProperties) {
         long __functionAddress = instance.getCapabilities().vkEnumeratePhysicalDeviceGroupsKHX;
         if (CHECKS) {
             check(__functionAddress);

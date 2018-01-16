@@ -15,5 +15,6 @@
  * windows and the GLFW event loop are incompatible with other window toolkits (such as AWT/Swing or JavaFX) on macOS. Off-screen GLFW windows can be used
  * with other window toolkits, but only if the window toolkit is initialized before GLFW.</p>
  */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.glfw;
 

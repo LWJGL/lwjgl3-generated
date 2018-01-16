@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -103,7 +105,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         NAME = layout.offsetof(4);
     }
 
-    VkExportFenceWin32HandleInfoKHR(long address, ByteBuffer container) {
+    VkExportFenceWin32HandleInfoKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -114,7 +116,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public VkExportFenceWin32HandleInfoKHR(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -127,6 +129,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     @NativeType("const void *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+    @Nullable
     @NativeType("const SECURITY_ATTRIBUTES *")
     public SECURITY_ATTRIBUTES pAttributes() { return npAttributes(address()); }
     /** Returns the value of the {@code dwAccess} field. */
@@ -144,7 +147,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     /** Sets the specified value to the {@code pNext} field. */
     public VkExportFenceWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-    public VkExportFenceWin32HandleInfoKHR pAttributes(@NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
+    public VkExportFenceWin32HandleInfoKHR pAttributes(@Nullable @NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
     /** Sets the specified value to the {@code dwAccess} field. */
     public VkExportFenceWin32HandleInfoKHR dwAccess(@NativeType("DWORD") int value) { ndwAccess(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code name} field. */
@@ -183,12 +186,12 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
 
     /** Returns a new {@link VkExportFenceWin32HandleInfoKHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static VkExportFenceWin32HandleInfoKHR malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link VkExportFenceWin32HandleInfoKHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static VkExportFenceWin32HandleInfoKHR calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link VkExportFenceWin32HandleInfoKHR} instance allocated with {@link BufferUtils}. */
@@ -196,9 +199,15 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         return new VkExportFenceWin32HandleInfoKHR(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link VkExportFenceWin32HandleInfoKHR} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link VkExportFenceWin32HandleInfoKHR} instance for the specified memory address. */
     public static VkExportFenceWin32HandleInfoKHR create(long address) {
-        return address == NULL ? null : new VkExportFenceWin32HandleInfoKHR(address, null);
+        return new VkExportFenceWin32HandleInfoKHR(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkExportFenceWin32HandleInfoKHR createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -206,7 +215,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static VkExportFenceWin32HandleInfoKHR.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -215,8 +224,8 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static VkExportFenceWin32HandleInfoKHR.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -224,7 +233,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static VkExportFenceWin32HandleInfoKHR.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -234,8 +243,14 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static VkExportFenceWin32HandleInfoKHR.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static VkExportFenceWin32HandleInfoKHR.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -273,7 +288,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static VkExportFenceWin32HandleInfoKHR.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -282,7 +297,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static VkExportFenceWin32HandleInfoKHR.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -292,7 +307,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static VkExportFenceWin32HandleInfoKHR.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -302,7 +317,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static VkExportFenceWin32HandleInfoKHR.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -313,7 +328,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     /** Unsafe version of {@link #pNext}. */
     public static long npNext(long struct) { return memGetAddress(struct + VkExportFenceWin32HandleInfoKHR.PNEXT); }
     /** Unsafe version of {@link #pAttributes}. */
-    public static SECURITY_ATTRIBUTES npAttributes(long struct) { return SECURITY_ATTRIBUTES.create(memGetAddress(struct + VkExportFenceWin32HandleInfoKHR.PATTRIBUTES)); }
+    @Nullable public static SECURITY_ATTRIBUTES npAttributes(long struct) { return SECURITY_ATTRIBUTES.createSafe(memGetAddress(struct + VkExportFenceWin32HandleInfoKHR.PATTRIBUTES)); }
     /** Unsafe version of {@link #dwAccess}. */
     public static int ndwAccess(long struct) { return memGetInt(struct + VkExportFenceWin32HandleInfoKHR.DWACCESS); }
     /** Unsafe version of {@link #name}. */
@@ -326,12 +341,12 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     /** Unsafe version of {@link #pNext(long) pNext}. */
     public static void npNext(long struct, long value) { memPutAddress(struct + VkExportFenceWin32HandleInfoKHR.PNEXT, value); }
     /** Unsafe version of {@link #pAttributes(SECURITY_ATTRIBUTES) pAttributes}. */
-    public static void npAttributes(long struct, SECURITY_ATTRIBUTES value) { memPutAddress(struct + VkExportFenceWin32HandleInfoKHR.PATTRIBUTES, memAddressSafe(value)); }
+    public static void npAttributes(long struct, @Nullable SECURITY_ATTRIBUTES value) { memPutAddress(struct + VkExportFenceWin32HandleInfoKHR.PATTRIBUTES, memAddressSafe(value)); }
     /** Unsafe version of {@link #dwAccess(int) dwAccess}. */
     public static void ndwAccess(long struct, int value) { memPutInt(struct + VkExportFenceWin32HandleInfoKHR.DWACCESS, value); }
     /** Unsafe version of {@link #name(ByteBuffer) name}. */
     public static void nname(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT2Safe(value); }
+        if (CHECKS) { checkNT2(value); }
         memPutAddress(struct + VkExportFenceWin32HandleInfoKHR.NAME, memAddress(value));
     }
 
@@ -378,7 +393,11 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -388,7 +407,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -409,6 +428,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         @NativeType("const void *")
         public long pNext() { return VkExportFenceWin32HandleInfoKHR.npNext(address()); }
         /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
+        @Nullable
         @NativeType("const SECURITY_ATTRIBUTES *")
         public SECURITY_ATTRIBUTES pAttributes() { return VkExportFenceWin32HandleInfoKHR.npAttributes(address()); }
         /** Returns the value of the {@code dwAccess} field. */
@@ -426,7 +446,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         /** Sets the specified value to the {@code pNext} field. */
         public VkExportFenceWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkExportFenceWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-        public VkExportFenceWin32HandleInfoKHR.Buffer pAttributes(@NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { VkExportFenceWin32HandleInfoKHR.npAttributes(address(), value); return this; }
+        public VkExportFenceWin32HandleInfoKHR.Buffer pAttributes(@Nullable @NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { VkExportFenceWin32HandleInfoKHR.npAttributes(address(), value); return this; }
         /** Sets the specified value to the {@code dwAccess} field. */
         public VkExportFenceWin32HandleInfoKHR.Buffer dwAccess(@NativeType("DWORD") int value) { VkExportFenceWin32HandleInfoKHR.ndwAccess(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code name} field. */

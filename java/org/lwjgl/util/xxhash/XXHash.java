@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.xxhash;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -80,10 +82,11 @@ public class XXHash {
      * 
      * <p><b>LWJGL note</b>: This function simply delegates to the system {@code malloc()} function.</p>
      */
+    @Nullable
     @NativeType("XXH32_state_t *")
     public static XXH32State XXH32_createState() {
         long __result = nXXH32_createState();
-        return XXH32State.create(__result);
+        return XXH32State.createSafe(__result);
     }
 
     // --- [ XXH32_freeState ] ---
@@ -236,10 +239,11 @@ public class XXHash {
     public static native long nXXH64_createState();
 
     /** 64-bit version of {@link #XXH32_createState 32_createState}. */
+    @Nullable
     @NativeType("XXH64_state_t *")
     public static XXH64State XXH64_createState() {
         long __result = nXXH64_createState();
-        return XXH64State.create(__result);
+        return XXH64State.createSafe(__result);
     }
 
     // --- [ XXH64_freeState ] ---

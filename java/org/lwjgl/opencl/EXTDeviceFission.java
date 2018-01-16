@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opencl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -129,7 +131,7 @@ public class EXTDeviceFission {
     }
 
     @NativeType("cl_int")
-    public static int clCreateSubDevicesEXT(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property_ext *") LongBuffer properties, @NativeType("cl_device_id *") PointerBuffer out_devices, @NativeType("cl_uint *") IntBuffer num_devices) {
+    public static int clCreateSubDevicesEXT(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property_ext *") LongBuffer properties, @Nullable @NativeType("cl_device_id *") PointerBuffer out_devices, @Nullable @NativeType("cl_uint *") IntBuffer num_devices) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(num_devices, 1);
@@ -139,7 +141,7 @@ public class EXTDeviceFission {
 
     /** Array version of: {@link #clCreateSubDevicesEXT CreateSubDevicesEXT} */
     @NativeType("cl_int")
-    public static int clCreateSubDevicesEXT(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property_ext *") long[] properties, @NativeType("cl_device_id *") PointerBuffer out_devices, @NativeType("cl_uint *") int[] num_devices) {
+    public static int clCreateSubDevicesEXT(@NativeType("cl_device_id") long in_device, @NativeType("const cl_device_partition_property_ext *") long[] properties, @Nullable @NativeType("cl_device_id *") PointerBuffer out_devices, @Nullable @NativeType("cl_uint *") int[] num_devices) {
         long __functionAddress = CL.getICD().clCreateSubDevicesEXT;
         if (CHECKS) {
             check(__functionAddress);

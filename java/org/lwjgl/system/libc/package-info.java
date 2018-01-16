@@ -5,5 +5,6 @@
  */
 
 /** Contains bindings to standard C library APIs. */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.system.libc;
 

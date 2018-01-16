@@ -5,5 +5,6 @@
  */
 
 /** Contains bindings to native APIs specific to the Windows operating system. */
+@org.lwjgl.system.NonnullDefault
 package org.lwjgl.system.windows;
 

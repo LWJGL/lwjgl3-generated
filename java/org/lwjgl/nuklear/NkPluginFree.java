@@ -5,22 +5,30 @@
  */
 package org.lwjgl.nuklear;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class NkPluginFree extends Callback implements NkPluginFreeI {
 
-    /** Creates a {@code NkPluginFree} instance from the specified function pointer. */
+    /**
+     * Creates a {@code NkPluginFree} instance from the specified function pointer.
+     *
+     * @return the new {@code NkPluginFree}
+     */
     public static NkPluginFree create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         NkPluginFreeI instance = Callback.get(functionPointer);
         return instance instanceof NkPluginFree
             ? (NkPluginFree)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static NkPluginFree createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code NkPluginFree} instance that delegates to the specified {@code NkPluginFreeI} instance. */

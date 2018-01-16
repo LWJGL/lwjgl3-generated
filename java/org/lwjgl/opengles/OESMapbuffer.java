@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengles;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -51,21 +53,24 @@ public class OESMapbuffer {
 
     public static native long nglMapBufferOES(int target, int access);
 
+    @Nullable
     @NativeType("void *")
     public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access) {
         long __result = nglMapBufferOES(target, access);
-        return memByteBuffer(__result, GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE));
+        return memByteBufferSafe(__result, GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE));
     }
 
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access, ByteBuffer old_buffer) {
+    public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access, @Nullable ByteBuffer old_buffer) {
         long __result = nglMapBufferOES(target, access);
         int length = GLES20.glGetBufferParameteri(target, GLES20.GL_BUFFER_SIZE);
         return apiGetMappedBuffer(old_buffer, __result, length);
     }
 
+    @Nullable
     @NativeType("void *")
-    public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access, long length, ByteBuffer old_buffer) {
+    public static ByteBuffer glMapBufferOES(@NativeType("GLenum") int target, @NativeType("GLenum") int access, long length, @Nullable ByteBuffer old_buffer) {
         long __result = nglMapBufferOES(target, access);
         return apiGetMappedBuffer(old_buffer, __result, (int)length);
     }

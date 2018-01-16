@@ -5,22 +5,30 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class AIFileWriteProc extends Callback implements AIFileWriteProcI {
 
-    /** Creates a {@code AIFileWriteProc} instance from the specified function pointer. */
+    /**
+     * Creates a {@code AIFileWriteProc} instance from the specified function pointer.
+     *
+     * @return the new {@code AIFileWriteProc}
+     */
     public static AIFileWriteProc create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         AIFileWriteProcI instance = Callback.get(functionPointer);
         return instance instanceof AIFileWriteProc
             ? (AIFileWriteProc)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static AIFileWriteProc createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code AIFileWriteProc} instance that delegates to the specified {@code AIFileWriteProcI} instance. */

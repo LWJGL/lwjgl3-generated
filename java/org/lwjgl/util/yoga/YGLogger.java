@@ -5,22 +5,30 @@
  */
 package org.lwjgl.util.yoga;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
 public abstract class YGLogger extends Callback implements YGLoggerI {
 
-    /** Creates a {@code YGLogger} instance from the specified function pointer. */
+    /**
+     * Creates a {@code YGLogger} instance from the specified function pointer.
+     *
+     * @return the new {@code YGLogger}
+     */
     public static YGLogger create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         YGLoggerI instance = Callback.get(functionPointer);
         return instance instanceof YGLogger
             ? (YGLogger)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static YGLogger createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code YGLogger} instance that delegates to the specified {@code YGLoggerI} instance. */

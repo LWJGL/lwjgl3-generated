@@ -5,6 +5,8 @@
  */
 package org.lwjgl.glfw;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -18,16 +20,22 @@ import static org.lwjgl.glfw.GLFW.*;
  */
 public abstract class GLFWWindowContentScaleCallback extends Callback implements GLFWWindowContentScaleCallbackI {
 
-    /** Creates a {@code GLFWWindowContentScaleCallback} instance from the specified function pointer. */
+    /**
+     * Creates a {@code GLFWWindowContentScaleCallback} instance from the specified function pointer.
+     *
+     * @return the new {@code GLFWWindowContentScaleCallback}
+     */
     public static GLFWWindowContentScaleCallback create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         GLFWWindowContentScaleCallbackI instance = Callback.get(functionPointer);
         return instance instanceof GLFWWindowContentScaleCallback
             ? (GLFWWindowContentScaleCallback)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static GLFWWindowContentScaleCallback createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code GLFWWindowContentScaleCallback} instance that delegates to the specified {@code GLFWWindowContentScaleCallbackI} instance. */

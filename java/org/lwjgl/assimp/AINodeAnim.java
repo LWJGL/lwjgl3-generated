@@ -5,6 +5,8 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -113,7 +115,7 @@ public class AINodeAnim extends Struct implements NativeResource {
         MPOSTSTATE = layout.offsetof(8);
     }
 
-    AINodeAnim(long address, ByteBuffer container) {
+    AINodeAnim(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -124,7 +126,7 @@ public class AINodeAnim extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public AINodeAnim(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -137,18 +139,21 @@ public class AINodeAnim extends Struct implements NativeResource {
     @NativeType("unsigned int")
     public int mNumPositionKeys() { return nmNumPositionKeys(address()); }
     /** Returns a {@link AIVectorKey.Buffer} view of the struct array pointed to by the {@code mPositionKeys} field. */
+    @Nullable
     @NativeType("struct aiVectorKey *")
     public AIVectorKey.Buffer mPositionKeys() { return nmPositionKeys(address()); }
     /** Returns the value of the {@code mNumRotationKeys} field. */
     @NativeType("unsigned int")
     public int mNumRotationKeys() { return nmNumRotationKeys(address()); }
     /** Returns a {@link AIQuatKey.Buffer} view of the struct array pointed to by the {@code mRotationKeys} field. */
+    @Nullable
     @NativeType("struct aiQuatKey *")
     public AIQuatKey.Buffer mRotationKeys() { return nmRotationKeys(address()); }
     /** Returns the value of the {@code mNumScalingKeys} field. */
     @NativeType("unsigned int")
     public int mNumScalingKeys() { return nmNumScalingKeys(address()); }
     /** Returns a {@link AIVectorKey.Buffer} view of the struct array pointed to by the {@code mScalingKeys} field. */
+    @Nullable
     @NativeType("struct aiVectorKey *")
     public AIVectorKey.Buffer mScalingKeys() { return nmScalingKeys(address()); }
     /** Returns the value of the {@code mPreState} field. */
@@ -161,11 +166,11 @@ public class AINodeAnim extends Struct implements NativeResource {
     /** Copies the specified {@link AIString} to the {@code mNodeName} field. */
     public AINodeAnim mNodeName(@NativeType("struct aiString") AIString value) { nmNodeName(address(), value); return this; }
     /** Sets the address of the specified {@link AIVectorKey.Buffer} to the {@code mPositionKeys} field. */
-    public AINodeAnim mPositionKeys(@NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { nmPositionKeys(address(), value); return this; }
+    public AINodeAnim mPositionKeys(@Nullable @NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { nmPositionKeys(address(), value); return this; }
     /** Sets the address of the specified {@link AIQuatKey.Buffer} to the {@code mRotationKeys} field. */
-    public AINodeAnim mRotationKeys(@NativeType("struct aiQuatKey *") AIQuatKey.Buffer value) { nmRotationKeys(address(), value); return this; }
+    public AINodeAnim mRotationKeys(@Nullable @NativeType("struct aiQuatKey *") AIQuatKey.Buffer value) { nmRotationKeys(address(), value); return this; }
     /** Sets the address of the specified {@link AIVectorKey.Buffer} to the {@code mScalingKeys} field. */
-    public AINodeAnim mScalingKeys(@NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { nmScalingKeys(address(), value); return this; }
+    public AINodeAnim mScalingKeys(@Nullable @NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { nmScalingKeys(address(), value); return this; }
     /** Sets the specified value to the {@code mPreState} field. */
     public AINodeAnim mPreState(@NativeType("aiAnimBehaviour") int value) { nmPreState(address(), value); return this; }
     /** Sets the specified value to the {@code mPostState} field. */
@@ -206,12 +211,12 @@ public class AINodeAnim extends Struct implements NativeResource {
 
     /** Returns a new {@link AINodeAnim} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static AINodeAnim malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link AINodeAnim} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static AINodeAnim calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link AINodeAnim} instance allocated with {@link BufferUtils}. */
@@ -219,9 +224,15 @@ public class AINodeAnim extends Struct implements NativeResource {
         return new AINodeAnim(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link AINodeAnim} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link AINodeAnim} instance for the specified memory address. */
     public static AINodeAnim create(long address) {
-        return address == NULL ? null : new AINodeAnim(address, null);
+        return new AINodeAnim(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AINodeAnim createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -229,7 +240,7 @@ public class AINodeAnim extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static AINodeAnim.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -238,8 +249,8 @@ public class AINodeAnim extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static AINodeAnim.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -247,7 +258,7 @@ public class AINodeAnim extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static AINodeAnim.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -257,8 +268,14 @@ public class AINodeAnim extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static AINodeAnim.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AINodeAnim.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -296,7 +313,7 @@ public class AINodeAnim extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static AINodeAnim.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -305,7 +322,7 @@ public class AINodeAnim extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static AINodeAnim.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -315,7 +332,7 @@ public class AINodeAnim extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static AINodeAnim.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -325,7 +342,7 @@ public class AINodeAnim extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static AINodeAnim.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -336,15 +353,15 @@ public class AINodeAnim extends Struct implements NativeResource {
     /** Unsafe version of {@link #mNumPositionKeys}. */
     public static int nmNumPositionKeys(long struct) { return memGetInt(struct + AINodeAnim.MNUMPOSITIONKEYS); }
     /** Unsafe version of {@link #mPositionKeys}. */
-    public static AIVectorKey.Buffer nmPositionKeys(long struct) { return AIVectorKey.create(memGetAddress(struct + AINodeAnim.MPOSITIONKEYS), nmNumPositionKeys(struct)); }
+    @Nullable public static AIVectorKey.Buffer nmPositionKeys(long struct) { return AIVectorKey.createSafe(memGetAddress(struct + AINodeAnim.MPOSITIONKEYS), nmNumPositionKeys(struct)); }
     /** Unsafe version of {@link #mNumRotationKeys}. */
     public static int nmNumRotationKeys(long struct) { return memGetInt(struct + AINodeAnim.MNUMROTATIONKEYS); }
     /** Unsafe version of {@link #mRotationKeys}. */
-    public static AIQuatKey.Buffer nmRotationKeys(long struct) { return AIQuatKey.create(memGetAddress(struct + AINodeAnim.MROTATIONKEYS), nmNumRotationKeys(struct)); }
+    @Nullable public static AIQuatKey.Buffer nmRotationKeys(long struct) { return AIQuatKey.createSafe(memGetAddress(struct + AINodeAnim.MROTATIONKEYS), nmNumRotationKeys(struct)); }
     /** Unsafe version of {@link #mNumScalingKeys}. */
     public static int nmNumScalingKeys(long struct) { return memGetInt(struct + AINodeAnim.MNUMSCALINGKEYS); }
     /** Unsafe version of {@link #mScalingKeys}. */
-    public static AIVectorKey.Buffer nmScalingKeys(long struct) { return AIVectorKey.create(memGetAddress(struct + AINodeAnim.MSCALINGKEYS), nmNumScalingKeys(struct)); }
+    @Nullable public static AIVectorKey.Buffer nmScalingKeys(long struct) { return AIVectorKey.createSafe(memGetAddress(struct + AINodeAnim.MSCALINGKEYS), nmNumScalingKeys(struct)); }
     /** Unsafe version of {@link #mPreState}. */
     public static int nmPreState(long struct) { return memGetInt(struct + AINodeAnim.MPRESTATE); }
     /** Unsafe version of {@link #mPostState}. */
@@ -355,15 +372,15 @@ public class AINodeAnim extends Struct implements NativeResource {
     /** Sets the specified value to the {@code mNumPositionKeys} field of the specified {@code struct}. */
     public static void nmNumPositionKeys(long struct, int value) { memPutInt(struct + AINodeAnim.MNUMPOSITIONKEYS, value); }
     /** Unsafe version of {@link #mPositionKeys(AIVectorKey.Buffer) mPositionKeys}. */
-    public static void nmPositionKeys(long struct, AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MPOSITIONKEYS, memAddressSafe(value)); nmNumPositionKeys(struct, value == null ? 0 : value.remaining()); }
+    public static void nmPositionKeys(long struct, @Nullable AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MPOSITIONKEYS, memAddressSafe(value)); nmNumPositionKeys(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code mNumRotationKeys} field of the specified {@code struct}. */
     public static void nmNumRotationKeys(long struct, int value) { memPutInt(struct + AINodeAnim.MNUMROTATIONKEYS, value); }
     /** Unsafe version of {@link #mRotationKeys(AIQuatKey.Buffer) mRotationKeys}. */
-    public static void nmRotationKeys(long struct, AIQuatKey.Buffer value) { memPutAddress(struct + AINodeAnim.MROTATIONKEYS, memAddressSafe(value)); nmNumRotationKeys(struct, value == null ? 0 : value.remaining()); }
+    public static void nmRotationKeys(long struct, @Nullable AIQuatKey.Buffer value) { memPutAddress(struct + AINodeAnim.MROTATIONKEYS, memAddressSafe(value)); nmNumRotationKeys(struct, value == null ? 0 : value.remaining()); }
     /** Sets the specified value to the {@code mNumScalingKeys} field of the specified {@code struct}. */
     public static void nmNumScalingKeys(long struct, int value) { memPutInt(struct + AINodeAnim.MNUMSCALINGKEYS, value); }
     /** Unsafe version of {@link #mScalingKeys(AIVectorKey.Buffer) mScalingKeys}. */
-    public static void nmScalingKeys(long struct, AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MSCALINGKEYS, memAddressSafe(value)); nmNumScalingKeys(struct, value == null ? 0 : value.remaining()); }
+    public static void nmScalingKeys(long struct, @Nullable AIVectorKey.Buffer value) { memPutAddress(struct + AINodeAnim.MSCALINGKEYS, memAddressSafe(value)); nmNumScalingKeys(struct, value == null ? 0 : value.remaining()); }
     /** Unsafe version of {@link #mPreState(int) mPreState}. */
     public static void nmPreState(long struct, int value) { memPutInt(struct + AINodeAnim.MPRESTATE, value); }
     /** Unsafe version of {@link #mPostState(int) mPostState}. */
@@ -416,7 +433,11 @@ public class AINodeAnim extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -426,7 +447,7 @@ public class AINodeAnim extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 
@@ -447,18 +468,21 @@ public class AINodeAnim extends Struct implements NativeResource {
         @NativeType("unsigned int")
         public int mNumPositionKeys() { return AINodeAnim.nmNumPositionKeys(address()); }
         /** Returns a {@link AIVectorKey.Buffer} view of the struct array pointed to by the {@code mPositionKeys} field. */
+        @Nullable
         @NativeType("struct aiVectorKey *")
         public AIVectorKey.Buffer mPositionKeys() { return AINodeAnim.nmPositionKeys(address()); }
         /** Returns the value of the {@code mNumRotationKeys} field. */
         @NativeType("unsigned int")
         public int mNumRotationKeys() { return AINodeAnim.nmNumRotationKeys(address()); }
         /** Returns a {@link AIQuatKey.Buffer} view of the struct array pointed to by the {@code mRotationKeys} field. */
+        @Nullable
         @NativeType("struct aiQuatKey *")
         public AIQuatKey.Buffer mRotationKeys() { return AINodeAnim.nmRotationKeys(address()); }
         /** Returns the value of the {@code mNumScalingKeys} field. */
         @NativeType("unsigned int")
         public int mNumScalingKeys() { return AINodeAnim.nmNumScalingKeys(address()); }
         /** Returns a {@link AIVectorKey.Buffer} view of the struct array pointed to by the {@code mScalingKeys} field. */
+        @Nullable
         @NativeType("struct aiVectorKey *")
         public AIVectorKey.Buffer mScalingKeys() { return AINodeAnim.nmScalingKeys(address()); }
         /** Returns the value of the {@code mPreState} field. */
@@ -471,11 +495,11 @@ public class AINodeAnim extends Struct implements NativeResource {
         /** Copies the specified {@link AIString} to the {@code mNodeName} field. */
         public AINodeAnim.Buffer mNodeName(@NativeType("struct aiString") AIString value) { AINodeAnim.nmNodeName(address(), value); return this; }
         /** Sets the address of the specified {@link AIVectorKey.Buffer} to the {@code mPositionKeys} field. */
-        public AINodeAnim.Buffer mPositionKeys(@NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { AINodeAnim.nmPositionKeys(address(), value); return this; }
+        public AINodeAnim.Buffer mPositionKeys(@Nullable @NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { AINodeAnim.nmPositionKeys(address(), value); return this; }
         /** Sets the address of the specified {@link AIQuatKey.Buffer} to the {@code mRotationKeys} field. */
-        public AINodeAnim.Buffer mRotationKeys(@NativeType("struct aiQuatKey *") AIQuatKey.Buffer value) { AINodeAnim.nmRotationKeys(address(), value); return this; }
+        public AINodeAnim.Buffer mRotationKeys(@Nullable @NativeType("struct aiQuatKey *") AIQuatKey.Buffer value) { AINodeAnim.nmRotationKeys(address(), value); return this; }
         /** Sets the address of the specified {@link AIVectorKey.Buffer} to the {@code mScalingKeys} field. */
-        public AINodeAnim.Buffer mScalingKeys(@NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { AINodeAnim.nmScalingKeys(address(), value); return this; }
+        public AINodeAnim.Buffer mScalingKeys(@Nullable @NativeType("struct aiVectorKey *") AIVectorKey.Buffer value) { AINodeAnim.nmScalingKeys(address(), value); return this; }
         /** Sets the specified value to the {@code mPreState} field. */
         public AINodeAnim.Buffer mPreState(@NativeType("aiAnimBehaviour") int value) { AINodeAnim.nmPreState(address(), value); return this; }
         /** Sets the specified value to the {@code mPostState} field. */

@@ -5,6 +5,8 @@
  */
 package org.lwjgl.bgfx;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -12,16 +14,22 @@ import static org.lwjgl.system.MemoryUtil.*;
 /** Profiler region end. */
 public abstract class BGFXProfilerEnd extends Callback implements BGFXProfilerEndI {
 
-    /** Creates a {@code BGFXProfilerEnd} instance from the specified function pointer. */
+    /**
+     * Creates a {@code BGFXProfilerEnd} instance from the specified function pointer.
+     *
+     * @return the new {@code BGFXProfilerEnd}
+     */
     public static BGFXProfilerEnd create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         BGFXProfilerEndI instance = Callback.get(functionPointer);
         return instance instanceof BGFXProfilerEnd
             ? (BGFXProfilerEnd)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static BGFXProfilerEnd createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code BGFXProfilerEnd} instance that delegates to the specified {@code BGFXProfilerEndI} instance. */

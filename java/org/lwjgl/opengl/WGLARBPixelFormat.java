@@ -5,6 +5,8 @@
  */
 package org.lwjgl.opengl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -232,7 +234,7 @@ public class WGLARBPixelFormat {
      * @param numFormats  returns the number of matching formats
      */
     @NativeType("BOOL")
-    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @NativeType("const int *") IntBuffer attribIList, @NativeType("const FLOAT *") FloatBuffer attribFList, @NativeType("int *") IntBuffer formats, @NativeType("UINT *") IntBuffer numFormats) {
+    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @Nullable @NativeType("const int *") IntBuffer attribIList, @Nullable @NativeType("const FLOAT *") FloatBuffer attribFList, @NativeType("int *") IntBuffer formats, @NativeType("UINT *") IntBuffer numFormats) {
         if (CHECKS) {
             checkNTSafe(attribIList);
             checkNTSafe(attribFList);
@@ -267,7 +269,7 @@ public class WGLARBPixelFormat {
 
     /** Array version of: {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
     @NativeType("BOOL")
-    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @NativeType("const int *") int[] attribIList, @NativeType("const FLOAT *") float[] attribFList, @NativeType("int *") int[] formats, @NativeType("UINT *") int[] numFormats) {
+    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @Nullable @NativeType("const int *") int[] attribIList, @Nullable @NativeType("const FLOAT *") float[] attribFList, @NativeType("int *") int[] formats, @NativeType("UINT *") int[] numFormats) {
         long __functionAddress = GL.getCapabilitiesWGL().wglChoosePixelFormatARB;
         if (CHECKS) {
             check(__functionAddress);

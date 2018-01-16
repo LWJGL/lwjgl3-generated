@@ -5,6 +5,8 @@
  */
 package org.lwjgl.openal;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -65,7 +67,7 @@ public class ALC11 {
      * @param samples    the number of sample frames to buffer in the AL
      */
     @NativeType("ALCdevice *")
-    public static long alcCaptureOpenDevice(@NativeType("const ALCchar *") ByteBuffer deviceName, @NativeType("ALCuint") int frequency, @NativeType("ALCenum") int format, @NativeType("ALCsizei") int samples) {
+    public static long alcCaptureOpenDevice(@Nullable @NativeType("const ALCchar *") ByteBuffer deviceName, @NativeType("ALCuint") int frequency, @NativeType("ALCenum") int format, @NativeType("ALCsizei") int samples) {
         if (CHECKS) {
             checkNT1Safe(deviceName);
         }
@@ -84,10 +86,10 @@ public class ALC11 {
      * @param samples    the number of sample frames to buffer in the AL
      */
     @NativeType("ALCdevice *")
-    public static long alcCaptureOpenDevice(@NativeType("const ALCchar *") CharSequence deviceName, @NativeType("ALCuint") int frequency, @NativeType("ALCenum") int format, @NativeType("ALCsizei") int samples) {
+    public static long alcCaptureOpenDevice(@Nullable @NativeType("const ALCchar *") CharSequence deviceName, @NativeType("ALCuint") int frequency, @NativeType("ALCenum") int format, @NativeType("ALCsizei") int samples) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer deviceNameEncoded = stack.UTF8(deviceName);
+            ByteBuffer deviceNameEncoded = stack.UTF8Safe(deviceName);
             return nalcCaptureOpenDevice(memAddressSafe(deviceNameEncoded), frequency, format, samples);
         } finally {
             stack.setPointer(stackPointer);

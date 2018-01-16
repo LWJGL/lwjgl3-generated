@@ -5,6 +5,8 @@
  */
 package org.lwjgl.assimp;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -106,7 +108,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
         MFILEEXTENSIONS = layout.offsetof(9);
     }
 
-    AIImporterDesc(long address, ByteBuffer container) {
+    AIImporterDesc(long address, @Nullable ByteBuffer container) {
         super(address, container);
     }
 
@@ -117,7 +119,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
      * <p>The created instance holds a strong reference to the container object.</p>
      */
     public AIImporterDesc(ByteBuffer container) {
-        this(memAddress(container), checkContainer(container, SIZEOF));
+        this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
     @Override
@@ -233,12 +235,12 @@ public class AIImporterDesc extends Struct implements NativeResource {
 
     /** Returns a new {@link AIImporterDesc} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
     public static AIImporterDesc malloc() {
-        return create(nmemAlloc(SIZEOF));
+        return create(nmemAllocChecked(SIZEOF));
     }
 
     /** Returns a new {@link AIImporterDesc} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
     public static AIImporterDesc calloc() {
-        return create(nmemCalloc(1, SIZEOF));
+        return create(nmemCallocChecked(1, SIZEOF));
     }
 
     /** Returns a new {@link AIImporterDesc} instance allocated with {@link BufferUtils}. */
@@ -246,9 +248,15 @@ public class AIImporterDesc extends Struct implements NativeResource {
         return new AIImporterDesc(BufferUtils.createByteBuffer(SIZEOF));
     }
 
-    /** Returns a new {@link AIImporterDesc} instance for the specified memory address or {@code null} if the address is {@code NULL}. */
+    /** Returns a new {@link AIImporterDesc} instance for the specified memory address. */
     public static AIImporterDesc create(long address) {
-        return address == NULL ? null : new AIImporterDesc(address, null);
+        return new AIImporterDesc(address, null);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AIImporterDesc createSafe(long address) {
+        return address == NULL ? null : create(address);
     }
 
     /**
@@ -256,7 +264,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer malloc(int capacity) {
+    public static AIImporterDesc.Buffer malloc(int capacity) {
         return create(__malloc(capacity, SIZEOF), capacity);
     }
 
@@ -265,8 +273,8 @@ public class AIImporterDesc extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer calloc(int capacity) {
-        return create(nmemCalloc(capacity, SIZEOF), capacity);
+    public static AIImporterDesc.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
     }
 
     /**
@@ -274,7 +282,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer create(int capacity) {
+    public static AIImporterDesc.Buffer create(int capacity) {
         return new Buffer(__create(capacity, SIZEOF));
     }
 
@@ -284,8 +292,14 @@ public class AIImporterDesc extends Struct implements NativeResource {
      * @param address  the memory address
      * @param capacity the buffer capacity
      */
-    public static Buffer create(long address, int capacity) {
-        return address == NULL ? null : new Buffer(address, null, -1, 0, capacity, capacity);
+    public static AIImporterDesc.Buffer create(long address, int capacity) {
+        return new Buffer(address, capacity);
+    }
+
+    /** Like {@link #create(long, int) create}, but returns {@code null} if {@code address} is {@code NULL}. */
+    @Nullable
+    public static AIImporterDesc.Buffer createSafe(long address, int capacity) {
+        return address == NULL ? null : create(address, capacity);
     }
 
     // -----------------------------------
@@ -323,7 +337,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity) {
+    public static AIImporterDesc.Buffer mallocStack(int capacity) {
         return mallocStack(capacity, stackGet());
     }
 
@@ -332,7 +346,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
      *
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity) {
+    public static AIImporterDesc.Buffer callocStack(int capacity) {
         return callocStack(capacity, stackGet());
     }
 
@@ -342,7 +356,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer mallocStack(int capacity, MemoryStack stack) {
+    public static AIImporterDesc.Buffer mallocStack(int capacity, MemoryStack stack) {
         return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
     }
 
@@ -352,7 +366,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
      * @param stack the stack from which to allocate
      * @param capacity the buffer capacity
      */
-    public static Buffer callocStack(int capacity, MemoryStack stack) {
+    public static AIImporterDesc.Buffer callocStack(int capacity, MemoryStack stack) {
         return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
@@ -391,22 +405,22 @@ public class AIImporterDesc extends Struct implements NativeResource {
 
     /** Unsafe version of {@link #mName(ByteBuffer) mName}. */
     public static void nmName(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT1Safe(value); }
+        if (CHECKS) { checkNT1(value); }
         memPutAddress(struct + AIImporterDesc.MNAME, memAddress(value));
     }
     /** Unsafe version of {@link #mAuthor(ByteBuffer) mAuthor}. */
     public static void nmAuthor(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT1Safe(value); }
+        if (CHECKS) { checkNT1(value); }
         memPutAddress(struct + AIImporterDesc.MAUTHOR, memAddress(value));
     }
     /** Unsafe version of {@link #mMaintainer(ByteBuffer) mMaintainer}. */
     public static void nmMaintainer(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT1Safe(value); }
+        if (CHECKS) { checkNT1(value); }
         memPutAddress(struct + AIImporterDesc.MMAINTAINER, memAddress(value));
     }
     /** Unsafe version of {@link #mComments(ByteBuffer) mComments}. */
     public static void nmComments(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT1Safe(value); }
+        if (CHECKS) { checkNT1(value); }
         memPutAddress(struct + AIImporterDesc.MCOMMENTS, memAddress(value));
     }
     /** Unsafe version of {@link #mFlags(int) mFlags}. */
@@ -421,7 +435,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
     public static void nmMaxMinor(long struct, int value) { memPutInt(struct + AIImporterDesc.MMAXMINOR, value); }
     /** Unsafe version of {@link #mFileExtensions(ByteBuffer) mFileExtensions}. */
     public static void nmFileExtensions(long struct, ByteBuffer value) {
-        if (CHECKS) { checkNT1Safe(value); }
+        if (CHECKS) { checkNT1(value); }
         memPutAddress(struct + AIImporterDesc.MFILEEXTENSIONS, memAddress(value));
     }
 
@@ -468,7 +482,11 @@ public class AIImporterDesc extends Struct implements NativeResource {
             super(container, container.remaining() / SIZEOF);
         }
 
-        Buffer(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        public Buffer(long address, int cap) {
+            super(address, null, -1, 0, cap, cap);
+        }
+
+        Buffer(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             super(address, container, mark, pos, lim, cap);
         }
 
@@ -478,7 +496,7 @@ public class AIImporterDesc extends Struct implements NativeResource {
         }
 
         @Override
-        protected Buffer newBufferInstance(long address, ByteBuffer container, int mark, int pos, int lim, int cap) {
+        protected Buffer newBufferInstance(long address, @Nullable ByteBuffer container, int mark, int pos, int lim, int cap) {
             return new Buffer(address, container, mark, pos, lim, cap);
         }
 

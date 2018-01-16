@@ -5,6 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
+import javax.annotation.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
@@ -33,16 +35,22 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public abstract class VkInternalAllocationNotification extends Callback implements VkInternalAllocationNotificationI {
 
-    /** Creates a {@code VkInternalAllocationNotification} instance from the specified function pointer. */
+    /**
+     * Creates a {@code VkInternalAllocationNotification} instance from the specified function pointer.
+     *
+     * @return the new {@code VkInternalAllocationNotification}
+     */
     public static VkInternalAllocationNotification create(long functionPointer) {
-        if (functionPointer == NULL) {
-            return null;
-        }
-
         VkInternalAllocationNotificationI instance = Callback.get(functionPointer);
         return instance instanceof VkInternalAllocationNotification
             ? (VkInternalAllocationNotification)instance
             : new Container(functionPointer, instance);
+    }
+
+    /** Like {@link #create(long) create}, but returns {@code null} if {@code functionPointer} is {@code NULL}. */
+    @Nullable
+    public static VkInternalAllocationNotification createSafe(long functionPointer) {
+        return functionPointer == NULL ? null : create(functionPointer);
     }
 
     /** Creates a {@code VkInternalAllocationNotification} instance that delegates to the specified {@code VkInternalAllocationNotificationI} instance. */

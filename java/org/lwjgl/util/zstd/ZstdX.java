@@ -5,6 +5,8 @@
  */
 package org.lwjgl.util.zstd;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.*;
@@ -640,10 +642,11 @@ public class ZstdX {
 
     private static native long nZSTD_defaultCMem();
 
+    @Nullable
     @NativeType("ZSTD_customMem *")
     private static ZSTDCustomMem ZSTD_defaultCMem() {
         long __result = nZSTD_defaultCMem();
-        return ZSTDCustomMem.create(__result);
+        return ZSTDCustomMem.createSafe(__result);
     }
 
     /** Use this constant to defer to stdlib's functions. */
@@ -1048,7 +1051,7 @@ public class ZstdX {
      * @return 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_loadDictionary(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const void *") ByteBuffer dict) {
+    public static long ZSTD_CCtx_loadDictionary(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer dict) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1067,7 +1070,7 @@ public class ZstdX {
      * @param dict 
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_loadDictionary_byReference(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const void *") ByteBuffer dict) {
+    public static long ZSTD_CCtx_loadDictionary_byReference(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer dict) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1088,7 +1091,7 @@ public class ZstdX {
      * @param dictMode       one of:<br><table><tr><td>{@link #ZSTD_dm_auto dm_auto}</td><td>{@link #ZSTD_dm_rawContent dm_rawContent}</td><td>{@link #ZSTD_dm_fullDict dm_fullDict}</td></tr></table>
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_loadDictionary_advanced(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const void *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod, @NativeType("ZSTD_dictMode_e") int dictMode) {
+    public static long ZSTD_CCtx_loadDictionary_advanced(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod, @NativeType("ZSTD_dictMode_e") int dictMode) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1158,7 +1161,7 @@ public class ZstdX {
      * @return 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_refPrefix(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const void *") ByteBuffer prefix) {
+    public static long ZSTD_CCtx_refPrefix(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer prefix) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1178,7 +1181,7 @@ public class ZstdX {
      * @param dictMode one of:<br><table><tr><td>{@link #ZSTD_dm_auto dm_auto}</td><td>{@link #ZSTD_dm_rawContent dm_rawContent}</td><td>{@link #ZSTD_dm_fullDict dm_fullDict}</td></tr></table>
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_refPrefix_advanced(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const void *") ByteBuffer prefix, @NativeType("ZSTD_dictMode_e") int dictMode) {
+    public static long ZSTD_CCtx_refPrefix_advanced(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer prefix, @NativeType("ZSTD_dictMode_e") int dictMode) {
         if (CHECKS) {
             check(cctx);
         }
