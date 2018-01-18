@@ -184,7 +184,7 @@ public class EXTDebugReport {
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT}</li>
+     * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT_EXT DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT_EXT}</li>
      * </ul>
      */
     public static final int
@@ -221,7 +221,7 @@ public class EXTDebugReport {
         VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT             = 30,
         VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT             = 31,
         VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT = 32,
-        VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT             = 33;
+        VK_DEBUG_REPORT_OBJECT_TYPE_VALIDATION_CACHE_EXT_EXT         = 33;
 
     /**
      * VkDebugReportFlagBitsEXT - Bitmask specifying events which cause a debug report callback

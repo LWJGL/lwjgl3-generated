@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * The OpenCL 1.0 OpenGL interoperability functionality.
  * 
  * <p>OpenCL memory objects may be created from OpenGL objects if and only if the OpenCL context has been created from an OpenGL share group object or
- * context. OpenGL share groups and contexts are created using platform specific APIs such as EGL, CGL, WGL, and GLX. On MacOS X, an OpenCL context
+ * context. OpenGL share groups and contexts are created using platform specific APIs such as EGL, CGL, WGL, and GLX. On macOS, an OpenCL context
  * may be created from an OpenGL share group object using the OpenCL platform extension <strong>cl_apple_gl_sharing</strong>. On other platforms
  * including Microsoft Windows, Linux/Unix and others, an OpenCL context may be created from an OpenGL context using the Khronos platform extension
  * <strong>cl_khr_gl_sharing</strong>.</p>

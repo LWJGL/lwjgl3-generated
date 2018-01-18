@@ -22,6 +22,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <p>If the combination of parameters to {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} is not supported by the implementation for use in {@link VK10#vkCreateImage CreateImage}, then all members of {@code imageFormatProperties} will be filled with zero.</p>
  * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>Filling {@code imageFormatProperties} with zero for unsupported formats is an exception to the usual rule that output structures have undefined contents on error. This exception was unintentional, but is preserved for backwards compatibility. This exeption only applies to {@code imageFormatProperties}, not {@code sType}, {@code pNext}, or any structures chained from {@code pNext}.</p>
+ * </div>
+ * 
  * <h5>Valid Usage (Implicit)</h5>
  * 
  * <ul>

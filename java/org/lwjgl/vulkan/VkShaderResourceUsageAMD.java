@@ -19,8 +19,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code numUsedVgprs} &ndash; the number of vector instruction general purpose registers used by this shader.</li>
- * <li>{@code numUsedSgprs} &ndash; the number of scalar instruction general purpose registers used by this shader.</li>
+ * <li>{@code numUsedVgprs} &ndash; the number of vector instruction general-purpose registers used by this shader.</li>
+ * <li>{@code numUsedSgprs} &ndash; the number of scalar instruction general-purpose registers used by this shader.</li>
  * <li>{@code ldsSizePerLocalWorkGroup} &ndash; the maximum local data store size per work group in bytes.</li>
  * <li>{@code ldsUsageSizeInBytes} &ndash; the LDS usage size in bytes per work group by this shader.</li>
  * <li>{@code scratchMemUsageInBytes} &ndash; the scratch memory usage in bytes by this shader.</li>

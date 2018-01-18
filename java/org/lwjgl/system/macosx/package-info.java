@@ -4,7 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 
-/** Contains bindings to native APIs specific to the Mac OS X operating system. */
+/** Contains bindings to native APIs specific to the macOS operating system. */
 @org.lwjgl.system.NonnullDefault
 package org.lwjgl.system.macosx;
 
