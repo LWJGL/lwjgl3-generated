@@ -41,7 +41,7 @@ import static org.lwjgl.system.JNI.*;
  * <li>James Jones, NVIDIA</li>
  * <li>Jeff Juliano, NVIDIA</li>
  * <li>Cass Everitt, Oculus</li>
- * <li>Contributors to {@link KHRExternalSemaphoreCapablities VK_KHR_external_semaphore_capablities}</li>
+ * <li>Contributors to {@link KHRExternalSemaphoreCapabilities VK_KHR_external_semaphore_capabilities}</li>
  * </ul></dd>
  * </dl>
  */

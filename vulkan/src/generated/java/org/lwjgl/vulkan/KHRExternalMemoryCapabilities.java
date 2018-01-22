@@ -150,7 +150,7 @@ public class KHRExternalMemoryCapabilities {
      * <ul>
      * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR} specifies that images or buffers created with the specified parameters and handle type <b>must</b> use the mechanisms defined in the {@link NVDedicatedAllocation VK_NV_dedicated_allocation} extension to create (or import) a dedicated allocation for the image or buffer.</li>
      * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHR EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_KHR} specifies that handles of this type <b>can</b> be exported from Vulkan memory objects.</li>
-     * <li>{@link #VK_INTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR INTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR} specifies that handles of this type <b>can</b> be imported as Vulkan memory objects.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR} specifies that handles of this type <b>can</b> be imported as Vulkan memory objects.</li>
      * </ul>
      * 
      * <p>Because their semantics in external APIs roughly align with that of an image or buffer with a dedicated allocation in Vulkan, implementations are required: to report {@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR} for the following external handle types:</p>
@@ -164,12 +164,6 @@ public class KHRExternalMemoryCapabilities {
      * <h5>See Also</h5>
      * 
      * <p>{@code VkExternalMemoryFeatureFlagsKHR}</p>
-     * 
-     * <h5>Enum values:</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_KHR}</li>
-     * </ul>
      */
     public static final int
         VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_KHR = 0x1,

@@ -4,7 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-#include "MacOSXLWJGL.h"
+#include "macOSLWJGL.h"
 
 EXTERN_C_ENTER
 

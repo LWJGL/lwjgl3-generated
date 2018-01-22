@@ -4,7 +4,7 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
-#include "simd/intrinsics.h"
+#include "intrinsics.h"
 
 EXTERN_C_ENTER
 
