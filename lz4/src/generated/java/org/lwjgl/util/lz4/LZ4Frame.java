@@ -265,14 +265,14 @@ public class LZ4Frame {
     public static native long nLZ4F_compressBound(long srcSize, long prefsPtr);
 
     /**
-     * Provides {@code dstCapacity} given a {@code srcSize} to guarantee operation success in worst case situations.
+     * Provides minimum {@code dstCapacity} for a given {@code srcSize} to guarantee operation success in worst case situations.
      * 
      * <p>Result is always the same for a {@code srcSize} and {@code prefsPtr}, so it can be trusted to size reusable buffers.</p>
      * 
      * <p>When {@code srcSize==0}, {@code LZ4F_compressBound()} provides an upper bound for {@link #LZ4F_flush flush} and {@link #LZ4F_compressEnd compressEnd} operations.</p>
      *
      * @param srcSize  
-     * @param prefsPtr optional: you can provide {@code NULL} as argument, preferences will be set to cover worst case scenario
+     * @param prefsPtr optional: when {@code NULL} is provided, preferences will be set to cover worst case scenario
      */
     @NativeType("size_t")
     public static long LZ4F_compressBound(@NativeType("size_t") long srcSize, @Nullable @NativeType("const LZ4F_preferences_t *") LZ4FPreferences prefsPtr) {
@@ -461,17 +461,18 @@ public class LZ4Frame {
     public static native long nLZ4F_decompress(long dctx, long dstBuffer, long dstSizePtr, long srcBuffer, long srcSizePtr, long dOptPtr);
 
     /**
-     * Call this function repetitively to regenerate compressed data from {@code srcBuffer}. The function will attempt to decode up to {@code *srcSizePtr}
-     * bytes from {@code srcBuffer}, into {@code dstBuffer} of capacity {@code *dstSizePtr}.
+     * Call this function repetitively to regenerate compressed data from {@code srcBuffer}. The function will read up to {@code *srcSizePtr}
+     * bytes from {@code srcBuffer}, and decompress data into {@code dstBuffer}, of capacity {@code *dstSizePtr}.
+     * 
+     * <p>The number of bytes consumed from {@code srcBuffer} will be written into {@code *srcSizePtr} (necessarily &le; original value). The number of bytes
+     * decompressed into {@code dstBuffer} will be written into {@code *dstSizePtr} (necessarily &le; original value).</p>
      * 
      * <p>The number of bytes regenerated into {@code dstBuffer} is provided within {@code *dstSizePtr} (necessarily &le; original value).</p>
      * 
-     * <p>The number of bytes consumed from {@code srcBuffer} is provided within {@code *srcSizePtr} (necessarily &le; original value). Number of bytes consumed
-     * can be &lt; number of bytes provided. It typically happens when {@code dstBuffer} is not large enough to contain all decoded data. Unconsumed source
-     * data must be presented again in subsequent invocations.</p>
+     * <p>The function does not necessarily read all input bytes, so always check value in {@code *srcSizePtr}. Unconsumed source data must be presented again in
+     * subsequent invocations.</p>
      * 
-     * <p>{@code dstBuffer} content is expected to be flushed between each invocation, as its content will be overwritten. {@code dstBuffer} itself can be
-     * changed at will between each consecutive function invocation.</p>
+     * <p>{@code dstBuffer} can freely change between each consecutive function invocation. {@code dstBuffer} content will be overwritten.</p>
      * 
      * <p>After a frame is fully decoded, {@code dctx} can be used again to decompress another frame.</p>
      * 
@@ -487,10 +488,13 @@ public class LZ4Frame {
      * @return a hint of how many {@code srcSize} bytes {@code LZ4F_decompress()} expects for next call.
      *         
      *         <p>Schematically, it's the size of the current (or remaining) compressed block + header of next block. Respecting the hint provides some small speed
-     *         benefit, because it skips intermediate buffers. This is just a hint though, it's always possible to provide any {@code srcSize}. When a frame is fully
-     *         decoded, return will be 0 (no more data expected).</p>
+     *         benefit, because it skips intermediate buffers. This is just a hint though, it's always possible to provide any {@code srcSize}.</p>
      *         
-     *         <p>If decompression failed, return is an error code, which can be tested using {@link #LZ4F_isError isError}.</p>
+     *         <p>When a frame is fully decoded, return will be 0 (no more data expected). When provided with more bytes than necessary to decode a frame,
+     *         {@code LZ4F_decompress()} will stop reading exactly at end of current frame, and return 0.</p>
+     *         
+     *         <p>If decompression failed, return is an error code, which can be tested using {@link #LZ4F_isError isError}. After a decompression error, the {@code dctx} context is not
+     *         resumable. Use {@link #LZ4F_resetDecompressionContext resetDecompressionContext} to return to clean state.</p>
      */
     @NativeType("size_t")
     public static long LZ4F_decompress(@NativeType("LZ4F_dctx *") long dctx, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("size_t *") PointerBuffer dstSizePtr, @NativeType("const void *") ByteBuffer srcBuffer, @NativeType("size_t *") PointerBuffer srcSizePtr, @NativeType("const LZ4F_decompressOptions_t *") LZ4FDecompressOptions dOptPtr) {
@@ -512,9 +516,11 @@ public class LZ4Frame {
     /**
      * In case of an error, the context is left in "undefined" state. In which case, it's necessary to reset it, before re-using it.
      * 
-     * <p>This method can also be used to abruptly stop an unfinished decompression, and start a new one using the same context.</p>
+     * <p>This method can also be used to abruptly stop an unfinished decompression, and start a new one using the same context resources.</p>
      *
      * @param dctx 
+     *
+     * @since 1.8.0
      */
     public static void LZ4F_resetDecompressionContext(@NativeType("LZ4F_dctx *") long dctx) {
         if (CHECKS) {

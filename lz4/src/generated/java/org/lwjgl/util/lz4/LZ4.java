@@ -36,7 +36,7 @@ public class LZ4 {
     public static final int
         LZ4_VERSION_MAJOR   = 1,
         LZ4_VERSION_MINOR   = 8,
-        LZ4_VERSION_RELEASE = 0;
+        LZ4_VERSION_RELEASE = 1;
 
     /** Version number. */
     public static final int LZ4_VERSION_NUMBER = (LZ4_VERSION_MAJOR *100*100 + LZ4_VERSION_MINOR *100 + LZ4_VERSION_RELEASE);
