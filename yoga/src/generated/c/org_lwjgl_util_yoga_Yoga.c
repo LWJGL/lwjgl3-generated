@@ -171,6 +171,19 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetBaselineFunc(JNI
     return (jlong)(intptr_t)YGNodeGetBaselineFunc(node);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeSetDirtiedFunc(JNIEnv *__env, jclass clazz, jlong nodeAddress, jlong dirtiedFuncAddress) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    YGDirtiedFunc dirtiedFunc = (YGDirtiedFunc)(intptr_t)dirtiedFuncAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGNodeSetDirtiedFunc(node, dirtiedFunc);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetDirtiedFunc(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jlong)(intptr_t)YGNodeGetDirtiedFunc(node);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeSetPrintFunc(JNIEnv *__env, jclass clazz, jlong nodeAddress, jlong printFuncAddress) {
     const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
     YGPrintFunc printFunc = (YGPrintFunc)(intptr_t)printFuncAddress;

@@ -662,6 +662,29 @@ public class Yoga {
         return YGBaselineFunc.createSafe(nYGNodeGetBaselineFunc(node));
     }
 
+    // --- [ YGNodeSetDirtiedFunc ] ---
+
+    public static native void nYGNodeSetDirtiedFunc(long node, long dirtiedFunc);
+
+    public static void YGNodeSetDirtiedFunc(@NativeType("const YGNodeRef") long node, @NativeType("YGDirtiedFunc") YGDirtiedFuncI dirtiedFunc) {
+        if (CHECKS) {
+            check(node);
+        }
+        nYGNodeSetDirtiedFunc(node, dirtiedFunc.address());
+    }
+
+    // --- [ YGNodeGetDirtiedFunc ] ---
+
+    public static native long nYGNodeGetDirtiedFunc(long node);
+
+    @Nullable
+    public static YGDirtiedFunc YGNodeGetDirtiedFunc(@NativeType("const YGNodeRef") long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        return YGDirtiedFunc.createSafe(nYGNodeGetDirtiedFunc(node));
+    }
+
     // --- [ YGNodeSetPrintFunc ] ---
 
     public static native void nYGNodeSetPrintFunc(long node, long printFunc);
