@@ -265,6 +265,16 @@ public class ZstdX {
      * 
      * <p>Special: value 0 means "do not change {@code nbThreads}"</p>
      * </li>
+     * <li>{@link #ZSTD_p_nonBlockingMode p_nonBlockingMode} - 
+     * Single thread mode is by default "blocking": it finishes its job as much as possible, and only then gives back control to caller.
+     * 
+     * <p>In contrast, multi-thread is by default "non-blocking": it takes some input, flush some output if available, and immediately gives back control to
+     * caller. Compression work is performed in parallel, within worker threads. (note : a strong exception to this rule is when first job is called with
+     * {@link #ZSTD_e_end e_end} : it becomes blocking)</p>
+     * 
+     * <p>Setting this parameter to 1 will enforce non-blocking mode even when only 1 thread is selected. It allows the caller to do other tasks while the
+     * worker thread compresses in parallel.</p>
+     * </li>
      * <li>{@link #ZSTD_p_jobSize p_jobSize} - 
      * Size of a compression job.
      * 
@@ -330,8 +340,9 @@ public class ZstdX {
         ZSTD_p_checksumFlag               = 201,
         ZSTD_p_dictIDFlag                 = 202,
         ZSTD_p_nbThreads                  = 400,
-        ZSTD_p_jobSize                    = 401,
-        ZSTD_p_overlapSizeLog             = 402,
+        ZSTD_p_nonBlockingMode            = 401,
+        ZSTD_p_jobSize                    = 402,
+        ZSTD_p_overlapSizeLog             = 403,
         ZSTD_p_forceMaxWindow             = 1100,
         ZSTD_p_enableLongDistanceMatching = 1200,
         ZSTD_p_ldmHashLog                 = 1201,
@@ -813,7 +824,7 @@ public class ZstdX {
      * @param dict           
      * @param dictLoadMethod one of:<br><table><tr><td>{@link #ZSTD_dlm_byCopy dlm_byCopy}</td><td>{@link #ZSTD_dlm_byRef dlm_byRef}</td></tr></table>
      */
-    @NativeType("ZSTD_DDict *")
+    @NativeType("const ZSTD_DDict *")
     public static long ZSTD_initStaticDDict(@NativeType("void *") ByteBuffer workspace, @NativeType("const void *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod) {
         return nZSTD_initStaticDDict(memAddress(workspace), workspace.remaining(), memAddress(dict), dict.remaining(), dictLoadMethod);
     }
@@ -944,6 +955,28 @@ public class ZstdX {
         return nZSTD_copyCCtx(cctx, preparedCCtx, pledgedSrcSize);
     }
 
+    // --- [ ZSTD_getFrameProgression ] ---
+
+    /** Unsafe version of: {@link #ZSTD_getFrameProgression getFrameProgression} */
+    public static native void nZSTD_getFrameProgression(long cctx, long __result);
+
+    /**
+     * Tells how much data has been {@code ingested} (read from input) {@code consumed} (input actually compressed) and {@code produced} (output) for current
+     * frame. Therefore, {@code (ingested - consumed)} is amount of input data buffered internally, not yet compressed.
+     * 
+     * <p>Can report progression inside worker threads (multi-threading and non-blocking mode).</p>
+     *
+     * @param cctx 
+     */
+    @NativeType("ZSTD_frameProgression")
+    public static ZSTDFrameProgression ZSTD_getFrameProgression(@NativeType("const ZSTD_CCtx *") long cctx, ZSTDFrameProgression __result) {
+        if (CHECKS) {
+            check(cctx);
+        }
+        nZSTD_getFrameProgression(cctx, __result.address());
+        return __result;
+    }
+
     // --- [ ZSTD_getFrameHeader ] ---
 
     /** Unsafe version of: {@link #ZSTD_getFrameHeader getFrameHeader} */
@@ -981,7 +1014,7 @@ public class ZstdX {
      * Sets one compression parameter, selected by enum {@code ZSTD_cParameter}.
      *
      * @param cctx  
-     * @param param one of:<br><table><tr><td>{@link #ZSTD_p_format p_format}</td><td>{@link #ZSTD_p_compressionLevel p_compressionLevel}</td><td>{@link #ZSTD_p_windowLog p_windowLog}</td><td>{@link #ZSTD_p_hashLog p_hashLog}</td><td>{@link #ZSTD_p_chainLog p_chainLog}</td></tr><tr><td>{@link #ZSTD_p_searchLog p_searchLog}</td><td>{@link #ZSTD_p_minMatch p_minMatch}</td><td>{@link #ZSTD_p_targetLength p_targetLength}</td><td>{@link #ZSTD_p_compressionStrategy p_compressionStrategy}</td><td>{@link #ZSTD_p_contentSizeFlag p_contentSizeFlag}</td></tr><tr><td>{@link #ZSTD_p_checksumFlag p_checksumFlag}</td><td>{@link #ZSTD_p_dictIDFlag p_dictIDFlag}</td><td>{@link #ZSTD_p_nbThreads p_nbThreads}</td><td>{@link #ZSTD_p_jobSize p_jobSize}</td><td>{@link #ZSTD_p_overlapSizeLog p_overlapSizeLog}</td></tr><tr><td>{@link #ZSTD_p_forceMaxWindow p_forceMaxWindow}</td><td>{@link #ZSTD_p_enableLongDistanceMatching p_enableLongDistanceMatching}</td><td>{@link #ZSTD_p_ldmHashLog p_ldmHashLog}</td><td>{@link #ZSTD_p_ldmMinMatch p_ldmMinMatch}</td><td>{@link #ZSTD_p_ldmBucketSizeLog p_ldmBucketSizeLog}</td></tr><tr><td>{@link #ZSTD_p_ldmHashEveryLog p_ldmHashEveryLog}</td></tr></table>
+     * @param param one of:<br><table><tr><td>{@link #ZSTD_p_format p_format}</td><td>{@link #ZSTD_p_compressionLevel p_compressionLevel}</td><td>{@link #ZSTD_p_windowLog p_windowLog}</td><td>{@link #ZSTD_p_hashLog p_hashLog}</td><td>{@link #ZSTD_p_chainLog p_chainLog}</td></tr><tr><td>{@link #ZSTD_p_searchLog p_searchLog}</td><td>{@link #ZSTD_p_minMatch p_minMatch}</td><td>{@link #ZSTD_p_targetLength p_targetLength}</td><td>{@link #ZSTD_p_compressionStrategy p_compressionStrategy}</td><td>{@link #ZSTD_p_contentSizeFlag p_contentSizeFlag}</td></tr><tr><td>{@link #ZSTD_p_checksumFlag p_checksumFlag}</td><td>{@link #ZSTD_p_dictIDFlag p_dictIDFlag}</td><td>{@link #ZSTD_p_nbThreads p_nbThreads}</td><td>{@link #ZSTD_p_nonBlockingMode p_nonBlockingMode}</td><td>{@link #ZSTD_p_jobSize p_jobSize}</td></tr><tr><td>{@link #ZSTD_p_overlapSizeLog p_overlapSizeLog}</td><td>{@link #ZSTD_p_forceMaxWindow p_forceMaxWindow}</td><td>{@link #ZSTD_p_enableLongDistanceMatching p_enableLongDistanceMatching}</td><td>{@link #ZSTD_p_ldmHashLog p_ldmHashLog}</td><td>{@link #ZSTD_p_ldmMinMatch p_ldmMinMatch}</td></tr><tr><td>{@link #ZSTD_p_ldmBucketSizeLog p_ldmBucketSizeLog}</td><td>{@link #ZSTD_p_ldmHashEveryLog p_ldmHashEveryLog}</td></tr></table>
      * @param value 
      *
      * @return informational value (typically, the one being set, possibly corrected), 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
@@ -1350,7 +1383,7 @@ public class ZstdX {
      * {@link #ZSTD_CCtx_setParametersUsingCCtxParams CCtx_setParametersUsingCCtxParams}.</p>
      *
      * @param params 
-     * @param param  one of:<br><table><tr><td>{@link #ZSTD_p_format p_format}</td><td>{@link #ZSTD_p_compressionLevel p_compressionLevel}</td><td>{@link #ZSTD_p_windowLog p_windowLog}</td><td>{@link #ZSTD_p_hashLog p_hashLog}</td><td>{@link #ZSTD_p_chainLog p_chainLog}</td></tr><tr><td>{@link #ZSTD_p_searchLog p_searchLog}</td><td>{@link #ZSTD_p_minMatch p_minMatch}</td><td>{@link #ZSTD_p_targetLength p_targetLength}</td><td>{@link #ZSTD_p_compressionStrategy p_compressionStrategy}</td><td>{@link #ZSTD_p_contentSizeFlag p_contentSizeFlag}</td></tr><tr><td>{@link #ZSTD_p_checksumFlag p_checksumFlag}</td><td>{@link #ZSTD_p_dictIDFlag p_dictIDFlag}</td><td>{@link #ZSTD_p_nbThreads p_nbThreads}</td><td>{@link #ZSTD_p_jobSize p_jobSize}</td><td>{@link #ZSTD_p_overlapSizeLog p_overlapSizeLog}</td></tr><tr><td>{@link #ZSTD_p_forceMaxWindow p_forceMaxWindow}</td><td>{@link #ZSTD_p_enableLongDistanceMatching p_enableLongDistanceMatching}</td><td>{@link #ZSTD_p_ldmHashLog p_ldmHashLog}</td><td>{@link #ZSTD_p_ldmMinMatch p_ldmMinMatch}</td><td>{@link #ZSTD_p_ldmBucketSizeLog p_ldmBucketSizeLog}</td></tr><tr><td>{@link #ZSTD_p_ldmHashEveryLog p_ldmHashEveryLog}</td></tr></table>
+     * @param param  one of:<br><table><tr><td>{@link #ZSTD_p_format p_format}</td><td>{@link #ZSTD_p_compressionLevel p_compressionLevel}</td><td>{@link #ZSTD_p_windowLog p_windowLog}</td><td>{@link #ZSTD_p_hashLog p_hashLog}</td><td>{@link #ZSTD_p_chainLog p_chainLog}</td></tr><tr><td>{@link #ZSTD_p_searchLog p_searchLog}</td><td>{@link #ZSTD_p_minMatch p_minMatch}</td><td>{@link #ZSTD_p_targetLength p_targetLength}</td><td>{@link #ZSTD_p_compressionStrategy p_compressionStrategy}</td><td>{@link #ZSTD_p_contentSizeFlag p_contentSizeFlag}</td></tr><tr><td>{@link #ZSTD_p_checksumFlag p_checksumFlag}</td><td>{@link #ZSTD_p_dictIDFlag p_dictIDFlag}</td><td>{@link #ZSTD_p_nbThreads p_nbThreads}</td><td>{@link #ZSTD_p_nonBlockingMode p_nonBlockingMode}</td><td>{@link #ZSTD_p_jobSize p_jobSize}</td></tr><tr><td>{@link #ZSTD_p_overlapSizeLog p_overlapSizeLog}</td><td>{@link #ZSTD_p_forceMaxWindow p_forceMaxWindow}</td><td>{@link #ZSTD_p_enableLongDistanceMatching p_enableLongDistanceMatching}</td><td>{@link #ZSTD_p_ldmHashLog p_ldmHashLog}</td><td>{@link #ZSTD_p_ldmMinMatch p_ldmMinMatch}</td></tr><tr><td>{@link #ZSTD_p_ldmBucketSizeLog p_ldmBucketSizeLog}</td><td>{@link #ZSTD_p_ldmHashEveryLog p_ldmHashEveryLog}</td></tr></table>
      * @param value  
      *
      * @return 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
