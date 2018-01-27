@@ -11,7 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A callback function used to print a message from the library. */
+/**
+ * A callback function used to print a message from the library.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     const char *msg,
+ *     void *ctx
+ * )</pre></code>
+ */
 public abstract class MDBMsgFunc extends Callback implements MDBMsgFuncI {
 
     /**

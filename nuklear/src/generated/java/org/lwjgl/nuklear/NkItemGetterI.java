@@ -9,7 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link Nuklear#nk_combo_callback combo_callback} and {@link Nuklear#nk_combobox_callback combobox_callback} functions. */
+/**
+ * Instances of this interface may be passed to the {@link Nuklear#nk_combo_callback combo_callback} and {@link Nuklear#nk_combobox_callback combobox_callback} functions.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * float (*) (
+ *     void *userdata,
+ *     int selected,
+ *     const char **item
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_item_getter")
 public interface NkItemGetterI extends CallbackI.F {

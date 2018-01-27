@@ -9,9 +9,23 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Called when video capture begins. */
+/**
+ * Called when video capture begins.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     uint32_t _width,
+ *     uint32_t _height,
+ *     uint32_t _pitch,
+ *     bgfx_texture_format_t _format,
+ *     bool _yflip
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("capture_begin")
+@NativeType("void (*) (bgfx_callback_interface_t *, uint32_t, uint32_t, uint32_t, bgfx_texture_format_t, bool)")
 public interface BGFXCaptureBeginCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(piiiiB)v";

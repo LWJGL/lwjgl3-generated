@@ -11,7 +11,16 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
+/**
+ * Instances of this class may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *args
+ * )</pre></code>
+ */
 public abstract class CLNativeKernel extends Callback implements CLNativeKernelI {
 
     /**

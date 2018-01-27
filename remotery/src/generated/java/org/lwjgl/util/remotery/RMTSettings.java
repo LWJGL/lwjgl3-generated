@@ -50,8 +50,8 @@ import static org.lwjgl.system.MemoryStack.*;
  *     rmtU32 msSleepBetweenServerUpdates;
  *     rmtU32 messageQueueSizeInBytes;
  *     rmtU32 maxNbMessagesPerUpdate;
- *     {@link RMTMallocI rmtMalloc} _malloc;
- *     {@link RMTReallocI rmtRealloc} realloc;
+ *     {@link RMTMallocI rmtMallocPtr} _malloc;
+ *     {@link RMTReallocI rmtReallocPtr} realloc;
  *     {@link RMTFreeI rmtFreePtr} _free;
  *     void * mm_context;
  *     {@link RMTInputHandlerI rmtInputHandlerPtr} input_handler;
@@ -148,10 +148,10 @@ public class RMTSettings extends Struct implements NativeResource {
     @NativeType("rmtU32")
     public int maxNbMessagesPerUpdate() { return nmaxNbMessagesPerUpdate(address()); }
     /** Returns the value of the {@code _malloc} field. */
-    @NativeType("rmtMalloc")
+    @NativeType("rmtMallocPtr")
     public RMTMalloc _malloc() { return n_malloc(address()); }
     /** Returns the value of the {@code realloc} field. */
-    @NativeType("rmtRealloc")
+    @NativeType("rmtReallocPtr")
     public RMTRealloc realloc() { return nrealloc(address()); }
     /** Returns the value of the {@code _free} field. */
     @NativeType("rmtFreePtr")
@@ -183,9 +183,9 @@ public class RMTSettings extends Struct implements NativeResource {
     /** Sets the specified value to the {@code maxNbMessagesPerUpdate} field. */
     public RMTSettings maxNbMessagesPerUpdate(@NativeType("rmtU32") int value) { nmaxNbMessagesPerUpdate(address(), value); return this; }
     /** Sets the specified value to the {@code _malloc} field. */
-    public RMTSettings _malloc(@NativeType("rmtMalloc") RMTMallocI value) { n_malloc(address(), value); return this; }
+    public RMTSettings _malloc(@NativeType("rmtMallocPtr") RMTMallocI value) { n_malloc(address(), value); return this; }
     /** Sets the specified value to the {@code realloc} field. */
-    public RMTSettings realloc(@NativeType("rmtRealloc") RMTReallocI value) { nrealloc(address(), value); return this; }
+    public RMTSettings realloc(@NativeType("rmtReallocPtr") RMTReallocI value) { nrealloc(address(), value); return this; }
     /** Sets the specified value to the {@code _free} field. */
     public RMTSettings _free(@NativeType("rmtFreePtr") RMTFreeI value) { n_free(address(), value); return this; }
     /** Sets the specified value to the {@code mm_context} field. */
@@ -525,10 +525,10 @@ public class RMTSettings extends Struct implements NativeResource {
         @NativeType("rmtU32")
         public int maxNbMessagesPerUpdate() { return RMTSettings.nmaxNbMessagesPerUpdate(address()); }
         /** Returns the value of the {@code _malloc} field. */
-        @NativeType("rmtMalloc")
+        @NativeType("rmtMallocPtr")
         public RMTMalloc _malloc() { return RMTSettings.n_malloc(address()); }
         /** Returns the value of the {@code realloc} field. */
-        @NativeType("rmtRealloc")
+        @NativeType("rmtReallocPtr")
         public RMTRealloc realloc() { return RMTSettings.nrealloc(address()); }
         /** Returns the value of the {@code _free} field. */
         @NativeType("rmtFreePtr")
@@ -560,9 +560,9 @@ public class RMTSettings extends Struct implements NativeResource {
         /** Sets the specified value to the {@code maxNbMessagesPerUpdate} field. */
         public RMTSettings.Buffer maxNbMessagesPerUpdate(@NativeType("rmtU32") int value) { RMTSettings.nmaxNbMessagesPerUpdate(address(), value); return this; }
         /** Sets the specified value to the {@code _malloc} field. */
-        public RMTSettings.Buffer _malloc(@NativeType("rmtMalloc") RMTMallocI value) { RMTSettings.n_malloc(address(), value); return this; }
+        public RMTSettings.Buffer _malloc(@NativeType("rmtMallocPtr") RMTMallocI value) { RMTSettings.n_malloc(address(), value); return this; }
         /** Sets the specified value to the {@code realloc} field. */
-        public RMTSettings.Buffer realloc(@NativeType("rmtRealloc") RMTReallocI value) { RMTSettings.nrealloc(address(), value); return this; }
+        public RMTSettings.Buffer realloc(@NativeType("rmtReallocPtr") RMTReallocI value) { RMTSettings.nrealloc(address(), value); return this; }
         /** Sets the specified value to the {@code _free} field. */
         public RMTSettings.Buffer _free(@NativeType("rmtFreePtr") RMTFreeI value) { RMTSettings.n_free(address(), value); return this; }
         /** Sets the specified value to the {@code mm_context} field. */

@@ -11,7 +11,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be set to the {@link NkUserFont} struct. */
+/**
+ * Instances of this class may be set to the {@link NkUserFont} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * float (*) (
+ *     nk_handle handle,
+ *     float h,
+ *     const char *text,
+ *     int len
+ * )</pre></code>
+ */
 public abstract class NkTextWidthCallback extends Callback implements NkTextWidthCallbackI {
 
     /**

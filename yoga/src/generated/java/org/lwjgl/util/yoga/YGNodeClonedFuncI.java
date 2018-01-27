@@ -9,7 +9,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     YGNodeRef oldNode,
+ *     YGNodeRef newNode,
+ *     YGNodeRef parent,
+ *     int childIndex
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("YGNodeClonedFunc")
 public interface YGNodeClonedFuncI extends CallbackI.V {

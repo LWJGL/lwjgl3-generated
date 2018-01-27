@@ -9,9 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Profiler region end. */
+/**
+ * Profiler region end.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("profiler_end")
+@NativeType("void (*) (bgfx_callback_interface_t *)")
 public interface BGFXProfilerEndI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";

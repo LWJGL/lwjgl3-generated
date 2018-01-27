@@ -9,9 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method. */
+/**
+ * Instances of this interface may be passed to the {@link CL10#clEnqueueNativeKernel EnqueueNativeKernel} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *args
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("cl_native_kernel")
+@NativeType("void (*) (void *)")
 public interface CLNativeKernelI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(p)v");

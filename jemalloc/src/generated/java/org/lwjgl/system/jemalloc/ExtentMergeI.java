@@ -9,7 +9,22 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link ExtentHooks} struct. */
+/**
+ * Instances of this interface may be set to the {@link ExtentHooks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * bool (*) (
+ *     extent_hooks_t *extent_hooks,
+ *     void *addr_a,
+ *     size_t size_a,
+ *     void *addr_b,
+ *     size_t size_b,
+ *     bool committed,
+ *     unsigned int arena_ind
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("extent_merge_t")
 public interface ExtentMergeI extends CallbackI.Z {

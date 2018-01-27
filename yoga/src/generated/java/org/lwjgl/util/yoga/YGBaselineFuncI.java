@@ -9,7 +9,16 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * float (*) (
+ *     YGNodeRef node,
+ *     float width,
+ *     float height
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("YGBaselineFunc")
 public interface YGBaselineFuncI extends CallbackI.F {

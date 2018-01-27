@@ -15,6 +15,15 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetWindowContentScaleCallback SetWindowContentScaleCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     float xscale,
+ *     float yscale
+ * )</pre></code>
  *
  * @since version 3.3
  */

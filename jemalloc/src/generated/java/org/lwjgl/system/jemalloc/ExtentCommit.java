@@ -11,7 +11,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be set to the {@link ExtentHooks} struct. */
+/**
+ * Instances of this class may be set to the {@link ExtentHooks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * bool (*) (
+ *     extent_hooks_t *extent_hooks,
+ *     void *addr,
+ *     size_t size,
+ *     size_t offset,
+ *     size_t length,
+ *     unsigned int arena_ind
+ * )</pre></code>
+ */
 public abstract class ExtentCommit extends Callback implements ExtentCommitI {
 
     /**

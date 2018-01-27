@@ -11,6 +11,14 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
  * Instances of this interface may be passed to the {@link GLFW#glfwSetCursorEnterCallback SetCursorEnterCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int entered
+ * )</pre></code>
  *
  * @since version 3.0
  */

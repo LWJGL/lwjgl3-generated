@@ -9,7 +9,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@code nk_style_*} structs. */
+/**
+ * Instances of this interface may be set to the {@code nk_style_*} structs.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * float (*) (
+ *     struct nk_command_buffer *buffer,
+ *     nk_handle userdata
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_draw_begin")
 public interface NkDrawBeginCallbackI extends CallbackI.F {

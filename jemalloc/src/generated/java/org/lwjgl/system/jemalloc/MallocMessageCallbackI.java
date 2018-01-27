@@ -9,9 +9,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method. */
+/**
+ * Instances of this interface may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *cbopaque,
+ *     const char *s
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("je_malloc_message_cb")
+@NativeType("void (*) (void *, const char *)")
 public interface MallocMessageCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pp)v";

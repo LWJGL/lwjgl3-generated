@@ -9,7 +9,16 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * aiReturn (*) (
+ *     struct aiFile *pFile,
+ *     size_t offset,
+ *     aiOrigin origin
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("aiFileSeek")
 public interface AIFileSeekI extends CallbackI.I {

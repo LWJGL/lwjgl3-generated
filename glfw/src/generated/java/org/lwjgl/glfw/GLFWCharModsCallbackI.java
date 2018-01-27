@@ -13,6 +13,15 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * Instances of this interface may be passed to the {@link GLFW#glfwSetCharModsCallback SetCharModsCallback} method.
  * 
  * <p>Deprecared: scheduled for removal in version 4.0.</p>
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     unsigned int codepoint,
+ *     int mods
+ * )</pre></code>
  *
  * @since version 3.1
  */

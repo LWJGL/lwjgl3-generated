@@ -9,9 +9,20 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
+/**
+ * Instances of this interface may be set to the {@code read} field of the {@link STBIIOCallbacks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     void *user,
+ *     char *data,
+ *     int size
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("stbi_io_callbacks.read")
+@NativeType("int (*) (void *, char *, int)")
 public interface STBIReadCallbackI extends CallbackI.I {
 
     String SIGNATURE = "(ppi)i";

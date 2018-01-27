@@ -11,6 +11,14 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
  * Instances of this interface may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWmonitor *monitor,
+ *     int event
+ * )</pre></code>
  *
  * @since version 3.0
  */

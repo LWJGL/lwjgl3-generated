@@ -11,7 +11,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct. */
+/**
+ * Instances of this class may be passed to the {@code LogCallback} member of the {@link OVRInitParams} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     uintptr_t userData,
+ *     int level,
+ *     const char *message
+ * )</pre></code>
+ */
 public abstract class OVRLogCallback extends Callback implements OVRLogCallbackI {
 
     /**

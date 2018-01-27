@@ -9,7 +9,22 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link KHRDebug#glDebugMessageCallbackKHR DebugMessageCallbackKHR} method. */
+/**
+ * Instances of this interface may be passed to the {@link KHRDebug#glDebugMessageCallbackKHR DebugMessageCallbackKHR} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLenum source,
+ *     GLenum type,
+ *     GLuint id,
+ *     GLenum severity,
+ *     GLsizei length,
+ *     const GLchar *message,
+ *     const void *userParam
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("GLDEBUGPROCKHR")
 public interface GLDebugMessageKHRCallbackI extends CallbackI.V {

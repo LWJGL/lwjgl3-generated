@@ -9,7 +9,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR DebugMessageControlKHR} method. */
+/**
+ * Instances of this interface may be passed to the {@link KHRDebug#eglDebugMessageControlKHR DebugMessageControlKHR} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     EGLenum error,
+ *     const char *command,
+ *     EGLint messageType,
+ *     EGLLabelKHR threadLabel,
+ *     EGLLabelKHR objectLabel,
+ *     const char *message
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("EGLDEBUGPROCKHR")
 public interface EGLDebugMessageKHRCallbackI extends CallbackI.V {

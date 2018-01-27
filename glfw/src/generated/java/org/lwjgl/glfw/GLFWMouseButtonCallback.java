@@ -13,7 +13,19 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 
-/** Instances of this class may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int button,
+ *     int action,
+ *     int mods
+ * )</pre></code>
+ */
 public abstract class GLFWMouseButtonCallback extends Callback implements GLFWMouseButtonCallbackI {
 
     /**

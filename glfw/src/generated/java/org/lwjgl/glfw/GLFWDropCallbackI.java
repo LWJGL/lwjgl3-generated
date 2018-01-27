@@ -11,6 +11,15 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 
 /**
  * Instances of this interface may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int count,
+ *     const char **names
+ * )</pre></code>
  *
  * @since version 3.1
  */

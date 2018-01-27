@@ -13,6 +13,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import static java.lang.Float.*;
 
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * uint64_t (*) (
+ *     YGNodeRef node,
+ *     float width,
+ *     YGMeasureMode widthMode,
+ *     float height,
+ *     YGMeasureMode heightMode
+ * )</pre></code>
+ */
 public abstract class YGMeasureFunc extends Callback implements YGMeasureFuncI {
 
     /**

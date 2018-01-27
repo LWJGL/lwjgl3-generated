@@ -9,7 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetWindowSizeCallback SetWindowSizeCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int width,
+ *     int height
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("GLFWwindowsizefun")
 public interface GLFWWindowSizeCallbackI extends CallbackI.V {

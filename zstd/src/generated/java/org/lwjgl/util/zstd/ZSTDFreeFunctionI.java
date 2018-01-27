@@ -9,7 +9,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     void *opaque,
+ *     void *address
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("ZSTD_freeFunction")
 public interface ZSTDFreeFunctionI extends CallbackI.P {

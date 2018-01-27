@@ -9,9 +9,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Reads cached item. */
+/**
+ * Reads cached item.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * bool (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     uint64_t _id,
+ *     void *_data,
+ *     uint32_t _size
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("cache_read")
+@NativeType("bool (*) (bgfx_callback_interface_t *, uint64_t, void *, uint32_t)")
 public interface BGFXCacheReadCallbackI extends CallbackI.Z {
 
     String SIGNATURE = "(plpi)B";

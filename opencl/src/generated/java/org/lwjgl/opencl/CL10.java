@@ -719,7 +719,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @Nullable @NativeType("void (*) (const cl_char *, const void *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -761,7 +761,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") long device, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") long device, @Nullable @NativeType("void (*) (const cl_char *, const void *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -796,7 +796,7 @@ public class CL10 {
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
     @NativeType("cl_context")
-    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("void (*) (const cl_char *, const void *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -5178,7 +5178,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer options, @Nullable @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") ByteBuffer options, @Nullable @NativeType("void (*) (cl_program, void *)") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         if (CHECKS) {
             checkNT1(options);
         }
@@ -5233,7 +5233,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence options, @Nullable @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") PointerBuffer device_list, @NativeType("const cl_char *") CharSequence options, @Nullable @NativeType("void (*) (cl_program, void *)") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -5288,7 +5288,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") long device, @NativeType("const cl_char *") CharSequence options, @Nullable @NativeType("cl_program_callback") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clBuildProgram(@NativeType("cl_program") long program, @Nullable @NativeType("const cl_device_id *") long device, @NativeType("const cl_char *") CharSequence options, @Nullable @NativeType("void (*) (cl_program, void *)") CLProgramCallbackI pfn_notify, @NativeType("void *") long user_data) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optionsEncoded = stack.ASCII(options);
@@ -8509,7 +8509,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_native_kernel") CLNativeKernelI user_func, @Nullable @NativeType("void *") ByteBuffer args, @Nullable @NativeType("const cl_mem *") PointerBuffer mem_list, @Nullable @NativeType("const void **") PointerBuffer args_mem_loc, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("void (*) (void *)") CLNativeKernelI user_func, @Nullable @NativeType("void *") ByteBuffer args, @Nullable @NativeType("const cl_mem *") PointerBuffer mem_list, @Nullable @NativeType("const void **") PointerBuffer args_mem_loc, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(args_mem_loc, remainingSafe(mem_list));
             checkSafe(event, 1);
@@ -8558,7 +8558,7 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_native_kernel") CLNativeKernelI user_func, @Nullable @NativeType("void *") ByteBuffer args, @Nullable @NativeType("const cl_mem *") long memobj, @Nullable @NativeType("const void **") long memobj_loc, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueNativeKernel(@NativeType("cl_command_queue") long command_queue, @NativeType("void (*) (void *)") CLNativeKernelI user_func, @Nullable @NativeType("void *") ByteBuffer args, @Nullable @NativeType("const cl_mem *") long memobj, @Nullable @NativeType("const void **") long memobj_loc, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -9221,7 +9221,7 @@ public class CL10 {
      * Array version of: {@link #clCreateContext CreateContext}
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateContext(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("const cl_device_id *") PointerBuffer devices, @Nullable @NativeType("void (*) (const cl_char *, const void *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateContext;
         if (CHECKS) {
             checkNT(properties);
@@ -9236,7 +9236,7 @@ public class CL10 {
      * Array version of: {@link #clCreateContextFromType CreateContextFromType}
      */
     @NativeType("cl_context")
-    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("cl_context_callback") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateContextFromType(@NativeType("const cl_context_properties *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("void (*) (const cl_char *, const void *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateContextFromType;
         if (CHECKS) {
             checkNT(properties);

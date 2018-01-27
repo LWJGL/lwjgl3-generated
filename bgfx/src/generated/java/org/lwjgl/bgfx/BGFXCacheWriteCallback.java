@@ -11,7 +11,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Writes cached item. */
+/**
+ * Writes cached item.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     uint64_t _id,
+ *     const void *_data,
+ *     uint32_t _size
+ * )</pre></code>
+ */
 public abstract class BGFXCacheWriteCallback extends Callback implements BGFXCacheWriteCallbackI {
 
     /**

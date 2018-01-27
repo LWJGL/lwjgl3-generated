@@ -9,9 +9,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera} method. */
+/**
+ * Instances of this interface may be passed to the {@link ALTERALiveObjectTracking#clReportLiveObjectsAltera ReportLiveObjectsAltera} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *user_data,
+ *     void *obj_ptr,
+ *     const char *type_name,
+ *     cl_uint refcount
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("cl_report_live_objects_altera")
+@NativeType("void (*) (void *, void *, const char *, cl_uint)")
 public interface CLReportLiveObjectsAlteraCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pppi)v");

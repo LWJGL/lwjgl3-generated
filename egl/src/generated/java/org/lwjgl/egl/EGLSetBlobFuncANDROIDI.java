@@ -9,7 +9,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link ANDROIDBlobCache#eglSetBlobCacheFuncsANDROID SetBlobCacheFuncsANDROID} method. */
+/**
+ * Instances of this interface may be passed to the {@link ANDROIDBlobCache#eglSetBlobCacheFuncsANDROID SetBlobCacheFuncsANDROID} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     const void *key,
+ *     EGLsizeiANDROID keySize,
+ *     const void *value,
+ *     EGLsizeiANDROID valueSize
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("EGLSetBlobFuncANDROID")
 public interface EGLSetBlobFuncANDROIDI extends CallbackI.V {

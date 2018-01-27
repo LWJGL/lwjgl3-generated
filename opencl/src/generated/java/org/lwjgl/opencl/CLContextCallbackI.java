@@ -9,9 +9,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods. */
+/**
+ * Instances of this interface may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     const cl_char *errinfo,
+ *     const void *private_info,
+ *     size_t cb,
+ *     void *user_data
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("cl_context_callback")
+@NativeType("void (*) (const cl_char *, const void *, size_t, void *)")
 public interface CLContextCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pppp)v");

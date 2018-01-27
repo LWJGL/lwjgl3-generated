@@ -9,9 +9,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     void *mm_context,
+ *     rmtU32 size
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("rmtMalloc")
+@NativeType("rmtMallocPtr")
 public interface RMTMallocI extends CallbackI.P {
 
     String SIGNATURE = "(pi)p";

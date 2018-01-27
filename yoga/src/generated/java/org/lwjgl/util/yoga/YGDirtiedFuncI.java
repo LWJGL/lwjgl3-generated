@@ -9,7 +9,14 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     YGNodeRef node
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("YGDirtiedFunc")
 public interface YGDirtiedFuncI extends CallbackI.V {

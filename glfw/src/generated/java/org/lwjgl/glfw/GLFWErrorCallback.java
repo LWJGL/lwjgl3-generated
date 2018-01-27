@@ -18,6 +18,14 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetErrorCallback SetErrorCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     int error,
+ *     char *description
+ * )</pre></code>
  *
  * @since version 3.0
  */

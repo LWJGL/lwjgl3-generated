@@ -11,6 +11,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     struct aiFileIO *pFileIO,
+ *     struct aiFile *pFile
+ * )</pre></code>
+ */
 public abstract class AIFileCloseProc extends Callback implements AIFileCloseProcI {
 
     /**

@@ -9,7 +9,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method. */
+/**
+ * Instances of this interface may be passed to the {@link AMDDebugOutput#glDebugMessageCallbackAMD DebugMessageCallbackAMD} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLuint id,
+ *     GLenum category,
+ *     GLenum severity,
+ *     GLsizei length,
+ *     const GLchar *message,
+ *     void *userParam
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("GLDEBUGPROCAMD")
 public interface GLDebugMessageAMDCallbackI extends CallbackI.V {

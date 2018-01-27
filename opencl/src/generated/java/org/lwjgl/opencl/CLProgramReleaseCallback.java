@@ -11,7 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link CL22#clSetProgramReleaseCallback SetProgramReleaseCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link CL22#clSetProgramReleaseCallback SetProgramReleaseCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     cl_program program,
+ *     void *user_data
+ * )</pre></code>
+ */
 public abstract class CLProgramReleaseCallback extends Callback implements CLProgramReleaseCallbackI {
 
     /**

@@ -9,7 +9,16 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     nk_handle handle,
+ *     void *old,
+ *     nk_size size
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_plugin_alloc")
 public interface NkPluginAllocI extends CallbackI.P {

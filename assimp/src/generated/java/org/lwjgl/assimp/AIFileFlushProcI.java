@@ -9,7 +9,14 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     struct aiFile *pFile
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("aiFileFlushProc")
 public interface AIFileFlushProcI extends CallbackI.V {

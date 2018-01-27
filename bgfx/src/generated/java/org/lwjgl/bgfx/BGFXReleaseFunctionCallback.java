@@ -11,7 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link BGFX#bgfx_make_ref_release make_ref_release} method. */
+/**
+ * Instances of this class may be passed to the {@link BGFX#bgfx_make_ref_release make_ref_release} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *_ptr,
+ *     void *_userData
+ * )</pre></code>
+ */
 public abstract class BGFXReleaseFunctionCallback extends Callback implements BGFXReleaseFunctionCallbackI {
 
     /**

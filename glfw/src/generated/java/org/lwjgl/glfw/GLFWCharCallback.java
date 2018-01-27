@@ -15,6 +15,14 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetCharCallback SetCharCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     unsigned int codepoint
+ * )</pre></code>
  *
  * @since version 2.4
  */

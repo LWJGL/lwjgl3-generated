@@ -11,6 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * size_t (*) (
+ *     struct aiFile *pFile,
+ *     const char *pBuffer,
+ *     size_t memB,
+ *     size_t count
+ * )</pre></code>
+ */
 public abstract class AIFileWriteProc extends Callback implements AIFileWriteProcI {
 
     /**

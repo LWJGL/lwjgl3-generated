@@ -9,9 +9,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method. */
+/**
+ * Instances of this interface may be passed to the {@link CL20#clEnqueueSVMFree EnqueueSVMFree} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     cl_command_queue queue,
+ *     cl_uint num_svm_pointers,
+ *     void **svm_pointers,
+ *     void *user_data
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("cl_svmfree_callback")
+@NativeType("void (*) (cl_command_queue, cl_uint, void **, void *)")
 public interface CLSVMFreeCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pipp)v");

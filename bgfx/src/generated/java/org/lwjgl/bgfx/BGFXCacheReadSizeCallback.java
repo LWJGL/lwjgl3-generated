@@ -11,7 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Returns the size of a cached item. Returns 0 if no cached item was found. */
+/**
+ * Returns the size of a cached item. Returns 0 if no cached item was found.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * uint32_t (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     uint64_t _id
+ * )</pre></code>
+ */
 public abstract class BGFXCacheReadSizeCallback extends Callback implements BGFXCacheReadSizeCallbackI {
 
     /**

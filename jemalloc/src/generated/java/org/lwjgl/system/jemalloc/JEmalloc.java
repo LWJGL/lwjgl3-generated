@@ -778,7 +778,7 @@ public class JEmalloc {
      * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
      * @param opts        an options string
      */
-    public static void je_malloc_stats_print(@Nullable @NativeType("je_malloc_message_cb") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") ByteBuffer opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, const char *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") ByteBuffer opts) {
         if (CHECKS) {
             checkNT1Safe(opts);
         }
@@ -798,7 +798,7 @@ public class JEmalloc {
      * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
      * @param opts        an options string
      */
-    public static void je_malloc_stats_print(@Nullable @NativeType("je_malloc_message_cb") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") CharSequence opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, const char *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") CharSequence opts) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optsEncoded = stack.ASCIISafe(opts);

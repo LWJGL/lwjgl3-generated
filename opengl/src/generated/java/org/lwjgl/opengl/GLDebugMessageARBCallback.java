@@ -11,7 +11,22 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link ARBDebugOutput#glDebugMessageCallbackARB DebugMessageCallbackARB} method. */
+/**
+ * Instances of this class may be passed to the {@link ARBDebugOutput#glDebugMessageCallbackARB DebugMessageCallbackARB} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLenum source,
+ *     GLenum type,
+ *     GLuint id,
+ *     GLenum severity,
+ *     GLsizei length,
+ *     const GLchar *message,
+ *     const void *userParam
+ * )</pre></code>
+ */
 public abstract class GLDebugMessageARBCallback extends Callback implements GLDebugMessageARBCallbackI {
 
     /**

@@ -9,9 +9,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct. */
+/**
+ * Instances of this interface may be set to the {@code skip} field of the {@link STBIIOCallbacks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *user,
+ *     int n
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("stbi_io_callbacks.skip")
+@NativeType("void (*) (void *, int)")
 public interface STBISkipCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(pi)v";

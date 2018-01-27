@@ -11,7 +11,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods. */
+/**
+ * Instances of this class may be passed to the {@link CL10#clCreateContext CreateContext} and {@link CL10#clCreateContextFromType CreateContextFromType} methods.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     const cl_char *errinfo,
+ *     const void *private_info,
+ *     size_t cb,
+ *     void *user_data
+ * )</pre></code>
+ */
 public abstract class CLContextCallback extends Callback implements CLContextCallbackI {
 
     /**

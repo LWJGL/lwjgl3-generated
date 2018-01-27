@@ -15,6 +15,13 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetWindowRefreshCallback SetWindowRefreshCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window
+ * )</pre></code>
  *
  * @since version 2.5
  */

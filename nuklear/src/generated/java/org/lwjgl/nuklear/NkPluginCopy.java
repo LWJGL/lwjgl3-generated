@@ -11,7 +11,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be set to the {@link NkClipboard} struct. */
+/**
+ * Instances of this class may be set to the {@link NkClipboard} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     nk_handle handle,
+ *     const char *text,
+ *     int len
+ * )</pre></code>
+ */
 public abstract class NkPluginCopy extends Callback implements NkPluginCopyI {
 
     /**

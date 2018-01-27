@@ -9,7 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * uint64_t (*) (
+ *     YGNodeRef node,
+ *     float width,
+ *     YGMeasureMode widthMode,
+ *     float height,
+ *     YGMeasureMode heightMode
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("YGMeasureFunc")
 public interface YGMeasureFuncI extends CallbackI.J {

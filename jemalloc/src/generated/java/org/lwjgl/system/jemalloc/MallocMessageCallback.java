@@ -11,7 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method. */
+/**
+ * Instances of this class may be passed to the {@link JEmalloc#je_malloc_usable_size malloc_usable_size} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *cbopaque,
+ *     const char *s
+ * )</pre></code>
+ */
 public abstract class MallocMessageCallback extends Callback implements MallocMessageCallbackI {
 
     /**

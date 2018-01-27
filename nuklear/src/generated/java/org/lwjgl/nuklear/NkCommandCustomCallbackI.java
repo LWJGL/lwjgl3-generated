@@ -9,7 +9,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     void *canvas,
+ *     short x,
+ *     short y,
+ *     unsigned short w,
+ *     unsigned short h,
+ *     nk_handle callback_data
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_command_custom_callback")
 public interface NkCommandCustomCallbackI extends CallbackI.P {

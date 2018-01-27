@@ -9,7 +9,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link NkUserFont} struct. */
+/**
+ * Instances of this interface may be set to the {@link NkUserFont} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * float (*) (
+ *     nk_handle handle,
+ *     float h,
+ *     const char *text,
+ *     int len
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_text_width_f")
 public interface NkTextWidthCallbackI extends CallbackI.F {

@@ -15,6 +15,14 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetMonitorCallback SetMonitorCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWmonitor *monitor,
+ *     int event
+ * )</pre></code>
  *
  * @since version 3.0
  */

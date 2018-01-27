@@ -9,7 +9,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** A callback function used to print a message from the library. */
+/**
+ * A callback function used to print a message from the library.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     const char *msg,
+ *     void *ctx
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("MDB_msg_func *")
 public interface MDBMsgFuncI extends CallbackI.I {

@@ -11,7 +11,16 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** A mutation handler. */
+/**
+ * A mutation handler.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     id id
+ * )</pre></code>
+ */
 public abstract class EnumerationMutationHandler extends Callback implements EnumerationMutationHandlerI {
 
     /**

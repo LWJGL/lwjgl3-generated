@@ -9,7 +9,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     const char *message,
+ *     void *user
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("aiLogStreamCallback")
 public interface AILogStreamCallbackI extends CallbackI.V {

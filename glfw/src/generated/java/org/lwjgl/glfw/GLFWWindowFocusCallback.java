@@ -15,6 +15,14 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetWindowFocusCallback SetWindowFocusCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int focused
+ * )</pre></code>
  *
  * @since version 3.0
  */

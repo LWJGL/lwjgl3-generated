@@ -9,9 +9,25 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Screenshot captured. Screenshot format is always 4-byte BGRA. */
+/**
+ * Screenshot captured. Screenshot format is always 4-byte BGRA.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     const char *_filePath,
+ *     uint32_t _width,
+ *     uint32_t _height,
+ *     uint32_t _pitch,
+ *     const void *_data,
+ *     uint32_t _size,
+ *     bool _yflip
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("screen_shot")
+@NativeType("void (*) (bgfx_callback_interface_t *, const char *, uint32_t, uint32_t, uint32_t, const void *, uint32_t, bool)")
 public interface BGFXScreenShotCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ppiiipiB)v";
@@ -43,6 +59,6 @@ public interface BGFXScreenShotCallbackI extends CallbackI.V {
      * @param _size     image size
      * @param _yflip    if true, image origin is bottom left
      */
-    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("char *") long _filePath, @NativeType("uint32_t") int _width, @NativeType("uint32_t") int _height, @NativeType("uint32_t") int _pitch, @NativeType("const void *") long _data, @NativeType("uint32_t") int _size, @NativeType("bool") boolean _yflip);
+    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("const char *") long _filePath, @NativeType("uint32_t") int _width, @NativeType("uint32_t") int _height, @NativeType("uint32_t") int _pitch, @NativeType("const void *") long _data, @NativeType("uint32_t") int _size, @NativeType("bool") boolean _yflip);
 
 }

@@ -15,6 +15,17 @@ import static org.lwjgl.system.MemoryUtil.*;
  * Prints a debug message.
  * 
  * <p>Not thread safe and it can be called from any thread.</p>
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     const char *_filePath,
+ *     uint16_t _line,
+ *     const char *_format,
+ *     va_list *_argList
+ * )</pre></code>
  */
 public abstract class BGFXTraceVarArgsCallback extends Callback implements BGFXTraceVarArgsCallbackI {
 

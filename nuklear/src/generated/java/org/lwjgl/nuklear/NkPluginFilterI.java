@@ -9,7 +9,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link NkTextEdit} struct. */
+/**
+ * Instances of this interface may be set to the {@link NkTextEdit} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     const struct nk_text_edit *edit,
+ *     nk_rune unicode
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_plugin_filter")
 public interface NkPluginFilterI extends CallbackI.I {

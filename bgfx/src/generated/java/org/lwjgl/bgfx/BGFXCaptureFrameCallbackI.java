@@ -9,9 +9,20 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Captured frame. */
+/**
+ * Captured frame.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     const void *_data,
+ *     uint32_t _size
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("capture_frame")
+@NativeType("void (*) (bgfx_callback_interface_t *, const void *, uint32_t)")
 public interface BGFXCaptureFrameCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ppi)v";

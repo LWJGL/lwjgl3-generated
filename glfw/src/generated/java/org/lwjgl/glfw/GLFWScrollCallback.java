@@ -15,6 +15,15 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetScrollCallback SetScrollCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     double xoffset,
+ *     double yoffset
+ * )</pre></code>
  *
  * @since version 3.0
  */

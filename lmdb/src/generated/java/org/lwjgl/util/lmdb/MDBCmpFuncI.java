@@ -9,7 +9,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     const MDB_val *a,
+ *     const MDB_val *b
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("MDB_cmp_func *")
 public interface MDBCmpFuncI extends CallbackI.I {

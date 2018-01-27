@@ -9,7 +9,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     void *opaque,
+ *     size_t size
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("ZSTD_allocFunction")
 public interface ZSTDAllocFunctionI extends CallbackI.P {

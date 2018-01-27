@@ -9,7 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link NkClipboard} struct. */
+/**
+ * Instances of this interface may be set to the {@link NkClipboard} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     nk_handle handle,
+ *     const char *text,
+ *     int len
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_plugin_copy")
 public interface NkPluginCopyI extends CallbackI.V {

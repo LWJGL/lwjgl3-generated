@@ -11,6 +11,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     const char *text,
+ *     void *context
+ * )</pre></code>
+ */
 public abstract class RMTInputHandler extends Callback implements RMTInputHandlerI {
 
     /**

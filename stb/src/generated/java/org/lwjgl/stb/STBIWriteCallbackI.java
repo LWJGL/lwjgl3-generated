@@ -9,7 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be used with the {@link STBImageWrite} {@code write_type_to_func} functions. */
+/**
+ * Instances of this interface may be used with the {@link STBImageWrite} {@code write_type_to_func} functions.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     void *context,
+ *     void *data,
+ *     int size
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("stbi_write_func *")
 public interface STBIWriteCallbackI extends CallbackI.V {

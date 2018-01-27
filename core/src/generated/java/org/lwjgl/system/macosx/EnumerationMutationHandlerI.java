@@ -9,7 +9,16 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** A mutation handler. */
+/**
+ * A mutation handler.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     id id
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("EnumerationMutationHandler")
 public interface EnumerationMutationHandlerI extends CallbackI.V {

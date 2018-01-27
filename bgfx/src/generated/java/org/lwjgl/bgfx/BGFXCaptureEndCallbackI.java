@@ -9,9 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Called when video capture ends. */
+/**
+ * Called when video capture ends.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("capture_end")
+@NativeType("void (*) (bgfx_callback_interface_t *)")
 public interface BGFXCaptureEndCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(p)v";

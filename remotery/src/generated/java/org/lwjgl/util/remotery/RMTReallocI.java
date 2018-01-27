@@ -9,9 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     void *mm_context,
+ *     void *ptr,
+ *     rmtU32 size
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("rmtRealloc")
+@NativeType("rmtReallocPtr")
 public interface RMTReallocI extends CallbackI.P {
 
     String SIGNATURE = "(ppi)p";

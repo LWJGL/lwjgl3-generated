@@ -15,6 +15,15 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetWindowPosCallback SetWindowPosCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int xpos,
+ *     int ypos
+ * )</pre></code>
  *
  * @since version 3.0
  */

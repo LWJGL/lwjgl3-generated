@@ -11,6 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     YGNodeRef oldNode,
+ *     YGNodeRef newNode,
+ *     YGNodeRef parent,
+ *     int childIndex
+ * )</pre></code>
+ */
 public abstract class YGNodeClonedFunc extends Callback implements YGNodeClonedFuncI {
 
     /**

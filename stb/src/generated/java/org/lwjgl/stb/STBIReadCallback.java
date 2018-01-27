@@ -13,7 +13,18 @@ import static org.lwjgl.system.MemoryUtil.*;
 
 import java.nio.*;
 
-/** Instances of this class may be set to the {@code read} field of the {@link STBIIOCallbacks} struct. */
+/**
+ * Instances of this class may be set to the {@code read} field of the {@link STBIIOCallbacks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     void *user,
+ *     char *data,
+ *     int size
+ * )</pre></code>
+ */
 public abstract class STBIReadCallback extends Callback implements STBIReadCallbackI {
 
     /**

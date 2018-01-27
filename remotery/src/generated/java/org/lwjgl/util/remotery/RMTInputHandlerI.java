@@ -9,7 +9,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     const char *text,
+ *     void *context
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("rmtInputHandlerPtr")
 public interface RMTInputHandlerI extends CallbackI.P {

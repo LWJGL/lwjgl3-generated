@@ -11,7 +11,16 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
+/**
+ * Instances of this class may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     void *user
+ * )</pre></code>
+ */
 public abstract class STBIEOFCallback extends Callback implements STBIEOFCallbackI {
 
     /**

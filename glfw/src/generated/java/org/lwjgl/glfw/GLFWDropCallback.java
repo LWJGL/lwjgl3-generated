@@ -15,6 +15,15 @@ import static org.lwjgl.glfw.GLFW.*;
 
 /**
  * Instances of this class may be passed to the {@link GLFW#glfwSetDropCallback SetDropCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int count,
+ *     const char **names
+ * )</pre></code>
  *
  * @since version 3.1
  */

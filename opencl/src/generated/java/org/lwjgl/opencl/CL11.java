@@ -193,7 +193,7 @@ public class CL11 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clSetMemObjectDestructorCallback(@NativeType("cl_mem") long memobj, @NativeType("cl_mem_object_destructor_callback") CLMemObjectDestructorCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clSetMemObjectDestructorCallback(@NativeType("cl_mem") long memobj, @NativeType("void (*) (cl_mem, void *)") CLMemObjectDestructorCallbackI pfn_notify, @NativeType("void *") long user_data) {
         return nclSetMemObjectDestructorCallback(memobj, pfn_notify.address(), user_data);
     }
 
@@ -1355,7 +1355,7 @@ public class CL11 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clSetEventCallback(@NativeType("cl_event") long event, @NativeType("cl_int") int command_exec_callback_type, @NativeType("cl_event_callback") CLEventCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clSetEventCallback(@NativeType("cl_event") long event, @NativeType("cl_int") int command_exec_callback_type, @NativeType("void (*) (cl_event, cl_int, void *)") CLEventCallbackI pfn_notify, @NativeType("void *") long user_data) {
         return nclSetEventCallback(event, command_exec_callback_type, pfn_notify.address(), user_data);
     }
 

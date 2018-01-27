@@ -9,7 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     const YGConfigRef config,
+ *     const YGNodeRef node,
+ *     YGLogLevel level,
+ *     const char *format,
+ *     va_list *args
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("YGLogger")
 public interface YGLoggerI extends CallbackI.I {

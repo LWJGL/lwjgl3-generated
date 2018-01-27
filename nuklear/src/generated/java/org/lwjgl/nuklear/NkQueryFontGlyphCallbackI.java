@@ -9,7 +9,20 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link NkUserFont} struct. */
+/**
+ * Instances of this interface may be set to the {@link NkUserFont} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     nk_handle handle,
+ *     float font_height,
+ *     struct nk_user_font_glyph *glyph,
+ *     nk_rune codepoint,
+ *     nk_rune next_codepoint
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("nk_query_font_glyph_f")
 public interface NkQueryFontGlyphCallbackI extends CallbackI.V {

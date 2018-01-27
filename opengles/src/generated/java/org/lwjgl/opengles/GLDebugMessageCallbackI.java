@@ -9,7 +9,22 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLES32#glDebugMessageCallback DebugMessageCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLES32#glDebugMessageCallback DebugMessageCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLenum source,
+ *     GLenum type,
+ *     GLuint id,
+ *     GLenum severity,
+ *     GLsizei length,
+ *     const GLchar *message,
+ *     const void *userParam
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("GLDEBUGPROC")
 public interface GLDebugMessageCallbackI extends CallbackI.V {

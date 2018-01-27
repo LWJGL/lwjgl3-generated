@@ -68,7 +68,7 @@ public class CL22 {
      *                   {@code user_data} can be {@code NULL}.
      */
     @NativeType("cl_int")
-    public static int clSetProgramReleaseCallback(@NativeType("cl_program") long program, @NativeType("cl_program_release_callback") CLProgramReleaseCallbackI pfn_notify, @NativeType("void *") long user_data) {
+    public static int clSetProgramReleaseCallback(@NativeType("cl_program") long program, @NativeType("void (*) (cl_program, void *)") CLProgramReleaseCallbackI pfn_notify, @NativeType("void *") long user_data) {
         return nclSetProgramReleaseCallback(program, pfn_notify.address(), user_data);
     }
 

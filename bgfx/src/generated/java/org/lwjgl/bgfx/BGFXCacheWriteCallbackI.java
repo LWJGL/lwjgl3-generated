@@ -9,9 +9,21 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Writes cached item. */
+/**
+ * Writes cached item.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     uint64_t _id,
+ *     const void *_data,
+ *     uint32_t _size
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("cache_write")
+@NativeType("void (*) (bgfx_callback_interface_t *, uint64_t, const void *, uint32_t)")
 public interface BGFXCacheWriteCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(plpi)v";

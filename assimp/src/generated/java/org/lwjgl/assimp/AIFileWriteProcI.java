@@ -9,7 +9,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * size_t (*) (
+ *     struct aiFile *pFile,
+ *     const char *pBuffer,
+ *     size_t memB,
+ *     size_t count
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("aiFileWriteProc")
 public interface AIFileWriteProcI extends CallbackI.P {

@@ -17,6 +17,16 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>The {@code newptr} gives the item's desired address in the memory map, and {@code oldptr} gives its previous address. The item's actual data resides at
  * the address in {@code item}. This callback is expected to walk through the fields of the record in {@code item} and modify any values based at the
  * {@code oldptr} address to be relative to the {@code newptr} address.</p>
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     MDB_val *item,
+ *     void *oldptr,
+ *     void *newptr,
+ *     void *relctx
+ * )</pre></code>
  */
 public abstract class MDBRelFunc extends Callback implements MDBRelFuncI {
 

@@ -11,7 +11,20 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Profiler region begin with string literal name. */
+/**
+ * Profiler region begin with string literal name.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     const char *_name,
+ *     uint32_t _abgr,
+ *     const char *_filePath,
+ *     uint16_t _line
+ * )</pre></code>
+ */
 public abstract class BGFXProfilerBeginLiteral extends Callback implements BGFXProfilerBeginLiteralI {
 
     /**

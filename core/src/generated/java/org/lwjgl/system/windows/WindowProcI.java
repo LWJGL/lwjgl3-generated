@@ -9,7 +9,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** An application-defined function that processes messages sent to a window. */
+/**
+ * An application-defined function that processes messages sent to a window.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * LRESULT (*) (
+ *     HWND hwnd,
+ *     UINT uMsg,
+ *     WPARAM wParam,
+ *     LPARAM lParam
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("WNDPROC")
 public interface WindowProcI extends CallbackI.P {

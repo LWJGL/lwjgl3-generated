@@ -9,7 +9,15 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-
+/**
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     void *mm_context,
+ *     void *ptr
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("rmtFreePtr")
 public interface RMTFreeI extends CallbackI.P {

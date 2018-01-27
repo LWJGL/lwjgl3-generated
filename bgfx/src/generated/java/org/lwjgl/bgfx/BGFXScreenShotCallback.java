@@ -11,7 +11,23 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Screenshot captured. Screenshot format is always 4-byte BGRA. */
+/**
+ * Screenshot captured. Screenshot format is always 4-byte BGRA.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     bgfx_callback_interface_t *_this,
+ *     const char *_filePath,
+ *     uint32_t _width,
+ *     uint32_t _height,
+ *     uint32_t _pitch,
+ *     const void *_data,
+ *     uint32_t _size,
+ *     bool _yflip
+ * )</pre></code>
+ */
 public abstract class BGFXScreenShotCallback extends Callback implements BGFXScreenShotCallbackI {
 
     /**

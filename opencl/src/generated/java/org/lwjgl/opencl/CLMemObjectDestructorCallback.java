@@ -11,7 +11,17 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} method. */
+/**
+ * Instances of this class may be passed to the {@link CL11#clSetMemObjectDestructorCallback SetMemObjectDestructorCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     cl_mem memobj,
+ *     void *user_data
+ * )</pre></code>
+ */
 public abstract class CLMemObjectDestructorCallback extends Callback implements CLMemObjectDestructorCallbackI {
 
     /**

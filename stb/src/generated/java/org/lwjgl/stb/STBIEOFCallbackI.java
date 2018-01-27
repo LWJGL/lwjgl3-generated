@@ -9,9 +9,18 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct. */
+/**
+ * Instances of this interface may be set to the {@code eof} field of the {@link STBIIOCallbacks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * int (*) (
+ *     void *user
+ * )</pre></code>
+ */
 @FunctionalInterface
-@NativeType("stbi_io_callbacks.eof")
+@NativeType("int (*) (void *)")
 public interface STBIEOFCallbackI extends CallbackI.I {
 
     String SIGNATURE = "(p)i";

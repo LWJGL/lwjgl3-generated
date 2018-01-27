@@ -9,7 +9,22 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be set to the {@link ExtentHooks} struct. */
+/**
+ * Instances of this interface may be set to the {@link ExtentHooks} struct.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void* (*) (
+ *     extent_hooks_t *extent_hooks,
+ *     void *new_addr,
+ *     size_t size,
+ *     size_t alignment,
+ *     bool *zero,
+ *     bool *commit,
+ *     unsigned int arena_ind
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("extent_alloc_t")
 public interface ExtentAllocI extends CallbackI.P {

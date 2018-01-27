@@ -11,7 +11,22 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
 
-/** Instances of this class may be passed to the {@link GL43#glDebugMessageCallback} and {@link KHRDebug#glDebugMessageCallback} methods. */
+/**
+ * Instances of this class may be passed to the {@link GL43#glDebugMessageCallback} and {@link KHRDebug#glDebugMessageCallback} methods.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLenum source,
+ *     GLenum type,
+ *     GLuint id,
+ *     GLenum severity,
+ *     GLsizei length,
+ *     const GLchar *message,
+ *     const void *userParam
+ * )</pre></code>
+ */
 public abstract class GLDebugMessageCallback extends Callback implements GLDebugMessageCallbackI {
 
     /**

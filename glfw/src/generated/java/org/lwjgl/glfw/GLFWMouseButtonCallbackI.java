@@ -9,7 +9,19 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetMouseButtonCallback SetMouseButtonCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int button,
+ *     int action,
+ *     int mods
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("GLFWmousebuttonfun")
 public interface GLFWMouseButtonCallbackI extends CallbackI.V {

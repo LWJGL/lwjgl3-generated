@@ -9,7 +9,20 @@ import org.lwjgl.system.*;
 
 import static org.lwjgl.system.dyncall.DynCallback.*;
 
-/** Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback SetKeyCallback} method. */
+/**
+ * Instances of this interface may be passed to the {@link GLFW#glfwSetKeyCallback SetKeyCallback} method.
+ * 
+ * <h3>Type</h3>
+ * 
+ * <code><pre>
+ * void (*) (
+ *     GLFWwindow *window,
+ *     int key,
+ *     int scancode,
+ *     int action,
+ *     int mods
+ * )</pre></code>
+ */
 @FunctionalInterface
 @NativeType("GLFWkeyfun")
 public interface GLFWKeyCallbackI extends CallbackI.V {
