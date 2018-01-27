@@ -158,7 +158,7 @@ public class BGFX {
         BGFX_STENCIL_MASK             = 0xffffffff;
 
     /** Clear */
-    public static final short
+    public static final int
         BGFX_CLEAR_NONE               = 0x0,
         BGFX_CLEAR_COLOR              = 0x1,
         BGFX_CLEAR_DEPTH              = 0x2,
@@ -215,7 +215,7 @@ public class BGFX {
         BGFX_DEBUG_PROFILER  = 0x10;
 
     /** Buffer creation flags */
-    public static final short
+    public static final int
         BGFX_BUFFER_NONE               = 0x0,
         BGFX_BUFFER_COMPUTE_READ       = 0x100,
         BGFX_BUFFER_COMPUTE_WRITE      = 0x200,
@@ -1463,8 +1463,8 @@ public class BGFX {
      * @return `true` if initialization was successful
      */
     @NativeType("bool")
-    public static boolean bgfx_init(@NativeType("bgfx_renderer_type_t") int _type, @NativeType("uint16_t") int _vendorId, @NativeType("uint16_t") int _deviceId, @Nullable @NativeType("bgfx_callback_interface_t *") BGFXCallbackInterface _callback, @Nullable @NativeType("bgfx_allocator_interface_t *") BGFXAllocatorInterface _allocator) {
-        return nbgfx_init(_type, (short)_vendorId, (short)_deviceId, memAddressSafe(_callback), memAddressSafe(_allocator));
+    public static boolean bgfx_init(@NativeType("bgfx_renderer_type_t") int _type, @NativeType("uint16_t") short _vendorId, @NativeType("uint16_t") int _deviceId, @Nullable @NativeType("bgfx_callback_interface_t *") BGFXCallbackInterface _callback, @Nullable @NativeType("bgfx_allocator_interface_t *") BGFXAllocatorInterface _allocator) {
+        return nbgfx_init(_type, _vendorId, (short)_deviceId, memAddressSafe(_callback), memAddressSafe(_allocator));
     }
 
     // --- [ bgfx_shutdown ] ---
@@ -2890,8 +2890,8 @@ public class BGFX {
      * @param _mem    texture update data
      * @param _pitch  pitch of input image (bytes). When {@code _pitch} is set to {@code UINT16_MAX}, it will be calculated internally based on {@code _width}.
      */
-    public static void bgfx_update_texture_cube(@NativeType("bgfx_texture_handle_t") short _handle, @NativeType("uint16_t") int _layer, @NativeType("uint8_t") int _side, @NativeType("uint8_t") int _mip, @NativeType("uint16_t") int _x, @NativeType("uint16_t") int _y, @NativeType("uint16_t") int _width, @NativeType("uint16_t") int _height, @NativeType("const bgfx_memory_t *") BGFXMemory _mem, @NativeType("uint16_t") int _pitch) {
-        nbgfx_update_texture_cube(_handle, (short)_layer, (byte)_side, (byte)_mip, (short)_x, (short)_y, (short)_width, (short)_height, _mem.address(), (short)_pitch);
+    public static void bgfx_update_texture_cube(@NativeType("bgfx_texture_handle_t") short _handle, @NativeType("uint16_t") int _layer, @NativeType("uint8_t") byte _side, @NativeType("uint8_t") int _mip, @NativeType("uint16_t") int _x, @NativeType("uint16_t") int _y, @NativeType("uint16_t") int _width, @NativeType("uint16_t") int _height, @NativeType("const bgfx_memory_t *") BGFXMemory _mem, @NativeType("uint16_t") int _pitch) {
+        nbgfx_update_texture_cube(_handle, (short)_layer, _side, (byte)_mip, (short)_x, (short)_y, (short)_width, (short)_height, _mem.address(), (short)_pitch);
     }
 
     // --- [ bgfx_read_texture ] ---
