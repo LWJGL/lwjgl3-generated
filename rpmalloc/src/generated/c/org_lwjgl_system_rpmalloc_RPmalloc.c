@@ -36,9 +36,15 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_rpaligned_1alloc
     return (jlong)(intptr_t)&rpaligned_alloc;
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_rpmalloc_1initialize(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_nrpmalloc_1initialize(JNIEnv *__env, jclass clazz) {
     UNUSED_PARAMS(__env, clazz)
-    rpmalloc_initialize();
+    return (jint)rpmalloc_initialize();
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_nrpmalloc_1initialize_1config(JNIEnv *__env, jclass clazz, jlong configAddress) {
+    const rpmalloc_config_t *config = (const rpmalloc_config_t *)(intptr_t)configAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)rpmalloc_initialize_config(config);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_rpmalloc_1finalize(JNIEnv *__env, jclass clazz) {
@@ -61,7 +67,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_rpmalloc_1thread_
     rpmalloc_thread_collect();
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_rpmalloc_1is_1thread_1initialized(JNIEnv *__env, jclass clazz) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_system_rpmalloc_RPmalloc_nrpmalloc_1is_1thread_1initialized(JNIEnv *__env, jclass clazz) {
     UNUSED_PARAMS(__env, clazz)
     return (jint)rpmalloc_is_thread_initialized();
 }

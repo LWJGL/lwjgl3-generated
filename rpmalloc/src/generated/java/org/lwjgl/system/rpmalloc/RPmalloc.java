@@ -76,16 +76,39 @@ public class RPmalloc {
 
     // --- [ rpmalloc_initialize ] ---
 
+    /** Unsafe version of: {@link #rpmalloc_initialize malloc_initialize} */
+    public static native int nrpmalloc_initialize();
+
+    /** Calls {@link #rpmalloc_initialize_config malloc_initialize_config} with the default configuration. */
+    @NativeType("int")
+    public static boolean rpmalloc_initialize() {
+        return nrpmalloc_initialize() != 0;
+    }
+
+    // --- [ rpmalloc_initialize_config ] ---
+
+    /** Unsafe version of: {@link #rpmalloc_initialize_config malloc_initialize_config} */
+    public static native int nrpmalloc_initialize_config(long config);
+
     /**
-     * Call at process start to initialize the allocator.
+     * Call at process start to initialize the allocator and setup global data.
      * 
      * <p>This function also calls {@link #rpmalloc_thread_initialize malloc_thread_initialize}.</p>
+     *
+     * @param config an optional {@link RPMallocConfig} instance
      */
-    public static native void rpmalloc_initialize();
+    @NativeType("int")
+    public static boolean rpmalloc_initialize_config(@Nullable @NativeType("const rpmalloc_config_t *") RPMallocConfig config) {
+        return nrpmalloc_initialize_config(memAddressSafe(config)) != 0;
+    }
 
     // --- [ rpmalloc_finalize ] ---
 
-    /** Call at process exit to finalize the allocator. */
+    /**
+     * Call at process exit to finalize the allocator.
+     * 
+     * <p>This function also calls {@link #rpmalloc_thread_finalize malloc_thread_finalize}.</p>
+     */
     public static native void rpmalloc_finalize();
 
     // --- [ rpmalloc_thread_initialize ] ---
@@ -104,7 +127,12 @@ public class RPmalloc {
 
     // --- [ rpmalloc_is_thread_initialized ] ---
 
-    public static native int rpmalloc_is_thread_initialized();
+    public static native int nrpmalloc_is_thread_initialized();
+
+    @NativeType("int")
+    public static boolean rpmalloc_is_thread_initialized() {
+        return nrpmalloc_is_thread_initialized() != 0;
+    }
 
     // --- [ rpmalloc_thread_statistics ] ---
 
