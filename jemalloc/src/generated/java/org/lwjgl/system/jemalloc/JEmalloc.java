@@ -111,11 +111,10 @@ public class JEmalloc {
     // --- [ je_malloc_message ] ---
 
     /** Returns the {@code je_malloc_message} variable. */
-    @Nullable
     @NativeType("void **")
     public static PointerBuffer je_malloc_message() {
         long __result = Functions.malloc_message;
-        return memPointerBufferSafe(__result, 1);
+        return memPointerBuffer(__result, 1);
     }
 
     // --- [ je_malloc ] ---

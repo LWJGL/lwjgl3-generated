@@ -1705,7 +1705,7 @@ public class GLFW {
      * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
      * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
      * more information, see <a target="_blank" href="https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
-     * <li><b>macOS</b>: When activating frame autosaving with {@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}, the specified window size and position may be overriden by previously saved
+     * <li><b>macOS</b>: When activating frame autosaving with {@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}, the specified window size and position may be overridden by previously saved
      * values.</li>
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able
@@ -1794,7 +1794,7 @@ public class GLFW {
      * <li><b>macOS</b>: On macOS 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the
      * {@link #GLFW_COCOA_RETINA_FRAMEBUFFER COCOA_RETINA_FRAMEBUFFER} hint is {@link #GLFW_TRUE TRUE} and the {@code NSHighResolutionCapable} key is enabled in the application bundle's {@code Info.plist}. For
      * more information, see <a target="_blank" href="https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html">High Resolution Guidelines for macOS</a> in the Mac Developer Library.</li>
-     * <li><b>macOS</b>: When activating frame autosaving with {@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}, the specified window size and position may be overriden by previously saved
+     * <li><b>macOS</b>: When activating frame autosaving with {@link #GLFW_COCOA_FRAME_NAME COCOA_FRAME_NAME}, the specified window size and position may be overridden by previously saved
      * values.</li>
      * <li><b>X11</b>: Some window managers will not respect the placement of initially hidden windows.</li>
      * <li><b>X11</b>: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able

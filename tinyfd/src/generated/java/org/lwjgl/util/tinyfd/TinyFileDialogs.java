@@ -60,22 +60,20 @@ public class TinyFileDialogs {
 
     private static native long ntinyfd_winUtf8();
 
-    @Nullable
     @NativeType("int *")
     private static IntBuffer tinyfd_winUtf8() {
         long __result = ntinyfd_winUtf8();
-        return memIntBufferSafe(__result, 1);
+        return memIntBuffer(__result, 1);
     }
 
     // --- [ tinyfd_forceConsole ] ---
 
     private static native long ntinyfd_forceConsole();
 
-    @Nullable
     @NativeType("int *")
     private static IntBuffer tinyfd_forceConsole() {
         long __result = ntinyfd_forceConsole();
-        return memIntBufferSafe(__result, 1);
+        return memIntBuffer(__result, 1);
     }
 
     /**

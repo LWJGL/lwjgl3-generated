@@ -653,11 +653,10 @@ public class ZstdX {
 
     private static native long nZSTD_defaultCMem();
 
-    @Nullable
     @NativeType("ZSTD_customMem *")
     private static ZSTDCustomMem ZSTD_defaultCMem() {
         long __result = nZSTD_defaultCMem();
-        return ZSTDCustomMem.createSafe(__result);
+        return ZSTDCustomMem.create(__result);
     }
 
     /** Use this constant to defer to stdlib's functions. */
@@ -1041,7 +1040,7 @@ public class ZstdX {
      * <li>0 means zero, empty.
      * 
      * <p>In order to mean "unknown content size", pass constant {@link Zstd#ZSTD_CONTENTSIZE_UNKNOWN CONTENTSIZE_UNKNOWN}. {@link Zstd#ZSTD_CONTENTSIZE_UNKNOWN CONTENTSIZE_UNKNOWN} is default value for any new compression job.</p></li>
-     * <li>If all data is provided and consumed in a single round, this value is overriden by {@code srcSize} instead.</li>
+     * <li>If all data is provided and consumed in a single round, this value is overridden by {@code srcSize} instead.</li>
      * </ol>
      *
      * @param cctx           
