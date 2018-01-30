@@ -5,9 +5,9 @@
  */
 package org.lwjgl.stb;
 
-import javax.annotation.*;
-
 import java.nio.*;
+
+import org.lwjgl.*;
 
 import org.lwjgl.system.*;
 
@@ -22,32 +22,44 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This header file is a library for writing images to C stdio.</p>
  * 
- * <p>The PNG output is not optimal; it is 20-50% larger than the file written by a decent optimizing implementation. This library is designed for source
- * code compactness and simplicitly, not optimal image file size or run-time performance.</p>
+ * <p>The PNG output is not optimal; it is 20-50% larger than the file written by a decent optimizing implementation; though providing a custom zlib compress
+ * function (see {@link #stbi_zlib_compress zlib_compress}) can mitigate that. This library is designed for source code compactness and simplicity, not optimal image
+ * file size or run-time performance.</p>
  * 
  * <h3>USAGE</h3>
  * 
- * <p>There are four functions, one for each image file format:</p>
+ * <p>There are five functions, one for each image file format:</p>
  * 
  * <code><pre>
  * int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes);
  * int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data);
  * int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data);
- * int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);</pre></code>
+ * int stbi_write_hdr(char const *filename, int w, int h, int comp, const void *data);
+ * int stbi_write_jpg(char const *filename, int w, int h, int comp, const float *data, int quality);
  * 
- * <p>There are also four equivalent functions that use an arbitrary write function. You are expected to open/close your file-equivalent before and after
+ * void stbi_flip_vertically_on_write(int flag); // flag is non-zero to flip data vertically</pre></code>
+ * 
+ * <p>There are also five equivalent functions that use an arbitrary write function. You are expected to open/close your file-equivalent before and after
  * calling these:</p>
  * 
  * <code><pre>
  * int stbi_write_png_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data, int stride_in_bytes);
  * int stbi_write_bmp_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
  * int stbi_write_tga_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const void  *data);
- * int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);</pre></code>
+ * int stbi_write_hdr_to_func(stbi_write_func *func, void *context, int w, int h, int comp, const float *data);
+ * int stbi_write_jpg_to_func(stbi_write_func *func, void *context, int x, int y, int comp, const void *data, int quality);</pre></code>
  * 
  * <p>where the callback is:</p>
  * 
  * <code><pre>
  * void stbi_write_func(void *context, void *data, int size);</pre></code>
+ * 
+ * <p>You can configure it with these global variables:</p>
+ * 
+ * <code><pre>
+ * int stbi_write_tga_with_rle;             // defaults to true; set to 0 to disable RLE
+ * int stbi_write_png_compression_level;    // defaults to 8; set to higher for more compression
+ * int stbi_write_force_png_filter;         // defaults to -1; set to 0..5 to force a filter mode</pre></code>
  * 
  * <p>The functions create an image file defined by the parameters. The image is a rectangle of pixels stored from left-to-right, top-to-bottom. Each pixel
  * contains {@code comp} channels of data stored interleaved with 8-bits per channel, in the following order: 1=Y, 2=YA, 3=RGB, 4=RGBA. (Y is monochrome
@@ -75,6 +87,8 @@ public class STBImageWrite {
      * <p>PNG supports writing rectangles of data even when the bytes storing rows of data are not consecutive in memory (e.g. sub-rectangles of a larger image),
      * by supplying the stride between the beginning of adjacent rows. The other formats do not. (Thus you cannot write a native-format BMP through the BMP
      * writer, both because it is in BGR order and because it may have padding at the end of the line.)</p>
+     * 
+     * <p>PNG allows you to set the deflate compression level by setting the global variable {@link #stbi_write_png_compression_level write_png_compression_level} (it defaults to 8).</p>
      *
      * @param filename        the image file path
      * @param w               the image width, in pixels
@@ -102,6 +116,8 @@ public class STBImageWrite {
      * <p>PNG supports writing rectangles of data even when the bytes storing rows of data are not consecutive in memory (e.g. sub-rectangles of a larger image),
      * by supplying the stride between the beginning of adjacent rows. The other formats do not. (Thus you cannot write a native-format BMP through the BMP
      * writer, both because it is in BGR order and because it may have padding at the end of the line.)</p>
+     * 
+     * <p>PNG allows you to set the deflate compression level by setting the global variable {@link #stbi_write_png_compression_level write_png_compression_level} (it defaults to 8).</p>
      *
      * @param filename        the image file path
      * @param w               the image width, in pixels
@@ -125,6 +141,49 @@ public class STBImageWrite {
             stack.setPointer(stackPointer);
         }
     }
+
+    // --- [ stbi_write_png_compression_level ] ---
+
+    private static native long nstbi_write_png_compression_level();
+
+    @NativeType("int *")
+    private static IntBuffer stbi_write_png_compression_level() {
+        long __result = nstbi_write_png_compression_level();
+        return memIntBuffer(__result, 1);
+    }
+
+    /** Returns the address of the global variable {@code stbi_write_png_compression_level}. */
+    public static final IntBuffer stbi_write_png_compression_level = stbi_write_png_compression_level();
+
+    // --- [ stbi_write_force_png_filter ] ---
+
+    private static native long nstbi_write_force_png_filter();
+
+    @NativeType("int *")
+    private static IntBuffer stbi_write_force_png_filter() {
+        long __result = nstbi_write_force_png_filter();
+        return memIntBuffer(__result, 1);
+    }
+
+    /** Returns the address of the global variable {@code stbi_write_force_png_filter}. */
+    public static final IntBuffer stbi_write_force_png_filter = stbi_write_force_png_filter();
+
+    // --- [ stbi_zlib_compress ] ---
+
+    private static native long nstbi_zlib_compress();
+
+    @NativeType("unsigned char* (*) (unsigned char *, int, int *, int) *")
+    private static PointerBuffer stbi_zlib_compress() {
+        long __result = nstbi_zlib_compress();
+        return memPointerBuffer(__result, 1);
+    }
+
+    /**
+     * Returns the address of the global variable {@code stbi_zlib_compress}.
+     * 
+     * <p>The address of an {@link STBIZlibCompress} instance may be set to this variable, in order to override the Zlib compression implementation.</p>
+     */
+    public static final PointerBuffer stbi_zlib_compress = stbi_zlib_compress();
 
     // --- [ stbi_write_bmp ] ---
 
@@ -487,6 +546,20 @@ public class STBImageWrite {
             check(data, w * h * comp);
         }
         return nstbi_write_jpg_to_func(func.address(), context, w, h, comp, memAddress(data), quality);
+    }
+
+    // --- [ stbi_flip_vertically_on_write ] ---
+
+    /** Unsafe version of: {@link #stbi_flip_vertically_on_write flip_vertically_on_write} */
+    public static native void nstbi_flip_vertically_on_write(int flip_boolean);
+
+    /**
+     * Configures if the written image should flipped vertically.
+     *
+     * @param flip_boolean true to flip data vertically
+     */
+    public static void stbi_flip_vertically_on_write(@NativeType("int") boolean flip_boolean) {
+        nstbi_flip_vertically_on_write(flip_boolean ? 1 : 0);
     }
 
     /** Array version of: {@link #nstbi_write_hdr} */

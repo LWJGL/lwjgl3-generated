@@ -9,6 +9,8 @@ import javax.annotation.*;
 
 import java.nio.*;
 
+import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -47,10 +49,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <p>Limitations:</p>
  * 
  * <ul>
- * <li>no 16-bit-per-channel PNG</li>
  * <li>no 12-bit-per-channel JPEG</li>
  * <li>no JPEGs with arithmetic coding</li>
- * <li>no 1-bit BMP</li>
  * <li>GIF always returns *channels_in_file=4</li>
  * </ul>
  * 
@@ -291,6 +291,40 @@ public class STBImage {
         }
         long __result = nstbi_load_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(channels_in_file), desired_channels);
         return memByteBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
+    }
+
+    // --- [ stbi_load_gif_from_memory ] ---
+
+    /**
+     * Unsafe version of: {@link #stbi_load_gif_from_memory load_gif_from_memory}
+     *
+     * @param len the buffer length, in bytes
+     */
+    public static native long nstbi_load_gif_from_memory(long buffer, int len, long delays, long x, long y, long z, long channels_in_file, int desired_channels);
+
+    /**
+     * gif version of {@link #stbi_load_from_memory load_from_memory}.
+     *
+     * @param buffer           the buffer from which to load the image data
+     * @param delays           output the delays of each layer in the image
+     * @param x                outputs the image width in pixels
+     * @param y                outputs the image height in pixels
+     * @param z                outputs the number of layers in the image
+     * @param channels_in_file outputs number of components in image
+     * @param desired_channels 0 or 1..4 to force that many components per pixel. One of:<br><table><tr><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td></tr></table>
+     */
+    @Nullable
+    @NativeType("stbi_uc *")
+    public static ByteBuffer stbi_load_gif_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int **") PointerBuffer delays, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer z, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+        if (CHECKS) {
+            check(delays, 1);
+            check(x, 1);
+            check(y, 1);
+            check(z, 1);
+            check(channels_in_file, 1);
+        }
+        long __result = nstbi_load_gif_from_memory(memAddress(buffer), buffer.remaining(), memAddress(delays), memAddress(x), memAddress(y), memAddress(z), memAddress(channels_in_file), desired_channels);
+        return memByteBufferSafe(__result, x.get(x.position()) * y.get(y.position()) * z.get(z.position()) * (desired_channels != 0 ? desired_channels : channels_in_file.get(channels_in_file.position())));
     }
 
     // --- [ stbi_load_16 ] ---
@@ -603,7 +637,7 @@ public class STBImage {
     /**
      * In-memory version of {@link #stbi_is_hdr is_hdr}.
      *
-     * @param buffer the buffer from which to read the image data
+     * @param buffer the buffer from which to load the image data
      */
     @NativeType("int")
     public static boolean stbi_is_hdr_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer) {
@@ -738,7 +772,7 @@ public class STBImage {
     /**
      * In-memory version of {@link #stbi_info info}.
      *
-     * @param buffer the buffer from which to read the image data
+     * @param buffer the buffer from which to load the image data
      * @param x      outputs the image width in pixels
      * @param y      outputs the image height in pixels
      * @param comp   outputs number of components in image
@@ -776,6 +810,78 @@ public class STBImage {
             STBIIOCallbacks.validate(clbk.address());
         }
         return nstbi_info_from_callbacks(clbk.address(), user, memAddress(x), memAddress(y), memAddress(comp)) != 0;
+    }
+
+    // --- [ stbi_is_16_bit ] ---
+
+    /** Unsafe version of: {@link #stbi_is_16_bit is_16_bit} */
+    public static native int nstbi_is_16_bit(long filename);
+
+    /**
+     * Returns {@code true} if the file contains a 16-bit image.
+     *
+     * @param filename the file name
+     */
+    @NativeType("int")
+    public static boolean stbi_is_16_bit(@NativeType("const char *") ByteBuffer filename) {
+        if (CHECKS) {
+            checkNT1(filename);
+        }
+        return nstbi_is_16_bit(memAddress(filename)) != 0;
+    }
+
+    /**
+     * Returns {@code true} if the file contains a 16-bit image.
+     *
+     * @param filename the file name
+     */
+    @NativeType("int")
+    public static boolean stbi_is_16_bit(@NativeType("const char *") CharSequence filename) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer filenameEncoded = stack.ASCII(filename);
+            return nstbi_is_16_bit(memAddress(filenameEncoded)) != 0;
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
+    // --- [ stbi_is_16_bit_from_memory ] ---
+
+    /**
+     * Unsafe version of: {@link #stbi_is_16_bit_from_memory is_16_bit_from_memory}
+     *
+     * @param len the buffer length, in bytes
+     */
+    public static native int nstbi_is_16_bit_from_memory(long buffer, int len);
+
+    /**
+     * In-memory version of {@link #stbi_is_16_bit is_16_bit}.
+     *
+     * @param buffer the buffer from which to load the image data
+     */
+    @NativeType("int")
+    public static boolean stbi_is_16_bit_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer) {
+        return nstbi_is_16_bit_from_memory(memAddress(buffer), buffer.remaining()) != 0;
+    }
+
+    // --- [ stbi_is_16_bit_from_callbacks ] ---
+
+    /** Unsafe version of: {@link #stbi_is_16_bit_from_callbacks is_16_bit_from_callbacks} */
+    public static native int nstbi_is_16_bit_from_callbacks(long clbk, long user);
+
+    /**
+     * Callback version of {@link #stbi_is_16_bit is_16_bit}.
+     *
+     * @param clbk an {@link STBIIOCallbacks} struct
+     * @param user a pointer to user data
+     */
+    @NativeType("int")
+    public static boolean stbi_is_16_bit_from_callbacks(@NativeType("const stbi_io_callbacks *") STBIIOCallbacks clbk, @NativeType("void *") long user) {
+        if (CHECKS) {
+            STBIIOCallbacks.validate(clbk.address());
+        }
+        return nstbi_is_16_bit_from_callbacks(clbk.address(), user) != 0;
     }
 
     // --- [ stbi_set_unpremultiply_on_load ] ---
@@ -1013,6 +1119,24 @@ public class STBImage {
         }
         long __result = nstbi_load_from_callbacks(clbk.address(), user, x, y, channels_in_file, desired_channels);
         return memByteBufferSafe(__result, x[0] * y[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
+    }
+
+    /** Array version of: {@link #nstbi_load_gif_from_memory} */
+    public static native long nstbi_load_gif_from_memory(long buffer, int len, long delays, int[] x, int[] y, int[] z, int[] channels_in_file, int desired_channels);
+
+    /** Array version of: {@link #stbi_load_gif_from_memory load_gif_from_memory} */
+    @Nullable
+    @NativeType("stbi_uc *")
+    public static ByteBuffer stbi_load_gif_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int **") PointerBuffer delays, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] z, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+        if (CHECKS) {
+            check(delays, 1);
+            check(x, 1);
+            check(y, 1);
+            check(z, 1);
+            check(channels_in_file, 1);
+        }
+        long __result = nstbi_load_gif_from_memory(memAddress(buffer), buffer.remaining(), memAddress(delays), x, y, z, channels_in_file, desired_channels);
+        return memByteBufferSafe(__result, x[0] * y[0] * z[0] * (desired_channels != 0 ? desired_channels : channels_in_file[0]));
     }
 
     /** Array version of: {@link #nstbi_load_16} */

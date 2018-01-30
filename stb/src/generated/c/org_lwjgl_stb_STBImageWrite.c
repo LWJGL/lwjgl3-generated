@@ -18,6 +18,9 @@ DISABLE_WARNINGS()
 #define STBIW_ASSERT(x)
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_STATIC
+#ifdef LWJGL_WINDOWS
+    #define STBI_MSC_SECURE_CRT
+#endif
 #include "stb_image_write.h"
 ENABLE_WARNINGS()
 
@@ -28,6 +31,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1png(JNIEnv
     const void *data = (const void *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)stbi_write_png(filename, w, h, comp, data, stride_in_bytes);
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1png_1compression_1level(JNIEnv *__env, jclass clazz) {
+    UNUSED_PARAMS(__env, clazz)
+    return (jlong)(intptr_t)&stbi_write_png_compression_level;
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1force_1png_1filter(JNIEnv *__env, jclass clazz) {
+    UNUSED_PARAMS(__env, clazz)
+    return (jlong)(intptr_t)&stbi_write_force_png_filter;
+}
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1zlib_1compress(JNIEnv *__env, jclass clazz) {
+    UNUSED_PARAMS(__env, clazz)
+    return (jlong)(intptr_t)&stbi_zlib_compress;
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1bmp(JNIEnv *__env, jclass clazz, jlong filenameAddress, jint w, jint h, jint comp, jlong dataAddress) {
@@ -101,6 +119,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1jpg_1to_1f
     const void *data = (const void *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)stbi_write_jpg_to_func(func, context, w, h, comp, data, quality);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1flip_1vertically_1on_1write(JNIEnv *__env, jclass clazz, jint flip_boolean) {
+    UNUSED_PARAMS(__env, clazz)
+    stbi_flip_vertically_on_write(flip_boolean);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImageWrite_nstbi_1write_1hdr__JIII_3F(JNIEnv *__env, jclass clazz, jlong filenameAddress, jint w, jint h, jint comp, jfloatArray dataAddress) {

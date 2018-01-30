@@ -33,32 +33,32 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>Some important concepts to understand to use this library:</p>
  * 
- * <p><b>Codepoint</b></p>
+ * <h4>Codepoint</h4>
  * 
  * <p>Characters are defined by unicode codepoints, e.g. 65 is uppercase A, 231 is lowercase c with a cedilla, 0x7e30 is the hiragana for "ma".</p>
  * 
- * <p><b>Glyph</b></p>
+ * <h4>Glyph</h4>
  * 
  * <p>A visual character shape (every codepoint is rendered as some glyph)</p>
  * 
- * <p><b>Glyph index</b></p>
+ * <h4>Glyph index</h4>
  * 
  * <p>A font-specific integer ID representing a glyph</p>
  * 
- * <p><b>Baseline</b></p>
+ * <h4>Baseline</h4>
  * 
  * <p>Glyph shapes are defined relative to a baseline, which is the bottom of uppercase characters. Characters extend both above and below the baseline.</p>
  * 
- * <p><b>Current Point</b></p>
+ * <h4>Current Point</h4>
  * 
  * <p>As you draw text to the screen, you keep track of a "current point" which is the origin of each character. The current point's vertical position is the
  * baseline. Even "baked fonts" use this model.</p>
  * 
- * <p><b>Vertical Font Metrics</b></p>
+ * <h4>Vertical Font Metrics</h4>
  * 
  * <p>The vertical qualities of the font, used to vertically position and space the characters. See docs for {@link #stbtt_GetFontVMetrics GetFontVMetrics}.</p>
  * 
- * <p><b>Font Size in Pixels or Points</b></p>
+ * <h4>Font Size in Pixels or Points</h4>
  * 
  * <p>The preferred interface for specifying font sizes in stb_truetype is to specify how tall the font's vertical extent should be in pixels. If that sounds
  * good enough, skip the next paragraph.</p>
@@ -69,6 +69,35 @@ import static org.lwjgl.system.MemoryUtil.*;
  * measurements have nothing to do with inches, and thus effectively defining a point to be 1.333 pixels. Additionally, the TrueType font data provides an
  * explicit scale factor to scale a given font's glyphs to points, but the author has observed that this scale factor is often wrong for non-commercial
  * fonts, thus making fonts scaled in points according to the TrueType spec incoherently sized in practice.</p>
+ * 
+ * <h3>DETAILED USAGE</h3>
+ * 
+ * <h4>Scale:</h4>
+ * 
+ * <p>Select how high you want the font to be, in points or pixels. Call #()ScaleForPixelHeight or {@link #stbtt_ScaleForMappingEmToPixels ScaleForMappingEmToPixels} to compute a scale factor
+ * {@code SF} that will be used by all other functions.</p>
+ * 
+ * <h4>Baseline:</h4>
+ * 
+ * <p>You need to select a y-coordinate that is the baseline of where your text will appear. Call {@link #stbtt_GetFontBoundingBox GetFontBoundingBox} to get the baseline-relative bounding
+ * box for all characters. {@code SF*-y0} will be the distance in pixels that the worst-case character could extend above the baseline, so if you want the
+ * top edge of characters to appear at the top of the screen where {@code y=0}, then you would set the baseline to {@code SF*-y0}.</p>
+ * 
+ * <h4>Current point:</h4>
+ * 
+ * <p>Set the current point where the first character will appear. The first character could extend left of the current point; this is font dependent. You
+ * can either choose a current point that is the leftmost point and hope, or add some padding, or check the bounding box or left-side-bearing of the first
+ * character to be displayed and set the current point based on that.</p>
+ * 
+ * <h4>Displaying a character:</h4>
+ * 
+ * <p>Compute the bounding box of the character. It will contain signed values relative to {@code <current_point, baseline>}. I.e. if it returns
+ * {@code x0,y0,x1,y1}, then the character should be displayed in the rectangle from {@code <current_point+SF*x0, baseline+SF*y0>} to
+ * {@code <current_point+SF*x1,baseline+SF*y1)}.</p>
+ * 
+ * <h4>Advancing for the next character:</h4>
+ * 
+ * <p>Call {@link #stbtt_GetGlyphHMetrics GetGlyphHMetrics}, and compute {@code current_point += SF * advance}.</p>
  * 
  * <h3>ADVANCED USAGE</h3>
  * 

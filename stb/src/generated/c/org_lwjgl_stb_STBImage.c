@@ -49,6 +49,17 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1load_1from_1callbacks
     return (jlong)(intptr_t)stbi_load_from_callbacks(clbk, user, x, y, channels_in_file, desired_channels);
 }
 
+JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1load_1gif_1from_1memory__JIJJJJJI(JNIEnv *__env, jclass clazz, jlong bufferAddress, jint len, jlong delaysAddress, jlong xAddress, jlong yAddress, jlong zAddress, jlong channels_in_fileAddress, jint desired_channels) {
+    const stbi_uc *buffer = (const stbi_uc *)(intptr_t)bufferAddress;
+    int **delays = (int **)(intptr_t)delaysAddress;
+    int *x = (int *)(intptr_t)xAddress;
+    int *y = (int *)(intptr_t)yAddress;
+    int *z = (int *)(intptr_t)zAddress;
+    int *channels_in_file = (int *)(intptr_t)channels_in_fileAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jlong)(intptr_t)stbi_load_gif_from_memory(buffer, len, delays, x, y, z, channels_in_file, desired_channels);
+}
+
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1load_116__JJJJI(JNIEnv *__env, jclass clazz, jlong filenameAddress, jlong xAddress, jlong yAddress, jlong channels_in_fileAddress, jint desired_channels) {
     const char *filename = (const char *)(intptr_t)filenameAddress;
     int *x = (int *)(intptr_t)xAddress;
@@ -183,6 +194,25 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1info_1from_1callbacks_
     return (jint)stbi_info_from_callbacks(clbk, user, x, y, comp);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1is_116_1bit(JNIEnv *__env, jclass clazz, jlong filenameAddress) {
+    const char *filename = (const char *)(intptr_t)filenameAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)stbi_is_16_bit(filename);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1is_116_1bit_1from_1memory(JNIEnv *__env, jclass clazz, jlong bufferAddress, jint len) {
+    const stbi_uc *buffer = (const stbi_uc *)(intptr_t)bufferAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)stbi_is_16_bit_from_memory(buffer, len);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1is_116_1bit_1from_1callbacks(JNIEnv *__env, jclass clazz, jlong clbkAddress, jlong userAddress) {
+    const stbi_io_callbacks *clbk = (const stbi_io_callbacks *)(intptr_t)clbkAddress;
+    void *user = (void *)(intptr_t)userAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)stbi_is_16_bit_from_callbacks(clbk, user);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1set_1unpremultiply_1on_1load(JNIEnv *__env, jclass clazz, jint flag_true_if_should_unpremultiply) {
     UNUSED_PARAMS(__env, clazz)
     stbi_set_unpremultiply_on_load(flag_true_if_should_unpremultiply);
@@ -306,6 +336,34 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBImage_nstbi_1load_1from_1c
     UNUSED_PARAM(y__length)
     UNUSED_PARAM(channels_in_file__length)
     return (jlong)(intptr_t)stbi_load_from_callbacks(clbk, user, (int *)x, (int *)y, (int *)channels_in_file, desired_channels);
+}
+#endif
+
+JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBImage_nstbi_1load_1gif_1from_1memory__JIJ_3I_3I_3I_3II(JNIEnv *__env, jclass clazz, jlong bufferAddress, jint len, jlong delaysAddress, jintArray xAddress, jintArray yAddress, jintArray zAddress, jintArray channels_in_fileAddress, jint desired_channels) {
+    const stbi_uc *buffer = (const stbi_uc *)(intptr_t)bufferAddress;
+    int **delays = (int **)(intptr_t)delaysAddress;
+    jlong __result;
+    jint *x = (*__env)->GetPrimitiveArrayCritical(__env, xAddress, 0);
+    jint *y = (*__env)->GetPrimitiveArrayCritical(__env, yAddress, 0);
+    jint *z = (*__env)->GetPrimitiveArrayCritical(__env, zAddress, 0);
+    jint *channels_in_file = (*__env)->GetPrimitiveArrayCritical(__env, channels_in_fileAddress, 0);
+    UNUSED_PARAMS(__env, clazz)
+    __result = (jlong)(intptr_t)stbi_load_gif_from_memory(buffer, len, delays, (int *)x, (int *)y, (int *)z, (int *)channels_in_file, desired_channels);
+    (*__env)->ReleasePrimitiveArrayCritical(__env, channels_in_fileAddress, channels_in_file, 0);
+    (*__env)->ReleasePrimitiveArrayCritical(__env, zAddress, z, 0);
+    (*__env)->ReleasePrimitiveArrayCritical(__env, yAddress, y, 0);
+    (*__env)->ReleasePrimitiveArrayCritical(__env, xAddress, x, 0);
+    return __result;
+}
+#ifdef LWJGL_WINDOWS
+JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBImage_nstbi_1load_1gif_1from_1memory__JIJ_3I_3I_3I_3II(jlong bufferAddress, jint len, jlong delaysAddress, jint x__length, jint* x, jint y__length, jint* y, jint z__length, jint* z, jint channels_in_file__length, jint* channels_in_file, jint desired_channels) {
+    const stbi_uc *buffer = (const stbi_uc *)(intptr_t)bufferAddress;
+    int **delays = (int **)(intptr_t)delaysAddress;
+    UNUSED_PARAM(x__length)
+    UNUSED_PARAM(y__length)
+    UNUSED_PARAM(z__length)
+    UNUSED_PARAM(channels_in_file__length)
+    return (jlong)(intptr_t)stbi_load_gif_from_memory(buffer, len, delays, (int *)x, (int *)y, (int *)z, (int *)channels_in_file, desired_channels);
 }
 #endif
 
