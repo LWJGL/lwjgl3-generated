@@ -658,7 +658,7 @@ public class STBVorbis {
      *
      * @return the number of samples per channel
      */
-    public static int stb_vorbis_get_frame_short(@NativeType("stb_vorbis *") long f, @NativeType("short **") PointerBuffer buffer, @NativeType("int") int num_samples) {
+    public static int stb_vorbis_get_frame_short(@NativeType("stb_vorbis *") long f, @NativeType("short **") PointerBuffer buffer, int num_samples) {
         if (CHECKS) {
             check(f);
         }
@@ -686,7 +686,7 @@ public class STBVorbis {
      *
      * @return the number of samples per channel
      */
-    public static int stb_vorbis_get_frame_short_interleaved(@NativeType("stb_vorbis *") long f, @NativeType("int") int num_c, @NativeType("short *") ShortBuffer buffer) {
+    public static int stb_vorbis_get_frame_short_interleaved(@NativeType("stb_vorbis *") long f, int num_c, @NativeType("short *") ShortBuffer buffer) {
         if (CHECKS) {
             check(f);
         }
@@ -712,7 +712,7 @@ public class STBVorbis {
      *
      * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
      */
-    public static int stb_vorbis_get_samples_float(@NativeType("stb_vorbis *") long f, @NativeType("float **") PointerBuffer buffer, @NativeType("int") int num_samples) {
+    public static int stb_vorbis_get_samples_float(@NativeType("stb_vorbis *") long f, @NativeType("float **") PointerBuffer buffer, int num_samples) {
         if (CHECKS) {
             check(f);
         }
@@ -737,7 +737,7 @@ public class STBVorbis {
      *
      * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
      */
-    public static int stb_vorbis_get_samples_float_interleaved(@NativeType("stb_vorbis *") long f, @NativeType("int") int channels, @NativeType("float *") FloatBuffer buffer) {
+    public static int stb_vorbis_get_samples_float_interleaved(@NativeType("stb_vorbis *") long f, int channels, @NativeType("float *") FloatBuffer buffer) {
         if (CHECKS) {
             check(f);
         }
@@ -763,7 +763,7 @@ public class STBVorbis {
      *
      * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
      */
-    public static int stb_vorbis_get_samples_short(@NativeType("stb_vorbis *") long f, @NativeType("short **") PointerBuffer buffer, @NativeType("int") int num_samples) {
+    public static int stb_vorbis_get_samples_short(@NativeType("stb_vorbis *") long f, @NativeType("short **") PointerBuffer buffer, int num_samples) {
         if (CHECKS) {
             check(f);
         }
@@ -788,7 +788,7 @@ public class STBVorbis {
      *
      * @return the number of samples stored per channel; it may be less than requested at the end of the file. If there are no more samples in the file, returns 0.
      */
-    public static int stb_vorbis_get_samples_short_interleaved(@NativeType("stb_vorbis *") long f, @NativeType("int") int channels, @NativeType("short *") ShortBuffer buffer) {
+    public static int stb_vorbis_get_samples_short_interleaved(@NativeType("stb_vorbis *") long f, int channels, @NativeType("short *") ShortBuffer buffer) {
         if (CHECKS) {
             check(f);
         }
@@ -926,7 +926,7 @@ public class STBVorbis {
     public static native int nstb_vorbis_get_frame_short_interleaved(long f, int num_c, short[] buffer, int num_shorts);
 
     /** Array version of: {@link #stb_vorbis_get_frame_short_interleaved get_frame_short_interleaved} */
-    public static int stb_vorbis_get_frame_short_interleaved(@NativeType("stb_vorbis *") long f, @NativeType("int") int num_c, @NativeType("short *") short[] buffer) {
+    public static int stb_vorbis_get_frame_short_interleaved(@NativeType("stb_vorbis *") long f, int num_c, @NativeType("short *") short[] buffer) {
         if (CHECKS) {
             check(f);
         }
@@ -937,7 +937,7 @@ public class STBVorbis {
     public static native int nstb_vorbis_get_samples_float_interleaved(long f, int channels, float[] buffer, int num_floats);
 
     /** Array version of: {@link #stb_vorbis_get_samples_float_interleaved get_samples_float_interleaved} */
-    public static int stb_vorbis_get_samples_float_interleaved(@NativeType("stb_vorbis *") long f, @NativeType("int") int channels, @NativeType("float *") float[] buffer) {
+    public static int stb_vorbis_get_samples_float_interleaved(@NativeType("stb_vorbis *") long f, int channels, @NativeType("float *") float[] buffer) {
         if (CHECKS) {
             check(f);
         }
@@ -948,7 +948,7 @@ public class STBVorbis {
     public static native int nstb_vorbis_get_samples_short_interleaved(long f, int channels, short[] buffer, int num_shorts);
 
     /** Array version of: {@link #stb_vorbis_get_samples_short_interleaved get_samples_short_interleaved} */
-    public static int stb_vorbis_get_samples_short_interleaved(@NativeType("stb_vorbis *") long f, @NativeType("int") int channels, @NativeType("short *") short[] buffer) {
+    public static int stb_vorbis_get_samples_short_interleaved(@NativeType("stb_vorbis *") long f, int channels, @NativeType("short *") short[] buffer) {
         if (CHECKS) {
             check(f);
         }

@@ -2333,7 +2333,7 @@ public class Nuklear {
      * @param height holds height of each widget in row or zero for auto layouting
      * @param ratio  
      */
-    public static void nk_layout_row(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_layout_format") int fmt, @NativeType("float") float height, @NativeType("const float *") FloatBuffer ratio) {
+    public static void nk_layout_row(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_layout_format") int fmt, float height, @NativeType("const float *") FloatBuffer ratio) {
         nnk_layout_row(ctx.address(), fmt, height, ratio.remaining(), memAddress(ratio));
     }
 
@@ -2746,7 +2746,7 @@ public class Nuklear {
      * @param row_count  
      */
     @NativeType("int")
-    public static boolean nk_list_view_begin(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_list_view *") NkListView view, @NativeType("const char *") CharSequence title, @NativeType("nk_flags") int flags, @NativeType("int") int row_height, @NativeType("int") int row_count) {
+    public static boolean nk_list_view_begin(@NativeType("struct nk_context *") NkContext ctx, @NativeType("struct nk_list_view *") NkListView view, @NativeType("const char *") CharSequence title, @NativeType("nk_flags") int flags, int row_height, int row_count) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
@@ -3542,7 +3542,7 @@ public class Nuklear {
      * @param len   
      */
     @NativeType("int")
-    public static boolean nk_button_text_styled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const struct nk_style_button *") NkStyleButton style, @NativeType("const char *") CharSequence title, @NativeType("int") int len) {
+    public static boolean nk_button_text_styled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const struct nk_style_button *") NkStyleButton style, @NativeType("const char *") CharSequence title, int len) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
@@ -3646,7 +3646,7 @@ public class Nuklear {
      * @param alignment 
      */
     @NativeType("int")
-    public static boolean nk_button_symbol_text_styled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const struct nk_style_button *") NkStyleButton style, @NativeType("enum nk_symbol_type") int symbol, @NativeType("const char *") CharSequence title, @NativeType("int") int len, @NativeType("nk_flags") int alignment) {
+    public static boolean nk_button_symbol_text_styled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const struct nk_style_button *") NkStyleButton style, @NativeType("enum nk_symbol_type") int symbol, @NativeType("const char *") CharSequence title, int len, @NativeType("nk_flags") int alignment) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
@@ -3762,7 +3762,7 @@ public class Nuklear {
      * @param alignment 
      */
     @NativeType("int")
-    public static boolean nk_button_image_text_styled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const struct nk_style_button *") NkStyleButton style, @NativeType("struct nk_image") NkImage img, @NativeType("const char *") CharSequence title, @NativeType("int") int len, @NativeType("nk_flags") int alignment) {
+    public static boolean nk_button_image_text_styled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const struct nk_style_button *") NkStyleButton style, @NativeType("struct nk_image") NkImage img, @NativeType("const char *") CharSequence title, int len, @NativeType("nk_flags") int alignment) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
@@ -4671,7 +4671,7 @@ public class Nuklear {
      * @param step          
      * @param inc_per_pixel 
      */
-    public static void nk_property_int(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("int") int min, @NativeType("int *") IntBuffer val, @NativeType("int") int max, @NativeType("int") int step, @NativeType("float") float inc_per_pixel) {
+    public static void nk_property_int(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, int min, @NativeType("int *") IntBuffer val, int max, int step, float inc_per_pixel) {
         if (CHECKS) {
             check(val, 1);
         }
@@ -4715,7 +4715,7 @@ public class Nuklear {
      * @param step          
      * @param inc_per_pixel 
      */
-    public static void nk_property_float(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("float") float min, @NativeType("float *") FloatBuffer val, @NativeType("float") float max, @NativeType("float") float step, @NativeType("float") float inc_per_pixel) {
+    public static void nk_property_float(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, float min, @NativeType("float *") FloatBuffer val, float max, float step, float inc_per_pixel) {
         if (CHECKS) {
             check(val, 1);
         }
@@ -4759,7 +4759,7 @@ public class Nuklear {
      * @param step          
      * @param inc_per_pixel 
      */
-    public static void nk_property_double(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("double") double min, @NativeType("double *") DoubleBuffer val, @NativeType("double") double max, @NativeType("double") double step, @NativeType("float") float inc_per_pixel) {
+    public static void nk_property_double(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, double min, @NativeType("double *") DoubleBuffer val, double max, double step, float inc_per_pixel) {
         if (CHECKS) {
             check(val, 1);
         }
@@ -4802,7 +4802,7 @@ public class Nuklear {
      * @param step          
      * @param inc_per_pixel 
      */
-    public static int nk_propertyi(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("int") int min, @NativeType("int") int val, @NativeType("int") int max, @NativeType("int") int step, @NativeType("float") float inc_per_pixel) {
+    public static int nk_propertyi(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, int min, int val, int max, int step, float inc_per_pixel) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -4842,7 +4842,7 @@ public class Nuklear {
      * @param step          
      * @param inc_per_pixel 
      */
-    public static float nk_propertyf(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("float") float min, @NativeType("float") float val, @NativeType("float") float max, @NativeType("float") float step, @NativeType("float") float inc_per_pixel) {
+    public static float nk_propertyf(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, float min, float val, float max, float step, float inc_per_pixel) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -4882,7 +4882,7 @@ public class Nuklear {
      * @param step          
      * @param inc_per_pixel 
      */
-    public static double nk_propertyd(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("double") double min, @NativeType("double") double val, @NativeType("double") double max, @NativeType("double") double step, @NativeType("float") float inc_per_pixel) {
+    public static double nk_propertyd(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, double min, double val, double max, double step, float inc_per_pixel) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -4946,7 +4946,7 @@ public class Nuklear {
      * @param filter 
      */
     @NativeType("nk_flags")
-    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") IntBuffer len, @NativeType("int") int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") IntBuffer len, int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         if (CHECKS) {
             check(len, 1);
         }
@@ -5003,7 +5003,7 @@ public class Nuklear {
      * @param filter 
      */
     @NativeType("nk_flags")
-    public static int nk_edit_string_zero_terminated(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence buffer, @NativeType("int") int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string_zero_terminated(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence buffer, int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer bufferEncoded = stack.UTF8(buffer);
@@ -5232,7 +5232,7 @@ public class Nuklear {
      * @param size        
      */
     @NativeType("int")
-    public static boolean nk_combo(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char **") PointerBuffer items, @NativeType("int") boolean selected, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static boolean nk_combo(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char **") PointerBuffer items, @NativeType("int") boolean selected, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         return nnk_combo(ctx.address(), memAddress(items), items.remaining(), selected ? 1 : 0, item_height, size.address()) != 0;
     }
 
@@ -5268,7 +5268,7 @@ public class Nuklear {
      * @param size                         
      */
     @NativeType("int")
-    public static boolean nk_combo_separator(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_separator, @NativeType("int") int separator, @NativeType("int") boolean selected, @NativeType("int") int count, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static boolean nk_combo_separator(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_separator, int separator, @NativeType("int") boolean selected, int count, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer items_separated_by_separatorEncoded = stack.UTF8(items_separated_by_separator);
@@ -5308,7 +5308,7 @@ public class Nuklear {
      * @param size                     
      */
     @NativeType("int")
-    public static boolean nk_combo_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_zeros, @NativeType("int") boolean selected, @NativeType("int") int count, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static boolean nk_combo_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_zeros, @NativeType("int") boolean selected, int count, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer items_separated_by_zerosEncoded = stack.UTF8(items_separated_by_zeros);
@@ -5352,7 +5352,7 @@ public class Nuklear {
      * @param item_height 
      * @param size        
      */
-    public static void nk_combobox(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char **") PointerBuffer items, @NativeType("int *") IntBuffer selected, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static void nk_combobox(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char **") PointerBuffer items, @NativeType("int *") IntBuffer selected, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         if (CHECKS) {
             check(selected, 1);
         }
@@ -5388,7 +5388,7 @@ public class Nuklear {
      * @param item_height              
      * @param size                     
      */
-    public static void nk_combobox_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_zeros, @NativeType("int *") IntBuffer selected, @NativeType("int") int count, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static void nk_combobox_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_zeros, @NativeType("int *") IntBuffer selected, int count, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         if (CHECKS) {
             check(selected, 1);
         }
@@ -5432,7 +5432,7 @@ public class Nuklear {
      * @param item_height                  
      * @param size                         
      */
-    public static void nk_combobox_separator(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_separator, @NativeType("int") int separator, @NativeType("int *") IntBuffer selected, @NativeType("int") int count, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static void nk_combobox_separator(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_separator, int separator, @NativeType("int *") IntBuffer selected, int count, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         if (CHECKS) {
             check(selected, 1);
         }
@@ -8246,7 +8246,7 @@ public class Nuklear {
         return nnk_stricmpn(memAddress(s1), memAddress(s2), n);
     }
 
-    public static int nk_stricmpn(@NativeType("const char *") CharSequence s1, @NativeType("const char *") CharSequence s2, @NativeType("int") int n) {
+    public static int nk_stricmpn(@NativeType("const char *") CharSequence s1, @NativeType("const char *") CharSequence s2, int n) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer s1Encoded = stack.UTF8(s1);
@@ -8487,7 +8487,7 @@ public class Nuklear {
 
     @Nullable
     @NativeType("const char *")
-    public static ByteBuffer nk_utf_at(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int index, @NativeType("nk_rune *") IntBuffer unicode) {
+    public static ByteBuffer nk_utf_at(@NativeType("const char *") ByteBuffer buffer, int index, @NativeType("nk_rune *") IntBuffer unicode) {
         if (CHECKS) {
             check(unicode, 1);
         }
@@ -8702,7 +8702,7 @@ public class Nuklear {
 
     public static native int nnk_str_insert_at_char(long s, int pos, long str, int len);
 
-    public static int nk_str_insert_at_char(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos, @NativeType("const char *") ByteBuffer str) {
+    public static int nk_str_insert_at_char(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("const char *") ByteBuffer str) {
         return nnk_str_insert_at_char(s.address(), pos, memAddress(str), str.remaining());
     }
 
@@ -8710,7 +8710,7 @@ public class Nuklear {
 
     public static native int nnk_str_insert_at_rune(long s, int pos, long str, int len);
 
-    public static int nk_str_insert_at_rune(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos, @NativeType("const char *") ByteBuffer str) {
+    public static int nk_str_insert_at_rune(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("const char *") ByteBuffer str) {
         return nnk_str_insert_at_rune(s.address(), pos, memAddress(str), str.remaining());
     }
 
@@ -8718,7 +8718,7 @@ public class Nuklear {
 
     public static native int nnk_str_insert_text_char(long s, int pos, long str, int len);
 
-    public static int nk_str_insert_text_char(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos, @NativeType("const char *") ByteBuffer str) {
+    public static int nk_str_insert_text_char(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("const char *") ByteBuffer str) {
         return nnk_str_insert_text_char(s.address(), pos, memAddress(str), str.remaining());
     }
 
@@ -8737,7 +8737,7 @@ public class Nuklear {
 
     public static native int nnk_str_insert_text_utf8(long s, int pos, long str, int len);
 
-    public static int nk_str_insert_text_utf8(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos, @NativeType("const char *") ByteBuffer str) {
+    public static int nk_str_insert_text_utf8(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("const char *") ByteBuffer str) {
         return nnk_str_insert_text_utf8(s.address(), pos, memAddress(str), str.remaining());
     }
 
@@ -8756,7 +8756,7 @@ public class Nuklear {
 
     public static native int nnk_str_insert_text_runes(long s, int pos, long runes, int len);
 
-    public static int nk_str_insert_text_runes(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos, @NativeType("const nk_rune *") IntBuffer runes) {
+    public static int nk_str_insert_text_runes(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("const nk_rune *") IntBuffer runes) {
         return nnk_str_insert_text_runes(s.address(), pos, memAddress(runes), runes.remaining());
     }
 
@@ -8809,7 +8809,7 @@ public class Nuklear {
 
     @Nullable
     @NativeType("char *")
-    public static String nk_str_at_char(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos) {
+    public static String nk_str_at_char(@NativeType("struct nk_str *") NkStr s, int pos) {
         long __result = nnk_str_at_char(s.address(), pos);
         return memUTF8Safe(__result);
     }
@@ -8849,7 +8849,7 @@ public class Nuklear {
 
     @Nullable
     @NativeType("const char *")
-    public static String nk_str_at_char_const(@NativeType("const struct nk_str *") NkStr s, @NativeType("int") int pos) {
+    public static String nk_str_at_char_const(@NativeType("const struct nk_str *") NkStr s, int pos) {
         long __result = nnk_str_at_char_const(s.address(), pos);
         return memUTF8Safe(__result);
     }
@@ -9138,7 +9138,7 @@ public class Nuklear {
 
     public static native void nnk_stroke_polyline(long b, long points, int point_count, float line_thickness, long col);
 
-    public static void nk_stroke_polyline(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") FloatBuffer points, @NativeType("float") float line_thickness, @NativeType("struct nk_color") NkColor col) {
+    public static void nk_stroke_polyline(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") FloatBuffer points, float line_thickness, @NativeType("struct nk_color") NkColor col) {
         nnk_stroke_polyline(b.address(), memAddress(points), points.remaining(), line_thickness, col.address());
     }
 
@@ -9146,7 +9146,7 @@ public class Nuklear {
 
     public static native void nnk_stroke_polygon(long b, long points, int point_count, float line_thickness, long color);
 
-    public static void nk_stroke_polygon(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") FloatBuffer points, @NativeType("float") float line_thickness, @NativeType("struct nk_color") NkColor color) {
+    public static void nk_stroke_polygon(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") FloatBuffer points, float line_thickness, @NativeType("struct nk_color") NkColor color) {
         nnk_stroke_polygon(b.address(), memAddress(points), points.remaining(), line_thickness, color.address());
     }
 
@@ -9769,11 +9769,11 @@ public class Nuklear {
 
     public static native void nnk_draw_list_add_text(long list, long font, long rect, long text, int len, float font_height, long color);
 
-    public static void nk_draw_list_add_text(@NativeType("struct nk_draw_list *") NkDrawList list, @NativeType("const struct nk_user_font *") NkUserFont font, @NativeType("struct nk_rect") NkRect rect, @NativeType("const char *") ByteBuffer text, @NativeType("float") float font_height, @NativeType("struct nk_color") NkColor color) {
+    public static void nk_draw_list_add_text(@NativeType("struct nk_draw_list *") NkDrawList list, @NativeType("const struct nk_user_font *") NkUserFont font, @NativeType("struct nk_rect") NkRect rect, @NativeType("const char *") ByteBuffer text, float font_height, @NativeType("struct nk_color") NkColor color) {
         nnk_draw_list_add_text(list.address(), font.address(), rect.address(), memAddress(text), text.remaining(), font_height, color.address());
     }
 
-    public static void nk_draw_list_add_text(@NativeType("struct nk_draw_list *") NkDrawList list, @NativeType("const struct nk_user_font *") NkUserFont font, @NativeType("struct nk_rect") NkRect rect, @NativeType("const char *") CharSequence text, @NativeType("float") float font_height, @NativeType("struct nk_color") NkColor color) {
+    public static void nk_draw_list_add_text(@NativeType("struct nk_draw_list *") NkDrawList list, @NativeType("const struct nk_user_font *") NkUserFont font, @NativeType("struct nk_rect") NkRect rect, @NativeType("const char *") CharSequence text, float font_height, @NativeType("struct nk_color") NkColor color) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer textEncoded = stack.UTF8(text, false);
@@ -9825,7 +9825,7 @@ public class Nuklear {
     public static native void nnk_layout_row(long ctx, int fmt, float height, int cols, float[] ratio);
 
     /** Array version of: {@link #nk_layout_row layout_row} */
-    public static void nk_layout_row(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_layout_format") int fmt, @NativeType("float") float height, @NativeType("const float *") float[] ratio) {
+    public static void nk_layout_row(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_layout_format") int fmt, float height, @NativeType("const float *") float[] ratio) {
         nnk_layout_row(ctx.address(), fmt, height, ratio.length, ratio);
     }
 
@@ -10225,7 +10225,7 @@ public class Nuklear {
     }
 
     /** Array version of: {@link #nk_property_int property_int} */
-    public static void nk_property_int(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("int") int min, @NativeType("int *") int[] val, @NativeType("int") int max, @NativeType("int") int step, @NativeType("float") float inc_per_pixel) {
+    public static void nk_property_int(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, int min, @NativeType("int *") int[] val, int max, int step, float inc_per_pixel) {
         if (CHECKS) {
             check(val, 1);
         }
@@ -10251,7 +10251,7 @@ public class Nuklear {
     }
 
     /** Array version of: {@link #nk_property_float property_float} */
-    public static void nk_property_float(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("float") float min, @NativeType("float *") float[] val, @NativeType("float") float max, @NativeType("float") float step, @NativeType("float") float inc_per_pixel) {
+    public static void nk_property_float(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, float min, @NativeType("float *") float[] val, float max, float step, float inc_per_pixel) {
         if (CHECKS) {
             check(val, 1);
         }
@@ -10277,7 +10277,7 @@ public class Nuklear {
     }
 
     /** Array version of: {@link #nk_property_double property_double} */
-    public static void nk_property_double(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("double") double min, @NativeType("double *") double[] val, @NativeType("double") double max, @NativeType("double") double step, @NativeType("float") float inc_per_pixel) {
+    public static void nk_property_double(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, double min, @NativeType("double *") double[] val, double max, double step, float inc_per_pixel) {
         if (CHECKS) {
             check(val, 1);
         }
@@ -10305,7 +10305,7 @@ public class Nuklear {
 
     /** Array version of: {@link #nk_edit_string edit_string} */
     @NativeType("nk_flags")
-    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") int[] len, @NativeType("int") int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
+    public static int nk_edit_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("nk_flags") int flags, @NativeType("char *") CharSequence memory, @NativeType("int *") int[] len, int max, @Nullable @NativeType("nk_plugin_filter") NkPluginFilterI filter) {
         if (CHECKS) {
             check(len, 1);
         }
@@ -10333,7 +10333,7 @@ public class Nuklear {
     public static native void nnk_combobox(long ctx, long items, int count, int[] selected, int item_height, long size);
 
     /** Array version of: {@link #nk_combobox combobox} */
-    public static void nk_combobox(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char **") PointerBuffer items, @NativeType("int *") int[] selected, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static void nk_combobox(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char **") PointerBuffer items, @NativeType("int *") int[] selected, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         if (CHECKS) {
             check(selected, 1);
         }
@@ -10353,7 +10353,7 @@ public class Nuklear {
     }
 
     /** Array version of: {@link #nk_combobox_string combobox_string} */
-    public static void nk_combobox_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_zeros, @NativeType("int *") int[] selected, @NativeType("int") int count, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static void nk_combobox_string(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_zeros, @NativeType("int *") int[] selected, int count, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         if (CHECKS) {
             check(selected, 1);
         }
@@ -10379,7 +10379,7 @@ public class Nuklear {
     }
 
     /** Array version of: {@link #nk_combobox_separator combobox_separator} */
-    public static void nk_combobox_separator(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_separator, @NativeType("int") int separator, @NativeType("int *") int[] selected, @NativeType("int") int count, @NativeType("int") int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
+    public static void nk_combobox_separator(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence items_separated_by_separator, int separator, @NativeType("int *") int[] selected, int count, int item_height, @NativeType("struct nk_vec2") NkVec2 size) {
         if (CHECKS) {
             check(selected, 1);
         }
@@ -10842,7 +10842,7 @@ public class Nuklear {
     /** Array version of: {@link #nk_utf_at utf_at} */
     @Nullable
     @NativeType("const char *")
-    public static ByteBuffer nk_utf_at(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int index, @NativeType("nk_rune *") int[] unicode) {
+    public static ByteBuffer nk_utf_at(@NativeType("const char *") ByteBuffer buffer, int index, @NativeType("nk_rune *") int[] unicode) {
         if (CHECKS) {
             check(unicode, 1);
         }
@@ -10879,7 +10879,7 @@ public class Nuklear {
     public static native int nnk_str_insert_text_runes(long s, int pos, int[] runes, int len);
 
     /** Array version of: {@link #nk_str_insert_text_runes str_insert_text_runes} */
-    public static int nk_str_insert_text_runes(@NativeType("struct nk_str *") NkStr s, @NativeType("int") int pos, @NativeType("const nk_rune *") int[] runes) {
+    public static int nk_str_insert_text_runes(@NativeType("struct nk_str *") NkStr s, int pos, @NativeType("const nk_rune *") int[] runes) {
         return nnk_str_insert_text_runes(s.address(), pos, runes, runes.length);
     }
 
@@ -10938,7 +10938,7 @@ public class Nuklear {
     public static native void nnk_stroke_polyline(long b, float[] points, int point_count, float line_thickness, long col);
 
     /** Array version of: {@link #nk_stroke_polyline stroke_polyline} */
-    public static void nk_stroke_polyline(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") float[] points, @NativeType("float") float line_thickness, @NativeType("struct nk_color") NkColor col) {
+    public static void nk_stroke_polyline(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") float[] points, float line_thickness, @NativeType("struct nk_color") NkColor col) {
         nnk_stroke_polyline(b.address(), points, points.length, line_thickness, col.address());
     }
 
@@ -10946,7 +10946,7 @@ public class Nuklear {
     public static native void nnk_stroke_polygon(long b, float[] points, int point_count, float line_thickness, long color);
 
     /** Array version of: {@link #nk_stroke_polygon stroke_polygon} */
-    public static void nk_stroke_polygon(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") float[] points, @NativeType("float") float line_thickness, @NativeType("struct nk_color") NkColor color) {
+    public static void nk_stroke_polygon(@NativeType("struct nk_command_buffer *") NkCommandBuffer b, @NativeType("float *") float[] points, float line_thickness, @NativeType("struct nk_color") NkColor color) {
         nnk_stroke_polygon(b.address(), points, points.length, line_thickness, color.address());
     }
 

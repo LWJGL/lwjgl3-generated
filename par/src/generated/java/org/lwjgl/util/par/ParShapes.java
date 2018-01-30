@@ -362,7 +362,7 @@ public class ParShapes {
      */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_create_lsystem(@NativeType("const char *") CharSequence program, @NativeType("int") int slices, @NativeType("int") int maxdepth) {
+    public static ParShapesMesh par_shapes_create_lsystem(@NativeType("const char *") CharSequence program, int slices, int maxdepth) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer programEncoded = stack.ASCII(program);

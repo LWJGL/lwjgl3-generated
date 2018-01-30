@@ -168,7 +168,7 @@ public class DynamicLinkLoader {
      *             </ul>
      */
     @NativeType("void *")
-    public static long dlopen(@Nullable @NativeType("const char *") CharSequence path, @NativeType("int") int mode) {
+    public static long dlopen(@Nullable @NativeType("const char *") CharSequence path, int mode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pathEncoded = stack.ASCIISafe(path);

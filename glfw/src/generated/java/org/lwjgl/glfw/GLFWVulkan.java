@@ -190,7 +190,7 @@ public class GLFWVulkan {
      * @since version 3.2
      */
     @NativeType("GLFWvkproc *")
-    public static long glfwGetInstanceProcAddress(@Nullable @NativeType("VkInstance") VkInstance instance, @NativeType("const char *") CharSequence procname) {
+    public static long glfwGetInstanceProcAddress(@Nullable VkInstance instance, @NativeType("const char *") CharSequence procname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer procnameEncoded = stack.ASCII(procname);

@@ -191,7 +191,7 @@ public class LZ4 {
      * @param dst          
      * @param acceleration 
      */
-    public static int LZ4_compress_fast(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int acceleration) {
+    public static int LZ4_compress_fast(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
         return nLZ4_compress_fast(memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), acceleration);
     }
 
@@ -215,7 +215,7 @@ public class LZ4 {
      * @param dst          
      * @param acceleration 
      */
-    public static int LZ4_compress_fast_extState(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int acceleration) {
+    public static int LZ4_compress_fast_extState(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
         return nLZ4_compress_fast_extState(memAddress(state), memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), acceleration);
     }
 
@@ -296,7 +296,7 @@ public class LZ4 {
      *         <p>Note: this number can be &lt; {@code targetOutputSize} should the compressed block to decode be smaller. Always control how many bytes were decoded. If
      *         the source stream is detected malformed, the function will stop decoding and return a negative result.</p>
      */
-    public static int LZ4_decompress_safe_partial(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int targetOutputSize) {
+    public static int LZ4_decompress_safe_partial(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int targetOutputSize) {
         return nLZ4_decompress_safe_partial(memAddress(src), memAddress(dst), src.remaining(), targetOutputSize, dst.remaining());
     }
 
@@ -388,7 +388,7 @@ public class LZ4 {
      * @return size of compressed block or 0 if there is an error (typically, compressed data cannot fit into {@code dst}). After an error, the stream status is
      *         invalid, it can only be reset or freed.
      */
-    public static int LZ4_compress_fast_continue(@NativeType("LZ4_stream_t *") long streamPtr, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int acceleration) {
+    public static int LZ4_compress_fast_continue(@NativeType("LZ4_stream_t *") long streamPtr, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
         if (CHECKS) {
             check(streamPtr);
         }

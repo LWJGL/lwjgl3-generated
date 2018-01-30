@@ -1201,7 +1201,7 @@ public class NanoVG {
      *
      * @return a handle to the image
      */
-    public static int nvgCreateImage(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence filename, @NativeType("int") int imageFlags) {
+    public static int nvgCreateImage(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence filename, int imageFlags) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1232,7 +1232,7 @@ public class NanoVG {
      *
      * @return a handle to the image
      */
-    public static int nvgCreateImageMem(@NativeType("NVGcontext *") long ctx, @NativeType("int") int imageFlags, @NativeType("unsigned char *") ByteBuffer data) {
+    public static int nvgCreateImageMem(@NativeType("NVGcontext *") long ctx, int imageFlags, @NativeType("unsigned char *") ByteBuffer data) {
         if (CHECKS) {
             check(ctx);
         }
@@ -1888,7 +1888,7 @@ public class NanoVG {
      *
      * @return a handle to the font
      */
-    public static int nvgCreateFontMem(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer name, @NativeType("unsigned char *") ByteBuffer data, @NativeType("int") int freeData) {
+    public static int nvgCreateFontMem(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer name, @NativeType("unsigned char *") ByteBuffer data, int freeData) {
         if (CHECKS) {
             check(ctx);
             checkNT1(name);
@@ -1908,7 +1908,7 @@ public class NanoVG {
      *
      * @return a handle to the font
      */
-    public static int nvgCreateFontMem(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence name, @NativeType("unsigned char *") ByteBuffer data, @NativeType("int") int freeData) {
+    public static int nvgCreateFontMem(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence name, @NativeType("unsigned char *") ByteBuffer data, int freeData) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2183,7 +2183,7 @@ public class NanoVG {
      * @param y      the text Y axis coordinate
      * @param string the text string to draw
      */
-    public static float nvgText(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string) {
+    public static float nvgText(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") ByteBuffer string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2198,7 +2198,7 @@ public class NanoVG {
      * @param y      the text Y axis coordinate
      * @param string the text string to draw
      */
-    public static float nvgText(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string) {
+    public static float nvgText(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") CharSequence string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2233,7 +2233,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param string        the text string to draw
      */
-    public static void nvgTextBox(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") ByteBuffer string) {
+    public static void nvgTextBox(@NativeType("NVGcontext *") long ctx, float x, float y, float breakRowWidth, @NativeType("const char *") ByteBuffer string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2253,7 +2253,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param string        the text string to draw
      */
-    public static void nvgTextBox(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") CharSequence string) {
+    public static void nvgTextBox(@NativeType("NVGcontext *") long ctx, float x, float y, float breakRowWidth, @NativeType("const char *") CharSequence string) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2291,7 +2291,7 @@ public class NanoVG {
      *
      * @return the horizontal advance of the measured text (i.e. where the next character should drawn)
      */
-    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") FloatBuffer bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2315,7 +2315,7 @@ public class NanoVG {
      *
      * @return the horizontal advance of the measured text (i.e. where the next character should drawn)
      */
-    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") FloatBuffer bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2353,7 +2353,7 @@ public class NanoVG {
      * @param string        the text string to measure
      * @param bounds        returns the bounding box of the text box
      */
-    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") FloatBuffer bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, float x, float y, float breakRowWidth, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2376,7 +2376,7 @@ public class NanoVG {
      * @param string        the text string to measure
      * @param bounds        returns the bounding box of the text box
      */
-    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") FloatBuffer bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, float x, float y, float breakRowWidth, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") FloatBuffer bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2411,7 +2411,7 @@ public class NanoVG {
      * @param string    the text string to measure
      * @param positions returns the glyph x positions
      */
-    public static int nvgTextGlyphPositions(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string, @NativeType("NVGglyphPosition *") NVGGlyphPosition.Buffer positions) {
+    public static int nvgTextGlyphPositions(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") ByteBuffer string, @NativeType("NVGglyphPosition *") NVGGlyphPosition.Buffer positions) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2429,7 +2429,7 @@ public class NanoVG {
      * @param string    the text string to measure
      * @param positions returns the glyph x positions
      */
-    public static int nvgTextGlyphPositions(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string, @NativeType("NVGglyphPosition *") NVGGlyphPosition.Buffer positions) {
+    public static int nvgTextGlyphPositions(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") CharSequence string, @NativeType("NVGglyphPosition *") NVGGlyphPosition.Buffer positions) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2488,7 +2488,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param rows          returns the text rows
      */
-    public static int nvgTextBreakLines(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer string, @NativeType("float") float breakRowWidth, @NativeType("NVGtextRow *") NVGTextRow.Buffer rows) {
+    public static int nvgTextBreakLines(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") ByteBuffer string, float breakRowWidth, @NativeType("NVGtextRow *") NVGTextRow.Buffer rows) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2506,7 +2506,7 @@ public class NanoVG {
      * @param breakRowWidth the maximum row width
      * @param rows          returns the text rows
      */
-    public static int nvgTextBreakLines(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence string, @NativeType("float") float breakRowWidth, @NativeType("NVGtextRow *") NVGTextRow.Buffer rows) {
+    public static int nvgTextBreakLines(@NativeType("NVGcontext *") long ctx, @NativeType("const char *") CharSequence string, float breakRowWidth, @NativeType("NVGtextRow *") NVGTextRow.Buffer rows) {
         if (CHECKS) {
             check(ctx);
         }
@@ -2664,7 +2664,7 @@ public class NanoVG {
     public static native float nnvgTextBounds(long ctx, float x, float y, long string, long end, float[] bounds);
 
     /** Array version of: {@link #nvgTextBounds TextBounds} */
-    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") float[] bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2673,7 +2673,7 @@ public class NanoVG {
     }
 
     /** Array version of: {@link #nvgTextBounds TextBounds} */
-    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") float[] bounds) {
+    public static float nvgTextBounds(@NativeType("NVGcontext *") long ctx, float x, float y, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2691,7 +2691,7 @@ public class NanoVG {
     public static native void nnvgTextBoxBounds(long ctx, float x, float y, float breakRowWidth, long string, long end, float[] bounds);
 
     /** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
-    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") float[] bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, float x, float y, float breakRowWidth, @NativeType("const char *") ByteBuffer string, @Nullable @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);
@@ -2700,7 +2700,7 @@ public class NanoVG {
     }
 
     /** Array version of: {@link #nvgTextBoxBounds TextBoxBounds} */
-    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, @NativeType("float") float x, @NativeType("float") float y, @NativeType("float") float breakRowWidth, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") float[] bounds) {
+    public static void nvgTextBoxBounds(@NativeType("NVGcontext *") long ctx, float x, float y, float breakRowWidth, @NativeType("const char *") CharSequence string, @Nullable @NativeType("float *") float[] bounds) {
         if (CHECKS) {
             check(ctx);
             checkSafe(bounds, 4);

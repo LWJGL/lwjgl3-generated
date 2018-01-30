@@ -348,7 +348,7 @@ public class STBImageResize {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbir_resize_uint8_generic(@NativeType("const unsigned char *") ByteBuffer input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("unsigned char *") ByteBuffer output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
+    public static boolean stbir_resize_uint8_generic(@NativeType("const unsigned char *") ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("unsigned char *") ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : input_stride_in_bytes));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : output_stride_in_bytes));
@@ -413,7 +413,7 @@ public class STBImageResize {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbir_resize_uint16_generic(@NativeType("const stbir_uint16 *") ShortBuffer input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("stbir_uint16 *") ShortBuffer output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
+    public static boolean stbir_resize_uint16_generic(@NativeType("const stbir_uint16 *") ShortBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("stbir_uint16 *") ShortBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 1)));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 1)));
@@ -478,7 +478,7 @@ public class STBImageResize {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbir_resize_float_generic(@NativeType("const float *") FloatBuffer input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("float *") FloatBuffer output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
+    public static boolean stbir_resize_float_generic(@NativeType("const float *") FloatBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("float *") FloatBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));
@@ -549,7 +549,7 @@ public class STBImageResize {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbir_resize(@NativeType("const void *") ByteBuffer input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("void *") ByteBuffer output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("stbir_datatype") int datatype, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_mode_horizontal, @NativeType("stbir_edge") int edge_mode_vertical, @NativeType("stbir_filter") int filter_horizontal, @NativeType("stbir_filter") int filter_vertical, @NativeType("stbir_colorspace") int space) {
+    public static boolean stbir_resize(@NativeType("const void *") ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("void *") ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, @NativeType("stbir_datatype") int datatype, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_mode_horizontal, @NativeType("stbir_edge") int edge_mode_vertical, @NativeType("stbir_filter") int filter_horizontal, @NativeType("stbir_filter") int filter_vertical, @NativeType("stbir_colorspace") int space) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
@@ -628,7 +628,7 @@ public class STBImageResize {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbir_resize_subpixel(@NativeType("const void *") ByteBuffer input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("void *") ByteBuffer output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("stbir_datatype") int datatype, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_mode_horizontal, @NativeType("stbir_edge") int edge_mode_vertical, @NativeType("stbir_filter") int filter_horizontal, @NativeType("stbir_filter") int filter_vertical, @NativeType("stbir_colorspace") int space, @NativeType("float") float x_scale, @NativeType("float") float y_scale, @NativeType("float") float x_offset, @NativeType("float") float y_offset) {
+    public static boolean stbir_resize_subpixel(@NativeType("const void *") ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("void *") ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, @NativeType("stbir_datatype") int datatype, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_mode_horizontal, @NativeType("stbir_edge") int edge_mode_vertical, @NativeType("stbir_filter") int filter_horizontal, @NativeType("stbir_filter") int filter_vertical, @NativeType("stbir_colorspace") int space, float x_scale, float y_scale, float x_offset, float y_offset) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
@@ -707,7 +707,7 @@ public class STBImageResize {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbir_resize_region(@NativeType("const void *") ByteBuffer input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("void *") ByteBuffer output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("stbir_datatype") int datatype, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_mode_horizontal, @NativeType("stbir_edge") int edge_mode_vertical, @NativeType("stbir_filter") int filter_horizontal, @NativeType("stbir_filter") int filter_vertical, @NativeType("stbir_colorspace") int space, @NativeType("float") float s0, @NativeType("float") float t0, @NativeType("float") float s1, @NativeType("float") float t1) {
+    public static boolean stbir_resize_region(@NativeType("const void *") ByteBuffer input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("void *") ByteBuffer output_pixels, int output_w, int output_h, int output_stride_in_bytes, @NativeType("stbir_datatype") int datatype, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_mode_horizontal, @NativeType("stbir_edge") int edge_mode_vertical, @NativeType("stbir_filter") int filter_horizontal, @NativeType("stbir_filter") int filter_vertical, @NativeType("stbir_colorspace") int space, float s0, float t0, float s1, float t1) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? (input_w * num_channels) << getTypeShift(datatype) : input_stride_in_bytes));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? (output_w * num_channels) << getTypeShift(datatype) : output_stride_in_bytes));
@@ -744,7 +744,7 @@ public class STBImageResize {
 
     /** Array version of: {@link #stbir_resize_uint16_generic resize_uint16_generic} */
     @NativeType("int")
-    public static boolean stbir_resize_uint16_generic(@NativeType("const stbir_uint16 *") short[] input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("stbir_uint16 *") short[] output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
+    public static boolean stbir_resize_uint16_generic(@NativeType("const stbir_uint16 *") short[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("stbir_uint16 *") short[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 1)));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 1)));
@@ -768,7 +768,7 @@ public class STBImageResize {
 
     /** Array version of: {@link #stbir_resize_float_generic resize_float_generic} */
     @NativeType("int")
-    public static boolean stbir_resize_float_generic(@NativeType("const float *") float[] input_pixels, @NativeType("int") int input_w, @NativeType("int") int input_h, @NativeType("int") int input_stride_in_bytes, @NativeType("float *") float[] output_pixels, @NativeType("int") int output_w, @NativeType("int") int output_h, @NativeType("int") int output_stride_in_bytes, @NativeType("int") int num_channels, @NativeType("int") int alpha_channel, @NativeType("int") int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
+    public static boolean stbir_resize_float_generic(@NativeType("const float *") float[] input_pixels, int input_w, int input_h, int input_stride_in_bytes, @NativeType("float *") float[] output_pixels, int output_w, int output_h, int output_stride_in_bytes, int num_channels, int alpha_channel, int flags, @NativeType("stbir_edge") int edge_wrap_mode, @NativeType("stbir_filter") int filter, @NativeType("stbir_colorspace") int space) {
         if (CHECKS) {
             check(input_pixels, input_h * (input_stride_in_bytes == 0 ? input_w * num_channels : (input_stride_in_bytes >> 2)));
             check(output_pixels, output_h * (output_stride_in_bytes == 0 ? output_w * num_channels : (output_stride_in_bytes >> 2)));

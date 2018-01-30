@@ -39,7 +39,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") ByteBuffer dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") ByteBuffer dest, int c) {
         return nmemset(memAddress(dest), c, dest.remaining());
     }
 
@@ -52,7 +52,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") ShortBuffer dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") ShortBuffer dest, int c) {
         return nmemset(memAddress(dest), c, dest.remaining() << 1);
     }
 
@@ -65,7 +65,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") IntBuffer dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") IntBuffer dest, int c) {
         return nmemset(memAddress(dest), c, dest.remaining() << 2);
     }
 
@@ -78,7 +78,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") LongBuffer dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") LongBuffer dest, int c) {
         return nmemset(memAddress(dest), c, dest.remaining() << 3);
     }
 
@@ -91,7 +91,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") FloatBuffer dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") FloatBuffer dest, int c) {
         return nmemset(memAddress(dest), c, dest.remaining() << 2);
     }
 
@@ -104,7 +104,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") DoubleBuffer dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") DoubleBuffer dest, int c) {
         return nmemset(memAddress(dest), c, dest.remaining() << 3);
     }
 
@@ -218,7 +218,7 @@ public class LibCString {
 
     /** Array version of: {@link #memset} */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") byte[] dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") byte[] dest, int c) {
         return nmemset(dest, c, dest.length << 0);
     }
 
@@ -227,7 +227,7 @@ public class LibCString {
 
     /** Array version of: {@link #memset} */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") short[] dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") short[] dest, int c) {
         return nmemset(dest, c, dest.length << 1);
     }
 
@@ -236,7 +236,7 @@ public class LibCString {
 
     /** Array version of: {@link #memset} */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") int[] dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") int[] dest, int c) {
         return nmemset(dest, c, dest.length << 2);
     }
 
@@ -245,7 +245,7 @@ public class LibCString {
 
     /** Array version of: {@link #memset} */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") long[] dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") long[] dest, int c) {
         return nmemset(dest, c, dest.length << 3);
     }
 
@@ -254,7 +254,7 @@ public class LibCString {
 
     /** Array version of: {@link #memset} */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") float[] dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") float[] dest, int c) {
         return nmemset(dest, c, dest.length << 2);
     }
 
@@ -263,7 +263,7 @@ public class LibCString {
 
     /** Array version of: {@link #memset} */
     @NativeType("void *")
-    public static long memset(@NativeType("void *") double[] dest, @NativeType("int") int c) {
+    public static long memset(@NativeType("void *") double[] dest, int c) {
         return nmemset(dest, c, dest.length << 3);
     }
 

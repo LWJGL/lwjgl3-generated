@@ -129,7 +129,7 @@ public class STBImageWrite {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbi_write_png(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const void *") ByteBuffer data, @NativeType("int") int stride_in_bytes) {
+    public static boolean stbi_write_png(@NativeType("const char *") CharSequence filename, int w, int h, int comp, @NativeType("const void *") ByteBuffer data, int stride_in_bytes) {
         if (CHECKS) {
             check(data, (stride_in_bytes != 0 ? stride_in_bytes : w * comp) * h);
         }
@@ -226,7 +226,7 @@ public class STBImageWrite {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbi_write_bmp(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const void *") ByteBuffer data) {
+    public static boolean stbi_write_bmp(@NativeType("const char *") CharSequence filename, int w, int h, int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -282,7 +282,7 @@ public class STBImageWrite {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbi_write_tga(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const void *") ByteBuffer data) {
+    public static boolean stbi_write_tga(@NativeType("const char *") CharSequence filename, int w, int h, int comp, @NativeType("const void *") ByteBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -351,7 +351,7 @@ public class STBImageWrite {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbi_write_hdr(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") FloatBuffer data) {
+    public static boolean stbi_write_hdr(@NativeType("const char *") CharSequence filename, int w, int h, int comp, @NativeType("const float *") FloatBuffer data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -409,7 +409,7 @@ public class STBImageWrite {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbi_write_jpg(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") FloatBuffer data, @NativeType("int") int quality) {
+    public static boolean stbi_write_jpg(@NativeType("const char *") CharSequence filename, int w, int h, int comp, @NativeType("const float *") FloatBuffer data, int quality) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -577,7 +577,7 @@ public class STBImageWrite {
 
     /** Array version of: {@link #stbi_write_hdr write_hdr} */
     @NativeType("int")
-    public static boolean stbi_write_hdr(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") float[] data) {
+    public static boolean stbi_write_hdr(@NativeType("const char *") CharSequence filename, int w, int h, int comp, @NativeType("const float *") float[] data) {
         if (CHECKS) {
             check(data, w * h * comp);
         }
@@ -605,7 +605,7 @@ public class STBImageWrite {
 
     /** Array version of: {@link #stbi_write_jpg write_jpg} */
     @NativeType("int")
-    public static boolean stbi_write_jpg(@NativeType("const char *") CharSequence filename, @NativeType("int") int w, @NativeType("int") int h, @NativeType("int") int comp, @NativeType("const float *") float[] data, @NativeType("int") int quality) {
+    public static boolean stbi_write_jpg(@NativeType("const char *") CharSequence filename, int w, int h, int comp, @NativeType("const float *") float[] data, int quality) {
         if (CHECKS) {
             check(data, w * h * comp);
         }

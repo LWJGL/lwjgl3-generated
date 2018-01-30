@@ -224,7 +224,7 @@ public class NVClipSpaceWScaling {
      * @param firstViewport      the index of the first viewport whose parameters are updated by the command.
      * @param pViewportWScalings a pointer to an array of {@link VkViewportWScalingNV} structures specifying viewport parameters.
      */
-    public static void vkCmdSetViewportWScalingNV(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstViewport, @NativeType("const VkViewportWScalingNV *") VkViewportWScalingNV.Buffer pViewportWScalings) {
+    public static void vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstViewport, @NativeType("const VkViewportWScalingNV *") VkViewportWScalingNV.Buffer pViewportWScalings) {
         nvkCmdSetViewportWScalingNV(commandBuffer, firstViewport, pViewportWScalings.remaining(), pViewportWScalings.address());
     }
 

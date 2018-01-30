@@ -317,7 +317,7 @@ public class EXTValidationCache {
      * @param pSrcCaches an array of validation cache handles, which will be merged into {@code dstCache}. The previous contents of {@code dstCache} are included after the merge.
      */
     @NativeType("VkResult")
-    public static int vkMergeValidationCachesEXT(@NativeType("VkDevice") VkDevice device, @NativeType("VkValidationCacheEXT") long dstCache, @NativeType("const VkValidationCacheEXT *") LongBuffer pSrcCaches) {
+    public static int vkMergeValidationCachesEXT(VkDevice device, @NativeType("VkValidationCacheEXT") long dstCache, @NativeType("const VkValidationCacheEXT *") LongBuffer pSrcCaches) {
         return nvkMergeValidationCachesEXT(device, dstCache, pSrcCaches.remaining(), memAddress(pSrcCaches));
     }
 
@@ -431,7 +431,7 @@ public class EXTValidationCache {
 
     /** Array version of: {@link #vkMergeValidationCachesEXT MergeValidationCachesEXT} */
     @NativeType("VkResult")
-    public static int vkMergeValidationCachesEXT(@NativeType("VkDevice") VkDevice device, @NativeType("VkValidationCacheEXT") long dstCache, @NativeType("const VkValidationCacheEXT *") long[] pSrcCaches) {
+    public static int vkMergeValidationCachesEXT(VkDevice device, @NativeType("VkValidationCacheEXT") long dstCache, @NativeType("const VkValidationCacheEXT *") long[] pSrcCaches) {
         long __functionAddress = device.getCapabilities().vkMergeValidationCachesEXT;
         if (CHECKS) {
             check(__functionAddress);

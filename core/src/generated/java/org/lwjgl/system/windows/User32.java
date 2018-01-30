@@ -1198,7 +1198,7 @@ public class User32 {
      *                     of the {@link #WM_CREATE} message.
      */
     @NativeType("HWND")
-    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @Nullable @NativeType("LPCTSTR") CharSequence lpClassName, @Nullable @NativeType("LPCTSTR") CharSequence lpWindowName, @NativeType("DWORD") int dwStyle, @NativeType("int") int x, @NativeType("int") int y, @NativeType("int") int nWidth, @NativeType("int") int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
+    public static long CreateWindowEx(@NativeType("DWORD") int dwExStyle, @Nullable @NativeType("LPCTSTR") CharSequence lpClassName, @Nullable @NativeType("LPCTSTR") CharSequence lpWindowName, @NativeType("DWORD") int dwStyle, int x, int y, int nWidth, int nHeight, @NativeType("HWND") long hWndParent, @NativeType("HMENU") long hMenu, @NativeType("HINSTANCE") long hInstance, @NativeType("LPVOID") long lpParam) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer lpClassNameEncoded = stack.UTF16Safe(lpClassName);
@@ -2130,7 +2130,7 @@ public class User32 {
      * @since Windows 7 (desktop apps only)
      */
     @NativeType("BOOL")
-    public static boolean GetTouchInputInfo(@NativeType("HTOUCHINPUT") long hTouchInput, @NativeType("PTOUCHINPUT") TOUCHINPUT.Buffer pInputs, @NativeType("int") int cbSize) {
+    public static boolean GetTouchInputInfo(@NativeType("HTOUCHINPUT") long hTouchInput, @NativeType("PTOUCHINPUT") TOUCHINPUT.Buffer pInputs, int cbSize) {
         return nGetTouchInputInfo(hTouchInput, pInputs.remaining(), pInputs.address(), cbSize) != 0;
     }
 

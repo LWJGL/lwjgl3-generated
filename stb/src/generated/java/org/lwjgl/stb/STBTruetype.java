@@ -367,7 +367,7 @@ public class STBTruetype {
      * @return if positive, the first unused row of the bitmap. If negative, returns the negative of the number of characters that fit. If 0, no characters fit and no
      *         rows were used.
      */
-    public static int stbtt_BakeFontBitmap(@NativeType("const unsigned char *") ByteBuffer data, @NativeType("float") float pixel_height, @NativeType("unsigned char *") ByteBuffer pixels, @NativeType("int") int pw, @NativeType("int") int ph, @NativeType("int") int first_char, @NativeType("stbtt_bakedchar *") STBTTBakedChar.Buffer chardata) {
+    public static int stbtt_BakeFontBitmap(@NativeType("const unsigned char *") ByteBuffer data, float pixel_height, @NativeType("unsigned char *") ByteBuffer pixels, int pw, int ph, int first_char, @NativeType("stbtt_bakedchar *") STBTTBakedChar.Buffer chardata) {
         if (CHECKS) {
             check(pixels, pw * ph);
         }
@@ -444,7 +444,7 @@ public class STBTruetype {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbtt_PackBegin(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @Nullable @NativeType("unsigned char *") ByteBuffer pixels, @NativeType("int") int width, @NativeType("int") int height, @NativeType("int") int stride_in_bytes, @NativeType("int") int padding) {
+    public static boolean stbtt_PackBegin(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @Nullable @NativeType("unsigned char *") ByteBuffer pixels, int width, int height, int stride_in_bytes, int padding) {
         if (CHECKS) {
             checkSafe(pixels, (stride_in_bytes != 0 ? stride_in_bytes : width) * height);
         }
@@ -508,7 +508,7 @@ public class STBTruetype {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbtt_PackFontRange(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("int") int font_index, @NativeType("float") float font_size, @NativeType("int") int first_unicode_char_in_range, @NativeType("stbtt_packedchar *") STBTTPackedchar.Buffer chardata_for_range) {
+    public static boolean stbtt_PackFontRange(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("const unsigned char *") ByteBuffer fontdata, int font_index, float font_size, int first_unicode_char_in_range, @NativeType("stbtt_packedchar *") STBTTPackedchar.Buffer chardata_for_range) {
         return nstbtt_PackFontRange(spc.address(), memAddress(fontdata), font_index, font_size, first_unicode_char_in_range, chardata_for_range.remaining(), chardata_for_range.address()) != 0;
     }
 
@@ -533,7 +533,7 @@ public class STBTruetype {
      * @return 1 on success, 0 on failure
      */
     @NativeType("int")
-    public static boolean stbtt_PackFontRanges(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("int") int font_index, @NativeType("stbtt_pack_range *") STBTTPackRange.Buffer ranges) {
+    public static boolean stbtt_PackFontRanges(@NativeType("stbtt_pack_context *") STBTTPackContext spc, @NativeType("const unsigned char *") ByteBuffer fontdata, int font_index, @NativeType("stbtt_pack_range *") STBTTPackRange.Buffer ranges) {
         if (CHECKS) {
             STBTTPackRange.validate(ranges.address(), ranges.remaining());
         }
@@ -1052,7 +1052,7 @@ public class STBTruetype {
      * @param unicode_codepoint the unicode codepoint
      */
     @NativeType("int")
-    public static STBTTVertex.Buffer stbtt_GetCodepointShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int") int unicode_codepoint) {
+    public static STBTTVertex.Buffer stbtt_GetCodepointShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int unicode_codepoint) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer vertices = stack.pointers(NULL);
@@ -1089,7 +1089,7 @@ public class STBTruetype {
      * @param glyph_index the unicode codepoint
      */
     @NativeType("int")
-    public static STBTTVertex.Buffer stbtt_GetGlyphShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, @NativeType("int") int glyph_index) {
+    public static STBTTVertex.Buffer stbtt_GetGlyphShape(@NativeType("const stbtt_fontinfo *") STBTTFontinfo info, int glyph_index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer vertices = stack.pointers(NULL);
@@ -1573,7 +1573,7 @@ public class STBTruetype {
      * @param y_off              another vertical translation applied to input
      * @param invert             if non-zero, vertically flip shape
      */
-    public static void stbtt_Rasterize(@NativeType("stbtt__bitmap *") STBTTBitmap result, @NativeType("float") float flatness_in_pixels, @NativeType("stbtt_vertex *") STBTTVertex.Buffer vertices, @NativeType("float") float scale_x, @NativeType("float") float scale_y, @NativeType("float") float shift_x, @NativeType("float") float shift_y, @NativeType("int") int x_off, @NativeType("int") int y_off, @NativeType("int") boolean invert) {
+    public static void stbtt_Rasterize(@NativeType("stbtt__bitmap *") STBTTBitmap result, float flatness_in_pixels, @NativeType("stbtt_vertex *") STBTTVertex.Buffer vertices, float scale_x, float scale_y, float shift_x, float shift_y, int x_off, int y_off, @NativeType("int") boolean invert) {
         nstbtt_Rasterize(result.address(), flatness_in_pixels, vertices.address(), vertices.remaining(), scale_x, scale_y, shift_x, shift_y, x_off, y_off, invert ? 1 : 0, NULL);
     }
 
@@ -1724,7 +1724,7 @@ public class STBTruetype {
      * @param name     the font name
      * @param flags    the style flags. One of:<br><table><tr><td>{@link #STBTT_MACSTYLE_DONTCARE MACSTYLE_DONTCARE}</td><td>{@link #STBTT_MACSTYLE_BOLD MACSTYLE_BOLD}</td><td>{@link #STBTT_MACSTYLE_ITALIC MACSTYLE_ITALIC}</td><td>{@link #STBTT_MACSTYLE_UNDERSCORE MACSTYLE_UNDERSCORE}</td><td>{@link #STBTT_MACSTYLE_NONE MACSTYLE_NONE}</td></tr></table>
      */
-    public static int stbtt_FindMatchingFont(@NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("const char *") CharSequence name, @NativeType("int") int flags) {
+    public static int stbtt_FindMatchingFont(@NativeType("const unsigned char *") ByteBuffer fontdata, @NativeType("const char *") CharSequence name, int flags) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);

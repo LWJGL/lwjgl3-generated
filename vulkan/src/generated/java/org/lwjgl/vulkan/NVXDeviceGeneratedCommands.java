@@ -780,7 +780,7 @@ public class NVXDeviceGeneratedCommands {
      * @param pObjectIndices       are the indices at which each resource is registered.
      */
     @NativeType("VkResult")
-    public static int vkRegisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectTableEntryNVX * const *") PointerBuffer ppObjectTableEntries, @NativeType("const uint32_t *") IntBuffer pObjectIndices) {
+    public static int vkRegisterObjectsNVX(VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectTableEntryNVX * const *") PointerBuffer ppObjectTableEntries, @NativeType("const uint32_t *") IntBuffer pObjectIndices) {
         if (CHECKS) {
             check(pObjectIndices, ppObjectTableEntries.remaining());
         }
@@ -862,7 +862,7 @@ public class NVXDeviceGeneratedCommands {
      * @param pObjectIndices    provides the array of object indices to be removed.
      */
     @NativeType("VkResult")
-    public static int vkUnregisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectEntryTypeNVX *") IntBuffer pObjectEntryTypes, @NativeType("const uint32_t *") IntBuffer pObjectIndices) {
+    public static int vkUnregisterObjectsNVX(VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectEntryTypeNVX *") IntBuffer pObjectEntryTypes, @NativeType("const uint32_t *") IntBuffer pObjectIndices) {
         if (CHECKS) {
             check(pObjectIndices, pObjectEntryTypes.remaining());
         }
@@ -941,7 +941,7 @@ public class NVXDeviceGeneratedCommands {
 
     /** Array version of: {@link #vkRegisterObjectsNVX RegisterObjectsNVX} */
     @NativeType("VkResult")
-    public static int vkRegisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectTableEntryNVX * const *") PointerBuffer ppObjectTableEntries, @NativeType("const uint32_t *") int[] pObjectIndices) {
+    public static int vkRegisterObjectsNVX(VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectTableEntryNVX * const *") PointerBuffer ppObjectTableEntries, @NativeType("const uint32_t *") int[] pObjectIndices) {
         long __functionAddress = device.getCapabilities().vkRegisterObjectsNVX;
         if (CHECKS) {
             check(__functionAddress);
@@ -952,7 +952,7 @@ public class NVXDeviceGeneratedCommands {
 
     /** Array version of: {@link #vkUnregisterObjectsNVX UnregisterObjectsNVX} */
     @NativeType("VkResult")
-    public static int vkUnregisterObjectsNVX(@NativeType("VkDevice") VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectEntryTypeNVX *") int[] pObjectEntryTypes, @NativeType("const uint32_t *") int[] pObjectIndices) {
+    public static int vkUnregisterObjectsNVX(VkDevice device, @NativeType("VkObjectTableNVX") long objectTable, @NativeType("const VkObjectEntryTypeNVX *") int[] pObjectEntryTypes, @NativeType("const uint32_t *") int[] pObjectIndices) {
         long __functionAddress = device.getCapabilities().vkUnregisterObjectsNVX;
         if (CHECKS) {
             check(__functionAddress);

@@ -272,7 +272,7 @@ public class Tootle {
      * @return one of: {@link #TOOTLE_OK OK}, {@link #TOOTLE_OUT_OF_MEMORY OUT_OF_MEMORY}, {@link #TOOTLE_INVALID_ARGS INVALID_ARGS}
      */
     @NativeType("TootleResult")
-    public static int TootleFastOptimizeVCacheAndClusterMesh(@NativeType("const unsigned int *") IntBuffer pnIB, @NativeType("unsigned int") int nVertices, @NativeType("unsigned int") int nCacheSize, @NativeType("unsigned int *") IntBuffer pnIBOut, @NativeType("unsigned int *") IntBuffer pnClustersOut, @NativeType("unsigned int *") IntBuffer pnNumClustersOut, @NativeType("float") float fAlpha) {
+    public static int TootleFastOptimizeVCacheAndClusterMesh(@NativeType("const unsigned int *") IntBuffer pnIB, @NativeType("unsigned int") int nVertices, @NativeType("unsigned int") int nCacheSize, @NativeType("unsigned int *") IntBuffer pnIBOut, @NativeType("unsigned int *") IntBuffer pnClustersOut, @NativeType("unsigned int *") IntBuffer pnNumClustersOut, float fAlpha) {
         int nFaces = pnIB.remaining() / 3;
         if (CHECKS) {
             check(pnIBOut, pnIB.remaining());
@@ -485,7 +485,7 @@ public class Tootle {
      * @return one of: {@link #TOOTLE_OK OK}, {@link #TOOTLE_OUT_OF_MEMORY OUT_OF_MEMORY}, {@link #TOOTLE_INVALID_ARGS INVALID_ARGS}
      */
     @NativeType("TootleResult")
-    public static int TootleFastOptimize(@NativeType("const void *") ByteBuffer pVB, @NativeType("const unsigned int *") IntBuffer pnIB, @NativeType("unsigned int") int nVBStride, @NativeType("unsigned int") int nCacheSize, @NativeType("TootleFaceWinding") int eFrontWinding, @NativeType("unsigned int *") IntBuffer pnIBOut, @Nullable @NativeType("unsigned int *") IntBuffer pnNumClustersOut, @NativeType("float") float fAlpha) {
+    public static int TootleFastOptimize(@NativeType("const void *") ByteBuffer pVB, @NativeType("const unsigned int *") IntBuffer pnIB, @NativeType("unsigned int") int nVBStride, @NativeType("unsigned int") int nCacheSize, @NativeType("TootleFaceWinding") int eFrontWinding, @NativeType("unsigned int *") IntBuffer pnIBOut, @Nullable @NativeType("unsigned int *") IntBuffer pnNumClustersOut, float fAlpha) {
         int nFaces = pnIB.remaining() / 3;
         if (CHECKS) {
             check(pnIBOut, pnIB.remaining());
@@ -512,7 +512,7 @@ public class Tootle {
      * @return one of: {@link #TOOTLE_OK OK}, {@link #TOOTLE_OUT_OF_MEMORY OUT_OF_MEMORY}, {@link #TOOTLE_INVALID_ARGS INVALID_ARGS}
      */
     @NativeType("TootleResult")
-    public static int TootleFastOptimize(@NativeType("const void *") FloatBuffer pVB, @NativeType("const unsigned int *") IntBuffer pnIB, @NativeType("unsigned int") int nVBStride, @NativeType("unsigned int") int nCacheSize, @NativeType("TootleFaceWinding") int eFrontWinding, @NativeType("unsigned int *") IntBuffer pnIBOut, @Nullable @NativeType("unsigned int *") IntBuffer pnNumClustersOut, @NativeType("float") float fAlpha) {
+    public static int TootleFastOptimize(@NativeType("const void *") FloatBuffer pVB, @NativeType("const unsigned int *") IntBuffer pnIB, @NativeType("unsigned int") int nVBStride, @NativeType("unsigned int") int nCacheSize, @NativeType("TootleFaceWinding") int eFrontWinding, @NativeType("unsigned int *") IntBuffer pnIBOut, @Nullable @NativeType("unsigned int *") IntBuffer pnNumClustersOut, float fAlpha) {
         int nFaces = pnIB.remaining() / 3;
         if (CHECKS) {
             check(pnIBOut, pnIB.remaining());

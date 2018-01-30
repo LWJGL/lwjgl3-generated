@@ -171,7 +171,7 @@ public class STBEasyFont {
      *
      * @return the number of quads
      */
-    public static int stb_easy_font_print(@NativeType("float") float x, @NativeType("float") float y, @NativeType("char *") ByteBuffer text, @Nullable @NativeType("unsigned char *") ByteBuffer color, @NativeType("void *") ByteBuffer vertex_buffer) {
+    public static int stb_easy_font_print(float x, float y, @NativeType("char *") ByteBuffer text, @Nullable @NativeType("unsigned char *") ByteBuffer color, @NativeType("void *") ByteBuffer vertex_buffer) {
         if (CHECKS) {
             checkNT1(text);
             checkSafe(color, 4);
@@ -210,7 +210,7 @@ public class STBEasyFont {
      *
      * @return the number of quads
      */
-    public static int stb_easy_font_print(@NativeType("float") float x, @NativeType("float") float y, @NativeType("char *") CharSequence text, @Nullable @NativeType("unsigned char *") ByteBuffer color, @NativeType("void *") ByteBuffer vertex_buffer) {
+    public static int stb_easy_font_print(float x, float y, @NativeType("char *") CharSequence text, @Nullable @NativeType("unsigned char *") ByteBuffer color, @NativeType("void *") ByteBuffer vertex_buffer) {
         if (CHECKS) {
             checkSafe(color, 4);
         }

@@ -139,7 +139,7 @@ public class Zstd {
      * @return compressed size written into {@code dst} (&le; {@code dstCapacity}), or an error code if it fails (which can be tested using {@link #ZSTD_isError isError}).
      */
     @NativeType("size_t")
-    public static long ZSTD_compress(@NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @NativeType("int") int compressionLevel) {
+    public static long ZSTD_compress(@NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, int compressionLevel) {
         return nZSTD_compress(memAddress(dst), dst.remaining(), memAddress(src), src.remaining(), compressionLevel);
     }
 
@@ -293,7 +293,7 @@ public class Zstd {
      * @param compressionLevel 
      */
     @NativeType("size_t")
-    public static long ZSTD_compressCCtx(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @NativeType("int") int compressionLevel) {
+    public static long ZSTD_compressCCtx(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, int compressionLevel) {
         if (CHECKS) {
             check(ctx);
         }
@@ -368,7 +368,7 @@ public class Zstd {
      * @param compressionLevel 
      */
     @NativeType("size_t")
-    public static long ZSTD_compress_usingDict(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @Nullable @NativeType("const void *") ByteBuffer dict, @NativeType("int") int compressionLevel) {
+    public static long ZSTD_compress_usingDict(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @Nullable @NativeType("const void *") ByteBuffer dict, int compressionLevel) {
         if (CHECKS) {
             check(ctx);
         }
@@ -417,7 +417,7 @@ public class Zstd {
      * @param compressionLevel 
      */
     @NativeType("ZSTD_CDict *")
-    public static long ZSTD_createCDict(@NativeType("const void *") ByteBuffer dictBuffer, @NativeType("int") int compressionLevel) {
+    public static long ZSTD_createCDict(@NativeType("const void *") ByteBuffer dictBuffer, int compressionLevel) {
         return nZSTD_createCDict(memAddress(dictBuffer), dictBuffer.remaining(), compressionLevel);
     }
 

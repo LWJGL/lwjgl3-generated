@@ -82,7 +82,7 @@ public class LZ4HC {
      *
      * @return the number of bytes written into {@code dst} or 0 if compression fails
      */
-    public static int LZ4_compress_HC(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int compressionLevel) {
+    public static int LZ4_compress_HC(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int compressionLevel) {
         return nLZ4_compress_HC(memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), compressionLevel);
     }
 
@@ -106,7 +106,7 @@ public class LZ4HC {
      * @param dst              
      * @param compressionLevel 
      */
-    public static int LZ4_compress_HC_extStateHC(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int") int compressionLevel) {
+    public static int LZ4_compress_HC_extStateHC(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int compressionLevel) {
         return nLZ4_compress_HC_extStateHC(memAddress(state), memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), compressionLevel);
     }
 
@@ -201,7 +201,7 @@ public class LZ4HC {
      *
      * @return the number of bytes written into {@code dst} or 0 if compression fails
      */
-    public static int LZ4_compress_HC_destSize(@NativeType("void *") ByteBuffer LZ4HC_Data, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int *") IntBuffer srcSizePtr, @NativeType("int") int compressionLevel) {
+    public static int LZ4_compress_HC_destSize(@NativeType("void *") ByteBuffer LZ4HC_Data, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int *") IntBuffer srcSizePtr, int compressionLevel) {
         if (CHECKS) {
             check(srcSizePtr, 1);
             check(src, srcSizePtr.get(srcSizePtr.position()));

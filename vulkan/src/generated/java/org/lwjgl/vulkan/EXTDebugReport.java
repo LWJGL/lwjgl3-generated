@@ -501,7 +501,7 @@ public class EXTDebugReport {
      * @param pLayerPrefix the abbreviation of the component making this event/message.
      * @param pMessage     a null-terminated string detailing the trigger conditions.
      */
-    public static void vkDebugReportMessageEXT(@NativeType("VkInstance") VkInstance instance, @NativeType("VkDebugReportFlagsEXT") int flags, @NativeType("VkDebugReportObjectTypeEXT") int objectType, @NativeType("uint64_t") long object, @NativeType("size_t") long location, @NativeType("int32_t") int messageCode, @NativeType("const char *") CharSequence pLayerPrefix, @NativeType("const char *") CharSequence pMessage) {
+    public static void vkDebugReportMessageEXT(VkInstance instance, @NativeType("VkDebugReportFlagsEXT") int flags, @NativeType("VkDebugReportObjectTypeEXT") int objectType, @NativeType("uint64_t") long object, @NativeType("size_t") long location, @NativeType("int32_t") int messageCode, @NativeType("const char *") CharSequence pLayerPrefix, @NativeType("const char *") CharSequence pMessage) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pLayerPrefixEncoded = stack.UTF8(pLayerPrefix);

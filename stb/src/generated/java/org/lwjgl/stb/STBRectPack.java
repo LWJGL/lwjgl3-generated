@@ -108,7 +108,7 @@ public class STBRectPack {
      * @param height  the rectangle height
      * @param nodes   an array of {@link STBRPNode} structs
      */
-    public static void stbrp_init_target(@NativeType("stbrp_context *") STBRPContext context, @NativeType("int") int width, @NativeType("int") int height, @NativeType("stbrp_node *") STBRPNode.Buffer nodes) {
+    public static void stbrp_init_target(@NativeType("stbrp_context *") STBRPContext context, int width, int height, @NativeType("stbrp_node *") STBRPNode.Buffer nodes) {
         nstbrp_init_target(context.address(), width, height, nodes.address(), nodes.remaining());
     }
 

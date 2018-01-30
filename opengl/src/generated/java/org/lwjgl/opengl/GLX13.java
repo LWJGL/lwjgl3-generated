@@ -380,7 +380,7 @@ public class GLX13 {
      * @param attribute the attribute to query
      */
     @NativeType("void")
-    public static int glXQueryDrawable(@NativeType("Display *") long display, @NativeType("GLXDrawable") long draw, @NativeType("int") int attribute) {
+    public static int glXQueryDrawable(@NativeType("Display *") long display, @NativeType("GLXDrawable") long draw, int attribute) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer value = stack.callocInt(1);

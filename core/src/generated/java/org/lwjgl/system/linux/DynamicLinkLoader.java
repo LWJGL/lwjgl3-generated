@@ -75,7 +75,7 @@ public class DynamicLinkLoader {
      * @param mode     a bitfield. One or more of:<br><table><tr><td>{@link #RTLD_LAZY}</td><td>{@link #RTLD_NOW}</td><td>{@link #RTLD_BINDING_MASK}</td><td>{@link #RTLD_NOLOAD}</td><td>{@link #RTLD_DEEPBIND}</td><td>{@link #RTLD_GLOBAL}</td></tr><tr><td>{@link #RTLD_LOCAL}</td><td>{@link #RTLD_NODELETE}</td></tr></table>
      */
     @NativeType("void *")
-    public static long dlopen(@Nullable @NativeType("const char *") CharSequence filename, @NativeType("int") int mode) {
+    public static long dlopen(@Nullable @NativeType("const char *") CharSequence filename, int mode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer filenameEncoded = stack.ASCIISafe(filename);

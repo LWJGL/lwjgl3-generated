@@ -3160,7 +3160,7 @@ public class VK10 {
      * @param pName    the name of the command to obtain.
      */
     @NativeType("PFN_vkVoidFunction")
-    public static long vkGetInstanceProcAddr(@NativeType("VkInstance") VkInstance instance, @NativeType("const char *") CharSequence pName) {
+    public static long vkGetInstanceProcAddr(VkInstance instance, @NativeType("const char *") CharSequence pName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pNameEncoded = stack.ASCII(pName);
@@ -3285,7 +3285,7 @@ public class VK10 {
      * @param pName  
      */
     @NativeType("PFN_vkVoidFunction")
-    public static long vkGetDeviceProcAddr(@NativeType("VkDevice") VkDevice device, @NativeType("const char *") CharSequence pName) {
+    public static long vkGetDeviceProcAddr(VkDevice device, @NativeType("const char *") CharSequence pName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pNameEncoded = stack.ASCII(pName);
@@ -3714,7 +3714,7 @@ public class VK10 {
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkExtensionProperties} structures.
      */
     @NativeType("VkResult")
-    public static int vkEnumerateDeviceExtensionProperties(@NativeType("VkPhysicalDevice") VkPhysicalDevice physicalDevice, @Nullable @NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") IntBuffer pPropertyCount, @Nullable @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
+    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, @Nullable @NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") IntBuffer pPropertyCount, @Nullable @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -4029,7 +4029,7 @@ public class VK10 {
      * @param fence    an optional: handle to a fence to be signaled once all submitted command buffers have completed execution. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
     @NativeType("VkResult")
-    public static int vkQueueSubmit(@NativeType("VkQueue") VkQueue queue, @Nullable @NativeType("const VkSubmitInfo *") VkSubmitInfo.Buffer pSubmits, @NativeType("VkFence") long fence) {
+    public static int vkQueueSubmit(VkQueue queue, @Nullable @NativeType("const VkSubmitInfo *") VkSubmitInfo.Buffer pSubmits, @NativeType("VkFence") long fence) {
         return nvkQueueSubmit(queue, remainingSafe(pSubmits), memAddressSafe(pSubmits), fence);
     }
 
@@ -4131,7 +4131,7 @@ public class VK10 {
      * @param fence an optional: handle to a fence to be signaled once all submitted command buffers have completed execution. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
     @NativeType("VkResult")
-    public static int vkQueueSubmit(@NativeType("VkQueue") VkQueue queue, @Nullable @NativeType("const VkSubmitInfo *") VkSubmitInfo pSubmit, @NativeType("VkFence") long fence) {
+    public static int vkQueueSubmit(VkQueue queue, @Nullable @NativeType("const VkSubmitInfo *") VkSubmitInfo pSubmit, @NativeType("VkFence") long fence) {
         return nvkQueueSubmit(queue, 1, pSubmit.address(), fence);
     }
 
@@ -4601,7 +4601,7 @@ public class VK10 {
      * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to flush.
      */
     @NativeType("VkResult")
-    public static int vkFlushMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange.Buffer pMemoryRanges) {
+    public static int vkFlushMappedMemoryRanges(VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange.Buffer pMemoryRanges) {
         return nvkFlushMappedMemoryRanges(device, pMemoryRanges.remaining(), pMemoryRanges.address());
     }
 
@@ -4658,7 +4658,7 @@ public class VK10 {
      * @param device the logical device that owns the memory ranges.
      */
     @NativeType("VkResult")
-    public static int vkFlushMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange pMemoryRange) {
+    public static int vkFlushMappedMemoryRanges(VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange pMemoryRange) {
         return nvkFlushMappedMemoryRanges(device, 1, pMemoryRange.address());
     }
 
@@ -4726,7 +4726,7 @@ public class VK10 {
      * @param pMemoryRanges a pointer to an array of {@link VkMappedMemoryRange} structures describing the memory ranges to invalidate.
      */
     @NativeType("VkResult")
-    public static int vkInvalidateMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange.Buffer pMemoryRanges) {
+    public static int vkInvalidateMappedMemoryRanges(VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange.Buffer pMemoryRanges) {
         return nvkInvalidateMappedMemoryRanges(device, pMemoryRanges.remaining(), pMemoryRanges.address());
     }
 
@@ -4781,7 +4781,7 @@ public class VK10 {
      * @param device the logical device that owns the memory ranges.
      */
     @NativeType("VkResult")
-    public static int vkInvalidateMappedMemoryRanges(@NativeType("VkDevice") VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange pMemoryRange) {
+    public static int vkInvalidateMappedMemoryRanges(VkDevice device, @NativeType("const VkMappedMemoryRange *") VkMappedMemoryRange pMemoryRange) {
         return nvkInvalidateMappedMemoryRanges(device, 1, pMemoryRange.address());
     }
 
@@ -5329,7 +5329,7 @@ public class VK10 {
      * @param fence     an optional: handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
     @NativeType("VkResult")
-    public static int vkQueueBindSparse(@NativeType("VkQueue") VkQueue queue, @Nullable @NativeType("const VkBindSparseInfo *") VkBindSparseInfo.Buffer pBindInfo, @NativeType("VkFence") long fence) {
+    public static int vkQueueBindSparse(VkQueue queue, @Nullable @NativeType("const VkBindSparseInfo *") VkBindSparseInfo.Buffer pBindInfo, @NativeType("VkFence") long fence) {
         return nvkQueueBindSparse(queue, remainingSafe(pBindInfo), memAddressSafe(pBindInfo), fence);
     }
 
@@ -5420,7 +5420,7 @@ public class VK10 {
      * @param fence     an optional: handle to a fence to be signaled. If {@code fence} is not {@link #VK_NULL_HANDLE NULL_HANDLE}, it defines a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-signaling">fence signal operation</a>.
      */
     @NativeType("VkResult")
-    public static int vkQueueBindSparse(@NativeType("VkQueue") VkQueue queue, @Nullable @NativeType("const VkBindSparseInfo *") VkBindSparseInfo pBindInfo, @NativeType("VkFence") long fence) {
+    public static int vkQueueBindSparse(VkQueue queue, @Nullable @NativeType("const VkBindSparseInfo *") VkBindSparseInfo pBindInfo, @NativeType("VkFence") long fence) {
         return nvkQueueBindSparse(queue, 1, pBindInfo.address(), fence);
     }
 
@@ -5620,7 +5620,7 @@ public class VK10 {
      * @param pFences a pointer to an array of fence handles to reset.
      */
     @NativeType("VkResult")
-    public static int vkResetFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") LongBuffer pFences) {
+    public static int vkResetFences(VkDevice device, @NativeType("const VkFence *") LongBuffer pFences) {
         return nvkResetFences(device, pFences.remaining(), memAddress(pFences));
     }
 
@@ -5683,7 +5683,7 @@ public class VK10 {
      * @param device the logical device that owns the fences.
      */
     @NativeType("VkResult")
-    public static int vkResetFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long pFence) {
+    public static int vkResetFences(VkDevice device, @NativeType("const VkFence *") long pFence) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer pFences = stack.longs(pFence);
@@ -5832,7 +5832,7 @@ public class VK10 {
      * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
      */
     @NativeType("VkResult")
-    public static int vkWaitForFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") LongBuffer pFences, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
+    public static int vkWaitForFences(VkDevice device, @NativeType("const VkFence *") LongBuffer pFences, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
         return nvkWaitForFences(device, pFences.remaining(), memAddress(pFences), waitAll ? 1 : 0, timeout);
     }
 
@@ -5896,7 +5896,7 @@ public class VK10 {
      * @param timeout the timeout period in units of nanoseconds. {@code timeout} is adjusted to the closest value allowed by the implementation-dependent timeout accuracy, which <b>may</b> be substantially longer than one nanosecond, and <b>may</b> be longer than the requested period.
      */
     @NativeType("VkResult")
-    public static int vkWaitForFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long pFence, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
+    public static int vkWaitForFences(VkDevice device, @NativeType("const VkFence *") long pFence, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer pFences = stack.longs(pFence);
@@ -6583,7 +6583,7 @@ public class VK10 {
      * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
     @NativeType("VkResult")
-    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") ByteBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
+    public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") ByteBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining(), memAddress(pData), stride, flags);
     }
 
@@ -6687,7 +6687,7 @@ public class VK10 {
      * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
     @NativeType("VkResult")
-    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") IntBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
+    public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") IntBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 2, memAddress(pData), stride, flags);
     }
 
@@ -6791,7 +6791,7 @@ public class VK10 {
      * @param flags      a bitmask of {@code VkQueryResultFlagBits} specifying how and when results are returned.
      */
     @NativeType("VkResult")
-    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") LongBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
+    public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") LongBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 3, memAddress(pData), stride, flags);
     }
 
@@ -7815,7 +7815,7 @@ public class VK10 {
      * @param pSrcCaches an array of pipeline cache handles, which will be merged into {@code dstCache}. The previous contents of {@code dstCache} are included after the merge.
      */
     @NativeType("VkResult")
-    public static int vkMergePipelineCaches(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long dstCache, @NativeType("const VkPipelineCache *") LongBuffer pSrcCaches) {
+    public static int vkMergePipelineCaches(VkDevice device, @NativeType("VkPipelineCache") long dstCache, @NativeType("const VkPipelineCache *") LongBuffer pSrcCaches) {
         return nvkMergePipelineCaches(device, dstCache, pSrcCaches.remaining(), memAddress(pSrcCaches));
     }
 
@@ -7900,7 +7900,7 @@ public class VK10 {
      * @param pPipelines    a pointer to an array in which the resulting graphics pipeline objects are returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateGraphicsPipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkGraphicsPipelineCreateInfo *") VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") LongBuffer pPipelines) {
+    public static int vkCreateGraphicsPipelines(VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkGraphicsPipelineCreateInfo *") VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") LongBuffer pPipelines) {
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
         }
@@ -7984,7 +7984,7 @@ public class VK10 {
      * @param pPipelines    a pointer to an array in which the resulting compute pipeline objects are returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateComputePipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkComputePipelineCreateInfo *") VkComputePipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") LongBuffer pPipelines) {
+    public static int vkCreateComputePipelines(VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkComputePipelineCreateInfo *") VkComputePipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") LongBuffer pPipelines) {
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
         }
@@ -8778,7 +8778,7 @@ public class VK10 {
      * @param pDescriptorSets an array of handles to {@code VkDescriptorSet} objects.
      */
     @NativeType("VkResult")
-    public static int vkFreeDescriptorSets(@NativeType("VkDevice") VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") LongBuffer pDescriptorSets) {
+    public static int vkFreeDescriptorSets(VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") LongBuffer pDescriptorSets) {
         return nvkFreeDescriptorSets(device, descriptorPool, pDescriptorSets.remaining(), memAddress(pDescriptorSets));
     }
 
@@ -8844,7 +8844,7 @@ public class VK10 {
      * @param descriptorPool the descriptor pool from which the descriptor sets were allocated.
      */
     @NativeType("VkResult")
-    public static int vkFreeDescriptorSets(@NativeType("VkDevice") VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") long pDescriptorSet) {
+    public static int vkFreeDescriptorSets(VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") long pDescriptorSet) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer pDescriptorSets = stack.longs(pDescriptorSet);
@@ -8924,7 +8924,7 @@ public class VK10 {
      * @param pDescriptorWrites a pointer to an array of {@link VkWriteDescriptorSet} structures describing the descriptor sets to write to.
      * @param pDescriptorCopies a pointer to an array of {@link VkCopyDescriptorSet} structures describing the descriptor sets to copy between.
      */
-    public static void vkUpdateDescriptorSets(@NativeType("VkDevice") VkDevice device, @Nullable @NativeType("const VkWriteDescriptorSet *") VkWriteDescriptorSet.Buffer pDescriptorWrites, @Nullable @NativeType("const VkCopyDescriptorSet *") VkCopyDescriptorSet.Buffer pDescriptorCopies) {
+    public static void vkUpdateDescriptorSets(VkDevice device, @Nullable @NativeType("const VkWriteDescriptorSet *") VkWriteDescriptorSet.Buffer pDescriptorWrites, @Nullable @NativeType("const VkCopyDescriptorSet *") VkCopyDescriptorSet.Buffer pDescriptorCopies) {
         nvkUpdateDescriptorSets(device, remainingSafe(pDescriptorWrites), memAddressSafe(pDescriptorWrites), remainingSafe(pDescriptorCopies), memAddressSafe(pDescriptorCopies));
     }
 
@@ -9558,7 +9558,7 @@ public class VK10 {
      * @param commandPool     the command pool from which the command buffers were allocated.
      * @param pCommandBuffers an array of handles of command buffers to free.
      */
-    public static void vkFreeCommandBuffers(@NativeType("VkDevice") VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("const VkCommandBuffer *") PointerBuffer pCommandBuffers) {
+    public static void vkFreeCommandBuffers(VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("const VkCommandBuffer *") PointerBuffer pCommandBuffers) {
         nvkFreeCommandBuffers(device, commandPool, pCommandBuffers.remaining(), memAddress(pCommandBuffers));
     }
 
@@ -9607,7 +9607,7 @@ public class VK10 {
      * @param device      the logical device that owns the command pool.
      * @param commandPool the command pool from which the command buffers were allocated.
      */
-    public static void vkFreeCommandBuffers(@NativeType("VkDevice") VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("const VkCommandBuffer *") VkCommandBuffer pCommandBuffer) {
+    public static void vkFreeCommandBuffers(VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("const VkCommandBuffer *") VkCommandBuffer pCommandBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer pCommandBuffers = stack.pointers(pCommandBuffer);
@@ -9944,7 +9944,7 @@ public class VK10 {
      * @param firstViewport the index of the first viewport whose parameters are updated by the command.
      * @param pViewports    a pointer to an array of {@link VkViewport} structures specifying viewport parameters.
      */
-    public static void vkCmdSetViewport(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstViewport, @NativeType("const VkViewport *") VkViewport.Buffer pViewports) {
+    public static void vkCmdSetViewport(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstViewport, @NativeType("const VkViewport *") VkViewport.Buffer pViewports) {
         nvkCmdSetViewport(commandBuffer, firstViewport, pViewports.remaining(), pViewports.address());
     }
 
@@ -10025,7 +10025,7 @@ public class VK10 {
      * @param firstScissor  the index of the first scissor whose state is updated by the command.
      * @param pScissors     a pointer to an array of {@link VkRect2D} structures defining scissor rectangles.
      */
-    public static void vkCmdSetScissor(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstScissor, @NativeType("const VkRect2D *") VkRect2D.Buffer pScissors) {
+    public static void vkCmdSetScissor(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstScissor, @NativeType("const VkRect2D *") VkRect2D.Buffer pScissors) {
         nvkCmdSetScissor(commandBuffer, firstScissor, pScissors.remaining(), pScissors.address());
     }
 
@@ -10540,7 +10540,7 @@ public class VK10 {
      * @param pDescriptorSets   an array of handles to {@code VkDescriptorSet} objects describing the descriptor sets to write to.
      * @param pDynamicOffsets   a pointer to an array of {@code uint32_t} values specifying dynamic offsets.
      */
-    public static void vkCmdBindDescriptorSets(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipelineLayout") long layout, @NativeType("uint32_t") int firstSet, @NativeType("const VkDescriptorSet *") LongBuffer pDescriptorSets, @Nullable @NativeType("const uint32_t *") IntBuffer pDynamicOffsets) {
+    public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipelineLayout") long layout, @NativeType("uint32_t") int firstSet, @NativeType("const VkDescriptorSet *") LongBuffer pDescriptorSets, @Nullable @NativeType("const uint32_t *") IntBuffer pDynamicOffsets) {
         nvkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, pDescriptorSets.remaining(), memAddress(pDescriptorSets), remainingSafe(pDynamicOffsets), memAddressSafe(pDynamicOffsets));
     }
 
@@ -10676,7 +10676,7 @@ public class VK10 {
      * @param pBuffers      a pointer to an array of buffer handles.
      * @param pOffsets      a pointer to an array of buffer offsets.
      */
-    public static void vkCmdBindVertexBuffers(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstBinding, @NativeType("const VkBuffer *") LongBuffer pBuffers, @NativeType("const VkDeviceSize *") LongBuffer pOffsets) {
+    public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstBinding, @NativeType("const VkBuffer *") LongBuffer pBuffers, @NativeType("const VkDeviceSize *") LongBuffer pOffsets) {
         if (CHECKS) {
             check(pOffsets, pBuffers.remaining());
         }
@@ -11264,7 +11264,7 @@ public class VK10 {
      * @param dstBuffer     the destination buffer.
      * @param pRegions      a pointer to an array of {@link VkBufferCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long srcBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("const VkBufferCopy *") VkBufferCopy.Buffer pRegions) {
+    public static void vkCmdCopyBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long srcBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("const VkBufferCopy *") VkBufferCopy.Buffer pRegions) {
         nvkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, pRegions.remaining(), pRegions.address());
     }
 
@@ -11402,7 +11402,7 @@ public class VK10 {
      * @param dstImageLayout the current layout of the destination image subresource.
      * @param pRegions       a pointer to an array of {@link VkImageCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageCopy *") VkImageCopy.Buffer pRegions) {
+    public static void vkCmdCopyImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageCopy *") VkImageCopy.Buffer pRegions) {
         nvkCmdCopyImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
     }
 
@@ -11583,7 +11583,7 @@ public class VK10 {
      * @param pRegions       a pointer to an array of {@link VkImageBlit} structures specifying the regions to blit.
      * @param filter         a {@code VkFilter} specifying the filter to apply if the blits require scaling.
      */
-    public static void vkCmdBlitImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageBlit *") VkImageBlit.Buffer pRegions, @NativeType("VkFilter") int filter) {
+    public static void vkCmdBlitImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageBlit *") VkImageBlit.Buffer pRegions, @NativeType("VkFilter") int filter) {
         nvkCmdBlitImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address(), filter);
     }
 
@@ -11678,7 +11678,7 @@ public class VK10 {
      * @param dstImageLayout the layout of the destination image subresources for the copy.
      * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyBufferToImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long srcBuffer, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkBufferImageCopy *") VkBufferImageCopy.Buffer pRegions) {
+    public static void vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long srcBuffer, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkBufferImageCopy *") VkBufferImageCopy.Buffer pRegions) {
         nvkCmdCopyBufferToImage(commandBuffer, srcBuffer, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
     }
 
@@ -11773,7 +11773,7 @@ public class VK10 {
      * @param dstBuffer      the destination buffer.
      * @param pRegions       a pointer to an array of {@link VkBufferImageCopy} structures specifying the regions to copy.
      */
-    public static void vkCmdCopyImageToBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkBuffer") long dstBuffer, @NativeType("const VkBufferImageCopy *") VkBufferImageCopy.Buffer pRegions) {
+    public static void vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkBuffer") long dstBuffer, @NativeType("const VkBufferImageCopy *") VkBufferImageCopy.Buffer pRegions) {
         nvkCmdCopyImageToBuffer(commandBuffer, srcImage, srcImageLayout, dstBuffer, pRegions.remaining(), pRegions.address());
     }
 
@@ -11865,7 +11865,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") ByteBuffer pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") ByteBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining(), memAddress(pData));
     }
 
@@ -11945,7 +11945,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") ShortBuffer pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") ShortBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 1, memAddress(pData));
     }
 
@@ -12025,7 +12025,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") IntBuffer pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") IntBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
     }
 
@@ -12105,7 +12105,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") LongBuffer pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") LongBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
     }
 
@@ -12185,7 +12185,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") FloatBuffer pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") FloatBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 2, memAddress(pData));
     }
 
@@ -12265,7 +12265,7 @@ public class VK10 {
      * @param dstOffset     the byte offset into the buffer to start updating, and <b>must</b> be a multiple of 4.
      * @param pData         a pointer to the source data for the buffer update, and <b>must</b> be at least {@code dataSize} bytes in size.
      */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") DoubleBuffer pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") DoubleBuffer pData) {
         nvkCmdUpdateBuffer(commandBuffer, dstBuffer, dstOffset, pData.remaining() << 3, memAddress(pData));
     }
 
@@ -12425,7 +12425,7 @@ public class VK10 {
      * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#clears-values">the “Clear Values” section</a> below).
      * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#resources-image-views">Image Views</a>. The {@code aspectMask} of all image subresource ranges <b>must</b> only include {@link #VK_IMAGE_ASPECT_COLOR_BIT IMAGE_ASPECT_COLOR_BIT}.
      */
-    public static void vkCmdClearColorImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearColorValue *") VkClearColorValue pColor, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange.Buffer pRanges) {
+    public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearColorValue *") VkClearColorValue pColor, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange.Buffer pRanges) {
         nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), pRanges.remaining(), pRanges.address());
     }
 
@@ -12503,7 +12503,7 @@ public class VK10 {
      * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
      * @param pColor        a pointer to a {@link VkClearColorValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#clears-values">the “Clear Values” section</a> below).
      */
-    public static void vkCmdClearColorImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearColorValue *") VkClearColorValue pColor, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange pRange) {
+    public static void vkCmdClearColorImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearColorValue *") VkClearColorValue pColor, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange pRange) {
         nvkCmdClearColorImage(commandBuffer, image, imageLayout, pColor.address(), 1, pRange.address());
     }
 
@@ -12589,7 +12589,7 @@ public class VK10 {
      * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#clears-values">the “Clear Values” section</a> below).
      * @param pRanges       points to an array of {@link VkImageSubresourceRange} structures that describe a range of mipmap levels, array layers, and aspects to be cleared, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#resources-image-views">Image Views</a>. The {@code aspectMask} of each image subresource range in {@code pRanges} <b>can</b> include {@link #VK_IMAGE_ASPECT_DEPTH_BIT IMAGE_ASPECT_DEPTH_BIT} if the image format has a depth component, and {@link #VK_IMAGE_ASPECT_STENCIL_BIT IMAGE_ASPECT_STENCIL_BIT} if the image format has a stencil component. {@code pDepthStencil} is a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#clears-values">the “Clear Values” section</a> below).
      */
-    public static void vkCmdClearDepthStencilImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearDepthStencilValue *") VkClearDepthStencilValue pDepthStencil, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange.Buffer pRanges) {
+    public static void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearDepthStencilValue *") VkClearDepthStencilValue pDepthStencil, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange.Buffer pRanges) {
         nvkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil.address(), pRanges.remaining(), pRanges.address());
     }
 
@@ -12662,7 +12662,7 @@ public class VK10 {
      * @param imageLayout   specifies the current layout of the image subresource ranges to be cleared, and <b>must</b> be {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL} or {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}.
      * @param pDepthStencil a pointer to a {@link VkClearDepthStencilValue} structure that contains the values the depth and stencil image subresource ranges will be cleared to (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#clears-values">the “Clear Values” section</a> below).
      */
-    public static void vkCmdClearDepthStencilImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearDepthStencilValue *") VkClearDepthStencilValue pDepthStencil, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange pRange) {
+    public static void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long image, @NativeType("VkImageLayout") int imageLayout, @NativeType("const VkClearDepthStencilValue *") VkClearDepthStencilValue pDepthStencil, @NativeType("const VkImageSubresourceRange *") VkImageSubresourceRange pRange) {
         nvkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil.address(), 1, pRange.address());
     }
 
@@ -12742,7 +12742,7 @@ public class VK10 {
      * @param pAttachments  a pointer to an array of {@link VkClearAttachment} structures defining the attachments to clear and the clear values to use.
      * @param pRects        points to an array of {@link VkClearRect} structures defining regions within each selected attachment to clear.
      */
-    public static void vkCmdClearAttachments(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkClearAttachment *") VkClearAttachment.Buffer pAttachments, @NativeType("const VkClearRect *") VkClearRect.Buffer pRects) {
+    public static void vkCmdClearAttachments(VkCommandBuffer commandBuffer, @NativeType("const VkClearAttachment *") VkClearAttachment.Buffer pAttachments, @NativeType("const VkClearRect *") VkClearRect.Buffer pRects) {
         nvkCmdClearAttachments(commandBuffer, pAttachments.remaining(), pAttachments.address(), pRects.remaining(), pRects.address());
     }
 
@@ -12847,7 +12847,7 @@ public class VK10 {
      * @param dstImageLayout the layout of the destination image subresources for the resolve.
      * @param pRegions       a pointer to an array of {@link VkImageResolve} structures specifying the regions to resolve.
      */
-    public static void vkCmdResolveImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageResolve *") VkImageResolve.Buffer pRegions) {
+    public static void vkCmdResolveImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageResolve *") VkImageResolve.Buffer pRegions) {
         nvkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, pRegions.remaining(), pRegions.address());
     }
 
@@ -12939,7 +12939,7 @@ public class VK10 {
      * @param dstImage       the destination image.
      * @param dstImageLayout the layout of the destination image subresources for the resolve.
      */
-    public static void vkCmdResolveImage(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageResolve *") VkImageResolve pRegion) {
+    public static void vkCmdResolveImage(VkCommandBuffer commandBuffer, @NativeType("VkImage") long srcImage, @NativeType("VkImageLayout") int srcImageLayout, @NativeType("VkImage") long dstImage, @NativeType("VkImageLayout") int dstImageLayout, @NativeType("const VkImageResolve *") VkImageResolve pRegion) {
         nvkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, 1, pRegion.address());
     }
 
@@ -13201,7 +13201,7 @@ public class VK10 {
      * @param pBufferMemoryBarriers a pointer to an array of {@link VkBufferMemoryBarrier} structures.
      * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures.
      */
-    public static void vkCmdWaitEvents(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkEvent *") LongBuffer pEvents, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @Nullable @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @Nullable @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @Nullable @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+    public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, @NativeType("const VkEvent *") LongBuffer pEvents, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @Nullable @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @Nullable @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @Nullable @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
         nvkCmdWaitEvents(commandBuffer, pEvents.remaining(), memAddress(pEvents), srcStageMask, dstStageMask, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
     }
 
@@ -13319,7 +13319,7 @@ public class VK10 {
      * @param pBufferMemoryBarriers a pointer to an array of {@link VkBufferMemoryBarrier} structures.
      * @param pImageMemoryBarriers  a pointer to an array of {@link VkImageMemoryBarrier} structures.
      */
-    public static void vkCmdPipelineBarrier(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @NativeType("VkDependencyFlags") int dependencyFlags, @Nullable @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @Nullable @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @Nullable @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+    public static void vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @NativeType("VkDependencyFlags") int dependencyFlags, @Nullable @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @Nullable @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @Nullable @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
         nvkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
     }
 
@@ -13778,7 +13778,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") ByteBuffer pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") ByteBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining(), memAddress(pValues));
     }
 
@@ -13842,7 +13842,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") ShortBuffer pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") ShortBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 1, memAddress(pValues));
     }
 
@@ -13906,7 +13906,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") IntBuffer pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") IntBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
     }
 
@@ -13970,7 +13970,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") LongBuffer pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") LongBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
     }
 
@@ -14034,7 +14034,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") FloatBuffer pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") FloatBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 2, memAddress(pValues));
     }
 
@@ -14098,7 +14098,7 @@ public class VK10 {
      * @param offset        the start offset of the push constant range to update, in units of bytes.
      * @param pValues       an array of {@code size} bytes containing the new push constant values.
      */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") DoubleBuffer pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") DoubleBuffer pValues) {
         nvkCmdPushConstants(commandBuffer, layout, stageFlags, offset, pValues.remaining() << 3, memAddress(pValues));
     }
 
@@ -14377,7 +14377,7 @@ public class VK10 {
      * @param commandBuffer   a handle to a primary command buffer that the secondary command buffers are executed in.
      * @param pCommandBuffers an array of secondary command buffer handles, which are recorded to execute in the primary command buffer in the order they are listed in the array.
      */
-    public static void vkCmdExecuteCommands(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkCommandBuffer *") PointerBuffer pCommandBuffers) {
+    public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, @NativeType("const VkCommandBuffer *") PointerBuffer pCommandBuffers) {
         nvkCmdExecuteCommands(commandBuffer, pCommandBuffers.remaining(), memAddress(pCommandBuffers));
     }
 
@@ -14450,7 +14450,7 @@ public class VK10 {
      *
      * @param commandBuffer a handle to a primary command buffer that the secondary command buffers are executed in.
      */
-    public static void vkCmdExecuteCommands(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkCommandBuffer *") VkCommandBuffer pCommandBuffer) {
+    public static void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, @NativeType("const VkCommandBuffer *") VkCommandBuffer pCommandBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer pCommandBuffers = stack.pointers(pCommandBuffer);
@@ -14576,7 +14576,7 @@ public class VK10 {
 
     /** Array version of: {@link #vkEnumerateDeviceExtensionProperties EnumerateDeviceExtensionProperties} */
     @NativeType("VkResult")
-    public static int vkEnumerateDeviceExtensionProperties(@NativeType("VkPhysicalDevice") VkPhysicalDevice physicalDevice, @Nullable @NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") int[] pPropertyCount, @Nullable @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
+    public static int vkEnumerateDeviceExtensionProperties(VkPhysicalDevice physicalDevice, @Nullable @NativeType("const char *") CharSequence pLayerName, @NativeType("uint32_t *") int[] pPropertyCount, @Nullable @NativeType("VkExtensionProperties *") VkExtensionProperties.Buffer pProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkEnumerateDeviceExtensionProperties;
         if (CHECKS) {
             check(pPropertyCount, 1);
@@ -14666,14 +14666,14 @@ public class VK10 {
 
     /** Array version of: {@link #vkResetFences ResetFences} */
     @NativeType("VkResult")
-    public static int vkResetFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long[] pFences) {
+    public static int vkResetFences(VkDevice device, @NativeType("const VkFence *") long[] pFences) {
         long __functionAddress = device.getCapabilities().vkResetFences;
         return callPPI(__functionAddress, device.address(), pFences.length, pFences);
     }
 
     /** Array version of: {@link #vkWaitForFences WaitForFences} */
     @NativeType("VkResult")
-    public static int vkWaitForFences(@NativeType("VkDevice") VkDevice device, @NativeType("const VkFence *") long[] pFences, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
+    public static int vkWaitForFences(VkDevice device, @NativeType("const VkFence *") long[] pFences, @NativeType("VkBool32") boolean waitAll, @NativeType("uint64_t") long timeout) {
         long __functionAddress = device.getCapabilities().vkWaitForFences;
         return callPPJI(__functionAddress, device.address(), pFences.length, pFences, waitAll ? 1 : 0, timeout);
     }
@@ -14713,14 +14713,14 @@ public class VK10 {
 
     /** Array version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
     @NativeType("VkResult")
-    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") int[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
+    public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") int[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
         return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 2), pData, stride, flags);
     }
 
     /** Array version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
     @NativeType("VkResult")
-    public static int vkGetQueryPoolResults(@NativeType("VkDevice") VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") long[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
+    public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") long[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
         return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 3), pData, stride, flags);
     }
@@ -14797,14 +14797,14 @@ public class VK10 {
 
     /** Array version of: {@link #vkMergePipelineCaches MergePipelineCaches} */
     @NativeType("VkResult")
-    public static int vkMergePipelineCaches(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long dstCache, @NativeType("const VkPipelineCache *") long[] pSrcCaches) {
+    public static int vkMergePipelineCaches(VkDevice device, @NativeType("VkPipelineCache") long dstCache, @NativeType("const VkPipelineCache *") long[] pSrcCaches) {
         long __functionAddress = device.getCapabilities().vkMergePipelineCaches;
         return callPJPI(__functionAddress, device.address(), dstCache, pSrcCaches.length, pSrcCaches);
     }
 
     /** Array version of: {@link #vkCreateGraphicsPipelines CreateGraphicsPipelines} */
     @NativeType("VkResult")
-    public static int vkCreateGraphicsPipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkGraphicsPipelineCreateInfo *") VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") long[] pPipelines) {
+    public static int vkCreateGraphicsPipelines(VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkGraphicsPipelineCreateInfo *") VkGraphicsPipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") long[] pPipelines) {
         long __functionAddress = device.getCapabilities().vkCreateGraphicsPipelines;
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
@@ -14816,7 +14816,7 @@ public class VK10 {
 
     /** Array version of: {@link #vkCreateComputePipelines CreateComputePipelines} */
     @NativeType("VkResult")
-    public static int vkCreateComputePipelines(@NativeType("VkDevice") VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkComputePipelineCreateInfo *") VkComputePipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") long[] pPipelines) {
+    public static int vkCreateComputePipelines(VkDevice device, @NativeType("VkPipelineCache") long pipelineCache, @NativeType("const VkComputePipelineCreateInfo *") VkComputePipelineCreateInfo.Buffer pCreateInfos, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkPipeline *") long[] pPipelines) {
         long __functionAddress = device.getCapabilities().vkCreateComputePipelines;
         if (CHECKS) {
             check(pPipelines, pCreateInfos.remaining());
@@ -14886,7 +14886,7 @@ public class VK10 {
 
     /** Array version of: {@link #vkFreeDescriptorSets FreeDescriptorSets} */
     @NativeType("VkResult")
-    public static int vkFreeDescriptorSets(@NativeType("VkDevice") VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") long[] pDescriptorSets) {
+    public static int vkFreeDescriptorSets(VkDevice device, @NativeType("VkDescriptorPool") long descriptorPool, @NativeType("const VkDescriptorSet *") long[] pDescriptorSets) {
         long __functionAddress = device.getCapabilities().vkFreeDescriptorSets;
         return callPJPI(__functionAddress, device.address(), descriptorPool, pDescriptorSets.length, pDescriptorSets);
     }
@@ -14936,13 +14936,13 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCmdBindDescriptorSets CmdBindDescriptorSets} */
-    public static void vkCmdBindDescriptorSets(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipelineLayout") long layout, @NativeType("uint32_t") int firstSet, @NativeType("const VkDescriptorSet *") long[] pDescriptorSets, @Nullable @NativeType("const uint32_t *") int[] pDynamicOffsets) {
+    public static void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, @NativeType("VkPipelineBindPoint") int pipelineBindPoint, @NativeType("VkPipelineLayout") long layout, @NativeType("uint32_t") int firstSet, @NativeType("const VkDescriptorSet *") long[] pDescriptorSets, @Nullable @NativeType("const uint32_t *") int[] pDynamicOffsets) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBindDescriptorSets;
         callPJPPV(__functionAddress, commandBuffer.address(), pipelineBindPoint, layout, firstSet, pDescriptorSets.length, pDescriptorSets, lengthSafe(pDynamicOffsets), pDynamicOffsets);
     }
 
     /** Array version of: {@link #vkCmdBindVertexBuffers CmdBindVertexBuffers} */
-    public static void vkCmdBindVertexBuffers(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstBinding, @NativeType("const VkBuffer *") long[] pBuffers, @NativeType("const VkDeviceSize *") long[] pOffsets) {
+    public static void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, @NativeType("uint32_t") int firstBinding, @NativeType("const VkBuffer *") long[] pBuffers, @NativeType("const VkDeviceSize *") long[] pOffsets) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdBindVertexBuffers;
         if (CHECKS) {
             check(pOffsets, pBuffers.length);
@@ -14951,67 +14951,67 @@ public class VK10 {
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") short[] pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") short[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 1), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") int[] pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") int[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") long[] pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") long[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") float[] pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") float[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 2), pData);
     }
 
     /** Array version of: {@link #vkCmdUpdateBuffer CmdUpdateBuffer} */
-    public static void vkCmdUpdateBuffer(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") double[] pData) {
+    public static void vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, @NativeType("VkBuffer") long dstBuffer, @NativeType("VkDeviceSize") long dstOffset, @NativeType("const void *") double[] pData) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdUpdateBuffer;
         callPJJJPV(__functionAddress, commandBuffer.address(), dstBuffer, dstOffset, (long)(pData.length << 3), pData);
     }
 
     /** Array version of: {@link #vkCmdWaitEvents CmdWaitEvents} */
-    public static void vkCmdWaitEvents(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("const VkEvent *") long[] pEvents, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @Nullable @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @Nullable @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @Nullable @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
+    public static void vkCmdWaitEvents(VkCommandBuffer commandBuffer, @NativeType("const VkEvent *") long[] pEvents, @NativeType("VkPipelineStageFlags") int srcStageMask, @NativeType("VkPipelineStageFlags") int dstStageMask, @Nullable @NativeType("const VkMemoryBarrier *") VkMemoryBarrier.Buffer pMemoryBarriers, @Nullable @NativeType("const VkBufferMemoryBarrier *") VkBufferMemoryBarrier.Buffer pBufferMemoryBarriers, @Nullable @NativeType("const VkImageMemoryBarrier *") VkImageMemoryBarrier.Buffer pImageMemoryBarriers) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdWaitEvents;
         callPPPPPV(__functionAddress, commandBuffer.address(), pEvents.length, pEvents, srcStageMask, dstStageMask, remainingSafe(pMemoryBarriers), memAddressSafe(pMemoryBarriers), remainingSafe(pBufferMemoryBarriers), memAddressSafe(pBufferMemoryBarriers), remainingSafe(pImageMemoryBarriers), memAddressSafe(pImageMemoryBarriers));
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") short[] pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") short[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 1, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") int[] pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") int[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") long[] pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") long[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") float[] pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") float[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 2, pValues);
     }
 
     /** Array version of: {@link #vkCmdPushConstants CmdPushConstants} */
-    public static void vkCmdPushConstants(@NativeType("VkCommandBuffer") VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") double[] pValues) {
+    public static void vkCmdPushConstants(VkCommandBuffer commandBuffer, @NativeType("VkPipelineLayout") long layout, @NativeType("VkShaderStageFlags") int stageFlags, @NativeType("uint32_t") int offset, @NativeType("const void *") double[] pValues) {
         long __functionAddress = commandBuffer.getCapabilities().vkCmdPushConstants;
         callPJPV(__functionAddress, commandBuffer.address(), layout, stageFlags, offset, pValues.length << 3, pValues);
     }

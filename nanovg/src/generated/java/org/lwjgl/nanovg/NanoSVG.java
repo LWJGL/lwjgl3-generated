@@ -155,7 +155,7 @@ public class NanoSVG {
      */
     @Nullable
     @NativeType("NSVGimage *")
-    public static NSVGImage nsvgParseFromFile(@NativeType("const char *") CharSequence filename, @NativeType("const char *") CharSequence units, @NativeType("float") float dpi) {
+    public static NSVGImage nsvgParseFromFile(@NativeType("const char *") CharSequence filename, @NativeType("const char *") CharSequence units, float dpi) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
@@ -203,7 +203,7 @@ public class NanoSVG {
      */
     @Nullable
     @NativeType("NSVGimage *")
-    public static NSVGImage nsvgParse(@NativeType("char *") CharSequence input, @NativeType("const char *") CharSequence units, @NativeType("float") float dpi) {
+    public static NSVGImage nsvgParse(@NativeType("char *") CharSequence input, @NativeType("const char *") CharSequence units, float dpi) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer inputEncoded = stack.ASCII(input);

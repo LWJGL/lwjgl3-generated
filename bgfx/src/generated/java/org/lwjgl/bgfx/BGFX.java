@@ -1262,7 +1262,7 @@ public class BGFX {
      * @return number of unique vertices after vertex welding
      */
     @NativeType("uint16_t")
-    public static short bgfx_weld_vertices(@NativeType("uint16_t *") ShortBuffer _output, @NativeType("const bgfx_vertex_decl_t *") BGFXVertexDecl _decl, @NativeType("const void *") ByteBuffer _data, @NativeType("float") float _epsilon) {
+    public static short bgfx_weld_vertices(@NativeType("uint16_t *") ShortBuffer _output, @NativeType("const bgfx_vertex_decl_t *") BGFXVertexDecl _decl, @NativeType("const void *") ByteBuffer _data, float _epsilon) {
         return nbgfx_weld_vertices(memAddress(_output), _decl.address(), memAddress(_data), (short)_output.remaining(), _epsilon);
     }
 
@@ -5536,7 +5536,7 @@ public class BGFX {
 
     /** Array version of: {@link #bgfx_weld_vertices weld_vertices} */
     @NativeType("uint16_t")
-    public static short bgfx_weld_vertices(@NativeType("uint16_t *") short[] _output, @NativeType("const bgfx_vertex_decl_t *") BGFXVertexDecl _decl, @NativeType("const void *") ByteBuffer _data, @NativeType("float") float _epsilon) {
+    public static short bgfx_weld_vertices(@NativeType("uint16_t *") short[] _output, @NativeType("const bgfx_vertex_decl_t *") BGFXVertexDecl _decl, @NativeType("const void *") ByteBuffer _data, float _epsilon) {
         long __functionAddress = Functions.weld_vertices;
         return invokePPPS(__functionAddress, _output, _decl.address(), memAddress(_data), (short)_output.length, _epsilon);
     }

@@ -190,7 +190,7 @@ public class GLXAMDGPUAssociation {
      * @param dataType 
      * @param data     
      */
-    public static int glXGetGPUInfoAMD(@NativeType("unsigned int") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") ByteBuffer data) {
+    public static int glXGetGPUInfoAMD(@NativeType("unsigned int") int id, int property, @NativeType("GLenum") int dataType, @NativeType("void *") ByteBuffer data) {
         return nglXGetGPUInfoAMD(id, property, dataType, data.remaining(), memAddress(data));
     }
 

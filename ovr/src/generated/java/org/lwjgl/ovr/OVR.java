@@ -904,7 +904,7 @@ public class OVR {
      *
      * @return the {@code strlen} of the message or a negative value if the message is too large
      */
-    public static int ovr_TraceMessage(@NativeType("int") int level, @NativeType("const char *") CharSequence message) {
+    public static int ovr_TraceMessage(int level, @NativeType("const char *") CharSequence message) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer messageEncoded = stack.UTF8(message);
@@ -1346,7 +1346,7 @@ public class OVR {
      * @return an {@code ovrResult} for which {@code OVR_SUCCESS(result)} is false upon error and true upon success
      */
     @NativeType("ovrResult")
-    public static int ovr_GetDevicePoses(@NativeType("ovrSession") long session, @NativeType("ovrTrackedDeviceType *") IntBuffer deviceTypes, @NativeType("double") double absTime, @NativeType("ovrPoseStatef *") OVRPoseStatef.Buffer outDevicePoses) {
+    public static int ovr_GetDevicePoses(@NativeType("ovrSession") long session, @NativeType("ovrTrackedDeviceType *") IntBuffer deviceTypes, double absTime, @NativeType("ovrPoseStatef *") OVRPoseStatef.Buffer outDevicePoses) {
         if (CHECKS) {
             check(session);
             check(outDevicePoses, deviceTypes.remaining());
@@ -2411,7 +2411,7 @@ public class OVR {
      *
      * @return the property interpreted as an integer value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static int ovr_GetInt(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("int") int defaultVal) {
+    public static int ovr_GetInt(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, int defaultVal) {
         if (CHECKS) {
             check(session);
         }
@@ -2461,7 +2461,7 @@ public class OVR {
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
     @NativeType("ovrBool")
-    public static boolean ovr_SetInt(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("int") int value) {
+    public static boolean ovr_SetInt(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, int value) {
         if (CHECKS) {
             check(session);
         }
@@ -2505,7 +2505,7 @@ public class OVR {
      *
      * @return the property interpreted as a float value. Returns {@code defaultVal} if the property doesn't exist.
      */
-    public static float ovr_GetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float") float defaultVal) {
+    public static float ovr_GetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, float defaultVal) {
         if (CHECKS) {
             check(session);
         }
@@ -2555,7 +2555,7 @@ public class OVR {
      * @return true if successful, otherwise false. A false result should only occur if the property name is empty or if the property is read-only.
      */
     @NativeType("ovrBool")
-    public static boolean ovr_SetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, @NativeType("float") float value) {
+    public static boolean ovr_SetFloat(@NativeType("ovrSession") long session, @NativeType("const char *") CharSequence propertyName, float value) {
         if (CHECKS) {
             check(session);
         }
@@ -2783,7 +2783,7 @@ public class OVR {
 
     /** Array version of: {@link #ovr_GetDevicePoses GetDevicePoses} */
     @NativeType("ovrResult")
-    public static int ovr_GetDevicePoses(@NativeType("ovrSession") long session, @NativeType("ovrTrackedDeviceType *") int[] deviceTypes, @NativeType("double") double absTime, @NativeType("ovrPoseStatef *") OVRPoseStatef.Buffer outDevicePoses) {
+    public static int ovr_GetDevicePoses(@NativeType("ovrSession") long session, @NativeType("ovrTrackedDeviceType *") int[] deviceTypes, double absTime, @NativeType("ovrPoseStatef *") OVRPoseStatef.Buffer outDevicePoses) {
         if (CHECKS) {
             check(session);
             check(outDevicePoses, deviceTypes.length);

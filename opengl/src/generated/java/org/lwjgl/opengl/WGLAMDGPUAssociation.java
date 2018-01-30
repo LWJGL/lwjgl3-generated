@@ -112,7 +112,7 @@ public class WGLAMDGPUAssociation {
      * @param dataType the data type to be returned. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td></tr></table>
      * @param data     the buffer which will be filled with the requested information
      */
-    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") ByteBuffer data) {
+    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, int property, @NativeType("GLenum") int dataType, @NativeType("void *") ByteBuffer data) {
         return nwglGetGPUInfoAMD(id, property, dataType, data.remaining() >> GLChecks.typeToByteShift(dataType), memAddress(data));
     }
 
@@ -130,7 +130,7 @@ public class WGLAMDGPUAssociation {
      * @param dataType the data type to be returned. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td></tr></table>
      * @param data     the buffer which will be filled with the requested information
      */
-    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") IntBuffer data) {
+    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, int property, @NativeType("GLenum") int dataType, @NativeType("void *") IntBuffer data) {
         return nwglGetGPUInfoAMD(id, property, dataType, (int)(((long)data.remaining() << 2) >> GLChecks.typeToByteShift(dataType)), memAddress(data));
     }
 
@@ -148,7 +148,7 @@ public class WGLAMDGPUAssociation {
      * @param dataType the data type to be returned. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link GL11#GL_INT INT}</td><td>{@link GL11#GL_FLOAT FLOAT}</td><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td></tr></table>
      * @param data     the buffer which will be filled with the requested information
      */
-    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") FloatBuffer data) {
+    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, int property, @NativeType("GLenum") int dataType, @NativeType("void *") FloatBuffer data) {
         return nwglGetGPUInfoAMD(id, property, dataType, (int)(((long)data.remaining() << 2) >> GLChecks.typeToByteShift(dataType)), memAddress(data));
     }
 
@@ -301,7 +301,7 @@ public class WGLAMDGPUAssociation {
     }
 
     /** Array version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
-    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") int[] data) {
+    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, int property, @NativeType("GLenum") int dataType, @NativeType("void *") int[] data) {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
         if (CHECKS) {
             check(__functionAddress);
@@ -310,7 +310,7 @@ public class WGLAMDGPUAssociation {
     }
 
     /** Array version of: {@link #wglGetGPUInfoAMD GetGPUInfoAMD} */
-    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, @NativeType("int") int property, @NativeType("GLenum") int dataType, @NativeType("void *") float[] data) {
+    public static int wglGetGPUInfoAMD(@NativeType("UINT") int id, int property, @NativeType("GLenum") int dataType, @NativeType("void *") float[] data) {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetGPUInfoAMD;
         if (CHECKS) {
             check(__functionAddress);

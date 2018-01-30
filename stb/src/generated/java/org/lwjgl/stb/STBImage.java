@@ -213,7 +213,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("stbi_uc *")
-    public static ByteBuffer stbi_load(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+    public static ByteBuffer stbi_load(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -249,7 +249,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("stbi_uc *")
-    public static ByteBuffer stbi_load_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+    public static ByteBuffer stbi_load_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -315,7 +315,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("stbi_uc *")
-    public static ByteBuffer stbi_load_gif_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int **") PointerBuffer delays, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer z, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+    public static ByteBuffer stbi_load_gif_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int **") PointerBuffer delays, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer z, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(delays, 1);
             check(x, 1);
@@ -365,7 +365,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("stbi_us *")
-    public static ShortBuffer stbi_load_16(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+    public static ShortBuffer stbi_load_16(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -401,7 +401,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("stbi_us *")
-    public static ShortBuffer stbi_load_16_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+    public static ShortBuffer stbi_load_16_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -477,7 +477,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("float *")
-    public static FloatBuffer stbi_loadf(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+    public static FloatBuffer stbi_loadf(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -513,7 +513,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("float *")
-    public static FloatBuffer stbi_loadf_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, @NativeType("int") int desired_channels) {
+    public static FloatBuffer stbi_loadf_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") IntBuffer x, @NativeType("int *") IntBuffer y, @NativeType("int *") IntBuffer channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -940,7 +940,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("char *")
-    public static ByteBuffer stbi_zlib_decode_malloc_guesssize(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int initial_size) {
+    public static ByteBuffer stbi_zlib_decode_malloc_guesssize(@NativeType("const char *") ByteBuffer buffer, int initial_size) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer outlen = stack.callocInt(1);
@@ -965,7 +965,7 @@ public class STBImage {
      */
     @Nullable
     @NativeType("char *")
-    public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(@NativeType("const char *") ByteBuffer buffer, @NativeType("int") int initial_size, @NativeType("int") boolean parse_header) {
+    public static ByteBuffer stbi_zlib_decode_malloc_guesssize_headerflag(@NativeType("const char *") ByteBuffer buffer, int initial_size, @NativeType("int") boolean parse_header) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer outlen = stack.callocInt(1);
@@ -1072,7 +1072,7 @@ public class STBImage {
     /** Array version of: {@link #stbi_load load} */
     @Nullable
     @NativeType("stbi_uc *")
-    public static ByteBuffer stbi_load(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+    public static ByteBuffer stbi_load(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -1094,7 +1094,7 @@ public class STBImage {
     /** Array version of: {@link #stbi_load_from_memory load_from_memory} */
     @Nullable
     @NativeType("stbi_uc *")
-    public static ByteBuffer stbi_load_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+    public static ByteBuffer stbi_load_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -1127,7 +1127,7 @@ public class STBImage {
     /** Array version of: {@link #stbi_load_gif_from_memory load_gif_from_memory} */
     @Nullable
     @NativeType("stbi_uc *")
-    public static ByteBuffer stbi_load_gif_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int **") PointerBuffer delays, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] z, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+    public static ByteBuffer stbi_load_gif_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int **") PointerBuffer delays, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] z, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(delays, 1);
             check(x, 1);
@@ -1159,7 +1159,7 @@ public class STBImage {
     /** Array version of: {@link #stbi_load_16 load_16} */
     @Nullable
     @NativeType("stbi_us *")
-    public static ShortBuffer stbi_load_16(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+    public static ShortBuffer stbi_load_16(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -1181,7 +1181,7 @@ public class STBImage {
     /** Array version of: {@link #stbi_load_16_from_memory load_16_from_memory} */
     @Nullable
     @NativeType("stbi_us *")
-    public static ShortBuffer stbi_load_16_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+    public static ShortBuffer stbi_load_16_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -1228,7 +1228,7 @@ public class STBImage {
     /** Array version of: {@link #stbi_loadf loadf} */
     @Nullable
     @NativeType("float *")
-    public static FloatBuffer stbi_loadf(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+    public static FloatBuffer stbi_loadf(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);
@@ -1250,7 +1250,7 @@ public class STBImage {
     /** Array version of: {@link #stbi_loadf_from_memory loadf_from_memory} */
     @Nullable
     @NativeType("float *")
-    public static FloatBuffer stbi_loadf_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, @NativeType("int") int desired_channels) {
+    public static FloatBuffer stbi_loadf_from_memory(@NativeType("const stbi_uc *") ByteBuffer buffer, @NativeType("int *") int[] x, @NativeType("int *") int[] y, @NativeType("int *") int[] channels_in_file, int desired_channels) {
         if (CHECKS) {
             check(x, 1);
             check(y, 1);

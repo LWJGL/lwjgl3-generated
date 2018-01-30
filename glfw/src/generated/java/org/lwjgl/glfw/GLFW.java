@@ -1631,7 +1631,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static void glfwWindowHintString(@NativeType("int") int hint, @NativeType("const char *") CharSequence value) {
+    public static void glfwWindowHintString(int hint, @NativeType("const char *") CharSequence value) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer valueEncoded = stack.UTF8(value);
@@ -1819,7 +1819,7 @@ public class GLFW {
      * @since version 1.0
      */
     @NativeType("GLFWwindow *")
-    public static long glfwCreateWindow(@NativeType("int") int width, @NativeType("int") int height, @NativeType("const char *") CharSequence title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
+    public static long glfwCreateWindow(int width, int height, @NativeType("const char *") CharSequence title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
         EventLoop.OffScreen.check();
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -3252,7 +3252,7 @@ public class GLFW {
      */
     @Nullable
     @NativeType("const char *")
-    public static String glfwGetKeyName(@NativeType("int") int key, @NativeType("int") int scancode) {
+    public static String glfwGetKeyName(int key, int scancode) {
         long __result = nglfwGetKeyName(key, scancode);
         return memUTF8Safe(__result);
     }
@@ -4002,7 +4002,7 @@ public class GLFW {
      */
     @Nullable
     @NativeType("const char *")
-    public static String glfwGetJoystickName(@NativeType("int") int jid) {
+    public static String glfwGetJoystickName(int jid) {
         long __result = nglfwGetJoystickName(jid);
         return memUTF8Safe(__result);
     }
@@ -4041,7 +4041,7 @@ public class GLFW {
      */
     @Nullable
     @NativeType("const char *")
-    public static String glfwGetJoystickGUID(@NativeType("int") int jid) {
+    public static String glfwGetJoystickGUID(int jid) {
         long __result = nglfwGetJoystickGUID(jid);
         return memUTF8Safe(__result);
     }
@@ -4238,7 +4238,7 @@ public class GLFW {
      */
     @Nullable
     @NativeType("const char *")
-    public static String glfwGetGamepadName(@NativeType("int") int jid) {
+    public static String glfwGetGamepadName(int jid) {
         long __result = nglfwGetGamepadName(jid);
         return memUTF8Safe(__result);
     }

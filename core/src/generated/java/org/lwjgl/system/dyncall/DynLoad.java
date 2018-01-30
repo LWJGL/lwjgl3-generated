@@ -202,7 +202,7 @@ public class DynLoad {
      */
     @Nullable
     @NativeType("const char *")
-    public static String dlSymsName(@NativeType("DLSyms *") long pSyms, @NativeType("int") int index) {
+    public static String dlSymsName(@NativeType("DLSyms *") long pSyms, int index) {
         if (CHECKS) {
             check(pSyms);
         }

@@ -149,7 +149,7 @@ public class VRSettings {
         nVRSettings_SetFloat(memAddress(pchSection), memAddress(pchSettingsKey), flValue, memAddress(peError));
     }
 
-    public static void VRSettings_SetFloat(@NativeType("const char *") CharSequence pchSection, @NativeType("const char *") CharSequence pchSettingsKey, @NativeType("float") float flValue, @NativeType("EVRSettingsError *") IntBuffer peError) {
+    public static void VRSettings_SetFloat(@NativeType("const char *") CharSequence pchSection, @NativeType("const char *") CharSequence pchSettingsKey, float flValue, @NativeType("EVRSettingsError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }

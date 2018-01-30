@@ -377,7 +377,7 @@ public class LMDB {
      * @return the description of the error
      */
     @NativeType("char *")
-    public static String mdb_strerror(@NativeType("int") int err) {
+    public static String mdb_strerror(int err) {
         long __result = nmdb_strerror(err);
         return memASCII(__result);
     }

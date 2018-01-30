@@ -413,7 +413,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_dallocx(@NativeType("void *") ShortBuffer ptr, @NativeType("int") int flags) {
+    public static void je_dallocx(@NativeType("void *") ShortBuffer ptr, int flags) {
         nje_dallocx(memAddress(ptr), flags);
     }
 
@@ -423,7 +423,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_dallocx(@NativeType("void *") IntBuffer ptr, @NativeType("int") int flags) {
+    public static void je_dallocx(@NativeType("void *") IntBuffer ptr, int flags) {
         nje_dallocx(memAddress(ptr), flags);
     }
 
@@ -433,7 +433,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_dallocx(@NativeType("void *") LongBuffer ptr, @NativeType("int") int flags) {
+    public static void je_dallocx(@NativeType("void *") LongBuffer ptr, int flags) {
         nje_dallocx(memAddress(ptr), flags);
     }
 
@@ -443,7 +443,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_dallocx(@NativeType("void *") FloatBuffer ptr, @NativeType("int") int flags) {
+    public static void je_dallocx(@NativeType("void *") FloatBuffer ptr, int flags) {
         nje_dallocx(memAddress(ptr), flags);
     }
 
@@ -453,7 +453,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_dallocx(@NativeType("void *") DoubleBuffer ptr, @NativeType("int") int flags) {
+    public static void je_dallocx(@NativeType("void *") DoubleBuffer ptr, int flags) {
         nje_dallocx(memAddress(ptr), flags);
     }
 
@@ -463,7 +463,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_dallocx(@NativeType("void *") PointerBuffer ptr, @NativeType("int") int flags) {
+    public static void je_dallocx(@NativeType("void *") PointerBuffer ptr, int flags) {
         nje_dallocx(memAddress(ptr), flags);
     }
 
@@ -485,7 +485,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_sdallocx(@NativeType("void *") ByteBuffer ptr, @NativeType("int") int flags) {
+    public static void je_sdallocx(@NativeType("void *") ByteBuffer ptr, int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining(), flags);
     }
 
@@ -495,7 +495,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_sdallocx(@NativeType("void *") ShortBuffer ptr, @NativeType("int") int flags) {
+    public static void je_sdallocx(@NativeType("void *") ShortBuffer ptr, int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 1, flags);
     }
 
@@ -505,7 +505,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_sdallocx(@NativeType("void *") IntBuffer ptr, @NativeType("int") int flags) {
+    public static void je_sdallocx(@NativeType("void *") IntBuffer ptr, int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
     }
 
@@ -515,7 +515,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_sdallocx(@NativeType("void *") LongBuffer ptr, @NativeType("int") int flags) {
+    public static void je_sdallocx(@NativeType("void *") LongBuffer ptr, int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
     }
 
@@ -525,7 +525,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_sdallocx(@NativeType("void *") FloatBuffer ptr, @NativeType("int") int flags) {
+    public static void je_sdallocx(@NativeType("void *") FloatBuffer ptr, int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
     }
 
@@ -535,7 +535,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_sdallocx(@NativeType("void *") DoubleBuffer ptr, @NativeType("int") int flags) {
+    public static void je_sdallocx(@NativeType("void *") DoubleBuffer ptr, int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
     }
 
@@ -545,7 +545,7 @@ public class JEmalloc {
      * @param ptr   the allocated memory to deallocate
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
-    public static void je_sdallocx(@NativeType("void *") PointerBuffer ptr, @NativeType("int") int flags) {
+    public static void je_sdallocx(@NativeType("void *") PointerBuffer ptr, int flags) {
         nje_sdallocx(memAddress(ptr), ptr.remaining() << POINTER_SHIFT, flags);
     }
 

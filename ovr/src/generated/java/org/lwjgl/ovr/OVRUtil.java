@@ -248,7 +248,7 @@ public class OVRUtil {
      * @param stereoChannelToUse audio channel index to extract (0 for mono)
      */
     @NativeType("ovrResult")
-    public static int ovr_ReadWavFromBuffer(@NativeType("ovrAudioChannelData *") OVRAudioChannelData outAudioChannel, @NativeType("const void *") ByteBuffer inputData, @NativeType("int") int stereoChannelToUse) {
+    public static int ovr_ReadWavFromBuffer(@NativeType("ovrAudioChannelData *") OVRAudioChannelData outAudioChannel, @NativeType("const void *") ByteBuffer inputData, int stereoChannelToUse) {
         return novr_ReadWavFromBuffer(outAudioChannel.address(), memAddress(inputData), inputData.remaining(), stereoChannelToUse);
     }
 

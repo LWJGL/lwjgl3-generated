@@ -214,7 +214,7 @@ public class GDI32 {
      *                              the structure in the structure's {@code size} member. If, upon entry, {@code pixelFormatDescriptor} is {@code NULL}, the function writes no data to the
      *                              structure. This is useful when you only want to obtain the maximum pixel format index of a device context.
      */
-    public static int DescribePixelFormat(@NativeType("HDC") long hdc, @NativeType("int") int pixelFormat, @Nullable @NativeType("LPPIXELFORMATDESCRIPTOR") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+    public static int DescribePixelFormat(@NativeType("HDC") long hdc, int pixelFormat, @Nullable @NativeType("LPPIXELFORMATDESCRIPTOR") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
         return nDescribePixelFormat(hdc, pixelFormat, PIXELFORMATDESCRIPTOR.SIZEOF, memAddressSafe(pixelFormatDescriptor));
     }
 
