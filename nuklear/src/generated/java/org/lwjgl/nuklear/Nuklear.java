@@ -2574,6 +2574,48 @@ public class Nuklear {
         }
     }
 
+    // --- [ nk_group_begin_titled ] ---
+
+    /** Unsafe version of: {@link #nk_group_begin_titled group_begin_titled} */
+    public static native int nnk_group_begin_titled(long ctx, long name, long title, int flags);
+
+    /**
+     * @param ctx   the nuklear context
+     * @param name  must be an unique identifier for this group
+     * @param title group header title
+     * @param flags window flags defined in the nk_panel_flags section with a number of different group behaviors. One or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+     *
+     * @return {@code true} if visible and fillable with widgets or {@code false} otherwise
+     */
+    @NativeType("int")
+    public static boolean nk_group_begin_titled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") ByteBuffer name, @NativeType("const char *") ByteBuffer title, @NativeType("nk_flags") int flags) {
+        if (CHECKS) {
+            checkNT1(name);
+            checkNT1(title);
+        }
+        return nnk_group_begin_titled(ctx.address(), memAddress(name), memAddress(title), flags) != 0;
+    }
+
+    /**
+     * @param ctx   the nuklear context
+     * @param name  must be an unique identifier for this group
+     * @param title group header title
+     * @param flags window flags defined in the nk_panel_flags section with a number of different group behaviors. One or more of:<br><table><tr><td>{@link #NK_WINDOW_PRIVATE WINDOW_PRIVATE}</td><td>{@link #NK_WINDOW_DYNAMIC WINDOW_DYNAMIC}</td><td>{@link #NK_WINDOW_ROM WINDOW_ROM}</td><td>{@link #NK_WINDOW_HIDDEN WINDOW_HIDDEN}</td><td>{@link #NK_WINDOW_CLOSED WINDOW_CLOSED}</td></tr><tr><td>{@link #NK_WINDOW_MINIMIZED WINDOW_MINIMIZED}</td><td>{@link #NK_WINDOW_REMOVE_ROM WINDOW_REMOVE_ROM}</td></tr></table>
+     *
+     * @return {@code true} if visible and fillable with widgets or {@code false} otherwise
+     */
+    @NativeType("int")
+    public static boolean nk_group_begin_titled(@NativeType("struct nk_context *") NkContext ctx, @NativeType("const char *") CharSequence name, @NativeType("const char *") CharSequence title, @NativeType("nk_flags") int flags) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.UTF8(name);
+            ByteBuffer titleEncoded = stack.UTF8(title);
+            return nnk_group_begin_titled(ctx.address(), memAddress(nameEncoded), memAddress(titleEncoded), flags) != 0;
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
     // --- [ nk_group_scrolled_offset_begin ] ---
 
     /** Unsafe version of: {@link #nk_group_scrolled_offset_begin group_scrolled_offset_begin} */
@@ -2724,16 +2766,22 @@ public class Nuklear {
 
     // --- [ nk_tree_push_hashed ] ---
 
-    /** Unsafe version of: {@link #nk_tree_push_hashed tree_push_hashed} */
+    /**
+     * Unsafe version of: {@link #nk_tree_push_hashed tree_push_hashed}
+     *
+     * @param len size of passed memory block or string in {@code hash}
+     */
     public static native int nnk_tree_push_hashed(long ctx, int type, long title, int initial_state, long hash, int len, int seed);
 
     /**
+     * Start a collapsable UI section with internal state management with full control over internal unique ID used to store state.
+     *
      * @param ctx           the nuklear context
-     * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
-     * @param title         
-     * @param initial_state one of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
-     * @param hash          
-     * @param seed          
+     * @param type          value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param title         label printed in the tree header
+     * @param initial_state initial tree state value out of {@code nk_collapse_states}. One of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
+     * @param hash          memory block or string to generate the ID from
+     * @param seed          seeding value if this function is called in a loop or default to 0
      */
     @NativeType("int")
     public static boolean nk_tree_push_hashed(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_tree_type") int type, @NativeType("const char *") ByteBuffer title, @NativeType("enum nk_collapse_states") int initial_state, @NativeType("const char *") ByteBuffer hash, @NativeType("nk_int") int seed) {
@@ -2744,12 +2792,14 @@ public class Nuklear {
     }
 
     /**
+     * Start a collapsable UI section with internal state management with full control over internal unique ID used to store state.
+     *
      * @param ctx           the nuklear context
-     * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
-     * @param title         
-     * @param initial_state one of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
-     * @param hash          
-     * @param seed          
+     * @param type          value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param title         label printed in the tree header
+     * @param initial_state initial tree state value out of {@code nk_collapse_states}. One of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
+     * @param hash          memory block or string to generate the ID from
+     * @param seed          seeding value if this function is called in a loop or default to 0
      */
     @NativeType("int")
     public static boolean nk_tree_push_hashed(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_tree_type") int type, @NativeType("const char *") CharSequence title, @NativeType("enum nk_collapse_states") int initial_state, @NativeType("const char *") ByteBuffer hash, @NativeType("nk_int") int seed) {
@@ -2764,17 +2814,23 @@ public class Nuklear {
 
     // --- [ nk_tree_image_push_hashed ] ---
 
-    /** Unsafe version of: {@link #nk_tree_image_push_hashed tree_image_push_hashed} */
+    /**
+     * Unsafe version of: {@link #nk_tree_image_push_hashed tree_image_push_hashed}
+     *
+     * @param len size of passed memory block or string in {@code hash}
+     */
     public static native int nnk_tree_image_push_hashed(long ctx, int type, long img, long title, int initial_state, long hash, int len, int seed);
 
     /**
+     * Start a collapsable UI section with internal state management with full control over internal unique ID used to store state.
+     *
      * @param ctx           the nuklear context
-     * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
-     * @param img           
-     * @param title         
-     * @param initial_state one of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
-     * @param hash          
-     * @param seed          
+     * @param type          value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param img           image to display inside the header on the left of the label
+     * @param title         label printed in the tree header
+     * @param initial_state initial tree state value out of {@code nk_collapse_states}. One of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
+     * @param hash          memory block or string to generate the ID from
+     * @param seed          seeding value if this function is called in a loop or default to 0
      */
     @NativeType("int")
     public static boolean nk_tree_image_push_hashed(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_tree_type") int type, @NativeType("struct nk_image") NkImage img, @NativeType("const char *") ByteBuffer title, @NativeType("enum nk_collapse_states") int initial_state, @NativeType("const char *") ByteBuffer hash, @NativeType("nk_int") int seed) {
@@ -2785,21 +2841,22 @@ public class Nuklear {
     }
 
     /**
+     * Start a collapsable UI section with internal state management with full control over internal unique ID used to store state.
+     *
      * @param ctx           the nuklear context
-     * @param type          one of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
-     * @param img           
-     * @param title         
-     * @param initial_state one of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
-     * @param hash          
-     * @param seed          
+     * @param type          value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param img           image to display inside the header on the left of the label
+     * @param title         label printed in the tree header
+     * @param initial_state initial tree state value out of {@code nk_collapse_states}. One of:<br><table><tr><td>{@link #NK_MINIMIZED MINIMIZED}</td><td>{@link #NK_MAXIMIZED MAXIMIZED}</td></tr></table>
+     * @param hash          memory block or string to generate the ID from
+     * @param seed          seeding value if this function is called in a loop or default to 0
      */
     @NativeType("int")
-    public static boolean nk_tree_image_push_hashed(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_tree_type") int type, @NativeType("struct nk_image") NkImage img, @NativeType("const char *") CharSequence title, @NativeType("enum nk_collapse_states") int initial_state, @NativeType("const char *") CharSequence hash, @NativeType("nk_int") int seed) {
+    public static boolean nk_tree_image_push_hashed(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_tree_type") int type, @NativeType("struct nk_image") NkImage img, @NativeType("const char *") CharSequence title, @NativeType("enum nk_collapse_states") int initial_state, @NativeType("const char *") ByteBuffer hash, @NativeType("nk_int") int seed) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
-            ByteBuffer hashEncoded = stack.UTF8(hash, false);
-            return nnk_tree_image_push_hashed(ctx.address(), type, img.address(), memAddress(titleEncoded), initial_state, memAddress(hashEncoded), hashEncoded.remaining(), seed) != 0;
+            return nnk_tree_image_push_hashed(ctx.address(), type, img.address(), memAddress(titleEncoded), initial_state, memAddress(hash), hash.remaining(), seed) != 0;
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -2810,7 +2867,11 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_tree_pop tree_pop} */
     public static native void nnk_tree_pop(long ctx);
 
-    /** @param ctx the nuklear context */
+    /**
+     * Ends a collapsable UI section
+     *
+     * @param ctx the nuklear context
+     */
     public static void nk_tree_pop(@NativeType("struct nk_context *") NkContext ctx) {
         nnk_tree_pop(ctx.address());
     }
@@ -2821,10 +2882,12 @@ public class Nuklear {
     public static native int nnk_tree_state_push(long ctx, int type, long title, long state);
 
     /**
+     * Start a collapsable UI section with external state management.
+     *
      * @param ctx   the nuklear context
-     * @param type  
-     * @param title 
-     * @param state 
+     * @param type  value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param title label printed in the tree header
+     * @param state persistent state to update
      */
     @NativeType("int")
     public static boolean nk_tree_state_push(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_tree_type") int type, @NativeType("const char *") ByteBuffer title, @NativeType("enum nk_collapse_states *") IntBuffer state) {
@@ -2836,10 +2899,12 @@ public class Nuklear {
     }
 
     /**
+     * Start a collapsable UI section with external state management.
+     *
      * @param ctx   the nuklear context
-     * @param type  
-     * @param title 
-     * @param state 
+     * @param type  value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param title label printed in the tree header
+     * @param state persistent state to update
      */
     @NativeType("int")
     public static boolean nk_tree_state_push(@NativeType("struct nk_context *") NkContext ctx, @NativeType("enum nk_tree_type") int type, @NativeType("const char *") CharSequence title, @NativeType("enum nk_collapse_states *") IntBuffer state) {
@@ -2861,10 +2926,12 @@ public class Nuklear {
     public static native int nnk_tree_state_image_push(long ctx, int type, long image, long title, long state);
 
     /**
+     * Start a collapsable UI section with image and label header and external state management.
+     *
      * @param ctx   the nuklear context
-     * @param type  
-     * @param image 
-     * @param title 
+     * @param type  value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param image image to display inside the header on the left of the label
+     * @param title label printed in the tree header
      * @param state 
      */
     @NativeType("int")
@@ -2877,10 +2944,12 @@ public class Nuklear {
     }
 
     /**
+     * Start a collapsable UI section with image and label header and external state management.
+     *
      * @param ctx   the nuklear context
-     * @param type  
-     * @param image 
-     * @param title 
+     * @param type  value from the {@code nk_tree_type} section to visually mark a tree node header as either a collapseable UI section or tree node. One of:<br><table><tr><td>{@link #NK_TREE_NODE TREE_NODE}</td><td>{@link #NK_TREE_TAB TREE_TAB}</td></tr></table>
+     * @param image image to display inside the header on the left of the label
+     * @param title label printed in the tree header
      * @param state 
      */
     @NativeType("int")
@@ -2902,7 +2971,11 @@ public class Nuklear {
     /** Unsafe version of: {@link #nk_tree_state_pop tree_state_pop} */
     public static native void nnk_tree_state_pop(long ctx);
 
-    /** @param ctx the nuklear context */
+    /**
+     * Ends a collapsable UI section.
+     *
+     * @param ctx the nuklear context
+     */
     public static void nk_tree_state_pop(@NativeType("struct nk_context *") NkContext ctx) {
         nnk_tree_state_pop(ctx.address());
     }

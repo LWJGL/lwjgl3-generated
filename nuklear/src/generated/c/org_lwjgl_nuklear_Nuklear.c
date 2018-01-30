@@ -446,6 +446,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1begin(JNIEnv *
     return (jint)nk_group_begin(ctx, title, (nk_flags)flags);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1begin_1titled(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jlong titleAddress, jint flags) {
+    struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
+    const char *name = (const char *)(intptr_t)nameAddress;
+    const char *title = (const char *)(intptr_t)titleAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)nk_group_begin_titled(ctx, name, title, (nk_flags)flags);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_nuklear_Nuklear_nnk_1group_1scrolled_1offset_1begin__JJJJI(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong x_offsetAddress, jlong y_offsetAddress, jlong titleAddress, jint flags) {
     struct nk_context *ctx = (struct nk_context *)(intptr_t)ctxAddress;
     nk_uint *x_offset = (nk_uint *)(intptr_t)x_offsetAddress;
