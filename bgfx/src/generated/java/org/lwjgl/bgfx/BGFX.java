@@ -2323,7 +2323,7 @@ public class BGFX {
     // --- [ bgfx_get_avail_transient_index_buffer ] ---
 
     /**
-     * Returns number of available indices.
+     * Returns number of requested or maximum available indices.
      *
      * @param _num number of required indices
      */
@@ -2342,7 +2342,7 @@ public class BGFX {
     }
 
     /**
-     * Returns number of available vertices.
+     * Returns number of requested or maximum available vertices.
      *
      * @param _num  number of required vertices
      * @param _decl vertex declaration
@@ -2361,7 +2361,7 @@ public class BGFX {
     }
 
     /**
-     * Returns number of available instance buffer slots.
+     * Returns number of requested or maximum available instance buffer slots.
      *
      * @param _num    number of required instances
      * @param _stride stride per instance
