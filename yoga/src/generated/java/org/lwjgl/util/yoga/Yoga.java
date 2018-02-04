@@ -531,6 +531,18 @@ public class Yoga {
         return nYGNodeIsDirty(node);
     }
 
+    // --- [ YGNodeLayoutGetDidUseLegacyFlag ] ---
+
+    public static native boolean nYGNodeLayoutGetDidUseLegacyFlag(long node);
+
+    @NativeType("bool")
+    public static boolean YGNodeLayoutGetDidUseLegacyFlag(@NativeType("const YGNodeRef") long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        return nYGNodeLayoutGetDidUseLegacyFlag(node);
+    }
+
     // --- [ YGNodePrint ] ---
 
     /** Unsafe version of: {@link #YGNodePrint NodePrint} */

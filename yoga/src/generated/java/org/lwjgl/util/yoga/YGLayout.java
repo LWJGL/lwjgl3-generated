@@ -34,6 +34,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link YGCachedMeasurement YGCachedMeasurement} cachedMeasurements[16];
  *     float measuredDimensions[2];
  *     {@link YGCachedMeasurement YGCachedMeasurement} cachedLayout;
+ *     bool didUseLegacyFlag;
+ *     bool doesLegacyStretchFlagAffectsLayout;
  * }</pre></code>
  */
 public class YGLayout extends Struct {
@@ -59,7 +61,9 @@ public class YGLayout extends Struct {
         NEXTCACHEDMEASUREMENTSINDEX,
         CACHEDMEASUREMENTS,
         MEASUREDDIMENSIONS,
-        CACHEDLAYOUT;
+        CACHEDLAYOUT,
+        DIDUSELEGACYFLAG,
+        DOESLEGACYSTRETCHFLAGAFFECTSLAYOUT;
 
     static {
         Layout layout = __struct(
@@ -77,7 +81,9 @@ public class YGLayout extends Struct {
             __member(4),
             __array(YGCachedMeasurement.SIZEOF, YGCachedMeasurement.ALIGNOF, 16),
             __array(4, 2),
-            __member(YGCachedMeasurement.SIZEOF, YGCachedMeasurement.ALIGNOF)
+            __member(YGCachedMeasurement.SIZEOF, YGCachedMeasurement.ALIGNOF),
+            __member(1),
+            __member(1)
         );
 
         SIZEOF = layout.getSize();
@@ -98,6 +104,8 @@ public class YGLayout extends Struct {
         CACHEDMEASUREMENTS = layout.offsetof(12);
         MEASUREDDIMENSIONS = layout.offsetof(13);
         CACHEDLAYOUT = layout.offsetof(14);
+        DIDUSELEGACYFLAG = layout.offsetof(15);
+        DOESLEGACYSTRETCHFLAGAFFECTSLAYOUT = layout.offsetof(16);
     }
 
     YGLayout(long address, @Nullable ByteBuffer container) {
@@ -174,6 +182,12 @@ public class YGLayout extends Struct {
     public float measuredDimensions(int index) { return nmeasuredDimensions(address(), index); }
     /** Returns a {@link YGCachedMeasurement} view of the {@code cachedLayout} field. */
     public YGCachedMeasurement cachedLayout() { return ncachedLayout(address()); }
+    /** Returns the value of the {@code didUseLegacyFlag} field. */
+    @NativeType("bool")
+    public boolean didUseLegacyFlag() { return ndidUseLegacyFlag(address()); }
+    /** Returns the value of the {@code doesLegacyStretchFlagAffectsLayout} field. */
+    @NativeType("bool")
+    public boolean doesLegacyStretchFlagAffectsLayout() { return ndoesLegacyStretchFlagAffectsLayout(address()); }
 
     // -----------------------------------
 
@@ -271,6 +285,10 @@ public class YGLayout extends Struct {
     }
     /** Unsafe version of {@link #cachedLayout}. */
     public static YGCachedMeasurement ncachedLayout(long struct) { return YGCachedMeasurement.create(struct + YGLayout.CACHEDLAYOUT); }
+    /** Unsafe version of {@link #didUseLegacyFlag}. */
+    public static boolean ndidUseLegacyFlag(long struct) { return memGetByte(struct + YGLayout.DIDUSELEGACYFLAG) != 0; }
+    /** Unsafe version of {@link #doesLegacyStretchFlagAffectsLayout}. */
+    public static boolean ndoesLegacyStretchFlagAffectsLayout(long struct) { return memGetByte(struct + YGLayout.DOESLEGACYSTRETCHFLAGAFFECTSLAYOUT) != 0; }
 
     // -----------------------------------
 
@@ -375,6 +393,12 @@ public class YGLayout extends Struct {
         public float measuredDimensions(int index) { return YGLayout.nmeasuredDimensions(address(), index); }
         /** Returns a {@link YGCachedMeasurement} view of the {@code cachedLayout} field. */
         public YGCachedMeasurement cachedLayout() { return YGLayout.ncachedLayout(address()); }
+        /** Returns the value of the {@code didUseLegacyFlag} field. */
+        @NativeType("bool")
+        public boolean didUseLegacyFlag() { return YGLayout.ndidUseLegacyFlag(address()); }
+        /** Returns the value of the {@code doesLegacyStretchFlagAffectsLayout} field. */
+        @NativeType("bool")
+        public boolean doesLegacyStretchFlagAffectsLayout() { return YGLayout.ndoesLegacyStretchFlagAffectsLayout(address()); }
 
     }
 

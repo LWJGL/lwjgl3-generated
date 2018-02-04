@@ -108,6 +108,12 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeIsDirty(JNIEnv *
     return (jboolean)YGNodeIsDirty(node);
 }
 
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetDidUseLegacyFlag(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jboolean)YGNodeLayoutGetDidUseLegacyFlag(node);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodePrint(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint options) {
     const YGNodeRef node = (const YGNodeRef)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)
