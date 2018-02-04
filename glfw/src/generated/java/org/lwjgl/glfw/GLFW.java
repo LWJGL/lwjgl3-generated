@@ -1984,8 +1984,8 @@ public class GLFW {
      * <li>The specified image data is copied before this function returns.</li>
      * <li><b>macOS</b>: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the
      * application bundle's icon. For more information on bundles, see the <a target="_blank" href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFBundles/">Bundle Programming Guide</a> in the Mac Developer Library.</li>
-     * <li><b>Wayland</b>: The {@code wl_shell} protocol does not support window icons, the window will inherit the one defined in the application's desktop
-     * file, so this function emits {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * <li><b>Wayland</b>: There is no existing protocol to change an icon, the window will thus inherit the one defined in the application's desktop file.
+     * This function always emits {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
      * </ul>
      *
      * @param window the window whose icon to set
@@ -2380,7 +2380,8 @@ public class GLFW {
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
-     * <li><b>Wayland</b>: There is no concept of iconification in {@code wl_shell}, this function will always emit {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</li>
+     * <li><b>Wayland</b>: There is no concept of iconification in {@code wl_shell}, this function will emit {@link #GLFW_PLATFORM_ERROR PLATFORM_ERROR} when using this deprecated
+     * protocol.</li>
      * </ul>
      *
      * @param window the window to iconify
@@ -2888,7 +2889,8 @@ public class GLFW {
      * 
      * <ul>
      * <li>This function must only be called from the main thread.</li>
-     * <li><b>Wayland</b>: The {@code wl_shell} protocol has no concept of iconification, this callback will never be called.</li>
+     * <li><b>Wayland</b>: The {@code wl_shell} protocol has no concept of iconification, this callback will never be called when using this deprecated
+     * protocol.</li>
      * </ul>
      *
      * @param window the window whose callback to set

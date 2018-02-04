@@ -249,10 +249,13 @@ public class GLFWVulkan {
      * enabled, this function returns {@link VK10#VK_ERROR_EXTENSION_NOT_PRESENT} and generates a {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} error. Call {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} to
      * check what instance extensions are required.</p>
      * 
+     * <p>The window surface cannot be shared with another API so the window must have been created with the client api hint set to {@link GLFW#GLFW_NO_API NO_API} otherwise it
+     * generates a {@link GLFW#GLFW_INVALID_VALUE INVALID_VALUE} error and returns {@link KHRSurface#VK_ERROR_NATIVE_WINDOW_IN_USE_KHR}.</p>
+     * 
      * <p>The window surface must be destroyed before the specified Vulkan instance. It is the responsibility of the caller to destroy the window surface. GLFW
      * does not destroy it for you. Call {@link KHRSurface#vkDestroySurfaceKHR} to destroy the surface.</p>
      * 
-     * <p>Possible errors include {@link GLFW#GLFW_NOT_INITIALIZED NOT_INITIALIZED}, {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE} and {@link GLFW#GLFW_PLATFORM_ERROR PLATFORM_ERROR}.</p>
+     * <p>Possible errors include {@link GLFW#GLFW_NOT_INITIALIZED NOT_INITIALIZED}, {@link GLFW#GLFW_API_UNAVAILABLE API_UNAVAILABLE}, {@link GLFW#GLFW_PLATFORM_ERROR PLATFORM_ERROR} and {@link GLFW#GLFW_INVALID_VALUE INVALID_VALUE}.</p>
      * 
      * <p>If an error occurs before the creation call is made, GLFW returns the Vulkan error code most appropriate for the error. Appropriate use of
      * {@link #glfwVulkanSupported VulkanSupported} and {@link #glfwGetRequiredInstanceExtensions GetRequiredInstanceExtensions} should eliminate almost all occurrences of these errors.</p>
