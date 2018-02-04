@@ -356,7 +356,7 @@ public class ZstdX {
      * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #ZSTD_e_continue e_continue} - collect more data, encoder transparently decides when to output result, for optimal conditions</li>
+     * <li>{@link #ZSTD_e_continue e_continue} - collect more data, encoder decides when to output compressed result, for optimal conditions</li>
      * <li>{@link #ZSTD_e_flush e_flush} - flush any data provided so far - frame will continue, future data can still reference previous data for better compression</li>
      * <li>{@link #ZSTD_e_end e_end} - flush any remaining data and close current frame. Any additional data starts a new frame</li>
      * </ul>
@@ -1250,9 +1250,9 @@ public class ZstdX {
      * @param input  
      * @param endOp  one of:<br><table><tr><td>{@link #ZSTD_e_continue e_continue}</td><td>{@link #ZSTD_e_flush e_flush}</td><td>{@link #ZSTD_e_end e_end}</td></tr></table>
      *
-     * @return provides the minimum amount of data remaining to be flushed from internal buffers or an error code, which can be tested using {@link Zstd#ZSTD_isError isError}. If
-     *         {@code @return != 0}, flush is not fully completed, there is still some data left within internal buffers. This is useful to determine if a {@link #ZSTD_e_flush e_flush} or
-     *         {@link #ZSTD_e_end e_end} directive is completed.
+     * @return provides a minimum amount of data remaining to be flushed from internal buffers or an error code, which can be tested using {@link Zstd#ZSTD_isError isError}. If
+     *         {@code @return != 0}, flush is not fully completed, there is still some data left within internal buffers. This is useful for {@link #ZSTD_e_flush e_flush}, since in this
+     *         case more flushes are necessary to empty all buffers. For {@link #ZSTD_e_end e_end}, {@code @return == 0} when internal buffers are fully flushed and frame is completed.
      */
     @NativeType("size_t")
     public static long ZSTD_compress_generic(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("ZSTD_outBuffer *") ZSTDOutBuffer output, @NativeType("ZSTD_inBuffer *") ZSTDInBuffer input, @NativeType("ZSTD_EndDirective") int endOp) {
