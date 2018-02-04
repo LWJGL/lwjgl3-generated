@@ -371,7 +371,8 @@ public class LZ4 {
      * <p>{@code dst} buffer must be already allocated. If {@code dstCapacity} &ge; {@link #LZ4_compressBound compressBound}{@code (srcSize)}, compression is guaranteed to succeed, and
      * runs faster.</p>
      * 
-     * <p>Important: Up to 64KB of previously compressed data is assumed to remain present and unmodified in memory!</p>
+     * <p>Important: The previous 64KB of compressed data is assumed to remain preset and unmodified in memory! If less than 64KB has been compressed all the
+     * data must be present.</p>
      * 
      * <p>Special:</p>
      * 
@@ -478,7 +479,8 @@ public class LZ4 {
      * These decoding functions allow decompression of consecutive blocks in "streaming" mode.
      * 
      * <p>A block is an unsplittable entity, it must be presented entirely to a decompression function. Decompression functions only accept one block at a time.
-     * Previously decoded blocks <i>must</i> remain available at the memory position where they were decoded (up to 64 KB).</p>
+     * The last 64KB of previously decoded data <i>must</i> remain available and unmodified at the memory position where they were decoded. If less than 64KB
+     * of data has been decoded all the data must be present.</p>
      * 
      * <p>Special: if application sets a ring buffer for decompression, it must respect one of the following conditions:</p>
      * 
