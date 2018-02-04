@@ -1533,6 +1533,9 @@ public class Assimp {
      * </ul></li>
      * </ol>
      * 
+     * <p>This step also removes very small triangles with a surface area smaller than 10^-6. If you rely on having these small triangles, or notice holes in
+     * your model, set the property {@link #AI_CONFIG_PP_FD_CHECKAREA} to {@code false}.</p>
+     * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
      * <p>Degenerate polygons are not necessarily evil and that's why they're not removed by default. There are several file formats which don't support
