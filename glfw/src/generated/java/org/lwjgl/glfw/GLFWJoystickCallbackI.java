@@ -43,7 +43,7 @@ public interface GLFWJoystickCallbackI extends CallbackI.V {
      * Will be called when a joystick is connected to or disconnected from the system.
      *
      * @param jid   the joystick that was connected or disconnected
-     * @param event one of {@link GLFW#GLFW_CONNECTED CONNECTED} or {@link GLFW#GLFW_DISCONNECTED DISCONNECTED}
+     * @param event one of {@link GLFW#GLFW_CONNECTED CONNECTED} or {@link GLFW#GLFW_DISCONNECTED DISCONNECTED}. Remaining values reserved for future use.
      */
     void invoke(int jid, int event);
 

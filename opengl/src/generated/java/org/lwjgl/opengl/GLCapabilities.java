@@ -2265,6 +2265,8 @@ public final class GLCapabilities {
     public final boolean GL_AMD_gcn_shader;
     /** When true, {@link AMDGPUShaderHalfFloat} is supported. */
     public final boolean GL_AMD_gpu_shader_half_float;
+    /** When true, {@link AMDGPUShaderHalfFloatFetch} is supported. */
+    public final boolean GL_AMD_gpu_shader_half_float_fetch;
     /**
      * When true, the <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/AMD/AMD_gpu_shader_int16.txt">AMD_gpu_shader_int16</a> extension is supported.
      * 
@@ -6215,6 +6217,7 @@ public final class GLCapabilities {
         GL_AMD_draw_buffers_blend = ext.contains("GL_AMD_draw_buffers_blend") && checkExtension("GL_AMD_draw_buffers_blend", AMDDrawBuffersBlend.isAvailable(this));
         GL_AMD_gcn_shader = ext.contains("GL_AMD_gcn_shader");
         GL_AMD_gpu_shader_half_float = ext.contains("GL_AMD_gpu_shader_half_float");
+        GL_AMD_gpu_shader_half_float_fetch = ext.contains("GL_AMD_gpu_shader_half_float_fetch");
         GL_AMD_gpu_shader_int16 = ext.contains("GL_AMD_gpu_shader_int16");
         GL_AMD_gpu_shader_int64 = ext.contains("GL_AMD_gpu_shader_int64") && checkExtension("GL_AMD_gpu_shader_int64", AMDGPUShaderInt64.isAvailable(this, ext));
         GL_AMD_interleaved_elements = ext.contains("GL_AMD_interleaved_elements") && checkExtension("GL_AMD_interleaved_elements", AMDInterleavedElements.isAvailable(this));

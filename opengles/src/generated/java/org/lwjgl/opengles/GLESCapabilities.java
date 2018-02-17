@@ -1030,6 +1030,16 @@ public final class GLESCapabilities {
      * can import image array native buffers on devices where such native buffers can be created.</p>
      */
     public final boolean GL_EXT_EGL_image_array;
+    /**
+     * This extension builds on {@link OESEGLImageExternal OES_EGL_image_external}, which only allows a external images to use a single clamping wrap mode: {@link GLES20#GL_CLAMP_TO_EDGE CLAMP_TO_EDGE}. This
+     * extension relaxes that restriction, allowing wrap modes {@link GLES20#GL_REPEAT REPEAT} and {@link GLES20#GL_MIRRORED_REPEAT MIRRORED_REPEAT}. If {@link OESTextureBorderClamp OES_texture_border_clamp} is supported, then
+     * {@link GLES32#GL_CLAMP_TO_BORDER CLAMP_TO_BORDER} is also allowed.
+     * 
+     * <p>This extension similarly adds to the capabilities of {@code OES_EGL_image_external_essl3}, allowing the same additional wrap modes.</p>
+     * 
+     * <p>Since external images can be non-RGB, this extension clarifies how border color values are specified for non-RGB external images.</p>
+     */
+    public final boolean GL_EXT_EGL_image_external_wrap_modes;
     /** When true, {@link EXTExternalBuffer} is supported. */
     public final boolean GL_EXT_external_buffer;
     /**
@@ -3008,6 +3018,7 @@ public final class GLESCapabilities {
         GL_EXT_draw_instanced = ext.contains("GL_EXT_draw_instanced") && checkExtension("GL_EXT_draw_instanced", EXTDrawInstanced.isAvailable(this));
         GL_EXT_draw_transform_feedback = ext.contains("GL_EXT_draw_transform_feedback") && checkExtension("GL_EXT_draw_transform_feedback", EXTDrawTransformFeedback.isAvailable(this));
         GL_EXT_EGL_image_array = ext.contains("GL_EXT_EGL_image_array");
+        GL_EXT_EGL_image_external_wrap_modes = ext.contains("GL_EXT_EGL_image_external_wrap_modes");
         GL_EXT_external_buffer = ext.contains("GL_EXT_external_buffer") && checkExtension("GL_EXT_external_buffer", EXTExternalBuffer.isAvailable(this, ext));
         GL_EXT_float_blend = ext.contains("GL_EXT_float_blend");
         GL_EXT_geometry_point_size = ext.contains("GL_EXT_geometry_point_size");

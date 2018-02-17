@@ -24,16 +24,20 @@ import static org.lwjgl.system.Pointer.*;
 public class BGFX {
 
     /** API version */
-    public static final int BGFX_API_VERSION = 60;
+    public static final int BGFX_API_VERSION = 63;
 
     /** Invalid handle */
     public static final short BGFX_INVALID_HANDLE = (short)0xFFFF;
 
     /** State */
     public static final long
-        BGFX_STATE_RGB_WRITE               = 0x1L,
-        BGFX_STATE_ALPHA_WRITE             = 0x2L,
-        BGFX_STATE_DEPTH_WRITE             = 0x4L,
+        BGFX_STATE_WRITE_R                 = 0x1L,
+        BGFX_STATE_WRITE_G                 = 0x2L,
+        BGFX_STATE_WRITE_B                 = 0x4L,
+        BGFX_STATE_WRITE_A                 = 0x8L,
+        BGFX_STATE_WRITE_Z                 = 0x4000000000L,
+        BGFX_STATE_WRITE_RGB               = BGFX_STATE_WRITE_R | BGFX_STATE_WRITE_G | BGFX_STATE_WRITE_B,
+        BGFX_STATE_WRITE_MASK              = BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A | BGFX_STATE_WRITE_Z,
         BGFX_STATE_DEPTH_TEST_LESS         = 0x10L,
         BGFX_STATE_DEPTH_TEST_LEQUAL       = 0x20L,
         BGFX_STATE_DEPTH_TEST_EQUAL        = 0x30L,
@@ -73,10 +77,10 @@ public class BGFX {
         BGFX_STATE_CONSERVATIVE_RASTER     = 0x400000000000000L,
         BGFX_STATE_NONE                    = 0x0L,
         BGFX_STATE_DEFAULT                 = (0L
-        | BGFX_STATE_RGB_WRITE
-        | BGFX_STATE_ALPHA_WRITE
+        | BGFX_STATE_WRITE_RGB
+        | BGFX_STATE_WRITE_A
+        | BGFX_STATE_WRITE_Z
         | BGFX_STATE_DEPTH_TEST_LESS
-        | BGFX_STATE_DEPTH_WRITE
         | BGFX_STATE_CULL_CW
         | BGFX_STATE_MSAA)
         ;
@@ -2868,7 +2872,7 @@ public class BGFX {
      *            +----------+
      *            |-z       2|
      *            | ^  +y    |
-     *            | |        |
+     *            | |        |    Unfolded cube:
      *            | +---->+x |
      * +----------+----------+----------+----------+
      * |+y       1|+y       4|+y       0|+y       5|
@@ -3757,7 +3761,7 @@ public class BGFX {
      * <li>{@link #BGFX_STATE_BLEND_EQUATION_ADD STATE_BLEND_EQUATION_ADD} is set when no other blend equation is specified.</li>
      * </ol>
      *
-     * @param _state state flags. One or more of:<br><table><tr><td>{@link #BGFX_STATE_RGB_WRITE STATE_RGB_WRITE}</td><td>{@link #BGFX_STATE_ALPHA_WRITE STATE_ALPHA_WRITE}</td><td>{@link #BGFX_STATE_DEPTH_WRITE STATE_DEPTH_WRITE}</td><td>{@link #BGFX_STATE_DEPTH_TEST_LESS STATE_DEPTH_TEST_LESS}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_LEQUAL STATE_DEPTH_TEST_LEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_EQUAL STATE_DEPTH_TEST_EQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GEQUAL STATE_DEPTH_TEST_GEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GREATER STATE_DEPTH_TEST_GREATER}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_NOTEQUAL STATE_DEPTH_TEST_NOTEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_NEVER STATE_DEPTH_TEST_NEVER}</td><td>{@link #BGFX_STATE_DEPTH_TEST_ALWAYS STATE_DEPTH_TEST_ALWAYS}</td><td>{@link #BGFX_STATE_BLEND_ZERO STATE_BLEND_ZERO}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_ONE STATE_BLEND_ONE}</td><td>{@link #BGFX_STATE_BLEND_SRC_COLOR STATE_BLEND_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_INV_SRC_COLOR STATE_BLEND_INV_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA STATE_BLEND_SRC_ALPHA}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_SRC_ALPHA STATE_BLEND_INV_SRC_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_ALPHA STATE_BLEND_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_INV_DST_ALPHA STATE_BLEND_INV_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_COLOR STATE_BLEND_DST_COLOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_DST_COLOR STATE_BLEND_INV_DST_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA_SAT STATE_BLEND_SRC_ALPHA_SAT}</td><td>{@link #BGFX_STATE_BLEND_FACTOR STATE_BLEND_FACTOR}</td><td>{@link #BGFX_STATE_BLEND_INV_FACTOR STATE_BLEND_INV_FACTOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_ADD STATE_BLEND_EQUATION_ADD}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_SUB STATE_BLEND_EQUATION_SUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_REVSUB STATE_BLEND_EQUATION_REVSUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_MIN STATE_BLEND_EQUATION_MIN}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_MAX STATE_BLEND_EQUATION_MAX}</td><td>{@link #BGFX_STATE_BLEND_INDEPENDENT STATE_BLEND_INDEPENDENT}</td><td>{@link #BGFX_STATE_BLEND_ALPHA_TO_COVERAGE STATE_BLEND_ALPHA_TO_COVERAGE}</td><td>{@link #BGFX_STATE_CULL_CW STATE_CULL_CW}</td></tr><tr><td>{@link #BGFX_STATE_CULL_CCW STATE_CULL_CCW}</td><td>{@link #BGFX_STATE_PT_TRISTRIP STATE_PT_TRISTRIP}</td><td>{@link #BGFX_STATE_PT_LINES STATE_PT_LINES}</td><td>{@link #BGFX_STATE_PT_LINESTRIP STATE_PT_LINESTRIP}</td></tr><tr><td>{@link #BGFX_STATE_PT_POINTS STATE_PT_POINTS}</td><td>{@link #BGFX_STATE_MSAA STATE_MSAA}</td><td>{@link #BGFX_STATE_LINEAA STATE_LINEAA}</td><td>{@link #BGFX_STATE_CONSERVATIVE_RASTER STATE_CONSERVATIVE_RASTER}</td></tr><tr><td>{@link #BGFX_STATE_NONE STATE_NONE}</td><td>{@link #BGFX_STATE_DEFAULT STATE_DEFAULT}</td></tr></table>
+     * @param _state state flags. One or more of:<br><table><tr><td>{@link #BGFX_STATE_WRITE_R STATE_WRITE_R}</td><td>{@link #BGFX_STATE_WRITE_G STATE_WRITE_G}</td><td>{@link #BGFX_STATE_WRITE_B STATE_WRITE_B}</td><td>{@link #BGFX_STATE_WRITE_A STATE_WRITE_A}</td></tr><tr><td>{@link #BGFX_STATE_WRITE_Z STATE_WRITE_Z}</td><td>{@link #BGFX_STATE_WRITE_RGB STATE_WRITE_RGB}</td><td>{@link #BGFX_STATE_WRITE_MASK STATE_WRITE_MASK}</td><td>{@link #BGFX_STATE_DEPTH_TEST_LESS STATE_DEPTH_TEST_LESS}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_LEQUAL STATE_DEPTH_TEST_LEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_EQUAL STATE_DEPTH_TEST_EQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GEQUAL STATE_DEPTH_TEST_GEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GREATER STATE_DEPTH_TEST_GREATER}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_NOTEQUAL STATE_DEPTH_TEST_NOTEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_NEVER STATE_DEPTH_TEST_NEVER}</td><td>{@link #BGFX_STATE_DEPTH_TEST_ALWAYS STATE_DEPTH_TEST_ALWAYS}</td><td>{@link #BGFX_STATE_BLEND_ZERO STATE_BLEND_ZERO}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_ONE STATE_BLEND_ONE}</td><td>{@link #BGFX_STATE_BLEND_SRC_COLOR STATE_BLEND_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_INV_SRC_COLOR STATE_BLEND_INV_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA STATE_BLEND_SRC_ALPHA}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_SRC_ALPHA STATE_BLEND_INV_SRC_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_ALPHA STATE_BLEND_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_INV_DST_ALPHA STATE_BLEND_INV_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_COLOR STATE_BLEND_DST_COLOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_DST_COLOR STATE_BLEND_INV_DST_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA_SAT STATE_BLEND_SRC_ALPHA_SAT}</td><td>{@link #BGFX_STATE_BLEND_FACTOR STATE_BLEND_FACTOR}</td><td>{@link #BGFX_STATE_BLEND_INV_FACTOR STATE_BLEND_INV_FACTOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_ADD STATE_BLEND_EQUATION_ADD}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_SUB STATE_BLEND_EQUATION_SUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_REVSUB STATE_BLEND_EQUATION_REVSUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_MIN STATE_BLEND_EQUATION_MIN}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_MAX STATE_BLEND_EQUATION_MAX}</td><td>{@link #BGFX_STATE_BLEND_INDEPENDENT STATE_BLEND_INDEPENDENT}</td><td>{@link #BGFX_STATE_BLEND_ALPHA_TO_COVERAGE STATE_BLEND_ALPHA_TO_COVERAGE}</td><td>{@link #BGFX_STATE_CULL_CW STATE_CULL_CW}</td></tr><tr><td>{@link #BGFX_STATE_CULL_CCW STATE_CULL_CCW}</td><td>{@link #BGFX_STATE_PT_TRISTRIP STATE_PT_TRISTRIP}</td><td>{@link #BGFX_STATE_PT_LINES STATE_PT_LINES}</td><td>{@link #BGFX_STATE_PT_LINESTRIP STATE_PT_LINESTRIP}</td></tr><tr><td>{@link #BGFX_STATE_PT_POINTS STATE_PT_POINTS}</td><td>{@link #BGFX_STATE_MSAA STATE_MSAA}</td><td>{@link #BGFX_STATE_LINEAA STATE_LINEAA}</td><td>{@link #BGFX_STATE_CONSERVATIVE_RASTER STATE_CONSERVATIVE_RASTER}</td></tr><tr><td>{@link #BGFX_STATE_NONE STATE_NONE}</td><td>{@link #BGFX_STATE_DEFAULT STATE_DEFAULT}</td></tr></table>
      * @param _rgba  blend factor used by {@link #BGFX_STATE_BLEND_FACTOR STATE_BLEND_FACTOR} and {@link #BGFX_STATE_BLEND_INV_FACTOR STATE_BLEND_INV_FACTOR} blend modes
      */
     public static void bgfx_set_state(@NativeType("uint64_t") long _state, @NativeType("uint32_t") int _rgba) {
@@ -4023,10 +4027,6 @@ public class BGFX {
 
     /**
      * Sets index buffer for draw primitive.
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>{@code _tib} pointer after this call is invalid.</p></div>
      *
      * @param _tib        transient index buffer
      * @param _firstIndex first index to render
@@ -4089,10 +4089,6 @@ public class BGFX {
 
     /**
      * Sets vertex buffer for draw primitive.
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>{@code _tvb} pointer after this call is invalid.</p></div>
      *
      * @param _stream      vertex stream
      * @param _tvb         transient vertex buffer
@@ -4106,26 +4102,23 @@ public class BGFX {
     // --- [ bgfx_set_instance_data_buffer ] ---
 
     /** Unsafe version of: {@link #bgfx_set_instance_data_buffer set_instance_data_buffer} */
-    public static void nbgfx_set_instance_data_buffer(long _idb, int _num) {
+    public static void nbgfx_set_instance_data_buffer(long _idb, int _start, int _num) {
         long __functionAddress = Functions.set_instance_data_buffer;
         if (CHECKS) {
             BGFXInstanceDataBuffer.validate(_idb);
         }
-        invokePV(__functionAddress, _idb, _num);
+        invokePV(__functionAddress, _idb, _start, _num);
     }
 
     /**
      * Sets instance data buffer for draw primitive.
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>{@code _idb} pointer after this call is invalid.</p></div>
      *
-     * @param _idb transient instance data buffer
-     * @param _num number of data instances
+     * @param _idb   transient instance data buffer
+     * @param _start first instance data
+     * @param _num   number of data instances
      */
-    public static void bgfx_set_instance_data_buffer(@NativeType("const bgfx_instance_data_buffer_t *") BGFXInstanceDataBuffer _idb, @NativeType("uint32_t") int _num) {
-        nbgfx_set_instance_data_buffer(_idb.address(), _num);
+    public static void bgfx_set_instance_data_buffer(@NativeType("const bgfx_instance_data_buffer_t *") BGFXInstanceDataBuffer _idb, @NativeType("uint32_t") int _start, @NativeType("uint32_t") int _num) {
+        nbgfx_set_instance_data_buffer(_idb.address(), _start, _num);
     }
 
     // --- [ bgfx_set_instance_data_from_vertex_buffer ] ---
@@ -4522,7 +4515,7 @@ public class BGFX {
      * </ol>
      *
      * @param _encoder the encoder
-     * @param _state   state flags. One or more of:<br><table><tr><td>{@link #BGFX_STATE_RGB_WRITE STATE_RGB_WRITE}</td><td>{@link #BGFX_STATE_ALPHA_WRITE STATE_ALPHA_WRITE}</td><td>{@link #BGFX_STATE_DEPTH_WRITE STATE_DEPTH_WRITE}</td><td>{@link #BGFX_STATE_DEPTH_TEST_LESS STATE_DEPTH_TEST_LESS}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_LEQUAL STATE_DEPTH_TEST_LEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_EQUAL STATE_DEPTH_TEST_EQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GEQUAL STATE_DEPTH_TEST_GEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GREATER STATE_DEPTH_TEST_GREATER}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_NOTEQUAL STATE_DEPTH_TEST_NOTEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_NEVER STATE_DEPTH_TEST_NEVER}</td><td>{@link #BGFX_STATE_DEPTH_TEST_ALWAYS STATE_DEPTH_TEST_ALWAYS}</td><td>{@link #BGFX_STATE_BLEND_ZERO STATE_BLEND_ZERO}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_ONE STATE_BLEND_ONE}</td><td>{@link #BGFX_STATE_BLEND_SRC_COLOR STATE_BLEND_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_INV_SRC_COLOR STATE_BLEND_INV_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA STATE_BLEND_SRC_ALPHA}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_SRC_ALPHA STATE_BLEND_INV_SRC_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_ALPHA STATE_BLEND_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_INV_DST_ALPHA STATE_BLEND_INV_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_COLOR STATE_BLEND_DST_COLOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_DST_COLOR STATE_BLEND_INV_DST_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA_SAT STATE_BLEND_SRC_ALPHA_SAT}</td><td>{@link #BGFX_STATE_BLEND_FACTOR STATE_BLEND_FACTOR}</td><td>{@link #BGFX_STATE_BLEND_INV_FACTOR STATE_BLEND_INV_FACTOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_ADD STATE_BLEND_EQUATION_ADD}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_SUB STATE_BLEND_EQUATION_SUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_REVSUB STATE_BLEND_EQUATION_REVSUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_MIN STATE_BLEND_EQUATION_MIN}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_MAX STATE_BLEND_EQUATION_MAX}</td><td>{@link #BGFX_STATE_BLEND_INDEPENDENT STATE_BLEND_INDEPENDENT}</td><td>{@link #BGFX_STATE_BLEND_ALPHA_TO_COVERAGE STATE_BLEND_ALPHA_TO_COVERAGE}</td><td>{@link #BGFX_STATE_CULL_CW STATE_CULL_CW}</td></tr><tr><td>{@link #BGFX_STATE_CULL_CCW STATE_CULL_CCW}</td><td>{@link #BGFX_STATE_PT_TRISTRIP STATE_PT_TRISTRIP}</td><td>{@link #BGFX_STATE_PT_LINES STATE_PT_LINES}</td><td>{@link #BGFX_STATE_PT_LINESTRIP STATE_PT_LINESTRIP}</td></tr><tr><td>{@link #BGFX_STATE_PT_POINTS STATE_PT_POINTS}</td><td>{@link #BGFX_STATE_MSAA STATE_MSAA}</td><td>{@link #BGFX_STATE_LINEAA STATE_LINEAA}</td><td>{@link #BGFX_STATE_CONSERVATIVE_RASTER STATE_CONSERVATIVE_RASTER}</td></tr><tr><td>{@link #BGFX_STATE_NONE STATE_NONE}</td><td>{@link #BGFX_STATE_DEFAULT STATE_DEFAULT}</td></tr></table>
+     * @param _state   state flags. One or more of:<br><table><tr><td>{@link #BGFX_STATE_WRITE_R STATE_WRITE_R}</td><td>{@link #BGFX_STATE_WRITE_G STATE_WRITE_G}</td><td>{@link #BGFX_STATE_WRITE_B STATE_WRITE_B}</td><td>{@link #BGFX_STATE_WRITE_A STATE_WRITE_A}</td></tr><tr><td>{@link #BGFX_STATE_WRITE_Z STATE_WRITE_Z}</td><td>{@link #BGFX_STATE_WRITE_RGB STATE_WRITE_RGB}</td><td>{@link #BGFX_STATE_WRITE_MASK STATE_WRITE_MASK}</td><td>{@link #BGFX_STATE_DEPTH_TEST_LESS STATE_DEPTH_TEST_LESS}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_LEQUAL STATE_DEPTH_TEST_LEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_EQUAL STATE_DEPTH_TEST_EQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GEQUAL STATE_DEPTH_TEST_GEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_GREATER STATE_DEPTH_TEST_GREATER}</td></tr><tr><td>{@link #BGFX_STATE_DEPTH_TEST_NOTEQUAL STATE_DEPTH_TEST_NOTEQUAL}</td><td>{@link #BGFX_STATE_DEPTH_TEST_NEVER STATE_DEPTH_TEST_NEVER}</td><td>{@link #BGFX_STATE_DEPTH_TEST_ALWAYS STATE_DEPTH_TEST_ALWAYS}</td><td>{@link #BGFX_STATE_BLEND_ZERO STATE_BLEND_ZERO}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_ONE STATE_BLEND_ONE}</td><td>{@link #BGFX_STATE_BLEND_SRC_COLOR STATE_BLEND_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_INV_SRC_COLOR STATE_BLEND_INV_SRC_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA STATE_BLEND_SRC_ALPHA}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_SRC_ALPHA STATE_BLEND_INV_SRC_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_ALPHA STATE_BLEND_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_INV_DST_ALPHA STATE_BLEND_INV_DST_ALPHA}</td><td>{@link #BGFX_STATE_BLEND_DST_COLOR STATE_BLEND_DST_COLOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_INV_DST_COLOR STATE_BLEND_INV_DST_COLOR}</td><td>{@link #BGFX_STATE_BLEND_SRC_ALPHA_SAT STATE_BLEND_SRC_ALPHA_SAT}</td><td>{@link #BGFX_STATE_BLEND_FACTOR STATE_BLEND_FACTOR}</td><td>{@link #BGFX_STATE_BLEND_INV_FACTOR STATE_BLEND_INV_FACTOR}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_ADD STATE_BLEND_EQUATION_ADD}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_SUB STATE_BLEND_EQUATION_SUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_REVSUB STATE_BLEND_EQUATION_REVSUB}</td><td>{@link #BGFX_STATE_BLEND_EQUATION_MIN STATE_BLEND_EQUATION_MIN}</td></tr><tr><td>{@link #BGFX_STATE_BLEND_EQUATION_MAX STATE_BLEND_EQUATION_MAX}</td><td>{@link #BGFX_STATE_BLEND_INDEPENDENT STATE_BLEND_INDEPENDENT}</td><td>{@link #BGFX_STATE_BLEND_ALPHA_TO_COVERAGE STATE_BLEND_ALPHA_TO_COVERAGE}</td><td>{@link #BGFX_STATE_CULL_CW STATE_CULL_CW}</td></tr><tr><td>{@link #BGFX_STATE_CULL_CCW STATE_CULL_CCW}</td><td>{@link #BGFX_STATE_PT_TRISTRIP STATE_PT_TRISTRIP}</td><td>{@link #BGFX_STATE_PT_LINES STATE_PT_LINES}</td><td>{@link #BGFX_STATE_PT_LINESTRIP STATE_PT_LINESTRIP}</td></tr><tr><td>{@link #BGFX_STATE_PT_POINTS STATE_PT_POINTS}</td><td>{@link #BGFX_STATE_MSAA STATE_MSAA}</td><td>{@link #BGFX_STATE_LINEAA STATE_LINEAA}</td><td>{@link #BGFX_STATE_CONSERVATIVE_RASTER STATE_CONSERVATIVE_RASTER}</td></tr><tr><td>{@link #BGFX_STATE_NONE STATE_NONE}</td><td>{@link #BGFX_STATE_DEFAULT STATE_DEFAULT}</td></tr></table>
      * @param _rgba    blend factor used by {@link #BGFX_STATE_BLEND_FACTOR STATE_BLEND_FACTOR} and {@link #BGFX_STATE_BLEND_INV_FACTOR STATE_BLEND_INV_FACTOR} blend modes
      */
     public static void bgfx_encoder_set_state(@NativeType("struct bgfx_encoder *") long _encoder, @NativeType("uint64_t") long _state, @NativeType("uint32_t") int _rgba) {
@@ -4838,10 +4831,6 @@ public class BGFX {
 
     /**
      * Sets index buffer for draw primitive.
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>{@code _tib} pointer after this call is invalid.</p></div>
      *
      * @param _encoder    the encoder
      * @param _tib        transient index buffer
@@ -4914,10 +4903,6 @@ public class BGFX {
 
     /**
      * Sets vertex buffer for draw primitive.
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>{@code _tvb} pointer after this call is invalid.</p></div>
      *
      * @param _encoder     the encoder
      * @param _stream      vertex stream
@@ -4932,28 +4917,25 @@ public class BGFX {
     // --- [ bgfx_encoder_set_instance_data_buffer ] ---
 
     /** Unsafe version of: {@link #bgfx_encoder_set_instance_data_buffer encoder_set_instance_data_buffer} */
-    public static void nbgfx_encoder_set_instance_data_buffer(long _encoder, long _idb, int _num) {
+    public static void nbgfx_encoder_set_instance_data_buffer(long _encoder, long _idb, int _start, int _num) {
         long __functionAddress = Functions.encoder_set_instance_data_buffer;
         if (CHECKS) {
             check(_encoder);
             BGFXInstanceDataBuffer.validate(_idb);
         }
-        invokePPV(__functionAddress, _encoder, _idb, _num);
+        invokePPV(__functionAddress, _encoder, _idb, _start, _num);
     }
 
     /**
      * Sets instance data buffer for draw primitive.
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>{@code _idb} pointer after this call is invalid.</p></div>
      *
      * @param _encoder the encoder
      * @param _idb     transient instance data buffer
+     * @param _start   first instance data
      * @param _num     number of data instances
      */
-    public static void bgfx_encoder_set_instance_data_buffer(@NativeType("struct bgfx_encoder *") long _encoder, @NativeType("const bgfx_instance_data_buffer_t *") BGFXInstanceDataBuffer _idb, @NativeType("uint32_t") int _num) {
-        nbgfx_encoder_set_instance_data_buffer(_encoder, _idb.address(), _num);
+    public static void bgfx_encoder_set_instance_data_buffer(@NativeType("struct bgfx_encoder *") long _encoder, @NativeType("const bgfx_instance_data_buffer_t *") BGFXInstanceDataBuffer _idb, @NativeType("uint32_t") int _start, @NativeType("uint32_t") int _num) {
+        nbgfx_encoder_set_instance_data_buffer(_encoder, _idb.address(), _start, _num);
     }
 
     // --- [ bgfx_encoder_set_instance_data_from_vertex_buffer ] ---
