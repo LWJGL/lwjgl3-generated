@@ -54,7 +54,7 @@ public class NanoVGGLES2 {
     // --- [ nvglCreateImageFromHandle ] ---
 
     /** Unsafe version of: {@link #nvglCreateImageFromHandle lCreateImageFromHandle} */
-    public static native int nnvglCreateImageFromHandleGLES2(long ctx, int textureId, int w, int h, int flags);
+    public static native int nnvglCreateImageFromHandle(long ctx, int textureId, int w, int h, int flags);
 
     /**
      * Creates a NanoVG image from an OpenGL texture.
@@ -71,13 +71,13 @@ public class NanoVGGLES2 {
         if (CHECKS) {
             check(ctx);
         }
-        return nnvglCreateImageFromHandleGLES2(ctx, textureId, w, h, flags);
+        return nnvglCreateImageFromHandle(ctx, textureId, w, h, flags);
     }
 
     // --- [ nvglImageHandle ] ---
 
     /** Unsafe version of: {@link #nvglImageHandle lImageHandle} */
-    public static native int nnvglImageHandleGLES2(long ctx, int image);
+    public static native int nnvglImageHandle(long ctx, int image);
 
     /**
      * Returns the OpenGL texture id associated with a NanoVG image.
@@ -90,13 +90,13 @@ public class NanoVGGLES2 {
         if (CHECKS) {
             check(ctx);
         }
-        return nnvglImageHandleGLES2(ctx, image);
+        return nnvglImageHandle(ctx, image);
     }
 
     // --- [ nvgCreate ] ---
 
     /** Unsafe version of: {@link #nvgCreate Create} */
-    public static native long nnvgCreateGLES2(int flags);
+    public static native long nnvgCreate(int flags);
 
     /**
      * Creates a NanoVG context with an OpenGL ES 2.0 rendering back-end.
@@ -108,13 +108,13 @@ public class NanoVGGLES2 {
      */
     @NativeType("NVGcontext *")
     public static long nvgCreate(int flags) {
-        return nnvgCreateGLES2(flags);
+        return nnvgCreate(flags);
     }
 
     // --- [ nvgDelete ] ---
 
     /** Unsafe version of: {@link #nvgDelete Delete} */
-    public static native void nnvgDeleteGLES2(long ctx);
+    public static native void nnvgDelete(long ctx);
 
     /**
      * Deletes a NanoVG context created with {@link #nvgCreate Create}.
@@ -125,13 +125,13 @@ public class NanoVGGLES2 {
         if (CHECKS) {
             check(ctx);
         }
-        nnvgDeleteGLES2(ctx);
+        nnvgDelete(ctx);
     }
 
     // --- [ nvgluCreateFramebuffer ] ---
 
     /** Unsafe version of: {@link #nvgluCreateFramebuffer luCreateFramebuffer} */
-    public static native long nnvgluCreateFramebufferGLES2(long ctx, int w, int h, int imageFlags);
+    public static native long nnvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags);
 
     /**
      * Creates a framebuffer object to render to.
@@ -147,14 +147,14 @@ public class NanoVGGLES2 {
         if (CHECKS) {
             check(ctx);
         }
-        long __result = nnvgluCreateFramebufferGLES2(ctx, w, h, imageFlags);
+        long __result = nnvgluCreateFramebuffer(ctx, w, h, imageFlags);
         return NVGLUFramebuffer.createSafe(__result);
     }
 
     // --- [ nvgluBindFramebuffer ] ---
 
     /** Unsafe version of: {@link #nvgluBindFramebuffer luBindFramebuffer} */
-    public static native void nnvgluBindFramebufferGLES2(long ctx, long fb);
+    public static native void nnvgluBindFramebuffer(long ctx, long fb);
 
     /**
      * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
@@ -166,13 +166,13 @@ public class NanoVGGLES2 {
         if (CHECKS) {
             check(ctx);
         }
-        nnvgluBindFramebufferGLES2(ctx, memAddressSafe(fb));
+        nnvgluBindFramebuffer(ctx, memAddressSafe(fb));
     }
 
     // --- [ nvgluDeleteFramebuffer ] ---
 
     /** Unsafe version of: {@link #nvgluDeleteFramebuffer luDeleteFramebuffer} */
-    public static native void nnvgluDeleteFramebufferGLES2(long ctx, long fb);
+    public static native void nnvgluDeleteFramebuffer(long ctx, long fb);
 
     /**
      * Deletes an {@link NVGLUFramebuffer}.
@@ -184,7 +184,7 @@ public class NanoVGGLES2 {
         if (CHECKS) {
             check(ctx);
         }
-        nnvgluDeleteFramebufferGLES2(ctx, fb.address());
+        nnvgluDeleteFramebuffer(ctx, fb.address());
     }
 
 }

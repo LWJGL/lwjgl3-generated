@@ -339,7 +339,7 @@ public class NativeFileDialog {
     // --- [ NFD_Free ] ---
 
     /** Unsafe version of: {@link #NFD_Free Free} */
-    public static native void nNFDi_Free(long outPath);
+    public static native void nNFD_Free(long outPath);
 
     /**
      * Frees memory allocated by NativeFileDialog.
@@ -350,7 +350,7 @@ public class NativeFileDialog {
         if (CHECKS) {
             check(outPath, 1);
         }
-        nNFDi_Free(memAddress(outPath));
+        nNFD_Free(memAddress(outPath));
     }
 
 }

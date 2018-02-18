@@ -54,7 +54,7 @@ public class NanoVGGL2 {
     // --- [ nvglCreateImageFromHandle ] ---
 
     /** Unsafe version of: {@link #nvglCreateImageFromHandle lCreateImageFromHandle} */
-    public static native int nnvglCreateImageFromHandleGL2(long ctx, int textureId, int w, int h, int flags);
+    public static native int nnvglCreateImageFromHandle(long ctx, int textureId, int w, int h, int flags);
 
     /**
      * Creates a NanoVG image from an OpenGL texture.
@@ -71,13 +71,13 @@ public class NanoVGGL2 {
         if (CHECKS) {
             check(ctx);
         }
-        return nnvglCreateImageFromHandleGL2(ctx, textureId, w, h, flags);
+        return nnvglCreateImageFromHandle(ctx, textureId, w, h, flags);
     }
 
     // --- [ nvglImageHandle ] ---
 
     /** Unsafe version of: {@link #nvglImageHandle lImageHandle} */
-    public static native int nnvglImageHandleGL2(long ctx, int image);
+    public static native int nnvglImageHandle(long ctx, int image);
 
     /**
      * Returns the OpenGL texture id associated with a NanoVG image.
@@ -90,13 +90,13 @@ public class NanoVGGL2 {
         if (CHECKS) {
             check(ctx);
         }
-        return nnvglImageHandleGL2(ctx, image);
+        return nnvglImageHandle(ctx, image);
     }
 
     // --- [ nvgCreate ] ---
 
     /** Unsafe version of: {@link #nvgCreate Create} */
-    public static native long nnvgCreateGL2(int flags);
+    public static native long nnvgCreate(int flags);
 
     /**
      * Creates a NanoVG context with an OpenGL 2.0 rendering back-end.
@@ -108,13 +108,13 @@ public class NanoVGGL2 {
      */
     @NativeType("NVGcontext *")
     public static long nvgCreate(int flags) {
-        return nnvgCreateGL2(flags);
+        return nnvgCreate(flags);
     }
 
     // --- [ nvgDelete ] ---
 
     /** Unsafe version of: {@link #nvgDelete Delete} */
-    public static native void nnvgDeleteGL2(long ctx);
+    public static native void nnvgDelete(long ctx);
 
     /**
      * Deletes a NanoVG context created with {@link #nvgCreate Create}.
@@ -125,13 +125,13 @@ public class NanoVGGL2 {
         if (CHECKS) {
             check(ctx);
         }
-        nnvgDeleteGL2(ctx);
+        nnvgDelete(ctx);
     }
 
     // --- [ nvgluCreateFramebuffer ] ---
 
     /** Unsafe version of: {@link #nvgluCreateFramebuffer luCreateFramebuffer} */
-    public static native long nnvgluCreateFramebufferGL2(long ctx, int w, int h, int imageFlags);
+    public static native long nnvgluCreateFramebuffer(long ctx, int w, int h, int imageFlags);
 
     /**
      * Creates a framebuffer object to render to.
@@ -147,14 +147,14 @@ public class NanoVGGL2 {
         if (CHECKS) {
             check(ctx);
         }
-        long __result = nnvgluCreateFramebufferGL2(ctx, w, h, imageFlags);
+        long __result = nnvgluCreateFramebuffer(ctx, w, h, imageFlags);
         return NVGLUFramebuffer.createSafe(__result);
     }
 
     // --- [ nvgluBindFramebuffer ] ---
 
     /** Unsafe version of: {@link #nvgluBindFramebuffer luBindFramebuffer} */
-    public static native void nnvgluBindFramebufferGL2(long ctx, long fb);
+    public static native void nnvgluBindFramebuffer(long ctx, long fb);
 
     /**
      * Binds the framebuffer object associated with the specified {@link NVGLUFramebuffer}.
@@ -166,13 +166,13 @@ public class NanoVGGL2 {
         if (CHECKS) {
             check(ctx);
         }
-        nnvgluBindFramebufferGL2(ctx, memAddressSafe(fb));
+        nnvgluBindFramebuffer(ctx, memAddressSafe(fb));
     }
 
     // --- [ nvgluDeleteFramebuffer ] ---
 
     /** Unsafe version of: {@link #nvgluDeleteFramebuffer luDeleteFramebuffer} */
-    public static native void nnvgluDeleteFramebufferGL2(long ctx, long fb);
+    public static native void nnvgluDeleteFramebuffer(long ctx, long fb);
 
     /**
      * Deletes an {@link NVGLUFramebuffer}.
@@ -184,7 +184,7 @@ public class NanoVGGL2 {
         if (CHECKS) {
             check(ctx);
         }
-        nnvgluDeleteFramebufferGL2(ctx, fb.address());
+        nnvgluDeleteFramebuffer(ctx, fb.address());
     }
 
 }

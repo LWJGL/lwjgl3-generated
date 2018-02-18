@@ -1074,7 +1074,7 @@ public class User32 {
     // --- [ RegisterClassEx ] ---
 
     /** Unsafe version of: {@link #RegisterClassEx} */
-    public static native short nRegisterClassExW(long __functionAddress, long lpwcx);
+    public static native short nRegisterClassEx(long __functionAddress, long lpwcx);
 
     /** Unsafe version of: {@link #RegisterClassEx} */
     public static short nRegisterClassEx(long lpwcx) {
@@ -1082,7 +1082,7 @@ public class User32 {
         if (CHECKS) {
             WNDCLASSEX.validate(lpwcx);
         }
-        return nRegisterClassExW(__functionAddress, lpwcx);
+        return nRegisterClassEx(__functionAddress, lpwcx);
     }
 
     /**
@@ -1098,12 +1098,12 @@ public class User32 {
     // --- [ UnregisterClass ] ---
 
     /** Unsafe version of: {@link #UnregisterClass} */
-    public static native int nUnregisterClassW(long __functionAddress, long lpClassName, long hInstance);
+    public static native int nUnregisterClass(long __functionAddress, long lpClassName, long hInstance);
 
     /** Unsafe version of: {@link #UnregisterClass} */
     public static int nUnregisterClass(long lpClassName, long hInstance) {
         long __functionAddress = Functions.UnregisterClass;
-        return nUnregisterClassW(__functionAddress, lpClassName, hInstance);
+        return nUnregisterClass(__functionAddress, lpClassName, hInstance);
     }
 
     /**
@@ -1146,12 +1146,12 @@ public class User32 {
     // --- [ CreateWindowEx ] ---
 
     /** Unsafe version of: {@link #CreateWindowEx} */
-    public static native long nCreateWindowExW(long __functionAddress, int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam);
+    public static native long nCreateWindowEx(long __functionAddress, int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam);
 
     /** Unsafe version of: {@link #CreateWindowEx} */
     public static long nCreateWindowEx(int dwExStyle, long lpClassName, long lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, long hWndParent, long hMenu, long hInstance, long lpParam) {
         long __functionAddress = Functions.CreateWindowEx;
-        return nCreateWindowExW(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
+        return nCreateWindowEx(__functionAddress, dwExStyle, lpClassName, lpWindowName, dwStyle, x, y, nWidth, nHeight, hWndParent, hMenu, hInstance, lpParam);
     }
 
     /**
@@ -1347,7 +1347,7 @@ public class User32 {
     // --- [ SetWindowText ] ---
 
     /** Unsafe version of: {@link #SetWindowText} */
-    public static native int nSetWindowTextW(long __functionAddress, long hWnd, long lpString);
+    public static native int nSetWindowText(long __functionAddress, long hWnd, long lpString);
 
     /** Unsafe version of: {@link #SetWindowText} */
     public static int nSetWindowText(long hWnd, long lpString) {
@@ -1355,7 +1355,7 @@ public class User32 {
         if (CHECKS) {
             check(hWnd);
         }
-        return nSetWindowTextW(__functionAddress, hWnd, lpString);
+        return nSetWindowText(__functionAddress, hWnd, lpString);
     }
 
     /**
@@ -1394,12 +1394,12 @@ public class User32 {
     // --- [ GetMessage ] ---
 
     /** Unsafe version of: {@link #GetMessage} */
-    public static native int nGetMessageW(long __functionAddress, long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax);
+    public static native int nGetMessage(long __functionAddress, long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax);
 
     /** Unsafe version of: {@link #GetMessage} */
     public static int nGetMessage(long lpMsg, long hWnd, int wMsgFilterMin, int wMsgFilterMax) {
         long __functionAddress = Functions.GetMessage;
-        return nGetMessageW(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
+        return nGetMessage(__functionAddress, lpMsg, hWnd, wMsgFilterMin, wMsgFilterMax);
     }
 
     /**
@@ -1508,7 +1508,7 @@ public class User32 {
     // --- [ PostMessage ] ---
 
     /** Unsafe version of: {@link #PostMessage} */
-    public static native int nPostMessageW(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
+    public static native int nPostMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
     /**
      * Places (posts) a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread
@@ -1528,13 +1528,13 @@ public class User32 {
     @NativeType("BOOL")
     public static boolean PostMessage(@NativeType("HWND") long hWnd, @NativeType("UINT") int Msg, @NativeType("WPARAM") long wParam, @NativeType("LPARAM") long lParam) {
         long __functionAddress = Functions.PostMessage;
-        return nPostMessageW(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
+        return nPostMessage(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
     }
 
     // --- [ SendMessage ] ---
 
     /** Unsafe version of: {@link #SendMessage} */
-    public static native int nSendMessageW(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
+    public static native int nSendMessage(long __functionAddress, long hWnd, int Msg, long wParam, long lParam);
 
     /**
      * Sends the specified message to a window or windows. The {@code SendMessage} function calls the window procedure for the specified window and does not
@@ -1556,7 +1556,7 @@ public class User32 {
         if (CHECKS) {
             check(hWnd);
         }
-        return nSendMessageW(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
+        return nSendMessage(__functionAddress, hWnd, Msg, wParam, lParam) != 0;
     }
 
     // --- [ AdjustWindowRectEx ] ---
@@ -1882,12 +1882,12 @@ public class User32 {
     // --- [ LoadIcon ] ---
 
     /** Unsafe version of: {@link #LoadIcon} */
-    public static native long nLoadIconW(long __functionAddress, long instance, long iconName);
+    public static native long nLoadIcon(long __functionAddress, long instance, long iconName);
 
     /** Unsafe version of: {@link #LoadIcon} */
     public static long nLoadIcon(long instance, long iconName) {
         long __functionAddress = Functions.LoadIcon;
-        return nLoadIconW(__functionAddress, instance, iconName);
+        return nLoadIcon(__functionAddress, instance, iconName);
     }
 
     /**
@@ -1926,12 +1926,12 @@ public class User32 {
     // --- [ LoadCursor ] ---
 
     /** Unsafe version of: {@link #LoadCursor} */
-    public static native long nLoadCursorW(long __functionAddress, long instance, long cursorName);
+    public static native long nLoadCursor(long __functionAddress, long instance, long cursorName);
 
     /** Unsafe version of: {@link #LoadCursor} */
     public static long nLoadCursor(long instance, long cursorName) {
         long __functionAddress = Functions.LoadCursor;
-        return nLoadCursorW(__functionAddress, instance, cursorName);
+        return nLoadCursor(__functionAddress, instance, cursorName);
     }
 
     /**
