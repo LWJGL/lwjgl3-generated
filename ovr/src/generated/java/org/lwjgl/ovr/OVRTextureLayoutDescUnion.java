@@ -237,8 +237,7 @@ public class OVRTextureLayoutDescUnion extends Struct implements NativeResource 
     public static OVRTextureLayoutOctilinear.Buffer nOctilinear(long struct) { return OVRTextureLayoutOctilinear.create(struct + OVRTextureLayoutDescUnion.OCTILINEAR, ovrEye_Count); }
     /** Unsafe version of {@link #Octilinear(int) Octilinear}. */
     public static OVRTextureLayoutOctilinear nOctilinear(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRTextureLayoutOctilinear.create(struct + OVRTextureLayoutDescUnion.OCTILINEAR + index * OVRTextureLayoutOctilinear.SIZEOF);
+        return OVRTextureLayoutOctilinear.create(struct + OVRTextureLayoutDescUnion.OCTILINEAR + check(index, ovrEye_Count) * OVRTextureLayoutOctilinear.SIZEOF);
     }
 
     /** Unsafe version of {@link #Octilinear(OVRTextureLayoutOctilinear.Buffer) Octilinear}. */
@@ -248,8 +247,7 @@ public class OVRTextureLayoutDescUnion extends Struct implements NativeResource 
     }
     /** Unsafe version of {@link #Octilinear(int, OVRTextureLayoutOctilinear) Octilinear}. */
     public static void nOctilinear(long struct, int index, OVRTextureLayoutOctilinear value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRTextureLayoutDescUnion.OCTILINEAR + index * OVRTextureLayoutOctilinear.SIZEOF, OVRTextureLayoutOctilinear.SIZEOF);
+        memCopy(value.address(), struct + OVRTextureLayoutDescUnion.OCTILINEAR + check(index, ovrEye_Count) * OVRTextureLayoutOctilinear.SIZEOF, OVRTextureLayoutOctilinear.SIZEOF);
     }
 
     // -----------------------------------

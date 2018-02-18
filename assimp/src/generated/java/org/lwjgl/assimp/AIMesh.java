@@ -497,22 +497,19 @@ public class AIMesh extends Struct implements NativeResource {
     public static PointerBuffer nmColors(long struct) { return memPointerBuffer(struct + AIMesh.MCOLORS, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
     /** Unsafe version of {@link #mColors(int) mColors}. */
     @Nullable public static AIColor4D.Buffer nmColors(long struct, int index) {
-        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
-        return AIColor4D.createSafe(memGetAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE), nmNumVertices(struct));
+        return AIColor4D.createSafe(memGetAddress(struct + AIMesh.MCOLORS + check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS) * POINTER_SIZE), nmNumVertices(struct));
     }
     /** Unsafe version of {@link #mTextureCoords}. */
     public static PointerBuffer nmTextureCoords(long struct) { return memPointerBuffer(struct + AIMesh.MTEXTURECOORDS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
     /** Unsafe version of {@link #mTextureCoords(int) mTextureCoords}. */
     @Nullable public static AIVector3D.Buffer nmTextureCoords(long struct, int index) {
-        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-        return AIVector3D.createSafe(memGetAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE), nmNumVertices(struct));
+        return AIVector3D.createSafe(memGetAddress(struct + AIMesh.MTEXTURECOORDS + check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS) * POINTER_SIZE), nmNumVertices(struct));
     }
     /** Unsafe version of {@link #mNumUVComponents}. */
     public static IntBuffer nmNumUVComponents(long struct) { return memIntBuffer(struct + AIMesh.MNUMUVCOMPONENTS, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
     /** Unsafe version of {@link #mNumUVComponents(int) mNumUVComponents}. */
     public static int nmNumUVComponents(long struct, int index) {
-        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-        return memGetInt(struct + AIMesh.MNUMUVCOMPONENTS + index * 4);
+        return memGetInt(struct + AIMesh.MNUMUVCOMPONENTS + check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS) * 4);
     }
     /** Unsafe version of {@link #mFaces}. */
     public static AIFace.Buffer nmFaces(long struct) { return AIFace.create(memGetAddress(struct + AIMesh.MFACES), nmNumFaces(struct)); }
@@ -550,8 +547,7 @@ public class AIMesh extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #mColors(int, AIColor4D.Buffer) mColors}. */
     public static void nmColors(long struct, int index, @Nullable AIColor4D.Buffer value) {
-        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS); }
-        memPutAddress(struct + AIMesh.MCOLORS + index * POINTER_SIZE, memAddressSafe(value));
+        memPutAddress(struct + AIMesh.MCOLORS + check(index, Assimp.AI_MAX_NUMBER_OF_COLOR_SETS) * POINTER_SIZE, memAddressSafe(value));
     }
     /** Unsafe version of {@link #mTextureCoords(PointerBuffer) mTextureCoords}. */
     public static void nmTextureCoords(long struct, PointerBuffer value) {
@@ -560,8 +556,7 @@ public class AIMesh extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #mTextureCoords(int, AIVector3D.Buffer) mTextureCoords}. */
     public static void nmTextureCoords(long struct, int index, @Nullable AIVector3D.Buffer value) {
-        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-        memPutAddress(struct + AIMesh.MTEXTURECOORDS + index * POINTER_SIZE, memAddressSafe(value));
+        memPutAddress(struct + AIMesh.MTEXTURECOORDS + check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS) * POINTER_SIZE, memAddressSafe(value));
     }
     /** Unsafe version of {@link #mNumUVComponents(IntBuffer) mNumUVComponents}. */
     public static void nmNumUVComponents(long struct, IntBuffer value) {
@@ -570,8 +565,7 @@ public class AIMesh extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #mNumUVComponents(int, int) mNumUVComponents}. */
     public static void nmNumUVComponents(long struct, int index, int value) {
-        if (CHECKS) { check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS); }
-        memPutInt(struct + AIMesh.MNUMUVCOMPONENTS + index * 4, value);
+        memPutInt(struct + AIMesh.MNUMUVCOMPONENTS + check(index, Assimp.AI_MAX_NUMBER_OF_TEXTURECOORDS) * 4, value);
     }
     /** Unsafe version of {@link #mFaces(AIFace.Buffer) mFaces}. */
     public static void nmFaces(long struct, AIFace.Buffer value) { memPutAddress(struct + AIMesh.MFACES, value.address()); nmNumFaces(struct, value.remaining()); }

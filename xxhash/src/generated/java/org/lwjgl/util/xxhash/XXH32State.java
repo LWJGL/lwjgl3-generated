@@ -344,8 +344,7 @@ public class XXH32State extends Struct implements NativeResource {
     public static IntBuffer nmem32(long struct) { return memIntBuffer(struct + XXH32State.MEM32, 4); }
     /** Unsafe version of {@link #mem32(int) mem32}. */
     public static int nmem32(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetInt(struct + XXH32State.MEM32 + index * 4);
+        return memGetInt(struct + XXH32State.MEM32 + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #memsize}. */
     public static int nmemsize(long struct) { return memGetInt(struct + XXH32State.MEMSIZE); }
@@ -371,8 +370,7 @@ public class XXH32State extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #mem32(int, int) mem32}. */
     public static void nmem32(long struct, int index, int value) {
-        if (CHECKS) { check(index, 4); }
-        memPutInt(struct + XXH32State.MEM32 + index * 4, value);
+        memPutInt(struct + XXH32State.MEM32 + check(index, 4) * 4, value);
     }
     /** Unsafe version of {@link #memsize(int) memsize}. */
     public static void nmemsize(long struct, int value) { memPutInt(struct + XXH32State.MEMSIZE, value); }

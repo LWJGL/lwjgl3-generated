@@ -346,22 +346,19 @@ public class OVRInputState extends Struct implements NativeResource {
     public static FloatBuffer nIndexTrigger(long struct) { return memFloatBuffer(struct + OVRInputState.INDEXTRIGGER, ovrHand_Count); }
     /** Unsafe version of {@link #IndexTrigger(int) IndexTrigger}. */
     public static float nIndexTrigger(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return memGetFloat(struct + OVRInputState.INDEXTRIGGER + index * 4);
+        return memGetFloat(struct + OVRInputState.INDEXTRIGGER + check(index, ovrHand_Count) * 4);
     }
     /** Unsafe version of {@link #HandTrigger}. */
     public static FloatBuffer nHandTrigger(long struct) { return memFloatBuffer(struct + OVRInputState.HANDTRIGGER, ovrHand_Count); }
     /** Unsafe version of {@link #HandTrigger(int) HandTrigger}. */
     public static float nHandTrigger(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return memGetFloat(struct + OVRInputState.HANDTRIGGER + index * 4);
+        return memGetFloat(struct + OVRInputState.HANDTRIGGER + check(index, ovrHand_Count) * 4);
     }
     /** Unsafe version of {@link #Thumbstick}. */
     public static OVRVector2f.Buffer nThumbstick(long struct) { return OVRVector2f.create(struct + OVRInputState.THUMBSTICK, ovrHand_Count); }
     /** Unsafe version of {@link #Thumbstick(int) Thumbstick}. */
     public static OVRVector2f nThumbstick(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return OVRVector2f.create(struct + OVRInputState.THUMBSTICK + index * OVRVector2f.SIZEOF);
+        return OVRVector2f.create(struct + OVRInputState.THUMBSTICK + check(index, ovrHand_Count) * OVRVector2f.SIZEOF);
     }
     /** Unsafe version of {@link #ControllerType}. */
     public static int nControllerType(long struct) { return memGetInt(struct + OVRInputState.CONTROLLERTYPE); }
@@ -369,43 +366,37 @@ public class OVRInputState extends Struct implements NativeResource {
     public static FloatBuffer nIndexTriggerNoDeadzone(long struct) { return memFloatBuffer(struct + OVRInputState.INDEXTRIGGERNODEADZONE, ovrHand_Count); }
     /** Unsafe version of {@link #IndexTriggerNoDeadzone(int) IndexTriggerNoDeadzone}. */
     public static float nIndexTriggerNoDeadzone(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return memGetFloat(struct + OVRInputState.INDEXTRIGGERNODEADZONE + index * 4);
+        return memGetFloat(struct + OVRInputState.INDEXTRIGGERNODEADZONE + check(index, ovrHand_Count) * 4);
     }
     /** Unsafe version of {@link #HandTriggerNoDeadzone}. */
     public static FloatBuffer nHandTriggerNoDeadzone(long struct) { return memFloatBuffer(struct + OVRInputState.HANDTRIGGERNODEADZONE, ovrHand_Count); }
     /** Unsafe version of {@link #HandTriggerNoDeadzone(int) HandTriggerNoDeadzone}. */
     public static float nHandTriggerNoDeadzone(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return memGetFloat(struct + OVRInputState.HANDTRIGGERNODEADZONE + index * 4);
+        return memGetFloat(struct + OVRInputState.HANDTRIGGERNODEADZONE + check(index, ovrHand_Count) * 4);
     }
     /** Unsafe version of {@link #ThumbstickNoDeadzone}. */
     public static OVRVector2f.Buffer nThumbstickNoDeadzone(long struct) { return OVRVector2f.create(struct + OVRInputState.THUMBSTICKNODEADZONE, ovrHand_Count); }
     /** Unsafe version of {@link #ThumbstickNoDeadzone(int) ThumbstickNoDeadzone}. */
     public static OVRVector2f nThumbstickNoDeadzone(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return OVRVector2f.create(struct + OVRInputState.THUMBSTICKNODEADZONE + index * OVRVector2f.SIZEOF);
+        return OVRVector2f.create(struct + OVRInputState.THUMBSTICKNODEADZONE + check(index, ovrHand_Count) * OVRVector2f.SIZEOF);
     }
     /** Unsafe version of {@link #IndexTriggerRaw}. */
     public static FloatBuffer nIndexTriggerRaw(long struct) { return memFloatBuffer(struct + OVRInputState.INDEXTRIGGERRAW, ovrHand_Count); }
     /** Unsafe version of {@link #IndexTriggerRaw(int) IndexTriggerRaw}. */
     public static float nIndexTriggerRaw(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return memGetFloat(struct + OVRInputState.INDEXTRIGGERRAW + index * 4);
+        return memGetFloat(struct + OVRInputState.INDEXTRIGGERRAW + check(index, ovrHand_Count) * 4);
     }
     /** Unsafe version of {@link #HandTriggerRaw}. */
     public static FloatBuffer nHandTriggerRaw(long struct) { return memFloatBuffer(struct + OVRInputState.HANDTRIGGERRAW, ovrHand_Count); }
     /** Unsafe version of {@link #HandTriggerRaw(int) HandTriggerRaw}. */
     public static float nHandTriggerRaw(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return memGetFloat(struct + OVRInputState.HANDTRIGGERRAW + index * 4);
+        return memGetFloat(struct + OVRInputState.HANDTRIGGERRAW + check(index, ovrHand_Count) * 4);
     }
     /** Unsafe version of {@link #ThumbstickRaw}. */
     public static OVRVector2f.Buffer nThumbstickRaw(long struct) { return OVRVector2f.create(struct + OVRInputState.THUMBSTICKRAW, ovrHand_Count); }
     /** Unsafe version of {@link #ThumbstickRaw(int) ThumbstickRaw}. */
     public static OVRVector2f nThumbstickRaw(long struct, int index) {
-        if (CHECKS) { check(index, ovrHand_Count); }
-        return OVRVector2f.create(struct + OVRInputState.THUMBSTICKRAW + index * OVRVector2f.SIZEOF);
+        return OVRVector2f.create(struct + OVRInputState.THUMBSTICKRAW + check(index, ovrHand_Count) * OVRVector2f.SIZEOF);
     }
 
     // -----------------------------------

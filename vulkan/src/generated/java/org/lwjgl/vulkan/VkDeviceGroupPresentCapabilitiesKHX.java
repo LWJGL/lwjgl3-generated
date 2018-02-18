@@ -273,8 +273,7 @@ public class VkDeviceGroupPresentCapabilitiesKHX extends Struct implements Nativ
     public static IntBuffer npresentMask(long struct) { return memIntBuffer(struct + VkDeviceGroupPresentCapabilitiesKHX.PRESENTMASK, VK_MAX_DEVICE_GROUP_SIZE_KHX); }
     /** Unsafe version of {@link #presentMask(int) presentMask}. */
     public static int npresentMask(long struct, int index) {
-        if (CHECKS) { check(index, VK_MAX_DEVICE_GROUP_SIZE_KHX); }
-        return memGetInt(struct + VkDeviceGroupPresentCapabilitiesKHX.PRESENTMASK + index * 4);
+        return memGetInt(struct + VkDeviceGroupPresentCapabilitiesKHX.PRESENTMASK + check(index, VK_MAX_DEVICE_GROUP_SIZE_KHX) * 4);
     }
     /** Unsafe version of {@link #modes}. */
     public static int nmodes(long struct) { return memGetInt(struct + VkDeviceGroupPresentCapabilitiesKHX.MODES); }

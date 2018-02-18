@@ -232,8 +232,7 @@ public class HmdVector3d extends Struct implements NativeResource {
     public static DoubleBuffer nv(long struct) { return memDoubleBuffer(struct + HmdVector3d.V, 3); }
     /** Unsafe version of {@link #v(int) v}. */
     public static double nv(long struct, int index) {
-        if (CHECKS) { check(index, 3); }
-        return memGetDouble(struct + HmdVector3d.V + index * 8);
+        return memGetDouble(struct + HmdVector3d.V + check(index, 3) * 8);
     }
 
     /** Unsafe version of {@link #v(DoubleBuffer) v}. */
@@ -243,8 +242,7 @@ public class HmdVector3d extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #v(int, double) v}. */
     public static void nv(long struct, int index, double value) {
-        if (CHECKS) { check(index, 3); }
-        memPutDouble(struct + HmdVector3d.V + index * 8, value);
+        memPutDouble(struct + HmdVector3d.V + check(index, 3) * 8, value);
     }
 
     // -----------------------------------

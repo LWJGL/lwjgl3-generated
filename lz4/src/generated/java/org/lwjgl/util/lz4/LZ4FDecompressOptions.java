@@ -264,8 +264,7 @@ public class LZ4FDecompressOptions extends Struct implements NativeResource {
     public static IntBuffer nreserved(long struct) { return memIntBuffer(struct + LZ4FDecompressOptions.RESERVED, 3); }
     /** Unsafe version of {@link #reserved(int) reserved}. */
     public static int nreserved(long struct, int index) {
-        if (CHECKS) { check(index, 3); }
-        return memGetInt(struct + LZ4FDecompressOptions.RESERVED + index * 4);
+        return memGetInt(struct + LZ4FDecompressOptions.RESERVED + check(index, 3) * 4);
     }
 
     /** Unsafe version of {@link #stableDst(int) stableDst}. */
@@ -277,8 +276,7 @@ public class LZ4FDecompressOptions extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #reserved(int, int) reserved}. */
     public static void nreserved(long struct, int index, int value) {
-        if (CHECKS) { check(index, 3); }
-        memPutInt(struct + LZ4FDecompressOptions.RESERVED + index * 4, value);
+        memPutInt(struct + LZ4FDecompressOptions.RESERVED + check(index, 3) * 4, value);
     }
 
     // -----------------------------------

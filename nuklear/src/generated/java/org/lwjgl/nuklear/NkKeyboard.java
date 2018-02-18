@@ -122,15 +122,13 @@ public class NkKeyboard extends Struct {
     public static NkKey.Buffer nkeys(long struct) { return NkKey.create(struct + NkKeyboard.KEYS, NK_KEY_MAX); }
     /** Unsafe version of {@link #keys(int) keys}. */
     public static NkKey nkeys(long struct, int index) {
-        if (CHECKS) { check(index, NK_KEY_MAX); }
-        return NkKey.create(struct + NkKeyboard.KEYS + index * NkKey.SIZEOF);
+        return NkKey.create(struct + NkKeyboard.KEYS + check(index, NK_KEY_MAX) * NkKey.SIZEOF);
     }
     /** Unsafe version of {@link #text}. */
     public static ByteBuffer ntext(long struct) { return memByteBuffer(struct + NkKeyboard.TEXT, NK_INPUT_MAX); }
     /** Unsafe version of {@link #text(int) text}. */
     public static byte ntext(long struct, int index) {
-        if (CHECKS) { check(index, NK_INPUT_MAX); }
-        return memGetByte(struct + NkKeyboard.TEXT + index * 1);
+        return memGetByte(struct + NkKeyboard.TEXT + check(index, NK_INPUT_MAX) * 1);
     }
     /** Unsafe version of {@link #text_len}. */
     public static int ntext_len(long struct) { return memGetInt(struct + NkKeyboard.TEXT_LEN); }

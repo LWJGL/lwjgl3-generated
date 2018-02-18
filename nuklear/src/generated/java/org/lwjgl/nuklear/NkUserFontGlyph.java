@@ -293,8 +293,7 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
     public static NkVec2.Buffer nuv(long struct) { return NkVec2.create(struct + NkUserFontGlyph.UV, 2); }
     /** Unsafe version of {@link #uv(int) uv}. */
     public static NkVec2 nuv(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return NkVec2.create(struct + NkUserFontGlyph.UV + index * NkVec2.SIZEOF);
+        return NkVec2.create(struct + NkUserFontGlyph.UV + check(index, 2) * NkVec2.SIZEOF);
     }
     /** Unsafe version of {@link #offset}. */
     public static NkVec2 noffset(long struct) { return NkVec2.create(struct + NkUserFontGlyph.OFFSET); }
@@ -312,8 +311,7 @@ public class NkUserFontGlyph extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #uv(int, NkVec2) uv}. */
     public static void nuv(long struct, int index, NkVec2 value) {
-        if (CHECKS) { check(index, 2); }
-        memCopy(value.address(), struct + NkUserFontGlyph.UV + index * NkVec2.SIZEOF, NkVec2.SIZEOF);
+        memCopy(value.address(), struct + NkUserFontGlyph.UV + check(index, 2) * NkVec2.SIZEOF, NkVec2.SIZEOF);
     }
     /** Unsafe version of {@link #offset(NkVec2) offset}. */
     public static void noffset(long struct, NkVec2 value) { memCopy(value.address(), struct + NkUserFontGlyph.OFFSET, NkVec2.SIZEOF); }

@@ -112,8 +112,7 @@ class NkConfigStackStyleItem extends Struct {
     public static NkConfigStackStyleItemElement.Buffer nelements(long struct) { return NkConfigStackStyleItemElement.create(struct + NkConfigStackStyleItem.ELEMENTS, 16); }
     /** Unsafe version of {@link #elements(int) elements}. */
     public static NkConfigStackStyleItemElement nelements(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return NkConfigStackStyleItemElement.create(struct + NkConfigStackStyleItem.ELEMENTS + index * NkConfigStackStyleItemElement.SIZEOF);
+        return NkConfigStackStyleItemElement.create(struct + NkConfigStackStyleItem.ELEMENTS + check(index, 16) * NkConfigStackStyleItemElement.SIZEOF);
     }
 
     // -----------------------------------

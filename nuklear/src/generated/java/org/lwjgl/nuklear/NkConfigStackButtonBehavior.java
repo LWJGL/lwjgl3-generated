@@ -112,8 +112,7 @@ class NkConfigStackButtonBehavior extends Struct {
     public static NkConfigStackButtonBehaviorElement.Buffer nelements(long struct) { return NkConfigStackButtonBehaviorElement.create(struct + NkConfigStackButtonBehavior.ELEMENTS, 8); }
     /** Unsafe version of {@link #elements(int) elements}. */
     public static NkConfigStackButtonBehaviorElement nelements(long struct, int index) {
-        if (CHECKS) { check(index, 8); }
-        return NkConfigStackButtonBehaviorElement.create(struct + NkConfigStackButtonBehavior.ELEMENTS + index * NkConfigStackButtonBehaviorElement.SIZEOF);
+        return NkConfigStackButtonBehaviorElement.create(struct + NkConfigStackButtonBehavior.ELEMENTS + check(index, 8) * NkConfigStackButtonBehaviorElement.SIZEOF);
     }
 
     // -----------------------------------

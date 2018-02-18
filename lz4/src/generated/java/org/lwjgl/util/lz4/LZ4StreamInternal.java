@@ -155,8 +155,7 @@ public class LZ4StreamInternal extends Struct {
     public static IntBuffer nhashTable(long struct) { return memIntBuffer(struct + LZ4StreamInternal.HASHTABLE, LZ4_HASH_SIZE_U32); }
     /** Unsafe version of {@link #hashTable(int) hashTable}. */
     public static int nhashTable(long struct, int index) {
-        if (CHECKS) { check(index, LZ4_HASH_SIZE_U32); }
-        return memGetInt(struct + LZ4StreamInternal.HASHTABLE + index * 4);
+        return memGetInt(struct + LZ4StreamInternal.HASHTABLE + check(index, LZ4_HASH_SIZE_U32) * 4);
     }
     /** Unsafe version of {@link #currentOffset}. */
     public static int ncurrentOffset(long struct) { return memGetInt(struct + LZ4StreamInternal.CURRENTOFFSET); }

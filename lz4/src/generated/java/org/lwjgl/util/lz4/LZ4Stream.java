@@ -113,8 +113,7 @@ public class LZ4Stream extends Struct {
     public static LongBuffer ntable(long struct) { return memLongBuffer(struct + LZ4Stream.TABLE, LZ4_STREAMSIZE_U64); }
     /** Unsafe version of {@link #table(int) table}. */
     public static long ntable(long struct, int index) {
-        if (CHECKS) { check(index, LZ4_STREAMSIZE_U64); }
-        return memGetLong(struct + LZ4Stream.TABLE + index * 8);
+        return memGetLong(struct + LZ4Stream.TABLE + check(index, LZ4_STREAMSIZE_U64) * 8);
     }
     /** Unsafe version of {@link #internal_donotuse}. */
     public static LZ4StreamInternal ninternal_donotuse(long struct) { return LZ4StreamInternal.create(struct + LZ4Stream.INTERNAL_DONOTUSE); }

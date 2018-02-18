@@ -269,8 +269,7 @@ public class CLDeviceTopologyAMD extends Struct implements NativeResource {
     public static IntBuffer nraw_data(long struct) { return memIntBuffer(struct + CLDeviceTopologyAMD.RAW_DATA, 5); }
     /** Unsafe version of {@link #raw_data(int) raw_data}. */
     public static int nraw_data(long struct, int index) {
-        if (CHECKS) { check(index, 5); }
-        return memGetInt(struct + CLDeviceTopologyAMD.RAW_DATA + index * 4);
+        return memGetInt(struct + CLDeviceTopologyAMD.RAW_DATA + check(index, 5) * 4);
     }
     /** Unsafe version of {@link #pcie_type}. */
     public static int npcie_type(long struct) { return memGetInt(struct + CLDeviceTopologyAMD.PCIE_TYPE); }

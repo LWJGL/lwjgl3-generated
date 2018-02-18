@@ -146,8 +146,7 @@ public class NSVGPath extends Struct {
     public static FloatBuffer nbounds(long struct) { return memFloatBuffer(struct + NSVGPath.BOUNDS, 4); }
     /** Unsafe version of {@link #bounds(int) bounds}. */
     public static float nbounds(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetFloat(struct + NSVGPath.BOUNDS + index * 4);
+        return memGetFloat(struct + NSVGPath.BOUNDS + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #next}. */
     public static NSVGPath nnext(long struct) { return NSVGPath.create(memGetAddress(struct + NSVGPath.NEXT)); }

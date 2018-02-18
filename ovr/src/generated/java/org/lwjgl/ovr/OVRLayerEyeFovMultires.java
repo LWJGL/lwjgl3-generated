@@ -368,29 +368,25 @@ public class OVRLayerEyeFovMultires extends Struct implements NativeResource {
     public static PointerBuffer nColorTexture(long struct) { return memPointerBuffer(struct + OVRLayerEyeFovMultires.COLORTEXTURE, ovrEye_Count); }
     /** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
     public static long nColorTexture(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return memGetAddress(struct + OVRLayerEyeFovMultires.COLORTEXTURE + index * POINTER_SIZE);
+        return memGetAddress(struct + OVRLayerEyeFovMultires.COLORTEXTURE + check(index, ovrEye_Count) * POINTER_SIZE);
     }
     /** Unsafe version of {@link #Viewport}. */
     public static OVRRecti.Buffer nViewport(long struct) { return OVRRecti.create(struct + OVRLayerEyeFovMultires.VIEWPORT, ovrEye_Count); }
     /** Unsafe version of {@link #Viewport(int) Viewport}. */
     public static OVRRecti nViewport(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRRecti.create(struct + OVRLayerEyeFovMultires.VIEWPORT + index * OVRRecti.SIZEOF);
+        return OVRRecti.create(struct + OVRLayerEyeFovMultires.VIEWPORT + check(index, ovrEye_Count) * OVRRecti.SIZEOF);
     }
     /** Unsafe version of {@link #Fov}. */
     public static OVRFovPort.Buffer nFov(long struct) { return OVRFovPort.create(struct + OVRLayerEyeFovMultires.FOV, ovrEye_Count); }
     /** Unsafe version of {@link #Fov(int) Fov}. */
     public static OVRFovPort nFov(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRFovPort.create(struct + OVRLayerEyeFovMultires.FOV + index * OVRFovPort.SIZEOF);
+        return OVRFovPort.create(struct + OVRLayerEyeFovMultires.FOV + check(index, ovrEye_Count) * OVRFovPort.SIZEOF);
     }
     /** Unsafe version of {@link #RenderPose}. */
     public static OVRPosef.Buffer nRenderPose(long struct) { return OVRPosef.create(struct + OVRLayerEyeFovMultires.RENDERPOSE, ovrEye_Count); }
     /** Unsafe version of {@link #RenderPose(int) RenderPose}. */
     public static OVRPosef nRenderPose(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRPosef.create(struct + OVRLayerEyeFovMultires.RENDERPOSE + index * OVRPosef.SIZEOF);
+        return OVRPosef.create(struct + OVRLayerEyeFovMultires.RENDERPOSE + check(index, ovrEye_Count) * OVRPosef.SIZEOF);
     }
     /** Unsafe version of {@link #SensorSampleTime}. */
     public static double nSensorSampleTime(long struct) { return memGetDouble(struct + OVRLayerEyeFovMultires.SENSORSAMPLETIME); }
@@ -408,8 +404,7 @@ public class OVRLayerEyeFovMultires extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
     public static void nColorTexture(long struct, int index, long value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memPutAddress(struct + OVRLayerEyeFovMultires.COLORTEXTURE + index * POINTER_SIZE, value);
+        memPutAddress(struct + OVRLayerEyeFovMultires.COLORTEXTURE + check(index, ovrEye_Count) * POINTER_SIZE, value);
     }
     /** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
     public static void nViewport(long struct, OVRRecti.Buffer value) {
@@ -418,8 +413,7 @@ public class OVRLayerEyeFovMultires extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
     public static void nViewport(long struct, int index, OVRRecti value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRLayerEyeFovMultires.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF);
+        memCopy(value.address(), struct + OVRLayerEyeFovMultires.VIEWPORT + check(index, ovrEye_Count) * OVRRecti.SIZEOF, OVRRecti.SIZEOF);
     }
     /** Unsafe version of {@link #Fov(OVRFovPort.Buffer) Fov}. */
     public static void nFov(long struct, OVRFovPort.Buffer value) {
@@ -428,8 +422,7 @@ public class OVRLayerEyeFovMultires extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #Fov(int, OVRFovPort) Fov}. */
     public static void nFov(long struct, int index, OVRFovPort value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRLayerEyeFovMultires.FOV + index * OVRFovPort.SIZEOF, OVRFovPort.SIZEOF);
+        memCopy(value.address(), struct + OVRLayerEyeFovMultires.FOV + check(index, ovrEye_Count) * OVRFovPort.SIZEOF, OVRFovPort.SIZEOF);
     }
     /** Unsafe version of {@link #RenderPose(OVRPosef.Buffer) RenderPose}. */
     public static void nRenderPose(long struct, OVRPosef.Buffer value) {
@@ -438,8 +431,7 @@ public class OVRLayerEyeFovMultires extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #RenderPose(int, OVRPosef) RenderPose}. */
     public static void nRenderPose(long struct, int index, OVRPosef value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRLayerEyeFovMultires.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
+        memCopy(value.address(), struct + OVRLayerEyeFovMultires.RENDERPOSE + check(index, ovrEye_Count) * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
     }
     /** Unsafe version of {@link #SensorSampleTime(double) SensorSampleTime}. */
     public static void nSensorSampleTime(long struct, double value) { memPutDouble(struct + OVRLayerEyeFovMultires.SENSORSAMPLETIME, value); }

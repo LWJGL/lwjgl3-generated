@@ -203,8 +203,7 @@ public class BGFXCaps extends Struct {
     public static BGFXCapsGPU.Buffer ngpu(long struct) { return BGFXCapsGPU.create(struct + BGFXCaps.GPU, Byte.toUnsignedInt(nnumGPUs(struct))); }
     /** Unsafe version of {@link #gpu(int) gpu}. */
     public static BGFXCapsGPU ngpu(long struct, int index) {
-        if (CHECKS) { check(index, Byte.toUnsignedInt(nnumGPUs(struct))); }
-        return BGFXCapsGPU.create(struct + BGFXCaps.GPU + index * BGFXCapsGPU.SIZEOF);
+        return BGFXCapsGPU.create(struct + BGFXCaps.GPU + check(index, Byte.toUnsignedInt(nnumGPUs(struct))) * BGFXCapsGPU.SIZEOF);
     }
     /** Unsafe version of {@link #limits}. */
     public static BGFXCapsLimits nlimits(long struct) { return BGFXCapsLimits.create(struct + BGFXCaps.LIMITS); }
@@ -212,8 +211,7 @@ public class BGFXCaps extends Struct {
     public static ShortBuffer nformats(long struct) { return memShortBuffer(struct + BGFXCaps.FORMATS, BGFX_TEXTURE_FORMAT_COUNT); }
     /** Unsafe version of {@link #formats(int) formats}. */
     public static short nformats(long struct, int index) {
-        if (CHECKS) { check(index, BGFX_TEXTURE_FORMAT_COUNT); }
-        return memGetShort(struct + BGFXCaps.FORMATS + index * 2);
+        return memGetShort(struct + BGFXCaps.FORMATS + check(index, BGFX_TEXTURE_FORMAT_COUNT) * 2);
     }
 
     // -----------------------------------

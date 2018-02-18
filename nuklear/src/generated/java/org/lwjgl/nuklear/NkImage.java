@@ -281,8 +281,7 @@ public class NkImage extends Struct implements NativeResource {
     public static ShortBuffer nregion(long struct) { return memShortBuffer(struct + NkImage.REGION, 4); }
     /** Unsafe version of {@link #region(int) region}. */
     public static short nregion(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetShort(struct + NkImage.REGION + index * 2);
+        return memGetShort(struct + NkImage.REGION + check(index, 4) * 2);
     }
 
     /** Unsafe version of {@link #handle(NkHandle) handle}. */
@@ -298,8 +297,7 @@ public class NkImage extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #region(int, short) region}. */
     public static void nregion(long struct, int index, short value) {
-        if (CHECKS) { check(index, 4); }
-        memPutShort(struct + NkImage.REGION + index * 2, value);
+        memPutShort(struct + NkImage.REGION + check(index, 4) * 2, value);
     }
 
     // -----------------------------------

@@ -176,8 +176,7 @@ public class VkPhysicalDeviceSampleLocationsPropertiesEXT extends Struct {
     public static FloatBuffer nsampleLocationCoordinateRange(long struct) { return memFloatBuffer(struct + VkPhysicalDeviceSampleLocationsPropertiesEXT.SAMPLELOCATIONCOORDINATERANGE, 2); }
     /** Unsafe version of {@link #sampleLocationCoordinateRange(int) sampleLocationCoordinateRange}. */
     public static float nsampleLocationCoordinateRange(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + VkPhysicalDeviceSampleLocationsPropertiesEXT.SAMPLELOCATIONCOORDINATERANGE + index * 4);
+        return memGetFloat(struct + VkPhysicalDeviceSampleLocationsPropertiesEXT.SAMPLELOCATIONCOORDINATERANGE + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #sampleLocationSubPixelBits}. */
     public static int nsampleLocationSubPixelBits(long struct) { return memGetInt(struct + VkPhysicalDeviceSampleLocationsPropertiesEXT.SAMPLELOCATIONSUBPIXELBITS); }

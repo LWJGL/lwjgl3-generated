@@ -204,22 +204,19 @@ public class VkPhysicalDeviceIDPropertiesKHR extends Struct {
     public static ByteBuffer ndeviceUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHR.DEVICEUUID, VK_UUID_SIZE); }
     /** Unsafe version of {@link #deviceUUID(int) deviceUUID}. */
     public static byte ndeviceUUID(long struct, int index) {
-        if (CHECKS) { check(index, VK_UUID_SIZE); }
-        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHR.DEVICEUUID + index * 1);
+        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHR.DEVICEUUID + check(index, VK_UUID_SIZE) * 1);
     }
     /** Unsafe version of {@link #driverUUID}. */
     public static ByteBuffer ndriverUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHR.DRIVERUUID, VK_UUID_SIZE); }
     /** Unsafe version of {@link #driverUUID(int) driverUUID}. */
     public static byte ndriverUUID(long struct, int index) {
-        if (CHECKS) { check(index, VK_UUID_SIZE); }
-        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHR.DRIVERUUID + index * 1);
+        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHR.DRIVERUUID + check(index, VK_UUID_SIZE) * 1);
     }
     /** Unsafe version of {@link #deviceLUID}. */
     public static ByteBuffer ndeviceLUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceIDPropertiesKHR.DEVICELUID, VK_LUID_SIZE_KHR); }
     /** Unsafe version of {@link #deviceLUID(int) deviceLUID}. */
     public static byte ndeviceLUID(long struct, int index) {
-        if (CHECKS) { check(index, VK_LUID_SIZE_KHR); }
-        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHR.DEVICELUID + index * 1);
+        return memGetByte(struct + VkPhysicalDeviceIDPropertiesKHR.DEVICELUID + check(index, VK_LUID_SIZE_KHR) * 1);
     }
     /** Unsafe version of {@link #deviceNodeMask}. */
     public static int ndeviceNodeMask(long struct) { return memGetInt(struct + VkPhysicalDeviceIDPropertiesKHR.DEVICENODEMASK); }

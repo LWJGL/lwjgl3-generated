@@ -291,8 +291,7 @@ public class VRControllerState extends Struct implements NativeResource {
     public static VRControllerAxis.Buffer nrAxis(long struct) { return VRControllerAxis.create(struct + VRControllerState.RAXIS, 5); }
     /** Unsafe version of {@link #rAxis(int) rAxis}. */
     public static VRControllerAxis nrAxis(long struct, int index) {
-        if (CHECKS) { check(index, 5); }
-        return VRControllerAxis.create(struct + VRControllerState.RAXIS + index * VRControllerAxis.SIZEOF);
+        return VRControllerAxis.create(struct + VRControllerState.RAXIS + check(index, 5) * VRControllerAxis.SIZEOF);
     }
 
     /** Unsafe version of {@link #unPacketNum(int) unPacketNum}. */
@@ -308,8 +307,7 @@ public class VRControllerState extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #rAxis(int, VRControllerAxis) rAxis}. */
     public static void nrAxis(long struct, int index, VRControllerAxis value) {
-        if (CHECKS) { check(index, 5); }
-        memCopy(value.address(), struct + VRControllerState.RAXIS + index * VRControllerAxis.SIZEOF, VRControllerAxis.SIZEOF);
+        memCopy(value.address(), struct + VRControllerState.RAXIS + check(index, 5) * VRControllerAxis.SIZEOF, VRControllerAxis.SIZEOF);
     }
 
     // -----------------------------------

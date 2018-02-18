@@ -212,8 +212,7 @@ public class NkRowLayout extends Struct {
     public static FloatBuffer ntemplates(long struct) { return memFloatBuffer(struct + NkRowLayout.TEMPLATES, 16); }
     /** Unsafe version of {@link #templates(int) templates}. */
     public static float ntemplates(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return memGetFloat(struct + NkRowLayout.TEMPLATES + index * 4);
+        return memGetFloat(struct + NkRowLayout.TEMPLATES + check(index, 16) * 4);
     }
 
     // -----------------------------------

@@ -279,22 +279,19 @@ public class VkClearColorValue extends Struct implements NativeResource {
     public static FloatBuffer nfloat32(long struct) { return memFloatBuffer(struct + VkClearColorValue.FLOAT32, 4); }
     /** Unsafe version of {@link #float32(int) float32}. */
     public static float nfloat32(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetFloat(struct + VkClearColorValue.FLOAT32 + index * 4);
+        return memGetFloat(struct + VkClearColorValue.FLOAT32 + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #int32}. */
     public static IntBuffer nint32(long struct) { return memIntBuffer(struct + VkClearColorValue.INT32, 4); }
     /** Unsafe version of {@link #int32(int) int32}. */
     public static int nint32(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetInt(struct + VkClearColorValue.INT32 + index * 4);
+        return memGetInt(struct + VkClearColorValue.INT32 + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #uint32}. */
     public static IntBuffer nuint32(long struct) { return memIntBuffer(struct + VkClearColorValue.UINT32, 4); }
     /** Unsafe version of {@link #uint32(int) uint32}. */
     public static int nuint32(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetInt(struct + VkClearColorValue.UINT32 + index * 4);
+        return memGetInt(struct + VkClearColorValue.UINT32 + check(index, 4) * 4);
     }
 
     /** Unsafe version of {@link #float32(FloatBuffer) float32}. */
@@ -304,8 +301,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #float32(int, float) float32}. */
     public static void nfloat32(long struct, int index, float value) {
-        if (CHECKS) { check(index, 4); }
-        memPutFloat(struct + VkClearColorValue.FLOAT32 + index * 4, value);
+        memPutFloat(struct + VkClearColorValue.FLOAT32 + check(index, 4) * 4, value);
     }
     /** Unsafe version of {@link #int32(IntBuffer) int32}. */
     public static void nint32(long struct, IntBuffer value) {
@@ -314,8 +310,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #int32(int, int) int32}. */
     public static void nint32(long struct, int index, int value) {
-        if (CHECKS) { check(index, 4); }
-        memPutInt(struct + VkClearColorValue.INT32 + index * 4, value);
+        memPutInt(struct + VkClearColorValue.INT32 + check(index, 4) * 4, value);
     }
     /** Unsafe version of {@link #uint32(IntBuffer) uint32}. */
     public static void nuint32(long struct, IntBuffer value) {
@@ -324,8 +319,7 @@ public class VkClearColorValue extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #uint32(int, int) uint32}. */
     public static void nuint32(long struct, int index, int value) {
-        if (CHECKS) { check(index, 4); }
-        memPutInt(struct + VkClearColorValue.UINT32 + index * 4, value);
+        memPutInt(struct + VkClearColorValue.UINT32 + check(index, 4) * 4, value);
     }
 
     // -----------------------------------

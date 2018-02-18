@@ -285,8 +285,7 @@ public class NkBuffer extends Struct implements NativeResource {
     public static NkBufferMarker.Buffer nmarker(long struct) { return NkBufferMarker.create(struct + NkBuffer.MARKER, 2); }
     /** Unsafe version of {@link #marker(int) marker}. */
     public static NkBufferMarker nmarker(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return NkBufferMarker.create(struct + NkBuffer.MARKER + index * NkBufferMarker.SIZEOF);
+        return NkBufferMarker.create(struct + NkBuffer.MARKER + check(index, 2) * NkBufferMarker.SIZEOF);
     }
     /** Unsafe version of {@link #pool}. */
     public static NkAllocator npool(long struct) { return NkAllocator.create(struct + NkBuffer.POOL); }

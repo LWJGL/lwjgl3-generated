@@ -273,15 +273,13 @@ public class OVRTrackingState extends Struct implements NativeResource {
     public static OVRPoseStatef.Buffer nHandPoses(long struct) { return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES, 2); }
     /** Unsafe version of {@link #HandPoses(int) HandPoses}. */
     public static OVRPoseStatef nHandPoses(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES + index * OVRPoseStatef.SIZEOF);
+        return OVRPoseStatef.create(struct + OVRTrackingState.HANDPOSES + check(index, 2) * OVRPoseStatef.SIZEOF);
     }
     /** Unsafe version of {@link #HandStatusFlags}. */
     public static IntBuffer nHandStatusFlags(long struct) { return memIntBuffer(struct + OVRTrackingState.HANDSTATUSFLAGS, 2); }
     /** Unsafe version of {@link #HandStatusFlags(int) HandStatusFlags}. */
     public static int nHandStatusFlags(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetInt(struct + OVRTrackingState.HANDSTATUSFLAGS + index * 4);
+        return memGetInt(struct + OVRTrackingState.HANDSTATUSFLAGS + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #CalibratedOrigin}. */
     public static OVRPosef nCalibratedOrigin(long struct) { return OVRPosef.create(struct + OVRTrackingState.CALIBRATEDORIGIN); }

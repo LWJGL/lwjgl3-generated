@@ -226,8 +226,7 @@ public class OVRGraphicsLuid extends Struct implements NativeResource {
     public static ByteBuffer nReserved(long struct) { return memByteBuffer(struct + OVRGraphicsLuid.RESERVED, 8); }
     /** Unsafe version of {@link #Reserved(int) Reserved}. */
     public static byte nReserved(long struct, int index) {
-        if (CHECKS) { check(index, 8); }
-        return memGetByte(struct + OVRGraphicsLuid.RESERVED + index * 1);
+        return memGetByte(struct + OVRGraphicsLuid.RESERVED + check(index, 8) * 1);
     }
 
     // -----------------------------------

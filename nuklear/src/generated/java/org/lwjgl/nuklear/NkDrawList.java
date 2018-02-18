@@ -319,8 +319,7 @@ public class NkDrawList extends Struct implements NativeResource {
     public static NkVec2.Buffer ncircle_vtx(long struct) { return NkVec2.create(struct + NkDrawList.CIRCLE_VTX, 12); }
     /** Unsafe version of {@link #circle_vtx(int) circle_vtx}. */
     public static NkVec2 ncircle_vtx(long struct, int index) {
-        if (CHECKS) { check(index, 12); }
-        return NkVec2.create(struct + NkDrawList.CIRCLE_VTX + index * NkVec2.SIZEOF);
+        return NkVec2.create(struct + NkDrawList.CIRCLE_VTX + check(index, 12) * NkVec2.SIZEOF);
     }
     /** Unsafe version of {@link #config}. */
     public static NkConvertConfig nconfig(long struct) { return NkConvertConfig.create(struct + NkDrawList.CONFIG); }

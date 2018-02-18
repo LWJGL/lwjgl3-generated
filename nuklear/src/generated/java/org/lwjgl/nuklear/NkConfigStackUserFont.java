@@ -112,8 +112,7 @@ class NkConfigStackUserFont extends Struct {
     public static NkConfigStackUserFontElement.Buffer nelements(long struct) { return NkConfigStackUserFontElement.create(struct + NkConfigStackUserFont.ELEMENTS, 8); }
     /** Unsafe version of {@link #elements(int) elements}. */
     public static NkConfigStackUserFontElement nelements(long struct, int index) {
-        if (CHECKS) { check(index, 8); }
-        return NkConfigStackUserFontElement.create(struct + NkConfigStackUserFont.ELEMENTS + index * NkConfigStackUserFontElement.SIZEOF);
+        return NkConfigStackUserFontElement.create(struct + NkConfigStackUserFont.ELEMENTS + check(index, 8) * NkConfigStackUserFontElement.SIZEOF);
     }
 
     // -----------------------------------

@@ -387,15 +387,13 @@ public class OVRHmdDesc extends Struct implements NativeResource {
     public static OVRFovPort.Buffer nDefaultEyeFov(long struct) { return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV, ovrEye_Count); }
     /** Unsafe version of {@link #DefaultEyeFov(int) DefaultEyeFov}. */
     public static OVRFovPort nDefaultEyeFov(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV + index * OVRFovPort.SIZEOF);
+        return OVRFovPort.create(struct + OVRHmdDesc.DEFAULTEYEFOV + check(index, ovrEye_Count) * OVRFovPort.SIZEOF);
     }
     /** Unsafe version of {@link #MaxEyeFov}. */
     public static OVRFovPort.Buffer nMaxEyeFov(long struct) { return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV, ovrEye_Count); }
     /** Unsafe version of {@link #MaxEyeFov(int) MaxEyeFov}. */
     public static OVRFovPort nMaxEyeFov(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV + index * OVRFovPort.SIZEOF);
+        return OVRFovPort.create(struct + OVRHmdDesc.MAXEYEFOV + check(index, ovrEye_Count) * OVRFovPort.SIZEOF);
     }
     /** Unsafe version of {@link #Resolution}. */
     public static OVRSizei nResolution(long struct) { return OVRSizei.create(struct + OVRHmdDesc.RESOLUTION); }

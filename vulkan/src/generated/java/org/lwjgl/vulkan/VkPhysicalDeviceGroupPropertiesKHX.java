@@ -264,8 +264,7 @@ public class VkPhysicalDeviceGroupPropertiesKHX extends Struct implements Native
     public static PointerBuffer nphysicalDevices(long struct) { return memPointerBuffer(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICES, VK_MAX_DEVICE_GROUP_SIZE_KHX); }
     /** Unsafe version of {@link #physicalDevices(int) physicalDevices}. */
     public static long nphysicalDevices(long struct, int index) {
-        if (CHECKS) { check(index, VK_MAX_DEVICE_GROUP_SIZE_KHX); }
-        return memGetAddress(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICES + index * POINTER_SIZE);
+        return memGetAddress(struct + VkPhysicalDeviceGroupPropertiesKHX.PHYSICALDEVICES + check(index, VK_MAX_DEVICE_GROUP_SIZE_KHX) * POINTER_SIZE);
     }
     /** Unsafe version of {@link #subsetAllocation}. */
     public static int nsubsetAllocation(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupPropertiesKHX.SUBSETALLOCATION); }

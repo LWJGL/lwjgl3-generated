@@ -129,8 +129,7 @@ public class RenderModelVertex extends Struct {
     public static FloatBuffer nrfTextureCoord(long struct) { return memFloatBuffer(struct + RenderModelVertex.RFTEXTURECOORD, 2); }
     /** Unsafe version of {@link #rfTextureCoord(int) rfTextureCoord}. */
     public static float nrfTextureCoord(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + RenderModelVertex.RFTEXTURECOORD + index * 4);
+        return memGetFloat(struct + RenderModelVertex.RFTEXTURECOORD + check(index, 2) * 4);
     }
 
     // -----------------------------------

@@ -224,36 +224,31 @@ public class YGLayout extends Struct {
     public static FloatBuffer npositions(long struct) { return memFloatBuffer(struct + YGLayout.POSITIONS, 4); }
     /** Unsafe version of {@link #positions(int) positions}. */
     public static float npositions(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetFloat(struct + YGLayout.POSITIONS + index * 4);
+        return memGetFloat(struct + YGLayout.POSITIONS + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #dimensions}. */
     public static FloatBuffer ndimensions(long struct) { return memFloatBuffer(struct + YGLayout.DIMENSIONS, 2); }
     /** Unsafe version of {@link #dimensions(int) dimensions}. */
     public static float ndimensions(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + YGLayout.DIMENSIONS + index * 4);
+        return memGetFloat(struct + YGLayout.DIMENSIONS + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #margin}. */
     public static FloatBuffer nmargin(long struct) { return memFloatBuffer(struct + YGLayout.MARGIN, 6); }
     /** Unsafe version of {@link #margin(int) margin}. */
     public static float nmargin(long struct, int index) {
-        if (CHECKS) { check(index, 6); }
-        return memGetFloat(struct + YGLayout.MARGIN + index * 4);
+        return memGetFloat(struct + YGLayout.MARGIN + check(index, 6) * 4);
     }
     /** Unsafe version of {@link #border}. */
     public static FloatBuffer nborder(long struct) { return memFloatBuffer(struct + YGLayout.BORDER, 6); }
     /** Unsafe version of {@link #border(int) border}. */
     public static float nborder(long struct, int index) {
-        if (CHECKS) { check(index, 6); }
-        return memGetFloat(struct + YGLayout.BORDER + index * 4);
+        return memGetFloat(struct + YGLayout.BORDER + check(index, 6) * 4);
     }
     /** Unsafe version of {@link #padding}. */
     public static FloatBuffer npadding(long struct) { return memFloatBuffer(struct + YGLayout.PADDING, 6); }
     /** Unsafe version of {@link #padding(int) padding}. */
     public static float npadding(long struct, int index) {
-        if (CHECKS) { check(index, 6); }
-        return memGetFloat(struct + YGLayout.PADDING + index * 4);
+        return memGetFloat(struct + YGLayout.PADDING + check(index, 6) * 4);
     }
     /** Unsafe version of {@link #direction}. */
     public static int ndirection(long struct) { return memGetInt(struct + YGLayout.DIRECTION); }
@@ -273,15 +268,13 @@ public class YGLayout extends Struct {
     public static YGCachedMeasurement.Buffer ncachedMeasurements(long struct) { return YGCachedMeasurement.create(struct + YGLayout.CACHEDMEASUREMENTS, 16); }
     /** Unsafe version of {@link #cachedMeasurements(int) cachedMeasurements}. */
     public static YGCachedMeasurement ncachedMeasurements(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return YGCachedMeasurement.create(struct + YGLayout.CACHEDMEASUREMENTS + index * YGCachedMeasurement.SIZEOF);
+        return YGCachedMeasurement.create(struct + YGLayout.CACHEDMEASUREMENTS + check(index, 16) * YGCachedMeasurement.SIZEOF);
     }
     /** Unsafe version of {@link #measuredDimensions}. */
     public static FloatBuffer nmeasuredDimensions(long struct) { return memFloatBuffer(struct + YGLayout.MEASUREDDIMENSIONS, 2); }
     /** Unsafe version of {@link #measuredDimensions(int) measuredDimensions}. */
     public static float nmeasuredDimensions(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + YGLayout.MEASUREDDIMENSIONS + index * 4);
+        return memGetFloat(struct + YGLayout.MEASUREDDIMENSIONS + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #cachedLayout}. */
     public static YGCachedMeasurement ncachedLayout(long struct) { return YGCachedMeasurement.create(struct + YGLayout.CACHEDLAYOUT); }

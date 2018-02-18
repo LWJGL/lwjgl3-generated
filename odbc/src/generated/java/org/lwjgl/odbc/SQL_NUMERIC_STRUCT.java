@@ -280,8 +280,7 @@ public class SQL_NUMERIC_STRUCT extends Struct implements NativeResource {
     public static ByteBuffer nval(long struct) { return memByteBuffer(struct + SQL_NUMERIC_STRUCT.VAL, 16); }
     /** Unsafe version of {@link #val(int) val}. */
     public static byte nval(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return memGetByte(struct + SQL_NUMERIC_STRUCT.VAL + index * 1);
+        return memGetByte(struct + SQL_NUMERIC_STRUCT.VAL + check(index, 16) * 1);
     }
 
     /** Unsafe version of {@link #precision(byte) precision}. */
@@ -297,8 +296,7 @@ public class SQL_NUMERIC_STRUCT extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #val(int, byte) val}. */
     public static void nval(long struct, int index, byte value) {
-        if (CHECKS) { check(index, 16); }
-        memPutByte(struct + SQL_NUMERIC_STRUCT.VAL + index * 1, value);
+        memPutByte(struct + SQL_NUMERIC_STRUCT.VAL + check(index, 16) * 1, value);
     }
 
     // -----------------------------------

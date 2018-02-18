@@ -368,8 +368,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
     public static FloatBuffer nblendConstants(long struct) { return memFloatBuffer(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS, 4); }
     /** Unsafe version of {@link #blendConstants(int) blendConstants}. */
     public static float nblendConstants(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetFloat(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS + index * 4);
+        return memGetFloat(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS + check(index, 4) * 4);
     }
 
     /** Unsafe version of {@link #sType(int) sType}. */
@@ -393,8 +392,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
     }
     /** Unsafe version of {@link #blendConstants(int, float) blendConstants}. */
     public static void nblendConstants(long struct, int index, float value) {
-        if (CHECKS) { check(index, 4); }
-        memPutFloat(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS + index * 4, value);
+        memPutFloat(struct + VkPipelineColorBlendStateCreateInfo.BLENDCONSTANTS + check(index, 4) * 4, value);
     }
 
     /**

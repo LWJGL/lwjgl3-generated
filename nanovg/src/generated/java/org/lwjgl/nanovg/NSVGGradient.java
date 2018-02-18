@@ -138,8 +138,7 @@ public class NSVGGradient extends Struct {
     public static FloatBuffer nxform(long struct) { return memFloatBuffer(struct + NSVGGradient.XFORM, 6); }
     /** Unsafe version of {@link #xform(int) xform}. */
     public static float nxform(long struct, int index) {
-        if (CHECKS) { check(index, 6); }
-        return memGetFloat(struct + NSVGGradient.XFORM + index * 4);
+        return memGetFloat(struct + NSVGGradient.XFORM + check(index, 6) * 4);
     }
     /** Unsafe version of {@link #spread}. */
     public static byte nspread(long struct) { return memGetByte(struct + NSVGGradient.SPREAD); }
@@ -153,8 +152,7 @@ public class NSVGGradient extends Struct {
     public static NSVGGradientStop.Buffer npstops(long struct) { return NSVGGradientStop.create(struct + NSVGGradient.PSTOPS, nnstops(struct)); }
     /** Unsafe version of {@link #pstops(int) pstops}. */
     public static NSVGGradientStop npstops(long struct, int index) {
-        if (CHECKS) { check(index, nnstops(struct)); }
-        return NSVGGradientStop.create(struct + NSVGGradient.PSTOPS + index * NSVGGradientStop.SIZEOF);
+        return NSVGGradientStop.create(struct + NSVGGradient.PSTOPS + check(index, nnstops(struct)) * NSVGGradientStop.SIZEOF);
     }
 
     // -----------------------------------

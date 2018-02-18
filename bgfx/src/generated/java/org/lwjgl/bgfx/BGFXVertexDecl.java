@@ -295,15 +295,13 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
     public static ShortBuffer noffset(long struct) { return memShortBuffer(struct + BGFXVertexDecl.OFFSET, BGFX_ATTRIB_COUNT); }
     /** Unsafe version of {@link #offset(int) offset}. */
     public static short noffset(long struct, int index) {
-        if (CHECKS) { check(index, BGFX_ATTRIB_COUNT); }
-        return memGetShort(struct + BGFXVertexDecl.OFFSET + index * 2);
+        return memGetShort(struct + BGFXVertexDecl.OFFSET + check(index, BGFX_ATTRIB_COUNT) * 2);
     }
     /** Unsafe version of {@link #attributes}. */
     public static ShortBuffer nattributes(long struct) { return memShortBuffer(struct + BGFXVertexDecl.ATTRIBUTES, BGFX_ATTRIB_COUNT); }
     /** Unsafe version of {@link #attributes(int) attributes}. */
     public static short nattributes(long struct, int index) {
-        if (CHECKS) { check(index, BGFX_ATTRIB_COUNT); }
-        return memGetShort(struct + BGFXVertexDecl.ATTRIBUTES + index * 2);
+        return memGetShort(struct + BGFXVertexDecl.ATTRIBUTES + check(index, BGFX_ATTRIB_COUNT) * 2);
     }
 
     /** Unsafe version of {@link #hash(int) hash}. */
@@ -317,8 +315,7 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #offset(int, short) offset}. */
     public static void noffset(long struct, int index, short value) {
-        if (CHECKS) { check(index, BGFX_ATTRIB_COUNT); }
-        memPutShort(struct + BGFXVertexDecl.OFFSET + index * 2, value);
+        memPutShort(struct + BGFXVertexDecl.OFFSET + check(index, BGFX_ATTRIB_COUNT) * 2, value);
     }
     /** Unsafe version of {@link #attributes(ShortBuffer) attributes}. */
     public static void nattributes(long struct, ShortBuffer value) {
@@ -327,8 +324,7 @@ public class BGFXVertexDecl extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #attributes(int, short) attributes}. */
     public static void nattributes(long struct, int index, short value) {
-        if (CHECKS) { check(index, BGFX_ATTRIB_COUNT); }
-        memPutShort(struct + BGFXVertexDecl.ATTRIBUTES + index * 2, value);
+        memPutShort(struct + BGFXVertexDecl.ATTRIBUTES + check(index, BGFX_ATTRIB_COUNT) * 2, value);
     }
 
     // -----------------------------------

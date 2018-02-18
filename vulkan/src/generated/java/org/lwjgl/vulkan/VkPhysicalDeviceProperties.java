@@ -318,8 +318,7 @@ public class VkPhysicalDeviceProperties extends Struct implements NativeResource
     public static ByteBuffer npipelineCacheUUID(long struct) { return memByteBuffer(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID, VK_UUID_SIZE); }
     /** Unsafe version of {@link #pipelineCacheUUID(int) pipelineCacheUUID}. */
     public static byte npipelineCacheUUID(long struct, int index) {
-        if (CHECKS) { check(index, VK_UUID_SIZE); }
-        return memGetByte(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID + index * 1);
+        return memGetByte(struct + VkPhysicalDeviceProperties.PIPELINECACHEUUID + check(index, VK_UUID_SIZE) * 1);
     }
     /** Unsafe version of {@link #limits}. */
     public static VkPhysicalDeviceLimits nlimits(long struct) { return VkPhysicalDeviceLimits.create(struct + VkPhysicalDeviceProperties.LIMITS); }

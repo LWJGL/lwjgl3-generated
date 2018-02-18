@@ -233,8 +233,7 @@ public class HmdQuad extends Struct implements NativeResource {
     public static HmdVector3.Buffer nvCorners(long struct) { return HmdVector3.create(struct + HmdQuad.VCORNERS, 4); }
     /** Unsafe version of {@link #vCorners(int) vCorners}. */
     public static HmdVector3 nvCorners(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return HmdVector3.create(struct + HmdQuad.VCORNERS + index * HmdVector3.SIZEOF);
+        return HmdVector3.create(struct + HmdQuad.VCORNERS + check(index, 4) * HmdVector3.SIZEOF);
     }
 
     /** Unsafe version of {@link #vCorners(HmdVector3.Buffer) vCorners}. */
@@ -244,8 +243,7 @@ public class HmdQuad extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #vCorners(int, HmdVector3) vCorners}. */
     public static void nvCorners(long struct, int index, HmdVector3 value) {
-        if (CHECKS) { check(index, 4); }
-        memCopy(value.address(), struct + HmdQuad.VCORNERS + index * HmdVector3.SIZEOF, HmdVector3.SIZEOF);
+        memCopy(value.address(), struct + HmdQuad.VCORNERS + check(index, 4) * HmdVector3.SIZEOF, HmdVector3.SIZEOF);
     }
 
     // -----------------------------------

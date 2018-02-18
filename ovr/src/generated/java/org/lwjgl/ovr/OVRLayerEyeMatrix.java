@@ -353,29 +353,25 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
     public static PointerBuffer nColorTexture(long struct) { return memPointerBuffer(struct + OVRLayerEyeMatrix.COLORTEXTURE, ovrEye_Count); }
     /** Unsafe version of {@link #ColorTexture(int) ColorTexture}. */
     public static long nColorTexture(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE);
+        return memGetAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + check(index, ovrEye_Count) * POINTER_SIZE);
     }
     /** Unsafe version of {@link #Viewport}. */
     public static OVRRecti.Buffer nViewport(long struct) { return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT, ovrEye_Count); }
     /** Unsafe version of {@link #Viewport(int) Viewport}. */
     public static OVRRecti nViewport(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT + index * OVRRecti.SIZEOF);
+        return OVRRecti.create(struct + OVRLayerEyeMatrix.VIEWPORT + check(index, ovrEye_Count) * OVRRecti.SIZEOF);
     }
     /** Unsafe version of {@link #RenderPose}. */
     public static OVRPosef.Buffer nRenderPose(long struct) { return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE, ovrEye_Count); }
     /** Unsafe version of {@link #RenderPose(int) RenderPose}. */
     public static OVRPosef nRenderPose(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE + index * OVRPosef.SIZEOF);
+        return OVRPosef.create(struct + OVRLayerEyeMatrix.RENDERPOSE + check(index, ovrEye_Count) * OVRPosef.SIZEOF);
     }
     /** Unsafe version of {@link #Matrix}. */
     public static OVRMatrix4f.Buffer nMatrix(long struct) { return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX, ovrEye_Count); }
     /** Unsafe version of {@link #Matrix(int) Matrix}. */
     public static OVRMatrix4f nMatrix(long struct, int index) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX + index * OVRMatrix4f.SIZEOF);
+        return OVRMatrix4f.create(struct + OVRLayerEyeMatrix.MATRIX + check(index, ovrEye_Count) * OVRMatrix4f.SIZEOF);
     }
     /** Unsafe version of {@link #SensorSampleTime}. */
     public static double nSensorSampleTime(long struct) { return memGetDouble(struct + OVRLayerEyeMatrix.SENSORSAMPLETIME); }
@@ -389,8 +385,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #ColorTexture(int, long) ColorTexture}. */
     public static void nColorTexture(long struct, int index, long value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memPutAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + index * POINTER_SIZE, value);
+        memPutAddress(struct + OVRLayerEyeMatrix.COLORTEXTURE + check(index, ovrEye_Count) * POINTER_SIZE, value);
     }
     /** Unsafe version of {@link #Viewport(OVRRecti.Buffer) Viewport}. */
     public static void nViewport(long struct, OVRRecti.Buffer value) {
@@ -399,8 +394,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #Viewport(int, OVRRecti) Viewport}. */
     public static void nViewport(long struct, int index, OVRRecti value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRLayerEyeMatrix.VIEWPORT + index * OVRRecti.SIZEOF, OVRRecti.SIZEOF);
+        memCopy(value.address(), struct + OVRLayerEyeMatrix.VIEWPORT + check(index, ovrEye_Count) * OVRRecti.SIZEOF, OVRRecti.SIZEOF);
     }
     /** Unsafe version of {@link #RenderPose(OVRPosef.Buffer) RenderPose}. */
     public static void nRenderPose(long struct, OVRPosef.Buffer value) {
@@ -409,8 +403,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #RenderPose(int, OVRPosef) RenderPose}. */
     public static void nRenderPose(long struct, int index, OVRPosef value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRLayerEyeMatrix.RENDERPOSE + index * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
+        memCopy(value.address(), struct + OVRLayerEyeMatrix.RENDERPOSE + check(index, ovrEye_Count) * OVRPosef.SIZEOF, OVRPosef.SIZEOF);
     }
     /** Unsafe version of {@link #Matrix(OVRMatrix4f.Buffer) Matrix}. */
     public static void nMatrix(long struct, OVRMatrix4f.Buffer value) {
@@ -419,8 +412,7 @@ public class OVRLayerEyeMatrix extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #Matrix(int, OVRMatrix4f) Matrix}. */
     public static void nMatrix(long struct, int index, OVRMatrix4f value) {
-        if (CHECKS) { check(index, ovrEye_Count); }
-        memCopy(value.address(), struct + OVRLayerEyeMatrix.MATRIX + index * OVRMatrix4f.SIZEOF, OVRMatrix4f.SIZEOF);
+        memCopy(value.address(), struct + OVRLayerEyeMatrix.MATRIX + check(index, ovrEye_Count) * OVRMatrix4f.SIZEOF, OVRMatrix4f.SIZEOF);
     }
     /** Unsafe version of {@link #SensorSampleTime(double) SensorSampleTime}. */
     public static void nSensorSampleTime(long struct, double value) { memPutDouble(struct + OVRLayerEyeMatrix.SENSORSAMPLETIME, value); }

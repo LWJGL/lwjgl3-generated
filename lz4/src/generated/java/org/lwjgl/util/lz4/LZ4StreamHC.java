@@ -114,8 +114,7 @@ public class LZ4StreamHC extends Struct {
     public static PointerBuffer ntable(long struct) { return memPointerBuffer(struct + LZ4StreamHC.TABLE, LZ4_STREAMHCSIZE_SIZET); }
     /** Unsafe version of {@link #table(int) table}. */
     public static long ntable(long struct, int index) {
-        if (CHECKS) { check(index, LZ4_STREAMHCSIZE_SIZET); }
-        return memGetAddress(struct + LZ4StreamHC.TABLE + index * POINTER_SIZE);
+        return memGetAddress(struct + LZ4StreamHC.TABLE + check(index, LZ4_STREAMHCSIZE_SIZET) * POINTER_SIZE);
     }
     /** Unsafe version of {@link #internal_donotuse}. */
     public static LZ4HCCCtxInternal ninternal_donotuse(long struct) { return LZ4HCCCtxInternal.create(struct + LZ4StreamHC.INTERNAL_DONOTUSE); }

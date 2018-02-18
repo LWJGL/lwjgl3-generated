@@ -173,8 +173,7 @@ public class NkPropertyState extends Struct {
     public static ByteBuffer nbuffer(long struct) { return memByteBuffer(struct + NkPropertyState.BUFFER, NK_MAX_NUMBER_BUFFER); }
     /** Unsafe version of {@link #buffer(int) buffer}. */
     public static byte nbuffer(long struct, int index) {
-        if (CHECKS) { check(index, NK_MAX_NUMBER_BUFFER); }
-        return memGetByte(struct + NkPropertyState.BUFFER + index * 1);
+        return memGetByte(struct + NkPropertyState.BUFFER + check(index, NK_MAX_NUMBER_BUFFER) * 1);
     }
     /** Unsafe version of {@link #length}. */
     public static int nlength(long struct) { return memGetInt(struct + NkPropertyState.LENGTH); }

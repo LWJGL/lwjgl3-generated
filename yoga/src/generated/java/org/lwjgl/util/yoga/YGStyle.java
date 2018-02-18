@@ -284,50 +284,43 @@ public class YGStyle extends Struct {
     public static YGValue.Buffer nmargin(long struct) { return YGValue.create(struct + YGStyle.MARGIN, 9); }
     /** Unsafe version of {@link #margin(int) margin}. */
     public static YGValue nmargin(long struct, int index) {
-        if (CHECKS) { check(index, 9); }
-        return YGValue.create(struct + YGStyle.MARGIN + index * YGValue.SIZEOF);
+        return YGValue.create(struct + YGStyle.MARGIN + check(index, 9) * YGValue.SIZEOF);
     }
     /** Unsafe version of {@link #positions}. */
     public static YGValue.Buffer npositions(long struct) { return YGValue.create(struct + YGStyle.POSITIONS, 9); }
     /** Unsafe version of {@link #positions(int) positions}. */
     public static YGValue npositions(long struct, int index) {
-        if (CHECKS) { check(index, 9); }
-        return YGValue.create(struct + YGStyle.POSITIONS + index * YGValue.SIZEOF);
+        return YGValue.create(struct + YGStyle.POSITIONS + check(index, 9) * YGValue.SIZEOF);
     }
     /** Unsafe version of {@link #padding}. */
     public static YGValue.Buffer npadding(long struct) { return YGValue.create(struct + YGStyle.PADDING, 9); }
     /** Unsafe version of {@link #padding(int) padding}. */
     public static YGValue npadding(long struct, int index) {
-        if (CHECKS) { check(index, 9); }
-        return YGValue.create(struct + YGStyle.PADDING + index * YGValue.SIZEOF);
+        return YGValue.create(struct + YGStyle.PADDING + check(index, 9) * YGValue.SIZEOF);
     }
     /** Unsafe version of {@link #border}. */
     public static YGValue.Buffer nborder(long struct) { return YGValue.create(struct + YGStyle.BORDER, 9); }
     /** Unsafe version of {@link #border(int) border}. */
     public static YGValue nborder(long struct, int index) {
-        if (CHECKS) { check(index, 9); }
-        return YGValue.create(struct + YGStyle.BORDER + index * YGValue.SIZEOF);
+        return YGValue.create(struct + YGStyle.BORDER + check(index, 9) * YGValue.SIZEOF);
     }
     /** Unsafe version of {@link #dimensions}. */
     public static YGValue.Buffer ndimensions(long struct) { return YGValue.create(struct + YGStyle.DIMENSIONS, 2); }
     /** Unsafe version of {@link #dimensions(int) dimensions}. */
     public static YGValue ndimensions(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return YGValue.create(struct + YGStyle.DIMENSIONS + index * YGValue.SIZEOF);
+        return YGValue.create(struct + YGStyle.DIMENSIONS + check(index, 2) * YGValue.SIZEOF);
     }
     /** Unsafe version of {@link #minDimensions}. */
     public static YGValue.Buffer nminDimensions(long struct) { return YGValue.create(struct + YGStyle.MINDIMENSIONS, 2); }
     /** Unsafe version of {@link #minDimensions(int) minDimensions}. */
     public static YGValue nminDimensions(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return YGValue.create(struct + YGStyle.MINDIMENSIONS + index * YGValue.SIZEOF);
+        return YGValue.create(struct + YGStyle.MINDIMENSIONS + check(index, 2) * YGValue.SIZEOF);
     }
     /** Unsafe version of {@link #maxDimensions}. */
     public static YGValue.Buffer nmaxDimensions(long struct) { return YGValue.create(struct + YGStyle.MAXDIMENSIONS, 2); }
     /** Unsafe version of {@link #maxDimensions(int) maxDimensions}. */
     public static YGValue nmaxDimensions(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return YGValue.create(struct + YGStyle.MAXDIMENSIONS + index * YGValue.SIZEOF);
+        return YGValue.create(struct + YGStyle.MAXDIMENSIONS + check(index, 2) * YGValue.SIZEOF);
     }
     /** Unsafe version of {@link #aspectRatio}. */
     public static float naspectRatio(long struct) { return memGetFloat(struct + YGStyle.ASPECTRATIO); }

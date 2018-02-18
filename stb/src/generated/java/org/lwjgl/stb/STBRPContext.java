@@ -292,8 +292,7 @@ public class STBRPContext extends Struct implements NativeResource {
     public static STBRPNode.Buffer nextra(long struct) { return STBRPNode.create(struct + STBRPContext.EXTRA, 2); }
     /** Unsafe version of {@link #extra(int) extra}. */
     public static STBRPNode nextra(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return STBRPNode.create(struct + STBRPContext.EXTRA + index * STBRPNode.SIZEOF);
+        return STBRPNode.create(struct + STBRPContext.EXTRA + check(index, 2) * STBRPNode.SIZEOF);
     }
 
     // -----------------------------------

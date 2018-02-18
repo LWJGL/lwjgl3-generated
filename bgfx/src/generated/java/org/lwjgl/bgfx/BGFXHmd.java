@@ -151,8 +151,7 @@ public class BGFXHmd extends Struct {
     public static BGFXHmdEye.Buffer neye(long struct) { return BGFXHmdEye.create(struct + BGFXHmd.EYE, 2); }
     /** Unsafe version of {@link #eye(int) eye}. */
     public static BGFXHmdEye neye(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return BGFXHmdEye.create(struct + BGFXHmd.EYE + index * BGFXHmdEye.SIZEOF);
+        return BGFXHmdEye.create(struct + BGFXHmd.EYE + check(index, 2) * BGFXHmdEye.SIZEOF);
     }
     /** Unsafe version of {@link #width}. */
     public static short nwidth(long struct) { return memGetShort(struct + BGFXHmd.WIDTH); }

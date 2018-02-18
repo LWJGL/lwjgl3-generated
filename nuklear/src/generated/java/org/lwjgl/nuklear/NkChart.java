@@ -144,8 +144,7 @@ public class NkChart extends Struct {
     public static NkChartSlot.Buffer nslots(long struct) { return NkChartSlot.create(struct + NkChart.SLOTS, 4); }
     /** Unsafe version of {@link #slots(int) slots}. */
     public static NkChartSlot nslots(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return NkChartSlot.create(struct + NkChart.SLOTS + index * NkChartSlot.SIZEOF);
+        return NkChartSlot.create(struct + NkChart.SLOTS + check(index, 4) * NkChartSlot.SIZEOF);
     }
 
     // -----------------------------------

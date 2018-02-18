@@ -230,8 +230,7 @@ public class NSVGShape extends Struct {
     public static ByteBuffer nid(long struct) { return memByteBuffer(struct + NSVGShape.ID, 64); }
     /** Unsafe version of {@link #id(int) id}. */
     public static byte nid(long struct, int index) {
-        if (CHECKS) { check(index, 64); }
-        return memGetByte(struct + NSVGShape.ID + index * 1);
+        return memGetByte(struct + NSVGShape.ID + check(index, 64) * 1);
     }
     /** Unsafe version of {@link #fill}. */
     public static NSVGPaint nfill(long struct) { return NSVGPaint.create(struct + NSVGShape.FILL); }
@@ -247,8 +246,7 @@ public class NSVGShape extends Struct {
     public static FloatBuffer nstrokeDashArray(long struct) { return memFloatBuffer(struct + NSVGShape.STROKEDASHARRAY, 8); }
     /** Unsafe version of {@link #strokeDashArray(int) strokeDashArray}. */
     public static float nstrokeDashArray(long struct, int index) {
-        if (CHECKS) { check(index, 8); }
-        return memGetFloat(struct + NSVGShape.STROKEDASHARRAY + index * 4);
+        return memGetFloat(struct + NSVGShape.STROKEDASHARRAY + check(index, 8) * 4);
     }
     /** Unsafe version of {@link #strokeDashCount}. */
     public static byte nstrokeDashCount(long struct) { return memGetByte(struct + NSVGShape.STROKEDASHCOUNT); }
@@ -266,8 +264,7 @@ public class NSVGShape extends Struct {
     public static FloatBuffer nbounds(long struct) { return memFloatBuffer(struct + NSVGShape.BOUNDS, 4); }
     /** Unsafe version of {@link #bounds(int) bounds}. */
     public static float nbounds(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetFloat(struct + NSVGShape.BOUNDS + index * 4);
+        return memGetFloat(struct + NSVGShape.BOUNDS + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #paths}. */
     public static NSVGPath npaths(long struct) { return NSVGPath.create(memGetAddress(struct + NSVGShape.PATHS)); }

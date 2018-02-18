@@ -435,8 +435,7 @@ public class YGNode extends Struct implements NativeResource {
     public static PointerBuffer nresolvedDimensions(long struct) { return memPointerBuffer(struct + YGNode.RESOLVEDDIMENSIONS, 2); }
     /** Unsafe version of {@link #resolvedDimensions(int) resolvedDimensions}. */
     public static YGValue nresolvedDimensions(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return YGValue.create(memGetAddress(struct + YGNode.RESOLVEDDIMENSIONS + index * POINTER_SIZE));
+        return YGValue.create(memGetAddress(struct + YGNode.RESOLVEDDIMENSIONS + check(index, 2) * POINTER_SIZE));
     }
 
     /** Unsafe version of {@link #context(long) context}. */
@@ -476,8 +475,7 @@ public class YGNode extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #resolvedDimensions(int, YGValue) resolvedDimensions}. */
     public static void nresolvedDimensions(long struct, int index, YGValue value) {
-        if (CHECKS) { check(index, 2); }
-        memPutAddress(struct + YGNode.RESOLVEDDIMENSIONS + index * POINTER_SIZE, value.address());
+        memPutAddress(struct + YGNode.RESOLVEDDIMENSIONS + check(index, 2) * POINTER_SIZE, value.address());
     }
 
     /**

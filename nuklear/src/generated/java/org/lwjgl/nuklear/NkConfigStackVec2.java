@@ -112,8 +112,7 @@ class NkConfigStackVec2 extends Struct {
     public static NkConfigStackVec2Element.Buffer nelements(long struct) { return NkConfigStackVec2Element.create(struct + NkConfigStackVec2.ELEMENTS, 16); }
     /** Unsafe version of {@link #elements(int) elements}. */
     public static NkConfigStackVec2Element nelements(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return NkConfigStackVec2Element.create(struct + NkConfigStackVec2.ELEMENTS + index * NkConfigStackVec2Element.SIZEOF);
+        return NkConfigStackVec2Element.create(struct + NkConfigStackVec2.ELEMENTS + check(index, 16) * NkConfigStackVec2Element.SIZEOF);
     }
 
     // -----------------------------------

@@ -180,8 +180,7 @@ public class VkShaderStatisticsInfoAMD extends Struct {
     public static IntBuffer ncomputeWorkGroupSize(long struct) { return memIntBuffer(struct + VkShaderStatisticsInfoAMD.COMPUTEWORKGROUPSIZE, 3); }
     /** Unsafe version of {@link #computeWorkGroupSize(int) computeWorkGroupSize}. */
     public static int ncomputeWorkGroupSize(long struct, int index) {
-        if (CHECKS) { check(index, 3); }
-        return memGetInt(struct + VkShaderStatisticsInfoAMD.COMPUTEWORKGROUPSIZE + index * 4);
+        return memGetInt(struct + VkShaderStatisticsInfoAMD.COMPUTEWORKGROUPSIZE + check(index, 3) * 4);
     }
 
     // -----------------------------------

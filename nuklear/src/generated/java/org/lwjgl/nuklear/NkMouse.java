@@ -155,8 +155,7 @@ public class NkMouse extends Struct {
     public static NkMouseButton.Buffer nbuttons(long struct) { return NkMouseButton.create(struct + NkMouse.BUTTONS, NK_BUTTON_MAX); }
     /** Unsafe version of {@link #buttons(int) buttons}. */
     public static NkMouseButton nbuttons(long struct, int index) {
-        if (CHECKS) { check(index, NK_BUTTON_MAX); }
-        return NkMouseButton.create(struct + NkMouse.BUTTONS + index * NkMouseButton.SIZEOF);
+        return NkMouseButton.create(struct + NkMouse.BUTTONS + check(index, NK_BUTTON_MAX) * NkMouseButton.SIZEOF);
     }
     /** Unsafe version of {@link #pos}. */
     public static NkVec2 npos(long struct) { return NkVec2.create(struct + NkMouse.POS); }

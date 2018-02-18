@@ -1081,8 +1081,7 @@ public class VkPhysicalDeviceLimits extends Struct {
     public static IntBuffer nmaxComputeWorkGroupCount(long struct) { return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT, 3); }
     /** Unsafe version of {@link #maxComputeWorkGroupCount(int) maxComputeWorkGroupCount}. */
     public static int nmaxComputeWorkGroupCount(long struct, int index) {
-        if (CHECKS) { check(index, 3); }
-        return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT + index * 4);
+        return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPCOUNT + check(index, 3) * 4);
     }
     /** Unsafe version of {@link #maxComputeWorkGroupInvocations}. */
     public static int nmaxComputeWorkGroupInvocations(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPINVOCATIONS); }
@@ -1090,8 +1089,7 @@ public class VkPhysicalDeviceLimits extends Struct {
     public static IntBuffer nmaxComputeWorkGroupSize(long struct) { return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE, 3); }
     /** Unsafe version of {@link #maxComputeWorkGroupSize(int) maxComputeWorkGroupSize}. */
     public static int nmaxComputeWorkGroupSize(long struct, int index) {
-        if (CHECKS) { check(index, 3); }
-        return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE + index * 4);
+        return memGetInt(struct + VkPhysicalDeviceLimits.MAXCOMPUTEWORKGROUPSIZE + check(index, 3) * 4);
     }
     /** Unsafe version of {@link #subPixelPrecisionBits}. */
     public static int nsubPixelPrecisionBits(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.SUBPIXELPRECISIONBITS); }
@@ -1113,15 +1111,13 @@ public class VkPhysicalDeviceLimits extends Struct {
     public static IntBuffer nmaxViewportDimensions(long struct) { return memIntBuffer(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS, 2); }
     /** Unsafe version of {@link #maxViewportDimensions(int) maxViewportDimensions}. */
     public static int nmaxViewportDimensions(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetInt(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS + index * 4);
+        return memGetInt(struct + VkPhysicalDeviceLimits.MAXVIEWPORTDIMENSIONS + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #viewportBoundsRange}. */
     public static FloatBuffer nviewportBoundsRange(long struct) { return memFloatBuffer(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE, 2); }
     /** Unsafe version of {@link #viewportBoundsRange(int) viewportBoundsRange}. */
     public static float nviewportBoundsRange(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE + index * 4);
+        return memGetFloat(struct + VkPhysicalDeviceLimits.VIEWPORTBOUNDSRANGE + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #viewportSubPixelBits}. */
     public static int nviewportSubPixelBits(long struct) { return memGetInt(struct + VkPhysicalDeviceLimits.VIEWPORTSUBPIXELBITS); }
@@ -1191,15 +1187,13 @@ public class VkPhysicalDeviceLimits extends Struct {
     public static FloatBuffer npointSizeRange(long struct) { return memFloatBuffer(struct + VkPhysicalDeviceLimits.POINTSIZERANGE, 2); }
     /** Unsafe version of {@link #pointSizeRange(int) pointSizeRange}. */
     public static float npointSizeRange(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + VkPhysicalDeviceLimits.POINTSIZERANGE + index * 4);
+        return memGetFloat(struct + VkPhysicalDeviceLimits.POINTSIZERANGE + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #lineWidthRange}. */
     public static FloatBuffer nlineWidthRange(long struct) { return memFloatBuffer(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE, 2); }
     /** Unsafe version of {@link #lineWidthRange(int) lineWidthRange}. */
     public static float nlineWidthRange(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE + index * 4);
+        return memGetFloat(struct + VkPhysicalDeviceLimits.LINEWIDTHRANGE + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #pointSizeGranularity}. */
     public static float npointSizeGranularity(long struct) { return memGetFloat(struct + VkPhysicalDeviceLimits.POINTSIZEGRANULARITY); }

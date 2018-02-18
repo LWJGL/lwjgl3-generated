@@ -240,8 +240,7 @@ public class OVRMatrix4f extends Struct implements NativeResource {
     public static FloatBuffer nM(long struct) { return memFloatBuffer(struct + OVRMatrix4f.M, 16); }
     /** Unsafe version of {@link #M(int) M}. */
     public static float nM(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return memGetFloat(struct + OVRMatrix4f.M + index * 4);
+        return memGetFloat(struct + OVRMatrix4f.M + check(index, 16) * 4);
     }
 
     /** Unsafe version of {@link #M(FloatBuffer) M}. */
@@ -251,8 +250,7 @@ public class OVRMatrix4f extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #M(int, float) M}. */
     public static void nM(long struct, int index, float value) {
-        if (CHECKS) { check(index, 16); }
-        memPutFloat(struct + OVRMatrix4f.M + index * 4, value);
+        memPutFloat(struct + OVRMatrix4f.M + check(index, 16) * 4, value);
     }
 
     // -----------------------------------

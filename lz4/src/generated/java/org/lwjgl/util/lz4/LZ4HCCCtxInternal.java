@@ -199,15 +199,13 @@ public class LZ4HCCCtxInternal extends Struct {
     public static IntBuffer nhashTable(long struct) { return memIntBuffer(struct + LZ4HCCCtxInternal.HASHTABLE, LZ4HC_HASHTABLESIZE); }
     /** Unsafe version of {@link #hashTable(int) hashTable}. */
     public static int nhashTable(long struct, int index) {
-        if (CHECKS) { check(index, LZ4HC_HASHTABLESIZE); }
-        return memGetInt(struct + LZ4HCCCtxInternal.HASHTABLE + index * 4);
+        return memGetInt(struct + LZ4HCCCtxInternal.HASHTABLE + check(index, LZ4HC_HASHTABLESIZE) * 4);
     }
     /** Unsafe version of {@link #chainTable}. */
     public static ShortBuffer nchainTable(long struct) { return memShortBuffer(struct + LZ4HCCCtxInternal.CHAINTABLE, LZ4HC_MAXD); }
     /** Unsafe version of {@link #chainTable(int) chainTable}. */
     public static short nchainTable(long struct, int index) {
-        if (CHECKS) { check(index, LZ4HC_MAXD); }
-        return memGetShort(struct + LZ4HCCCtxInternal.CHAINTABLE + index * 2);
+        return memGetShort(struct + LZ4HCCCtxInternal.CHAINTABLE + check(index, LZ4HC_MAXD) * 2);
     }
     /** Unsafe version of {@link #end(int) end}. */
     public static ByteBuffer nend(long struct, int capacity) { return memByteBuffer(memGetAddress(struct + LZ4HCCCtxInternal.END), capacity); }

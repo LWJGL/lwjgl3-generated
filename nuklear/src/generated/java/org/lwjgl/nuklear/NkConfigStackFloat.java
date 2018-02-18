@@ -112,8 +112,7 @@ class NkConfigStackFloat extends Struct {
     public static NkConfigStackFloatElement.Buffer nelements(long struct) { return NkConfigStackFloatElement.create(struct + NkConfigStackFloat.ELEMENTS, 32); }
     /** Unsafe version of {@link #elements(int) elements}. */
     public static NkConfigStackFloatElement nelements(long struct, int index) {
-        if (CHECKS) { check(index, 32); }
-        return NkConfigStackFloatElement.create(struct + NkConfigStackFloat.ELEMENTS + index * NkConfigStackFloatElement.SIZEOF);
+        return NkConfigStackFloatElement.create(struct + NkConfigStackFloat.ELEMENTS + check(index, 32) * NkConfigStackFloatElement.SIZEOF);
     }
 
     // -----------------------------------

@@ -494,22 +494,19 @@ public class EXRHeader extends Struct implements NativeResource {
     public static IntBuffer ndata_window(long struct) { return memIntBuffer(struct + EXRHeader.DATA_WINDOW, 4); }
     /** Unsafe version of {@link #data_window(int) data_window}. */
     public static int ndata_window(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetInt(struct + EXRHeader.DATA_WINDOW + index * 4);
+        return memGetInt(struct + EXRHeader.DATA_WINDOW + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #display_window}. */
     public static IntBuffer ndisplay_window(long struct) { return memIntBuffer(struct + EXRHeader.DISPLAY_WINDOW, 4); }
     /** Unsafe version of {@link #display_window(int) display_window}. */
     public static int ndisplay_window(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetInt(struct + EXRHeader.DISPLAY_WINDOW + index * 4);
+        return memGetInt(struct + EXRHeader.DISPLAY_WINDOW + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #screen_window_center}. */
     public static FloatBuffer nscreen_window_center(long struct) { return memFloatBuffer(struct + EXRHeader.SCREEN_WINDOW_CENTER, 2); }
     /** Unsafe version of {@link #screen_window_center(int) screen_window_center}. */
     public static float nscreen_window_center(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + EXRHeader.SCREEN_WINDOW_CENTER + index * 4);
+        return memGetFloat(struct + EXRHeader.SCREEN_WINDOW_CENTER + check(index, 2) * 4);
     }
     /** Unsafe version of {@link #screen_window_width}. */
     public static float nscreen_window_width(long struct) { return memGetFloat(struct + EXRHeader.SCREEN_WINDOW_WIDTH); }
@@ -539,8 +536,7 @@ public class EXRHeader extends Struct implements NativeResource {
     public static EXRAttribute.Buffer ncustom_attributes(long struct) { return EXRAttribute.create(struct + EXRHeader.CUSTOM_ATTRIBUTES, nnum_custom_attributes(struct)); }
     /** Unsafe version of {@link #custom_attributes(int) custom_attributes}. */
     public static EXRAttribute ncustom_attributes(long struct, int index) {
-        if (CHECKS) { check(index, nnum_custom_attributes(struct)); }
-        return EXRAttribute.create(struct + EXRHeader.CUSTOM_ATTRIBUTES + index * EXRAttribute.SIZEOF);
+        return EXRAttribute.create(struct + EXRHeader.CUSTOM_ATTRIBUTES + check(index, nnum_custom_attributes(struct)) * EXRAttribute.SIZEOF);
     }
     /** Unsafe version of {@link #channels}. */
     public static EXRChannelInfo.Buffer nchannels(long struct) { return EXRChannelInfo.create(memGetAddress(struct + EXRHeader.CHANNELS), nnum_channels(struct)); }
@@ -564,8 +560,7 @@ public class EXRHeader extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #data_window(int, int) data_window}. */
     public static void ndata_window(long struct, int index, int value) {
-        if (CHECKS) { check(index, 4); }
-        memPutInt(struct + EXRHeader.DATA_WINDOW + index * 4, value);
+        memPutInt(struct + EXRHeader.DATA_WINDOW + check(index, 4) * 4, value);
     }
     /** Unsafe version of {@link #display_window(IntBuffer) display_window}. */
     public static void ndisplay_window(long struct, IntBuffer value) {
@@ -574,8 +569,7 @@ public class EXRHeader extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #display_window(int, int) display_window}. */
     public static void ndisplay_window(long struct, int index, int value) {
-        if (CHECKS) { check(index, 4); }
-        memPutInt(struct + EXRHeader.DISPLAY_WINDOW + index * 4, value);
+        memPutInt(struct + EXRHeader.DISPLAY_WINDOW + check(index, 4) * 4, value);
     }
     /** Unsafe version of {@link #screen_window_center(FloatBuffer) screen_window_center}. */
     public static void nscreen_window_center(long struct, FloatBuffer value) {
@@ -584,8 +578,7 @@ public class EXRHeader extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #screen_window_center(int, float) screen_window_center}. */
     public static void nscreen_window_center(long struct, int index, float value) {
-        if (CHECKS) { check(index, 2); }
-        memPutFloat(struct + EXRHeader.SCREEN_WINDOW_CENTER + index * 4, value);
+        memPutFloat(struct + EXRHeader.SCREEN_WINDOW_CENTER + check(index, 2) * 4, value);
     }
     /** Unsafe version of {@link #screen_window_width(float) screen_window_width}. */
     public static void nscreen_window_width(long struct, float value) { memPutFloat(struct + EXRHeader.SCREEN_WINDOW_WIDTH, value); }
@@ -619,8 +612,7 @@ public class EXRHeader extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #custom_attributes(int, EXRAttribute) custom_attributes}. */
     public static void ncustom_attributes(long struct, int index, EXRAttribute value) {
-        if (CHECKS) { check(index, TINYEXR_MAX_ATTRIBUTES); }
-        memCopy(value.address(), struct + EXRHeader.CUSTOM_ATTRIBUTES + index * EXRAttribute.SIZEOF, EXRAttribute.SIZEOF);
+        memCopy(value.address(), struct + EXRHeader.CUSTOM_ATTRIBUTES + check(index, TINYEXR_MAX_ATTRIBUTES) * EXRAttribute.SIZEOF, EXRAttribute.SIZEOF);
     }
     /** Unsafe version of {@link #channels(EXRChannelInfo.Buffer) channels}. */
     public static void nchannels(long struct, EXRChannelInfo.Buffer value) { memPutAddress(struct + EXRHeader.CHANNELS, value.address()); }

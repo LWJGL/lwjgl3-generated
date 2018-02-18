@@ -112,8 +112,7 @@ class NkConfigStackColor extends Struct {
     public static NkConfigStackColorElement.Buffer nelements(long struct) { return NkConfigStackColorElement.create(struct + NkConfigStackColor.ELEMENTS, 32); }
     /** Unsafe version of {@link #elements(int) elements}. */
     public static NkConfigStackColorElement nelements(long struct, int index) {
-        if (CHECKS) { check(index, 32); }
-        return NkConfigStackColorElement.create(struct + NkConfigStackColor.ELEMENTS + index * NkConfigStackColorElement.SIZEOF);
+        return NkConfigStackColorElement.create(struct + NkConfigStackColor.ELEMENTS + check(index, 32) * NkConfigStackColorElement.SIZEOF);
     }
 
     // -----------------------------------

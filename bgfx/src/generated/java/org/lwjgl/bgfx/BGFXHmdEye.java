@@ -161,43 +161,37 @@ public class BGFXHmdEye extends Struct {
     public static FloatBuffer nrotation(long struct) { return memFloatBuffer(struct + BGFXHmdEye.ROTATION, 4); }
     /** Unsafe version of {@link #rotation(int) rotation}. */
     public static float nrotation(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetFloat(struct + BGFXHmdEye.ROTATION + index * 4);
+        return memGetFloat(struct + BGFXHmdEye.ROTATION + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #translation}. */
     public static FloatBuffer ntranslation(long struct) { return memFloatBuffer(struct + BGFXHmdEye.TRANSLATION, 3); }
     /** Unsafe version of {@link #translation(int) translation}. */
     public static float ntranslation(long struct, int index) {
-        if (CHECKS) { check(index, 3); }
-        return memGetFloat(struct + BGFXHmdEye.TRANSLATION + index * 4);
+        return memGetFloat(struct + BGFXHmdEye.TRANSLATION + check(index, 3) * 4);
     }
     /** Unsafe version of {@link #fov}. */
     public static FloatBuffer nfov(long struct) { return memFloatBuffer(struct + BGFXHmdEye.FOV, 4); }
     /** Unsafe version of {@link #fov(int) fov}. */
     public static float nfov(long struct, int index) {
-        if (CHECKS) { check(index, 4); }
-        return memGetFloat(struct + BGFXHmdEye.FOV + index * 4);
+        return memGetFloat(struct + BGFXHmdEye.FOV + check(index, 4) * 4);
     }
     /** Unsafe version of {@link #viewOffset}. */
     public static FloatBuffer nviewOffset(long struct) { return memFloatBuffer(struct + BGFXHmdEye.VIEWOFFSET, 3); }
     /** Unsafe version of {@link #viewOffset(int) viewOffset}. */
     public static float nviewOffset(long struct, int index) {
-        if (CHECKS) { check(index, 3); }
-        return memGetFloat(struct + BGFXHmdEye.VIEWOFFSET + index * 4);
+        return memGetFloat(struct + BGFXHmdEye.VIEWOFFSET + check(index, 3) * 4);
     }
     /** Unsafe version of {@link #projection}. */
     public static FloatBuffer nprojection(long struct) { return memFloatBuffer(struct + BGFXHmdEye.PROJECTION, 16); }
     /** Unsafe version of {@link #projection(int) projection}. */
     public static float nprojection(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return memGetFloat(struct + BGFXHmdEye.PROJECTION + index * 4);
+        return memGetFloat(struct + BGFXHmdEye.PROJECTION + check(index, 16) * 4);
     }
     /** Unsafe version of {@link #pixelsPerTanAngle}. */
     public static FloatBuffer npixelsPerTanAngle(long struct) { return memFloatBuffer(struct + BGFXHmdEye.PIXELSPERTANANGLE, 2); }
     /** Unsafe version of {@link #pixelsPerTanAngle(int) pixelsPerTanAngle}. */
     public static float npixelsPerTanAngle(long struct, int index) {
-        if (CHECKS) { check(index, 2); }
-        return memGetFloat(struct + BGFXHmdEye.PIXELSPERTANANGLE + index * 4);
+        return memGetFloat(struct + BGFXHmdEye.PIXELSPERTANANGLE + check(index, 2) * 4);
     }
 
     // -----------------------------------

@@ -232,8 +232,7 @@ public class HmdMatrix44 extends Struct implements NativeResource {
     public static FloatBuffer nm(long struct) { return memFloatBuffer(struct + HmdMatrix44.M, 16); }
     /** Unsafe version of {@link #m(int) m}. */
     public static float nm(long struct, int index) {
-        if (CHECKS) { check(index, 16); }
-        return memGetFloat(struct + HmdMatrix44.M + index * 4);
+        return memGetFloat(struct + HmdMatrix44.M + check(index, 16) * 4);
     }
 
     /** Unsafe version of {@link #m(FloatBuffer) m}. */
@@ -243,8 +242,7 @@ public class HmdMatrix44 extends Struct implements NativeResource {
     }
     /** Unsafe version of {@link #m(int, float) m}. */
     public static void nm(long struct, int index, float value) {
-        if (CHECKS) { check(index, 16); }
-        memPutFloat(struct + HmdMatrix44.M + index * 4, value);
+        memPutFloat(struct + HmdMatrix44.M + check(index, 16) * 4, value);
     }
 
     // -----------------------------------

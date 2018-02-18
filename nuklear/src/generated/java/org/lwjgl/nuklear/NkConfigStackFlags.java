@@ -112,8 +112,7 @@ class NkConfigStackFlags extends Struct {
     public static NkConfigStackFlagsElement.Buffer nelements(long struct) { return NkConfigStackFlagsElement.create(struct + NkConfigStackFlags.ELEMENTS, 32); }
     /** Unsafe version of {@link #elements(int) elements}. */
     public static NkConfigStackFlagsElement nelements(long struct, int index) {
-        if (CHECKS) { check(index, 32); }
-        return NkConfigStackFlagsElement.create(struct + NkConfigStackFlags.ELEMENTS + index * NkConfigStackFlagsElement.SIZEOF);
+        return NkConfigStackFlagsElement.create(struct + NkConfigStackFlags.ELEMENTS + check(index, 32) * NkConfigStackFlagsElement.SIZEOF);
     }
 
     // -----------------------------------

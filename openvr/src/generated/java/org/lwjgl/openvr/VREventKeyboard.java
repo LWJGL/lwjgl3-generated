@@ -120,8 +120,7 @@ public class VREventKeyboard extends Struct {
     public static ByteBuffer ncNewInput(long struct) { return memByteBuffer(struct + VREventKeyboard.CNEWINPUT, 8); }
     /** Unsafe version of {@link #cNewInput(int) cNewInput}. */
     public static byte ncNewInput(long struct, int index) {
-        if (CHECKS) { check(index, 8); }
-        return memGetByte(struct + VREventKeyboard.CNEWINPUT + index * 1);
+        return memGetByte(struct + VREventKeyboard.CNEWINPUT + check(index, 8) * 1);
     }
     /** Unsafe version of {@link #uUserValue}. */
     public static long nuUserValue(long struct) { return memGetLong(struct + VREventKeyboard.UUSERVALUE); }
