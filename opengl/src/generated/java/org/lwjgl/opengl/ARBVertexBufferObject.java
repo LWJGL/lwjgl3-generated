@@ -300,7 +300,7 @@ public class ARBVertexBufferObject {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
     public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferDataARB(target, data.remaining() << 1, memAddress(data), usage);
+        nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), usage);
     }
 
     /**
@@ -330,7 +330,7 @@ public class ARBVertexBufferObject {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
     public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferDataARB(target, data.remaining() << 2, memAddress(data), usage);
+        nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     /**
@@ -360,7 +360,7 @@ public class ARBVertexBufferObject {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
     public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferDataARB(target, data.remaining() << 2, memAddress(data), usage);
+        nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     /**
@@ -390,7 +390,7 @@ public class ARBVertexBufferObject {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
     public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") DoubleBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferDataARB(target, data.remaining() << 3, memAddress(data), usage);
+        nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
     // --- [ glBufferSubDataARB ] ---
@@ -421,7 +421,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") ShortBuffer data) {
-        nglBufferSubDataARB(target, offset, data.remaining() << 1, memAddress(data));
+        nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     /**
@@ -432,7 +432,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") IntBuffer data) {
-        nglBufferSubDataARB(target, offset, data.remaining() << 2, memAddress(data));
+        nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -443,7 +443,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") FloatBuffer data) {
-        nglBufferSubDataARB(target, offset, data.remaining() << 2, memAddress(data));
+        nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -454,7 +454,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") DoubleBuffer data) {
-        nglBufferSubDataARB(target, offset, data.remaining() << 3, memAddress(data));
+        nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glGetBufferSubDataARB ] ---
@@ -485,7 +485,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void *") ShortBuffer data) {
-        nglGetBufferSubDataARB(target, offset, data.remaining() << 1, memAddress(data));
+        nglGetBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     /**
@@ -496,7 +496,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void *") IntBuffer data) {
-        nglGetBufferSubDataARB(target, offset, data.remaining() << 2, memAddress(data));
+        nglGetBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -507,7 +507,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void *") FloatBuffer data) {
-        nglGetBufferSubDataARB(target, offset, data.remaining() << 2, memAddress(data));
+        nglGetBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -518,7 +518,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void *") DoubleBuffer data) {
-        nglGetBufferSubDataARB(target, offset, data.remaining() << 3, memAddress(data));
+        nglGetBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glMapBufferARB ] ---
@@ -703,7 +703,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 1, data, usage);
     }
 
     /** Array version of: {@link #glBufferDataARB BufferDataARB} */
@@ -712,7 +712,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /** Array version of: {@link #glBufferDataARB BufferDataARB} */
@@ -721,7 +721,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /** Array version of: {@link #glBufferDataARB BufferDataARB} */
@@ -730,7 +730,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 3), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 3, data, usage);
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
@@ -739,7 +739,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
@@ -748,7 +748,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
@@ -757,7 +757,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
@@ -766,7 +766,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /** Array version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
@@ -775,7 +775,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /** Array version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
@@ -784,7 +784,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
@@ -793,7 +793,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glGetBufferSubDataARB GetBufferSubDataARB} */
@@ -802,7 +802,7 @@ public class ARBVertexBufferObject {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /** Array version of: {@link #glGetBufferParameterivARB GetBufferParameterivARB} */

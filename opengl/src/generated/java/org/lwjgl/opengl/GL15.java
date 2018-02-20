@@ -327,7 +327,7 @@ public class GL15 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 1, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), usage);
     }
 
     /**
@@ -359,7 +359,7 @@ public class GL15 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     /**
@@ -391,7 +391,7 @@ public class GL15 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") LongBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 3, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
     /**
@@ -423,7 +423,7 @@ public class GL15 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     /**
@@ -455,7 +455,7 @@ public class GL15 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") DoubleBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 3, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
     // --- [ glBufferSubData ] ---
@@ -490,7 +490,7 @@ public class GL15 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") ShortBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 1, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     /**
@@ -503,7 +503,7 @@ public class GL15 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") IntBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -516,7 +516,7 @@ public class GL15 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") LongBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     /**
@@ -529,7 +529,7 @@ public class GL15 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") FloatBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -542,7 +542,7 @@ public class GL15 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") DoubleBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glGetBufferSubData ] ---
@@ -577,7 +577,7 @@ public class GL15 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") ShortBuffer data) {
-        nglGetBufferSubData(target, offset, data.remaining() << 1, memAddress(data));
+        nglGetBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     /**
@@ -590,7 +590,7 @@ public class GL15 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") IntBuffer data) {
-        nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
+        nglGetBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -603,7 +603,7 @@ public class GL15 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") LongBuffer data) {
-        nglGetBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
+        nglGetBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     /**
@@ -616,7 +616,7 @@ public class GL15 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") FloatBuffer data) {
-        nglGetBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
+        nglGetBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -629,7 +629,7 @@ public class GL15 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void *") DoubleBuffer data) {
-        nglGetBufferSubData(target, offset, data.remaining() << 3, memAddress(data));
+        nglGetBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glMapBuffer ] ---
@@ -1072,7 +1072,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 1, data, usage);
     }
 
     /**
@@ -1085,7 +1085,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /**
@@ -1098,7 +1098,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 3), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 3, data, usage);
     }
 
     /**
@@ -1111,7 +1111,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /**
@@ -1124,7 +1124,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 3), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 3, data, usage);
     }
 
     /**
@@ -1137,7 +1137,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /**
@@ -1150,7 +1150,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -1163,7 +1163,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**
@@ -1176,7 +1176,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -1189,7 +1189,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**
@@ -1202,7 +1202,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /**
@@ -1215,7 +1215,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -1228,7 +1228,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**
@@ -1241,7 +1241,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -1254,7 +1254,7 @@ public class GL15 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**

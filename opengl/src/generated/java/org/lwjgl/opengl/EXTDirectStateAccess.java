@@ -1835,19 +1835,19 @@ public class EXTDirectStateAccess {
     }
 
     public static void glNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") ShortBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferDataEXT(buffer, data.remaining() << 1, memAddress(data), usage);
+        nglNamedBufferDataEXT(buffer, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), usage);
     }
 
     public static void glNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") IntBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferDataEXT(buffer, data.remaining() << 2, memAddress(data), usage);
+        nglNamedBufferDataEXT(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     public static void glNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferDataEXT(buffer, data.remaining() << 2, memAddress(data), usage);
+        nglNamedBufferDataEXT(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     public static void glNamedBufferDataEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") DoubleBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferDataEXT(buffer, data.remaining() << 3, memAddress(data), usage);
+        nglNamedBufferDataEXT(buffer, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
     // --- [ glNamedBufferSubDataEXT ] ---
@@ -1859,19 +1859,19 @@ public class EXTDirectStateAccess {
     }
 
     public static void glNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") ShortBuffer data) {
-        nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 1, memAddress(data));
+        nglNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     public static void glNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") IntBuffer data) {
-        nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     public static void glNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") FloatBuffer data) {
-        nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     public static void glNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") DoubleBuffer data) {
-        nglNamedBufferSubDataEXT(buffer, offset, data.remaining() << 3, memAddress(data));
+        nglNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glMapNamedBufferEXT ] ---
@@ -1937,19 +1937,19 @@ public class EXTDirectStateAccess {
     }
 
     public static void glGetNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") ShortBuffer data) {
-        nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 1, memAddress(data));
+        nglGetNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     public static void glGetNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") IntBuffer data) {
-        nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglGetNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     public static void glGetNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") FloatBuffer data) {
-        nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglGetNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     public static void glGetNamedBufferSubDataEXT(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") DoubleBuffer data) {
-        nglGetNamedBufferSubDataEXT(buffer, offset, data.remaining() << 3, memAddress(data));
+        nglGetNamedBufferSubDataEXT(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glProgramUniform1fEXT ] ---
@@ -3649,7 +3649,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 1), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 1, data, usage);
     }
 
     /** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
@@ -3658,7 +3658,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
@@ -3667,7 +3667,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /** Array version of: {@link #glNamedBufferDataEXT NamedBufferDataEXT} */
@@ -3676,7 +3676,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 3, data, usage);
     }
 
     /** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
@@ -3685,7 +3685,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
@@ -3694,7 +3694,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
@@ -3703,7 +3703,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glNamedBufferSubDataEXT NamedBufferSubDataEXT} */
@@ -3712,7 +3712,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /** Array version of: {@link #glGetNamedBufferParameterivEXT GetNamedBufferParameterivEXT} */
@@ -3731,7 +3731,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
@@ -3740,7 +3740,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
@@ -3749,7 +3749,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glGetNamedBufferSubDataEXT GetNamedBufferSubDataEXT} */
@@ -3758,7 +3758,7 @@ public class EXTDirectStateAccess {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /** Array version of: {@link #glProgramUniform1fvEXT ProgramUniform1fvEXT} */

@@ -156,7 +156,7 @@ public class CL22 {
      */
     @NativeType("cl_int")
     public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") ShortBuffer spec_value) {
-        return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 1, memAddress(spec_value));
+        return nclSetProgramSpecializationConstant(program, spec_id, Integer.toUnsignedLong(spec_value.remaining()) << 1, memAddress(spec_value));
     }
 
     /**
@@ -191,7 +191,7 @@ public class CL22 {
      */
     @NativeType("cl_int")
     public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") IntBuffer spec_value) {
-        return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 2, memAddress(spec_value));
+        return nclSetProgramSpecializationConstant(program, spec_id, Integer.toUnsignedLong(spec_value.remaining()) << 2, memAddress(spec_value));
     }
 
     /**
@@ -226,7 +226,7 @@ public class CL22 {
      */
     @NativeType("cl_int")
     public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") LongBuffer spec_value) {
-        return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 3, memAddress(spec_value));
+        return nclSetProgramSpecializationConstant(program, spec_id, Integer.toUnsignedLong(spec_value.remaining()) << 3, memAddress(spec_value));
     }
 
     /**
@@ -261,7 +261,7 @@ public class CL22 {
      */
     @NativeType("cl_int")
     public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") FloatBuffer spec_value) {
-        return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 2, memAddress(spec_value));
+        return nclSetProgramSpecializationConstant(program, spec_id, Integer.toUnsignedLong(spec_value.remaining()) << 2, memAddress(spec_value));
     }
 
     /**
@@ -296,7 +296,7 @@ public class CL22 {
      */
     @NativeType("cl_int")
     public static int clSetProgramSpecializationConstant(@NativeType("cl_program") long program, @NativeType("cl_uint") int spec_id, @NativeType("const void *") DoubleBuffer spec_value) {
-        return nclSetProgramSpecializationConstant(program, spec_id, spec_value.remaining() << 3, memAddress(spec_value));
+        return nclSetProgramSpecializationConstant(program, spec_id, Integer.toUnsignedLong(spec_value.remaining()) << 3, memAddress(spec_value));
     }
 
     /**
@@ -311,7 +311,7 @@ public class CL22 {
             check(__functionAddress);
             check(program);
         }
-        return callPPPI(__functionAddress, program, spec_id, (long)(spec_value.length << 1), spec_value);
+        return callPPPI(__functionAddress, program, spec_id, Integer.toUnsignedLong(spec_value.length) << 1, spec_value);
     }
 
     /**
@@ -326,7 +326,7 @@ public class CL22 {
             check(__functionAddress);
             check(program);
         }
-        return callPPPI(__functionAddress, program, spec_id, (long)(spec_value.length << 2), spec_value);
+        return callPPPI(__functionAddress, program, spec_id, Integer.toUnsignedLong(spec_value.length) << 2, spec_value);
     }
 
     /**
@@ -341,7 +341,7 @@ public class CL22 {
             check(__functionAddress);
             check(program);
         }
-        return callPPPI(__functionAddress, program, spec_id, (long)(spec_value.length << 3), spec_value);
+        return callPPPI(__functionAddress, program, spec_id, Integer.toUnsignedLong(spec_value.length) << 3, spec_value);
     }
 
     /**
@@ -356,7 +356,7 @@ public class CL22 {
             check(__functionAddress);
             check(program);
         }
-        return callPPPI(__functionAddress, program, spec_id, (long)(spec_value.length << 2), spec_value);
+        return callPPPI(__functionAddress, program, spec_id, Integer.toUnsignedLong(spec_value.length) << 2, spec_value);
     }
 
     /**
@@ -371,7 +371,7 @@ public class CL22 {
             check(__functionAddress);
             check(program);
         }
-        return callPPPI(__functionAddress, program, spec_id, (long)(spec_value.length << 3), spec_value);
+        return callPPPI(__functionAddress, program, spec_id, Integer.toUnsignedLong(spec_value.length) << 3, spec_value);
     }
 
 }

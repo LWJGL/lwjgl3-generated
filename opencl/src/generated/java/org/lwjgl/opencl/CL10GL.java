@@ -415,7 +415,7 @@ public class CL10GL {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetGLTextureInfo(memobj, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetGLTextureInfo(memobj, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clEnqueueAcquireGLObjects ] ---
@@ -744,7 +744,7 @@ public class CL10GL {
             check(memobj);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, memobj, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
 }

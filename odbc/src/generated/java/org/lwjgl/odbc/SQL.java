@@ -3102,7 +3102,7 @@ public class SQL {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
-        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), remainingSafe(TargetValuePtr) << 1, memAddressSafe(StrLen_or_Ind));
+        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), Integer.toUnsignedLong(remainingSafe(TargetValuePtr)) << 1, memAddressSafe(StrLen_or_Ind));
     }
 
     /**
@@ -3121,7 +3121,7 @@ public class SQL {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
-        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), remainingSafe(TargetValuePtr) << 2, memAddressSafe(StrLen_or_Ind));
+        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), Integer.toUnsignedLong(remainingSafe(TargetValuePtr)) << 2, memAddressSafe(StrLen_or_Ind));
     }
 
     /**
@@ -3140,7 +3140,7 @@ public class SQL {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
-        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), remainingSafe(TargetValuePtr) << 3, memAddressSafe(StrLen_or_Ind));
+        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), Integer.toUnsignedLong(remainingSafe(TargetValuePtr)) << 3, memAddressSafe(StrLen_or_Ind));
     }
 
     /**
@@ -3159,7 +3159,7 @@ public class SQL {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
-        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), remainingSafe(TargetValuePtr) << 2, memAddressSafe(StrLen_or_Ind));
+        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), Integer.toUnsignedLong(remainingSafe(TargetValuePtr)) << 2, memAddressSafe(StrLen_or_Ind));
     }
 
     /**
@@ -3178,7 +3178,7 @@ public class SQL {
         if (CHECKS) {
             checkSafe(StrLen_or_Ind, 1);
         }
-        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), remainingSafe(TargetValuePtr) << 3, memAddressSafe(StrLen_or_Ind));
+        return nSQLBindCol(StatementHandle, ColumnNumber, TargetType, memAddressSafe(TargetValuePtr), Integer.toUnsignedLong(remainingSafe(TargetValuePtr)) << 3, memAddressSafe(StrLen_or_Ind));
     }
 
     // --- [ SQLFetch ] ---

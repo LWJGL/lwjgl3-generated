@@ -111,7 +111,7 @@ public class QCOMEXTHostPtr {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetDeviceImageInfoQCOM(device, image_width, image_height, image_format.address(), param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /** Array version of: {@link #clGetDeviceImageInfoQCOM GetDeviceImageInfoQCOM} */
@@ -123,7 +123,7 @@ public class QCOMEXTHostPtr {
             check(device);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPPPPI(__functionAddress, device, image_width, image_height, image_format.address(), param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPPPPI(__functionAddress, device, image_width, image_height, image_format.address(), param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
 }

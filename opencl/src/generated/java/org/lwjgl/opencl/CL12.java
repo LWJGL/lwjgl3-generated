@@ -1360,7 +1360,7 @@ public class CL12 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetKernelArgInfo(kernel, arg_indx, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetKernelArgInfo(kernel, arg_indx, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -1392,7 +1392,7 @@ public class CL12 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetKernelArgInfo(kernel, arg_indx, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetKernelArgInfo(kernel, arg_indx, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clEnqueueFillBuffer ] ---
@@ -1970,7 +1970,7 @@ public class CL12 {
             check(kernel);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, kernel, arg_indx, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -1986,7 +1986,7 @@ public class CL12 {
             check(kernel);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, kernel, arg_indx, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, kernel, arg_indx, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 3, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**

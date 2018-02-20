@@ -489,7 +489,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetPlatformInfo(platform, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetPlatformInfo(platform, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clGetDeviceIDs ] ---
@@ -609,7 +609,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetDeviceInfo(device, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetDeviceInfo(device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -639,7 +639,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetDeviceInfo(device, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetDeviceInfo(device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -669,7 +669,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetDeviceInfo(device, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetDeviceInfo(device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clCreateContext ] ---
@@ -931,7 +931,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetContextInfo(context, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetContextInfo(context, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -959,7 +959,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetContextInfo(context, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetContextInfo(context, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clCreateCommandQueue ] ---
@@ -1139,7 +1139,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetCommandQueueInfo(command_queue, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetCommandQueueInfo(command_queue, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -1167,7 +1167,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetCommandQueueInfo(command_queue, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetCommandQueueInfo(command_queue, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -1195,7 +1195,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetCommandQueueInfo(command_queue, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetCommandQueueInfo(command_queue, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clCreateBuffer ] ---
@@ -1314,7 +1314,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
-        return nclCreateBuffer(context, flags, host_ptr.remaining() << 1, memAddress(host_ptr), memAddressSafe(errcode_ret));
+        return nclCreateBuffer(context, flags, Integer.toUnsignedLong(host_ptr.remaining()) << 1, memAddress(host_ptr), memAddressSafe(errcode_ret));
     }
 
     /**
@@ -1349,7 +1349,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
-        return nclCreateBuffer(context, flags, host_ptr.remaining() << 2, memAddress(host_ptr), memAddressSafe(errcode_ret));
+        return nclCreateBuffer(context, flags, Integer.toUnsignedLong(host_ptr.remaining()) << 2, memAddress(host_ptr), memAddressSafe(errcode_ret));
     }
 
     /**
@@ -1384,7 +1384,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
-        return nclCreateBuffer(context, flags, host_ptr.remaining() << 2, memAddress(host_ptr), memAddressSafe(errcode_ret));
+        return nclCreateBuffer(context, flags, Integer.toUnsignedLong(host_ptr.remaining()) << 2, memAddress(host_ptr), memAddressSafe(errcode_ret));
     }
 
     /**
@@ -1419,7 +1419,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
-        return nclCreateBuffer(context, flags, host_ptr.remaining() << 3, memAddress(host_ptr), memAddressSafe(errcode_ret));
+        return nclCreateBuffer(context, flags, Integer.toUnsignedLong(host_ptr.remaining()) << 3, memAddress(host_ptr), memAddressSafe(errcode_ret));
     }
 
     // --- [ clEnqueueReadBuffer ] ---
@@ -1570,7 +1570,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -1637,7 +1637,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -1704,7 +1704,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -1771,7 +1771,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueReadBuffer(command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     // --- [ clEnqueueWriteBuffer ] ---
@@ -1920,7 +1920,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 1, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -1986,7 +1986,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -2052,7 +2052,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 2, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -2118,7 +2118,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(event, 1);
         }
-        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, ptr.remaining() << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return nclEnqueueWriteBuffer(command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.remaining()) << 3, memAddress(ptr), remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     // --- [ clEnqueueCopyBuffer ] ---
@@ -4257,7 +4257,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetImageInfo(image, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetImageInfo(image, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -4285,7 +4285,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetImageInfo(image, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetImageInfo(image, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clRetainMemObject ] ---
@@ -4474,7 +4474,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetMemObjectInfo(memobj, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetMemObjectInfo(memobj, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -4502,7 +4502,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetMemObjectInfo(memobj, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetMemObjectInfo(memobj, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -4530,7 +4530,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetMemObjectInfo(memobj, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetMemObjectInfo(memobj, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clCreateSampler ] ---
@@ -4701,7 +4701,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetSamplerInfo(sampler, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetSamplerInfo(sampler, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -4729,7 +4729,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetSamplerInfo(sampler, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetSamplerInfo(sampler, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clCreateProgramWithSource ] ---
@@ -5389,7 +5389,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetProgramInfo(program, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetProgramInfo(program, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -5419,7 +5419,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetProgramInfo(program, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetProgramInfo(program, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clGetProgramBuildInfo ] ---
@@ -5495,7 +5495,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetProgramBuildInfo(program, device, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetProgramBuildInfo(program, device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -5525,7 +5525,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetProgramBuildInfo(program, device, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetProgramBuildInfo(program, device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clCreateKernel ] ---
@@ -5962,7 +5962,7 @@ public class CL10 {
      */
     @NativeType("cl_int")
     public static int clSetKernelArg(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") ShortBuffer arg_value) {
-        return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 1, memAddress(arg_value));
+        return nclSetKernelArg(kernel, arg_index, Integer.toUnsignedLong(arg_value.remaining()) << 1, memAddress(arg_value));
     }
 
     /**
@@ -6041,7 +6041,7 @@ public class CL10 {
      */
     @NativeType("cl_int")
     public static int clSetKernelArg(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") IntBuffer arg_value) {
-        return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 2, memAddress(arg_value));
+        return nclSetKernelArg(kernel, arg_index, Integer.toUnsignedLong(arg_value.remaining()) << 2, memAddress(arg_value));
     }
 
     /**
@@ -6120,7 +6120,7 @@ public class CL10 {
      */
     @NativeType("cl_int")
     public static int clSetKernelArg(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") LongBuffer arg_value) {
-        return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 3, memAddress(arg_value));
+        return nclSetKernelArg(kernel, arg_index, Integer.toUnsignedLong(arg_value.remaining()) << 3, memAddress(arg_value));
     }
 
     /**
@@ -6199,7 +6199,7 @@ public class CL10 {
      */
     @NativeType("cl_int")
     public static int clSetKernelArg(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") FloatBuffer arg_value) {
-        return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 2, memAddress(arg_value));
+        return nclSetKernelArg(kernel, arg_index, Integer.toUnsignedLong(arg_value.remaining()) << 2, memAddress(arg_value));
     }
 
     /**
@@ -6278,7 +6278,7 @@ public class CL10 {
      */
     @NativeType("cl_int")
     public static int clSetKernelArg(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") DoubleBuffer arg_value) {
-        return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << 3, memAddress(arg_value));
+        return nclSetKernelArg(kernel, arg_index, Integer.toUnsignedLong(arg_value.remaining()) << 3, memAddress(arg_value));
     }
 
     /**
@@ -6357,7 +6357,7 @@ public class CL10 {
      */
     @NativeType("cl_int")
     public static int clSetKernelArg(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") PointerBuffer arg_value) {
-        return nclSetKernelArg(kernel, arg_index, arg_value.remaining() << POINTER_SHIFT, memAddress(arg_value));
+        return nclSetKernelArg(kernel, arg_index, Integer.toUnsignedLong(arg_value.remaining()) << POINTER_SHIFT, memAddress(arg_value));
     }
 
     /**
@@ -8108,7 +8108,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetKernelInfo(kernel, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetKernelInfo(kernel, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -8136,7 +8136,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetKernelInfo(kernel, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetKernelInfo(kernel, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clGetKernelWorkGroupInfo ] ---
@@ -8220,7 +8220,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetKernelWorkGroupInfo(kernel, device, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetKernelWorkGroupInfo(kernel, device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -8254,7 +8254,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetKernelWorkGroupInfo(kernel, device, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetKernelWorkGroupInfo(kernel, device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -8288,7 +8288,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetKernelWorkGroupInfo(kernel, device, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetKernelWorkGroupInfo(kernel, device, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clEnqueueNDRangeKernel ] ---
@@ -8714,7 +8714,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetEventInfo(event, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetEventInfo(event, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -8747,7 +8747,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetEventInfo(event, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetEventInfo(event, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clRetainEvent ] ---
@@ -9021,7 +9021,7 @@ public class CL10 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetEventProfilingInfo(event, param_name, remainingSafe(param_value) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetEventProfilingInfo(event, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 3, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clFlush ] ---
@@ -9168,7 +9168,7 @@ public class CL10 {
             check(platform);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, platform, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, platform, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 3, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9197,7 +9197,7 @@ public class CL10 {
             check(device);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, device, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9212,7 +9212,7 @@ public class CL10 {
             check(device);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, device, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, device, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 3, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9257,7 +9257,7 @@ public class CL10 {
             check(context);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, context, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, context, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9288,7 +9288,7 @@ public class CL10 {
             check(command_queue);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, command_queue, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, command_queue, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9303,7 +9303,7 @@ public class CL10 {
             check(command_queue);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, command_queue, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, command_queue, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 3, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9333,7 +9333,7 @@ public class CL10 {
             check(context);
             checkSafe(errcode_ret, 1);
         }
-        return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 1), host_ptr, errcode_ret);
+        return callPJPPPP(__functionAddress, context, flags, Integer.toUnsignedLong(host_ptr.length) << 1, host_ptr, errcode_ret);
     }
 
     /**
@@ -9348,7 +9348,7 @@ public class CL10 {
             check(context);
             checkSafe(errcode_ret, 1);
         }
-        return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 2), host_ptr, errcode_ret);
+        return callPJPPPP(__functionAddress, context, flags, Integer.toUnsignedLong(host_ptr.length) << 2, host_ptr, errcode_ret);
     }
 
     /**
@@ -9363,7 +9363,7 @@ public class CL10 {
             check(context);
             checkSafe(errcode_ret, 1);
         }
-        return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 2), host_ptr, errcode_ret);
+        return callPJPPPP(__functionAddress, context, flags, Integer.toUnsignedLong(host_ptr.length) << 2, host_ptr, errcode_ret);
     }
 
     /**
@@ -9378,7 +9378,7 @@ public class CL10 {
             check(context);
             checkSafe(errcode_ret, 1);
         }
-        return callPJPPPP(__functionAddress, context, flags, (long)(host_ptr.length << 3), host_ptr, errcode_ret);
+        return callPJPPPP(__functionAddress, context, flags, Integer.toUnsignedLong(host_ptr.length) << 3, host_ptr, errcode_ret);
     }
 
     /**
@@ -9394,7 +9394,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 1, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9410,7 +9410,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 2, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9426,7 +9426,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 2, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9442,7 +9442,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_read ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 3, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9458,7 +9458,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 1), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 1, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9474,7 +9474,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 2, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9490,7 +9490,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 2), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 2, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9506,7 +9506,7 @@ public class CL10 {
             check(buffer);
             checkSafe(event, 1);
         }
-        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, (long)(ptr.length << 3), ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
+        return callPPPPPPPI(__functionAddress, command_queue, buffer, blocking_write ? 1 : 0, offset, Integer.toUnsignedLong(ptr.length) << 3, ptr, remainingSafe(event_wait_list), memAddressSafe(event_wait_list), memAddressSafe(event));
     }
 
     /**
@@ -9866,7 +9866,7 @@ public class CL10 {
             check(image);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, image, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, image, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9881,7 +9881,7 @@ public class CL10 {
             check(memobj);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, memobj, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9896,7 +9896,7 @@ public class CL10 {
             check(memobj);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, memobj, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, memobj, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 3, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9926,7 +9926,7 @@ public class CL10 {
             check(sampler);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, sampler, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, sampler, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9975,7 +9975,7 @@ public class CL10 {
             check(program);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, program, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, program, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -9991,7 +9991,7 @@ public class CL10 {
             check(device);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPPI(__functionAddress, program, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPPI(__functionAddress, program, device, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -10057,7 +10057,7 @@ public class CL10 {
         if (CHECKS) {
             check(kernel);
         }
-        return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 1), arg_value);
+        return callPPPI(__functionAddress, kernel, arg_index, Integer.toUnsignedLong(arg_value.length) << 1, arg_value);
     }
 
     /**
@@ -10071,7 +10071,7 @@ public class CL10 {
         if (CHECKS) {
             check(kernel);
         }
-        return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 2), arg_value);
+        return callPPPI(__functionAddress, kernel, arg_index, Integer.toUnsignedLong(arg_value.length) << 2, arg_value);
     }
 
     /**
@@ -10085,7 +10085,7 @@ public class CL10 {
         if (CHECKS) {
             check(kernel);
         }
-        return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 3), arg_value);
+        return callPPPI(__functionAddress, kernel, arg_index, Integer.toUnsignedLong(arg_value.length) << 3, arg_value);
     }
 
     /**
@@ -10099,7 +10099,7 @@ public class CL10 {
         if (CHECKS) {
             check(kernel);
         }
-        return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 2), arg_value);
+        return callPPPI(__functionAddress, kernel, arg_index, Integer.toUnsignedLong(arg_value.length) << 2, arg_value);
     }
 
     /**
@@ -10113,7 +10113,7 @@ public class CL10 {
         if (CHECKS) {
             check(kernel);
         }
-        return callPPPI(__functionAddress, kernel, arg_index, (long)(arg_value.length << 3), arg_value);
+        return callPPPI(__functionAddress, kernel, arg_index, Integer.toUnsignedLong(arg_value.length) << 3, arg_value);
     }
 
     /**
@@ -10128,7 +10128,7 @@ public class CL10 {
             check(kernel);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, kernel, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, kernel, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -10144,7 +10144,7 @@ public class CL10 {
             check(device);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPPI(__functionAddress, kernel, device, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPPI(__functionAddress, kernel, device, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -10160,7 +10160,7 @@ public class CL10 {
             check(device);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPPI(__functionAddress, kernel, device, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPPI(__functionAddress, kernel, device, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 3, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -10175,7 +10175,7 @@ public class CL10 {
             check(event);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, event, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, event, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -10190,7 +10190,7 @@ public class CL10 {
             check(event);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, event, param_name, (long)(lengthSafe(param_value) << 3), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, event, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 3, param_value, memAddressSafe(param_value_size_ret));
     }
 
     private static long getMemObjectInfoPointer(long cl_mem, int param_name) {

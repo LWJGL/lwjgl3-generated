@@ -531,7 +531,7 @@ public class GL45 {
      *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glNamedBufferStorage(@NativeType("GLuint") int buffer, @NativeType("const void *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
-        nglNamedBufferStorage(buffer, data.remaining() << 1, memAddress(data), flags);
+        nglNamedBufferStorage(buffer, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), flags);
     }
 
     /**
@@ -580,7 +580,7 @@ public class GL45 {
      *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glNamedBufferStorage(@NativeType("GLuint") int buffer, @NativeType("const void *") IntBuffer data, @NativeType("GLbitfield") int flags) {
-        nglNamedBufferStorage(buffer, data.remaining() << 2, memAddress(data), flags);
+        nglNamedBufferStorage(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     /**
@@ -629,7 +629,7 @@ public class GL45 {
      *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glNamedBufferStorage(@NativeType("GLuint") int buffer, @NativeType("const void *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
-        nglNamedBufferStorage(buffer, data.remaining() << 2, memAddress(data), flags);
+        nglNamedBufferStorage(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     /**
@@ -678,7 +678,7 @@ public class GL45 {
      *               <p>It is an error to specify {@link GL44#GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link GL44#GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glNamedBufferStorage(@NativeType("GLuint") int buffer, @NativeType("const void *") DoubleBuffer data, @NativeType("GLbitfield") int flags) {
-        nglNamedBufferStorage(buffer, data.remaining() << 3, memAddress(data), flags);
+        nglNamedBufferStorage(buffer, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), flags);
     }
 
     // --- [ glNamedBufferData ] ---
@@ -726,7 +726,7 @@ public class GL45 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link GL15#GL_STREAM_READ STREAM_READ}</td><td>{@link GL15#GL_STREAM_COPY STREAM_COPY}</td><td>{@link GL15#GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link GL15#GL_STATIC_READ STATIC_READ}</td><td>{@link GL15#GL_STATIC_COPY STATIC_COPY}</td><td>{@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") ShortBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferData(buffer, data.remaining() << 1, memAddress(data), usage);
+        nglNamedBufferData(buffer, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), usage);
     }
 
     /**
@@ -739,7 +739,7 @@ public class GL45 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link GL15#GL_STREAM_READ STREAM_READ}</td><td>{@link GL15#GL_STREAM_COPY STREAM_COPY}</td><td>{@link GL15#GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link GL15#GL_STATIC_READ STATIC_READ}</td><td>{@link GL15#GL_STATIC_COPY STATIC_COPY}</td><td>{@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") IntBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferData(buffer, data.remaining() << 2, memAddress(data), usage);
+        nglNamedBufferData(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     /**
@@ -752,7 +752,7 @@ public class GL45 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link GL15#GL_STREAM_READ STREAM_READ}</td><td>{@link GL15#GL_STREAM_COPY STREAM_COPY}</td><td>{@link GL15#GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link GL15#GL_STATIC_READ STATIC_READ}</td><td>{@link GL15#GL_STATIC_COPY STATIC_COPY}</td><td>{@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") LongBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferData(buffer, data.remaining() << 3, memAddress(data), usage);
+        nglNamedBufferData(buffer, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
     /**
@@ -765,7 +765,7 @@ public class GL45 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link GL15#GL_STREAM_READ STREAM_READ}</td><td>{@link GL15#GL_STREAM_COPY STREAM_COPY}</td><td>{@link GL15#GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link GL15#GL_STATIC_READ STATIC_READ}</td><td>{@link GL15#GL_STATIC_COPY STATIC_COPY}</td><td>{@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferData(buffer, data.remaining() << 2, memAddress(data), usage);
+        nglNamedBufferData(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     /**
@@ -778,7 +778,7 @@ public class GL45 {
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link GL15#GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link GL15#GL_STREAM_READ STREAM_READ}</td><td>{@link GL15#GL_STREAM_COPY STREAM_COPY}</td><td>{@link GL15#GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link GL15#GL_STATIC_READ STATIC_READ}</td><td>{@link GL15#GL_STATIC_COPY STATIC_COPY}</td><td>{@link GL15#GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link GL15#GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link GL15#GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
     public static void glNamedBufferData(@NativeType("GLuint") int buffer, @NativeType("const void *") DoubleBuffer data, @NativeType("GLenum") int usage) {
-        nglNamedBufferData(buffer, data.remaining() << 3, memAddress(data), usage);
+        nglNamedBufferData(buffer, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
     // --- [ glNamedBufferSubData ] ---
@@ -813,7 +813,7 @@ public class GL45 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") ShortBuffer data) {
-        nglNamedBufferSubData(buffer, offset, data.remaining() << 1, memAddress(data));
+        nglNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     /**
@@ -826,7 +826,7 @@ public class GL45 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") IntBuffer data) {
-        nglNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -839,7 +839,7 @@ public class GL45 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") LongBuffer data) {
-        nglNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
+        nglNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     /**
@@ -852,7 +852,7 @@ public class GL45 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") FloatBuffer data) {
-        nglNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -865,7 +865,7 @@ public class GL45 {
      * @param data   a pointer to the new data that will be copied into the data store
      */
     public static void glNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") DoubleBuffer data) {
-        nglNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
+        nglNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glCopyNamedBufferSubData ] ---
@@ -1307,7 +1307,7 @@ public class GL45 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") ShortBuffer data) {
-        nglGetNamedBufferSubData(buffer, offset, data.remaining() << 1, memAddress(data));
+        nglGetNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     /**
@@ -1320,7 +1320,7 @@ public class GL45 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") IntBuffer data) {
-        nglGetNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglGetNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -1333,7 +1333,7 @@ public class GL45 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") LongBuffer data) {
-        nglGetNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
+        nglGetNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     /**
@@ -1346,7 +1346,7 @@ public class GL45 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") FloatBuffer data) {
-        nglGetNamedBufferSubData(buffer, offset, data.remaining() << 2, memAddress(data));
+        nglGetNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /**
@@ -1359,7 +1359,7 @@ public class GL45 {
      * @param data   a pointer to the location where buffer object data is returned
      */
     public static void glGetNamedBufferSubData(@NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("void *") DoubleBuffer data) {
-        nglGetNamedBufferSubData(buffer, offset, data.remaining() << 3, memAddress(data));
+        nglGetNamedBufferSubData(buffer, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glCreateFramebuffers ] ---
@@ -4937,7 +4937,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 1), data, flags);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 1, data, flags);
     }
 
     /**
@@ -4950,7 +4950,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
     /**
@@ -4963,7 +4963,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
     /**
@@ -4976,7 +4976,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 3), data, flags);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 3, data, flags);
     }
 
     /**
@@ -4989,7 +4989,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 1), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 1, data, usage);
     }
 
     /**
@@ -5002,7 +5002,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /**
@@ -5015,7 +5015,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 3, data, usage);
     }
 
     /**
@@ -5028,7 +5028,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /**
@@ -5041,7 +5041,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 3), data, usage);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 3, data, usage);
     }
 
     /**
@@ -5054,7 +5054,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /**
@@ -5067,7 +5067,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -5080,7 +5080,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**
@@ -5093,7 +5093,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -5106,7 +5106,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**
@@ -5147,7 +5147,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /**
@@ -5160,7 +5160,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -5173,7 +5173,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**
@@ -5186,7 +5186,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -5199,7 +5199,7 @@ public class GL45 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, buffer, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, buffer, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /**

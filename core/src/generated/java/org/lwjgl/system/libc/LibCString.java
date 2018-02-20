@@ -26,15 +26,15 @@ public class LibCString {
     /**
      * Unsafe version of: {@link #memset}
      *
-     * @param count number of characters
+     * @param count number of bytes to fill
      */
     public static native long nmemset(long dest, int c, long count);
 
     /**
-     * Fills memory with a constant byte.
+     * Fills a memory area with a constant byte.
      *
-     * @param dest pointer to destination
-     * @param c    character to set
+     * @param dest pointer to the memory area to fill
+     * @param c    byte to set
      *
      * @return the value of {@code dest}
      */
@@ -44,68 +44,68 @@ public class LibCString {
     }
 
     /**
-     * Fills memory with a constant byte.
+     * Fills a memory area with a constant byte.
      *
-     * @param dest pointer to destination
-     * @param c    character to set
+     * @param dest pointer to the memory area to fill
+     * @param c    byte to set
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memset(@NativeType("void *") ShortBuffer dest, int c) {
-        return nmemset(memAddress(dest), c, dest.remaining() << 1);
+        return nmemset(memAddress(dest), c, Integer.toUnsignedLong(dest.remaining()) << 1);
     }
 
     /**
-     * Fills memory with a constant byte.
+     * Fills a memory area with a constant byte.
      *
-     * @param dest pointer to destination
-     * @param c    character to set
+     * @param dest pointer to the memory area to fill
+     * @param c    byte to set
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memset(@NativeType("void *") IntBuffer dest, int c) {
-        return nmemset(memAddress(dest), c, dest.remaining() << 2);
+        return nmemset(memAddress(dest), c, Integer.toUnsignedLong(dest.remaining()) << 2);
     }
 
     /**
-     * Fills memory with a constant byte.
+     * Fills a memory area with a constant byte.
      *
-     * @param dest pointer to destination
-     * @param c    character to set
+     * @param dest pointer to the memory area to fill
+     * @param c    byte to set
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memset(@NativeType("void *") LongBuffer dest, int c) {
-        return nmemset(memAddress(dest), c, dest.remaining() << 3);
+        return nmemset(memAddress(dest), c, Integer.toUnsignedLong(dest.remaining()) << 3);
     }
 
     /**
-     * Fills memory with a constant byte.
+     * Fills a memory area with a constant byte.
      *
-     * @param dest pointer to destination
-     * @param c    character to set
+     * @param dest pointer to the memory area to fill
+     * @param c    byte to set
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memset(@NativeType("void *") FloatBuffer dest, int c) {
-        return nmemset(memAddress(dest), c, dest.remaining() << 2);
+        return nmemset(memAddress(dest), c, Integer.toUnsignedLong(dest.remaining()) << 2);
     }
 
     /**
-     * Fills memory with a constant byte.
+     * Fills a memory area with a constant byte.
      *
-     * @param dest pointer to destination
-     * @param c    character to set
+     * @param dest pointer to the memory area to fill
+     * @param c    byte to set
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memset(@NativeType("void *") DoubleBuffer dest, int c) {
-        return nmemset(memAddress(dest), c, dest.remaining() << 3);
+        return nmemset(memAddress(dest), c, Integer.toUnsignedLong(dest.remaining()) << 3);
     }
 
     // --- [ memcpy ] ---
@@ -113,104 +113,104 @@ public class LibCString {
     /**
      * Unsafe version of: {@link #memcpy}
      *
-     * @param count number of characters to copy
+     * @param count the number of bytes to be copied
      */
     public static native long nmemcpy(long dest, long src, long count);
 
     /**
-     * Copies characters between buffers.
+     * Copies bytes between memory areas that must not overlap.
      *
-     * @param dest new buffer
-     * @param src  buffer to copy from
+     * @param dest pointer to the destination memory area
+     * @param src  pointer to the source memory area
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") ByteBuffer dest, @NativeType("const void *") ByteBuffer src) {
         if (CHECKS) {
-            check(src, dest.remaining());
+            check(dest, src.remaining());
         }
-        return nmemcpy(memAddress(dest), memAddress(src), dest.remaining());
+        return nmemcpy(memAddress(dest), memAddress(src), src.remaining());
     }
 
     /**
-     * Copies characters between buffers.
+     * Copies bytes between memory areas that must not overlap.
      *
-     * @param dest new buffer
-     * @param src  buffer to copy from
+     * @param dest pointer to the destination memory area
+     * @param src  pointer to the source memory area
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") ShortBuffer dest, @NativeType("const void *") ShortBuffer src) {
         if (CHECKS) {
-            check(src, dest.remaining());
+            check(dest, src.remaining());
         }
-        return nmemcpy(memAddress(dest), memAddress(src), src.remaining() << 1);
+        return nmemcpy(memAddress(dest), memAddress(src), Integer.toUnsignedLong(src.remaining()) << 1);
     }
 
     /**
-     * Copies characters between buffers.
+     * Copies bytes between memory areas that must not overlap.
      *
-     * @param dest new buffer
-     * @param src  buffer to copy from
+     * @param dest pointer to the destination memory area
+     * @param src  pointer to the source memory area
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") IntBuffer dest, @NativeType("const void *") IntBuffer src) {
         if (CHECKS) {
-            check(src, dest.remaining());
+            check(dest, src.remaining());
         }
-        return nmemcpy(memAddress(dest), memAddress(src), src.remaining() << 2);
+        return nmemcpy(memAddress(dest), memAddress(src), Integer.toUnsignedLong(src.remaining()) << 2);
     }
 
     /**
-     * Copies characters between buffers.
+     * Copies bytes between memory areas that must not overlap.
      *
-     * @param dest new buffer
-     * @param src  buffer to copy from
+     * @param dest pointer to the destination memory area
+     * @param src  pointer to the source memory area
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") LongBuffer dest, @NativeType("const void *") LongBuffer src) {
         if (CHECKS) {
-            check(src, dest.remaining());
+            check(dest, src.remaining());
         }
-        return nmemcpy(memAddress(dest), memAddress(src), src.remaining() << 3);
+        return nmemcpy(memAddress(dest), memAddress(src), Integer.toUnsignedLong(src.remaining()) << 3);
     }
 
     /**
-     * Copies characters between buffers.
+     * Copies bytes between memory areas that must not overlap.
      *
-     * @param dest new buffer
-     * @param src  buffer to copy from
+     * @param dest pointer to the destination memory area
+     * @param src  pointer to the source memory area
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") FloatBuffer dest, @NativeType("const void *") FloatBuffer src) {
         if (CHECKS) {
-            check(src, dest.remaining());
+            check(dest, src.remaining());
         }
-        return nmemcpy(memAddress(dest), memAddress(src), src.remaining() << 2);
+        return nmemcpy(memAddress(dest), memAddress(src), Integer.toUnsignedLong(src.remaining()) << 2);
     }
 
     /**
-     * Copies characters between buffers.
+     * Copies bytes between memory areas that must not overlap.
      *
-     * @param dest new buffer
-     * @param src  buffer to copy from
+     * @param dest pointer to the destination memory area
+     * @param src  pointer to the source memory area
      *
      * @return the value of {@code dest}
      */
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") DoubleBuffer dest, @NativeType("const void *") DoubleBuffer src) {
         if (CHECKS) {
-            check(src, dest.remaining());
+            check(dest, src.remaining());
         }
-        return nmemcpy(memAddress(dest), memAddress(src), src.remaining() << 3);
+        return nmemcpy(memAddress(dest), memAddress(src), Integer.toUnsignedLong(src.remaining()) << 3);
     }
 
     /** Array version of: {@link #nmemset} */
@@ -219,7 +219,7 @@ public class LibCString {
     /** Array version of: {@link #memset} */
     @NativeType("void *")
     public static long memset(@NativeType("void *") byte[] dest, int c) {
-        return nmemset(dest, c, dest.length << 0);
+        return nmemset(dest, c, Integer.toUnsignedLong(dest.length) << 0);
     }
 
     /** Array version of: {@link #nmemset} */
@@ -228,7 +228,7 @@ public class LibCString {
     /** Array version of: {@link #memset} */
     @NativeType("void *")
     public static long memset(@NativeType("void *") short[] dest, int c) {
-        return nmemset(dest, c, dest.length << 1);
+        return nmemset(dest, c, Integer.toUnsignedLong(dest.length) << 1);
     }
 
     /** Array version of: {@link #nmemset} */
@@ -237,7 +237,7 @@ public class LibCString {
     /** Array version of: {@link #memset} */
     @NativeType("void *")
     public static long memset(@NativeType("void *") int[] dest, int c) {
-        return nmemset(dest, c, dest.length << 2);
+        return nmemset(dest, c, Integer.toUnsignedLong(dest.length) << 2);
     }
 
     /** Array version of: {@link #nmemset} */
@@ -246,7 +246,7 @@ public class LibCString {
     /** Array version of: {@link #memset} */
     @NativeType("void *")
     public static long memset(@NativeType("void *") long[] dest, int c) {
-        return nmemset(dest, c, dest.length << 3);
+        return nmemset(dest, c, Integer.toUnsignedLong(dest.length) << 3);
     }
 
     /** Array version of: {@link #nmemset} */
@@ -255,7 +255,7 @@ public class LibCString {
     /** Array version of: {@link #memset} */
     @NativeType("void *")
     public static long memset(@NativeType("void *") float[] dest, int c) {
-        return nmemset(dest, c, dest.length << 2);
+        return nmemset(dest, c, Integer.toUnsignedLong(dest.length) << 2);
     }
 
     /** Array version of: {@link #nmemset} */
@@ -264,7 +264,7 @@ public class LibCString {
     /** Array version of: {@link #memset} */
     @NativeType("void *")
     public static long memset(@NativeType("void *") double[] dest, int c) {
-        return nmemset(dest, c, dest.length << 3);
+        return nmemset(dest, c, Integer.toUnsignedLong(dest.length) << 3);
     }
 
     /** Array version of: {@link #nmemcpy} */
@@ -274,9 +274,9 @@ public class LibCString {
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") byte[] dest, @NativeType("const void *") byte[] src) {
         if (CHECKS) {
-            check(src, dest.length);
+            check(dest, src.length);
         }
-        return nmemcpy(dest, src, dest.length << 0);
+        return nmemcpy(dest, src, Integer.toUnsignedLong(src.length) << 0);
     }
 
     /** Array version of: {@link #nmemcpy} */
@@ -286,9 +286,9 @@ public class LibCString {
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") short[] dest, @NativeType("const void *") short[] src) {
         if (CHECKS) {
-            check(src, dest.length);
+            check(dest, src.length);
         }
-        return nmemcpy(dest, src, dest.length << 1);
+        return nmemcpy(dest, src, Integer.toUnsignedLong(src.length) << 1);
     }
 
     /** Array version of: {@link #nmemcpy} */
@@ -298,9 +298,9 @@ public class LibCString {
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") int[] dest, @NativeType("const void *") int[] src) {
         if (CHECKS) {
-            check(src, dest.length);
+            check(dest, src.length);
         }
-        return nmemcpy(dest, src, dest.length << 2);
+        return nmemcpy(dest, src, Integer.toUnsignedLong(src.length) << 2);
     }
 
     /** Array version of: {@link #nmemcpy} */
@@ -310,9 +310,9 @@ public class LibCString {
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") long[] dest, @NativeType("const void *") long[] src) {
         if (CHECKS) {
-            check(src, dest.length);
+            check(dest, src.length);
         }
-        return nmemcpy(dest, src, dest.length << 3);
+        return nmemcpy(dest, src, Integer.toUnsignedLong(src.length) << 3);
     }
 
     /** Array version of: {@link #nmemcpy} */
@@ -322,9 +322,9 @@ public class LibCString {
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") float[] dest, @NativeType("const void *") float[] src) {
         if (CHECKS) {
-            check(src, dest.length);
+            check(dest, src.length);
         }
-        return nmemcpy(dest, src, dest.length << 2);
+        return nmemcpy(dest, src, Integer.toUnsignedLong(src.length) << 2);
     }
 
     /** Array version of: {@link #nmemcpy} */
@@ -334,9 +334,9 @@ public class LibCString {
     @NativeType("void *")
     public static long memcpy(@NativeType("void *") double[] dest, @NativeType("const void *") double[] src) {
         if (CHECKS) {
-            check(src, dest.length);
+            check(dest, src.length);
         }
-        return nmemcpy(dest, src, dest.length << 3);
+        return nmemcpy(dest, src, Integer.toUnsignedLong(src.length) << 3);
     }
 
     /**
@@ -349,14 +349,14 @@ public class LibCString {
      */
     @NativeType("void *")
     public static <T extends CustomBuffer<T>> long memset(@NativeType("void *") T dest, @NativeType("int") int c) {
-        return nmemset(memAddress(dest), c, (long)dest.remaining() * dest.sizeof());
+        return nmemset(memAddress(dest), c, Integer.toUnsignedLong(dest.remaining()) * dest.sizeof());
     }
 
     /**
-     * Copies characters between buffers.
+     * Copies bytes between memory areas that must not overlap.
      *
-     * @param dest new buffer
-     * @param src  buffer to copy from
+     * @param dest pointer to the destination memory area
+     * @param src  pointer to the source memory area
      *
      * @return the value of {@code dest}
      */

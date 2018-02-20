@@ -96,19 +96,19 @@ public class NVGPUMulticast {
     }
 
     public static void glMulticastBufferSubDataNV(@NativeType("GLbitfield") int gpuMask, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") ShortBuffer data) {
-        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 1, memAddress(data));
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     public static void glMulticastBufferSubDataNV(@NativeType("GLbitfield") int gpuMask, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") IntBuffer data) {
-        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     public static void glMulticastBufferSubDataNV(@NativeType("GLbitfield") int gpuMask, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") FloatBuffer data) {
-        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 2, memAddress(data));
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     public static void glMulticastBufferSubDataNV(@NativeType("GLbitfield") int gpuMask, @NativeType("GLuint") int buffer, @NativeType("GLintptr") long offset, @NativeType("const void *") DoubleBuffer data) {
-        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, data.remaining() << 3, memAddress(data));
+        nglMulticastBufferSubDataNV(gpuMask, buffer, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
     // --- [ glMulticastCopyBufferSubDataNV ] ---
@@ -237,7 +237,7 @@ public class NVGPUMulticast {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, gpuMask, buffer, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
@@ -246,7 +246,7 @@ public class NVGPUMulticast {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, gpuMask, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
@@ -255,7 +255,7 @@ public class NVGPUMulticast {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, gpuMask, buffer, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /** Array version of: {@link #glMulticastBufferSubDataNV MulticastBufferSubDataNV} */
@@ -264,7 +264,7 @@ public class NVGPUMulticast {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPPV(__functionAddress, gpuMask, buffer, offset, (long)(data.length << 3), data);
+        callPPPV(__functionAddress, gpuMask, buffer, offset, Integer.toUnsignedLong(data.length) << 3, data);
     }
 
     /** Array version of: {@link #glMulticastFramebufferSampleLocationsfvNV MulticastFramebufferSampleLocationsfvNV} */

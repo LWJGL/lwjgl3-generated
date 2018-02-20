@@ -285,7 +285,7 @@ public class GL44 {
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
-        nglBufferStorage(target, data.remaining() << 1, memAddress(data), flags);
+        nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), flags);
     }
 
     /**
@@ -341,7 +341,7 @@ public class GL44 {
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLbitfield") int flags) {
-        nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
+        nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     /**
@@ -397,7 +397,7 @@ public class GL44 {
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
-        nglBufferStorage(target, data.remaining() << 2, memAddress(data), flags);
+        nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     /**
@@ -453,7 +453,7 @@ public class GL44 {
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
     public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") DoubleBuffer data, @NativeType("GLbitfield") int flags) {
-        nglBufferStorage(target, data.remaining() << 3, memAddress(data), flags);
+        nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), flags);
     }
 
     // --- [ glClearTexSubImage ] ---
@@ -1013,7 +1013,7 @@ public class GL44 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 1, data, flags);
     }
 
     /**
@@ -1026,7 +1026,7 @@ public class GL44 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
     /**
@@ -1039,7 +1039,7 @@ public class GL44 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
     /**
@@ -1052,7 +1052,7 @@ public class GL44 {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 3), data, flags);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 3, data, flags);
     }
 
     /**

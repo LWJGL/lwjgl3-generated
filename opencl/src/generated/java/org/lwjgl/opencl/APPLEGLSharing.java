@@ -109,7 +109,7 @@ public class APPLEGLSharing {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetGLContextInfoAPPLE(context, platform_gl_ctx, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
 }

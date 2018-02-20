@@ -6688,7 +6688,7 @@ public class VK10 {
      */
     @NativeType("VkResult")
     public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") IntBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
-        return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 2, memAddress(pData), stride, flags);
+        return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, Integer.toUnsignedLong(pData.remaining()) << 2, memAddress(pData), stride, flags);
     }
 
     /**
@@ -6792,7 +6792,7 @@ public class VK10 {
      */
     @NativeType("VkResult")
     public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") LongBuffer pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
-        return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, pData.remaining() << 3, memAddress(pData), stride, flags);
+        return nvkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, Integer.toUnsignedLong(pData.remaining()) << 3, memAddress(pData), stride, flags);
     }
 
     // --- [ vkCreateBuffer ] ---
@@ -14715,14 +14715,14 @@ public class VK10 {
     @NativeType("VkResult")
     public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") int[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
-        return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 2), pData, stride, flags);
+        return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, Integer.toUnsignedLong(pData.length) << 2, pData, stride, flags);
     }
 
     /** Array version of: {@link #vkGetQueryPoolResults GetQueryPoolResults} */
     @NativeType("VkResult")
     public static int vkGetQueryPoolResults(VkDevice device, @NativeType("VkQueryPool") long queryPool, @NativeType("uint32_t") int firstQuery, @NativeType("uint32_t") int queryCount, @NativeType("void *") long[] pData, @NativeType("VkDeviceSize") long stride, @NativeType("VkQueryResultFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkGetQueryPoolResults;
-        return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, (long)(pData.length << 3), pData, stride, flags);
+        return callPJPPJI(__functionAddress, device.address(), queryPool, firstQuery, queryCount, Integer.toUnsignedLong(pData.length) << 3, pData, stride, flags);
     }
 
     /** Array version of: {@link #vkCreateBuffer CreateBuffer} */

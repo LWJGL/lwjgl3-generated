@@ -72,15 +72,15 @@ public class EXTBufferStorage {
     }
 
     public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
-        nglBufferStorageEXT(target, data.remaining() << 1, memAddress(data), flags);
+        nglBufferStorageEXT(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), flags);
     }
 
     public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLbitfield") int flags) {
-        nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
+        nglBufferStorageEXT(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     public static void glBufferStorageEXT(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
-        nglBufferStorageEXT(target, data.remaining() << 2, memAddress(data), flags);
+        nglBufferStorageEXT(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     // --- [ glNamedBufferStorageEXT ] ---
@@ -96,15 +96,15 @@ public class EXTBufferStorage {
     }
 
     public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
-        nglNamedBufferStorageEXT(buffer, data.remaining() << 1, memAddress(data), flags);
+        nglNamedBufferStorageEXT(buffer, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), flags);
     }
 
     public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") IntBuffer data, @NativeType("GLbitfield") int flags) {
-        nglNamedBufferStorageEXT(buffer, data.remaining() << 2, memAddress(data), flags);
+        nglNamedBufferStorageEXT(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     public static void glNamedBufferStorageEXT(@NativeType("GLuint") int buffer, @NativeType("const void *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
-        nglNamedBufferStorageEXT(buffer, data.remaining() << 2, memAddress(data), flags);
+        nglNamedBufferStorageEXT(buffer, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
     /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
@@ -113,7 +113,7 @@ public class EXTBufferStorage {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 1), data, flags);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 1, data, flags);
     }
 
     /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
@@ -122,7 +122,7 @@ public class EXTBufferStorage {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
     /** Array version of: {@link #glBufferStorageEXT BufferStorageEXT} */
@@ -131,7 +131,7 @@ public class EXTBufferStorage {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
     /** Array version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
@@ -140,7 +140,7 @@ public class EXTBufferStorage {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 1), data, flags);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 1, data, flags);
     }
 
     /** Array version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
@@ -149,7 +149,7 @@ public class EXTBufferStorage {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
     /** Array version of: {@link #glNamedBufferStorageEXT NamedBufferStorageEXT} */
@@ -158,7 +158,7 @@ public class EXTBufferStorage {
         if (CHECKS) {
             check(__functionAddress);
         }
-        callPPV(__functionAddress, buffer, (long)(data.length << 2), data, flags);
+        callPPV(__functionAddress, buffer, Integer.toUnsignedLong(data.length) << 2, data, flags);
     }
 
 }

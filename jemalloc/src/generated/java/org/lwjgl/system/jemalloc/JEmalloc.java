@@ -496,7 +496,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") ShortBuffer ptr, int flags) {
-        nje_sdallocx(memAddress(ptr), ptr.remaining() << 1, flags);
+        nje_sdallocx(memAddress(ptr), Integer.toUnsignedLong(ptr.remaining()) << 1, flags);
     }
 
     /**
@@ -506,7 +506,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") IntBuffer ptr, int flags) {
-        nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
+        nje_sdallocx(memAddress(ptr), Integer.toUnsignedLong(ptr.remaining()) << 2, flags);
     }
 
     /**
@@ -516,7 +516,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") LongBuffer ptr, int flags) {
-        nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
+        nje_sdallocx(memAddress(ptr), Integer.toUnsignedLong(ptr.remaining()) << 3, flags);
     }
 
     /**
@@ -526,7 +526,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") FloatBuffer ptr, int flags) {
-        nje_sdallocx(memAddress(ptr), ptr.remaining() << 2, flags);
+        nje_sdallocx(memAddress(ptr), Integer.toUnsignedLong(ptr.remaining()) << 2, flags);
     }
 
     /**
@@ -536,7 +536,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") DoubleBuffer ptr, int flags) {
-        nje_sdallocx(memAddress(ptr), ptr.remaining() << 3, flags);
+        nje_sdallocx(memAddress(ptr), Integer.toUnsignedLong(ptr.remaining()) << 3, flags);
     }
 
     /**
@@ -546,7 +546,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     public static void je_sdallocx(@NativeType("void *") PointerBuffer ptr, int flags) {
-        nje_sdallocx(memAddress(ptr), ptr.remaining() << POINTER_SHIFT, flags);
+        nje_sdallocx(memAddress(ptr), Integer.toUnsignedLong(ptr.remaining()) << POINTER_SHIFT, flags);
     }
 
     // --- [ je_nallocx ] ---

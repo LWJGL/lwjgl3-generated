@@ -297,7 +297,7 @@ public class CL20 {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetPipeInfo(pipe, param_name, remainingSafe(param_value) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetPipeInfo(pipe, param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << 2, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
     // --- [ clSVMAlloc ] ---
@@ -874,7 +874,7 @@ public class CL20 {
      */
     @NativeType("cl_int")
     public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") PointerBuffer param_value) {
-        return nclSetKernelExecInfo(kernel, param_name, param_value.remaining() << POINTER_SHIFT, memAddress(param_value));
+        return nclSetKernelExecInfo(kernel, param_name, Integer.toUnsignedLong(param_value.remaining()) << POINTER_SHIFT, memAddress(param_value));
     }
 
     /**
@@ -927,7 +927,7 @@ public class CL20 {
      */
     @NativeType("cl_int")
     public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") IntBuffer param_value) {
-        return nclSetKernelExecInfo(kernel, param_name, param_value.remaining() << 2, memAddress(param_value));
+        return nclSetKernelExecInfo(kernel, param_name, Integer.toUnsignedLong(param_value.remaining()) << 2, memAddress(param_value));
     }
 
     // --- [ clCreateSamplerWithProperties ] ---
@@ -1022,7 +1022,7 @@ public class CL20 {
             check(pipe);
             checkSafe(param_value_size_ret, 1);
         }
-        return callPPPPI(__functionAddress, pipe, param_name, (long)(lengthSafe(param_value) << 2), param_value, memAddressSafe(param_value_size_ret));
+        return callPPPPI(__functionAddress, pipe, param_name, Integer.toUnsignedLong(lengthSafe(param_value)) << 2, param_value, memAddressSafe(param_value_size_ret));
     }
 
     /**
@@ -1037,7 +1037,7 @@ public class CL20 {
             check(__functionAddress);
             check(kernel);
         }
-        return callPPPI(__functionAddress, kernel, param_name, (long)(param_value.length << 2), param_value);
+        return callPPPI(__functionAddress, kernel, param_name, Integer.toUnsignedLong(param_value.length) << 2, param_value);
     }
 
     /**

@@ -452,17 +452,17 @@ public class GLES20 {
 
     /** <a target="_blank" href="http://docs.gl/es3/glBufferData">Reference Page</a> */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 1, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), usage);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glBufferData">Reference Page</a> */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glBufferData">Reference Page</a> */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
-        nglBufferData(target, data.remaining() << 2, memAddress(data), usage);
+        nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
     // --- [ glBufferSubData ] ---
@@ -476,17 +476,17 @@ public class GLES20 {
 
     /** <a target="_blank" href="http://docs.gl/es3/glBufferSubData">Reference Page</a> */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") ShortBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 1, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glBufferSubData">Reference Page</a> */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") IntBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     /** <a target="_blank" href="http://docs.gl/es3/glBufferSubData">Reference Page</a> */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") FloatBuffer data) {
-        nglBufferSubData(target, offset, data.remaining() << 2, memAddress(data));
+        nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
     // --- [ glCheckFramebufferStatus ] ---
@@ -2020,7 +2020,7 @@ public class GLES20 {
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") short[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GLES.getICD().glBufferData;
-        callPPV(__functionAddress, target, (long)(data.length << 1), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 1, data, usage);
     }
 
     /**
@@ -2030,7 +2030,7 @@ public class GLES20 {
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") int[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GLES.getICD().glBufferData;
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /**
@@ -2040,7 +2040,7 @@ public class GLES20 {
      */
     public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") float[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GLES.getICD().glBufferData;
-        callPPV(__functionAddress, target, (long)(data.length << 2), data, usage);
+        callPPV(__functionAddress, target, Integer.toUnsignedLong(data.length) << 2, data, usage);
     }
 
     /**
@@ -2050,7 +2050,7 @@ public class GLES20 {
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") short[] data) {
         long __functionAddress = GLES.getICD().glBufferSubData;
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 1), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 1, data);
     }
 
     /**
@@ -2060,7 +2060,7 @@ public class GLES20 {
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") int[] data) {
         long __functionAddress = GLES.getICD().glBufferSubData;
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**
@@ -2070,7 +2070,7 @@ public class GLES20 {
      */
     public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") float[] data) {
         long __functionAddress = GLES.getICD().glBufferSubData;
-        callPPPV(__functionAddress, target, offset, (long)(data.length << 2), data);
+        callPPPV(__functionAddress, target, offset, Integer.toUnsignedLong(data.length) << 2, data);
     }
 
     /**

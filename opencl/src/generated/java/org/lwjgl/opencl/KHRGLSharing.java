@@ -192,7 +192,7 @@ public class KHRGLSharing {
             checkNT(properties);
             checkSafe(param_value_size_ret, 1);
         }
-        return nclGetGLContextInfoKHR(memAddress(properties), param_name, remainingSafe(param_value) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
+        return nclGetGLContextInfoKHR(memAddress(properties), param_name, Integer.toUnsignedLong(remainingSafe(param_value)) << POINTER_SHIFT, memAddressSafe(param_value), memAddressSafe(param_value_size_ret));
     }
 
 }
