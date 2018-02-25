@@ -66,7 +66,7 @@ public class ARBBlendFuncExtended {
      * @param index       the index of the color input to bind the user-defined varying out variable to
      * @param name        the name of the user-defined varying out variable whose binding to modify
      */
-    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("const GLchar *") ByteBuffer name) {
+    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -81,7 +81,7 @@ public class ARBBlendFuncExtended {
      * @param index       the index of the color input to bind the user-defined varying out variable to
      * @param name        the name of the user-defined varying out variable whose binding to modify
      */
-    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("const GLchar *") CharSequence name) {
+    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -103,7 +103,7 @@ public class ARBBlendFuncExtended {
      * @param name    the name of the user-defined varying out variable whose index to query
      */
     @NativeType("GLint")
-    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -117,7 +117,7 @@ public class ARBBlendFuncExtended {
      * @param name    the name of the user-defined varying out variable whose index to query
      */
     @NativeType("GLint")
-    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);

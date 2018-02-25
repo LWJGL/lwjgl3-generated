@@ -16,7 +16,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemset__JIJ(JNIEn
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy__JJJ(JNIEnv *__env, jclass clazz, jlong destAddress, jlong srcAddress, jlong count) {
     void *dest = (void *)(intptr_t)destAddress;
-    const void *src = (const void *)(intptr_t)srcAddress;
+    void const *src = (void const *)(intptr_t)srcAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)memcpy(dest, src, (size_t)count);
 }
@@ -104,7 +104,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3B_3BJ(J
     jbyte *dest = (*__env)->GetPrimitiveArrayCritical(__env, destAddress, 0);
     jbyte *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    __result = (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, destAddress, dest, 0);
     return __result;
@@ -112,7 +112,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3B_3BJ(J
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_system_libc_LibCString_nmemcpy___3B_3BJ(jint dest__length, jbyte* dest, jint src__length, jbyte* src, jlong count) {
     UNUSED_PARAM(dest__length)
     UNUSED_PARAM(src__length)
-    return (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    return (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3S_3SJ(JNIEnv *__env, jclass clazz, jshortArray destAddress, jshortArray srcAddress, jlong count) {
@@ -120,7 +120,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3S_3SJ(J
     jshort *dest = (*__env)->GetPrimitiveArrayCritical(__env, destAddress, 0);
     jshort *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    __result = (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, destAddress, dest, 0);
     return __result;
@@ -128,7 +128,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3S_3SJ(J
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_system_libc_LibCString_nmemcpy___3S_3SJ(jint dest__length, jshort* dest, jint src__length, jshort* src, jlong count) {
     UNUSED_PARAM(dest__length)
     UNUSED_PARAM(src__length)
-    return (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    return (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3I_3IJ(JNIEnv *__env, jclass clazz, jintArray destAddress, jintArray srcAddress, jlong count) {
@@ -136,7 +136,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3I_3IJ(J
     jint *dest = (*__env)->GetPrimitiveArrayCritical(__env, destAddress, 0);
     jint *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    __result = (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, destAddress, dest, 0);
     return __result;
@@ -144,7 +144,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3I_3IJ(J
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_system_libc_LibCString_nmemcpy___3I_3IJ(jint dest__length, jint* dest, jint src__length, jint* src, jlong count) {
     UNUSED_PARAM(dest__length)
     UNUSED_PARAM(src__length)
-    return (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    return (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3J_3JJ(JNIEnv *__env, jclass clazz, jlongArray destAddress, jlongArray srcAddress, jlong count) {
@@ -152,7 +152,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3J_3JJ(J
     jlong *dest = (*__env)->GetPrimitiveArrayCritical(__env, destAddress, 0);
     jlong *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    __result = (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, destAddress, dest, 0);
     return __result;
@@ -160,7 +160,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3J_3JJ(J
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_system_libc_LibCString_nmemcpy___3J_3JJ(jint dest__length, jlong* dest, jint src__length, jlong* src, jlong count) {
     UNUSED_PARAM(dest__length)
     UNUSED_PARAM(src__length)
-    return (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    return (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3F_3FJ(JNIEnv *__env, jclass clazz, jfloatArray destAddress, jfloatArray srcAddress, jlong count) {
@@ -168,7 +168,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3F_3FJ(J
     jfloat *dest = (*__env)->GetPrimitiveArrayCritical(__env, destAddress, 0);
     jfloat *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    __result = (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, destAddress, dest, 0);
     return __result;
@@ -176,7 +176,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3F_3FJ(J
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_system_libc_LibCString_nmemcpy___3F_3FJ(jint dest__length, jfloat* dest, jint src__length, jfloat* src, jlong count) {
     UNUSED_PARAM(dest__length)
     UNUSED_PARAM(src__length)
-    return (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    return (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3D_3DJ(JNIEnv *__env, jclass clazz, jdoubleArray destAddress, jdoubleArray srcAddress, jlong count) {
@@ -184,7 +184,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3D_3DJ(J
     jdouble *dest = (*__env)->GetPrimitiveArrayCritical(__env, destAddress, 0);
     jdouble *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    __result = (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, destAddress, dest, 0);
     return __result;
@@ -192,7 +192,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCString_nmemcpy___3D_3DJ(J
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_system_libc_LibCString_nmemcpy___3D_3DJ(jint dest__length, jdouble* dest, jint src__length, jdouble* src, jlong count) {
     UNUSED_PARAM(dest__length)
     UNUSED_PARAM(src__length)
-    return (jlong)(intptr_t)memcpy((void *)dest, (const void *)src, (size_t)count);
+    return (jlong)(intptr_t)memcpy((void *)dest, (void const *)src, (size_t)count);
 }
 
 EXTERN_C_EXIT

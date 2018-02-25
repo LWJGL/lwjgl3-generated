@@ -59,7 +59,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkSemaphoreGetFdInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkSemaphore semaphore;
  *     VkExternalSemaphoreHandleTypeFlagBitsKHR handleType;
  * }</pre></code>
@@ -116,7 +116,7 @@ public class VkSemaphoreGetFdInfoKHR extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code semaphore} field. */
     @NativeType("VkSemaphore")
@@ -128,7 +128,7 @@ public class VkSemaphoreGetFdInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkSemaphoreGetFdInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSemaphoreGetFdInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkSemaphoreGetFdInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code semaphore} field. */
     public VkSemaphoreGetFdInfoKHR semaphore(@NativeType("VkSemaphore") long value) { nsemaphore(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
@@ -370,7 +370,7 @@ public class VkSemaphoreGetFdInfoKHR extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkSemaphoreGetFdInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkSemaphoreGetFdInfoKHR.npNext(address()); }
         /** Returns the value of the {@code semaphore} field. */
         @NativeType("VkSemaphore")
@@ -382,7 +382,7 @@ public class VkSemaphoreGetFdInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkSemaphoreGetFdInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSemaphoreGetFdInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSemaphoreGetFdInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkSemaphoreGetFdInfoKHR.npNext(address(), value); return this; }
+        public VkSemaphoreGetFdInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkSemaphoreGetFdInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code semaphore} field. */
         public VkSemaphoreGetFdInfoKHR.Buffer semaphore(@NativeType("VkSemaphore") long value) { VkSemaphoreGetFdInfoKHR.nsemaphore(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */

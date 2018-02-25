@@ -10,36 +10,36 @@ typedef void (APIENTRY *glUniform1i64NVPROC) (jint, jlong);
 typedef void (APIENTRY *glUniform2i64NVPROC) (jint, jlong, jlong);
 typedef void (APIENTRY *glUniform3i64NVPROC) (jint, jlong, jlong, jlong);
 typedef void (APIENTRY *glUniform4i64NVPROC) (jint, jlong, jlong, jlong, jlong);
-typedef void (APIENTRY *glUniform1i64vNVPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniform2i64vNVPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniform3i64vNVPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniform4i64vNVPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glUniform1i64vNVPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniform2i64vNVPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniform3i64vNVPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniform4i64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glUniform1ui64NVPROC) (jint, jlong);
 typedef void (APIENTRY *glUniform2ui64NVPROC) (jint, jlong, jlong);
 typedef void (APIENTRY *glUniform3ui64NVPROC) (jint, jlong, jlong, jlong);
 typedef void (APIENTRY *glUniform4ui64NVPROC) (jint, jlong, jlong, jlong, jlong);
-typedef void (APIENTRY *glUniform1ui64vNVPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glUniform1ui64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glUniform2ui64vNVPROC) (jint, jint, intptr_t);
-typedef void (APIENTRY *glUniform3ui64vNVPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniform4ui64vNVPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glUniform3ui64vNVPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniform4ui64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetUniformi64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetUniformui64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glProgramUniform1i64NVPROC) (jint, jint, jlong);
 typedef void (APIENTRY *glProgramUniform2i64NVPROC) (jint, jint, jlong, jlong);
 typedef void (APIENTRY *glProgramUniform3i64NVPROC) (jint, jint, jlong, jlong, jlong);
 typedef void (APIENTRY *glProgramUniform4i64NVPROC) (jint, jint, jlong, jlong, jlong, jlong);
-typedef void (APIENTRY *glProgramUniform1i64vNVPROC) (jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glProgramUniform2i64vNVPROC) (jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glProgramUniform3i64vNVPROC) (jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glProgramUniform4i64vNVPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glProgramUniform1i64vNVPROC) (jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glProgramUniform2i64vNVPROC) (jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glProgramUniform3i64vNVPROC) (jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glProgramUniform4i64vNVPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glProgramUniform1ui64NVPROC) (jint, jint, jlong);
 typedef void (APIENTRY *glProgramUniform2ui64NVPROC) (jint, jint, jlong, jlong);
 typedef void (APIENTRY *glProgramUniform3ui64NVPROC) (jint, jint, jlong, jlong, jlong);
 typedef void (APIENTRY *glProgramUniform4ui64NVPROC) (jint, jint, jlong, jlong, jlong, jlong);
-typedef void (APIENTRY *glProgramUniform1ui64vNVPROC) (jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glProgramUniform2ui64vNVPROC) (jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glProgramUniform3ui64vNVPROC) (jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glProgramUniform4ui64vNVPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glProgramUniform1ui64vNVPROC) (jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glProgramUniform2ui64vNVPROC) (jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glProgramUniform3ui64vNVPROC) (jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glProgramUniform4ui64vNVPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -69,28 +69,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_glUniform4i64NV(JNIE
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform1i64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform1i64vNVPROC glUniform1i64vNV = (glUniform1i64vNVPROC)tlsGetFunction(736);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform1i64vNV(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform2i64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform2i64vNVPROC glUniform2i64vNV = (glUniform2i64vNVPROC)tlsGetFunction(746);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform2i64vNV(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform3i64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform3i64vNVPROC glUniform3i64vNV = (glUniform3i64vNVPROC)tlsGetFunction(756);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform3i64vNV(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform4i64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform4i64vNVPROC glUniform4i64vNV = (glUniform4i64vNVPROC)tlsGetFunction(766);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform4i64vNV(location, count, value);
 }
@@ -121,7 +121,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_glUniform4ui64NV(JNI
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform1ui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform1ui64vNVPROC glUniform1ui64vNV = (glUniform1ui64vNVPROC)tlsGetFunction(740);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform1ui64vNV(location, count, value);
 }
@@ -135,14 +135,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform2ui64vNV__
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform3ui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform3ui64vNVPROC glUniform3ui64vNV = (glUniform3ui64vNVPROC)tlsGetFunction(760);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform3ui64vNV(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglUniform4ui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform4ui64vNVPROC glUniform4ui64vNV = (glUniform4ui64vNVPROC)tlsGetFunction(770);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform4ui64vNV(location, count, value);
 }
@@ -187,28 +187,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_glProgramUniform4i64
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform1i64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform1i64vNVPROC glProgramUniform1i64vNV = (glProgramUniform1i64vNVPROC)tlsGetFunction(536);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform1i64vNV(program, location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform2i64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform2i64vNVPROC glProgramUniform2i64vNV = (glProgramUniform2i64vNVPROC)tlsGetFunction(552);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform2i64vNV(program, location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform3i64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform3i64vNVPROC glProgramUniform3i64vNV = (glProgramUniform3i64vNVPROC)tlsGetFunction(568);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform3i64vNV(program, location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform4i64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform4i64vNVPROC glProgramUniform4i64vNV = (glProgramUniform4i64vNVPROC)tlsGetFunction(584);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform4i64vNV(program, location, count, value);
 }
@@ -239,28 +239,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_glProgramUniform4ui6
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform1ui64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform1ui64vNVPROC glProgramUniform1ui64vNV = (glProgramUniform1ui64vNVPROC)tlsGetFunction(542);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform1ui64vNV(program, location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform2ui64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform2ui64vNVPROC glProgramUniform2ui64vNV = (glProgramUniform2ui64vNVPROC)tlsGetFunction(558);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform2ui64vNV(program, location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform3ui64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform3ui64vNVPROC glProgramUniform3ui64vNV = (glProgramUniform3ui64vNVPROC)tlsGetFunction(574);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform3ui64vNV(program, location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_NVGPUShader5_nglProgramUniform4ui64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniform4ui64vNVPROC glProgramUniform4ui64vNV = (glProgramUniform4ui64vNVPROC)tlsGetFunction(590);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniform4ui64vNV(program, location, count, value);
 }

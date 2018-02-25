@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct ovrAudioChannelData {
- *     const float * Samples;
+ *     float const * Samples;
  *     int SamplesCount;
  *     int Frequency;
  * }</pre></code>
@@ -84,7 +84,7 @@ public class OVRAudioChannelData extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code Samples} field. */
-    @NativeType("const float *")
+    @NativeType("float const *")
     public FloatBuffer Samples() { return nSamples(address()); }
     /** Returns the value of the {@code SamplesCount} field. */
     public int SamplesCount() { return nSamplesCount(address()); }
@@ -286,7 +286,7 @@ public class OVRAudioChannelData extends Struct implements NativeResource {
         }
 
         /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code Samples} field. */
-        @NativeType("const float *")
+        @NativeType("float const *")
         public FloatBuffer Samples() { return OVRAudioChannelData.nSamples(address()); }
         /** Returns the value of the {@code SamplesCount} field. */
         public int SamplesCount() { return OVRAudioChannelData.nSamplesCount(address()); }

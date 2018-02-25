@@ -8,10 +8,10 @@
 
 typedef void (APIENTRY *glGetUnsignedBytevEXTPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGetUnsignedBytei_vEXTPROC) (jint, jint, intptr_t);
-typedef void (APIENTRY *glDeleteMemoryObjectsEXTPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteMemoryObjectsEXTPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsMemoryObjectEXTPROC) (jint);
 typedef void (APIENTRY *glCreateMemoryObjectsEXTPROC) (jint, intptr_t);
-typedef void (APIENTRY *glMemoryObjectParameterivEXTPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glMemoryObjectParameterivEXTPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetMemoryObjectParameterivEXTPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glTexStorageMem2DEXTPROC) (jint, jint, jint, jint, jint, jint, jlong);
 typedef void (APIENTRY *glTexStorageMem2DMultisampleEXTPROC) (jint, jint, jint, jint, jint, jboolean, jint, jlong);
@@ -42,7 +42,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMemoryObject_nglGetUnsignedByt
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMemoryObject_nglDeleteMemoryObjectsEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong memoryObjectsAddress) {
     glDeleteMemoryObjectsEXTPROC glDeleteMemoryObjectsEXT = (glDeleteMemoryObjectsEXTPROC)tlsGetFunction(125);
-    const intptr_t memoryObjects = (const intptr_t)memoryObjectsAddress;
+    intptr_t memoryObjects = (intptr_t)memoryObjectsAddress;
     UNUSED_PARAM(clazz)
     glDeleteMemoryObjectsEXT(n, memoryObjects);
 }
@@ -62,7 +62,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMemoryObject_nglCreateMemoryOb
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMemoryObject_nglMemoryObjectParameterivEXT__IIJ(JNIEnv *__env, jclass clazz, jint memoryObject, jint pname, jlong paramsAddress) {
     glMemoryObjectParameterivEXTPROC glMemoryObjectParameterivEXT = (glMemoryObjectParameterivEXTPROC)tlsGetFunction(475);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glMemoryObjectParameterivEXT(memoryObject, pname, params);
 }

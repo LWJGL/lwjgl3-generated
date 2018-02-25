@@ -139,7 +139,7 @@ public class LZ4Frame {
      * @param code 
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String LZ4F_getErrorName(@NativeType("LZ4F_errorCode_t") long code) {
         long __result = nLZ4F_getErrorName(code);
         return memASCIISafe(__result);
@@ -168,7 +168,7 @@ public class LZ4Frame {
      * @param preferencesPtr 
      */
     @NativeType("size_t")
-    public static long LZ4F_compressFrameBound(@NativeType("size_t") long srcSize, @Nullable @NativeType("const LZ4F_preferences_t *") LZ4FPreferences preferencesPtr) {
+    public static long LZ4F_compressFrameBound(@NativeType("size_t") long srcSize, @Nullable @NativeType("LZ4F_preferences_t const *") LZ4FPreferences preferencesPtr) {
         return nLZ4F_compressFrameBound(srcSize, memAddressSafe(preferencesPtr));
     }
 
@@ -193,7 +193,7 @@ public class LZ4Frame {
      * @return number of bytes written into {@code dstBuffer} or an error code if it fails (can be tested using {@link #LZ4F_isError isError})
      */
     @NativeType("size_t")
-    public static long LZ4F_compressFrame(@NativeType("void *") ByteBuffer dstBuffer, @NativeType("const void *") ByteBuffer srcBuffer, @Nullable @NativeType("const LZ4F_preferences_t *") LZ4FPreferences preferencesPtr) {
+    public static long LZ4F_compressFrame(@NativeType("void *") ByteBuffer dstBuffer, @NativeType("void const *") ByteBuffer srcBuffer, @Nullable @NativeType("LZ4F_preferences_t const *") LZ4FPreferences preferencesPtr) {
         return nLZ4F_compressFrame(memAddress(dstBuffer), dstBuffer.remaining(), memAddress(srcBuffer), srcBuffer.remaining(), memAddressSafe(preferencesPtr));
     }
 
@@ -257,7 +257,7 @@ public class LZ4Frame {
      * @return number of bytes written into {@code dstBuffer} for the header or an error code (which can be tested using {@link #LZ4F_isError isError})
      */
     @NativeType("size_t")
-    public static long LZ4F_compressBegin(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @Nullable @NativeType("const LZ4F_preferences_t *") LZ4FPreferences prefsPtr) {
+    public static long LZ4F_compressBegin(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @Nullable @NativeType("LZ4F_preferences_t const *") LZ4FPreferences prefsPtr) {
         if (CHECKS) {
             check(cctx);
         }
@@ -281,7 +281,7 @@ public class LZ4Frame {
      * @param prefsPtr optional: when {@code NULL} is provided, preferences will be set to cover worst case scenario
      */
     @NativeType("size_t")
-    public static long LZ4F_compressBound(@NativeType("size_t") long srcSize, @Nullable @NativeType("const LZ4F_preferences_t *") LZ4FPreferences prefsPtr) {
+    public static long LZ4F_compressBound(@NativeType("size_t") long srcSize, @Nullable @NativeType("LZ4F_preferences_t const *") LZ4FPreferences prefsPtr) {
         return nLZ4F_compressBound(srcSize, memAddressSafe(prefsPtr));
     }
 
@@ -307,7 +307,7 @@ public class LZ4Frame {
      *         using {@link #LZ4F_isError isError})
      */
     @NativeType("size_t")
-    public static long LZ4F_compressUpdate(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("const void *") ByteBuffer srcBuffer, @Nullable @NativeType("const LZ4F_compressOptions_t *") LZ4FCompressOptions cOptPtr) {
+    public static long LZ4F_compressUpdate(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("void const *") ByteBuffer srcBuffer, @Nullable @NativeType("LZ4F_compressOptions_t const *") LZ4FCompressOptions cOptPtr) {
         if (CHECKS) {
             check(cctx);
         }
@@ -335,7 +335,7 @@ public class LZ4Frame {
      *         (which can be tested using {@link #LZ4F_isError isError})
      */
     @NativeType("size_t")
-    public static long LZ4F_flush(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @Nullable @NativeType("const LZ4F_compressOptions_t *") LZ4FCompressOptions cOptPtr) {
+    public static long LZ4F_flush(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @Nullable @NativeType("LZ4F_compressOptions_t const *") LZ4FCompressOptions cOptPtr) {
         if (CHECKS) {
             check(cctx);
         }
@@ -361,7 +361,7 @@ public class LZ4Frame {
      *         <p>A successful call to {@link #LZ4F_compressEnd compressEnd} makes {@code cctx} available again for another compression task.</p>
      */
     @NativeType("size_t")
-    public static long LZ4F_compressEnd(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @Nullable @NativeType("const LZ4F_compressOptions_t *") LZ4FCompressOptions cOptPtr) {
+    public static long LZ4F_compressEnd(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @Nullable @NativeType("LZ4F_compressOptions_t const *") LZ4FCompressOptions cOptPtr) {
         if (CHECKS) {
             check(cctx);
         }
@@ -452,7 +452,7 @@ public class LZ4Frame {
      * @return an hint about how many srcSize bytes LZ4F_decompress() expects for next call, or an error code which can be tested using LZ4F_isError()
      */
     @NativeType("size_t")
-    public static long LZ4F_getFrameInfo(@NativeType("LZ4F_dctx *") long dctx, @NativeType("LZ4F_frameInfo_t *") LZ4FFrameInfo frameInfoPtr, @NativeType("const void *") ByteBuffer srcBuffer, @NativeType("size_t *") PointerBuffer srcSizePtr) {
+    public static long LZ4F_getFrameInfo(@NativeType("LZ4F_dctx *") long dctx, @NativeType("LZ4F_frameInfo_t *") LZ4FFrameInfo frameInfoPtr, @NativeType("void const *") ByteBuffer srcBuffer, @NativeType("size_t *") PointerBuffer srcSizePtr) {
         if (CHECKS) {
             check(dctx);
             check(srcSizePtr, 1);
@@ -503,7 +503,7 @@ public class LZ4Frame {
      *         resumable. Use {@link #LZ4F_resetDecompressionContext resetDecompressionContext} to return to clean state.</p>
      */
     @NativeType("size_t")
-    public static long LZ4F_decompress(@NativeType("LZ4F_dctx *") long dctx, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("size_t *") PointerBuffer dstSizePtr, @NativeType("const void *") ByteBuffer srcBuffer, @NativeType("size_t *") PointerBuffer srcSizePtr, @NativeType("const LZ4F_decompressOptions_t *") LZ4FDecompressOptions dOptPtr) {
+    public static long LZ4F_decompress(@NativeType("LZ4F_dctx *") long dctx, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("size_t *") PointerBuffer dstSizePtr, @NativeType("void const *") ByteBuffer srcBuffer, @NativeType("size_t *") PointerBuffer srcSizePtr, @NativeType("LZ4F_decompressOptions_t const *") LZ4FDecompressOptions dOptPtr) {
         if (CHECKS) {
             check(dctx);
             check(dstSizePtr, 1);

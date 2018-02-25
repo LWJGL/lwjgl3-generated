@@ -18,7 +18,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <code><pre>
  * int (*) (
- *     const struct nk_text_edit *edit,
+ *     struct nk_text_edit const *edit,
  *     nk_rune unicode
  * )</pre></code>
  */

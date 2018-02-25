@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glGetProgramBinaryPROC) (jint, jint, intptr_t, intptr_t, intptr_t);
-typedef void (APIENTRY *glProgramBinaryPROC) (jint, jint, const intptr_t, jint);
+typedef void (APIENTRY *glProgramBinaryPROC) (jint, jint, intptr_t, jint);
 typedef void (APIENTRY *glProgramParameteriPROC) (jint, jint, jint);
 
 EXTERN_C_ENTER
@@ -23,7 +23,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglGetProgramBi
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBGetProgramBinary_nglProgramBinary(JNIEnv *__env, jclass clazz, jint program, jint binaryFormat, jlong binaryAddress, jint length) {
     glProgramBinaryPROC glProgramBinary = (glProgramBinaryPROC)tlsGetFunction(1273);
-    const intptr_t binary = (const intptr_t)binaryAddress;
+    intptr_t binary = (intptr_t)binaryAddress;
     UNUSED_PARAM(clazz)
     glProgramBinary(program, binaryFormat, binary, length);
 }

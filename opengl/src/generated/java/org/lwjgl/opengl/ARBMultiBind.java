@@ -78,7 +78,7 @@ public class ARBMultiBind {
      * @param first   the first binding
      * @param buffers an array of zeros or names of existing buffers objects
      */
-    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer buffers) {
+    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer buffers) {
         nglBindBuffersBase(target, first, remainingSafe(buffers), memAddressSafe(buffers));
     }
 
@@ -119,7 +119,7 @@ public class ARBMultiBind {
      * @param offsets an array of offsets
      * @param sizes   an array of sizes
      */
-    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizeiptr *") PointerBuffer sizes) {
+    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizeiptr const *") PointerBuffer sizes) {
         if (CHECKS) {
             checkSafe(offsets, remainingSafe(buffers));
             checkSafe(sizes, remainingSafe(buffers));
@@ -175,7 +175,7 @@ public class ARBMultiBind {
      * @param first    the first texture objects
      * @param textures an array of zeros or names of existing texture objects
      */
-    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer textures) {
+    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer textures) {
         nglBindTextures(first, remainingSafe(textures), memAddressSafe(textures));
     }
 
@@ -211,7 +211,7 @@ public class ARBMultiBind {
      * @param first    the first sampler object
      * @param samplers an array of zeros or names of existing sampler objects
      */
-    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer samplers) {
+    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer samplers) {
         nglBindSamplers(first, remainingSafe(samplers), memAddressSafe(samplers));
     }
 
@@ -258,7 +258,7 @@ public class ARBMultiBind {
      * @param first    the first image unit
      * @param textures an array of zeros or names of existing texture objects
      */
-    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer textures) {
+    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer textures) {
         nglBindImageTextures(first, remainingSafe(textures), memAddressSafe(textures));
     }
 
@@ -301,7 +301,7 @@ public class ARBMultiBind {
      * @param offsets an array of offses
      * @param strides an array of stride values
      */
-    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizei *") IntBuffer strides) {
+    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizei const *") IntBuffer strides) {
         if (CHECKS) {
             checkSafe(offsets, remainingSafe(buffers));
             checkSafe(strides, remainingSafe(buffers));
@@ -310,7 +310,7 @@ public class ARBMultiBind {
     }
 
     /** Array version of: {@link #glBindBuffersBase BindBuffersBase} */
-    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] buffers) {
+    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] buffers) {
         long __functionAddress = GL.getICD().glBindBuffersBase;
         if (CHECKS) {
             check(__functionAddress);
@@ -319,7 +319,7 @@ public class ARBMultiBind {
     }
 
     /** Array version of: {@link #glBindBuffersRange BindBuffersRange} */
-    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizeiptr *") PointerBuffer sizes) {
+    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizeiptr const *") PointerBuffer sizes) {
         long __functionAddress = GL.getICD().glBindBuffersRange;
         if (CHECKS) {
             check(__functionAddress);
@@ -330,7 +330,7 @@ public class ARBMultiBind {
     }
 
     /** Array version of: {@link #glBindTextures BindTextures} */
-    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] textures) {
+    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] textures) {
         long __functionAddress = GL.getICD().glBindTextures;
         if (CHECKS) {
             check(__functionAddress);
@@ -339,7 +339,7 @@ public class ARBMultiBind {
     }
 
     /** Array version of: {@link #glBindSamplers BindSamplers} */
-    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] samplers) {
+    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] samplers) {
         long __functionAddress = GL.getICD().glBindSamplers;
         if (CHECKS) {
             check(__functionAddress);
@@ -348,7 +348,7 @@ public class ARBMultiBind {
     }
 
     /** Array version of: {@link #glBindImageTextures BindImageTextures} */
-    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] textures) {
+    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] textures) {
         long __functionAddress = GL.getICD().glBindImageTextures;
         if (CHECKS) {
             check(__functionAddress);
@@ -357,7 +357,7 @@ public class ARBMultiBind {
     }
 
     /** Array version of: {@link #glBindVertexBuffers BindVertexBuffers} */
-    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizei *") int[] strides) {
+    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizei const *") int[] strides) {
         long __functionAddress = GL.getICD().glBindVertexBuffers;
         if (CHECKS) {
             check(__functionAddress);

@@ -16,10 +16,10 @@ typedef void (APIENTRY *glGetBufferParameterui64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetNamedBufferParameterui64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetIntegerui64vNVPROC) (jint, intptr_t);
 typedef void (APIENTRY *glUniformui64NVPROC) (jint, jlong);
-typedef void (APIENTRY *glUniformui64vNVPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glUniformui64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetUniformui64vNVPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glProgramUniformui64NVPROC) (jint, jint, jlong);
-typedef void (APIENTRY *glProgramUniformui64vNVPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glProgramUniformui64vNVPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -88,7 +88,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_glUniformui64NV(
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglUniformui64vNV__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniformui64vNVPROC glUniformui64vNV = (glUniformui64vNVPROC)tlsGetFunction(1859);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformui64vNV(location, count, value);
 }
@@ -108,7 +108,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_glProgramUniform
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVShaderBufferLoad_nglProgramUniformui64vNV__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint location, jint count, jlong valueAddress) {
     glProgramUniformui64vNVPROC glProgramUniformui64vNV = (glProgramUniformui64vNVPROC)tlsGetFunction(1426);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glProgramUniformui64vNV(program, location, count, value);
 }

@@ -189,7 +189,7 @@ public class KHRSwapchain {
      * @param pSwapchain  a pointer to a {@code VkSwapchainKHR} handle in which the created swapchain object will be returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchain) {
+    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("VkSwapchainCreateInfoKHR const *") VkSwapchainCreateInfoKHR pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") LongBuffer pSwapchain) {
         if (CHECKS) {
             check(pSwapchain, 1);
         }
@@ -258,7 +258,7 @@ public class KHRSwapchain {
      * @param swapchain  the swapchain to destroy.
      * @param pAllocator the allocator used for host memory allocated for the swapchain object when there is no more specific allocator available (see <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a>).
      */
-    public static void vkDestroySwapchainKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySwapchainKHR(VkDevice device, @NativeType("VkSwapchainKHR") long swapchain, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator) {
         nvkDestroySwapchainKHR(device, swapchain, memAddressSafe(pAllocator));
     }
 
@@ -518,13 +518,13 @@ public class KHRSwapchain {
      * @param pPresentInfo a pointer to an instance of the {@link VkPresentInfoKHR} structure specifying the parameters of the presentation.
      */
     @NativeType("VkResult")
-    public static int vkQueuePresentKHR(VkQueue queue, @NativeType("const VkPresentInfoKHR *") VkPresentInfoKHR pPresentInfo) {
+    public static int vkQueuePresentKHR(VkQueue queue, @NativeType("VkPresentInfoKHR const *") VkPresentInfoKHR pPresentInfo) {
         return nvkQueuePresentKHR(queue, pPresentInfo.address());
     }
 
     /** Array version of: {@link #vkCreateSwapchainKHR CreateSwapchainKHR} */
     @NativeType("VkResult")
-    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("const VkSwapchainCreateInfoKHR *") VkSwapchainCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchain) {
+    public static int vkCreateSwapchainKHR(VkDevice device, @NativeType("VkSwapchainCreateInfoKHR const *") VkSwapchainCreateInfoKHR pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSwapchainKHR *") long[] pSwapchain) {
         long __functionAddress = device.getCapabilities().vkCreateSwapchainKHR;
         if (CHECKS) {
             check(__functionAddress);

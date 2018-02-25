@@ -241,7 +241,7 @@ public class GL14 {
      *
      * @param coord the fog coordinate value
      */
-    public static void glFogCoordfv(@NativeType("const GLfloat *") FloatBuffer coord) {
+    public static void glFogCoordfv(@NativeType("GLfloat const *") FloatBuffer coord) {
         if (CHECKS) {
             check(coord, 1);
         }
@@ -260,7 +260,7 @@ public class GL14 {
      *
      * @param coord the fog coordinate value
      */
-    public static void glFogCoorddv(@NativeType("const GLdouble *") DoubleBuffer coord) {
+    public static void glFogCoorddv(@NativeType("GLdouble const *") DoubleBuffer coord) {
         if (CHECKS) {
             check(coord, 1);
         }
@@ -281,7 +281,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the fog coordinate array data
      */
-    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglFogCoordPointer(type, stride, memAddress(pointer));
     }
 
@@ -294,7 +294,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the fog coordinate array data
      */
-    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglFogCoordPointer(type, stride, pointer);
     }
 
@@ -307,7 +307,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the fog coordinate array data
      */
-    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglFogCoordPointer(type, stride, memAddress(pointer));
     }
 
@@ -320,7 +320,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the fog coordinate array data
      */
-    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glFogCoordPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglFogCoordPointer(type, stride, memAddress(pointer));
     }
 
@@ -342,7 +342,7 @@ public class GL14 {
      * @param first an array of starting indices in the enabled arrays
      * @param count an array of the number of indices to be rendered
      */
-    public static void glMultiDrawArrays(@NativeType("GLenum") int mode, @NativeType("const GLint *") IntBuffer first, @NativeType("const GLsizei *") IntBuffer count) {
+    public static void glMultiDrawArrays(@NativeType("GLenum") int mode, @NativeType("GLint const *") IntBuffer first, @NativeType("GLsizei const *") IntBuffer count) {
         if (CHECKS) {
             check(count, first.remaining());
         }
@@ -370,7 +370,7 @@ public class GL14 {
      * @param type    the type of the values in indices. One of:<br><table><tr><td>{@link GL11#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GL11#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GL11#GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
      * @param indices a pointer to the location where the indices are stored
      */
-    public static void glMultiDrawElements(@NativeType("GLenum") int mode, @NativeType("GLsizei *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("const void **") PointerBuffer indices) {
+    public static void glMultiDrawElements(@NativeType("GLenum") int mode, @NativeType("GLsizei *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("void const **") PointerBuffer indices) {
         if (CHECKS) {
             check(indices, count.remaining());
         }
@@ -414,7 +414,7 @@ public class GL14 {
      * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glPointParameterfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glPointParameterfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 3);
         }
@@ -434,7 +434,7 @@ public class GL14 {
      * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION POINT_DISTANCE_ATTENUATION}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glPointParameteriv(@NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glPointParameteriv(@NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 3);
         }
@@ -557,7 +557,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3bv(@NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glSecondaryColor3bv(@NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -576,7 +576,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glSecondaryColor3sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -595,7 +595,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glSecondaryColor3iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -614,7 +614,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glSecondaryColor3fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -633,7 +633,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glSecondaryColor3dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -652,7 +652,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3ubv(@NativeType("const GLubyte *") ByteBuffer v) {
+    public static void glSecondaryColor3ubv(@NativeType("GLubyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -671,7 +671,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3usv(@NativeType("const GLushort *") ShortBuffer v) {
+    public static void glSecondaryColor3usv(@NativeType("GLushort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -690,7 +690,7 @@ public class GL14 {
      *
      * @param v the secondary color buffer
      */
-    public static void glSecondaryColor3uiv(@NativeType("const GLuint *") IntBuffer v) {
+    public static void glSecondaryColor3uiv(@NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -712,7 +712,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -726,7 +726,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglSecondaryColorPointer(size, type, stride, pointer);
     }
 
@@ -740,7 +740,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -754,7 +754,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -768,7 +768,7 @@ public class GL14 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the secondary color array data
      */
-    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glSecondaryColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglSecondaryColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -846,7 +846,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos2iv(@NativeType("const GLint *") IntBuffer p) {
+    public static void glWindowPos2iv(@NativeType("GLint const *") IntBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -865,7 +865,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos2sv(@NativeType("const GLshort *") ShortBuffer p) {
+    public static void glWindowPos2sv(@NativeType("GLshort const *") ShortBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -884,7 +884,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos2fv(@NativeType("const GLfloat *") FloatBuffer p) {
+    public static void glWindowPos2fv(@NativeType("GLfloat const *") FloatBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -903,7 +903,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos2dv(@NativeType("const GLdouble *") DoubleBuffer p) {
+    public static void glWindowPos2dv(@NativeType("GLdouble const *") DoubleBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -974,7 +974,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos3iv(@NativeType("const GLint *") IntBuffer p) {
+    public static void glWindowPos3iv(@NativeType("GLint const *") IntBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -993,7 +993,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos3sv(@NativeType("const GLshort *") ShortBuffer p) {
+    public static void glWindowPos3sv(@NativeType("GLshort const *") ShortBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -1012,7 +1012,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos3fv(@NativeType("const GLfloat *") FloatBuffer p) {
+    public static void glWindowPos3fv(@NativeType("GLfloat const *") FloatBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -1031,7 +1031,7 @@ public class GL14 {
      *
      * @param p the position value
      */
-    public static void glWindowPos3dv(@NativeType("const GLdouble *") DoubleBuffer p) {
+    public static void glWindowPos3dv(@NativeType("GLdouble const *") DoubleBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -1043,7 +1043,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glFogCoordfv FogCoordfv}
      */
-    public static void glFogCoordfv(@NativeType("const GLfloat *") float[] coord) {
+    public static void glFogCoordfv(@NativeType("GLfloat const *") float[] coord) {
         long __functionAddress = GL.getICD().glFogCoordfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1057,7 +1057,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glFogCoorddv FogCoorddv}
      */
-    public static void glFogCoorddv(@NativeType("const GLdouble *") double[] coord) {
+    public static void glFogCoorddv(@NativeType("GLdouble const *") double[] coord) {
         long __functionAddress = GL.getICD().glFogCoorddv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1071,7 +1071,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glMultiDrawArrays MultiDrawArrays}
      */
-    public static void glMultiDrawArrays(@NativeType("GLenum") int mode, @NativeType("const GLint *") int[] first, @NativeType("const GLsizei *") int[] count) {
+    public static void glMultiDrawArrays(@NativeType("GLenum") int mode, @NativeType("GLint const *") int[] first, @NativeType("GLsizei const *") int[] count) {
         long __functionAddress = GL.getICD().glMultiDrawArrays;
         if (CHECKS) {
             check(__functionAddress);
@@ -1085,7 +1085,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glMultiDrawElements MultiDrawElements}
      */
-    public static void glMultiDrawElements(@NativeType("GLenum") int mode, @NativeType("GLsizei *") int[] count, @NativeType("GLenum") int type, @NativeType("const void **") PointerBuffer indices) {
+    public static void glMultiDrawElements(@NativeType("GLenum") int mode, @NativeType("GLsizei *") int[] count, @NativeType("GLenum") int type, @NativeType("void const **") PointerBuffer indices) {
         long __functionAddress = GL.getICD().glMultiDrawElements;
         if (CHECKS) {
             check(__functionAddress);
@@ -1099,7 +1099,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glPointParameterfv PointParameterfv}
      */
-    public static void glPointParameterfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glPointParameterfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glPointParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1113,7 +1113,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glPointParameteriv PointParameteriv}
      */
-    public static void glPointParameteriv(@NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glPointParameteriv(@NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glPointParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1127,7 +1127,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glSecondaryColor3sv SecondaryColor3sv}
      */
-    public static void glSecondaryColor3sv(@NativeType("const GLshort *") short[] v) {
+    public static void glSecondaryColor3sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1141,7 +1141,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glSecondaryColor3iv SecondaryColor3iv}
      */
-    public static void glSecondaryColor3iv(@NativeType("const GLint *") int[] v) {
+    public static void glSecondaryColor3iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1155,7 +1155,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glSecondaryColor3fv SecondaryColor3fv}
      */
-    public static void glSecondaryColor3fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glSecondaryColor3fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1169,7 +1169,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glSecondaryColor3dv SecondaryColor3dv}
      */
-    public static void glSecondaryColor3dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glSecondaryColor3dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1183,7 +1183,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glSecondaryColor3usv SecondaryColor3usv}
      */
-    public static void glSecondaryColor3usv(@NativeType("const GLushort *") short[] v) {
+    public static void glSecondaryColor3usv(@NativeType("GLushort const *") short[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3usv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1197,7 +1197,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glSecondaryColor3uiv SecondaryColor3uiv}
      */
-    public static void glSecondaryColor3uiv(@NativeType("const GLuint *") int[] v) {
+    public static void glSecondaryColor3uiv(@NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1211,7 +1211,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos2iv WindowPos2iv}
      */
-    public static void glWindowPos2iv(@NativeType("const GLint *") int[] p) {
+    public static void glWindowPos2iv(@NativeType("GLint const *") int[] p) {
         long __functionAddress = GL.getICD().glWindowPos2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1225,7 +1225,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos2sv WindowPos2sv}
      */
-    public static void glWindowPos2sv(@NativeType("const GLshort *") short[] p) {
+    public static void glWindowPos2sv(@NativeType("GLshort const *") short[] p) {
         long __functionAddress = GL.getICD().glWindowPos2sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1239,7 +1239,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos2fv WindowPos2fv}
      */
-    public static void glWindowPos2fv(@NativeType("const GLfloat *") float[] p) {
+    public static void glWindowPos2fv(@NativeType("GLfloat const *") float[] p) {
         long __functionAddress = GL.getICD().glWindowPos2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1253,7 +1253,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos2dv WindowPos2dv}
      */
-    public static void glWindowPos2dv(@NativeType("const GLdouble *") double[] p) {
+    public static void glWindowPos2dv(@NativeType("GLdouble const *") double[] p) {
         long __functionAddress = GL.getICD().glWindowPos2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1267,7 +1267,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos3iv WindowPos3iv}
      */
-    public static void glWindowPos3iv(@NativeType("const GLint *") int[] p) {
+    public static void glWindowPos3iv(@NativeType("GLint const *") int[] p) {
         long __functionAddress = GL.getICD().glWindowPos3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1281,7 +1281,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos3sv WindowPos3sv}
      */
-    public static void glWindowPos3sv(@NativeType("const GLshort *") short[] p) {
+    public static void glWindowPos3sv(@NativeType("GLshort const *") short[] p) {
         long __functionAddress = GL.getICD().glWindowPos3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1295,7 +1295,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos3fv WindowPos3fv}
      */
-    public static void glWindowPos3fv(@NativeType("const GLfloat *") float[] p) {
+    public static void glWindowPos3fv(@NativeType("GLfloat const *") float[] p) {
         long __functionAddress = GL.getICD().glWindowPos3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1309,7 +1309,7 @@ public class GL14 {
      * 
      * Array version of: {@link #glWindowPos3dv WindowPos3dv}
      */
-    public static void glWindowPos3dv(@NativeType("const GLdouble *") double[] p) {
+    public static void glWindowPos3dv(@NativeType("GLdouble const *") double[] p) {
         long __functionAddress = GL.getICD().glWindowPos3dv;
         if (CHECKS) {
             check(__functionAddress);

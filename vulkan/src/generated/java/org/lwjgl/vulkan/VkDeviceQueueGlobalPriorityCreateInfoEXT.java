@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDeviceQueueGlobalPriorityCreateInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkQueueGlobalPriorityEXT globalPriority;
  * }</pre></code>
  */
@@ -96,7 +96,7 @@ public class VkDeviceQueueGlobalPriorityCreateInfoEXT extends Struct implements 
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code globalPriority} field. */
     @NativeType("VkQueueGlobalPriorityEXT")
@@ -105,7 +105,7 @@ public class VkDeviceQueueGlobalPriorityCreateInfoEXT extends Struct implements 
     /** Sets the specified value to the {@code sType} field. */
     public VkDeviceQueueGlobalPriorityCreateInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceQueueGlobalPriorityCreateInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDeviceQueueGlobalPriorityCreateInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code globalPriority} field. */
     public VkDeviceQueueGlobalPriorityCreateInfoEXT globalPriority(@NativeType("VkQueueGlobalPriorityEXT") int value) { nglobalPriority(address(), value); return this; }
 
@@ -339,7 +339,7 @@ public class VkDeviceQueueGlobalPriorityCreateInfoEXT extends Struct implements 
         @NativeType("VkStructureType")
         public int sType() { return VkDeviceQueueGlobalPriorityCreateInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDeviceQueueGlobalPriorityCreateInfoEXT.npNext(address()); }
         /** Returns the value of the {@code globalPriority} field. */
         @NativeType("VkQueueGlobalPriorityEXT")
@@ -348,7 +348,7 @@ public class VkDeviceQueueGlobalPriorityCreateInfoEXT extends Struct implements 
         /** Sets the specified value to the {@code sType} field. */
         public VkDeviceQueueGlobalPriorityCreateInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceQueueGlobalPriorityCreateInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceQueueGlobalPriorityCreateInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkDeviceQueueGlobalPriorityCreateInfoEXT.npNext(address(), value); return this; }
+        public VkDeviceQueueGlobalPriorityCreateInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkDeviceQueueGlobalPriorityCreateInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code globalPriority} field. */
         public VkDeviceQueueGlobalPriorityCreateInfoEXT.Buffer globalPriority(@NativeType("VkQueueGlobalPriorityEXT") int value) { VkDeviceQueueGlobalPriorityCreateInfoEXT.nglobalPriority(address(), value); return this; }
 

@@ -13,7 +13,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void* (*) (
+ * void * (*) (
  *     void *mm_context,
  *     void *ptr,
  *     rmtU32 size

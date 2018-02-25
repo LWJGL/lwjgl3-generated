@@ -52,7 +52,7 @@ public class APPLECommandQueueSelectComputeUnits {
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
     @NativeType("cl_command_queue")
-    public static long clCreateCommandQueueWithPropertiesAPPLE(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("const cl_queue_properties_APPLE *") PointerBuffer properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateCommandQueueWithPropertiesAPPLE(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("cl_queue_properties_APPLE const *") PointerBuffer properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNT(properties);
             checkSafe(errcode_ret, 1);
@@ -62,7 +62,7 @@ public class APPLECommandQueueSelectComputeUnits {
 
     /** Array version of: {@link #clCreateCommandQueueWithPropertiesAPPLE CreateCommandQueueWithPropertiesAPPLE} */
     @NativeType("cl_command_queue")
-    public static long clCreateCommandQueueWithPropertiesAPPLE(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("const cl_queue_properties_APPLE *") PointerBuffer properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateCommandQueueWithPropertiesAPPLE(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @NativeType("cl_queue_properties_APPLE const *") PointerBuffer properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateCommandQueueWithPropertiesAPPLE;
         if (CHECKS) {
             check(__functionAddress);

@@ -35,9 +35,9 @@ import static org.lwjgl.util.lz4.LZ4HC.*;
  * struct LZ4HC_CCtx_internal {
  *     uint32_t hashTable[LZ4HC_HASHTABLESIZE];
  *     uint16_t chainTable[LZ4HC_MAXD];
- *     const uint8_t * end;
- *     const uint8_t * base;
- *     const uint8_t * dictBase;
+ *     uint8_t const * end;
+ *     uint8_t const * base;
+ *     uint8_t const * dictBase;
  *     uint8_t * inputBuffer;
  *     uint32_t dictLimit;
  *     uint32_t lowLimit;
@@ -129,21 +129,21 @@ public class LZ4HCCCtxInternal extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
-    @NativeType("const uint8_t *")
+    @NativeType("uint8_t const *")
     public ByteBuffer end(int capacity) { return nend(address(), capacity); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code base} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
-    @NativeType("const uint8_t *")
+    @NativeType("uint8_t const *")
     public ByteBuffer base(int capacity) { return nbase(address(), capacity); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code dictBase} field.
      *
      * @param capacity the number of elements in the returned buffer
      */
-    @NativeType("const uint8_t *")
+    @NativeType("uint8_t const *")
     public ByteBuffer dictBase(int capacity) { return ndictBase(address(), capacity); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code inputBuffer} field.
@@ -287,21 +287,21 @@ public class LZ4HCCCtxInternal extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
-        @NativeType("const uint8_t *")
+        @NativeType("uint8_t const *")
         public ByteBuffer end(int capacity) { return LZ4HCCCtxInternal.nend(address(), capacity); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code base} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
-        @NativeType("const uint8_t *")
+        @NativeType("uint8_t const *")
         public ByteBuffer base(int capacity) { return LZ4HCCCtxInternal.nbase(address(), capacity); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code dictBase} field.
          *
          * @param capacity the number of elements in the returned buffer
          */
-        @NativeType("const uint8_t *")
+        @NativeType("uint8_t const *")
         public ByteBuffer dictBase(int capacity) { return LZ4HCCCtxInternal.ndictBase(address(), capacity); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code inputBuffer} field.

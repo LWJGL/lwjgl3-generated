@@ -64,7 +64,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkBufferViewCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkBufferViewCreateFlags flags;
  *     VkBuffer buffer;
  *     VkFormat format;
@@ -133,7 +133,7 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkBufferViewCreateFlags")
@@ -154,7 +154,7 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkBufferViewCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBufferViewCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkBufferViewCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkBufferViewCreateInfo flags(@NativeType("VkBufferViewCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
@@ -420,7 +420,7 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkBufferViewCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkBufferViewCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkBufferViewCreateFlags")
@@ -441,7 +441,7 @@ public class VkBufferViewCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkBufferViewCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkBufferViewCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBufferViewCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkBufferViewCreateInfo.npNext(address(), value); return this; }
+        public VkBufferViewCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkBufferViewCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkBufferViewCreateInfo.Buffer flags(@NativeType("VkBufferViewCreateFlags") int value) { VkBufferViewCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */

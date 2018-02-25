@@ -180,7 +180,7 @@ public class KHRExternalSemaphoreCapabilities {
      * @param pExternalSemaphoreInfo       points to an instance of the {@link VkPhysicalDeviceExternalSemaphoreInfoKHR} structure, describing the parameters that would be consumed by {@link VK10#vkCreateSemaphore CreateSemaphore}.
      * @param pExternalSemaphoreProperties points to an instance of the {@link VkExternalSemaphorePropertiesKHR} structure in which capabilities are returned.
      */
-    public static void vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceExternalSemaphoreInfoKHR *") VkPhysicalDeviceExternalSemaphoreInfoKHR pExternalSemaphoreInfo, @NativeType("VkExternalSemaphorePropertiesKHR *") VkExternalSemaphorePropertiesKHR pExternalSemaphoreProperties) {
+    public static void vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceExternalSemaphoreInfoKHR const *") VkPhysicalDeviceExternalSemaphoreInfoKHR pExternalSemaphoreInfo, @NativeType("VkExternalSemaphorePropertiesKHR *") VkExternalSemaphorePropertiesKHR pExternalSemaphoreProperties) {
         nvkGetPhysicalDeviceExternalSemaphorePropertiesKHR(physicalDevice, pExternalSemaphoreInfo.address(), pExternalSemaphoreProperties.address());
     }
 

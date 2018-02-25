@@ -123,7 +123,7 @@ public class WGLARBPixelFormat {
      * @param values      a buffer into which the results of the query will be placed
      */
     @NativeType("BOOL")
-    public static boolean wglGetPixelFormatAttribivARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("const int *") IntBuffer attributes, @NativeType("int *") IntBuffer values) {
+    public static boolean wglGetPixelFormatAttribivARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("int const *") IntBuffer attributes, @NativeType("int *") IntBuffer values) {
         if (CHECKS) {
             check(values, attributes.remaining());
         }
@@ -137,7 +137,7 @@ public class WGLARBPixelFormat {
      * @param values      a buffer into which the results of the query will be placed
      */
     @NativeType("BOOL")
-    public static boolean wglGetPixelFormatAttribiARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("const int *") int attribute, @NativeType("int *") IntBuffer values) {
+    public static boolean wglGetPixelFormatAttribiARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("int const *") int attribute, @NativeType("int *") IntBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -176,7 +176,7 @@ public class WGLARBPixelFormat {
      * @param values      a buffer into which the results of the query will be placed
      */
     @NativeType("BOOL")
-    public static boolean wglGetPixelFormatAttribfvARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("const int *") IntBuffer attributes, @NativeType("FLOAT *") FloatBuffer values) {
+    public static boolean wglGetPixelFormatAttribfvARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("int const *") IntBuffer attributes, @NativeType("FLOAT *") FloatBuffer values) {
         if (CHECKS) {
             check(values, attributes.remaining());
         }
@@ -192,7 +192,7 @@ public class WGLARBPixelFormat {
      * @param values      a buffer into which the results of the query will be placed
      */
     @NativeType("BOOL")
-    public static boolean wglGetPixelFormatAttribfARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("const int *") int attribute, @NativeType("FLOAT *") FloatBuffer values) {
+    public static boolean wglGetPixelFormatAttribfARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("int const *") int attribute, @NativeType("FLOAT *") FloatBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -234,7 +234,7 @@ public class WGLARBPixelFormat {
      * @param numFormats  returns the number of matching formats
      */
     @NativeType("BOOL")
-    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @Nullable @NativeType("const int *") IntBuffer attribIList, @Nullable @NativeType("const FLOAT *") FloatBuffer attribFList, @NativeType("int *") IntBuffer formats, @NativeType("UINT *") IntBuffer numFormats) {
+    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @Nullable @NativeType("int const *") IntBuffer attribIList, @Nullable @NativeType("FLOAT const *") FloatBuffer attribFList, @NativeType("int *") IntBuffer formats, @NativeType("UINT *") IntBuffer numFormats) {
         if (CHECKS) {
             checkNTSafe(attribIList);
             checkNTSafe(attribFList);
@@ -245,7 +245,7 @@ public class WGLARBPixelFormat {
 
     /** Array version of: {@link #wglGetPixelFormatAttribivARB GetPixelFormatAttribivARB} */
     @NativeType("BOOL")
-    public static boolean wglGetPixelFormatAttribivARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("const int *") int[] attributes, @NativeType("int *") int[] values) {
+    public static boolean wglGetPixelFormatAttribivARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("int const *") int[] attributes, @NativeType("int *") int[] values) {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -257,7 +257,7 @@ public class WGLARBPixelFormat {
 
     /** Array version of: {@link #wglGetPixelFormatAttribfvARB GetPixelFormatAttribfvARB} */
     @NativeType("BOOL")
-    public static boolean wglGetPixelFormatAttribfvARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("const int *") int[] attributes, @NativeType("FLOAT *") float[] values) {
+    public static boolean wglGetPixelFormatAttribfvARB(@NativeType("HDC") long hdc, int pixelFormat, int layerPlane, @NativeType("int const *") int[] attributes, @NativeType("FLOAT *") float[] values) {
         long __functionAddress = GL.getCapabilitiesWGL().wglGetPixelFormatAttribfvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -269,7 +269,7 @@ public class WGLARBPixelFormat {
 
     /** Array version of: {@link #wglChoosePixelFormatARB ChoosePixelFormatARB} */
     @NativeType("BOOL")
-    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @Nullable @NativeType("const int *") int[] attribIList, @Nullable @NativeType("const FLOAT *") float[] attribFList, @NativeType("int *") int[] formats, @NativeType("UINT *") int[] numFormats) {
+    public static boolean wglChoosePixelFormatARB(@NativeType("HDC") long hdc, @Nullable @NativeType("int const *") int[] attribIList, @Nullable @NativeType("FLOAT const *") float[] attribFList, @NativeType("int *") int[] formats, @NativeType("UINT *") int[] numFormats) {
         long __functionAddress = GL.getCapabilitiesWGL().wglChoosePixelFormatARB;
         if (CHECKS) {
             check(__functionAddress);

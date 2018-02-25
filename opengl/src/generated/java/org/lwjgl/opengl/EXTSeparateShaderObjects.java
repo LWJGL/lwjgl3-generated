@@ -80,7 +80,7 @@ public class EXTSeparateShaderObjects {
     public static native int nglCreateShaderProgramEXT(int type, long string);
 
     @NativeType("GLuint")
-    public static int glCreateShaderProgramEXT(@NativeType("GLenum") int type, @NativeType("const GLchar *") ByteBuffer string) {
+    public static int glCreateShaderProgramEXT(@NativeType("GLenum") int type, @NativeType("GLchar const *") ByteBuffer string) {
         if (CHECKS) {
             checkNT1(string);
         }
@@ -88,7 +88,7 @@ public class EXTSeparateShaderObjects {
     }
 
     @NativeType("GLuint")
-    public static int glCreateShaderProgramEXT(@NativeType("GLenum") int type, @NativeType("const GLchar *") CharSequence string) {
+    public static int glCreateShaderProgramEXT(@NativeType("GLenum") int type, @NativeType("GLchar const *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.UTF8(string);

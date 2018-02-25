@@ -55,7 +55,7 @@ import org.lwjgl.system.windows.*;
  * <code><pre>
  * struct VkWin32SurfaceCreateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkWin32SurfaceCreateFlagsKHR flags;
  *     HINSTANCE hinstance;
  *     HWND hwnd;
@@ -116,7 +116,7 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkWin32SurfaceCreateFlagsKHR")
@@ -131,7 +131,7 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
     /** Sets the specified value to the {@code sType} field. */
     public VkWin32SurfaceCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkWin32SurfaceCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkWin32SurfaceCreateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkWin32SurfaceCreateInfoKHR flags(@NativeType("VkWin32SurfaceCreateFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code hinstance} field. */
@@ -403,7 +403,7 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
         @NativeType("VkStructureType")
         public int sType() { return VkWin32SurfaceCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkWin32SurfaceCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkWin32SurfaceCreateFlagsKHR")
@@ -418,7 +418,7 @@ public class VkWin32SurfaceCreateInfoKHR extends Struct implements NativeResourc
         /** Sets the specified value to the {@code sType} field. */
         public VkWin32SurfaceCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkWin32SurfaceCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkWin32SurfaceCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkWin32SurfaceCreateInfoKHR.npNext(address(), value); return this; }
+        public VkWin32SurfaceCreateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkWin32SurfaceCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkWin32SurfaceCreateInfoKHR.Buffer flags(@NativeType("VkWin32SurfaceCreateFlagsKHR") int value) { VkWin32SurfaceCreateInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code hinstance} field. */

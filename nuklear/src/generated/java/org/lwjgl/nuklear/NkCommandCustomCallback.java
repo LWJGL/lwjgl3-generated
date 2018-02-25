@@ -15,7 +15,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void* (*) (
+ * void * (*) (
  *     void *canvas,
  *     short x,
  *     short y,

@@ -168,7 +168,7 @@ public class GDI32 {
      * @param hdc                   the device context that the function examines to determine the best match for the pixel format descriptor pointed to by {@code pixelFormatDescriptor}
      * @param pixelFormatDescriptor a {@link PIXELFORMATDESCRIPTOR} structure that specifies the requested pixel format
      */
-    public static int ChoosePixelFormat(@NativeType("HDC") long hdc, @NativeType("const PIXELFORMATDESCRIPTOR *") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+    public static int ChoosePixelFormat(@NativeType("HDC") long hdc, @NativeType("PIXELFORMATDESCRIPTOR const *") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
         return nChoosePixelFormat(hdc, pixelFormatDescriptor.address());
     }
 
@@ -259,7 +259,7 @@ public class GDI32 {
      *                              to record the logical pixel format specification. The structure has no other effect upon the behavior of the SetPixelFormat function.
      */
     @NativeType("BOOL")
-    public static boolean SetPixelFormat(@NativeType("HDC") long hdc, int pixelFormat, @Nullable @NativeType("const PIXELFORMATDESCRIPTOR *") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
+    public static boolean SetPixelFormat(@NativeType("HDC") long hdc, int pixelFormat, @Nullable @NativeType("PIXELFORMATDESCRIPTOR const *") PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
         return nSetPixelFormat(hdc, pixelFormat, memAddressSafe(pixelFormatDescriptor)) != 0;
     }
 

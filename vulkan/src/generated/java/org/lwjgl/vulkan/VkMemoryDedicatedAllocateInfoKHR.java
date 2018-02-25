@@ -54,7 +54,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkMemoryDedicatedAllocateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImage image;
  *     VkBuffer buffer;
  * }</pre></code>
@@ -111,7 +111,7 @@ public class VkMemoryDedicatedAllocateInfoKHR extends Struct implements NativeRe
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code image} field. */
     @NativeType("VkImage")
@@ -123,7 +123,7 @@ public class VkMemoryDedicatedAllocateInfoKHR extends Struct implements NativeRe
     /** Sets the specified value to the {@code sType} field. */
     public VkMemoryDedicatedAllocateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryDedicatedAllocateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkMemoryDedicatedAllocateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
     public VkMemoryDedicatedAllocateInfoKHR image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
@@ -365,7 +365,7 @@ public class VkMemoryDedicatedAllocateInfoKHR extends Struct implements NativeRe
         @NativeType("VkStructureType")
         public int sType() { return VkMemoryDedicatedAllocateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkMemoryDedicatedAllocateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code image} field. */
         @NativeType("VkImage")
@@ -377,7 +377,7 @@ public class VkMemoryDedicatedAllocateInfoKHR extends Struct implements NativeRe
         /** Sets the specified value to the {@code sType} field. */
         public VkMemoryDedicatedAllocateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryDedicatedAllocateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryDedicatedAllocateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkMemoryDedicatedAllocateInfoKHR.npNext(address(), value); return this; }
+        public VkMemoryDedicatedAllocateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkMemoryDedicatedAllocateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
         public VkMemoryDedicatedAllocateInfoKHR.Buffer image(@NativeType("VkImage") long value) { VkMemoryDedicatedAllocateInfoKHR.nimage(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */

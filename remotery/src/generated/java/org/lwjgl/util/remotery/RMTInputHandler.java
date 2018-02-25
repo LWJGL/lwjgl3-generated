@@ -15,8 +15,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void* (*) (
- *     const char *text,
+ * void * (*) (
+ *     char const *text,
  *     void *context
  * )</pre></code>
  */

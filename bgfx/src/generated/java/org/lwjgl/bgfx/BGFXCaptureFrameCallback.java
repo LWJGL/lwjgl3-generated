@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * void (*) (
  *     bgfx_callback_interface_t *_this,
- *     const void *_data,
+ *     void const *_data,
  *     uint32_t _size
  * )</pre></code>
  */

@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * size_t (*) (
  *     struct aiFile *pFile,
- *     const char *pBuffer,
+ *     char const *pBuffer,
  *     size_t memB,
  *     size_t count
  * )</pre></code>

@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkValidationFlagsEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t disabledValidationCheckCount;
  *     VkValidationCheckEXT * pDisabledValidationChecks;
  * }</pre></code>
@@ -99,7 +99,7 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code disabledValidationCheckCount} field. */
     @NativeType("uint32_t")
@@ -111,7 +111,7 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkValidationFlagsEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkValidationFlagsEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkValidationFlagsEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pDisabledValidationChecks} field. */
     public VkValidationFlagsEXT pDisabledValidationChecks(@NativeType("VkValidationCheckEXT *") IntBuffer value) { npDisabledValidationChecks(address(), value); return this; }
 
@@ -370,7 +370,7 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkValidationFlagsEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkValidationFlagsEXT.npNext(address()); }
         /** Returns the value of the {@code disabledValidationCheckCount} field. */
         @NativeType("uint32_t")
@@ -382,7 +382,7 @@ public class VkValidationFlagsEXT extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkValidationFlagsEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkValidationFlagsEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkValidationFlagsEXT.Buffer pNext(@NativeType("const void *") long value) { VkValidationFlagsEXT.npNext(address(), value); return this; }
+        public VkValidationFlagsEXT.Buffer pNext(@NativeType("void const *") long value) { VkValidationFlagsEXT.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pDisabledValidationChecks} field. */
         public VkValidationFlagsEXT.Buffer pDisabledValidationChecks(@NativeType("VkValidationCheckEXT *") IntBuffer value) { VkValidationFlagsEXT.npDisabledValidationChecks(address(), value); return this; }
 

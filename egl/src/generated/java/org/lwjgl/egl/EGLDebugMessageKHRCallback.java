@@ -19,11 +19,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * void (*) (
  *     EGLenum error,
- *     const char *command,
+ *     char const *command,
  *     EGLint messageType,
  *     EGLLabelKHR threadLabel,
  *     EGLLabelKHR objectLabel,
- *     const char *message
+ *     char const *message
  * )</pre></code>
  */
 public abstract class EGLDebugMessageKHRCallback extends Callback implements EGLDebugMessageKHRCallbackI {

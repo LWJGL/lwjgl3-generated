@@ -42,7 +42,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct rpmalloc_config_t {
- *     void* (*{@link RPMemoryMapCallbackI memory_map}) (size_t size);
+ *     void * (*{@link RPMemoryMapCallbackI memory_map}) (size_t size);
  *     void (*{@link RPMemoryUnmapCallbackI memory_unmap}) (void *address, size_t size);
  *     size_t page_size;
  *     void (*{@link RPMemoryOverwriteCallbackI memory_overwrite}) (void *address);
@@ -99,7 +99,7 @@ public class RPMallocConfig extends Struct implements NativeResource {
 
     /** Returns the value of the {@code memory_map} field. */
     @Nullable
-    @NativeType("void* (*) (size_t)")
+    @NativeType("void * (*) (size_t)")
     public RPMemoryMapCallback memory_map() { return nmemory_map(address()); }
     /** Returns the value of the {@code memory_unmap} field. */
     @Nullable
@@ -114,7 +114,7 @@ public class RPMallocConfig extends Struct implements NativeResource {
     public RPMemoryOverwriteCallback memory_overwrite() { return nmemory_overwrite(address()); }
 
     /** Sets the specified value to the {@code memory_map} field. */
-    public RPMallocConfig memory_map(@Nullable @NativeType("void* (*) (size_t)") RPMemoryMapCallbackI value) { nmemory_map(address(), value); return this; }
+    public RPMallocConfig memory_map(@Nullable @NativeType("void * (*) (size_t)") RPMemoryMapCallbackI value) { nmemory_map(address(), value); return this; }
     /** Sets the specified value to the {@code memory_unmap} field. */
     public RPMallocConfig memory_unmap(@Nullable @NativeType("void (*) (void *, size_t)") RPMemoryUnmapCallbackI value) { nmemory_unmap(address(), value); return this; }
     /** Sets the specified value to the {@code page_size} field. */
@@ -356,7 +356,7 @@ public class RPMallocConfig extends Struct implements NativeResource {
 
         /** Returns the value of the {@code memory_map} field. */
         @Nullable
-        @NativeType("void* (*) (size_t)")
+        @NativeType("void * (*) (size_t)")
         public RPMemoryMapCallback memory_map() { return RPMallocConfig.nmemory_map(address()); }
         /** Returns the value of the {@code memory_unmap} field. */
         @Nullable
@@ -371,7 +371,7 @@ public class RPMallocConfig extends Struct implements NativeResource {
         public RPMemoryOverwriteCallback memory_overwrite() { return RPMallocConfig.nmemory_overwrite(address()); }
 
         /** Sets the specified value to the {@code memory_map} field. */
-        public RPMallocConfig.Buffer memory_map(@Nullable @NativeType("void* (*) (size_t)") RPMemoryMapCallbackI value) { RPMallocConfig.nmemory_map(address(), value); return this; }
+        public RPMallocConfig.Buffer memory_map(@Nullable @NativeType("void * (*) (size_t)") RPMemoryMapCallbackI value) { RPMallocConfig.nmemory_map(address(), value); return this; }
         /** Sets the specified value to the {@code memory_unmap} field. */
         public RPMallocConfig.Buffer memory_unmap(@Nullable @NativeType("void (*) (void *, size_t)") RPMemoryUnmapCallbackI value) { RPMallocConfig.nmemory_unmap(address(), value); return this; }
         /** Sets the specified value to the {@code page_size} field. */

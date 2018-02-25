@@ -18,7 +18,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * float (*) (
  *     void *userdata,
  *     int selected,
- *     const char **item
+ *     char const **item
  * )</pre></code>
  */
 @FunctionalInterface
@@ -39,6 +39,6 @@ public interface NkItemGetterI extends CallbackI.F {
         );
     }
 
-    float invoke(@NativeType("void *") long userdata, int selected, @NativeType("const char **") long item);
+    float invoke(@NativeType("void *") long userdata, int selected, @NativeType("char const **") long item);
 
 }

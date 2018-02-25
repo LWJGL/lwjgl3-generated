@@ -64,7 +64,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkBindBufferMemoryInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkBuffer buffer;
  *     VkDeviceMemory memory;
  *     VkDeviceSize memoryOffset;
@@ -125,7 +125,7 @@ public class VkBindBufferMemoryInfoKHR extends Struct implements NativeResource 
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code buffer} field. */
     @NativeType("VkBuffer")
@@ -140,7 +140,7 @@ public class VkBindBufferMemoryInfoKHR extends Struct implements NativeResource 
     /** Sets the specified value to the {@code sType} field. */
     public VkBindBufferMemoryInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBindBufferMemoryInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkBindBufferMemoryInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code buffer} field. */
     public VkBindBufferMemoryInfoKHR buffer(@NativeType("VkBuffer") long value) { nbuffer(address(), value); return this; }
     /** Sets the specified value to the {@code memory} field. */
@@ -390,7 +390,7 @@ public class VkBindBufferMemoryInfoKHR extends Struct implements NativeResource 
         @NativeType("VkStructureType")
         public int sType() { return VkBindBufferMemoryInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkBindBufferMemoryInfoKHR.npNext(address()); }
         /** Returns the value of the {@code buffer} field. */
         @NativeType("VkBuffer")
@@ -405,7 +405,7 @@ public class VkBindBufferMemoryInfoKHR extends Struct implements NativeResource 
         /** Sets the specified value to the {@code sType} field. */
         public VkBindBufferMemoryInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkBindBufferMemoryInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBindBufferMemoryInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkBindBufferMemoryInfoKHR.npNext(address(), value); return this; }
+        public VkBindBufferMemoryInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkBindBufferMemoryInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code buffer} field. */
         public VkBindBufferMemoryInfoKHR.Buffer buffer(@NativeType("VkBuffer") long value) { VkBindBufferMemoryInfoKHR.nbuffer(address(), value); return this; }
         /** Sets the specified value to the {@code memory} field. */

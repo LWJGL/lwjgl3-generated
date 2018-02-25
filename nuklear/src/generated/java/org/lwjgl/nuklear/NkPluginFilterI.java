@@ -16,7 +16,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <code><pre>
  * int (*) (
- *     const struct nk_text_edit *edit,
+ *     struct nk_text_edit const *edit,
  *     nk_rune unicode
  * )</pre></code>
  */
@@ -37,6 +37,6 @@ public interface NkPluginFilterI extends CallbackI.I {
         );
     }
 
-    int invoke(@NativeType("const struct nk_text_edit *") long edit, @NativeType("nk_rune") int unicode);
+    int invoke(@NativeType("struct nk_text_edit const *") long edit, @NativeType("nk_rune") int unicode);
 
 }

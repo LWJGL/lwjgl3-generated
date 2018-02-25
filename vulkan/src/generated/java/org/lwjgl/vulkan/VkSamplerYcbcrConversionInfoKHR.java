@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkSamplerYcbcrConversionInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkSamplerYcbcrConversionKHR conversion;
  * }</pre></code>
  */
@@ -91,7 +91,7 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code conversion} field. */
     @NativeType("VkSamplerYcbcrConversionKHR")
@@ -100,7 +100,7 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
     /** Sets the specified value to the {@code sType} field. */
     public VkSamplerYcbcrConversionInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSamplerYcbcrConversionInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkSamplerYcbcrConversionInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code conversion} field. */
     public VkSamplerYcbcrConversionInfoKHR conversion(@NativeType("VkSamplerYcbcrConversionKHR") long value) { nconversion(address(), value); return this; }
 
@@ -334,7 +334,7 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
         @NativeType("VkStructureType")
         public int sType() { return VkSamplerYcbcrConversionInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkSamplerYcbcrConversionInfoKHR.npNext(address()); }
         /** Returns the value of the {@code conversion} field. */
         @NativeType("VkSamplerYcbcrConversionKHR")
@@ -343,7 +343,7 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
         /** Sets the specified value to the {@code sType} field. */
         public VkSamplerYcbcrConversionInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSamplerYcbcrConversionInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSamplerYcbcrConversionInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkSamplerYcbcrConversionInfoKHR.npNext(address(), value); return this; }
+        public VkSamplerYcbcrConversionInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkSamplerYcbcrConversionInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code conversion} field. */
         public VkSamplerYcbcrConversionInfoKHR.Buffer conversion(@NativeType("VkSamplerYcbcrConversionKHR") long value) { VkSamplerYcbcrConversionInfoKHR.nconversion(address(), value); return this; }
 

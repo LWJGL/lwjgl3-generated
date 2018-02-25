@@ -70,7 +70,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDisplaySurfaceCreateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDisplaySurfaceCreateFlagsKHR flags;
  *     VkDisplayModeKHR displayMode;
  *     uint32_t planeIndex;
@@ -151,7 +151,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkDisplaySurfaceCreateFlagsKHR")
@@ -179,7 +179,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
     /** Sets the specified value to the {@code sType} field. */
     public VkDisplaySurfaceCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDisplaySurfaceCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDisplaySurfaceCreateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkDisplaySurfaceCreateInfoKHR flags(@NativeType("VkDisplaySurfaceCreateFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code displayMode} field. */
@@ -469,7 +469,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
         @NativeType("VkStructureType")
         public int sType() { return VkDisplaySurfaceCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDisplaySurfaceCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkDisplaySurfaceCreateFlagsKHR")
@@ -497,7 +497,7 @@ public class VkDisplaySurfaceCreateInfoKHR extends Struct implements NativeResou
         /** Sets the specified value to the {@code sType} field. */
         public VkDisplaySurfaceCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkDisplaySurfaceCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDisplaySurfaceCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkDisplaySurfaceCreateInfoKHR.npNext(address(), value); return this; }
+        public VkDisplaySurfaceCreateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkDisplaySurfaceCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkDisplaySurfaceCreateInfoKHR.Buffer flags(@NativeType("VkDisplaySurfaceCreateFlagsKHR") int value) { VkDisplaySurfaceCreateInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code displayMode} field. */

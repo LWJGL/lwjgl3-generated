@@ -148,12 +148,12 @@ public class ARBVertexBufferObject {
      *
      * @param buffers an array of buffer objects to be deleted
      */
-    public static void glDeleteBuffersARB(@NativeType("const GLuint *") IntBuffer buffers) {
+    public static void glDeleteBuffersARB(@NativeType("GLuint const *") IntBuffer buffers) {
         nglDeleteBuffersARB(buffers.remaining(), memAddress(buffers));
     }
 
     /** Deletes named buffer objects. */
-    public static void glDeleteBuffersARB(@NativeType("const GLuint *") int buffer) {
+    public static void glDeleteBuffersARB(@NativeType("GLuint const *") int buffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer buffers = stack.ints(buffer);
@@ -269,7 +269,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") ByteBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") ByteBuffer data, @NativeType("GLenum") int usage) {
         nglBufferDataARB(target, data.remaining(), memAddress(data), usage);
     }
 
@@ -299,7 +299,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") ShortBuffer data, @NativeType("GLenum") int usage) {
         nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), usage);
     }
 
@@ -329,7 +329,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") IntBuffer data, @NativeType("GLenum") int usage) {
         nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
@@ -359,7 +359,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") FloatBuffer data, @NativeType("GLenum") int usage) {
         nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
@@ -389,7 +389,7 @@ public class ARBVertexBufferObject {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW_ARB STREAM_DRAW_ARB}</td><td>{@link #GL_STREAM_READ_ARB STREAM_READ_ARB}</td><td>{@link #GL_STREAM_COPY_ARB STREAM_COPY_ARB}</td><td>{@link #GL_STATIC_DRAW_ARB STATIC_DRAW_ARB}</td><td>{@link #GL_STATIC_READ_ARB STATIC_READ_ARB}</td></tr><tr><td>{@link #GL_STATIC_COPY_ARB STATIC_COPY_ARB}</td><td>{@link #GL_DYNAMIC_DRAW_ARB DYNAMIC_DRAW_ARB}</td><td>{@link #GL_DYNAMIC_READ_ARB DYNAMIC_READ_ARB}</td><td>{@link #GL_DYNAMIC_COPY_ARB DYNAMIC_COPY_ARB}</td></tr></table>
      */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") DoubleBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") DoubleBuffer data, @NativeType("GLenum") int usage) {
         nglBufferDataARB(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
@@ -409,7 +409,7 @@ public class ARBVertexBufferObject {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") ByteBuffer data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") ByteBuffer data) {
         nglBufferSubDataARB(target, offset, data.remaining(), memAddress(data));
     }
 
@@ -420,7 +420,7 @@ public class ARBVertexBufferObject {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") ShortBuffer data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") ShortBuffer data) {
         nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
@@ -431,7 +431,7 @@ public class ARBVertexBufferObject {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") IntBuffer data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") IntBuffer data) {
         nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
@@ -442,7 +442,7 @@ public class ARBVertexBufferObject {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") FloatBuffer data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") FloatBuffer data) {
         nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
@@ -453,7 +453,7 @@ public class ARBVertexBufferObject {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") DoubleBuffer data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") DoubleBuffer data) {
         nglBufferSubDataARB(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
@@ -680,7 +680,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glDeleteBuffersARB DeleteBuffersARB} */
-    public static void glDeleteBuffersARB(@NativeType("const GLuint *") int[] buffers) {
+    public static void glDeleteBuffersARB(@NativeType("GLuint const *") int[] buffers) {
         long __functionAddress = GL.getICD().glDeleteBuffersARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -698,7 +698,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferDataARB BufferDataARB} */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") short[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") short[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferDataARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -707,7 +707,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferDataARB BufferDataARB} */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") int[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") int[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferDataARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -716,7 +716,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferDataARB BufferDataARB} */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") float[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") float[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferDataARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -725,7 +725,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferDataARB BufferDataARB} */
-    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("const void *") double[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferDataARB(@NativeType("GLenum") int target, @NativeType("void const *") double[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferDataARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -734,7 +734,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") short[] data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") short[] data) {
         long __functionAddress = GL.getICD().glBufferSubDataARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -743,7 +743,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") int[] data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") int[] data) {
         long __functionAddress = GL.getICD().glBufferSubDataARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -752,7 +752,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") float[] data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") float[] data) {
         long __functionAddress = GL.getICD().glBufferSubDataARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -761,7 +761,7 @@ public class ARBVertexBufferObject {
     }
 
     /** Array version of: {@link #glBufferSubDataARB BufferSubDataARB} */
-    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("const void *") double[] data) {
+    public static void glBufferSubDataARB(@NativeType("GLenum") int target, @NativeType("GLintptrARB") long offset, @NativeType("void const *") double[] data) {
         long __functionAddress = GL.getICD().glBufferSubDataARB;
         if (CHECKS) {
             check(__functionAddress);

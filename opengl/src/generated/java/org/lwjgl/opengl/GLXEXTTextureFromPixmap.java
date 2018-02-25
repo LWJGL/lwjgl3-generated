@@ -113,7 +113,7 @@ public class GLXEXTTextureFromPixmap {
      * @param buffer      the buffer
      * @param attrib_list an optional null-terminated list of attributes
      */
-    public static void glXBindTexImageEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int buffer, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
+    public static void glXBindTexImageEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int buffer, @Nullable @NativeType("int const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -140,7 +140,7 @@ public class GLXEXTTextureFromPixmap {
     }
 
     /** Array version of: {@link #glXBindTexImageEXT BindTexImageEXT} */
-    public static void glXBindTexImageEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int buffer, @Nullable @NativeType("const int *") int[] attrib_list) {
+    public static void glXBindTexImageEXT(@NativeType("Display *") long display, @NativeType("GLXDrawable") long drawable, int buffer, @Nullable @NativeType("int const *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXBindTexImageEXT;
         if (CHECKS) {
             check(__functionAddress);

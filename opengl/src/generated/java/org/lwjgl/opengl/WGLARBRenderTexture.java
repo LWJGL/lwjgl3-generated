@@ -176,7 +176,7 @@ public class WGLARBRenderTexture {
      * @param attribList a 0-terminated list of attribute {type, value} pairs containing integer values
      */
     @NativeType("BOOL")
-    public static boolean wglSetPbufferAttribARB(@NativeType("HPBUFFERARB") long pbuffer, @Nullable @NativeType("const int *") IntBuffer attribList) {
+    public static boolean wglSetPbufferAttribARB(@NativeType("HPBUFFERARB") long pbuffer, @Nullable @NativeType("int const *") IntBuffer attribList) {
         if (CHECKS) {
             checkNTSafe(attribList);
         }
@@ -185,7 +185,7 @@ public class WGLARBRenderTexture {
 
     /** Array version of: {@link #wglSetPbufferAttribARB SetPbufferAttribARB} */
     @NativeType("BOOL")
-    public static boolean wglSetPbufferAttribARB(@NativeType("HPBUFFERARB") long pbuffer, @Nullable @NativeType("const int *") int[] attribList) {
+    public static boolean wglSetPbufferAttribARB(@NativeType("HPBUFFERARB") long pbuffer, @Nullable @NativeType("int const *") int[] attribList) {
         long __functionAddress = GL.getCapabilitiesWGL().wglSetPbufferAttribARB;
         if (CHECKS) {
             check(__functionAddress);

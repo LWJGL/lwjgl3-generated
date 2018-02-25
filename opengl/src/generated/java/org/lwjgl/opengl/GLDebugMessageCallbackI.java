@@ -21,8 +21,8 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  *     GLuint id,
  *     GLenum severity,
  *     GLsizei length,
- *     const GLchar *message,
- *     const void *userParam
+ *     GLchar const *message,
+ *     void const *userParam
  * )</pre></code>
  */
 @FunctionalInterface
@@ -58,6 +58,6 @@ public interface GLDebugMessageCallbackI extends CallbackI.V {
      * @param message   a pointer to the message string representation
      * @param userParam the user-specified value that was passed when calling {@link GL43#glDebugMessageCallback} or {@link KHRDebug#glDebugMessageCallback}
      */
-    void invoke(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLsizei") int length, @NativeType("const GLchar *") long message, @NativeType("const void *") long userParam);
+    void invoke(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLsizei") int length, @NativeType("GLchar const *") long message, @NativeType("void const *") long userParam);
 
 }

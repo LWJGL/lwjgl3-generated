@@ -22,7 +22,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     GLenum category,
  *     GLenum severity,
  *     GLsizei length,
- *     const GLchar *message,
+ *     GLchar const *message,
  *     void *userParam
  * )</pre></code>
  */

@@ -84,7 +84,7 @@ import org.lwjgl.system.windows.*;
  * <code><pre>
  * struct VkImportFenceWin32HandleInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkFence fence;
  *     VkFenceImportFlagsKHR flags;
  *     VkExternalFenceHandleTypeFlagBitsKHR handleType;
@@ -153,7 +153,7 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code fence} field. */
     @NativeType("VkFence")
@@ -177,7 +177,7 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     /** Sets the specified value to the {@code sType} field. */
     public VkImportFenceWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImportFenceWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code fence} field. */
     public VkImportFenceWin32HandleInfoKHR fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
@@ -470,7 +470,7 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         @NativeType("VkStructureType")
         public int sType() { return VkImportFenceWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImportFenceWin32HandleInfoKHR.npNext(address()); }
         /** Returns the value of the {@code fence} field. */
         @NativeType("VkFence")
@@ -494,7 +494,7 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         /** Sets the specified value to the {@code sType} field. */
         public VkImportFenceWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImportFenceWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkImportFenceWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkImportFenceWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code fence} field. */
         public VkImportFenceWin32HandleInfoKHR.Buffer fence(@NativeType("VkFence") long value) { VkImportFenceWin32HandleInfoKHR.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */

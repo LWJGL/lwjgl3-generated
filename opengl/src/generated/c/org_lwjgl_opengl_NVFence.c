@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #include "opengl.h"
 
-typedef void (APIENTRY *glDeleteFencesNVPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteFencesNVPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenFencesNVPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsFenceNVPROC) (jint);
 typedef jboolean (APIENTRY *glTestFenceNVPROC) (jint);
@@ -18,7 +18,7 @@ EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFence_nglDeleteFencesNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong fencesAddress) {
     glDeleteFencesNVPROC glDeleteFencesNV = (glDeleteFencesNVPROC)tlsGetFunction(300);
-    const intptr_t fences = (const intptr_t)fencesAddress;
+    intptr_t fences = (intptr_t)fencesAddress;
     UNUSED_PARAM(clazz)
     glDeleteFencesNV(n, fences);
 }

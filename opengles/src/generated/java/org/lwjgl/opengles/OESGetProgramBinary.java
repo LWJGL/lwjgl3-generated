@@ -71,7 +71,7 @@ public class OESGetProgramBinary {
 
     public static native void nglProgramBinaryOES(int program, int binaryFormat, long binary, int length);
 
-    public static void glProgramBinaryOES(@NativeType("GLuint") int program, @NativeType("GLenum") int binaryFormat, @NativeType("const void *") ByteBuffer binary) {
+    public static void glProgramBinaryOES(@NativeType("GLuint") int program, @NativeType("GLenum") int binaryFormat, @NativeType("void const *") ByteBuffer binary) {
         nglProgramBinaryOES(program, binaryFormat, memAddress(binary), binary.remaining());
     }
 

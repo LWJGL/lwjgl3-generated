@@ -14,7 +14,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_TootleInit(JNIEnv *__en
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleOptimizeVCache__JIIIJJI(JNIEnv *__env, jclass clazz, jlong pnIBAddress, jint nFaces, jint nVertices, jint nCacheSize, jlong pnIBOutAddress, jlong pnFaceRemapOutAddress, jint eVCacheOptimizer) {
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
     unsigned int *pnIBOut = (unsigned int *)(intptr_t)pnIBOutAddress;
     unsigned int *pnFaceRemapOut = (unsigned int *)(intptr_t)pnFaceRemapOutAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -22,8 +22,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleOptimizeVCache__
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleClusterMesh__JJIIIIJJJ(JNIEnv *__env, jclass clazz, jlong pVBAddress, jlong pnIBAddress, jint nVertices, jint nFaces, jint nVBStride, jint nTargetClusters, jlong pnClusteredIBOutAddress, jlong pnFaceClustersOutAddress, jlong pnFaceRemapOutAddress) {
-    const void *pVB = (const void *)(intptr_t)pVBAddress;
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
+    void const *pVB = (void const *)(intptr_t)pVBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
     unsigned int *pnClusteredIBOut = (unsigned int *)(intptr_t)pnClusteredIBOutAddress;
     unsigned int *pnFaceClustersOut = (unsigned int *)(intptr_t)pnFaceClustersOutAddress;
     unsigned int *pnFaceRemapOut = (unsigned int *)(intptr_t)pnFaceRemapOutAddress;
@@ -32,7 +32,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleClusterMesh__JJI
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleFastOptimizeVCacheAndClusterMesh__JIIIJJJF(JNIEnv *__env, jclass clazz, jlong pnIBAddress, jint nFaces, jint nVertices, jint nCacheSize, jlong pnIBOutAddress, jlong pnClustersOutAddress, jlong pnNumClustersOutAddress, jfloat fAlpha) {
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
     unsigned int *pnIBOut = (unsigned int *)(intptr_t)pnIBOutAddress;
     unsigned int *pnClustersOut = (unsigned int *)(intptr_t)pnClustersOutAddress;
     unsigned int *pnNumClustersOut = (unsigned int *)(intptr_t)pnNumClustersOutAddress;
@@ -41,10 +41,10 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleFastOptimizeVCac
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleOptimizeOverdraw__JJIIIJIIJJJI(JNIEnv *__env, jclass clazz, jlong pVBAddress, jlong pnIBAddress, jint nVertices, jint nFaces, jint nVBStride, jlong pfViewpointAddress, jint nViewpoints, jint eFrontWinding, jlong pnFaceClustersAddress, jlong pnIBOutAddress, jlong pnClusterRemapOutAddress, jint eOverdrawOptimizer) {
-    const void *pVB = (const void *)(intptr_t)pVBAddress;
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
-    const float *pfViewpoint = (const float *)(intptr_t)pfViewpointAddress;
-    const unsigned int *pnFaceClusters = (const unsigned int *)(intptr_t)pnFaceClustersAddress;
+    void const *pVB = (void const *)(intptr_t)pVBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
+    float const *pfViewpoint = (float const *)(intptr_t)pfViewpointAddress;
+    unsigned int const *pnFaceClusters = (unsigned int const *)(intptr_t)pnFaceClustersAddress;
     unsigned int *pnIBOut = (unsigned int *)(intptr_t)pnIBOutAddress;
     unsigned int *pnClusterRemapOut = (unsigned int *)(intptr_t)pnClusterRemapOutAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -57,9 +57,9 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_tootle_Tootle_TootleCleanup(JNIEnv *_
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleOptimize__JJIIIIJIIJJII(JNIEnv *__env, jclass clazz, jlong pVBAddress, jlong pnIBAddress, jint nVertices, jint nFaces, jint nVBStride, jint nCacheSize, jlong pViewpointsAddress, jint nViewpoints, jint eFrontWinding, jlong pnIBOutAddress, jlong pnNumClustersOutAddress, jint eVCacheOptimizer, jint eOverdrawOptimizer) {
-    const void *pVB = (const void *)(intptr_t)pVBAddress;
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
-    const float *pViewpoints = (const float *)(intptr_t)pViewpointsAddress;
+    void const *pVB = (void const *)(intptr_t)pVBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
+    float const *pViewpoints = (float const *)(intptr_t)pViewpointsAddress;
     unsigned int *pnIBOut = (unsigned int *)(intptr_t)pnIBOutAddress;
     unsigned int *pnNumClustersOut = (unsigned int *)(intptr_t)pnNumClustersOutAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -67,8 +67,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleOptimize__JJIIII
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleFastOptimize__JJIIIIIJJF(JNIEnv *__env, jclass clazz, jlong pVBAddress, jlong pnIBAddress, jint nVertices, jint nFaces, jint nVBStride, jint nCacheSize, jint eFrontWinding, jlong pnIBOutAddress, jlong pnNumClustersOutAddress, jfloat fAlpha) {
-    const void *pVB = (const void *)(intptr_t)pVBAddress;
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
+    void const *pVB = (void const *)(intptr_t)pVBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
     unsigned int *pnIBOut = (unsigned int *)(intptr_t)pnIBOutAddress;
     unsigned int *pnNumClustersOut = (unsigned int *)(intptr_t)pnNumClustersOutAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -76,8 +76,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleFastOptimize__JJ
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleVCacheClusters__JIIIJJJI(JNIEnv *__env, jclass clazz, jlong pnIBAddress, jint nFaces, jint nVertices, jint nCacheSize, jlong pnFaceClustersAddress, jlong pnIBOutAddress, jlong pnFaceRemapOutAddress, jint eVCacheOptimizer) {
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
-    const unsigned int *pnFaceClusters = (const unsigned int *)(intptr_t)pnFaceClustersAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
+    unsigned int const *pnFaceClusters = (unsigned int const *)(intptr_t)pnFaceClustersAddress;
     unsigned int *pnIBOut = (unsigned int *)(intptr_t)pnIBOutAddress;
     unsigned int *pnFaceRemapOut = (unsigned int *)(intptr_t)pnFaceRemapOutAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -85,16 +85,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleVCacheClusters__
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleMeasureCacheEfficiency__JIIJ(JNIEnv *__env, jclass clazz, jlong pnIBAddress, jint nFaces, jint nCacheSize, jlong pfEfficiencyOutAddress) {
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
     float *pfEfficiencyOut = (float *)(intptr_t)pfEfficiencyOutAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)TootleMeasureCacheEfficiency(pnIB, (unsigned int)nFaces, (unsigned int)nCacheSize, pfEfficiencyOut);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleMeasureOverdraw__JJIIIJIIJJI(JNIEnv *__env, jclass clazz, jlong pVBAddress, jlong pnIBAddress, jint nVertices, jint nFaces, jint nVBStride, jlong pfViewpointAddress, jint nViewpoints, jint eFrontWinding, jlong pfAvgODOutAddress, jlong pfMaxODOutAddress, jint eOverdrawOptimizer) {
-    const void *pVB = (const void *)(intptr_t)pVBAddress;
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
-    const float *pfViewpoint = (const float *)(intptr_t)pfViewpointAddress;
+    void const *pVB = (void const *)(intptr_t)pVBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
+    float const *pfViewpoint = (float const *)(intptr_t)pfViewpointAddress;
     float *pfAvgODOut = (float *)(intptr_t)pfAvgODOutAddress;
     float *pfMaxODOut = (float *)(intptr_t)pfMaxODOutAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -102,8 +102,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleMeasureOverdraw_
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_tootle_Tootle_nTootleOptimizeVertexMemory__JJIIIJJJ(JNIEnv *__env, jclass clazz, jlong pVBAddress, jlong pnIBAddress, jint nVertices, jint nFaces, jint nVBStride, jlong pVBOutAddress, jlong pnIBOutAddress, jlong pnVertexRemapOutAddress) {
-    const void *pVB = (const void *)(intptr_t)pVBAddress;
-    const unsigned int *pnIB = (const unsigned int *)(intptr_t)pnIBAddress;
+    void const *pVB = (void const *)(intptr_t)pVBAddress;
+    unsigned int const *pnIB = (unsigned int const *)(intptr_t)pnIBAddress;
     void *pVBOut = (void *)(intptr_t)pVBOutAddress;
     unsigned int *pnIBOut = (unsigned int *)(intptr_t)pnIBOutAddress;
     unsigned int *pnVertexRemapOut = (unsigned int *)(intptr_t)pnVertexRemapOutAddress;

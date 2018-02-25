@@ -7,14 +7,14 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glDrawArraysInstancedPROC) (jint, jint, jint, jint);
-typedef void (APIENTRY *glDrawElementsInstancedPROC) (jint, jint, jint, const intptr_t, jint);
+typedef void (APIENTRY *glDrawElementsInstancedPROC) (jint, jint, jint, intptr_t, jint);
 typedef void (APIENTRY *glCopyBufferSubDataPROC) (jint, jint, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glPrimitiveRestartIndexPROC) (jint);
 typedef void (APIENTRY *glTexBufferPROC) (jint, jint, jint);
-typedef void (APIENTRY *glGetUniformIndicesPROC) (jint, jint, const intptr_t, intptr_t);
-typedef void (APIENTRY *glGetActiveUniformsivPROC) (jint, jint, const intptr_t, jint, intptr_t);
+typedef void (APIENTRY *glGetUniformIndicesPROC) (jint, jint, intptr_t, intptr_t);
+typedef void (APIENTRY *glGetActiveUniformsivPROC) (jint, jint, intptr_t, jint, intptr_t);
 typedef void (APIENTRY *glGetActiveUniformNamePROC) (jint, jint, jint, intptr_t, intptr_t);
-typedef jint (APIENTRY *glGetUniformBlockIndexPROC) (jint, const intptr_t);
+typedef jint (APIENTRY *glGetUniformBlockIndexPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGetActiveUniformBlockivPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glGetActiveUniformBlockNamePROC) (jint, jint, jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glUniformBlockBindingPROC) (jint, jint, jint);
@@ -29,7 +29,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glDrawArraysInstanced(JNIEnv *
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglDrawElementsInstanced(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount) {
     glDrawElementsInstancedPROC glDrawElementsInstanced = (glDrawElementsInstancedPROC)tlsGetFunction(368);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstanced(mode, count, type, indices, primcount);
 }
@@ -54,7 +54,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_glTexBuffer(JNIEnv *__env, jcl
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglGetUniformIndices__IIJJ(JNIEnv *__env, jclass clazz, jint program, jint uniformCount, jlong uniformNamesAddress, jlong uniformIndicesAddress) {
     glGetUniformIndicesPROC glGetUniformIndices = (glGetUniformIndicesPROC)tlsGetFunction(759);
-    const intptr_t uniformNames = (const intptr_t)uniformNamesAddress;
+    intptr_t uniformNames = (intptr_t)uniformNamesAddress;
     intptr_t uniformIndices = (intptr_t)uniformIndicesAddress;
     UNUSED_PARAM(clazz)
     glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices);
@@ -62,7 +62,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglGetUniformIndices__IIJJ(JNI
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglGetActiveUniformsiv__IIJIJ(JNIEnv *__env, jclass clazz, jint program, jint uniformCount, jlong uniformIndicesAddress, jint pname, jlong paramsAddress) {
     glGetActiveUniformsivPROC glGetActiveUniformsiv = (glGetActiveUniformsivPROC)tlsGetFunction(511);
-    const intptr_t uniformIndices = (const intptr_t)uniformIndicesAddress;
+    intptr_t uniformIndices = (intptr_t)uniformIndicesAddress;
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params);
@@ -78,7 +78,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL31_nglGetActiveUniformName__IIIJJ
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL31_nglGetUniformBlockIndex(JNIEnv *__env, jclass clazz, jint program, jlong uniformBlockNameAddress) {
     glGetUniformBlockIndexPROC glGetUniformBlockIndex = (glGetUniformBlockIndexPROC)tlsGetFunction(757);
-    const intptr_t uniformBlockName = (const intptr_t)uniformBlockNameAddress;
+    intptr_t uniformBlockName = (intptr_t)uniformBlockNameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetUniformBlockIndex(program, uniformBlockName);
 }

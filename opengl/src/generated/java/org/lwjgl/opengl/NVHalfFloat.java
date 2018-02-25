@@ -67,7 +67,7 @@ public class NVHalfFloat {
 
     public static native void nglVertex2hvNV(long v);
 
-    public static void glVertex2hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertex2hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -82,7 +82,7 @@ public class NVHalfFloat {
 
     public static native void nglVertex3hvNV(long v);
 
-    public static void glVertex3hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertex3hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -97,7 +97,7 @@ public class NVHalfFloat {
 
     public static native void nglVertex4hvNV(long v);
 
-    public static void glVertex4hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertex4hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -112,7 +112,7 @@ public class NVHalfFloat {
 
     public static native void nglNormal3hvNV(long v);
 
-    public static void glNormal3hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glNormal3hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -127,7 +127,7 @@ public class NVHalfFloat {
 
     public static native void nglColor3hvNV(long v);
 
-    public static void glColor3hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glColor3hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -142,7 +142,7 @@ public class NVHalfFloat {
 
     public static native void nglColor4hvNV(long v);
 
-    public static void glColor4hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glColor4hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -157,7 +157,7 @@ public class NVHalfFloat {
 
     public static native void nglTexCoord1hvNV(long v);
 
-    public static void glTexCoord1hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glTexCoord1hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -172,7 +172,7 @@ public class NVHalfFloat {
 
     public static native void nglTexCoord2hvNV(long v);
 
-    public static void glTexCoord2hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glTexCoord2hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -187,7 +187,7 @@ public class NVHalfFloat {
 
     public static native void nglTexCoord3hvNV(long v);
 
-    public static void glTexCoord3hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glTexCoord3hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -202,7 +202,7 @@ public class NVHalfFloat {
 
     public static native void nglTexCoord4hvNV(long v);
 
-    public static void glTexCoord4hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glTexCoord4hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -217,7 +217,7 @@ public class NVHalfFloat {
 
     public static native void nglMultiTexCoord1hvNV(int target, long v);
 
-    public static void glMultiTexCoord1hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glMultiTexCoord1hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -232,7 +232,7 @@ public class NVHalfFloat {
 
     public static native void nglMultiTexCoord2hvNV(int target, long v);
 
-    public static void glMultiTexCoord2hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glMultiTexCoord2hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -247,7 +247,7 @@ public class NVHalfFloat {
 
     public static native void nglMultiTexCoord3hvNV(int target, long v);
 
-    public static void glMultiTexCoord3hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glMultiTexCoord3hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -262,7 +262,7 @@ public class NVHalfFloat {
 
     public static native void nglMultiTexCoord4hvNV(int target, long v);
 
-    public static void glMultiTexCoord4hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glMultiTexCoord4hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -277,7 +277,7 @@ public class NVHalfFloat {
 
     public static native void nglFogCoordhvNV(long fog);
 
-    public static void glFogCoordhvNV(@NativeType("const GLhalfNV *") ShortBuffer fog) {
+    public static void glFogCoordhvNV(@NativeType("GLhalfNV const *") ShortBuffer fog) {
         if (CHECKS) {
             check(fog, 1);
         }
@@ -292,7 +292,7 @@ public class NVHalfFloat {
 
     public static native void nglSecondaryColor3hvNV(long v);
 
-    public static void glSecondaryColor3hvNV(@NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glSecondaryColor3hvNV(@NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -307,7 +307,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexWeighthvNV(long weight);
 
-    public static void glVertexWeighthvNV(@NativeType("const GLhalfNV *") ShortBuffer weight) {
+    public static void glVertexWeighthvNV(@NativeType("GLhalfNV const *") ShortBuffer weight) {
         if (CHECKS) {
             check(weight, 1);
         }
@@ -322,7 +322,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttrib1hvNV(int index, long v);
 
-    public static void glVertexAttrib1hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttrib1hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -337,7 +337,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttrib2hvNV(int index, long v);
 
-    public static void glVertexAttrib2hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttrib2hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -352,7 +352,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttrib3hvNV(int index, long v);
 
-    public static void glVertexAttrib3hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttrib3hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -367,7 +367,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttrib4hvNV(int index, long v);
 
-    public static void glVertexAttrib4hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttrib4hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -378,7 +378,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttribs1hvNV(int index, int n, long v);
 
-    public static void glVertexAttribs1hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttribs1hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         nglVertexAttribs1hvNV(index, v.remaining(), memAddress(v));
     }
 
@@ -386,7 +386,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttribs2hvNV(int index, int n, long v);
 
-    public static void glVertexAttribs2hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttribs2hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         nglVertexAttribs2hvNV(index, v.remaining() >> 1, memAddress(v));
     }
 
@@ -394,7 +394,7 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttribs3hvNV(int index, int n, long v);
 
-    public static void glVertexAttribs3hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttribs3hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         nglVertexAttribs3hvNV(index, v.remaining() / 3, memAddress(v));
     }
 
@@ -402,12 +402,12 @@ public class NVHalfFloat {
 
     public static native void nglVertexAttribs4hvNV(int index, int n, long v);
 
-    public static void glVertexAttribs4hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") ShortBuffer v) {
+    public static void glVertexAttribs4hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") ShortBuffer v) {
         nglVertexAttribs4hvNV(index, v.remaining() >> 2, memAddress(v));
     }
 
     /** Array version of: {@link #glVertex2hvNV Vertex2hvNV} */
-    public static void glVertex2hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertex2hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertex2hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -417,7 +417,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertex3hvNV Vertex3hvNV} */
-    public static void glVertex3hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertex3hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertex3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -427,7 +427,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertex4hvNV Vertex4hvNV} */
-    public static void glVertex4hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertex4hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertex4hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -437,7 +437,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glNormal3hvNV Normal3hvNV} */
-    public static void glNormal3hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glNormal3hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glNormal3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -447,7 +447,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glColor3hvNV Color3hvNV} */
-    public static void glColor3hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glColor3hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glColor3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -457,7 +457,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glColor4hvNV Color4hvNV} */
-    public static void glColor4hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glColor4hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glColor4hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -467,7 +467,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glTexCoord1hvNV TexCoord1hvNV} */
-    public static void glTexCoord1hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glTexCoord1hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord1hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -477,7 +477,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glTexCoord2hvNV TexCoord2hvNV} */
-    public static void glTexCoord2hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glTexCoord2hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord2hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -487,7 +487,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glTexCoord3hvNV TexCoord3hvNV} */
-    public static void glTexCoord3hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glTexCoord3hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -497,7 +497,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glTexCoord4hvNV TexCoord4hvNV} */
-    public static void glTexCoord4hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glTexCoord4hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord4hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -507,7 +507,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glMultiTexCoord1hvNV MultiTexCoord1hvNV} */
-    public static void glMultiTexCoord1hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glMultiTexCoord1hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord1hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -517,7 +517,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glMultiTexCoord2hvNV MultiTexCoord2hvNV} */
-    public static void glMultiTexCoord2hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glMultiTexCoord2hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord2hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -527,7 +527,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glMultiTexCoord3hvNV MultiTexCoord3hvNV} */
-    public static void glMultiTexCoord3hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glMultiTexCoord3hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -537,7 +537,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glMultiTexCoord4hvNV MultiTexCoord4hvNV} */
-    public static void glMultiTexCoord4hvNV(@NativeType("GLenum") int target, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glMultiTexCoord4hvNV(@NativeType("GLenum") int target, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glMultiTexCoord4hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -547,7 +547,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glFogCoordhvNV FogCoordhvNV} */
-    public static void glFogCoordhvNV(@NativeType("const GLhalfNV *") short[] fog) {
+    public static void glFogCoordhvNV(@NativeType("GLhalfNV const *") short[] fog) {
         long __functionAddress = GL.getICD().glFogCoordhvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -557,7 +557,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glSecondaryColor3hvNV SecondaryColor3hvNV} */
-    public static void glSecondaryColor3hvNV(@NativeType("const GLhalfNV *") short[] v) {
+    public static void glSecondaryColor3hvNV(@NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glSecondaryColor3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -567,7 +567,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexWeighthvNV VertexWeighthvNV} */
-    public static void glVertexWeighthvNV(@NativeType("const GLhalfNV *") short[] weight) {
+    public static void glVertexWeighthvNV(@NativeType("GLhalfNV const *") short[] weight) {
         long __functionAddress = GL.getICD().glVertexWeighthvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -577,7 +577,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttrib1hvNV VertexAttrib1hvNV} */
-    public static void glVertexAttrib1hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttrib1hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib1hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -587,7 +587,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttrib2hvNV VertexAttrib2hvNV} */
-    public static void glVertexAttrib2hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttrib2hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib2hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -597,7 +597,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttrib3hvNV VertexAttrib3hvNV} */
-    public static void glVertexAttrib3hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttrib3hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -607,7 +607,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttrib4hvNV VertexAttrib4hvNV} */
-    public static void glVertexAttrib4hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttrib4hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -617,7 +617,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttribs1hvNV VertexAttribs1hvNV} */
-    public static void glVertexAttribs1hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttribs1hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribs1hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -626,7 +626,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttribs2hvNV VertexAttribs2hvNV} */
-    public static void glVertexAttribs2hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttribs2hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribs2hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -635,7 +635,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttribs3hvNV VertexAttribs3hvNV} */
-    public static void glVertexAttribs3hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttribs3hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribs3hvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -644,7 +644,7 @@ public class NVHalfFloat {
     }
 
     /** Array version of: {@link #glVertexAttribs4hvNV VertexAttribs4hvNV} */
-    public static void glVertexAttribs4hvNV(@NativeType("GLuint") int index, @NativeType("const GLhalfNV *") short[] v) {
+    public static void glVertexAttribs4hvNV(@NativeType("GLuint") int index, @NativeType("GLhalfNV const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribs4hvNV;
         if (CHECKS) {
             check(__functionAddress);

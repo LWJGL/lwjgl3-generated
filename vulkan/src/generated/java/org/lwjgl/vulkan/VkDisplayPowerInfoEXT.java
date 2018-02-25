@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDisplayPowerInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDisplayPowerStateEXT powerState;
  * }</pre></code>
  */
@@ -96,7 +96,7 @@ public class VkDisplayPowerInfoEXT extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code powerState} field. */
     @NativeType("VkDisplayPowerStateEXT")
@@ -105,7 +105,7 @@ public class VkDisplayPowerInfoEXT extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkDisplayPowerInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDisplayPowerInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDisplayPowerInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code powerState} field. */
     public VkDisplayPowerInfoEXT powerState(@NativeType("VkDisplayPowerStateEXT") int value) { npowerState(address(), value); return this; }
 
@@ -339,7 +339,7 @@ public class VkDisplayPowerInfoEXT extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkDisplayPowerInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDisplayPowerInfoEXT.npNext(address()); }
         /** Returns the value of the {@code powerState} field. */
         @NativeType("VkDisplayPowerStateEXT")
@@ -348,7 +348,7 @@ public class VkDisplayPowerInfoEXT extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkDisplayPowerInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkDisplayPowerInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDisplayPowerInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkDisplayPowerInfoEXT.npNext(address(), value); return this; }
+        public VkDisplayPowerInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkDisplayPowerInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code powerState} field. */
         public VkDisplayPowerInfoEXT.Buffer powerState(@NativeType("VkDisplayPowerStateEXT") int value) { VkDisplayPowerInfoEXT.npowerState(address(), value); return this; }
 

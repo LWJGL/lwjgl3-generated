@@ -286,7 +286,7 @@ public class ParShapes {
      */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_create_disk(float radius, int slices, @NativeType("const float *") FloatBuffer center, @NativeType("const float *") FloatBuffer normal) {
+    public static ParShapesMesh par_shapes_create_disk(float radius, int slices, @NativeType("float const *") FloatBuffer center, @NativeType("float const *") FloatBuffer normal) {
         if (CHECKS) {
             check(center, 3);
             check(normal, 3);
@@ -343,7 +343,7 @@ public class ParShapes {
      */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_create_lsystem(@NativeType("const char *") ByteBuffer program, int slices, int maxdepth) {
+    public static ParShapesMesh par_shapes_create_lsystem(@NativeType("char const *") ByteBuffer program, int slices, int maxdepth) {
         if (CHECKS) {
             checkNT1(program);
         }
@@ -362,7 +362,7 @@ public class ParShapes {
      */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_create_lsystem(@NativeType("const char *") CharSequence program, int slices, int maxdepth) {
+    public static ParShapesMesh par_shapes_create_lsystem(@NativeType("char const *") CharSequence program, int slices, int maxdepth) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer programEncoded = stack.ASCII(program);
@@ -384,7 +384,7 @@ public class ParShapes {
      * @param mesh    the mesh to export
      * @param objfile the OBJ file path
      */
-    public static void par_shapes_export(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, @NativeType("const char *") ByteBuffer objfile) {
+    public static void par_shapes_export(@NativeType("par_shapes_mesh const *") ParShapesMesh mesh, @NativeType("char const *") ByteBuffer objfile) {
         if (CHECKS) {
             checkNT1(objfile);
         }
@@ -397,7 +397,7 @@ public class ParShapes {
      * @param mesh    the mesh to export
      * @param objfile the OBJ file path
      */
-    public static void par_shapes_export(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, @NativeType("const char *") CharSequence objfile) {
+    public static void par_shapes_export(@NativeType("par_shapes_mesh const *") ParShapesMesh mesh, @NativeType("char const *") CharSequence objfile) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer objfileEncoded = stack.ASCII(objfile);
@@ -418,7 +418,7 @@ public class ParShapes {
      * @param mesh the mesh to query
      * @param aabb a pointer to an array of 6 floats in which the AABB will be written
      */
-    public static void par_shapes_compute_aabb(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, @NativeType("float *") FloatBuffer aabb) {
+    public static void par_shapes_compute_aabb(@NativeType("par_shapes_mesh const *") ParShapesMesh mesh, @NativeType("float *") FloatBuffer aabb) {
         if (CHECKS) {
             check(aabb, 6);
         }
@@ -438,7 +438,7 @@ public class ParShapes {
      */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_clone(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, @Nullable @NativeType("par_shapes_mesh *") ParShapesMesh target) {
+    public static ParShapesMesh par_shapes_clone(@NativeType("par_shapes_mesh const *") ParShapesMesh mesh, @Nullable @NativeType("par_shapes_mesh *") ParShapesMesh target) {
         long __result = npar_shapes_clone(mesh.address(), memAddressSafe(target));
         return ParShapesMesh.createSafe(__result);
     }
@@ -454,7 +454,7 @@ public class ParShapes {
      * @param dst the destination mesh
      * @param src the source mesh
      */
-    public static void par_shapes_merge(@NativeType("par_shapes_mesh *") ParShapesMesh dst, @NativeType("const par_shapes_mesh *") ParShapesMesh src) {
+    public static void par_shapes_merge(@NativeType("par_shapes_mesh *") ParShapesMesh dst, @NativeType("par_shapes_mesh const *") ParShapesMesh src) {
         npar_shapes_merge(dst.address(), src.address());
     }
 
@@ -487,7 +487,7 @@ public class ParShapes {
      * @param radians the rotation angle, in radians
      * @param axis    the rotation axis
      */
-    public static void par_shapes_rotate(@NativeType("par_shapes_mesh *") ParShapesMesh mesh, float radians, @NativeType("const float *") FloatBuffer axis) {
+    public static void par_shapes_rotate(@NativeType("par_shapes_mesh *") ParShapesMesh mesh, float radians, @NativeType("float const *") FloatBuffer axis) {
         if (CHECKS) {
             check(axis, 3);
         }
@@ -589,7 +589,7 @@ public class ParShapes {
      */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_weld(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, float epsilon, @Nullable @NativeType("PAR_SHAPES_T *") IntBuffer mapping) {
+    public static ParShapesMesh par_shapes_weld(@NativeType("par_shapes_mesh const *") ParShapesMesh mesh, float epsilon, @Nullable @NativeType("PAR_SHAPES_T *") IntBuffer mapping) {
         if (CHECKS) {
             checkSafe(mapping, mesh.npoints());
         }
@@ -617,7 +617,7 @@ public class ParShapes {
     /** Array version of: {@link #par_shapes_create_disk create_disk} */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_create_disk(float radius, int slices, @NativeType("const float *") float[] center, @NativeType("const float *") float[] normal) {
+    public static ParShapesMesh par_shapes_create_disk(float radius, int slices, @NativeType("float const *") float[] center, @NativeType("float const *") float[] normal) {
         if (CHECKS) {
             check(center, 3);
             check(normal, 3);
@@ -630,7 +630,7 @@ public class ParShapes {
     public static native void npar_shapes_compute_aabb(long mesh, float[] aabb);
 
     /** Array version of: {@link #par_shapes_compute_aabb compute_aabb} */
-    public static void par_shapes_compute_aabb(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, @NativeType("float *") float[] aabb) {
+    public static void par_shapes_compute_aabb(@NativeType("par_shapes_mesh const *") ParShapesMesh mesh, @NativeType("float *") float[] aabb) {
         if (CHECKS) {
             check(aabb, 6);
         }
@@ -641,7 +641,7 @@ public class ParShapes {
     public static native void npar_shapes_rotate(long mesh, float radians, float[] axis);
 
     /** Array version of: {@link #par_shapes_rotate rotate} */
-    public static void par_shapes_rotate(@NativeType("par_shapes_mesh *") ParShapesMesh mesh, float radians, @NativeType("const float *") float[] axis) {
+    public static void par_shapes_rotate(@NativeType("par_shapes_mesh *") ParShapesMesh mesh, float radians, @NativeType("float const *") float[] axis) {
         if (CHECKS) {
             check(axis, 3);
         }
@@ -654,7 +654,7 @@ public class ParShapes {
     /** Array version of: {@link #par_shapes_weld weld} */
     @Nullable
     @NativeType("par_shapes_mesh *")
-    public static ParShapesMesh par_shapes_weld(@NativeType("const par_shapes_mesh *") ParShapesMesh mesh, float epsilon, @Nullable @NativeType("PAR_SHAPES_T *") int[] mapping) {
+    public static ParShapesMesh par_shapes_weld(@NativeType("par_shapes_mesh const *") ParShapesMesh mesh, float epsilon, @Nullable @NativeType("PAR_SHAPES_T *") int[] mapping) {
         if (CHECKS) {
             checkSafe(mapping, mesh.npoints());
         }

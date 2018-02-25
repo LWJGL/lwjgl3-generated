@@ -73,7 +73,7 @@ public class ARBViewportArray {
      * @param first the first viewport to set
      * @param v     an array containing the viewport parameters
      */
-    public static void glViewportArrayv(@NativeType("GLuint") int first, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glViewportArrayv(@NativeType("GLuint") int first, @NativeType("GLfloat const *") FloatBuffer v) {
         nglViewportArrayv(first, v.remaining() >> 2, memAddress(v));
     }
 
@@ -101,7 +101,7 @@ public class ARBViewportArray {
      * @param index the viewport to set
      * @param v     the viewport parameters
      */
-    public static void glViewportIndexedfv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glViewportIndexedfv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -123,7 +123,7 @@ public class ARBViewportArray {
      * @param first the index of the first viewport whose scissor box to modify
      * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
      */
-    public static void glScissorArrayv(@NativeType("GLuint") int first, @NativeType("const GLint *") IntBuffer v) {
+    public static void glScissorArrayv(@NativeType("GLuint") int first, @NativeType("GLint const *") IntBuffer v) {
         nglScissorArrayv(first, v.remaining() >> 2, memAddress(v));
     }
 
@@ -151,7 +151,7 @@ public class ARBViewportArray {
      * @param index the index of the viewport whose scissor box to modify
      * @param v     an array containing the left, bottom, width and height of each scissor box, in that order
      */
-    public static void glScissorIndexedv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glScissorIndexedv(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -173,7 +173,7 @@ public class ARBViewportArray {
      * @param first the index of the first viewport whose depth range to update
      * @param v     n array containing the near and far values for the depth range of each modified viewport
      */
-    public static void glDepthRangeArrayv(@NativeType("GLuint") int first, @NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glDepthRangeArrayv(@NativeType("GLuint") int first, @NativeType("GLdouble const *") DoubleBuffer v) {
         nglDepthRangeArrayv(first, v.remaining() >> 1, memAddress(v));
     }
 
@@ -263,7 +263,7 @@ public class ARBViewportArray {
     }
 
     /** Array version of: {@link #glViewportArrayv ViewportArrayv} */
-    public static void glViewportArrayv(@NativeType("GLuint") int first, @NativeType("const GLfloat *") float[] v) {
+    public static void glViewportArrayv(@NativeType("GLuint") int first, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glViewportArrayv;
         if (CHECKS) {
             check(__functionAddress);
@@ -272,7 +272,7 @@ public class ARBViewportArray {
     }
 
     /** Array version of: {@link #glViewportIndexedfv ViewportIndexedfv} */
-    public static void glViewportIndexedfv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
+    public static void glViewportIndexedfv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glViewportIndexedfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -282,7 +282,7 @@ public class ARBViewportArray {
     }
 
     /** Array version of: {@link #glScissorArrayv ScissorArrayv} */
-    public static void glScissorArrayv(@NativeType("GLuint") int first, @NativeType("const GLint *") int[] v) {
+    public static void glScissorArrayv(@NativeType("GLuint") int first, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glScissorArrayv;
         if (CHECKS) {
             check(__functionAddress);
@@ -291,7 +291,7 @@ public class ARBViewportArray {
     }
 
     /** Array version of: {@link #glScissorIndexedv ScissorIndexedv} */
-    public static void glScissorIndexedv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glScissorIndexedv(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glScissorIndexedv;
         if (CHECKS) {
             check(__functionAddress);
@@ -301,7 +301,7 @@ public class ARBViewportArray {
     }
 
     /** Array version of: {@link #glDepthRangeArrayv DepthRangeArrayv} */
-    public static void glDepthRangeArrayv(@NativeType("GLuint") int first, @NativeType("const GLdouble *") double[] v) {
+    public static void glDepthRangeArrayv(@NativeType("GLuint") int first, @NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glDepthRangeArrayv;
         if (CHECKS) {
             check(__functionAddress);

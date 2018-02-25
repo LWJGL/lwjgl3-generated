@@ -57,11 +57,11 @@ public class EXTDiscardFramebuffer {
 
     public static native void nglDiscardFramebufferEXT(int target, int numAttachments, long attachments);
 
-    public static void glDiscardFramebufferEXT(@NativeType("GLenum") int target, @NativeType("const GLenum *") IntBuffer attachments) {
+    public static void glDiscardFramebufferEXT(@NativeType("GLenum") int target, @NativeType("GLenum const *") IntBuffer attachments) {
         nglDiscardFramebufferEXT(target, attachments.remaining(), memAddress(attachments));
     }
 
-    public static void glDiscardFramebufferEXT(@NativeType("GLenum") int target, @NativeType("const GLenum *") int attachment) {
+    public static void glDiscardFramebufferEXT(@NativeType("GLenum") int target, @NativeType("GLenum const *") int attachment) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer attachments = stack.ints(attachment);
@@ -72,7 +72,7 @@ public class EXTDiscardFramebuffer {
     }
 
     /** Array version of: {@link #glDiscardFramebufferEXT DiscardFramebufferEXT} */
-    public static void glDiscardFramebufferEXT(@NativeType("GLenum") int target, @NativeType("const GLenum *") int[] attachments) {
+    public static void glDiscardFramebufferEXT(@NativeType("GLenum") int target, @NativeType("GLenum const *") int[] attachments) {
         long __functionAddress = GLES.getICD().glDiscardFramebufferEXT;
         if (CHECKS) {
             check(__functionAddress);

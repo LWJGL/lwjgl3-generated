@@ -14,15 +14,15 @@ typedef void (APIENTRY *glSecondaryColor3dEXTPROC) (jdouble, jdouble, jdouble);
 typedef void (APIENTRY *glSecondaryColor3ubEXTPROC) (jbyte, jbyte, jbyte);
 typedef void (APIENTRY *glSecondaryColor3usEXTPROC) (jshort, jshort, jshort);
 typedef void (APIENTRY *glSecondaryColor3uiEXTPROC) (jint, jint, jint);
-typedef void (APIENTRY *glSecondaryColor3bvEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColor3svEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColor3ivEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColor3fvEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColor3dvEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColor3ubvEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColor3usvEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColor3uivEXTPROC) (const intptr_t);
-typedef void (APIENTRY *glSecondaryColorPointerEXTPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glSecondaryColor3bvEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColor3svEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColor3ivEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColor3fvEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColor3dvEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColor3ubvEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColor3usvEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColor3uivEXTPROC) (intptr_t);
+typedef void (APIENTRY *glSecondaryColorPointerEXTPROC) (jint, jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -76,63 +76,63 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_glSecondaryColor3
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3bvEXT(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3bvEXTPROC glSecondaryColor3bvEXT = (glSecondaryColor3bvEXTPROC)tlsGetFunction(1512);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3bvEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3svEXT__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3svEXTPROC glSecondaryColor3svEXT = (glSecondaryColor3svEXTPROC)tlsGetFunction(1530);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3svEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3ivEXT__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3ivEXTPROC glSecondaryColor3ivEXT = (glSecondaryColor3ivEXTPROC)tlsGetFunction(1526);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3ivEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3fvEXT__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3fvEXTPROC glSecondaryColor3fvEXT = (glSecondaryColor3fvEXTPROC)tlsGetFunction(1520);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3fvEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3dvEXT__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3dvEXTPROC glSecondaryColor3dvEXT = (glSecondaryColor3dvEXTPROC)tlsGetFunction(1516);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3dvEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3ubvEXT(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3ubvEXTPROC glSecondaryColor3ubvEXT = (glSecondaryColor3ubvEXTPROC)tlsGetFunction(1534);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3ubvEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3usvEXT__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3usvEXTPROC glSecondaryColor3usvEXT = (glSecondaryColor3usvEXTPROC)tlsGetFunction(1542);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3usvEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColor3uivEXT__J(JNIEnv *__env, jclass clazz, jlong vAddress) {
     glSecondaryColor3uivEXTPROC glSecondaryColor3uivEXT = (glSecondaryColor3uivEXTPROC)tlsGetFunction(1538);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColor3uivEXT(v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSecondaryColor_nglSecondaryColorPointerEXT__IIIJ(JNIEnv *__env, jclass clazz, jint size, jint type, jint stride, jlong pointerAddress) {
     glSecondaryColorPointerEXTPROC glSecondaryColorPointerEXT = (glSecondaryColorPointerEXTPROC)tlsGetFunction(1547);
-    const intptr_t pointer = (const intptr_t)pointerAddress;
+    intptr_t pointer = (intptr_t)pointerAddress;
     UNUSED_PARAM(clazz)
     glSecondaryColorPointerEXT(size, type, stride, pointer);
 }

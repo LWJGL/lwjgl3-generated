@@ -10,8 +10,8 @@ typedef void (APIENTRY *glInvalidateTexSubImagePROC) (jint, jint, jint, jint, ji
 typedef void (APIENTRY *glInvalidateTexImagePROC) (jint, jint);
 typedef void (APIENTRY *glInvalidateBufferSubDataPROC) (jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glInvalidateBufferDataPROC) (jint);
-typedef void (APIENTRY *glInvalidateFramebufferPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glInvalidateSubFramebufferPROC) (jint, jint, const intptr_t, jint, jint, jint, jint);
+typedef void (APIENTRY *glInvalidateFramebufferPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glInvalidateSubFramebufferPROC) (jint, jint, intptr_t, jint, jint, jint, jint);
 
 EXTERN_C_ENTER
 
@@ -41,14 +41,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBInvalidateSubdata_glInvalidateBu
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBInvalidateSubdata_nglInvalidateFramebuffer__IIJ(JNIEnv *__env, jclass clazz, jint target, jint numAttachments, jlong attachmentsAddress) {
     glInvalidateFramebufferPROC glInvalidateFramebuffer = (glInvalidateFramebufferPROC)tlsGetFunction(869);
-    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    intptr_t attachments = (intptr_t)attachmentsAddress;
     UNUSED_PARAM(clazz)
     glInvalidateFramebuffer(target, numAttachments, attachments);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBInvalidateSubdata_nglInvalidateSubFramebuffer__IIJIIII(JNIEnv *__env, jclass clazz, jint target, jint numAttachments, jlong attachmentsAddress, jint x, jint y, jint width, jint height) {
     glInvalidateSubFramebufferPROC glInvalidateSubFramebuffer = (glInvalidateSubFramebufferPROC)tlsGetFunction(872);
-    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    intptr_t attachments = (intptr_t)attachmentsAddress;
     UNUSED_PARAM(clazz)
     glInvalidateSubFramebuffer(target, numAttachments, attachments, x, y, width, height);
 }

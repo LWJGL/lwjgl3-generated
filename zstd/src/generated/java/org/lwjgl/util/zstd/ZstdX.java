@@ -392,7 +392,7 @@ public class ZstdX {
      * @return the compressed size of the first frame starting at {@code src}, suitable to pass to {@link Zstd#ZSTD_decompress decompress} or similar, or an error code if input is invalid
      */
     @NativeType("size_t")
-    public static long ZSTD_findFrameCompressedSize(@NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_findFrameCompressedSize(@NativeType("void const *") ByteBuffer src) {
         return nZSTD_findFrameCompressedSize(memAddress(src), src.remaining());
     }
 
@@ -426,7 +426,7 @@ public class ZstdX {
      *         occurred: {@link Zstd#ZSTD_CONTENTSIZE_ERROR CONTENTSIZE_ERROR}
      */
     @NativeType("unsigned long long")
-    public static long ZSTD_findDecompressedSize(@NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_findDecompressedSize(@NativeType("void const *") ByteBuffer src) {
         return nZSTD_findDecompressedSize(memAddress(src), src.remaining());
     }
 
@@ -445,7 +445,7 @@ public class ZstdX {
      * @return size of the Frame Header
      */
     @NativeType("size_t")
-    public static long ZSTD_frameHeaderSize(@NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_frameHeaderSize(@NativeType("void const *") ByteBuffer src) {
         return nZSTD_frameHeaderSize(memAddress(src), src.remaining());
     }
 
@@ -454,7 +454,7 @@ public class ZstdX {
     public static native long nZSTD_sizeof_CCtx(long cctx);
 
     @NativeType("size_t")
-    public static long ZSTD_sizeof_CCtx(@NativeType("const ZSTD_CCtx *") long cctx) {
+    public static long ZSTD_sizeof_CCtx(@NativeType("ZSTD_CCtx const *") long cctx) {
         if (CHECKS) {
             check(cctx);
         }
@@ -466,7 +466,7 @@ public class ZstdX {
     public static native long nZSTD_sizeof_DCtx(long dctx);
 
     @NativeType("size_t")
-    public static long ZSTD_sizeof_DCtx(@NativeType("const ZSTD_DCtx *") long dctx) {
+    public static long ZSTD_sizeof_DCtx(@NativeType("ZSTD_DCtx const *") long dctx) {
         if (CHECKS) {
             check(dctx);
         }
@@ -478,7 +478,7 @@ public class ZstdX {
     public static native long nZSTD_sizeof_CStream(long zcs);
 
     @NativeType("size_t")
-    public static long ZSTD_sizeof_CStream(@NativeType("const ZSTD_CStream *") long zcs) {
+    public static long ZSTD_sizeof_CStream(@NativeType("ZSTD_CStream const *") long zcs) {
         if (CHECKS) {
             check(zcs);
         }
@@ -490,7 +490,7 @@ public class ZstdX {
     public static native long nZSTD_sizeof_DStream(long zds);
 
     @NativeType("size_t")
-    public static long ZSTD_sizeof_DStream(@NativeType("const ZSTD_DStream *") long zds) {
+    public static long ZSTD_sizeof_DStream(@NativeType("ZSTD_DStream const *") long zds) {
         if (CHECKS) {
             check(zds);
         }
@@ -502,7 +502,7 @@ public class ZstdX {
     public static native long nZSTD_sizeof_CDict(long cdict);
 
     @NativeType("size_t")
-    public static long ZSTD_sizeof_CDict(@NativeType("const ZSTD_CDict *") long cdict) {
+    public static long ZSTD_sizeof_CDict(@NativeType("ZSTD_CDict const *") long cdict) {
         if (CHECKS) {
             check(cdict);
         }
@@ -514,7 +514,7 @@ public class ZstdX {
     public static native long nZSTD_sizeof_DDict(long ddict);
 
     @NativeType("size_t")
-    public static long ZSTD_sizeof_DDict(@NativeType("const ZSTD_DDict *") long ddict) {
+    public static long ZSTD_sizeof_DDict(@NativeType("ZSTD_DDict const *") long ddict) {
         if (CHECKS) {
             check(ddict);
         }
@@ -550,7 +550,7 @@ public class ZstdX {
      * @param params 
      */
     @NativeType("size_t")
-    public static long ZSTD_estimateCCtxSize_usingCCtxParams(@NativeType("const ZSTD_CCtx_params *") long params) {
+    public static long ZSTD_estimateCCtxSize_usingCCtxParams(@NativeType("ZSTD_CCtx_params const *") long params) {
         if (CHECKS) {
             check(params);
         }
@@ -590,7 +590,7 @@ public class ZstdX {
      * @param params 
      */
     @NativeType("size_t")
-    public static long ZSTD_estimateCStreamSize_usingCCtxParams(@NativeType("const ZSTD_CCtx_params *") long params) {
+    public static long ZSTD_estimateCStreamSize_usingCCtxParams(@NativeType("ZSTD_CCtx_params const *") long params) {
         if (CHECKS) {
             check(params);
         }
@@ -621,7 +621,7 @@ public class ZstdX {
      * @param src 
      */
     @NativeType("size_t")
-    public static long ZSTD_estimateDStreamSize_fromFrame(@NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_estimateDStreamSize_fromFrame(@NativeType("void const *") ByteBuffer src) {
         return nZSTD_estimateDStreamSize_fromFrame(memAddress(src), src.remaining());
     }
 
@@ -734,7 +734,7 @@ public class ZstdX {
      * @param buffer 
      */
     @NativeType("unsigned")
-    public static boolean ZSTD_isFrame(@NativeType("const void *") ByteBuffer buffer) {
+    public static boolean ZSTD_isFrame(@NativeType("void const *") ByteBuffer buffer) {
         return nZSTD_isFrame(memAddress(buffer), buffer.remaining()) != 0;
     }
 
@@ -798,7 +798,7 @@ public class ZstdX {
      * @param customMem      
      */
     @NativeType("ZSTD_DDict *")
-    public static long ZSTD_createDDict_advanced(@NativeType("const void *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod, @NativeType("ZSTD_customMem") ZSTDCustomMem customMem) {
+    public static long ZSTD_createDDict_advanced(@NativeType("void const *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod, @NativeType("ZSTD_customMem") ZSTDCustomMem customMem) {
         if (CHECKS) {
             ZSTDCustomMem.validate(customMem.address());
         }
@@ -823,8 +823,8 @@ public class ZstdX {
      * @param dict           
      * @param dictLoadMethod one of:<br><table><tr><td>{@link #ZSTD_dlm_byCopy dlm_byCopy}</td><td>{@link #ZSTD_dlm_byRef dlm_byRef}</td></tr></table>
      */
-    @NativeType("const ZSTD_DDict *")
-    public static long ZSTD_initStaticDDict(@NativeType("void *") ByteBuffer workspace, @NativeType("const void *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod) {
+    @NativeType("ZSTD_DDict const *")
+    public static long ZSTD_initStaticDDict(@NativeType("void *") ByteBuffer workspace, @NativeType("void const *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod) {
         return nZSTD_initStaticDDict(memAddress(workspace), workspace.remaining(), memAddress(dict), dict.remaining(), dictLoadMethod);
     }
 
@@ -841,7 +841,7 @@ public class ZstdX {
      * @return if 0, the dictionary is not conformant with Zstandard specification. It can still be loaded, but as a content-only dictionary.
      */
     @NativeType("unsigned int")
-    public static int ZSTD_getDictID_fromDict(@NativeType("const void *") ByteBuffer dict) {
+    public static int ZSTD_getDictID_fromDict(@NativeType("void const *") ByteBuffer dict) {
         return nZSTD_getDictID_fromDict(memAddress(dict), dict.remaining());
     }
 
@@ -859,7 +859,7 @@ public class ZstdX {
      *         content-only dictionaries.
      */
     @NativeType("unsigned int")
-    public static int ZSTD_getDictID_fromDDict(@NativeType("const ZSTD_DDict *") long ddict) {
+    public static int ZSTD_getDictID_fromDDict(@NativeType("ZSTD_DDict const *") long ddict) {
         if (CHECKS) {
             check(ddict);
         }
@@ -889,7 +889,7 @@ public class ZstdX {
      *         <p>When identifying the exact failure cause, it's possible to use {@link #ZSTD_getFrameHeader getFrameHeader}, which will provide a more precise error code.</p>
      */
     @NativeType("unsigned int")
-    public static int ZSTD_getDictID_fromFrame(@NativeType("const void *") ByteBuffer src) {
+    public static int ZSTD_getDictID_fromFrame(@NativeType("void const *") ByteBuffer src) {
         return nZSTD_getDictID_fromFrame(memAddress(src), src.remaining());
     }
 
@@ -946,7 +946,7 @@ public class ZstdX {
      * @param pledgedSrcSize can be 0, indicating unknown size. If it is non-zero, it must be accurate. For 0 size frames, use {@code compressBegin_advanced}
      */
     @NativeType("size_t")
-    public static long ZSTD_copyCCtx(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const ZSTD_CCtx *") long preparedCCtx, @NativeType("unsigned long long") long pledgedSrcSize) {
+    public static long ZSTD_copyCCtx(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("ZSTD_CCtx const *") long preparedCCtx, @NativeType("unsigned long long") long pledgedSrcSize) {
         if (CHECKS) {
             check(cctx);
             check(preparedCCtx);
@@ -968,7 +968,7 @@ public class ZstdX {
      * @param cctx 
      */
     @NativeType("ZSTD_frameProgression")
-    public static ZSTDFrameProgression ZSTD_getFrameProgression(@NativeType("const ZSTD_CCtx *") long cctx, ZSTDFrameProgression __result) {
+    public static ZSTDFrameProgression ZSTD_getFrameProgression(@NativeType("ZSTD_CCtx const *") long cctx, ZSTDFrameProgression __result) {
         if (CHECKS) {
             check(cctx);
         }
@@ -988,7 +988,7 @@ public class ZstdX {
      * @param src    
      */
     @NativeType("size_t")
-    public static long ZSTD_getFrameHeader(@NativeType("ZSTD_frameHeader *") ZSTDFrameHeader zfhPtr, @NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_getFrameHeader(@NativeType("ZSTD_frameHeader *") ZSTDFrameHeader zfhPtr, @NativeType("void const *") ByteBuffer src) {
         return nZSTD_getFrameHeader(zfhPtr.address(), memAddress(src), src.remaining());
     }
 
@@ -996,7 +996,7 @@ public class ZstdX {
 
     public static native void nZSTD_copyDCtx(long dctx, long preparedDCtx);
 
-    public static void ZSTD_copyDCtx(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("const ZSTD_DCtx *") long preparedDCtx) {
+    public static void ZSTD_copyDCtx(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("ZSTD_DCtx const *") long preparedDCtx) {
         if (CHECKS) {
             check(dctx);
             check(preparedDCtx);
@@ -1083,7 +1083,7 @@ public class ZstdX {
      * @return 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_loadDictionary(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer dict) {
+    public static long ZSTD_CCtx_loadDictionary(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("void const *") ByteBuffer dict) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1102,7 +1102,7 @@ public class ZstdX {
      * @param dict 
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_loadDictionary_byReference(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer dict) {
+    public static long ZSTD_CCtx_loadDictionary_byReference(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("void const *") ByteBuffer dict) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1123,7 +1123,7 @@ public class ZstdX {
      * @param dictMode       one of:<br><table><tr><td>{@link #ZSTD_dm_auto dm_auto}</td><td>{@link #ZSTD_dm_rawContent dm_rawContent}</td><td>{@link #ZSTD_dm_fullDict dm_fullDict}</td></tr></table>
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_loadDictionary_advanced(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod, @NativeType("ZSTD_dictMode_e") int dictMode) {
+    public static long ZSTD_CCtx_loadDictionary_advanced(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("void const *") ByteBuffer dict, @NativeType("ZSTD_dictLoadMethod_e") int dictLoadMethod, @NativeType("ZSTD_dictMode_e") int dictMode) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1157,7 +1157,7 @@ public class ZstdX {
      * @return 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_refCDict(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const ZSTD_CDict *") long cdict) {
+    public static long ZSTD_CCtx_refCDict(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("ZSTD_CDict const *") long cdict) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1193,7 +1193,7 @@ public class ZstdX {
      * @return 0, or an error code (which can be tested with {@link Zstd#ZSTD_isError isError})
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_refPrefix(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer prefix) {
+    public static long ZSTD_CCtx_refPrefix(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("void const *") ByteBuffer prefix) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1213,7 +1213,7 @@ public class ZstdX {
      * @param dictMode one of:<br><table><tr><td>{@link #ZSTD_dm_auto dm_auto}</td><td>{@link #ZSTD_dm_rawContent dm_rawContent}</td><td>{@link #ZSTD_dm_fullDict dm_fullDict}</td></tr></table>
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_refPrefix_advanced(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("const void *") ByteBuffer prefix, @NativeType("ZSTD_dictMode_e") int dictMode) {
+    public static long ZSTD_CCtx_refPrefix_advanced(@NativeType("ZSTD_CCtx *") long cctx, @Nullable @NativeType("void const *") ByteBuffer prefix, @NativeType("ZSTD_dictMode_e") int dictMode) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1300,7 +1300,7 @@ public class ZstdX {
      * @param endOp  one of:<br><table><tr><td>{@link #ZSTD_e_continue e_continue}</td><td>{@link #ZSTD_e_flush e_flush}</td><td>{@link #ZSTD_e_end e_end}</td></tr></table>
      */
     @NativeType("size_t")
-    public static long ZSTD_compress_generic_simpleArgs(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("void *") ByteBuffer dst, @NativeType("size_t *") PointerBuffer dstPos, @NativeType("const void *") ByteBuffer src, @NativeType("size_t *") PointerBuffer srcPos, @NativeType("ZSTD_EndDirective") int endOp) {
+    public static long ZSTD_compress_generic_simpleArgs(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("void *") ByteBuffer dst, @NativeType("size_t *") PointerBuffer dstPos, @NativeType("void const *") ByteBuffer src, @NativeType("size_t *") PointerBuffer srcPos, @NativeType("ZSTD_EndDirective") int endOp) {
         if (CHECKS) {
             check(cctx);
             check(dstPos, 1);
@@ -1410,7 +1410,7 @@ public class ZstdX {
      * @param params 
      */
     @NativeType("size_t")
-    public static long ZSTD_CCtx_setParametersUsingCCtxParams(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("const ZSTD_CCtx_params *") long params) {
+    public static long ZSTD_CCtx_setParametersUsingCCtxParams(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("ZSTD_CCtx_params const *") long params) {
         if (CHECKS) {
             check(cctx);
             check(params);
@@ -1502,7 +1502,7 @@ public class ZstdX {
      * @param srcPos 
      */
     @NativeType("size_t")
-    public static long ZSTD_decompress_generic_simpleArgs(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("size_t *") PointerBuffer dstPos, @NativeType("const void *") ByteBuffer src, @NativeType("size_t *") PointerBuffer srcPos) {
+    public static long ZSTD_decompress_generic_simpleArgs(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("size_t *") PointerBuffer dstPos, @NativeType("void const *") ByteBuffer src, @NativeType("size_t *") PointerBuffer srcPos) {
         if (CHECKS) {
             check(dctx);
             check(dstPos, 1);
@@ -1536,7 +1536,7 @@ public class ZstdX {
     public static native long nZSTD_getBlockSize(long cctx);
 
     @NativeType("size_t")
-    public static long ZSTD_getBlockSize(@NativeType("const ZSTD_CCtx *") long cctx) {
+    public static long ZSTD_getBlockSize(@NativeType("ZSTD_CCtx const *") long cctx) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1548,7 +1548,7 @@ public class ZstdX {
     public static native long nZSTD_compressBlock(long cctx, long dst, long dstCapacity, long src, long srcSize);
 
     @NativeType("size_t")
-    public static long ZSTD_compressBlock(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_compressBlock(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src) {
         if (CHECKS) {
             check(cctx);
         }
@@ -1560,7 +1560,7 @@ public class ZstdX {
     public static native long nZSTD_decompressBlock(long dctx, long dst, long dstCapacity, long src, long srcSize);
 
     @NativeType("size_t")
-    public static long ZSTD_decompressBlock(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_decompressBlock(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src) {
         if (CHECKS) {
             check(dctx);
         }
@@ -1579,7 +1579,7 @@ public class ZstdX {
      * @param blockStart 
      */
     @NativeType("size_t")
-    public static long ZSTD_insertBlock(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("const void *") ByteBuffer blockStart) {
+    public static long ZSTD_insertBlock(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void const *") ByteBuffer blockStart) {
         if (CHECKS) {
             check(dctx);
         }

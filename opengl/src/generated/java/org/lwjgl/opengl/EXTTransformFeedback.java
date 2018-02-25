@@ -124,11 +124,11 @@ public class EXTTransformFeedback {
 
     public static native void nglTransformFeedbackVaryingsEXT(int program, int count, long varyings, int bufferMode);
 
-    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") PointerBuffer varyings, @NativeType("GLenum") int bufferMode) {
+    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("GLchar const * const *") PointerBuffer varyings, @NativeType("GLenum") int bufferMode) {
         nglTransformFeedbackVaryingsEXT(program, varyings.remaining(), memAddress(varyings), bufferMode);
     }
 
-    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") CharSequence[] varyings, @NativeType("GLenum") int bufferMode) {
+    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("GLchar const * const *") CharSequence[] varyings, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varyings);
@@ -139,7 +139,7 @@ public class EXTTransformFeedback {
         }
     }
 
-    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("const GLchar * const *") CharSequence varying, @NativeType("GLenum") int bufferMode) {
+    public static void glTransformFeedbackVaryingsEXT(@NativeType("GLuint") int program, @NativeType("GLchar const * const *") CharSequence varying, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varying);

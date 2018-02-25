@@ -30,7 +30,7 @@ import static org.lwjgl.util.lz4.LZ4.LZ4_HASH_SIZE_U32;
  *     uint32_t hashTable[LZ4_HASH_SIZE_U32];
  *     uint32_t currentOffset;
  *     uint32_t initCheck;
- *     const uint8_t * dictionary;
+ *     uint8_t const * dictionary;
  *     uint8_t * bufferStart;
  *     uint32_t dictSize;
  * }</pre></code>
@@ -107,7 +107,7 @@ public class LZ4StreamInternal extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
-    @NativeType("const uint8_t *")
+    @NativeType("uint8_t const *")
     public ByteBuffer dictionary(int capacity) { return ndictionary(address(), capacity); }
     /**
      * Returns a {@link ByteBuffer} view of the data pointed to by the {@code bufferStart} field.
@@ -231,7 +231,7 @@ public class LZ4StreamInternal extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
-        @NativeType("const uint8_t *")
+        @NativeType("uint8_t const *")
         public ByteBuffer dictionary(int capacity) { return LZ4StreamInternal.ndictionary(address(), capacity); }
         /**
          * Returns a {@link ByteBuffer} view of the data pointed to by the {@code bufferStart} field.

@@ -7,11 +7,11 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glRenderGpuMaskNVPROC) (jint);
-typedef void (APIENTRY *glMulticastBufferSubDataNVPROC) (jint, jint, intptr_t, intptr_t, const intptr_t);
+typedef void (APIENTRY *glMulticastBufferSubDataNVPROC) (jint, jint, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glMulticastCopyBufferSubDataNVPROC) (jint, jint, jint, jint, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glMulticastCopyImageSubDataNVPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glMulticastBlitFramebufferNVPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint);
-typedef void (APIENTRY *glMulticastFramebufferSampleLocationsfvNVPROC) (jint, jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glMulticastFramebufferSampleLocationsfvNVPROC) (jint, jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glMulticastBarrierNVPROC) (void);
 typedef void (APIENTRY *glMulticastWaitSyncNVPROC) (jint, jint);
 typedef void (APIENTRY *glMulticastGetQueryObjectivNVPROC) (jint, jint, jint, intptr_t);
@@ -29,7 +29,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glRenderGpuMaskNV(JN
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastBufferSubDataNV__IIJJJ(JNIEnv *__env, jclass clazz, jint gpuMask, jint buffer, jlong offset, jlong size, jlong dataAddress) {
     glMulticastBufferSubDataNVPROC glMulticastBufferSubDataNV = (glMulticastBufferSubDataNVPROC)tlsGetFunction(1134);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glMulticastBufferSubDataNV(gpuMask, buffer, (intptr_t)offset, (intptr_t)size, data);
 }
@@ -54,7 +54,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_glMulticastBlitFrame
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVGPUMulticast_nglMulticastFramebufferSampleLocationsfvNV__IIIIJ(JNIEnv *__env, jclass clazz, jint gpu, jint framebuffer, jint start, jint count, jlong vAddress) {
     glMulticastFramebufferSampleLocationsfvNVPROC glMulticastFramebufferSampleLocationsfvNV = (glMulticastFramebufferSampleLocationsfvNVPROC)tlsGetFunction(1137);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glMulticastFramebufferSampleLocationsfvNV(gpu, framebuffer, start, count, v);
 }

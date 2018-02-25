@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPhysicalDeviceExternalImageFormatInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkExternalMemoryHandleTypeFlagBitsKHR handleType;
  * }</pre></code>
  */
@@ -97,7 +97,7 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code handleType} field. */
     @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
@@ -106,7 +106,7 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
     /** Sets the specified value to the {@code sType} field. */
     public VkPhysicalDeviceExternalImageFormatInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceExternalImageFormatInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceExternalImageFormatInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
     public VkPhysicalDeviceExternalImageFormatInfoKHR handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
 
@@ -340,7 +340,7 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
         @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceExternalImageFormatInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPhysicalDeviceExternalImageFormatInfoKHR.npNext(address()); }
         /** Returns the value of the {@code handleType} field. */
         @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
@@ -349,7 +349,7 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
         /** Sets the specified value to the {@code sType} field. */
         public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceExternalImageFormatInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkPhysicalDeviceExternalImageFormatInfoKHR.npNext(address(), value); return this; }
+        public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkPhysicalDeviceExternalImageFormatInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
         public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { VkPhysicalDeviceExternalImageFormatInfoKHR.nhandleType(address(), value); return this; }
 

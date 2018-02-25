@@ -18,7 +18,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * float (*) (
  *     nk_handle handle,
  *     float h,
- *     const char *text,
+ *     char const *text,
  *     int len
  * )</pre></code>
  */
@@ -41,6 +41,6 @@ public interface NkTextWidthCallbackI extends CallbackI.F {
         );
     }
 
-    float invoke(@NativeType("nk_handle") long handle, float h, @NativeType("const char *") long text, int len);
+    float invoke(@NativeType("nk_handle") long handle, float h, @NativeType("char const *") long text, int len);
 
 }

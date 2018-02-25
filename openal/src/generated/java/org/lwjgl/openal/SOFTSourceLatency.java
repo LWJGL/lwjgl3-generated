@@ -131,7 +131,7 @@ public class SOFTSourceLatency {
      * @param value  the parameter values
      */
     @NativeType("ALvoid")
-    public static void alSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALdouble *") DoubleBuffer value) {
+    public static void alSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble const *") DoubleBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -295,7 +295,7 @@ public class SOFTSourceLatency {
      * @param values the parameter values
      */
     @NativeType("ALvoid")
-    public static void alSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALint64SOFT *") LongBuffer values) {
+    public static void alSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT const *") LongBuffer values) {
         if (CHECKS) {
             check(values, 1);
         }
@@ -404,7 +404,7 @@ public class SOFTSourceLatency {
 
     /** Array version of: {@link #alSourcedvSOFT SourcedvSOFT} */
     @NativeType("ALvoid")
-    public static void alSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALdouble *") double[] value) {
+    public static void alSourcedvSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALdouble const *") double[] value) {
         long __functionAddress = AL.getICD().alSourcedvSOFT;
         if (CHECKS) {
             check(__functionAddress);
@@ -450,7 +450,7 @@ public class SOFTSourceLatency {
 
     /** Array version of: {@link #alSourcei64vSOFT Sourcei64vSOFT} */
     @NativeType("ALvoid")
-    public static void alSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("const ALint64SOFT *") long[] values) {
+    public static void alSourcei64vSOFT(@NativeType("ALuint") int source, @NativeType("ALenum") int param, @NativeType("ALint64SOFT const *") long[] values) {
         long __functionAddress = AL.getICD().alSourcei64vSOFT;
         if (CHECKS) {
             check(__functionAddress);

@@ -69,14 +69,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkRenderPassCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkRenderPassCreateFlags flags;
  *     uint32_t attachmentCount;
- *     const {@link VkAttachmentDescription VkAttachmentDescription} * pAttachments;
+ *     {@link VkAttachmentDescription VkAttachmentDescription const} * pAttachments;
  *     uint32_t subpassCount;
- *     const {@link VkSubpassDescription VkSubpassDescription} * pSubpasses;
+ *     {@link VkSubpassDescription VkSubpassDescription const} * pSubpasses;
  *     uint32_t dependencyCount;
- *     const {@link VkSubpassDependency VkSubpassDependency} * pDependencies;
+ *     {@link VkSubpassDependency VkSubpassDependency const} * pDependencies;
  * }</pre></code>
  */
 public class VkRenderPassCreateInfo extends Struct implements NativeResource {
@@ -146,7 +146,7 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkRenderPassCreateFlags")
@@ -156,34 +156,34 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
     public int attachmentCount() { return nattachmentCount(address()); }
     /** Returns a {@link VkAttachmentDescription.Buffer} view of the struct array pointed to by the {@code pAttachments} field. */
     @Nullable
-    @NativeType("const VkAttachmentDescription *")
+    @NativeType("VkAttachmentDescription const *")
     public VkAttachmentDescription.Buffer pAttachments() { return npAttachments(address()); }
     /** Returns the value of the {@code subpassCount} field. */
     @NativeType("uint32_t")
     public int subpassCount() { return nsubpassCount(address()); }
     /** Returns a {@link VkSubpassDescription.Buffer} view of the struct array pointed to by the {@code pSubpasses} field. */
-    @NativeType("const VkSubpassDescription *")
+    @NativeType("VkSubpassDescription const *")
     public VkSubpassDescription.Buffer pSubpasses() { return npSubpasses(address()); }
     /** Returns the value of the {@code dependencyCount} field. */
     @NativeType("uint32_t")
     public int dependencyCount() { return ndependencyCount(address()); }
     /** Returns a {@link VkSubpassDependency.Buffer} view of the struct array pointed to by the {@code pDependencies} field. */
     @Nullable
-    @NativeType("const VkSubpassDependency *")
+    @NativeType("VkSubpassDependency const *")
     public VkSubpassDependency.Buffer pDependencies() { return npDependencies(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkRenderPassCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkRenderPassCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkRenderPassCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkRenderPassCreateInfo flags(@NativeType("VkRenderPassCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link VkAttachmentDescription.Buffer} to the {@code pAttachments} field. */
-    public VkRenderPassCreateInfo pAttachments(@Nullable @NativeType("const VkAttachmentDescription *") VkAttachmentDescription.Buffer value) { npAttachments(address(), value); return this; }
+    public VkRenderPassCreateInfo pAttachments(@Nullable @NativeType("VkAttachmentDescription const *") VkAttachmentDescription.Buffer value) { npAttachments(address(), value); return this; }
     /** Sets the address of the specified {@link VkSubpassDescription.Buffer} to the {@code pSubpasses} field. */
-    public VkRenderPassCreateInfo pSubpasses(@NativeType("const VkSubpassDescription *") VkSubpassDescription.Buffer value) { npSubpasses(address(), value); return this; }
+    public VkRenderPassCreateInfo pSubpasses(@NativeType("VkSubpassDescription const *") VkSubpassDescription.Buffer value) { npSubpasses(address(), value); return this; }
     /** Sets the address of the specified {@link VkSubpassDependency.Buffer} to the {@code pDependencies} field. */
-    public VkRenderPassCreateInfo pDependencies(@Nullable @NativeType("const VkSubpassDependency *") VkSubpassDependency.Buffer value) { npDependencies(address(), value); return this; }
+    public VkRenderPassCreateInfo pDependencies(@Nullable @NativeType("VkSubpassDependency const *") VkSubpassDependency.Buffer value) { npDependencies(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkRenderPassCreateInfo set(
@@ -475,7 +475,7 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkRenderPassCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkRenderPassCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkRenderPassCreateFlags")
@@ -485,34 +485,34 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
         public int attachmentCount() { return VkRenderPassCreateInfo.nattachmentCount(address()); }
         /** Returns a {@link VkAttachmentDescription.Buffer} view of the struct array pointed to by the {@code pAttachments} field. */
         @Nullable
-        @NativeType("const VkAttachmentDescription *")
+        @NativeType("VkAttachmentDescription const *")
         public VkAttachmentDescription.Buffer pAttachments() { return VkRenderPassCreateInfo.npAttachments(address()); }
         /** Returns the value of the {@code subpassCount} field. */
         @NativeType("uint32_t")
         public int subpassCount() { return VkRenderPassCreateInfo.nsubpassCount(address()); }
         /** Returns a {@link VkSubpassDescription.Buffer} view of the struct array pointed to by the {@code pSubpasses} field. */
-        @NativeType("const VkSubpassDescription *")
+        @NativeType("VkSubpassDescription const *")
         public VkSubpassDescription.Buffer pSubpasses() { return VkRenderPassCreateInfo.npSubpasses(address()); }
         /** Returns the value of the {@code dependencyCount} field. */
         @NativeType("uint32_t")
         public int dependencyCount() { return VkRenderPassCreateInfo.ndependencyCount(address()); }
         /** Returns a {@link VkSubpassDependency.Buffer} view of the struct array pointed to by the {@code pDependencies} field. */
         @Nullable
-        @NativeType("const VkSubpassDependency *")
+        @NativeType("VkSubpassDependency const *")
         public VkSubpassDependency.Buffer pDependencies() { return VkRenderPassCreateInfo.npDependencies(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkRenderPassCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkRenderPassCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkRenderPassCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkRenderPassCreateInfo.npNext(address(), value); return this; }
+        public VkRenderPassCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkRenderPassCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkRenderPassCreateInfo.Buffer flags(@NativeType("VkRenderPassCreateFlags") int value) { VkRenderPassCreateInfo.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link VkAttachmentDescription.Buffer} to the {@code pAttachments} field. */
-        public VkRenderPassCreateInfo.Buffer pAttachments(@Nullable @NativeType("const VkAttachmentDescription *") VkAttachmentDescription.Buffer value) { VkRenderPassCreateInfo.npAttachments(address(), value); return this; }
+        public VkRenderPassCreateInfo.Buffer pAttachments(@Nullable @NativeType("VkAttachmentDescription const *") VkAttachmentDescription.Buffer value) { VkRenderPassCreateInfo.npAttachments(address(), value); return this; }
         /** Sets the address of the specified {@link VkSubpassDescription.Buffer} to the {@code pSubpasses} field. */
-        public VkRenderPassCreateInfo.Buffer pSubpasses(@NativeType("const VkSubpassDescription *") VkSubpassDescription.Buffer value) { VkRenderPassCreateInfo.npSubpasses(address(), value); return this; }
+        public VkRenderPassCreateInfo.Buffer pSubpasses(@NativeType("VkSubpassDescription const *") VkSubpassDescription.Buffer value) { VkRenderPassCreateInfo.npSubpasses(address(), value); return this; }
         /** Sets the address of the specified {@link VkSubpassDependency.Buffer} to the {@code pDependencies} field. */
-        public VkRenderPassCreateInfo.Buffer pDependencies(@Nullable @NativeType("const VkSubpassDependency *") VkSubpassDependency.Buffer value) { VkRenderPassCreateInfo.npDependencies(address(), value); return this; }
+        public VkRenderPassCreateInfo.Buffer pDependencies(@Nullable @NativeType("VkSubpassDependency const *") VkSubpassDependency.Buffer value) { VkRenderPassCreateInfo.npDependencies(address(), value); return this; }
 
     }
 

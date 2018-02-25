@@ -65,8 +65,8 @@ import org.lwjgl.system.windows.*;
  * <code><pre>
  * struct VkExportFenceWin32HandleInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
- *     const {@link SECURITY_ATTRIBUTES SECURITY_ATTRIBUTES} * pAttributes;
+ *     void const * pNext;
+ *     {@link SECURITY_ATTRIBUTES SECURITY_ATTRIBUTES const} * pAttributes;
  *     DWORD dwAccess;
  *     LPCWSTR name;
  * }</pre></code>
@@ -126,11 +126,11 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
     @Nullable
-    @NativeType("const SECURITY_ATTRIBUTES *")
+    @NativeType("SECURITY_ATTRIBUTES const *")
     public SECURITY_ATTRIBUTES pAttributes() { return npAttributes(address()); }
     /** Returns the value of the {@code dwAccess} field. */
     @NativeType("DWORD")
@@ -145,9 +145,9 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     /** Sets the specified value to the {@code sType} field. */
     public VkExportFenceWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkExportFenceWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkExportFenceWin32HandleInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-    public VkExportFenceWin32HandleInfoKHR pAttributes(@Nullable @NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
+    public VkExportFenceWin32HandleInfoKHR pAttributes(@Nullable @NativeType("SECURITY_ATTRIBUTES const *") SECURITY_ATTRIBUTES value) { npAttributes(address(), value); return this; }
     /** Sets the specified value to the {@code dwAccess} field. */
     public VkExportFenceWin32HandleInfoKHR dwAccess(@NativeType("DWORD") int value) { ndwAccess(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code name} field. */
@@ -425,11 +425,11 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         @NativeType("VkStructureType")
         public int sType() { return VkExportFenceWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkExportFenceWin32HandleInfoKHR.npNext(address()); }
         /** Returns a {@link SECURITY_ATTRIBUTES} view of the struct pointed to by the {@code pAttributes} field. */
         @Nullable
-        @NativeType("const SECURITY_ATTRIBUTES *")
+        @NativeType("SECURITY_ATTRIBUTES const *")
         public SECURITY_ATTRIBUTES pAttributes() { return VkExportFenceWin32HandleInfoKHR.npAttributes(address()); }
         /** Returns the value of the {@code dwAccess} field. */
         @NativeType("DWORD")
@@ -444,9 +444,9 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         /** Sets the specified value to the {@code sType} field. */
         public VkExportFenceWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkExportFenceWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkExportFenceWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkExportFenceWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkExportFenceWin32HandleInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkExportFenceWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link SECURITY_ATTRIBUTES} to the {@code pAttributes} field. */
-        public VkExportFenceWin32HandleInfoKHR.Buffer pAttributes(@Nullable @NativeType("const SECURITY_ATTRIBUTES *") SECURITY_ATTRIBUTES value) { VkExportFenceWin32HandleInfoKHR.npAttributes(address(), value); return this; }
+        public VkExportFenceWin32HandleInfoKHR.Buffer pAttributes(@Nullable @NativeType("SECURITY_ATTRIBUTES const *") SECURITY_ATTRIBUTES value) { VkExportFenceWin32HandleInfoKHR.npAttributes(address(), value); return this; }
         /** Sets the specified value to the {@code dwAccess} field. */
         public VkExportFenceWin32HandleInfoKHR.Buffer dwAccess(@NativeType("DWORD") int value) { VkExportFenceWin32HandleInfoKHR.ndwAccess(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code name} field. */

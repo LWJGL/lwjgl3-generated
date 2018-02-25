@@ -50,7 +50,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkImageViewUsageCreateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImageUsageFlags usage;
  * }</pre></code>
  */
@@ -103,7 +103,7 @@ public class VkImageViewUsageCreateInfoKHR extends Struct implements NativeResou
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code usage} field. */
     @NativeType("VkImageUsageFlags")
@@ -112,7 +112,7 @@ public class VkImageViewUsageCreateInfoKHR extends Struct implements NativeResou
     /** Sets the specified value to the {@code sType} field. */
     public VkImageViewUsageCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageViewUsageCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImageViewUsageCreateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code usage} field. */
     public VkImageViewUsageCreateInfoKHR usage(@NativeType("VkImageUsageFlags") int value) { nusage(address(), value); return this; }
 
@@ -346,7 +346,7 @@ public class VkImageViewUsageCreateInfoKHR extends Struct implements NativeResou
         @NativeType("VkStructureType")
         public int sType() { return VkImageViewUsageCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImageViewUsageCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code usage} field. */
         @NativeType("VkImageUsageFlags")
@@ -355,7 +355,7 @@ public class VkImageViewUsageCreateInfoKHR extends Struct implements NativeResou
         /** Sets the specified value to the {@code sType} field. */
         public VkImageViewUsageCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImageViewUsageCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageViewUsageCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkImageViewUsageCreateInfoKHR.npNext(address(), value); return this; }
+        public VkImageViewUsageCreateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkImageViewUsageCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code usage} field. */
         public VkImageViewUsageCreateInfoKHR.Buffer usage(@NativeType("VkImageUsageFlags") int value) { VkImageViewUsageCreateInfoKHR.nusage(address(), value); return this; }
 

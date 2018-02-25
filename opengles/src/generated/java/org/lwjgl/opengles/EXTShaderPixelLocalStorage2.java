@@ -65,12 +65,12 @@ public class EXTShaderPixelLocalStorage2 {
 
     public static native void nglClearPixelLocalStorageuiEXT(int offset, int n, long values);
 
-    public static void glClearPixelLocalStorageuiEXT(@NativeType("GLsizei") int offset, @NativeType("const GLuint *") IntBuffer values) {
+    public static void glClearPixelLocalStorageuiEXT(@NativeType("GLsizei") int offset, @NativeType("GLuint const *") IntBuffer values) {
         nglClearPixelLocalStorageuiEXT(offset, values.remaining(), memAddress(values));
     }
 
     /** Array version of: {@link #glClearPixelLocalStorageuiEXT ClearPixelLocalStorageuiEXT} */
-    public static void glClearPixelLocalStorageuiEXT(@NativeType("GLsizei") int offset, @NativeType("const GLuint *") int[] values) {
+    public static void glClearPixelLocalStorageuiEXT(@NativeType("GLsizei") int offset, @NativeType("GLuint const *") int[] values) {
         long __functionAddress = GLES.getICD().glClearPixelLocalStorageuiEXT;
         if (CHECKS) {
             check(__functionAddress);

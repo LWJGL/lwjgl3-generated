@@ -169,11 +169,11 @@ public class EXTFramebufferObject {
 
     public static native void nglDeleteRenderbuffersEXT(int n, long renderbuffers);
 
-    public static void glDeleteRenderbuffersEXT(@NativeType("const GLuint *") IntBuffer renderbuffers) {
+    public static void glDeleteRenderbuffersEXT(@NativeType("GLuint const *") IntBuffer renderbuffers) {
         nglDeleteRenderbuffersEXT(renderbuffers.remaining(), memAddress(renderbuffers));
     }
 
-    public static void glDeleteRenderbuffersEXT(@NativeType("const GLuint *") int renderbuffer) {
+    public static void glDeleteRenderbuffersEXT(@NativeType("GLuint const *") int renderbuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer renderbuffers = stack.ints(renderbuffer);
@@ -243,11 +243,11 @@ public class EXTFramebufferObject {
 
     public static native void nglDeleteFramebuffersEXT(int n, long framebuffers);
 
-    public static void glDeleteFramebuffersEXT(@NativeType("const GLuint *") IntBuffer framebuffers) {
+    public static void glDeleteFramebuffersEXT(@NativeType("GLuint const *") IntBuffer framebuffers) {
         nglDeleteFramebuffersEXT(framebuffers.remaining(), memAddress(framebuffers));
     }
 
-    public static void glDeleteFramebuffersEXT(@NativeType("const GLuint *") int framebuffer) {
+    public static void glDeleteFramebuffersEXT(@NativeType("GLuint const *") int framebuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer framebuffers = stack.ints(framebuffer);
@@ -326,7 +326,7 @@ public class EXTFramebufferObject {
     public static native void glGenerateMipmapEXT(@NativeType("GLenum") int target);
 
     /** Array version of: {@link #glDeleteRenderbuffersEXT DeleteRenderbuffersEXT} */
-    public static void glDeleteRenderbuffersEXT(@NativeType("const GLuint *") int[] renderbuffers) {
+    public static void glDeleteRenderbuffersEXT(@NativeType("GLuint const *") int[] renderbuffers) {
         long __functionAddress = GL.getICD().glDeleteRenderbuffersEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -354,7 +354,7 @@ public class EXTFramebufferObject {
     }
 
     /** Array version of: {@link #glDeleteFramebuffersEXT DeleteFramebuffersEXT} */
-    public static void glDeleteFramebuffersEXT(@NativeType("const GLuint *") int[] framebuffers) {
+    public static void glDeleteFramebuffersEXT(@NativeType("GLuint const *") int[] framebuffers) {
         long __functionAddress = GL.getICD().glDeleteFramebuffersEXT;
         if (CHECKS) {
             check(__functionAddress);

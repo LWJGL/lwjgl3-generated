@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct bgfx_allocator_interface_t {
- *     const {@link BGFXAllocatorVtbl bgfx_allocator_vtbl_t} * vtbl;
+ *     {@link BGFXAllocatorVtbl bgfx_allocator_vtbl_t const} * vtbl;
  * }</pre></code>
  */
 @NativeType("struct bgfx_allocator_interface_t")
@@ -73,11 +73,11 @@ public class BGFXAllocatorInterface extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link BGFXAllocatorVtbl} view of the struct pointed to by the {@code vtbl} field. */
-    @NativeType("const bgfx_allocator_vtbl_t *")
+    @NativeType("bgfx_allocator_vtbl_t const *")
     public BGFXAllocatorVtbl vtbl() { return nvtbl(address()); }
 
     /** Sets the address of the specified {@link BGFXAllocatorVtbl} to the {@code vtbl} field. */
-    public BGFXAllocatorInterface vtbl(@NativeType("const bgfx_allocator_vtbl_t *") BGFXAllocatorVtbl value) { nvtbl(address(), value); return this; }
+    public BGFXAllocatorInterface vtbl(@NativeType("bgfx_allocator_vtbl_t const *") BGFXAllocatorVtbl value) { nvtbl(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -308,11 +308,11 @@ public class BGFXAllocatorInterface extends Struct implements NativeResource {
         }
 
         /** Returns a {@link BGFXAllocatorVtbl} view of the struct pointed to by the {@code vtbl} field. */
-        @NativeType("const bgfx_allocator_vtbl_t *")
+        @NativeType("bgfx_allocator_vtbl_t const *")
         public BGFXAllocatorVtbl vtbl() { return BGFXAllocatorInterface.nvtbl(address()); }
 
         /** Sets the address of the specified {@link BGFXAllocatorVtbl} to the {@code vtbl} field. */
-        public BGFXAllocatorInterface.Buffer vtbl(@NativeType("const bgfx_allocator_vtbl_t *") BGFXAllocatorVtbl value) { BGFXAllocatorInterface.nvtbl(address(), value); return this; }
+        public BGFXAllocatorInterface.Buffer vtbl(@NativeType("bgfx_allocator_vtbl_t const *") BGFXAllocatorVtbl value) { BGFXAllocatorInterface.nvtbl(address(), value); return this; }
 
     }
 

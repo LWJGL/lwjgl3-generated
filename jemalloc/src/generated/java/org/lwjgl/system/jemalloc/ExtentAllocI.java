@@ -15,7 +15,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void* (*) (
+ * void * (*) (
  *     extent_hooks_t *extent_hooks,
  *     void *new_addr,
  *     size_t size,

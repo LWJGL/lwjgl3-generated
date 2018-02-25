@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glPointParameterfARBPROC) (jint, jfloat);
-typedef void (APIENTRY *glPointParameterfvARBPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glPointParameterfvARBPROC) (jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -19,7 +19,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBPointParameters_glPointParameter
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBPointParameters_nglPointParameterfvARB__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong paramsAddress) {
     glPointParameterfvARBPROC glPointParameterfvARB = (glPointParameterfvARBPROC)tlsGetFunction(1250);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glPointParameterfvARB(pname, params);
 }

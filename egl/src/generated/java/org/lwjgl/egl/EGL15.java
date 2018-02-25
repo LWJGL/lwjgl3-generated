@@ -89,7 +89,7 @@ public class EGL15 {
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateSync.xhtml">Reference Page</a> */
     @NativeType("EGLSync")
-    public static long eglCreateSync(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static long eglCreateSync(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }
@@ -138,7 +138,7 @@ public class EGL15 {
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetSyncAttrib.xhtml">Reference Page</a> */
     @NativeType("EGLBoolean")
-    public static boolean eglGetSyncAttrib(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSync") long sync, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib *") PointerBuffer value) {
+    public static boolean eglGetSyncAttrib(@NativeType("EGLDisplay") long dpy, @NativeType("EGLSync") long sync, @NativeType("EGLint") int attribute, @NativeType("EGLAttrib const *") PointerBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -160,7 +160,7 @@ public class EGL15 {
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreateImage.xhtml">Reference Page</a> */
     @NativeType("EGLImage")
-    public static long eglCreateImage(@NativeType("EGLDisplay") long dpy, @NativeType("EGLContext") long ctx, @NativeType("EGLenum") int target, @NativeType("EGLClientBuffer") long buffer, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static long eglCreateImage(@NativeType("EGLDisplay") long dpy, @NativeType("EGLContext") long ctx, @NativeType("EGLenum") int target, @NativeType("EGLClientBuffer") long buffer, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -194,7 +194,7 @@ public class EGL15 {
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglGetPlatformDisplay.xhtml">Reference Page</a> */
     @NativeType("EGLDisplay")
-    public static long eglGetPlatformDisplay(@NativeType("EGLenum") int platform, @NativeType("void *") long native_display, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static long eglGetPlatformDisplay(@NativeType("EGLenum") int platform, @NativeType("void *") long native_display, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -216,7 +216,7 @@ public class EGL15 {
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePlatformWindowSurface.xhtml">Reference Page</a> */
     @NativeType("EGLSurface")
-    public static long eglCreatePlatformWindowSurface(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_window, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static long eglCreatePlatformWindowSurface(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_window, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -238,7 +238,7 @@ public class EGL15 {
 
     /** <a target="_blank" href="https://www.khronos.org/registry/EGL/sdk/docs/man/html/eglCreatePlatformPixmapSurface.xhtml">Reference Page</a> */
     @NativeType("EGLSurface")
-    public static long eglCreatePlatformPixmapSurface(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_pixmap, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static long eglCreatePlatformPixmapSurface(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("void *") long native_pixmap, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }

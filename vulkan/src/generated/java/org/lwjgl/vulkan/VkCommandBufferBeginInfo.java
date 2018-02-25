@@ -52,9 +52,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkCommandBufferBeginInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkCommandBufferUsageFlags flags;
- *     const {@link VkCommandBufferInheritanceInfo VkCommandBufferInheritanceInfo} * pInheritanceInfo;
+ *     {@link VkCommandBufferInheritanceInfo VkCommandBufferInheritanceInfo const} * pInheritanceInfo;
  * }</pre></code>
  */
 public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
@@ -109,24 +109,24 @@ public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkCommandBufferUsageFlags")
     public int flags() { return nflags(address()); }
     /** Returns a {@link VkCommandBufferInheritanceInfo} view of the struct pointed to by the {@code pInheritanceInfo} field. */
     @Nullable
-    @NativeType("const VkCommandBufferInheritanceInfo *")
+    @NativeType("VkCommandBufferInheritanceInfo const *")
     public VkCommandBufferInheritanceInfo pInheritanceInfo() { return npInheritanceInfo(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkCommandBufferBeginInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCommandBufferBeginInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkCommandBufferBeginInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkCommandBufferBeginInfo flags(@NativeType("VkCommandBufferUsageFlags") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link VkCommandBufferInheritanceInfo} to the {@code pInheritanceInfo} field. */
-    public VkCommandBufferBeginInfo pInheritanceInfo(@Nullable @NativeType("const VkCommandBufferInheritanceInfo *") VkCommandBufferInheritanceInfo value) { npInheritanceInfo(address(), value); return this; }
+    public VkCommandBufferBeginInfo pInheritanceInfo(@Nullable @NativeType("VkCommandBufferInheritanceInfo const *") VkCommandBufferInheritanceInfo value) { npInheritanceInfo(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkCommandBufferBeginInfo set(
@@ -364,24 +364,24 @@ public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkCommandBufferBeginInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkCommandBufferBeginInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkCommandBufferUsageFlags")
         public int flags() { return VkCommandBufferBeginInfo.nflags(address()); }
         /** Returns a {@link VkCommandBufferInheritanceInfo} view of the struct pointed to by the {@code pInheritanceInfo} field. */
         @Nullable
-        @NativeType("const VkCommandBufferInheritanceInfo *")
+        @NativeType("VkCommandBufferInheritanceInfo const *")
         public VkCommandBufferInheritanceInfo pInheritanceInfo() { return VkCommandBufferBeginInfo.npInheritanceInfo(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkCommandBufferBeginInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkCommandBufferBeginInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCommandBufferBeginInfo.Buffer pNext(@NativeType("const void *") long value) { VkCommandBufferBeginInfo.npNext(address(), value); return this; }
+        public VkCommandBufferBeginInfo.Buffer pNext(@NativeType("void const *") long value) { VkCommandBufferBeginInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkCommandBufferBeginInfo.Buffer flags(@NativeType("VkCommandBufferUsageFlags") int value) { VkCommandBufferBeginInfo.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link VkCommandBufferInheritanceInfo} to the {@code pInheritanceInfo} field. */
-        public VkCommandBufferBeginInfo.Buffer pInheritanceInfo(@Nullable @NativeType("const VkCommandBufferInheritanceInfo *") VkCommandBufferInheritanceInfo value) { VkCommandBufferBeginInfo.npInheritanceInfo(address(), value); return this; }
+        public VkCommandBufferBeginInfo.Buffer pInheritanceInfo(@Nullable @NativeType("VkCommandBufferInheritanceInfo const *") VkCommandBufferInheritanceInfo value) { VkCommandBufferBeginInfo.npInheritanceInfo(address(), value); return this; }
 
     }
 

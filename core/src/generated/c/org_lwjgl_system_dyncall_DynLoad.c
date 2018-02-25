@@ -9,7 +9,7 @@
 EXTERN_C_ENTER
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_dyncall_DynLoad_ndlLoadLibrary(JNIEnv *__env, jclass clazz, jlong libpathAddress) {
-    const char *libpath = (const char *)(intptr_t)libpathAddress;
+    char const *libpath = (char const *)(intptr_t)libpathAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)dlLoadLibrary(libpath);
 }
@@ -22,13 +22,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynLoad_ndlFreeLibrary(JNIE
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_dyncall_DynLoad_ndlFindSymbol(JNIEnv *__env, jclass clazz, jlong pLibAddress, jlong pSymbolNameAddress) {
     DLLib *pLib = (DLLib *)(intptr_t)pLibAddress;
-    const char *pSymbolName = (const char *)(intptr_t)pSymbolNameAddress;
+    char const *pSymbolName = (char const *)(intptr_t)pSymbolNameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)dlFindSymbol(pLib, pSymbolName);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_dyncall_DynLoad_ndlSymsInit(JNIEnv *__env, jclass clazz, jlong libPathAddress) {
-    const char *libPath = (const char *)(intptr_t)libPathAddress;
+    char const *libPath = (char const *)(intptr_t)libPathAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)dlSymsInit(libPath);
 }

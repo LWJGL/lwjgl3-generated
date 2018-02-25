@@ -98,7 +98,7 @@ public class ARBGetProgramBinary {
      * @param binaryFormat the format of the binary data in binary
      * @param binary       an array containing the binary to be loaded into {@code program}
      */
-    public static void glProgramBinary(@NativeType("GLuint") int program, @NativeType("GLenum") int binaryFormat, @NativeType("const void *") ByteBuffer binary) {
+    public static void glProgramBinary(@NativeType("GLuint") int program, @NativeType("GLenum") int binaryFormat, @NativeType("void const *") ByteBuffer binary) {
         nglProgramBinary(program, binaryFormat, memAddress(binary), binary.remaining());
     }
 

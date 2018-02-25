@@ -55,7 +55,7 @@ public class SOFTSourceResampler {
     }
 
     @Nullable
-    @NativeType("const ALchar *")
+    @NativeType("ALchar const *")
     public static String alGetStringiSOFT(@NativeType("ALenum") int pname, @NativeType("ALsizei") int index) {
         long __result = nalGetStringiSOFT(pname, index);
         return memUTF8Safe(__result);

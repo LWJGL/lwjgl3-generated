@@ -160,7 +160,7 @@ public class EXTExternalMemoryHost {
      * @param pMemoryHostPointerProperties 
      */
     @NativeType("VkResult")
-    public static int vkGetMemoryHostPointerPropertiesEXT(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int handleType, @NativeType("const void *") long pHostPointer, @NativeType("VkMemoryHostPointerPropertiesEXT *") VkMemoryHostPointerPropertiesEXT pMemoryHostPointerProperties) {
+    public static int vkGetMemoryHostPointerPropertiesEXT(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int handleType, @NativeType("void const *") long pHostPointer, @NativeType("VkMemoryHostPointerPropertiesEXT *") VkMemoryHostPointerPropertiesEXT pMemoryHostPointerProperties) {
         return nvkGetMemoryHostPointerPropertiesEXT(device, handleType, pHostPointer, pMemoryHostPointerProperties.address());
     }
 

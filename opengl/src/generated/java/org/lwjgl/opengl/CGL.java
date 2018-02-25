@@ -353,7 +353,7 @@ public class CGL {
      * @param npix    on return, points to the number of virtual screens referenced by pix. If pix is {@code NULL}, the value of {@code npix} is set to 0.
      */
     @NativeType("CGLError")
-    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") IntBuffer attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") IntBuffer npix) {
+    public static int CGLChoosePixelFormat(@NativeType("CGLPixelFormatAttribute const *") IntBuffer attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") IntBuffer npix) {
         if (CHECKS) {
             checkNT(attribs);
             checkSafe(pix, 1);
@@ -1227,7 +1227,7 @@ public class CGL {
      * @param params a pointer to the value to set the parameter to
      */
     @NativeType("CGLError")
-    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1241,7 +1241,7 @@ public class CGL {
      * @param pname the parameter whose value you want to set. One of:<br><table><tr><td>{@link #kCGLCPSwapRectangle CPSwapRectangle}</td><td>{@link #kCGLCPSwapInterval CPSwapInterval}</td><td>{@link #kCGLCPDispatchTableSize CPDispatchTableSize}</td><td>{@link #kCGLCPClientStorage CPClientStorage}</td></tr><tr><td>{@link #kCGLCPSurfaceTexture CPSurfaceTexture}</td><td>{@link #kCGLCPSurfaceOrder CPSurfaceOrder}</td><td>{@link #kCGLCPSurfaceOpacity CPSurfaceOpacity}</td><td>{@link #kCGLCPSurfaceBackingSize CPSurfaceBackingSize}</td></tr><tr><td>{@link #kCGLCPSurfaceSurfaceVolatile CPSurfaceSurfaceVolatile}</td><td>{@link #kCGLCPReclaimResources CPReclaimResources}</td><td>{@link #kCGLCPCurrentRendererID CPCurrentRendererID}</td><td>{@link #kCGLCPGPUVertexProcessing CPGPUVertexProcessing}</td></tr><tr><td>{@link #kCGLCPGPUFragmentProcessing CPGPUFragmentProcessing}</td><td>{@link #kCGLCPHasDrawable CPHasDrawable}</td><td>{@link #kCGLCPMPSwapsInFlight CPMPSwapsInFlight}</td></tr></table>
      */
     @NativeType("CGLError")
-    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("const GLint *") int param) {
+    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("GLint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -1361,7 +1361,7 @@ public class CGL {
      * @param params the value to set the option to
      */
     @NativeType("CGLError")
-    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1374,7 +1374,7 @@ public class CGL {
      * @param pname the name of the option whose value you want to set. One of:<br><table><tr><td>{@link #kCGLGOFormatCacheSize GOFormatCacheSize}</td><td>{@link #kCGLGOClearFormatCache GOClearFormatCache}</td><td>{@link #kCGLGORetainRenderers GORetainRenderers}</td><td>{@link #kCGLGOResetLibrary GOResetLibrary}</td><td>{@link #kCGLGOUseErrorHandler GOUseErrorHandler}</td></tr><tr><td>{@link #kCGLGOUseBuildCache GOUseBuildCache}</td></tr></table>
      */
     @NativeType("CGLError")
-    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("const GLint *") int param) {
+    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("GLint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -1483,7 +1483,7 @@ public class CGL {
      * @param error the CGL result code constant returned from a CGL function. One of:<br><table><tr><td>{@link #kCGLNoError NoError}</td><td>{@link #kCGLBadAttribute BadAttribute}</td><td>{@link #kCGLBadProperty BadProperty}</td><td>{@link #kCGLBadPixelFormat BadPixelFormat}</td><td>{@link #kCGLBadRendererInfo BadRendererInfo}</td><td>{@link #kCGLBadContext BadContext}</td><td>{@link #kCGLBadDrawable BadDrawable}</td></tr><tr><td>{@link #kCGLBadDisplay BadDisplay}</td><td>{@link #kCGLBadState BadState}</td><td>{@link #kCGLBadValue BadValue}</td><td>{@link #kCGLBadMatch BadMatch}</td><td>{@link #kCGLBadEnumeration BadEnumeration}</td><td>{@link #kCGLBadOffScreen BadOffScreen}</td><td>{@link #kCGLBadFullScreen BadFullScreen}</td></tr><tr><td>{@link #kCGLBadWindow BadWindow}</td><td>{@link #kCGLBadAddress BadAddress}</td><td>{@link #kCGLBadCodeModule BadCodeModule}</td><td>{@link #kCGLBadAlloc BadAlloc}</td><td>{@link #kCGLBadConnection BadConnection}</td></tr></table>
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String CGLErrorString(@NativeType("CGLError") int error) {
         long __result = nCGLErrorString(error);
         return memASCIISafe(__result);
@@ -1491,7 +1491,7 @@ public class CGL {
 
     /** Array version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
     @NativeType("CGLError")
-    public static int CGLChoosePixelFormat(@NativeType("const CGLPixelFormatAttribute *") int[] attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") int[] npix) {
+    public static int CGLChoosePixelFormat(@NativeType("CGLPixelFormatAttribute const *") int[] attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") int[] npix) {
         long __functionAddress = Functions.ChoosePixelFormat;
         if (CHECKS) {
             checkNT(attribs);
@@ -1590,7 +1590,7 @@ public class CGL {
 
     /** Array version of: {@link #CGLSetParameter SetParameter} */
     @NativeType("CGLError")
-    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("const GLint *") int[] params) {
+    public static int CGLSetParameter(@NativeType("CGLContextObj") long ctx, @NativeType("CGLContextParameter") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = Functions.SetParameter;
         if (CHECKS) {
             check(ctx);
@@ -1623,7 +1623,7 @@ public class CGL {
 
     /** Array version of: {@link #CGLSetGlobalOption SetGlobalOption} */
     @NativeType("CGLError")
-    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("const GLint *") int[] params) {
+    public static int CGLSetGlobalOption(@NativeType("CGLGlobalOption") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = Functions.SetGlobalOption;
         if (CHECKS) {
             check(params, 1);

@@ -39,7 +39,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_LibCLocale_LC_1TIME(JNIEnv *__
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCLocale_nsetlocale(JNIEnv *__env, jclass clazz, jint category, jlong localeAddress) {
-    const char *locale = (const char *)(intptr_t)localeAddress;
+    char const *locale = (char const *)(intptr_t)localeAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)setlocale(category, locale);
 }

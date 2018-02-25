@@ -49,23 +49,23 @@ public class EXTBaseInstance {
 
     public static native void nglDrawElementsInstancedBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int baseinstance);
 
-    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("void const *") long indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstanceEXT(mode, count, type, indices, instancecount, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("void const *") ShortBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, baseinstance);
     }
 
@@ -73,23 +73,23 @@ public class EXTBaseInstance {
 
     public static native void nglDrawElementsInstancedBaseVertexBaseInstanceEXT(int mode, int count, int type, long indices, int instancecount, int basevertex, int baseinstance);
 
-    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("void const *") long indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, count, type, indices, instancecount, basevertex, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining() >> GLESChecks.typeToByteShift(type), type, memAddress(indices), instancecount, basevertex, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_BYTE, memAddress(indices), instancecount, basevertex, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("void const *") ShortBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_SHORT, memAddress(indices), instancecount, basevertex, baseinstance);
     }
 
-    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
+    public static void glDrawElementsInstancedBaseVertexBaseInstanceEXT(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indices, @NativeType("GLsizei") int instancecount, @NativeType("GLint") int basevertex, @NativeType("GLuint") int baseinstance) {
         nglDrawElementsInstancedBaseVertexBaseInstanceEXT(mode, indices.remaining(), GLES20.GL_UNSIGNED_INT, memAddress(indices), instancecount, basevertex, baseinstance);
     }
 

@@ -58,7 +58,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkQueryPoolCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkQueryPoolCreateFlags flags;
  *     VkQueryType queryType;
  *     uint32_t queryCount;
@@ -123,7 +123,7 @@ public class VkQueryPoolCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkQueryPoolCreateFlags")
@@ -141,7 +141,7 @@ public class VkQueryPoolCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkQueryPoolCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkQueryPoolCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkQueryPoolCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkQueryPoolCreateInfo flags(@NativeType("VkQueryPoolCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code queryType} field. */
@@ -399,7 +399,7 @@ public class VkQueryPoolCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkQueryPoolCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkQueryPoolCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkQueryPoolCreateFlags")
@@ -417,7 +417,7 @@ public class VkQueryPoolCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkQueryPoolCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkQueryPoolCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkQueryPoolCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkQueryPoolCreateInfo.npNext(address(), value); return this; }
+        public VkQueryPoolCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkQueryPoolCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkQueryPoolCreateInfo.Buffer flags(@NativeType("VkQueryPoolCreateFlags") int value) { VkQueryPoolCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code queryType} field. */

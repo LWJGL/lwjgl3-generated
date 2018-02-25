@@ -7,7 +7,7 @@
 #include "opengles.h"
 
 typedef void (APIENTRY *glReadBufferIndexedEXTPROC) (jint, jint);
-typedef void (APIENTRY *glDrawBuffersIndexedEXTPROC) (jint, const intptr_t, const intptr_t);
+typedef void (APIENTRY *glDrawBuffersIndexedEXTPROC) (jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glGetIntegeri_vEXTPROC) (jint, jint, intptr_t);
 
 EXTERN_C_ENTER
@@ -20,8 +20,8 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMultiviewDrawBuffers_glReadBuf
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTMultiviewDrawBuffers_nglDrawBuffersIndexedEXT__IJJ(JNIEnv *__env, jclass clazz, jint n, jlong locationAddress, jlong indicesAddress) {
     glDrawBuffersIndexedEXTPROC glDrawBuffersIndexedEXT = (glDrawBuffersIndexedEXTPROC)tlsGetFunction(171);
-    const intptr_t location = (const intptr_t)locationAddress;
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t location = (intptr_t)locationAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawBuffersIndexedEXT(n, location, indices);
 }

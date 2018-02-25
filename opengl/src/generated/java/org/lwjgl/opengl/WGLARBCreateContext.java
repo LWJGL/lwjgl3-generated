@@ -76,7 +76,7 @@ public class WGLARBCreateContext {
      *                     is used.
      */
     @NativeType("HGLRC")
-    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @Nullable @NativeType("const int *") IntBuffer attribList) {
+    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @Nullable @NativeType("int const *") IntBuffer attribList) {
         if (CHECKS) {
             checkNTSafe(attribList);
         }
@@ -85,7 +85,7 @@ public class WGLARBCreateContext {
 
     /** Array version of: {@link #wglCreateContextAttribsARB CreateContextAttribsARB} */
     @NativeType("HGLRC")
-    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @Nullable @NativeType("const int *") int[] attribList) {
+    public static long wglCreateContextAttribsARB(@NativeType("HDC") long hdc, @NativeType("HGLRC") long shareContext, @Nullable @NativeType("int const *") int[] attribList) {
         long __functionAddress = GL.getCapabilitiesWGL().wglCreateContextAttribsARB;
         if (CHECKS) {
             check(__functionAddress);

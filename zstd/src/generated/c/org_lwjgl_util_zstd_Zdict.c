@@ -13,14 +13,14 @@ EXTERN_C_ENTER
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1trainFromBuffer(JNIEnv *__env, jclass clazz, jlong dictBufferAddress, jlong dictBufferCapacity, jlong samplesBufferAddress, jlong samplesSizesAddress, jint nbSamples) {
     void *dictBuffer = (void *)(intptr_t)dictBufferAddress;
-    const void *samplesBuffer = (const void *)(intptr_t)samplesBufferAddress;
-    const size_t *samplesSizes = (const size_t *)(intptr_t)samplesSizesAddress;
+    void const *samplesBuffer = (void const *)(intptr_t)samplesBufferAddress;
+    size_t const *samplesSizes = (size_t const *)(intptr_t)samplesSizesAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)ZDICT_trainFromBuffer(dictBuffer, (size_t)dictBufferCapacity, samplesBuffer, samplesSizes, (unsigned int)nbSamples);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1getDictID(JNIEnv *__env, jclass clazz, jlong dictBufferAddress, jlong dictSize) {
-    const void *dictBuffer = (const void *)(intptr_t)dictBufferAddress;
+    void const *dictBuffer = (void const *)(intptr_t)dictBufferAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ZDICT_getDictID(dictBuffer, (size_t)dictSize);
 }
@@ -37,8 +37,8 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1getErrorName(JNIE
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1trainFromBuffer_1cover(JNIEnv *__env, jclass clazz, jlong dictBufferAddress, jlong dictBufferCapacity, jlong samplesBufferAddress, jlong samplesSizesAddress, jint nbSamples, jlong parametersAddress) {
     void *dictBuffer = (void *)(intptr_t)dictBufferAddress;
-    const void *samplesBuffer = (const void *)(intptr_t)samplesBufferAddress;
-    const size_t *samplesSizes = (const size_t *)(intptr_t)samplesSizesAddress;
+    void const *samplesBuffer = (void const *)(intptr_t)samplesBufferAddress;
+    size_t const *samplesSizes = (size_t const *)(intptr_t)samplesSizesAddress;
     ZDICT_cover_params_t *parameters = (ZDICT_cover_params_t *)(intptr_t)parametersAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)ZDICT_trainFromBuffer_cover(dictBuffer, (size_t)dictBufferCapacity, samplesBuffer, samplesSizes, (unsigned int)nbSamples, *parameters);
@@ -46,8 +46,8 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1trainFromBuffer_1
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1optimizeTrainFromBuffer_1cover(JNIEnv *__env, jclass clazz, jlong dictBufferAddress, jlong dictBufferCapacity, jlong samplesBufferAddress, jlong samplesSizesAddress, jint nbSamples, jlong parametersAddress) {
     void *dictBuffer = (void *)(intptr_t)dictBufferAddress;
-    const void *samplesBuffer = (const void *)(intptr_t)samplesBufferAddress;
-    const size_t *samplesSizes = (const size_t *)(intptr_t)samplesSizesAddress;
+    void const *samplesBuffer = (void const *)(intptr_t)samplesBufferAddress;
+    size_t const *samplesSizes = (size_t const *)(intptr_t)samplesSizesAddress;
     ZDICT_cover_params_t *parameters = (ZDICT_cover_params_t *)(intptr_t)parametersAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)ZDICT_optimizeTrainFromBuffer_cover(dictBuffer, (size_t)dictBufferCapacity, samplesBuffer, samplesSizes, (unsigned int)nbSamples, parameters);
@@ -55,9 +55,9 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1optimizeTrainFrom
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_zstd_Zdict_nZDICT_1finalizeDictionary(JNIEnv *__env, jclass clazz, jlong dictBufferAddress, jlong dictBufferCapacity, jlong dictContentAddress, jlong dictContentSize, jlong samplesBufferAddress, jlong samplesSizesAddress, jint nbSamples, jlong parametersAddress) {
     void *dictBuffer = (void *)(intptr_t)dictBufferAddress;
-    const void *dictContent = (const void *)(intptr_t)dictContentAddress;
-    const void *samplesBuffer = (const void *)(intptr_t)samplesBufferAddress;
-    const size_t *samplesSizes = (const size_t *)(intptr_t)samplesSizesAddress;
+    void const *dictContent = (void const *)(intptr_t)dictContentAddress;
+    void const *samplesBuffer = (void const *)(intptr_t)samplesBufferAddress;
+    size_t const *samplesSizes = (size_t const *)(intptr_t)samplesSizesAddress;
     ZDICT_params_t *parameters = (ZDICT_params_t *)(intptr_t)parametersAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)ZDICT_finalizeDictionary(dictBuffer, (size_t)dictBufferCapacity, dictContent, (size_t)dictContentSize, samplesBuffer, samplesSizes, (unsigned int)nbSamples, *parameters);

@@ -83,7 +83,7 @@ public class ZstdErrors {
 
     public static native long nZSTD_getErrorString(int code);
 
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String ZSTD_getErrorString(@NativeType("ZSTD_ErrorCode") int code) {
         long __result = nZSTD_getErrorString(code);
         return memASCII(__result);

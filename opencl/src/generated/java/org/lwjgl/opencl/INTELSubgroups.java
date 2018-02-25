@@ -92,7 +92,7 @@ public class INTELSubgroups {
      * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
      */
     @NativeType("cl_int")
-    public static int clGetKernelSubGroupInfoKHR(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelSubGroupInfoKHR(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("void const *") ByteBuffer input_value, @Nullable @NativeType("void *") ByteBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }
@@ -112,7 +112,7 @@ public class INTELSubgroups {
      * @param param_value_size_ret the actual size in bytes of data being queried by {@code param_value}. If {@code NULL}, it is ignored.
      */
     @NativeType("cl_int")
-    public static int clGetKernelSubGroupInfoKHR(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("const void *") ByteBuffer input_value, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
+    public static int clGetKernelSubGroupInfoKHR(@NativeType("cl_kernel") long kernel, @NativeType("cl_device_id") long device, @NativeType("cl_kernel_sub_group_info") int param_name, @NativeType("void const *") ByteBuffer input_value, @Nullable @NativeType("void *") PointerBuffer param_value, @Nullable @NativeType("size_t *") PointerBuffer param_value_size_ret) {
         if (CHECKS) {
             checkSafe(param_value_size_ret, 1);
         }

@@ -28,7 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct DeepImage {
- *     const char ** channel_names;
+ *     char const ** channel_names;
  *     float *** image;
  *     int ** offset_table;
  *     int num_channels;
@@ -93,7 +93,7 @@ public class DeepImage extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code channel_names} field. */
-    @NativeType("const char **")
+    @NativeType("char const **")
     public PointerBuffer channel_names() { return nchannel_names(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code image} field. */
     @NativeType("float ***")
@@ -113,7 +113,7 @@ public class DeepImage extends Struct implements NativeResource {
     public int height() { return nheight(address()); }
 
     /** Sets the address of the specified {@link PointerBuffer} to the {@code channel_names} field. */
-    public DeepImage channel_names(@NativeType("const char **") PointerBuffer value) { nchannel_names(address(), value); return this; }
+    public DeepImage channel_names(@NativeType("char const **") PointerBuffer value) { nchannel_names(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code image} field. */
     public DeepImage image(@NativeType("float ***") PointerBuffer value) { nimage(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code offset_table} field. */
@@ -393,7 +393,7 @@ public class DeepImage extends Struct implements NativeResource {
         }
 
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code channel_names} field. */
-        @NativeType("const char **")
+        @NativeType("char const **")
         public PointerBuffer channel_names() { return DeepImage.nchannel_names(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code image} field. */
         @NativeType("float ***")
@@ -413,7 +413,7 @@ public class DeepImage extends Struct implements NativeResource {
         public int height() { return DeepImage.nheight(address()); }
 
         /** Sets the address of the specified {@link PointerBuffer} to the {@code channel_names} field. */
-        public DeepImage.Buffer channel_names(@NativeType("const char **") PointerBuffer value) { DeepImage.nchannel_names(address(), value); return this; }
+        public DeepImage.Buffer channel_names(@NativeType("char const **") PointerBuffer value) { DeepImage.nchannel_names(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code image} field. */
         public DeepImage.Buffer image(@NativeType("float ***") PointerBuffer value) { DeepImage.nimage(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code offset_table} field. */

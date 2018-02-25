@@ -53,11 +53,11 @@ public class EXTDebugLabel {
 
     public static native void nglLabelObjectEXT(int type, int object, int length, long label);
 
-    public static void glLabelObjectEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("const GLchar *") ByteBuffer label) {
+    public static void glLabelObjectEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("GLchar const *") ByteBuffer label) {
         nglLabelObjectEXT(type, object, label.remaining(), memAddress(label));
     }
 
-    public static void glLabelObjectEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("const GLchar *") CharSequence label) {
+    public static void glLabelObjectEXT(@NativeType("GLenum") int type, @NativeType("GLuint") int object, @NativeType("GLchar const *") CharSequence label) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer labelEncoded = stack.UTF8(label, false);

@@ -385,7 +385,7 @@ public class JEmalloc {
      * @param flags a bitfield of zero or more of the {@code MALLOCX} macros
      */
     @NativeType("size_t")
-    public static long je_sallocx(@NativeType("const void *") ByteBuffer ptr, int flags) {
+    public static long je_sallocx(@NativeType("void const *") ByteBuffer ptr, int flags) {
         return nje_sallocx(memAddress(ptr), flags);
     }
 
@@ -597,7 +597,7 @@ public class JEmalloc {
      * @param oldlenp returns the value length
      * @param newp    the new value
      */
-    public static int je_mallctl(@NativeType("const char *") ByteBuffer name, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
+    public static int je_mallctl(@NativeType("char const *") ByteBuffer name, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
         if (CHECKS) {
             checkNT1(name);
             checkSafe(oldlenp, 1);
@@ -618,7 +618,7 @@ public class JEmalloc {
      * @param oldlenp returns the value length
      * @param newp    the new value
      */
-    public static int je_mallctl(@NativeType("const char *") CharSequence name, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
+    public static int je_mallctl(@NativeType("char const *") CharSequence name, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
         if (CHECKS) {
             checkSafe(oldlenp, 1);
         }
@@ -674,7 +674,7 @@ public class JEmalloc {
      * @param mibp    an array of integers
      * @param miblenp the number of components in {@code mibp}
      */
-    public static int je_mallctlnametomib(@NativeType("const char *") ByteBuffer name, @NativeType("size_t *") PointerBuffer mibp, @NativeType("size_t *") PointerBuffer miblenp) {
+    public static int je_mallctlnametomib(@NativeType("char const *") ByteBuffer name, @NativeType("size_t *") PointerBuffer mibp, @NativeType("size_t *") PointerBuffer miblenp) {
         if (CHECKS) {
             checkNT1(name);
             check(miblenp, 1);
@@ -714,7 +714,7 @@ public class JEmalloc {
      * @param mibp    an array of integers
      * @param miblenp the number of components in {@code mibp}
      */
-    public static int je_mallctlnametomib(@NativeType("const char *") CharSequence name, @NativeType("size_t *") PointerBuffer mibp, @NativeType("size_t *") PointerBuffer miblenp) {
+    public static int je_mallctlnametomib(@NativeType("char const *") CharSequence name, @NativeType("size_t *") PointerBuffer mibp, @NativeType("size_t *") PointerBuffer miblenp) {
         if (CHECKS) {
             check(miblenp, 1);
             check(mibp, miblenp.get(miblenp.position()));
@@ -749,7 +749,7 @@ public class JEmalloc {
      * @param oldlenp returns the value length
      * @param newp    the new value
      */
-    public static int je_mallctlbymib(@NativeType("const size_t *") PointerBuffer mib, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
+    public static int je_mallctlbymib(@NativeType("size_t const *") PointerBuffer mib, @Nullable @NativeType("void *") ByteBuffer oldp, @Nullable @NativeType("size_t *") PointerBuffer oldlenp, @Nullable @NativeType("void *") ByteBuffer newp) {
         if (CHECKS) {
             checkSafe(oldlenp, 1);
         }
@@ -777,7 +777,7 @@ public class JEmalloc {
      * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
      * @param opts        an options string
      */
-    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, const char *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") ByteBuffer opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, char const *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("char const *") ByteBuffer opts) {
         if (CHECKS) {
             checkNT1Safe(opts);
         }
@@ -797,7 +797,7 @@ public class JEmalloc {
      * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
      * @param opts        an options string
      */
-    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, const char *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("const char *") CharSequence opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, char const *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("char const *") CharSequence opts) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optsEncoded = stack.ASCIISafe(opts);
@@ -824,7 +824,7 @@ public class JEmalloc {
      * @param ptr the allocated memory to query
      */
     @NativeType("size_t")
-    public static long je_malloc_usable_size(@NativeType("const void *") ByteBuffer ptr) {
+    public static long je_malloc_usable_size(@NativeType("void const *") ByteBuffer ptr) {
         return nje_malloc_usable_size(memAddress(ptr));
     }
 

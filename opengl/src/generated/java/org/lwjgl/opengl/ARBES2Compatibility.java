@@ -84,7 +84,7 @@ public class ARBES2Compatibility {
      * @param binaryformat the format of the shader binaries contained in {@code binary}
      * @param binary       an array of bytes containing pre-compiled binary shader code
      */
-    public static void glShaderBinary(@NativeType("const GLuint *") IntBuffer shaders, @NativeType("GLenum") int binaryformat, @NativeType("const void *") ByteBuffer binary) {
+    public static void glShaderBinary(@NativeType("GLuint const *") IntBuffer shaders, @NativeType("GLenum") int binaryformat, @NativeType("void const *") ByteBuffer binary) {
         nglShaderBinary(shaders.remaining(), memAddress(shaders), binaryformat, memAddress(binary), binary.remaining());
     }
 
@@ -151,7 +151,7 @@ public class ARBES2Compatibility {
     public static native void glClearDepthf(@NativeType("GLfloat") float depth);
 
     /** Array version of: {@link #glShaderBinary ShaderBinary} */
-    public static void glShaderBinary(@NativeType("const GLuint *") int[] shaders, @NativeType("GLenum") int binaryformat, @NativeType("const void *") ByteBuffer binary) {
+    public static void glShaderBinary(@NativeType("GLuint const *") int[] shaders, @NativeType("GLenum") int binaryformat, @NativeType("void const *") ByteBuffer binary) {
         long __functionAddress = GL.getICD().glShaderBinary;
         if (CHECKS) {
             check(__functionAddress);

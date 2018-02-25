@@ -101,7 +101,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkSwapchainCreateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkSwapchainCreateFlagsKHR flags;
  *     VkSurfaceKHR surface;
  *     uint32_t minImageCount;
@@ -112,7 +112,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     VkImageUsageFlags imageUsage;
  *     VkSharingMode imageSharingMode;
  *     uint32_t queueFamilyIndexCount;
- *     const uint32_t * pQueueFamilyIndices;
+ *     uint32_t const * pQueueFamilyIndices;
  *     VkSurfaceTransformFlagBitsKHR preTransform;
  *     VkCompositeAlphaFlagBitsKHR compositeAlpha;
  *     VkPresentModeKHR presentMode;
@@ -214,7 +214,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkSwapchainCreateFlagsKHR")
@@ -247,7 +247,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
     public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
     @Nullable
-    @NativeType("const uint32_t *")
+    @NativeType("uint32_t const *")
     public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
     /** Returns the value of the {@code preTransform} field. */
     @NativeType("VkSurfaceTransformFlagBitsKHR")
@@ -268,7 +268,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkSwapchainCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSwapchainCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkSwapchainCreateInfoKHR flags(@NativeType("VkSwapchainCreateFlagsKHR") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code surface} field. */
@@ -288,7 +288,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code imageSharingMode} field. */
     public VkSwapchainCreateInfoKHR imageSharingMode(@NativeType("VkSharingMode") int value) { nimageSharingMode(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-    public VkSwapchainCreateInfoKHR pQueueFamilyIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
+    public VkSwapchainCreateInfoKHR pQueueFamilyIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
     /** Sets the specified value to the {@code preTransform} field. */
     public VkSwapchainCreateInfoKHR preTransform(@NativeType("VkSurfaceTransformFlagBitsKHR") int value) { npreTransform(address(), value); return this; }
     /** Sets the specified value to the {@code compositeAlpha} field. */
@@ -641,7 +641,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkSwapchainCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkSwapchainCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkSwapchainCreateFlagsKHR")
@@ -674,7 +674,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
         public int queueFamilyIndexCount() { return VkSwapchainCreateInfoKHR.nqueueFamilyIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
         @Nullable
-        @NativeType("const uint32_t *")
+        @NativeType("uint32_t const *")
         public IntBuffer pQueueFamilyIndices() { return VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address()); }
         /** Returns the value of the {@code preTransform} field. */
         @NativeType("VkSurfaceTransformFlagBitsKHR")
@@ -695,7 +695,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkSwapchainCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSwapchainCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSwapchainCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkSwapchainCreateInfoKHR.npNext(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkSwapchainCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkSwapchainCreateInfoKHR.Buffer flags(@NativeType("VkSwapchainCreateFlagsKHR") int value) { VkSwapchainCreateInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code surface} field. */
@@ -715,7 +715,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code imageSharingMode} field. */
         public VkSwapchainCreateInfoKHR.Buffer imageSharingMode(@NativeType("VkSharingMode") int value) { VkSwapchainCreateInfoKHR.nimageSharingMode(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-        public VkSwapchainCreateInfoKHR.Buffer pQueueFamilyIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address(), value); return this; }
+        public VkSwapchainCreateInfoKHR.Buffer pQueueFamilyIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { VkSwapchainCreateInfoKHR.npQueueFamilyIndices(address(), value); return this; }
         /** Sets the specified value to the {@code preTransform} field. */
         public VkSwapchainCreateInfoKHR.Buffer preTransform(@NativeType("VkSurfaceTransformFlagBitsKHR") int value) { VkSwapchainCreateInfoKHR.npreTransform(address(), value); return this; }
         /** Sets the specified value to the {@code compositeAlpha} field. */

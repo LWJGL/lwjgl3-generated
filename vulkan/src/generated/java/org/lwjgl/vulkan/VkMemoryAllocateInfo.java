@@ -76,7 +76,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkMemoryAllocateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDeviceSize allocationSize;
  *     uint32_t memoryTypeIndex;
  * }</pre></code>
@@ -133,7 +133,7 @@ public class VkMemoryAllocateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code allocationSize} field. */
     @NativeType("VkDeviceSize")
@@ -145,7 +145,7 @@ public class VkMemoryAllocateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkMemoryAllocateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryAllocateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkMemoryAllocateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code allocationSize} field. */
     public VkMemoryAllocateInfo allocationSize(@NativeType("VkDeviceSize") long value) { nallocationSize(address(), value); return this; }
     /** Sets the specified value to the {@code memoryTypeIndex} field. */
@@ -387,7 +387,7 @@ public class VkMemoryAllocateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkMemoryAllocateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkMemoryAllocateInfo.npNext(address()); }
         /** Returns the value of the {@code allocationSize} field. */
         @NativeType("VkDeviceSize")
@@ -399,7 +399,7 @@ public class VkMemoryAllocateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkMemoryAllocateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryAllocateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryAllocateInfo.Buffer pNext(@NativeType("const void *") long value) { VkMemoryAllocateInfo.npNext(address(), value); return this; }
+        public VkMemoryAllocateInfo.Buffer pNext(@NativeType("void const *") long value) { VkMemoryAllocateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code allocationSize} field. */
         public VkMemoryAllocateInfo.Buffer allocationSize(@NativeType("VkDeviceSize") long value) { VkMemoryAllocateInfo.nallocationSize(address(), value); return this; }
         /** Sets the specified value to the {@code memoryTypeIndex} field. */

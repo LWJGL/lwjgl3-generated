@@ -58,7 +58,7 @@ public class OESViewportArray {
 
     public static native void nglViewportArrayvOES(int first, int count, long v);
 
-    public static void glViewportArrayvOES(@NativeType("GLuint") int first, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glViewportArrayvOES(@NativeType("GLuint") int first, @NativeType("GLfloat const *") FloatBuffer v) {
         nglViewportArrayvOES(first, v.remaining() >> 2, memAddress(v));
     }
 
@@ -70,7 +70,7 @@ public class OESViewportArray {
 
     public static native void nglViewportIndexedfvOES(int index, long v);
 
-    public static void glViewportIndexedfvOES(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glViewportIndexedfvOES(@NativeType("GLuint") int index, @NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -81,7 +81,7 @@ public class OESViewportArray {
 
     public static native void nglScissorArrayvOES(int first, int count, long v);
 
-    public static void glScissorArrayvOES(@NativeType("GLuint") int first, @NativeType("const GLint *") IntBuffer v) {
+    public static void glScissorArrayvOES(@NativeType("GLuint") int first, @NativeType("GLint const *") IntBuffer v) {
         nglScissorArrayvOES(first, v.remaining() >> 2, memAddress(v));
     }
 
@@ -93,7 +93,7 @@ public class OESViewportArray {
 
     public static native void nglScissorIndexedvOES(int index, long v);
 
-    public static void glScissorIndexedvOES(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glScissorIndexedvOES(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -104,7 +104,7 @@ public class OESViewportArray {
 
     public static native void nglDepthRangeArrayfvOES(int first, int count, long v);
 
-    public static void glDepthRangeArrayfvOES(@NativeType("GLuint") int first, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glDepthRangeArrayfvOES(@NativeType("GLuint") int first, @NativeType("GLfloat const *") FloatBuffer v) {
         nglDepthRangeArrayfvOES(first, v.remaining() >> 1, memAddress(v));
     }
 
@@ -149,7 +149,7 @@ public class OESViewportArray {
     public static native boolean glIsEnablediOES(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     /** Array version of: {@link #glViewportArrayvOES ViewportArrayvOES} */
-    public static void glViewportArrayvOES(@NativeType("GLuint") int first, @NativeType("const GLfloat *") float[] v) {
+    public static void glViewportArrayvOES(@NativeType("GLuint") int first, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GLES.getICD().glViewportArrayvOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -158,7 +158,7 @@ public class OESViewportArray {
     }
 
     /** Array version of: {@link #glViewportIndexedfvOES ViewportIndexedfvOES} */
-    public static void glViewportIndexedfvOES(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
+    public static void glViewportIndexedfvOES(@NativeType("GLuint") int index, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GLES.getICD().glViewportIndexedfvOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -168,7 +168,7 @@ public class OESViewportArray {
     }
 
     /** Array version of: {@link #glScissorArrayvOES ScissorArrayvOES} */
-    public static void glScissorArrayvOES(@NativeType("GLuint") int first, @NativeType("const GLint *") int[] v) {
+    public static void glScissorArrayvOES(@NativeType("GLuint") int first, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GLES.getICD().glScissorArrayvOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -177,7 +177,7 @@ public class OESViewportArray {
     }
 
     /** Array version of: {@link #glScissorIndexedvOES ScissorIndexedvOES} */
-    public static void glScissorIndexedvOES(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glScissorIndexedvOES(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GLES.getICD().glScissorIndexedvOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -187,7 +187,7 @@ public class OESViewportArray {
     }
 
     /** Array version of: {@link #glDepthRangeArrayfvOES DepthRangeArrayfvOES} */
-    public static void glDepthRangeArrayfvOES(@NativeType("GLuint") int first, @NativeType("const GLfloat *") float[] v) {
+    public static void glDepthRangeArrayfvOES(@NativeType("GLuint") int first, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GLES.getICD().glDepthRangeArrayfvOES;
         if (CHECKS) {
             check(__functionAddress);

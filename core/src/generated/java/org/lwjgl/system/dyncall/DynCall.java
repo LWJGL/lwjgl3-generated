@@ -765,7 +765,7 @@ public class DynCall {
      * @param signature the struct signature
      */
     @NativeType("DCstruct *")
-    public static long dcDefineStruct(@NativeType("const char *") ByteBuffer signature) {
+    public static long dcDefineStruct(@NativeType("char const *") ByteBuffer signature) {
         if (CHECKS) {
             checkNT1(signature);
         }
@@ -778,7 +778,7 @@ public class DynCall {
      * @param signature the struct signature
      */
     @NativeType("DCstruct *")
-    public static long dcDefineStruct(@NativeType("const char *") CharSequence signature) {
+    public static long dcDefineStruct(@NativeType("char const *") CharSequence signature) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer signatureEncoded = stack.ASCII(signature);

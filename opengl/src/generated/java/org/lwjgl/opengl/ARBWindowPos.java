@@ -94,7 +94,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos2ivARB(@NativeType("const GLint *") IntBuffer p) {
+    public static void glWindowPos2ivARB(@NativeType("GLint const *") IntBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -111,7 +111,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos2svARB(@NativeType("const GLshort *") ShortBuffer p) {
+    public static void glWindowPos2svARB(@NativeType("GLshort const *") ShortBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -128,7 +128,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos2fvARB(@NativeType("const GLfloat *") FloatBuffer p) {
+    public static void glWindowPos2fvARB(@NativeType("GLfloat const *") FloatBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -145,7 +145,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos2dvARB(@NativeType("const GLdouble *") DoubleBuffer p) {
+    public static void glWindowPos2dvARB(@NativeType("GLdouble const *") DoubleBuffer p) {
         if (CHECKS) {
             check(p, 2);
         }
@@ -206,7 +206,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos3ivARB(@NativeType("const GLint *") IntBuffer p) {
+    public static void glWindowPos3ivARB(@NativeType("GLint const *") IntBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -223,7 +223,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos3svARB(@NativeType("const GLshort *") ShortBuffer p) {
+    public static void glWindowPos3svARB(@NativeType("GLshort const *") ShortBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -240,7 +240,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos3fvARB(@NativeType("const GLfloat *") FloatBuffer p) {
+    public static void glWindowPos3fvARB(@NativeType("GLfloat const *") FloatBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -257,7 +257,7 @@ public class ARBWindowPos {
      *
      * @param p the position value
      */
-    public static void glWindowPos3dvARB(@NativeType("const GLdouble *") DoubleBuffer p) {
+    public static void glWindowPos3dvARB(@NativeType("GLdouble const *") DoubleBuffer p) {
         if (CHECKS) {
             check(p, 3);
         }
@@ -265,7 +265,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos2ivARB WindowPos2ivARB} */
-    public static void glWindowPos2ivARB(@NativeType("const GLint *") int[] p) {
+    public static void glWindowPos2ivARB(@NativeType("GLint const *") int[] p) {
         long __functionAddress = GL.getICD().glWindowPos2ivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -275,7 +275,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos2svARB WindowPos2svARB} */
-    public static void glWindowPos2svARB(@NativeType("const GLshort *") short[] p) {
+    public static void glWindowPos2svARB(@NativeType("GLshort const *") short[] p) {
         long __functionAddress = GL.getICD().glWindowPos2svARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -285,7 +285,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos2fvARB WindowPos2fvARB} */
-    public static void glWindowPos2fvARB(@NativeType("const GLfloat *") float[] p) {
+    public static void glWindowPos2fvARB(@NativeType("GLfloat const *") float[] p) {
         long __functionAddress = GL.getICD().glWindowPos2fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -295,7 +295,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos2dvARB WindowPos2dvARB} */
-    public static void glWindowPos2dvARB(@NativeType("const GLdouble *") double[] p) {
+    public static void glWindowPos2dvARB(@NativeType("GLdouble const *") double[] p) {
         long __functionAddress = GL.getICD().glWindowPos2dvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -305,7 +305,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos3ivARB WindowPos3ivARB} */
-    public static void glWindowPos3ivARB(@NativeType("const GLint *") int[] p) {
+    public static void glWindowPos3ivARB(@NativeType("GLint const *") int[] p) {
         long __functionAddress = GL.getICD().glWindowPos3ivARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -315,7 +315,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos3svARB WindowPos3svARB} */
-    public static void glWindowPos3svARB(@NativeType("const GLshort *") short[] p) {
+    public static void glWindowPos3svARB(@NativeType("GLshort const *") short[] p) {
         long __functionAddress = GL.getICD().glWindowPos3svARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -325,7 +325,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos3fvARB WindowPos3fvARB} */
-    public static void glWindowPos3fvARB(@NativeType("const GLfloat *") float[] p) {
+    public static void glWindowPos3fvARB(@NativeType("GLfloat const *") float[] p) {
         long __functionAddress = GL.getICD().glWindowPos3fvARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -335,7 +335,7 @@ public class ARBWindowPos {
     }
 
     /** Array version of: {@link #glWindowPos3dvARB WindowPos3dvARB} */
-    public static void glWindowPos3dvARB(@NativeType("const GLdouble *") double[] p) {
+    public static void glWindowPos3dvARB(@NativeType("GLdouble const *") double[] p) {
         long __functionAddress = GL.getICD().glWindowPos3dvARB;
         if (CHECKS) {
             check(__functionAddress);

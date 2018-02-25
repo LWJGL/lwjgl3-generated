@@ -118,7 +118,7 @@ public class WGLNVGPUAffinity {
      * @param gpuList a {@code NULL}-terminated array of GPU handles to which the affinity-DC will be restricted
      */
     @NativeType("HDC")
-    public static long wglCreateAffinityDCNV(@NativeType("const HGPUNV *") PointerBuffer gpuList) {
+    public static long wglCreateAffinityDCNV(@NativeType("HGPUNV const *") PointerBuffer gpuList) {
         if (CHECKS) {
             checkNT(gpuList);
         }

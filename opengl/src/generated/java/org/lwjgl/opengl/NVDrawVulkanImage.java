@@ -75,7 +75,7 @@ public class NVDrawVulkanImage {
      * @param name name of the Vulkan function
      */
     @NativeType("VULKANPROCNV")
-    public static long glGetVkProcAddrNV(@NativeType("const GLchar *") ByteBuffer name) {
+    public static long glGetVkProcAddrNV(@NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -88,7 +88,7 @@ public class NVDrawVulkanImage {
      * @param name name of the Vulkan function
      */
     @NativeType("VULKANPROCNV")
-    public static long glGetVkProcAddrNV(@NativeType("const GLchar *") CharSequence name) {
+    public static long glGetVkProcAddrNV(@NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);

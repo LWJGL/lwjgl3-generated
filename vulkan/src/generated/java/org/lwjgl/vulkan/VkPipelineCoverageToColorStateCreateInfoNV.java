@@ -57,7 +57,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPipelineCoverageToColorStateCreateInfoNV {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkPipelineCoverageToColorStateCreateFlagsNV flags;
  *     VkBool32 coverageToColorEnable;
  *     uint32_t coverageToColorLocation;
@@ -118,7 +118,7 @@ public class VkPipelineCoverageToColorStateCreateInfoNV extends Struct implement
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkPipelineCoverageToColorStateCreateFlagsNV")
@@ -133,7 +133,7 @@ public class VkPipelineCoverageToColorStateCreateInfoNV extends Struct implement
     /** Sets the specified value to the {@code sType} field. */
     public VkPipelineCoverageToColorStateCreateInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineCoverageToColorStateCreateInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPipelineCoverageToColorStateCreateInfoNV pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkPipelineCoverageToColorStateCreateInfoNV flags(@NativeType("VkPipelineCoverageToColorStateCreateFlagsNV") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code coverageToColorEnable} field. */
@@ -383,7 +383,7 @@ public class VkPipelineCoverageToColorStateCreateInfoNV extends Struct implement
         @NativeType("VkStructureType")
         public int sType() { return VkPipelineCoverageToColorStateCreateInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPipelineCoverageToColorStateCreateInfoNV.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkPipelineCoverageToColorStateCreateFlagsNV")
@@ -398,7 +398,7 @@ public class VkPipelineCoverageToColorStateCreateInfoNV extends Struct implement
         /** Sets the specified value to the {@code sType} field. */
         public VkPipelineCoverageToColorStateCreateInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineCoverageToColorStateCreateInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkPipelineCoverageToColorStateCreateInfoNV.npNext(address(), value); return this; }
+        public VkPipelineCoverageToColorStateCreateInfoNV.Buffer pNext(@NativeType("void const *") long value) { VkPipelineCoverageToColorStateCreateInfoNV.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkPipelineCoverageToColorStateCreateInfoNV.Buffer flags(@NativeType("VkPipelineCoverageToColorStateCreateFlagsNV") int value) { VkPipelineCoverageToColorStateCreateInfoNV.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code coverageToColorEnable} field. */

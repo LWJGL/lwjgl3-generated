@@ -88,11 +88,11 @@ public class EXTDrawBuffers {
 
     public static native void nglDrawBuffersEXT(int n, long bufs);
 
-    public static void glDrawBuffersEXT(@NativeType("const GLenum *") IntBuffer bufs) {
+    public static void glDrawBuffersEXT(@NativeType("GLenum const *") IntBuffer bufs) {
         nglDrawBuffersEXT(bufs.remaining(), memAddress(bufs));
     }
 
-    public static void glDrawBuffersEXT(@NativeType("const GLenum *") int buf) {
+    public static void glDrawBuffersEXT(@NativeType("GLenum const *") int buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer bufs = stack.ints(buf);
@@ -103,7 +103,7 @@ public class EXTDrawBuffers {
     }
 
     /** Array version of: {@link #glDrawBuffersEXT DrawBuffersEXT} */
-    public static void glDrawBuffersEXT(@NativeType("const GLenum *") int[] bufs) {
+    public static void glDrawBuffersEXT(@NativeType("GLenum const *") int[] bufs) {
         long __functionAddress = GLES.getICD().glDrawBuffersEXT;
         if (CHECKS) {
             check(__functionAddress);

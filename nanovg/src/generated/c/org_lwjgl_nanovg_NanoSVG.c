@@ -17,15 +17,15 @@ ENABLE_WARNINGS()
 EXTERN_C_ENTER
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_nanovg_NanoSVG_nnsvgParseFromFile(JNIEnv *__env, jclass clazz, jlong filenameAddress, jlong unitsAddress, jfloat dpi) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
-    const char *units = (const char *)(intptr_t)unitsAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
+    char const *units = (char const *)(intptr_t)unitsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)nsvgParseFromFile(filename, units, dpi);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_nanovg_NanoSVG_nnsvgParse(JNIEnv *__env, jclass clazz, jlong inputAddress, jlong unitsAddress, jfloat dpi) {
     char *input = (char *)(intptr_t)inputAddress;
-    const char *units = (const char *)(intptr_t)unitsAddress;
+    char const *units = (char const *)(intptr_t)unitsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)nsvgParse(input, units, dpi);
 }

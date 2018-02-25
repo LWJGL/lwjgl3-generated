@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_color_buffer_float.txt">ARB_color_buffer_float</a>, <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_depth_buffer_float.txt">NV_depth_buffer_float</a>, <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_float.txt">ARB_texture_float</a>,
  * <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_packed_float.txt">EXT_packed_float</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_texture_shared_exponent.txt">EXT_texture_shared_exponent</a></li>
  * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_framebuffer_object.txt">EXT_framebuffer_object</a></li>
- * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_half_float.txt">NV_half_float</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_half_float_pixel.txt">ARB_half_float_pixel</a></li>
+ * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/NV/NV_half_float.txt">NV_half_float</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_half_FLOAT_pixel.txt">ARB_half_FLOAT_pixel</a></li>
  * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_framebuffer_multisample.txt">EXT_framebuffer_multisample</a> and <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_framebuffer_blit.txt">EXT_framebuffer_blit</a></li>
  * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_texture_integer.txt">EXT_texture_integer</a></li>
  * <li><a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_texture_array.txt">EXT_texture_array</a></li>
@@ -519,7 +519,7 @@ public class GL30 {
      * @param index the index of the particular element being queried
      */
     @Nullable
-    @NativeType("const GLubyte *")
+    @NativeType("GLubyte const *")
     public static String glGetStringi(@NativeType("GLenum") int name, @NativeType("GLuint") int index) {
         long __result = nglGetStringi(name, index);
         return memUTF8Safe(__result);
@@ -725,7 +725,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI1iv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glVertexAttribI1iv(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -745,7 +745,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI2iv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glVertexAttribI2iv(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -765,7 +765,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI3iv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glVertexAttribI3iv(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -785,7 +785,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4iv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glVertexAttribI4iv(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -805,7 +805,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI1uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
+    public static void glVertexAttribI1uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -825,7 +825,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI2uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
+    public static void glVertexAttribI2uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -845,7 +845,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI3uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
+    public static void glVertexAttribI3uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -865,7 +865,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
+    public static void glVertexAttribI4uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -885,7 +885,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4bv(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glVertexAttribI4bv(@NativeType("GLuint") int index, @NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -905,7 +905,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
+    public static void glVertexAttribI4sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -925,7 +925,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4ubv(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glVertexAttribI4ubv(@NativeType("GLuint") int index, @NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -945,7 +945,7 @@ public class GL30 {
      * @param index the index of the pure integer generic vertex attribute to be modified
      * @param v     the pure integer vertex attribute buffer
      */
-    public static void glVertexAttribI4usv(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
+    public static void glVertexAttribI4usv(@NativeType("GLuint") int index, @NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -970,7 +970,7 @@ public class GL30 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
     }
 
@@ -987,7 +987,7 @@ public class GL30 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglVertexAttribIPointer(index, size, type, stride, pointer);
     }
 
@@ -1004,7 +1004,7 @@ public class GL30 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
     }
 
@@ -1021,7 +1021,7 @@ public class GL30 {
      * @param pointer the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glVertexAttribIPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglVertexAttribIPointer(index, size, type, stride, memAddress(pointer));
     }
 
@@ -1178,7 +1178,7 @@ public class GL30 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform1uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glUniform1uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglUniform1uiv(location, value.remaining(), memAddress(value));
     }
 
@@ -1199,7 +1199,7 @@ public class GL30 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform2uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glUniform2uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglUniform2uiv(location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -1220,7 +1220,7 @@ public class GL30 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform3uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glUniform3uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglUniform3uiv(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -1241,7 +1241,7 @@ public class GL30 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform4uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glUniform4uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglUniform4uiv(location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -1300,7 +1300,7 @@ public class GL30 {
      * @param colorNumber the color number to bind the user-defined varying out variable to
      * @param name        the name of the user-defined varying out variable whose binding to modify
      */
-    public static void glBindFragDataLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("const GLchar *") ByteBuffer name) {
+    public static void glBindFragDataLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1316,7 +1316,7 @@ public class GL30 {
      * @param colorNumber the color number to bind the user-defined varying out variable to
      * @param name        the name of the user-defined varying out variable whose binding to modify
      */
-    public static void glBindFragDataLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("const GLchar *") CharSequence name) {
+    public static void glBindFragDataLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1340,7 +1340,7 @@ public class GL30 {
      * @param name    the name of the user-defined varying out variable whose binding to query
      */
     @NativeType("GLint")
-    public static int glGetFragDataLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetFragDataLocation(@NativeType("GLuint") int program, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1356,7 +1356,7 @@ public class GL30 {
      * @param name    the name of the user-defined varying out variable whose binding to query
      */
     @NativeType("GLint")
-    public static int glGetFragDataLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetFragDataLocation(@NativeType("GLuint") int program, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1505,7 +1505,7 @@ public class GL30 {
      *
      * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
      */
-    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") IntBuffer renderbuffers) {
+    public static void glDeleteRenderbuffers(@NativeType("GLuint const *") IntBuffer renderbuffers) {
         nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
     }
 
@@ -1514,7 +1514,7 @@ public class GL30 {
      * 
      * Deletes renderbuffer objects.
      */
-    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") int renderbuffer) {
+    public static void glDeleteRenderbuffers(@NativeType("GLuint const *") int renderbuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer renderbuffers = stack.ints(renderbuffer);
@@ -1673,7 +1673,7 @@ public class GL30 {
      *
      * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
      */
-    public static void glDeleteFramebuffers(@NativeType("const GLuint *") IntBuffer framebuffers) {
+    public static void glDeleteFramebuffers(@NativeType("GLuint const *") IntBuffer framebuffers) {
         nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
     }
 
@@ -1682,7 +1682,7 @@ public class GL30 {
      * 
      * Deletes framebuffer objects.
      */
-    public static void glDeleteFramebuffers(@NativeType("const GLuint *") int framebuffer) {
+    public static void glDeleteFramebuffers(@NativeType("GLuint const *") int framebuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer framebuffers = stack.ints(framebuffer);
@@ -1904,7 +1904,7 @@ public class GL30 {
      * @param pname  the symbolic name of a single-valued texture parameter
      * @param params the value of {@code pname}
      */
-    public static void glTexParameterIiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glTexParameterIiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1919,7 +1919,7 @@ public class GL30 {
      * @param target the texture target
      * @param pname  the symbolic name of a single-valued texture parameter
      */
-    public static void glTexParameterIi(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int param) {
+    public static void glTexParameterIi(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -1943,7 +1943,7 @@ public class GL30 {
      * @param pname  the symbolic name of a single-valued texture parameter
      * @param params the value of {@code pname}
      */
-    public static void glTexParameterIuiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") IntBuffer params) {
+    public static void glTexParameterIuiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -1958,7 +1958,7 @@ public class GL30 {
      * @param target the texture target
      * @param pname  the symbolic name of a single-valued texture parameter
      */
-    public static void glTexParameterIui(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int param) {
+    public static void glTexParameterIui(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -2250,7 +2250,7 @@ public class GL30 {
      * @param varyings   an array of {@code count} zero-terminated strings specifying the names of the varying variables to use for transform feedback
      * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br><table><tr><td>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}</td><td>{@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}</td></tr></table>
      */
-    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("const GLchar **") PointerBuffer varyings, @NativeType("GLenum") int bufferMode) {
+    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("GLchar const **") PointerBuffer varyings, @NativeType("GLenum") int bufferMode) {
         nglTransformFeedbackVaryings(program, varyings.remaining(), memAddress(varyings), bufferMode);
     }
 
@@ -2263,7 +2263,7 @@ public class GL30 {
      * @param varyings   an array of {@code count} zero-terminated strings specifying the names of the varying variables to use for transform feedback
      * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br><table><tr><td>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}</td><td>{@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}</td></tr></table>
      */
-    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("const GLchar **") CharSequence[] varyings, @NativeType("GLenum") int bufferMode) {
+    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("GLchar const **") CharSequence[] varyings, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varyings);
@@ -2282,7 +2282,7 @@ public class GL30 {
      * @param program    the target program object
      * @param bufferMode the mode used to capture the varying variables when transform feedback is active. One of:<br><table><tr><td>{@link #GL_INTERLEAVED_ATTRIBS INTERLEAVED_ATTRIBS}</td><td>{@link #GL_SEPARATE_ATTRIBS SEPARATE_ATTRIBS}</td></tr></table>
      */
-    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("const GLchar **") CharSequence varying, @NativeType("GLenum") int bufferMode) {
+    public static void glTransformFeedbackVaryings(@NativeType("GLuint") int program, @NativeType("GLchar const **") CharSequence varying, @NativeType("GLenum") int bufferMode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long varyingsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memASCII, varying);
@@ -2393,7 +2393,7 @@ public class GL30 {
      *
      * @param arrays an array containing the n names of the objects to be deleted
      */
-    public static void glDeleteVertexArrays(@NativeType("const GLuint *") IntBuffer arrays) {
+    public static void glDeleteVertexArrays(@NativeType("GLuint const *") IntBuffer arrays) {
         nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
     }
 
@@ -2402,7 +2402,7 @@ public class GL30 {
      * 
      * Deletes vertex array objects.
      */
-    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int array) {
+    public static void glDeleteVertexArrays(@NativeType("GLuint const *") int array) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer arrays = stack.ints(array);
@@ -2508,7 +2508,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI1iv VertexAttribI1iv}
      */
-    public static void glVertexAttribI1iv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glVertexAttribI1iv(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI1iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2522,7 +2522,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI2iv VertexAttribI2iv}
      */
-    public static void glVertexAttribI2iv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glVertexAttribI2iv(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2536,7 +2536,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI3iv VertexAttribI3iv}
      */
-    public static void glVertexAttribI3iv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glVertexAttribI3iv(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2550,7 +2550,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI4iv VertexAttribI4iv}
      */
-    public static void glVertexAttribI4iv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glVertexAttribI4iv(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2564,7 +2564,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI1uiv VertexAttribI1uiv}
      */
-    public static void glVertexAttribI1uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
+    public static void glVertexAttribI1uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI1uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2578,7 +2578,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI2uiv VertexAttribI2uiv}
      */
-    public static void glVertexAttribI2uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
+    public static void glVertexAttribI2uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2592,7 +2592,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI3uiv VertexAttribI3uiv}
      */
-    public static void glVertexAttribI3uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
+    public static void glVertexAttribI3uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2606,7 +2606,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI4uiv VertexAttribI4uiv}
      */
-    public static void glVertexAttribI4uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
+    public static void glVertexAttribI4uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2620,7 +2620,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI4sv VertexAttribI4sv}
      */
-    public static void glVertexAttribI4sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
+    public static void glVertexAttribI4sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2634,7 +2634,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glVertexAttribI4usv VertexAttribI4usv}
      */
-    public static void glVertexAttribI4usv(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
+    public static void glVertexAttribI4usv(@NativeType("GLuint") int index, @NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttribI4usv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2676,7 +2676,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glUniform1uiv Uniform1uiv}
      */
-    public static void glUniform1uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glUniform1uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform1uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2689,7 +2689,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glUniform2uiv Uniform2uiv}
      */
-    public static void glUniform2uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glUniform2uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2702,7 +2702,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glUniform3uiv Uniform3uiv}
      */
-    public static void glUniform3uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glUniform3uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2715,7 +2715,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glUniform4uiv Uniform4uiv}
      */
-    public static void glUniform4uiv(@NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glUniform4uiv(@NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2742,7 +2742,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers}
      */
-    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") int[] renderbuffers) {
+    public static void glDeleteRenderbuffers(@NativeType("GLuint const *") int[] renderbuffers) {
         long __functionAddress = GL.getICD().glDeleteRenderbuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -2782,7 +2782,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glDeleteFramebuffers DeleteFramebuffers}
      */
-    public static void glDeleteFramebuffers(@NativeType("const GLuint *") int[] framebuffers) {
+    public static void glDeleteFramebuffers(@NativeType("GLuint const *") int[] framebuffers) {
         long __functionAddress = GL.getICD().glDeleteFramebuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -2822,7 +2822,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glTexParameterIiv TexParameterIiv}
      */
-    public static void glTexParameterIiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glTexParameterIiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glTexParameterIiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2836,7 +2836,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glTexParameterIuiv TexParameterIuiv}
      */
-    public static void glTexParameterIuiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int[] params) {
+    public static void glTexParameterIuiv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int[] params) {
         long __functionAddress = GL.getICD().glTexParameterIuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2908,7 +2908,7 @@ public class GL30 {
      * 
      * Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays}
      */
-    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int[] arrays) {
+    public static void glDeleteVertexArrays(@NativeType("GLuint const *") int[] arrays) {
         long __functionAddress = GL.getICD().glDeleteVertexArrays;
         if (CHECKS) {
             check(__functionAddress);

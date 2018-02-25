@@ -53,11 +53,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPipelineDiscardRectangleStateCreateInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkPipelineDiscardRectangleStateCreateFlagsEXT flags;
  *     VkDiscardRectangleModeEXT discardRectangleMode;
  *     uint32_t discardRectangleCount;
- *     const {@link VkRect2D VkRect2D} * pDiscardRectangles;
+ *     {@link VkRect2D VkRect2D const} * pDiscardRectangles;
  * }</pre></code>
  */
 public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct implements NativeResource {
@@ -118,7 +118,7 @@ public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct impleme
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkPipelineDiscardRectangleStateCreateFlagsEXT")
@@ -131,13 +131,13 @@ public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct impleme
     public int discardRectangleCount() { return ndiscardRectangleCount(address()); }
     /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pDiscardRectangles} field. */
     @Nullable
-    @NativeType("const VkRect2D *")
+    @NativeType("VkRect2D const *")
     public VkRect2D.Buffer pDiscardRectangles() { return npDiscardRectangles(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkPipelineDiscardRectangleStateCreateInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineDiscardRectangleStateCreateInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPipelineDiscardRectangleStateCreateInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkPipelineDiscardRectangleStateCreateInfoEXT flags(@NativeType("VkPipelineDiscardRectangleStateCreateFlagsEXT") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code discardRectangleMode} field. */
@@ -145,7 +145,7 @@ public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct impleme
     /** Sets the specified value to the {@code discardRectangleCount} field. */
     public VkPipelineDiscardRectangleStateCreateInfoEXT discardRectangleCount(@NativeType("uint32_t") int value) { ndiscardRectangleCount(address(), value); return this; }
     /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pDiscardRectangles} field. */
-    public VkPipelineDiscardRectangleStateCreateInfoEXT pDiscardRectangles(@Nullable @NativeType("const VkRect2D *") VkRect2D.Buffer value) { npDiscardRectangles(address(), value); return this; }
+    public VkPipelineDiscardRectangleStateCreateInfoEXT pDiscardRectangles(@Nullable @NativeType("VkRect2D const *") VkRect2D.Buffer value) { npDiscardRectangles(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineDiscardRectangleStateCreateInfoEXT set(
@@ -395,7 +395,7 @@ public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct impleme
         @NativeType("VkStructureType")
         public int sType() { return VkPipelineDiscardRectangleStateCreateInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPipelineDiscardRectangleStateCreateInfoEXT.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkPipelineDiscardRectangleStateCreateFlagsEXT")
@@ -408,13 +408,13 @@ public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct impleme
         public int discardRectangleCount() { return VkPipelineDiscardRectangleStateCreateInfoEXT.ndiscardRectangleCount(address()); }
         /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pDiscardRectangles} field. */
         @Nullable
-        @NativeType("const VkRect2D *")
+        @NativeType("VkRect2D const *")
         public VkRect2D.Buffer pDiscardRectangles() { return VkPipelineDiscardRectangleStateCreateInfoEXT.npDiscardRectangles(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkPipelineDiscardRectangleStateCreateInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineDiscardRectangleStateCreateInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineDiscardRectangleStateCreateInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkPipelineDiscardRectangleStateCreateInfoEXT.npNext(address(), value); return this; }
+        public VkPipelineDiscardRectangleStateCreateInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkPipelineDiscardRectangleStateCreateInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkPipelineDiscardRectangleStateCreateInfoEXT.Buffer flags(@NativeType("VkPipelineDiscardRectangleStateCreateFlagsEXT") int value) { VkPipelineDiscardRectangleStateCreateInfoEXT.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code discardRectangleMode} field. */
@@ -422,7 +422,7 @@ public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct impleme
         /** Sets the specified value to the {@code discardRectangleCount} field. */
         public VkPipelineDiscardRectangleStateCreateInfoEXT.Buffer discardRectangleCount(@NativeType("uint32_t") int value) { VkPipelineDiscardRectangleStateCreateInfoEXT.ndiscardRectangleCount(address(), value); return this; }
         /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pDiscardRectangles} field. */
-        public VkPipelineDiscardRectangleStateCreateInfoEXT.Buffer pDiscardRectangles(@Nullable @NativeType("const VkRect2D *") VkRect2D.Buffer value) { VkPipelineDiscardRectangleStateCreateInfoEXT.npDiscardRectangles(address(), value); return this; }
+        public VkPipelineDiscardRectangleStateCreateInfoEXT.Buffer pDiscardRectangles(@Nullable @NativeType("VkRect2D const *") VkRect2D.Buffer value) { VkPipelineDiscardRectangleStateCreateInfoEXT.npDiscardRectangles(address(), value); return this; }
 
     }
 

@@ -46,9 +46,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkRenderPassInputAttachmentAspectCreateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t aspectReferenceCount;
- *     const {@link VkInputAttachmentAspectReferenceKHR VkInputAttachmentAspectReferenceKHR} * pAspectReferences;
+ *     {@link VkInputAttachmentAspectReferenceKHR VkInputAttachmentAspectReferenceKHR const} * pAspectReferences;
  * }</pre></code>
  */
 public class VkRenderPassInputAttachmentAspectCreateInfoKHR extends Struct implements NativeResource {
@@ -103,21 +103,21 @@ public class VkRenderPassInputAttachmentAspectCreateInfoKHR extends Struct imple
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code aspectReferenceCount} field. */
     @NativeType("uint32_t")
     public int aspectReferenceCount() { return naspectReferenceCount(address()); }
     /** Returns a {@link VkInputAttachmentAspectReferenceKHR.Buffer} view of the struct array pointed to by the {@code pAspectReferences} field. */
-    @NativeType("const VkInputAttachmentAspectReferenceKHR *")
+    @NativeType("VkInputAttachmentAspectReferenceKHR const *")
     public VkInputAttachmentAspectReferenceKHR.Buffer pAspectReferences() { return npAspectReferences(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkRenderPassInputAttachmentAspectCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkRenderPassInputAttachmentAspectCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkRenderPassInputAttachmentAspectCreateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link VkInputAttachmentAspectReferenceKHR.Buffer} to the {@code pAspectReferences} field. */
-    public VkRenderPassInputAttachmentAspectCreateInfoKHR pAspectReferences(@NativeType("const VkInputAttachmentAspectReferenceKHR *") VkInputAttachmentAspectReferenceKHR.Buffer value) { npAspectReferences(address(), value); return this; }
+    public VkRenderPassInputAttachmentAspectCreateInfoKHR pAspectReferences(@NativeType("VkInputAttachmentAspectReferenceKHR const *") VkInputAttachmentAspectReferenceKHR.Buffer value) { npAspectReferences(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkRenderPassInputAttachmentAspectCreateInfoKHR set(
@@ -374,21 +374,21 @@ public class VkRenderPassInputAttachmentAspectCreateInfoKHR extends Struct imple
         @NativeType("VkStructureType")
         public int sType() { return VkRenderPassInputAttachmentAspectCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkRenderPassInputAttachmentAspectCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code aspectReferenceCount} field. */
         @NativeType("uint32_t")
         public int aspectReferenceCount() { return VkRenderPassInputAttachmentAspectCreateInfoKHR.naspectReferenceCount(address()); }
         /** Returns a {@link VkInputAttachmentAspectReferenceKHR.Buffer} view of the struct array pointed to by the {@code pAspectReferences} field. */
-        @NativeType("const VkInputAttachmentAspectReferenceKHR *")
+        @NativeType("VkInputAttachmentAspectReferenceKHR const *")
         public VkInputAttachmentAspectReferenceKHR.Buffer pAspectReferences() { return VkRenderPassInputAttachmentAspectCreateInfoKHR.npAspectReferences(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkRenderPassInputAttachmentAspectCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkRenderPassInputAttachmentAspectCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkRenderPassInputAttachmentAspectCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkRenderPassInputAttachmentAspectCreateInfoKHR.npNext(address(), value); return this; }
+        public VkRenderPassInputAttachmentAspectCreateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkRenderPassInputAttachmentAspectCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link VkInputAttachmentAspectReferenceKHR.Buffer} to the {@code pAspectReferences} field. */
-        public VkRenderPassInputAttachmentAspectCreateInfoKHR.Buffer pAspectReferences(@NativeType("const VkInputAttachmentAspectReferenceKHR *") VkInputAttachmentAspectReferenceKHR.Buffer value) { VkRenderPassInputAttachmentAspectCreateInfoKHR.npAspectReferences(address(), value); return this; }
+        public VkRenderPassInputAttachmentAspectCreateInfoKHR.Buffer pAspectReferences(@NativeType("VkInputAttachmentAspectReferenceKHR const *") VkInputAttachmentAspectReferenceKHR.Buffer value) { VkRenderPassInputAttachmentAspectCreateInfoKHR.npAspectReferences(address(), value); return this; }
 
     }
 

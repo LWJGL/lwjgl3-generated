@@ -59,7 +59,7 @@ public class GREMEDYStringMarker {
      *
      * @param string a pointer to the array of bytes representing the marker being inserted, which need not be null-terminated
      */
-    public static void glStringMarkerGREMEDY(@NativeType("const GLchar *") ByteBuffer string) {
+    public static void glStringMarkerGREMEDY(@NativeType("GLchar const *") ByteBuffer string) {
         nglStringMarkerGREMEDY(string.remaining(), memAddress(string));
     }
 
@@ -69,7 +69,7 @@ public class GREMEDYStringMarker {
      *
      * @param string a pointer to the array of bytes representing the marker being inserted, which need not be null-terminated
      */
-    public static void glStringMarkerGREMEDY(@NativeType("const GLchar *") CharSequence string) {
+    public static void glStringMarkerGREMEDY(@NativeType("GLchar const *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.UTF8(string, false);

@@ -87,7 +87,7 @@ public class NVFramebufferMixedSamples {
 
     public static native void nglCoverageModulationTableNV(int n, long v);
 
-    public static void glCoverageModulationTableNV(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glCoverageModulationTableNV(@NativeType("GLfloat const *") FloatBuffer v) {
         nglCoverageModulationTableNV(v.remaining(), memAddress(v));
     }
 
@@ -104,7 +104,7 @@ public class NVFramebufferMixedSamples {
     public static native void glCoverageModulationNV(@NativeType("GLenum") int components);
 
     /** Array version of: {@link #glCoverageModulationTableNV CoverageModulationTableNV} */
-    public static void glCoverageModulationTableNV(@NativeType("const GLfloat *") float[] v) {
+    public static void glCoverageModulationTableNV(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GLES.getICD().glCoverageModulationTableNV;
         if (CHECKS) {
             check(__functionAddress);

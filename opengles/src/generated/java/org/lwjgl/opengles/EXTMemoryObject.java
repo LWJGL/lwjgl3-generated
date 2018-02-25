@@ -115,11 +115,11 @@ public class EXTMemoryObject {
 
     public static native void nglDeleteMemoryObjectsEXT(int n, long memoryObjects);
 
-    public static void glDeleteMemoryObjectsEXT(@NativeType("const GLuint *") IntBuffer memoryObjects) {
+    public static void glDeleteMemoryObjectsEXT(@NativeType("GLuint const *") IntBuffer memoryObjects) {
         nglDeleteMemoryObjectsEXT(memoryObjects.remaining(), memAddress(memoryObjects));
     }
 
-    public static void glDeleteMemoryObjectsEXT(@NativeType("const GLuint *") int memoryObject) {
+    public static void glDeleteMemoryObjectsEXT(@NativeType("GLuint const *") int memoryObject) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer memoryObjects = stack.ints(memoryObject);
@@ -158,14 +158,14 @@ public class EXTMemoryObject {
 
     public static native void nglMemoryObjectParameterivEXT(int memoryObject, int pname, long params);
 
-    public static void glMemoryObjectParameterivEXT(@NativeType("GLuint") int memoryObject, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glMemoryObjectParameterivEXT(@NativeType("GLuint") int memoryObject, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglMemoryObjectParameterivEXT(memoryObject, pname, memAddress(params));
     }
 
-    public static void glMemoryObjectParameteriEXT(@NativeType("GLuint") int memoryObject, @NativeType("GLenum") int pname, @NativeType("const GLint *") int param) {
+    public static void glMemoryObjectParameteriEXT(@NativeType("GLuint") int memoryObject, @NativeType("GLenum") int pname, @NativeType("GLint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -239,7 +239,7 @@ public class EXTMemoryObject {
     public static native void glNamedBufferStorageMemEXT(@NativeType("GLuint") int buffer, @NativeType("GLsizeiptr") long size, @NativeType("GLuint") int memory, @NativeType("GLuint64") long offset);
 
     /** Array version of: {@link #glDeleteMemoryObjectsEXT DeleteMemoryObjectsEXT} */
-    public static void glDeleteMemoryObjectsEXT(@NativeType("const GLuint *") int[] memoryObjects) {
+    public static void glDeleteMemoryObjectsEXT(@NativeType("GLuint const *") int[] memoryObjects) {
         long __functionAddress = GLES.getICD().glDeleteMemoryObjectsEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -257,7 +257,7 @@ public class EXTMemoryObject {
     }
 
     /** Array version of: {@link #glMemoryObjectParameterivEXT MemoryObjectParameterivEXT} */
-    public static void glMemoryObjectParameterivEXT(@NativeType("GLuint") int memoryObject, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glMemoryObjectParameterivEXT(@NativeType("GLuint") int memoryObject, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GLES.getICD().glMemoryObjectParameterivEXT;
         if (CHECKS) {
             check(__functionAddress);

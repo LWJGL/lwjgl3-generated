@@ -52,7 +52,7 @@ public class NVBindlessMultiDrawIndirectCount {
      * @param stride            the size of one DrawArraysIndirectBindlessCommandNV structure
      * @param vertexBufferCount the number of vertex buffers in the DrawArraysIndirectBindlessCommandNV structure
      */
-    public static void glMultiDrawArraysIndirectBindlessCountNV(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawCount, @NativeType("GLsizei") int maxDrawCount, @NativeType("GLsizei") int stride, @NativeType("GLint") int vertexBufferCount) {
+    public static void glMultiDrawArraysIndirectBindlessCountNV(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLintptr") long drawCount, @NativeType("GLsizei") int maxDrawCount, @NativeType("GLsizei") int stride, @NativeType("GLint") int vertexBufferCount) {
         if (CHECKS) {
             check(indirect, maxDrawCount * (stride == 0 ? (16 + vertexBufferCount * 24) : stride));
         }
@@ -78,7 +78,7 @@ public class NVBindlessMultiDrawIndirectCount {
      * @param stride            the size of one DrawElementsIndirectBindlessCommandNV structure
      * @param vertexBufferCount the number of vertex buffers in the DrawElementsIndirectBindlessCommandNV structure
      */
-    public static void glMultiDrawElementsIndirectBindlessCountNV(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawCount, @NativeType("GLsizei") int maxDrawCount, @NativeType("GLsizei") int stride, @NativeType("GLint") int vertexBufferCount) {
+    public static void glMultiDrawElementsIndirectBindlessCountNV(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLintptr") long drawCount, @NativeType("GLsizei") int maxDrawCount, @NativeType("GLsizei") int stride, @NativeType("GLint") int vertexBufferCount) {
         if (CHECKS) {
             check(indirect, maxDrawCount * (stride == 0 ? ((vertexBufferCount + 2) * 24) : stride));
         }

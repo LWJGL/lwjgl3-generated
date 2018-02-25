@@ -73,7 +73,7 @@ public class EXTMemoryObjectWin32 {
 
     public static native void nglImportMemoryWin32NameEXT(int memory, long size, int handleType, long name);
 
-    public static void glImportMemoryWin32NameEXT(@NativeType("GLuint") int memory, @NativeType("GLuint64") long size, @NativeType("GLenum") int handleType, @NativeType("const void *") long name) {
+    public static void glImportMemoryWin32NameEXT(@NativeType("GLuint") int memory, @NativeType("GLuint64") long size, @NativeType("GLenum") int handleType, @NativeType("void const *") long name) {
         if (CHECKS) {
             check(name);
         }

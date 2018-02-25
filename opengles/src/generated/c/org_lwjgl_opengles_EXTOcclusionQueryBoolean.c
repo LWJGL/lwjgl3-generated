@@ -7,7 +7,7 @@
 #include "opengles.h"
 
 typedef void (APIENTRY *glGenQueriesEXTPROC) (jint, intptr_t);
-typedef void (APIENTRY *glDeleteQueriesEXTPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteQueriesEXTPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsQueryEXTPROC) (jint);
 typedef void (APIENTRY *glBeginQueryEXTPROC) (jint, jint);
 typedef void (APIENTRY *glEndQueryEXTPROC) (jint);
@@ -25,7 +25,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_nglGenQu
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTOcclusionQueryBoolean_nglDeleteQueriesEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
     glDeleteQueriesEXTPROC glDeleteQueriesEXT = (glDeleteQueriesEXTPROC)tlsGetFunction(133);
-    const intptr_t ids = (const intptr_t)idsAddress;
+    intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDeleteQueriesEXT(n, ids);
 }

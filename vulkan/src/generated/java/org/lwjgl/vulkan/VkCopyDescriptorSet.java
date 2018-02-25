@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkCopyDescriptorSet {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDescriptorSet srcSet;
  *     uint32_t srcBinding;
  *     uint32_t srcArrayElement;
@@ -138,7 +138,7 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code srcSet} field. */
     @NativeType("VkDescriptorSet")
@@ -165,7 +165,7 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkCopyDescriptorSet sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCopyDescriptorSet pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkCopyDescriptorSet pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code srcSet} field. */
     public VkCopyDescriptorSet srcSet(@NativeType("VkDescriptorSet") long value) { nsrcSet(address(), value); return this; }
     /** Sets the specified value to the {@code srcBinding} field. */
@@ -447,7 +447,7 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkCopyDescriptorSet.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkCopyDescriptorSet.npNext(address()); }
         /** Returns the value of the {@code srcSet} field. */
         @NativeType("VkDescriptorSet")
@@ -474,7 +474,7 @@ public class VkCopyDescriptorSet extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkCopyDescriptorSet.Buffer sType(@NativeType("VkStructureType") int value) { VkCopyDescriptorSet.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCopyDescriptorSet.Buffer pNext(@NativeType("const void *") long value) { VkCopyDescriptorSet.npNext(address(), value); return this; }
+        public VkCopyDescriptorSet.Buffer pNext(@NativeType("void const *") long value) { VkCopyDescriptorSet.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code srcSet} field. */
         public VkCopyDescriptorSet.Buffer srcSet(@NativeType("VkDescriptorSet") long value) { VkCopyDescriptorSet.nsrcSet(address(), value); return this; }
         /** Sets the specified value to the {@code srcBinding} field. */

@@ -162,7 +162,7 @@ public class EXTSampleLocations {
      * @param commandBuffer        the command buffer into which the command will be recorded.
      * @param pSampleLocationsInfo the sample locations state to set.
      */
-    public static void vkCmdSetSampleLocationsEXT(VkCommandBuffer commandBuffer, @NativeType("const VkSampleLocationsInfoEXT *") VkSampleLocationsInfoEXT pSampleLocationsInfo) {
+    public static void vkCmdSetSampleLocationsEXT(VkCommandBuffer commandBuffer, @NativeType("VkSampleLocationsInfoEXT const *") VkSampleLocationsInfoEXT pSampleLocationsInfo) {
         nvkCmdSetSampleLocationsEXT(commandBuffer, pSampleLocationsInfo.address());
     }
 

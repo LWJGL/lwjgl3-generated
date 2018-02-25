@@ -7,7 +7,7 @@
 #include "opengles.h"
 
 typedef void (APIENTRY *glBindVertexArrayOESPROC) (jint);
-typedef void (APIENTRY *glDeleteVertexArraysOESPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteVertexArraysOESPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenVertexArraysOESPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsVertexArrayOESPROC) (jint);
 
@@ -21,7 +21,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESVertexArrayObject_glBindVertex
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESVertexArrayObject_nglDeleteVertexArraysOES__IJ(JNIEnv *__env, jclass clazz, jint n, jlong arraysAddress) {
     glDeleteVertexArraysOESPROC glDeleteVertexArraysOES = (glDeleteVertexArraysOESPROC)tlsGetFunction(143);
-    const intptr_t arrays = (const intptr_t)arraysAddress;
+    intptr_t arrays = (intptr_t)arraysAddress;
     UNUSED_PARAM(clazz)
     glDeleteVertexArraysOES(n, arrays);
 }

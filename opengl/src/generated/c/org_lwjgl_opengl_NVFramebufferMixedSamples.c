@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glRasterSamplesEXTPROC) (jint, jboolean);
-typedef void (APIENTRY *glCoverageModulationTableNVPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glCoverageModulationTableNVPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGetCoverageModulationTableNVPROC) (jint, intptr_t);
 typedef void (APIENTRY *glCoverageModulationNVPROC) (jint);
 
@@ -21,7 +21,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_glRasterS
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVFramebufferMixedSamples_nglCoverageModulationTableNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong vAddress) {
     glCoverageModulationTableNVPROC glCoverageModulationTableNV = (glCoverageModulationTableNVPROC)tlsGetFunction(265);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glCoverageModulationTableNV(n, v);
 }

@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glDrawArraysInstancedARBPROC) (jint, jint, jint, jint);
-typedef void (APIENTRY *glDrawElementsInstancedARBPROC) (jint, jint, jint, const intptr_t, jint);
+typedef void (APIENTRY *glDrawElementsInstancedARBPROC) (jint, jint, jint, intptr_t, jint);
 
 EXTERN_C_ENTER
 
@@ -19,7 +19,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawInstanced_glDrawArraysInstan
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDrawInstanced_nglDrawElementsInstancedARB(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount) {
     glDrawElementsInstancedARBPROC glDrawElementsInstancedARB = (glDrawElementsInstancedARBPROC)tlsGetFunction(369);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstancedARB(mode, count, type, indices, primcount);
 }

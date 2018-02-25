@@ -67,7 +67,7 @@ public class NVSync {
     }
 
     @NativeType("EGLSyncNV")
-    public static long eglCreateFenceSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int condition, @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateFenceSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int condition, @NativeType("EGLint const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }
@@ -143,7 +143,7 @@ public class NVSync {
 
     /** Array version of: {@link #eglCreateFenceSyncNV CreateFenceSyncNV} */
     @NativeType("EGLSyncNV")
-    public static long eglCreateFenceSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int condition, @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateFenceSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int condition, @NativeType("EGLint const *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateFenceSyncNV;
         if (CHECKS) {
             check(__functionAddress);

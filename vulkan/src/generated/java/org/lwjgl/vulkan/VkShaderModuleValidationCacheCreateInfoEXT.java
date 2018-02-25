@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkShaderModuleValidationCacheCreateInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkValidationCacheEXT validationCache;
  * }</pre></code>
  */
@@ -92,7 +92,7 @@ public class VkShaderModuleValidationCacheCreateInfoEXT extends Struct implement
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code validationCache} field. */
     @NativeType("VkValidationCacheEXT")
@@ -101,7 +101,7 @@ public class VkShaderModuleValidationCacheCreateInfoEXT extends Struct implement
     /** Sets the specified value to the {@code sType} field. */
     public VkShaderModuleValidationCacheCreateInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkShaderModuleValidationCacheCreateInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkShaderModuleValidationCacheCreateInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code validationCache} field. */
     public VkShaderModuleValidationCacheCreateInfoEXT validationCache(@NativeType("VkValidationCacheEXT") long value) { nvalidationCache(address(), value); return this; }
 
@@ -335,7 +335,7 @@ public class VkShaderModuleValidationCacheCreateInfoEXT extends Struct implement
         @NativeType("VkStructureType")
         public int sType() { return VkShaderModuleValidationCacheCreateInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkShaderModuleValidationCacheCreateInfoEXT.npNext(address()); }
         /** Returns the value of the {@code validationCache} field. */
         @NativeType("VkValidationCacheEXT")
@@ -344,7 +344,7 @@ public class VkShaderModuleValidationCacheCreateInfoEXT extends Struct implement
         /** Sets the specified value to the {@code sType} field. */
         public VkShaderModuleValidationCacheCreateInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkShaderModuleValidationCacheCreateInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkShaderModuleValidationCacheCreateInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkShaderModuleValidationCacheCreateInfoEXT.npNext(address(), value); return this; }
+        public VkShaderModuleValidationCacheCreateInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkShaderModuleValidationCacheCreateInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code validationCache} field. */
         public VkShaderModuleValidationCacheCreateInfoEXT.Buffer validationCache(@NativeType("VkValidationCacheEXT") long value) { VkShaderModuleValidationCacheCreateInfoEXT.nvalidationCache(address(), value); return this; }
 

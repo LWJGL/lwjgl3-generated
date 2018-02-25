@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkMemoryGetFdInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDeviceMemory memory;
  *     VkExternalMemoryHandleTypeFlagBitsKHR handleType;
  * }</pre></code>
@@ -118,7 +118,7 @@ public class VkMemoryGetFdInfoKHR extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code memory} field. */
     @NativeType("VkDeviceMemory")
@@ -130,7 +130,7 @@ public class VkMemoryGetFdInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkMemoryGetFdInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryGetFdInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkMemoryGetFdInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code memory} field. */
     public VkMemoryGetFdInfoKHR memory(@NativeType("VkDeviceMemory") long value) { nmemory(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
@@ -372,7 +372,7 @@ public class VkMemoryGetFdInfoKHR extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkMemoryGetFdInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkMemoryGetFdInfoKHR.npNext(address()); }
         /** Returns the value of the {@code memory} field. */
         @NativeType("VkDeviceMemory")
@@ -384,7 +384,7 @@ public class VkMemoryGetFdInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkMemoryGetFdInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryGetFdInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryGetFdInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkMemoryGetFdInfoKHR.npNext(address(), value); return this; }
+        public VkMemoryGetFdInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkMemoryGetFdInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code memory} field. */
         public VkMemoryGetFdInfoKHR.Buffer memory(@NativeType("VkDeviceMemory") long value) { VkMemoryGetFdInfoKHR.nmemory(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */

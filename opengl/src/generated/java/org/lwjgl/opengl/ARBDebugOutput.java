@@ -185,7 +185,7 @@ public class ARBDebugOutput {
      * @param ids      the message IDs to enable or disable
      * @param enabled  whether to enable or disable the references subset of messages
      */
-    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
         nglDebugMessageControlARB(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
     }
 
@@ -215,7 +215,7 @@ public class ARBDebugOutput {
      * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
      * @param enabled  whether to enable or disable the references subset of messages
      */
-    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int id, @NativeType("GLboolean") boolean enabled) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -247,7 +247,7 @@ public class ARBDebugOutput {
      * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
      * @param buf      the string representation of the message
      */
-    public static void glDebugMessageInsertARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") ByteBuffer buf) {
+    public static void glDebugMessageInsertARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLchar const *") ByteBuffer buf) {
         nglDebugMessageInsertARB(source, type, id, severity, buf.remaining(), memAddress(buf));
     }
 
@@ -264,7 +264,7 @@ public class ARBDebugOutput {
      * @param severity the message severity level. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_ARB DEBUG_SEVERITY_HIGH_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_ARB DEBUG_SEVERITY_MEDIUM_ARB}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_ARB DEBUG_SEVERITY_LOW_ARB}</td></tr></table>
      * @param buf      the string representation of the message
      */
-    public static void glDebugMessageInsertARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") CharSequence buf) {
+    public static void glDebugMessageInsertARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLchar const *") CharSequence buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer bufEncoded = stack.UTF8(buf, false);
@@ -317,7 +317,7 @@ public class ARBDebugOutput {
      * @param callback  a callback function that will be called when a debug message is generated
      * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
      */
-    public static void glDebugMessageCallbackARB(@Nullable @NativeType("GLDEBUGPROCARB") GLDebugMessageARBCallbackI callback, @NativeType("const void *") long userParam) {
+    public static void glDebugMessageCallbackARB(@Nullable @NativeType("GLDEBUGPROCARB") GLDebugMessageARBCallbackI callback, @NativeType("void const *") long userParam) {
         nglDebugMessageCallbackARB(memAddressSafe(callback), userParam);
     }
 
@@ -372,7 +372,7 @@ public class ARBDebugOutput {
     }
 
     /** Array version of: {@link #glDebugMessageControlARB DebugMessageControlARB} */
-    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControlARB(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int[] ids, @NativeType("GLboolean") boolean enabled) {
         long __functionAddress = GL.getICD().glDebugMessageControlARB;
         if (CHECKS) {
             check(__functionAddress);

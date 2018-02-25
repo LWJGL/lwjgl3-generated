@@ -16,9 +16,9 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <code><pre>
  * void (*) (
- *     const void *key,
+ *     void const *key,
  *     EGLsizeiANDROID keySize,
- *     const void *value,
+ *     void const *value,
  *     EGLsizeiANDROID valueSize
  * )</pre></code>
  */
@@ -41,6 +41,6 @@ public interface EGLSetBlobFuncANDROIDI extends CallbackI.V {
         );
     }
 
-    void invoke(@NativeType("const void *") long key, @NativeType("EGLsizeiANDROID") long keySize, @NativeType("const void *") long value, @NativeType("EGLsizeiANDROID") long valueSize);
+    void invoke(@NativeType("void const *") long key, @NativeType("EGLsizeiANDROID") long keySize, @NativeType("void const *") long value, @NativeType("EGLsizeiANDROID") long valueSize);
 
 }

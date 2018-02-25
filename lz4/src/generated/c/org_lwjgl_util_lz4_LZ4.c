@@ -21,14 +21,14 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1versionString(JNIEnv *
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1default(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jint srcSize, jint dstCapacity) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_compress_default(src, dst, srcSize, dstCapacity);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1safe(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jint compressedSize, jint dstCapacity) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_safe(src, dst, compressedSize, dstCapacity);
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_LZ4_1compressBound(JNIEnv *__
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1fast(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jint srcSize, jint dstCapacity, jint acceleration) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_compress_fast(src, dst, srcSize, dstCapacity, acceleration);
@@ -53,14 +53,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_LZ4_1sizeofState(JNIEnv *__en
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1fast_1extState(JNIEnv *__env, jclass clazz, jlong stateAddress, jlong srcAddress, jlong dstAddress, jint srcSize, jint dstCapacity, jint acceleration) {
     void *state = (void *)(intptr_t)stateAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_compress_fast_extState(state, src, dst, srcSize, dstCapacity, acceleration);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1destSize__JJJI(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jlong srcSizePtrAddress, jint targetDstSize) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     int *srcSizePtr = (int *)(intptr_t)srcSizePtrAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -68,14 +68,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1destSize__JJJ
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1fast(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jint originalSize) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_fast(src, dst, originalSize);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1safe_1partial(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jint compressedSize, jint targetOutputSize, jint dstCapacity) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_safe_partial(src, dst, compressedSize, targetOutputSize, dstCapacity);
@@ -100,14 +100,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1resetStream(JNIEnv *__e
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1loadDict(JNIEnv *__env, jclass clazz, jlong streamPtrAddress, jlong dictionaryAddress, jint dictSize) {
     LZ4_stream_t *streamPtr = (LZ4_stream_t *)(intptr_t)streamPtrAddress;
-    const char *dictionary = (const char *)(intptr_t)dictionaryAddress;
+    char const *dictionary = (char const *)(intptr_t)dictionaryAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_loadDict(streamPtr, dictionary, dictSize);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1fast_1continue(JNIEnv *__env, jclass clazz, jlong streamPtrAddress, jlong srcAddress, jlong dstAddress, jint srcSize, jint dstCapacity, jint acceleration) {
     LZ4_stream_t *streamPtr = (LZ4_stream_t *)(intptr_t)streamPtrAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_compress_fast_continue(streamPtr, src, dst, srcSize, dstCapacity, acceleration);
@@ -133,14 +133,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1freeStreamDecode(JNIEnv
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1setStreamDecode(JNIEnv *__env, jclass clazz, jlong LZ4_streamDecodeAddress, jlong dictionaryAddress, jint dictSize) {
     LZ4_streamDecode_t *LZ4_streamDecode = (LZ4_streamDecode_t *)(intptr_t)LZ4_streamDecodeAddress;
-    const char *dictionary = (const char *)(intptr_t)dictionaryAddress;
+    char const *dictionary = (char const *)(intptr_t)dictionaryAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_setStreamDecode(LZ4_streamDecode, dictionary, dictSize);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1safe_1continue(JNIEnv *__env, jclass clazz, jlong LZ4_streamDecodeAddress, jlong srcAddress, jlong dstAddress, jint srcSize, jint dstCapacity) {
     LZ4_streamDecode_t *LZ4_streamDecode = (LZ4_streamDecode_t *)(intptr_t)LZ4_streamDecodeAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_safe_continue(LZ4_streamDecode, src, dst, srcSize, dstCapacity);
@@ -148,24 +148,24 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1safe_1conti
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1fast_1continue(JNIEnv *__env, jclass clazz, jlong LZ4_streamDecodeAddress, jlong srcAddress, jlong dstAddress, jint originalSize) {
     LZ4_streamDecode_t *LZ4_streamDecode = (LZ4_streamDecode_t *)(intptr_t)LZ4_streamDecodeAddress;
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_fast_continue(LZ4_streamDecode, src, dst, originalSize);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1safe_1usingDict(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jint srcSize, jint dstCapacity, jlong dictStartAddress, jint dictSize) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
-    const char *dictStart = (const char *)(intptr_t)dictStartAddress;
+    char const *dictStart = (char const *)(intptr_t)dictStartAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_safe_usingDict(src, dst, srcSize, dstCapacity, dictStart, dictSize);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1fast_1usingDict(JNIEnv *__env, jclass clazz, jlong srcAddress, jlong dstAddress, jint originalSize, jlong dictStartAddress, jint dictSize) {
-    const char *src = (const char *)(intptr_t)srcAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
     char *dst = (char *)(intptr_t)dstAddress;
-    const char *dictStart = (const char *)(intptr_t)dictStartAddress;
+    char const *dictStart = (char const *)(intptr_t)dictStartAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_fast_usingDict(src, dst, originalSize, dictStart, dictSize);
 }

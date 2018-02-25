@@ -102,7 +102,7 @@ public class DynamicLinkLoader {
      *             </ul>
      */
     @NativeType("void *")
-    public static long dlopen(@Nullable @NativeType("const char *") ByteBuffer path, int mode) {
+    public static long dlopen(@Nullable @NativeType("char const *") ByteBuffer path, int mode) {
         if (CHECKS) {
             checkNT1Safe(path);
         }
@@ -168,7 +168,7 @@ public class DynamicLinkLoader {
      *             </ul>
      */
     @NativeType("void *")
-    public static long dlopen(@Nullable @NativeType("const char *") CharSequence path, int mode) {
+    public static long dlopen(@Nullable @NativeType("char const *") CharSequence path, int mode) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pathEncoded = stack.ASCIISafe(path);
@@ -193,7 +193,7 @@ public class DynamicLinkLoader {
      * Subsequent calls to {@code dlerror} in the same thread with no calls to {@link #dlopen}, {@link #dlsym}, or {@link #dlclose}, return {@code NULL}.</p>
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String dlerror() {
         long __result = ndlerror();
         return memASCIISafe(__result);
@@ -224,7 +224,7 @@ public class DynamicLinkLoader {
      * @param name   the null-terminated character string containing the C name of the symbol being sought
      */
     @NativeType("void *")
-    public static long dlsym(@NativeType("void *") long handle, @NativeType("const char *") ByteBuffer name) {
+    public static long dlsym(@NativeType("void *") long handle, @NativeType("char const *") ByteBuffer name) {
         if (CHECKS) {
             check(handle);
             checkNT1(name);
@@ -252,7 +252,7 @@ public class DynamicLinkLoader {
      * @param name   the null-terminated character string containing the C name of the symbol being sought
      */
     @NativeType("void *")
-    public static long dlsym(@NativeType("void *") long handle, @NativeType("const char *") CharSequence name) {
+    public static long dlsym(@NativeType("void *") long handle, @NativeType("char const *") CharSequence name) {
         if (CHECKS) {
             check(handle);
         }

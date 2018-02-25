@@ -216,7 +216,7 @@ public class NVShaderBufferLoad {
 
     public static native void nglUniformui64vNV(int location, int count, long value);
 
-    public static void glUniformui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glUniformui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglUniformui64vNV(location, value.remaining(), memAddress(value));
     }
 
@@ -251,7 +251,7 @@ public class NVShaderBufferLoad {
 
     public static native void nglProgramUniformui64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glProgramUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglProgramUniformui64vNV(program, location, value.remaining(), memAddress(value));
     }
 
@@ -286,7 +286,7 @@ public class NVShaderBufferLoad {
     }
 
     /** Array version of: {@link #glUniformui64vNV Uniformui64vNV} */
-    public static void glUniformui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glUniformui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniformui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -305,7 +305,7 @@ public class NVShaderBufferLoad {
     }
 
     /** Array version of: {@link #glProgramUniformui64vNV ProgramUniformui64vNV} */
-    public static void glProgramUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glProgramUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniformui64vNV;
         if (CHECKS) {
             check(__functionAddress);

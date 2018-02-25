@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glReleaseShaderCompilerPROC) (void);
-typedef void (APIENTRY *glShaderBinaryPROC) (jint, const intptr_t, jint, const intptr_t, jint);
+typedef void (APIENTRY *glShaderBinaryPROC) (jint, intptr_t, jint, intptr_t, jint);
 typedef void (APIENTRY *glGetShaderPrecisionFormatPROC) (jint, jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glDepthRangefPROC) (jfloat, jfloat);
 typedef void (APIENTRY *glClearDepthfPROC) (jfloat);
@@ -22,8 +22,8 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_glReleaseShader
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBES2Compatibility_nglShaderBinary__IJIJI(JNIEnv *__env, jclass clazz, jint count, jlong shadersAddress, jint binaryformat, jlong binaryAddress, jint length) {
     glShaderBinaryPROC glShaderBinary = (glShaderBinaryPROC)tlsGetFunction(1555);
-    const intptr_t shaders = (const intptr_t)shadersAddress;
-    const intptr_t binary = (const intptr_t)binaryAddress;
+    intptr_t shaders = (intptr_t)shadersAddress;
+    intptr_t binary = (intptr_t)binaryAddress;
     UNUSED_PARAM(clazz)
     glShaderBinary(count, shaders, binaryformat, binary, length);
 }

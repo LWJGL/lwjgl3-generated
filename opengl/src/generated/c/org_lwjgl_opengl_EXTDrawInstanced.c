@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glDrawArraysInstancedEXTPROC) (jint, jint, jint, jint);
-typedef void (APIENTRY *glDrawElementsInstancedEXTPROC) (jint, jint, jint, const intptr_t, jint);
+typedef void (APIENTRY *glDrawElementsInstancedEXTPROC) (jint, jint, jint, intptr_t, jint);
 
 EXTERN_C_ENTER
 
@@ -19,7 +19,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawInstanced_glDrawArraysInstan
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTDrawInstanced_nglDrawElementsInstancedEXT(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount) {
     glDrawElementsInstancedEXTPROC glDrawElementsInstancedEXT = (glDrawElementsInstancedEXTPROC)tlsGetFunction(373);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstancedEXT(mode, count, type, indices, primcount);
 }

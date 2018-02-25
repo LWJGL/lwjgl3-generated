@@ -64,7 +64,7 @@ import org.lwjgl.system.windows.*;
  * <code><pre>
  * struct VkImportMemoryWin32HandleInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkExternalMemoryHandleTypeFlagBitsKHR handleType;
  *     HANDLE handle;
  *     LPCWSTR name;
@@ -125,7 +125,7 @@ public class VkImportMemoryWin32HandleInfoKHR extends Struct implements NativeRe
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code handleType} field. */
     @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
@@ -143,7 +143,7 @@ public class VkImportMemoryWin32HandleInfoKHR extends Struct implements NativeRe
     /** Sets the specified value to the {@code sType} field. */
     public VkImportMemoryWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImportMemoryWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImportMemoryWin32HandleInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
     public VkImportMemoryWin32HandleInfoKHR handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
     /** Sets the specified value to the {@code handle} field. */
@@ -420,7 +420,7 @@ public class VkImportMemoryWin32HandleInfoKHR extends Struct implements NativeRe
         @NativeType("VkStructureType")
         public int sType() { return VkImportMemoryWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImportMemoryWin32HandleInfoKHR.npNext(address()); }
         /** Returns the value of the {@code handleType} field. */
         @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
@@ -438,7 +438,7 @@ public class VkImportMemoryWin32HandleInfoKHR extends Struct implements NativeRe
         /** Sets the specified value to the {@code sType} field. */
         public VkImportMemoryWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImportMemoryWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImportMemoryWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkImportMemoryWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkImportMemoryWin32HandleInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkImportMemoryWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
         public VkImportMemoryWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { VkImportMemoryWin32HandleInfoKHR.nhandleType(address(), value); return this; }
         /** Sets the specified value to the {@code handle} field. */

@@ -13,12 +13,12 @@ typedef void (APIENTRY *glGetTransformFeedbackivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetTransformFeedbacki_vPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glGetTransformFeedbacki64_vPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glCreateBuffersPROC) (jint, intptr_t);
-typedef void (APIENTRY *glNamedBufferStoragePROC) (jint, intptr_t, const intptr_t, jint);
-typedef void (APIENTRY *glNamedBufferDataPROC) (jint, intptr_t, const intptr_t, jint);
-typedef void (APIENTRY *glNamedBufferSubDataPROC) (jint, intptr_t, intptr_t, const intptr_t);
+typedef void (APIENTRY *glNamedBufferStoragePROC) (jint, intptr_t, intptr_t, jint);
+typedef void (APIENTRY *glNamedBufferDataPROC) (jint, intptr_t, intptr_t, jint);
+typedef void (APIENTRY *glNamedBufferSubDataPROC) (jint, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glCopyNamedBufferSubDataPROC) (jint, jint, intptr_t, intptr_t, intptr_t);
-typedef void (APIENTRY *glClearNamedBufferDataPROC) (jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glClearNamedBufferSubDataPROC) (jint, jint, intptr_t, intptr_t, jint, jint, const intptr_t);
+typedef void (APIENTRY *glClearNamedBufferDataPROC) (jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glClearNamedBufferSubDataPROC) (jint, jint, intptr_t, intptr_t, jint, jint, intptr_t);
 typedef intptr_t (APIENTRY *glMapNamedBufferPROC) (jint, jint);
 typedef intptr_t (APIENTRY *glMapNamedBufferRangePROC) (jint, intptr_t, intptr_t, jint);
 typedef jboolean (APIENTRY *glUnmapNamedBufferPROC) (jint);
@@ -33,10 +33,10 @@ typedef void (APIENTRY *glNamedFramebufferParameteriPROC) (jint, jint, jint);
 typedef void (APIENTRY *glNamedFramebufferTexturePROC) (jint, jint, jint, jint);
 typedef void (APIENTRY *glNamedFramebufferTextureLayerPROC) (jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glNamedFramebufferDrawBufferPROC) (jint, jint);
-typedef void (APIENTRY *glNamedFramebufferDrawBuffersPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glNamedFramebufferDrawBuffersPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glNamedFramebufferReadBufferPROC) (jint, jint);
-typedef void (APIENTRY *glInvalidateNamedFramebufferDataPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glInvalidateNamedFramebufferSubDataPROC) (jint, jint, const intptr_t, jint, jint, jint, jint);
+typedef void (APIENTRY *glInvalidateNamedFramebufferDataPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glInvalidateNamedFramebufferSubDataPROC) (jint, jint, intptr_t, jint, jint, jint, jint);
 typedef void (APIENTRY *glClearNamedFramebufferivPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glClearNamedFramebufferuivPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glClearNamedFramebufferfvPROC) (jint, jint, jint, intptr_t);
@@ -57,21 +57,21 @@ typedef void (APIENTRY *glTextureStorage2DPROC) (jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glTextureStorage3DPROC) (jint, jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glTextureStorage2DMultisamplePROC) (jint, jint, jint, jint, jint, jboolean);
 typedef void (APIENTRY *glTextureStorage3DMultisamplePROC) (jint, jint, jint, jint, jint, jint, jboolean);
-typedef void (APIENTRY *glTextureSubImage1DPROC) (jint, jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glTextureSubImage2DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glTextureSubImage3DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glCompressedTextureSubImage1DPROC) (jint, jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glCompressedTextureSubImage2DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glCompressedTextureSubImage3DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glTextureSubImage1DPROC) (jint, jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glTextureSubImage2DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glTextureSubImage3DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glCompressedTextureSubImage1DPROC) (jint, jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glCompressedTextureSubImage2DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glCompressedTextureSubImage3DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glCopyTextureSubImage1DPROC) (jint, jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glCopyTextureSubImage2DPROC) (jint, jint, jint, jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glCopyTextureSubImage3DPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glTextureParameterfPROC) (jint, jint, jfloat);
-typedef void (APIENTRY *glTextureParameterfvPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glTextureParameterfvPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glTextureParameteriPROC) (jint, jint, jint);
-typedef void (APIENTRY *glTextureParameterIivPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glTextureParameterIuivPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glTextureParameterivPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glTextureParameterIivPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glTextureParameterIuivPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glTextureParameterivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGenerateTextureMipmapPROC) (jint);
 typedef void (APIENTRY *glBindTextureUnitPROC) (jint, jint);
 typedef void (APIENTRY *glGetTextureImagePROC) (jint, jint, jint, jint, jint, intptr_t);
@@ -87,7 +87,7 @@ typedef void (APIENTRY *glDisableVertexArrayAttribPROC) (jint, jint);
 typedef void (APIENTRY *glEnableVertexArrayAttribPROC) (jint, jint);
 typedef void (APIENTRY *glVertexArrayElementBufferPROC) (jint, jint);
 typedef void (APIENTRY *glVertexArrayVertexBufferPROC) (jint, jint, jint, intptr_t, jint);
-typedef void (APIENTRY *glVertexArrayVertexBuffersPROC) (jint, jint, jint, const intptr_t, const intptr_t, const intptr_t);
+typedef void (APIENTRY *glVertexArrayVertexBuffersPROC) (jint, jint, jint, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glVertexArrayAttribFormatPROC) (jint, jint, jint, jint, jboolean, jint);
 typedef void (APIENTRY *glVertexArrayAttribIFormatPROC) (jint, jint, jint, jint, jint);
 typedef void (APIENTRY *glVertexArrayAttribLFormatPROC) (jint, jint, jint, jint, jint);
@@ -155,21 +155,21 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCreateBuffe
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedBufferStorage__IJJI(JNIEnv *__env, jclass clazz, jint buffer, jlong size, jlong dataAddress, jint flags) {
     glNamedBufferStoragePROC glNamedBufferStorage = (glNamedBufferStoragePROC)tlsGetFunction(1147);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glNamedBufferStorage(buffer, (intptr_t)size, data, flags);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedBufferData__IJJI(JNIEnv *__env, jclass clazz, jint buffer, jlong size, jlong dataAddress, jint usage) {
     glNamedBufferDataPROC glNamedBufferData = (glNamedBufferDataPROC)tlsGetFunction(1143);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glNamedBufferData(buffer, (intptr_t)size, data, usage);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedBufferSubData__IJJJ(JNIEnv *__env, jclass clazz, jint buffer, jlong offset, jlong size, jlong dataAddress) {
     glNamedBufferSubDataPROC glNamedBufferSubData = (glNamedBufferSubDataPROC)tlsGetFunction(1151);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glNamedBufferSubData(buffer, (intptr_t)offset, (intptr_t)size, data);
 }
@@ -182,14 +182,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glCopyNamedBuf
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglClearNamedBufferData__IIIIJ(JNIEnv *__env, jclass clazz, jint buffer, jint internalformat, jint format, jint type, jlong dataAddress) {
     glClearNamedBufferDataPROC glClearNamedBufferData = (glClearNamedBufferDataPROC)tlsGetFunction(125);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glClearNamedBufferData(buffer, internalformat, format, type, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglClearNamedBufferSubData__IIJJIIJ(JNIEnv *__env, jclass clazz, jint buffer, jint internalformat, jlong offset, jlong size, jint format, jint type, jlong dataAddress) {
     glClearNamedBufferSubDataPROC glClearNamedBufferSubData = (glClearNamedBufferSubDataPROC)tlsGetFunction(127);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glClearNamedBufferSubData(buffer, internalformat, (intptr_t)offset, (intptr_t)size, format, type, data);
 }
@@ -285,7 +285,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebu
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglNamedFramebufferDrawBuffers__IIJ(JNIEnv *__env, jclass clazz, jint framebuffer, jint n, jlong bufsAddress) {
     glNamedFramebufferDrawBuffersPROC glNamedFramebufferDrawBuffers = (glNamedFramebufferDrawBuffersPROC)tlsGetFunction(1155);
-    const intptr_t bufs = (const intptr_t)bufsAddress;
+    intptr_t bufs = (intptr_t)bufsAddress;
     UNUSED_PARAM(clazz)
     glNamedFramebufferDrawBuffers(framebuffer, n, bufs);
 }
@@ -298,14 +298,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glNamedFramebu
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglInvalidateNamedFramebufferData__IIJ(JNIEnv *__env, jclass clazz, jint framebuffer, jint numAttachments, jlong attachmentsAddress) {
     glInvalidateNamedFramebufferDataPROC glInvalidateNamedFramebufferData = (glInvalidateNamedFramebufferDataPROC)tlsGetFunction(870);
-    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    intptr_t attachments = (intptr_t)attachmentsAddress;
     UNUSED_PARAM(clazz)
     glInvalidateNamedFramebufferData(framebuffer, numAttachments, attachments);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglInvalidateNamedFramebufferSubData__IIJIIII(JNIEnv *__env, jclass clazz, jint framebuffer, jint numAttachments, jlong attachmentsAddress, jint x, jint y, jint width, jint height) {
     glInvalidateNamedFramebufferSubDataPROC glInvalidateNamedFramebufferSubData = (glInvalidateNamedFramebufferSubDataPROC)tlsGetFunction(871);
-    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    intptr_t attachments = (intptr_t)attachmentsAddress;
     UNUSED_PARAM(clazz)
     glInvalidateNamedFramebufferSubData(framebuffer, numAttachments, attachments, x, y, width, height);
 }
@@ -440,42 +440,42 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureStora
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureSubImage1D__IIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint width, jint format, jint type, jlong pixelsAddress) {
     glTextureSubImage1DPROC glTextureSubImage1D = (glTextureSubImage1DPROC)tlsGetFunction(1725);
-    const intptr_t pixels = (const intptr_t)pixelsAddress;
+    intptr_t pixels = (intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureSubImage2D__IIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint type, jlong pixelsAddress) {
     glTextureSubImage2DPROC glTextureSubImage2D = (glTextureSubImage2DPROC)tlsGetFunction(1727);
-    const intptr_t pixels = (const intptr_t)pixelsAddress;
+    intptr_t pixels = (intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureSubImage3D__IIIIIIIIIIJ(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint type, jlong pixelsAddress) {
     glTextureSubImage3DPROC glTextureSubImage3D = (glTextureSubImage3DPROC)tlsGetFunction(1729);
-    const intptr_t pixels = (const intptr_t)pixelsAddress;
+    intptr_t pixels = (intptr_t)pixelsAddress;
     UNUSED_PARAM(clazz)
     glTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCompressedTextureSubImage1D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint width, jint format, jint imageSize, jlong dataAddress) {
     glCompressedTextureSubImage1DPROC glCompressedTextureSubImage1D = (glCompressedTextureSubImage1DPROC)tlsGetFunction(218);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCompressedTextureSubImage2D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint width, jint height, jint format, jint imageSize, jlong dataAddress) {
     glCompressedTextureSubImage2DPROC glCompressedTextureSubImage2D = (glCompressedTextureSubImage2DPROC)tlsGetFunction(220);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglCompressedTextureSubImage3D(JNIEnv *__env, jclass clazz, jint texture, jint level, jint xoffset, jint yoffset, jint zoffset, jint width, jint height, jint depth, jint format, jint imageSize, jlong dataAddress) {
     glCompressedTextureSubImage3DPROC glCompressedTextureSubImage3D = (glCompressedTextureSubImage3DPROC)tlsGetFunction(222);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
@@ -506,7 +506,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureParam
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureParameterfv__IIJ(JNIEnv *__env, jclass clazz, jint texture, jint pname, jlong paramsAddress) {
     glTextureParameterfvPROC glTextureParameterfv = (glTextureParameterfvPROC)tlsGetFunction(1702);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTextureParameterfv(texture, pname, params);
 }
@@ -519,21 +519,21 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glTextureParam
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureParameterIiv__IIJ(JNIEnv *__env, jclass clazz, jint texture, jint pname, jlong paramsAddress) {
     glTextureParameterIivPROC glTextureParameterIiv = (glTextureParameterIivPROC)tlsGetFunction(1696);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTextureParameterIiv(texture, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureParameterIuiv__IIJ(JNIEnv *__env, jclass clazz, jint texture, jint pname, jlong paramsAddress) {
     glTextureParameterIuivPROC glTextureParameterIuiv = (glTextureParameterIuivPROC)tlsGetFunction(1698);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTextureParameterIuiv(texture, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglTextureParameteriv__IIJ(JNIEnv *__env, jclass clazz, jint texture, jint pname, jlong paramsAddress) {
     glTextureParameterivPROC glTextureParameteriv = (glTextureParameterivPROC)tlsGetFunction(1706);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTextureParameteriv(texture, pname, params);
 }
@@ -639,9 +639,9 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_glVertexArrayV
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDirectStateAccess_nglVertexArrayVertexBuffers__IIIJJJ(JNIEnv *__env, jclass clazz, jint vaobj, jint first, jint count, jlong buffersAddress, jlong offsetsAddress, jlong stridesAddress) {
     glVertexArrayVertexBuffersPROC glVertexArrayVertexBuffers = (glVertexArrayVertexBuffersPROC)tlsGetFunction(1929);
-    const intptr_t buffers = (const intptr_t)buffersAddress;
-    const intptr_t offsets = (const intptr_t)offsetsAddress;
-    const intptr_t strides = (const intptr_t)stridesAddress;
+    intptr_t buffers = (intptr_t)buffersAddress;
+    intptr_t offsets = (intptr_t)offsetsAddress;
+    intptr_t strides = (intptr_t)stridesAddress;
     UNUSED_PARAM(clazz)
     glVertexArrayVertexBuffers(vaobj, first, count, buffers, offsets, strides);
 }

@@ -71,7 +71,7 @@ public class ARBShaderSubroutine {
      * @param name       the name of the subroutine uniform whose index to query.
      */
     @NativeType("GLint")
-    public static int glGetSubroutineUniformLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetSubroutineUniformLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -86,7 +86,7 @@ public class ARBShaderSubroutine {
      * @param name       the name of the subroutine uniform whose index to query.
      */
     @NativeType("GLint")
-    public static int glGetSubroutineUniformLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetSubroutineUniformLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -109,7 +109,7 @@ public class ARBShaderSubroutine {
      * @param name       the name of the subroutine function whose index to query
      */
     @NativeType("GLuint")
-    public static int glGetSubroutineIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetSubroutineIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -124,7 +124,7 @@ public class ARBShaderSubroutine {
      * @param name       the name of the subroutine function whose index to query
      */
     @NativeType("GLuint")
-    public static int glGetSubroutineIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetSubroutineIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int shadertype, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -306,7 +306,7 @@ public class ARBShaderSubroutine {
      * @param shadertype the shader stage to update. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
      * @param indices    an array holding the indices to load into the shader subroutine variables
      */
-    public static void glUniformSubroutinesuiv(@NativeType("GLenum") int shadertype, @NativeType("const GLuint *") IntBuffer indices) {
+    public static void glUniformSubroutinesuiv(@NativeType("GLenum") int shadertype, @NativeType("GLuint const *") IntBuffer indices) {
         nglUniformSubroutinesuiv(shadertype, indices.remaining(), memAddress(indices));
     }
 
@@ -315,7 +315,7 @@ public class ARBShaderSubroutine {
      *
      * @param shadertype the shader stage to update. One of:<br><table><tr><td>{@link GL20#GL_VERTEX_SHADER VERTEX_SHADER}</td><td>{@link GL20#GL_FRAGMENT_SHADER FRAGMENT_SHADER}</td><td>{@link GL32#GL_GEOMETRY_SHADER GEOMETRY_SHADER}</td><td>{@link GL40#GL_TESS_CONTROL_SHADER TESS_CONTROL_SHADER}</td></tr><tr><td>{@link GL40#GL_TESS_EVALUATION_SHADER TESS_EVALUATION_SHADER}</td></tr></table>
      */
-    public static void glUniformSubroutinesui(@NativeType("GLenum") int shadertype, @NativeType("const GLuint *") int index) {
+    public static void glUniformSubroutinesui(@NativeType("GLenum") int shadertype, @NativeType("GLuint const *") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer indices = stack.ints(index);
@@ -432,7 +432,7 @@ public class ARBShaderSubroutine {
     }
 
     /** Array version of: {@link #glUniformSubroutinesuiv UniformSubroutinesuiv} */
-    public static void glUniformSubroutinesuiv(@NativeType("GLenum") int shadertype, @NativeType("const GLuint *") int[] indices) {
+    public static void glUniformSubroutinesuiv(@NativeType("GLenum") int shadertype, @NativeType("GLuint const *") int[] indices) {
         long __functionAddress = GL.getICD().glUniformSubroutinesuiv;
         if (CHECKS) {
             check(__functionAddress);

@@ -488,7 +488,7 @@ public class VRSystem {
      * @param pTrackedDevicePose 
      * @param pTransform         
      */
-    public static void VRSystem_ApplyTransform(@NativeType("TrackedDevicePose_t *") TrackedDevicePose pOutputPose, @NativeType("const TrackedDevicePose_t *") TrackedDevicePose pTrackedDevicePose, @NativeType("const HmdMatrix34_t *") HmdMatrix34 pTransform) {
+    public static void VRSystem_ApplyTransform(@NativeType("TrackedDevicePose_t *") TrackedDevicePose pOutputPose, @NativeType("TrackedDevicePose_t const *") TrackedDevicePose pTrackedDevicePose, @NativeType("HmdMatrix34_t const *") HmdMatrix34 pTransform) {
         nVRSystem_ApplyTransform(pOutputPose.address(), pTrackedDevicePose.address(), pTransform.address());
     }
 
@@ -1159,7 +1159,7 @@ public class VRSystem {
      * @return the size of the response including its terminating null
      */
     @NativeType("uint32_t")
-    public static int VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") ByteBuffer pchRequest, @Nullable @NativeType("char *") ByteBuffer pchResponseBuffer) {
+    public static int VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("char const *") ByteBuffer pchRequest, @Nullable @NativeType("char *") ByteBuffer pchResponseBuffer) {
         if (CHECKS) {
             checkNT1(pchRequest);
         }
@@ -1177,7 +1177,7 @@ public class VRSystem {
      * @return the size of the response including its terminating null
      */
     @NativeType("uint32_t")
-    public static int VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") CharSequence pchRequest, @Nullable @NativeType("char *") ByteBuffer pchResponseBuffer) {
+    public static int VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("char const *") CharSequence pchRequest, @Nullable @NativeType("char *") ByteBuffer pchResponseBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRequestEncoded = stack.ASCII(pchRequest);
@@ -1198,7 +1198,7 @@ public class VRSystem {
      * @return the size of the response including its terminating null
      */
     @NativeType("uint32_t")
-    public static String VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") CharSequence pchRequest, @NativeType("uint32_t") int unResponseBufferSize) {
+    public static String VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("char const *") CharSequence pchRequest, @NativeType("uint32_t") int unResponseBufferSize) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchRequestEncoded = stack.ASCII(pchRequest);
@@ -1220,7 +1220,7 @@ public class VRSystem {
      * @return the size of the response including its terminating null
      */
     @NativeType("uint32_t")
-    public static String VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("const char *") CharSequence pchRequest) {
+    public static String VRSystem_DriverDebugRequest(@NativeType("TrackedDeviceIndex_t") int unDeviceIndex, @NativeType("char const *") CharSequence pchRequest) {
         return VRSystem_DriverDebugRequest(unDeviceIndex, pchRequest, VR.k_unMaxDriverDebugResponseSize);
     }
 

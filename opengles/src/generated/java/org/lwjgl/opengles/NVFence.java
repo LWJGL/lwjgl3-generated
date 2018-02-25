@@ -59,11 +59,11 @@ public class NVFence {
 
     public static native void nglDeleteFencesNV(int n, long fences);
 
-    public static void glDeleteFencesNV(@NativeType("const GLuint *") IntBuffer fences) {
+    public static void glDeleteFencesNV(@NativeType("GLuint const *") IntBuffer fences) {
         nglDeleteFencesNV(fences.remaining(), memAddress(fences));
     }
 
-    public static void glDeleteFencesNV(@NativeType("const GLuint *") int fence) {
+    public static void glDeleteFencesNV(@NativeType("GLuint const *") int fence) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer fences = stack.ints(fence);
@@ -135,7 +135,7 @@ public class NVFence {
     public static native void glSetFenceNV(@NativeType("GLuint") int fence, @NativeType("GLenum") int condition);
 
     /** Array version of: {@link #glDeleteFencesNV DeleteFencesNV} */
-    public static void glDeleteFencesNV(@NativeType("const GLuint *") int[] fences) {
+    public static void glDeleteFencesNV(@NativeType("GLuint const *") int[] fences) {
         long __functionAddress = GLES.getICD().glDeleteFencesNV;
         if (CHECKS) {
             check(__functionAddress);

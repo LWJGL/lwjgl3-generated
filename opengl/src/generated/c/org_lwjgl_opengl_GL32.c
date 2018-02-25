@@ -7,10 +7,10 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glGetBufferParameteri64vPROC) (jint, jint, intptr_t);
-typedef void (APIENTRY *glDrawElementsBaseVertexPROC) (jint, jint, jint, const intptr_t, jint);
-typedef void (APIENTRY *glDrawRangeElementsBaseVertexPROC) (jint, jint, jint, jint, jint, const intptr_t, jint);
-typedef void (APIENTRY *glDrawElementsInstancedBaseVertexPROC) (jint, jint, jint, const intptr_t, jint, jint);
-typedef void (APIENTRY *glMultiDrawElementsBaseVertexPROC) (jint, const intptr_t, jint, const intptr_t, jint, intptr_t);
+typedef void (APIENTRY *glDrawElementsBaseVertexPROC) (jint, jint, jint, intptr_t, jint);
+typedef void (APIENTRY *glDrawRangeElementsBaseVertexPROC) (jint, jint, jint, jint, jint, intptr_t, jint);
+typedef void (APIENTRY *glDrawElementsInstancedBaseVertexPROC) (jint, jint, jint, intptr_t, jint, jint);
+typedef void (APIENTRY *glMultiDrawElementsBaseVertexPROC) (jint, intptr_t, jint, intptr_t, jint, intptr_t);
 typedef void (APIENTRY *glProvokingVertexPROC) (jint);
 typedef void (APIENTRY *glTexImage2DMultisamplePROC) (jint, jint, jint, jint, jint, jboolean);
 typedef void (APIENTRY *glTexImage3DMultisamplePROC) (jint, jint, jint, jint, jint, jint, jboolean);
@@ -37,29 +37,29 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglGetBufferParameteri64v__IIJ
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint basevertex) {
     glDrawElementsBaseVertexPROC glDrawElementsBaseVertex = (glDrawElementsBaseVertexPROC)tlsGetFunction(366);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawRangeElementsBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint start, jint end, jint count, jint type, jlong indicesAddress, jint basevertex) {
     glDrawRangeElementsBaseVertexPROC glDrawRangeElementsBaseVertex = (glDrawRangeElementsBaseVertexPROC)tlsGetFunction(376);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglDrawElementsInstancedBaseVertex(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jint basevertex) {
     glDrawElementsInstancedBaseVertexPROC glDrawElementsInstancedBaseVertex = (glDrawElementsInstancedBaseVertexPROC)tlsGetFunction(371);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL32_nglMultiDrawElementsBaseVertex__IJIJIJ(JNIEnv *__env, jclass clazz, jint mode, jlong countAddress, jint type, jlong indicesAddress, jint primcount, jlong basevertexAddress) {
     glMultiDrawElementsBaseVertexPROC glMultiDrawElementsBaseVertex = (glMultiDrawElementsBaseVertexPROC)tlsGetFunction(1021);
-    const intptr_t count = (const intptr_t)countAddress;
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t count = (intptr_t)countAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     intptr_t basevertex = (intptr_t)basevertexAddress;
     UNUSED_PARAM(clazz)
     glMultiDrawElementsBaseVertex(mode, count, type, indices, primcount, basevertex);

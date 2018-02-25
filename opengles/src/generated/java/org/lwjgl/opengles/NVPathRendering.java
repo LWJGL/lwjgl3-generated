@@ -362,7 +362,7 @@ public class NVPathRendering {
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
      */
-    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") ByteBuffer coords) {
+    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") ByteBuffer coords) {
         nglPathCommandsNV(path, commands.remaining(), memAddress(commands), coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
     }
 
@@ -372,7 +372,7 @@ public class NVPathRendering {
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
      */
-    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
+    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") ShortBuffer coords) {
         nglPathCommandsNV(path, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -382,7 +382,7 @@ public class NVPathRendering {
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
      */
-    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
+    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") FloatBuffer coords) {
         nglPathCommandsNV(path, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -396,7 +396,7 @@ public class NVPathRendering {
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
      */
-    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("const void *") ByteBuffer coords) {
+    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("void const *") ByteBuffer coords) {
         nglPathCoordsNV(path, coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
     }
 
@@ -405,7 +405,7 @@ public class NVPathRendering {
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
      */
-    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
+    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("void const *") ShortBuffer coords) {
         nglPathCoordsNV(path, (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -414,7 +414,7 @@ public class NVPathRendering {
      * @param coordType one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords    
      */
-    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
+    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("void const *") FloatBuffer coords) {
         nglPathCoordsNV(path, (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -431,7 +431,7 @@ public class NVPathRendering {
      * @param coordType        one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords           
      */
-    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") ByteBuffer coords) {
+    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") ByteBuffer coords) {
         nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
     }
 
@@ -443,7 +443,7 @@ public class NVPathRendering {
      * @param coordType        one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords           
      */
-    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
+    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") ShortBuffer coords) {
         nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -455,7 +455,7 @@ public class NVPathRendering {
      * @param coordType        one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords           
      */
-    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
+    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") FloatBuffer coords) {
         nglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.remaining(), memAddress(commands), (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -470,7 +470,7 @@ public class NVPathRendering {
      * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords     
      */
-    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("const void *") ByteBuffer coords) {
+    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("void const *") ByteBuffer coords) {
         nglPathSubCoordsNV(path, coordStart, coords.remaining() >> GLESChecks.typeToByteShift(coordType), coordType, memAddress(coords));
     }
 
@@ -480,7 +480,7 @@ public class NVPathRendering {
      * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords     
      */
-    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("const void *") ShortBuffer coords) {
+    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("void const *") ShortBuffer coords) {
         nglPathSubCoordsNV(path, coordStart, (int)(((long)coords.remaining() << 1) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -490,7 +490,7 @@ public class NVPathRendering {
      * @param coordType  one of:<br><table><tr><td>{@link GLES20#GL_BYTE BYTE}</td><td>{@link GLES20#GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link GLES20#GL_SHORT SHORT}</td><td>{@link GLES20#GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link GLES20#GL_FLOAT FLOAT}</td></tr></table>
      * @param coords     
      */
-    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("const void *") FloatBuffer coords) {
+    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("void const *") FloatBuffer coords) {
         nglPathSubCoordsNV(path, coordStart, (int)(((long)coords.remaining() << 2) >> GLESChecks.typeToByteShift(coordType)), coordType, memAddress(coords));
     }
 
@@ -504,7 +504,7 @@ public class NVPathRendering {
      * @param format     one of:<br><table><tr><td>{@link #GL_PATH_FORMAT_SVG_NV PATH_FORMAT_SVG_NV}</td><td>{@link #GL_PATH_FORMAT_PS_NV PATH_FORMAT_PS_NV}</td></tr></table>
      * @param pathString 
      */
-    public static void glPathStringNV(@NativeType("GLuint") int path, @NativeType("GLenum") int format, @NativeType("const void *") ByteBuffer pathString) {
+    public static void glPathStringNV(@NativeType("GLuint") int path, @NativeType("GLenum") int format, @NativeType("void const *") ByteBuffer pathString) {
         nglPathStringNV(path, format, pathString.remaining(), memAddress(pathString));
     }
 
@@ -524,7 +524,7 @@ public class NVPathRendering {
      * @param pathParameterTemplate 
      * @param emScale               
      */
-    public static void glPathGlyphsNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("const void *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer charcodes, @NativeType("GLenum") int handleMissingGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
+    public static void glPathGlyphsNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("void const *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer charcodes, @NativeType("GLenum") int handleMissingGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
         if (CHECKS) {
             checkNT1(fontName);
         }
@@ -547,7 +547,7 @@ public class NVPathRendering {
      * @param pathParameterTemplate 
      * @param emScale               
      */
-    public static void glPathGlyphRangeNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("const void *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLuint") int firstGlyph, @NativeType("GLsizei") int numGlyphs, @NativeType("GLenum") int handleMissingGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
+    public static void glPathGlyphRangeNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("void const *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLuint") int firstGlyph, @NativeType("GLsizei") int numGlyphs, @NativeType("GLenum") int handleMissingGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
         if (CHECKS) {
             checkNT1(fontName);
         }
@@ -570,7 +570,7 @@ public class NVPathRendering {
      * @param emScale               
      */
     @NativeType("GLenum")
-    public static int glPathGlyphIndexArrayNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("const void *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLuint") int firstGlyphIndex, @NativeType("GLsizei") int numGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
+    public static int glPathGlyphIndexArrayNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("void const *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLuint") int firstGlyphIndex, @NativeType("GLsizei") int numGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
         if (CHECKS) {
             checkNT1(fontName);
         }
@@ -593,7 +593,7 @@ public class NVPathRendering {
      * @param emScale               
      */
     @NativeType("GLenum")
-    public static int glPathMemoryGlyphIndexArrayNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("const void *") ByteBuffer fontData, @NativeType("GLsizei") int faceIndex, @NativeType("GLuint") int firstGlyphIndex, @NativeType("GLsizei") int numGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
+    public static int glPathMemoryGlyphIndexArrayNV(@NativeType("GLuint") int firstPathName, @NativeType("GLenum") int fontTarget, @NativeType("void const *") ByteBuffer fontData, @NativeType("GLsizei") int faceIndex, @NativeType("GLuint") int firstGlyphIndex, @NativeType("GLsizei") int numGlyphs, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale) {
         return nglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontData.remaining(), memAddress(fontData), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
     }
 
@@ -605,7 +605,7 @@ public class NVPathRendering {
 
     public static native void nglWeightPathsNV(int resultPath, int numPaths, long paths, long weights);
 
-    public static void glWeightPathsNV(@NativeType("GLuint") int resultPath, @NativeType("const GLuint *") IntBuffer paths, @NativeType("const GLfloat *") FloatBuffer weights) {
+    public static void glWeightPathsNV(@NativeType("GLuint") int resultPath, @NativeType("GLuint const *") IntBuffer paths, @NativeType("GLfloat const *") FloatBuffer weights) {
         if (CHECKS) {
             check(weights, paths.remaining());
         }
@@ -627,7 +627,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
      * @param transformValues 
      */
-    public static void glTransformPathNV(@NativeType("GLuint") int resultPath, @NativeType("GLuint") int srcPath, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") FloatBuffer transformValues) {
+    public static void glTransformPathNV(@NativeType("GLuint") int resultPath, @NativeType("GLuint") int srcPath, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") FloatBuffer transformValues) {
         if (CHECKS) {
             check(transformValues, transformTypeToElements(transformType));
         }
@@ -644,7 +644,7 @@ public class NVPathRendering {
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td></tr></table>
      * @param value 
      */
-    public static void glPathParameterivNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer value) {
+    public static void glPathParameterivNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -670,7 +670,7 @@ public class NVPathRendering {
      * @param pname one of:<br><table><tr><td>{@link #GL_PATH_STROKE_WIDTH_NV PATH_STROKE_WIDTH_NV}</td><td>{@link #GL_PATH_INITIAL_END_CAP_NV PATH_INITIAL_END_CAP_NV}</td><td>{@link #GL_PATH_TERMINAL_END_CAP_NV PATH_TERMINAL_END_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_JOIN_STYLE_NV PATH_JOIN_STYLE_NV}</td><td>{@link #GL_PATH_MITER_LIMIT_NV PATH_MITER_LIMIT_NV}</td><td>{@link #GL_PATH_INITIAL_DASH_CAP_NV PATH_INITIAL_DASH_CAP_NV}</td></tr><tr><td>{@link #GL_PATH_TERMINAL_DASH_CAP_NV PATH_TERMINAL_DASH_CAP_NV}</td><td>{@link #GL_PATH_DASH_OFFSET_NV PATH_DASH_OFFSET_NV}</td><td>{@link #GL_PATH_CLIENT_LENGTH_NV PATH_CLIENT_LENGTH_NV}</td></tr><tr><td>{@link #GL_PATH_DASH_OFFSET_RESET_NV PATH_DASH_OFFSET_RESET_NV}</td><td>{@link #GL_PATH_FILL_MODE_NV PATH_FILL_MODE_NV}</td><td>{@link #GL_PATH_FILL_MASK_NV PATH_FILL_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_FILL_COVER_MODE_NV PATH_FILL_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_COVER_MODE_NV PATH_STROKE_COVER_MODE_NV}</td><td>{@link #GL_PATH_STROKE_MASK_NV PATH_STROKE_MASK_NV}</td></tr><tr><td>{@link #GL_PATH_STROKE_BOUND_NV PATH_STROKE_BOUND_NV}</td><td>{@link #GL_PATH_END_CAPS_NV PATH_END_CAPS_NV}</td><td>{@link #GL_PATH_DASH_CAPS_NV PATH_DASH_CAPS_NV}</td></tr></table>
      * @param value 
      */
-    public static void glPathParameterfvNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glPathParameterfvNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -690,7 +690,7 @@ public class NVPathRendering {
 
     public static native void nglPathDashArrayNV(int path, int dashCount, long dashArray);
 
-    public static void glPathDashArrayNV(@NativeType("GLuint") int path, @NativeType("const GLfloat *") FloatBuffer dashArray) {
+    public static void glPathDashArrayNV(@NativeType("GLuint") int path, @NativeType("GLfloat const *") FloatBuffer dashArray) {
         nglPathDashArrayNV(path, dashArray.remaining(), memAddress(dashArray));
     }
 
@@ -743,7 +743,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
      * @param transformValues 
      */
-    public static void glStencilFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") FloatBuffer transformValues) {
+    public static void glStencilFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") FloatBuffer transformValues) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(transformValues, numPaths * transformTypeToElements(transformType));
@@ -765,7 +765,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
      * @param transformValues 
      */
-    public static void glStencilStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") FloatBuffer transformValues) {
+    public static void glStencilStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") FloatBuffer transformValues) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(transformValues, numPaths * transformTypeToElements(transformType));
@@ -806,7 +806,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
      * @param transformValues 
      */
-    public static void glCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") FloatBuffer transformValues) {
+    public static void glCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") FloatBuffer transformValues) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(transformValues, numPaths * transformTypeToElements(transformType));
@@ -827,7 +827,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
      * @param transformValues 
      */
-    public static void glCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") FloatBuffer transformValues) {
+    public static void glCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") FloatBuffer transformValues) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(transformValues, numPaths * transformTypeToElements(transformType));
@@ -870,7 +870,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
      * @param transformValues 
      */
-    public static void glStencilThenCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") FloatBuffer transformValues) {
+    public static void glStencilThenCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") FloatBuffer transformValues) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(transformValues, numPaths * transformTypeToElements(transformType));
@@ -893,7 +893,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_Y_NV TRANSLATE_Y_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td><td>{@link #GL_TRANSLATE_3D_NV TRANSLATE_3D_NV}</td><td>{@link #GL_AFFINE_2D_NV AFFINE_2D_NV}</td></tr><tr><td>{@link #GL_AFFINE_3D_NV AFFINE_3D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_2D_NV TRANSPOSE_AFFINE_2D_NV}</td><td>{@link #GL_TRANSPOSE_AFFINE_3D_NV TRANSPOSE_AFFINE_3D_NV}</td></tr></table>
      * @param transformValues 
      */
-    public static void glStencilThenCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") FloatBuffer transformValues) {
+    public static void glStencilThenCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") FloatBuffer transformValues) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(transformValues, numPaths * transformTypeToElements(transformType));
@@ -915,7 +915,7 @@ public class NVPathRendering {
      * @param baseAndCount          
      */
     @NativeType("GLenum")
-    public static int glPathGlyphIndexRangeNV(@NativeType("GLenum") int fontTarget, @NativeType("const void *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale, @NativeType("GLuint") int baseAndCount) {
+    public static int glPathGlyphIndexRangeNV(@NativeType("GLenum") int fontTarget, @NativeType("void const *") ByteBuffer fontName, @NativeType("GLbitfield") int fontStyle, @NativeType("GLuint") int pathParameterTemplate, @NativeType("GLfloat") float emScale, @NativeType("GLuint") int baseAndCount) {
         if (CHECKS) {
             checkNT1(fontName);
         }
@@ -926,7 +926,7 @@ public class NVPathRendering {
 
     public static native void nglProgramPathFragmentInputGenNV(int program, int location, int genMode, int components, long coeffs);
 
-    public static void glProgramPathFragmentInputGenNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLenum") int genMode, @NativeType("GLint") int components, @NativeType("const GLfloat *") FloatBuffer coeffs) {
+    public static void glProgramPathFragmentInputGenNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLenum") int genMode, @NativeType("GLint") int components, @NativeType("GLfloat const *") FloatBuffer coeffs) {
         if (CHECKS) {
             check(coeffs, genModeToElements(genMode) * components);
         }
@@ -1051,7 +1051,7 @@ public class NVPathRendering {
      * @param stride          
      * @param metrics         
      */
-    public static void glGetPathMetricsNV(@NativeType("GLbitfield") int metricQueryMask, @NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLsizei") int stride, @NativeType("GLfloat *") FloatBuffer metrics) {
+    public static void glGetPathMetricsNV(@NativeType("GLbitfield") int metricQueryMask, @NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLsizei") int stride, @NativeType("GLfloat *") FloatBuffer metrics) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(metrics, numPaths * (stride == 0 ? Integer.bitCount(metricQueryMask) : (stride >> 2)));
@@ -1093,7 +1093,7 @@ public class NVPathRendering {
      * @param transformType   one of:<br><table><tr><td>{@link #GL_TRANSLATE_X_NV TRANSLATE_X_NV}</td><td>{@link #GL_TRANSLATE_2D_NV TRANSLATE_2D_NV}</td></tr></table>
      * @param returnedSpacing 
      */
-    public static void glGetPathSpacingNV(@NativeType("GLenum") int pathListMode, @NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLfloat") float advanceScale, @NativeType("GLfloat") float kerningScale, @NativeType("GLenum") int transformType, @NativeType("GLfloat *") FloatBuffer returnedSpacing) {
+    public static void glGetPathSpacingNV(@NativeType("GLenum") int pathListMode, @NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLfloat") float advanceScale, @NativeType("GLfloat") float kerningScale, @NativeType("GLenum") int transformType, @NativeType("GLfloat *") FloatBuffer returnedSpacing) {
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
             check(returnedSpacing, (numPaths - 1) * (transformType == GL_TRANSLATE_X_NV ? 1 : 2));
@@ -1140,7 +1140,7 @@ public class NVPathRendering {
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
-    public static void glMatrixLoad3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glMatrixLoad3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 6);
         }
@@ -1156,7 +1156,7 @@ public class NVPathRendering {
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
-    public static void glMatrixLoad3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glMatrixLoad3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 9);
         }
@@ -1172,7 +1172,7 @@ public class NVPathRendering {
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
-    public static void glMatrixLoadTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glMatrixLoadTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 9);
         }
@@ -1188,7 +1188,7 @@ public class NVPathRendering {
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
-    public static void glMatrixMult3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glMatrixMult3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 6);
         }
@@ -1204,7 +1204,7 @@ public class NVPathRendering {
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
-    public static void glMatrixMult3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glMatrixMult3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 9);
         }
@@ -1220,7 +1220,7 @@ public class NVPathRendering {
      * @param matrixMode one of:<br><table><tr><td>{@link #GL_PATH_PROJECTION_NV PATH_PROJECTION_NV}</td><td>{@link #GL_PATH_MODELVIEW_NV PATH_MODELVIEW_NV}</td></tr></table>
      * @param m          
      */
-    public static void glMatrixMultTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glMatrixMultTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 9);
         }
@@ -1231,7 +1231,7 @@ public class NVPathRendering {
 
     public static native void nglGetProgramResourcefvNV(int program, int programInterface, int index, int propCount, long props, int bufSize, long length, long params);
 
-    public static void glGetProgramResourcefvNV(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("const GLenum *") IntBuffer props, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLfloat *") FloatBuffer params) {
+    public static void glGetProgramResourcefvNV(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("GLenum const *") IntBuffer props, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLfloat *") FloatBuffer params) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -1239,7 +1239,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathCommandsNV PathCommandsNV} */
-    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") short[] coords) {
+    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") short[] coords) {
         long __functionAddress = GLES.getICD().glPathCommandsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1248,7 +1248,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathCommandsNV PathCommandsNV} */
-    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") float[] coords) {
+    public static void glPathCommandsNV(@NativeType("GLuint") int path, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") float[] coords) {
         long __functionAddress = GLES.getICD().glPathCommandsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1257,7 +1257,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathCoordsNV PathCoordsNV} */
-    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("const void *") short[] coords) {
+    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("void const *") short[] coords) {
         long __functionAddress = GLES.getICD().glPathCoordsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1266,7 +1266,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathCoordsNV PathCoordsNV} */
-    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("const void *") float[] coords) {
+    public static void glPathCoordsNV(@NativeType("GLuint") int path, @NativeType("GLenum") int coordType, @NativeType("void const *") float[] coords) {
         long __functionAddress = GLES.getICD().glPathCoordsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1275,7 +1275,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
-    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") short[] coords) {
+    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") short[] coords) {
         long __functionAddress = GLES.getICD().glPathSubCommandsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1284,7 +1284,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathSubCommandsNV PathSubCommandsNV} */
-    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("const GLubyte *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("const void *") float[] coords) {
+    public static void glPathSubCommandsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int commandStart, @NativeType("GLsizei") int commandsToDelete, @NativeType("GLubyte const *") ByteBuffer commands, @NativeType("GLenum") int coordType, @NativeType("void const *") float[] coords) {
         long __functionAddress = GLES.getICD().glPathSubCommandsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1293,7 +1293,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
-    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("const void *") short[] coords) {
+    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("void const *") short[] coords) {
         long __functionAddress = GLES.getICD().glPathSubCoordsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1302,7 +1302,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathSubCoordsNV PathSubCoordsNV} */
-    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("const void *") float[] coords) {
+    public static void glPathSubCoordsNV(@NativeType("GLuint") int path, @NativeType("GLsizei") int coordStart, @NativeType("GLenum") int coordType, @NativeType("void const *") float[] coords) {
         long __functionAddress = GLES.getICD().glPathSubCoordsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1311,7 +1311,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glWeightPathsNV WeightPathsNV} */
-    public static void glWeightPathsNV(@NativeType("GLuint") int resultPath, @NativeType("const GLuint *") int[] paths, @NativeType("const GLfloat *") float[] weights) {
+    public static void glWeightPathsNV(@NativeType("GLuint") int resultPath, @NativeType("GLuint const *") int[] paths, @NativeType("GLfloat const *") float[] weights) {
         long __functionAddress = GLES.getICD().glWeightPathsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1321,7 +1321,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glTransformPathNV TransformPathNV} */
-    public static void glTransformPathNV(@NativeType("GLuint") int resultPath, @NativeType("GLuint") int srcPath, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") float[] transformValues) {
+    public static void glTransformPathNV(@NativeType("GLuint") int resultPath, @NativeType("GLuint") int srcPath, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") float[] transformValues) {
         long __functionAddress = GLES.getICD().glTransformPathNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1331,7 +1331,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathParameterivNV PathParameterivNV} */
-    public static void glPathParameterivNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] value) {
+    public static void glPathParameterivNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GLES.getICD().glPathParameterivNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1341,7 +1341,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathParameterfvNV PathParameterfvNV} */
-    public static void glPathParameterfvNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] value) {
+    public static void glPathParameterfvNV(@NativeType("GLuint") int path, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GLES.getICD().glPathParameterfvNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1351,7 +1351,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glPathDashArrayNV PathDashArrayNV} */
-    public static void glPathDashArrayNV(@NativeType("GLuint") int path, @NativeType("const GLfloat *") float[] dashArray) {
+    public static void glPathDashArrayNV(@NativeType("GLuint") int path, @NativeType("GLfloat const *") float[] dashArray) {
         long __functionAddress = GLES.getICD().glPathDashArrayNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1360,7 +1360,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glStencilFillPathInstancedNV StencilFillPathInstancedNV} */
-    public static void glStencilFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") float[] transformValues) {
+    public static void glStencilFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") float[] transformValues) {
         long __functionAddress = GLES.getICD().glStencilFillPathInstancedNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1371,7 +1371,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glStencilStrokePathInstancedNV StencilStrokePathInstancedNV} */
-    public static void glStencilStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") float[] transformValues) {
+    public static void glStencilStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") float[] transformValues) {
         long __functionAddress = GLES.getICD().glStencilStrokePathInstancedNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1382,7 +1382,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glCoverFillPathInstancedNV CoverFillPathInstancedNV} */
-    public static void glCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") float[] transformValues) {
+    public static void glCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") float[] transformValues) {
         long __functionAddress = GLES.getICD().glCoverFillPathInstancedNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1393,7 +1393,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glCoverStrokePathInstancedNV CoverStrokePathInstancedNV} */
-    public static void glCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") float[] transformValues) {
+    public static void glCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") float[] transformValues) {
         long __functionAddress = GLES.getICD().glCoverStrokePathInstancedNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1404,7 +1404,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glStencilThenCoverFillPathInstancedNV StencilThenCoverFillPathInstancedNV} */
-    public static void glStencilThenCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") float[] transformValues) {
+    public static void glStencilThenCoverFillPathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLenum") int fillMode, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") float[] transformValues) {
         long __functionAddress = GLES.getICD().glStencilThenCoverFillPathInstancedNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1415,7 +1415,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glStencilThenCoverStrokePathInstancedNV StencilThenCoverStrokePathInstancedNV} */
-    public static void glStencilThenCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("const GLfloat *") float[] transformValues) {
+    public static void glStencilThenCoverStrokePathInstancedNV(@NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLint") int reference, @NativeType("GLuint") int mask, @NativeType("GLenum") int coverMode, @NativeType("GLenum") int transformType, @NativeType("GLfloat const *") float[] transformValues) {
         long __functionAddress = GLES.getICD().glStencilThenCoverStrokePathInstancedNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1426,7 +1426,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glProgramPathFragmentInputGenNV ProgramPathFragmentInputGenNV} */
-    public static void glProgramPathFragmentInputGenNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLenum") int genMode, @NativeType("GLint") int components, @NativeType("const GLfloat *") float[] coeffs) {
+    public static void glProgramPathFragmentInputGenNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLenum") int genMode, @NativeType("GLint") int components, @NativeType("GLfloat const *") float[] coeffs) {
         long __functionAddress = GLES.getICD().glProgramPathFragmentInputGenNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1480,7 +1480,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glGetPathMetricsNV GetPathMetricsNV} */
-    public static void glGetPathMetricsNV(@NativeType("GLbitfield") int metricQueryMask, @NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLsizei") int stride, @NativeType("GLfloat *") float[] metrics) {
+    public static void glGetPathMetricsNV(@NativeType("GLbitfield") int metricQueryMask, @NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLsizei") int stride, @NativeType("GLfloat *") float[] metrics) {
         long __functionAddress = GLES.getICD().glGetPathMetricsNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1501,7 +1501,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glGetPathSpacingNV GetPathSpacingNV} */
-    public static void glGetPathSpacingNV(@NativeType("GLenum") int pathListMode, @NativeType("GLenum") int pathNameType, @NativeType("const void *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLfloat") float advanceScale, @NativeType("GLfloat") float kerningScale, @NativeType("GLenum") int transformType, @NativeType("GLfloat *") float[] returnedSpacing) {
+    public static void glGetPathSpacingNV(@NativeType("GLenum") int pathListMode, @NativeType("GLenum") int pathNameType, @NativeType("void const *") ByteBuffer paths, @NativeType("GLuint") int pathBase, @NativeType("GLfloat") float advanceScale, @NativeType("GLfloat") float kerningScale, @NativeType("GLenum") int transformType, @NativeType("GLfloat *") float[] returnedSpacing) {
         long __functionAddress = GLES.getICD().glGetPathSpacingNV;
         int numPaths = paths.remaining() / pathNameTypeToBytes(pathNameType);
         if (CHECKS) {
@@ -1526,7 +1526,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glMatrixLoad3x2fNV MatrixLoad3x2fNV} */
-    public static void glMatrixLoad3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") float[] m) {
+    public static void glMatrixLoad3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GLES.getICD().glMatrixLoad3x2fNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1536,7 +1536,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glMatrixLoad3x3fNV MatrixLoad3x3fNV} */
-    public static void glMatrixLoad3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") float[] m) {
+    public static void glMatrixLoad3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GLES.getICD().glMatrixLoad3x3fNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1546,7 +1546,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glMatrixLoadTranspose3x3fNV MatrixLoadTranspose3x3fNV} */
-    public static void glMatrixLoadTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") float[] m) {
+    public static void glMatrixLoadTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GLES.getICD().glMatrixLoadTranspose3x3fNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1556,7 +1556,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glMatrixMult3x2fNV MatrixMult3x2fNV} */
-    public static void glMatrixMult3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") float[] m) {
+    public static void glMatrixMult3x2fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GLES.getICD().glMatrixMult3x2fNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1566,7 +1566,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glMatrixMult3x3fNV MatrixMult3x3fNV} */
-    public static void glMatrixMult3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") float[] m) {
+    public static void glMatrixMult3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GLES.getICD().glMatrixMult3x3fNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1576,7 +1576,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glMatrixMultTranspose3x3fNV MatrixMultTranspose3x3fNV} */
-    public static void glMatrixMultTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("const GLfloat *") float[] m) {
+    public static void glMatrixMultTranspose3x3fNV(@NativeType("GLenum") int matrixMode, @NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GLES.getICD().glMatrixMultTranspose3x3fNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -1586,7 +1586,7 @@ public class NVPathRendering {
     }
 
     /** Array version of: {@link #glGetProgramResourcefvNV GetProgramResourcefvNV} */
-    public static void glGetProgramResourcefvNV(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("const GLenum *") int[] props, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLfloat *") float[] params) {
+    public static void glGetProgramResourcefvNV(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("GLenum const *") int[] props, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLfloat *") float[] params) {
         long __functionAddress = GLES.getICD().glGetProgramResourcefvNV;
         if (CHECKS) {
             check(__functionAddress);

@@ -171,7 +171,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_command_queue")
-    public static long clCreateCommandQueueWithProperties(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @Nullable @NativeType("const cl_command_queue_properties *") LongBuffer properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateCommandQueueWithProperties(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @Nullable @NativeType("cl_command_queue_properties const *") LongBuffer properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
@@ -220,7 +220,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_mem")
-    public static long clCreatePipe(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_uint") int pipe_packet_size, @NativeType("cl_uint") int pipe_max_packets, @Nullable @NativeType("const cl_pipe_properties *") IntBuffer properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreatePipe(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_uint") int pipe_packet_size, @NativeType("cl_uint") int pipe_max_packets, @Nullable @NativeType("cl_pipe_properties const *") IntBuffer properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
@@ -453,7 +453,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueSVMFree(@NativeType("cl_command_queue") long command_queue, @NativeType("void **") PointerBuffer svm_pointers, @Nullable @NativeType("void (*) (cl_command_queue, cl_uint, void **, void *)") CLSVMFreeCallbackI pfn_free_func, @NativeType("void *") long user_data, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueSVMFree(@NativeType("cl_command_queue") long command_queue, @NativeType("void **") PointerBuffer svm_pointers, @Nullable @NativeType("void (*) (cl_command_queue, cl_uint, void **, void *)") CLSVMFreeCallbackI pfn_free_func, @NativeType("void *") long user_data, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -522,7 +522,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueSVMMemcpy(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_bool") boolean blocking_copy, @NativeType("void *") ByteBuffer dst_ptr, @NativeType("const void *") ByteBuffer src_ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueSVMMemcpy(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_bool") boolean blocking_copy, @NativeType("void *") ByteBuffer dst_ptr, @NativeType("void const *") ByteBuffer src_ptr, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(dst_ptr, src_ptr.remaining());
             checkSafe(event, 1);
@@ -587,7 +587,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueSVMMemFill(@NativeType("cl_command_queue") long command_queue, @NativeType("void *") ByteBuffer svm_ptr, @NativeType("const void *") ByteBuffer pattern, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueSVMMemFill(@NativeType("cl_command_queue") long command_queue, @NativeType("void *") ByteBuffer svm_ptr, @NativeType("void const *") ByteBuffer pattern, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -653,7 +653,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueSVMMap(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("void *") ByteBuffer svm_ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueSVMMap(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_bool") boolean blocking_map, @NativeType("cl_map_flags") long map_flags, @NativeType("void *") ByteBuffer svm_ptr, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -706,7 +706,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueSVMUnmap(@NativeType("cl_command_queue") long command_queue, @NativeType("void *") ByteBuffer svm_ptr, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueSVMUnmap(@NativeType("cl_command_queue") long command_queue, @NativeType("void *") ByteBuffer svm_ptr, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -751,7 +751,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clSetKernelArgSVMPointer(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("const void *") ByteBuffer arg_value) {
+    public static int clSetKernelArgSVMPointer(@NativeType("cl_kernel") long kernel, @NativeType("cl_uint") int arg_index, @NativeType("void const *") ByteBuffer arg_value) {
         return nclSetKernelArgSVMPointer(kernel, arg_index, memAddress(arg_value));
     }
 
@@ -820,7 +820,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") ByteBuffer param_value) {
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("void const *") ByteBuffer param_value) {
         return nclSetKernelExecInfo(kernel, param_name, param_value.remaining(), memAddress(param_value));
     }
 
@@ -873,7 +873,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") PointerBuffer param_value) {
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("void const *") PointerBuffer param_value) {
         return nclSetKernelExecInfo(kernel, param_name, Integer.toUnsignedLong(param_value.remaining()) << POINTER_SHIFT, memAddress(param_value));
     }
 
@@ -926,7 +926,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") IntBuffer param_value) {
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("void const *") IntBuffer param_value) {
         return nclSetKernelExecInfo(kernel, param_name, Integer.toUnsignedLong(param_value.remaining()) << 2, memAddress(param_value));
     }
 
@@ -966,7 +966,7 @@ public class CL20 {
      *         </ul>
      */
     @NativeType("cl_sampler")
-    public static long clCreateSamplerWithProperties(@NativeType("cl_context") long context, @Nullable @NativeType("const cl_sampler_properties *") IntBuffer sampler_properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateSamplerWithProperties(@NativeType("cl_context") long context, @Nullable @NativeType("cl_sampler_properties const *") IntBuffer sampler_properties, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkNTSafe(sampler_properties);
             checkSafe(errcode_ret, 1);
@@ -980,7 +980,7 @@ public class CL20 {
      * Array version of: {@link #clCreateCommandQueueWithProperties CreateCommandQueueWithProperties}
      */
     @NativeType("cl_command_queue")
-    public static long clCreateCommandQueueWithProperties(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @Nullable @NativeType("const cl_command_queue_properties *") long[] properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateCommandQueueWithProperties(@NativeType("cl_context") long context, @NativeType("cl_device_id") long device, @Nullable @NativeType("cl_command_queue_properties const *") long[] properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateCommandQueueWithProperties;
         if (CHECKS) {
             check(__functionAddress);
@@ -998,7 +998,7 @@ public class CL20 {
      * Array version of: {@link #clCreatePipe CreatePipe}
      */
     @NativeType("cl_mem")
-    public static long clCreatePipe(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_uint") int pipe_packet_size, @NativeType("cl_uint") int pipe_max_packets, @Nullable @NativeType("const cl_pipe_properties *") int[] properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreatePipe(@NativeType("cl_context") long context, @NativeType("cl_mem_flags") long flags, @NativeType("cl_uint") int pipe_packet_size, @NativeType("cl_uint") int pipe_max_packets, @Nullable @NativeType("cl_pipe_properties const *") int[] properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreatePipe;
         if (CHECKS) {
             check(__functionAddress);
@@ -1031,7 +1031,7 @@ public class CL20 {
      * Array version of: {@link #clSetKernelExecInfo SetKernelExecInfo}
      */
     @NativeType("cl_int")
-    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("const void *") int[] param_value) {
+    public static int clSetKernelExecInfo(@NativeType("cl_kernel") long kernel, @NativeType("cl_kernel_exec_info") int param_name, @NativeType("void const *") int[] param_value) {
         long __functionAddress = CL.getICD().clSetKernelExecInfo;
         if (CHECKS) {
             check(__functionAddress);
@@ -1046,7 +1046,7 @@ public class CL20 {
      * Array version of: {@link #clCreateSamplerWithProperties CreateSamplerWithProperties}
      */
     @NativeType("cl_sampler")
-    public static long clCreateSamplerWithProperties(@NativeType("cl_context") long context, @Nullable @NativeType("const cl_sampler_properties *") int[] sampler_properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateSamplerWithProperties(@NativeType("cl_context") long context, @Nullable @NativeType("cl_sampler_properties const *") int[] sampler_properties, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateSamplerWithProperties;
         if (CHECKS) {
             check(__functionAddress);

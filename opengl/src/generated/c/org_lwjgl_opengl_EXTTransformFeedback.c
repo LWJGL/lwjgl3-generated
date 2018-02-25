@@ -11,7 +11,7 @@ typedef void (APIENTRY *glBindBufferOffsetEXTPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glBindBufferBaseEXTPROC) (jint, jint, jint);
 typedef void (APIENTRY *glBeginTransformFeedbackEXTPROC) (jint);
 typedef void (APIENTRY *glEndTransformFeedbackEXTPROC) (void);
-typedef void (APIENTRY *glTransformFeedbackVaryingsEXTPROC) (jint, jint, const intptr_t, jint);
+typedef void (APIENTRY *glTransformFeedbackVaryingsEXTPROC) (jint, jint, intptr_t, jint);
 typedef void (APIENTRY *glGetTransformFeedbackVaryingEXTPROC) (jint, jint, jint, intptr_t, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glGetIntegerIndexedvEXTPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetBooleanIndexedvEXTPROC) (jint, jint, intptr_t);
@@ -50,7 +50,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_glEndTransform
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTTransformFeedback_nglTransformFeedbackVaryingsEXT(JNIEnv *__env, jclass clazz, jint program, jint count, jlong varyingsAddress, jint bufferMode) {
     glTransformFeedbackVaryingsEXTPROC glTransformFeedbackVaryingsEXT = (glTransformFeedbackVaryingsEXTPROC)tlsGetFunction(1737);
-    const intptr_t varyings = (const intptr_t)varyingsAddress;
+    intptr_t varyings = (intptr_t)varyingsAddress;
     UNUSED_PARAM(clazz)
     glTransformFeedbackVaryingsEXT(program, count, varyings, bufferMode);
 }

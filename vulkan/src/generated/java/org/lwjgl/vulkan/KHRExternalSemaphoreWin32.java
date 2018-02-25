@@ -141,7 +141,7 @@ public class KHRExternalSemaphoreWin32 {
      * @param pImportSemaphoreWin32HandleInfo points to a {@link VkImportSemaphoreWin32HandleInfoKHR} structure specifying the semaphore and import parameters.
      */
     @NativeType("VkResult")
-    public static int vkImportSemaphoreWin32HandleKHR(VkDevice device, @NativeType("const VkImportSemaphoreWin32HandleInfoKHR *") VkImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo) {
+    public static int vkImportSemaphoreWin32HandleKHR(VkDevice device, @NativeType("VkImportSemaphoreWin32HandleInfoKHR const *") VkImportSemaphoreWin32HandleInfoKHR pImportSemaphoreWin32HandleInfo) {
         return nvkImportSemaphoreWin32HandleKHR(device, pImportSemaphoreWin32HandleInfo.address());
     }
 
@@ -206,7 +206,7 @@ public class KHRExternalSemaphoreWin32 {
      * @param pHandle             will return the Windows handle representing the semaphore state.
      */
     @NativeType("VkResult")
-    public static int vkGetSemaphoreWin32HandleKHR(VkDevice device, @NativeType("const VkSemaphoreGetWin32HandleInfoKHR *") VkSemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
+    public static int vkGetSemaphoreWin32HandleKHR(VkDevice device, @NativeType("VkSemaphoreGetWin32HandleInfoKHR const *") VkSemaphoreGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
         if (CHECKS) {
             check(pHandle, 1);
         }

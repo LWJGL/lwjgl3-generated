@@ -58,7 +58,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPhysicalDeviceSparseImageFormatInfo2KHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkFormat format;
  *     VkImageType type;
  *     VkSampleCountFlagBits samples;
@@ -127,7 +127,7 @@ public class VkPhysicalDeviceSparseImageFormatInfo2KHR extends Struct implements
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code format} field. */
     @NativeType("VkFormat")
@@ -148,7 +148,7 @@ public class VkPhysicalDeviceSparseImageFormatInfo2KHR extends Struct implements
     /** Sets the specified value to the {@code sType} field. */
     public VkPhysicalDeviceSparseImageFormatInfo2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceSparseImageFormatInfo2KHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceSparseImageFormatInfo2KHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code format} field. */
     public VkPhysicalDeviceSparseImageFormatInfo2KHR format(@NativeType("VkFormat") int value) { nformat(address(), value); return this; }
     /** Sets the specified value to the {@code type} field. */
@@ -414,7 +414,7 @@ public class VkPhysicalDeviceSparseImageFormatInfo2KHR extends Struct implements
         @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceSparseImageFormatInfo2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPhysicalDeviceSparseImageFormatInfo2KHR.npNext(address()); }
         /** Returns the value of the {@code format} field. */
         @NativeType("VkFormat")
@@ -435,7 +435,7 @@ public class VkPhysicalDeviceSparseImageFormatInfo2KHR extends Struct implements
         /** Sets the specified value to the {@code sType} field. */
         public VkPhysicalDeviceSparseImageFormatInfo2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceSparseImageFormatInfo2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceSparseImageFormatInfo2KHR.Buffer pNext(@NativeType("const void *") long value) { VkPhysicalDeviceSparseImageFormatInfo2KHR.npNext(address(), value); return this; }
+        public VkPhysicalDeviceSparseImageFormatInfo2KHR.Buffer pNext(@NativeType("void const *") long value) { VkPhysicalDeviceSparseImageFormatInfo2KHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code format} field. */
         public VkPhysicalDeviceSparseImageFormatInfo2KHR.Buffer format(@NativeType("VkFormat") int value) { VkPhysicalDeviceSparseImageFormatInfo2KHR.nformat(address(), value); return this; }
         /** Sets the specified value to the {@code type} field. */

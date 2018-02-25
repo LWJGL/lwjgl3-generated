@@ -88,7 +88,7 @@ public class LibCLocale {
      */
     @Nullable
     @NativeType("char *")
-    public static String setlocale(int category, @NativeType("const char *") ByteBuffer locale) {
+    public static String setlocale(int category, @NativeType("char const *") ByteBuffer locale) {
         if (CHECKS) {
             checkNT1(locale);
         }
@@ -113,7 +113,7 @@ public class LibCLocale {
      */
     @Nullable
     @NativeType("char *")
-    public static String setlocale(int category, @NativeType("const char *") CharSequence locale) {
+    public static String setlocale(int category, @NativeType("char const *") CharSequence locale) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer localeEncoded = stack.ASCII(locale);

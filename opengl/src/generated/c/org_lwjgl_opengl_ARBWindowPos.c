@@ -10,18 +10,18 @@ typedef void (APIENTRY *glWindowPos2iARBPROC) (jint, jint);
 typedef void (APIENTRY *glWindowPos2sARBPROC) (jshort, jshort);
 typedef void (APIENTRY *glWindowPos2fARBPROC) (jfloat, jfloat);
 typedef void (APIENTRY *glWindowPos2dARBPROC) (jdouble, jdouble);
-typedef void (APIENTRY *glWindowPos2ivARBPROC) (const intptr_t);
-typedef void (APIENTRY *glWindowPos2svARBPROC) (const intptr_t);
-typedef void (APIENTRY *glWindowPos2fvARBPROC) (const intptr_t);
-typedef void (APIENTRY *glWindowPos2dvARBPROC) (const intptr_t);
+typedef void (APIENTRY *glWindowPos2ivARBPROC) (intptr_t);
+typedef void (APIENTRY *glWindowPos2svARBPROC) (intptr_t);
+typedef void (APIENTRY *glWindowPos2fvARBPROC) (intptr_t);
+typedef void (APIENTRY *glWindowPos2dvARBPROC) (intptr_t);
 typedef void (APIENTRY *glWindowPos3iARBPROC) (jint, jint, jint);
 typedef void (APIENTRY *glWindowPos3sARBPROC) (jshort, jshort, jshort);
 typedef void (APIENTRY *glWindowPos3fARBPROC) (jfloat, jfloat, jfloat);
 typedef void (APIENTRY *glWindowPos3dARBPROC) (jdouble, jdouble, jdouble);
-typedef void (APIENTRY *glWindowPos3ivARBPROC) (const intptr_t);
-typedef void (APIENTRY *glWindowPos3svARBPROC) (const intptr_t);
-typedef void (APIENTRY *glWindowPos3fvARBPROC) (const intptr_t);
-typedef void (APIENTRY *glWindowPos3dvARBPROC) (const intptr_t);
+typedef void (APIENTRY *glWindowPos3ivARBPROC) (intptr_t);
+typedef void (APIENTRY *glWindowPos3svARBPROC) (intptr_t);
+typedef void (APIENTRY *glWindowPos3fvARBPROC) (intptr_t);
+typedef void (APIENTRY *glWindowPos3dvARBPROC) (intptr_t);
 
 EXTERN_C_ENTER
 
@@ -51,28 +51,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_glWindowPos2dARB(JNIEn
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos2ivARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos2ivARBPROC glWindowPos2ivARB = (glWindowPos2ivARBPROC)tlsGetFunction(2155);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2ivARB(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos2svARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos2svARBPROC glWindowPos2svARB = (glWindowPos2svARBPROC)tlsGetFunction(2159);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2svARB(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos2fvARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos2fvARBPROC glWindowPos2fvARB = (glWindowPos2fvARBPROC)tlsGetFunction(2151);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2fvARB(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos2dvARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos2dvARBPROC glWindowPos2dvARB = (glWindowPos2dvARBPROC)tlsGetFunction(2147);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos2dvARB(p);
 }
@@ -103,28 +103,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_glWindowPos3dARB(JNIEn
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos3ivARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos3ivARBPROC glWindowPos3ivARB = (glWindowPos3ivARBPROC)tlsGetFunction(2171);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3ivARB(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos3svARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos3svARBPROC glWindowPos3svARB = (glWindowPos3svARBPROC)tlsGetFunction(2175);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3svARB(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos3fvARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos3fvARBPROC glWindowPos3fvARB = (glWindowPos3fvARBPROC)tlsGetFunction(2167);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3fvARB(p);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBWindowPos_nglWindowPos3dvARB__J(JNIEnv *__env, jclass clazz, jlong pAddress) {
     glWindowPos3dvARBPROC glWindowPos3dvARB = (glWindowPos3dvARBPROC)tlsGetFunction(2163);
-    const intptr_t p = (const intptr_t)pAddress;
+    intptr_t p = (intptr_t)pAddress;
     UNUSED_PARAM(clazz)
     glWindowPos3dvARB(p);
 }

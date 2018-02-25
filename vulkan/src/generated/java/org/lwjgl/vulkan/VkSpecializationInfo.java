@@ -55,9 +55,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkSpecializationInfo {
  *     uint32_t mapEntryCount;
- *     const {@link VkSpecializationMapEntry VkSpecializationMapEntry} * pMapEntries;
+ *     {@link VkSpecializationMapEntry VkSpecializationMapEntry const} * pMapEntries;
  *     size_t dataSize;
- *     const void * pData;
+ *     void const * pData;
  * }</pre></code>
  */
 public class VkSpecializationInfo extends Struct implements NativeResource {
@@ -113,20 +113,20 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
     public int mapEntryCount() { return nmapEntryCount(address()); }
     /** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
     @Nullable
-    @NativeType("const VkSpecializationMapEntry *")
+    @NativeType("VkSpecializationMapEntry const *")
     public VkSpecializationMapEntry.Buffer pMapEntries() { return npMapEntries(address()); }
     /** Returns the value of the {@code dataSize} field. */
     @NativeType("size_t")
     public long dataSize() { return ndataSize(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
     @Nullable
-    @NativeType("const void *")
+    @NativeType("void const *")
     public ByteBuffer pData() { return npData(address()); }
 
     /** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
-    public VkSpecializationInfo pMapEntries(@Nullable @NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { npMapEntries(address(), value); return this; }
+    public VkSpecializationInfo pMapEntries(@Nullable @NativeType("VkSpecializationMapEntry const *") VkSpecializationMapEntry.Buffer value) { npMapEntries(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
-    public VkSpecializationInfo pData(@Nullable @NativeType("const void *") ByteBuffer value) { npData(address(), value); return this; }
+    public VkSpecializationInfo pData(@Nullable @NativeType("void const *") ByteBuffer value) { npData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkSpecializationInfo set(
@@ -387,20 +387,20 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
         public int mapEntryCount() { return VkSpecializationInfo.nmapEntryCount(address()); }
         /** Returns a {@link VkSpecializationMapEntry.Buffer} view of the struct array pointed to by the {@code pMapEntries} field. */
         @Nullable
-        @NativeType("const VkSpecializationMapEntry *")
+        @NativeType("VkSpecializationMapEntry const *")
         public VkSpecializationMapEntry.Buffer pMapEntries() { return VkSpecializationInfo.npMapEntries(address()); }
         /** Returns the value of the {@code dataSize} field. */
         @NativeType("size_t")
         public long dataSize() { return VkSpecializationInfo.ndataSize(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pData} field. */
         @Nullable
-        @NativeType("const void *")
+        @NativeType("void const *")
         public ByteBuffer pData() { return VkSpecializationInfo.npData(address()); }
 
         /** Sets the address of the specified {@link VkSpecializationMapEntry.Buffer} to the {@code pMapEntries} field. */
-        public VkSpecializationInfo.Buffer pMapEntries(@Nullable @NativeType("const VkSpecializationMapEntry *") VkSpecializationMapEntry.Buffer value) { VkSpecializationInfo.npMapEntries(address(), value); return this; }
+        public VkSpecializationInfo.Buffer pMapEntries(@Nullable @NativeType("VkSpecializationMapEntry const *") VkSpecializationMapEntry.Buffer value) { VkSpecializationInfo.npMapEntries(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pData} field. */
-        public VkSpecializationInfo.Buffer pData(@Nullable @NativeType("const void *") ByteBuffer value) { VkSpecializationInfo.npData(address(), value); return this; }
+        public VkSpecializationInfo.Buffer pData(@Nullable @NativeType("void const *") ByteBuffer value) { VkSpecializationInfo.npData(address(), value); return this; }
 
     }
 

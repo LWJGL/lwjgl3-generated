@@ -82,7 +82,7 @@ public class ALC10 {
      * @param deviceSpecifier the requested device or device configuration
      */
     @NativeType("ALCdevice *")
-    public static long alcOpenDevice(@Nullable @NativeType("const ALCchar *") ByteBuffer deviceSpecifier) {
+    public static long alcOpenDevice(@Nullable @NativeType("ALCchar const *") ByteBuffer deviceSpecifier) {
         if (CHECKS) {
             checkNT1Safe(deviceSpecifier);
         }
@@ -98,7 +98,7 @@ public class ALC10 {
      * @param deviceSpecifier the requested device or device configuration
      */
     @NativeType("ALCdevice *")
-    public static long alcOpenDevice(@Nullable @NativeType("const ALCchar *") CharSequence deviceSpecifier) {
+    public static long alcOpenDevice(@Nullable @NativeType("ALCchar const *") CharSequence deviceSpecifier) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer deviceSpecifierEncoded = stack.UTF8Safe(deviceSpecifier);
@@ -119,7 +119,7 @@ public class ALC10 {
      * @param deviceHandle the device to close
      */
     @NativeType("ALCboolean")
-    public static boolean alcCloseDevice(@NativeType("const ALCdevice *") long deviceHandle) {
+    public static boolean alcCloseDevice(@NativeType("ALCdevice const *") long deviceHandle) {
 		long __functionAddress = ALC.getICD().alcCloseDevice;
         if (CHECKS) {
             check(deviceHandle);
@@ -145,7 +145,7 @@ public class ALC10 {
      * @param attrList     null or a zero terminated list of integer pairs composed of valid ALC attribute tokens and requested values. One of:<br><table><tr><td>{@link #ALC_FREQUENCY FREQUENCY}</td><td>{@link #ALC_REFRESH REFRESH}</td><td>{@link #ALC_SYNC SYNC}</td><td>{@link ALC11#ALC_MONO_SOURCES MONO_SOURCES}</td><td>{@link ALC11#ALC_STEREO_SOURCES STEREO_SOURCES}</td></tr></table>
      */
     @NativeType("ALCcontext *")
-    public static long alcCreateContext(@NativeType("const ALCdevice *") long deviceHandle, @Nullable @NativeType("const ALCint *") IntBuffer attrList) {
+    public static long alcCreateContext(@NativeType("ALCdevice const *") long deviceHandle, @Nullable @NativeType("ALCint const *") IntBuffer attrList) {
         if (CHECKS) {
             checkNTSafe(attrList);
         }
@@ -274,7 +274,7 @@ public class ALC10 {
      * @param extName      the extension name
      */
     @NativeType("ALCboolean")
-    public static boolean alcIsExtensionPresent(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") ByteBuffer extName) {
+    public static boolean alcIsExtensionPresent(@NativeType("ALCdevice const *") long deviceHandle, @NativeType("ALCchar const *") ByteBuffer extName) {
         if (CHECKS) {
             checkNT1(extName);
         }
@@ -291,7 +291,7 @@ public class ALC10 {
      * @param extName      the extension name
      */
     @NativeType("ALCboolean")
-    public static boolean alcIsExtensionPresent(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") CharSequence extName) {
+    public static boolean alcIsExtensionPresent(@NativeType("ALCdevice const *") long deviceHandle, @NativeType("ALCchar const *") CharSequence extName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer extNameEncoded = stack.ASCII(extName);
@@ -322,7 +322,7 @@ public class ALC10 {
      * @param funcName     the function name
      */
     @NativeType("void *")
-    public static long alcGetProcAddress(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALchar *") ByteBuffer funcName) {
+    public static long alcGetProcAddress(@NativeType("ALCdevice const *") long deviceHandle, @NativeType("ALchar const *") ByteBuffer funcName) {
         if (CHECKS) {
             checkNT1(funcName);
         }
@@ -342,7 +342,7 @@ public class ALC10 {
      * @param funcName     the function name
      */
     @NativeType("void *")
-    public static long alcGetProcAddress(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALchar *") CharSequence funcName) {
+    public static long alcGetProcAddress(@NativeType("ALCdevice const *") long deviceHandle, @NativeType("ALchar const *") CharSequence funcName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer funcNameEncoded = stack.ASCII(funcName);
@@ -370,7 +370,7 @@ public class ALC10 {
      * @param enumName     the enum name
      */
     @NativeType("ALCenum")
-    public static int alcGetEnumValue(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") ByteBuffer enumName) {
+    public static int alcGetEnumValue(@NativeType("ALCdevice const *") long deviceHandle, @NativeType("ALCchar const *") ByteBuffer enumName) {
         if (CHECKS) {
             checkNT1(enumName);
         }
@@ -387,7 +387,7 @@ public class ALC10 {
      * @param enumName     the enum name
      */
     @NativeType("ALCenum")
-    public static int alcGetEnumValue(@NativeType("const ALCdevice *") long deviceHandle, @NativeType("const ALCchar *") CharSequence enumName) {
+    public static int alcGetEnumValue(@NativeType("ALCdevice const *") long deviceHandle, @NativeType("ALCchar const *") CharSequence enumName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer enumNameEncoded = stack.ASCII(enumName);
@@ -432,7 +432,7 @@ public class ALC10 {
      * @param token        the information to query. One of:<br><table><tr><td>{@link #ALC_DEFAULT_DEVICE_SPECIFIER DEFAULT_DEVICE_SPECIFIER}</td><td>{@link #ALC_DEVICE_SPECIFIER DEVICE_SPECIFIER}</td><td>{@link #ALC_EXTENSIONS EXTENSIONS}</td></tr><tr><td>{@link ALC11#ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER CAPTURE_DEFAULT_DEVICE_SPECIFIER}</td><td>{@link ALC11#ALC_CAPTURE_DEVICE_SPECIFIER CAPTURE_DEVICE_SPECIFIER}</td></tr></table>
      */
     @Nullable
-    @NativeType("const ALCchar *")
+    @NativeType("ALCchar const *")
     public static String alcGetString(@NativeType("ALCdevice *") long deviceHandle, @NativeType("ALCenum") int token) {
         long __result = nalcGetString(deviceHandle, token);
         return memUTF8Safe(__result);
@@ -482,7 +482,7 @@ public class ALC10 {
 
     /** Array version of: {@link #alcCreateContext CreateContext} */
     @NativeType("ALCcontext *")
-    public static long alcCreateContext(@NativeType("const ALCdevice *") long deviceHandle, @Nullable @NativeType("const ALCint *") int[] attrList) {
+    public static long alcCreateContext(@NativeType("ALCdevice const *") long deviceHandle, @Nullable @NativeType("ALCint const *") int[] attrList) {
 		long __functionAddress = ALC.getICD().alcCreateContext;
         if (CHECKS) {
             check(deviceHandle);

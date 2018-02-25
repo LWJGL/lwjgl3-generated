@@ -33,7 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct bgfx_callback_interface_t {
- *     const {@link BGFXCallbackVtbl bgfx_callback_vtbl_t} * vtbl;
+ *     {@link BGFXCallbackVtbl bgfx_callback_vtbl_t const} * vtbl;
  * }</pre></code>
  */
 @NativeType("struct bgfx_callback_interface_t")
@@ -77,11 +77,11 @@ public class BGFXCallbackInterface extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link BGFXCallbackVtbl} view of the struct pointed to by the {@code vtbl} field. */
-    @NativeType("const bgfx_callback_vtbl_t *")
+    @NativeType("bgfx_callback_vtbl_t const *")
     public BGFXCallbackVtbl vtbl() { return nvtbl(address()); }
 
     /** Sets the address of the specified {@link BGFXCallbackVtbl} to the {@code vtbl} field. */
-    public BGFXCallbackInterface vtbl(@NativeType("const bgfx_callback_vtbl_t *") BGFXCallbackVtbl value) { nvtbl(address(), value); return this; }
+    public BGFXCallbackInterface vtbl(@NativeType("bgfx_callback_vtbl_t const *") BGFXCallbackVtbl value) { nvtbl(address(), value); return this; }
 
     /**
      * Copies the specified struct data to this struct.
@@ -312,11 +312,11 @@ public class BGFXCallbackInterface extends Struct implements NativeResource {
         }
 
         /** Returns a {@link BGFXCallbackVtbl} view of the struct pointed to by the {@code vtbl} field. */
-        @NativeType("const bgfx_callback_vtbl_t *")
+        @NativeType("bgfx_callback_vtbl_t const *")
         public BGFXCallbackVtbl vtbl() { return BGFXCallbackInterface.nvtbl(address()); }
 
         /** Sets the address of the specified {@link BGFXCallbackVtbl} to the {@code vtbl} field. */
-        public BGFXCallbackInterface.Buffer vtbl(@NativeType("const bgfx_callback_vtbl_t *") BGFXCallbackVtbl value) { BGFXCallbackInterface.nvtbl(address(), value); return this; }
+        public BGFXCallbackInterface.Buffer vtbl(@NativeType("bgfx_callback_vtbl_t const *") BGFXCallbackVtbl value) { BGFXCallbackInterface.nvtbl(address(), value); return this; }
 
     }
 

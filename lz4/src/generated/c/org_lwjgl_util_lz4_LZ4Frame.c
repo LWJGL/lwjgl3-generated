@@ -26,15 +26,15 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_LZ4F_1compressionLevel_1
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressFrameBound(JNIEnv *__env, jclass clazz, jlong srcSize, jlong preferencesPtrAddress) {
-    const LZ4F_preferences_t *preferencesPtr = (const LZ4F_preferences_t *)(intptr_t)preferencesPtrAddress;
+    LZ4F_preferences_t const *preferencesPtr = (LZ4F_preferences_t const *)(intptr_t)preferencesPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_compressFrameBound((size_t)srcSize, preferencesPtr);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressFrame(JNIEnv *__env, jclass clazz, jlong dstBufferAddress, jlong dstCapacity, jlong srcBufferAddress, jlong srcSize, jlong preferencesPtrAddress) {
     void *dstBuffer = (void *)(intptr_t)dstBufferAddress;
-    const void *srcBuffer = (const void *)(intptr_t)srcBufferAddress;
-    const LZ4F_preferences_t *preferencesPtr = (const LZ4F_preferences_t *)(intptr_t)preferencesPtrAddress;
+    void const *srcBuffer = (void const *)(intptr_t)srcBufferAddress;
+    LZ4F_preferences_t const *preferencesPtr = (LZ4F_preferences_t const *)(intptr_t)preferencesPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_compressFrame(dstBuffer, (size_t)dstCapacity, srcBuffer, (size_t)srcSize, preferencesPtr);
 }
@@ -59,13 +59,13 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1freeCompressionC
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressBegin(JNIEnv *__env, jclass clazz, jlong cctxAddress, jlong dstBufferAddress, jlong dstCapacity, jlong prefsPtrAddress) {
     LZ4F_cctx *cctx = (LZ4F_cctx *)(intptr_t)cctxAddress;
     void *dstBuffer = (void *)(intptr_t)dstBufferAddress;
-    const LZ4F_preferences_t *prefsPtr = (const LZ4F_preferences_t *)(intptr_t)prefsPtrAddress;
+    LZ4F_preferences_t const *prefsPtr = (LZ4F_preferences_t const *)(intptr_t)prefsPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_compressBegin(cctx, dstBuffer, (size_t)dstCapacity, prefsPtr);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressBound(JNIEnv *__env, jclass clazz, jlong srcSize, jlong prefsPtrAddress) {
-    const LZ4F_preferences_t *prefsPtr = (const LZ4F_preferences_t *)(intptr_t)prefsPtrAddress;
+    LZ4F_preferences_t const *prefsPtr = (LZ4F_preferences_t const *)(intptr_t)prefsPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_compressBound((size_t)srcSize, prefsPtr);
 }
@@ -73,8 +73,8 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressBound(JN
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressUpdate(JNIEnv *__env, jclass clazz, jlong cctxAddress, jlong dstBufferAddress, jlong dstCapacity, jlong srcBufferAddress, jlong srcSize, jlong cOptPtrAddress) {
     LZ4F_cctx *cctx = (LZ4F_cctx *)(intptr_t)cctxAddress;
     void *dstBuffer = (void *)(intptr_t)dstBufferAddress;
-    const void *srcBuffer = (const void *)(intptr_t)srcBufferAddress;
-    const LZ4F_compressOptions_t *cOptPtr = (const LZ4F_compressOptions_t *)(intptr_t)cOptPtrAddress;
+    void const *srcBuffer = (void const *)(intptr_t)srcBufferAddress;
+    LZ4F_compressOptions_t const *cOptPtr = (LZ4F_compressOptions_t const *)(intptr_t)cOptPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_compressUpdate(cctx, dstBuffer, (size_t)dstCapacity, srcBuffer, (size_t)srcSize, cOptPtr);
 }
@@ -82,7 +82,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressUpdate(J
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1flush(JNIEnv *__env, jclass clazz, jlong cctxAddress, jlong dstBufferAddress, jlong dstCapacity, jlong cOptPtrAddress) {
     LZ4F_cctx *cctx = (LZ4F_cctx *)(intptr_t)cctxAddress;
     void *dstBuffer = (void *)(intptr_t)dstBufferAddress;
-    const LZ4F_compressOptions_t *cOptPtr = (const LZ4F_compressOptions_t *)(intptr_t)cOptPtrAddress;
+    LZ4F_compressOptions_t const *cOptPtr = (LZ4F_compressOptions_t const *)(intptr_t)cOptPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_flush(cctx, dstBuffer, (size_t)dstCapacity, cOptPtr);
 }
@@ -90,7 +90,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1flush(JNIEnv *__
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1compressEnd(JNIEnv *__env, jclass clazz, jlong cctxAddress, jlong dstBufferAddress, jlong dstCapacity, jlong cOptPtrAddress) {
     LZ4F_cctx *cctx = (LZ4F_cctx *)(intptr_t)cctxAddress;
     void *dstBuffer = (void *)(intptr_t)dstBufferAddress;
-    const LZ4F_compressOptions_t *cOptPtr = (const LZ4F_compressOptions_t *)(intptr_t)cOptPtrAddress;
+    LZ4F_compressOptions_t const *cOptPtr = (LZ4F_compressOptions_t const *)(intptr_t)cOptPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_compressEnd(cctx, dstBuffer, (size_t)dstCapacity, cOptPtr);
 }
@@ -110,7 +110,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1freeDecompressio
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1getFrameInfo(JNIEnv *__env, jclass clazz, jlong dctxAddress, jlong frameInfoPtrAddress, jlong srcBufferAddress, jlong srcSizePtrAddress) {
     LZ4F_dctx *dctx = (LZ4F_dctx *)(intptr_t)dctxAddress;
     LZ4F_frameInfo_t *frameInfoPtr = (LZ4F_frameInfo_t *)(intptr_t)frameInfoPtrAddress;
-    const void *srcBuffer = (const void *)(intptr_t)srcBufferAddress;
+    void const *srcBuffer = (void const *)(intptr_t)srcBufferAddress;
     size_t *srcSizePtr = (size_t *)(intptr_t)srcSizePtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_getFrameInfo(dctx, frameInfoPtr, srcBuffer, srcSizePtr);
@@ -120,9 +120,9 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4Frame_nLZ4F_1decompress(JNIEn
     LZ4F_dctx *dctx = (LZ4F_dctx *)(intptr_t)dctxAddress;
     void *dstBuffer = (void *)(intptr_t)dstBufferAddress;
     size_t *dstSizePtr = (size_t *)(intptr_t)dstSizePtrAddress;
-    const void *srcBuffer = (const void *)(intptr_t)srcBufferAddress;
+    void const *srcBuffer = (void const *)(intptr_t)srcBufferAddress;
     size_t *srcSizePtr = (size_t *)(intptr_t)srcSizePtrAddress;
-    const LZ4F_decompressOptions_t *dOptPtr = (const LZ4F_decompressOptions_t *)(intptr_t)dOptPtrAddress;
+    LZ4F_decompressOptions_t const *dOptPtr = (LZ4F_decompressOptions_t const *)(intptr_t)dOptPtrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)LZ4F_decompress(dctx, dstBuffer, dstSizePtr, srcBuffer, srcSizePtr, dOptPtr);
 }

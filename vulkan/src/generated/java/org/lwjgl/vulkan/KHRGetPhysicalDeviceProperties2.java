@@ -344,7 +344,7 @@ public class KHRGetPhysicalDeviceProperties2 {
      * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties2KHR} structure in which capabilities are returned.
      */
     @NativeType("VkResult")
-    public static int vkGetPhysicalDeviceImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceImageFormatInfo2KHR *") VkPhysicalDeviceImageFormatInfo2KHR pImageFormatInfo, @NativeType("VkImageFormatProperties2KHR *") VkImageFormatProperties2KHR pImageFormatProperties) {
+    public static int vkGetPhysicalDeviceImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceImageFormatInfo2KHR const *") VkPhysicalDeviceImageFormatInfo2KHR pImageFormatInfo, @NativeType("VkImageFormatProperties2KHR *") VkImageFormatProperties2KHR pImageFormatProperties) {
         return nvkGetPhysicalDeviceImageFormatProperties2KHR(physicalDevice, pImageFormatInfo.address(), pImageFormatProperties.address());
     }
 
@@ -500,7 +500,7 @@ public class KHRGetPhysicalDeviceProperties2 {
      * @param pPropertyCount a pointer to an integer related to the number of sparse format properties available or queried, as described below.
      * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkSparseImageFormatProperties2KHR} structures.
      */
-    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceSparseImageFormatInfo2KHR *") VkPhysicalDeviceSparseImageFormatInfo2KHR pFormatInfo, @NativeType("uint32_t *") IntBuffer pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2KHR *") VkSparseImageFormatProperties2KHR.Buffer pProperties) {
+    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceSparseImageFormatInfo2KHR const *") VkPhysicalDeviceSparseImageFormatInfo2KHR pFormatInfo, @NativeType("uint32_t *") IntBuffer pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2KHR *") VkSparseImageFormatProperties2KHR.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -520,7 +520,7 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} */
-    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("const VkPhysicalDeviceSparseImageFormatInfo2KHR *") VkPhysicalDeviceSparseImageFormatInfo2KHR pFormatInfo, @NativeType("uint32_t *") int[] pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2KHR *") VkSparseImageFormatProperties2KHR.Buffer pProperties) {
+    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceSparseImageFormatInfo2KHR const *") VkPhysicalDeviceSparseImageFormatInfo2KHR pFormatInfo, @NativeType("uint32_t *") int[] pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2KHR *") VkSparseImageFormatProperties2KHR.Buffer pProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties2KHR;
         if (CHECKS) {
             check(__functionAddress);

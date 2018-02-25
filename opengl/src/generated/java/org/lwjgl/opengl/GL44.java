@@ -228,7 +228,7 @@ public class GL44 {
      *               
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") ByteBuffer data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") ByteBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorage(target, data.remaining(), memAddress(data), flags);
     }
 
@@ -284,7 +284,7 @@ public class GL44 {
      *               
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") ShortBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), flags);
     }
 
@@ -340,7 +340,7 @@ public class GL44 {
      *               
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") IntBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
@@ -396,7 +396,7 @@ public class GL44 {
      *               
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") FloatBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), flags);
     }
 
@@ -452,7 +452,7 @@ public class GL44 {
      *               
      *               <p>It is an error to specify {@link #GL_MAP_COHERENT_BIT MAP_COHERENT_BIT} without also specifying {@link #GL_MAP_PERSISTENT_BIT MAP_PERSISTENT_BIT}.</p>
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") DoubleBuffer data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") DoubleBuffer data, @NativeType("GLbitfield") int flags) {
         nglBufferStorage(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), flags);
     }
 
@@ -491,7 +491,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ByteBuffer data) {
+    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ByteBuffer data) {
         nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
     }
 
@@ -525,7 +525,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ShortBuffer data) {
+    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ShortBuffer data) {
         nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
     }
 
@@ -559,7 +559,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") IntBuffer data) {
+    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") IntBuffer data) {
         nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
     }
 
@@ -593,7 +593,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") FloatBuffer data) {
+    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") FloatBuffer data) {
         nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
     }
 
@@ -627,7 +627,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") DoubleBuffer data) {
+    public static void glClearTexSubImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLint") int zoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLsizei") int depth, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") DoubleBuffer data) {
         nglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, memAddressSafe(data));
     }
 
@@ -651,7 +651,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ByteBuffer data) {
+    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ByteBuffer data) {
         nglClearTexImage(texture, level, format, type, memAddressSafe(data));
     }
 
@@ -670,7 +670,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ShortBuffer data) {
+    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ShortBuffer data) {
         nglClearTexImage(texture, level, format, type, memAddressSafe(data));
     }
 
@@ -689,7 +689,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") IntBuffer data) {
+    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") IntBuffer data) {
         nglClearTexImage(texture, level, format, type, memAddressSafe(data));
     }
 
@@ -708,7 +708,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") FloatBuffer data) {
+    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") FloatBuffer data) {
         nglClearTexImage(texture, level, format, type, memAddressSafe(data));
     }
 
@@ -727,7 +727,7 @@ public class GL44 {
      * @param data    an array of between one and four components of texel data that will be used as the source for the constant fill value. If {@code data} is {@code NULL},
      *                then the pointer is ignored and the sub-range of the texture image is filled with zeros.
      */
-    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") DoubleBuffer data) {
+    public static void glClearTexImage(@NativeType("GLuint") int texture, @NativeType("GLint") int level, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") DoubleBuffer data) {
         nglClearTexImage(texture, level, format, type, memAddressSafe(data));
     }
 
@@ -762,7 +762,7 @@ public class GL44 {
      * @param first   the first binding
      * @param buffers an array of zeros or names of existing buffers objects
      */
-    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer buffers) {
+    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer buffers) {
         nglBindBuffersBase(target, first, remainingSafe(buffers), memAddressSafe(buffers));
     }
 
@@ -805,7 +805,7 @@ public class GL44 {
      * @param offsets an array of offsets
      * @param sizes   an array of sizes
      */
-    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizeiptr *") PointerBuffer sizes) {
+    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizeiptr const *") PointerBuffer sizes) {
         if (CHECKS) {
             checkSafe(offsets, remainingSafe(buffers));
             checkSafe(sizes, remainingSafe(buffers));
@@ -863,7 +863,7 @@ public class GL44 {
      * @param first    the first texture objects
      * @param textures an array of zeros or names of existing texture objects
      */
-    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer textures) {
+    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer textures) {
         nglBindTextures(first, remainingSafe(textures), memAddressSafe(textures));
     }
 
@@ -901,7 +901,7 @@ public class GL44 {
      * @param first    the first sampler object
      * @param samplers an array of zeros or names of existing sampler objects
      */
-    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer samplers) {
+    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer samplers) {
         nglBindSamplers(first, remainingSafe(samplers), memAddressSafe(samplers));
     }
 
@@ -950,7 +950,7 @@ public class GL44 {
      * @param first    the first image unit
      * @param textures an array of zeros or names of existing texture objects
      */
-    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer textures) {
+    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer textures) {
         nglBindImageTextures(first, remainingSafe(textures), memAddressSafe(textures));
     }
 
@@ -995,7 +995,7 @@ public class GL44 {
      * @param offsets an array of offses
      * @param strides an array of stride values
      */
-    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") IntBuffer buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizei *") IntBuffer strides) {
+    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") IntBuffer buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizei const *") IntBuffer strides) {
         if (CHECKS) {
             checkSafe(offsets, remainingSafe(buffers));
             checkSafe(strides, remainingSafe(buffers));
@@ -1008,7 +1008,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBufferStorage BufferStorage}
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") short[] data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") short[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GL.getICD().glBufferStorage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1021,7 +1021,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBufferStorage BufferStorage}
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") int[] data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") int[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GL.getICD().glBufferStorage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1034,7 +1034,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBufferStorage BufferStorage}
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") float[] data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") float[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GL.getICD().glBufferStorage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1047,7 +1047,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBufferStorage BufferStorage}
      */
-    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("const void *") double[] data, @NativeType("GLbitfield") int flags) {
+    public static void glBufferStorage(@NativeType("GLenum") int target, @NativeType("void const *") double[] data, @NativeType("GLbitfield") int flags) {
         long __functionAddress = GL.getICD().glBufferStorage;
         if (CHECKS) {
             check(__functionAddress);
@@ -1060,7 +1060,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBindBuffersBase BindBuffersBase}
      */
-    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] buffers) {
+    public static void glBindBuffersBase(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] buffers) {
         long __functionAddress = GL.getICD().glBindBuffersBase;
         if (CHECKS) {
             check(__functionAddress);
@@ -1073,7 +1073,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBindBuffersRange BindBuffersRange}
      */
-    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizeiptr *") PointerBuffer sizes) {
+    public static void glBindBuffersRange(@NativeType("GLenum") int target, @NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizeiptr const *") PointerBuffer sizes) {
         long __functionAddress = GL.getICD().glBindBuffersRange;
         if (CHECKS) {
             check(__functionAddress);
@@ -1088,7 +1088,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBindTextures BindTextures}
      */
-    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] textures) {
+    public static void glBindTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] textures) {
         long __functionAddress = GL.getICD().glBindTextures;
         if (CHECKS) {
             check(__functionAddress);
@@ -1101,7 +1101,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBindSamplers BindSamplers}
      */
-    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] samplers) {
+    public static void glBindSamplers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] samplers) {
         long __functionAddress = GL.getICD().glBindSamplers;
         if (CHECKS) {
             check(__functionAddress);
@@ -1114,7 +1114,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBindImageTextures BindImageTextures}
      */
-    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] textures) {
+    public static void glBindImageTextures(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] textures) {
         long __functionAddress = GL.getICD().glBindImageTextures;
         if (CHECKS) {
             check(__functionAddress);
@@ -1127,7 +1127,7 @@ public class GL44 {
      * 
      * Array version of: {@link #glBindVertexBuffers BindVertexBuffers}
      */
-    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("const GLuint *") int[] buffers, @Nullable @NativeType("const GLintptr *") PointerBuffer offsets, @Nullable @NativeType("const GLsizei *") int[] strides) {
+    public static void glBindVertexBuffers(@NativeType("GLuint") int first, @Nullable @NativeType("GLuint const *") int[] buffers, @Nullable @NativeType("GLintptr const *") PointerBuffer offsets, @Nullable @NativeType("GLsizei const *") int[] strides) {
         long __functionAddress = GL.getICD().glBindVertexBuffers;
         if (CHECKS) {
             check(__functionAddress);

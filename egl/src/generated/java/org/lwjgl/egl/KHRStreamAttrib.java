@@ -41,7 +41,7 @@ public class KHRStreamAttrib {
     }
 
     @NativeType("EGLStreamKHR")
-    public static long eglCreateStreamAttribKHR(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static long eglCreateStreamAttribKHR(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -94,7 +94,7 @@ public class KHRStreamAttrib {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglStreamConsumerAcquireAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static boolean eglStreamConsumerAcquireAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -114,7 +114,7 @@ public class KHRStreamAttrib {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglStreamConsumerReleaseAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static boolean eglStreamConsumerReleaseAttribKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }

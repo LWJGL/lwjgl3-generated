@@ -239,7 +239,7 @@ public class NVCommandList {
      *
      * @param states the buffer from which to read the state object names to delete
      */
-    public static void glDeleteStatesNV(@NativeType("const GLuint *") IntBuffer states) {
+    public static void glDeleteStatesNV(@NativeType("GLuint const *") IntBuffer states) {
         nglDeleteStatesNV(states.remaining(), memAddress(states));
     }
 
@@ -247,7 +247,7 @@ public class NVCommandList {
      * Deletes {@code n} names of state objects given by {@code states}. Once a state object is deleted it has no contents and its name is again unused.
      * Unused names in {@code states} are silently ignored, as is the value zero.
      */
-    public static void glDeleteStatesNV(@NativeType("const GLuint *") int state) {
+    public static void glDeleteStatesNV(@NativeType("GLuint const *") int state) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer states = stack.ints(state);
@@ -335,7 +335,7 @@ public class NVCommandList {
      * @param indirects     the array of offsets into the buffer
      * @param sizes         the array of command lengths
      */
-    public static void glDrawCommandsNV(@NativeType("GLenum") int primitiveMode, @NativeType("GLuint") int buffer, @NativeType("const GLintptr *") PointerBuffer indirects, @NativeType("const GLsizei *") IntBuffer sizes) {
+    public static void glDrawCommandsNV(@NativeType("GLenum") int primitiveMode, @NativeType("GLuint") int buffer, @NativeType("GLintptr const *") PointerBuffer indirects, @NativeType("GLsizei const *") IntBuffer sizes) {
         if (CHECKS) {
             check(sizes, indirects.remaining());
         }
@@ -359,7 +359,7 @@ public class NVCommandList {
      * @param indirects     the array of GPU addreses
      * @param sizes         the array of command lengths
      */
-    public static void glDrawCommandsAddressNV(@NativeType("GLenum") int primitiveMode, @NativeType("const GLuint64 *") LongBuffer indirects, @NativeType("const GLsizei *") IntBuffer sizes) {
+    public static void glDrawCommandsAddressNV(@NativeType("GLenum") int primitiveMode, @NativeType("GLuint64 const *") LongBuffer indirects, @NativeType("GLsizei const *") IntBuffer sizes) {
         if (CHECKS) {
             check(sizes, indirects.remaining());
         }
@@ -387,7 +387,7 @@ public class NVCommandList {
      * @param states    the array of state object names
      * @param fbos      the array of framebuffer object names
      */
-    public static void glDrawCommandsStatesNV(@NativeType("GLuint") int buffer, @NativeType("const GLintptr *") PointerBuffer indirects, @NativeType("const GLsizei *") IntBuffer sizes, @NativeType("const GLuint *") IntBuffer states, @NativeType("const GLuint *") IntBuffer fbos) {
+    public static void glDrawCommandsStatesNV(@NativeType("GLuint") int buffer, @NativeType("GLintptr const *") PointerBuffer indirects, @NativeType("GLsizei const *") IntBuffer sizes, @NativeType("GLuint const *") IntBuffer states, @NativeType("GLuint const *") IntBuffer fbos) {
         if (CHECKS) {
             check(sizes, indirects.remaining());
             check(states, indirects.remaining());
@@ -416,7 +416,7 @@ public class NVCommandList {
      * @param states    the array of state object names
      * @param fbos      the array of framebuffer object names
      */
-    public static void glDrawCommandsStatesAddressNV(@NativeType("const GLuint64 *") LongBuffer indirects, @NativeType("const GLsizei *") IntBuffer sizes, @NativeType("const GLuint *") IntBuffer states, @NativeType("const GLuint *") IntBuffer fbos) {
+    public static void glDrawCommandsStatesAddressNV(@NativeType("GLuint64 const *") LongBuffer indirects, @NativeType("GLsizei const *") IntBuffer sizes, @NativeType("GLuint const *") IntBuffer states, @NativeType("GLuint const *") IntBuffer fbos) {
         if (CHECKS) {
             check(sizes, indirects.remaining());
             check(states, indirects.remaining());
@@ -471,7 +471,7 @@ public class NVCommandList {
      *
      * @param lists the buffer from which to read the command list names to delete
      */
-    public static void glDeleteCommandListsNV(@NativeType("const GLuint *") IntBuffer lists) {
+    public static void glDeleteCommandListsNV(@NativeType("GLuint const *") IntBuffer lists) {
         nglDeleteCommandListsNV(lists.remaining(), memAddress(lists));
     }
 
@@ -479,7 +479,7 @@ public class NVCommandList {
      * Deletes {@code n} command lists stored in {@code lists}. Once a command list is deleted it has no contents and its name is again unused. Unused names
      * in {@code lists} are silently ignored, as is the value zero.
      */
-    public static void glDeleteCommandListsNV(@NativeType("const GLuint *") int list) {
+    public static void glDeleteCommandListsNV(@NativeType("GLuint const *") int list) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer lists = stack.ints(list);
@@ -532,7 +532,7 @@ public class NVCommandList {
      * @param states    the array of state object names
      * @param fbos      the array of framebuffer object names
      */
-    public static void glListDrawCommandsStatesClientNV(@NativeType("GLuint") int list, @NativeType("GLuint") int segment, @NativeType("const void **") PointerBuffer indirects, @NativeType("const size_t *") PointerBuffer sizes, @NativeType("const GLuint *") IntBuffer states, @NativeType("const GLuint *") IntBuffer fbos) {
+    public static void glListDrawCommandsStatesClientNV(@NativeType("GLuint") int list, @NativeType("GLuint") int segment, @NativeType("void const **") PointerBuffer indirects, @NativeType("size_t const *") PointerBuffer sizes, @NativeType("GLuint const *") IntBuffer states, @NativeType("GLuint const *") IntBuffer fbos) {
         if (CHECKS) {
             check(sizes, indirects.remaining());
             check(states, indirects.remaining());
@@ -583,7 +583,7 @@ public class NVCommandList {
     }
 
     /** Array version of: {@link #glDeleteStatesNV DeleteStatesNV} */
-    public static void glDeleteStatesNV(@NativeType("const GLuint *") int[] states) {
+    public static void glDeleteStatesNV(@NativeType("GLuint const *") int[] states) {
         long __functionAddress = GL.getICD().glDeleteStatesNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -592,7 +592,7 @@ public class NVCommandList {
     }
 
     /** Array version of: {@link #glDrawCommandsNV DrawCommandsNV} */
-    public static void glDrawCommandsNV(@NativeType("GLenum") int primitiveMode, @NativeType("GLuint") int buffer, @NativeType("const GLintptr *") PointerBuffer indirects, @NativeType("const GLsizei *") int[] sizes) {
+    public static void glDrawCommandsNV(@NativeType("GLenum") int primitiveMode, @NativeType("GLuint") int buffer, @NativeType("GLintptr const *") PointerBuffer indirects, @NativeType("GLsizei const *") int[] sizes) {
         long __functionAddress = GL.getICD().glDrawCommandsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -602,7 +602,7 @@ public class NVCommandList {
     }
 
     /** Array version of: {@link #glDrawCommandsAddressNV DrawCommandsAddressNV} */
-    public static void glDrawCommandsAddressNV(@NativeType("GLenum") int primitiveMode, @NativeType("const GLuint64 *") long[] indirects, @NativeType("const GLsizei *") int[] sizes) {
+    public static void glDrawCommandsAddressNV(@NativeType("GLenum") int primitiveMode, @NativeType("GLuint64 const *") long[] indirects, @NativeType("GLsizei const *") int[] sizes) {
         long __functionAddress = GL.getICD().glDrawCommandsAddressNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -612,7 +612,7 @@ public class NVCommandList {
     }
 
     /** Array version of: {@link #glDrawCommandsStatesNV DrawCommandsStatesNV} */
-    public static void glDrawCommandsStatesNV(@NativeType("GLuint") int buffer, @NativeType("const GLintptr *") PointerBuffer indirects, @NativeType("const GLsizei *") int[] sizes, @NativeType("const GLuint *") int[] states, @NativeType("const GLuint *") int[] fbos) {
+    public static void glDrawCommandsStatesNV(@NativeType("GLuint") int buffer, @NativeType("GLintptr const *") PointerBuffer indirects, @NativeType("GLsizei const *") int[] sizes, @NativeType("GLuint const *") int[] states, @NativeType("GLuint const *") int[] fbos) {
         long __functionAddress = GL.getICD().glDrawCommandsStatesNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -624,7 +624,7 @@ public class NVCommandList {
     }
 
     /** Array version of: {@link #glDrawCommandsStatesAddressNV DrawCommandsStatesAddressNV} */
-    public static void glDrawCommandsStatesAddressNV(@NativeType("const GLuint64 *") long[] indirects, @NativeType("const GLsizei *") int[] sizes, @NativeType("const GLuint *") int[] states, @NativeType("const GLuint *") int[] fbos) {
+    public static void glDrawCommandsStatesAddressNV(@NativeType("GLuint64 const *") long[] indirects, @NativeType("GLsizei const *") int[] sizes, @NativeType("GLuint const *") int[] states, @NativeType("GLuint const *") int[] fbos) {
         long __functionAddress = GL.getICD().glDrawCommandsStatesAddressNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -645,7 +645,7 @@ public class NVCommandList {
     }
 
     /** Array version of: {@link #glDeleteCommandListsNV DeleteCommandListsNV} */
-    public static void glDeleteCommandListsNV(@NativeType("const GLuint *") int[] lists) {
+    public static void glDeleteCommandListsNV(@NativeType("GLuint const *") int[] lists) {
         long __functionAddress = GL.getICD().glDeleteCommandListsNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -654,7 +654,7 @@ public class NVCommandList {
     }
 
     /** Array version of: {@link #glListDrawCommandsStatesClientNV ListDrawCommandsStatesClientNV} */
-    public static void glListDrawCommandsStatesClientNV(@NativeType("GLuint") int list, @NativeType("GLuint") int segment, @NativeType("const void **") PointerBuffer indirects, @NativeType("const size_t *") PointerBuffer sizes, @NativeType("const GLuint *") int[] states, @NativeType("const GLuint *") int[] fbos) {
+    public static void glListDrawCommandsStatesClientNV(@NativeType("GLuint") int list, @NativeType("GLuint") int segment, @NativeType("void const **") PointerBuffer indirects, @NativeType("size_t const *") PointerBuffer sizes, @NativeType("GLuint const *") int[] states, @NativeType("GLuint const *") int[] fbos) {
         long __functionAddress = GL.getICD().glListDrawCommandsStatesClientNV;
         if (CHECKS) {
             check(__functionAddress);

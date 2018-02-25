@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "opengl.h"
 
-typedef jint (APIENTRY *glGetSubroutineUniformLocationPROC) (jint, jint, const intptr_t);
-typedef jint (APIENTRY *glGetSubroutineIndexPROC) (jint, jint, const intptr_t);
+typedef jint (APIENTRY *glGetSubroutineUniformLocationPROC) (jint, jint, intptr_t);
+typedef jint (APIENTRY *glGetSubroutineIndexPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetActiveSubroutineUniformivPROC) (jint, jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glGetActiveSubroutineUniformNamePROC) (jint, jint, jint, jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glGetActiveSubroutineNamePROC) (jint, jint, jint, jint, intptr_t, intptr_t);
-typedef void (APIENTRY *glUniformSubroutinesuivPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glUniformSubroutinesuivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetUniformSubroutineuivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetProgramStageivPROC) (jint, jint, jint, intptr_t);
 
@@ -19,14 +19,14 @@ EXTERN_C_ENTER
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderSubroutine_nglGetSubroutineUniformLocation(JNIEnv *__env, jclass clazz, jint program, jint shadertype, jlong nameAddress) {
     glGetSubroutineUniformLocationPROC glGetSubroutineUniformLocation = (glGetSubroutineUniformLocationPROC)tlsGetFunction(716);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetSubroutineUniformLocation(program, shadertype, name);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBShaderSubroutine_nglGetSubroutineIndex(JNIEnv *__env, jclass clazz, jint program, jint shadertype, jlong nameAddress) {
     glGetSubroutineIndexPROC glGetSubroutineIndex = (glGetSubroutineIndexPROC)tlsGetFunction(715);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetSubroutineIndex(program, shadertype, name);
 }
@@ -56,7 +56,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderSubroutine_nglGetActiveSub
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderSubroutine_nglUniformSubroutinesuiv__IIJ(JNIEnv *__env, jclass clazz, jint shadertype, jint count, jlong indicesAddress) {
     glUniformSubroutinesuivPROC glUniformSubroutinesuiv = (glUniformSubroutinesuivPROC)tlsGetFunction(1857);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glUniformSubroutinesuiv(shadertype, count, indices);
 }

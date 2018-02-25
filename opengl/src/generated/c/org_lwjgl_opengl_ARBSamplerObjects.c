@@ -7,15 +7,15 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glGenSamplersPROC) (jint, intptr_t);
-typedef void (APIENTRY *glDeleteSamplersPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteSamplersPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsSamplerPROC) (jint);
 typedef void (APIENTRY *glBindSamplerPROC) (jint, jint);
 typedef void (APIENTRY *glSamplerParameteriPROC) (jint, jint, jint);
 typedef void (APIENTRY *glSamplerParameterfPROC) (jint, jint, jfloat);
-typedef void (APIENTRY *glSamplerParameterivPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glSamplerParameterfvPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glSamplerParameterIivPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glSamplerParameterIuivPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glSamplerParameterivPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glSamplerParameterfvPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glSamplerParameterIivPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glSamplerParameterIuivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetSamplerParameterivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetSamplerParameterfvPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetSamplerParameterIivPROC) (jint, jint, intptr_t);
@@ -32,7 +32,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSamplerObjects_nglGenSamplers__I
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSamplerObjects_nglDeleteSamplers__IJ(JNIEnv *__env, jclass clazz, jint count, jlong samplersAddress) {
     glDeleteSamplersPROC glDeleteSamplers = (glDeleteSamplersPROC)tlsGetFunction(318);
-    const intptr_t samplers = (const intptr_t)samplersAddress;
+    intptr_t samplers = (intptr_t)samplersAddress;
     UNUSED_PARAM(clazz)
     glDeleteSamplers(count, samplers);
 }
@@ -63,28 +63,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSamplerObjects_glSamplerParamete
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSamplerObjects_nglSamplerParameteriv__IIJ(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jlong paramsAddress) {
     glSamplerParameterivPROC glSamplerParameteriv = (glSamplerParameterivPROC)tlsGetFunction(1502);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glSamplerParameteriv(sampler, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSamplerObjects_nglSamplerParameterfv__IIJ(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jlong paramsAddress) {
     glSamplerParameterfvPROC glSamplerParameterfv = (glSamplerParameterfvPROC)tlsGetFunction(1500);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glSamplerParameterfv(sampler, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSamplerObjects_nglSamplerParameterIiv__IIJ(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jlong paramsAddress) {
     glSamplerParameterIivPROC glSamplerParameterIiv = (glSamplerParameterIivPROC)tlsGetFunction(1497);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glSamplerParameterIiv(sampler, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBSamplerObjects_nglSamplerParameterIuiv__IIJ(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jlong paramsAddress) {
     glSamplerParameterIuivPROC glSamplerParameterIuiv = (glSamplerParameterIuivPROC)tlsGetFunction(1498);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glSamplerParameterIuiv(sampler, pname, params);
 }

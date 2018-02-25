@@ -86,7 +86,7 @@ public class SOFTLoopback {
      *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
      */
     @NativeType("ALCdevice *")
-    public static long alcLoopbackOpenDeviceSOFT(@Nullable @NativeType("const ALCchar *") ByteBuffer deviceName) {
+    public static long alcLoopbackOpenDeviceSOFT(@Nullable @NativeType("ALCchar const *") ByteBuffer deviceName) {
         if (CHECKS) {
             checkNT1Safe(deviceName);
         }
@@ -110,7 +110,7 @@ public class SOFTLoopback {
      *                   valid name returned by enumeration (and further must be a device capable of loopback rendering).
      */
     @NativeType("ALCdevice *")
-    public static long alcLoopbackOpenDeviceSOFT(@Nullable @NativeType("const ALCchar *") CharSequence deviceName) {
+    public static long alcLoopbackOpenDeviceSOFT(@Nullable @NativeType("ALCchar const *") CharSequence deviceName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer deviceNameEncoded = stack.UTF8Safe(deviceName);

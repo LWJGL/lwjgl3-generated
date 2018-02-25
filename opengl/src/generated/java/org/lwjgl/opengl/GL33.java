@@ -124,7 +124,7 @@ public class GL33 {
      * @param index       the index of the color input to bind the user-defined varying out variable to
      * @param name        the name of the user-defined varying out variable whose binding to modify
      */
-    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("const GLchar *") ByteBuffer name) {
+    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -141,7 +141,7 @@ public class GL33 {
      * @param index       the index of the color input to bind the user-defined varying out variable to
      * @param name        the name of the user-defined varying out variable whose binding to modify
      */
-    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("const GLchar *") CharSequence name) {
+    public static void glBindFragDataLocationIndexed(@NativeType("GLuint") int program, @NativeType("GLuint") int colorNumber, @NativeType("GLuint") int index, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -165,7 +165,7 @@ public class GL33 {
      * @param name    the name of the user-defined varying out variable whose index to query
      */
     @NativeType("GLint")
-    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -181,7 +181,7 @@ public class GL33 {
      * @param name    the name of the user-defined varying out variable whose index to query
      */
     @NativeType("GLint")
-    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetFragDataIndex(@NativeType("GLuint") int program, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -244,7 +244,7 @@ public class GL33 {
      *
      * @param samplers an array of sampler objects to be deleted
      */
-    public static void glDeleteSamplers(@NativeType("const GLuint *") IntBuffer samplers) {
+    public static void glDeleteSamplers(@NativeType("GLuint const *") IntBuffer samplers) {
         nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
     }
 
@@ -253,7 +253,7 @@ public class GL33 {
      * 
      * Deletes named sampler objects.
      */
-    public static void glDeleteSamplers(@NativeType("const GLuint *") int sampler) {
+    public static void glDeleteSamplers(@NativeType("GLuint const *") int sampler) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer samplers = stack.ints(sampler);
@@ -327,7 +327,7 @@ public class GL33 {
      * @param pname   the symbolic name of a sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td></tr><tr><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td></tr><tr><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr></table>
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -348,7 +348,7 @@ public class GL33 {
      * @param pname   the symbolic name of a sampler parameter
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -369,7 +369,7 @@ public class GL33 {
      * @param pname   the symbolic name of a sampler parameter
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -390,7 +390,7 @@ public class GL33 {
      * @param pname   the symbolic name of a sampler parameter
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") IntBuffer params) {
+    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -716,7 +716,7 @@ public class GL33 {
      * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param value the packed value
      */
-    public static void glVertexP2uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glVertexP2uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -736,7 +736,7 @@ public class GL33 {
      * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param value the packed value
      */
-    public static void glVertexP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glVertexP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -756,7 +756,7 @@ public class GL33 {
      * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param value the packed value
      */
-    public static void glVertexP4uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glVertexP4uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -824,7 +824,7 @@ public class GL33 {
      * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords the packed value
      */
-    public static void glTexCoordP1uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glTexCoordP1uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -844,7 +844,7 @@ public class GL33 {
      * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords the packed value
      */
-    public static void glTexCoordP2uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glTexCoordP2uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -864,7 +864,7 @@ public class GL33 {
      * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords the packed value
      */
-    public static void glTexCoordP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glTexCoordP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -884,7 +884,7 @@ public class GL33 {
      * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords the packed value
      */
-    public static void glTexCoordP4uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glTexCoordP4uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -957,7 +957,7 @@ public class GL33 {
      * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords  the packed value
      */
-    public static void glMultiTexCoordP1uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glMultiTexCoordP1uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -978,7 +978,7 @@ public class GL33 {
      * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords  the packed value
      */
-    public static void glMultiTexCoordP2uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glMultiTexCoordP2uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -999,7 +999,7 @@ public class GL33 {
      * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords  the packed value
      */
-    public static void glMultiTexCoordP3uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glMultiTexCoordP3uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -1020,7 +1020,7 @@ public class GL33 {
      * @param type    type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords  the packed value
      */
-    public static void glMultiTexCoordP4uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glMultiTexCoordP4uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -1052,7 +1052,7 @@ public class GL33 {
      * @param type   type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param coords the packed value
      */
-    public static void glNormalP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer coords) {
+    public static void glNormalP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 1);
         }
@@ -1096,7 +1096,7 @@ public class GL33 {
      * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param color the packed value
      */
-    public static void glColorP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer color) {
+    public static void glColorP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer color) {
         if (CHECKS) {
             check(color, 1);
         }
@@ -1116,7 +1116,7 @@ public class GL33 {
      * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param color the packed value
      */
-    public static void glColorP4uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer color) {
+    public static void glColorP4uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer color) {
         if (CHECKS) {
             check(color, 1);
         }
@@ -1148,7 +1148,7 @@ public class GL33 {
      * @param type  type of packing used on the data. One of:<br><table><tr><td>{@link #GL_INT_2_10_10_10_REV INT_2_10_10_10_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr></table>
      * @param color the packed value
      */
-    public static void glSecondaryColorP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") IntBuffer color) {
+    public static void glSecondaryColorP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") IntBuffer color) {
         if (CHECKS) {
             check(color, 1);
         }
@@ -1226,7 +1226,7 @@ public class GL33 {
      * @param normalized whether values should be normalized or cast directly to floating-point
      * @param value      the packed value
      */
-    public static void glVertexAttribP1uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glVertexAttribP1uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -1248,7 +1248,7 @@ public class GL33 {
      * @param normalized whether values should be normalized or cast directly to floating-point
      * @param value      the packed value
      */
-    public static void glVertexAttribP2uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glVertexAttribP2uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -1270,7 +1270,7 @@ public class GL33 {
      * @param normalized whether values should be normalized or cast directly to floating-point
      * @param value      the packed value
      */
-    public static void glVertexAttribP3uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glVertexAttribP3uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -1292,7 +1292,7 @@ public class GL33 {
      * @param normalized whether values should be normalized or cast directly to floating-point
      * @param value      the packed value
      */
-    public static void glVertexAttribP4uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glVertexAttribP4uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") IntBuffer value) {
         if (CHECKS) {
             check(value, 1);
         }
@@ -1317,7 +1317,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glDeleteSamplers DeleteSamplers}
      */
-    public static void glDeleteSamplers(@NativeType("const GLuint *") int[] samplers) {
+    public static void glDeleteSamplers(@NativeType("GLuint const *") int[] samplers) {
         long __functionAddress = GL.getICD().glDeleteSamplers;
         if (CHECKS) {
             check(__functionAddress);
@@ -1330,7 +1330,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glSamplerParameteriv SamplerParameteriv}
      */
-    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glSamplerParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1344,7 +1344,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glSamplerParameterfv SamplerParameterfv}
      */
-    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glSamplerParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1358,7 +1358,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glSamplerParameterIiv SamplerParameterIiv}
      */
-    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glSamplerParameterIiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1372,7 +1372,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv}
      */
-    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int[] params) {
+    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int[] params) {
         long __functionAddress = GL.getICD().glSamplerParameterIuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1470,7 +1470,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glVertexP2uiv VertexP2uiv}
      */
-    public static void glVertexP2uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] value) {
+    public static void glVertexP2uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glVertexP2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1484,7 +1484,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glVertexP3uiv VertexP3uiv}
      */
-    public static void glVertexP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] value) {
+    public static void glVertexP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glVertexP3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1498,7 +1498,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glVertexP4uiv VertexP4uiv}
      */
-    public static void glVertexP4uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] value) {
+    public static void glVertexP4uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glVertexP4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1512,7 +1512,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glTexCoordP1uiv TexCoordP1uiv}
      */
-    public static void glTexCoordP1uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glTexCoordP1uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glTexCoordP1uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1526,7 +1526,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glTexCoordP2uiv TexCoordP2uiv}
      */
-    public static void glTexCoordP2uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glTexCoordP2uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glTexCoordP2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1540,7 +1540,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glTexCoordP3uiv TexCoordP3uiv}
      */
-    public static void glTexCoordP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glTexCoordP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glTexCoordP3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1554,7 +1554,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glTexCoordP4uiv TexCoordP4uiv}
      */
-    public static void glTexCoordP4uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glTexCoordP4uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glTexCoordP4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1568,7 +1568,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glMultiTexCoordP1uiv MultiTexCoordP1uiv}
      */
-    public static void glMultiTexCoordP1uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glMultiTexCoordP1uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glMultiTexCoordP1uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1582,7 +1582,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glMultiTexCoordP2uiv MultiTexCoordP2uiv}
      */
-    public static void glMultiTexCoordP2uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glMultiTexCoordP2uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glMultiTexCoordP2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1596,7 +1596,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glMultiTexCoordP3uiv MultiTexCoordP3uiv}
      */
-    public static void glMultiTexCoordP3uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glMultiTexCoordP3uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glMultiTexCoordP3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1610,7 +1610,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glMultiTexCoordP4uiv MultiTexCoordP4uiv}
      */
-    public static void glMultiTexCoordP4uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glMultiTexCoordP4uiv(@NativeType("GLenum") int texture, @NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glMultiTexCoordP4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1624,7 +1624,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glNormalP3uiv NormalP3uiv}
      */
-    public static void glNormalP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] coords) {
+    public static void glNormalP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] coords) {
         long __functionAddress = GL.getICD().glNormalP3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1638,7 +1638,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glColorP3uiv ColorP3uiv}
      */
-    public static void glColorP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] color) {
+    public static void glColorP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] color) {
         long __functionAddress = GL.getICD().glColorP3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1652,7 +1652,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glColorP4uiv ColorP4uiv}
      */
-    public static void glColorP4uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] color) {
+    public static void glColorP4uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] color) {
         long __functionAddress = GL.getICD().glColorP4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1666,7 +1666,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glSecondaryColorP3uiv SecondaryColorP3uiv}
      */
-    public static void glSecondaryColorP3uiv(@NativeType("GLenum") int type, @NativeType("const GLuint *") int[] color) {
+    public static void glSecondaryColorP3uiv(@NativeType("GLenum") int type, @NativeType("GLuint const *") int[] color) {
         long __functionAddress = GL.getICD().glSecondaryColorP3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1680,7 +1680,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glVertexAttribP1uiv VertexAttribP1uiv}
      */
-    public static void glVertexAttribP1uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") int[] value) {
+    public static void glVertexAttribP1uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glVertexAttribP1uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1694,7 +1694,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glVertexAttribP2uiv VertexAttribP2uiv}
      */
-    public static void glVertexAttribP2uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") int[] value) {
+    public static void glVertexAttribP2uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glVertexAttribP2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1708,7 +1708,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glVertexAttribP3uiv VertexAttribP3uiv}
      */
-    public static void glVertexAttribP3uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") int[] value) {
+    public static void glVertexAttribP3uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glVertexAttribP3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1722,7 +1722,7 @@ public class GL33 {
      * 
      * Array version of: {@link #glVertexAttribP4uiv VertexAttribP4uiv}
      */
-    public static void glVertexAttribP4uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("const GLuint *") int[] value) {
+    public static void glVertexAttribP4uiv(@NativeType("GLuint") int index, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glVertexAttribP4uiv;
         if (CHECKS) {
             check(__functionAddress);

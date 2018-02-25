@@ -100,7 +100,7 @@ public class NativeFileDialog {
      * @param outPath     returns the selected file path
      */
     @NativeType("nfdresult_t")
-    public static int NFD_OpenDialog(@Nullable @NativeType("const nfdchar_t *") ByteBuffer filterList, @Nullable @NativeType("const nfdchar_t *") ByteBuffer defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
+    public static int NFD_OpenDialog(@Nullable @NativeType("nfdchar_t const *") ByteBuffer filterList, @Nullable @NativeType("nfdchar_t const *") ByteBuffer defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
         if (CHECKS) {
             checkNT1Safe(filterList);
             checkNT1Safe(defaultPath);
@@ -120,7 +120,7 @@ public class NativeFileDialog {
      * @param outPath     returns the selected file path
      */
     @NativeType("nfdresult_t")
-    public static int NFD_OpenDialog(@Nullable @NativeType("const nfdchar_t *") CharSequence filterList, @Nullable @NativeType("const nfdchar_t *") CharSequence defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
+    public static int NFD_OpenDialog(@Nullable @NativeType("nfdchar_t const *") CharSequence filterList, @Nullable @NativeType("nfdchar_t const *") CharSequence defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
         if (CHECKS) {
             check(outPath, 1);
         }
@@ -150,7 +150,7 @@ public class NativeFileDialog {
      * @param outPaths    a path set that will be filled with the selected files
      */
     @NativeType("nfdresult_t")
-    public static int NFD_OpenDialogMultiple(@Nullable @NativeType("const nfdchar_t *") ByteBuffer filterList, @Nullable @NativeType("const nfdchar_t *") ByteBuffer defaultPath, @NativeType("nfdpathset_t *") NFDPathSet outPaths) {
+    public static int NFD_OpenDialogMultiple(@Nullable @NativeType("nfdchar_t const *") ByteBuffer filterList, @Nullable @NativeType("nfdchar_t const *") ByteBuffer defaultPath, @NativeType("nfdpathset_t *") NFDPathSet outPaths) {
         if (CHECKS) {
             checkNT1Safe(filterList);
             checkNT1Safe(defaultPath);
@@ -169,7 +169,7 @@ public class NativeFileDialog {
      * @param outPaths    a path set that will be filled with the selected files
      */
     @NativeType("nfdresult_t")
-    public static int NFD_OpenDialogMultiple(@Nullable @NativeType("const nfdchar_t *") CharSequence filterList, @Nullable @NativeType("const nfdchar_t *") CharSequence defaultPath, @NativeType("nfdpathset_t *") NFDPathSet outPaths) {
+    public static int NFD_OpenDialogMultiple(@Nullable @NativeType("nfdchar_t const *") CharSequence filterList, @Nullable @NativeType("nfdchar_t const *") CharSequence defaultPath, @NativeType("nfdpathset_t *") NFDPathSet outPaths) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer filterListEncoded = stack.UTF8Safe(filterList);
@@ -196,7 +196,7 @@ public class NativeFileDialog {
      * @param outPath     returns the selected file path
      */
     @NativeType("nfdresult_t")
-    public static int NFD_SaveDialog(@Nullable @NativeType("const nfdchar_t *") ByteBuffer filterList, @Nullable @NativeType("const nfdchar_t *") ByteBuffer defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
+    public static int NFD_SaveDialog(@Nullable @NativeType("nfdchar_t const *") ByteBuffer filterList, @Nullable @NativeType("nfdchar_t const *") ByteBuffer defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
         if (CHECKS) {
             checkNT1Safe(filterList);
             checkNT1Safe(defaultPath);
@@ -216,7 +216,7 @@ public class NativeFileDialog {
      * @param outPath     returns the selected file path
      */
     @NativeType("nfdresult_t")
-    public static int NFD_SaveDialog(@Nullable @NativeType("const nfdchar_t *") CharSequence filterList, @Nullable @NativeType("const nfdchar_t *") CharSequence defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
+    public static int NFD_SaveDialog(@Nullable @NativeType("nfdchar_t const *") CharSequence filterList, @Nullable @NativeType("nfdchar_t const *") CharSequence defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
         if (CHECKS) {
             check(outPath, 1);
         }
@@ -245,7 +245,7 @@ public class NativeFileDialog {
      * @param outPath     returns the selected file path
      */
     @NativeType("nfdresult_t")
-    public static int NFD_PickFolder(@Nullable @NativeType("const nfdchar_t *") ByteBuffer defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
+    public static int NFD_PickFolder(@Nullable @NativeType("nfdchar_t const *") ByteBuffer defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
         if (CHECKS) {
             checkNT1Safe(defaultPath);
             check(outPath, 1);
@@ -263,7 +263,7 @@ public class NativeFileDialog {
      * @param outPath     returns the selected file path
      */
     @NativeType("nfdresult_t")
-    public static int NFD_PickFolder(@Nullable @NativeType("const nfdchar_t *") CharSequence defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
+    public static int NFD_PickFolder(@Nullable @NativeType("nfdchar_t const *") CharSequence defaultPath, @NativeType("nfdchar_t **") PointerBuffer outPath) {
         if (CHECKS) {
             check(outPath, 1);
         }
@@ -283,7 +283,7 @@ public class NativeFileDialog {
 
     /** Returns the last error. */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String NFD_GetError() {
         long __result = nNFD_GetError();
         return memASCIISafe(__result);
@@ -300,7 +300,7 @@ public class NativeFileDialog {
      * @param pathSet the path set to query
      */
     @NativeType("size_t")
-    public static long NFD_PathSet_GetCount(@NativeType("const nfdpathset_t *") NFDPathSet pathSet) {
+    public static long NFD_PathSet_GetCount(@NativeType("nfdpathset_t const *") NFDPathSet pathSet) {
         return nNFD_PathSet_GetCount(pathSet.address());
     }
 
@@ -317,7 +317,7 @@ public class NativeFileDialog {
      */
     @Nullable
     @NativeType("nfdchar_t *")
-    public static String NFD_PathSet_GetPath(@NativeType("const nfdpathset_t *") NFDPathSet pathSet, @NativeType("size_t") long index) {
+    public static String NFD_PathSet_GetPath(@NativeType("nfdpathset_t const *") NFDPathSet pathSet, @NativeType("size_t") long index) {
         long __result = nNFD_PathSet_GetPath(pathSet.address(), index);
         return memUTF8Safe(__result);
     }

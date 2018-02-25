@@ -19,11 +19,11 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * void (*) (
  *     bgfx_callback_interface_t *_this,
- *     const char *_filePath,
+ *     char const *_filePath,
  *     uint32_t _width,
  *     uint32_t _height,
  *     uint32_t _pitch,
- *     const void *_data,
+ *     void const *_data,
  *     uint32_t _size,
  *     bool _yflip
  * )</pre></code>

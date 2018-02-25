@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glBindVertexArrayPROC) (jint);
-typedef void (APIENTRY *glDeleteVertexArraysPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteVertexArraysPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenVertexArraysPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsVertexArrayPROC) (jint);
 
@@ -21,7 +21,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_glBindVertexAr
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexArrayObject_nglDeleteVertexArrays__IJ(JNIEnv *__env, jclass clazz, jint n, jlong arraysAddress) {
     glDeleteVertexArraysPROC glDeleteVertexArrays = (glDeleteVertexArraysPROC)tlsGetFunction(326);
-    const intptr_t arrays = (const intptr_t)arraysAddress;
+    intptr_t arrays = (intptr_t)arraysAddress;
     UNUSED_PARAM(clazz)
     glDeleteVertexArrays(n, arrays);
 }

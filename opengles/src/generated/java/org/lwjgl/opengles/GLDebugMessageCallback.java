@@ -23,8 +23,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     GLuint id,
  *     GLenum severity,
  *     GLsizei length,
- *     const GLchar *message,
- *     const void *userParam
+ *     GLchar const *message,
+ *     void const *userParam
  * )</pre></code>
  */
 public abstract class GLDebugMessageCallback extends Callback implements GLDebugMessageCallbackI {

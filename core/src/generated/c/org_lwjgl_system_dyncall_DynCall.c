@@ -221,7 +221,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcFreeStruct(JNIEn
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_dyncall_DynCall_ndcDefineStruct(JNIEnv *__env, jclass clazz, jlong signatureAddress) {
-    const char *signature = (const char *)(intptr_t)signatureAddress;
+    char const *signature = (char const *)(intptr_t)signatureAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)dcDefineStruct(signature);
 }

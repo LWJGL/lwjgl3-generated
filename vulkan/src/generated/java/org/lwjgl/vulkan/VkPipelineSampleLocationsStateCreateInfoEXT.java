@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPipelineSampleLocationsStateCreateInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkBool32 sampleLocationsEnable;
  *     {@link VkSampleLocationsInfoEXT VkSampleLocationsInfoEXT} sampleLocationsInfo;
  * }</pre></code>
@@ -101,7 +101,7 @@ public class VkPipelineSampleLocationsStateCreateInfoEXT extends Struct implemen
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code sampleLocationsEnable} field. */
     @NativeType("VkBool32")
@@ -112,7 +112,7 @@ public class VkPipelineSampleLocationsStateCreateInfoEXT extends Struct implemen
     /** Sets the specified value to the {@code sType} field. */
     public VkPipelineSampleLocationsStateCreateInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineSampleLocationsStateCreateInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPipelineSampleLocationsStateCreateInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code sampleLocationsEnable} field. */
     public VkPipelineSampleLocationsStateCreateInfoEXT sampleLocationsEnable(@NativeType("VkBool32") boolean value) { nsampleLocationsEnable(address(), value ? 1 : 0); return this; }
     /** Copies the specified {@link VkSampleLocationsInfoEXT} to the {@code sampleLocationsInfo} field. */
@@ -375,7 +375,7 @@ public class VkPipelineSampleLocationsStateCreateInfoEXT extends Struct implemen
         @NativeType("VkStructureType")
         public int sType() { return VkPipelineSampleLocationsStateCreateInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPipelineSampleLocationsStateCreateInfoEXT.npNext(address()); }
         /** Returns the value of the {@code sampleLocationsEnable} field. */
         @NativeType("VkBool32")
@@ -386,7 +386,7 @@ public class VkPipelineSampleLocationsStateCreateInfoEXT extends Struct implemen
         /** Sets the specified value to the {@code sType} field. */
         public VkPipelineSampleLocationsStateCreateInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineSampleLocationsStateCreateInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineSampleLocationsStateCreateInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkPipelineSampleLocationsStateCreateInfoEXT.npNext(address(), value); return this; }
+        public VkPipelineSampleLocationsStateCreateInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkPipelineSampleLocationsStateCreateInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code sampleLocationsEnable} field. */
         public VkPipelineSampleLocationsStateCreateInfoEXT.Buffer sampleLocationsEnable(@NativeType("VkBool32") boolean value) { VkPipelineSampleLocationsStateCreateInfoEXT.nsampleLocationsEnable(address(), value ? 1 : 0); return this; }
         /** Copies the specified {@link VkSampleLocationsInfoEXT} to the {@code sampleLocationsInfo} field. */

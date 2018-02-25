@@ -51,9 +51,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkIOSSurfaceCreateInfoMVK {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkIOSSurfaceCreateFlagsMVK flags;
- *     const void * pView;
+ *     void const * pView;
  * }</pre></code>
  */
 public class VkIOSSurfaceCreateInfoMVK extends Struct implements NativeResource {
@@ -108,23 +108,23 @@ public class VkIOSSurfaceCreateInfoMVK extends Struct implements NativeResource 
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkIOSSurfaceCreateFlagsMVK")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code pView} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pView() { return npView(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkIOSSurfaceCreateInfoMVK sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkIOSSurfaceCreateInfoMVK pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkIOSSurfaceCreateInfoMVK pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkIOSSurfaceCreateInfoMVK flags(@NativeType("VkIOSSurfaceCreateFlagsMVK") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code pView} field. */
-    public VkIOSSurfaceCreateInfoMVK pView(@NativeType("const void *") long value) { npView(address(), value); return this; }
+    public VkIOSSurfaceCreateInfoMVK pView(@NativeType("void const *") long value) { npView(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkIOSSurfaceCreateInfoMVK set(
@@ -383,23 +383,23 @@ public class VkIOSSurfaceCreateInfoMVK extends Struct implements NativeResource 
         @NativeType("VkStructureType")
         public int sType() { return VkIOSSurfaceCreateInfoMVK.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkIOSSurfaceCreateInfoMVK.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkIOSSurfaceCreateFlagsMVK")
         public int flags() { return VkIOSSurfaceCreateInfoMVK.nflags(address()); }
         /** Returns the value of the {@code pView} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pView() { return VkIOSSurfaceCreateInfoMVK.npView(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkIOSSurfaceCreateInfoMVK.Buffer sType(@NativeType("VkStructureType") int value) { VkIOSSurfaceCreateInfoMVK.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkIOSSurfaceCreateInfoMVK.Buffer pNext(@NativeType("const void *") long value) { VkIOSSurfaceCreateInfoMVK.npNext(address(), value); return this; }
+        public VkIOSSurfaceCreateInfoMVK.Buffer pNext(@NativeType("void const *") long value) { VkIOSSurfaceCreateInfoMVK.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkIOSSurfaceCreateInfoMVK.Buffer flags(@NativeType("VkIOSSurfaceCreateFlagsMVK") int value) { VkIOSSurfaceCreateInfoMVK.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code pView} field. */
-        public VkIOSSurfaceCreateInfoMVK.Buffer pView(@NativeType("const void *") long value) { VkIOSSurfaceCreateInfoMVK.npView(address(), value); return this; }
+        public VkIOSSurfaceCreateInfoMVK.Buffer pView(@NativeType("void const *") long value) { VkIOSSurfaceCreateInfoMVK.npView(address(), value); return this; }
 
     }
 

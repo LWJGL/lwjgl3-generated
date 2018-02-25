@@ -44,7 +44,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkImagePlaneMemoryRequirementsInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImageAspectFlagBits planeAspect;
  * }</pre></code>
  */
@@ -97,7 +97,7 @@ public class VkImagePlaneMemoryRequirementsInfoKHR extends Struct implements Nat
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code planeAspect} field. */
     @NativeType("VkImageAspectFlagBits")
@@ -106,7 +106,7 @@ public class VkImagePlaneMemoryRequirementsInfoKHR extends Struct implements Nat
     /** Sets the specified value to the {@code sType} field. */
     public VkImagePlaneMemoryRequirementsInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImagePlaneMemoryRequirementsInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImagePlaneMemoryRequirementsInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code planeAspect} field. */
     public VkImagePlaneMemoryRequirementsInfoKHR planeAspect(@NativeType("VkImageAspectFlagBits") int value) { nplaneAspect(address(), value); return this; }
 
@@ -340,7 +340,7 @@ public class VkImagePlaneMemoryRequirementsInfoKHR extends Struct implements Nat
         @NativeType("VkStructureType")
         public int sType() { return VkImagePlaneMemoryRequirementsInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImagePlaneMemoryRequirementsInfoKHR.npNext(address()); }
         /** Returns the value of the {@code planeAspect} field. */
         @NativeType("VkImageAspectFlagBits")
@@ -349,7 +349,7 @@ public class VkImagePlaneMemoryRequirementsInfoKHR extends Struct implements Nat
         /** Sets the specified value to the {@code sType} field. */
         public VkImagePlaneMemoryRequirementsInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImagePlaneMemoryRequirementsInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImagePlaneMemoryRequirementsInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkImagePlaneMemoryRequirementsInfoKHR.npNext(address(), value); return this; }
+        public VkImagePlaneMemoryRequirementsInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkImagePlaneMemoryRequirementsInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code planeAspect} field. */
         public VkImagePlaneMemoryRequirementsInfoKHR.Buffer planeAspect(@NativeType("VkImageAspectFlagBits") int value) { VkImagePlaneMemoryRequirementsInfoKHR.nplaneAspect(address(), value); return this; }
 

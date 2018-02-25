@@ -34,9 +34,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct aiExportFormatDesc {
- *     const char * id;
- *     const char * description;
- *     const char * fileExtension;
+ *     char const * id;
+ *     char const * description;
+ *     char const * fileExtension;
  * }</pre></code>
  */
 @NativeType("struct aiExportFormatDesc")
@@ -86,30 +86,30 @@ public class AIExportFormatDesc extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code id} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public ByteBuffer id() { return nid(address()); }
     /** Decodes the null-terminated string pointed to by the {@code id} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public String idString() { return nidString(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code description} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public ByteBuffer description() { return ndescription(address()); }
     /** Decodes the null-terminated string pointed to by the {@code description} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public String descriptionString() { return ndescriptionString(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code fileExtension} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public ByteBuffer fileExtension() { return nfileExtension(address()); }
     /** Decodes the null-terminated string pointed to by the {@code fileExtension} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public String fileExtensionString() { return nfileExtensionString(address()); }
 
     /** Sets the address of the specified encoded string to the {@code id} field. */
-    public AIExportFormatDesc id(@NativeType("const char *") ByteBuffer value) { nid(address(), value); return this; }
+    public AIExportFormatDesc id(@NativeType("char const *") ByteBuffer value) { nid(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code description} field. */
-    public AIExportFormatDesc description(@NativeType("const char *") ByteBuffer value) { ndescription(address(), value); return this; }
+    public AIExportFormatDesc description(@NativeType("char const *") ByteBuffer value) { ndescription(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code fileExtension} field. */
-    public AIExportFormatDesc fileExtension(@NativeType("const char *") ByteBuffer value) { nfileExtension(address(), value); return this; }
+    public AIExportFormatDesc fileExtension(@NativeType("char const *") ByteBuffer value) { nfileExtension(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public AIExportFormatDesc set(
@@ -376,30 +376,30 @@ public class AIExportFormatDesc extends Struct implements NativeResource {
         }
 
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code id} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public ByteBuffer id() { return AIExportFormatDesc.nid(address()); }
         /** Decodes the null-terminated string pointed to by the {@code id} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public String idString() { return AIExportFormatDesc.nidString(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code description} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public ByteBuffer description() { return AIExportFormatDesc.ndescription(address()); }
         /** Decodes the null-terminated string pointed to by the {@code description} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public String descriptionString() { return AIExportFormatDesc.ndescriptionString(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code fileExtension} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public ByteBuffer fileExtension() { return AIExportFormatDesc.nfileExtension(address()); }
         /** Decodes the null-terminated string pointed to by the {@code fileExtension} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public String fileExtensionString() { return AIExportFormatDesc.nfileExtensionString(address()); }
 
         /** Sets the address of the specified encoded string to the {@code id} field. */
-        public AIExportFormatDesc.Buffer id(@NativeType("const char *") ByteBuffer value) { AIExportFormatDesc.nid(address(), value); return this; }
+        public AIExportFormatDesc.Buffer id(@NativeType("char const *") ByteBuffer value) { AIExportFormatDesc.nid(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code description} field. */
-        public AIExportFormatDesc.Buffer description(@NativeType("const char *") ByteBuffer value) { AIExportFormatDesc.ndescription(address(), value); return this; }
+        public AIExportFormatDesc.Buffer description(@NativeType("char const *") ByteBuffer value) { AIExportFormatDesc.ndescription(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code fileExtension} field. */
-        public AIExportFormatDesc.Buffer fileExtension(@NativeType("const char *") ByteBuffer value) { AIExportFormatDesc.nfileExtension(address(), value); return this; }
+        public AIExportFormatDesc.Buffer fileExtension(@NativeType("char const *") ByteBuffer value) { AIExportFormatDesc.nfileExtension(address(), value); return this; }
 
     }
 

@@ -17,7 +17,7 @@ ENABLE_WARNINGS()
 EXTERN_C_ENTER
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1Initialize(JNIEnv *__env, jclass clazz, jlong paramsAddress) {
-    const ovrInitParams *params = (const ovrInitParams *)(intptr_t)paramsAddress;
+    ovrInitParams const *params = (ovrInitParams const *)(intptr_t)paramsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_Initialize(params);
 }
@@ -39,13 +39,13 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetVersionString(JNIEnv *__
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1TraceMessage(JNIEnv *__env, jclass clazz, jint level, jlong messageAddress) {
-    const char *message = (const char *)(intptr_t)messageAddress;
+    char const *message = (char const *)(intptr_t)messageAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_TraceMessage(level, message);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1IdentifyClient(JNIEnv *__env, jclass clazz, jlong identityAddress) {
-    const char *identity = (const char *)(intptr_t)identityAddress;
+    char const *identity = (char const *)(intptr_t)identityAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_IdentifyClient(identity);
 }
@@ -179,7 +179,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetControllerVibration(JNIEn
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SubmitControllerVibration(JNIEnv *__env, jclass clazz, jlong sessionAddress, jint controllerType, jlong bufferAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const ovrHapticsBuffer *buffer = (const ovrHapticsBuffer *)(intptr_t)bufferAddress;
+    ovrHapticsBuffer const *buffer = (ovrHapticsBuffer const *)(intptr_t)bufferAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_SubmitControllerVibration(session, (ovrControllerType)controllerType, buffer);
 }
@@ -200,7 +200,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1TestBoundary(JNIEnv *__env, 
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1TestBoundaryPoint(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong pointAddress, jint singleBoundaryType, jlong outTestResultAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const ovrVector3f *point = (const ovrVector3f *)(intptr_t)pointAddress;
+    ovrVector3f const *point = (ovrVector3f const *)(intptr_t)pointAddress;
     ovrBoundaryTestResult *outTestResult = (ovrBoundaryTestResult *)(intptr_t)outTestResultAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_TestBoundaryPoint(session, point, (ovrBoundaryType)singleBoundaryType, outTestResult);
@@ -208,7 +208,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1TestBoundaryPoint(JNIEnv *__
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetBoundaryLookAndFeel(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong lookAndFeelAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const ovrBoundaryLookAndFeel *lookAndFeel = (const ovrBoundaryLookAndFeel *)(intptr_t)lookAndFeelAddress;
+    ovrBoundaryLookAndFeel const *lookAndFeel = (ovrBoundaryLookAndFeel const *)(intptr_t)lookAndFeelAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_SetBoundaryLookAndFeel(session, lookAndFeel);
 }
@@ -320,16 +320,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1BeginFrame(JNIEnv *__env, jc
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1EndFrame(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jlong viewScaleDescAddress, jlong layerPtrListAddress, jint layerCount) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const ovrViewScaleDesc *viewScaleDesc = (const ovrViewScaleDesc *)(intptr_t)viewScaleDescAddress;
-    const ovrLayerHeader * const *layerPtrList = (const ovrLayerHeader * const *)(intptr_t)layerPtrListAddress;
+    ovrViewScaleDesc const *viewScaleDesc = (ovrViewScaleDesc const *)(intptr_t)viewScaleDescAddress;
+    ovrLayerHeader const * const *layerPtrList = (ovrLayerHeader const * const *)(intptr_t)layerPtrListAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_EndFrame(session, (long long)frameIndex, viewScaleDesc, layerPtrList, (unsigned int)layerCount);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SubmitFrame(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong frameIndex, jlong viewScaleDescAddress, jlong layerPtrListAddress, jint layerCount) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const ovrViewScaleDesc *viewScaleDesc = (const ovrViewScaleDesc *)(intptr_t)viewScaleDescAddress;
-    const ovrLayerHeader * const *layerPtrList = (const ovrLayerHeader * const *)(intptr_t)layerPtrListAddress;
+    ovrViewScaleDesc const *viewScaleDesc = (ovrViewScaleDesc const *)(intptr_t)viewScaleDescAddress;
+    ovrLayerHeader const * const *layerPtrList = (ovrLayerHeader const * const *)(intptr_t)layerPtrListAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_SubmitFrame(session, (long long)frameIndex, viewScaleDesc, layerPtrList, (unsigned int)layerCount);
 }
@@ -368,58 +368,58 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__JJJ(JNIE
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetExternalCameraProperties(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong nameAddress, jlong intrinsicsAddress, jlong extrinsicsAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
-    const ovrCameraIntrinsics *intrinsics = (const ovrCameraIntrinsics *)(intptr_t)intrinsicsAddress;
-    const ovrCameraExtrinsics *extrinsics = (const ovrCameraExtrinsics *)(intptr_t)extrinsicsAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
+    ovrCameraIntrinsics const *intrinsics = (ovrCameraIntrinsics const *)(intptr_t)intrinsicsAddress;
+    ovrCameraExtrinsics const *extrinsics = (ovrCameraExtrinsics const *)(intptr_t)extrinsicsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_SetExternalCameraProperties(session, name, intrinsics, extrinsics);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetBool(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jboolean defaultVal) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)ovr_GetBool(session, propertyName, (ovrBool)defaultVal);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetBool(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jboolean value) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)ovr_SetBool(session, propertyName, (ovrBool)value);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetInt(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jint defaultVal) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_GetInt(session, propertyName, defaultVal);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetInt(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jint value) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)ovr_SetInt(session, propertyName, value);
 }
 
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloat(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jfloat defaultVal) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jfloat)ovr_GetFloat(session, propertyName, defaultVal);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloat(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jfloat value) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)ovr_SetFloat(session, propertyName, value);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJJI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jlong valuesAddress, jint valuesCapacity) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     float *values = (float *)(intptr_t)valuesAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_GetFloatArray(session, propertyName, values, (unsigned int)valuesCapacity);
@@ -427,7 +427,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJJI(JNIEnv *
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJJI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jlong valuesAddress, jint valuesSize) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     float *values = (float *)(intptr_t)valuesAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)ovr_SetFloatArray(session, propertyName, values, (unsigned int)valuesSize);
@@ -435,16 +435,16 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJJI(JNIE
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetString(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jlong defaultValAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
-    const char *defaultVal = (const char *)(intptr_t)defaultValAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
+    char const *defaultVal = (char const *)(intptr_t)defaultValAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)ovr_GetString(session, propertyName, defaultVal);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetString(JNIEnv *__env, jclass clazz, jlong hmddescAddress, jlong propertyNameAddress, jlong valueAddress) {
     ovrSession hmddesc = (ovrSession)(intptr_t)hmddescAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
-    const char *value = (const char *)(intptr_t)valueAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
+    char const *value = (char const *)(intptr_t)valueAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jboolean)ovr_SetString(hmddesc, propertyName, value);
 }
@@ -536,7 +536,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJ_3FI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jfloatArray valuesAddress, jint valuesCapacity) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     jint __result;
     jfloat *values = (*__env)->GetPrimitiveArrayCritical(__env, valuesAddress, 0);
     UNUSED_PARAMS(__env, clazz)
@@ -546,14 +546,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJ_3FI(JNIEnv
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJ_3FI(jlong sessionAddress, jlong propertyNameAddress, jint values__length, jfloat* values, jint valuesCapacity) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAM(values__length)
     return (jint)ovr_GetFloatArray(session, propertyName, (float *)values, (unsigned int)valuesCapacity);
 }
 
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJ_3FI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jfloatArray valuesAddress, jint valuesSize) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     jboolean __result;
     jfloat *values = (*__env)->GetPrimitiveArrayCritical(__env, valuesAddress, 0);
     UNUSED_PARAMS(__env, clazz)
@@ -563,7 +563,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJ_3FI(JN
 }
 JNIEXPORT jboolean JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1SetFloatArray__JJ_3FI(jlong sessionAddress, jlong propertyNameAddress, jint values__length, jfloat* values, jint valuesSize) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    const char *propertyName = (const char *)(intptr_t)propertyNameAddress;
+    char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
     UNUSED_PARAM(values__length)
     return (jboolean)ovr_SetFloatArray(session, propertyName, (float *)values, (unsigned int)valuesSize);
 }

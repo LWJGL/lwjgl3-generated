@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkCommandBufferInheritanceInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkRenderPass renderPass;
  *     uint32_t subpass;
  *     VkFramebuffer framebuffer;
@@ -134,7 +134,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code renderPass} field. */
     @NativeType("VkRenderPass")
@@ -158,7 +158,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
     /** Sets the specified value to the {@code sType} field. */
     public VkCommandBufferInheritanceInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCommandBufferInheritanceInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkCommandBufferInheritanceInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code renderPass} field. */
     public VkCommandBufferInheritanceInfo renderPass(@NativeType("VkRenderPass") long value) { nrenderPass(address(), value); return this; }
     /** Sets the specified value to the {@code subpass} field. */
@@ -432,7 +432,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
         @NativeType("VkStructureType")
         public int sType() { return VkCommandBufferInheritanceInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkCommandBufferInheritanceInfo.npNext(address()); }
         /** Returns the value of the {@code renderPass} field. */
         @NativeType("VkRenderPass")
@@ -456,7 +456,7 @@ public class VkCommandBufferInheritanceInfo extends Struct implements NativeReso
         /** Sets the specified value to the {@code sType} field. */
         public VkCommandBufferInheritanceInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkCommandBufferInheritanceInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCommandBufferInheritanceInfo.Buffer pNext(@NativeType("const void *") long value) { VkCommandBufferInheritanceInfo.npNext(address(), value); return this; }
+        public VkCommandBufferInheritanceInfo.Buffer pNext(@NativeType("void const *") long value) { VkCommandBufferInheritanceInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code renderPass} field. */
         public VkCommandBufferInheritanceInfo.Buffer renderPass(@NativeType("VkRenderPass") long value) { VkCommandBufferInheritanceInfo.nrenderPass(address(), value); return this; }
         /** Sets the specified value to the {@code subpass} field. */

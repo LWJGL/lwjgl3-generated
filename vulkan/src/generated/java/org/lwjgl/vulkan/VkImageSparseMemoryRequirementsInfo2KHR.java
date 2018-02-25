@@ -21,7 +21,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkImageSparseMemoryRequirementsInfo2KHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImage image;
  * }</pre></code>
  */
@@ -74,7 +74,7 @@ public class VkImageSparseMemoryRequirementsInfo2KHR extends Struct implements N
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code image} field. */
     @NativeType("VkImage")
@@ -83,7 +83,7 @@ public class VkImageSparseMemoryRequirementsInfo2KHR extends Struct implements N
     /** Sets the specified value to the {@code sType} field. */
     public VkImageSparseMemoryRequirementsInfo2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageSparseMemoryRequirementsInfo2KHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImageSparseMemoryRequirementsInfo2KHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
     public VkImageSparseMemoryRequirementsInfo2KHR image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
 
@@ -317,7 +317,7 @@ public class VkImageSparseMemoryRequirementsInfo2KHR extends Struct implements N
         @NativeType("VkStructureType")
         public int sType() { return VkImageSparseMemoryRequirementsInfo2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImageSparseMemoryRequirementsInfo2KHR.npNext(address()); }
         /** Returns the value of the {@code image} field. */
         @NativeType("VkImage")
@@ -326,7 +326,7 @@ public class VkImageSparseMemoryRequirementsInfo2KHR extends Struct implements N
         /** Sets the specified value to the {@code sType} field. */
         public VkImageSparseMemoryRequirementsInfo2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImageSparseMemoryRequirementsInfo2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageSparseMemoryRequirementsInfo2KHR.Buffer pNext(@NativeType("const void *") long value) { VkImageSparseMemoryRequirementsInfo2KHR.npNext(address(), value); return this; }
+        public VkImageSparseMemoryRequirementsInfo2KHR.Buffer pNext(@NativeType("void const *") long value) { VkImageSparseMemoryRequirementsInfo2KHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
         public VkImageSparseMemoryRequirementsInfo2KHR.Buffer image(@NativeType("VkImage") long value) { VkImageSparseMemoryRequirementsInfo2KHR.nimage(address(), value); return this; }
 

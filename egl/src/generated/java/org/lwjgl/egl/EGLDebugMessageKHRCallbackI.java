@@ -17,11 +17,11 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <code><pre>
  * void (*) (
  *     EGLenum error,
- *     const char *command,
+ *     char const *command,
  *     EGLint messageType,
  *     EGLLabelKHR threadLabel,
  *     EGLLabelKHR objectLabel,
- *     const char *message
+ *     char const *message
  * )</pre></code>
  */
 @FunctionalInterface
@@ -61,6 +61,6 @@ public interface EGLDebugMessageKHRCallbackI extends CallbackI.V {
      *                    condition that generated the message. The format of a message is implementation-defined, although it should represent a concise description of the
      *                    event that caused the message to be generated. Message strings can be {@code NULL} and should not be assumed otherwise.
      */
-    void invoke(@NativeType("EGLenum") int error, @NativeType("const char *") long command, @NativeType("EGLint") int messageType, @NativeType("EGLLabelKHR") long threadLabel, @NativeType("EGLLabelKHR") long objectLabel, @NativeType("const char *") long message);
+    void invoke(@NativeType("EGLenum") int error, @NativeType("char const *") long command, @NativeType("EGLint") int messageType, @NativeType("EGLLabelKHR") long threadLabel, @NativeType("EGLLabelKHR") long objectLabel, @NativeType("char const *") long message);
 
 }

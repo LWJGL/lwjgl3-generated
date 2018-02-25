@@ -50,7 +50,7 @@ public class OVRGL {
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
     @NativeType("ovrResult")
-    public static int ovr_CreateTextureSwapChainGL(@NativeType("ovrSession") long session, @NativeType("const ovrTextureSwapChainDesc *") OVRTextureSwapChainDesc desc, @NativeType("ovrTextureSwapChain *") PointerBuffer out_TextureSwapChain) {
+    public static int ovr_CreateTextureSwapChainGL(@NativeType("ovrSession") long session, @NativeType("ovrTextureSwapChainDesc const *") OVRTextureSwapChainDesc desc, @NativeType("ovrTextureSwapChain *") PointerBuffer out_TextureSwapChain) {
         if (CHECKS) {
             check(session);
             check(out_TextureSwapChain, 1);
@@ -111,7 +111,7 @@ public class OVRGL {
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
     @NativeType("ovrResult")
-    public static int ovr_CreateMirrorTextureWithOptionsGL(@NativeType("ovrSession") long session, @NativeType("const ovrMirrorTextureDesc *") OVRMirrorTextureDesc desc, @NativeType("ovrMirrorTexture *") PointerBuffer out_MirrorTexture) {
+    public static int ovr_CreateMirrorTextureWithOptionsGL(@NativeType("ovrSession") long session, @NativeType("ovrMirrorTextureDesc const *") OVRMirrorTextureDesc desc, @NativeType("ovrMirrorTexture *") PointerBuffer out_MirrorTexture) {
         if (CHECKS) {
             check(session);
             check(out_MirrorTexture, 1);
@@ -138,7 +138,7 @@ public class OVRGL {
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
     @NativeType("ovrResult")
-    public static int ovr_CreateMirrorTextureGL(@NativeType("ovrSession") long session, @NativeType("const ovrMirrorTextureDesc *") OVRMirrorTextureDesc desc, @NativeType("ovrMirrorTexture *") PointerBuffer out_MirrorTexture) {
+    public static int ovr_CreateMirrorTextureGL(@NativeType("ovrSession") long session, @NativeType("ovrMirrorTextureDesc const *") OVRMirrorTextureDesc desc, @NativeType("ovrMirrorTexture *") PointerBuffer out_MirrorTexture) {
         if (CHECKS) {
             check(session);
             check(out_MirrorTexture, 1);

@@ -51,7 +51,7 @@ public class KHRStreamProducerEGLSurface {
     }
 
     @NativeType("EGLSurface")
-    public static long eglCreateStreamProducerSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateStreamProducerSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("EGLint const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -60,7 +60,7 @@ public class KHRStreamProducerEGLSurface {
 
     /** Array version of: {@link #eglCreateStreamProducerSurfaceKHR CreateStreamProducerSurfaceKHR} */
     @NativeType("EGLSurface")
-    public static long eglCreateStreamProducerSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateStreamProducerSurfaceKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLConfig") long config, @NativeType("EGLStreamKHR") long stream, @Nullable @NativeType("EGLint const *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateStreamProducerSurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);

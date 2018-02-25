@@ -62,14 +62,14 @@ public class OESTextureBorderClamp {
 
     public static native void nglTexParameterIivOES(int target, int pname, long params);
 
-    public static void glTexParameterIivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glTexParameterIivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglTexParameterIivOES(target, pname, memAddress(params));
     }
 
-    public static void glTexParameterIiOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int param) {
+    public static void glTexParameterIiOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -83,14 +83,14 @@ public class OESTextureBorderClamp {
 
     public static native void nglTexParameterIuivOES(int target, int pname, long params);
 
-    public static void glTexParameterIuivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") IntBuffer params) {
+    public static void glTexParameterIuivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglTexParameterIuivOES(target, pname, memAddress(params));
     }
 
-    public static void glTexParameterIuiOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int param) {
+    public static void glTexParameterIuiOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -150,14 +150,14 @@ public class OESTextureBorderClamp {
 
     public static native void nglSamplerParameterIivOES(int sampler, int pname, long params);
 
-    public static void glSamplerParameterIivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glSamplerParameterIivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglSamplerParameterIivOES(sampler, pname, memAddress(params));
     }
 
-    public static void glSamplerParameterIiOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int param) {
+    public static void glSamplerParameterIiOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -171,14 +171,14 @@ public class OESTextureBorderClamp {
 
     public static native void nglSamplerParameterIuivOES(int sampler, int pname, long params);
 
-    public static void glSamplerParameterIuivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") IntBuffer params) {
+    public static void glSamplerParameterIuivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglSamplerParameterIuivOES(sampler, pname, memAddress(params));
     }
 
-    public static void glSamplerParameterIuiOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int param) {
+    public static void glSamplerParameterIuiOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer params = stack.ints(param);
@@ -235,7 +235,7 @@ public class OESTextureBorderClamp {
     }
 
     /** Array version of: {@link #glTexParameterIivOES TexParameterIivOES} */
-    public static void glTexParameterIivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glTexParameterIivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GLES.getICD().glTexParameterIivOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -245,7 +245,7 @@ public class OESTextureBorderClamp {
     }
 
     /** Array version of: {@link #glTexParameterIuivOES TexParameterIuivOES} */
-    public static void glTexParameterIuivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int[] params) {
+    public static void glTexParameterIuivOES(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int[] params) {
         long __functionAddress = GLES.getICD().glTexParameterIuivOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -275,7 +275,7 @@ public class OESTextureBorderClamp {
     }
 
     /** Array version of: {@link #glSamplerParameterIivOES SamplerParameterIivOES} */
-    public static void glSamplerParameterIivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glSamplerParameterIivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GLES.getICD().glSamplerParameterIivOES;
         if (CHECKS) {
             check(__functionAddress);
@@ -285,7 +285,7 @@ public class OESTextureBorderClamp {
     }
 
     /** Array version of: {@link #glSamplerParameterIuivOES SamplerParameterIuivOES} */
-    public static void glSamplerParameterIuivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int[] params) {
+    public static void glSamplerParameterIuivOES(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int[] params) {
         long __functionAddress = GLES.getICD().glSamplerParameterIuivOES;
         if (CHECKS) {
             check(__functionAddress);

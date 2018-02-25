@@ -6,7 +6,7 @@
 #include "common_tools.h"
 #define APIENTRY __stdcall
 
-typedef jshort (APIENTRY *RegisterClassExWPROC) (const intptr_t);
+typedef jshort (APIENTRY *RegisterClassExWPROC) (intptr_t);
 typedef jint (APIENTRY *UnregisterClassWPROC) (intptr_t, intptr_t);
 typedef intptr_t (APIENTRY *CreateWindowExWPROC) (jint, intptr_t, intptr_t, jint, jint, jint, jint, jint, intptr_t, intptr_t, intptr_t, intptr_t);
 typedef jint (APIENTRY *DestroyWindowPROC) (intptr_t);
@@ -20,7 +20,7 @@ typedef jint (APIENTRY *AdjustWindowRectExPROC) (intptr_t, jint, jint, jint);
 typedef jint (APIENTRY *GetWindowRectPROC) (intptr_t, intptr_t);
 typedef jint (APIENTRY *MoveWindowPROC) (intptr_t, jint, jint, jint, jint, jint);
 typedef jint (APIENTRY *GetWindowPlacementPROC) (intptr_t, intptr_t);
-typedef jint (APIENTRY *SetWindowPlacementPROC) (intptr_t, const intptr_t);
+typedef jint (APIENTRY *SetWindowPlacementPROC) (intptr_t, intptr_t);
 typedef intptr_t (APIENTRY *SetWindowLongPtrPROC) (intptr_t, jint, intptr_t);
 typedef intptr_t (APIENTRY *GetWindowLongPtrPROC) (intptr_t, jint);
 typedef intptr_t (APIENTRY *SetClassLongPtrPROC) (intptr_t, jint, intptr_t);
@@ -37,7 +37,7 @@ EXTERN_C_ENTER
 
 JNIEXPORT jshort JNICALL Java_org_lwjgl_system_windows_User32_nRegisterClassEx(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong lpwcxAddress) {
     RegisterClassExWPROC RegisterClassExW = (RegisterClassExWPROC)(intptr_t)__functionAddress;
-    const intptr_t lpwcx = (const intptr_t)lpwcxAddress;
+    intptr_t lpwcx = (intptr_t)lpwcxAddress;
     jshort __result;
     UNUSED_PARAMS(__env, clazz)
     __result = (jshort)RegisterClassExW(lpwcx);
@@ -188,7 +188,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nGetWindowPlacement(
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_windows_User32_nSetWindowPlacement(JNIEnv *__env, jclass clazz, jlong __functionAddress, jlong hWndAddress, jlong lpwndplAddress) {
     SetWindowPlacementPROC SetWindowPlacement = (SetWindowPlacementPROC)(intptr_t)__functionAddress;
     intptr_t hWnd = (intptr_t)hWndAddress;
-    const intptr_t lpwndpl = (const intptr_t)lpwndplAddress;
+    intptr_t lpwndpl = (intptr_t)lpwndplAddress;
     jint __result;
     UNUSED_PARAMS(__env, clazz)
     __result = (jint)SetWindowPlacement(hWnd, lpwndpl);

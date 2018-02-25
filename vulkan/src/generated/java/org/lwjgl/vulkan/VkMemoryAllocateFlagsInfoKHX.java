@@ -57,7 +57,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkMemoryAllocateFlagsInfoKHX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkMemoryAllocateFlagsKHX flags;
  *     uint32_t deviceMask;
  * }</pre></code>
@@ -114,7 +114,7 @@ public class VkMemoryAllocateFlagsInfoKHX extends Struct implements NativeResour
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkMemoryAllocateFlagsKHX")
@@ -126,7 +126,7 @@ public class VkMemoryAllocateFlagsInfoKHX extends Struct implements NativeResour
     /** Sets the specified value to the {@code sType} field. */
     public VkMemoryAllocateFlagsInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryAllocateFlagsInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkMemoryAllocateFlagsInfoKHX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkMemoryAllocateFlagsInfoKHX flags(@NativeType("VkMemoryAllocateFlagsKHX") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code deviceMask} field. */
@@ -368,7 +368,7 @@ public class VkMemoryAllocateFlagsInfoKHX extends Struct implements NativeResour
         @NativeType("VkStructureType")
         public int sType() { return VkMemoryAllocateFlagsInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkMemoryAllocateFlagsInfoKHX.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkMemoryAllocateFlagsKHX")
@@ -380,7 +380,7 @@ public class VkMemoryAllocateFlagsInfoKHX extends Struct implements NativeResour
         /** Sets the specified value to the {@code sType} field. */
         public VkMemoryAllocateFlagsInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryAllocateFlagsInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryAllocateFlagsInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkMemoryAllocateFlagsInfoKHX.npNext(address(), value); return this; }
+        public VkMemoryAllocateFlagsInfoKHX.Buffer pNext(@NativeType("void const *") long value) { VkMemoryAllocateFlagsInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkMemoryAllocateFlagsInfoKHX.Buffer flags(@NativeType("VkMemoryAllocateFlagsKHX") int value) { VkMemoryAllocateFlagsInfoKHX.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code deviceMask} field. */

@@ -101,7 +101,7 @@ public class GLXAMDGPUAssociation {
      * @param attribList    
      */
     @NativeType("GLXContext")
-    public static long glXCreateAssociatedContextAttribsAMD(@NativeType("unsigned int") int id, @NativeType("GLXContext") long share_context, @NativeType("const int *") IntBuffer attribList) {
+    public static long glXCreateAssociatedContextAttribsAMD(@NativeType("unsigned int") int id, @NativeType("GLXContext") long share_context, @NativeType("int const *") IntBuffer attribList) {
         if (CHECKS) {
             checkNT(attribList);
         }
@@ -213,7 +213,7 @@ public class GLXAMDGPUAssociation {
 
     /** Array version of: {@link #glXCreateAssociatedContextAttribsAMD CreateAssociatedContextAttribsAMD} */
     @NativeType("GLXContext")
-    public static long glXCreateAssociatedContextAttribsAMD(@NativeType("unsigned int") int id, @NativeType("GLXContext") long share_context, @NativeType("const int *") int[] attribList) {
+    public static long glXCreateAssociatedContextAttribsAMD(@NativeType("unsigned int") int id, @NativeType("GLXContext") long share_context, @NativeType("int const *") int[] attribList) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateAssociatedContextAttribsAMD;
         if (CHECKS) {
             check(__functionAddress);

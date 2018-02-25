@@ -7,7 +7,7 @@
 #include "opengles.h"
 
 typedef void (APIENTRY *glGetProgramBinaryOESPROC) (jint, jint, intptr_t, intptr_t, intptr_t);
-typedef void (APIENTRY *glProgramBinaryOESPROC) (jint, jint, const intptr_t, jint);
+typedef void (APIENTRY *glProgramBinaryOESPROC) (jint, jint, intptr_t, jint);
 
 EXTERN_C_ENTER
 
@@ -22,7 +22,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESGetProgramBinary_nglGetProgram
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_OESGetProgramBinary_nglProgramBinaryOES(JNIEnv *__env, jclass clazz, jint program, jint binaryFormat, jlong binaryAddress, jint length) {
     glProgramBinaryOESPROC glProgramBinaryOES = (glProgramBinaryOESPROC)tlsGetFunction(526);
-    const intptr_t binary = (const intptr_t)binaryAddress;
+    intptr_t binary = (intptr_t)binaryAddress;
     UNUSED_PARAM(clazz)
     glProgramBinaryOES(program, binaryFormat, binary, length);
 }

@@ -283,21 +283,21 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformSkewY__JF(JNIEn
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformMultiply__JJ(JNIEnv *__env, jclass clazz, jlong dstAddress, jlong srcAddress) {
     float *dst = (float *)(intptr_t)dstAddress;
-    const float *src = (const float *)(intptr_t)srcAddress;
+    float const *src = (float const *)(intptr_t)srcAddress;
     UNUSED_PARAMS(__env, clazz)
     nvgTransformMultiply(dst, src);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPremultiply__JJ(JNIEnv *__env, jclass clazz, jlong dstAddress, jlong srcAddress) {
     float *dst = (float *)(intptr_t)dstAddress;
-    const float *src = (const float *)(intptr_t)srcAddress;
+    float const *src = (float const *)(intptr_t)srcAddress;
     UNUSED_PARAMS(__env, clazz)
     nvgTransformPremultiply(dst, src);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse__JJ(JNIEnv *__env, jclass clazz, jlong dstAddress, jlong srcAddress) {
     float *dst = (float *)(intptr_t)dstAddress;
-    const float *src = (const float *)(intptr_t)srcAddress;
+    float const *src = (float const *)(intptr_t)srcAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgTransformInverse(dst, src);
 }
@@ -305,7 +305,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse__JJ(JNI
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPoint__JJJFF(JNIEnv *__env, jclass clazz, jlong dstxAddress, jlong dstyAddress, jlong xformAddress, jfloat srcx, jfloat srcy) {
     float *dstx = (float *)(intptr_t)dstxAddress;
     float *dsty = (float *)(intptr_t)dstyAddress;
-    const float *xform = (const float *)(intptr_t)xformAddress;
+    float const *xform = (float const *)(intptr_t)xformAddress;
     UNUSED_PARAMS(__env, clazz)
     nvgTransformPoint(dstx, dsty, xform, srcx, srcy);
 }
@@ -322,7 +322,7 @@ JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nvgRadToDeg(JNIEnv *__env,
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgCreateImage(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong filenameAddress, jint imageFlags) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *filename = (const char *)(intptr_t)filenameAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgCreateImage(ctx, filename, imageFlags);
 }
@@ -336,14 +336,14 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgCreateImageMem(JNIEnv *_
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgCreateImageRGBA(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint w, jint h, jint imageFlags, jlong dataAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const unsigned char *data = (const unsigned char *)(intptr_t)dataAddress;
+    unsigned char const *data = (unsigned char const *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgCreateImageRGBA(ctx, w, h, imageFlags, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgUpdateImage(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint image, jlong dataAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const unsigned char *data = (const unsigned char *)(intptr_t)dataAddress;
+    unsigned char const *data = (unsigned char const *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
     nvgUpdateImage(ctx, image, data);
 }
@@ -508,15 +508,15 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgStroke(JNIEnv *__env, jc
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgCreateFont(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jlong filenameAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
-    const char *filename = (const char *)(intptr_t)filenameAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgCreateFont(ctx, name, filename);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgCreateFontMem(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress, jlong dataAddress, jint ndata, jint freeData) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
     unsigned char *data = (unsigned char *)(intptr_t)dataAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgCreateFontMem(ctx, name, data, ndata, freeData);
@@ -524,7 +524,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgCreateFontMem(JNIEnv *__
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgFindFont(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong nameAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgFindFont(ctx, name);
 }
@@ -537,8 +537,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgAddFallbackFontId(JNIEnv
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgAddFallbackFont(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong baseFontAddress, jlong fallbackFontAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *baseFont = (const char *)(intptr_t)baseFontAddress;
-    const char *fallbackFont = (const char *)(intptr_t)fallbackFontAddress;
+    char const *baseFont = (char const *)(intptr_t)baseFontAddress;
+    char const *fallbackFont = (char const *)(intptr_t)fallbackFontAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgAddFallbackFont(ctx, baseFont, fallbackFont);
 }
@@ -581,31 +581,31 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgFontFaceId(JNIEnv *__env
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgFontFace(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong fontAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *font = (const char *)(intptr_t)fontAddress;
+    char const *font = (char const *)(intptr_t)fontAddress;
     UNUSED_PARAMS(__env, clazz)
     nvgFontFace(ctx, font);
 }
 
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgText(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jfloat)nvgText(ctx, x, y, string, end);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBox(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     UNUSED_PARAMS(__env, clazz)
     nvgTextBox(ctx, x, y, breakRowWidth, string, end);
 }
 
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress, jlong boundsAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     float *bounds = (float *)(intptr_t)boundsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jfloat)nvgTextBounds(ctx, x, y, string, end, bounds);
@@ -613,8 +613,8 @@ JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJJ(JNI
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJJ(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jlong boundsAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     float *bounds = (float *)(intptr_t)boundsAddress;
     UNUSED_PARAMS(__env, clazz)
     nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, bounds);
@@ -622,8 +622,8 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJJ(J
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextGlyphPositions(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress, jlong positionsAddress, jint maxPositions) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     NVGglyphPosition *positions = (NVGglyphPosition *)(intptr_t)positionsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgTextGlyphPositions(ctx, x, y, string, end, positions, maxPositions);
@@ -640,8 +640,8 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextMetrics__JJJJ(JNIEnv
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBreakLines(JNIEnv *__env, jclass clazz, jlong ctxAddress, jlong stringAddress, jlong endAddress, jfloat breakRowWidth, jlong rowsAddress, jint maxRows) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     NVGtextRow *rows = (NVGtextRow *)(intptr_t)rowsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)nvgTextBreakLines(ctx, string, end, breakRowWidth, rows, maxRows);
@@ -730,28 +730,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformMultiply___3F_3
     jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
     jfloat *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    nvgTransformMultiply((float *)dst, (const float *)src);
+    nvgTransformMultiply((float *)dst, (float const *)src);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformMultiply___3F_3F(jint dst__length, jfloat* dst, jint src__length, jfloat* src) {
     UNUSED_PARAM(dst__length)
     UNUSED_PARAM(src__length)
-    nvgTransformMultiply((float *)dst, (const float *)src);
+    nvgTransformMultiply((float *)dst, (float const *)src);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPremultiply___3F_3F(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloatArray srcAddress) {
     jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
     jfloat *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    nvgTransformPremultiply((float *)dst, (const float *)src);
+    nvgTransformPremultiply((float *)dst, (float const *)src);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
 }
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformPremultiply___3F_3F(jint dst__length, jfloat* dst, jint src__length, jfloat* src) {
     UNUSED_PARAM(dst__length)
     UNUSED_PARAM(src__length)
-    nvgTransformPremultiply((float *)dst, (const float *)src);
+    nvgTransformPremultiply((float *)dst, (float const *)src);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F(JNIEnv *__env, jclass clazz, jfloatArray dstAddress, jfloatArray srcAddress) {
@@ -759,7 +759,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F
     jfloat *dst = (*__env)->GetPrimitiveArrayCritical(__env, dstAddress, 0);
     jfloat *src = (*__env)->GetPrimitiveArrayCritical(__env, srcAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    __result = (jint)nvgTransformInverse((float *)dst, (const float *)src);
+    __result = (jint)nvgTransformInverse((float *)dst, (float const *)src);
     (*__env)->ReleasePrimitiveArrayCritical(__env, srcAddress, src, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, dstAddress, dst, 0);
     return __result;
@@ -767,7 +767,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformInverse___3F_3F(jint dst__length, jfloat* dst, jint src__length, jfloat* src) {
     UNUSED_PARAM(dst__length)
     UNUSED_PARAM(src__length)
-    return (jint)nvgTransformInverse((float *)dst, (const float *)src);
+    return (jint)nvgTransformInverse((float *)dst, (float const *)src);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPoint___3F_3F_3FFF(JNIEnv *__env, jclass clazz, jfloatArray dstxAddress, jfloatArray dstyAddress, jfloatArray xformAddress, jfloat srcx, jfloat srcy) {
@@ -775,7 +775,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTransformPoint___3F_3F_3
     jfloat *dsty = (*__env)->GetPrimitiveArrayCritical(__env, dstyAddress, 0);
     jfloat *xform = (*__env)->GetPrimitiveArrayCritical(__env, xformAddress, 0);
     UNUSED_PARAMS(__env, clazz)
-    nvgTransformPoint((float *)dstx, (float *)dsty, (const float *)xform, srcx, srcy);
+    nvgTransformPoint((float *)dstx, (float *)dsty, (float const *)xform, srcx, srcy);
     (*__env)->ReleasePrimitiveArrayCritical(__env, xformAddress, xform, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, dstyAddress, dsty, 0);
     (*__env)->ReleasePrimitiveArrayCritical(__env, dstxAddress, dstx, 0);
@@ -784,7 +784,7 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTransformPoint__
     UNUSED_PARAM(dstx__length)
     UNUSED_PARAM(dsty__length)
     UNUSED_PARAM(xform__length)
-    nvgTransformPoint((float *)dstx, (float *)dsty, (const float *)xform, srcx, srcy);
+    nvgTransformPoint((float *)dstx, (float *)dsty, (float const *)xform, srcx, srcy);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgImageSize__JI_3I_3I(JNIEnv *__env, jclass clazz, jlong ctxAddress, jint image, jintArray wAddress, jintArray hAddress) {
@@ -805,8 +805,8 @@ JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgImageSize__JI_3I
 
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress, jfloatArray boundsAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     jfloat __result;
     jfloat *bounds = boundsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
     UNUSED_PARAMS(__env, clazz)
@@ -817,8 +817,8 @@ JNIEXPORT jfloat JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(J
 #ifdef LWJGL_WINDOWS
 JNIEXPORT jfloat JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JFFJJ_3F(jlong ctxAddress, jfloat x, jfloat y, jlong stringAddress, jlong endAddress, jint bounds__length, jfloat* bounds) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     UNUSED_PARAM(bounds__length)
     return (jfloat)nvgTextBounds(ctx, x, y, string, end, (float *)bounds);
 }
@@ -826,8 +826,8 @@ JNIEXPORT jfloat JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBounds__JF
 
 JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F(JNIEnv *__env, jclass clazz, jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jfloatArray boundsAddress) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     jfloat *bounds = boundsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, boundsAddress, 0);
     UNUSED_PARAMS(__env, clazz)
     nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float *)bounds);
@@ -836,8 +836,8 @@ JNIEXPORT void JNICALL Java_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F
 #ifdef LWJGL_WINDOWS
 JNIEXPORT void JNICALL JavaCritical_org_lwjgl_nanovg_NanoVG_nnvgTextBoxBounds__JFFFJJ_3F(jlong ctxAddress, jfloat x, jfloat y, jfloat breakRowWidth, jlong stringAddress, jlong endAddress, jint bounds__length, jfloat* bounds) {
     NVGcontext *ctx = (NVGcontext *)(intptr_t)ctxAddress;
-    const char *string = (const char *)(intptr_t)stringAddress;
-    const char *end = (const char *)(intptr_t)endAddress;
+    char const *string = (char const *)(intptr_t)stringAddress;
+    char const *end = (char const *)(intptr_t)endAddress;
     UNUSED_PARAM(bounds__length)
     nvgTextBoxBounds(ctx, x, y, breakRowWidth, string, end, (float *)bounds);
 }

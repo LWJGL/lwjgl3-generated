@@ -127,7 +127,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkImageViewCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImageViewCreateFlags flags;
  *     VkImage image;
  *     VkImageViewType viewType;
@@ -200,7 +200,7 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkImageViewCreateFlags")
@@ -222,7 +222,7 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkImageViewCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageViewCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImageViewCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkImageViewCreateInfo flags(@NativeType("VkImageViewCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
@@ -496,7 +496,7 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkImageViewCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImageViewCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkImageViewCreateFlags")
@@ -518,7 +518,7 @@ public class VkImageViewCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkImageViewCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkImageViewCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageViewCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkImageViewCreateInfo.npNext(address(), value); return this; }
+        public VkImageViewCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkImageViewCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkImageViewCreateInfo.Buffer flags(@NativeType("VkImageViewCreateFlags") int value) { VkImageViewCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */

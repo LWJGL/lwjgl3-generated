@@ -103,7 +103,7 @@ public class GLFWVulkan {
      * @since version 3.2
      */
     @Nullable
-    @NativeType("const char **")
+    @NativeType("char const **")
     public static PointerBuffer glfwGetRequiredInstanceExtensions() {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -153,7 +153,7 @@ public class GLFWVulkan {
      * @since version 3.2
      */
     @NativeType("GLFWvkproc *")
-    public static long glfwGetInstanceProcAddress(@Nullable VkInstance instance, @NativeType("const char *") ByteBuffer procname) {
+    public static long glfwGetInstanceProcAddress(@Nullable VkInstance instance, @NativeType("char const *") ByteBuffer procname) {
         if (CHECKS) {
             checkNT1(procname);
         }
@@ -190,7 +190,7 @@ public class GLFWVulkan {
      * @since version 3.2
      */
     @NativeType("GLFWvkproc *")
-    public static long glfwGetInstanceProcAddress(@Nullable VkInstance instance, @NativeType("const char *") CharSequence procname) {
+    public static long glfwGetInstanceProcAddress(@Nullable VkInstance instance, @NativeType("char const *") CharSequence procname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer procnameEncoded = stack.ASCII(procname);
@@ -272,7 +272,7 @@ public class GLFWVulkan {
      * @since version 3.2
      */
     @NativeType("VkResult")
-    public static int glfwCreateWindowSurface(VkInstance instance, @NativeType("GLFWwindow *") long window, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks allocator, @NativeType("VkSurfaceKHR *") LongBuffer surface) {
+    public static int glfwCreateWindowSurface(VkInstance instance, @NativeType("GLFWwindow *") long window, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks allocator, @NativeType("VkSurfaceKHR *") LongBuffer surface) {
         if (CHECKS) {
             check(surface, 1);
         }
@@ -281,7 +281,7 @@ public class GLFWVulkan {
 
     /** Array version of: {@link #glfwCreateWindowSurface CreateWindowSurface} */
     @NativeType("VkResult")
-    public static int glfwCreateWindowSurface(VkInstance instance, @NativeType("GLFWwindow *") long window, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks allocator, @NativeType("VkSurfaceKHR *") long[] surface) {
+    public static int glfwCreateWindowSurface(VkInstance instance, @NativeType("GLFWwindow *") long window, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks allocator, @NativeType("VkSurfaceKHR *") long[] surface) {
         long __functionAddress = Functions.CreateWindowSurface;
         if (CHECKS) {
             check(window);

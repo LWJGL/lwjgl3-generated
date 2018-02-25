@@ -58,7 +58,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkFenceGetFdInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkFence fence;
  *     VkExternalFenceHandleTypeFlagBitsKHR handleType;
  * }</pre></code>
@@ -115,7 +115,7 @@ public class VkFenceGetFdInfoKHR extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code fence} field. */
     @NativeType("VkFence")
@@ -127,7 +127,7 @@ public class VkFenceGetFdInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkFenceGetFdInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkFenceGetFdInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkFenceGetFdInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code fence} field. */
     public VkFenceGetFdInfoKHR fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
@@ -369,7 +369,7 @@ public class VkFenceGetFdInfoKHR extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkFenceGetFdInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkFenceGetFdInfoKHR.npNext(address()); }
         /** Returns the value of the {@code fence} field. */
         @NativeType("VkFence")
@@ -381,7 +381,7 @@ public class VkFenceGetFdInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkFenceGetFdInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkFenceGetFdInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkFenceGetFdInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkFenceGetFdInfoKHR.npNext(address(), value); return this; }
+        public VkFenceGetFdInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkFenceGetFdInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code fence} field. */
         public VkFenceGetFdInfoKHR.Buffer fence(@NativeType("VkFence") long value) { VkFenceGetFdInfoKHR.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */

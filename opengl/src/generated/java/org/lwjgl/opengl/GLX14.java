@@ -65,7 +65,7 @@ public class GLX14 {
      * @param procName the function name to query
      */
     @NativeType("void *")
-    public static long glXGetProcAddress(@NativeType("const GLchar *") ByteBuffer procName) {
+    public static long glXGetProcAddress(@NativeType("GLchar const *") ByteBuffer procName) {
         if (CHECKS) {
             checkNT1(procName);
         }
@@ -94,7 +94,7 @@ public class GLX14 {
      * @param procName the function name to query
      */
     @NativeType("void *")
-    public static long glXGetProcAddress(@NativeType("const GLchar *") CharSequence procName) {
+    public static long glXGetProcAddress(@NativeType("GLchar const *") CharSequence procName) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer procNameEncoded = stack.ASCII(procName);

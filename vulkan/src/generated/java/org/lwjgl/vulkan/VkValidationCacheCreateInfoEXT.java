@@ -54,10 +54,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkValidationCacheCreateInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkValidationCacheCreateFlagsEXT flags;
  *     size_t initialDataSize;
- *     const void * pInitialData;
+ *     void const * pInitialData;
  * }</pre></code>
  */
 public class VkValidationCacheCreateInfoEXT extends Struct implements NativeResource {
@@ -115,7 +115,7 @@ public class VkValidationCacheCreateInfoEXT extends Struct implements NativeReso
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkValidationCacheCreateFlagsEXT")
@@ -125,17 +125,17 @@ public class VkValidationCacheCreateInfoEXT extends Struct implements NativeReso
     public long initialDataSize() { return ninitialDataSize(address()); }
     /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pInitialData} field. */
     @Nullable
-    @NativeType("const void *")
+    @NativeType("void const *")
     public ByteBuffer pInitialData() { return npInitialData(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkValidationCacheCreateInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkValidationCacheCreateInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkValidationCacheCreateInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkValidationCacheCreateInfoEXT flags(@NativeType("VkValidationCacheCreateFlagsEXT") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link ByteBuffer} to the {@code pInitialData} field. */
-    public VkValidationCacheCreateInfoEXT pInitialData(@Nullable @NativeType("const void *") ByteBuffer value) { npInitialData(address(), value); return this; }
+    public VkValidationCacheCreateInfoEXT pInitialData(@Nullable @NativeType("void const *") ByteBuffer value) { npInitialData(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkValidationCacheCreateInfoEXT set(
@@ -400,7 +400,7 @@ public class VkValidationCacheCreateInfoEXT extends Struct implements NativeReso
         @NativeType("VkStructureType")
         public int sType() { return VkValidationCacheCreateInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkValidationCacheCreateInfoEXT.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkValidationCacheCreateFlagsEXT")
@@ -410,17 +410,17 @@ public class VkValidationCacheCreateInfoEXT extends Struct implements NativeReso
         public long initialDataSize() { return VkValidationCacheCreateInfoEXT.ninitialDataSize(address()); }
         /** Returns a {@link ByteBuffer} view of the data pointed to by the {@code pInitialData} field. */
         @Nullable
-        @NativeType("const void *")
+        @NativeType("void const *")
         public ByteBuffer pInitialData() { return VkValidationCacheCreateInfoEXT.npInitialData(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkValidationCacheCreateInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkValidationCacheCreateInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkValidationCacheCreateInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkValidationCacheCreateInfoEXT.npNext(address(), value); return this; }
+        public VkValidationCacheCreateInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkValidationCacheCreateInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkValidationCacheCreateInfoEXT.Buffer flags(@NativeType("VkValidationCacheCreateFlagsEXT") int value) { VkValidationCacheCreateInfoEXT.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link ByteBuffer} to the {@code pInitialData} field. */
-        public VkValidationCacheCreateInfoEXT.Buffer pInitialData(@Nullable @NativeType("const void *") ByteBuffer value) { VkValidationCacheCreateInfoEXT.npInitialData(address(), value); return this; }
+        public VkValidationCacheCreateInfoEXT.Buffer pInitialData(@Nullable @NativeType("void const *") ByteBuffer value) { VkValidationCacheCreateInfoEXT.npInitialData(address(), value); return this; }
 
     }
 

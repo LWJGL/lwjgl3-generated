@@ -50,7 +50,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDeviceGroupCommandBufferBeginInfoKHX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t deviceMask;
  * }</pre></code>
  */
@@ -103,7 +103,7 @@ public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements Na
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code deviceMask} field. */
     @NativeType("uint32_t")
@@ -112,7 +112,7 @@ public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements Na
     /** Sets the specified value to the {@code sType} field. */
     public VkDeviceGroupCommandBufferBeginInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGroupCommandBufferBeginInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDeviceGroupCommandBufferBeginInfoKHX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code deviceMask} field. */
     public VkDeviceGroupCommandBufferBeginInfoKHX deviceMask(@NativeType("uint32_t") int value) { ndeviceMask(address(), value); return this; }
 
@@ -346,7 +346,7 @@ public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements Na
         @NativeType("VkStructureType")
         public int sType() { return VkDeviceGroupCommandBufferBeginInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDeviceGroupCommandBufferBeginInfoKHX.npNext(address()); }
         /** Returns the value of the {@code deviceMask} field. */
         @NativeType("uint32_t")
@@ -355,7 +355,7 @@ public class VkDeviceGroupCommandBufferBeginInfoKHX extends Struct implements Na
         /** Sets the specified value to the {@code sType} field. */
         public VkDeviceGroupCommandBufferBeginInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGroupCommandBufferBeginInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGroupCommandBufferBeginInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGroupCommandBufferBeginInfoKHX.npNext(address(), value); return this; }
+        public VkDeviceGroupCommandBufferBeginInfoKHX.Buffer pNext(@NativeType("void const *") long value) { VkDeviceGroupCommandBufferBeginInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code deviceMask} field. */
         public VkDeviceGroupCommandBufferBeginInfoKHX.Buffer deviceMask(@NativeType("uint32_t") int value) { VkDeviceGroupCommandBufferBeginInfoKHX.ndeviceMask(address(), value); return this; }
 

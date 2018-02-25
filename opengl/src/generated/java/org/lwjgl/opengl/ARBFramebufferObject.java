@@ -376,12 +376,12 @@ public class ARBFramebufferObject {
      *
      * @param renderbuffers an array containing {@code n} renderbuffer objects to be deleted
      */
-    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") IntBuffer renderbuffers) {
+    public static void glDeleteRenderbuffers(@NativeType("GLuint const *") IntBuffer renderbuffers) {
         nglDeleteRenderbuffers(renderbuffers.remaining(), memAddress(renderbuffers));
     }
 
     /** Deletes renderbuffer objects. */
-    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") int renderbuffer) {
+    public static void glDeleteRenderbuffers(@NativeType("GLuint const *") int renderbuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer renderbuffers = stack.ints(renderbuffer);
@@ -520,12 +520,12 @@ public class ARBFramebufferObject {
      *
      * @param framebuffers an array containing {@code n} framebuffer objects to be deleted
      */
-    public static void glDeleteFramebuffers(@NativeType("const GLuint *") IntBuffer framebuffers) {
+    public static void glDeleteFramebuffers(@NativeType("GLuint const *") IntBuffer framebuffers) {
         nglDeleteFramebuffers(framebuffers.remaining(), memAddress(framebuffers));
     }
 
     /** Deletes framebuffer objects. */
-    public static void glDeleteFramebuffers(@NativeType("const GLuint *") int framebuffer) {
+    public static void glDeleteFramebuffers(@NativeType("GLuint const *") int framebuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer framebuffers = stack.ints(framebuffer);
@@ -708,7 +708,7 @@ public class ARBFramebufferObject {
     public static native void glGenerateMipmap(@NativeType("GLenum") int target);
 
     /** Array version of: {@link #glDeleteRenderbuffers DeleteRenderbuffers} */
-    public static void glDeleteRenderbuffers(@NativeType("const GLuint *") int[] renderbuffers) {
+    public static void glDeleteRenderbuffers(@NativeType("GLuint const *") int[] renderbuffers) {
         long __functionAddress = GL.getICD().glDeleteRenderbuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -736,7 +736,7 @@ public class ARBFramebufferObject {
     }
 
     /** Array version of: {@link #glDeleteFramebuffers DeleteFramebuffers} */
-    public static void glDeleteFramebuffers(@NativeType("const GLuint *") int[] framebuffers) {
+    public static void glDeleteFramebuffers(@NativeType("GLuint const *") int[] framebuffers) {
         long __functionAddress = GL.getICD().glDeleteFramebuffers;
         if (CHECKS) {
             check(__functionAddress);

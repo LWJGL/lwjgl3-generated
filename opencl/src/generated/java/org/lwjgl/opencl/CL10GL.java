@@ -477,7 +477,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem const *") PointerBuffer mem_objects, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -525,7 +525,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueAcquireGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem const *") long mem_object, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -593,7 +593,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem const *") PointerBuffer mem_objects, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -637,7 +637,7 @@ public class CL10GL {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") long mem_object, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReleaseGLObjects(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem const *") long mem_object, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }

@@ -90,7 +90,7 @@ public class BGFXPlatform {
      *
      * @param _data the platform data to set
      */
-    public static void bgfx_set_platform_data(@NativeType("const bgfx_platform_data_t *") BGFXPlatformData _data) {
+    public static void bgfx_set_platform_data(@NativeType("bgfx_platform_data_t const *") BGFXPlatformData _data) {
         nbgfx_set_platform_data(_data.address());
     }
 
@@ -104,7 +104,7 @@ public class BGFXPlatform {
 
     /** Gets internal data for interop. */
     @Nullable
-    @NativeType("const bgfx_internal_data_t *")
+    @NativeType("bgfx_internal_data_t const *")
     public static BGFXInternalData bgfx_get_internal_data() {
         long __result = nbgfx_get_internal_data();
         return BGFXInternalData.createSafe(__result);

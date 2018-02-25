@@ -57,7 +57,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkMemoryGetWin32HandleInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDeviceMemory memory;
  *     VkExternalMemoryHandleTypeFlagBitsKHR handleType;
  * }</pre></code>
@@ -114,7 +114,7 @@ public class VkMemoryGetWin32HandleInfoKHR extends Struct implements NativeResou
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code memory} field. */
     @NativeType("VkDeviceMemory")
@@ -126,7 +126,7 @@ public class VkMemoryGetWin32HandleInfoKHR extends Struct implements NativeResou
     /** Sets the specified value to the {@code sType} field. */
     public VkMemoryGetWin32HandleInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkMemoryGetWin32HandleInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkMemoryGetWin32HandleInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code memory} field. */
     public VkMemoryGetWin32HandleInfoKHR memory(@NativeType("VkDeviceMemory") long value) { nmemory(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
@@ -368,7 +368,7 @@ public class VkMemoryGetWin32HandleInfoKHR extends Struct implements NativeResou
         @NativeType("VkStructureType")
         public int sType() { return VkMemoryGetWin32HandleInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkMemoryGetWin32HandleInfoKHR.npNext(address()); }
         /** Returns the value of the {@code memory} field. */
         @NativeType("VkDeviceMemory")
@@ -380,7 +380,7 @@ public class VkMemoryGetWin32HandleInfoKHR extends Struct implements NativeResou
         /** Sets the specified value to the {@code sType} field. */
         public VkMemoryGetWin32HandleInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryGetWin32HandleInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkMemoryGetWin32HandleInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkMemoryGetWin32HandleInfoKHR.npNext(address(), value); return this; }
+        public VkMemoryGetWin32HandleInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkMemoryGetWin32HandleInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code memory} field. */
         public VkMemoryGetWin32HandleInfoKHR.Buffer memory(@NativeType("VkDeviceMemory") long value) { VkMemoryGetWin32HandleInfoKHR.nmemory(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */

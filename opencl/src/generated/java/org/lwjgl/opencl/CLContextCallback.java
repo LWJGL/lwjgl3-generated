@@ -18,8 +18,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <code><pre>
  * void (*) (
- *     const cl_char *errinfo,
- *     const void *private_info,
+ *     cl_char const *errinfo,
+ *     void const *private_info,
  *     size_t cb,
  *     void *user_data
  * )</pre></code>

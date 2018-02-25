@@ -14,7 +14,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <code><pre>
  * void (*) (
- *     const char *message,
+ *     char const *message,
  *     void *user
  * )</pre></code>
  */
@@ -41,6 +41,6 @@ public interface AILogStreamCallbackI extends CallbackI.V {
      * @param message The message to be logged
      * @param user    The user data from the log stream
      */
-    void invoke(@NativeType("const char *") long message, @NativeType("void *") long user);
+    void invoke(@NativeType("char const *") long message, @NativeType("void *") long user);
 
 }

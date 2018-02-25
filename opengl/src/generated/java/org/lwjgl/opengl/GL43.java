@@ -484,7 +484,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ByteBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ByteBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -501,7 +501,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ShortBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ShortBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -518,7 +518,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") IntBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") IntBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -535,7 +535,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") FloatBuffer data) {
+    public static void glClearBufferData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") FloatBuffer data) {
         nglClearBufferData(target, internalformat, format, type, memAddressSafe(data));
     }
 
@@ -559,7 +559,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ByteBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ByteBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -578,7 +578,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ShortBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ShortBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -597,7 +597,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") IntBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") IntBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -616,7 +616,7 @@ public class GL43 {
      *                       specified by internalformat, and then used to fill the specified range of the destination buffer. If data is {@code NULL}, then it is ignored and the
      *                       sub-range of the buffer is filled with zeros.
      */
-    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") FloatBuffer data) {
+    public static void glClearBufferSubData(@NativeType("GLenum") int target, @NativeType("GLenum") int internalformat, @NativeType("GLintptr") long offset, @NativeType("GLsizeiptr") long size, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") FloatBuffer data) {
         nglClearBufferSubData(target, internalformat, offset, size, format, type, memAddressSafe(data));
     }
 
@@ -733,7 +733,7 @@ public class GL43 {
      * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
      * @param enabled  whether the selected messages should be enabled or disabled
      */
-    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
         nglDebugMessageControl(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
     }
 
@@ -770,7 +770,7 @@ public class GL43 {
      * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link #GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link #GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
      * @param enabled  whether the selected messages should be enabled or disabled
      */
-    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int id, @NativeType("GLboolean") boolean enabled) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -809,7 +809,7 @@ public class GL43 {
      * @param severity the severity of the debug messages to insert
      * @param message  a character array containing the message to insert
      */
-    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") ByteBuffer message) {
+    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLchar const *") ByteBuffer message) {
         nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message));
     }
 
@@ -833,7 +833,7 @@ public class GL43 {
      * @param severity the severity of the debug messages to insert
      * @param message  a character array containing the message to insert
      */
-    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") CharSequence message) {
+    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLchar const *") CharSequence message) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer messageEncoded = stack.UTF8(message, false);
@@ -881,7 +881,7 @@ public class GL43 {
      * @param callback  a callback function that will be called when a debug message is generated
      * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
      */
-    public static void glDebugMessageCallback(@Nullable @NativeType("GLDEBUGPROC") GLDebugMessageCallbackI callback, @NativeType("const void *") long userParam) {
+    public static void glDebugMessageCallback(@Nullable @NativeType("GLDEBUGPROC") GLDebugMessageCallbackI callback, @NativeType("void const *") long userParam) {
         nglDebugMessageCallback(memAddressSafe(callback), userParam);
     }
 
@@ -968,7 +968,7 @@ public class GL43 {
      * @param id      the identifier of the message
      * @param message a string containing the message to be sent to the debug output stream
      */
-    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("const GLchar *") ByteBuffer message) {
+    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("GLchar const *") ByteBuffer message) {
         nglPushDebugGroup(source, id, message.remaining(), memAddress(message));
     }
 
@@ -990,7 +990,7 @@ public class GL43 {
      * @param id      the identifier of the message
      * @param message a string containing the message to be sent to the debug output stream
      */
-    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("const GLchar *") CharSequence message) {
+    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("GLchar const *") CharSequence message) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer messageEncoded = stack.UTF8(message, false);
@@ -1033,7 +1033,7 @@ public class GL43 {
      * @param name       the name of the object to label
      * @param label      a string containing the label to assign to the object
      */
-    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("const GLchar *") ByteBuffer label) {
+    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("GLchar const *") ByteBuffer label) {
         nglObjectLabel(identifier, name, label.remaining(), memAddress(label));
     }
 
@@ -1046,7 +1046,7 @@ public class GL43 {
      * @param name       the name of the object to label
      * @param label      a string containing the label to assign to the object
      */
-    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("const GLchar *") CharSequence label) {
+    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("GLchar const *") CharSequence label) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer labelEncoded = stack.UTF8(label, false);
@@ -1134,7 +1134,7 @@ public class GL43 {
      * @param ptr   a pointer identifying a sync object
      * @param label a string containing the label to assign to the object
      */
-    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("const GLchar *") ByteBuffer label) {
+    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("GLchar const *") ByteBuffer label) {
         if (CHECKS) {
             check(ptr);
         }
@@ -1149,7 +1149,7 @@ public class GL43 {
      * @param ptr   a pointer identifying a sync object
      * @param label a string containing the label to assign to the object
      */
-    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("const GLchar *") CharSequence label) {
+    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("GLchar const *") CharSequence label) {
         if (CHECKS) {
             check(ptr);
         }
@@ -1393,7 +1393,7 @@ public class GL43 {
      * @param target      the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
      * @param attachments the address of an array identifying the attachments to be invalidated
      */
-    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") IntBuffer attachments) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("GLenum const *") IntBuffer attachments) {
         nglInvalidateFramebuffer(target, attachments.remaining(), memAddress(attachments));
     }
 
@@ -1404,7 +1404,7 @@ public class GL43 {
      *
      * @param target the target to which the framebuffer is attached. One of:<br><table><tr><td>{@link GL30#GL_FRAMEBUFFER FRAMEBUFFER}</td><td>{@link GL30#GL_DRAW_FRAMEBUFFER DRAW_FRAMEBUFFER}</td><td>{@link GL30#GL_READ_FRAMEBUFFER READ_FRAMEBUFFER}</td></tr></table>
      */
-    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int attachment) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("GLenum const *") int attachment) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer attachments = stack.ints(attachment);
@@ -1435,7 +1435,7 @@ public class GL43 {
      * @param width       the width of the region to be invalidated
      * @param height      the height of the region to be invalidated
      */
-    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") IntBuffer attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("GLenum const *") IntBuffer attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         nglInvalidateSubFramebuffer(target, attachments.remaining(), memAddress(attachments), x, y, width, height);
     }
 
@@ -1450,7 +1450,7 @@ public class GL43 {
      * @param width  the width of the region to be invalidated
      * @param height the height of the region to be invalidated
      */
-    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int attachment, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("GLenum const *") int attachment, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer attachments = stack.ints(attachment);
@@ -1497,7 +1497,7 @@ public class GL43 {
      * @param primcount the number of elements in the array of draw parameter structures
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, primcount * (stride == 0 ? (4 * 4) : stride));
         }
@@ -1536,7 +1536,7 @@ public class GL43 {
      * @param primcount the number of elements in the array of draw parameter structures
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") long indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("void const *") long indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawArraysIndirect(mode, indirect, primcount, stride);
     }
 
@@ -1572,7 +1572,7 @@ public class GL43 {
      * @param primcount the number of elements in the array of draw parameter structures
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (primcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
         }
@@ -1618,7 +1618,7 @@ public class GL43 {
      * @param primcount the number of elements in the array addressed by {@code indirect}
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, primcount * (stride == 0 ? (5 * 4) : stride));
         }
@@ -1659,7 +1659,7 @@ public class GL43 {
      * @param primcount the number of elements in the array addressed by {@code indirect}
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") long indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") long indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawElementsIndirect(mode, type, indirect, primcount, stride);
     }
 
@@ -1697,7 +1697,7 @@ public class GL43 {
      * @param primcount the number of elements in the array addressed by {@code indirect}
      * @param stride    the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") IntBuffer indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (primcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
         }
@@ -1762,7 +1762,7 @@ public class GL43 {
      * @param name             the name of the resource to query the index of
      */
     @NativeType("GLuint")
-    public static int glGetProgramResourceIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetProgramResourceIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1779,7 +1779,7 @@ public class GL43 {
      * @param name             the name of the resource to query the index of
      */
     @NativeType("GLuint")
-    public static int glGetProgramResourceIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetProgramResourceIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.UTF8(name);
@@ -1875,7 +1875,7 @@ public class GL43 {
      * @param length           a variable which will receive the number of values returned
      * @param params           an array that will receive the property values
      */
-    public static void glGetProgramResourceiv(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("const GLenum *") IntBuffer props, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer params) {
+    public static void glGetProgramResourceiv(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("GLenum const *") IntBuffer props, @Nullable @NativeType("GLsizei *") IntBuffer length, @NativeType("GLint *") IntBuffer params) {
         if (CHECKS) {
             checkSafe(length, 1);
         }
@@ -1897,7 +1897,7 @@ public class GL43 {
      * @param name             the name of the resource to query the location of
      */
     @NativeType("GLint")
-    public static int glGetProgramResourceLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetProgramResourceLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1914,7 +1914,7 @@ public class GL43 {
      * @param name             the name of the resource to query the location of
      */
     @NativeType("GLint")
-    public static int glGetProgramResourceLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetProgramResourceLocation(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1939,7 +1939,7 @@ public class GL43 {
      * @param name             the name of the resource to query the location of
      */
     @NativeType("GLint")
-    public static int glGetProgramResourceLocationIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetProgramResourceLocationIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1956,7 +1956,7 @@ public class GL43 {
      * @param name             the name of the resource to query the location of
      */
     @NativeType("GLint")
-    public static int glGetProgramResourceLocationIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetProgramResourceLocationIndex(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -2134,7 +2134,7 @@ public class GL43 {
      * 
      * Array version of: {@link #glDebugMessageControl DebugMessageControl}
      */
-    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int[] ids, @NativeType("GLboolean") boolean enabled) {
         long __functionAddress = GL.getICD().glDebugMessageControl;
         if (CHECKS) {
             check(__functionAddress);
@@ -2222,7 +2222,7 @@ public class GL43 {
      * 
      * Array version of: {@link #glInvalidateFramebuffer InvalidateFramebuffer}
      */
-    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int[] attachments) {
+    public static void glInvalidateFramebuffer(@NativeType("GLenum") int target, @NativeType("GLenum const *") int[] attachments) {
         long __functionAddress = GL.getICD().glInvalidateFramebuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -2235,7 +2235,7 @@ public class GL43 {
      * 
      * Array version of: {@link #glInvalidateSubFramebuffer InvalidateSubFramebuffer}
      */
-    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("const GLenum *") int[] attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
+    public static void glInvalidateSubFramebuffer(@NativeType("GLenum") int target, @NativeType("GLenum const *") int[] attachments, @NativeType("GLint") int x, @NativeType("GLint") int y, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height) {
         long __functionAddress = GL.getICD().glInvalidateSubFramebuffer;
         if (CHECKS) {
             check(__functionAddress);
@@ -2248,7 +2248,7 @@ public class GL43 {
      * 
      * Array version of: {@link #glMultiDrawArraysIndirect MultiDrawArraysIndirect}
      */
-    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("const void *") int[] indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirect(@NativeType("GLenum") int mode, @NativeType("void const *") int[] indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawArraysIndirect;
         if (CHECKS) {
             check(__functionAddress);
@@ -2262,7 +2262,7 @@ public class GL43 {
      * 
      * Array version of: {@link #glMultiDrawElementsIndirect MultiDrawElementsIndirect}
      */
-    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") int[] indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirect(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") int[] indirect, @NativeType("GLsizei") int primcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawElementsIndirect;
         if (CHECKS) {
             check(__functionAddress);
@@ -2304,7 +2304,7 @@ public class GL43 {
      * 
      * Array version of: {@link #glGetProgramResourceiv GetProgramResourceiv}
      */
-    public static void glGetProgramResourceiv(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("const GLenum *") int[] props, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] params) {
+    public static void glGetProgramResourceiv(@NativeType("GLuint") int program, @NativeType("GLenum") int programInterface, @NativeType("GLuint") int index, @NativeType("GLenum const *") int[] props, @Nullable @NativeType("GLsizei *") int[] length, @NativeType("GLint *") int[] params) {
         long __functionAddress = GL.getICD().glGetProgramResourceiv;
         if (CHECKS) {
             check(__functionAddress);

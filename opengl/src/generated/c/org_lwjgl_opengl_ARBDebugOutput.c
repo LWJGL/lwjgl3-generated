@@ -6,23 +6,23 @@
 #include "common_tools.h"
 #include "opengl.h"
 
-typedef void (APIENTRY *glDebugMessageControlARBPROC) (jint, jint, jint, jint, const intptr_t, jboolean);
-typedef void (APIENTRY *glDebugMessageInsertARBPROC) (jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glDebugMessageCallbackARBPROC) (intptr_t, const intptr_t);
+typedef void (APIENTRY *glDebugMessageControlARBPROC) (jint, jint, jint, jint, intptr_t, jboolean);
+typedef void (APIENTRY *glDebugMessageInsertARBPROC) (jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glDebugMessageCallbackARBPROC) (intptr_t, intptr_t);
 typedef jint (APIENTRY *glGetDebugMessageLogARBPROC) (jint, jint, intptr_t, intptr_t, intptr_t, intptr_t, intptr_t, intptr_t);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDebugOutput_nglDebugMessageControlARB__IIIIJZ(JNIEnv *__env, jclass clazz, jint source, jint type, jint severity, jint count, jlong idsAddress, jboolean enabled) {
     glDebugMessageControlARBPROC glDebugMessageControlARB = (glDebugMessageControlARBPROC)tlsGetFunction(292);
-    const intptr_t ids = (const intptr_t)idsAddress;
+    intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageControlARB(source, type, severity, count, ids, enabled);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDebugOutput_nglDebugMessageInsertARB(JNIEnv *__env, jclass clazz, jint source, jint type, jint id, jint severity, jint length, jlong bufAddress) {
     glDebugMessageInsertARBPROC glDebugMessageInsertARB = (glDebugMessageInsertARBPROC)tlsGetFunction(296);
-    const intptr_t buf = (const intptr_t)bufAddress;
+    intptr_t buf = (intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageInsertARB(source, type, id, severity, length, buf);
 }
@@ -30,7 +30,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDebugOutput_nglDebugMessageInser
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBDebugOutput_nglDebugMessageCallbackARB(JNIEnv *__env, jclass clazz, jlong callbackAddress, jlong userParamAddress) {
     glDebugMessageCallbackARBPROC glDebugMessageCallbackARB = (glDebugMessageCallbackARBPROC)tlsGetFunction(290);
     intptr_t callback = (intptr_t)callbackAddress;
-    const intptr_t userParam = (const intptr_t)userParamAddress;
+    intptr_t userParam = (intptr_t)userParamAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageCallbackARB(callback, userParam);
 }

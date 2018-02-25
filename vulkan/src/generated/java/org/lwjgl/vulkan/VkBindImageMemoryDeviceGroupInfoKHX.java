@@ -72,11 +72,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkBindImageMemoryDeviceGroupInfoKHX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t deviceIndexCount;
- *     const uint32_t * pDeviceIndices;
+ *     uint32_t const * pDeviceIndices;
  *     uint32_t SFRRectCount;
- *     const {@link VkRect2D VkRect2D} * pSFRRects;
+ *     {@link VkRect2D VkRect2D const} * pSFRRects;
  * }</pre></code>
  */
 public class VkBindImageMemoryDeviceGroupInfoKHX extends Struct implements NativeResource {
@@ -137,31 +137,31 @@ public class VkBindImageMemoryDeviceGroupInfoKHX extends Struct implements Nativ
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code deviceIndexCount} field. */
     @NativeType("uint32_t")
     public int deviceIndexCount() { return ndeviceIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
     @Nullable
-    @NativeType("const uint32_t *")
+    @NativeType("uint32_t const *")
     public IntBuffer pDeviceIndices() { return npDeviceIndices(address()); }
     /** Returns the value of the {@code SFRRectCount} field. */
     @NativeType("uint32_t")
     public int SFRRectCount() { return nSFRRectCount(address()); }
     /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pSFRRects} field. */
     @Nullable
-    @NativeType("const VkRect2D *")
+    @NativeType("VkRect2D const *")
     public VkRect2D.Buffer pSFRRects() { return npSFRRects(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkBindImageMemoryDeviceGroupInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBindImageMemoryDeviceGroupInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkBindImageMemoryDeviceGroupInfoKHX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-    public VkBindImageMemoryDeviceGroupInfoKHX pDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npDeviceIndices(address(), value); return this; }
+    public VkBindImageMemoryDeviceGroupInfoKHX pDeviceIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { npDeviceIndices(address(), value); return this; }
     /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pSFRRects} field. */
-    public VkBindImageMemoryDeviceGroupInfoKHX pSFRRects(@Nullable @NativeType("const VkRect2D *") VkRect2D.Buffer value) { npSFRRects(address(), value); return this; }
+    public VkBindImageMemoryDeviceGroupInfoKHX pSFRRects(@Nullable @NativeType("VkRect2D const *") VkRect2D.Buffer value) { npSFRRects(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBindImageMemoryDeviceGroupInfoKHX set(
@@ -433,31 +433,31 @@ public class VkBindImageMemoryDeviceGroupInfoKHX extends Struct implements Nativ
         @NativeType("VkStructureType")
         public int sType() { return VkBindImageMemoryDeviceGroupInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkBindImageMemoryDeviceGroupInfoKHX.npNext(address()); }
         /** Returns the value of the {@code deviceIndexCount} field. */
         @NativeType("uint32_t")
         public int deviceIndexCount() { return VkBindImageMemoryDeviceGroupInfoKHX.ndeviceIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDeviceIndices} field. */
         @Nullable
-        @NativeType("const uint32_t *")
+        @NativeType("uint32_t const *")
         public IntBuffer pDeviceIndices() { return VkBindImageMemoryDeviceGroupInfoKHX.npDeviceIndices(address()); }
         /** Returns the value of the {@code SFRRectCount} field. */
         @NativeType("uint32_t")
         public int SFRRectCount() { return VkBindImageMemoryDeviceGroupInfoKHX.nSFRRectCount(address()); }
         /** Returns a {@link VkRect2D.Buffer} view of the struct array pointed to by the {@code pSFRRects} field. */
         @Nullable
-        @NativeType("const VkRect2D *")
+        @NativeType("VkRect2D const *")
         public VkRect2D.Buffer pSFRRects() { return VkBindImageMemoryDeviceGroupInfoKHX.npSFRRects(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkBindImageMemoryDeviceGroupInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkBindImageMemoryDeviceGroupInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBindImageMemoryDeviceGroupInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkBindImageMemoryDeviceGroupInfoKHX.npNext(address(), value); return this; }
+        public VkBindImageMemoryDeviceGroupInfoKHX.Buffer pNext(@NativeType("void const *") long value) { VkBindImageMemoryDeviceGroupInfoKHX.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pDeviceIndices} field. */
-        public VkBindImageMemoryDeviceGroupInfoKHX.Buffer pDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkBindImageMemoryDeviceGroupInfoKHX.npDeviceIndices(address(), value); return this; }
+        public VkBindImageMemoryDeviceGroupInfoKHX.Buffer pDeviceIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { VkBindImageMemoryDeviceGroupInfoKHX.npDeviceIndices(address(), value); return this; }
         /** Sets the address of the specified {@link VkRect2D.Buffer} to the {@code pSFRRects} field. */
-        public VkBindImageMemoryDeviceGroupInfoKHX.Buffer pSFRRects(@Nullable @NativeType("const VkRect2D *") VkRect2D.Buffer value) { VkBindImageMemoryDeviceGroupInfoKHX.npSFRRects(address(), value); return this; }
+        public VkBindImageMemoryDeviceGroupInfoKHX.Buffer pSFRRects(@Nullable @NativeType("VkRect2D const *") VkRect2D.Buffer value) { VkBindImageMemoryDeviceGroupInfoKHX.npSFRRects(address(), value); return this; }
 
     }
 

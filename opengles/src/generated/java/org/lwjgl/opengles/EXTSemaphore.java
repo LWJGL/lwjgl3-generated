@@ -116,11 +116,11 @@ public class EXTSemaphore {
 
     public static native void nglDeleteSemaphoresEXT(int n, long semaphores);
 
-    public static void glDeleteSemaphoresEXT(@NativeType("const GLuint *") IntBuffer semaphores) {
+    public static void glDeleteSemaphoresEXT(@NativeType("GLuint const *") IntBuffer semaphores) {
         nglDeleteSemaphoresEXT(semaphores.remaining(), memAddress(semaphores));
     }
 
-    public static void glDeleteSemaphoresEXT(@NativeType("const GLuint *") int semaphore) {
+    public static void glDeleteSemaphoresEXT(@NativeType("GLuint const *") int semaphore) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer semaphores = stack.ints(semaphore);
@@ -139,14 +139,14 @@ public class EXTSemaphore {
 
     public static native void nglSemaphoreParameterui64vEXT(int semaphore, int pname, long params);
 
-    public static void glSemaphoreParameterui64vEXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int pname, @NativeType("const GLuint64 *") LongBuffer params) {
+    public static void glSemaphoreParameterui64vEXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int pname, @NativeType("GLuint64 const *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
         nglSemaphoreParameterui64vEXT(semaphore, pname, memAddress(params));
     }
 
-    public static void glSemaphoreParameterui64EXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int pname, @NativeType("const GLuint64 *") long param) {
+    public static void glSemaphoreParameterui64EXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int pname, @NativeType("GLuint64 const *") long param) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             LongBuffer params = stack.longs(param);
@@ -183,7 +183,7 @@ public class EXTSemaphore {
 
     public static native void nglWaitSemaphoreEXT(int semaphore, int numBufferBarriers, long buffers, int numTextureBarriers, long textures, long srcLayouts);
 
-    public static void glWaitSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("const GLuint *") IntBuffer buffers, @NativeType("const GLuint *") IntBuffer textures, @NativeType("const GLenum *") IntBuffer srcLayouts) {
+    public static void glWaitSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("GLuint const *") IntBuffer buffers, @NativeType("GLuint const *") IntBuffer textures, @NativeType("GLenum const *") IntBuffer srcLayouts) {
         if (CHECKS) {
             check(srcLayouts, textures.remaining());
         }
@@ -194,7 +194,7 @@ public class EXTSemaphore {
 
     public static native void nglSignalSemaphoreEXT(int semaphore, int numBufferBarriers, long buffers, int numTextureBarriers, long textures, long dstLayouts);
 
-    public static void glSignalSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("const GLuint *") IntBuffer buffers, @NativeType("const GLuint *") IntBuffer textures, @NativeType("const GLenum *") IntBuffer dstLayouts) {
+    public static void glSignalSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("GLuint const *") IntBuffer buffers, @NativeType("GLuint const *") IntBuffer textures, @NativeType("GLenum const *") IntBuffer dstLayouts) {
         if (CHECKS) {
             check(dstLayouts, textures.remaining());
         }
@@ -211,7 +211,7 @@ public class EXTSemaphore {
     }
 
     /** Array version of: {@link #glDeleteSemaphoresEXT DeleteSemaphoresEXT} */
-    public static void glDeleteSemaphoresEXT(@NativeType("const GLuint *") int[] semaphores) {
+    public static void glDeleteSemaphoresEXT(@NativeType("GLuint const *") int[] semaphores) {
         long __functionAddress = GLES.getICD().glDeleteSemaphoresEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -220,7 +220,7 @@ public class EXTSemaphore {
     }
 
     /** Array version of: {@link #glSemaphoreParameterui64vEXT SemaphoreParameterui64vEXT} */
-    public static void glSemaphoreParameterui64vEXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int pname, @NativeType("const GLuint64 *") long[] params) {
+    public static void glSemaphoreParameterui64vEXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int pname, @NativeType("GLuint64 const *") long[] params) {
         long __functionAddress = GLES.getICD().glSemaphoreParameterui64vEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -240,7 +240,7 @@ public class EXTSemaphore {
     }
 
     /** Array version of: {@link #glWaitSemaphoreEXT WaitSemaphoreEXT} */
-    public static void glWaitSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("const GLuint *") int[] buffers, @NativeType("const GLuint *") int[] textures, @NativeType("const GLenum *") int[] srcLayouts) {
+    public static void glWaitSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("GLuint const *") int[] buffers, @NativeType("GLuint const *") int[] textures, @NativeType("GLenum const *") int[] srcLayouts) {
         long __functionAddress = GLES.getICD().glWaitSemaphoreEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -250,7 +250,7 @@ public class EXTSemaphore {
     }
 
     /** Array version of: {@link #glSignalSemaphoreEXT SignalSemaphoreEXT} */
-    public static void glSignalSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("const GLuint *") int[] buffers, @NativeType("const GLuint *") int[] textures, @NativeType("const GLenum *") int[] dstLayouts) {
+    public static void glSignalSemaphoreEXT(@NativeType("GLuint") int semaphore, @NativeType("GLuint const *") int[] buffers, @NativeType("GLuint const *") int[] textures, @NativeType("GLenum const *") int[] dstLayouts) {
         long __functionAddress = GLES.getICD().glSignalSemaphoreEXT;
         if (CHECKS) {
             check(__functionAddress);

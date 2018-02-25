@@ -18,7 +18,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * void (*) (
  *     GLFWwindow *window,
  *     int count,
- *     const char **names
+ *     char const **names
  * )</pre></code>
  *
  * @since version 3.1
@@ -48,6 +48,6 @@ public interface GLFWDropCallbackI extends CallbackI.V {
      * @param count  the number of dropped files
      * @param names  pointer to the array of UTF-8 encoded path names of the dropped files
      */
-    void invoke(@NativeType("GLFWwindow *") long window, int count, @NativeType("const char **") long names);
+    void invoke(@NativeType("GLFWwindow *") long window, int count, @NativeType("char const **") long names);
 
 }

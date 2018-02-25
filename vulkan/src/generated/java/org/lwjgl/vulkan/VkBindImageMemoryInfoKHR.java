@@ -71,7 +71,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkBindImageMemoryInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImage image;
  *     VkDeviceMemory memory;
  *     VkDeviceSize memoryOffset;
@@ -132,7 +132,7 @@ public class VkBindImageMemoryInfoKHR extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code image} field. */
     @NativeType("VkImage")
@@ -147,7 +147,7 @@ public class VkBindImageMemoryInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkBindImageMemoryInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBindImageMemoryInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkBindImageMemoryInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
     public VkBindImageMemoryInfoKHR image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
     /** Sets the specified value to the {@code memory} field. */
@@ -397,7 +397,7 @@ public class VkBindImageMemoryInfoKHR extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkBindImageMemoryInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkBindImageMemoryInfoKHR.npNext(address()); }
         /** Returns the value of the {@code image} field. */
         @NativeType("VkImage")
@@ -412,7 +412,7 @@ public class VkBindImageMemoryInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkBindImageMemoryInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkBindImageMemoryInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBindImageMemoryInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkBindImageMemoryInfoKHR.npNext(address(), value); return this; }
+        public VkBindImageMemoryInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkBindImageMemoryInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
         public VkBindImageMemoryInfoKHR.Buffer image(@NativeType("VkImage") long value) { VkBindImageMemoryInfoKHR.nimage(address(), value); return this; }
         /** Sets the specified value to the {@code memory} field. */

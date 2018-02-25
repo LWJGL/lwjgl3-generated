@@ -6,13 +6,13 @@
 #include "common_tools.h"
 #include "opengles.h"
 
-typedef void (APIENTRY *glDiscardFramebufferEXTPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glDiscardFramebufferEXTPROC) (jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTDiscardFramebuffer_nglDiscardFramebufferEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint numAttachments, jlong attachmentsAddress) {
     glDiscardFramebufferEXTPROC glDiscardFramebufferEXT = (glDiscardFramebufferEXTPROC)tlsGetFunction(159);
-    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    intptr_t attachments = (intptr_t)attachmentsAddress;
     UNUSED_PARAM(clazz)
     glDiscardFramebufferEXT(target, numAttachments, attachments);
 }

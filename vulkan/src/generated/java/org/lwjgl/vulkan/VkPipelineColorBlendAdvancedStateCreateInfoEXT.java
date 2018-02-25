@@ -53,7 +53,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPipelineColorBlendAdvancedStateCreateInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkBool32 srcPremultiplied;
  *     VkBool32 dstPremultiplied;
  *     VkBlendOverlapEXT blendOverlap;
@@ -114,7 +114,7 @@ public class VkPipelineColorBlendAdvancedStateCreateInfoEXT extends Struct imple
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code srcPremultiplied} field. */
     @NativeType("VkBool32")
@@ -129,7 +129,7 @@ public class VkPipelineColorBlendAdvancedStateCreateInfoEXT extends Struct imple
     /** Sets the specified value to the {@code sType} field. */
     public VkPipelineColorBlendAdvancedStateCreateInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineColorBlendAdvancedStateCreateInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPipelineColorBlendAdvancedStateCreateInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code srcPremultiplied} field. */
     public VkPipelineColorBlendAdvancedStateCreateInfoEXT srcPremultiplied(@NativeType("VkBool32") boolean value) { nsrcPremultiplied(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code dstPremultiplied} field. */
@@ -379,7 +379,7 @@ public class VkPipelineColorBlendAdvancedStateCreateInfoEXT extends Struct imple
         @NativeType("VkStructureType")
         public int sType() { return VkPipelineColorBlendAdvancedStateCreateInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPipelineColorBlendAdvancedStateCreateInfoEXT.npNext(address()); }
         /** Returns the value of the {@code srcPremultiplied} field. */
         @NativeType("VkBool32")
@@ -394,7 +394,7 @@ public class VkPipelineColorBlendAdvancedStateCreateInfoEXT extends Struct imple
         /** Sets the specified value to the {@code sType} field. */
         public VkPipelineColorBlendAdvancedStateCreateInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineColorBlendAdvancedStateCreateInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineColorBlendAdvancedStateCreateInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkPipelineColorBlendAdvancedStateCreateInfoEXT.npNext(address(), value); return this; }
+        public VkPipelineColorBlendAdvancedStateCreateInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkPipelineColorBlendAdvancedStateCreateInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code srcPremultiplied} field. */
         public VkPipelineColorBlendAdvancedStateCreateInfoEXT.Buffer srcPremultiplied(@NativeType("VkBool32") boolean value) { VkPipelineColorBlendAdvancedStateCreateInfoEXT.nsrcPremultiplied(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code dstPremultiplied} field. */

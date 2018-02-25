@@ -65,11 +65,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDescriptorPoolCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDescriptorPoolCreateFlags flags;
  *     uint32_t maxSets;
  *     uint32_t poolSizeCount;
- *     const {@link VkDescriptorPoolSize VkDescriptorPoolSize} * pPoolSizes;
+ *     {@link VkDescriptorPoolSize VkDescriptorPoolSize const} * pPoolSizes;
  * }</pre></code>
  */
 public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource {
@@ -130,7 +130,7 @@ public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkDescriptorPoolCreateFlags")
@@ -142,19 +142,19 @@ public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource
     @NativeType("uint32_t")
     public int poolSizeCount() { return npoolSizeCount(address()); }
     /** Returns a {@link VkDescriptorPoolSize.Buffer} view of the struct array pointed to by the {@code pPoolSizes} field. */
-    @NativeType("const VkDescriptorPoolSize *")
+    @NativeType("VkDescriptorPoolSize const *")
     public VkDescriptorPoolSize.Buffer pPoolSizes() { return npPoolSizes(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkDescriptorPoolCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDescriptorPoolCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDescriptorPoolCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkDescriptorPoolCreateInfo flags(@NativeType("VkDescriptorPoolCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code maxSets} field. */
     public VkDescriptorPoolCreateInfo maxSets(@NativeType("uint32_t") int value) { nmaxSets(address(), value); return this; }
     /** Sets the address of the specified {@link VkDescriptorPoolSize.Buffer} to the {@code pPoolSizes} field. */
-    public VkDescriptorPoolCreateInfo pPoolSizes(@NativeType("const VkDescriptorPoolSize *") VkDescriptorPoolSize.Buffer value) { npPoolSizes(address(), value); return this; }
+    public VkDescriptorPoolCreateInfo pPoolSizes(@NativeType("VkDescriptorPoolSize const *") VkDescriptorPoolSize.Buffer value) { npPoolSizes(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDescriptorPoolCreateInfo set(
@@ -423,7 +423,7 @@ public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource
         @NativeType("VkStructureType")
         public int sType() { return VkDescriptorPoolCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDescriptorPoolCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkDescriptorPoolCreateFlags")
@@ -435,19 +435,19 @@ public class VkDescriptorPoolCreateInfo extends Struct implements NativeResource
         @NativeType("uint32_t")
         public int poolSizeCount() { return VkDescriptorPoolCreateInfo.npoolSizeCount(address()); }
         /** Returns a {@link VkDescriptorPoolSize.Buffer} view of the struct array pointed to by the {@code pPoolSizes} field. */
-        @NativeType("const VkDescriptorPoolSize *")
+        @NativeType("VkDescriptorPoolSize const *")
         public VkDescriptorPoolSize.Buffer pPoolSizes() { return VkDescriptorPoolCreateInfo.npPoolSizes(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkDescriptorPoolCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkDescriptorPoolCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDescriptorPoolCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkDescriptorPoolCreateInfo.npNext(address(), value); return this; }
+        public VkDescriptorPoolCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkDescriptorPoolCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkDescriptorPoolCreateInfo.Buffer flags(@NativeType("VkDescriptorPoolCreateFlags") int value) { VkDescriptorPoolCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code maxSets} field. */
         public VkDescriptorPoolCreateInfo.Buffer maxSets(@NativeType("uint32_t") int value) { VkDescriptorPoolCreateInfo.nmaxSets(address(), value); return this; }
         /** Sets the address of the specified {@link VkDescriptorPoolSize.Buffer} to the {@code pPoolSizes} field. */
-        public VkDescriptorPoolCreateInfo.Buffer pPoolSizes(@NativeType("const VkDescriptorPoolSize *") VkDescriptorPoolSize.Buffer value) { VkDescriptorPoolCreateInfo.npPoolSizes(address(), value); return this; }
+        public VkDescriptorPoolCreateInfo.Buffer pPoolSizes(@NativeType("VkDescriptorPoolSize const *") VkDescriptorPoolSize.Buffer value) { VkDescriptorPoolCreateInfo.npPoolSizes(address(), value); return this; }
 
     }
 

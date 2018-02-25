@@ -6,12 +6,12 @@
 #include "common_tools.h"
 #include "opengles.h"
 
-typedef void (APIENTRY *glTexParameterIivEXTPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glTexParameterIuivEXTPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glTexParameterIivEXTPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glTexParameterIuivEXTPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetTexParameterIivEXTPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetTexParameterIuivEXTPROC) (jint, jint, intptr_t);
-typedef void (APIENTRY *glSamplerParameterIivEXTPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glSamplerParameterIuivEXTPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glSamplerParameterIivEXTPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glSamplerParameterIuivEXTPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetSamplerParameterIivEXTPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetSamplerParameterIuivEXTPROC) (jint, jint, intptr_t);
 
@@ -19,14 +19,14 @@ EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureBorderClamp_nglTexParameterIivEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
     glTexParameterIivEXTPROC glTexParameterIivEXT = (glTexParameterIivEXTPROC)tlsGetFunction(694);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTexParameterIivEXT(target, pname, params);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureBorderClamp_nglTexParameterIuivEXT__IIJ(JNIEnv *__env, jclass clazz, jint target, jint pname, jlong paramsAddress) {
     glTexParameterIuivEXTPROC glTexParameterIuivEXT = (glTexParameterIuivEXTPROC)tlsGetFunction(697);
-    const intptr_t params = (const intptr_t)paramsAddress;
+    intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glTexParameterIuivEXT(target, pname, params);
 }
@@ -47,14 +47,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureBorderClamp_nglGetTexPa
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureBorderClamp_nglSamplerParameterIivEXT__IIJ(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jlong paramAddress) {
     glSamplerParameterIivEXTPROC glSamplerParameterIivEXT = (glSamplerParameterIivEXTPROC)tlsGetFunction(641);
-    const intptr_t param = (const intptr_t)paramAddress;
+    intptr_t param = (intptr_t)paramAddress;
     UNUSED_PARAM(clazz)
     glSamplerParameterIivEXT(sampler, pname, param);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_EXTTextureBorderClamp_nglSamplerParameterIuivEXT__IIJ(JNIEnv *__env, jclass clazz, jint sampler, jint pname, jlong paramAddress) {
     glSamplerParameterIuivEXTPROC glSamplerParameterIuivEXT = (glSamplerParameterIuivEXTPROC)tlsGetFunction(644);
-    const intptr_t param = (const intptr_t)paramAddress;
+    intptr_t param = (intptr_t)paramAddress;
     UNUSED_PARAM(clazz)
     glSamplerParameterIuivEXT(sampler, pname, param);
 }

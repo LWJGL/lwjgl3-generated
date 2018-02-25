@@ -98,7 +98,7 @@ public class RPmalloc {
      * @param config an optional {@link RPMallocConfig} instance
      */
     @NativeType("int")
-    public static boolean rpmalloc_initialize_config(@Nullable @NativeType("const rpmalloc_config_t *") RPMallocConfig config) {
+    public static boolean rpmalloc_initialize_config(@Nullable @NativeType("rpmalloc_config_t const *") RPMallocConfig config) {
         return nrpmalloc_initialize_config(memAddressSafe(config)) != 0;
     }
 

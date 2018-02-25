@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * float (*) (
  *     nk_handle handle,
  *     float h,
- *     const char *text,
+ *     char const *text,
  *     int len
  * )</pre></code>
  */

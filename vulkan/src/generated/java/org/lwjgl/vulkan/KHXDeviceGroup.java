@@ -692,7 +692,7 @@ public class KHXDeviceGroup {
      * @param pImageIndex  a pointer to a {@code uint32_t} that is set to the index of the next image to use.
      */
     @NativeType("VkResult")
-    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") IntBuffer pImageIndex) {
+    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("VkAcquireNextImageInfoKHX const *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") IntBuffer pImageIndex) {
         if (CHECKS) {
             check(pImageIndex, 1);
         }
@@ -734,7 +734,7 @@ public class KHXDeviceGroup {
 
     /** Array version of: {@link #vkAcquireNextImage2KHX AcquireNextImage2KHX} */
     @NativeType("VkResult")
-    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("const VkAcquireNextImageInfoKHX *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") int[] pImageIndex) {
+    public static int vkAcquireNextImage2KHX(VkDevice device, @NativeType("VkAcquireNextImageInfoKHX const *") VkAcquireNextImageInfoKHX pAcquireInfo, @NativeType("uint32_t *") int[] pImageIndex) {
         long __functionAddress = device.getCapabilities().vkAcquireNextImage2KHX;
         if (CHECKS) {
             check(__functionAddress);

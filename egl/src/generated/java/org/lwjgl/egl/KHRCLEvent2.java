@@ -56,7 +56,7 @@ public class KHRCLEvent2 {
     }
 
     @NativeType("EGLSyncKHR")
-    public static long eglCreateSync64KHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("const EGLAttribKHR *") PointerBuffer attrib_list) {
+    public static long eglCreateSync64KHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("EGLAttribKHR const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }

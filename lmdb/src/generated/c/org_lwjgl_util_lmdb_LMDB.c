@@ -41,21 +41,21 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1create(JNIEnv *_
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1open(JNIEnv *__env, jclass clazz, jlong envAddress, jlong pathAddress, jint flags, jint mode) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
-    const char *path = (const char *)(intptr_t)pathAddress;
+    char const *path = (char const *)(intptr_t)pathAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)mdb_env_open(env, path, (unsigned int)flags, (mdb_mode_t)mode);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1copy(JNIEnv *__env, jclass clazz, jlong envAddress, jlong pathAddress) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
-    const char *path = (const char *)(intptr_t)pathAddress;
+    char const *path = (char const *)(intptr_t)pathAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)mdb_env_copy(env, path);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1copy2(JNIEnv *__env, jclass clazz, jlong envAddress, jlong pathAddress, jint flags) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
-    const char *path = (const char *)(intptr_t)pathAddress;
+    char const *path = (char const *)(intptr_t)pathAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)mdb_env_copy2(env, path, (unsigned int)flags);
 }
@@ -101,7 +101,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1flags__JJ(J
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1path(JNIEnv *__env, jclass clazz, jlong envAddress, jlong pathAddress) {
     MDB_env *env = (MDB_env *)(intptr_t)envAddress;
-    const char **path = (const char **)(intptr_t)pathAddress;
+    char const **path = (char const **)(intptr_t)pathAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)mdb_env_get_path(env, path);
 }
@@ -196,7 +196,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1txn_1renew(JNIEnv *__
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1open__JJIJ(JNIEnv *__env, jclass clazz, jlong txnAddress, jlong nameAddress, jint flags, jlong dbiAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
     MDB_dbi *dbi = (MDB_dbi *)(intptr_t)dbiAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)mdb_dbi_open(txn, name, (unsigned int)flags, dbi);
@@ -343,16 +343,16 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cursor_1count(JNIEnv 
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1cmp(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong aAddress, jlong bAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
-    const MDB_val *a = (const MDB_val *)(intptr_t)aAddress;
-    const MDB_val *b = (const MDB_val *)(intptr_t)bAddress;
+    MDB_val const *a = (MDB_val const *)(intptr_t)aAddress;
+    MDB_val const *b = (MDB_val const *)(intptr_t)bAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)mdb_cmp(txn, (MDB_dbi)dbi, a, b);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dcmp(JNIEnv *__env, jclass clazz, jlong txnAddress, jint dbi, jlong aAddress, jlong bAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
-    const MDB_val *a = (const MDB_val *)(intptr_t)aAddress;
-    const MDB_val *b = (const MDB_val *)(intptr_t)bAddress;
+    MDB_val const *a = (MDB_val const *)(intptr_t)aAddress;
+    MDB_val const *b = (MDB_val const *)(intptr_t)bAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)mdb_dcmp(txn, (MDB_dbi)dbi, a, b);
 }
@@ -423,7 +423,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_lmdb_LMDB_nmdb_1env_1get_1max
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1open__JJI_3I(JNIEnv *__env, jclass clazz, jlong txnAddress, jlong nameAddress, jint flags, jintArray dbiAddress) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
     jint __result;
     jint *dbi = (*__env)->GetPrimitiveArrayCritical(__env, dbiAddress, 0);
     UNUSED_PARAMS(__env, clazz)
@@ -433,7 +433,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1open__JJI_3I(JNI
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_util_lmdb_LMDB_nmdb_1dbi_1open__JJI_3I(jlong txnAddress, jlong nameAddress, jint flags, jint dbi__length, jint* dbi) {
     MDB_txn *txn = (MDB_txn *)(intptr_t)txnAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
     UNUSED_PARAM(dbi__length)
     return (jint)mdb_dbi_open(txn, name, (unsigned int)flags, (MDB_dbi *)dbi);
 }

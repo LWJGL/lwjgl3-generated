@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct ovrHapticsClip {
- *     const void * Samples;
+ *     void const * Samples;
  *     int SamplesCount;
  * }</pre></code>
  */
@@ -81,7 +81,7 @@ public class OVRHapticsClip extends Struct implements NativeResource {
      *
      * @param capacity the number of elements in the returned buffer
      */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public ByteBuffer Samples(int capacity) { return nSamples(address(), capacity); }
     /** Returns the value of the {@code SamplesCount} field. */
     public int SamplesCount() { return nSamplesCount(address()); }
@@ -283,7 +283,7 @@ public class OVRHapticsClip extends Struct implements NativeResource {
          *
          * @param capacity the number of elements in the returned buffer
          */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public ByteBuffer Samples(int capacity) { return OVRHapticsClip.nSamples(address(), capacity); }
         /** Returns the value of the {@code SamplesCount} field. */
         public int SamplesCount() { return OVRHapticsClip.nSamplesCount(address()); }

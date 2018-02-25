@@ -82,12 +82,12 @@ public class ARBTransformFeedback2 {
      *
      * @param ids an array of names of transform feedback objects to delete
      */
-    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") IntBuffer ids) {
+    public static void glDeleteTransformFeedbacks(@NativeType("GLuint const *") IntBuffer ids) {
         nglDeleteTransformFeedbacks(ids.remaining(), memAddress(ids));
     }
 
     /** Deletes transform feedback objects. */
-    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") int id) {
+    public static void glDeleteTransformFeedbacks(@NativeType("GLuint const *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -175,7 +175,7 @@ public class ARBTransformFeedback2 {
     public static native void glDrawTransformFeedback(@NativeType("GLenum") int mode, @NativeType("GLuint") int id);
 
     /** Array version of: {@link #glDeleteTransformFeedbacks DeleteTransformFeedbacks} */
-    public static void glDeleteTransformFeedbacks(@NativeType("const GLuint *") int[] ids) {
+    public static void glDeleteTransformFeedbacks(@NativeType("GLuint const *") int[] ids) {
         long __functionAddress = GL.getICD().glDeleteTransformFeedbacks;
         if (CHECKS) {
             check(__functionAddress);

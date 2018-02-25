@@ -168,7 +168,7 @@ public class OVRUtil {
      * @param outEyePoses  if {@code outEyePoses} are used for rendering, they should be passed to {@link OVR#ovr_SubmitFrame SubmitFrame} in {@link OVRLayerEyeFov}{@code ::RenderPose} or
      *                     {@link OVRLayerEyeFovDepth}{@code ::RenderPose}
      */
-    public static void ovr_CalcEyePoses(@NativeType("ovrPosef") OVRPosef headPose, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses) {
+    public static void ovr_CalcEyePoses(@NativeType("ovrPosef") OVRPosef headPose, @NativeType("ovrPosef const *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses) {
         if (CHECKS) {
             check(HmdToEyePose, 2);
             check(outEyePoses, 2);
@@ -197,7 +197,7 @@ public class OVRUtil {
      * @param outEyePoses         the predicted eye poses
      * @param outSensorSampleTime the time when this function was called. May be NULL, in which case it is ignored.
      */
-    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @Nullable @NativeType("double *") DoubleBuffer outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("ovrPosef const *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @Nullable @NativeType("double *") DoubleBuffer outSensorSampleTime) {
         if (CHECKS) {
             check(session);
             check(HmdToEyePose, 2);
@@ -222,7 +222,7 @@ public class OVRUtil {
      * @param inPose  a pose that is right-handed
      * @param outPose the pose that is requested to be left-handed (can be the same pointer to {@code inPose})
      */
-    public static void ovrPosef_FlipHandedness(@NativeType("const ovrPosef *") OVRPosef inPose, @NativeType("ovrPosef *") OVRPosef outPose) {
+    public static void ovrPosef_FlipHandedness(@NativeType("ovrPosef const *") OVRPosef inPose, @NativeType("ovrPosef *") OVRPosef outPose) {
         novrPosef_FlipHandedness(inPose.address(), outPose.address());
     }
 
@@ -248,7 +248,7 @@ public class OVRUtil {
      * @param stereoChannelToUse audio channel index to extract (0 for mono)
      */
     @NativeType("ovrResult")
-    public static int ovr_ReadWavFromBuffer(@NativeType("ovrAudioChannelData *") OVRAudioChannelData outAudioChannel, @NativeType("const void *") ByteBuffer inputData, int stereoChannelToUse) {
+    public static int ovr_ReadWavFromBuffer(@NativeType("ovrAudioChannelData *") OVRAudioChannelData outAudioChannel, @NativeType("void const *") ByteBuffer inputData, int stereoChannelToUse) {
         return novr_ReadWavFromBuffer(outAudioChannel.address(), memAddress(inputData), inputData.remaining(), stereoChannelToUse);
     }
 
@@ -265,7 +265,7 @@ public class OVRUtil {
      * @param genMode        mode used to convert and audio channel data to Haptics data. Must be:<br><table><tr><td>{@link #ovrHapticsGenMode_PointSample HapticsGenMode_PointSample}</td></tr></table>
      */
     @NativeType("ovrResult")
-    public static int ovr_GenHapticsFromAudioData(@NativeType("ovrHapticsClip *") OVRHapticsClip outHapticsClip, @NativeType("const ovrAudioChannelData *") OVRAudioChannelData audioChannel, @NativeType("ovrHapticsGenMode") int genMode) {
+    public static int ovr_GenHapticsFromAudioData(@NativeType("ovrHapticsClip *") OVRHapticsClip outHapticsClip, @NativeType("ovrAudioChannelData const *") OVRAudioChannelData audioChannel, @NativeType("ovrHapticsGenMode") int genMode) {
         return novr_GenHapticsFromAudioData(outHapticsClip.address(), audioChannel.address(), genMode);
     }
 
@@ -301,7 +301,7 @@ public class OVRUtil {
     public static native void novr_GetEyePoses(long session, long frameIndex, boolean latencyMarker, long HmdToEyePose, long outEyePoses, double[] outSensorSampleTime);
 
     /** Array version of: {@link #ovr_GetEyePoses _GetEyePoses} */
-    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("const ovrPosef *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @Nullable @NativeType("double *") double[] outSensorSampleTime) {
+    public static void ovr_GetEyePoses(@NativeType("ovrSession") long session, @NativeType("long long") long frameIndex, @NativeType("ovrBool") boolean latencyMarker, @NativeType("ovrPosef const *") OVRPosef.Buffer HmdToEyePose, @NativeType("ovrPosef *") OVRPosef.Buffer outEyePoses, @Nullable @NativeType("double *") double[] outSensorSampleTime) {
         if (CHECKS) {
             check(session);
             check(HmdToEyePose, 2);

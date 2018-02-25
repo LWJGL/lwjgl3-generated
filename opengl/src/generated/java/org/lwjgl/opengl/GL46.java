@@ -124,7 +124,7 @@ public class GL46 {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
         }
@@ -146,7 +146,7 @@ public class GL46 {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("const void *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("void const *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawArraysIndirectCount(mode, indirect, drawcount, maxdrawcount, stride);
     }
 
@@ -165,7 +165,7 @@ public class GL46 {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
         }
@@ -193,7 +193,7 @@ public class GL46 {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
         }
@@ -216,7 +216,7 @@ public class GL46 {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawElementsIndirectCount(mode, type, indirect, drawcount, maxdrawcount, stride);
     }
 
@@ -236,7 +236,7 @@ public class GL46 {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
         }
@@ -305,7 +305,7 @@ public class GL46 {
      *                       <p>Although this array is of unsigned integer, each entry is bitcast to the appropriate type for the module, and therefore, floating-point constants
      *                       may be set by including their IEEE-754 bit representation in the {@code pConstantValue} array.</p>
      */
-    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("const GLchar *") ByteBuffer pEntryPoint, @NativeType("const GLuint *") IntBuffer pConstantIndex, @NativeType("const GLuint *") IntBuffer pConstantValue) {
+    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("GLchar const *") ByteBuffer pEntryPoint, @NativeType("GLuint const *") IntBuffer pConstantIndex, @NativeType("GLuint const *") IntBuffer pConstantValue) {
         if (CHECKS) {
             checkNT1(pEntryPoint);
             check(pConstantValue, pConstantIndex.remaining());
@@ -345,7 +345,7 @@ public class GL46 {
      *                       <p>Although this array is of unsigned integer, each entry is bitcast to the appropriate type for the module, and therefore, floating-point constants
      *                       may be set by including their IEEE-754 bit representation in the {@code pConstantValue} array.</p>
      */
-    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("const GLchar *") CharSequence pEntryPoint, @NativeType("const GLuint *") IntBuffer pConstantIndex, @NativeType("const GLuint *") IntBuffer pConstantValue) {
+    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("GLchar const *") CharSequence pEntryPoint, @NativeType("GLuint const *") IntBuffer pConstantIndex, @NativeType("GLuint const *") IntBuffer pConstantValue) {
         if (CHECKS) {
             check(pConstantValue, pConstantIndex.remaining());
         }
@@ -363,7 +363,7 @@ public class GL46 {
      * 
      * Array version of: {@link #glMultiDrawArraysIndirectCount MultiDrawArraysIndirectCount}
      */
-    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("const void *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCount(@NativeType("GLenum") int mode, @NativeType("void const *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawArraysIndirectCount;
         if (CHECKS) {
             check(__functionAddress);
@@ -377,7 +377,7 @@ public class GL46 {
      * 
      * Array version of: {@link #glMultiDrawElementsIndirectCount MultiDrawElementsIndirectCount}
      */
-    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCount(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawElementsIndirectCount;
         if (CHECKS) {
             check(__functionAddress);
@@ -391,7 +391,7 @@ public class GL46 {
      * 
      * Array version of: {@link #glSpecializeShader SpecializeShader}
      */
-    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("const GLchar *") ByteBuffer pEntryPoint, @NativeType("const GLuint *") int[] pConstantIndex, @NativeType("const GLuint *") int[] pConstantValue) {
+    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("GLchar const *") ByteBuffer pEntryPoint, @NativeType("GLuint const *") int[] pConstantIndex, @NativeType("GLuint const *") int[] pConstantValue) {
         long __functionAddress = GL.getICD().glSpecializeShader;
         if (CHECKS) {
             check(__functionAddress);
@@ -406,7 +406,7 @@ public class GL46 {
      * 
      * Array version of: {@link #glSpecializeShader SpecializeShader}
      */
-    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("const GLchar *") CharSequence pEntryPoint, @NativeType("const GLuint *") int[] pConstantIndex, @NativeType("const GLuint *") int[] pConstantValue) {
+    public static void glSpecializeShader(@NativeType("GLuint") int shader, @NativeType("GLchar const *") CharSequence pEntryPoint, @NativeType("GLuint const *") int[] pConstantIndex, @NativeType("GLuint const *") int[] pConstantValue) {
         long __functionAddress = GL.getICD().glSpecializeShader;
         if (CHECKS) {
             check(__functionAddress);

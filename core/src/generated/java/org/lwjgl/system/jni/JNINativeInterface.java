@@ -695,7 +695,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetBooleanArrayRegion(@NativeType("jbooleanArray") byte[] array, @NativeType("jsize") int start, @NativeType("const jboolean *") ByteBuffer buf) {
+    public static void SetBooleanArrayRegion(@NativeType("jbooleanArray") byte[] array, @NativeType("jsize") int start, @NativeType("jboolean const *") ByteBuffer buf) {
         nSetBooleanArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -735,7 +735,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetByteArrayRegion(@NativeType("jbyteArray") byte[] array, @NativeType("jsize") int start, @NativeType("const jbyte *") ByteBuffer buf) {
+    public static void SetByteArrayRegion(@NativeType("jbyteArray") byte[] array, @NativeType("jsize") int start, @NativeType("jbyte const *") ByteBuffer buf) {
         nSetByteArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -775,7 +775,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetCharArrayRegion(@NativeType("jcharArray") char[] array, @NativeType("jsize") int start, @NativeType("const jchar *") ShortBuffer buf) {
+    public static void SetCharArrayRegion(@NativeType("jcharArray") char[] array, @NativeType("jsize") int start, @NativeType("jchar const *") ShortBuffer buf) {
         nSetCharArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -815,7 +815,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetShortArrayRegion(@NativeType("jshortArray") short[] array, @NativeType("jsize") int start, @NativeType("const jshort *") ShortBuffer buf) {
+    public static void SetShortArrayRegion(@NativeType("jshortArray") short[] array, @NativeType("jsize") int start, @NativeType("jshort const *") ShortBuffer buf) {
         nSetShortArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -855,7 +855,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetIntArrayRegion(@NativeType("jintArray") int[] array, @NativeType("jsize") int start, @NativeType("const jint *") IntBuffer buf) {
+    public static void SetIntArrayRegion(@NativeType("jintArray") int[] array, @NativeType("jsize") int start, @NativeType("jint const *") IntBuffer buf) {
         nSetIntArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -895,7 +895,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetLongArrayRegion(@NativeType("jlongArray") long[] array, @NativeType("jsize") int start, @NativeType("const jlong *") LongBuffer buf) {
+    public static void SetLongArrayRegion(@NativeType("jlongArray") long[] array, @NativeType("jsize") int start, @NativeType("jlong const *") LongBuffer buf) {
         nSetLongArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -935,7 +935,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetFloatArrayRegion(@NativeType("jfloatArray") float[] array, @NativeType("jsize") int start, @NativeType("const jfloat *") FloatBuffer buf) {
+    public static void SetFloatArrayRegion(@NativeType("jfloatArray") float[] array, @NativeType("jsize") int start, @NativeType("jfloat const *") FloatBuffer buf) {
         nSetFloatArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -975,7 +975,7 @@ public class JNINativeInterface {
      * @param start the starting index
      * @param buf   the source buffer
      */
-    public static void SetDoubleArrayRegion(@NativeType("jdoubleArray") double[] array, @NativeType("jsize") int start, @NativeType("const jdouble *") DoubleBuffer buf) {
+    public static void SetDoubleArrayRegion(@NativeType("jdoubleArray") double[] array, @NativeType("jsize") int start, @NativeType("jdouble const *") DoubleBuffer buf) {
         nSetDoubleArrayRegion(array, start, buf.remaining(), memAddress(buf));
     }
 
@@ -999,7 +999,7 @@ public class JNINativeInterface {
      * @return “0” on success; returns a negative value on failure
      */
     @NativeType("jint")
-    public static int RegisterNatives(@NativeType("jclass") Class<?> targetClass, @NativeType("const JNINativeMethod *") JNINativeMethod.Buffer methods) {
+    public static int RegisterNatives(@NativeType("jclass") Class<?> targetClass, @NativeType("JNINativeMethod const *") JNINativeMethod.Buffer methods) {
         if (CHECKS) {
             JNINativeMethod.validate(methods.address(), methods.remaining());
         }

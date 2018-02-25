@@ -157,7 +157,7 @@ public class GL15 {
      *
      * @param buffers an array of buffer objects to be deleted
      */
-    public static void glDeleteBuffers(@NativeType("const GLuint *") IntBuffer buffers) {
+    public static void glDeleteBuffers(@NativeType("GLuint const *") IntBuffer buffers) {
         nglDeleteBuffers(buffers.remaining(), memAddress(buffers));
     }
 
@@ -166,7 +166,7 @@ public class GL15 {
      * 
      * Deletes named buffer objects.
      */
-    public static void glDeleteBuffers(@NativeType("const GLuint *") int buffer) {
+    public static void glDeleteBuffers(@NativeType("GLuint const *") int buffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer buffers = stack.ints(buffer);
@@ -294,7 +294,7 @@ public class GL15 {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") ByteBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") ByteBuffer data, @NativeType("GLenum") int usage) {
         nglBufferData(target, data.remaining(), memAddress(data), usage);
     }
 
@@ -326,7 +326,7 @@ public class GL15 {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") ShortBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") ShortBuffer data, @NativeType("GLenum") int usage) {
         nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data), usage);
     }
 
@@ -358,7 +358,7 @@ public class GL15 {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") IntBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") IntBuffer data, @NativeType("GLenum") int usage) {
         nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
@@ -390,7 +390,7 @@ public class GL15 {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") LongBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") LongBuffer data, @NativeType("GLenum") int usage) {
         nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
@@ -422,7 +422,7 @@ public class GL15 {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") FloatBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") FloatBuffer data, @NativeType("GLenum") int usage) {
         nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data), usage);
     }
 
@@ -454,7 +454,7 @@ public class GL15 {
      * @param data   a pointer to data that will be copied into the data store for initialization, or {@code NULL} if no data is to be copied
      * @param usage  the expected usage pattern of the data store. One of:<br><table><tr><td>{@link #GL_STREAM_DRAW STREAM_DRAW}</td><td>{@link #GL_STREAM_READ STREAM_READ}</td><td>{@link #GL_STREAM_COPY STREAM_COPY}</td><td>{@link #GL_STATIC_DRAW STATIC_DRAW}</td><td>{@link #GL_STATIC_READ STATIC_READ}</td><td>{@link #GL_STATIC_COPY STATIC_COPY}</td><td>{@link #GL_DYNAMIC_DRAW DYNAMIC_DRAW}</td></tr><tr><td>{@link #GL_DYNAMIC_READ DYNAMIC_READ}</td><td>{@link #GL_DYNAMIC_COPY DYNAMIC_COPY}</td></tr></table>
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") DoubleBuffer data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") DoubleBuffer data, @NativeType("GLenum") int usage) {
         nglBufferData(target, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data), usage);
     }
 
@@ -476,7 +476,7 @@ public class GL15 {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") ByteBuffer data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") ByteBuffer data) {
         nglBufferSubData(target, offset, data.remaining(), memAddress(data));
     }
 
@@ -489,7 +489,7 @@ public class GL15 {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") ShortBuffer data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") ShortBuffer data) {
         nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 1, memAddress(data));
     }
 
@@ -502,7 +502,7 @@ public class GL15 {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") IntBuffer data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") IntBuffer data) {
         nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
@@ -515,7 +515,7 @@ public class GL15 {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") LongBuffer data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") LongBuffer data) {
         nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
@@ -528,7 +528,7 @@ public class GL15 {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") FloatBuffer data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") FloatBuffer data) {
         nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 2, memAddress(data));
     }
 
@@ -541,7 +541,7 @@ public class GL15 {
      * @param offset the offset into the buffer object's data store where data replacement will begin, measured in bytes
      * @param data   a pointer to the new data that will be copied into the data store
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") DoubleBuffer data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") DoubleBuffer data) {
         nglBufferSubData(target, offset, Integer.toUnsignedLong(data.remaining()) << 3, memAddress(data));
     }
 
@@ -859,7 +859,7 @@ public class GL15 {
      *
      * @param ids an array of query objects to be deleted
      */
-    public static void glDeleteQueries(@NativeType("const GLuint *") IntBuffer ids) {
+    public static void glDeleteQueries(@NativeType("GLuint const *") IntBuffer ids) {
         nglDeleteQueries(ids.remaining(), memAddress(ids));
     }
 
@@ -868,7 +868,7 @@ public class GL15 {
      * 
      * Deletes named query objects.
      */
-    public static void glDeleteQueries(@NativeType("const GLuint *") int id) {
+    public static void glDeleteQueries(@NativeType("GLuint const *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -1041,7 +1041,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glDeleteBuffers DeleteBuffers}
      */
-    public static void glDeleteBuffers(@NativeType("const GLuint *") int[] buffers) {
+    public static void glDeleteBuffers(@NativeType("GLuint const *") int[] buffers) {
         long __functionAddress = GL.getICD().glDeleteBuffers;
         if (CHECKS) {
             check(__functionAddress);
@@ -1067,7 +1067,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferData BufferData}
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") short[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") short[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1080,7 +1080,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferData BufferData}
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") int[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") int[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1093,7 +1093,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferData BufferData}
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") long[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") long[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1106,7 +1106,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferData BufferData}
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") float[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") float[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1119,7 +1119,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferData BufferData}
      */
-    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("const void *") double[] data, @NativeType("GLenum") int usage) {
+    public static void glBufferData(@NativeType("GLenum") int target, @NativeType("void const *") double[] data, @NativeType("GLenum") int usage) {
         long __functionAddress = GL.getICD().glBufferData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1132,7 +1132,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferSubData BufferSubData}
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") short[] data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") short[] data) {
         long __functionAddress = GL.getICD().glBufferSubData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1145,7 +1145,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferSubData BufferSubData}
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") int[] data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") int[] data) {
         long __functionAddress = GL.getICD().glBufferSubData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1158,7 +1158,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferSubData BufferSubData}
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") long[] data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") long[] data) {
         long __functionAddress = GL.getICD().glBufferSubData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1171,7 +1171,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferSubData BufferSubData}
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") float[] data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") float[] data) {
         long __functionAddress = GL.getICD().glBufferSubData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1184,7 +1184,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glBufferSubData BufferSubData}
      */
-    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("const void *") double[] data) {
+    public static void glBufferSubData(@NativeType("GLenum") int target, @NativeType("GLintptr") long offset, @NativeType("void const *") double[] data) {
         long __functionAddress = GL.getICD().glBufferSubData;
         if (CHECKS) {
             check(__functionAddress);
@@ -1289,7 +1289,7 @@ public class GL15 {
      * 
      * Array version of: {@link #glDeleteQueries DeleteQueries}
      */
-    public static void glDeleteQueries(@NativeType("const GLuint *") int[] ids) {
+    public static void glDeleteQueries(@NativeType("GLuint const *") int[] ids) {
         long __functionAddress = GL.getICD().glDeleteQueries;
         if (CHECKS) {
             check(__functionAddress);

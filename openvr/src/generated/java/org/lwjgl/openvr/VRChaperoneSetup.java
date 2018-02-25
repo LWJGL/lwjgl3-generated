@@ -254,7 +254,7 @@ public class VRChaperoneSetup {
      *
      * @param pMatSeatedZeroPoseToRawTrackingPose 
      */
-    public static void VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(@NativeType("const HmdMatrix34_t *") HmdMatrix34 pMatSeatedZeroPoseToRawTrackingPose) {
+    public static void VRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(@NativeType("HmdMatrix34_t const *") HmdMatrix34 pMatSeatedZeroPoseToRawTrackingPose) {
         nVRChaperoneSetup_SetWorkingSeatedZeroPoseToRawTrackingPose(pMatSeatedZeroPoseToRawTrackingPose.address());
     }
 
@@ -274,7 +274,7 @@ public class VRChaperoneSetup {
      *
      * @param pMatStandingZeroPoseToRawTrackingPose 
      */
-    public static void VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(@NativeType("const HmdMatrix34_t *") HmdMatrix34 pMatStandingZeroPoseToRawTrackingPose) {
+    public static void VRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(@NativeType("HmdMatrix34_t const *") HmdMatrix34 pMatStandingZeroPoseToRawTrackingPose) {
         nVRChaperoneSetup_SetWorkingStandingZeroPoseToRawTrackingPose(pMatStandingZeroPoseToRawTrackingPose.address());
     }
 
@@ -411,7 +411,7 @@ public class VRChaperoneSetup {
     }
 
     @NativeType("bool")
-    public static boolean VRChaperoneSetup_ImportFromBufferToWorking(@NativeType("const char *") ByteBuffer pBuffer, @NativeType("uint32_t") int nImportFlags) {
+    public static boolean VRChaperoneSetup_ImportFromBufferToWorking(@NativeType("char const *") ByteBuffer pBuffer, @NativeType("uint32_t") int nImportFlags) {
         return nVRChaperoneSetup_ImportFromBufferToWorking(memAddress(pBuffer), nImportFlags);
     }
 

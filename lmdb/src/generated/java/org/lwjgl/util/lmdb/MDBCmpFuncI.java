@@ -14,8 +14,8 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <code><pre>
  * int (*) (
- *     const MDB_val *a,
- *     const MDB_val *b
+ *     MDB_val const *a,
+ *     MDB_val const *b
  * )</pre></code>
  */
 @FunctionalInterface
@@ -43,6 +43,6 @@ public interface MDBCmpFuncI extends CallbackI.I {
      *
      * @return &lt; 0 if a &lt; b, 0 if a == b, &gt; 0 if a &gt; b
      */
-    int invoke(@NativeType("const MDB_val *") long a, @NativeType("const MDB_val *") long b);
+    int invoke(@NativeType("MDB_val const *") long a, @NativeType("MDB_val const *") long b);
 
 }

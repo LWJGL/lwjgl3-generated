@@ -43,7 +43,7 @@ public class VRApplications {
      * @param bTemporary                     
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_AddApplicationManifest(@NativeType("const char *") ByteBuffer pchApplicationManifestFullPath, @NativeType("bool") boolean bTemporary) {
+    public static int VRApplications_AddApplicationManifest(@NativeType("char const *") ByteBuffer pchApplicationManifestFullPath, @NativeType("bool") boolean bTemporary) {
         if (CHECKS) {
             checkNT1(pchApplicationManifestFullPath);
         }
@@ -59,7 +59,7 @@ public class VRApplications {
      * @param bTemporary                     
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_AddApplicationManifest(@NativeType("const char *") CharSequence pchApplicationManifestFullPath, @NativeType("bool") boolean bTemporary) {
+    public static int VRApplications_AddApplicationManifest(@NativeType("char const *") CharSequence pchApplicationManifestFullPath, @NativeType("bool") boolean bTemporary) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchApplicationManifestFullPathEncoded = stack.ASCII(pchApplicationManifestFullPath);
@@ -86,7 +86,7 @@ public class VRApplications {
      * @param pchApplicationManifestFullPath 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_RemoveApplicationManifest(@NativeType("const char *") ByteBuffer pchApplicationManifestFullPath) {
+    public static int VRApplications_RemoveApplicationManifest(@NativeType("char const *") ByteBuffer pchApplicationManifestFullPath) {
         if (CHECKS) {
             checkNT1(pchApplicationManifestFullPath);
         }
@@ -99,7 +99,7 @@ public class VRApplications {
      * @param pchApplicationManifestFullPath 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_RemoveApplicationManifest(@NativeType("const char *") CharSequence pchApplicationManifestFullPath) {
+    public static int VRApplications_RemoveApplicationManifest(@NativeType("char const *") CharSequence pchApplicationManifestFullPath) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchApplicationManifestFullPathEncoded = stack.ASCII(pchApplicationManifestFullPath);
@@ -126,7 +126,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("bool")
-    public static boolean VRApplications_IsApplicationInstalled(@NativeType("const char *") ByteBuffer pchAppKey) {
+    public static boolean VRApplications_IsApplicationInstalled(@NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -139,7 +139,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("bool")
-    public static boolean VRApplications_IsApplicationInstalled(@NativeType("const char *") CharSequence pchAppKey) {
+    public static boolean VRApplications_IsApplicationInstalled(@NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -225,7 +225,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchApplication(@NativeType("const char *") ByteBuffer pchAppKey) {
+    public static int VRApplications_LaunchApplication(@NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -240,7 +240,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchApplication(@NativeType("const char *") CharSequence pchAppKey) {
+    public static int VRApplications_LaunchApplication(@NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -271,7 +271,7 @@ public class VRApplications {
      * @param pKeys             
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchTemplateApplication(@NativeType("const char *") ByteBuffer pchTemplateAppKey, @NativeType("const char *") ByteBuffer pchNewAppKey, @NativeType("const AppOverrideKeys_t *") AppOverrideKeys.Buffer pKeys) {
+    public static int VRApplications_LaunchTemplateApplication(@NativeType("char const *") ByteBuffer pchTemplateAppKey, @NativeType("char const *") ByteBuffer pchNewAppKey, @NativeType("AppOverrideKeys_t const *") AppOverrideKeys.Buffer pKeys) {
         if (CHECKS) {
             checkNT1(pchTemplateAppKey);
             checkNT1(pchNewAppKey);
@@ -288,7 +288,7 @@ public class VRApplications {
      * @param pKeys             
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchTemplateApplication(@NativeType("const char *") CharSequence pchTemplateAppKey, @NativeType("const char *") CharSequence pchNewAppKey, @NativeType("const AppOverrideKeys_t *") AppOverrideKeys.Buffer pKeys) {
+    public static int VRApplications_LaunchTemplateApplication(@NativeType("char const *") CharSequence pchTemplateAppKey, @NativeType("char const *") CharSequence pchNewAppKey, @NativeType("AppOverrideKeys_t const *") AppOverrideKeys.Buffer pKeys) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchTemplateAppKeyEncoded = stack.ASCII(pchTemplateAppKey);
@@ -318,7 +318,7 @@ public class VRApplications {
      * @param pchArgs     
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchApplicationFromMimeType(@NativeType("const char *") ByteBuffer pchMimeType, @NativeType("const char *") ByteBuffer pchArgs) {
+    public static int VRApplications_LaunchApplicationFromMimeType(@NativeType("char const *") ByteBuffer pchMimeType, @NativeType("char const *") ByteBuffer pchArgs) {
         if (CHECKS) {
             checkNT1(pchMimeType);
             checkNT1(pchArgs);
@@ -334,7 +334,7 @@ public class VRApplications {
      * @param pchArgs     
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchApplicationFromMimeType(@NativeType("const char *") CharSequence pchMimeType, @NativeType("const char *") CharSequence pchArgs) {
+    public static int VRApplications_LaunchApplicationFromMimeType(@NativeType("char const *") CharSequence pchMimeType, @NativeType("char const *") CharSequence pchArgs) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchMimeTypeEncoded = stack.ASCII(pchMimeType);
@@ -362,7 +362,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchDashboardOverlay(@NativeType("const char *") ByteBuffer pchAppKey) {
+    public static int VRApplications_LaunchDashboardOverlay(@NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -375,7 +375,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchDashboardOverlay(@NativeType("const char *") CharSequence pchAppKey) {
+    public static int VRApplications_LaunchDashboardOverlay(@NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -402,7 +402,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("bool")
-    public static boolean VRApplications_CancelApplicationLaunch(@NativeType("const char *") ByteBuffer pchAppKey) {
+    public static boolean VRApplications_CancelApplicationLaunch(@NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -415,7 +415,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("bool")
-    public static boolean VRApplications_CancelApplicationLaunch(@NativeType("const char *") CharSequence pchAppKey) {
+    public static boolean VRApplications_CancelApplicationLaunch(@NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -445,7 +445,7 @@ public class VRApplications {
      * @param pchAppKey   
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_IdentifyApplication(@NativeType("uint32_t") int unProcessId, @NativeType("const char *") ByteBuffer pchAppKey) {
+    public static int VRApplications_IdentifyApplication(@NativeType("uint32_t") int unProcessId, @NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -461,7 +461,7 @@ public class VRApplications {
      * @param pchAppKey   
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_IdentifyApplication(@NativeType("uint32_t") int unProcessId, @NativeType("const char *") CharSequence pchAppKey) {
+    public static int VRApplications_IdentifyApplication(@NativeType("uint32_t") int unProcessId, @NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -488,7 +488,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("uint32_t")
-    public static int VRApplications_GetApplicationProcessId(@NativeType("const char *") ByteBuffer pchAppKey) {
+    public static int VRApplications_GetApplicationProcessId(@NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -501,7 +501,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("uint32_t")
-    public static int VRApplications_GetApplicationProcessId(@NativeType("const char *") CharSequence pchAppKey) {
+    public static int VRApplications_GetApplicationProcessId(@NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -528,7 +528,7 @@ public class VRApplications {
      * @param error one of:<br><table><tr><td>{@link VR#EVRApplicationError_VRApplicationError_None}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_AppKeyAlreadyExists}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_NoManifest}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_NoApplication}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_InvalidIndex}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_UnknownApplication}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_IPCFailed}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_ApplicationAlreadyRunning}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_InvalidManifest}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_InvalidApplication}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_LaunchFailed}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_ApplicationAlreadyStarting}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_LaunchInProgress}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_OldApplicationQuitting}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_TransitionAborted}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_IsTemplate}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_SteamVRIsExiting}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_BufferTooSmall}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_PropertyNotSet}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_UnknownProperty}</td></tr><tr><td>{@link VR#EVRApplicationError_VRApplicationError_InvalidParameter}</td></tr></table>
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String VRApplications_GetApplicationsErrorNameFromEnum(@NativeType("EVRApplicationError") int error) {
         long __result = nVRApplications_GetApplicationsErrorNameFromEnum(error);
         return memASCIISafe(__result);
@@ -554,7 +554,7 @@ public class VRApplications {
      * @param peError                
      */
     @NativeType("uint32_t")
-    public static int VRApplications_GetApplicationPropertyString(@NativeType("const char *") ByteBuffer pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @Nullable @NativeType("char *") ByteBuffer pchPropertyValueBuffer, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static int VRApplications_GetApplicationPropertyString(@NativeType("char const *") ByteBuffer pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @Nullable @NativeType("char *") ByteBuffer pchPropertyValueBuffer, @NativeType("EVRApplicationError *") IntBuffer peError) {
         if (CHECKS) {
             checkNT1(pchAppKey);
             check(peError, 1);
@@ -571,7 +571,7 @@ public class VRApplications {
      * @param peError                
      */
     @NativeType("uint32_t")
-    public static int VRApplications_GetApplicationPropertyString(@NativeType("const char *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @Nullable @NativeType("char *") ByteBuffer pchPropertyValueBuffer, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static int VRApplications_GetApplicationPropertyString(@NativeType("char const *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @Nullable @NativeType("char *") ByteBuffer pchPropertyValueBuffer, @NativeType("EVRApplicationError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -593,7 +593,7 @@ public class VRApplications {
      * @param peError                  
      */
     @NativeType("uint32_t")
-    public static String VRApplications_GetApplicationPropertyString(@NativeType("const char *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("uint32_t") int unPropertyValueBufferLen, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static String VRApplications_GetApplicationPropertyString(@NativeType("char const *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("uint32_t") int unPropertyValueBufferLen, @NativeType("EVRApplicationError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -616,7 +616,7 @@ public class VRApplications {
      * @param peError   
      */
     @NativeType("uint32_t")
-    public static String VRApplications_GetApplicationPropertyString(@NativeType("const char *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static String VRApplications_GetApplicationPropertyString(@NativeType("char const *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
         return VRApplications_GetApplicationPropertyString(pchAppKey, eProperty, VR.k_unMaxPropertyStringSize, peError);
     }
 
@@ -639,7 +639,7 @@ public class VRApplications {
      * @param peError   
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetApplicationPropertyBool(@NativeType("const char *") ByteBuffer pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static boolean VRApplications_GetApplicationPropertyBool(@NativeType("char const *") ByteBuffer pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
         if (CHECKS) {
             checkNT1(pchAppKey);
             check(peError, 1);
@@ -655,7 +655,7 @@ public class VRApplications {
      * @param peError   
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetApplicationPropertyBool(@NativeType("const char *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static boolean VRApplications_GetApplicationPropertyBool(@NativeType("char const *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -687,7 +687,7 @@ public class VRApplications {
      * @param peError   
      */
     @NativeType("uint64_t")
-    public static long VRApplications_GetApplicationPropertyUint64(@NativeType("const char *") ByteBuffer pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static long VRApplications_GetApplicationPropertyUint64(@NativeType("char const *") ByteBuffer pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
         if (CHECKS) {
             checkNT1(pchAppKey);
             check(peError, 1);
@@ -703,7 +703,7 @@ public class VRApplications {
      * @param peError   
      */
     @NativeType("uint64_t")
-    public static long VRApplications_GetApplicationPropertyUint64(@NativeType("const char *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
+    public static long VRApplications_GetApplicationPropertyUint64(@NativeType("char const *") CharSequence pchAppKey, @NativeType("EVRApplicationProperty") int eProperty, @NativeType("EVRApplicationError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -735,7 +735,7 @@ public class VRApplications {
      * @param bAutoLaunch 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_SetApplicationAutoLaunch(@NativeType("const char *") ByteBuffer pchAppKey, @NativeType("bool") boolean bAutoLaunch) {
+    public static int VRApplications_SetApplicationAutoLaunch(@NativeType("char const *") ByteBuffer pchAppKey, @NativeType("bool") boolean bAutoLaunch) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -750,7 +750,7 @@ public class VRApplications {
      * @param bAutoLaunch 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_SetApplicationAutoLaunch(@NativeType("const char *") CharSequence pchAppKey, @NativeType("bool") boolean bAutoLaunch) {
+    public static int VRApplications_SetApplicationAutoLaunch(@NativeType("char const *") CharSequence pchAppKey, @NativeType("bool") boolean bAutoLaunch) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -778,7 +778,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetApplicationAutoLaunch(@NativeType("const char *") ByteBuffer pchAppKey) {
+    public static boolean VRApplications_GetApplicationAutoLaunch(@NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -792,7 +792,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetApplicationAutoLaunch(@NativeType("const char *") CharSequence pchAppKey) {
+    public static boolean VRApplications_GetApplicationAutoLaunch(@NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -820,7 +820,7 @@ public class VRApplications {
      * @param pchMimeType 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_SetDefaultApplicationForMimeType(@NativeType("const char *") ByteBuffer pchAppKey, @NativeType("const char *") ByteBuffer pchMimeType) {
+    public static int VRApplications_SetDefaultApplicationForMimeType(@NativeType("char const *") ByteBuffer pchAppKey, @NativeType("char const *") ByteBuffer pchMimeType) {
         if (CHECKS) {
             checkNT1(pchAppKey);
             checkNT1(pchMimeType);
@@ -835,7 +835,7 @@ public class VRApplications {
      * @param pchMimeType 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_SetDefaultApplicationForMimeType(@NativeType("const char *") CharSequence pchAppKey, @NativeType("const char *") CharSequence pchMimeType) {
+    public static int VRApplications_SetDefaultApplicationForMimeType(@NativeType("char const *") CharSequence pchAppKey, @NativeType("char const *") CharSequence pchMimeType) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -864,7 +864,7 @@ public class VRApplications {
      * @param pchAppKeyBuffer 
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetDefaultApplicationForMimeType(@NativeType("const char *") ByteBuffer pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeyBuffer) {
+    public static boolean VRApplications_GetDefaultApplicationForMimeType(@NativeType("char const *") ByteBuffer pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeyBuffer) {
         if (CHECKS) {
             checkNT1(pchMimeType);
         }
@@ -878,7 +878,7 @@ public class VRApplications {
      * @param pchAppKeyBuffer 
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetDefaultApplicationForMimeType(@NativeType("const char *") CharSequence pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeyBuffer) {
+    public static boolean VRApplications_GetDefaultApplicationForMimeType(@NativeType("char const *") CharSequence pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeyBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchMimeTypeEncoded = stack.ASCII(pchMimeType);
@@ -906,7 +906,7 @@ public class VRApplications {
      * @param pchMimeTypesBuffer 
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetApplicationSupportedMimeTypes(@NativeType("const char *") ByteBuffer pchAppKey, @Nullable @NativeType("char *") ByteBuffer pchMimeTypesBuffer) {
+    public static boolean VRApplications_GetApplicationSupportedMimeTypes(@NativeType("char const *") ByteBuffer pchAppKey, @Nullable @NativeType("char *") ByteBuffer pchMimeTypesBuffer) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -920,7 +920,7 @@ public class VRApplications {
      * @param pchMimeTypesBuffer 
      */
     @NativeType("bool")
-    public static boolean VRApplications_GetApplicationSupportedMimeTypes(@NativeType("const char *") CharSequence pchAppKey, @Nullable @NativeType("char *") ByteBuffer pchMimeTypesBuffer) {
+    public static boolean VRApplications_GetApplicationSupportedMimeTypes(@NativeType("char const *") CharSequence pchAppKey, @Nullable @NativeType("char *") ByteBuffer pchMimeTypesBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -948,7 +948,7 @@ public class VRApplications {
      * @param pchAppKeysThatSupportBuffer 
      */
     @NativeType("uint32_t")
-    public static int VRApplications_GetApplicationsThatSupportMimeType(@NativeType("const char *") ByteBuffer pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeysThatSupportBuffer) {
+    public static int VRApplications_GetApplicationsThatSupportMimeType(@NativeType("char const *") ByteBuffer pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeysThatSupportBuffer) {
         if (CHECKS) {
             checkNT1(pchMimeType);
         }
@@ -962,7 +962,7 @@ public class VRApplications {
      * @param pchAppKeysThatSupportBuffer 
      */
     @NativeType("uint32_t")
-    public static int VRApplications_GetApplicationsThatSupportMimeType(@NativeType("const char *") CharSequence pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeysThatSupportBuffer) {
+    public static int VRApplications_GetApplicationsThatSupportMimeType(@NativeType("char const *") CharSequence pchMimeType, @Nullable @NativeType("char *") ByteBuffer pchAppKeysThatSupportBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchMimeTypeEncoded = stack.ASCII(pchMimeType);
@@ -979,7 +979,7 @@ public class VRApplications {
      * @param unAppKeysThatSupportBuffer 
      */
     @NativeType("uint32_t")
-    public static String VRApplications_GetApplicationsThatSupportMimeType(@NativeType("const char *") CharSequence pchMimeType, @NativeType("uint32_t") int unAppKeysThatSupportBuffer) {
+    public static String VRApplications_GetApplicationsThatSupportMimeType(@NativeType("char const *") CharSequence pchMimeType, @NativeType("uint32_t") int unAppKeysThatSupportBuffer) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchMimeTypeEncoded = stack.ASCII(pchMimeType);
@@ -1092,7 +1092,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_PerformApplicationPrelaunchCheck(@NativeType("const char *") ByteBuffer pchAppKey) {
+    public static int VRApplications_PerformApplicationPrelaunchCheck(@NativeType("char const *") ByteBuffer pchAppKey) {
         if (CHECKS) {
             checkNT1(pchAppKey);
         }
@@ -1116,7 +1116,7 @@ public class VRApplications {
      * @param pchAppKey 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_PerformApplicationPrelaunchCheck(@NativeType("const char *") CharSequence pchAppKey) {
+    public static int VRApplications_PerformApplicationPrelaunchCheck(@NativeType("char const *") CharSequence pchAppKey) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchAppKeyEncoded = stack.ASCII(pchAppKey);
@@ -1143,7 +1143,7 @@ public class VRApplications {
      * @param state one of:<br><table><tr><td>{@link VR#EVRApplicationTransitionState_VRApplicationTransition_None}</td></tr><tr><td>{@link VR#EVRApplicationTransitionState_VRApplicationTransition_OldAppQuitSent}</td></tr><tr><td>{@link VR#EVRApplicationTransitionState_VRApplicationTransition_WaitingForExternalLaunch}</td></tr><tr><td>{@link VR#EVRApplicationTransitionState_VRApplicationTransition_NewAppLaunched}</td></tr></table>
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String VRApplications_GetApplicationsTransitionStateNameFromEnum(@NativeType("EVRApplicationTransitionState") int state) {
         long __result = nVRApplications_GetApplicationsTransitionStateNameFromEnum(state);
         return memASCIISafe(__result);
@@ -1182,7 +1182,7 @@ public class VRApplications {
      * @param pchWorkingDirectory 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchInternalProcess(@NativeType("const char *") ByteBuffer pchBinaryPath, @NativeType("const char *") ByteBuffer pchArguments, @NativeType("const char *") ByteBuffer pchWorkingDirectory) {
+    public static int VRApplications_LaunchInternalProcess(@NativeType("char const *") ByteBuffer pchBinaryPath, @NativeType("char const *") ByteBuffer pchArguments, @NativeType("char const *") ByteBuffer pchWorkingDirectory) {
         if (CHECKS) {
             checkNT1(pchBinaryPath);
             checkNT1(pchArguments);
@@ -1201,7 +1201,7 @@ public class VRApplications {
      * @param pchWorkingDirectory 
      */
     @NativeType("EVRApplicationError")
-    public static int VRApplications_LaunchInternalProcess(@NativeType("const char *") CharSequence pchBinaryPath, @NativeType("const char *") CharSequence pchArguments, @NativeType("const char *") CharSequence pchWorkingDirectory) {
+    public static int VRApplications_LaunchInternalProcess(@NativeType("char const *") CharSequence pchBinaryPath, @NativeType("char const *") CharSequence pchArguments, @NativeType("char const *") CharSequence pchWorkingDirectory) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchBinaryPathEncoded = stack.ASCII(pchBinaryPath);

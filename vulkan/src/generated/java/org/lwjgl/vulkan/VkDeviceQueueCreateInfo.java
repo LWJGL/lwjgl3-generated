@@ -57,11 +57,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDeviceQueueCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDeviceQueueCreateFlags flags;
  *     uint32_t queueFamilyIndex;
  *     uint32_t queueCount;
- *     const float * pQueuePriorities;
+ *     float const * pQueuePriorities;
  * }</pre></code>
  */
 public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
@@ -122,7 +122,7 @@ public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkDeviceQueueCreateFlags")
@@ -134,19 +134,19 @@ public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int queueCount() { return nqueueCount(address()); }
     /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code pQueuePriorities} field. */
-    @NativeType("const float *")
+    @NativeType("float const *")
     public FloatBuffer pQueuePriorities() { return npQueuePriorities(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkDeviceQueueCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceQueueCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDeviceQueueCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkDeviceQueueCreateInfo flags(@NativeType("VkDeviceQueueCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code queueFamilyIndex} field. */
     public VkDeviceQueueCreateInfo queueFamilyIndex(@NativeType("uint32_t") int value) { nqueueFamilyIndex(address(), value); return this; }
     /** Sets the address of the specified {@link FloatBuffer} to the {@code pQueuePriorities} field. */
-    public VkDeviceQueueCreateInfo pQueuePriorities(@NativeType("const float *") FloatBuffer value) { npQueuePriorities(address(), value); return this; }
+    public VkDeviceQueueCreateInfo pQueuePriorities(@NativeType("float const *") FloatBuffer value) { npQueuePriorities(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceQueueCreateInfo set(
@@ -415,7 +415,7 @@ public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkDeviceQueueCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDeviceQueueCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkDeviceQueueCreateFlags")
@@ -427,19 +427,19 @@ public class VkDeviceQueueCreateInfo extends Struct implements NativeResource {
         @NativeType("uint32_t")
         public int queueCount() { return VkDeviceQueueCreateInfo.nqueueCount(address()); }
         /** Returns a {@link FloatBuffer} view of the data pointed to by the {@code pQueuePriorities} field. */
-        @NativeType("const float *")
+        @NativeType("float const *")
         public FloatBuffer pQueuePriorities() { return VkDeviceQueueCreateInfo.npQueuePriorities(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkDeviceQueueCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceQueueCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceQueueCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkDeviceQueueCreateInfo.npNext(address(), value); return this; }
+        public VkDeviceQueueCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkDeviceQueueCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkDeviceQueueCreateInfo.Buffer flags(@NativeType("VkDeviceQueueCreateFlags") int value) { VkDeviceQueueCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code queueFamilyIndex} field. */
         public VkDeviceQueueCreateInfo.Buffer queueFamilyIndex(@NativeType("uint32_t") int value) { VkDeviceQueueCreateInfo.nqueueFamilyIndex(address(), value); return this; }
         /** Sets the address of the specified {@link FloatBuffer} to the {@code pQueuePriorities} field. */
-        public VkDeviceQueueCreateInfo.Buffer pQueuePriorities(@NativeType("const float *") FloatBuffer value) { VkDeviceQueueCreateInfo.npQueuePriorities(address(), value); return this; }
+        public VkDeviceQueueCreateInfo.Buffer pQueuePriorities(@NativeType("float const *") FloatBuffer value) { VkDeviceQueueCreateInfo.npQueuePriorities(address(), value); return this; }
 
     }
 

@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkExternalMemoryBufferCreateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkExternalMemoryHandleTypeFlagsKHR handleTypes;
  * }</pre></code>
  */
@@ -92,7 +92,7 @@ public class VkExternalMemoryBufferCreateInfoKHR extends Struct implements Nativ
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code handleTypes} field. */
     @NativeType("VkExternalMemoryHandleTypeFlagsKHR")
@@ -101,7 +101,7 @@ public class VkExternalMemoryBufferCreateInfoKHR extends Struct implements Nativ
     /** Sets the specified value to the {@code sType} field. */
     public VkExternalMemoryBufferCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkExternalMemoryBufferCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkExternalMemoryBufferCreateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code handleTypes} field. */
     public VkExternalMemoryBufferCreateInfoKHR handleTypes(@NativeType("VkExternalMemoryHandleTypeFlagsKHR") int value) { nhandleTypes(address(), value); return this; }
 
@@ -335,7 +335,7 @@ public class VkExternalMemoryBufferCreateInfoKHR extends Struct implements Nativ
         @NativeType("VkStructureType")
         public int sType() { return VkExternalMemoryBufferCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkExternalMemoryBufferCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code handleTypes} field. */
         @NativeType("VkExternalMemoryHandleTypeFlagsKHR")
@@ -344,7 +344,7 @@ public class VkExternalMemoryBufferCreateInfoKHR extends Struct implements Nativ
         /** Sets the specified value to the {@code sType} field. */
         public VkExternalMemoryBufferCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkExternalMemoryBufferCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkExternalMemoryBufferCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkExternalMemoryBufferCreateInfoKHR.npNext(address(), value); return this; }
+        public VkExternalMemoryBufferCreateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkExternalMemoryBufferCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code handleTypes} field. */
         public VkExternalMemoryBufferCreateInfoKHR.Buffer handleTypes(@NativeType("VkExternalMemoryHandleTypeFlagsKHR") int value) { VkExternalMemoryBufferCreateInfoKHR.nhandleTypes(address(), value); return this; }
 

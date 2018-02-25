@@ -51,7 +51,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkImageMemoryRequirementsInfo2KHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImage image;
  * }</pre></code>
  */
@@ -104,7 +104,7 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code image} field. */
     @NativeType("VkImage")
@@ -113,7 +113,7 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
     /** Sets the specified value to the {@code sType} field. */
     public VkImageMemoryRequirementsInfo2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageMemoryRequirementsInfo2KHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImageMemoryRequirementsInfo2KHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
     public VkImageMemoryRequirementsInfo2KHR image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
 
@@ -347,7 +347,7 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
         @NativeType("VkStructureType")
         public int sType() { return VkImageMemoryRequirementsInfo2KHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImageMemoryRequirementsInfo2KHR.npNext(address()); }
         /** Returns the value of the {@code image} field. */
         @NativeType("VkImage")
@@ -356,7 +356,7 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
         /** Sets the specified value to the {@code sType} field. */
         public VkImageMemoryRequirementsInfo2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImageMemoryRequirementsInfo2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageMemoryRequirementsInfo2KHR.Buffer pNext(@NativeType("const void *") long value) { VkImageMemoryRequirementsInfo2KHR.npNext(address(), value); return this; }
+        public VkImageMemoryRequirementsInfo2KHR.Buffer pNext(@NativeType("void const *") long value) { VkImageMemoryRequirementsInfo2KHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
         public VkImageMemoryRequirementsInfo2KHR.Buffer image(@NativeType("VkImage") long value) { VkImageMemoryRequirementsInfo2KHR.nimage(address(), value); return this; }
 

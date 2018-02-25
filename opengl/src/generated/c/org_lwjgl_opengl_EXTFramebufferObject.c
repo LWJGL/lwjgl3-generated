@@ -8,13 +8,13 @@
 
 typedef jboolean (APIENTRY *glIsRenderbufferEXTPROC) (jint);
 typedef void (APIENTRY *glBindRenderbufferEXTPROC) (jint, jint);
-typedef void (APIENTRY *glDeleteRenderbuffersEXTPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteRenderbuffersEXTPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenRenderbuffersEXTPROC) (jint, intptr_t);
 typedef void (APIENTRY *glRenderbufferStorageEXTPROC) (jint, jint, jint, jint);
 typedef void (APIENTRY *glGetRenderbufferParameterivEXTPROC) (jint, jint, intptr_t);
 typedef jboolean (APIENTRY *glIsFramebufferEXTPROC) (jint);
 typedef void (APIENTRY *glBindFramebufferEXTPROC) (jint, jint);
-typedef void (APIENTRY *glDeleteFramebuffersEXTPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteFramebuffersEXTPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenFramebuffersEXTPROC) (jint, intptr_t);
 typedef jint (APIENTRY *glCheckFramebufferStatusEXTPROC) (jint);
 typedef void (APIENTRY *glFramebufferTexture1DEXTPROC) (jint, jint, jint, jint, jint);
@@ -40,7 +40,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glBindRenderbu
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglDeleteRenderbuffersEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong renderbuffersAddress) {
     glDeleteRenderbuffersEXTPROC glDeleteRenderbuffersEXT = (glDeleteRenderbuffersEXTPROC)tlsGetFunction(317);
-    const intptr_t renderbuffers = (const intptr_t)renderbuffersAddress;
+    intptr_t renderbuffers = (intptr_t)renderbuffersAddress;
     UNUSED_PARAM(clazz)
     glDeleteRenderbuffersEXT(n, renderbuffers);
 }
@@ -79,7 +79,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_glBindFramebuf
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTFramebufferObject_nglDeleteFramebuffersEXT__IJ(JNIEnv *__env, jclass clazz, jint n, jlong framebuffersAddress) {
     glDeleteFramebuffersEXTPROC glDeleteFramebuffersEXT = (glDeleteFramebuffersEXTPROC)tlsGetFunction(302);
-    const intptr_t framebuffers = (const intptr_t)framebuffersAddress;
+    intptr_t framebuffers = (intptr_t)framebuffersAddress;
     UNUSED_PARAM(clazz)
     glDeleteFramebuffersEXT(n, framebuffers);
 }

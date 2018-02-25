@@ -128,7 +128,7 @@ public class MVKIosSurface {
      * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateIOSSurfaceMVK(VkInstance instance, @NativeType("const VkIOSSurfaceCreateInfoMVK *") VkIOSSurfaceCreateInfoMVK pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
+    public static int vkCreateIOSSurfaceMVK(VkInstance instance, @NativeType("VkIOSSurfaceCreateInfoMVK const *") VkIOSSurfaceCreateInfoMVK pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
         if (CHECKS) {
             check(pSurface, 1);
         }
@@ -137,7 +137,7 @@ public class MVKIosSurface {
 
     /** Array version of: {@link #vkCreateIOSSurfaceMVK CreateIOSSurfaceMVK} */
     @NativeType("VkResult")
-    public static int vkCreateIOSSurfaceMVK(VkInstance instance, @NativeType("const VkIOSSurfaceCreateInfoMVK *") VkIOSSurfaceCreateInfoMVK pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
+    public static int vkCreateIOSSurfaceMVK(VkInstance instance, @NativeType("VkIOSSurfaceCreateInfoMVK const *") VkIOSSurfaceCreateInfoMVK pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
         long __functionAddress = instance.getCapabilities().vkCreateIOSSurfaceMVK;
         if (CHECKS) {
             check(__functionAddress);

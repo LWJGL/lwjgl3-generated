@@ -60,13 +60,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDeviceGroupSubmitInfoKHX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t waitSemaphoreCount;
- *     const uint32_t * pWaitSemaphoreDeviceIndices;
+ *     uint32_t const * pWaitSemaphoreDeviceIndices;
  *     uint32_t commandBufferCount;
- *     const uint32_t * pCommandBufferDeviceMasks;
+ *     uint32_t const * pCommandBufferDeviceMasks;
  *     uint32_t signalSemaphoreCount;
- *     const uint32_t * pSignalSemaphoreDeviceIndices;
+ *     uint32_t const * pSignalSemaphoreDeviceIndices;
  * }</pre></code>
  */
 public class VkDeviceGroupSubmitInfoKHX extends Struct implements NativeResource {
@@ -133,40 +133,40 @@ public class VkDeviceGroupSubmitInfoKHX extends Struct implements NativeResource
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code waitSemaphoreCount} field. */
     @NativeType("uint32_t")
     public int waitSemaphoreCount() { return nwaitSemaphoreCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitSemaphoreDeviceIndices} field. */
     @Nullable
-    @NativeType("const uint32_t *")
+    @NativeType("uint32_t const *")
     public IntBuffer pWaitSemaphoreDeviceIndices() { return npWaitSemaphoreDeviceIndices(address()); }
     /** Returns the value of the {@code commandBufferCount} field. */
     @NativeType("uint32_t")
     public int commandBufferCount() { return ncommandBufferCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pCommandBufferDeviceMasks} field. */
     @Nullable
-    @NativeType("const uint32_t *")
+    @NativeType("uint32_t const *")
     public IntBuffer pCommandBufferDeviceMasks() { return npCommandBufferDeviceMasks(address()); }
     /** Returns the value of the {@code signalSemaphoreCount} field. */
     @NativeType("uint32_t")
     public int signalSemaphoreCount() { return nsignalSemaphoreCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pSignalSemaphoreDeviceIndices} field. */
     @Nullable
-    @NativeType("const uint32_t *")
+    @NativeType("uint32_t const *")
     public IntBuffer pSignalSemaphoreDeviceIndices() { return npSignalSemaphoreDeviceIndices(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkDeviceGroupSubmitInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGroupSubmitInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDeviceGroupSubmitInfoKHX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pWaitSemaphoreDeviceIndices} field. */
-    public VkDeviceGroupSubmitInfoKHX pWaitSemaphoreDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npWaitSemaphoreDeviceIndices(address(), value); return this; }
+    public VkDeviceGroupSubmitInfoKHX pWaitSemaphoreDeviceIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { npWaitSemaphoreDeviceIndices(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pCommandBufferDeviceMasks} field. */
-    public VkDeviceGroupSubmitInfoKHX pCommandBufferDeviceMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npCommandBufferDeviceMasks(address(), value); return this; }
+    public VkDeviceGroupSubmitInfoKHX pCommandBufferDeviceMasks(@Nullable @NativeType("uint32_t const *") IntBuffer value) { npCommandBufferDeviceMasks(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pSignalSemaphoreDeviceIndices} field. */
-    public VkDeviceGroupSubmitInfoKHX pSignalSemaphoreDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npSignalSemaphoreDeviceIndices(address(), value); return this; }
+    public VkDeviceGroupSubmitInfoKHX pSignalSemaphoreDeviceIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { npSignalSemaphoreDeviceIndices(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceGroupSubmitInfoKHX set(
@@ -451,40 +451,40 @@ public class VkDeviceGroupSubmitInfoKHX extends Struct implements NativeResource
         @NativeType("VkStructureType")
         public int sType() { return VkDeviceGroupSubmitInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDeviceGroupSubmitInfoKHX.npNext(address()); }
         /** Returns the value of the {@code waitSemaphoreCount} field. */
         @NativeType("uint32_t")
         public int waitSemaphoreCount() { return VkDeviceGroupSubmitInfoKHX.nwaitSemaphoreCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pWaitSemaphoreDeviceIndices} field. */
         @Nullable
-        @NativeType("const uint32_t *")
+        @NativeType("uint32_t const *")
         public IntBuffer pWaitSemaphoreDeviceIndices() { return VkDeviceGroupSubmitInfoKHX.npWaitSemaphoreDeviceIndices(address()); }
         /** Returns the value of the {@code commandBufferCount} field. */
         @NativeType("uint32_t")
         public int commandBufferCount() { return VkDeviceGroupSubmitInfoKHX.ncommandBufferCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pCommandBufferDeviceMasks} field. */
         @Nullable
-        @NativeType("const uint32_t *")
+        @NativeType("uint32_t const *")
         public IntBuffer pCommandBufferDeviceMasks() { return VkDeviceGroupSubmitInfoKHX.npCommandBufferDeviceMasks(address()); }
         /** Returns the value of the {@code signalSemaphoreCount} field. */
         @NativeType("uint32_t")
         public int signalSemaphoreCount() { return VkDeviceGroupSubmitInfoKHX.nsignalSemaphoreCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pSignalSemaphoreDeviceIndices} field. */
         @Nullable
-        @NativeType("const uint32_t *")
+        @NativeType("uint32_t const *")
         public IntBuffer pSignalSemaphoreDeviceIndices() { return VkDeviceGroupSubmitInfoKHX.npSignalSemaphoreDeviceIndices(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkDeviceGroupSubmitInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGroupSubmitInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGroupSubmitInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGroupSubmitInfoKHX.npNext(address(), value); return this; }
+        public VkDeviceGroupSubmitInfoKHX.Buffer pNext(@NativeType("void const *") long value) { VkDeviceGroupSubmitInfoKHX.npNext(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pWaitSemaphoreDeviceIndices} field. */
-        public VkDeviceGroupSubmitInfoKHX.Buffer pWaitSemaphoreDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkDeviceGroupSubmitInfoKHX.npWaitSemaphoreDeviceIndices(address(), value); return this; }
+        public VkDeviceGroupSubmitInfoKHX.Buffer pWaitSemaphoreDeviceIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { VkDeviceGroupSubmitInfoKHX.npWaitSemaphoreDeviceIndices(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pCommandBufferDeviceMasks} field. */
-        public VkDeviceGroupSubmitInfoKHX.Buffer pCommandBufferDeviceMasks(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkDeviceGroupSubmitInfoKHX.npCommandBufferDeviceMasks(address(), value); return this; }
+        public VkDeviceGroupSubmitInfoKHX.Buffer pCommandBufferDeviceMasks(@Nullable @NativeType("uint32_t const *") IntBuffer value) { VkDeviceGroupSubmitInfoKHX.npCommandBufferDeviceMasks(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pSignalSemaphoreDeviceIndices} field. */
-        public VkDeviceGroupSubmitInfoKHX.Buffer pSignalSemaphoreDeviceIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkDeviceGroupSubmitInfoKHX.npSignalSemaphoreDeviceIndices(address(), value); return this; }
+        public VkDeviceGroupSubmitInfoKHX.Buffer pSignalSemaphoreDeviceIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { VkDeviceGroupSubmitInfoKHX.npSignalSemaphoreDeviceIndices(address(), value); return this; }
 
     }
 

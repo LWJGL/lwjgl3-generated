@@ -13,8 +13,8 @@ typedef void (APIENTRY *glTexStorage3DPROC) (jint, jint, jint, jint, jint, jint)
 typedef void (APIENTRY *glDrawTransformFeedbackInstancedPROC) (jint, jint, jint);
 typedef void (APIENTRY *glDrawTransformFeedbackStreamInstancedPROC) (jint, jint, jint, jint);
 typedef void (APIENTRY *glDrawArraysInstancedBaseInstancePROC) (jint, jint, jint, jint, jint);
-typedef void (APIENTRY *glDrawElementsInstancedBaseInstancePROC) (jint, jint, jint, const intptr_t, jint, jint);
-typedef void (APIENTRY *glDrawElementsInstancedBaseVertexBaseInstancePROC) (jint, jint, jint, const intptr_t, jint, jint, jint);
+typedef void (APIENTRY *glDrawElementsInstancedBaseInstancePROC) (jint, jint, jint, intptr_t, jint, jint);
+typedef void (APIENTRY *glDrawElementsInstancedBaseVertexBaseInstancePROC) (jint, jint, jint, intptr_t, jint, jint, jint);
 typedef void (APIENTRY *glBindImageTexturePROC) (jint, jint, jint, jboolean, jint, jint, jint);
 typedef void (APIENTRY *glMemoryBarrierPROC) (jint);
 typedef void (APIENTRY *glGetInternalformativPROC) (jint, jint, jint, jint, intptr_t);
@@ -66,14 +66,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_glDrawArraysInstancedBaseInsta
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglDrawElementsInstancedBaseInstance(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jint baseinstance) {
     glDrawElementsInstancedBaseInstancePROC glDrawElementsInstancedBaseInstance = (glDrawElementsInstancedBaseInstancePROC)tlsGetFunction(370);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstancedBaseInstance(mode, count, type, indices, primcount, baseinstance);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL42_nglDrawElementsInstancedBaseVertexBaseInstance(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount, jint basevertex, jint baseinstance) {
     glDrawElementsInstancedBaseVertexBaseInstancePROC glDrawElementsInstancedBaseVertexBaseInstance = (glDrawElementsInstancedBaseVertexBaseInstancePROC)tlsGetFunction(372);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, primcount, basevertex, baseinstance);
 }

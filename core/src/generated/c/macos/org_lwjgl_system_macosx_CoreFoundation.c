@@ -72,14 +72,14 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFBundleGet
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFStringCreateWithCString(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong cStrAddress, jint encoding) {
     CFAllocatorRef allocator = (CFAllocatorRef)(intptr_t)allocatorAddress;
-    const char *cStr = (const char *)(intptr_t)cStrAddress;
+    char const *cStr = (char const *)(intptr_t)cStrAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)CFStringCreateWithCString(allocator, cStr, (CFStringEncoding)encoding);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_macosx_CoreFoundation_nCFStringCreateWithCStringNoCopy(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong cStrAddress, jint encoding, jlong contentsDeallocatorAddress) {
     CFAllocatorRef allocator = (CFAllocatorRef)(intptr_t)allocatorAddress;
-    const char *cStr = (const char *)(intptr_t)cStrAddress;
+    char const *cStr = (char const *)(intptr_t)cStrAddress;
     CFAllocatorRef contentsDeallocator = (CFAllocatorRef)(intptr_t)contentsDeallocatorAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)CFStringCreateWithCStringNoCopy(allocator, cStr, (CFStringEncoding)encoding, contentsDeallocator);

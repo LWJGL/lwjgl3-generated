@@ -175,7 +175,7 @@ public class ARBSeparateShaderObjects {
      * @param strings an array of pointers to source code strings from which to create the program object
      */
     @NativeType("GLuint")
-    public static int glCreateShaderProgramv(@NativeType("GLenum") int type, @NativeType("const GLchar **") PointerBuffer strings) {
+    public static int glCreateShaderProgramv(@NativeType("GLenum") int type, @NativeType("GLchar const **") PointerBuffer strings) {
         return nglCreateShaderProgramv(type, strings.remaining(), memAddress(strings));
     }
 
@@ -213,7 +213,7 @@ public class ARBSeparateShaderObjects {
      * @param strings an array of pointers to source code strings from which to create the program object
      */
     @NativeType("GLuint")
-    public static int glCreateShaderProgramv(@NativeType("GLenum") int type, @NativeType("const GLchar **") CharSequence... strings) {
+    public static int glCreateShaderProgramv(@NativeType("GLenum") int type, @NativeType("GLchar const **") CharSequence... strings) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long stringsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memUTF8, strings);
@@ -258,7 +258,7 @@ public class ARBSeparateShaderObjects {
      * @param type the type of shader to create
      */
     @NativeType("GLuint")
-    public static int glCreateShaderProgramv(@NativeType("GLenum") int type, @NativeType("const GLchar **") CharSequence string) {
+    public static int glCreateShaderProgramv(@NativeType("GLenum") int type, @NativeType("GLchar const **") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long stringsAddress = org.lwjgl.system.APIUtil.apiArray(stack, MemoryUtil::memUTF8, string);
@@ -293,12 +293,12 @@ public class ARBSeparateShaderObjects {
      *
      * @param pipelines an array of names of program pipeline objects to delete
      */
-    public static void glDeleteProgramPipelines(@NativeType("const GLuint *") IntBuffer pipelines) {
+    public static void glDeleteProgramPipelines(@NativeType("GLuint const *") IntBuffer pipelines) {
         nglDeleteProgramPipelines(pipelines.remaining(), memAddress(pipelines));
     }
 
     /** Deletes program pipeline objects. */
-    public static void glDeleteProgramPipelines(@NativeType("const GLuint *") int pipeline) {
+    public static void glDeleteProgramPipelines(@NativeType("GLuint const *") int pipeline) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer pipelines = stack.ints(pipeline);
@@ -613,7 +613,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform1iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glProgramUniform1iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglProgramUniform1iv(program, location, value.remaining(), memAddress(value));
     }
 
@@ -633,7 +633,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform2iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glProgramUniform2iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglProgramUniform2iv(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -653,7 +653,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform3iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glProgramUniform3iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglProgramUniform3iv(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -673,7 +673,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform4iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glProgramUniform4iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglProgramUniform4iv(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -693,7 +693,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform1uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glProgramUniform1uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglProgramUniform1uiv(program, location, value.remaining(), memAddress(value));
     }
 
@@ -713,7 +713,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform2uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glProgramUniform2uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglProgramUniform2uiv(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -733,7 +733,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform3uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glProgramUniform3uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglProgramUniform3uiv(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -753,7 +753,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform4uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") IntBuffer value) {
+    public static void glProgramUniform4uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") IntBuffer value) {
         nglProgramUniform4uiv(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -773,7 +773,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform1fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniform1fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniform1fv(program, location, value.remaining(), memAddress(value));
     }
 
@@ -793,7 +793,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniform2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniform2fv(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -813,7 +813,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniform3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniform3fv(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -833,7 +833,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniform4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniform4fv(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -853,7 +853,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform1dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform1dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform1dv(program, location, value.remaining(), memAddress(value));
     }
 
@@ -873,7 +873,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform2dv(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -893,7 +893,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform3dv(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -913,7 +913,7 @@ public class ARBSeparateShaderObjects {
      * @param location the location of the uniform variable to be modified
      * @param value    an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform4dv(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -934,7 +934,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix2fv(program, location, value.remaining() >> 2, transpose, memAddress(value));
     }
 
@@ -955,7 +955,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix3fv(program, location, value.remaining() / 9, transpose, memAddress(value));
     }
 
@@ -976,7 +976,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix4fv(program, location, value.remaining() >> 4, transpose, memAddress(value));
     }
 
@@ -997,7 +997,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix2dv(program, location, value.remaining() >> 2, transpose, memAddress(value));
     }
 
@@ -1018,7 +1018,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix3dv(program, location, value.remaining() / 9, transpose, memAddress(value));
     }
 
@@ -1039,7 +1039,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix4dv(program, location, value.remaining() >> 4, transpose, memAddress(value));
     }
 
@@ -1060,7 +1060,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix2x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix2x3fv(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -1081,7 +1081,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix3x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix3x2fv(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -1102,7 +1102,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix2x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix2x4fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -1123,7 +1123,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix4x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix4x2fv(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -1144,7 +1144,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix3x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix3x4fv(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -1165,7 +1165,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glProgramUniformMatrix4x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglProgramUniformMatrix4x3fv(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -1186,7 +1186,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix2x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix2x3dv(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -1207,7 +1207,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix3x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix3x2dv(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -1228,7 +1228,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix2x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix2x4dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -1249,7 +1249,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix4x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix4x2dv(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -1270,7 +1270,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix3x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix3x4dv(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -1291,7 +1291,7 @@ public class ARBSeparateShaderObjects {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix4x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix4x3dv(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -1358,7 +1358,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glDeleteProgramPipelines DeleteProgramPipelines} */
-    public static void glDeleteProgramPipelines(@NativeType("const GLuint *") int[] pipelines) {
+    public static void glDeleteProgramPipelines(@NativeType("GLuint const *") int[] pipelines) {
         long __functionAddress = GL.getICD().glDeleteProgramPipelines;
         if (CHECKS) {
             check(__functionAddress);
@@ -1386,7 +1386,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform1iv ProgramUniform1iv} */
-    public static void glProgramUniform1iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glProgramUniform1iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform1iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1395,7 +1395,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform2iv ProgramUniform2iv} */
-    public static void glProgramUniform2iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glProgramUniform2iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1404,7 +1404,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform3iv ProgramUniform3iv} */
-    public static void glProgramUniform3iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glProgramUniform3iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1413,7 +1413,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform4iv ProgramUniform4iv} */
-    public static void glProgramUniform4iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glProgramUniform4iv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1422,7 +1422,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform1uiv ProgramUniform1uiv} */
-    public static void glProgramUniform1uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glProgramUniform1uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform1uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1431,7 +1431,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform2uiv ProgramUniform2uiv} */
-    public static void glProgramUniform2uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glProgramUniform2uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform2uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1440,7 +1440,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform3uiv ProgramUniform3uiv} */
-    public static void glProgramUniform3uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glProgramUniform3uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1449,7 +1449,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform4uiv ProgramUniform4uiv} */
-    public static void glProgramUniform4uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint *") int[] value) {
+    public static void glProgramUniform4uiv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint const *") int[] value) {
         long __functionAddress = GL.getICD().glProgramUniform4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1458,7 +1458,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform1fv ProgramUniform1fv} */
-    public static void glProgramUniform1fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniform1fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniform1fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1467,7 +1467,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform2fv ProgramUniform2fv} */
-    public static void glProgramUniform2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniform2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniform2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1476,7 +1476,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform3fv ProgramUniform3fv} */
-    public static void glProgramUniform3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniform3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniform3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1485,7 +1485,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform4fv ProgramUniform4fv} */
-    public static void glProgramUniform4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniform4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniform4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1494,7 +1494,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform1dv ProgramUniform1dv} */
-    public static void glProgramUniform1dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform1dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform1dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1503,7 +1503,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform2dv ProgramUniform2dv} */
-    public static void glProgramUniform2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1512,7 +1512,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform3dv ProgramUniform3dv} */
-    public static void glProgramUniform3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1521,7 +1521,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniform4dv ProgramUniform4dv} */
-    public static void glProgramUniform4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1530,7 +1530,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2fv ProgramUniformMatrix2fv} */
-    public static void glProgramUniformMatrix2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1539,7 +1539,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3fv ProgramUniformMatrix3fv} */
-    public static void glProgramUniformMatrix3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1548,7 +1548,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4fv ProgramUniformMatrix4fv} */
-    public static void glProgramUniformMatrix4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1557,7 +1557,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2dv ProgramUniformMatrix2dv} */
-    public static void glProgramUniformMatrix2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1566,7 +1566,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3dv ProgramUniformMatrix3dv} */
-    public static void glProgramUniformMatrix3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1575,7 +1575,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4dv ProgramUniformMatrix4dv} */
-    public static void glProgramUniformMatrix4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1584,7 +1584,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x3fv ProgramUniformMatrix2x3fv} */
-    public static void glProgramUniformMatrix2x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix2x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2x3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1593,7 +1593,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x2fv ProgramUniformMatrix3x2fv} */
-    public static void glProgramUniformMatrix3x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix3x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3x2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1602,7 +1602,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x4fv ProgramUniformMatrix2x4fv} */
-    public static void glProgramUniformMatrix2x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix2x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2x4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1611,7 +1611,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x2fv ProgramUniformMatrix4x2fv} */
-    public static void glProgramUniformMatrix4x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix4x2fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4x2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1620,7 +1620,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x4fv ProgramUniformMatrix3x4fv} */
-    public static void glProgramUniformMatrix3x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix3x4fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3x4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1629,7 +1629,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x3fv ProgramUniformMatrix4x3fv} */
-    public static void glProgramUniformMatrix4x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glProgramUniformMatrix4x3fv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4x3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1638,7 +1638,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x3dv ProgramUniformMatrix2x3dv} */
-    public static void glProgramUniformMatrix2x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix2x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2x3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1647,7 +1647,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x2dv ProgramUniformMatrix3x2dv} */
-    public static void glProgramUniformMatrix3x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix3x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3x2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1656,7 +1656,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x4dv ProgramUniformMatrix2x4dv} */
-    public static void glProgramUniformMatrix2x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix2x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2x4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1665,7 +1665,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x2dv ProgramUniformMatrix4x2dv} */
-    public static void glProgramUniformMatrix4x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix4x2dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4x2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1674,7 +1674,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x4dv ProgramUniformMatrix3x4dv} */
-    public static void glProgramUniformMatrix3x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix3x4dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3x4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -1683,7 +1683,7 @@ public class ARBSeparateShaderObjects {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x3dv ProgramUniformMatrix4x3dv} */
-    public static void glProgramUniformMatrix4x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix4x3dv(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4x3dv;
         if (CHECKS) {
             check(__functionAddress);

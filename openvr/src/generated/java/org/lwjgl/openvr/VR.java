@@ -2254,7 +2254,7 @@ public class VR {
      * @param peError             a buffer in which to store the error code
      */
     @NativeType("intptr_t")
-    public static long VR_GetGenericInterface(@NativeType("const char *") ByteBuffer pchInterfaceVersion, @NativeType("EVRInitError *") IntBuffer peError) {
+    public static long VR_GetGenericInterface(@NativeType("char const *") ByteBuffer pchInterfaceVersion, @NativeType("EVRInitError *") IntBuffer peError) {
         if (CHECKS) {
             checkNT1(pchInterfaceVersion);
             check(peError, 1);
@@ -2270,7 +2270,7 @@ public class VR {
      * @param peError             a buffer in which to store the error code
      */
     @NativeType("intptr_t")
-    public static long VR_GetGenericInterface(@NativeType("const char *") CharSequence pchInterfaceVersion, @NativeType("EVRInitError *") IntBuffer peError) {
+    public static long VR_GetGenericInterface(@NativeType("char const *") CharSequence pchInterfaceVersion, @NativeType("EVRInitError *") IntBuffer peError) {
         if (CHECKS) {
             check(peError, 1);
         }
@@ -2322,7 +2322,7 @@ public class VR {
      * @param pchInterfaceVersion the interface name and version
      */
     @NativeType("bool")
-    public static boolean VR_IsInterfaceVersionValid(@NativeType("const char *") ByteBuffer pchInterfaceVersion) {
+    public static boolean VR_IsInterfaceVersionValid(@NativeType("char const *") ByteBuffer pchInterfaceVersion) {
         if (CHECKS) {
             checkNT1(pchInterfaceVersion);
         }
@@ -2335,7 +2335,7 @@ public class VR {
      * @param pchInterfaceVersion the interface name and version
      */
     @NativeType("bool")
-    public static boolean VR_IsInterfaceVersionValid(@NativeType("const char *") CharSequence pchInterfaceVersion) {
+    public static boolean VR_IsInterfaceVersionValid(@NativeType("char const *") CharSequence pchInterfaceVersion) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer pchInterfaceVersionEncoded = stack.ASCII(pchInterfaceVersion);
@@ -2368,7 +2368,7 @@ public class VR {
      * @param error the error code
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String VR_GetVRInitErrorAsSymbol(@NativeType("EVRInitError") int error) {
         long __result = nVR_GetVRInitErrorAsSymbol(error);
         return memASCIISafe(__result);
@@ -2391,7 +2391,7 @@ public class VR {
      * @param error the error code
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String VR_GetVRInitErrorAsEnglishDescription(@NativeType("EVRInitError") int error) {
         long __result = nVR_GetVRInitErrorAsEnglishDescription(error);
         return memASCIISafe(__result);

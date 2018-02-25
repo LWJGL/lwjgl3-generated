@@ -51,7 +51,7 @@ public class DynCallback {
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
     @NativeType("DCCallback *")
-    public static long dcbNewCallback(@NativeType("const char *") ByteBuffer signature, @NativeType("DCCallbackHandler *") long funcptr, @NativeType("void *") long userdata) {
+    public static long dcbNewCallback(@NativeType("char const *") ByteBuffer signature, @NativeType("DCCallbackHandler *") long funcptr, @NativeType("void *") long userdata) {
         if (CHECKS) {
             checkNT1(signature);
             check(funcptr);
@@ -70,7 +70,7 @@ public class DynCallback {
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
     @NativeType("DCCallback *")
-    public static long dcbNewCallback(@NativeType("const char *") CharSequence signature, @NativeType("DCCallbackHandler *") long funcptr, @NativeType("void *") long userdata) {
+    public static long dcbNewCallback(@NativeType("char const *") CharSequence signature, @NativeType("DCCallbackHandler *") long funcptr, @NativeType("void *") long userdata) {
         if (CHECKS) {
             check(funcptr);
             check(userdata);
@@ -97,7 +97,7 @@ public class DynCallback {
      * @param handler   a pointer to a callback handler
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
-    public static void dcbInitCallback(@NativeType("DCCallback *") long pcb, @NativeType("const char *") ByteBuffer signature, @NativeType("DCCallbackHandler *") long handler, @NativeType("void *") long userdata) {
+    public static void dcbInitCallback(@NativeType("DCCallback *") long pcb, @NativeType("char const *") ByteBuffer signature, @NativeType("DCCallbackHandler *") long handler, @NativeType("void *") long userdata) {
         if (CHECKS) {
             check(pcb);
             checkNT1(signature);
@@ -115,7 +115,7 @@ public class DynCallback {
      * @param handler   a pointer to a callback handler
      * @param userdata  a pointer to custom data that might be useful in the handler
      */
-    public static void dcbInitCallback(@NativeType("DCCallback *") long pcb, @NativeType("const char *") CharSequence signature, @NativeType("DCCallbackHandler *") long handler, @NativeType("void *") long userdata) {
+    public static void dcbInitCallback(@NativeType("DCCallback *") long pcb, @NativeType("char const *") CharSequence signature, @NativeType("DCCallbackHandler *") long handler, @NativeType("void *") long userdata) {
         if (CHECKS) {
             check(pcb);
             check(handler);

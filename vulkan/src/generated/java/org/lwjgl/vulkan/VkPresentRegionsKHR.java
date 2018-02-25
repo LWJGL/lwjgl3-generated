@@ -50,9 +50,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPresentRegionsKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t swapchainCount;
- *     const {@link VkPresentRegionKHR VkPresentRegionKHR} * pRegions;
+ *     {@link VkPresentRegionKHR VkPresentRegionKHR const} * pRegions;
  * }</pre></code>
  */
 public class VkPresentRegionsKHR extends Struct implements NativeResource {
@@ -107,24 +107,24 @@ public class VkPresentRegionsKHR extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code swapchainCount} field. */
     @NativeType("uint32_t")
     public int swapchainCount() { return nswapchainCount(address()); }
     /** Returns a {@link VkPresentRegionKHR.Buffer} view of the struct array pointed to by the {@code pRegions} field. */
     @Nullable
-    @NativeType("const VkPresentRegionKHR *")
+    @NativeType("VkPresentRegionKHR const *")
     public VkPresentRegionKHR.Buffer pRegions() { return npRegions(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkPresentRegionsKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPresentRegionsKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPresentRegionsKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code swapchainCount} field. */
     public VkPresentRegionsKHR swapchainCount(@NativeType("uint32_t") int value) { nswapchainCount(address(), value); return this; }
     /** Sets the address of the specified {@link VkPresentRegionKHR.Buffer} to the {@code pRegions} field. */
-    public VkPresentRegionsKHR pRegions(@Nullable @NativeType("const VkPresentRegionKHR *") VkPresentRegionKHR.Buffer value) { npRegions(address(), value); return this; }
+    public VkPresentRegionsKHR pRegions(@Nullable @NativeType("VkPresentRegionKHR const *") VkPresentRegionKHR.Buffer value) { npRegions(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPresentRegionsKHR set(
@@ -362,24 +362,24 @@ public class VkPresentRegionsKHR extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkPresentRegionsKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPresentRegionsKHR.npNext(address()); }
         /** Returns the value of the {@code swapchainCount} field. */
         @NativeType("uint32_t")
         public int swapchainCount() { return VkPresentRegionsKHR.nswapchainCount(address()); }
         /** Returns a {@link VkPresentRegionKHR.Buffer} view of the struct array pointed to by the {@code pRegions} field. */
         @Nullable
-        @NativeType("const VkPresentRegionKHR *")
+        @NativeType("VkPresentRegionKHR const *")
         public VkPresentRegionKHR.Buffer pRegions() { return VkPresentRegionsKHR.npRegions(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkPresentRegionsKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPresentRegionsKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPresentRegionsKHR.Buffer pNext(@NativeType("const void *") long value) { VkPresentRegionsKHR.npNext(address(), value); return this; }
+        public VkPresentRegionsKHR.Buffer pNext(@NativeType("void const *") long value) { VkPresentRegionsKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code swapchainCount} field. */
         public VkPresentRegionsKHR.Buffer swapchainCount(@NativeType("uint32_t") int value) { VkPresentRegionsKHR.nswapchainCount(address(), value); return this; }
         /** Sets the address of the specified {@link VkPresentRegionKHR.Buffer} to the {@code pRegions} field. */
-        public VkPresentRegionsKHR.Buffer pRegions(@Nullable @NativeType("const VkPresentRegionKHR *") VkPresentRegionKHR.Buffer value) { VkPresentRegionsKHR.npRegions(address(), value); return this; }
+        public VkPresentRegionsKHR.Buffer pRegions(@Nullable @NativeType("VkPresentRegionKHR const *") VkPresentRegionKHR.Buffer value) { VkPresentRegionsKHR.npRegions(address(), value); return this; }
 
     }
 

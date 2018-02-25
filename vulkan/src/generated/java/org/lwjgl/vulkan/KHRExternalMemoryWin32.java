@@ -141,7 +141,7 @@ public class KHRExternalMemoryWin32 {
      * @param pHandle             will return the Windows handle representing the underlying resources of the device memory object.
      */
     @NativeType("VkResult")
-    public static int vkGetMemoryWin32HandleKHR(VkDevice device, @NativeType("const VkMemoryGetWin32HandleInfoKHR *") VkMemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
+    public static int vkGetMemoryWin32HandleKHR(VkDevice device, @NativeType("VkMemoryGetWin32HandleInfoKHR const *") VkMemoryGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
         if (CHECKS) {
             check(pHandle, 1);
         }

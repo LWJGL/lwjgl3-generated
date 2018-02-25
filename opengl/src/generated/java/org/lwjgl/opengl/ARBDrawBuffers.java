@@ -69,12 +69,12 @@ public class ARBDrawBuffers {
      *
      * @param bufs a buffer of symbolic constants specifying the buffer to which each output color is written. One of:<br><table><tr><td>{@link GL11#GL_NONE NONE}</td><td>{@link GL11#GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link GL11#GL_BACK_LEFT BACK_LEFT}</td><td>{@link GL11#GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link GL11#GL_AUX0 AUX0}</td><td>{@link GL11#GL_AUX1 AUX1}</td><td>{@link GL11#GL_AUX2 AUX2}</td></tr><tr><td>{@link GL11#GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
      */
-    public static void glDrawBuffersARB(@NativeType("const GLenum *") IntBuffer bufs) {
+    public static void glDrawBuffersARB(@NativeType("GLenum const *") IntBuffer bufs) {
         nglDrawBuffersARB(bufs.remaining(), memAddress(bufs));
     }
 
     /** Array version of: {@link #glDrawBuffersARB DrawBuffersARB} */
-    public static void glDrawBuffersARB(@NativeType("const GLenum *") int[] bufs) {
+    public static void glDrawBuffersARB(@NativeType("GLenum const *") int[] bufs) {
         long __functionAddress = GL.getICD().glDrawBuffersARB;
         if (CHECKS) {
             check(__functionAddress);

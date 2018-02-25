@@ -39,7 +39,7 @@ public class EXTMultiDrawArrays {
 
     public static native void nglMultiDrawArraysEXT(int mode, long first, long count, int primcount);
 
-    public static void glMultiDrawArraysEXT(@NativeType("GLenum") int mode, @NativeType("const GLint *") IntBuffer first, @NativeType("const GLsizei *") IntBuffer count) {
+    public static void glMultiDrawArraysEXT(@NativeType("GLenum") int mode, @NativeType("GLint const *") IntBuffer first, @NativeType("GLsizei const *") IntBuffer count) {
         if (CHECKS) {
             check(count, first.remaining());
         }
@@ -50,7 +50,7 @@ public class EXTMultiDrawArrays {
 
     public static native void nglMultiDrawElementsEXT(int mode, long count, int type, long indices, int primcount);
 
-    public static void glMultiDrawElementsEXT(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("const void * const *") PointerBuffer indices) {
+    public static void glMultiDrawElementsEXT(@NativeType("GLenum") int mode, @NativeType("GLsizei const *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("void const * const *") PointerBuffer indices) {
         if (CHECKS) {
             check(indices, count.remaining());
         }
@@ -58,7 +58,7 @@ public class EXTMultiDrawArrays {
     }
 
     /** Array version of: {@link #glMultiDrawArraysEXT MultiDrawArraysEXT} */
-    public static void glMultiDrawArraysEXT(@NativeType("GLenum") int mode, @NativeType("const GLint *") int[] first, @NativeType("const GLsizei *") int[] count) {
+    public static void glMultiDrawArraysEXT(@NativeType("GLenum") int mode, @NativeType("GLint const *") int[] first, @NativeType("GLsizei const *") int[] count) {
         long __functionAddress = GLES.getICD().glMultiDrawArraysEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -68,7 +68,7 @@ public class EXTMultiDrawArrays {
     }
 
     /** Array version of: {@link #glMultiDrawElementsEXT MultiDrawElementsEXT} */
-    public static void glMultiDrawElementsEXT(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") int[] count, @NativeType("GLenum") int type, @NativeType("const void * const *") PointerBuffer indices) {
+    public static void glMultiDrawElementsEXT(@NativeType("GLenum") int mode, @NativeType("GLsizei const *") int[] count, @NativeType("GLenum") int type, @NativeType("void const * const *") PointerBuffer indices) {
         long __functionAddress = GLES.getICD().glMultiDrawElementsEXT;
         if (CHECKS) {
             check(__functionAddress);

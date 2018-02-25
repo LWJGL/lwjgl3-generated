@@ -50,7 +50,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPhysicalDeviceExternalFenceInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkExternalFenceHandleTypeFlagBitsKHR handleType;
  * }</pre></code>
  */
@@ -103,7 +103,7 @@ public class VkPhysicalDeviceExternalFenceInfoKHR extends Struct implements Nati
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code handleType} field. */
     @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
@@ -112,7 +112,7 @@ public class VkPhysicalDeviceExternalFenceInfoKHR extends Struct implements Nati
     /** Sets the specified value to the {@code sType} field. */
     public VkPhysicalDeviceExternalFenceInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPhysicalDeviceExternalFenceInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPhysicalDeviceExternalFenceInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
     public VkPhysicalDeviceExternalFenceInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
 
@@ -346,7 +346,7 @@ public class VkPhysicalDeviceExternalFenceInfoKHR extends Struct implements Nati
         @NativeType("VkStructureType")
         public int sType() { return VkPhysicalDeviceExternalFenceInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPhysicalDeviceExternalFenceInfoKHR.npNext(address()); }
         /** Returns the value of the {@code handleType} field. */
         @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
@@ -355,7 +355,7 @@ public class VkPhysicalDeviceExternalFenceInfoKHR extends Struct implements Nati
         /** Sets the specified value to the {@code sType} field. */
         public VkPhysicalDeviceExternalFenceInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceExternalFenceInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPhysicalDeviceExternalFenceInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkPhysicalDeviceExternalFenceInfoKHR.npNext(address(), value); return this; }
+        public VkPhysicalDeviceExternalFenceInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkPhysicalDeviceExternalFenceInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
         public VkPhysicalDeviceExternalFenceInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { VkPhysicalDeviceExternalFenceInfoKHR.nhandleType(address(), value); return this; }
 

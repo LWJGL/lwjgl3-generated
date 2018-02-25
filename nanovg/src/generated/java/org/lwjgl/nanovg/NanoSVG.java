@@ -137,7 +137,7 @@ public class NanoSVG {
      */
     @Nullable
     @NativeType("NSVGimage *")
-    public static NSVGImage nsvgParseFromFile(@NativeType("const char *") ByteBuffer filename, @NativeType("const char *") ByteBuffer units, float dpi) {
+    public static NSVGImage nsvgParseFromFile(@NativeType("char const *") ByteBuffer filename, @NativeType("char const *") ByteBuffer units, float dpi) {
         if (CHECKS) {
             checkNT1(filename);
             checkNT1(units);
@@ -155,7 +155,7 @@ public class NanoSVG {
      */
     @Nullable
     @NativeType("NSVGimage *")
-    public static NSVGImage nsvgParseFromFile(@NativeType("const char *") CharSequence filename, @NativeType("const char *") CharSequence units, float dpi) {
+    public static NSVGImage nsvgParseFromFile(@NativeType("char const *") CharSequence filename, @NativeType("char const *") CharSequence units, float dpi) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer filenameEncoded = stack.ASCII(filename);
@@ -183,7 +183,7 @@ public class NanoSVG {
      */
     @Nullable
     @NativeType("NSVGimage *")
-    public static NSVGImage nsvgParse(@NativeType("char *") ByteBuffer input, @NativeType("const char *") ByteBuffer units, float dpi) {
+    public static NSVGImage nsvgParse(@NativeType("char *") ByteBuffer input, @NativeType("char const *") ByteBuffer units, float dpi) {
         if (CHECKS) {
             checkNT1(input);
             checkNT1(units);
@@ -203,7 +203,7 @@ public class NanoSVG {
      */
     @Nullable
     @NativeType("NSVGimage *")
-    public static NSVGImage nsvgParse(@NativeType("char *") CharSequence input, @NativeType("const char *") CharSequence units, float dpi) {
+    public static NSVGImage nsvgParse(@NativeType("char *") CharSequence input, @NativeType("char const *") CharSequence units, float dpi) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer inputEncoded = stack.ASCII(input);

@@ -1091,7 +1091,7 @@ public class User32 {
      * @param lpwcx a {@link WNDCLASSEX} structure. You must fill the structure with the appropriate class attributes before passing it to the function.
      */
     @NativeType("ATOM")
-    public static short RegisterClassEx(@NativeType("const WNDCLASSEX *") WNDCLASSEX lpwcx) {
+    public static short RegisterClassEx(@NativeType("WNDCLASSEX const *") WNDCLASSEX lpwcx) {
         return nRegisterClassEx(lpwcx.address());
     }
 
@@ -1468,7 +1468,7 @@ public class User32 {
      *              function.
      */
     @NativeType("BOOL")
-    public static boolean TranslateMessage(@NativeType("const MSG *") MSG lpMsg) {
+    public static boolean TranslateMessage(@NativeType("MSG const *") MSG lpMsg) {
         return nTranslateMessage(lpMsg.address()) != 0;
     }
 
@@ -1501,7 +1501,7 @@ public class User32 {
      * @param lpmsg a pointer to a structure that contains the message.
      */
     @NativeType("LRESULT")
-    public static long DispatchMessage(@NativeType("const MSG *") MSG lpmsg) {
+    public static long DispatchMessage(@NativeType("MSG const *") MSG lpmsg) {
         return nDispatchMessage(lpmsg.address());
     }
 
@@ -1691,7 +1691,7 @@ public class User32 {
      *                {@code SetWindowPlacement} fails if the length member is not set correctly.</p>
      */
     @NativeType("BOOL")
-    public static boolean SetWindowPlacement(@NativeType("HWND") long hWnd, @NativeType("const WINDOWPLACEMENT *") WINDOWPLACEMENT lpwndpl) {
+    public static boolean SetWindowPlacement(@NativeType("HWND") long hWnd, @NativeType("WINDOWPLACEMENT const *") WINDOWPLACEMENT lpwndpl) {
         return nSetWindowPlacement(hWnd, lpwndpl.address()) != 0;
     }
 
@@ -2458,7 +2458,7 @@ public class User32 {
      *             parameter is {@code NULL}, the cursor is free to move anywhere on the screen.
      */
     @NativeType("BOOL")
-    public static boolean ClipCursor(@Nullable @NativeType("const RECT *") RECT rect) {
+    public static boolean ClipCursor(@Nullable @NativeType("RECT const *") RECT rect) {
         return nClipCursor(memAddressSafe(rect)) != 0;
     }
 

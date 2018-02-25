@@ -54,10 +54,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPipelineDynamicStateCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkPipelineDynamicStateCreateFlags flags;
  *     uint32_t dynamicStateCount;
- *     const VkDynamicState * pDynamicStates;
+ *     VkDynamicState const * pDynamicStates;
  * }</pre></code>
  */
 public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeResource {
@@ -115,7 +115,7 @@ public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeRe
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkPipelineDynamicStateCreateFlags")
@@ -124,17 +124,17 @@ public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeRe
     @NativeType("uint32_t")
     public int dynamicStateCount() { return ndynamicStateCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDynamicStates} field. */
-    @NativeType("const VkDynamicState *")
+    @NativeType("VkDynamicState const *")
     public IntBuffer pDynamicStates() { return npDynamicStates(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkPipelineDynamicStateCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineDynamicStateCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPipelineDynamicStateCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkPipelineDynamicStateCreateInfo flags(@NativeType("VkPipelineDynamicStateCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pDynamicStates} field. */
-    public VkPipelineDynamicStateCreateInfo pDynamicStates(@NativeType("const VkDynamicState *") IntBuffer value) { npDynamicStates(address(), value); return this; }
+    public VkPipelineDynamicStateCreateInfo pDynamicStates(@NativeType("VkDynamicState const *") IntBuffer value) { npDynamicStates(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineDynamicStateCreateInfo set(
@@ -397,7 +397,7 @@ public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeRe
         @NativeType("VkStructureType")
         public int sType() { return VkPipelineDynamicStateCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPipelineDynamicStateCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkPipelineDynamicStateCreateFlags")
@@ -406,17 +406,17 @@ public class VkPipelineDynamicStateCreateInfo extends Struct implements NativeRe
         @NativeType("uint32_t")
         public int dynamicStateCount() { return VkPipelineDynamicStateCreateInfo.ndynamicStateCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pDynamicStates} field. */
-        @NativeType("const VkDynamicState *")
+        @NativeType("VkDynamicState const *")
         public IntBuffer pDynamicStates() { return VkPipelineDynamicStateCreateInfo.npDynamicStates(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkPipelineDynamicStateCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineDynamicStateCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineDynamicStateCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkPipelineDynamicStateCreateInfo.npNext(address(), value); return this; }
+        public VkPipelineDynamicStateCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkPipelineDynamicStateCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkPipelineDynamicStateCreateInfo.Buffer flags(@NativeType("VkPipelineDynamicStateCreateFlags") int value) { VkPipelineDynamicStateCreateInfo.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pDynamicStates} field. */
-        public VkPipelineDynamicStateCreateInfo.Buffer pDynamicStates(@NativeType("const VkDynamicState *") IntBuffer value) { VkPipelineDynamicStateCreateInfo.npDynamicStates(address(), value); return this; }
+        public VkPipelineDynamicStateCreateInfo.Buffer pDynamicStates(@NativeType("VkDynamicState const *") IntBuffer value) { VkPipelineDynamicStateCreateInfo.npDynamicStates(address(), value); return this; }
 
     }
 

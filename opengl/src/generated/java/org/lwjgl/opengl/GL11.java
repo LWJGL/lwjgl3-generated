@@ -833,7 +833,7 @@ public class GL11 {
      * @param residences returns the residences of each texture object
      */
     @NativeType("GLboolean")
-    public static boolean glAreTexturesResident(@NativeType("const GLuint *") IntBuffer textures, @NativeType("GLboolean *") ByteBuffer residences) {
+    public static boolean glAreTexturesResident(@NativeType("GLuint const *") IntBuffer textures, @NativeType("GLboolean *") ByteBuffer residences) {
         if (CHECKS) {
             check(residences, textures.remaining());
         }
@@ -850,7 +850,7 @@ public class GL11 {
      * @param residences returns the residences of each texture object
      */
     @NativeType("GLboolean")
-    public static boolean glAreTexturesResident(@NativeType("const GLuint *") int texture, @NativeType("GLboolean *") ByteBuffer residences) {
+    public static boolean glAreTexturesResident(@NativeType("GLuint const *") int texture, @NativeType("GLboolean *") ByteBuffer residences) {
         if (CHECKS) {
             check(residences, 1);
         }
@@ -920,7 +920,7 @@ public class GL11 {
      * @param yInc  the y increment added to the raster position
      * @param data  the buffer containing the bitmap data.
      */
-    public static void glBitmap(@NativeType("GLsizei") int w, @NativeType("GLsizei") int h, @NativeType("GLfloat") float xOrig, @NativeType("GLfloat") float yOrig, @NativeType("GLfloat") float xInc, @NativeType("GLfloat") float yInc, @Nullable @NativeType("const GLubyte *") ByteBuffer data) {
+    public static void glBitmap(@NativeType("GLsizei") int w, @NativeType("GLsizei") int h, @NativeType("GLfloat") float xOrig, @NativeType("GLfloat") float yOrig, @NativeType("GLfloat") float xInc, @NativeType("GLfloat") float yInc, @Nullable @NativeType("GLubyte const *") ByteBuffer data) {
         if (CHECKS) {
             checkSafe(data, ((w + 7) >> 3) * h);
         }
@@ -941,7 +941,7 @@ public class GL11 {
      * @param yInc  the y increment added to the raster position
      * @param data  the buffer containing the bitmap data.
      */
-    public static void glBitmap(@NativeType("GLsizei") int w, @NativeType("GLsizei") int h, @NativeType("GLfloat") float xOrig, @NativeType("GLfloat") float yOrig, @NativeType("GLfloat") float xInc, @NativeType("GLfloat") float yInc, @Nullable @NativeType("const GLubyte *") long data) {
+    public static void glBitmap(@NativeType("GLsizei") int w, @NativeType("GLsizei") int h, @NativeType("GLfloat") float xOrig, @NativeType("GLfloat") float yOrig, @NativeType("GLfloat") float xInc, @NativeType("GLfloat") float yInc, @Nullable @NativeType("GLubyte const *") long data) {
         nglBitmap(w, h, xOrig, yOrig, xInc, yInc, data);
     }
 
@@ -986,7 +986,7 @@ public class GL11 {
      * @param type  the data type of each element in {@code lists}. One of:<br><table><tr><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_SHORT SHORT}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_INT INT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_FLOAT FLOAT}</td><td>{@link #GL_2_BYTES 2_BYTES}</td><td>{@link #GL_3_BYTES 3_BYTES}</td><td>{@link #GL_4_BYTES 4_BYTES}</td></tr></table>
      * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
      */
-    public static void glCallLists(@NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer lists) {
+    public static void glCallLists(@NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer lists) {
         nglCallLists(lists.remaining() / GLChecks.typeToBytes(type), type, memAddress(lists));
     }
 
@@ -997,7 +997,7 @@ public class GL11 {
      *
      * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
      */
-    public static void glCallLists(@NativeType("const void *") ByteBuffer lists) {
+    public static void glCallLists(@NativeType("void const *") ByteBuffer lists) {
         nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(lists));
     }
 
@@ -1008,7 +1008,7 @@ public class GL11 {
      *
      * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
      */
-    public static void glCallLists(@NativeType("const void *") ShortBuffer lists) {
+    public static void glCallLists(@NativeType("void const *") ShortBuffer lists) {
         nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(lists));
     }
 
@@ -1019,7 +1019,7 @@ public class GL11 {
      *
      * @param lists an array of offsets. Each offset is added to the display list base to obtain the display list number.
      */
-    public static void glCallLists(@NativeType("const void *") IntBuffer lists) {
+    public static void glCallLists(@NativeType("void const *") IntBuffer lists) {
         nglCallLists(lists.remaining(), GL11.GL_UNSIGNED_INT, memAddress(lists));
     }
 
@@ -1116,7 +1116,7 @@ public class GL11 {
      * @param plane    the clip plane to define
      * @param equation the clip plane coefficients
      */
-    public static void glClipPlane(@NativeType("GLenum") int plane, @NativeType("const GLdouble *") DoubleBuffer equation) {
+    public static void glClipPlane(@NativeType("GLenum") int plane, @NativeType("GLdouble const *") DoubleBuffer equation) {
         if (CHECKS) {
             check(equation, 4);
         }
@@ -1239,7 +1239,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3bv(@NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glColor3bv(@NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1258,7 +1258,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glColor3sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1277,7 +1277,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glColor3iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1296,7 +1296,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glColor3fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1315,7 +1315,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glColor3dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1334,7 +1334,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3ubv(@NativeType("const GLubyte *") ByteBuffer v) {
+    public static void glColor3ubv(@NativeType("GLubyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1353,7 +1353,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3usv(@NativeType("const GLushort *") ShortBuffer v) {
+    public static void glColor3usv(@NativeType("GLushort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1372,7 +1372,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor3uiv(@NativeType("const GLuint *") IntBuffer v) {
+    public static void glColor3uiv(@NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1503,7 +1503,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4bv(@NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glColor4bv(@NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1522,7 +1522,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glColor4sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1541,7 +1541,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glColor4iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1560,7 +1560,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glColor4fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1579,7 +1579,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glColor4dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1598,7 +1598,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4ubv(@NativeType("const GLubyte *") ByteBuffer v) {
+    public static void glColor4ubv(@NativeType("GLubyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1617,7 +1617,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4usv(@NativeType("const GLushort *") ShortBuffer v) {
+    public static void glColor4usv(@NativeType("GLushort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1636,7 +1636,7 @@ public class GL11 {
      *
      * @param v the color buffer
      */
-    public static void glColor4uiv(@NativeType("const GLuint *") IntBuffer v) {
+    public static void glColor4uiv(@NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1686,7 +1686,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color array data
      */
-    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -1700,7 +1700,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color array data
      */
-    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglColorPointer(size, type, stride, pointer);
     }
 
@@ -1714,7 +1714,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color array data
      */
-    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -1728,7 +1728,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color array data
      */
-    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -1742,7 +1742,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color array data
      */
-    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glColorPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglColorPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -1887,7 +1887,7 @@ public class GL11 {
      * @param type    indicates the type of index values in {@code indices}. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
      * @param indices the index values
      */
-    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices) {
+    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("void const *") long indices) {
         nglDrawElements(mode, count, type, indices);
     }
 
@@ -1902,7 +1902,7 @@ public class GL11 {
      * @param type    indicates the type of index values in {@code indices}. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td></tr></table>
      * @param indices the index values
      */
-    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices) {
+    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indices) {
         nglDrawElements(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices));
     }
 
@@ -1916,7 +1916,7 @@ public class GL11 {
      * @param mode    the kind of primitives being constructed. One of:<br><table><tr><td>{@link #GL_POINTS POINTS}</td><td>{@link #GL_LINE_STRIP LINE_STRIP}</td><td>{@link #GL_LINE_LOOP LINE_LOOP}</td><td>{@link #GL_LINES LINES}</td><td>{@link #GL_POLYGON POLYGON}</td><td>{@link #GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link #GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link #GL_TRIANGLES TRIANGLES}</td><td>{@link #GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link #GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
      * @param indices the index values
      */
-    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices) {
+    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indices) {
         nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices));
     }
 
@@ -1930,7 +1930,7 @@ public class GL11 {
      * @param mode    the kind of primitives being constructed. One of:<br><table><tr><td>{@link #GL_POINTS POINTS}</td><td>{@link #GL_LINE_STRIP LINE_STRIP}</td><td>{@link #GL_LINE_LOOP LINE_LOOP}</td><td>{@link #GL_LINES LINES}</td><td>{@link #GL_POLYGON POLYGON}</td><td>{@link #GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link #GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link #GL_TRIANGLES TRIANGLES}</td><td>{@link #GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link #GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
      * @param indices the index values
      */
-    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices) {
+    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("void const *") ShortBuffer indices) {
         nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices));
     }
 
@@ -1944,7 +1944,7 @@ public class GL11 {
      * @param mode    the kind of primitives being constructed. One of:<br><table><tr><td>{@link #GL_POINTS POINTS}</td><td>{@link #GL_LINE_STRIP LINE_STRIP}</td><td>{@link #GL_LINE_LOOP LINE_LOOP}</td><td>{@link #GL_LINES LINES}</td><td>{@link #GL_POLYGON POLYGON}</td><td>{@link #GL_TRIANGLE_STRIP TRIANGLE_STRIP}</td><td>{@link #GL_TRIANGLE_FAN TRIANGLE_FAN}</td></tr><tr><td>{@link #GL_TRIANGLES TRIANGLES}</td><td>{@link #GL_QUAD_STRIP QUAD_STRIP}</td><td>{@link #GL_QUADS QUADS}</td><td>{@link GL32#GL_LINES_ADJACENCY LINES_ADJACENCY}</td><td>{@link GL32#GL_LINE_STRIP_ADJACENCY LINE_STRIP_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLES_ADJACENCY TRIANGLES_ADJACENCY}</td><td>{@link GL32#GL_TRIANGLE_STRIP_ADJACENCY TRIANGLE_STRIP_ADJACENCY}</td></tr><tr><td>{@link GL40#GL_PATCHES PATCHES}</td></tr></table>
      * @param indices the index values
      */
-    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices) {
+    public static void glDrawElements(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indices) {
         nglDrawElements(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices));
     }
 
@@ -1964,7 +1964,7 @@ public class GL11 {
      * @param type   the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels the pixel data
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer pixels) {
         nglDrawPixels(width, height, format, type, memAddress(pixels));
     }
 
@@ -1979,7 +1979,7 @@ public class GL11 {
      * @param type   the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels the pixel data
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") long pixels) {
         nglDrawPixels(width, height, format, type, pixels);
     }
 
@@ -1994,7 +1994,7 @@ public class GL11 {
      * @param type   the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels the pixel data
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") ShortBuffer pixels) {
         nglDrawPixels(width, height, format, type, memAddress(pixels));
     }
 
@@ -2009,7 +2009,7 @@ public class GL11 {
      * @param type   the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels the pixel data
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") IntBuffer pixels) {
         nglDrawPixels(width, height, format, type, memAddress(pixels));
     }
 
@@ -2024,7 +2024,7 @@ public class GL11 {
      * @param type   the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels the pixel data
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") FloatBuffer pixels) {
         nglDrawPixels(width, height, format, type, memAddress(pixels));
     }
 
@@ -2057,7 +2057,7 @@ public class GL11 {
      *
      * @param flag the edge flag buffer
      */
-    public static void glEdgeFlagv(@NativeType("const GLboolean *") ByteBuffer flag) {
+    public static void glEdgeFlagv(@NativeType("GLboolean const *") ByteBuffer flag) {
         if (CHECKS) {
             check(flag, 1);
         }
@@ -2077,7 +2077,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the edge flag array data
      */
-    public static void glEdgeFlagPointer(@NativeType("GLsizei") int stride, @NativeType("const GLboolean *") ByteBuffer pointer) {
+    public static void glEdgeFlagPointer(@NativeType("GLsizei") int stride, @NativeType("GLboolean const *") ByteBuffer pointer) {
         nglEdgeFlagPointer(stride, memAddress(pointer));
     }
 
@@ -2089,7 +2089,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the edge flag array data
      */
-    public static void glEdgeFlagPointer(@NativeType("GLsizei") int stride, @NativeType("const GLboolean *") long pointer) {
+    public static void glEdgeFlagPointer(@NativeType("GLsizei") int stride, @NativeType("GLboolean const *") long pointer) {
         nglEdgeFlagPointer(stride, pointer);
     }
 
@@ -2138,7 +2138,7 @@ public class GL11 {
      *
      * @param u the domain coordinate buffer
      */
-    public static void glEvalCoord1fv(@NativeType("const GLfloat *") FloatBuffer u) {
+    public static void glEvalCoord1fv(@NativeType("GLfloat const *") FloatBuffer u) {
         if (CHECKS) {
             check(u, 1);
         }
@@ -2168,7 +2168,7 @@ public class GL11 {
      *
      * @param u the domain coordinate buffer
      */
-    public static void glEvalCoord1dv(@NativeType("const GLdouble *") DoubleBuffer u) {
+    public static void glEvalCoord1dv(@NativeType("GLdouble const *") DoubleBuffer u) {
         if (CHECKS) {
             check(u, 1);
         }
@@ -2199,7 +2199,7 @@ public class GL11 {
      *
      * @param u the domain coordinate buffer
      */
-    public static void glEvalCoord2fv(@NativeType("const GLfloat *") FloatBuffer u) {
+    public static void glEvalCoord2fv(@NativeType("GLfloat const *") FloatBuffer u) {
         if (CHECKS) {
             check(u, 2);
         }
@@ -2230,7 +2230,7 @@ public class GL11 {
      *
      * @param u the domain coordinate buffer
      */
-    public static void glEvalCoord2dv(@NativeType("const GLdouble *") DoubleBuffer u) {
+    public static void glEvalCoord2dv(@NativeType("GLdouble const *") DoubleBuffer u) {
         if (CHECKS) {
             check(u, 2);
         }
@@ -2353,7 +2353,7 @@ public class GL11 {
      * @param pname  the fog parameter. One of:<br><table><tr><td>{@link #GL_FOG_MODE FOG_MODE}</td><td>{@link GL15#GL_FOG_COORD_SRC FOG_COORD_SRC}</td></tr></table>
      * @param params the fog parameter buffer
      */
-    public static void glFogiv(@NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glFogiv(@NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -2385,7 +2385,7 @@ public class GL11 {
      * @param pname  the fog parameter. One of:<br><table><tr><td>{@link #GL_FOG_DENSITY FOG_DENSITY}</td><td>{@link #GL_FOG_START FOG_START}</td><td>{@link #GL_FOG_END FOG_END}</td></tr></table>
      * @param params the fog parameter buffer
      */
-    public static void glFogfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glFogfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -2481,7 +2481,7 @@ public class GL11 {
      *
      * @param textures contains {@code n} names of texture objects to be deleted
      */
-    public static void glDeleteTextures(@NativeType("const GLuint *") IntBuffer textures) {
+    public static void glDeleteTextures(@NativeType("GLuint const *") IntBuffer textures) {
         nglDeleteTextures(textures.remaining(), memAddress(textures));
     }
 
@@ -2496,7 +2496,7 @@ public class GL11 {
      * <p>Unused names in textures that have been marked as used for the purposes of {@link #glGenTextures GenTextures} are marked as unused again. Unused names in textures are
      * silently ignored, as is the name zero.</p>
      */
-    public static void glDeleteTextures(@NativeType("const GLuint *") int texture) {
+    public static void glDeleteTextures(@NativeType("GLuint const *") int texture) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer textures = stack.ints(texture);
@@ -3153,7 +3153,7 @@ public class GL11 {
      * @param name the property to query. One of:<br><table><tr><td>{@link #GL_RENDERER RENDERER}</td><td>{@link #GL_VENDOR VENDOR}</td><td>{@link #GL_EXTENSIONS EXTENSIONS}</td><td>{@link #GL_VERSION VERSION}</td><td>{@link GL20#GL_SHADING_LANGUAGE_VERSION SHADING_LANGUAGE_VERSION}</td></tr></table>
      */
     @Nullable
-    @NativeType("const GLubyte *")
+    @NativeType("GLubyte const *")
     public static String glGetString(@NativeType("GLenum") int name) {
         long __result = nglGetString(name);
         return memUTF8Safe(__result);
@@ -3707,7 +3707,7 @@ public class GL11 {
      *
      * @param index the value to which the current color index should be set
      */
-    public static void glIndexiv(@NativeType("const GLint *") IntBuffer index) {
+    public static void glIndexiv(@NativeType("GLint const *") IntBuffer index) {
         if (CHECKS) {
             check(index, 1);
         }
@@ -3726,7 +3726,7 @@ public class GL11 {
      *
      * @param index the value to which the current color index should be set
      */
-    public static void glIndexubv(@NativeType("const GLubyte *") ByteBuffer index) {
+    public static void glIndexubv(@NativeType("GLubyte const *") ByteBuffer index) {
         if (CHECKS) {
             check(index, 1);
         }
@@ -3745,7 +3745,7 @@ public class GL11 {
      *
      * @param index the value to which the current color index should be set
      */
-    public static void glIndexsv(@NativeType("const GLshort *") ShortBuffer index) {
+    public static void glIndexsv(@NativeType("GLshort const *") ShortBuffer index) {
         if (CHECKS) {
             check(index, 1);
         }
@@ -3764,7 +3764,7 @@ public class GL11 {
      *
      * @param index the value to which the current color index should be set
      */
-    public static void glIndexfv(@NativeType("const GLfloat *") FloatBuffer index) {
+    public static void glIndexfv(@NativeType("GLfloat const *") FloatBuffer index) {
         if (CHECKS) {
             check(index, 1);
         }
@@ -3783,7 +3783,7 @@ public class GL11 {
      *
      * @param index the value to which the current color index should be set
      */
-    public static void glIndexdv(@NativeType("const GLdouble *") DoubleBuffer index) {
+    public static void glIndexdv(@NativeType("GLdouble const *") DoubleBuffer index) {
         if (CHECKS) {
             check(index, 1);
         }
@@ -3821,7 +3821,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color index array data
      */
-    public static void glIndexPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glIndexPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglIndexPointer(type, stride, memAddress(pointer));
     }
 
@@ -3834,7 +3834,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color index array data
      */
-    public static void glIndexPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glIndexPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglIndexPointer(type, stride, pointer);
     }
 
@@ -3846,7 +3846,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color index array data
      */
-    public static void glIndexPointer(@NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glIndexPointer(@NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglIndexPointer(GL11.GL_UNSIGNED_BYTE, stride, memAddress(pointer));
     }
 
@@ -3858,7 +3858,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color index array data
      */
-    public static void glIndexPointer(@NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glIndexPointer(@NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglIndexPointer(GL11.GL_SHORT, stride, memAddress(pointer));
     }
 
@@ -3870,7 +3870,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the color index array data
      */
-    public static void glIndexPointer(@NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glIndexPointer(@NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglIndexPointer(GL11.GL_INT, stride, memAddress(pointer));
     }
 
@@ -3897,7 +3897,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglInterleavedArrays(format, stride, memAddress(pointer));
     }
 
@@ -3910,7 +3910,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglInterleavedArrays(format, stride, pointer);
     }
 
@@ -3923,7 +3923,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglInterleavedArrays(format, stride, memAddress(pointer));
     }
 
@@ -3936,7 +3936,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglInterleavedArrays(format, stride, memAddress(pointer));
     }
 
@@ -3949,7 +3949,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglInterleavedArrays(format, stride, memAddress(pointer));
     }
 
@@ -3962,7 +3962,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") DoubleBuffer pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") DoubleBuffer pointer) {
         nglInterleavedArrays(format, stride, memAddress(pointer));
     }
 
@@ -4039,7 +4039,7 @@ public class GL11 {
      * @param pname  the lighting model parameter to set
      * @param params the parameter value
      */
-    public static void glLightModeliv(@NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glLightModeliv(@NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -4059,7 +4059,7 @@ public class GL11 {
      * @param pname  the lighting model parameter to set
      * @param params the parameter value
      */
-    public static void glLightModelfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glLightModelfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -4106,7 +4106,7 @@ public class GL11 {
      * @param pname  the parameter to set
      * @param params the parameter value
      */
-    public static void glLightiv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glLightiv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -4127,7 +4127,7 @@ public class GL11 {
      * @param pname  the parameter to set
      * @param params the parameter value
      */
-    public static void glLightfv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glLightfv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -4194,7 +4194,7 @@ public class GL11 {
      *
      * @param m the matrix data
      */
-    public static void glLoadMatrixf(@NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glLoadMatrixf(@NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -4213,7 +4213,7 @@ public class GL11 {
      *
      * @param m the matrix data
      */
-    public static void glLoadMatrixd(@NativeType("const GLdouble *") DoubleBuffer m) {
+    public static void glLoadMatrixd(@NativeType("GLdouble const *") DoubleBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -4278,7 +4278,7 @@ public class GL11 {
      * @param order  the polynomial order
      * @param points a set of {@code order} blocks of storage containing control points
      */
-    public static void glMap1f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("const GLfloat *") FloatBuffer points) {
+    public static void glMap1f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("GLfloat const *") FloatBuffer points) {
         if (CHECKS) {
             check(points, order * stride);
         }
@@ -4302,7 +4302,7 @@ public class GL11 {
      * @param order  the polynomial order
      * @param points a set of {@code order} blocks of storage containing control points
      */
-    public static void glMap1d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("const GLdouble *") DoubleBuffer points) {
+    public static void glMap1d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("GLdouble const *") DoubleBuffer points) {
         if (CHECKS) {
             check(points, stride * order);
         }
@@ -4330,7 +4330,7 @@ public class GL11 {
      * @param vorder  the polynomial order in the v-dimension
      * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
      */
-    public static void glMap2f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLfloat") float v1, @NativeType("GLfloat") float v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("const GLfloat *") FloatBuffer points) {
+    public static void glMap2f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLfloat") float v1, @NativeType("GLfloat") float v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("GLfloat const *") FloatBuffer points) {
         if (CHECKS) {
             check(points, ustride * uorder * vstride * vorder);
         }
@@ -4358,7 +4358,7 @@ public class GL11 {
      * @param vorder  the polynomial order in the v-dimension
      * @param points  a set of <code>uorder &times; vorder</code> blocks of storage containing control points
      */
-    public static void glMap2d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLdouble") double v1, @NativeType("GLdouble") double v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("const GLdouble *") DoubleBuffer points) {
+    public static void glMap2d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLdouble") double v1, @NativeType("GLdouble") double v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("GLdouble const *") DoubleBuffer points) {
         if (CHECKS) {
             check(points, ustride * uorder * vstride * vorder);
         }
@@ -4463,7 +4463,7 @@ public class GL11 {
      * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_AMBIENT AMBIENT}</td><td>{@link #GL_DIFFUSE DIFFUSE}</td><td>{@link #GL_AMBIENT_AND_DIFFUSE AMBIENT_AND_DIFFUSE}</td><td>{@link #GL_SPECULAR SPECULAR}</td><td>{@link #GL_EMISSION EMISSION}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glMaterialiv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glMaterialiv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -4484,7 +4484,7 @@ public class GL11 {
      * @param pname  the parameter to set
      * @param params the parameter value
      */
-    public static void glMaterialfv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glMaterialfv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -4514,7 +4514,7 @@ public class GL11 {
      *
      * @param m the matrix data
      */
-    public static void glMultMatrixf(@NativeType("const GLfloat *") FloatBuffer m) {
+    public static void glMultMatrixf(@NativeType("GLfloat const *") FloatBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -4533,7 +4533,7 @@ public class GL11 {
      *
      * @param m the matrix data
      */
-    public static void glMultMatrixd(@NativeType("const GLdouble *") DoubleBuffer m) {
+    public static void glMultMatrixd(@NativeType("GLdouble const *") DoubleBuffer m) {
         if (CHECKS) {
             check(m, 16);
         }
@@ -4667,7 +4667,7 @@ public class GL11 {
      *
      * @param v the normal buffer
      */
-    public static void glNormal3fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glNormal3fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -4686,7 +4686,7 @@ public class GL11 {
      *
      * @param v the normal buffer
      */
-    public static void glNormal3bv(@NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glNormal3bv(@NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -4705,7 +4705,7 @@ public class GL11 {
      *
      * @param v the normal buffer
      */
-    public static void glNormal3sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glNormal3sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -4724,7 +4724,7 @@ public class GL11 {
      *
      * @param v the normal buffer
      */
-    public static void glNormal3iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glNormal3iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -4743,7 +4743,7 @@ public class GL11 {
      *
      * @param v the normal buffer
      */
-    public static void glNormal3dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glNormal3dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -4764,7 +4764,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the normal array data
      */
-    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglNormalPointer(type, stride, memAddress(pointer));
     }
 
@@ -4777,7 +4777,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the normal array data
      */
-    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglNormalPointer(type, stride, pointer);
     }
 
@@ -4790,7 +4790,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the normal array data
      */
-    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglNormalPointer(type, stride, memAddress(pointer));
     }
 
@@ -4803,7 +4803,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the normal array data
      */
-    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglNormalPointer(type, stride, memAddress(pointer));
     }
 
@@ -4816,7 +4816,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the normal array data
      */
-    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glNormalPointer(@NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglNormalPointer(type, stride, memAddress(pointer));
     }
 
@@ -4879,7 +4879,7 @@ public class GL11 {
      * @param size   the map size
      * @param values the map values
      */
-    public static void glPixelMapfv(@NativeType("GLenum") int map, @NativeType("GLsizei") int size, @NativeType("const GLfloat *") long values) {
+    public static void glPixelMapfv(@NativeType("GLenum") int map, @NativeType("GLsizei") int size, @NativeType("GLfloat const *") long values) {
         nglPixelMapfv(map, size, values);
     }
 
@@ -4891,7 +4891,7 @@ public class GL11 {
      * @param map    the map to set. One of:<br><table><tr><td>{@link #GL_PIXEL_MAP_I_TO_I PIXEL_MAP_I_TO_I}</td><td>{@link #GL_PIXEL_MAP_S_TO_S PIXEL_MAP_S_TO_S}</td><td>{@link #GL_PIXEL_MAP_I_TO_R PIXEL_MAP_I_TO_R}</td><td>{@link #GL_PIXEL_MAP_I_TO_G PIXEL_MAP_I_TO_G}</td><td>{@link #GL_PIXEL_MAP_I_TO_B PIXEL_MAP_I_TO_B}</td></tr><tr><td>{@link #GL_PIXEL_MAP_I_TO_A PIXEL_MAP_I_TO_A}</td><td>{@link #GL_PIXEL_MAP_R_TO_R PIXEL_MAP_R_TO_R}</td><td>{@link #GL_PIXEL_MAP_G_TO_G PIXEL_MAP_G_TO_G}</td><td>{@link #GL_PIXEL_MAP_B_TO_B PIXEL_MAP_B_TO_B}</td><td>{@link #GL_PIXEL_MAP_A_TO_A PIXEL_MAP_A_TO_A}</td></tr></table>
      * @param values the map values
      */
-    public static void glPixelMapfv(@NativeType("GLenum") int map, @NativeType("const GLfloat *") FloatBuffer values) {
+    public static void glPixelMapfv(@NativeType("GLenum") int map, @NativeType("GLfloat const *") FloatBuffer values) {
         nglPixelMapfv(map, values.remaining(), memAddress(values));
     }
 
@@ -4913,7 +4913,7 @@ public class GL11 {
      * @param size   the map size
      * @param values the map values
      */
-    public static void glPixelMapusv(@NativeType("GLenum") int map, @NativeType("GLsizei") int size, @NativeType("const GLushort *") long values) {
+    public static void glPixelMapusv(@NativeType("GLenum") int map, @NativeType("GLsizei") int size, @NativeType("GLushort const *") long values) {
         nglPixelMapusv(map, size, values);
     }
 
@@ -4925,7 +4925,7 @@ public class GL11 {
      * @param map    the map to set
      * @param values the map values
      */
-    public static void glPixelMapusv(@NativeType("GLenum") int map, @NativeType("const GLushort *") ShortBuffer values) {
+    public static void glPixelMapusv(@NativeType("GLenum") int map, @NativeType("GLushort const *") ShortBuffer values) {
         nglPixelMapusv(map, values.remaining(), memAddress(values));
     }
 
@@ -4947,7 +4947,7 @@ public class GL11 {
      * @param size   the map size
      * @param values the map values
      */
-    public static void glPixelMapuiv(@NativeType("GLenum") int map, @NativeType("GLsizei") int size, @NativeType("const GLuint *") long values) {
+    public static void glPixelMapuiv(@NativeType("GLenum") int map, @NativeType("GLsizei") int size, @NativeType("GLuint const *") long values) {
         nglPixelMapuiv(map, size, values);
     }
 
@@ -4959,7 +4959,7 @@ public class GL11 {
      * @param map    the map to set
      * @param values the map values
      */
-    public static void glPixelMapuiv(@NativeType("GLenum") int map, @NativeType("const GLuint *") IntBuffer values) {
+    public static void glPixelMapuiv(@NativeType("GLenum") int map, @NativeType("GLuint const *") IntBuffer values) {
         nglPixelMapuiv(map, values.remaining(), memAddress(values));
     }
 
@@ -5093,7 +5093,7 @@ public class GL11 {
      *
      * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
      */
-    public static void glPolygonStipple(@NativeType("const GLubyte *") ByteBuffer pattern) {
+    public static void glPolygonStipple(@NativeType("GLubyte const *") ByteBuffer pattern) {
         if (CHECKS) {
             check(pattern, 128);
         }
@@ -5114,7 +5114,7 @@ public class GL11 {
      *
      * @param pattern a pointer to memory into which a 32 &times; 32 pattern is packed
      */
-    public static void glPolygonStipple(@NativeType("const GLubyte *") long pattern) {
+    public static void glPolygonStipple(@NativeType("GLubyte const *") long pattern) {
         nglPolygonStipple(pattern);
     }
 
@@ -5208,7 +5208,7 @@ public class GL11 {
      * @param textures   an array of texture object names
      * @param priorities an array of texture object priorities
      */
-    public static void glPrioritizeTextures(@NativeType("const GLuint *") IntBuffer textures, @NativeType("const GLfloat *") FloatBuffer priorities) {
+    public static void glPrioritizeTextures(@NativeType("GLuint const *") IntBuffer textures, @NativeType("GLfloat const *") FloatBuffer priorities) {
         if (CHECKS) {
             check(priorities, textures.remaining());
         }
@@ -5301,7 +5301,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos2iv(@NativeType("const GLint *") IntBuffer coords) {
+    public static void glRasterPos2iv(@NativeType("GLint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -5320,7 +5320,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos2sv(@NativeType("const GLshort *") ShortBuffer coords) {
+    public static void glRasterPos2sv(@NativeType("GLshort const *") ShortBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -5339,7 +5339,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos2fv(@NativeType("const GLfloat *") FloatBuffer coords) {
+    public static void glRasterPos2fv(@NativeType("GLfloat const *") FloatBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -5358,7 +5358,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos2dv(@NativeType("const GLdouble *") DoubleBuffer coords) {
+    public static void glRasterPos2dv(@NativeType("GLdouble const *") DoubleBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -5429,7 +5429,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos3iv(@NativeType("const GLint *") IntBuffer coords) {
+    public static void glRasterPos3iv(@NativeType("GLint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -5448,7 +5448,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos3sv(@NativeType("const GLshort *") ShortBuffer coords) {
+    public static void glRasterPos3sv(@NativeType("GLshort const *") ShortBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -5467,7 +5467,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos3fv(@NativeType("const GLfloat *") FloatBuffer coords) {
+    public static void glRasterPos3fv(@NativeType("GLfloat const *") FloatBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -5486,7 +5486,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos3dv(@NativeType("const GLdouble *") DoubleBuffer coords) {
+    public static void glRasterPos3dv(@NativeType("GLdouble const *") DoubleBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -5561,7 +5561,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos4iv(@NativeType("const GLint *") IntBuffer coords) {
+    public static void glRasterPos4iv(@NativeType("GLint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -5580,7 +5580,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos4sv(@NativeType("const GLshort *") ShortBuffer coords) {
+    public static void glRasterPos4sv(@NativeType("GLshort const *") ShortBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -5599,7 +5599,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos4fv(@NativeType("const GLfloat *") FloatBuffer coords) {
+    public static void glRasterPos4fv(@NativeType("GLfloat const *") FloatBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -5618,7 +5618,7 @@ public class GL11 {
      *
      * @param coords the raster position buffer
      */
-    public static void glRasterPos4dv(@NativeType("const GLdouble *") DoubleBuffer coords) {
+    public static void glRasterPos4dv(@NativeType("GLdouble const *") DoubleBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -5831,7 +5831,7 @@ public class GL11 {
      * @param v1 the first vertex buffer
      * @param v2 the second vertex buffer
      */
-    public static void glRectiv(@NativeType("const GLint *") IntBuffer v1, @NativeType("const GLint *") IntBuffer v2) {
+    public static void glRectiv(@NativeType("GLint const *") IntBuffer v1, @NativeType("GLint const *") IntBuffer v2) {
         if (CHECKS) {
             check(v1, 2);
             check(v2, 2);
@@ -5852,7 +5852,7 @@ public class GL11 {
      * @param v1 the first vertex buffer
      * @param v2 the second vertex buffer
      */
-    public static void glRectsv(@NativeType("const GLshort *") ShortBuffer v1, @NativeType("const GLshort *") ShortBuffer v2) {
+    public static void glRectsv(@NativeType("GLshort const *") ShortBuffer v1, @NativeType("GLshort const *") ShortBuffer v2) {
         if (CHECKS) {
             check(v1, 2);
             check(v2, 2);
@@ -5873,7 +5873,7 @@ public class GL11 {
      * @param v1 the first vertex buffer
      * @param v2 the second vertex buffer
      */
-    public static void glRectfv(@NativeType("const GLfloat *") FloatBuffer v1, @NativeType("const GLfloat *") FloatBuffer v2) {
+    public static void glRectfv(@NativeType("GLfloat const *") FloatBuffer v1, @NativeType("GLfloat const *") FloatBuffer v2) {
         if (CHECKS) {
             check(v1, 2);
             check(v2, 2);
@@ -5894,7 +5894,7 @@ public class GL11 {
      * @param v1 the first vertex buffer
      * @param v2 the second vertex buffer
      */
-    public static void glRectdv(@NativeType("const GLdouble *") DoubleBuffer v1, @NativeType("const GLdouble *") DoubleBuffer v2) {
+    public static void glRectdv(@NativeType("GLdouble const *") DoubleBuffer v1, @NativeType("GLdouble const *") DoubleBuffer v2) {
         if (CHECKS) {
             check(v1, 2);
             check(v2, 2);
@@ -6159,7 +6159,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord1fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glTexCoord1fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -6178,7 +6178,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord1sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glTexCoord1sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -6197,7 +6197,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord1iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glTexCoord1iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -6216,7 +6216,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord1dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glTexCoord1dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -6283,7 +6283,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord2fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glTexCoord2fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -6302,7 +6302,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord2sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glTexCoord2sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -6321,7 +6321,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord2iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glTexCoord2iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -6340,7 +6340,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord2dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glTexCoord2dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -6411,7 +6411,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord3fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glTexCoord3fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -6430,7 +6430,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord3sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glTexCoord3sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -6449,7 +6449,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord3iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glTexCoord3iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -6468,7 +6468,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord3dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glTexCoord3dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -6543,7 +6543,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord4fv(@NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glTexCoord4fv(@NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -6562,7 +6562,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord4sv(@NativeType("const GLshort *") ShortBuffer v) {
+    public static void glTexCoord4sv(@NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -6581,7 +6581,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord4iv(@NativeType("const GLint *") IntBuffer v) {
+    public static void glTexCoord4iv(@NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -6600,7 +6600,7 @@ public class GL11 {
      *
      * @param v the texture coordinate buffer
      */
-    public static void glTexCoord4dv(@NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glTexCoord4dv(@NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -6622,7 +6622,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the texture coordinate array data
      */
-    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglTexCoordPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -6636,7 +6636,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the texture coordinate array data
      */
-    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglTexCoordPointer(size, type, stride, pointer);
     }
 
@@ -6650,7 +6650,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the texture coordinate array data
      */
-    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglTexCoordPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -6664,7 +6664,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the texture coordinate array data
      */
-    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglTexCoordPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -6678,7 +6678,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the texture coordinate array data
      */
-    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glTexCoordPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglTexCoordPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -6710,7 +6710,7 @@ public class GL11 {
      * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glTexEnviv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glTexEnviv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -6744,7 +6744,7 @@ public class GL11 {
      * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_TEXTURE_ENV_COLOR TEXTURE_ENV_COLOR}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glTexEnvfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glTexEnvfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -6786,7 +6786,7 @@ public class GL11 {
      * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_OBJECT_PLANE OBJECT_PLANE}</td><td>{@link #GL_EYE_PLANE EYE_PLANE}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glTexGeniv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glTexGeniv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -6820,7 +6820,7 @@ public class GL11 {
      * @param pname  the parameter to set. One of:<br><table><tr><td>{@link #GL_OBJECT_PLANE OBJECT_PLANE}</td><td>{@link #GL_EYE_PLANE EYE_PLANE}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glTexGenfv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glTexGenfv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -6854,7 +6854,7 @@ public class GL11 {
      * @param pname  the parameter to set
      * @param params the parameter value
      */
-    public static void glTexGendv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("const GLdouble *") DoubleBuffer params) {
+    public static void glTexGendv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("GLdouble const *") DoubleBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -6881,7 +6881,7 @@ public class GL11 {
      * @param type           the texel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels         the texel data
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ByteBuffer pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ByteBuffer pixels) {
         nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
     }
 
@@ -6900,7 +6900,7 @@ public class GL11 {
      * @param type           the texel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels         the texel data
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") long pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") long pixels) {
         nglTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
     }
 
@@ -6919,7 +6919,7 @@ public class GL11 {
      * @param type           the texel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels         the texel data
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ShortBuffer pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ShortBuffer pixels) {
         nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
     }
 
@@ -6938,7 +6938,7 @@ public class GL11 {
      * @param type           the texel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels         the texel data
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") IntBuffer pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") IntBuffer pixels) {
         nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
     }
 
@@ -6957,7 +6957,7 @@ public class GL11 {
      * @param type           the texel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels         the texel data
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") FloatBuffer pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") FloatBuffer pixels) {
         nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
     }
 
@@ -6976,7 +6976,7 @@ public class GL11 {
      * @param type           the texel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels         the texel data
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") DoubleBuffer pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") DoubleBuffer pixels) {
         nglTexImage2D(target, level, internalformat, width, height, border, format, type, memAddressSafe(pixels));
     }
 
@@ -6999,7 +6999,7 @@ public class GL11 {
      * @param type           the texel data type
      * @param pixels         the texel data
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ByteBuffer pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ByteBuffer pixels) {
         nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
     }
 
@@ -7017,7 +7017,7 @@ public class GL11 {
      * @param type           the texel data type
      * @param pixels         the texel data
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") long pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") long pixels) {
         nglTexImage1D(target, level, internalformat, width, border, format, type, pixels);
     }
 
@@ -7035,7 +7035,7 @@ public class GL11 {
      * @param type           the texel data type
      * @param pixels         the texel data
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") ShortBuffer pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") ShortBuffer pixels) {
         nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
     }
 
@@ -7053,7 +7053,7 @@ public class GL11 {
      * @param type           the texel data type
      * @param pixels         the texel data
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") IntBuffer pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") IntBuffer pixels) {
         nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
     }
 
@@ -7071,7 +7071,7 @@ public class GL11 {
      * @param type           the texel data type
      * @param pixels         the texel data
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") FloatBuffer pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") FloatBuffer pixels) {
         nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
     }
 
@@ -7089,7 +7089,7 @@ public class GL11 {
      * @param type           the texel data type
      * @param pixels         the texel data
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") DoubleBuffer pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") DoubleBuffer pixels) {
         nglTexImage1D(target, level, internalformat, width, border, format, type, memAddressSafe(pixels));
     }
 
@@ -7211,7 +7211,7 @@ public class GL11 {
      * @param pname  the parameter to set
      * @param params the parameter value
      */
-    public static void glTexParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glTexParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -7245,7 +7245,7 @@ public class GL11 {
      * @param pname  the parameter to set
      * @param params the parameter value
      */
-    public static void glTexParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glTexParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 4);
         }
@@ -7270,7 +7270,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer pixels) {
         nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
     }
 
@@ -7287,7 +7287,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") long pixels) {
         nglTexSubImage1D(target, level, xoffset, width, format, type, pixels);
     }
 
@@ -7304,7 +7304,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") ShortBuffer pixels) {
         nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
     }
 
@@ -7321,7 +7321,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") IntBuffer pixels) {
         nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
     }
 
@@ -7338,7 +7338,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") FloatBuffer pixels) {
         nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
     }
 
@@ -7355,7 +7355,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") DoubleBuffer pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") DoubleBuffer pixels) {
         nglTexSubImage1D(target, level, xoffset, width, format, type, memAddress(pixels));
     }
 
@@ -7380,7 +7380,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer pixels) {
         nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
     }
 
@@ -7400,7 +7400,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") long pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") long pixels) {
         nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
     }
 
@@ -7420,7 +7420,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") ShortBuffer pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") ShortBuffer pixels) {
         nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
     }
 
@@ -7440,7 +7440,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") IntBuffer pixels) {
         nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
     }
 
@@ -7460,7 +7460,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") FloatBuffer pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") FloatBuffer pixels) {
         nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
     }
 
@@ -7480,7 +7480,7 @@ public class GL11 {
      * @param type    the pixel data type. One of:<br><table><tr><td>{@link #GL_UNSIGNED_BYTE UNSIGNED_BYTE}</td><td>{@link #GL_BYTE BYTE}</td><td>{@link #GL_UNSIGNED_SHORT UNSIGNED_SHORT}</td><td>{@link #GL_SHORT SHORT}</td></tr><tr><td>{@link #GL_UNSIGNED_INT UNSIGNED_INT}</td><td>{@link #GL_INT INT}</td><td>{@link GL30#GL_HALF_FLOAT HALF_FLOAT}</td><td>{@link #GL_FLOAT FLOAT}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_BYTE_3_3_2 UNSIGNED_BYTE_3_3_2}</td><td>{@link GL12#GL_UNSIGNED_BYTE_2_3_3_REV UNSIGNED_BYTE_2_3_3_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5 UNSIGNED_SHORT_5_6_5}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_6_5_REV UNSIGNED_SHORT_5_6_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4 UNSIGNED_SHORT_4_4_4_4}</td><td>{@link GL12#GL_UNSIGNED_SHORT_4_4_4_4_REV UNSIGNED_SHORT_4_4_4_4_REV}</td><td>{@link GL12#GL_UNSIGNED_SHORT_5_5_5_1 UNSIGNED_SHORT_5_5_5_1}</td><td>{@link GL12#GL_UNSIGNED_SHORT_1_5_5_5_REV UNSIGNED_SHORT_1_5_5_5_REV}</td></tr><tr><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8 UNSIGNED_INT_8_8_8_8}</td><td>{@link GL12#GL_UNSIGNED_INT_8_8_8_8_REV UNSIGNED_INT_8_8_8_8_REV}</td><td>{@link GL12#GL_UNSIGNED_INT_10_10_10_2 UNSIGNED_INT_10_10_10_2}</td><td>{@link GL12#GL_UNSIGNED_INT_2_10_10_10_REV UNSIGNED_INT_2_10_10_10_REV}</td></tr><tr><td>{@link GL30#GL_UNSIGNED_INT_24_8 UNSIGNED_INT_24_8}</td><td>{@link GL30#GL_UNSIGNED_INT_10F_11F_11F_REV UNSIGNED_INT_10F_11F_11F_REV}</td><td>{@link GL30#GL_UNSIGNED_INT_5_9_9_9_REV UNSIGNED_INT_5_9_9_9_REV}</td><td>{@link GL30#GL_FLOAT_32_UNSIGNED_INT_24_8_REV FLOAT_32_UNSIGNED_INT_24_8_REV}</td></tr><tr><td>{@link #GL_BITMAP BITMAP}</td></tr></table>
      * @param pixels  the pixel data
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") DoubleBuffer pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") DoubleBuffer pixels) {
         nglTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, memAddress(pixels));
     }
 
@@ -7580,7 +7580,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex2fv(@NativeType("const GLfloat *") FloatBuffer coords) {
+    public static void glVertex2fv(@NativeType("GLfloat const *") FloatBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -7599,7 +7599,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex2sv(@NativeType("const GLshort *") ShortBuffer coords) {
+    public static void glVertex2sv(@NativeType("GLshort const *") ShortBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -7618,7 +7618,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex2iv(@NativeType("const GLint *") IntBuffer coords) {
+    public static void glVertex2iv(@NativeType("GLint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -7637,7 +7637,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex2dv(@NativeType("const GLdouble *") DoubleBuffer coords) {
+    public static void glVertex2dv(@NativeType("GLdouble const *") DoubleBuffer coords) {
         if (CHECKS) {
             check(coords, 2);
         }
@@ -7709,7 +7709,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex3fv(@NativeType("const GLfloat *") FloatBuffer coords) {
+    public static void glVertex3fv(@NativeType("GLfloat const *") FloatBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -7728,7 +7728,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex3sv(@NativeType("const GLshort *") ShortBuffer coords) {
+    public static void glVertex3sv(@NativeType("GLshort const *") ShortBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -7747,7 +7747,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex3iv(@NativeType("const GLint *") IntBuffer coords) {
+    public static void glVertex3iv(@NativeType("GLint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -7766,7 +7766,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex3dv(@NativeType("const GLdouble *") DoubleBuffer coords) {
+    public static void glVertex3dv(@NativeType("GLdouble const *") DoubleBuffer coords) {
         if (CHECKS) {
             check(coords, 3);
         }
@@ -7841,7 +7841,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex4fv(@NativeType("const GLfloat *") FloatBuffer coords) {
+    public static void glVertex4fv(@NativeType("GLfloat const *") FloatBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -7860,7 +7860,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex4sv(@NativeType("const GLshort *") ShortBuffer coords) {
+    public static void glVertex4sv(@NativeType("GLshort const *") ShortBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -7879,7 +7879,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex4iv(@NativeType("const GLint *") IntBuffer coords) {
+    public static void glVertex4iv(@NativeType("GLint const *") IntBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -7898,7 +7898,7 @@ public class GL11 {
      *
      * @param coords the vertex buffer
      */
-    public static void glVertex4dv(@NativeType("const GLdouble *") DoubleBuffer coords) {
+    public static void glVertex4dv(@NativeType("GLdouble const *") DoubleBuffer coords) {
         if (CHECKS) {
             check(coords, 4);
         }
@@ -7920,7 +7920,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglVertexPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -7934,7 +7934,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglVertexPointer(size, type, stride, pointer);
     }
 
@@ -7948,7 +7948,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglVertexPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -7962,7 +7962,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglVertexPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -7976,7 +7976,7 @@ public class GL11 {
      * @param stride  the vertex stride in bytes. If specified as zero, then array elements are stored sequentially
      * @param pointer the vertex array data
      */
-    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glVertexPointer(@NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglVertexPointer(size, type, stride, memAddress(pointer));
     }
 
@@ -8011,7 +8011,7 @@ public class GL11 {
      * Array version of: {@link #glAreTexturesResident AreTexturesResident}
      */
     @NativeType("GLboolean")
-    public static boolean glAreTexturesResident(@NativeType("const GLuint *") int[] textures, @NativeType("GLboolean *") ByteBuffer residences) {
+    public static boolean glAreTexturesResident(@NativeType("GLuint const *") int[] textures, @NativeType("GLboolean *") ByteBuffer residences) {
         long __functionAddress = GL.getICD().glAreTexturesResident;
         if (CHECKS) {
             check(__functionAddress);
@@ -8025,7 +8025,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glClipPlane ClipPlane}
      */
-    public static void glClipPlane(@NativeType("GLenum") int plane, @NativeType("const GLdouble *") double[] equation) {
+    public static void glClipPlane(@NativeType("GLenum") int plane, @NativeType("GLdouble const *") double[] equation) {
         long __functionAddress = GL.getICD().glClipPlane;
         if (CHECKS) {
             check(equation, 4);
@@ -8038,7 +8038,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor3sv Color3sv}
      */
-    public static void glColor3sv(@NativeType("const GLshort *") short[] v) {
+    public static void glColor3sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glColor3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8052,7 +8052,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor3iv Color3iv}
      */
-    public static void glColor3iv(@NativeType("const GLint *") int[] v) {
+    public static void glColor3iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glColor3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8066,7 +8066,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor3fv Color3fv}
      */
-    public static void glColor3fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glColor3fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glColor3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8080,7 +8080,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor3dv Color3dv}
      */
-    public static void glColor3dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glColor3dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glColor3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8094,7 +8094,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor3usv Color3usv}
      */
-    public static void glColor3usv(@NativeType("const GLushort *") short[] v) {
+    public static void glColor3usv(@NativeType("GLushort const *") short[] v) {
         long __functionAddress = GL.getICD().glColor3usv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8108,7 +8108,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor3uiv Color3uiv}
      */
-    public static void glColor3uiv(@NativeType("const GLuint *") int[] v) {
+    public static void glColor3uiv(@NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glColor3uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8122,7 +8122,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor4sv Color4sv}
      */
-    public static void glColor4sv(@NativeType("const GLshort *") short[] v) {
+    public static void glColor4sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glColor4sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8136,7 +8136,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor4iv Color4iv}
      */
-    public static void glColor4iv(@NativeType("const GLint *") int[] v) {
+    public static void glColor4iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glColor4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8150,7 +8150,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor4fv Color4fv}
      */
-    public static void glColor4fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glColor4fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glColor4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8164,7 +8164,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor4dv Color4dv}
      */
-    public static void glColor4dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glColor4dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glColor4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8178,7 +8178,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor4usv Color4usv}
      */
-    public static void glColor4usv(@NativeType("const GLushort *") short[] v) {
+    public static void glColor4usv(@NativeType("GLushort const *") short[] v) {
         long __functionAddress = GL.getICD().glColor4usv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8192,7 +8192,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glColor4uiv Color4uiv}
      */
-    public static void glColor4uiv(@NativeType("const GLuint *") int[] v) {
+    public static void glColor4uiv(@NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glColor4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8206,7 +8206,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glDrawPixels DrawPixels}
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") short[] pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") short[] pixels) {
         long __functionAddress = GL.getICD().glDrawPixels;
         if (CHECKS) {
             check(__functionAddress);
@@ -8219,7 +8219,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glDrawPixels DrawPixels}
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") int[] pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") int[] pixels) {
         long __functionAddress = GL.getICD().glDrawPixels;
         if (CHECKS) {
             check(__functionAddress);
@@ -8232,7 +8232,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glDrawPixels DrawPixels}
      */
-    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") float[] pixels) {
+    public static void glDrawPixels(@NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") float[] pixels) {
         long __functionAddress = GL.getICD().glDrawPixels;
         if (CHECKS) {
             check(__functionAddress);
@@ -8245,7 +8245,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glEvalCoord1fv EvalCoord1fv}
      */
-    public static void glEvalCoord1fv(@NativeType("const GLfloat *") float[] u) {
+    public static void glEvalCoord1fv(@NativeType("GLfloat const *") float[] u) {
         long __functionAddress = GL.getICD().glEvalCoord1fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8259,7 +8259,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glEvalCoord1dv EvalCoord1dv}
      */
-    public static void glEvalCoord1dv(@NativeType("const GLdouble *") double[] u) {
+    public static void glEvalCoord1dv(@NativeType("GLdouble const *") double[] u) {
         long __functionAddress = GL.getICD().glEvalCoord1dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8273,7 +8273,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glEvalCoord2fv EvalCoord2fv}
      */
-    public static void glEvalCoord2fv(@NativeType("const GLfloat *") float[] u) {
+    public static void glEvalCoord2fv(@NativeType("GLfloat const *") float[] u) {
         long __functionAddress = GL.getICD().glEvalCoord2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8287,7 +8287,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glEvalCoord2dv EvalCoord2dv}
      */
-    public static void glEvalCoord2dv(@NativeType("const GLdouble *") double[] u) {
+    public static void glEvalCoord2dv(@NativeType("GLdouble const *") double[] u) {
         long __functionAddress = GL.getICD().glEvalCoord2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8314,7 +8314,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glFogiv Fogiv}
      */
-    public static void glFogiv(@NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glFogiv(@NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glFogiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8328,7 +8328,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glFogfv Fogfv}
      */
-    public static void glFogfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glFogfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glFogfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8352,7 +8352,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glDeleteTextures DeleteTextures}
      */
-    public static void glDeleteTextures(@NativeType("const GLuint *") int[] textures) {
+    public static void glDeleteTextures(@NativeType("GLuint const *") int[] textures) {
         long __functionAddress = GL.getICD().glDeleteTextures;
         callPV(__functionAddress, textures.length, textures);
     }
@@ -8714,7 +8714,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glIndexiv Indexiv}
      */
-    public static void glIndexiv(@NativeType("const GLint *") int[] index) {
+    public static void glIndexiv(@NativeType("GLint const *") int[] index) {
         long __functionAddress = GL.getICD().glIndexiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8728,7 +8728,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glIndexsv Indexsv}
      */
-    public static void glIndexsv(@NativeType("const GLshort *") short[] index) {
+    public static void glIndexsv(@NativeType("GLshort const *") short[] index) {
         long __functionAddress = GL.getICD().glIndexsv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8742,7 +8742,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glIndexfv Indexfv}
      */
-    public static void glIndexfv(@NativeType("const GLfloat *") float[] index) {
+    public static void glIndexfv(@NativeType("GLfloat const *") float[] index) {
         long __functionAddress = GL.getICD().glIndexfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8756,7 +8756,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glIndexdv Indexdv}
      */
-    public static void glIndexdv(@NativeType("const GLdouble *") double[] index) {
+    public static void glIndexdv(@NativeType("GLdouble const *") double[] index) {
         long __functionAddress = GL.getICD().glIndexdv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8770,7 +8770,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glInterleavedArrays InterleavedArrays}
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") short[] pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") short[] pointer) {
         long __functionAddress = GL.getICD().glInterleavedArrays;
         callPV(__functionAddress, format, stride, pointer);
     }
@@ -8780,7 +8780,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glInterleavedArrays InterleavedArrays}
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") int[] pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") int[] pointer) {
         long __functionAddress = GL.getICD().glInterleavedArrays;
         callPV(__functionAddress, format, stride, pointer);
     }
@@ -8790,7 +8790,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glInterleavedArrays InterleavedArrays}
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") float[] pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") float[] pointer) {
         long __functionAddress = GL.getICD().glInterleavedArrays;
         callPV(__functionAddress, format, stride, pointer);
     }
@@ -8800,7 +8800,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glInterleavedArrays InterleavedArrays}
      */
-    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("const void *") double[] pointer) {
+    public static void glInterleavedArrays(@NativeType("GLenum") int format, @NativeType("GLsizei") int stride, @NativeType("void const *") double[] pointer) {
         long __functionAddress = GL.getICD().glInterleavedArrays;
         callPV(__functionAddress, format, stride, pointer);
     }
@@ -8810,7 +8810,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glLightModeliv LightModeliv}
      */
-    public static void glLightModeliv(@NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glLightModeliv(@NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glLightModeliv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8824,7 +8824,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glLightModelfv LightModelfv}
      */
-    public static void glLightModelfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glLightModelfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glLightModelfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8838,7 +8838,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glLightiv Lightiv}
      */
-    public static void glLightiv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glLightiv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glLightiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8852,7 +8852,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glLightfv Lightfv}
      */
-    public static void glLightfv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glLightfv(@NativeType("GLenum") int light, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glLightfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8866,7 +8866,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glLoadMatrixf LoadMatrixf}
      */
-    public static void glLoadMatrixf(@NativeType("const GLfloat *") float[] m) {
+    public static void glLoadMatrixf(@NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GL.getICD().glLoadMatrixf;
         if (CHECKS) {
             check(__functionAddress);
@@ -8880,7 +8880,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glLoadMatrixd LoadMatrixd}
      */
-    public static void glLoadMatrixd(@NativeType("const GLdouble *") double[] m) {
+    public static void glLoadMatrixd(@NativeType("GLdouble const *") double[] m) {
         long __functionAddress = GL.getICD().glLoadMatrixd;
         if (CHECKS) {
             check(__functionAddress);
@@ -8894,7 +8894,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMap1f Map1f}
      */
-    public static void glMap1f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("const GLfloat *") float[] points) {
+    public static void glMap1f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("GLfloat const *") float[] points) {
         long __functionAddress = GL.getICD().glMap1f;
         if (CHECKS) {
             check(__functionAddress);
@@ -8908,7 +8908,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMap1d Map1d}
      */
-    public static void glMap1d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("const GLdouble *") double[] points) {
+    public static void glMap1d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int stride, @NativeType("GLint") int order, @NativeType("GLdouble const *") double[] points) {
         long __functionAddress = GL.getICD().glMap1d;
         if (CHECKS) {
             check(__functionAddress);
@@ -8922,7 +8922,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMap2f Map2f}
      */
-    public static void glMap2f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLfloat") float v1, @NativeType("GLfloat") float v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("const GLfloat *") float[] points) {
+    public static void glMap2f(@NativeType("GLenum") int target, @NativeType("GLfloat") float u1, @NativeType("GLfloat") float u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLfloat") float v1, @NativeType("GLfloat") float v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("GLfloat const *") float[] points) {
         long __functionAddress = GL.getICD().glMap2f;
         if (CHECKS) {
             check(__functionAddress);
@@ -8936,7 +8936,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMap2d Map2d}
      */
-    public static void glMap2d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLdouble") double v1, @NativeType("GLdouble") double v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("const GLdouble *") double[] points) {
+    public static void glMap2d(@NativeType("GLenum") int target, @NativeType("GLdouble") double u1, @NativeType("GLdouble") double u2, @NativeType("GLint") int ustride, @NativeType("GLint") int uorder, @NativeType("GLdouble") double v1, @NativeType("GLdouble") double v2, @NativeType("GLint") int vstride, @NativeType("GLint") int vorder, @NativeType("GLdouble const *") double[] points) {
         long __functionAddress = GL.getICD().glMap2d;
         if (CHECKS) {
             check(__functionAddress);
@@ -8950,7 +8950,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMaterialiv Materialiv}
      */
-    public static void glMaterialiv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glMaterialiv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glMaterialiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8964,7 +8964,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMaterialfv Materialfv}
      */
-    public static void glMaterialfv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glMaterialfv(@NativeType("GLenum") int face, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glMaterialfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -8978,7 +8978,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMultMatrixf MultMatrixf}
      */
-    public static void glMultMatrixf(@NativeType("const GLfloat *") float[] m) {
+    public static void glMultMatrixf(@NativeType("GLfloat const *") float[] m) {
         long __functionAddress = GL.getICD().glMultMatrixf;
         if (CHECKS) {
             check(__functionAddress);
@@ -8992,7 +8992,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glMultMatrixd MultMatrixd}
      */
-    public static void glMultMatrixd(@NativeType("const GLdouble *") double[] m) {
+    public static void glMultMatrixd(@NativeType("GLdouble const *") double[] m) {
         long __functionAddress = GL.getICD().glMultMatrixd;
         if (CHECKS) {
             check(__functionAddress);
@@ -9006,7 +9006,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glNormal3fv Normal3fv}
      */
-    public static void glNormal3fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glNormal3fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glNormal3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9020,7 +9020,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glNormal3sv Normal3sv}
      */
-    public static void glNormal3sv(@NativeType("const GLshort *") short[] v) {
+    public static void glNormal3sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glNormal3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9034,7 +9034,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glNormal3iv Normal3iv}
      */
-    public static void glNormal3iv(@NativeType("const GLint *") int[] v) {
+    public static void glNormal3iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glNormal3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9048,7 +9048,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glNormal3dv Normal3dv}
      */
-    public static void glNormal3dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glNormal3dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glNormal3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9062,7 +9062,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glPixelMapfv PixelMapfv}
      */
-    public static void glPixelMapfv(@NativeType("GLenum") int map, @NativeType("const GLfloat *") float[] values) {
+    public static void glPixelMapfv(@NativeType("GLenum") int map, @NativeType("GLfloat const *") float[] values) {
         long __functionAddress = GL.getICD().glPixelMapfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9075,7 +9075,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glPixelMapusv PixelMapusv}
      */
-    public static void glPixelMapusv(@NativeType("GLenum") int map, @NativeType("const GLushort *") short[] values) {
+    public static void glPixelMapusv(@NativeType("GLenum") int map, @NativeType("GLushort const *") short[] values) {
         long __functionAddress = GL.getICD().glPixelMapusv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9088,7 +9088,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glPixelMapuiv PixelMapuiv}
      */
-    public static void glPixelMapuiv(@NativeType("GLenum") int map, @NativeType("const GLuint *") int[] values) {
+    public static void glPixelMapuiv(@NativeType("GLenum") int map, @NativeType("GLuint const *") int[] values) {
         long __functionAddress = GL.getICD().glPixelMapuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9101,7 +9101,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glPrioritizeTextures PrioritizeTextures}
      */
-    public static void glPrioritizeTextures(@NativeType("const GLuint *") int[] textures, @NativeType("const GLfloat *") float[] priorities) {
+    public static void glPrioritizeTextures(@NativeType("GLuint const *") int[] textures, @NativeType("GLfloat const *") float[] priorities) {
         long __functionAddress = GL.getICD().glPrioritizeTextures;
         if (CHECKS) {
             check(__functionAddress);
@@ -9115,7 +9115,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos2iv RasterPos2iv}
      */
-    public static void glRasterPos2iv(@NativeType("const GLint *") int[] coords) {
+    public static void glRasterPos2iv(@NativeType("GLint const *") int[] coords) {
         long __functionAddress = GL.getICD().glRasterPos2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9129,7 +9129,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos2sv RasterPos2sv}
      */
-    public static void glRasterPos2sv(@NativeType("const GLshort *") short[] coords) {
+    public static void glRasterPos2sv(@NativeType("GLshort const *") short[] coords) {
         long __functionAddress = GL.getICD().glRasterPos2sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9143,7 +9143,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos2fv RasterPos2fv}
      */
-    public static void glRasterPos2fv(@NativeType("const GLfloat *") float[] coords) {
+    public static void glRasterPos2fv(@NativeType("GLfloat const *") float[] coords) {
         long __functionAddress = GL.getICD().glRasterPos2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9157,7 +9157,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos2dv RasterPos2dv}
      */
-    public static void glRasterPos2dv(@NativeType("const GLdouble *") double[] coords) {
+    public static void glRasterPos2dv(@NativeType("GLdouble const *") double[] coords) {
         long __functionAddress = GL.getICD().glRasterPos2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9171,7 +9171,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos3iv RasterPos3iv}
      */
-    public static void glRasterPos3iv(@NativeType("const GLint *") int[] coords) {
+    public static void glRasterPos3iv(@NativeType("GLint const *") int[] coords) {
         long __functionAddress = GL.getICD().glRasterPos3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9185,7 +9185,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos3sv RasterPos3sv}
      */
-    public static void glRasterPos3sv(@NativeType("const GLshort *") short[] coords) {
+    public static void glRasterPos3sv(@NativeType("GLshort const *") short[] coords) {
         long __functionAddress = GL.getICD().glRasterPos3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9199,7 +9199,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos3fv RasterPos3fv}
      */
-    public static void glRasterPos3fv(@NativeType("const GLfloat *") float[] coords) {
+    public static void glRasterPos3fv(@NativeType("GLfloat const *") float[] coords) {
         long __functionAddress = GL.getICD().glRasterPos3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9213,7 +9213,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos3dv RasterPos3dv}
      */
-    public static void glRasterPos3dv(@NativeType("const GLdouble *") double[] coords) {
+    public static void glRasterPos3dv(@NativeType("GLdouble const *") double[] coords) {
         long __functionAddress = GL.getICD().glRasterPos3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9227,7 +9227,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos4iv RasterPos4iv}
      */
-    public static void glRasterPos4iv(@NativeType("const GLint *") int[] coords) {
+    public static void glRasterPos4iv(@NativeType("GLint const *") int[] coords) {
         long __functionAddress = GL.getICD().glRasterPos4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9241,7 +9241,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos4sv RasterPos4sv}
      */
-    public static void glRasterPos4sv(@NativeType("const GLshort *") short[] coords) {
+    public static void glRasterPos4sv(@NativeType("GLshort const *") short[] coords) {
         long __functionAddress = GL.getICD().glRasterPos4sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9255,7 +9255,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos4fv RasterPos4fv}
      */
-    public static void glRasterPos4fv(@NativeType("const GLfloat *") float[] coords) {
+    public static void glRasterPos4fv(@NativeType("GLfloat const *") float[] coords) {
         long __functionAddress = GL.getICD().glRasterPos4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9269,7 +9269,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRasterPos4dv RasterPos4dv}
      */
-    public static void glRasterPos4dv(@NativeType("const GLdouble *") double[] coords) {
+    public static void glRasterPos4dv(@NativeType("GLdouble const *") double[] coords) {
         long __functionAddress = GL.getICD().glRasterPos4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9313,7 +9313,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRectiv Rectiv}
      */
-    public static void glRectiv(@NativeType("const GLint *") int[] v1, @NativeType("const GLint *") int[] v2) {
+    public static void glRectiv(@NativeType("GLint const *") int[] v1, @NativeType("GLint const *") int[] v2) {
         long __functionAddress = GL.getICD().glRectiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9328,7 +9328,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRectsv Rectsv}
      */
-    public static void glRectsv(@NativeType("const GLshort *") short[] v1, @NativeType("const GLshort *") short[] v2) {
+    public static void glRectsv(@NativeType("GLshort const *") short[] v1, @NativeType("GLshort const *") short[] v2) {
         long __functionAddress = GL.getICD().glRectsv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9343,7 +9343,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRectfv Rectfv}
      */
-    public static void glRectfv(@NativeType("const GLfloat *") float[] v1, @NativeType("const GLfloat *") float[] v2) {
+    public static void glRectfv(@NativeType("GLfloat const *") float[] v1, @NativeType("GLfloat const *") float[] v2) {
         long __functionAddress = GL.getICD().glRectfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9358,7 +9358,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glRectdv Rectdv}
      */
-    public static void glRectdv(@NativeType("const GLdouble *") double[] v1, @NativeType("const GLdouble *") double[] v2) {
+    public static void glRectdv(@NativeType("GLdouble const *") double[] v1, @NativeType("GLdouble const *") double[] v2) {
         long __functionAddress = GL.getICD().glRectdv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9386,7 +9386,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord1fv TexCoord1fv}
      */
-    public static void glTexCoord1fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glTexCoord1fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glTexCoord1fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9400,7 +9400,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord1sv TexCoord1sv}
      */
-    public static void glTexCoord1sv(@NativeType("const GLshort *") short[] v) {
+    public static void glTexCoord1sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord1sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9414,7 +9414,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord1iv TexCoord1iv}
      */
-    public static void glTexCoord1iv(@NativeType("const GLint *") int[] v) {
+    public static void glTexCoord1iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glTexCoord1iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9428,7 +9428,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord1dv TexCoord1dv}
      */
-    public static void glTexCoord1dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glTexCoord1dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glTexCoord1dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9442,7 +9442,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord2fv TexCoord2fv}
      */
-    public static void glTexCoord2fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glTexCoord2fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glTexCoord2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9456,7 +9456,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord2sv TexCoord2sv}
      */
-    public static void glTexCoord2sv(@NativeType("const GLshort *") short[] v) {
+    public static void glTexCoord2sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord2sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9470,7 +9470,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord2iv TexCoord2iv}
      */
-    public static void glTexCoord2iv(@NativeType("const GLint *") int[] v) {
+    public static void glTexCoord2iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glTexCoord2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9484,7 +9484,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord2dv TexCoord2dv}
      */
-    public static void glTexCoord2dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glTexCoord2dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glTexCoord2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9498,7 +9498,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord3fv TexCoord3fv}
      */
-    public static void glTexCoord3fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glTexCoord3fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glTexCoord3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9512,7 +9512,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord3sv TexCoord3sv}
      */
-    public static void glTexCoord3sv(@NativeType("const GLshort *") short[] v) {
+    public static void glTexCoord3sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9526,7 +9526,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord3iv TexCoord3iv}
      */
-    public static void glTexCoord3iv(@NativeType("const GLint *") int[] v) {
+    public static void glTexCoord3iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glTexCoord3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9540,7 +9540,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord3dv TexCoord3dv}
      */
-    public static void glTexCoord3dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glTexCoord3dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glTexCoord3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9554,7 +9554,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord4fv TexCoord4fv}
      */
-    public static void glTexCoord4fv(@NativeType("const GLfloat *") float[] v) {
+    public static void glTexCoord4fv(@NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glTexCoord4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9568,7 +9568,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord4sv TexCoord4sv}
      */
-    public static void glTexCoord4sv(@NativeType("const GLshort *") short[] v) {
+    public static void glTexCoord4sv(@NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glTexCoord4sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9582,7 +9582,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord4iv TexCoord4iv}
      */
-    public static void glTexCoord4iv(@NativeType("const GLint *") int[] v) {
+    public static void glTexCoord4iv(@NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glTexCoord4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9596,7 +9596,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexCoord4dv TexCoord4dv}
      */
-    public static void glTexCoord4dv(@NativeType("const GLdouble *") double[] v) {
+    public static void glTexCoord4dv(@NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glTexCoord4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9610,7 +9610,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexEnviv TexEnviv}
      */
-    public static void glTexEnviv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glTexEnviv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glTexEnviv;
         if (CHECKS) {
             check(params, 4);
@@ -9623,7 +9623,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexEnvfv TexEnvfv}
      */
-    public static void glTexEnvfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glTexEnvfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glTexEnvfv;
         if (CHECKS) {
             check(params, 4);
@@ -9636,7 +9636,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexGeniv TexGeniv}
      */
-    public static void glTexGeniv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glTexGeniv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glTexGeniv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9650,7 +9650,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexGenfv TexGenfv}
      */
-    public static void glTexGenfv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glTexGenfv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glTexGenfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9664,7 +9664,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexGendv TexGendv}
      */
-    public static void glTexGendv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("const GLdouble *") double[] params) {
+    public static void glTexGendv(@NativeType("GLenum") int coord, @NativeType("GLenum") int pname, @NativeType("GLdouble const *") double[] params) {
         long __functionAddress = GL.getICD().glTexGendv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9678,7 +9678,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage2D TexImage2D}
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") short[] pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") short[] pixels) {
         long __functionAddress = GL.getICD().glTexImage2D;
         callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
     }
@@ -9688,7 +9688,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage2D TexImage2D}
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") int[] pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") int[] pixels) {
         long __functionAddress = GL.getICD().glTexImage2D;
         callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
     }
@@ -9698,7 +9698,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage2D TexImage2D}
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") float[] pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") float[] pixels) {
         long __functionAddress = GL.getICD().glTexImage2D;
         callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
     }
@@ -9708,7 +9708,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage2D TexImage2D}
      */
-    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") double[] pixels) {
+    public static void glTexImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") double[] pixels) {
         long __functionAddress = GL.getICD().glTexImage2D;
         callPV(__functionAddress, target, level, internalformat, width, height, border, format, type, pixels);
     }
@@ -9718,7 +9718,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage1D TexImage1D}
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") short[] pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") short[] pixels) {
         long __functionAddress = GL.getICD().glTexImage1D;
         callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
     }
@@ -9728,7 +9728,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage1D TexImage1D}
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") int[] pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") int[] pixels) {
         long __functionAddress = GL.getICD().glTexImage1D;
         callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
     }
@@ -9738,7 +9738,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage1D TexImage1D}
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") float[] pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") float[] pixels) {
         long __functionAddress = GL.getICD().glTexImage1D;
         callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
     }
@@ -9748,7 +9748,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexImage1D TexImage1D}
      */
-    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("const void *") double[] pixels) {
+    public static void glTexImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int internalformat, @NativeType("GLsizei") int width, @NativeType("GLint") int border, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @Nullable @NativeType("void const *") double[] pixels) {
         long __functionAddress = GL.getICD().glTexImage1D;
         callPV(__functionAddress, target, level, internalformat, width, border, format, type, pixels);
     }
@@ -9758,7 +9758,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexParameteriv TexParameteriv}
      */
-    public static void glTexParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glTexParameteriv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glTexParameteriv;
         if (CHECKS) {
             check(params, 4);
@@ -9771,7 +9771,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexParameterfv TexParameterfv}
      */
-    public static void glTexParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glTexParameterfv(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glTexParameterfv;
         if (CHECKS) {
             check(params, 4);
@@ -9784,7 +9784,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage1D TexSubImage1D}
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") short[] pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") short[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage1D;
         callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
     }
@@ -9794,7 +9794,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage1D TexSubImage1D}
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") int[] pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") int[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage1D;
         callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
     }
@@ -9804,7 +9804,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage1D TexSubImage1D}
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") float[] pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") float[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage1D;
         callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
     }
@@ -9814,7 +9814,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage1D TexSubImage1D}
      */
-    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") double[] pixels) {
+    public static void glTexSubImage1D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLsizei") int width, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") double[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage1D;
         callPV(__functionAddress, target, level, xoffset, width, format, type, pixels);
     }
@@ -9824,7 +9824,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage2D TexSubImage2D}
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") short[] pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") short[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage2D;
         callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
     }
@@ -9834,7 +9834,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage2D TexSubImage2D}
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") int[] pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") int[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage2D;
         callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
     }
@@ -9844,7 +9844,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage2D TexSubImage2D}
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") float[] pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") float[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage2D;
         callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
     }
@@ -9854,7 +9854,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glTexSubImage2D TexSubImage2D}
      */
-    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("const void *") double[] pixels) {
+    public static void glTexSubImage2D(@NativeType("GLenum") int target, @NativeType("GLint") int level, @NativeType("GLint") int xoffset, @NativeType("GLint") int yoffset, @NativeType("GLsizei") int width, @NativeType("GLsizei") int height, @NativeType("GLenum") int format, @NativeType("GLenum") int type, @NativeType("void const *") double[] pixels) {
         long __functionAddress = GL.getICD().glTexSubImage2D;
         callPV(__functionAddress, target, level, xoffset, yoffset, width, height, format, type, pixels);
     }
@@ -9864,7 +9864,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex2fv Vertex2fv}
      */
-    public static void glVertex2fv(@NativeType("const GLfloat *") float[] coords) {
+    public static void glVertex2fv(@NativeType("GLfloat const *") float[] coords) {
         long __functionAddress = GL.getICD().glVertex2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9878,7 +9878,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex2sv Vertex2sv}
      */
-    public static void glVertex2sv(@NativeType("const GLshort *") short[] coords) {
+    public static void glVertex2sv(@NativeType("GLshort const *") short[] coords) {
         long __functionAddress = GL.getICD().glVertex2sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9892,7 +9892,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex2iv Vertex2iv}
      */
-    public static void glVertex2iv(@NativeType("const GLint *") int[] coords) {
+    public static void glVertex2iv(@NativeType("GLint const *") int[] coords) {
         long __functionAddress = GL.getICD().glVertex2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9906,7 +9906,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex2dv Vertex2dv}
      */
-    public static void glVertex2dv(@NativeType("const GLdouble *") double[] coords) {
+    public static void glVertex2dv(@NativeType("GLdouble const *") double[] coords) {
         long __functionAddress = GL.getICD().glVertex2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9920,7 +9920,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex3fv Vertex3fv}
      */
-    public static void glVertex3fv(@NativeType("const GLfloat *") float[] coords) {
+    public static void glVertex3fv(@NativeType("GLfloat const *") float[] coords) {
         long __functionAddress = GL.getICD().glVertex3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9934,7 +9934,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex3sv Vertex3sv}
      */
-    public static void glVertex3sv(@NativeType("const GLshort *") short[] coords) {
+    public static void glVertex3sv(@NativeType("GLshort const *") short[] coords) {
         long __functionAddress = GL.getICD().glVertex3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9948,7 +9948,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex3iv Vertex3iv}
      */
-    public static void glVertex3iv(@NativeType("const GLint *") int[] coords) {
+    public static void glVertex3iv(@NativeType("GLint const *") int[] coords) {
         long __functionAddress = GL.getICD().glVertex3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9962,7 +9962,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex3dv Vertex3dv}
      */
-    public static void glVertex3dv(@NativeType("const GLdouble *") double[] coords) {
+    public static void glVertex3dv(@NativeType("GLdouble const *") double[] coords) {
         long __functionAddress = GL.getICD().glVertex3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9976,7 +9976,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex4fv Vertex4fv}
      */
-    public static void glVertex4fv(@NativeType("const GLfloat *") float[] coords) {
+    public static void glVertex4fv(@NativeType("GLfloat const *") float[] coords) {
         long __functionAddress = GL.getICD().glVertex4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -9990,7 +9990,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex4sv Vertex4sv}
      */
-    public static void glVertex4sv(@NativeType("const GLshort *") short[] coords) {
+    public static void glVertex4sv(@NativeType("GLshort const *") short[] coords) {
         long __functionAddress = GL.getICD().glVertex4sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -10004,7 +10004,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex4iv Vertex4iv}
      */
-    public static void glVertex4iv(@NativeType("const GLint *") int[] coords) {
+    public static void glVertex4iv(@NativeType("GLint const *") int[] coords) {
         long __functionAddress = GL.getICD().glVertex4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -10018,7 +10018,7 @@ public class GL11 {
      * 
      * Array version of: {@link #glVertex4dv Vertex4dv}
      */
-    public static void glVertex4dv(@NativeType("const GLdouble *") double[] coords) {
+    public static void glVertex4dv(@NativeType("GLdouble const *") double[] coords) {
         long __functionAddress = GL.getICD().glVertex4dv;
         if (CHECKS) {
             check(__functionAddress);

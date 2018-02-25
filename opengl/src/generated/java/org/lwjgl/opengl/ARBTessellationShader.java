@@ -145,7 +145,7 @@ public class ARBTessellationShader {
      * @param pname  the name of the parameter to set. One of:<br><table><tr><td>{@link GL40#GL_PATCH_DEFAULT_OUTER_LEVEL PATCH_DEFAULT_OUTER_LEVEL}</td><td>{@link GL40#GL_PATCH_DEFAULT_INNER_LEVEL PATCH_DEFAULT_INNER_LEVEL}</td></tr></table>
      * @param values an array containing the new values for the parameter given by {@code pname}
      */
-    public static void glPatchParameterfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer values) {
+    public static void glPatchParameterfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer values) {
         if (CHECKS) {
             if (DEBUG) {
                 check(values, GL11.glGetInteger(GL_PATCH_VERTICES));
@@ -155,7 +155,7 @@ public class ARBTessellationShader {
     }
 
     /** Array version of: {@link #glPatchParameterfv PatchParameterfv} */
-    public static void glPatchParameterfv(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] values) {
+    public static void glPatchParameterfv(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] values) {
         long __functionAddress = GL.getICD().glPatchParameterfv;
         if (CHECKS) {
             check(__functionAddress);

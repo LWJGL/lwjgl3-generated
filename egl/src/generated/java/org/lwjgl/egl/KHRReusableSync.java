@@ -66,7 +66,7 @@ public class KHRReusableSync {
     }
 
     @NativeType("EGLSyncKHR")
-    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("EGLint const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -134,7 +134,7 @@ public class KHRReusableSync {
 
     /** Array version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
     @NativeType("EGLSyncKHR")
-    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("EGLint const *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
         if (CHECKS) {
             check(__functionAddress);

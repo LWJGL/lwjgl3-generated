@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * void (*) (
  *     uintptr_t userData,
  *     int level,
- *     const char *message
+ *     char const *message
  * )</pre></code>
  */
 public abstract class OVRLogCallback extends Callback implements OVRLogCallbackI {

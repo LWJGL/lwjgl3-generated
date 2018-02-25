@@ -237,7 +237,7 @@ public class ARBBindlessTexture {
      * @param location the uniform location
      * @param values   a buffer from which to load the handles
      */
-    public static void glUniformHandleui64vARB(@NativeType("GLint") int location, @NativeType("const GLuint64 *") LongBuffer values) {
+    public static void glUniformHandleui64vARB(@NativeType("GLint") int location, @NativeType("GLuint64 const *") LongBuffer values) {
         nglUniformHandleui64vARB(location, values.remaining(), memAddress(values));
     }
 
@@ -268,7 +268,7 @@ public class ARBBindlessTexture {
      * @param location the uniform location
      * @param values   a buffer from which to load the handles
      */
-    public static void glProgramUniformHandleui64vARB(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64 *") LongBuffer values) {
+    public static void glProgramUniformHandleui64vARB(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64 const *") LongBuffer values) {
         nglProgramUniformHandleui64vARB(program, location, values.remaining(), memAddress(values));
     }
 
@@ -313,7 +313,7 @@ public class ARBBindlessTexture {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttribL1ui64vARB(@NativeType("GLuint") int index, @NativeType("const GLuint64 *") LongBuffer v) {
+    public static void glVertexAttribL1ui64vARB(@NativeType("GLuint") int index, @NativeType("GLuint64 const *") LongBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -358,7 +358,7 @@ public class ARBBindlessTexture {
     }
 
     /** Array version of: {@link #glUniformHandleui64vARB UniformHandleui64vARB} */
-    public static void glUniformHandleui64vARB(@NativeType("GLint") int location, @NativeType("const GLuint64 *") long[] values) {
+    public static void glUniformHandleui64vARB(@NativeType("GLint") int location, @NativeType("GLuint64 const *") long[] values) {
         long __functionAddress = GL.getICD().glUniformHandleui64vARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -367,7 +367,7 @@ public class ARBBindlessTexture {
     }
 
     /** Array version of: {@link #glProgramUniformHandleui64vARB ProgramUniformHandleui64vARB} */
-    public static void glProgramUniformHandleui64vARB(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64 *") long[] values) {
+    public static void glProgramUniformHandleui64vARB(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64 const *") long[] values) {
         long __functionAddress = GL.getICD().glProgramUniformHandleui64vARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -376,7 +376,7 @@ public class ARBBindlessTexture {
     }
 
     /** Array version of: {@link #glVertexAttribL1ui64vARB VertexAttribL1ui64vARB} */
-    public static void glVertexAttribL1ui64vARB(@NativeType("GLuint") int index, @NativeType("const GLuint64 *") long[] v) {
+    public static void glVertexAttribL1ui64vARB(@NativeType("GLuint") int index, @NativeType("GLuint64 const *") long[] v) {
         long __functionAddress = GL.getICD().glVertexAttribL1ui64vARB;
         if (CHECKS) {
             check(__functionAddress);

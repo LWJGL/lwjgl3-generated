@@ -214,7 +214,7 @@ public class KHRDebug {
      * @param ids      an array of unsigned integers containing the ids of the messages to enable or disable
      * @param enabled  whether the selected messages should be enabled or disabled
      */
-    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
         nglDebugMessageControl(source, type, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
     }
 
@@ -249,7 +249,7 @@ public class KHRDebug {
      * @param severity the severity of debug messages to enable or disable. One of:<br><table><tr><td>{@link GL43#GL_DEBUG_SEVERITY_HIGH DEBUG_SEVERITY_HIGH}</td><td>{@link GL43#GL_DEBUG_SEVERITY_MEDIUM DEBUG_SEVERITY_MEDIUM}</td><td>{@link GL43#GL_DEBUG_SEVERITY_LOW DEBUG_SEVERITY_LOW}</td></tr><tr><td>{@link GL43#GL_DEBUG_SEVERITY_NOTIFICATION DEBUG_SEVERITY_NOTIFICATION}</td></tr></table>
      * @param enabled  whether the selected messages should be enabled or disabled
      */
-    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int id, @NativeType("GLboolean") boolean enabled) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -286,7 +286,7 @@ public class KHRDebug {
      * @param severity the severity of the debug messages to insert
      * @param message  a character array containing the message to insert
      */
-    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") ByteBuffer message) {
+    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLchar const *") ByteBuffer message) {
         nglDebugMessageInsert(source, type, id, severity, message.remaining(), memAddress(message));
     }
 
@@ -308,7 +308,7 @@ public class KHRDebug {
      * @param severity the severity of the debug messages to insert
      * @param message  a character array containing the message to insert
      */
-    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("const GLchar *") CharSequence message) {
+    public static void glDebugMessageInsert(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLuint") int id, @NativeType("GLenum") int severity, @NativeType("GLchar const *") CharSequence message) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer messageEncoded = stack.UTF8(message, false);
@@ -354,7 +354,7 @@ public class KHRDebug {
      * @param callback  a callback function that will be called when a debug message is generated
      * @param userParam a user supplied pointer that will be passed on each invocation of {@code callback}
      */
-    public static void glDebugMessageCallback(@Nullable @NativeType("GLDEBUGPROC") GLDebugMessageCallbackI callback, @NativeType("const void *") long userParam) {
+    public static void glDebugMessageCallback(@Nullable @NativeType("GLDEBUGPROC") GLDebugMessageCallbackI callback, @NativeType("void const *") long userParam) {
         nglDebugMessageCallback(memAddressSafe(callback), userParam);
     }
 
@@ -437,7 +437,7 @@ public class KHRDebug {
      * @param id      the identifier of the message
      * @param message a string containing the message to be sent to the debug output stream
      */
-    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("const GLchar *") ByteBuffer message) {
+    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("GLchar const *") ByteBuffer message) {
         nglPushDebugGroup(source, id, message.remaining(), memAddress(message));
     }
 
@@ -457,7 +457,7 @@ public class KHRDebug {
      * @param id      the identifier of the message
      * @param message a string containing the message to be sent to the debug output stream
      */
-    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("const GLchar *") CharSequence message) {
+    public static void glPushDebugGroup(@NativeType("GLenum") int source, @NativeType("GLuint") int id, @NativeType("GLchar const *") CharSequence message) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer messageEncoded = stack.UTF8(message, false);
@@ -496,7 +496,7 @@ public class KHRDebug {
      * @param name       the name of the object to label
      * @param label      a string containing the label to assign to the object
      */
-    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("const GLchar *") ByteBuffer label) {
+    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("GLchar const *") ByteBuffer label) {
         nglObjectLabel(identifier, name, label.remaining(), memAddress(label));
     }
 
@@ -507,7 +507,7 @@ public class KHRDebug {
      * @param name       the name of the object to label
      * @param label      a string containing the label to assign to the object
      */
-    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("const GLchar *") CharSequence label) {
+    public static void glObjectLabel(@NativeType("GLenum") int identifier, @NativeType("GLuint") int name, @NativeType("GLchar const *") CharSequence label) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer labelEncoded = stack.UTF8(label, false);
@@ -587,7 +587,7 @@ public class KHRDebug {
      * @param ptr   a pointer identifying a sync object
      * @param label a string containing the label to assign to the object
      */
-    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("const GLchar *") ByteBuffer label) {
+    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("GLchar const *") ByteBuffer label) {
         if (CHECKS) {
             check(ptr);
         }
@@ -600,7 +600,7 @@ public class KHRDebug {
      * @param ptr   a pointer identifying a sync object
      * @param label a string containing the label to assign to the object
      */
-    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("const GLchar *") CharSequence label) {
+    public static void glObjectPtrLabel(@NativeType("void *") long ptr, @NativeType("GLchar const *") CharSequence label) {
         if (CHECKS) {
             check(ptr);
         }
@@ -670,7 +670,7 @@ public class KHRDebug {
     }
 
     /** Array version of: {@link #glDebugMessageControl DebugMessageControl} */
-    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageControl(@NativeType("GLenum") int source, @NativeType("GLenum") int type, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int[] ids, @NativeType("GLboolean") boolean enabled) {
         long __functionAddress = GL.getICD().glDebugMessageControl;
         if (CHECKS) {
             check(__functionAddress);

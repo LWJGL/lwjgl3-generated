@@ -142,7 +142,7 @@ public class KHRXlibSurface {
      * @param pSurface    points to a {@code VkSurfaceKHR} handle in which the created surface object is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateXlibSurfaceKHR(VkInstance instance, @NativeType("const VkXlibSurfaceCreateInfoKHR *") VkXlibSurfaceCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
+    public static int vkCreateXlibSurfaceKHR(VkInstance instance, @NativeType("VkXlibSurfaceCreateInfoKHR const *") VkXlibSurfaceCreateInfoKHR pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") LongBuffer pSurface) {
         if (CHECKS) {
             check(pSurface, 1);
         }
@@ -199,7 +199,7 @@ public class KHRXlibSurface {
 
     /** Array version of: {@link #vkCreateXlibSurfaceKHR CreateXlibSurfaceKHR} */
     @NativeType("VkResult")
-    public static int vkCreateXlibSurfaceKHR(VkInstance instance, @NativeType("const VkXlibSurfaceCreateInfoKHR *") VkXlibSurfaceCreateInfoKHR pCreateInfo, @Nullable @NativeType("const VkAllocationCallbacks *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
+    public static int vkCreateXlibSurfaceKHR(VkInstance instance, @NativeType("VkXlibSurfaceCreateInfoKHR const *") VkXlibSurfaceCreateInfoKHR pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSurfaceKHR *") long[] pSurface) {
         long __functionAddress = instance.getCapabilities().vkCreateXlibSurfaceKHR;
         if (CHECKS) {
             check(__functionAddress);

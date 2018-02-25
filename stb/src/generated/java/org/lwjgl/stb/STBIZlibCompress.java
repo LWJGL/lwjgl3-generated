@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * unsigned char* (*) (
+ * unsigned char * (*) (
  *     unsigned char *data,
  *     int data_len,
  *     int *out_len,

@@ -119,7 +119,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglUniform1i64vNV(int location, int count, long value);
 
-    public static void glUniform1i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glUniform1i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglUniform1i64vNV(location, value.remaining(), memAddress(value));
     }
 
@@ -127,7 +127,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglUniform2i64vNV(int location, int count, long value);
 
-    public static void glUniform2i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glUniform2i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglUniform2i64vNV(location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -135,7 +135,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglUniform3i64vNV(int location, int count, long value);
 
-    public static void glUniform3i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glUniform3i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglUniform3i64vNV(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -143,7 +143,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglUniform4i64vNV(int location, int count, long value);
 
-    public static void glUniform4i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glUniform4i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglUniform4i64vNV(location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -167,7 +167,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglUniform1ui64vNV(int location, int count, long value);
 
-    public static void glUniform1ui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glUniform1ui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglUniform1ui64vNV(location, value.remaining(), memAddress(value));
     }
 
@@ -183,7 +183,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglUniform3ui64vNV(int location, int count, long value);
 
-    public static void glUniform3ui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glUniform3ui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglUniform3ui64vNV(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -191,7 +191,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglUniform4ui64vNV(int location, int count, long value);
 
-    public static void glUniform4ui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glUniform4ui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglUniform4ui64vNV(location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -261,7 +261,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform1i64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform1i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glProgramUniform1i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglProgramUniform1i64vNV(program, location, value.remaining(), memAddress(value));
     }
 
@@ -269,7 +269,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform2i64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform2i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glProgramUniform2i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglProgramUniform2i64vNV(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -277,7 +277,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform3i64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform3i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glProgramUniform3i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglProgramUniform3i64vNV(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -285,7 +285,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform4i64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform4i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") LongBuffer value) {
+    public static void glProgramUniform4i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") LongBuffer value) {
         nglProgramUniform4i64vNV(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -309,7 +309,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform1ui64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform1ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glProgramUniform1ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglProgramUniform1ui64vNV(program, location, value.remaining(), memAddress(value));
     }
 
@@ -317,7 +317,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform2ui64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform2ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glProgramUniform2ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglProgramUniform2ui64vNV(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -325,7 +325,7 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform3ui64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform3ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glProgramUniform3ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglProgramUniform3ui64vNV(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -333,12 +333,12 @@ public class AMDGPUShaderInt64 {
 
     public static native void nglProgramUniform4ui64vNV(int program, int location, int count, long value);
 
-    public static void glProgramUniform4ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") LongBuffer value) {
+    public static void glProgramUniform4ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") LongBuffer value) {
         nglProgramUniform4ui64vNV(program, location, value.remaining() >> 2, memAddress(value));
     }
 
     /** Array version of: {@link #glUniform1i64vNV Uniform1i64vNV} */
-    public static void glUniform1i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glUniform1i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniform1i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -347,7 +347,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glUniform2i64vNV Uniform2i64vNV} */
-    public static void glUniform2i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glUniform2i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniform2i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -356,7 +356,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glUniform3i64vNV Uniform3i64vNV} */
-    public static void glUniform3i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glUniform3i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniform3i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -365,7 +365,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glUniform4i64vNV Uniform4i64vNV} */
-    public static void glUniform4i64vNV(@NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glUniform4i64vNV(@NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniform4i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -374,7 +374,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glUniform1ui64vNV Uniform1ui64vNV} */
-    public static void glUniform1ui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glUniform1ui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniform1ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -392,7 +392,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glUniform3ui64vNV Uniform3ui64vNV} */
-    public static void glUniform3ui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glUniform3ui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniform3ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -401,7 +401,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glUniform4ui64vNV Uniform4ui64vNV} */
-    public static void glUniform4ui64vNV(@NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glUniform4ui64vNV(@NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glUniform4ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -430,7 +430,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform1i64vNV ProgramUniform1i64vNV} */
-    public static void glProgramUniform1i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glProgramUniform1i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform1i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -439,7 +439,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform2i64vNV ProgramUniform2i64vNV} */
-    public static void glProgramUniform2i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glProgramUniform2i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform2i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -448,7 +448,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform3i64vNV ProgramUniform3i64vNV} */
-    public static void glProgramUniform3i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glProgramUniform3i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform3i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -457,7 +457,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform4i64vNV ProgramUniform4i64vNV} */
-    public static void glProgramUniform4i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLint64EXT *") long[] value) {
+    public static void glProgramUniform4i64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform4i64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -466,7 +466,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform1ui64vNV ProgramUniform1ui64vNV} */
-    public static void glProgramUniform1ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glProgramUniform1ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform1ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -475,7 +475,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform2ui64vNV ProgramUniform2ui64vNV} */
-    public static void glProgramUniform2ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glProgramUniform2ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform2ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -484,7 +484,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform3ui64vNV ProgramUniform3ui64vNV} */
-    public static void glProgramUniform3ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glProgramUniform3ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform3ui64vNV;
         if (CHECKS) {
             check(__functionAddress);
@@ -493,7 +493,7 @@ public class AMDGPUShaderInt64 {
     }
 
     /** Array version of: {@link #glProgramUniform4ui64vNV ProgramUniform4ui64vNV} */
-    public static void glProgramUniform4ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLuint64EXT *") long[] value) {
+    public static void glProgramUniform4ui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT const *") long[] value) {
         long __functionAddress = GL.getICD().glProgramUniform4ui64vNV;
         if (CHECKS) {
             check(__functionAddress);

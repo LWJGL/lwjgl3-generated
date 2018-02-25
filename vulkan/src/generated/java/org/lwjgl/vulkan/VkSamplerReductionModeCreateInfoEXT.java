@@ -43,7 +43,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkSamplerReductionModeCreateInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkSamplerReductionModeEXT reductionMode;
  * }</pre></code>
  */
@@ -96,7 +96,7 @@ public class VkSamplerReductionModeCreateInfoEXT extends Struct implements Nativ
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code reductionMode} field. */
     @NativeType("VkSamplerReductionModeEXT")
@@ -105,7 +105,7 @@ public class VkSamplerReductionModeCreateInfoEXT extends Struct implements Nativ
     /** Sets the specified value to the {@code sType} field. */
     public VkSamplerReductionModeCreateInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSamplerReductionModeCreateInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkSamplerReductionModeCreateInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code reductionMode} field. */
     public VkSamplerReductionModeCreateInfoEXT reductionMode(@NativeType("VkSamplerReductionModeEXT") int value) { nreductionMode(address(), value); return this; }
 
@@ -339,7 +339,7 @@ public class VkSamplerReductionModeCreateInfoEXT extends Struct implements Nativ
         @NativeType("VkStructureType")
         public int sType() { return VkSamplerReductionModeCreateInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkSamplerReductionModeCreateInfoEXT.npNext(address()); }
         /** Returns the value of the {@code reductionMode} field. */
         @NativeType("VkSamplerReductionModeEXT")
@@ -348,7 +348,7 @@ public class VkSamplerReductionModeCreateInfoEXT extends Struct implements Nativ
         /** Sets the specified value to the {@code sType} field. */
         public VkSamplerReductionModeCreateInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkSamplerReductionModeCreateInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSamplerReductionModeCreateInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkSamplerReductionModeCreateInfoEXT.npNext(address(), value); return this; }
+        public VkSamplerReductionModeCreateInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkSamplerReductionModeCreateInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code reductionMode} field. */
         public VkSamplerReductionModeCreateInfoEXT.Buffer reductionMode(@NativeType("VkSamplerReductionModeEXT") int value) { VkSamplerReductionModeCreateInfoEXT.nreductionMode(address(), value); return this; }
 

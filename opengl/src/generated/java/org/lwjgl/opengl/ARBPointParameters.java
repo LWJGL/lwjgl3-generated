@@ -74,7 +74,7 @@ public class ARBPointParameters {
      * @param pname  the parameter to set. Must be:<br><table><tr><td>{@link #GL_POINT_DISTANCE_ATTENUATION_ARB POINT_DISTANCE_ATTENUATION_ARB}</td></tr></table>
      * @param params the parameter value
      */
-    public static void glPointParameterfvARB(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glPointParameterfvARB(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 3);
         }
@@ -82,7 +82,7 @@ public class ARBPointParameters {
     }
 
     /** Array version of: {@link #glPointParameterfvARB PointParameterfvARB} */
-    public static void glPointParameterfvARB(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glPointParameterfvARB(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glPointParameterfvARB;
         if (CHECKS) {
             check(__functionAddress);

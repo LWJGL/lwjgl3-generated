@@ -105,7 +105,7 @@ public class AMDBusAddressableMemory {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWaitSignalAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long mem_object, @NativeType("cl_uint") int value, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWaitSignalAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long mem_object, @NativeType("cl_uint") int value, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -159,7 +159,7 @@ public class AMDBusAddressableMemory {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueWriteSignalAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long mem_object, @NativeType("cl_uint") int value, @NativeType("cl_ulong") long offset, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueWriteSignalAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem") long mem_object, @NativeType("cl_uint") int value, @NativeType("cl_ulong") long offset, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -212,7 +212,7 @@ public class AMDBusAddressableMemory {
      *         </ul>
      */
     @NativeType("cl_int")
-    public static int clEnqueueMakeBuffersResidentAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @NativeType("cl_bool") boolean blocking_make_resident, @NativeType("cl_bus_address_amd *") CLBusAddressAMD.Buffer bus_addresses, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueMakeBuffersResidentAMD(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem const *") PointerBuffer mem_objects, @NativeType("cl_bool") boolean blocking_make_resident, @NativeType("cl_bus_address_amd *") CLBusAddressAMD.Buffer bus_addresses, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             check(bus_addresses, mem_objects.remaining());
             checkSafe(event, 1);

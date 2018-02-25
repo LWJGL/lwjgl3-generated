@@ -19,7 +19,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * void (*) (
  *     nk_handle handle,
- *     const char *text,
+ *     char const *text,
  *     int len
  * )</pre></code>
  */

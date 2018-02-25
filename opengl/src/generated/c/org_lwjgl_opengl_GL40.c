@@ -10,39 +10,39 @@ typedef void (APIENTRY *glBlendEquationiPROC) (jint, jint);
 typedef void (APIENTRY *glBlendEquationSeparateiPROC) (jint, jint, jint);
 typedef void (APIENTRY *glBlendFunciPROC) (jint, jint, jint);
 typedef void (APIENTRY *glBlendFuncSeparateiPROC) (jint, jint, jint, jint, jint);
-typedef void (APIENTRY *glDrawArraysIndirectPROC) (jint, const intptr_t);
-typedef void (APIENTRY *glDrawElementsIndirectPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glDrawArraysIndirectPROC) (jint, intptr_t);
+typedef void (APIENTRY *glDrawElementsIndirectPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glUniform1dPROC) (jint, jdouble);
 typedef void (APIENTRY *glUniform2dPROC) (jint, jdouble, jdouble);
 typedef void (APIENTRY *glUniform3dPROC) (jint, jdouble, jdouble, jdouble);
 typedef void (APIENTRY *glUniform4dPROC) (jint, jdouble, jdouble, jdouble, jdouble);
-typedef void (APIENTRY *glUniform1dvPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniform2dvPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniform3dvPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniform4dvPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix2dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix3dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix4dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix2x3dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix2x4dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix3x2dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix3x4dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix4x2dvPROC) (jint, jint, jboolean, const intptr_t);
-typedef void (APIENTRY *glUniformMatrix4x3dvPROC) (jint, jint, jboolean, const intptr_t);
+typedef void (APIENTRY *glUniform1dvPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniform2dvPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniform3dvPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniform4dvPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glUniformMatrix2dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix3dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix4dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix2x3dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix2x4dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix3x2dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix3x4dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix4x2dvPROC) (jint, jint, jboolean, intptr_t);
+typedef void (APIENTRY *glUniformMatrix4x3dvPROC) (jint, jint, jboolean, intptr_t);
 typedef void (APIENTRY *glGetUniformdvPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glMinSampleShadingPROC) (jfloat);
-typedef jint (APIENTRY *glGetSubroutineUniformLocationPROC) (jint, jint, const intptr_t);
-typedef jint (APIENTRY *glGetSubroutineIndexPROC) (jint, jint, const intptr_t);
+typedef jint (APIENTRY *glGetSubroutineUniformLocationPROC) (jint, jint, intptr_t);
+typedef jint (APIENTRY *glGetSubroutineIndexPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetActiveSubroutineUniformivPROC) (jint, jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glGetActiveSubroutineUniformNamePROC) (jint, jint, jint, jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glGetActiveSubroutineNamePROC) (jint, jint, jint, jint, intptr_t, intptr_t);
-typedef void (APIENTRY *glUniformSubroutinesuivPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glUniformSubroutinesuivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetUniformSubroutineuivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetProgramStageivPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glPatchParameteriPROC) (jint, jint);
-typedef void (APIENTRY *glPatchParameterfvPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glPatchParameterfvPROC) (jint, intptr_t);
 typedef void (APIENTRY *glBindTransformFeedbackPROC) (jint, jint);
-typedef void (APIENTRY *glDeleteTransformFeedbacksPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteTransformFeedbacksPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenTransformFeedbacksPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsTransformFeedbackPROC) (jint);
 typedef void (APIENTRY *glPauseTransformFeedbackPROC) (void);
@@ -81,14 +81,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBlendFuncSeparatei(JNIEnv *_
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDrawArraysIndirect__IJ(JNIEnv *__env, jclass clazz, jint mode, jlong indirectAddress) {
     glDrawArraysIndirectPROC glDrawArraysIndirect = (glDrawArraysIndirectPROC)tlsGetFunction(353);
-    const intptr_t indirect = (const intptr_t)indirectAddress;
+    intptr_t indirect = (intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glDrawArraysIndirect(mode, indirect);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDrawElementsIndirect__IIJ(JNIEnv *__env, jclass clazz, jint mode, jint type, jlong indirectAddress) {
     glDrawElementsIndirectPROC glDrawElementsIndirect = (glDrawElementsIndirectPROC)tlsGetFunction(367);
-    const intptr_t indirect = (const intptr_t)indirectAddress;
+    intptr_t indirect = (intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsIndirect(mode, type, indirect);
 }
@@ -119,91 +119,91 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glUniform4d(JNIEnv *__env, jcl
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform1dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform1dvPROC glUniform1dv = (glUniform1dvPROC)tlsGetFunction(1743);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform1dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform2dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform2dvPROC glUniform2dv = (glUniform2dvPROC)tlsGetFunction(1765);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform2dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform3dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform3dvPROC glUniform3dv = (glUniform3dvPROC)tlsGetFunction(1787);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform3dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniform4dv__IIJ(JNIEnv *__env, jclass clazz, jint location, jint count, jlong valueAddress) {
     glUniform4dvPROC glUniform4dv = (glUniform4dvPROC)tlsGetFunction(1809);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniform4dv(location, count, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix2dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix2dvPROC glUniformMatrix2dv = (glUniformMatrix2dvPROC)tlsGetFunction(1836);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix2dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix3dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix3dvPROC glUniformMatrix3dv = (glUniformMatrix3dvPROC)tlsGetFunction(1843);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix3dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix4dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix4dvPROC glUniformMatrix4dv = (glUniformMatrix4dvPROC)tlsGetFunction(1850);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix4dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix2x3dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix2x3dvPROC glUniformMatrix2x3dv = (glUniformMatrix2x3dvPROC)tlsGetFunction(1839);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix2x3dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix2x4dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix2x4dvPROC glUniformMatrix2x4dv = (glUniformMatrix2x4dvPROC)tlsGetFunction(1841);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix2x4dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix3x2dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix3x2dvPROC glUniformMatrix3x2dv = (glUniformMatrix3x2dvPROC)tlsGetFunction(1846);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix3x2dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix3x4dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix3x4dvPROC glUniformMatrix3x4dv = (glUniformMatrix3x4dvPROC)tlsGetFunction(1848);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix3x4dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix4x2dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix4x2dvPROC glUniformMatrix4x2dv = (glUniformMatrix4x2dvPROC)tlsGetFunction(1853);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix4x2dv(location, count, transpose, value);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformMatrix4x3dv__IIZJ(JNIEnv *__env, jclass clazz, jint location, jint count, jboolean transpose, jlong valueAddress) {
     glUniformMatrix4x3dvPROC glUniformMatrix4x3dv = (glUniformMatrix4x3dvPROC)tlsGetFunction(1855);
-    const intptr_t value = (const intptr_t)valueAddress;
+    intptr_t value = (intptr_t)valueAddress;
     UNUSED_PARAM(clazz)
     glUniformMatrix4x3dv(location, count, transpose, value);
 }
@@ -223,14 +223,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glMinSampleShading(JNIEnv *__e
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL40_nglGetSubroutineUniformLocation(JNIEnv *__env, jclass clazz, jint program, jint shadertype, jlong nameAddress) {
     glGetSubroutineUniformLocationPROC glGetSubroutineUniformLocation = (glGetSubroutineUniformLocationPROC)tlsGetFunction(716);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetSubroutineUniformLocation(program, shadertype, name);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL40_nglGetSubroutineIndex(JNIEnv *__env, jclass clazz, jint program, jint shadertype, jlong nameAddress) {
     glGetSubroutineIndexPROC glGetSubroutineIndex = (glGetSubroutineIndexPROC)tlsGetFunction(715);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetSubroutineIndex(program, shadertype, name);
 }
@@ -260,7 +260,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglGetActiveSubroutineName__II
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglUniformSubroutinesuiv__IIJ(JNIEnv *__env, jclass clazz, jint shadertype, jint count, jlong indicesAddress) {
     glUniformSubroutinesuivPROC glUniformSubroutinesuiv = (glUniformSubroutinesuivPROC)tlsGetFunction(1857);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glUniformSubroutinesuiv(shadertype, count, indices);
 }
@@ -287,7 +287,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glPatchParameteri(JNIEnv *__en
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglPatchParameterfv__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong valuesAddress) {
     glPatchParameterfvPROC glPatchParameterfv = (glPatchParameterfvPROC)tlsGetFunction(1211);
-    const intptr_t values = (const intptr_t)valuesAddress;
+    intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glPatchParameterfv(pname, values);
 }
@@ -300,7 +300,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_glBindTransformFeedback(JNIEnv
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL40_nglDeleteTransformFeedbacks__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
     glDeleteTransformFeedbacksPROC glDeleteTransformFeedbacks = (glDeleteTransformFeedbacksPROC)tlsGetFunction(324);
-    const intptr_t ids = (const intptr_t)idsAddress;
+    intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDeleteTransformFeedbacks(n, ids);
 }

@@ -131,7 +131,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkSamplerCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkSamplerCreateFlags flags;
  *     VkFilter magFilter;
  *     VkFilter minFilter;
@@ -244,7 +244,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkSamplerCreateFlags")
@@ -294,7 +294,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkSamplerCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkSamplerCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkSamplerCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkSamplerCreateInfo flags(@NativeType("VkSamplerCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code magFilter} field. */
@@ -648,7 +648,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkSamplerCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkSamplerCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkSamplerCreateFlags")
@@ -698,7 +698,7 @@ public class VkSamplerCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkSamplerCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkSamplerCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkSamplerCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkSamplerCreateInfo.npNext(address(), value); return this; }
+        public VkSamplerCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkSamplerCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkSamplerCreateInfo.Buffer flags(@NativeType("VkSamplerCreateFlags") int value) { VkSamplerCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code magFilter} field. */

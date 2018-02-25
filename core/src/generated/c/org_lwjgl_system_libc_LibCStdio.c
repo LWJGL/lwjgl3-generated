@@ -18,8 +18,8 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCStdio_sscanf(JNIEnv *__en
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_LibCStdio_nvsscanf(JNIEnv *__env, jclass clazz, jlong bufferAddress, jlong formatAddress, jlong vlistAddress) {
-    const char *buffer = (const char *)(intptr_t)bufferAddress;
-    const char *format = (const char *)(intptr_t)formatAddress;
+    char const *buffer = (char const *)(intptr_t)bufferAddress;
+    char const *format = (char const *)(intptr_t)formatAddress;
     va_list *vlist = VA_LIST_CAST(intptr_t)vlistAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)vsscanf(buffer, format, *vlist);
@@ -37,7 +37,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_libc_LibCStdio_snprintf(JNIEnv *__
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_libc_LibCStdio_nvsnprintf(JNIEnv *__env, jclass clazz, jlong bufferAddress, jlong buf_size, jlong formatAddress, jlong vlistAddress) {
     char *buffer = (char *)(intptr_t)bufferAddress;
-    const char *format = (const char *)(intptr_t)formatAddress;
+    char const *format = (char const *)(intptr_t)formatAddress;
     va_list *vlist = VA_LIST_CAST(intptr_t)vlistAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)vsnprintf(buffer, (size_t)buf_size, format, *vlist);

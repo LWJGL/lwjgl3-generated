@@ -37,7 +37,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDedicatedAllocationBufferCreateInfoNV {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkBool32 dedicatedAllocation;
  * }</pre></code>
  */
@@ -90,7 +90,7 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code dedicatedAllocation} field. */
     @NativeType("VkBool32")
@@ -99,7 +99,7 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
     /** Sets the specified value to the {@code sType} field. */
     public VkDedicatedAllocationBufferCreateInfoNV sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDedicatedAllocationBufferCreateInfoNV pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDedicatedAllocationBufferCreateInfoNV pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code dedicatedAllocation} field. */
     public VkDedicatedAllocationBufferCreateInfoNV dedicatedAllocation(@NativeType("VkBool32") boolean value) { ndedicatedAllocation(address(), value ? 1 : 0); return this; }
 
@@ -333,7 +333,7 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
         @NativeType("VkStructureType")
         public int sType() { return VkDedicatedAllocationBufferCreateInfoNV.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDedicatedAllocationBufferCreateInfoNV.npNext(address()); }
         /** Returns the value of the {@code dedicatedAllocation} field. */
         @NativeType("VkBool32")
@@ -342,7 +342,7 @@ public class VkDedicatedAllocationBufferCreateInfoNV extends Struct implements N
         /** Sets the specified value to the {@code sType} field. */
         public VkDedicatedAllocationBufferCreateInfoNV.Buffer sType(@NativeType("VkStructureType") int value) { VkDedicatedAllocationBufferCreateInfoNV.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDedicatedAllocationBufferCreateInfoNV.Buffer pNext(@NativeType("const void *") long value) { VkDedicatedAllocationBufferCreateInfoNV.npNext(address(), value); return this; }
+        public VkDedicatedAllocationBufferCreateInfoNV.Buffer pNext(@NativeType("void const *") long value) { VkDedicatedAllocationBufferCreateInfoNV.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code dedicatedAllocation} field. */
         public VkDedicatedAllocationBufferCreateInfoNV.Buffer dedicatedAllocation(@NativeType("VkBool32") boolean value) { VkDedicatedAllocationBufferCreateInfoNV.ndedicatedAllocation(address(), value ? 1 : 0); return this; }
 

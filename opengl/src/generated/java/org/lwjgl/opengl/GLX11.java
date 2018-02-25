@@ -51,7 +51,7 @@ public class GLX11 {
      * @param screen  the screen number
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glXQueryExtensionsString(@NativeType("Display *") long display, int screen) {
         long __result = nglXQueryExtensionsString(display, screen);
         return memASCIISafe(__result);
@@ -76,7 +76,7 @@ public class GLX11 {
      * @param name    the string to query
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glXGetClientString(@NativeType("Display *") long display, int name) {
         long __result = nglXGetClientString(display, name);
         return memASCIISafe(__result);
@@ -102,7 +102,7 @@ public class GLX11 {
      * @param name    the string to query
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glXQueryServerString(@NativeType("Display *") long display, int screen, int name) {
         long __result = nglXQueryServerString(display, screen, name);
         return memASCIISafe(__result);

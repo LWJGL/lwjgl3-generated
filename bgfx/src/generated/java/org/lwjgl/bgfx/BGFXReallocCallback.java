@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void* (*) (
+ * void * (*) (
  *     bgfx_allocator_interface_t *_this,
  *     void *_ptr,
  *     size_t _size,

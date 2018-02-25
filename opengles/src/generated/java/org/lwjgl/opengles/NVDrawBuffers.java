@@ -80,11 +80,11 @@ public class NVDrawBuffers {
 
     public static native void nglDrawBuffersNV(int n, long bufs);
 
-    public static void glDrawBuffersNV(@NativeType("const GLenum *") IntBuffer bufs) {
+    public static void glDrawBuffersNV(@NativeType("GLenum const *") IntBuffer bufs) {
         nglDrawBuffersNV(bufs.remaining(), memAddress(bufs));
     }
 
-    public static void glDrawBuffersNV(@NativeType("const GLenum *") int buf) {
+    public static void glDrawBuffersNV(@NativeType("GLenum const *") int buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer bufs = stack.ints(buf);
@@ -95,7 +95,7 @@ public class NVDrawBuffers {
     }
 
     /** Array version of: {@link #glDrawBuffersNV DrawBuffersNV} */
-    public static void glDrawBuffersNV(@NativeType("const GLenum *") int[] bufs) {
+    public static void glDrawBuffersNV(@NativeType("GLenum const *") int[] bufs) {
         long __functionAddress = GLES.getICD().glDrawBuffersNV;
         if (CHECKS) {
             check(__functionAddress);

@@ -167,7 +167,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkImageCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkImageCreateFlags flags;
  *     VkImageType imageType;
  *     VkFormat format;
@@ -179,7 +179,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     VkImageUsageFlags usage;
  *     VkSharingMode sharingMode;
  *     uint32_t queueFamilyIndexCount;
- *     const uint32_t * pQueueFamilyIndices;
+ *     uint32_t const * pQueueFamilyIndices;
  *     VkImageLayout initialLayout;
  * }</pre></code>
  */
@@ -268,7 +268,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkImageCreateFlags")
@@ -304,7 +304,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
     public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
     @Nullable
-    @NativeType("const uint32_t *")
+    @NativeType("uint32_t const *")
     public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
     /** Returns the value of the {@code initialLayout} field. */
     @NativeType("VkImageLayout")
@@ -313,7 +313,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkImageCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkImageCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkImageCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkImageCreateInfo flags(@NativeType("VkImageCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code imageType} field. */
@@ -335,7 +335,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sharingMode} field. */
     public VkImageCreateInfo sharingMode(@NativeType("VkSharingMode") int value) { nsharingMode(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-    public VkImageCreateInfo pQueueFamilyIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
+    public VkImageCreateInfo pQueueFamilyIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
     /** Sets the specified value to the {@code initialLayout} field. */
     public VkImageCreateInfo initialLayout(@NativeType("VkImageLayout") int value) { ninitialLayout(address(), value); return this; }
 
@@ -662,7 +662,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkImageCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkImageCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkImageCreateFlags")
@@ -698,7 +698,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
         public int queueFamilyIndexCount() { return VkImageCreateInfo.nqueueFamilyIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
         @Nullable
-        @NativeType("const uint32_t *")
+        @NativeType("uint32_t const *")
         public IntBuffer pQueueFamilyIndices() { return VkImageCreateInfo.npQueueFamilyIndices(address()); }
         /** Returns the value of the {@code initialLayout} field. */
         @NativeType("VkImageLayout")
@@ -707,7 +707,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkImageCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkImageCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkImageCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkImageCreateInfo.npNext(address(), value); return this; }
+        public VkImageCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkImageCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkImageCreateInfo.Buffer flags(@NativeType("VkImageCreateFlags") int value) { VkImageCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code imageType} field. */
@@ -729,7 +729,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sharingMode} field. */
         public VkImageCreateInfo.Buffer sharingMode(@NativeType("VkSharingMode") int value) { VkImageCreateInfo.nsharingMode(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-        public VkImageCreateInfo.Buffer pQueueFamilyIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkImageCreateInfo.npQueueFamilyIndices(address(), value); return this; }
+        public VkImageCreateInfo.Buffer pQueueFamilyIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { VkImageCreateInfo.npQueueFamilyIndices(address(), value); return this; }
         /** Sets the specified value to the {@code initialLayout} field. */
         public VkImageCreateInfo.Buffer initialLayout(@NativeType("VkImageLayout") int value) { VkImageCreateInfo.ninitialLayout(address(), value); return this; }
 

@@ -191,7 +191,7 @@ public class INTELVAAPIMediaSharing {
      *                        {@code event_wait_list} array.
      */
     @NativeType("cl_int")
-    public static int clEnqueueAcquireVA_APIMediaSurfacesINTEL(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueAcquireVA_APIMediaSurfacesINTEL(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem const *") PointerBuffer mem_objects, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }
@@ -241,7 +241,7 @@ public class INTELVAAPIMediaSharing {
      *                        {@code event_wait_list} array.
      */
     @NativeType("cl_int")
-    public static int clEnqueueReleaseVA_APIMediaSurfacesINTEL(@NativeType("cl_command_queue") long command_queue, @NativeType("const cl_mem *") PointerBuffer mem_objects, @Nullable @NativeType("const cl_event *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
+    public static int clEnqueueReleaseVA_APIMediaSurfacesINTEL(@NativeType("cl_command_queue") long command_queue, @NativeType("cl_mem const *") PointerBuffer mem_objects, @Nullable @NativeType("cl_event const *") PointerBuffer event_wait_list, @Nullable @NativeType("cl_event *") PointerBuffer event) {
         if (CHECKS) {
             checkSafe(event, 1);
         }

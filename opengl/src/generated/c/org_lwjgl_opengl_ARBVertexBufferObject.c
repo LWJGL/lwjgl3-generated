@@ -7,11 +7,11 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glBindBufferARBPROC) (jint, jint);
-typedef void (APIENTRY *glDeleteBuffersARBPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteBuffersARBPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenBuffersARBPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsBufferARBPROC) (jint);
-typedef void (APIENTRY *glBufferDataARBPROC) (jint, intptr_t, const intptr_t, jint);
-typedef void (APIENTRY *glBufferSubDataARBPROC) (jint, intptr_t, intptr_t, const intptr_t);
+typedef void (APIENTRY *glBufferDataARBPROC) (jint, intptr_t, intptr_t, jint);
+typedef void (APIENTRY *glBufferSubDataARBPROC) (jint, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glGetBufferSubDataARBPROC) (jint, intptr_t, intptr_t, intptr_t);
 typedef intptr_t (APIENTRY *glMapBufferARBPROC) (jint, jint);
 typedef jboolean (APIENTRY *glUnmapBufferARBPROC) (jint);
@@ -28,7 +28,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_glBindBufferA
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglDeleteBuffersARB__IJ(JNIEnv *__env, jclass clazz, jint n, jlong buffersAddress) {
     glDeleteBuffersARBPROC glDeleteBuffersARB = (glDeleteBuffersARBPROC)tlsGetFunction(298);
-    const intptr_t buffers = (const intptr_t)buffersAddress;
+    intptr_t buffers = (intptr_t)buffersAddress;
     UNUSED_PARAM(clazz)
     glDeleteBuffersARB(n, buffers);
 }
@@ -48,14 +48,14 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_glIsBuffe
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglBufferDataARB__IJJI(JNIEnv *__env, jclass clazz, jint target, jlong size, jlong dataAddress, jint usage) {
     glBufferDataARBPROC glBufferDataARB = (glBufferDataARBPROC)tlsGetFunction(94);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glBufferDataARB(target, (intptr_t)size, data, usage);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBVertexBufferObject_nglBufferSubDataARB__IJJJ(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong size, jlong dataAddress) {
     glBufferSubDataARBPROC glBufferSubDataARB = (glBufferSubDataARBPROC)tlsGetFunction(100);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glBufferSubDataARB(target, (intptr_t)offset, (intptr_t)size, data);
 }

@@ -79,6 +79,6 @@ public interface VkDebugReportCallbackEXTI extends CallbackI.I {
      * @param pMessage     a null-terminated string detailing the trigger conditions. {@code pMessage} is only valid for the duration of the callback.
      * @param pUserData    the user data given when the {@code VkDebugReportCallbackEXT} was created.
      */
-    @NativeType("VkBool32") int invoke(@NativeType("VkDebugReportFlagsEXT") int flags, @NativeType("VkDebugReportObjectTypeEXT") int objectType, @NativeType("uint64_t") long object, @NativeType("size_t") long location, @NativeType("int32_t") int messageCode, @NativeType("const char *") long pLayerPrefix, @NativeType("const char *") long pMessage, @NativeType("void *") long pUserData);
+    @NativeType("VkBool32") int invoke(@NativeType("VkDebugReportFlagsEXT") int flags, @NativeType("VkDebugReportObjectTypeEXT") int objectType, @NativeType("uint64_t") long object, @NativeType("size_t") long location, @NativeType("int32_t") int messageCode, @NativeType("char const *") long pLayerPrefix, @NativeType("char const *") long pMessage, @NativeType("void *") long pUserData);
 
 }

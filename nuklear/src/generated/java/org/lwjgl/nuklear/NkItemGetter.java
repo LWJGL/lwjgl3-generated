@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * float (*) (
  *     void *userdata,
  *     int selected,
- *     const char **item
+ *     char const **item
  * )</pre></code>
  */
 public abstract class NkItemGetter extends Callback implements NkItemGetterI {

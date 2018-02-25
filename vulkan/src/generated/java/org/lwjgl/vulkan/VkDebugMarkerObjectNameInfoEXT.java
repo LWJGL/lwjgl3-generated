@@ -59,10 +59,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDebugMarkerObjectNameInfoEXT {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDebugReportObjectTypeEXT objectType;
  *     uint64_t object;
- *     const char * pObjectName;
+ *     char const * pObjectName;
  * }</pre></code>
  */
 public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeResource {
@@ -120,7 +120,7 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code objectType} field. */
     @NativeType("VkDebugReportObjectTypeEXT")
@@ -129,22 +129,22 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
     @NativeType("uint64_t")
     public long object() { return nobject(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pObjectName} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public ByteBuffer pObjectName() { return npObjectName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pObjectName} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public String pObjectNameString() { return npObjectNameString(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkDebugMarkerObjectNameInfoEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDebugMarkerObjectNameInfoEXT pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDebugMarkerObjectNameInfoEXT pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code objectType} field. */
     public VkDebugMarkerObjectNameInfoEXT objectType(@NativeType("VkDebugReportObjectTypeEXT") int value) { nobjectType(address(), value); return this; }
     /** Sets the specified value to the {@code object} field. */
     public VkDebugMarkerObjectNameInfoEXT object(@NativeType("uint64_t") long value) { nobject(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code pObjectName} field. */
-    public VkDebugMarkerObjectNameInfoEXT pObjectName(@NativeType("const char *") ByteBuffer value) { npObjectName(address(), value); return this; }
+    public VkDebugMarkerObjectNameInfoEXT pObjectName(@NativeType("char const *") ByteBuffer value) { npObjectName(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDebugMarkerObjectNameInfoEXT set(
@@ -414,7 +414,7 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
         @NativeType("VkStructureType")
         public int sType() { return VkDebugMarkerObjectNameInfoEXT.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDebugMarkerObjectNameInfoEXT.npNext(address()); }
         /** Returns the value of the {@code objectType} field. */
         @NativeType("VkDebugReportObjectTypeEXT")
@@ -423,22 +423,22 @@ public class VkDebugMarkerObjectNameInfoEXT extends Struct implements NativeReso
         @NativeType("uint64_t")
         public long object() { return VkDebugMarkerObjectNameInfoEXT.nobject(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pObjectName} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public ByteBuffer pObjectName() { return VkDebugMarkerObjectNameInfoEXT.npObjectName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pObjectName} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public String pObjectNameString() { return VkDebugMarkerObjectNameInfoEXT.npObjectNameString(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkDebugMarkerObjectNameInfoEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkDebugMarkerObjectNameInfoEXT.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDebugMarkerObjectNameInfoEXT.Buffer pNext(@NativeType("const void *") long value) { VkDebugMarkerObjectNameInfoEXT.npNext(address(), value); return this; }
+        public VkDebugMarkerObjectNameInfoEXT.Buffer pNext(@NativeType("void const *") long value) { VkDebugMarkerObjectNameInfoEXT.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code objectType} field. */
         public VkDebugMarkerObjectNameInfoEXT.Buffer objectType(@NativeType("VkDebugReportObjectTypeEXT") int value) { VkDebugMarkerObjectNameInfoEXT.nobjectType(address(), value); return this; }
         /** Sets the specified value to the {@code object} field. */
         public VkDebugMarkerObjectNameInfoEXT.Buffer object(@NativeType("uint64_t") long value) { VkDebugMarkerObjectNameInfoEXT.nobject(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code pObjectName} field. */
-        public VkDebugMarkerObjectNameInfoEXT.Buffer pObjectName(@NativeType("const char *") ByteBuffer value) { VkDebugMarkerObjectNameInfoEXT.npObjectName(address(), value); return this; }
+        public VkDebugMarkerObjectNameInfoEXT.Buffer pObjectName(@NativeType("char const *") ByteBuffer value) { VkDebugMarkerObjectNameInfoEXT.npObjectName(address(), value); return this; }
 
     }
 

@@ -16,10 +16,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <code><pre>
  * int (*) (
- *     const YGConfigRef config,
- *     const YGNodeRef node,
+ *     YGConfigRef const config,
+ *     YGNodeRef const node,
  *     YGLogLevel level,
- *     const char *format,
+ *     char const *format,
  *     va_list *args
  * )</pre></code>
  */

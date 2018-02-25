@@ -330,7 +330,7 @@ public class GL20 {
      * @param strings an array of pointers to strings containing the source code to be loaded into the shader
      * @param length  an array of string lengths
      */
-    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") PointerBuffer strings, @Nullable @NativeType("const GLint *") IntBuffer length) {
+    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("GLchar const **") PointerBuffer strings, @Nullable @NativeType("GLint const *") IntBuffer length) {
         if (CHECKS) {
             checkSafe(length, strings.remaining());
         }
@@ -350,7 +350,7 @@ public class GL20 {
      * @param shader  the shader object whose source code is to be replaced
      * @param strings an array of pointers to strings containing the source code to be loaded into the shader
      */
-    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") CharSequence... strings) {
+    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("GLchar const **") CharSequence... strings) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long stringsAddress = org.lwjgl.system.APIUtil.apiArrayi(stack, MemoryUtil::memUTF8, strings);
@@ -373,7 +373,7 @@ public class GL20 {
      *
      * @param shader the shader object whose source code is to be replaced
      */
-    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") CharSequence string) {
+    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("GLchar const **") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             long stringsAddress = org.lwjgl.system.APIUtil.apiArrayi(stack, MemoryUtil::memUTF8, string);
@@ -553,7 +553,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform1fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glUniform1fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglUniform1fv(location, value.remaining(), memAddress(value));
     }
 
@@ -574,7 +574,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform2fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glUniform2fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglUniform2fv(location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -595,7 +595,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform3fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glUniform3fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglUniform3fv(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -616,7 +616,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform4fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glUniform4fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") FloatBuffer value) {
         nglUniform4fv(location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -637,7 +637,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform1iv(@NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glUniform1iv(@NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglUniform1iv(location, value.remaining(), memAddress(value));
     }
 
@@ -658,7 +658,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform2iv(@NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glUniform2iv(@NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglUniform2iv(location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -679,7 +679,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform3iv(@NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glUniform3iv(@NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglUniform3iv(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -700,7 +700,7 @@ public class GL20 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform4iv(@NativeType("GLint") int location, @NativeType("const GLint *") IntBuffer value) {
+    public static void glUniform4iv(@NativeType("GLint") int location, @NativeType("GLint const *") IntBuffer value) {
         nglUniform4iv(location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -722,7 +722,7 @@ public class GL20 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniformMatrix2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glUniformMatrix2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglUniformMatrix2fv(location, value.remaining() >> 2, transpose, memAddress(value));
     }
 
@@ -744,7 +744,7 @@ public class GL20 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniformMatrix3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glUniformMatrix3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglUniformMatrix3fv(location, value.remaining() / 9, transpose, memAddress(value));
     }
 
@@ -766,7 +766,7 @@ public class GL20 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniformMatrix4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") FloatBuffer value) {
+    public static void glUniformMatrix4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") FloatBuffer value) {
         nglUniformMatrix4fv(location, value.remaining() >> 4, transpose, memAddress(value));
     }
 
@@ -1009,7 +1009,7 @@ public class GL20 {
      * @param name    a null terminated string containing the name of the uniform variable whose location is to be queried
      */
     @NativeType("GLint")
-    public static int glGetUniformLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetUniformLocation(@NativeType("GLuint") int program, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -1025,7 +1025,7 @@ public class GL20 {
      * @param name    a null terminated string containing the name of the uniform variable whose location is to be queried
      */
     @NativeType("GLint")
-    public static int glGetUniformLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetUniformLocation(@NativeType("GLuint") int program, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -1439,7 +1439,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib1fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glVertexAttrib1fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -1459,7 +1459,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib1sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
+    public static void glVertexAttrib1sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -1479,7 +1479,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib1dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glVertexAttrib1dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 1);
         }
@@ -1499,7 +1499,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib2fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glVertexAttrib2fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -1519,7 +1519,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib2sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
+    public static void glVertexAttrib2sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -1539,7 +1539,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib2dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glVertexAttrib2dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 2);
         }
@@ -1559,7 +1559,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib3fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glVertexAttrib3fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1579,7 +1579,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib3sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
+    public static void glVertexAttrib3sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1599,7 +1599,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib3dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glVertexAttrib3dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 3);
         }
@@ -1619,7 +1619,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") FloatBuffer v) {
+    public static void glVertexAttrib4fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") FloatBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1639,7 +1639,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
+    public static void glVertexAttrib4sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1659,7 +1659,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") DoubleBuffer v) {
+    public static void glVertexAttrib4dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") DoubleBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1679,7 +1679,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4iv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glVertexAttrib4iv(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1699,7 +1699,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4bv(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glVertexAttrib4bv(@NativeType("GLuint") int index, @NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1719,7 +1719,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4ubv(@NativeType("GLuint") int index, @NativeType("const GLubyte *") ByteBuffer v) {
+    public static void glVertexAttrib4ubv(@NativeType("GLuint") int index, @NativeType("GLubyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1739,7 +1739,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4usv(@NativeType("GLuint") int index, @NativeType("const GLushort *") ShortBuffer v) {
+    public static void glVertexAttrib4usv(@NativeType("GLuint") int index, @NativeType("GLushort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1759,7 +1759,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
+    public static void glVertexAttrib4uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1779,7 +1779,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4Nbv(@NativeType("GLuint") int index, @NativeType("const GLbyte *") ByteBuffer v) {
+    public static void glVertexAttrib4Nbv(@NativeType("GLuint") int index, @NativeType("GLbyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1799,7 +1799,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4Nsv(@NativeType("GLuint") int index, @NativeType("const GLshort *") ShortBuffer v) {
+    public static void glVertexAttrib4Nsv(@NativeType("GLuint") int index, @NativeType("GLshort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1819,7 +1819,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4Niv(@NativeType("GLuint") int index, @NativeType("const GLint *") IntBuffer v) {
+    public static void glVertexAttrib4Niv(@NativeType("GLuint") int index, @NativeType("GLint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1839,7 +1839,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4Nubv(@NativeType("GLuint") int index, @NativeType("const GLubyte *") ByteBuffer v) {
+    public static void glVertexAttrib4Nubv(@NativeType("GLuint") int index, @NativeType("GLubyte const *") ByteBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1859,7 +1859,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4Nusv(@NativeType("GLuint") int index, @NativeType("const GLushort *") ShortBuffer v) {
+    public static void glVertexAttrib4Nusv(@NativeType("GLuint") int index, @NativeType("GLushort const *") ShortBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1879,7 +1879,7 @@ public class GL20 {
      * @param index the index of the generic vertex attribute to be modified
      * @param v     the vertex attribute buffer
      */
-    public static void glVertexAttrib4Nuiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") IntBuffer v) {
+    public static void glVertexAttrib4Nuiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") IntBuffer v) {
         if (CHECKS) {
             check(v, 4);
         }
@@ -1905,7 +1905,7 @@ public class GL20 {
      * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("void const *") ByteBuffer pointer) {
         nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -1923,7 +1923,7 @@ public class GL20 {
      * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") long pointer) {
+    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("void const *") long pointer) {
         nglVertexAttribPointer(index, size, type, normalized, stride, pointer);
     }
 
@@ -1941,7 +1941,7 @@ public class GL20 {
      * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") ShortBuffer pointer) {
+    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("void const *") ShortBuffer pointer) {
         nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -1959,7 +1959,7 @@ public class GL20 {
      * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") IntBuffer pointer) {
+    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("void const *") IntBuffer pointer) {
         nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -1977,7 +1977,7 @@ public class GL20 {
      * @param pointer    the vertex attribute data or the offset of the first component of the first generic vertex attribute in the array in the data store of the buffer
      *                   currently bound to the {@link GL15#GL_ARRAY_BUFFER ARRAY_BUFFER} target. The initial value is 0.
      */
-    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("const void *") FloatBuffer pointer) {
+    public static void glVertexAttribPointer(@NativeType("GLuint") int index, @NativeType("GLint") int size, @NativeType("GLenum") int type, @NativeType("GLboolean") boolean normalized, @NativeType("GLsizei") int stride, @NativeType("void const *") FloatBuffer pointer) {
         nglVertexAttribPointer(index, size, type, normalized, stride, memAddress(pointer));
     }
 
@@ -2017,7 +2017,7 @@ public class GL20 {
      * @param index   the index of the generic vertex attribute to be bound
      * @param name    a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
      */
-    public static void glBindAttribLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("const GLchar *") ByteBuffer name) {
+    public static void glBindAttribLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -2033,7 +2033,7 @@ public class GL20 {
      * @param index   the index of the generic vertex attribute to be bound
      * @param name    a null terminated string containing the name of the vertex shader attribute variable to which {@code index} is to be bound
      */
-    public static void glBindAttribLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("const GLchar *") CharSequence name) {
+    public static void glBindAttribLocation(@NativeType("GLuint") int program, @NativeType("GLuint") int index, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -2131,7 +2131,7 @@ public class GL20 {
      * @param name    a null terminated string containing the name of the attribute variable whose location is to be queried
      */
     @NativeType("GLint")
-    public static int glGetAttribLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") ByteBuffer name) {
+    public static int glGetAttribLocation(@NativeType("GLuint") int program, @NativeType("GLchar const *") ByteBuffer name) {
         if (CHECKS) {
             checkNT1(name);
         }
@@ -2147,7 +2147,7 @@ public class GL20 {
      * @param name    a null terminated string containing the name of the attribute variable whose location is to be queried
      */
     @NativeType("GLint")
-    public static int glGetAttribLocation(@NativeType("GLuint") int program, @NativeType("const GLchar *") CharSequence name) {
+    public static int glGetAttribLocation(@NativeType("GLuint") int program, @NativeType("GLchar const *") CharSequence name) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer nameEncoded = stack.ASCII(name);
@@ -2297,7 +2297,7 @@ public class GL20 {
      *
      * @param bufs an array of symbolic constants specifying the buffers into which fragment colors or data values will be written. One of:<br><table><tr><td>{@link GL11#GL_NONE NONE}</td><td>{@link GL11#GL_FRONT_LEFT FRONT_LEFT}</td><td>{@link GL11#GL_FRONT_RIGHT FRONT_RIGHT}</td><td>{@link GL11#GL_BACK_LEFT BACK_LEFT}</td><td>{@link GL11#GL_BACK_RIGHT BACK_RIGHT}</td><td>{@link GL11#GL_AUX0 AUX0}</td><td>{@link GL11#GL_AUX1 AUX1}</td><td>{@link GL11#GL_AUX2 AUX2}</td></tr><tr><td>{@link GL11#GL_AUX3 AUX3}</td><td>{@link GL30#GL_COLOR_ATTACHMENT0 COLOR_ATTACHMENT0}</td><td>GL30.GL_COLOR_ATTACHMENT[1-15]</td></tr></table>
      */
-    public static void glDrawBuffers(@NativeType("const GLenum *") IntBuffer bufs) {
+    public static void glDrawBuffers(@NativeType("GLenum const *") IntBuffer bufs) {
         nglDrawBuffers(bufs.remaining(), memAddress(bufs));
     }
 
@@ -2306,7 +2306,7 @@ public class GL20 {
      * 
      * Specifies a list of color buffers to be drawn into.
      */
-    public static void glDrawBuffers(@NativeType("const GLenum *") int buf) {
+    public static void glDrawBuffers(@NativeType("GLenum const *") int buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer bufs = stack.ints(buf);
@@ -2375,7 +2375,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glShaderSource ShaderSource}
      */
-    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("const GLchar **") PointerBuffer strings, @Nullable @NativeType("const GLint *") int[] length) {
+    public static void glShaderSource(@NativeType("GLuint") int shader, @NativeType("GLchar const **") PointerBuffer strings, @Nullable @NativeType("GLint const *") int[] length) {
         long __functionAddress = GL.getICD().glShaderSource;
         if (CHECKS) {
             check(__functionAddress);
@@ -2389,7 +2389,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform1fv Uniform1fv}
      */
-    public static void glUniform1fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glUniform1fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glUniform1fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2402,7 +2402,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform2fv Uniform2fv}
      */
-    public static void glUniform2fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glUniform2fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glUniform2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2415,7 +2415,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform3fv Uniform3fv}
      */
-    public static void glUniform3fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glUniform3fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glUniform3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2428,7 +2428,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform4fv Uniform4fv}
      */
-    public static void glUniform4fv(@NativeType("GLint") int location, @NativeType("const GLfloat *") float[] value) {
+    public static void glUniform4fv(@NativeType("GLint") int location, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glUniform4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2441,7 +2441,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform1iv Uniform1iv}
      */
-    public static void glUniform1iv(@NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glUniform1iv(@NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform1iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2454,7 +2454,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform2iv Uniform2iv}
      */
-    public static void glUniform2iv(@NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glUniform2iv(@NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform2iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2467,7 +2467,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform3iv Uniform3iv}
      */
-    public static void glUniform3iv(@NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glUniform3iv(@NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform3iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2480,7 +2480,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniform4iv Uniform4iv}
      */
-    public static void glUniform4iv(@NativeType("GLint") int location, @NativeType("const GLint *") int[] value) {
+    public static void glUniform4iv(@NativeType("GLint") int location, @NativeType("GLint const *") int[] value) {
         long __functionAddress = GL.getICD().glUniform4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2493,7 +2493,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniformMatrix2fv UniformMatrix2fv}
      */
-    public static void glUniformMatrix2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glUniformMatrix2fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2506,7 +2506,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniformMatrix3fv UniformMatrix3fv}
      */
-    public static void glUniformMatrix3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glUniformMatrix3fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2519,7 +2519,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glUniformMatrix4fv UniformMatrix4fv}
      */
-    public static void glUniformMatrix4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLfloat *") float[] value) {
+    public static void glUniformMatrix4fv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLfloat const *") float[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2660,7 +2660,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib1fv VertexAttrib1fv}
      */
-    public static void glVertexAttrib1fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
+    public static void glVertexAttrib1fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib1fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2674,7 +2674,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib1sv VertexAttrib1sv}
      */
-    public static void glVertexAttrib1sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
+    public static void glVertexAttrib1sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib1sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2688,7 +2688,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib1dv VertexAttrib1dv}
      */
-    public static void glVertexAttrib1dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
+    public static void glVertexAttrib1dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib1dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2702,7 +2702,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib2fv VertexAttrib2fv}
      */
-    public static void glVertexAttrib2fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
+    public static void glVertexAttrib2fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib2fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2716,7 +2716,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib2sv VertexAttrib2sv}
      */
-    public static void glVertexAttrib2sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
+    public static void glVertexAttrib2sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib2sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2730,7 +2730,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib2dv VertexAttrib2dv}
      */
-    public static void glVertexAttrib2dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
+    public static void glVertexAttrib2dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2744,7 +2744,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib3fv VertexAttrib3fv}
      */
-    public static void glVertexAttrib3fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
+    public static void glVertexAttrib3fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib3fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2758,7 +2758,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib3sv VertexAttrib3sv}
      */
-    public static void glVertexAttrib3sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
+    public static void glVertexAttrib3sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib3sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2772,7 +2772,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib3dv VertexAttrib3dv}
      */
-    public static void glVertexAttrib3dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
+    public static void glVertexAttrib3dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2786,7 +2786,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4fv VertexAttrib4fv}
      */
-    public static void glVertexAttrib4fv(@NativeType("GLuint") int index, @NativeType("const GLfloat *") float[] v) {
+    public static void glVertexAttrib4fv(@NativeType("GLuint") int index, @NativeType("GLfloat const *") float[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4fv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2800,7 +2800,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4sv VertexAttrib4sv}
      */
-    public static void glVertexAttrib4sv(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
+    public static void glVertexAttrib4sv(@NativeType("GLuint") int index, @NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4sv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2814,7 +2814,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4dv VertexAttrib4dv}
      */
-    public static void glVertexAttrib4dv(@NativeType("GLuint") int index, @NativeType("const GLdouble *") double[] v) {
+    public static void glVertexAttrib4dv(@NativeType("GLuint") int index, @NativeType("GLdouble const *") double[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2828,7 +2828,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4iv VertexAttrib4iv}
      */
-    public static void glVertexAttrib4iv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glVertexAttrib4iv(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4iv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2842,7 +2842,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4usv VertexAttrib4usv}
      */
-    public static void glVertexAttrib4usv(@NativeType("GLuint") int index, @NativeType("const GLushort *") short[] v) {
+    public static void glVertexAttrib4usv(@NativeType("GLuint") int index, @NativeType("GLushort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4usv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2856,7 +2856,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4uiv VertexAttrib4uiv}
      */
-    public static void glVertexAttrib4uiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
+    public static void glVertexAttrib4uiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4uiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2870,7 +2870,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4Nsv VertexAttrib4Nsv}
      */
-    public static void glVertexAttrib4Nsv(@NativeType("GLuint") int index, @NativeType("const GLshort *") short[] v) {
+    public static void glVertexAttrib4Nsv(@NativeType("GLuint") int index, @NativeType("GLshort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4Nsv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2884,7 +2884,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4Niv VertexAttrib4Niv}
      */
-    public static void glVertexAttrib4Niv(@NativeType("GLuint") int index, @NativeType("const GLint *") int[] v) {
+    public static void glVertexAttrib4Niv(@NativeType("GLuint") int index, @NativeType("GLint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4Niv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2898,7 +2898,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4Nusv VertexAttrib4Nusv}
      */
-    public static void glVertexAttrib4Nusv(@NativeType("GLuint") int index, @NativeType("const GLushort *") short[] v) {
+    public static void glVertexAttrib4Nusv(@NativeType("GLuint") int index, @NativeType("GLushort const *") short[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4Nusv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2912,7 +2912,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glVertexAttrib4Nuiv VertexAttrib4Nuiv}
      */
-    public static void glVertexAttrib4Nuiv(@NativeType("GLuint") int index, @NativeType("const GLuint *") int[] v) {
+    public static void glVertexAttrib4Nuiv(@NativeType("GLuint") int index, @NativeType("GLuint const *") int[] v) {
         long __functionAddress = GL.getICD().glVertexAttrib4Nuiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -2984,7 +2984,7 @@ public class GL20 {
      * 
      * Array version of: {@link #glDrawBuffers DrawBuffers}
      */
-    public static void glDrawBuffers(@NativeType("const GLenum *") int[] bufs) {
+    public static void glDrawBuffers(@NativeType("GLenum const *") int[] bufs) {
         long __functionAddress = GL.getICD().glDrawBuffers;
         if (CHECKS) {
             check(__functionAddress);

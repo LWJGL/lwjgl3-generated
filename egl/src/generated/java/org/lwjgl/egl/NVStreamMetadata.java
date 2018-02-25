@@ -97,7 +97,7 @@ public class NVStreamMetadata {
     }
 
     @NativeType("EGLBoolean")
-    public static boolean eglSetStreamMetadataNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLint") int n, @NativeType("EGLint") int offset, @NativeType("const void *") ByteBuffer data) {
+    public static boolean eglSetStreamMetadataNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLint") int n, @NativeType("EGLint") int offset, @NativeType("void const *") ByteBuffer data) {
         return neglSetStreamMetadataNV(dpy, stream, n, offset, data.remaining(), memAddress(data)) != 0;
     }
 

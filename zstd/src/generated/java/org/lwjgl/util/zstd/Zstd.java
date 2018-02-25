@@ -116,7 +116,7 @@ public class Zstd {
     public static native long nZSTD_versionString();
 
     /** Returns the version string. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String ZSTD_versionString() {
         long __result = nZSTD_versionString();
         return memASCII(__result);
@@ -139,7 +139,7 @@ public class Zstd {
      * @return compressed size written into {@code dst} (&le; {@code dstCapacity}), or an error code if it fails (which can be tested using {@link #ZSTD_isError isError}).
      */
     @NativeType("size_t")
-    public static long ZSTD_compress(@NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, int compressionLevel) {
+    public static long ZSTD_compress(@NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, int compressionLevel) {
         return nZSTD_compress(memAddress(dst), dst.remaining(), memAddress(src), src.remaining(), compressionLevel);
     }
 
@@ -162,7 +162,7 @@ public class Zstd {
      *         {@link #ZSTD_isError isError}).
      */
     @NativeType("size_t")
-    public static long ZSTD_decompress(@NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_decompress(@NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src) {
         return nZSTD_decompress(memAddress(dst), dst.remaining(), memAddress(src), src.remaining());
     }
 
@@ -200,7 +200,7 @@ public class Zstd {
      *         </ul>
      */
     @NativeType("unsigned long long")
-    public static long ZSTD_getFrameContentSize(@NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_getFrameContentSize(@NativeType("void const *") ByteBuffer src) {
         return nZSTD_getFrameContentSize(memAddress(src), src.remaining());
     }
 
@@ -239,7 +239,7 @@ public class Zstd {
      *
      * @param code 
      */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String ZSTD_getErrorName(@NativeType("size_t") long code) {
         long __result = nZSTD_getErrorName(code);
         return memASCII(__result);
@@ -293,7 +293,7 @@ public class Zstd {
      * @param compressionLevel 
      */
     @NativeType("size_t")
-    public static long ZSTD_compressCCtx(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, int compressionLevel) {
+    public static long ZSTD_compressCCtx(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, int compressionLevel) {
         if (CHECKS) {
             check(ctx);
         }
@@ -342,7 +342,7 @@ public class Zstd {
      * @param src 
      */
     @NativeType("size_t")
-    public static long ZSTD_decompressDCtx(@NativeType("ZSTD_DCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src) {
+    public static long ZSTD_decompressDCtx(@NativeType("ZSTD_DCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src) {
         if (CHECKS) {
             check(ctx);
         }
@@ -368,7 +368,7 @@ public class Zstd {
      * @param compressionLevel 
      */
     @NativeType("size_t")
-    public static long ZSTD_compress_usingDict(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @Nullable @NativeType("const void *") ByteBuffer dict, int compressionLevel) {
+    public static long ZSTD_compress_usingDict(@NativeType("ZSTD_CCtx *") long ctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, @Nullable @NativeType("void const *") ByteBuffer dict, int compressionLevel) {
         if (CHECKS) {
             check(ctx);
         }
@@ -393,7 +393,7 @@ public class Zstd {
      * @param dict 
      */
     @NativeType("size_t")
-    public static long ZSTD_decompress_usingDict(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @Nullable @NativeType("const void *") ByteBuffer dict) {
+    public static long ZSTD_decompress_usingDict(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, @Nullable @NativeType("void const *") ByteBuffer dict) {
         if (CHECKS) {
             check(dctx);
         }
@@ -417,7 +417,7 @@ public class Zstd {
      * @param compressionLevel 
      */
     @NativeType("ZSTD_CDict *")
-    public static long ZSTD_createCDict(@NativeType("const void *") ByteBuffer dictBuffer, int compressionLevel) {
+    public static long ZSTD_createCDict(@NativeType("void const *") ByteBuffer dictBuffer, int compressionLevel) {
         return nZSTD_createCDict(memAddress(dictBuffer), dictBuffer.remaining(), compressionLevel);
     }
 
@@ -456,7 +456,7 @@ public class Zstd {
      * @param cdict 
      */
     @NativeType("size_t")
-    public static long ZSTD_compress_usingCDict(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @NativeType("const ZSTD_CDict *") long cdict) {
+    public static long ZSTD_compress_usingCDict(@NativeType("ZSTD_CCtx *") long cctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, @NativeType("ZSTD_CDict const *") long cdict) {
         if (CHECKS) {
             check(cctx);
             check(cdict);
@@ -477,7 +477,7 @@ public class Zstd {
      * @param dictBuffer 
      */
     @NativeType("ZSTD_DDict *")
-    public static long ZSTD_createDDict(@NativeType("const void *") ByteBuffer dictBuffer) {
+    public static long ZSTD_createDDict(@NativeType("void const *") ByteBuffer dictBuffer) {
         return nZSTD_createDDict(memAddress(dictBuffer), dictBuffer.remaining());
     }
 
@@ -515,7 +515,7 @@ public class Zstd {
      * @param ddict 
      */
     @NativeType("size_t")
-    public static long ZSTD_decompress_usingDDict(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @NativeType("const ZSTD_DDict *") long ddict) {
+    public static long ZSTD_decompress_usingDDict(@NativeType("ZSTD_DCtx *") long dctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, @NativeType("ZSTD_DDict const *") long ddict) {
         if (CHECKS) {
             check(dctx);
             check(ddict);

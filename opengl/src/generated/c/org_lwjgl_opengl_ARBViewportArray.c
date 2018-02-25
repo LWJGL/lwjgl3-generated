@@ -6,13 +6,13 @@
 #include "common_tools.h"
 #include "opengl.h"
 
-typedef void (APIENTRY *glViewportArrayvPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glViewportArrayvPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glViewportIndexedfPROC) (jint, jfloat, jfloat, jfloat, jfloat);
-typedef void (APIENTRY *glViewportIndexedfvPROC) (jint, const intptr_t);
-typedef void (APIENTRY *glScissorArrayvPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glViewportIndexedfvPROC) (jint, intptr_t);
+typedef void (APIENTRY *glScissorArrayvPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glScissorIndexedPROC) (jint, jint, jint, jint, jint);
-typedef void (APIENTRY *glScissorIndexedvPROC) (jint, const intptr_t);
-typedef void (APIENTRY *glDepthRangeArrayvPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glScissorIndexedvPROC) (jint, intptr_t);
+typedef void (APIENTRY *glDepthRangeArrayvPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glDepthRangeIndexedPROC) (jint, jdouble, jdouble);
 typedef void (APIENTRY *glGetFloati_vPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetDoublei_vPROC) (jint, jint, intptr_t);
@@ -21,7 +21,7 @@ EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportArrayv__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong vAddress) {
     glViewportArrayvPROC glViewportArrayv = (glViewportArrayvPROC)tlsGetFunction(2126);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportArrayv(first, count, v);
 }
@@ -34,14 +34,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glViewportIndexedf
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglViewportIndexedfv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
     glViewportIndexedfvPROC glViewportIndexedfv = (glViewportIndexedfvPROC)tlsGetFunction(2128);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glViewportIndexedfv(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglScissorArrayv__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong vAddress) {
     glScissorArrayvPROC glScissorArrayv = (glScissorArrayvPROC)tlsGetFunction(1506);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glScissorArrayv(first, count, v);
 }
@@ -54,14 +54,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_glScissorIndexed(J
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglScissorIndexedv__IJ(JNIEnv *__env, jclass clazz, jint index, jlong vAddress) {
     glScissorIndexedvPROC glScissorIndexedv = (glScissorIndexedvPROC)tlsGetFunction(1508);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glScissorIndexedv(index, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBViewportArray_nglDepthRangeArrayv__IIJ(JNIEnv *__env, jclass clazz, jint first, jint count, jlong vAddress) {
     glDepthRangeArrayvPROC glDepthRangeArrayv = (glDepthRangeArrayvPROC)tlsGetFunction(332);
-    const intptr_t v = (const intptr_t)vAddress;
+    intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glDepthRangeArrayv(first, count, v);
 }

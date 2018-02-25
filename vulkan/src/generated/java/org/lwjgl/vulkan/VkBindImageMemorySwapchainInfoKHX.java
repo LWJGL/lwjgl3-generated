@@ -57,7 +57,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkBindImageMemorySwapchainInfoKHX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkSwapchainKHR swapchain;
  *     uint32_t imageIndex;
  * }</pre></code>
@@ -114,7 +114,7 @@ public class VkBindImageMemorySwapchainInfoKHX extends Struct implements NativeR
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code swapchain} field. */
     @NativeType("VkSwapchainKHR")
@@ -126,7 +126,7 @@ public class VkBindImageMemorySwapchainInfoKHX extends Struct implements NativeR
     /** Sets the specified value to the {@code sType} field. */
     public VkBindImageMemorySwapchainInfoKHX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBindImageMemorySwapchainInfoKHX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkBindImageMemorySwapchainInfoKHX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code swapchain} field. */
     public VkBindImageMemorySwapchainInfoKHX swapchain(@NativeType("VkSwapchainKHR") long value) { nswapchain(address(), value); return this; }
     /** Sets the specified value to the {@code imageIndex} field. */
@@ -368,7 +368,7 @@ public class VkBindImageMemorySwapchainInfoKHX extends Struct implements NativeR
         @NativeType("VkStructureType")
         public int sType() { return VkBindImageMemorySwapchainInfoKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkBindImageMemorySwapchainInfoKHX.npNext(address()); }
         /** Returns the value of the {@code swapchain} field. */
         @NativeType("VkSwapchainKHR")
@@ -380,7 +380,7 @@ public class VkBindImageMemorySwapchainInfoKHX extends Struct implements NativeR
         /** Sets the specified value to the {@code sType} field. */
         public VkBindImageMemorySwapchainInfoKHX.Buffer sType(@NativeType("VkStructureType") int value) { VkBindImageMemorySwapchainInfoKHX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBindImageMemorySwapchainInfoKHX.Buffer pNext(@NativeType("const void *") long value) { VkBindImageMemorySwapchainInfoKHX.npNext(address(), value); return this; }
+        public VkBindImageMemorySwapchainInfoKHX.Buffer pNext(@NativeType("void const *") long value) { VkBindImageMemorySwapchainInfoKHX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code swapchain} field. */
         public VkBindImageMemorySwapchainInfoKHX.Buffer swapchain(@NativeType("VkSwapchainKHR") long value) { VkBindImageMemorySwapchainInfoKHX.nswapchain(address(), value); return this; }
         /** Sets the specified value to the {@code imageIndex} field. */

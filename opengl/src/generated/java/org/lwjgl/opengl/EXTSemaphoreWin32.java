@@ -70,7 +70,7 @@ public class EXTSemaphoreWin32 {
 
     public static native void nglImportSemaphoreWin32NameEXT(int semaphore, int handleType, long name);
 
-    public static void glImportSemaphoreWin32NameEXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int handleType, @NativeType("const void *") long name) {
+    public static void glImportSemaphoreWin32NameEXT(@NativeType("GLuint") int semaphore, @NativeType("GLenum") int handleType, @NativeType("void const *") long name) {
         if (CHECKS) {
             check(name);
         }

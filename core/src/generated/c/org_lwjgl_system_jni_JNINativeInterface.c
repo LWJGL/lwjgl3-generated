@@ -108,7 +108,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nReleaseIntA
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetLongArrayElements(JNIEnv *__env, jclass clazz, jlongArray array, jlong isCopyAddress) {
     jboolean *isCopy = (jboolean *)(intptr_t)isCopyAddress;
     UNUSED_PARAM(clazz)
-    return (intptr_t)(*__env)->GetLongArrayElements(__env, array, isCopy);
+    return (jlong)(intptr_t)(*__env)->GetLongArrayElements(__env, array, isCopy);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nReleaseLongArrayElements(JNIEnv *__env, jclass clazz, jlongArray array, jlong elemsAddress, jint mode) {
@@ -148,7 +148,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetBooleanA
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetBooleanArrayRegion(JNIEnv *__env, jclass clazz, jbooleanArray array, jint start, jint len, jlong bufAddress) {
-    const jboolean *buf = (const jboolean *)(intptr_t)bufAddress;
+    jboolean const *buf = (jboolean const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetBooleanArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
@@ -160,7 +160,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetByteArra
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetByteArrayRegion(JNIEnv *__env, jclass clazz, jbyteArray array, jint start, jint len, jlong bufAddress) {
-    const jbyte *buf = (const jbyte *)(intptr_t)bufAddress;
+    jbyte const *buf = (jbyte const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetByteArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
@@ -172,7 +172,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetCharArra
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetCharArrayRegion(JNIEnv *__env, jclass clazz, jcharArray array, jint start, jint len, jlong bufAddress) {
-    const jchar *buf = (const jchar *)(intptr_t)bufAddress;
+    jchar const *buf = (jchar const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetCharArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
@@ -184,7 +184,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetShortArr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetShortArrayRegion(JNIEnv *__env, jclass clazz, jshortArray array, jint start, jint len, jlong bufAddress) {
-    const jshort *buf = (const jshort *)(intptr_t)bufAddress;
+    jshort const *buf = (jshort const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetShortArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
@@ -196,7 +196,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetIntArray
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetIntArrayRegion(JNIEnv *__env, jclass clazz, jintArray array, jint start, jint len, jlong bufAddress) {
-    const jint *buf = (const jint *)(intptr_t)bufAddress;
+    jint const *buf = (jint const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetIntArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
@@ -208,7 +208,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetLongArra
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetLongArrayRegion(JNIEnv *__env, jclass clazz, jlongArray array, jint start, jint len, jlong bufAddress) {
-    const jlong *buf = (const jlong *)(intptr_t)bufAddress;
+    jlong const *buf = (jlong const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetLongArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
@@ -220,7 +220,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetFloatArr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetFloatArrayRegion(JNIEnv *__env, jclass clazz, jfloatArray array, jint start, jint len, jlong bufAddress) {
-    const jfloat *buf = (const jfloat *)(intptr_t)bufAddress;
+    jfloat const *buf = (jfloat const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetFloatArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
@@ -232,13 +232,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nGetDoubleAr
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nSetDoubleArrayRegion(JNIEnv *__env, jclass clazz, jdoubleArray array, jint start, jint len, jlong bufAddress) {
-    const jdouble *buf = (const jdouble *)(intptr_t)bufAddress;
+    jdouble const *buf = (jdouble const *)(intptr_t)bufAddress;
     UNUSED_PARAM(clazz)
     (*__env)->SetDoubleArrayRegion(__env, array, (jsize)start, (jsize)len, buf);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_system_jni_JNINativeInterface_nRegisterNatives(JNIEnv *__env, jclass clazz, jclass targetClass, jlong methodsAddress, jint nMethods) {
-    const JNINativeMethod *methods = (const JNINativeMethod *)(intptr_t)methodsAddress;
+    JNINativeMethod const *methods = (JNINativeMethod const *)(intptr_t)methodsAddress;
     UNUSED_PARAM(clazz)
     return (*__env)->RegisterNatives(__env, targetClass, methods, nMethods);
 }

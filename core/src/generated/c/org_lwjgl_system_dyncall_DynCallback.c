@@ -9,7 +9,7 @@
 EXTERN_C_ENTER
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_dyncall_DynCallback_ndcbNewCallback(JNIEnv *__env, jclass clazz, jlong signatureAddress, jlong funcptrAddress, jlong userdataAddress) {
-    const char *signature = (const char *)(intptr_t)signatureAddress;
+    char const *signature = (char const *)(intptr_t)signatureAddress;
     DCCallbackHandler *funcptr = (DCCallbackHandler *)(intptr_t)funcptrAddress;
     void *userdata = (void *)(intptr_t)userdataAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -18,7 +18,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_dyncall_DynCallback_ndcbNewCallbac
 
 JNIEXPORT void JNICALL Java_org_lwjgl_system_dyncall_DynCallback_ndcbInitCallback(JNIEnv *__env, jclass clazz, jlong pcbAddress, jlong signatureAddress, jlong handlerAddress, jlong userdataAddress) {
     DCCallback *pcb = (DCCallback *)(intptr_t)pcbAddress;
-    const char *signature = (const char *)(intptr_t)signatureAddress;
+    char const *signature = (char const *)(intptr_t)signatureAddress;
     DCCallbackHandler *handler = (DCCallbackHandler *)(intptr_t)handlerAddress;
     void *userdata = (void *)(intptr_t)userdataAddress;
     UNUSED_PARAMS(__env, clazz)

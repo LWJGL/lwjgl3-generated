@@ -145,7 +145,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform1dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniform1dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniform1dv(location, value.remaining(), memAddress(value));
     }
 
@@ -164,7 +164,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform2dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniform2dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniform2dv(location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -183,7 +183,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform3dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniform3dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniform3dv(location, value.remaining() / 3, memAddress(value));
     }
 
@@ -202,7 +202,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glUniform4dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniform4dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniform4dv(location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -222,7 +222,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix2dv(location, value.remaining() >> 2, transpose, memAddress(value));
     }
 
@@ -242,7 +242,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix3dv(location, value.remaining() / 9, transpose, memAddress(value));
     }
 
@@ -262,7 +262,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix4dv(location, value.remaining() >> 4, transpose, memAddress(value));
     }
 
@@ -282,7 +282,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix2x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix2x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix2x3dv(location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -302,7 +302,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix2x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix2x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix2x4dv(location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -322,7 +322,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix3x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix3x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix3x2dv(location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -342,7 +342,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix3x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix3x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix3x4dv(location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -362,7 +362,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix4x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix4x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix4x2dv(location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -382,7 +382,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glUniformMatrix4x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glUniformMatrix4x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglUniformMatrix4x3dv(location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -489,7 +489,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform1dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform1dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform1dvEXT(program, location, value.remaining(), memAddress(value));
     }
 
@@ -509,7 +509,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform2dvEXT(program, location, value.remaining() >> 1, memAddress(value));
     }
 
@@ -529,7 +529,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform3dvEXT(program, location, value.remaining() / 3, memAddress(value));
     }
 
@@ -549,7 +549,7 @@ public class ARBGPUShaderFP64 {
      * @param location the location of the uniform variable to be modified
      * @param value    a pointer to an array of {@code count} values that will be used to update the specified uniform variable
      */
-    public static void glProgramUniform4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniform4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniform4dvEXT(program, location, value.remaining() >> 2, memAddress(value));
     }
 
@@ -570,7 +570,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix2dvEXT(program, location, value.remaining() >> 2, transpose, memAddress(value));
     }
 
@@ -591,7 +591,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix3dvEXT(program, location, value.remaining() / 9, transpose, memAddress(value));
     }
 
@@ -612,7 +612,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix4dvEXT(program, location, value.remaining() >> 4, transpose, memAddress(value));
     }
 
@@ -633,7 +633,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix2x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix2x3dvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -654,7 +654,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix2x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix2x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix2x4dvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -675,7 +675,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix3x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix3x2dvEXT(program, location, value.remaining() / 6, transpose, memAddress(value));
     }
 
@@ -696,7 +696,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix3x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix3x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix3x4dvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
@@ -717,7 +717,7 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix4x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix4x2dvEXT(program, location, value.remaining() >> 3, transpose, memAddress(value));
     }
 
@@ -738,12 +738,12 @@ public class ARBGPUShaderFP64 {
      * @param transpose whether to transpose the matrix as the values are loaded into the uniform variable
      * @param value     a pointer to an array of {@code count} values that will be used to update the specified uniform matrix variable
      */
-    public static void glProgramUniformMatrix4x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") DoubleBuffer value) {
+    public static void glProgramUniformMatrix4x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") DoubleBuffer value) {
         nglProgramUniformMatrix4x3dvEXT(program, location, value.remaining() / 12, transpose, memAddress(value));
     }
 
     /** Array version of: {@link #glUniform1dv Uniform1dv} */
-    public static void glUniform1dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniform1dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniform1dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -752,7 +752,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniform2dv Uniform2dv} */
-    public static void glUniform2dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniform2dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniform2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -761,7 +761,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniform3dv Uniform3dv} */
-    public static void glUniform3dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniform3dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniform3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -770,7 +770,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniform4dv Uniform4dv} */
-    public static void glUniform4dv(@NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniform4dv(@NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniform4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -779,7 +779,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix2dv UniformMatrix2dv} */
-    public static void glUniformMatrix2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -788,7 +788,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix3dv UniformMatrix3dv} */
-    public static void glUniformMatrix3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -797,7 +797,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix4dv UniformMatrix4dv} */
-    public static void glUniformMatrix4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -806,7 +806,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix2x3dv UniformMatrix2x3dv} */
-    public static void glUniformMatrix2x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix2x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix2x3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -815,7 +815,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix2x4dv UniformMatrix2x4dv} */
-    public static void glUniformMatrix2x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix2x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix2x4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -824,7 +824,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix3x2dv UniformMatrix3x2dv} */
-    public static void glUniformMatrix3x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix3x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix3x2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -833,7 +833,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix3x4dv UniformMatrix3x4dv} */
-    public static void glUniformMatrix3x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix3x4dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix3x4dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -842,7 +842,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix4x2dv UniformMatrix4x2dv} */
-    public static void glUniformMatrix4x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix4x2dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix4x2dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -851,7 +851,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glUniformMatrix4x3dv UniformMatrix4x3dv} */
-    public static void glUniformMatrix4x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glUniformMatrix4x3dv(@NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glUniformMatrix4x3dv;
         if (CHECKS) {
             check(__functionAddress);
@@ -870,7 +870,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniform1dvEXT ProgramUniform1dvEXT} */
-    public static void glProgramUniform1dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform1dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform1dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -879,7 +879,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniform2dvEXT ProgramUniform2dvEXT} */
-    public static void glProgramUniform2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform2dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -888,7 +888,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniform3dvEXT ProgramUniform3dvEXT} */
-    public static void glProgramUniform3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform3dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -897,7 +897,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniform4dvEXT ProgramUniform4dvEXT} */
-    public static void glProgramUniform4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniform4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniform4dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -906,7 +906,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2dvEXT ProgramUniformMatrix2dvEXT} */
-    public static void glProgramUniformMatrix2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -915,7 +915,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3dvEXT ProgramUniformMatrix3dvEXT} */
-    public static void glProgramUniformMatrix3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -924,7 +924,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4dvEXT ProgramUniformMatrix4dvEXT} */
-    public static void glProgramUniformMatrix4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -933,7 +933,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x3dvEXT ProgramUniformMatrix2x3dvEXT} */
-    public static void glProgramUniformMatrix2x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix2x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2x3dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -942,7 +942,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix2x4dvEXT ProgramUniformMatrix2x4dvEXT} */
-    public static void glProgramUniformMatrix2x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix2x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix2x4dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -951,7 +951,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x2dvEXT ProgramUniformMatrix3x2dvEXT} */
-    public static void glProgramUniformMatrix3x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix3x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3x2dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -960,7 +960,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix3x4dvEXT ProgramUniformMatrix3x4dvEXT} */
-    public static void glProgramUniformMatrix3x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix3x4dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix3x4dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -969,7 +969,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x2dvEXT ProgramUniformMatrix4x2dvEXT} */
-    public static void glProgramUniformMatrix4x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix4x2dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4x2dvEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -978,7 +978,7 @@ public class ARBGPUShaderFP64 {
     }
 
     /** Array version of: {@link #glProgramUniformMatrix4x3dvEXT ProgramUniformMatrix4x3dvEXT} */
-    public static void glProgramUniformMatrix4x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("const GLdouble *") double[] value) {
+    public static void glProgramUniformMatrix4x3dvEXT(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLboolean") boolean transpose, @NativeType("GLdouble const *") double[] value) {
         long __functionAddress = GL.getICD().glProgramUniformMatrix4x3dvEXT;
         if (CHECKS) {
             check(__functionAddress);

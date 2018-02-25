@@ -16,14 +16,14 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <code><pre>
  * void (*) (
- *     const cl_char *errinfo,
- *     const void *private_info,
+ *     cl_char const *errinfo,
+ *     void const *private_info,
  *     size_t cb,
  *     void *user_data
  * )</pre></code>
  */
 @FunctionalInterface
-@NativeType("void (*) (const cl_char *, const void *, size_t, void *)")
+@NativeType("void (*) (cl_char const *, void const *, size_t, void *)")
 public interface CLContextCallbackI extends CallbackI.V {
 
     String SIGNATURE = Callback.__stdcall("(pppp)v");
@@ -49,6 +49,6 @@ public interface CLContextCallbackI extends CallbackI.V {
      * @param cb           the number of bytes in the {@code private_info} pointer
      * @param user_data    the user-specified value that was passed when calling {@link CL10#clCreateContext CreateContext} or {@link CL10#clCreateContextFromType CreateContextFromType}
      */
-    void invoke(@NativeType("const cl_char *") long errinfo, @NativeType("const void *") long private_info, @NativeType("size_t") long cb, @NativeType("void *") long user_data);
+    void invoke(@NativeType("cl_char const *") long errinfo, @NativeType("void const *") long private_info, @NativeType("size_t") long cb, @NativeType("void *") long user_data);
 
 }

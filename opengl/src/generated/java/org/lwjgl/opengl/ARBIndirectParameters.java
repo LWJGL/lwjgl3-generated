@@ -69,7 +69,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, maxdrawcount * (stride == 0 ? (4 * 4) : stride));
         }
@@ -88,7 +88,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("void const *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawArraysIndirectCountARB(mode, indirect, drawcount, maxdrawcount, stride);
     }
 
@@ -104,7 +104,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (maxdrawcount * (stride == 0 ? (4 * 4) : stride)) >> 2);
         }
@@ -129,7 +129,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, maxdrawcount * (stride == 0 ? (5 * 4) : stride));
         }
@@ -149,7 +149,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") long indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         nglMultiDrawElementsIndirectCountARB(mode, type, indirect, drawcount, maxdrawcount, stride);
     }
 
@@ -166,7 +166,7 @@ public class ARBIndirectParameters {
      * @param maxdrawcount the maximum number of draws
      * @param stride       the distance in basic machine units between elements of the draw parameter array
      */
-    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") IntBuffer indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         if (CHECKS) {
             check(indirect, (maxdrawcount * (stride == 0 ? (5 * 4) : stride)) >> 2);
         }
@@ -174,7 +174,7 @@ public class ARBIndirectParameters {
     }
 
     /** Array version of: {@link #glMultiDrawArraysIndirectCountARB MultiDrawArraysIndirectCountARB} */
-    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("const void *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawArraysIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("void const *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawArraysIndirectCountARB;
         if (CHECKS) {
             check(__functionAddress);
@@ -184,7 +184,7 @@ public class ARBIndirectParameters {
     }
 
     /** Array version of: {@link #glMultiDrawElementsIndirectCountARB MultiDrawElementsIndirectCountARB} */
-    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
+    public static void glMultiDrawElementsIndirectCountARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") int[] indirect, @NativeType("GLintptr") long drawcount, @NativeType("GLsizei") int maxdrawcount, @NativeType("GLsizei") int stride) {
         long __functionAddress = GL.getICD().glMultiDrawElementsIndirectCountARB;
         if (CHECKS) {
             check(__functionAddress);

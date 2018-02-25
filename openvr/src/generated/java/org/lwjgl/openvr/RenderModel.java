@@ -30,9 +30,9 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct RenderModel_t {
- *     const {@link RenderModelVertex RenderModel_Vertex_t} * rVertexData;
+ *     {@link RenderModelVertex RenderModel_Vertex_t const} * rVertexData;
  *     uint32_t unVertexCount;
- *     const uint16_t * IndexData;
+ *     uint16_t const * IndexData;
  *     uint32_t unTriangleCount;
  *     TextureID_t diffuseTextureId;
  * }</pre></code>
@@ -90,13 +90,13 @@ public class RenderModel extends Struct implements NativeResource {
     public int sizeof() { return SIZEOF; }
 
     /** Returns a {@link RenderModelVertex.Buffer} view of the struct array pointed to by the {@code rVertexData} field. */
-    @NativeType("const RenderModel_Vertex_t *")
+    @NativeType("RenderModel_Vertex_t const *")
     public RenderModelVertex.Buffer rVertexData() { return nrVertexData(address()); }
     /** Returns the value of the {@code unVertexCount} field. */
     @NativeType("uint32_t")
     public int unVertexCount() { return nunVertexCount(address()); }
     /** Returns a {@link ShortBuffer} view of the data pointed to by the {@code IndexData} field. */
-    @NativeType("const uint16_t *")
+    @NativeType("uint16_t const *")
     public ShortBuffer IndexData() { return nIndexData(address()); }
     /** Returns the value of the {@code unTriangleCount} field. */
     @NativeType("uint32_t")
@@ -304,13 +304,13 @@ public class RenderModel extends Struct implements NativeResource {
         }
 
         /** Returns a {@link RenderModelVertex.Buffer} view of the struct array pointed to by the {@code rVertexData} field. */
-        @NativeType("const RenderModel_Vertex_t *")
+        @NativeType("RenderModel_Vertex_t const *")
         public RenderModelVertex.Buffer rVertexData() { return RenderModel.nrVertexData(address()); }
         /** Returns the value of the {@code unVertexCount} field. */
         @NativeType("uint32_t")
         public int unVertexCount() { return RenderModel.nunVertexCount(address()); }
         /** Returns a {@link ShortBuffer} view of the data pointed to by the {@code IndexData} field. */
-        @NativeType("const uint16_t *")
+        @NativeType("uint16_t const *")
         public ShortBuffer IndexData() { return RenderModel.nIndexData(address()); }
         /** Returns the value of the {@code unTriangleCount} field. */
         @NativeType("uint32_t")

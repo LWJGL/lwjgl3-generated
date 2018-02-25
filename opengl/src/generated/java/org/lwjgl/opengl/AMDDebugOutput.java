@@ -128,7 +128,7 @@ public class AMDDebugOutput {
      * @param ids      an array of message ids
      * @param enabled  whether to enable or disable the referenced subset of messages
      */
-    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") IntBuffer ids, @NativeType("GLboolean") boolean enabled) {
         nglDebugMessageEnableAMD(category, severity, remainingSafe(ids), memAddressSafe(ids), enabled);
     }
 
@@ -166,7 +166,7 @@ public class AMDDebugOutput {
      * @param severity the message severity. One of:<br><table><tr><td>{@link #GL_DEBUG_SEVERITY_HIGH_AMD DEBUG_SEVERITY_HIGH_AMD}</td><td>{@link #GL_DEBUG_SEVERITY_MEDIUM_AMD DEBUG_SEVERITY_MEDIUM_AMD}</td><td>{@link #GL_DEBUG_SEVERITY_LOW_AMD DEBUG_SEVERITY_LOW_AMD}</td></tr></table>
      * @param enabled  whether to enable or disable the referenced subset of messages
      */
-    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int id, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int id, @NativeType("GLboolean") boolean enabled) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -201,7 +201,7 @@ public class AMDDebugOutput {
      * @param id       the message id
      * @param buf      the message characters
      */
-    public static void glDebugMessageInsertAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("GLuint") int id, @NativeType("const GLchar *") ByteBuffer buf) {
+    public static void glDebugMessageInsertAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("GLuint") int id, @NativeType("GLchar const *") ByteBuffer buf) {
         nglDebugMessageInsertAMD(category, severity, id, buf.remaining(), memAddress(buf));
     }
 
@@ -221,7 +221,7 @@ public class AMDDebugOutput {
      * @param id       the message id
      * @param buf      the message characters
      */
-    public static void glDebugMessageInsertAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("GLuint") int id, @NativeType("const GLchar *") CharSequence buf) {
+    public static void glDebugMessageInsertAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @NativeType("GLuint") int id, @NativeType("GLchar const *") CharSequence buf) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer bufEncoded = stack.UTF8(buf, false);
@@ -312,7 +312,7 @@ public class AMDDebugOutput {
     }
 
     /** Array version of: {@link #glDebugMessageEnableAMD DebugMessageEnableAMD} */
-    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @Nullable @NativeType("const GLuint *") int[] ids, @NativeType("GLboolean") boolean enabled) {
+    public static void glDebugMessageEnableAMD(@NativeType("GLenum") int category, @NativeType("GLenum") int severity, @Nullable @NativeType("GLuint const *") int[] ids, @NativeType("GLboolean") boolean enabled) {
         long __functionAddress = GL.getICD().glDebugMessageEnableAMD;
         if (CHECKS) {
             check(__functionAddress);

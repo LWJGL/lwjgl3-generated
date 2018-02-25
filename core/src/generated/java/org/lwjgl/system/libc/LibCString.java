@@ -126,7 +126,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") ByteBuffer dest, @NativeType("const void *") ByteBuffer src) {
+    public static long memcpy(@NativeType("void *") ByteBuffer dest, @NativeType("void const *") ByteBuffer src) {
         if (CHECKS) {
             check(dest, src.remaining());
         }
@@ -142,7 +142,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") ShortBuffer dest, @NativeType("const void *") ShortBuffer src) {
+    public static long memcpy(@NativeType("void *") ShortBuffer dest, @NativeType("void const *") ShortBuffer src) {
         if (CHECKS) {
             check(dest, src.remaining());
         }
@@ -158,7 +158,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") IntBuffer dest, @NativeType("const void *") IntBuffer src) {
+    public static long memcpy(@NativeType("void *") IntBuffer dest, @NativeType("void const *") IntBuffer src) {
         if (CHECKS) {
             check(dest, src.remaining());
         }
@@ -174,7 +174,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") LongBuffer dest, @NativeType("const void *") LongBuffer src) {
+    public static long memcpy(@NativeType("void *") LongBuffer dest, @NativeType("void const *") LongBuffer src) {
         if (CHECKS) {
             check(dest, src.remaining());
         }
@@ -190,7 +190,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") FloatBuffer dest, @NativeType("const void *") FloatBuffer src) {
+    public static long memcpy(@NativeType("void *") FloatBuffer dest, @NativeType("void const *") FloatBuffer src) {
         if (CHECKS) {
             check(dest, src.remaining());
         }
@@ -206,7 +206,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") DoubleBuffer dest, @NativeType("const void *") DoubleBuffer src) {
+    public static long memcpy(@NativeType("void *") DoubleBuffer dest, @NativeType("void const *") DoubleBuffer src) {
         if (CHECKS) {
             check(dest, src.remaining());
         }
@@ -272,7 +272,7 @@ public class LibCString {
 
     /** Array version of: {@link #memcpy} */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") byte[] dest, @NativeType("const void *") byte[] src) {
+    public static long memcpy(@NativeType("void *") byte[] dest, @NativeType("void const *") byte[] src) {
         if (CHECKS) {
             check(dest, src.length);
         }
@@ -284,7 +284,7 @@ public class LibCString {
 
     /** Array version of: {@link #memcpy} */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") short[] dest, @NativeType("const void *") short[] src) {
+    public static long memcpy(@NativeType("void *") short[] dest, @NativeType("void const *") short[] src) {
         if (CHECKS) {
             check(dest, src.length);
         }
@@ -296,7 +296,7 @@ public class LibCString {
 
     /** Array version of: {@link #memcpy} */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") int[] dest, @NativeType("const void *") int[] src) {
+    public static long memcpy(@NativeType("void *") int[] dest, @NativeType("void const *") int[] src) {
         if (CHECKS) {
             check(dest, src.length);
         }
@@ -308,7 +308,7 @@ public class LibCString {
 
     /** Array version of: {@link #memcpy} */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") long[] dest, @NativeType("const void *") long[] src) {
+    public static long memcpy(@NativeType("void *") long[] dest, @NativeType("void const *") long[] src) {
         if (CHECKS) {
             check(dest, src.length);
         }
@@ -320,7 +320,7 @@ public class LibCString {
 
     /** Array version of: {@link #memcpy} */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") float[] dest, @NativeType("const void *") float[] src) {
+    public static long memcpy(@NativeType("void *") float[] dest, @NativeType("void const *") float[] src) {
         if (CHECKS) {
             check(dest, src.length);
         }
@@ -332,7 +332,7 @@ public class LibCString {
 
     /** Array version of: {@link #memcpy} */
     @NativeType("void *")
-    public static long memcpy(@NativeType("void *") double[] dest, @NativeType("const void *") double[] src) {
+    public static long memcpy(@NativeType("void *") double[] dest, @NativeType("void const *") double[] src) {
         if (CHECKS) {
             check(dest, src.length);
         }
@@ -361,7 +361,7 @@ public class LibCString {
      * @return the value of {@code dest}
      */
     @NativeType("void *")
-    public static <T extends CustomBuffer<T>> long memcpy(@NativeType("void *") T dest, @NativeType("const void *") T src) {
+    public static <T extends CustomBuffer<T>> long memcpy(@NativeType("void *") T dest, @NativeType("void const *") T src) {
         if (CHECKS) {
             check(src, dest.remaining());
         }

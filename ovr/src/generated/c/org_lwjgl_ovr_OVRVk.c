@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1SetSynchonizationQueueVk(J
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1CreateTextureSwapChainVk(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong deviceAddress, jlong descAddress, jlong out_TextureSwapChainAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     VkDevice device = (VkDevice)(intptr_t)deviceAddress;
-    const ovrTextureSwapChainDesc *desc = (const ovrTextureSwapChainDesc *)(intptr_t)descAddress;
+    ovrTextureSwapChainDesc const *desc = (ovrTextureSwapChainDesc const *)(intptr_t)descAddress;
     ovrTextureSwapChain *out_TextureSwapChain = (ovrTextureSwapChain *)(intptr_t)out_TextureSwapChainAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_CreateTextureSwapChainVk(session, device, desc, out_TextureSwapChain);
@@ -62,7 +62,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetTextureSwapChainBufferV
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1CreateMirrorTextureWithOptionsVk(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong deviceAddress, jlong descAddress, jlong out_MirrorTextureAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     VkDevice device = (VkDevice)(intptr_t)deviceAddress;
-    const ovrMirrorTextureDesc *desc = (const ovrMirrorTextureDesc *)(intptr_t)descAddress;
+    ovrMirrorTextureDesc const *desc = (ovrMirrorTextureDesc const *)(intptr_t)descAddress;
     ovrMirrorTexture *out_MirrorTexture = (ovrMirrorTexture *)(intptr_t)out_MirrorTextureAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)ovr_CreateMirrorTextureWithOptionsVk(session, device, desc, out_MirrorTexture);

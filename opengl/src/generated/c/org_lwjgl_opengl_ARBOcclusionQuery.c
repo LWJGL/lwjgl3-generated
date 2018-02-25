@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glGenQueriesARBPROC) (jint, intptr_t);
-typedef void (APIENTRY *glDeleteQueriesARBPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteQueriesARBPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsQueryARBPROC) (jint);
 typedef void (APIENTRY *glBeginQueryARBPROC) (jint, jint);
 typedef void (APIENTRY *glEndQueryARBPROC) (jint);
@@ -26,7 +26,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_nglGenQueriesARB_
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBOcclusionQuery_nglDeleteQueriesARB__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
     glDeleteQueriesARBPROC glDeleteQueriesARB = (glDeleteQueriesARBPROC)tlsGetFunction(314);
-    const intptr_t ids = (const intptr_t)idsAddress;
+    intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDeleteQueriesARB(n, ids);
 }

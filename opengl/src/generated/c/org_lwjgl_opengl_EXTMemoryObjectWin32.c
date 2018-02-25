@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glImportMemoryWin32HandleEXTPROC) (jint, jlong, jint, intptr_t);
-typedef void (APIENTRY *glImportMemoryWin32NameEXTPROC) (jint, jlong, jint, const intptr_t);
+typedef void (APIENTRY *glImportMemoryWin32NameEXTPROC) (jint, jlong, jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObjectWin32_nglImportMemor
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTMemoryObjectWin32_nglImportMemoryWin32NameEXT(JNIEnv *__env, jclass clazz, jint memory, jlong size, jint handleType, jlong nameAddress) {
     glImportMemoryWin32NameEXTPROC glImportMemoryWin32NameEXT = (glImportMemoryWin32NameEXTPROC)tlsGetFunction(845);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     glImportMemoryWin32NameEXT(memory, size, handleType, name);
 }

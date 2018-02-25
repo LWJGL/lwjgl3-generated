@@ -69,7 +69,7 @@ public class EXTMultiviewDrawBuffers {
 
     public static native void nglDrawBuffersIndexedEXT(int n, long location, long indices);
 
-    public static void glDrawBuffersIndexedEXT(@NativeType("const GLenum *") IntBuffer location, @NativeType("const GLint *") IntBuffer indices) {
+    public static void glDrawBuffersIndexedEXT(@NativeType("GLenum const *") IntBuffer location, @NativeType("GLint const *") IntBuffer indices) {
         if (CHECKS) {
             check(indices, location.remaining());
         }
@@ -100,7 +100,7 @@ public class EXTMultiviewDrawBuffers {
     }
 
     /** Array version of: {@link #glDrawBuffersIndexedEXT DrawBuffersIndexedEXT} */
-    public static void glDrawBuffersIndexedEXT(@NativeType("const GLenum *") int[] location, @NativeType("const GLint *") int[] indices) {
+    public static void glDrawBuffersIndexedEXT(@NativeType("GLenum const *") int[] location, @NativeType("GLint const *") int[] indices) {
         long __functionAddress = GLES.getICD().glDrawBuffersIndexedEXT;
         if (CHECKS) {
             check(__functionAddress);

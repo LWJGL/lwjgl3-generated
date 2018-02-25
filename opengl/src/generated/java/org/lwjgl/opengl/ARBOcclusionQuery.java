@@ -129,12 +129,12 @@ public class ARBOcclusionQuery {
      *
      * @param ids an array of query objects to be deleted
      */
-    public static void glDeleteQueriesARB(@NativeType("const GLuint *") IntBuffer ids) {
+    public static void glDeleteQueriesARB(@NativeType("GLuint const *") IntBuffer ids) {
         nglDeleteQueriesARB(ids.remaining(), memAddress(ids));
     }
 
     /** Deletes named query objects. */
-    public static void glDeleteQueriesARB(@NativeType("const GLuint *") int id) {
+    public static void glDeleteQueriesARB(@NativeType("GLuint const *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -294,7 +294,7 @@ public class ARBOcclusionQuery {
     }
 
     /** Array version of: {@link #glDeleteQueriesARB DeleteQueriesARB} */
-    public static void glDeleteQueriesARB(@NativeType("const GLuint *") int[] ids) {
+    public static void glDeleteQueriesARB(@NativeType("GLuint const *") int[] ids) {
         long __functionAddress = GL.getICD().glDeleteQueriesARB;
         if (CHECKS) {
             check(__functionAddress);

@@ -15,12 +15,12 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void* (*) (
+ * void * (*) (
  *     size_t size
  * )</pre></code>
  */
 @FunctionalInterface
-@NativeType("void* (*) (size_t)")
+@NativeType("void * (*) (size_t)")
 public interface RPMemoryMapCallbackI extends CallbackI.P {
 
     String SIGNATURE = "(p)p";

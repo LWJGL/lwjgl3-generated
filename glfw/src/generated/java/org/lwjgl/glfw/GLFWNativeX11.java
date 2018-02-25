@@ -140,7 +140,7 @@ public class GLFWNativeX11 {
      *
      * @since version 3.3
      */
-    public static void glfwSetX11SelectionString(@NativeType("const char *") ByteBuffer string) {
+    public static void glfwSetX11SelectionString(@NativeType("char const *") ByteBuffer string) {
         if (CHECKS) {
             checkNT1(string);
         }
@@ -156,7 +156,7 @@ public class GLFWNativeX11 {
      *
      * @since version 3.3
      */
-    public static void glfwSetX11SelectionString(@NativeType("const char *") CharSequence string) {
+    public static void glfwSetX11SelectionString(@NativeType("char const *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.UTF8(string);
@@ -189,7 +189,7 @@ public class GLFWNativeX11 {
      * @since version 3.3
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetX11SelectionString() {
         long __result = nglfwGetX11SelectionString();
         return memUTF8Safe(__result);

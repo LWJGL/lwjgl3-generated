@@ -267,7 +267,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("void const *") long indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, count, type, indices, basevertex);
     }
 
@@ -281,7 +281,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
     }
 
@@ -294,7 +294,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
     }
 
@@ -307,7 +307,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("void const *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
     }
 
@@ -320,7 +320,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawElementsBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
     }
 
@@ -347,7 +347,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("void const *") long indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
     }
 
@@ -363,7 +363,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), basevertex);
     }
 
@@ -378,7 +378,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("void const *") ByteBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), basevertex);
     }
 
@@ -393,7 +393,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("void const *") ShortBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), basevertex);
     }
 
@@ -408,7 +408,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a constant that should be added to each element of {@code indices} when choosing elements from the enabled vertex arrays
      */
-    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("const void *") IntBuffer indices, @NativeType("GLint") int basevertex) {
+    public static void glDrawRangeElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLuint") int start, @NativeType("GLuint") int end, @NativeType("void const *") IntBuffer indices, @NativeType("GLint") int basevertex) {
         nglDrawRangeElementsBaseVertex(mode, start, end, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), basevertex);
     }
 
@@ -434,7 +434,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("void const *") long indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, count, type, indices, primcount, basevertex);
     }
 
@@ -449,7 +449,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount, basevertex);
     }
 
@@ -463,7 +463,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount, basevertex);
     }
 
@@ -477,7 +477,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("void const *") ShortBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount, basevertex);
     }
 
@@ -491,7 +491,7 @@ public class GL32 {
      * @param primcount  the number of instances of the indexed geometry that should be drawn
      * @param basevertex a constant that should be added to each element of indices when chosing elements from the enabled vertex arrays
      */
-    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
+    public static void glDrawElementsInstancedBaseVertex(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indices, @NativeType("GLsizei") int primcount, @NativeType("GLint") int basevertex) {
         nglDrawElementsInstancedBaseVertex(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount, basevertex);
     }
 
@@ -517,7 +517,7 @@ public class GL32 {
      * @param indices    a pointer to the location where the indices are stored
      * @param basevertex a pointer to the location where the base vertices are stored
      */
-    public static void glMultiDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("const void **") PointerBuffer indices, @NativeType("GLint *") IntBuffer basevertex) {
+    public static void glMultiDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei const *") IntBuffer count, @NativeType("GLenum") int type, @NativeType("void const **") PointerBuffer indices, @NativeType("GLint *") IntBuffer basevertex) {
         if (CHECKS) {
             check(indices, count.remaining());
             check(basevertex, count.remaining());
@@ -903,7 +903,7 @@ public class GL32 {
      * 
      * Array version of: {@link #glMultiDrawElementsBaseVertex MultiDrawElementsBaseVertex}
      */
-    public static void glMultiDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("const GLsizei *") int[] count, @NativeType("GLenum") int type, @NativeType("const void **") PointerBuffer indices, @NativeType("GLint *") int[] basevertex) {
+    public static void glMultiDrawElementsBaseVertex(@NativeType("GLenum") int mode, @NativeType("GLsizei const *") int[] count, @NativeType("GLenum") int type, @NativeType("void const **") PointerBuffer indices, @NativeType("GLint *") int[] basevertex) {
         long __functionAddress = GL.getICD().glMultiDrawElementsBaseVertex;
         if (CHECKS) {
             check(__functionAddress);

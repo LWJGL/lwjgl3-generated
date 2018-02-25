@@ -83,11 +83,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkCmdProcessCommandsInfoNVX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkObjectTableNVX objectTable;
  *     VkIndirectCommandsLayoutNVX indirectCommandsLayout;
  *     uint32_t indirectCommandsTokenCount;
- *     const {@link VkIndirectCommandsTokenNVX VkIndirectCommandsTokenNVX} * pIndirectCommandsTokens;
+ *     {@link VkIndirectCommandsTokenNVX VkIndirectCommandsTokenNVX const} * pIndirectCommandsTokens;
  *     uint32_t maxSequencesCount;
  *     VkCommandBuffer targetCommandBuffer;
  *     VkBuffer sequencesCountBuffer;
@@ -172,7 +172,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code objectTable} field. */
     @NativeType("VkObjectTableNVX")
@@ -184,7 +184,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
     @NativeType("uint32_t")
     public int indirectCommandsTokenCount() { return nindirectCommandsTokenCount(address()); }
     /** Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field. */
-    @NativeType("const VkIndirectCommandsTokenNVX *")
+    @NativeType("VkIndirectCommandsTokenNVX const *")
     public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens() { return npIndirectCommandsTokens(address()); }
     /** Returns the value of the {@code maxSequencesCount} field. */
     @NativeType("uint32_t")
@@ -209,13 +209,13 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
     /** Sets the specified value to the {@code sType} field. */
     public VkCmdProcessCommandsInfoNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCmdProcessCommandsInfoNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code objectTable} field. */
     public VkCmdProcessCommandsInfoNVX objectTable(@NativeType("VkObjectTableNVX") long value) { nobjectTable(address(), value); return this; }
     /** Sets the specified value to the {@code indirectCommandsLayout} field. */
     public VkCmdProcessCommandsInfoNVX indirectCommandsLayout(@NativeType("VkIndirectCommandsLayoutNVX") long value) { nindirectCommandsLayout(address(), value); return this; }
     /** Sets the address of the specified {@link VkIndirectCommandsTokenNVX.Buffer} to the {@code pIndirectCommandsTokens} field. */
-    public VkCmdProcessCommandsInfoNVX pIndirectCommandsTokens(@NativeType("const VkIndirectCommandsTokenNVX *") VkIndirectCommandsTokenNVX.Buffer value) { npIndirectCommandsTokens(address(), value); return this; }
+    public VkCmdProcessCommandsInfoNVX pIndirectCommandsTokens(@NativeType("VkIndirectCommandsTokenNVX const *") VkIndirectCommandsTokenNVX.Buffer value) { npIndirectCommandsTokens(address(), value); return this; }
     /** Sets the specified value to the {@code maxSequencesCount} field. */
     public VkCmdProcessCommandsInfoNVX maxSequencesCount(@NativeType("uint32_t") int value) { nmaxSequencesCount(address(), value); return this; }
     /** Sets the specified value to the {@code targetCommandBuffer} field. */
@@ -532,7 +532,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
         @NativeType("VkStructureType")
         public int sType() { return VkCmdProcessCommandsInfoNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkCmdProcessCommandsInfoNVX.npNext(address()); }
         /** Returns the value of the {@code objectTable} field. */
         @NativeType("VkObjectTableNVX")
@@ -544,7 +544,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
         @NativeType("uint32_t")
         public int indirectCommandsTokenCount() { return VkCmdProcessCommandsInfoNVX.nindirectCommandsTokenCount(address()); }
         /** Returns a {@link VkIndirectCommandsTokenNVX.Buffer} view of the struct array pointed to by the {@code pIndirectCommandsTokens} field. */
-        @NativeType("const VkIndirectCommandsTokenNVX *")
+        @NativeType("VkIndirectCommandsTokenNVX const *")
         public VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens() { return VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address()); }
         /** Returns the value of the {@code maxSequencesCount} field. */
         @NativeType("uint32_t")
@@ -569,13 +569,13 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
         /** Sets the specified value to the {@code sType} field. */
         public VkCmdProcessCommandsInfoNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkCmdProcessCommandsInfoNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer pNext(@NativeType("const void *") long value) { VkCmdProcessCommandsInfoNVX.npNext(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer pNext(@NativeType("void const *") long value) { VkCmdProcessCommandsInfoNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code objectTable} field. */
         public VkCmdProcessCommandsInfoNVX.Buffer objectTable(@NativeType("VkObjectTableNVX") long value) { VkCmdProcessCommandsInfoNVX.nobjectTable(address(), value); return this; }
         /** Sets the specified value to the {@code indirectCommandsLayout} field. */
         public VkCmdProcessCommandsInfoNVX.Buffer indirectCommandsLayout(@NativeType("VkIndirectCommandsLayoutNVX") long value) { VkCmdProcessCommandsInfoNVX.nindirectCommandsLayout(address(), value); return this; }
         /** Sets the address of the specified {@link VkIndirectCommandsTokenNVX.Buffer} to the {@code pIndirectCommandsTokens} field. */
-        public VkCmdProcessCommandsInfoNVX.Buffer pIndirectCommandsTokens(@NativeType("const VkIndirectCommandsTokenNVX *") VkIndirectCommandsTokenNVX.Buffer value) { VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address(), value); return this; }
+        public VkCmdProcessCommandsInfoNVX.Buffer pIndirectCommandsTokens(@NativeType("VkIndirectCommandsTokenNVX const *") VkIndirectCommandsTokenNVX.Buffer value) { VkCmdProcessCommandsInfoNVX.npIndirectCommandsTokens(address(), value); return this; }
         /** Sets the specified value to the {@code maxSequencesCount} field. */
         public VkCmdProcessCommandsInfoNVX.Buffer maxSequencesCount(@NativeType("uint32_t") int value) { VkCmdProcessCommandsInfoNVX.nmaxSequencesCount(address(), value); return this; }
         /** Sets the specified value to the {@code targetCommandBuffer} field. */

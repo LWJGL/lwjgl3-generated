@@ -65,15 +65,15 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDeviceCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkDeviceCreateFlags flags;
  *     uint32_t queueCreateInfoCount;
- *     const {@link VkDeviceQueueCreateInfo VkDeviceQueueCreateInfo} * pQueueCreateInfos;
+ *     {@link VkDeviceQueueCreateInfo VkDeviceQueueCreateInfo const} * pQueueCreateInfos;
  *     uint32_t enabledLayerCount;
- *     const char * const * ppEnabledLayerNames;
+ *     char const * const * ppEnabledLayerNames;
  *     uint32_t enabledExtensionCount;
- *     const char * const * ppEnabledExtensionNames;
- *     const {@link VkPhysicalDeviceFeatures VkPhysicalDeviceFeatures} * pEnabledFeatures;
+ *     char const * const * ppEnabledExtensionNames;
+ *     {@link VkPhysicalDeviceFeatures VkPhysicalDeviceFeatures const} * pEnabledFeatures;
  * }</pre></code>
  */
 public class VkDeviceCreateInfo extends Struct implements NativeResource {
@@ -146,7 +146,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkDeviceCreateFlags")
@@ -155,41 +155,41 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
     @NativeType("uint32_t")
     public int queueCreateInfoCount() { return nqueueCreateInfoCount(address()); }
     /** Returns a {@link VkDeviceQueueCreateInfo.Buffer} view of the struct array pointed to by the {@code pQueueCreateInfos} field. */
-    @NativeType("const VkDeviceQueueCreateInfo *")
+    @NativeType("VkDeviceQueueCreateInfo const *")
     public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos() { return npQueueCreateInfos(address()); }
     /** Returns the value of the {@code enabledLayerCount} field. */
     @NativeType("uint32_t")
     public int enabledLayerCount() { return nenabledLayerCount(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
     @Nullable
-    @NativeType("const char * const *")
+    @NativeType("char const * const *")
     public PointerBuffer ppEnabledLayerNames() { return nppEnabledLayerNames(address()); }
     /** Returns the value of the {@code enabledExtensionCount} field. */
     @NativeType("uint32_t")
     public int enabledExtensionCount() { return nenabledExtensionCount(address()); }
     /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
     @Nullable
-    @NativeType("const char * const *")
+    @NativeType("char const * const *")
     public PointerBuffer ppEnabledExtensionNames() { return nppEnabledExtensionNames(address()); }
     /** Returns a {@link VkPhysicalDeviceFeatures} view of the struct pointed to by the {@code pEnabledFeatures} field. */
     @Nullable
-    @NativeType("const VkPhysicalDeviceFeatures *")
+    @NativeType("VkPhysicalDeviceFeatures const *")
     public VkPhysicalDeviceFeatures pEnabledFeatures() { return npEnabledFeatures(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkDeviceCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDeviceCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkDeviceCreateInfo flags(@NativeType("VkDeviceCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the address of the specified {@link VkDeviceQueueCreateInfo.Buffer} to the {@code pQueueCreateInfos} field. */
-    public VkDeviceCreateInfo pQueueCreateInfos(@NativeType("const VkDeviceQueueCreateInfo *") VkDeviceQueueCreateInfo.Buffer value) { npQueueCreateInfos(address(), value); return this; }
+    public VkDeviceCreateInfo pQueueCreateInfos(@NativeType("VkDeviceQueueCreateInfo const *") VkDeviceQueueCreateInfo.Buffer value) { npQueueCreateInfos(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
-    public VkDeviceCreateInfo ppEnabledLayerNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { nppEnabledLayerNames(address(), value); return this; }
+    public VkDeviceCreateInfo ppEnabledLayerNames(@Nullable @NativeType("char const * const *") PointerBuffer value) { nppEnabledLayerNames(address(), value); return this; }
     /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
-    public VkDeviceCreateInfo ppEnabledExtensionNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { nppEnabledExtensionNames(address(), value); return this; }
+    public VkDeviceCreateInfo ppEnabledExtensionNames(@Nullable @NativeType("char const * const *") PointerBuffer value) { nppEnabledExtensionNames(address(), value); return this; }
     /** Sets the address of the specified {@link VkPhysicalDeviceFeatures} to the {@code pEnabledFeatures} field. */
-    public VkDeviceCreateInfo pEnabledFeatures(@Nullable @NativeType("const VkPhysicalDeviceFeatures *") VkPhysicalDeviceFeatures value) { npEnabledFeatures(address(), value); return this; }
+    public VkDeviceCreateInfo pEnabledFeatures(@Nullable @NativeType("VkPhysicalDeviceFeatures const *") VkPhysicalDeviceFeatures value) { npEnabledFeatures(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkDeviceCreateInfo set(
@@ -487,7 +487,7 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkDeviceCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDeviceCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkDeviceCreateFlags")
@@ -496,41 +496,41 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
         @NativeType("uint32_t")
         public int queueCreateInfoCount() { return VkDeviceCreateInfo.nqueueCreateInfoCount(address()); }
         /** Returns a {@link VkDeviceQueueCreateInfo.Buffer} view of the struct array pointed to by the {@code pQueueCreateInfos} field. */
-        @NativeType("const VkDeviceQueueCreateInfo *")
+        @NativeType("VkDeviceQueueCreateInfo const *")
         public VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos() { return VkDeviceCreateInfo.npQueueCreateInfos(address()); }
         /** Returns the value of the {@code enabledLayerCount} field. */
         @NativeType("uint32_t")
         public int enabledLayerCount() { return VkDeviceCreateInfo.nenabledLayerCount(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledLayerNames} field. */
         @Nullable
-        @NativeType("const char * const *")
+        @NativeType("char const * const *")
         public PointerBuffer ppEnabledLayerNames() { return VkDeviceCreateInfo.nppEnabledLayerNames(address()); }
         /** Returns the value of the {@code enabledExtensionCount} field. */
         @NativeType("uint32_t")
         public int enabledExtensionCount() { return VkDeviceCreateInfo.nenabledExtensionCount(address()); }
         /** Returns a {@link PointerBuffer} view of the data pointed to by the {@code ppEnabledExtensionNames} field. */
         @Nullable
-        @NativeType("const char * const *")
+        @NativeType("char const * const *")
         public PointerBuffer ppEnabledExtensionNames() { return VkDeviceCreateInfo.nppEnabledExtensionNames(address()); }
         /** Returns a {@link VkPhysicalDeviceFeatures} view of the struct pointed to by the {@code pEnabledFeatures} field. */
         @Nullable
-        @NativeType("const VkPhysicalDeviceFeatures *")
+        @NativeType("VkPhysicalDeviceFeatures const *")
         public VkPhysicalDeviceFeatures pEnabledFeatures() { return VkDeviceCreateInfo.npEnabledFeatures(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkDeviceCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkDeviceCreateInfo.npNext(address(), value); return this; }
+        public VkDeviceCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkDeviceCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkDeviceCreateInfo.Buffer flags(@NativeType("VkDeviceCreateFlags") int value) { VkDeviceCreateInfo.nflags(address(), value); return this; }
         /** Sets the address of the specified {@link VkDeviceQueueCreateInfo.Buffer} to the {@code pQueueCreateInfos} field. */
-        public VkDeviceCreateInfo.Buffer pQueueCreateInfos(@NativeType("const VkDeviceQueueCreateInfo *") VkDeviceQueueCreateInfo.Buffer value) { VkDeviceCreateInfo.npQueueCreateInfos(address(), value); return this; }
+        public VkDeviceCreateInfo.Buffer pQueueCreateInfos(@NativeType("VkDeviceQueueCreateInfo const *") VkDeviceQueueCreateInfo.Buffer value) { VkDeviceCreateInfo.npQueueCreateInfos(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledLayerNames} field. */
-        public VkDeviceCreateInfo.Buffer ppEnabledLayerNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { VkDeviceCreateInfo.nppEnabledLayerNames(address(), value); return this; }
+        public VkDeviceCreateInfo.Buffer ppEnabledLayerNames(@Nullable @NativeType("char const * const *") PointerBuffer value) { VkDeviceCreateInfo.nppEnabledLayerNames(address(), value); return this; }
         /** Sets the address of the specified {@link PointerBuffer} to the {@code ppEnabledExtensionNames} field. */
-        public VkDeviceCreateInfo.Buffer ppEnabledExtensionNames(@Nullable @NativeType("const char * const *") PointerBuffer value) { VkDeviceCreateInfo.nppEnabledExtensionNames(address(), value); return this; }
+        public VkDeviceCreateInfo.Buffer ppEnabledExtensionNames(@Nullable @NativeType("char const * const *") PointerBuffer value) { VkDeviceCreateInfo.nppEnabledExtensionNames(address(), value); return this; }
         /** Sets the address of the specified {@link VkPhysicalDeviceFeatures} to the {@code pEnabledFeatures} field. */
-        public VkDeviceCreateInfo.Buffer pEnabledFeatures(@Nullable @NativeType("const VkPhysicalDeviceFeatures *") VkPhysicalDeviceFeatures value) { VkDeviceCreateInfo.npEnabledFeatures(address(), value); return this; }
+        public VkDeviceCreateInfo.Buffer pEnabledFeatures(@Nullable @NativeType("VkPhysicalDeviceFeatures const *") VkPhysicalDeviceFeatures value) { VkDeviceCreateInfo.npEnabledFeatures(address(), value); return this; }
 
     }
 

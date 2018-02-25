@@ -7,18 +7,18 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glBindBufferPROC) (jint, jint);
-typedef void (APIENTRY *glDeleteBuffersPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteBuffersPROC) (jint, intptr_t);
 typedef void (APIENTRY *glGenBuffersPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsBufferPROC) (jint);
-typedef void (APIENTRY *glBufferDataPROC) (jint, intptr_t, const intptr_t, jint);
-typedef void (APIENTRY *glBufferSubDataPROC) (jint, intptr_t, intptr_t, const intptr_t);
+typedef void (APIENTRY *glBufferDataPROC) (jint, intptr_t, intptr_t, jint);
+typedef void (APIENTRY *glBufferSubDataPROC) (jint, intptr_t, intptr_t, intptr_t);
 typedef void (APIENTRY *glGetBufferSubDataPROC) (jint, intptr_t, intptr_t, intptr_t);
 typedef intptr_t (APIENTRY *glMapBufferPROC) (jint, jint);
 typedef jboolean (APIENTRY *glUnmapBufferPROC) (jint);
 typedef void (APIENTRY *glGetBufferParameterivPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetBufferPointervPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGenQueriesPROC) (jint, intptr_t);
-typedef void (APIENTRY *glDeleteQueriesPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteQueriesPROC) (jint, intptr_t);
 typedef jboolean (APIENTRY *glIsQueryPROC) (jint);
 typedef void (APIENTRY *glBeginQueryPROC) (jint, jint);
 typedef void (APIENTRY *glEndQueryPROC) (jint);
@@ -36,7 +36,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_glBindBuffer(JNIEnv *__env, jc
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglDeleteBuffers__IJ(JNIEnv *__env, jclass clazz, jint n, jlong buffersAddress) {
     glDeleteBuffersPROC glDeleteBuffers = (glDeleteBuffersPROC)tlsGetFunction(297);
-    const intptr_t buffers = (const intptr_t)buffersAddress;
+    intptr_t buffers = (intptr_t)buffersAddress;
     UNUSED_PARAM(clazz)
     glDeleteBuffers(n, buffers);
 }
@@ -56,14 +56,14 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_opengl_GL15_glIsBuffer(JNIEnv *__env, 
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglBufferData__IJJI(JNIEnv *__env, jclass clazz, jint target, jlong size, jlong dataAddress, jint usage) {
     glBufferDataPROC glBufferData = (glBufferDataPROC)tlsGetFunction(93);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glBufferData(target, (intptr_t)size, data, usage);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglBufferSubData__IJJJ(JNIEnv *__env, jclass clazz, jint target, jlong offset, jlong size, jlong dataAddress) {
     glBufferSubDataPROC glBufferSubData = (glBufferSubDataPROC)tlsGetFunction(99);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glBufferSubData(target, (intptr_t)offset, (intptr_t)size, data);
 }
@@ -110,7 +110,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglGenQueries__IJ(JNIEnv *__en
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL15_nglDeleteQueries__IJ(JNIEnv *__env, jclass clazz, jint n, jlong idsAddress) {
     glDeleteQueriesPROC glDeleteQueries = (glDeleteQueriesPROC)tlsGetFunction(313);
-    const intptr_t ids = (const intptr_t)idsAddress;
+    intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDeleteQueries(n, ids);
 }

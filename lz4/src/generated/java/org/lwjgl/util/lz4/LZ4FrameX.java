@@ -96,7 +96,7 @@ public class LZ4FrameX {
      * @param dictBuffer 
      */
     @NativeType("LZ4F_CDict *")
-    public static long LZ4F_createCDict(@NativeType("const void *") ByteBuffer dictBuffer) {
+    public static long LZ4F_createCDict(@NativeType("void const *") ByteBuffer dictBuffer) {
         return nLZ4F_createCDict(memAddress(dictBuffer), dictBuffer.remaining());
     }
 
@@ -132,7 +132,7 @@ public class LZ4FrameX {
      * @return number of bytes written into {@code dstBuffer} or an error code if it fails (can be tested using {@link LZ4Frame#LZ4F_isError isError})
      */
     @NativeType("size_t")
-    public static long LZ4F_compressFrame_usingCDict(@NativeType("void *") ByteBuffer dst, @NativeType("const void *") ByteBuffer src, @NativeType("const LZ4F_CDict *") long cdict, @NativeType("const LZ4F_preferences_t *") LZ4FPreferences preferencesPtr) {
+    public static long LZ4F_compressFrame_usingCDict(@NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, @NativeType("LZ4F_CDict const *") long cdict, @NativeType("LZ4F_preferences_t const *") LZ4FPreferences preferencesPtr) {
         return nLZ4F_compressFrame_usingCDict(memAddress(dst), dst.remaining(), memAddress(src), src.remaining(), cdict, preferencesPtr.address());
     }
 
@@ -154,7 +154,7 @@ public class LZ4FrameX {
      * @return number of bytes written into {@code dstBuffer} for the header, or an error code (which can be tested using {@link LZ4Frame#LZ4F_isError isError})
      */
     @NativeType("size_t")
-    public static long LZ4F_compressBegin_usingCDict(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("const LZ4F_CDict *") long cdict, @NativeType("const LZ4F_preferences_t *") LZ4FPreferences prefsPtr) {
+    public static long LZ4F_compressBegin_usingCDict(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("LZ4F_CDict const *") long cdict, @NativeType("LZ4F_preferences_t const *") LZ4FPreferences prefsPtr) {
         if (CHECKS) {
             check(cctx);
             check(cdict);
@@ -181,7 +181,7 @@ public class LZ4FrameX {
      * @param decompressOptionsPtr 
      */
     @NativeType("size_t")
-    public static long LZ4F_decompress_usingDict(@NativeType("LZ4F_dctx *") long dctxPtr, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("size_t *") PointerBuffer dstSizePtr, @NativeType("const void *") ByteBuffer srcBuffer, @NativeType("size_t *") PointerBuffer srcSizePtr, @NativeType("const void *") ByteBuffer dict, @NativeType("const LZ4F_decompressOptions_t *") LZ4FDecompressOptions decompressOptionsPtr) {
+    public static long LZ4F_decompress_usingDict(@NativeType("LZ4F_dctx *") long dctxPtr, @NativeType("void *") ByteBuffer dstBuffer, @NativeType("size_t *") PointerBuffer dstSizePtr, @NativeType("void const *") ByteBuffer srcBuffer, @NativeType("size_t *") PointerBuffer srcSizePtr, @NativeType("void const *") ByteBuffer dict, @NativeType("LZ4F_decompressOptions_t const *") LZ4FDecompressOptions decompressOptionsPtr) {
         if (CHECKS) {
             check(dctxPtr);
             check(dstSizePtr, 1);

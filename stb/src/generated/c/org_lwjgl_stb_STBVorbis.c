@@ -47,17 +47,17 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1file_1off
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1pushdata__JIJJJ(JNIEnv *__env, jclass clazz, jlong datablockAddress, jint datablock_length_in_bytes, jlong datablock_memory_consumed_in_bytesAddress, jlong errorAddress, jlong alloc_bufferAddress) {
-    const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
+    unsigned char const *datablock = (unsigned char const *)(intptr_t)datablockAddress;
     int *datablock_memory_consumed_in_bytes = (int *)(intptr_t)datablock_memory_consumed_in_bytesAddress;
     int *error = (int *)(intptr_t)errorAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)stb_vorbis_open_pushdata(datablock, datablock_length_in_bytes, datablock_memory_consumed_in_bytes, error, alloc_buffer);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_1pushdata__JJIJJJ(JNIEnv *__env, jclass clazz, jlong fAddress, jlong datablockAddress, jint datablock_length_in_bytes, jlong channelsAddress, jlong outputAddress, jlong samplesAddress) {
     stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
-    const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
+    unsigned char const *datablock = (unsigned char const *)(intptr_t)datablockAddress;
     int *channels = (int *)(intptr_t)channelsAddress;
     float ***output = (float ***)(intptr_t)outputAddress;
     int *samples = (int *)(intptr_t)samplesAddress;
@@ -72,7 +72,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1flush_1pushdat
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filename__JJJJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jlong channelsAddress, jlong sample_rateAddress, jlong outputAddress) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
     int *channels = (int *)(intptr_t)channelsAddress;
     int *sample_rate = (int *)(intptr_t)sample_rateAddress;
     short **output = (short **)(intptr_t)outputAddress;
@@ -81,7 +81,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filena
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1memory__JIJJJ(JNIEnv *__env, jclass clazz, jlong memAddress, jint len, jlong channelsAddress, jlong sample_rateAddress, jlong outputAddress) {
-    const unsigned char *mem = (const unsigned char *)(intptr_t)memAddress;
+    unsigned char const *mem = (unsigned char const *)(intptr_t)memAddress;
     int *channels = (int *)(intptr_t)channelsAddress;
     int *sample_rate = (int *)(intptr_t)sample_rateAddress;
     short **output = (short **)(intptr_t)outputAddress;
@@ -90,17 +90,17 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1memory
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1memory__JIJJ(JNIEnv *__env, jclass clazz, jlong memAddress, jint len, jlong errorAddress, jlong alloc_bufferAddress) {
-    const unsigned char *mem = (const unsigned char *)(intptr_t)memAddress;
+    unsigned char const *mem = (unsigned char const *)(intptr_t)memAddress;
     int *error = (int *)(intptr_t)errorAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)stb_vorbis_open_memory(mem, len, error, alloc_buffer);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1filename__JJJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jlong errorAddress, jlong alloc_bufferAddress) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
     int *error = (int *)(intptr_t)errorAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)stb_vorbis_open_filename(filename, error, alloc_buffer);
 }
@@ -186,8 +186,8 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1get_1samples_1
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1pushdata__JI_3I_3IJ(JNIEnv *__env, jclass clazz, jlong datablockAddress, jint datablock_length_in_bytes, jintArray datablock_memory_consumed_in_bytesAddress, jintArray errorAddress, jlong alloc_bufferAddress) {
-    const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    unsigned char const *datablock = (unsigned char const *)(intptr_t)datablockAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     jlong __result;
     jint *datablock_memory_consumed_in_bytes = (*__env)->GetPrimitiveArrayCritical(__env, datablock_memory_consumed_in_bytesAddress, 0);
     jint *error = (*__env)->GetPrimitiveArrayCritical(__env, errorAddress, 0);
@@ -198,8 +198,8 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1pushdat
     return __result;
 }
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1pushdata__JI_3I_3IJ(jlong datablockAddress, jint datablock_length_in_bytes, jint datablock_memory_consumed_in_bytes__length, jint* datablock_memory_consumed_in_bytes, jint error__length, jint* error, jlong alloc_bufferAddress) {
-    const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    unsigned char const *datablock = (unsigned char const *)(intptr_t)datablockAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     UNUSED_PARAM(datablock_memory_consumed_in_bytes__length)
     UNUSED_PARAM(error__length)
     return (jlong)(intptr_t)stb_vorbis_open_pushdata(datablock, datablock_length_in_bytes, (int *)datablock_memory_consumed_in_bytes, (int *)error, alloc_buffer);
@@ -207,7 +207,7 @@ JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_1pushdata__JJI_3IJ_3I(JNIEnv *__env, jclass clazz, jlong fAddress, jlong datablockAddress, jint datablock_length_in_bytes, jintArray channelsAddress, jlong outputAddress, jintArray samplesAddress) {
     stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
-    const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
+    unsigned char const *datablock = (unsigned char const *)(intptr_t)datablockAddress;
     float ***output = (float ***)(intptr_t)outputAddress;
     jint __result;
     jint *channels = channelsAddress == NULL ? NULL : (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
@@ -221,7 +221,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_
 #ifdef LWJGL_WINDOWS
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1frame_1pushdata__JJI_3IJ_3I(jlong fAddress, jlong datablockAddress, jint datablock_length_in_bytes, jint channels__length, jint* channels, jlong outputAddress, jint samples__length, jint* samples) {
     stb_vorbis *f = (stb_vorbis *)(intptr_t)fAddress;
-    const unsigned char *datablock = (const unsigned char *)(intptr_t)datablockAddress;
+    unsigned char const *datablock = (unsigned char const *)(intptr_t)datablockAddress;
     float ***output = (float ***)(intptr_t)outputAddress;
     UNUSED_PARAM(channels__length)
     UNUSED_PARAM(samples__length)
@@ -230,7 +230,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode
 #endif
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filename__J_3I_3IJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jintArray channelsAddress, jintArray sample_rateAddress, jlong outputAddress) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
     short **output = (short **)(intptr_t)outputAddress;
     jint __result;
     jint *channels = (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
@@ -242,7 +242,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filena
     return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1filename__J_3I_3IJ(jlong filenameAddress, jint channels__length, jint* channels, jint sample_rate__length, jint* sample_rate, jlong outputAddress) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
     short **output = (short **)(intptr_t)outputAddress;
     UNUSED_PARAM(channels__length)
     UNUSED_PARAM(sample_rate__length)
@@ -250,7 +250,7 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1memory__JI_3I_3IJ(JNIEnv *__env, jclass clazz, jlong memAddress, jint len, jintArray channelsAddress, jintArray sample_rateAddress, jlong outputAddress) {
-    const unsigned char *mem = (const unsigned char *)(intptr_t)memAddress;
+    unsigned char const *mem = (unsigned char const *)(intptr_t)memAddress;
     short **output = (short **)(intptr_t)outputAddress;
     jint __result;
     jint *channels = (*__env)->GetPrimitiveArrayCritical(__env, channelsAddress, 0);
@@ -262,7 +262,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1memory
     return __result;
 }
 JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode_1memory__JI_3I_3IJ(jlong memAddress, jint len, jint channels__length, jint* channels, jint sample_rate__length, jint* sample_rate, jlong outputAddress) {
-    const unsigned char *mem = (const unsigned char *)(intptr_t)memAddress;
+    unsigned char const *mem = (unsigned char const *)(intptr_t)memAddress;
     short **output = (short **)(intptr_t)outputAddress;
     UNUSED_PARAM(channels__length)
     UNUSED_PARAM(sample_rate__length)
@@ -270,8 +270,8 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1decode
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1memory__JI_3IJ(JNIEnv *__env, jclass clazz, jlong memAddress, jint len, jintArray errorAddress, jlong alloc_bufferAddress) {
-    const unsigned char *mem = (const unsigned char *)(intptr_t)memAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    unsigned char const *mem = (unsigned char const *)(intptr_t)memAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     jlong __result;
     jint *error = (*__env)->GetPrimitiveArrayCritical(__env, errorAddress, 0);
     UNUSED_PARAMS(__env, clazz)
@@ -280,15 +280,15 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1memory_
     return __result;
 }
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1memory__JI_3IJ(jlong memAddress, jint len, jint error__length, jint* error, jlong alloc_bufferAddress) {
-    const unsigned char *mem = (const unsigned char *)(intptr_t)memAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    unsigned char const *mem = (unsigned char const *)(intptr_t)memAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     UNUSED_PARAM(error__length)
     return (jlong)(intptr_t)stb_vorbis_open_memory(mem, len, (int *)error, alloc_buffer);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1filename__J_3IJ(JNIEnv *__env, jclass clazz, jlong filenameAddress, jintArray errorAddress, jlong alloc_bufferAddress) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     jlong __result;
     jint *error = (*__env)->GetPrimitiveArrayCritical(__env, errorAddress, 0);
     UNUSED_PARAMS(__env, clazz)
@@ -297,8 +297,8 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1filenam
     return __result;
 }
 JNIEXPORT jlong JNICALL JavaCritical_org_lwjgl_stb_STBVorbis_nstb_1vorbis_1open_1filename__J_3IJ(jlong filenameAddress, jint error__length, jint* error, jlong alloc_bufferAddress) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
-    const stb_vorbis_alloc *alloc_buffer = (const stb_vorbis_alloc *)(intptr_t)alloc_bufferAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
+    stb_vorbis_alloc const *alloc_buffer = (stb_vorbis_alloc const *)(intptr_t)alloc_bufferAddress;
     UNUSED_PARAM(error__length)
     return (jlong)(intptr_t)stb_vorbis_open_filename(filename, (int *)error, alloc_buffer);
 }

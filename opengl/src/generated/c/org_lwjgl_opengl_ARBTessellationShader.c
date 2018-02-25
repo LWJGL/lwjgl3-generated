@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glPatchParameteriPROC) (jint, jint);
-typedef void (APIENTRY *glPatchParameterfvPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glPatchParameterfvPROC) (jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -19,7 +19,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTessellationShader_glPatchParame
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBTessellationShader_nglPatchParameterfv__IJ(JNIEnv *__env, jclass clazz, jint pname, jlong valuesAddress) {
     glPatchParameterfvPROC glPatchParameterfv = (glPatchParameterfvPROC)tlsGetFunction(1211);
-    const intptr_t values = (const intptr_t)valuesAddress;
+    intptr_t values = (intptr_t)valuesAddress;
     UNUSED_PARAM(clazz)
     glPatchParameterfv(pname, values);
 }

@@ -7,8 +7,8 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glGenQueryResourceTagNVPROC) (jint, intptr_t);
-typedef void (APIENTRY *glDeleteQueryResourceTagNVPROC) (jint, const intptr_t);
-typedef void (APIENTRY *glQueryResourceTagNVPROC) (jint, const intptr_t);
+typedef void (APIENTRY *glDeleteQueryResourceTagNVPROC) (jint, intptr_t);
+typedef void (APIENTRY *glQueryResourceTagNVPROC) (jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -21,14 +21,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVQueryResourceTag_nglGenQueryResou
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVQueryResourceTag_nglDeleteQueryResourceTagNV__IJ(JNIEnv *__env, jclass clazz, jint n, jlong tagIdsAddress) {
     glDeleteQueryResourceTagNVPROC glDeleteQueryResourceTagNV = (glDeleteQueryResourceTagNVPROC)tlsGetFunction(315);
-    const intptr_t tagIds = (const intptr_t)tagIdsAddress;
+    intptr_t tagIds = (intptr_t)tagIdsAddress;
     UNUSED_PARAM(clazz)
     glDeleteQueryResourceTagNV(n, tagIds);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVQueryResourceTag_nglQueryResourceTagNV(JNIEnv *__env, jclass clazz, jint tagId, jlong tagStringAddress) {
     glQueryResourceTagNVPROC glQueryResourceTagNV = (glQueryResourceTagNVPROC)tlsGetFunction(1439);
-    const intptr_t tagString = (const intptr_t)tagStringAddress;
+    intptr_t tagString = (intptr_t)tagStringAddress;
     UNUSED_PARAM(clazz)
     glQueryResourceTagNV(tagId, tagString);
 }

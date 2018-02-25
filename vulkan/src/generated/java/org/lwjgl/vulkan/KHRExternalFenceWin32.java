@@ -141,7 +141,7 @@ public class KHRExternalFenceWin32 {
      * @param pImportFenceWin32HandleInfo points to a {@link VkImportFenceWin32HandleInfoKHR} structure specifying the fence and import parameters.
      */
     @NativeType("VkResult")
-    public static int vkImportFenceWin32HandleKHR(VkDevice device, @NativeType("const VkImportFenceWin32HandleInfoKHR *") VkImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo) {
+    public static int vkImportFenceWin32HandleKHR(VkDevice device, @NativeType("VkImportFenceWin32HandleInfoKHR const *") VkImportFenceWin32HandleInfoKHR pImportFenceWin32HandleInfo) {
         return nvkImportFenceWin32HandleKHR(device, pImportFenceWin32HandleInfo.address());
     }
 
@@ -206,7 +206,7 @@ public class KHRExternalFenceWin32 {
      * @param pHandle             will return the Windows handle representing the fence state.
      */
     @NativeType("VkResult")
-    public static int vkGetFenceWin32HandleKHR(VkDevice device, @NativeType("const VkFenceGetWin32HandleInfoKHR *") VkFenceGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
+    public static int vkGetFenceWin32HandleKHR(VkDevice device, @NativeType("VkFenceGetWin32HandleInfoKHR const *") VkFenceGetWin32HandleInfoKHR pGetWin32HandleInfo, @NativeType("HANDLE *") PointerBuffer pHandle) {
         if (CHECKS) {
             check(pHandle, 1);
         }

@@ -68,13 +68,13 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkBufferCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkBufferCreateFlags flags;
  *     VkDeviceSize size;
  *     VkBufferUsageFlags usage;
  *     VkSharingMode sharingMode;
  *     uint32_t queueFamilyIndexCount;
- *     const uint32_t * pQueueFamilyIndices;
+ *     uint32_t const * pQueueFamilyIndices;
  * }</pre></code>
  */
 public class VkBufferCreateInfo extends Struct implements NativeResource {
@@ -141,7 +141,7 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkBufferCreateFlags")
@@ -160,13 +160,13 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
     public int queueFamilyIndexCount() { return nqueueFamilyIndexCount(address()); }
     /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
     @Nullable
-    @NativeType("const uint32_t *")
+    @NativeType("uint32_t const *")
     public IntBuffer pQueueFamilyIndices() { return npQueueFamilyIndices(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkBufferCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkBufferCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkBufferCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkBufferCreateInfo flags(@NativeType("VkBufferCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code size} field. */
@@ -176,7 +176,7 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sharingMode} field. */
     public VkBufferCreateInfo sharingMode(@NativeType("VkSharingMode") int value) { nsharingMode(address(), value); return this; }
     /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-    public VkBufferCreateInfo pQueueFamilyIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
+    public VkBufferCreateInfo pQueueFamilyIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { npQueueFamilyIndices(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkBufferCreateInfo set(
@@ -459,7 +459,7 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkBufferCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkBufferCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkBufferCreateFlags")
@@ -478,13 +478,13 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
         public int queueFamilyIndexCount() { return VkBufferCreateInfo.nqueueFamilyIndexCount(address()); }
         /** Returns a {@link IntBuffer} view of the data pointed to by the {@code pQueueFamilyIndices} field. */
         @Nullable
-        @NativeType("const uint32_t *")
+        @NativeType("uint32_t const *")
         public IntBuffer pQueueFamilyIndices() { return VkBufferCreateInfo.npQueueFamilyIndices(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkBufferCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkBufferCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkBufferCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkBufferCreateInfo.npNext(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkBufferCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkBufferCreateInfo.Buffer flags(@NativeType("VkBufferCreateFlags") int value) { VkBufferCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code size} field. */
@@ -494,7 +494,7 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sharingMode} field. */
         public VkBufferCreateInfo.Buffer sharingMode(@NativeType("VkSharingMode") int value) { VkBufferCreateInfo.nsharingMode(address(), value); return this; }
         /** Sets the address of the specified {@link IntBuffer} to the {@code pQueueFamilyIndices} field. */
-        public VkBufferCreateInfo.Buffer pQueueFamilyIndices(@Nullable @NativeType("const uint32_t *") IntBuffer value) { VkBufferCreateInfo.npQueueFamilyIndices(address(), value); return this; }
+        public VkBufferCreateInfo.Buffer pQueueFamilyIndices(@Nullable @NativeType("uint32_t const *") IntBuffer value) { VkBufferCreateInfo.npQueueFamilyIndices(address(), value); return this; }
 
     }
 

@@ -6,20 +6,20 @@
 #include "common_tools.h"
 #include "opengl.h"
 
-typedef void (APIENTRY *glClearBufferDataPROC) (jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glClearBufferSubDataPROC) (jint, jint, intptr_t, intptr_t, jint, jint, const intptr_t);
+typedef void (APIENTRY *glClearBufferDataPROC) (jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glClearBufferSubDataPROC) (jint, jint, intptr_t, intptr_t, jint, jint, intptr_t);
 typedef void (APIENTRY *glDispatchComputePROC) (jint, jint, jint);
 typedef void (APIENTRY *glDispatchComputeIndirectPROC) (intptr_t);
 typedef void (APIENTRY *glCopyImageSubDataPROC) (jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint, jint);
-typedef void (APIENTRY *glDebugMessageControlPROC) (jint, jint, jint, jint, const intptr_t, jboolean);
-typedef void (APIENTRY *glDebugMessageInsertPROC) (jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glDebugMessageCallbackPROC) (intptr_t, const intptr_t);
+typedef void (APIENTRY *glDebugMessageControlPROC) (jint, jint, jint, jint, intptr_t, jboolean);
+typedef void (APIENTRY *glDebugMessageInsertPROC) (jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glDebugMessageCallbackPROC) (intptr_t, intptr_t);
 typedef jint (APIENTRY *glGetDebugMessageLogPROC) (jint, jint, intptr_t, intptr_t, intptr_t, intptr_t, intptr_t, intptr_t);
-typedef void (APIENTRY *glPushDebugGroupPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glPushDebugGroupPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glPopDebugGroupPROC) (void);
-typedef void (APIENTRY *glObjectLabelPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glObjectLabelPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glGetObjectLabelPROC) (jint, jint, jint, intptr_t, intptr_t);
-typedef void (APIENTRY *glObjectPtrLabelPROC) (intptr_t, jint, const intptr_t);
+typedef void (APIENTRY *glObjectPtrLabelPROC) (intptr_t, jint, intptr_t);
 typedef void (APIENTRY *glGetObjectPtrLabelPROC) (intptr_t, jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glFramebufferParameteriPROC) (jint, jint, jint);
 typedef void (APIENTRY *glGetFramebufferParameterivPROC) (jint, jint, intptr_t);
@@ -28,16 +28,16 @@ typedef void (APIENTRY *glInvalidateTexSubImagePROC) (jint, jint, jint, jint, ji
 typedef void (APIENTRY *glInvalidateTexImagePROC) (jint, jint);
 typedef void (APIENTRY *glInvalidateBufferSubDataPROC) (jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glInvalidateBufferDataPROC) (jint);
-typedef void (APIENTRY *glInvalidateFramebufferPROC) (jint, jint, const intptr_t);
-typedef void (APIENTRY *glInvalidateSubFramebufferPROC) (jint, jint, const intptr_t, jint, jint, jint, jint);
-typedef void (APIENTRY *glMultiDrawArraysIndirectPROC) (jint, const intptr_t, jint, jint);
-typedef void (APIENTRY *glMultiDrawElementsIndirectPROC) (jint, jint, const intptr_t, jint, jint);
+typedef void (APIENTRY *glInvalidateFramebufferPROC) (jint, jint, intptr_t);
+typedef void (APIENTRY *glInvalidateSubFramebufferPROC) (jint, jint, intptr_t, jint, jint, jint, jint);
+typedef void (APIENTRY *glMultiDrawArraysIndirectPROC) (jint, intptr_t, jint, jint);
+typedef void (APIENTRY *glMultiDrawElementsIndirectPROC) (jint, jint, intptr_t, jint, jint);
 typedef void (APIENTRY *glGetProgramInterfaceivPROC) (jint, jint, jint, intptr_t);
-typedef jint (APIENTRY *glGetProgramResourceIndexPROC) (jint, jint, const intptr_t);
+typedef jint (APIENTRY *glGetProgramResourceIndexPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetProgramResourceNamePROC) (jint, jint, jint, jint, intptr_t, intptr_t);
-typedef void (APIENTRY *glGetProgramResourceivPROC) (jint, jint, jint, jint, const intptr_t, jint, intptr_t, intptr_t);
-typedef jint (APIENTRY *glGetProgramResourceLocationPROC) (jint, jint, const intptr_t);
-typedef jint (APIENTRY *glGetProgramResourceLocationIndexPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glGetProgramResourceivPROC) (jint, jint, jint, jint, intptr_t, jint, intptr_t, intptr_t);
+typedef jint (APIENTRY *glGetProgramResourceLocationPROC) (jint, jint, intptr_t);
+typedef jint (APIENTRY *glGetProgramResourceLocationIndexPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glShaderStorageBlockBindingPROC) (jint, jint, jint);
 typedef void (APIENTRY *glTexBufferRangePROC) (jint, jint, jint, intptr_t, intptr_t);
 typedef void (APIENTRY *glTexStorage2DMultisamplePROC) (jint, jint, jint, jint, jint, jboolean);
@@ -54,14 +54,14 @@ EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglClearBufferData__IIIIJ(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jint format, jint type, jlong dataAddress) {
     glClearBufferDataPROC glClearBufferData = (glClearBufferDataPROC)tlsGetFunction(112);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glClearBufferData(target, internalformat, format, type, data);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglClearBufferSubData__IIJJIIJ(JNIEnv *__env, jclass clazz, jint target, jint internalformat, jlong offset, jlong size, jint format, jint type, jlong dataAddress) {
     glClearBufferSubDataPROC glClearBufferSubData = (glClearBufferSubDataPROC)tlsGetFunction(113);
-    const intptr_t data = (const intptr_t)dataAddress;
+    intptr_t data = (intptr_t)dataAddress;
     UNUSED_PARAM(clazz)
     glClearBufferSubData(target, internalformat, (intptr_t)offset, (intptr_t)size, format, type, data);
 }
@@ -86,14 +86,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glCopyImageSubData(JNIEnv *__e
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglDebugMessageControl__IIIIJZ(JNIEnv *__env, jclass clazz, jint source, jint type, jint severity, jint count, jlong idsAddress, jboolean enabled) {
     glDebugMessageControlPROC glDebugMessageControl = (glDebugMessageControlPROC)tlsGetFunction(291);
-    const intptr_t ids = (const intptr_t)idsAddress;
+    intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageControl(source, type, severity, count, ids, enabled);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglDebugMessageInsert(JNIEnv *__env, jclass clazz, jint source, jint type, jint id, jint severity, jint length, jlong messageAddress) {
     glDebugMessageInsertPROC glDebugMessageInsert = (glDebugMessageInsertPROC)tlsGetFunction(294);
-    const intptr_t message = (const intptr_t)messageAddress;
+    intptr_t message = (intptr_t)messageAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageInsert(source, type, id, severity, length, message);
 }
@@ -101,7 +101,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglDebugMessageInsert(JNIEnv *
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglDebugMessageCallback(JNIEnv *__env, jclass clazz, jlong callbackAddress, jlong userParamAddress) {
     glDebugMessageCallbackPROC glDebugMessageCallback = (glDebugMessageCallbackPROC)tlsGetFunction(288);
     intptr_t callback = (intptr_t)callbackAddress;
-    const intptr_t userParam = (const intptr_t)userParamAddress;
+    intptr_t userParam = (intptr_t)userParamAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageCallback(callback, userParam);
 }
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL43_nglGetDebugMessageLog__IIJJJJJ
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglPushDebugGroup(JNIEnv *__env, jclass clazz, jint source, jint id, jint length, jlong messageAddress) {
     glPushDebugGroupPROC glPushDebugGroup = (glPushDebugGroupPROC)tlsGetFunction(1432);
-    const intptr_t message = (const intptr_t)messageAddress;
+    intptr_t message = (intptr_t)messageAddress;
     UNUSED_PARAM(clazz)
     glPushDebugGroup(source, id, length, message);
 }
@@ -133,7 +133,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glPopDebugGroup(JNIEnv *__env,
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglObjectLabel(JNIEnv *__env, jclass clazz, jint identifier, jint name, jint length, jlong labelAddress) {
     glObjectLabelPROC glObjectLabel = (glObjectLabelPROC)tlsGetFunction(1207);
-    const intptr_t label = (const intptr_t)labelAddress;
+    intptr_t label = (intptr_t)labelAddress;
     UNUSED_PARAM(clazz)
     glObjectLabel(identifier, name, length, label);
 }
@@ -149,7 +149,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglGetObjectLabel__IIIJJ(JNIEn
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglObjectPtrLabel(JNIEnv *__env, jclass clazz, jlong ptrAddress, jint length, jlong labelAddress) {
     glObjectPtrLabelPROC glObjectPtrLabel = (glObjectPtrLabelPROC)tlsGetFunction(1208);
     intptr_t ptr = (intptr_t)ptrAddress;
-    const intptr_t label = (const intptr_t)labelAddress;
+    intptr_t label = (intptr_t)labelAddress;
     UNUSED_PARAM(clazz)
     glObjectPtrLabel(ptr, length, label);
 }
@@ -209,28 +209,28 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_glInvalidateBufferData(JNIEnv 
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglInvalidateFramebuffer__IIJ(JNIEnv *__env, jclass clazz, jint target, jint numAttachments, jlong attachmentsAddress) {
     glInvalidateFramebufferPROC glInvalidateFramebuffer = (glInvalidateFramebufferPROC)tlsGetFunction(869);
-    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    intptr_t attachments = (intptr_t)attachmentsAddress;
     UNUSED_PARAM(clazz)
     glInvalidateFramebuffer(target, numAttachments, attachments);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglInvalidateSubFramebuffer__IIJIIII(JNIEnv *__env, jclass clazz, jint target, jint numAttachments, jlong attachmentsAddress, jint x, jint y, jint width, jint height) {
     glInvalidateSubFramebufferPROC glInvalidateSubFramebuffer = (glInvalidateSubFramebufferPROC)tlsGetFunction(872);
-    const intptr_t attachments = (const intptr_t)attachmentsAddress;
+    intptr_t attachments = (intptr_t)attachmentsAddress;
     UNUSED_PARAM(clazz)
     glInvalidateSubFramebuffer(target, numAttachments, attachments, x, y, width, height);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglMultiDrawArraysIndirect__IJII(JNIEnv *__env, jclass clazz, jint mode, jlong indirectAddress, jint primcount, jint stride) {
     glMultiDrawArraysIndirectPROC glMultiDrawArraysIndirect = (glMultiDrawArraysIndirectPROC)tlsGetFunction(1015);
-    const intptr_t indirect = (const intptr_t)indirectAddress;
+    intptr_t indirect = (intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glMultiDrawArraysIndirect(mode, indirect, primcount, stride);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglMultiDrawElementsIndirect__IIJII(JNIEnv *__env, jclass clazz, jint mode, jint type, jlong indirectAddress, jint primcount, jint stride) {
     glMultiDrawElementsIndirectPROC glMultiDrawElementsIndirect = (glMultiDrawElementsIndirectPROC)tlsGetFunction(1022);
-    const intptr_t indirect = (const intptr_t)indirectAddress;
+    intptr_t indirect = (intptr_t)indirectAddress;
     UNUSED_PARAM(clazz)
     glMultiDrawElementsIndirect(mode, type, indirect, primcount, stride);
 }
@@ -244,7 +244,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramInterfaceiv__IIIJ
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramResourceIndex(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jlong nameAddress) {
     glGetProgramResourceIndexPROC glGetProgramResourceIndex = (glGetProgramResourceIndexPROC)tlsGetFunction(674);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetProgramResourceIndex(program, programInterface, name);
 }
@@ -259,7 +259,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramResourceName__III
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramResourceiv__IIIIJIJJ(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jint index, jint propCount, jlong propsAddress, jint bufSize, jlong lengthAddress, jlong paramsAddress) {
     glGetProgramResourceivPROC glGetProgramResourceiv = (glGetProgramResourceivPROC)tlsGetFunction(679);
-    const intptr_t props = (const intptr_t)propsAddress;
+    intptr_t props = (intptr_t)propsAddress;
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
@@ -268,14 +268,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramResourceiv__IIIIJ
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramResourceLocation(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jlong nameAddress) {
     glGetProgramResourceLocationPROC glGetProgramResourceLocation = (glGetProgramResourceLocationPROC)tlsGetFunction(675);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetProgramResourceLocation(program, programInterface, name);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_GL43_nglGetProgramResourceLocationIndex(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jlong nameAddress) {
     glGetProgramResourceLocationIndexPROC glGetProgramResourceLocationIndex = (glGetProgramResourceLocationIndexPROC)tlsGetFunction(676);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetProgramResourceLocationIndex(program, programInterface, name);
 }

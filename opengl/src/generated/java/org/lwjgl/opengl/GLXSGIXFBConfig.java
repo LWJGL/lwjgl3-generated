@@ -130,7 +130,7 @@ public class GLXSGIXFBConfig {
      */
     @Nullable
     @NativeType("GLXFBConfigSGIX *")
-    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
+    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @Nullable @NativeType("int const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -252,7 +252,7 @@ public class GLXSGIXFBConfig {
     /** Array version of: {@link #glXChooseFBConfigSGIX ChooseFBConfigSGIX} */
     @Nullable
     @NativeType("GLXFBConfigSGIX *")
-    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @Nullable @NativeType("const int *") int[] attrib_list) {
+    public static PointerBuffer glXChooseFBConfigSGIX(@NativeType("Display *") long display, int screen, @Nullable @NativeType("int const *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXChooseFBConfigSGIX;
         if (CHECKS) {
             check(__functionAddress);

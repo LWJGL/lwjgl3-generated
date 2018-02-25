@@ -143,7 +143,7 @@ public class KHRExternalSemaphoreFd {
      * @param pImportSemaphoreFdInfo points to a {@link VkImportSemaphoreFdInfoKHR} structure specifying the semaphore and import parameters.
      */
     @NativeType("VkResult")
-    public static int vkImportSemaphoreFdKHR(VkDevice device, @NativeType("const VkImportSemaphoreFdInfoKHR *") VkImportSemaphoreFdInfoKHR pImportSemaphoreFdInfo) {
+    public static int vkImportSemaphoreFdKHR(VkDevice device, @NativeType("VkImportSemaphoreFdInfoKHR const *") VkImportSemaphoreFdInfoKHR pImportSemaphoreFdInfo) {
         return nvkImportSemaphoreFdKHR(device, pImportSemaphoreFdInfo.address());
     }
 
@@ -215,7 +215,7 @@ public class KHRExternalSemaphoreFd {
      * @param pFd        will return the file descriptor representing the semaphore payload.
      */
     @NativeType("VkResult")
-    public static int vkGetSemaphoreFdKHR(VkDevice device, @NativeType("const VkSemaphoreGetFdInfoKHR *") VkSemaphoreGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
+    public static int vkGetSemaphoreFdKHR(VkDevice device, @NativeType("VkSemaphoreGetFdInfoKHR const *") VkSemaphoreGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
         if (CHECKS) {
             check(pFd, 1);
         }
@@ -224,7 +224,7 @@ public class KHRExternalSemaphoreFd {
 
     /** Array version of: {@link #vkGetSemaphoreFdKHR GetSemaphoreFdKHR} */
     @NativeType("VkResult")
-    public static int vkGetSemaphoreFdKHR(VkDevice device, @NativeType("const VkSemaphoreGetFdInfoKHR *") VkSemaphoreGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
+    public static int vkGetSemaphoreFdKHR(VkDevice device, @NativeType("VkSemaphoreGetFdInfoKHR const *") VkSemaphoreGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
         long __functionAddress = device.getCapabilities().vkGetSemaphoreFdKHR;
         if (CHECKS) {
             check(__functionAddress);

@@ -138,7 +138,7 @@ public class KHRExternalMemoryFd {
      * @param pFd        will return a file descriptor representing the underlying resources of the device memory object.
      */
     @NativeType("VkResult")
-    public static int vkGetMemoryFdKHR(VkDevice device, @NativeType("const VkMemoryGetFdInfoKHR *") VkMemoryGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
+    public static int vkGetMemoryFdKHR(VkDevice device, @NativeType("VkMemoryGetFdInfoKHR const *") VkMemoryGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
         if (CHECKS) {
             check(pFd, 1);
         }
@@ -214,7 +214,7 @@ public class KHRExternalMemoryFd {
 
     /** Array version of: {@link #vkGetMemoryFdKHR GetMemoryFdKHR} */
     @NativeType("VkResult")
-    public static int vkGetMemoryFdKHR(VkDevice device, @NativeType("const VkMemoryGetFdInfoKHR *") VkMemoryGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
+    public static int vkGetMemoryFdKHR(VkDevice device, @NativeType("VkMemoryGetFdInfoKHR const *") VkMemoryGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
         long __functionAddress = device.getCapabilities().vkGetMemoryFdKHR;
         if (CHECKS) {
             check(__functionAddress);

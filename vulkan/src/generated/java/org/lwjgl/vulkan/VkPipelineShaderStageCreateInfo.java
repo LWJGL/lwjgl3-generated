@@ -74,12 +74,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkPipelineShaderStageCreateInfo {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkPipelineShaderStageCreateFlags flags;
  *     VkShaderStageFlagBits stage;
  *     VkShaderModule module;
- *     const char * pName;
- *     const {@link VkSpecializationInfo VkSpecializationInfo} * pSpecializationInfo;
+ *     char const * pName;
+ *     {@link VkSpecializationInfo VkSpecializationInfo const} * pSpecializationInfo;
  * }</pre></code>
  */
 public class VkPipelineShaderStageCreateInfo extends Struct implements NativeResource {
@@ -143,7 +143,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code flags} field. */
     @NativeType("VkPipelineShaderStageCreateFlags")
@@ -155,20 +155,20 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
     @NativeType("VkShaderModule")
     public long module() { return nmodule(address()); }
     /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pName} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public ByteBuffer pName() { return npName(address()); }
     /** Decodes the null-terminated string pointed to by the {@code pName} field. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public String pNameString() { return npNameString(address()); }
     /** Returns a {@link VkSpecializationInfo} view of the struct pointed to by the {@code pSpecializationInfo} field. */
     @Nullable
-    @NativeType("const VkSpecializationInfo *")
+    @NativeType("VkSpecializationInfo const *")
     public VkSpecializationInfo pSpecializationInfo() { return npSpecializationInfo(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
     public VkPipelineShaderStageCreateInfo sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkPipelineShaderStageCreateInfo pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkPipelineShaderStageCreateInfo pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
     public VkPipelineShaderStageCreateInfo flags(@NativeType("VkPipelineShaderStageCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code stage} field. */
@@ -176,9 +176,9 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
     /** Sets the specified value to the {@code module} field. */
     public VkPipelineShaderStageCreateInfo module(@NativeType("VkShaderModule") long value) { nmodule(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code pName} field. */
-    public VkPipelineShaderStageCreateInfo pName(@NativeType("const char *") ByteBuffer value) { npName(address(), value); return this; }
+    public VkPipelineShaderStageCreateInfo pName(@NativeType("char const *") ByteBuffer value) { npName(address(), value); return this; }
     /** Sets the address of the specified {@link VkSpecializationInfo} to the {@code pSpecializationInfo} field. */
-    public VkPipelineShaderStageCreateInfo pSpecializationInfo(@Nullable @NativeType("const VkSpecializationInfo *") VkSpecializationInfo value) { npSpecializationInfo(address(), value); return this; }
+    public VkPipelineShaderStageCreateInfo pSpecializationInfo(@Nullable @NativeType("VkSpecializationInfo const *") VkSpecializationInfo value) { npSpecializationInfo(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkPipelineShaderStageCreateInfo set(
@@ -464,7 +464,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         @NativeType("VkStructureType")
         public int sType() { return VkPipelineShaderStageCreateInfo.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkPipelineShaderStageCreateInfo.npNext(address()); }
         /** Returns the value of the {@code flags} field. */
         @NativeType("VkPipelineShaderStageCreateFlags")
@@ -476,20 +476,20 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         @NativeType("VkShaderModule")
         public long module() { return VkPipelineShaderStageCreateInfo.nmodule(address()); }
         /** Returns a {@link ByteBuffer} view of the null-terminated string pointed to by the {@code pName} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public ByteBuffer pName() { return VkPipelineShaderStageCreateInfo.npName(address()); }
         /** Decodes the null-terminated string pointed to by the {@code pName} field. */
-        @NativeType("const char *")
+        @NativeType("char const *")
         public String pNameString() { return VkPipelineShaderStageCreateInfo.npNameString(address()); }
         /** Returns a {@link VkSpecializationInfo} view of the struct pointed to by the {@code pSpecializationInfo} field. */
         @Nullable
-        @NativeType("const VkSpecializationInfo *")
+        @NativeType("VkSpecializationInfo const *")
         public VkSpecializationInfo pSpecializationInfo() { return VkPipelineShaderStageCreateInfo.npSpecializationInfo(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
         public VkPipelineShaderStageCreateInfo.Buffer sType(@NativeType("VkStructureType") int value) { VkPipelineShaderStageCreateInfo.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkPipelineShaderStageCreateInfo.Buffer pNext(@NativeType("const void *") long value) { VkPipelineShaderStageCreateInfo.npNext(address(), value); return this; }
+        public VkPipelineShaderStageCreateInfo.Buffer pNext(@NativeType("void const *") long value) { VkPipelineShaderStageCreateInfo.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
         public VkPipelineShaderStageCreateInfo.Buffer flags(@NativeType("VkPipelineShaderStageCreateFlags") int value) { VkPipelineShaderStageCreateInfo.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code stage} field. */
@@ -497,9 +497,9 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         /** Sets the specified value to the {@code module} field. */
         public VkPipelineShaderStageCreateInfo.Buffer module(@NativeType("VkShaderModule") long value) { VkPipelineShaderStageCreateInfo.nmodule(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code pName} field. */
-        public VkPipelineShaderStageCreateInfo.Buffer pName(@NativeType("const char *") ByteBuffer value) { VkPipelineShaderStageCreateInfo.npName(address(), value); return this; }
+        public VkPipelineShaderStageCreateInfo.Buffer pName(@NativeType("char const *") ByteBuffer value) { VkPipelineShaderStageCreateInfo.npName(address(), value); return this; }
         /** Sets the address of the specified {@link VkSpecializationInfo} to the {@code pSpecializationInfo} field. */
-        public VkPipelineShaderStageCreateInfo.Buffer pSpecializationInfo(@Nullable @NativeType("const VkSpecializationInfo *") VkSpecializationInfo value) { VkPipelineShaderStageCreateInfo.npSpecializationInfo(address(), value); return this; }
+        public VkPipelineShaderStageCreateInfo.Buffer pSpecializationInfo(@Nullable @NativeType("VkSpecializationInfo const *") VkSpecializationInfo value) { VkPipelineShaderStageCreateInfo.npSpecializationInfo(address(), value); return this; }
 
     }
 

@@ -53,7 +53,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkCmdReserveSpaceForCommandsInfoNVX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkObjectTableNVX objectTable;
  *     VkIndirectCommandsLayoutNVX indirectCommandsLayout;
  *     uint32_t maxSequencesCount;
@@ -114,7 +114,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code objectTable} field. */
     @NativeType("VkObjectTableNVX")
@@ -129,7 +129,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
     /** Sets the specified value to the {@code sType} field. */
     public VkCmdReserveSpaceForCommandsInfoNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkCmdReserveSpaceForCommandsInfoNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkCmdReserveSpaceForCommandsInfoNVX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code objectTable} field. */
     public VkCmdReserveSpaceForCommandsInfoNVX objectTable(@NativeType("VkObjectTableNVX") long value) { nobjectTable(address(), value); return this; }
     /** Sets the specified value to the {@code indirectCommandsLayout} field. */
@@ -379,7 +379,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
         @NativeType("VkStructureType")
         public int sType() { return VkCmdReserveSpaceForCommandsInfoNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkCmdReserveSpaceForCommandsInfoNVX.npNext(address()); }
         /** Returns the value of the {@code objectTable} field. */
         @NativeType("VkObjectTableNVX")
@@ -394,7 +394,7 @@ public class VkCmdReserveSpaceForCommandsInfoNVX extends Struct implements Nativ
         /** Sets the specified value to the {@code sType} field. */
         public VkCmdReserveSpaceForCommandsInfoNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkCmdReserveSpaceForCommandsInfoNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer pNext(@NativeType("const void *") long value) { VkCmdReserveSpaceForCommandsInfoNVX.npNext(address(), value); return this; }
+        public VkCmdReserveSpaceForCommandsInfoNVX.Buffer pNext(@NativeType("void const *") long value) { VkCmdReserveSpaceForCommandsInfoNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code objectTable} field. */
         public VkCmdReserveSpaceForCommandsInfoNVX.Buffer objectTable(@NativeType("VkObjectTableNVX") long value) { VkCmdReserveSpaceForCommandsInfoNVX.nobjectTable(address(), value); return this; }
         /** Sets the specified value to the {@code indirectCommandsLayout} field. */

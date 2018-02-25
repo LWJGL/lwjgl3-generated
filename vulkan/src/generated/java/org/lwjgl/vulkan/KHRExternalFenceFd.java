@@ -144,7 +144,7 @@ public class KHRExternalFenceFd {
      * @param pImportFenceFdInfo points to a {@link VkImportFenceFdInfoKHR} structure specifying the fence and import parameters.
      */
     @NativeType("VkResult")
-    public static int vkImportFenceFdKHR(VkDevice device, @NativeType("const VkImportFenceFdInfoKHR *") VkImportFenceFdInfoKHR pImportFenceFdInfo) {
+    public static int vkImportFenceFdKHR(VkDevice device, @NativeType("VkImportFenceFdInfoKHR const *") VkImportFenceFdInfoKHR pImportFenceFdInfo) {
         return nvkImportFenceFdKHR(device, pImportFenceFdInfo.address());
     }
 
@@ -218,7 +218,7 @@ public class KHRExternalFenceFd {
      * @param pFd        will return the file descriptor representing the fence payload.
      */
     @NativeType("VkResult")
-    public static int vkGetFenceFdKHR(VkDevice device, @NativeType("const VkFenceGetFdInfoKHR *") VkFenceGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
+    public static int vkGetFenceFdKHR(VkDevice device, @NativeType("VkFenceGetFdInfoKHR const *") VkFenceGetFdInfoKHR pGetFdInfo, @NativeType("int *") IntBuffer pFd) {
         if (CHECKS) {
             check(pFd, 1);
         }
@@ -227,7 +227,7 @@ public class KHRExternalFenceFd {
 
     /** Array version of: {@link #vkGetFenceFdKHR GetFenceFdKHR} */
     @NativeType("VkResult")
-    public static int vkGetFenceFdKHR(VkDevice device, @NativeType("const VkFenceGetFdInfoKHR *") VkFenceGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
+    public static int vkGetFenceFdKHR(VkDevice device, @NativeType("VkFenceGetFdInfoKHR const *") VkFenceGetFdInfoKHR pGetFdInfo, @NativeType("int *") int[] pFd) {
         long __functionAddress = device.getCapabilities().vkGetFenceFdKHR;
         if (CHECKS) {
             check(__functionAddress);

@@ -86,7 +86,7 @@ public class EXTPointParameters {
 
     public static native void nglPointParameterfvEXT(int pname, long params);
 
-    public static void glPointParameterfvEXT(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glPointParameterfvEXT(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -94,7 +94,7 @@ public class EXTPointParameters {
     }
 
     /** Array version of: {@link #glPointParameterfvEXT PointParameterfvEXT} */
-    public static void glPointParameterfvEXT(@NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glPointParameterfvEXT(@NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glPointParameterfvEXT;
         if (CHECKS) {
             check(__functionAddress);

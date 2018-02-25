@@ -56,7 +56,7 @@ public class MESADRMImage {
     }
 
     @NativeType("EGLImageKHR")
-    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("EGLint const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
@@ -87,7 +87,7 @@ public class MESADRMImage {
 
     /** Array version of: {@link #eglCreateDRMImageMESA CreateDRMImageMESA} */
     @NativeType("EGLImageKHR")
-    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateDRMImageMESA(@NativeType("EGLDisplay") long dpy, @Nullable @NativeType("EGLint const *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateDRMImageMESA;
         if (CHECKS) {
             check(__functionAddress);

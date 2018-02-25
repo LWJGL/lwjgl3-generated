@@ -7,7 +7,7 @@
 #include "opengles.h"
 
 typedef void (APIENTRY *glDrawArraysInstancedANGLEPROC) (jint, jint, jint, jint);
-typedef void (APIENTRY *glDrawElementsInstancedANGLEPROC) (jint, jint, jint, const intptr_t, jint);
+typedef void (APIENTRY *glDrawElementsInstancedANGLEPROC) (jint, jint, jint, intptr_t, jint);
 typedef void (APIENTRY *glVertexAttribDivisorANGLEPROC) (jint, jint);
 
 EXTERN_C_ENTER
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_glDrawArrays
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengles_ANGLEInstancedArrays_nglDrawElementsInstancedANGLE(JNIEnv *__env, jclass clazz, jint mode, jint count, jint type, jlong indicesAddress, jint primcount) {
     glDrawElementsInstancedANGLEPROC glDrawElementsInstancedANGLE = (glDrawElementsInstancedANGLEPROC)tlsGetFunction(179);
-    const intptr_t indices = (const intptr_t)indicesAddress;
+    intptr_t indices = (intptr_t)indicesAddress;
     UNUSED_PARAM(clazz)
     glDrawElementsInstancedANGLE(mode, count, type, indices, primcount);
 }

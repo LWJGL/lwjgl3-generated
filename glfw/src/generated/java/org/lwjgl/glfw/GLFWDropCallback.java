@@ -22,7 +22,7 @@ import static org.lwjgl.glfw.GLFW.*;
  * void (*) (
  *     GLFWwindow *window,
  *     int count,
- *     const char **names
+ *     char const **names
  * )</pre></code>
  *
  * @since version 3.1

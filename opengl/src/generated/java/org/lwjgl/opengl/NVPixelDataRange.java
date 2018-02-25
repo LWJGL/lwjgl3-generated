@@ -83,7 +83,7 @@ public class NVPixelDataRange {
 
     public static native void nglPixelDataRangeNV(int target, int length, long pointer);
 
-    public static void glPixelDataRangeNV(@NativeType("GLenum") int target, @NativeType("const void *") ByteBuffer pointer) {
+    public static void glPixelDataRangeNV(@NativeType("GLenum") int target, @NativeType("void const *") ByteBuffer pointer) {
         nglPixelDataRangeNV(target, pointer.remaining(), memAddress(pointer));
     }
 

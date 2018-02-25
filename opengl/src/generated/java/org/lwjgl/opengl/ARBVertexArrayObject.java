@@ -66,12 +66,12 @@ public class ARBVertexArrayObject {
      *
      * @param arrays an array containing the n names of the objects to be deleted
      */
-    public static void glDeleteVertexArrays(@NativeType("const GLuint *") IntBuffer arrays) {
+    public static void glDeleteVertexArrays(@NativeType("GLuint const *") IntBuffer arrays) {
         nglDeleteVertexArrays(arrays.remaining(), memAddress(arrays));
     }
 
     /** Deletes vertex array objects. */
-    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int array) {
+    public static void glDeleteVertexArrays(@NativeType("GLuint const *") int array) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer arrays = stack.ints(array);
@@ -123,7 +123,7 @@ public class ARBVertexArrayObject {
     public static native boolean glIsVertexArray(@NativeType("GLuint") int array);
 
     /** Array version of: {@link #glDeleteVertexArrays DeleteVertexArrays} */
-    public static void glDeleteVertexArrays(@NativeType("const GLuint *") int[] arrays) {
+    public static void glDeleteVertexArrays(@NativeType("GLuint const *") int[] arrays) {
         long __functionAddress = GL.getICD().glDeleteVertexArrays;
         if (CHECKS) {
             check(__functionAddress);

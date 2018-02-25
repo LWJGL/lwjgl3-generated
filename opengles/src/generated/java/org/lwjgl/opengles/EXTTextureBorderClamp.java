@@ -62,7 +62,7 @@ public class EXTTextureBorderClamp {
 
     public static native void nglTexParameterIivEXT(int target, int pname, long params);
 
-    public static void glTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -73,7 +73,7 @@ public class EXTTextureBorderClamp {
 
     public static native void nglTexParameterIuivEXT(int target, int pname, long params);
 
-    public static void glTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") IntBuffer params) {
+    public static void glTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -130,7 +130,7 @@ public class EXTTextureBorderClamp {
 
     public static native void nglSamplerParameterIivEXT(int sampler, int pname, long param);
 
-    public static void glSamplerParameterIivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer param) {
+    public static void glSamplerParameterIivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer param) {
         if (CHECKS) {
             check(param, 1);
         }
@@ -141,7 +141,7 @@ public class EXTTextureBorderClamp {
 
     public static native void nglSamplerParameterIuivEXT(int sampler, int pname, long param);
 
-    public static void glSamplerParameterIuivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") IntBuffer param) {
+    public static void glSamplerParameterIuivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") IntBuffer param) {
         if (CHECKS) {
             check(param, 1);
         }
@@ -195,7 +195,7 @@ public class EXTTextureBorderClamp {
     }
 
     /** Array version of: {@link #glTexParameterIivEXT TexParameterIivEXT} */
-    public static void glTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glTexParameterIivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GLES.getICD().glTexParameterIivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -205,7 +205,7 @@ public class EXTTextureBorderClamp {
     }
 
     /** Array version of: {@link #glTexParameterIuivEXT TexParameterIuivEXT} */
-    public static void glTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int[] params) {
+    public static void glTexParameterIuivEXT(@NativeType("GLenum") int target, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int[] params) {
         long __functionAddress = GLES.getICD().glTexParameterIuivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -235,7 +235,7 @@ public class EXTTextureBorderClamp {
     }
 
     /** Array version of: {@link #glSamplerParameterIivEXT SamplerParameterIivEXT} */
-    public static void glSamplerParameterIivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] param) {
+    public static void glSamplerParameterIivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] param) {
         long __functionAddress = GLES.getICD().glSamplerParameterIivEXT;
         if (CHECKS) {
             check(__functionAddress);
@@ -245,7 +245,7 @@ public class EXTTextureBorderClamp {
     }
 
     /** Array version of: {@link #glSamplerParameterIuivEXT SamplerParameterIuivEXT} */
-    public static void glSamplerParameterIuivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int[] param) {
+    public static void glSamplerParameterIuivEXT(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int[] param) {
         long __functionAddress = GLES.getICD().glSamplerParameterIuivEXT;
         if (CHECKS) {
             check(__functionAddress);

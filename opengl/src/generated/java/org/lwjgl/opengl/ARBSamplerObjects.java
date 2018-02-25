@@ -96,12 +96,12 @@ public class ARBSamplerObjects {
      *
      * @param samplers an array of sampler objects to be deleted
      */
-    public static void glDeleteSamplers(@NativeType("const GLuint *") IntBuffer samplers) {
+    public static void glDeleteSamplers(@NativeType("GLuint const *") IntBuffer samplers) {
         nglDeleteSamplers(samplers.remaining(), memAddress(samplers));
     }
 
     /** Deletes named sampler objects. */
-    public static void glDeleteSamplers(@NativeType("const GLuint *") int sampler) {
+    public static void glDeleteSamplers(@NativeType("GLuint const *") int sampler) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer samplers = stack.ints(sampler);
@@ -165,7 +165,7 @@ public class ARBSamplerObjects {
      * @param pname   the symbolic name of a sampler parameter. One of:<br><table><tr><td>{@link GL11#GL_TEXTURE_BORDER_COLOR TEXTURE_BORDER_COLOR}</td><td>{@link GL11#GL_TEXTURE_WRAP_S TEXTURE_WRAP_S}</td><td>{@link GL11#GL_TEXTURE_WRAP_T TEXTURE_WRAP_T}</td><td>{@link GL12#GL_TEXTURE_WRAP_R TEXTURE_WRAP_R}</td></tr><tr><td>{@link GL11#GL_TEXTURE_MIN_FILTER TEXTURE_MIN_FILTER}</td><td>{@link GL11#GL_TEXTURE_MAG_FILTER TEXTURE_MAG_FILTER}</td><td>{@link GL12#GL_TEXTURE_MIN_LOD TEXTURE_MIN_LOD}</td><td>{@link GL12#GL_TEXTURE_MAX_LOD TEXTURE_MAX_LOD}</td></tr><tr><td>{@link GL14#GL_TEXTURE_LOD_BIAS TEXTURE_LOD_BIAS}</td><td>{@link GL14#GL_TEXTURE_COMPARE_MODE TEXTURE_COMPARE_MODE}</td><td>{@link GL14#GL_TEXTURE_COMPARE_FUNC TEXTURE_COMPARE_FUNC}</td></tr></table>
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -184,7 +184,7 @@ public class ARBSamplerObjects {
      * @param pname   the symbolic name of a sampler parameter
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") FloatBuffer params) {
+    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") FloatBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -203,7 +203,7 @@ public class ARBSamplerObjects {
      * @param pname   the symbolic name of a sampler parameter
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") IntBuffer params) {
+    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -222,7 +222,7 @@ public class ARBSamplerObjects {
      * @param pname   the symbolic name of a sampler parameter
      * @param params  an array where the value or values of {@code pname} are stored
      */
-    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") IntBuffer params) {
+    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") IntBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -387,7 +387,7 @@ public class ARBSamplerObjects {
     }
 
     /** Array version of: {@link #glDeleteSamplers DeleteSamplers} */
-    public static void glDeleteSamplers(@NativeType("const GLuint *") int[] samplers) {
+    public static void glDeleteSamplers(@NativeType("GLuint const *") int[] samplers) {
         long __functionAddress = GL.getICD().glDeleteSamplers;
         if (CHECKS) {
             check(__functionAddress);
@@ -396,7 +396,7 @@ public class ARBSamplerObjects {
     }
 
     /** Array version of: {@link #glSamplerParameteriv SamplerParameteriv} */
-    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glSamplerParameteriv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glSamplerParameteriv;
         if (CHECKS) {
             check(__functionAddress);
@@ -406,7 +406,7 @@ public class ARBSamplerObjects {
     }
 
     /** Array version of: {@link #glSamplerParameterfv SamplerParameterfv} */
-    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLfloat *") float[] params) {
+    public static void glSamplerParameterfv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLfloat const *") float[] params) {
         long __functionAddress = GL.getICD().glSamplerParameterfv;
         if (CHECKS) {
             check(__functionAddress);
@@ -416,7 +416,7 @@ public class ARBSamplerObjects {
     }
 
     /** Array version of: {@link #glSamplerParameterIiv SamplerParameterIiv} */
-    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLint *") int[] params) {
+    public static void glSamplerParameterIiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLint const *") int[] params) {
         long __functionAddress = GL.getICD().glSamplerParameterIiv;
         if (CHECKS) {
             check(__functionAddress);
@@ -426,7 +426,7 @@ public class ARBSamplerObjects {
     }
 
     /** Array version of: {@link #glSamplerParameterIuiv SamplerParameterIuiv} */
-    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("const GLuint *") int[] params) {
+    public static void glSamplerParameterIuiv(@NativeType("GLuint") int sampler, @NativeType("GLenum") int pname, @NativeType("GLuint const *") int[] params) {
         long __functionAddress = GL.getICD().glSamplerParameterIuiv;
         if (CHECKS) {
             check(__functionAddress);

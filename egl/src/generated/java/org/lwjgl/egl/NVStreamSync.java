@@ -50,7 +50,7 @@ public class NVStreamSync {
     }
 
     @NativeType("EGLSyncKHR")
-    public static long eglCreateStreamSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int type, @NativeType("const EGLint *") IntBuffer attrib_list) {
+    public static long eglCreateStreamSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int type, @NativeType("EGLint const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNT(attrib_list, EGL10.EGL_NONE);
         }
@@ -59,7 +59,7 @@ public class NVStreamSync {
 
     /** Array version of: {@link #eglCreateStreamSyncNV CreateStreamSyncNV} */
     @NativeType("EGLSyncKHR")
-    public static long eglCreateStreamSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int type, @NativeType("const EGLint *") int[] attrib_list) {
+    public static long eglCreateStreamSyncNV(@NativeType("EGLDisplay") long dpy, @NativeType("EGLStreamKHR") long stream, @NativeType("EGLenum") int type, @NativeType("EGLint const *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateStreamSyncNV;
         if (CHECKS) {
             check(__functionAddress);

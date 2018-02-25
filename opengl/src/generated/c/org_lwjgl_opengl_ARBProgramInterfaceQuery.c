@@ -7,11 +7,11 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glGetProgramInterfaceivPROC) (jint, jint, jint, intptr_t);
-typedef jint (APIENTRY *glGetProgramResourceIndexPROC) (jint, jint, const intptr_t);
+typedef jint (APIENTRY *glGetProgramResourceIndexPROC) (jint, jint, intptr_t);
 typedef void (APIENTRY *glGetProgramResourceNamePROC) (jint, jint, jint, jint, intptr_t, intptr_t);
-typedef void (APIENTRY *glGetProgramResourceivPROC) (jint, jint, jint, jint, const intptr_t, jint, intptr_t, intptr_t);
-typedef jint (APIENTRY *glGetProgramResourceLocationPROC) (jint, jint, const intptr_t);
-typedef jint (APIENTRY *glGetProgramResourceLocationIndexPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glGetProgramResourceivPROC) (jint, jint, jint, jint, intptr_t, jint, intptr_t, intptr_t);
+typedef jint (APIENTRY *glGetProgramResourceLocationPROC) (jint, jint, intptr_t);
+typedef jint (APIENTRY *glGetProgramResourceLocationIndexPROC) (jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -24,7 +24,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBProgramInterfaceQuery_nglGetProg
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBProgramInterfaceQuery_nglGetProgramResourceIndex(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jlong nameAddress) {
     glGetProgramResourceIndexPROC glGetProgramResourceIndex = (glGetProgramResourceIndexPROC)tlsGetFunction(674);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetProgramResourceIndex(program, programInterface, name);
 }
@@ -39,7 +39,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBProgramInterfaceQuery_nglGetProg
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBProgramInterfaceQuery_nglGetProgramResourceiv__IIIIJIJJ(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jint index, jint propCount, jlong propsAddress, jint bufSize, jlong lengthAddress, jlong paramsAddress) {
     glGetProgramResourceivPROC glGetProgramResourceiv = (glGetProgramResourceivPROC)tlsGetFunction(679);
-    const intptr_t props = (const intptr_t)propsAddress;
+    intptr_t props = (intptr_t)propsAddress;
     intptr_t length = (intptr_t)lengthAddress;
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
@@ -48,14 +48,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBProgramInterfaceQuery_nglGetProg
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBProgramInterfaceQuery_nglGetProgramResourceLocation(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jlong nameAddress) {
     glGetProgramResourceLocationPROC glGetProgramResourceLocation = (glGetProgramResourceLocationPROC)tlsGetFunction(675);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetProgramResourceLocation(program, programInterface, name);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_ARBProgramInterfaceQuery_nglGetProgramResourceLocationIndex(JNIEnv *__env, jclass clazz, jint program, jint programInterface, jlong nameAddress) {
     glGetProgramResourceLocationIndexPROC glGetProgramResourceLocationIndex = (glGetProgramResourceLocationIndexPROC)tlsGetFunction(676);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     return (jint)glGetProgramResourceLocationIndex(program, programInterface, name);
 }

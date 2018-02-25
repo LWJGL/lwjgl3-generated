@@ -55,7 +55,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDisplayPresentInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     {@link VkRect2D VkRect2D} srcRect;
  *     {@link VkRect2D VkRect2D} dstRect;
  *     VkBool32 persistent;
@@ -116,7 +116,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link VkRect2D} view of the {@code srcRect} field. */
     public VkRect2D srcRect() { return nsrcRect(address()); }
@@ -129,7 +129,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code sType} field. */
     public VkDisplayPresentInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDisplayPresentInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDisplayPresentInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Copies the specified {@link VkRect2D} to the {@code srcRect} field. */
     public VkDisplayPresentInfoKHR srcRect(VkRect2D value) { nsrcRect(address(), value); return this; }
     /** Copies the specified {@link VkRect2D} to the {@code dstRect} field. */
@@ -379,7 +379,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
         @NativeType("VkStructureType")
         public int sType() { return VkDisplayPresentInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDisplayPresentInfoKHR.npNext(address()); }
         /** Returns a {@link VkRect2D} view of the {@code srcRect} field. */
         public VkRect2D srcRect() { return VkDisplayPresentInfoKHR.nsrcRect(address()); }
@@ -392,7 +392,7 @@ public class VkDisplayPresentInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code sType} field. */
         public VkDisplayPresentInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkDisplayPresentInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDisplayPresentInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkDisplayPresentInfoKHR.npNext(address(), value); return this; }
+        public VkDisplayPresentInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkDisplayPresentInfoKHR.npNext(address(), value); return this; }
         /** Copies the specified {@link VkRect2D} to the {@code srcRect} field. */
         public VkDisplayPresentInfoKHR.Buffer srcRect(VkRect2D value) { VkDisplayPresentInfoKHR.nsrcRect(address(), value); return this; }
         /** Copies the specified {@link VkRect2D} to the {@code dstRect} field. */

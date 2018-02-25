@@ -125,7 +125,7 @@ public class KHRGetMemoryRequirements2 {
      * @param pInfo               a pointer to an instance of the {@link VkImageMemoryRequirementsInfo2KHR} structure containing parameters required for the memory requirements query.
      * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements2KHR} structure in which the memory requirements of the image object are returned.
      */
-    public static void vkGetImageMemoryRequirements2KHR(VkDevice device, @NativeType("const VkImageMemoryRequirementsInfo2KHR *") VkImageMemoryRequirementsInfo2KHR pInfo, @NativeType("VkMemoryRequirements2KHR *") VkMemoryRequirements2KHR pMemoryRequirements) {
+    public static void vkGetImageMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageMemoryRequirementsInfo2KHR const *") VkImageMemoryRequirementsInfo2KHR pInfo, @NativeType("VkMemoryRequirements2KHR *") VkMemoryRequirements2KHR pMemoryRequirements) {
         nvkGetImageMemoryRequirements2KHR(device, pInfo.address(), pMemoryRequirements.address());
     }
 
@@ -169,7 +169,7 @@ public class KHRGetMemoryRequirements2 {
      * @param pInfo               a pointer to an instance of the {@link VkBufferMemoryRequirementsInfo2KHR} structure containing parameters required for the memory requirements query.
      * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements2KHR} structure in which the memory requirements of the buffer object are returned.
      */
-    public static void vkGetBufferMemoryRequirements2KHR(VkDevice device, @NativeType("const VkBufferMemoryRequirementsInfo2KHR *") VkBufferMemoryRequirementsInfo2KHR pInfo, @NativeType("VkMemoryRequirements2KHR *") VkMemoryRequirements2KHR pMemoryRequirements) {
+    public static void vkGetBufferMemoryRequirements2KHR(VkDevice device, @NativeType("VkBufferMemoryRequirementsInfo2KHR const *") VkBufferMemoryRequirementsInfo2KHR pInfo, @NativeType("VkMemoryRequirements2KHR *") VkMemoryRequirements2KHR pMemoryRequirements) {
         nvkGetBufferMemoryRequirements2KHR(device, pInfo.address(), pMemoryRequirements.address());
     }
 
@@ -183,7 +183,7 @@ public class KHRGetMemoryRequirements2 {
         callPPPPV(__functionAddress, device.address(), pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
     }
 
-    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("const VkImageSparseMemoryRequirementsInfo2KHR *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") IntBuffer pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
+    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageSparseMemoryRequirementsInfo2KHR const *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") IntBuffer pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
         if (CHECKS) {
             check(pSparseMemoryRequirementCount, 1);
             checkSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
@@ -192,7 +192,7 @@ public class KHRGetMemoryRequirements2 {
     }
 
     /** Array version of: {@link #vkGetImageSparseMemoryRequirements2KHR GetImageSparseMemoryRequirements2KHR} */
-    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("const VkImageSparseMemoryRequirementsInfo2KHR *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") int[] pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
+    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageSparseMemoryRequirementsInfo2KHR const *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") int[] pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
         long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements2KHR;
         if (CHECKS) {
             check(__functionAddress);

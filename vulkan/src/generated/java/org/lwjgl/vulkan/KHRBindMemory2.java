@@ -140,7 +140,7 @@ public class KHRBindMemory2 {
      * @param pBindInfos a pointer to an array of structures of type {@link VkBindBufferMemoryInfoKHR}, describing buffers and memory to bind.
      */
     @NativeType("VkResult")
-    public static int vkBindBufferMemory2KHR(VkDevice device, @NativeType("const VkBindBufferMemoryInfoKHR *") VkBindBufferMemoryInfoKHR.Buffer pBindInfos) {
+    public static int vkBindBufferMemory2KHR(VkDevice device, @NativeType("VkBindBufferMemoryInfoKHR const *") VkBindBufferMemoryInfoKHR.Buffer pBindInfos) {
         return nvkBindBufferMemory2KHR(device, pBindInfos.remaining(), pBindInfos.address());
     }
 
@@ -206,7 +206,7 @@ public class KHRBindMemory2 {
      * @param pBindInfos a pointer to an array of structures of type {@link VkBindImageMemoryInfoKHR}, describing images and memory to bind.
      */
     @NativeType("VkResult")
-    public static int vkBindImageMemory2KHR(VkDevice device, @NativeType("const VkBindImageMemoryInfoKHR *") VkBindImageMemoryInfoKHR.Buffer pBindInfos) {
+    public static int vkBindImageMemory2KHR(VkDevice device, @NativeType("VkBindImageMemoryInfoKHR const *") VkBindImageMemoryInfoKHR.Buffer pBindInfos) {
         return nvkBindImageMemory2KHR(device, pBindInfos.remaining(), pBindInfos.address());
     }
 

@@ -75,7 +75,7 @@ public class ARBDrawInstanced {
      * @param indices   a pointer to the location where the indices are stored
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("const void *") long indices, @NativeType("GLsizei") int primcount) {
+    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("GLsizei") int count, @NativeType("GLenum") int type, @NativeType("void const *") long indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedARB(mode, count, type, indices, primcount);
     }
 
@@ -87,7 +87,7 @@ public class ARBDrawInstanced {
      * @param indices   a pointer to the location where the indices are stored
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
+    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("GLenum") int type, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedARB(mode, indices.remaining() >> GLChecks.typeToByteShift(type), type, memAddress(indices), primcount);
     }
 
@@ -98,7 +98,7 @@ public class ARBDrawInstanced {
      * @param indices   a pointer to the location where the indices are stored
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("const void *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
+    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("void const *") ByteBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_BYTE, memAddress(indices), primcount);
     }
 
@@ -109,7 +109,7 @@ public class ARBDrawInstanced {
      * @param indices   a pointer to the location where the indices are stored
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("const void *") ShortBuffer indices, @NativeType("GLsizei") int primcount) {
+    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("void const *") ShortBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_SHORT, memAddress(indices), primcount);
     }
 
@@ -120,7 +120,7 @@ public class ARBDrawInstanced {
      * @param indices   a pointer to the location where the indices are stored
      * @param primcount the number of instances of the specified range of indices to be rendered
      */
-    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("const void *") IntBuffer indices, @NativeType("GLsizei") int primcount) {
+    public static void glDrawElementsInstancedARB(@NativeType("GLenum") int mode, @NativeType("void const *") IntBuffer indices, @NativeType("GLsizei") int primcount) {
         nglDrawElementsInstancedARB(mode, indices.remaining(), GL11.GL_UNSIGNED_INT, memAddress(indices), primcount);
     }
 

@@ -55,7 +55,7 @@ import static org.lwjgl.vulkan.KHXDeviceGroupCreation.*;
  * <code><pre>
  * struct VkDeviceGroupPresentCapabilitiesKHX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t presentMask[VK_MAX_DEVICE_GROUP_SIZE_KHX];
  *     VkDeviceGroupPresentModeFlagsKHX modes;
  * }</pre></code>
@@ -112,7 +112,7 @@ public class VkDeviceGroupPresentCapabilitiesKHX extends Struct implements Nativ
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns a {@link IntBuffer} view of the {@code presentMask} field. */
     @NativeType("uint32_t[VK_MAX_DEVICE_GROUP_SIZE_KHX]")
@@ -328,7 +328,7 @@ public class VkDeviceGroupPresentCapabilitiesKHX extends Struct implements Nativ
         @NativeType("VkStructureType")
         public int sType() { return VkDeviceGroupPresentCapabilitiesKHX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDeviceGroupPresentCapabilitiesKHX.npNext(address()); }
         /** Returns a {@link IntBuffer} view of the {@code presentMask} field. */
         @NativeType("uint32_t[VK_MAX_DEVICE_GROUP_SIZE_KHX]")

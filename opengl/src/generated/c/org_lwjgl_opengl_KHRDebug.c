@@ -6,29 +6,29 @@
 #include "common_tools.h"
 #include "opengl.h"
 
-typedef void (APIENTRY *glDebugMessageControlPROC) (jint, jint, jint, jint, const intptr_t, jboolean);
-typedef void (APIENTRY *glDebugMessageInsertPROC) (jint, jint, jint, jint, jint, const intptr_t);
-typedef void (APIENTRY *glDebugMessageCallbackPROC) (intptr_t, const intptr_t);
+typedef void (APIENTRY *glDebugMessageControlPROC) (jint, jint, jint, jint, intptr_t, jboolean);
+typedef void (APIENTRY *glDebugMessageInsertPROC) (jint, jint, jint, jint, jint, intptr_t);
+typedef void (APIENTRY *glDebugMessageCallbackPROC) (intptr_t, intptr_t);
 typedef jint (APIENTRY *glGetDebugMessageLogPROC) (jint, jint, intptr_t, intptr_t, intptr_t, intptr_t, intptr_t, intptr_t);
-typedef void (APIENTRY *glPushDebugGroupPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glPushDebugGroupPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glPopDebugGroupPROC) (void);
-typedef void (APIENTRY *glObjectLabelPROC) (jint, jint, jint, const intptr_t);
+typedef void (APIENTRY *glObjectLabelPROC) (jint, jint, jint, intptr_t);
 typedef void (APIENTRY *glGetObjectLabelPROC) (jint, jint, jint, intptr_t, intptr_t);
-typedef void (APIENTRY *glObjectPtrLabelPROC) (intptr_t, jint, const intptr_t);
+typedef void (APIENTRY *glObjectPtrLabelPROC) (intptr_t, jint, intptr_t);
 typedef void (APIENTRY *glGetObjectPtrLabelPROC) (intptr_t, jint, intptr_t, intptr_t);
 
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglDebugMessageControl__IIIIJZ(JNIEnv *__env, jclass clazz, jint source, jint type, jint severity, jint count, jlong idsAddress, jboolean enabled) {
     glDebugMessageControlPROC glDebugMessageControl = (glDebugMessageControlPROC)tlsGetFunction(291);
-    const intptr_t ids = (const intptr_t)idsAddress;
+    intptr_t ids = (intptr_t)idsAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageControl(source, type, severity, count, ids, enabled);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglDebugMessageInsert(JNIEnv *__env, jclass clazz, jint source, jint type, jint id, jint severity, jint length, jlong messageAddress) {
     glDebugMessageInsertPROC glDebugMessageInsert = (glDebugMessageInsertPROC)tlsGetFunction(294);
-    const intptr_t message = (const intptr_t)messageAddress;
+    intptr_t message = (intptr_t)messageAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageInsert(source, type, id, severity, length, message);
 }
@@ -36,7 +36,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglDebugMessageInsert(JNIE
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglDebugMessageCallback(JNIEnv *__env, jclass clazz, jlong callbackAddress, jlong userParamAddress) {
     glDebugMessageCallbackPROC glDebugMessageCallback = (glDebugMessageCallbackPROC)tlsGetFunction(288);
     intptr_t callback = (intptr_t)callbackAddress;
-    const intptr_t userParam = (const intptr_t)userParamAddress;
+    intptr_t userParam = (intptr_t)userParamAddress;
     UNUSED_PARAM(clazz)
     glDebugMessageCallback(callback, userParam);
 }
@@ -55,7 +55,7 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_KHRDebug_nglGetDebugMessageLog__IIJ
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglPushDebugGroup(JNIEnv *__env, jclass clazz, jint source, jint id, jint length, jlong messageAddress) {
     glPushDebugGroupPROC glPushDebugGroup = (glPushDebugGroupPROC)tlsGetFunction(1432);
-    const intptr_t message = (const intptr_t)messageAddress;
+    intptr_t message = (intptr_t)messageAddress;
     UNUSED_PARAM(clazz)
     glPushDebugGroup(source, id, length, message);
 }
@@ -68,7 +68,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_glPopDebugGroup(JNIEnv *__
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglObjectLabel(JNIEnv *__env, jclass clazz, jint identifier, jint name, jint length, jlong labelAddress) {
     glObjectLabelPROC glObjectLabel = (glObjectLabelPROC)tlsGetFunction(1207);
-    const intptr_t label = (const intptr_t)labelAddress;
+    intptr_t label = (intptr_t)labelAddress;
     UNUSED_PARAM(clazz)
     glObjectLabel(identifier, name, length, label);
 }
@@ -84,7 +84,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglGetObjectLabel__IIIJJ(J
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_KHRDebug_nglObjectPtrLabel(JNIEnv *__env, jclass clazz, jlong ptrAddress, jint length, jlong labelAddress) {
     glObjectPtrLabelPROC glObjectPtrLabel = (glObjectPtrLabelPROC)tlsGetFunction(1208);
     intptr_t ptr = (intptr_t)ptrAddress;
-    const intptr_t label = (const intptr_t)labelAddress;
+    intptr_t label = (intptr_t)labelAddress;
     UNUSED_PARAM(clazz)
     glObjectPtrLabel(ptr, length, label);
 }

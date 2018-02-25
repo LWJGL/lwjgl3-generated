@@ -13,7 +13,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void* (*) (
+ * void * (*) (
  *     nk_handle handle,
  *     void *old,
  *     nk_size size

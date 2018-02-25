@@ -39,7 +39,7 @@ public class DynLoad {
      * @param libpath the dynamic library path
      */
     @NativeType("DLLib *")
-    public static long dlLoadLibrary(@NativeType("const char *") ByteBuffer libpath) {
+    public static long dlLoadLibrary(@NativeType("char const *") ByteBuffer libpath) {
         if (CHECKS) {
             checkNT1(libpath);
         }
@@ -52,7 +52,7 @@ public class DynLoad {
      * @param libpath the dynamic library path
      */
     @NativeType("DLLib *")
-    public static long dlLoadLibrary(@NativeType("const char *") CharSequence libpath) {
+    public static long dlLoadLibrary(@NativeType("char const *") CharSequence libpath) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer libpathEncoded = stack.ASCII(libpath);
@@ -92,7 +92,7 @@ public class DynLoad {
      * @param pSymbolName the symbol name
      */
     @NativeType("void *")
-    public static long dlFindSymbol(@NativeType("DLLib *") long pLib, @NativeType("const char *") ByteBuffer pSymbolName) {
+    public static long dlFindSymbol(@NativeType("DLLib *") long pLib, @NativeType("char const *") ByteBuffer pSymbolName) {
         if (CHECKS) {
             check(pLib);
             checkNT1(pSymbolName);
@@ -108,7 +108,7 @@ public class DynLoad {
      * @param pSymbolName the symbol name
      */
     @NativeType("void *")
-    public static long dlFindSymbol(@NativeType("DLLib *") long pLib, @NativeType("const char *") CharSequence pSymbolName) {
+    public static long dlFindSymbol(@NativeType("DLLib *") long pLib, @NativeType("char const *") CharSequence pSymbolName) {
         if (CHECKS) {
             check(pLib);
         }
@@ -132,7 +132,7 @@ public class DynLoad {
      * @param libPath the dynamic library path
      */
     @NativeType("DLSyms *")
-    public static long dlSymsInit(@NativeType("const char *") ByteBuffer libPath) {
+    public static long dlSymsInit(@NativeType("char const *") ByteBuffer libPath) {
         if (CHECKS) {
             checkNT1(libPath);
         }
@@ -145,7 +145,7 @@ public class DynLoad {
      * @param libPath the dynamic library path
      */
     @NativeType("DLSyms *")
-    public static long dlSymsInit(@NativeType("const char *") CharSequence libPath) {
+    public static long dlSymsInit(@NativeType("char const *") CharSequence libPath) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer libPathEncoded = stack.ASCII(libPath);
@@ -201,7 +201,7 @@ public class DynLoad {
      * @param index 
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String dlSymsName(@NativeType("DLSyms *") long pSyms, int index) {
         if (CHECKS) {
             check(pSyms);
@@ -222,7 +222,7 @@ public class DynLoad {
      * @param value the symbol address
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String dlSymsNameFromValue(@NativeType("DLSyms *") long pSyms, @NativeType("void *") long value) {
         if (CHECKS) {
             check(pSyms);

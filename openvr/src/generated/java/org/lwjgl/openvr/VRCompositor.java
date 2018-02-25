@@ -167,7 +167,7 @@ public class VRCompositor {
      *         </ul>
      */
     @NativeType("EVRCompositorError")
-    public static int VRCompositor_Submit(@NativeType("EVREye") int eEye, @NativeType("const Texture_t *") Texture pTexture, @Nullable @NativeType("const VRTextureBounds_t *") VRTextureBounds pBounds, @NativeType("EVRSubmitFlags") int nSubmitFlags) {
+    public static int VRCompositor_Submit(@NativeType("EVREye") int eEye, @NativeType("Texture_t const *") Texture pTexture, @Nullable @NativeType("VRTextureBounds_t const *") VRTextureBounds pBounds, @NativeType("EVRSubmitFlags") int nSubmitFlags) {
         return nVRCompositor_Submit(eEye, pTexture.address(), memAddressSafe(pBounds), nSubmitFlags);
     }
 

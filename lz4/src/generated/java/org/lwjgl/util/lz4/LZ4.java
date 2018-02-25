@@ -86,7 +86,7 @@ public class LZ4 {
     public static native long nLZ4_versionString();
 
     /** Returns the version string. */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String LZ4_versionString() {
         long __result = nLZ4_versionString();
         return memASCII(__result);
@@ -117,7 +117,7 @@ public class LZ4 {
      *
      * @return the number of bytes written into buffer {@code dest} (necessarily &le; {@code maxOutputSize}) or 0 if compression fails
      */
-    public static int LZ4_compress_default(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+    public static int LZ4_compress_default(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         return nLZ4_compress_default(memAddress(src), memAddress(dst), src.remaining(), dst.remaining());
     }
 
@@ -144,7 +144,7 @@ public class LZ4 {
      *
      * @return the number of bytes decompressed into destination buffer (necessarily &le; {@code dstCapacity})
      */
-    public static int LZ4_decompress_safe(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+    public static int LZ4_decompress_safe(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         return nLZ4_decompress_safe(memAddress(src), memAddress(dst), src.remaining(), dst.remaining());
     }
 
@@ -191,7 +191,7 @@ public class LZ4 {
      * @param dst          
      * @param acceleration 
      */
-    public static int LZ4_compress_fast(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
+    public static int LZ4_compress_fast(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
         return nLZ4_compress_fast(memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), acceleration);
     }
 
@@ -215,7 +215,7 @@ public class LZ4 {
      * @param dst          
      * @param acceleration 
      */
-    public static int LZ4_compress_fast_extState(@NativeType("void *") ByteBuffer state, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
+    public static int LZ4_compress_fast_extState(@NativeType("void *") ByteBuffer state, @NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
         return nLZ4_compress_fast_extState(memAddress(state), memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), acceleration);
     }
 
@@ -241,7 +241,7 @@ public class LZ4 {
      *
      * @return nb bytes written into {@code dest} (necessarily &le; {@code targetDestSize}) or 0 if compression fails
      */
-    public static int LZ4_compress_destSize(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int *") IntBuffer srcSizePtr) {
+    public static int LZ4_compress_destSize(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("int *") IntBuffer srcSizePtr) {
         if (CHECKS) {
             check(srcSizePtr, 1);
             check(src, srcSizePtr.get(srcSizePtr.position()));
@@ -269,7 +269,7 @@ public class LZ4 {
      * @return the number of bytes read from the source buffer (in other words, the compressed size). If the source stream is detected malformed, the function will
      *         stop decoding and return a negative result. Destination buffer must be already allocated. Its size must be &ge; {@code originalSize} bytes.
      */
-    public static int LZ4_decompress_fast(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+    public static int LZ4_decompress_fast(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         return nLZ4_decompress_fast(memAddress(src), memAddress(dst), dst.remaining());
     }
 
@@ -296,7 +296,7 @@ public class LZ4 {
      *         <p>Note: this number can be &lt; {@code targetOutputSize} should the compressed block to decode be smaller. Always control how many bytes were decoded. If
      *         the source stream is detected malformed, the function will stop decoding and return a negative result.</p>
      */
-    public static int LZ4_decompress_safe_partial(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int targetOutputSize) {
+    public static int LZ4_decompress_safe_partial(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int targetOutputSize) {
         return nLZ4_decompress_safe_partial(memAddress(src), memAddress(dst), src.remaining(), targetOutputSize, dst.remaining());
     }
 
@@ -353,7 +353,7 @@ public class LZ4 {
      * @param streamPtr  
      * @param dictionary 
      */
-    public static int LZ4_loadDict(@NativeType("LZ4_stream_t *") long streamPtr, @Nullable @NativeType("const char *") ByteBuffer dictionary) {
+    public static int LZ4_loadDict(@NativeType("LZ4_stream_t *") long streamPtr, @Nullable @NativeType("char const *") ByteBuffer dictionary) {
         if (CHECKS) {
             check(streamPtr);
         }
@@ -389,7 +389,7 @@ public class LZ4 {
      * @return size of compressed block or 0 if there is an error (typically, compressed data cannot fit into {@code dst}). After an error, the stream status is
      *         invalid, it can only be reset or freed.
      */
-    public static int LZ4_compress_fast_continue(@NativeType("LZ4_stream_t *") long streamPtr, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
+    public static int LZ4_compress_fast_continue(@NativeType("LZ4_stream_t *") long streamPtr, @NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
         if (CHECKS) {
             check(streamPtr);
         }
@@ -463,7 +463,7 @@ public class LZ4 {
      * @return 1 if OK, 0 if error
      */
     @NativeType("int")
-    public static boolean LZ4_setStreamDecode(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("const char *") ByteBuffer dictionary) {
+    public static boolean LZ4_setStreamDecode(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("char const *") ByteBuffer dictionary) {
         if (CHECKS) {
             check(LZ4_streamDecode);
         }
@@ -504,7 +504,7 @@ public class LZ4 {
      * @param src              
      * @param dst              
      */
-    public static int LZ4_decompress_safe_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+    public static int LZ4_decompress_safe_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         if (CHECKS) {
             check(LZ4_streamDecode);
         }
@@ -523,7 +523,7 @@ public class LZ4 {
      * @param src              
      * @param dst              
      */
-    public static int LZ4_decompress_fast_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
+    public static int LZ4_decompress_fast_continue(@NativeType("LZ4_streamDecode_t *") long LZ4_streamDecode, @NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         if (CHECKS) {
             check(LZ4_streamDecode);
         }
@@ -543,7 +543,7 @@ public class LZ4 {
      * @param dst       
      * @param dictStart 
      */
-    public static int LZ4_decompress_safe_usingDict(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("const char *") ByteBuffer dictStart) {
+    public static int LZ4_decompress_safe_usingDict(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("char const *") ByteBuffer dictStart) {
         return nLZ4_decompress_safe_usingDict(memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), memAddress(dictStart), dictStart.remaining());
     }
 
@@ -559,7 +559,7 @@ public class LZ4 {
      * @param dst       
      * @param dictStart 
      */
-    public static int LZ4_decompress_fast_usingDict(@NativeType("const char *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("const char *") ByteBuffer dictStart) {
+    public static int LZ4_decompress_fast_usingDict(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, @NativeType("char const *") ByteBuffer dictStart) {
         return nLZ4_decompress_fast_usingDict(memAddress(src), memAddress(dst), dst.remaining(), memAddress(dictStart), dictStart.remaining());
     }
 

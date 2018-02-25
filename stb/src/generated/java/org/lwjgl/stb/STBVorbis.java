@@ -223,7 +223,7 @@ public class STBVorbis {
      *         in a larger block from the start of the file.
      */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_pushdata(@NativeType("const unsigned char *") ByteBuffer datablock, @NativeType("int *") IntBuffer datablock_memory_consumed_in_bytes, @NativeType("int *") IntBuffer error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_pushdata(@NativeType("unsigned char const *") ByteBuffer datablock, @NativeType("int *") IntBuffer datablock_memory_consumed_in_bytes, @NativeType("int *") IntBuffer error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             check(datablock_memory_consumed_in_bytes, 1);
             check(error, 1);
@@ -267,7 +267,7 @@ public class STBVorbis {
      *         
      *         <p>Note that after opening a file, you will ALWAYS get one N-bytes,0-sample frame, because Vorbis always "discards" the first frame.</p>
      */
-    public static int stb_vorbis_decode_frame_pushdata(@NativeType("stb_vorbis *") long f, @NativeType("const unsigned char *") ByteBuffer datablock, @Nullable @NativeType("int *") IntBuffer channels, @NativeType("float ***") PointerBuffer output, @NativeType("int *") IntBuffer samples) {
+    public static int stb_vorbis_decode_frame_pushdata(@NativeType("stb_vorbis *") long f, @NativeType("unsigned char const *") ByteBuffer datablock, @Nullable @NativeType("int *") IntBuffer channels, @NativeType("float ***") PointerBuffer output, @NativeType("int *") IntBuffer samples) {
         if (CHECKS) {
             check(f);
             checkSafe(channels, 1);
@@ -315,7 +315,7 @@ public class STBVorbis {
      *
      * @return the number of samples decoded, or -1 if the file could not be opened or was not an ogg vorbis file
      */
-    public static int stb_vorbis_decode_filename(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate, @NativeType("short **") PointerBuffer output) {
+    public static int stb_vorbis_decode_filename(@NativeType("char const *") ByteBuffer filename, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate, @NativeType("short **") PointerBuffer output) {
         if (CHECKS) {
             checkNT1(filename);
             check(channels, 1);
@@ -336,7 +336,7 @@ public class STBVorbis {
      *
      * @return the number of samples decoded, or -1 if the file could not be opened or was not an ogg vorbis file
      */
-    public static int stb_vorbis_decode_filename(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate, @NativeType("short **") PointerBuffer output) {
+    public static int stb_vorbis_decode_filename(@NativeType("char const *") CharSequence filename, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate, @NativeType("short **") PointerBuffer output) {
         if (CHECKS) {
             check(channels, 1);
             check(sample_rate, 1);
@@ -362,7 +362,7 @@ public class STBVorbis {
      * @return the number of samples decoded, or -1 if the file could not be opened or was not an ogg vorbis file
      */
     @NativeType("int")
-    public static ShortBuffer stb_vorbis_decode_filename(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate) {
+    public static ShortBuffer stb_vorbis_decode_filename(@NativeType("char const *") CharSequence filename, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate) {
         if (CHECKS) {
             check(channels, 1);
             check(sample_rate, 1);
@@ -395,7 +395,7 @@ public class STBVorbis {
      * @param sample_rate returns the sample rate
      * @param output      returns a pointer to the decoded data
      */
-    public static int stb_vorbis_decode_memory(@NativeType("const unsigned char *") ByteBuffer mem, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate, @NativeType("short **") PointerBuffer output) {
+    public static int stb_vorbis_decode_memory(@NativeType("unsigned char const *") ByteBuffer mem, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate, @NativeType("short **") PointerBuffer output) {
         if (CHECKS) {
             check(channels, 1);
             check(sample_rate, 1);
@@ -412,7 +412,7 @@ public class STBVorbis {
      * @param sample_rate returns the sample rate
      */
     @NativeType("int")
-    public static ShortBuffer stb_vorbis_decode_memory(@NativeType("const unsigned char *") ByteBuffer mem, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate) {
+    public static ShortBuffer stb_vorbis_decode_memory(@NativeType("unsigned char const *") ByteBuffer mem, @NativeType("int *") IntBuffer channels, @NativeType("int *") IntBuffer sample_rate) {
         if (CHECKS) {
             check(channels, 1);
             check(sample_rate, 1);
@@ -446,7 +446,7 @@ public class STBVorbis {
      * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
      */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_memory(@NativeType("const unsigned char *") ByteBuffer mem, @NativeType("int *") IntBuffer error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_memory(@NativeType("unsigned char const *") ByteBuffer mem, @NativeType("int *") IntBuffer error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             check(error, 1);
             if (alloc_buffer != null) { STBVorbisAlloc.validate(alloc_buffer.address()); }
@@ -469,7 +469,7 @@ public class STBVorbis {
      * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
      */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_filename(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") IntBuffer error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_filename(@NativeType("char const *") ByteBuffer filename, @NativeType("int *") IntBuffer error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             checkNT1(filename);
             check(error, 1);
@@ -488,7 +488,7 @@ public class STBVorbis {
      * @return the ogg vorbis decoder. On failure, returns {@code NULL} and sets {@code *error}.
      */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_filename(@NativeType("const char *") CharSequence filename, @NativeType("int *") IntBuffer error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_filename(@NativeType("char const *") CharSequence filename, @NativeType("int *") IntBuffer error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             check(error, 1);
             if (alloc_buffer != null) { STBVorbisAlloc.validate(alloc_buffer.address()); }
@@ -800,7 +800,7 @@ public class STBVorbis {
 
     /** Array version of: {@link #stb_vorbis_open_pushdata open_pushdata} */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_pushdata(@NativeType("const unsigned char *") ByteBuffer datablock, @NativeType("int *") int[] datablock_memory_consumed_in_bytes, @NativeType("int *") int[] error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_pushdata(@NativeType("unsigned char const *") ByteBuffer datablock, @NativeType("int *") int[] datablock_memory_consumed_in_bytes, @NativeType("int *") int[] error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             check(datablock_memory_consumed_in_bytes, 1);
             check(error, 1);
@@ -813,7 +813,7 @@ public class STBVorbis {
     public static native int nstb_vorbis_decode_frame_pushdata(long f, long datablock, int datablock_length_in_bytes, int[] channels, long output, int[] samples);
 
     /** Array version of: {@link #stb_vorbis_decode_frame_pushdata decode_frame_pushdata} */
-    public static int stb_vorbis_decode_frame_pushdata(@NativeType("stb_vorbis *") long f, @NativeType("const unsigned char *") ByteBuffer datablock, @Nullable @NativeType("int *") int[] channels, @NativeType("float ***") PointerBuffer output, @NativeType("int *") int[] samples) {
+    public static int stb_vorbis_decode_frame_pushdata(@NativeType("stb_vorbis *") long f, @NativeType("unsigned char const *") ByteBuffer datablock, @Nullable @NativeType("int *") int[] channels, @NativeType("float ***") PointerBuffer output, @NativeType("int *") int[] samples) {
         if (CHECKS) {
             check(f);
             checkSafe(channels, 1);
@@ -827,7 +827,7 @@ public class STBVorbis {
     public static native int nstb_vorbis_decode_filename(long filename, int[] channels, int[] sample_rate, long output);
 
     /** Array version of: {@link #stb_vorbis_decode_filename decode_filename} */
-    public static int stb_vorbis_decode_filename(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") int[] channels, @NativeType("int *") int[] sample_rate, @NativeType("short **") PointerBuffer output) {
+    public static int stb_vorbis_decode_filename(@NativeType("char const *") ByteBuffer filename, @NativeType("int *") int[] channels, @NativeType("int *") int[] sample_rate, @NativeType("short **") PointerBuffer output) {
         if (CHECKS) {
             checkNT1(filename);
             check(channels, 1);
@@ -838,7 +838,7 @@ public class STBVorbis {
     }
 
     /** Array version of: {@link #stb_vorbis_decode_filename decode_filename} */
-    public static int stb_vorbis_decode_filename(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] channels, @NativeType("int *") int[] sample_rate, @NativeType("short **") PointerBuffer output) {
+    public static int stb_vorbis_decode_filename(@NativeType("char const *") CharSequence filename, @NativeType("int *") int[] channels, @NativeType("int *") int[] sample_rate, @NativeType("short **") PointerBuffer output) {
         if (CHECKS) {
             check(channels, 1);
             check(sample_rate, 1);
@@ -857,7 +857,7 @@ public class STBVorbis {
     public static native int nstb_vorbis_decode_memory(long mem, int len, int[] channels, int[] sample_rate, long output);
 
     /** Array version of: {@link #stb_vorbis_decode_memory decode_memory} */
-    public static int stb_vorbis_decode_memory(@NativeType("const unsigned char *") ByteBuffer mem, @NativeType("int *") int[] channels, @NativeType("int *") int[] sample_rate, @NativeType("short **") PointerBuffer output) {
+    public static int stb_vorbis_decode_memory(@NativeType("unsigned char const *") ByteBuffer mem, @NativeType("int *") int[] channels, @NativeType("int *") int[] sample_rate, @NativeType("short **") PointerBuffer output) {
         if (CHECKS) {
             check(channels, 1);
             check(sample_rate, 1);
@@ -871,7 +871,7 @@ public class STBVorbis {
 
     /** Array version of: {@link #stb_vorbis_open_memory open_memory} */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_memory(@NativeType("const unsigned char *") ByteBuffer mem, @NativeType("int *") int[] error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_memory(@NativeType("unsigned char const *") ByteBuffer mem, @NativeType("int *") int[] error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             check(error, 1);
             if (alloc_buffer != null) { STBVorbisAlloc.validate(alloc_buffer.address()); }
@@ -884,7 +884,7 @@ public class STBVorbis {
 
     /** Array version of: {@link #stb_vorbis_open_filename open_filename} */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_filename(@NativeType("const char *") ByteBuffer filename, @NativeType("int *") int[] error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_filename(@NativeType("char const *") ByteBuffer filename, @NativeType("int *") int[] error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             checkNT1(filename);
             check(error, 1);
@@ -895,7 +895,7 @@ public class STBVorbis {
 
     /** Array version of: {@link #stb_vorbis_open_filename open_filename} */
     @NativeType("stb_vorbis *")
-    public static long stb_vorbis_open_filename(@NativeType("const char *") CharSequence filename, @NativeType("int *") int[] error, @Nullable @NativeType("const stb_vorbis_alloc *") STBVorbisAlloc alloc_buffer) {
+    public static long stb_vorbis_open_filename(@NativeType("char const *") CharSequence filename, @NativeType("int *") int[] error, @Nullable @NativeType("stb_vorbis_alloc const *") STBVorbisAlloc alloc_buffer) {
         if (CHECKS) {
             check(error, 1);
             if (alloc_buffer != null) { STBVorbisAlloc.validate(alloc_buffer.address()); }

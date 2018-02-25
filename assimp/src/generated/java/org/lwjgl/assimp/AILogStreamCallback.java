@@ -16,7 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <code><pre>
  * void (*) (
- *     const char *message,
+ *     char const *message,
  *     void *user
  * )</pre></code>
  */

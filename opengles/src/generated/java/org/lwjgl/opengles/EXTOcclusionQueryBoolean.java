@@ -76,11 +76,11 @@ public class EXTOcclusionQueryBoolean {
 
     public static native void nglDeleteQueriesEXT(int n, long ids);
 
-    public static void glDeleteQueriesEXT(@NativeType("const GLuint *") IntBuffer ids) {
+    public static void glDeleteQueriesEXT(@NativeType("GLuint const *") IntBuffer ids) {
         nglDeleteQueriesEXT(ids.remaining(), memAddress(ids));
     }
 
-    public static void glDeleteQueriesEXT(@NativeType("const GLuint *") int id) {
+    public static void glDeleteQueriesEXT(@NativeType("GLuint const *") int id) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             IntBuffer ids = stack.ints(id);
@@ -159,7 +159,7 @@ public class EXTOcclusionQueryBoolean {
     }
 
     /** Array version of: {@link #glDeleteQueriesEXT DeleteQueriesEXT} */
-    public static void glDeleteQueriesEXT(@NativeType("const GLuint *") int[] ids) {
+    public static void glDeleteQueriesEXT(@NativeType("GLuint const *") int[] ids) {
         long __functionAddress = GLES.getICD().glDeleteQueriesEXT;
         if (CHECKS) {
             check(__functionAddress);

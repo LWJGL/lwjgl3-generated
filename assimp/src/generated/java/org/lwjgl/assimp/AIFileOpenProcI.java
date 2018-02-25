@@ -13,10 +13,10 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * struct aiFile* (*) (
+ * struct aiFile * (*) (
  *     struct aiFileIO *pFileIO,
- *     const char *fileName,
- *     const char *openMode
+ *     char const *fileName,
+ *     char const *openMode
  * )</pre></code>
  */
 @FunctionalInterface
@@ -44,6 +44,6 @@ public interface AIFileOpenProcI extends CallbackI.P {
      * @param fileName The name of the file to be opened
      * @param openMode The mode in which to open the file
      */
-    @NativeType("struct aiFile *") long invoke(@NativeType("struct aiFileIO *") long pFileIO, @NativeType("const char *") long fileName, @NativeType("const char *") long openMode);
+    @NativeType("struct aiFile *") long invoke(@NativeType("struct aiFileIO *") long pFileIO, @NativeType("char const *") long fileName, @NativeType("char const *") long openMode);
 
 }

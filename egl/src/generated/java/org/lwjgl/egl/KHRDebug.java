@@ -88,7 +88,7 @@ public class KHRDebug {
     }
 
     @NativeType("EGLint")
-    public static int eglDebugMessageControlKHR(@NativeType("EGLDEBUGPROCKHR") EGLDebugMessageKHRCallbackI callback, @Nullable @NativeType("const EGLAttrib *") PointerBuffer attrib_list) {
+    public static int eglDebugMessageControlKHR(@NativeType("EGLDEBUGPROCKHR") EGLDebugMessageKHRCallbackI callback, @Nullable @NativeType("EGLAttrib const *") PointerBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }

@@ -90,7 +90,7 @@ public class GLXARBCreateContext {
      * @param attrib_list   an optional list of attributes for the context, terminated with {@code None}
      */
     @NativeType("GLXContext")
-    public static long glXCreateContextAttribsARB(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("GLXContext") long share_context, @NativeType("Bool") boolean direct, @Nullable @NativeType("const int *") IntBuffer attrib_list) {
+    public static long glXCreateContextAttribsARB(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("GLXContext") long share_context, @NativeType("Bool") boolean direct, @Nullable @NativeType("int const *") IntBuffer attrib_list) {
         if (CHECKS) {
             checkNTSafe(attrib_list);
         }
@@ -99,7 +99,7 @@ public class GLXARBCreateContext {
 
     /** Array version of: {@link #glXCreateContextAttribsARB CreateContextAttribsARB} */
     @NativeType("GLXContext")
-    public static long glXCreateContextAttribsARB(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("GLXContext") long share_context, @NativeType("Bool") boolean direct, @Nullable @NativeType("const int *") int[] attrib_list) {
+    public static long glXCreateContextAttribsARB(@NativeType("Display *") long display, @NativeType("GLXFBConfig") long config, @NativeType("GLXContext") long share_context, @NativeType("Bool") boolean direct, @Nullable @NativeType("int const *") int[] attrib_list) {
         long __functionAddress = GL.getCapabilitiesGLXClient().glXCreateContextAttribsARB;
         if (CHECKS) {
             check(__functionAddress);

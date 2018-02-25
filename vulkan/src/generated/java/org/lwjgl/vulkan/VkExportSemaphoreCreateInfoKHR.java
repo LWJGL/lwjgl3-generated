@@ -45,7 +45,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkExportSemaphoreCreateInfoKHR {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     VkExternalSemaphoreHandleTypeFlagsKHR handleTypes;
  * }</pre></code>
  */
@@ -98,7 +98,7 @@ public class VkExportSemaphoreCreateInfoKHR extends Struct implements NativeReso
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code handleTypes} field. */
     @NativeType("VkExternalSemaphoreHandleTypeFlagsKHR")
@@ -107,7 +107,7 @@ public class VkExportSemaphoreCreateInfoKHR extends Struct implements NativeReso
     /** Sets the specified value to the {@code sType} field. */
     public VkExportSemaphoreCreateInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkExportSemaphoreCreateInfoKHR pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkExportSemaphoreCreateInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code handleTypes} field. */
     public VkExportSemaphoreCreateInfoKHR handleTypes(@NativeType("VkExternalSemaphoreHandleTypeFlagsKHR") int value) { nhandleTypes(address(), value); return this; }
 
@@ -341,7 +341,7 @@ public class VkExportSemaphoreCreateInfoKHR extends Struct implements NativeReso
         @NativeType("VkStructureType")
         public int sType() { return VkExportSemaphoreCreateInfoKHR.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkExportSemaphoreCreateInfoKHR.npNext(address()); }
         /** Returns the value of the {@code handleTypes} field. */
         @NativeType("VkExternalSemaphoreHandleTypeFlagsKHR")
@@ -350,7 +350,7 @@ public class VkExportSemaphoreCreateInfoKHR extends Struct implements NativeReso
         /** Sets the specified value to the {@code sType} field. */
         public VkExportSemaphoreCreateInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkExportSemaphoreCreateInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkExportSemaphoreCreateInfoKHR.Buffer pNext(@NativeType("const void *") long value) { VkExportSemaphoreCreateInfoKHR.npNext(address(), value); return this; }
+        public VkExportSemaphoreCreateInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkExportSemaphoreCreateInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code handleTypes} field. */
         public VkExportSemaphoreCreateInfoKHR.Buffer handleTypes(@NativeType("VkExternalSemaphoreHandleTypeFlagsKHR") int value) { VkExportSemaphoreCreateInfoKHR.nhandleTypes(address(), value); return this; }
 

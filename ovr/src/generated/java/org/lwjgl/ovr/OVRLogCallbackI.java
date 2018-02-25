@@ -18,7 +18,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * void (*) (
  *     uintptr_t userData,
  *     int level,
- *     const char *message
+ *     char const *message
  * )</pre></code>
  */
 @FunctionalInterface
@@ -46,6 +46,6 @@ public interface OVRLogCallbackI extends CallbackI.V {
      * @param level    one of the {@code ovrLogLevel} constants
      * @param message  a UTF8-encoded null-terminated string
      */
-    void invoke(@NativeType("uintptr_t") long userData, int level, @NativeType("const char *") long message);
+    void invoke(@NativeType("uintptr_t") long userData, int level, @NativeType("char const *") long message);
 
 }

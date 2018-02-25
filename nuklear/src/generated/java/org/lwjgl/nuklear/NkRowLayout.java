@@ -30,7 +30,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float height;
  *     float min_height;
  *     int columns;
- *     const float * ratio;
+ *     float const * ratio;
  *     float item_width;
  *     float item_height;
  *     float item_offset;
@@ -132,7 +132,7 @@ public class NkRowLayout extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
-    @NativeType("const float *")
+    @NativeType("float const *")
     public FloatBuffer ratio(int capacity) { return nratio(address(), capacity); }
     /** Returns the value of the {@code item_width} field. */
     public float item_width() { return nitem_width(address()); }
@@ -277,7 +277,7 @@ public class NkRowLayout extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
-        @NativeType("const float *")
+        @NativeType("float const *")
         public FloatBuffer ratio(int capacity) { return NkRowLayout.nratio(address(), capacity); }
         /** Returns the value of the {@code item_width} field. */
         public float item_width() { return NkRowLayout.nitem_width(address()); }

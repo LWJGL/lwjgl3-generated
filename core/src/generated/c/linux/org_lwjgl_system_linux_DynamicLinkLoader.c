@@ -10,7 +10,7 @@
 EXTERN_C_ENTER
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_DynamicLinkLoader_ndlopen(JNIEnv *__env, jclass clazz, jlong filenameAddress, jint mode) {
-    const char *filename = (const char *)(intptr_t)filenameAddress;
+    char const *filename = (char const *)(intptr_t)filenameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)dlopen(filename, mode);
 }
@@ -22,7 +22,7 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_DynamicLinkLoader_ndlerror(J
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_system_linux_DynamicLinkLoader_ndlsym(JNIEnv *__env, jclass clazz, jlong handleAddress, jlong nameAddress) {
     void *handle = (void *)(intptr_t)handleAddress;
-    const char *name = (const char *)(intptr_t)nameAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jlong)(intptr_t)dlsym(handle, name);
 }

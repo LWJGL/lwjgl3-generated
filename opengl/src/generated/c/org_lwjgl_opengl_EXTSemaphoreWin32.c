@@ -7,7 +7,7 @@
 #include "opengl.h"
 
 typedef void (APIENTRY *glImportSemaphoreWin32HandleEXTPROC) (jint, jint, intptr_t);
-typedef void (APIENTRY *glImportSemaphoreWin32NameEXTPROC) (jint, jint, const intptr_t);
+typedef void (APIENTRY *glImportSemaphoreWin32NameEXTPROC) (jint, jint, intptr_t);
 
 EXTERN_C_ENTER
 
@@ -20,7 +20,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSemaphoreWin32_nglImportSemaphor
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTSemaphoreWin32_nglImportSemaphoreWin32NameEXT(JNIEnv *__env, jclass clazz, jint semaphore, jint handleType, jlong nameAddress) {
     glImportSemaphoreWin32NameEXTPROC glImportSemaphoreWin32NameEXT = (glImportSemaphoreWin32NameEXTPROC)tlsGetFunction(848);
-    const intptr_t name = (const intptr_t)nameAddress;
+    intptr_t name = (intptr_t)nameAddress;
     UNUSED_PARAM(clazz)
     glImportSemaphoreWin32NameEXT(semaphore, handleType, name);
 }

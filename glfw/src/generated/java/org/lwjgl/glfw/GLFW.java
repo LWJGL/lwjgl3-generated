@@ -930,7 +930,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetVersionString() {
         long __result = nglfwGetVersionString();
         return memASCII(__result);
@@ -965,7 +965,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static int glfwGetError(@Nullable @NativeType("const char **") PointerBuffer description) {
+    public static int glfwGetError(@Nullable @NativeType("char const **") PointerBuffer description) {
         if (CHECKS) {
             checkSafe(description, 1);
         }
@@ -1206,7 +1206,7 @@ public class GLFW {
      * @since version 3.0
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetMonitorName(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetMonitorName(monitor);
         return memUTF8Safe(__result);
@@ -1319,7 +1319,7 @@ public class GLFW {
      * @since version 1.0
      */
     @Nullable
-    @NativeType("const GLFWvidmode *")
+    @NativeType("GLFWvidmode const *")
     public static GLFWVidMode.Buffer glfwGetVideoModes(@NativeType("GLFWmonitor *") long monitor) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -1358,7 +1358,7 @@ public class GLFW {
      * @since version 3.0
      */
     @Nullable
-    @NativeType("const GLFWvidmode *")
+    @NativeType("GLFWvidmode const *")
     public static GLFWVidMode glfwGetVideoMode(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetVideoMode(monitor);
         return GLFWVidMode.createSafe(__result);
@@ -1427,7 +1427,7 @@ public class GLFW {
      * @since version 3.0
      */
     @Nullable
-    @NativeType("const GLFWgammaramp *")
+    @NativeType("GLFWgammaramp const *")
     public static GLFWGammaRamp glfwGetGammaRamp(@NativeType("GLFWmonitor *") long monitor) {
         long __result = nglfwGetGammaRamp(monitor);
         return GLFWGammaRamp.createSafe(__result);
@@ -1469,7 +1469,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetGammaRamp(@NativeType("GLFWmonitor *") long monitor, @NativeType("const GLFWgammaramp *") GLFWGammaRamp ramp) {
+    public static void glfwSetGammaRamp(@NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWgammaramp const *") GLFWGammaRamp ramp) {
         nglfwSetGammaRamp(monitor, ramp.address());
     }
 
@@ -1594,7 +1594,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static void glfwWindowHintString(int hint, @NativeType("const char *") ByteBuffer value) {
+    public static void glfwWindowHintString(int hint, @NativeType("char const *") ByteBuffer value) {
         if (CHECKS) {
             checkNT1(value);
         }
@@ -1631,7 +1631,7 @@ public class GLFW {
      *
      * @since version 3.3
      */
-    public static void glfwWindowHintString(int hint, @NativeType("const char *") CharSequence value) {
+    public static void glfwWindowHintString(int hint, @NativeType("char const *") CharSequence value) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer valueEncoded = stack.UTF8(value);
@@ -1730,7 +1730,7 @@ public class GLFW {
      * @since version 1.0
      */
     @NativeType("GLFWwindow *")
-    public static long glfwCreateWindow(int width, int height, @NativeType("const char *") ByteBuffer title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
+    public static long glfwCreateWindow(int width, int height, @NativeType("char const *") ByteBuffer title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
         EventLoop.OffScreen.check();
         if (CHECKS) {
             checkNT1(title);
@@ -1819,7 +1819,7 @@ public class GLFW {
      * @since version 1.0
      */
     @NativeType("GLFWwindow *")
-    public static long glfwCreateWindow(int width, int height, @NativeType("const char *") CharSequence title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
+    public static long glfwCreateWindow(int width, int height, @NativeType("char const *") CharSequence title, @NativeType("GLFWmonitor *") long monitor, @NativeType("GLFWwindow *") long share) {
         EventLoop.OffScreen.check();
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
@@ -1920,7 +1920,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSetWindowTitle(@NativeType("GLFWwindow *") long window, @NativeType("const char *") ByteBuffer title) {
+    public static void glfwSetWindowTitle(@NativeType("GLFWwindow *") long window, @NativeType("char const *") ByteBuffer title) {
         if (CHECKS) {
             checkNT1(title);
         }
@@ -1939,7 +1939,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    public static void glfwSetWindowTitle(@NativeType("GLFWwindow *") long window, @NativeType("const char *") CharSequence title) {
+    public static void glfwSetWindowTitle(@NativeType("GLFWwindow *") long window, @NativeType("char const *") CharSequence title) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer titleEncoded = stack.UTF8(title);
@@ -1993,7 +1993,7 @@ public class GLFW {
      *
      * @since version 3.2
      */
-    public static void glfwSetWindowIcon(@NativeType("GLFWwindow *") long window, @Nullable @NativeType("const GLFWimage *") GLFWImage.Buffer images) {
+    public static void glfwSetWindowIcon(@NativeType("GLFWwindow *") long window, @Nullable @NativeType("GLFWimage const *") GLFWImage.Buffer images) {
         nglfwSetWindowIcon(window, remainingSafe(images), memAddressSafe(images));
     }
 
@@ -3253,7 +3253,7 @@ public class GLFW {
      * @since version 3.2
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetKeyName(int key, int scancode) {
         long __result = nglfwGetKeyName(key, scancode);
         return memUTF8Safe(__result);
@@ -3452,7 +3452,7 @@ public class GLFW {
      * @since version 3.1
      */
     @NativeType("GLFWcursor *")
-    public static long glfwCreateCursor(@NativeType("const GLFWimage *") GLFWImage image, int xhot, int yhot) {
+    public static long glfwCreateCursor(@NativeType("GLFWimage const *") GLFWImage image, int xhot, int yhot) {
         return nglfwCreateCursor(image.address(), xhot, yhot);
     }
 
@@ -3850,7 +3850,7 @@ public class GLFW {
      * @since version 2.2
      */
     @Nullable
-    @NativeType("const float *")
+    @NativeType("float const *")
     public static FloatBuffer glfwGetJoystickAxes(int jid) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -3896,7 +3896,7 @@ public class GLFW {
      * @since version 2.2
      */
     @Nullable
-    @NativeType("const unsigned char *")
+    @NativeType("unsigned char const *")
     public static ByteBuffer glfwGetJoystickButtons(int jid) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -3965,7 +3965,7 @@ public class GLFW {
      * @since version 3.3
      */
     @Nullable
-    @NativeType("const unsigned char *")
+    @NativeType("unsigned char const *")
     public static ByteBuffer glfwGetJoystickHats(int jid) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         IntBuffer count = stack.callocInt(1);
@@ -4003,7 +4003,7 @@ public class GLFW {
      * @since version 3.0
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetJoystickName(int jid) {
         long __result = nglfwGetJoystickName(jid);
         return memUTF8Safe(__result);
@@ -4042,7 +4042,7 @@ public class GLFW {
      * @since version 3.3
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetJoystickGUID(int jid) {
         long __result = nglfwGetJoystickGUID(jid);
         return memUTF8Safe(__result);
@@ -4175,7 +4175,7 @@ public class GLFW {
      * @since version 3.3
      */
     @NativeType("int")
-    public static boolean glfwUpdateGamepadMappings(@NativeType("const char *") ByteBuffer string) {
+    public static boolean glfwUpdateGamepadMappings(@NativeType("char const *") ByteBuffer string) {
         if (CHECKS) {
             checkNT1(string);
         }
@@ -4203,7 +4203,7 @@ public class GLFW {
      * @since version 3.3
      */
     @NativeType("int")
-    public static boolean glfwUpdateGamepadMappings(@NativeType("const char *") CharSequence string) {
+    public static boolean glfwUpdateGamepadMappings(@NativeType("char const *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.ASCII(string);
@@ -4239,7 +4239,7 @@ public class GLFW {
      * @since version 3.3
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetGamepadName(int jid) {
         long __result = nglfwGetGamepadName(jid);
         return memUTF8Safe(__result);
@@ -4301,7 +4301,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetClipboardString(@NativeType("GLFWwindow *") long window, @NativeType("const char *") ByteBuffer string) {
+    public static void glfwSetClipboardString(@NativeType("GLFWwindow *") long window, @NativeType("char const *") ByteBuffer string) {
         if (CHECKS) {
             checkNT1(string);
         }
@@ -4325,7 +4325,7 @@ public class GLFW {
      *
      * @since version 3.0
      */
-    public static void glfwSetClipboardString(@NativeType("GLFWwindow *") long window, @NativeType("const char *") CharSequence string) {
+    public static void glfwSetClipboardString(@NativeType("GLFWwindow *") long window, @NativeType("char const *") CharSequence string) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer stringEncoded = stack.UTF8(string);
@@ -4366,7 +4366,7 @@ public class GLFW {
      * @since version 3.0
      */
     @Nullable
-    @NativeType("const char *")
+    @NativeType("char const *")
     public static String glfwGetClipboardString(@NativeType("GLFWwindow *") long window) {
         long __result = nglfwGetClipboardString(window);
         return memUTF8Safe(__result);
@@ -4583,7 +4583,7 @@ public class GLFW {
      * @since version 1.0
      */
     @NativeType("int")
-    public static boolean glfwExtensionSupported(@NativeType("const char *") ByteBuffer extension) {
+    public static boolean glfwExtensionSupported(@NativeType("char const *") ByteBuffer extension) {
         if (CHECKS) {
             checkNT1(extension);
         }
@@ -4611,7 +4611,7 @@ public class GLFW {
      * @since version 1.0
      */
     @NativeType("int")
-    public static boolean glfwExtensionSupported(@NativeType("const char *") CharSequence extension) {
+    public static boolean glfwExtensionSupported(@NativeType("char const *") CharSequence extension) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer extensionEncoded = stack.ASCII(extension);
@@ -4654,7 +4654,7 @@ public class GLFW {
      * @since version 1.0
      */
     @NativeType("GLFWglproc *")
-    public static long glfwGetProcAddress(@NativeType("const char *") ByteBuffer procname) {
+    public static long glfwGetProcAddress(@NativeType("char const *") ByteBuffer procname) {
         if (CHECKS) {
             checkNT1(procname);
         }
@@ -4686,7 +4686,7 @@ public class GLFW {
      * @since version 1.0
      */
     @NativeType("GLFWglproc *")
-    public static long glfwGetProcAddress(@NativeType("const char *") CharSequence procname) {
+    public static long glfwGetProcAddress(@NativeType("char const *") CharSequence procname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer procnameEncoded = stack.ASCII(procname);

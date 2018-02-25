@@ -46,7 +46,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <code><pre>
  * struct VkDeviceGeneratedCommandsLimitsNVX {
  *     VkStructureType sType;
- *     const void * pNext;
+ *     void const * pNext;
  *     uint32_t maxIndirectCommandsLayoutTokenCount;
  *     uint32_t maxObjectEntryCounts;
  *     uint32_t minSequenceCountBufferOffsetAlignment;
@@ -115,7 +115,7 @@ public class VkDeviceGeneratedCommandsLimitsNVX extends Struct implements Native
     @NativeType("VkStructureType")
     public int sType() { return nsType(address()); }
     /** Returns the value of the {@code pNext} field. */
-    @NativeType("const void *")
+    @NativeType("void const *")
     public long pNext() { return npNext(address()); }
     /** Returns the value of the {@code maxIndirectCommandsLayoutTokenCount} field. */
     @NativeType("uint32_t")
@@ -136,7 +136,7 @@ public class VkDeviceGeneratedCommandsLimitsNVX extends Struct implements Native
     /** Sets the specified value to the {@code sType} field. */
     public VkDeviceGeneratedCommandsLimitsNVX sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
-    public VkDeviceGeneratedCommandsLimitsNVX pNext(@NativeType("const void *") long value) { npNext(address(), value); return this; }
+    public VkDeviceGeneratedCommandsLimitsNVX pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code maxIndirectCommandsLayoutTokenCount} field. */
     public VkDeviceGeneratedCommandsLimitsNVX maxIndirectCommandsLayoutTokenCount(@NativeType("uint32_t") int value) { nmaxIndirectCommandsLayoutTokenCount(address(), value); return this; }
     /** Sets the specified value to the {@code maxObjectEntryCounts} field. */
@@ -402,7 +402,7 @@ public class VkDeviceGeneratedCommandsLimitsNVX extends Struct implements Native
         @NativeType("VkStructureType")
         public int sType() { return VkDeviceGeneratedCommandsLimitsNVX.nsType(address()); }
         /** Returns the value of the {@code pNext} field. */
-        @NativeType("const void *")
+        @NativeType("void const *")
         public long pNext() { return VkDeviceGeneratedCommandsLimitsNVX.npNext(address()); }
         /** Returns the value of the {@code maxIndirectCommandsLayoutTokenCount} field. */
         @NativeType("uint32_t")
@@ -423,7 +423,7 @@ public class VkDeviceGeneratedCommandsLimitsNVX extends Struct implements Native
         /** Sets the specified value to the {@code sType} field. */
         public VkDeviceGeneratedCommandsLimitsNVX.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGeneratedCommandsLimitsNVX.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
-        public VkDeviceGeneratedCommandsLimitsNVX.Buffer pNext(@NativeType("const void *") long value) { VkDeviceGeneratedCommandsLimitsNVX.npNext(address(), value); return this; }
+        public VkDeviceGeneratedCommandsLimitsNVX.Buffer pNext(@NativeType("void const *") long value) { VkDeviceGeneratedCommandsLimitsNVX.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code maxIndirectCommandsLayoutTokenCount} field. */
         public VkDeviceGeneratedCommandsLimitsNVX.Buffer maxIndirectCommandsLayoutTokenCount(@NativeType("uint32_t") int value) { VkDeviceGeneratedCommandsLimitsNVX.nmaxIndirectCommandsLayoutTokenCount(address(), value); return this; }
         /** Sets the specified value to the {@code maxObjectEntryCounts} field. */

@@ -9,9 +9,11 @@ import javax.annotation.*;
 
 import java.nio.*;
 
+import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * The opaque {@code stbrp_node} struct.
@@ -26,7 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * }</pre></code>
  */
 @NativeType("struct stbrp_node")
-public class STBRPNode extends Struct {
+public class STBRPNode extends Struct implements NativeResource {
 
     /** The struct size in bytes. */
     public static final int SIZEOF;
@@ -84,6 +86,21 @@ public class STBRPNode extends Struct {
 
     // -----------------------------------
 
+    /** Returns a new {@link STBRPNode} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static STBRPNode malloc() {
+        return create(nmemAllocChecked(SIZEOF));
+    }
+
+    /** Returns a new {@link STBRPNode} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static STBRPNode calloc() {
+        return create(nmemCallocChecked(1, SIZEOF));
+    }
+
+    /** Returns a new {@link STBRPNode} instance allocated with {@link BufferUtils}. */
+    public static STBRPNode create() {
+        return new STBRPNode(BufferUtils.createByteBuffer(SIZEOF));
+    }
+
     /** Returns a new {@link STBRPNode} instance for the specified memory address. */
     public static STBRPNode create(long address) {
         return new STBRPNode(address, null);
@@ -93,6 +110,33 @@ public class STBRPNode extends Struct {
     @Nullable
     public static STBRPNode createSafe(long address) {
         return address == NULL ? null : create(address);
+    }
+
+    /**
+     * Returns a new {@link STBRPNode.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static STBRPNode.Buffer malloc(int capacity) {
+        return create(__malloc(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link STBRPNode.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static STBRPNode.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link STBRPNode.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static STBRPNode.Buffer create(int capacity) {
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -113,6 +157,74 @@ public class STBRPNode extends Struct {
 
     // -----------------------------------
 
+    /** Returns a new {@link STBRPNode} instance allocated on the thread-local {@link MemoryStack}. */
+    public static STBRPNode mallocStack() {
+        return mallocStack(stackGet());
+    }
+
+    /** Returns a new {@link STBRPNode} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static STBRPNode callocStack() {
+        return callocStack(stackGet());
+    }
+
+    /**
+     * Returns a new {@link STBRPNode} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static STBRPNode mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link STBRPNode} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static STBRPNode callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link STBRPNode.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static STBRPNode.Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link STBRPNode.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static STBRPNode.Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link STBRPNode.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static STBRPNode.Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link STBRPNode.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static STBRPNode.Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
+    }
+
+    // -----------------------------------
+
     /** Unsafe version of {@link #x}. */
     public static short nx(long struct) { return memGetShort(struct + STBRPNode.X); }
     /** Unsafe version of {@link #y}. */
@@ -123,7 +235,7 @@ public class STBRPNode extends Struct {
     // -----------------------------------
 
     /** An array of {@link STBRPNode} structs. */
-    public static class Buffer extends StructBuffer<STBRPNode, Buffer> {
+    public static class Buffer extends StructBuffer<STBRPNode, Buffer> implements NativeResource {
 
         /**
          * Creates a new {@link STBRPNode.Buffer} instance backed by the specified container.

@@ -113,7 +113,7 @@ public class INTELAccelerator {
      *         </ul>
      */
     @NativeType("cl_accelerator_intel")
-    public static long clCreateAcceleratorINTEL(@NativeType("cl_context") long context, @NativeType("cl_accelerator_type_intel") int accelerator_type, @NativeType("const void *") ByteBuffer descriptor, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateAcceleratorINTEL(@NativeType("cl_context") long context, @NativeType("cl_accelerator_type_intel") int accelerator_type, @NativeType("void const *") ByteBuffer descriptor, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
             checkSafe(errcode_ret, 1);
         }
@@ -267,7 +267,7 @@ public class INTELAccelerator {
 
     /** Array version of: {@link #clCreateAcceleratorINTEL CreateAcceleratorINTEL} */
     @NativeType("cl_accelerator_intel")
-    public static long clCreateAcceleratorINTEL(@NativeType("cl_context") long context, @NativeType("cl_accelerator_type_intel") int accelerator_type, @NativeType("const void *") ByteBuffer descriptor, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateAcceleratorINTEL(@NativeType("cl_context") long context, @NativeType("cl_accelerator_type_intel") int accelerator_type, @NativeType("void const *") ByteBuffer descriptor, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateAcceleratorINTEL;
         if (CHECKS) {
             check(__functionAddress);
