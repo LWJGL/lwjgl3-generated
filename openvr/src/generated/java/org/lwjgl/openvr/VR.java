@@ -56,6 +56,7 @@ public class VR {
     /** OpenVR constants. */
     public static final long
         k_ulInvalidPropertyContainer = 0L,
+        k_ulInvalidDriverHandle      = 0L,
         k_ulOverlayHandleInvalid     = 0L;
 
     /** No string property will ever be longer than this length. */
@@ -149,6 +150,7 @@ public class VR {
         k_pch_SteamVR_AllowDisplayLockedMode_Bool                      = "allowDisplayLockedMode",
         k_pch_SteamVR_HaveStartedTutorialForNativeChaperoneDriver_Bool = "haveStartedTutorialForNativeChaperoneDriver",
         k_pch_SteamVR_ForceWindows32bitVRMonitor                       = "forceWindows32BitVRMonitor",
+        k_pch_SteamVR_DebugInput                                       = "debugInput",
         k_pch_Lighthouse_Section                                       = "driver_lighthouse",
         k_pch_Lighthouse_DisableIMU_Bool                               = "disableimu",
         k_pch_Lighthouse_DisableIMUExceptHMD_Bool                      = "disableimuexcepthmd",
@@ -157,6 +159,7 @@ public class VR {
         k_pch_Lighthouse_PrimaryBasestation_Int32                      = "primarybasestation",
         k_pch_Lighthouse_DBHistory_Bool                                = "dbhistory",
         k_pch_Lighthouse_EnableBluetooth_Bool                          = "enableBluetooth",
+        k_pch_Lighthouse_PowerManagedBaseStations_String               = "PowerManagedBaseStations",
         k_pch_Null_Section                                             = "driver_null",
         k_pch_Null_SerialNumber_String                                 = "serialNumber",
         k_pch_Null_ModelNumber_String                                  = "modelNumber",
@@ -228,8 +231,11 @@ public class VR {
         k_pch_Dashboard_Section                                        = "dashboard",
         k_pch_Dashboard_EnableDashboard_Bool                           = "enableDashboard",
         k_pch_Dashboard_ArcadeMode_Bool                                = "arcadeMode",
+        k_pch_Dashboard_EnableWebUI                                    = "webUI",
         k_pch_modelskin_Section                                        = "modelskins",
         k_pch_Driver_Enable_Bool                                       = "enable",
+        k_pch_WebInterface_Section                                     = "WebInterface",
+        k_pch_WebInterface_WebPort_String                              = "WebPort",
         IVRScreenshots_Version                                         = "IVRScreenshots_001",
         IVRResources_Version                                           = "IVRResources_001",
         IVRDriverManager_Version                                       = "IVRDriverManager_001";
@@ -259,14 +265,19 @@ public class VR {
      * <li>{@link #ETextureType_TextureType_Vulkan ETextureType_TextureType_Vulkan} - Handle is a pointer to a {@code VRVulkanTextureData_t} structure.</li>
      * <li>{@link #ETextureType_TextureType_IOSurface ETextureType_TextureType_IOSurface} - Handle is a macOS cross-process-sharable {@code IOSurfaceRef}.</li>
      * <li>{@link #ETextureType_TextureType_DirectX12 ETextureType_TextureType_DirectX12} - Handle is a pointer to a {@code D3D12TextureData_t} structure.</li>
+     * <li>{@link #ETextureType_TextureType_DXGISharedHandle ETextureType_TextureType_DXGISharedHandle} - 
+     * Handle is a {@code HANDLE DXGI} share handle, only supported for Overlay render targets. This texture is used directly by our renderer, so only
+     * perform atomic (copyresource or resolve) on it.
+     * </li>
      * </ul>
      */
     public static final int
-        ETextureType_TextureType_DirectX   = 0,
-        ETextureType_TextureType_OpenGL    = 1,
-        ETextureType_TextureType_Vulkan    = 2,
-        ETextureType_TextureType_IOSurface = 3,
-        ETextureType_TextureType_DirectX12 = 4;
+        ETextureType_TextureType_DirectX          = 0,
+        ETextureType_TextureType_OpenGL           = 1,
+        ETextureType_TextureType_Vulkan           = 2,
+        ETextureType_TextureType_IOSurface        = 3,
+        ETextureType_TextureType_DirectX12        = 4,
+        ETextureType_TextureType_DXGISharedHandle = 5;
 
     /**
      * EColorSpace
@@ -335,12 +346,14 @@ public class VR {
      * <li>{@link #ETrackedControllerRole_TrackedControllerRole_Invalid ETrackedControllerRole_TrackedControllerRole_Invalid} - Invalid value for controller type.</li>
      * <li>{@link #ETrackedControllerRole_TrackedControllerRole_LeftHand ETrackedControllerRole_TrackedControllerRole_LeftHand} - Tracked device associated with the left hand.</li>
      * <li>{@link #ETrackedControllerRole_TrackedControllerRole_RightHand ETrackedControllerRole_TrackedControllerRole_RightHand} - Tracked device associated with the right hand.</li>
+     * <li>{@link #ETrackedControllerRole_TrackedControllerRole_OptOut ETrackedControllerRole_TrackedControllerRole_OptOut} - Tracked device is opting out of left/right hand selection.</li>
      * </ul>
      */
     public static final int
         ETrackedControllerRole_TrackedControllerRole_Invalid   = 0,
         ETrackedControllerRole_TrackedControllerRole_LeftHand  = 1,
-        ETrackedControllerRole_TrackedControllerRole_RightHand = 2;
+        ETrackedControllerRole_TrackedControllerRole_RightHand = 2,
+        ETrackedControllerRole_TrackedControllerRole_OptOut    = 3;
 
     /**
      * {@code ETrackingUniverseOrigin}: Identifies which style of tracking origin the application wants to use for the poses it is requesting.
@@ -407,6 +420,7 @@ public class VR {
      * <li>{@link #ETrackedDeviceProperty_Prop_ResourceRoot_String ETrackedDeviceProperty_Prop_ResourceRoot_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_RegisteredDeviceType_String ETrackedDeviceProperty_Prop_RegisteredDeviceType_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_InputProfilePath_String ETrackedDeviceProperty_Prop_InputProfilePath_String} - input profile to use for this device in the input system. Will default to tracking system name if this isn't provided.</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_NeverTracked_Bool ETrackedDeviceProperty_Prop_NeverTracked_Bool} - used for devices that will never have a valid pose by design.</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DisplayFrequency_Float ETrackedDeviceProperty_Prop_DisplayFrequency_Float}</li>
@@ -461,9 +475,13 @@ public class VR {
      * <li>{@link #ETrackedDeviceProperty_Prop_NamedIconPathTrackingReferenceDeviceOff_String ETrackedDeviceProperty_Prop_NamedIconPathTrackingReferenceDeviceOff_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DoNotApplyPrediction_Bool ETrackedDeviceProperty_Prop_DoNotApplyPrediction_Bool} - placeholder icon for sensor/base if not yet detected/loaded</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_CameraToHeadTransforms_Matrix34_Array ETrackedDeviceProperty_Prop_CameraToHeadTransforms_Matrix34_Array}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_DistortionMeshResolution_Int32 ETrackedDeviceProperty_Prop_DistortionMeshResolution_Int32} - custom resolution of compositor calls to {@link VRSystem#VRSystem_ComputeDistortion ComputeDistortion}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DriverIsDrawingControllers_Bool ETrackedDeviceProperty_Prop_DriverIsDrawingControllers_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DriverRequestsApplicationPause_Bool ETrackedDeviceProperty_Prop_DriverRequestsApplicationPause_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DriverRequestsReducedRendering_Bool ETrackedDeviceProperty_Prop_DriverRequestsReducedRendering_Bool}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_MinimumIpdStepMeters_Float ETrackedDeviceProperty_Prop_MinimumIpdStepMeters_Float}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_AudioBridgeFirmwareVersion_Uint64 ETrackedDeviceProperty_Prop_AudioBridgeFirmwareVersion_Uint64}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_ImageBridgeFirmwareVersion_Uint64 ETrackedDeviceProperty_Prop_ImageBridgeFirmwareVersion_Uint64}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_AttachedDeviceId_String ETrackedDeviceProperty_Prop_AttachedDeviceId_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_SupportedButtons_Uint64 ETrackedDeviceProperty_Prop_SupportedButtons_Uint64}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_Axis0Type_Int32 ETrackedDeviceProperty_Prop_Axis0Type_Int32}</li>
@@ -545,6 +563,7 @@ public class VR {
         ETrackedDeviceProperty_Prop_ResourceRoot_String                            = 1035,
         ETrackedDeviceProperty_Prop_RegisteredDeviceType_String                    = 1036,
         ETrackedDeviceProperty_Prop_InputProfilePath_String                        = 1037,
+        ETrackedDeviceProperty_Prop_NeverTracked_Bool                              = 1038,
         ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool                     = 2000,
         ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float                = 2001,
         ETrackedDeviceProperty_Prop_DisplayFrequency_Float                         = 2002,
@@ -599,9 +618,13 @@ public class VR {
         ETrackedDeviceProperty_Prop_NamedIconPathTrackingReferenceDeviceOff_String = 2053,
         ETrackedDeviceProperty_Prop_DoNotApplyPrediction_Bool                      = 2054,
         ETrackedDeviceProperty_Prop_CameraToHeadTransforms_Matrix34_Array          = 2055,
+        ETrackedDeviceProperty_Prop_DistortionMeshResolution_Int32                 = 2056,
         ETrackedDeviceProperty_Prop_DriverIsDrawingControllers_Bool                = 2057,
         ETrackedDeviceProperty_Prop_DriverRequestsApplicationPause_Bool            = 2058,
         ETrackedDeviceProperty_Prop_DriverRequestsReducedRendering_Bool            = 2059,
+        ETrackedDeviceProperty_Prop_MinimumIpdStepMeters_Float                     = 2060,
+        ETrackedDeviceProperty_Prop_AudioBridgeFirmwareVersion_Uint64              = 2061,
+        ETrackedDeviceProperty_Prop_ImageBridgeFirmwareVersion_Uint64              = 2062,
         ETrackedDeviceProperty_Prop_AttachedDeviceId_String                        = 3000,
         ETrackedDeviceProperty_Prop_SupportedButtons_Uint64                        = 3001,
         ETrackedDeviceProperty_Prop_Axis0Type_Int32                                = 3002,
@@ -789,6 +812,7 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_SceneFocusChanged EVREventType_VREvent_SceneFocusChanged} - data is process - New app got access to draw the scene</li>
      * <li>{@link #EVREventType_VREvent_InputFocusChanged EVREventType_VREvent_InputFocusChanged} - data is process</li>
      * <li>{@link #EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted} - data is process</li>
+     * <li>{@link #EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter} - data is process</li>
      * <li>{@link #EVREventType_VREvent_HideRenderModels EVREventType_VREvent_HideRenderModels} - Sent to the scene application to request hiding render models temporarily</li>
      * <li>{@link #EVREventType_VREvent_ShowRenderModels EVREventType_VREvent_ShowRenderModels} - Sent to the scene application to request restoring render model visibility</li>
      * <li>{@link #EVREventType_VREvent_ConsoleOpened EVREventType_VREvent_ConsoleOpened}</li>
@@ -807,17 +831,18 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_OverlayGamepadFocusGained EVREventType_VREvent_OverlayGamepadFocusGained} - Sent to an overlay when IVROverlay::SetFocusOverlay is called on it</li>
      * <li>{@link #EVREventType_VREvent_OverlayGamepadFocusLost EVREventType_VREvent_OverlayGamepadFocusLost} - Send to an overlay when it previously had focus and IVROverlay::SetFocusOverlay is called on something else</li>
      * <li>{@link #EVREventType_VREvent_OverlaySharedTextureChanged EVREventType_VREvent_OverlaySharedTextureChanged}</li>
-     * <li>{@link #EVREventType_VREvent_DashboardGuideButtonDown EVREventType_VREvent_DashboardGuideButtonDown}</li>
-     * <li>{@link #EVREventType_VREvent_DashboardGuideButtonUp EVREventType_VREvent_DashboardGuideButtonUp}</li>
      * <li>{@link #EVREventType_VREvent_ScreenshotTriggered EVREventType_VREvent_ScreenshotTriggered} - Screenshot button combo was pressed, Dashboard should request a screenshot</li>
      * <li>{@link #EVREventType_VREvent_ImageFailed EVREventType_VREvent_ImageFailed} - Sent to overlays when a SetOverlayRaw or SetOverlayfromFail fails to load</li>
      * <li>{@link #EVREventType_VREvent_DashboardOverlayCreated EVREventType_VREvent_DashboardOverlayCreated}</li>
+     * <li>{@link #EVREventType_VREvent_SwitchGamepadFocus EVREventType_VREvent_SwitchGamepadFocus}</li>
      * <li>{@link #EVREventType_VREvent_RequestScreenshot EVREventType_VREvent_RequestScreenshot} - Sent by vrclient application to compositor to take a screenshot</li>
      * <li>{@link #EVREventType_VREvent_ScreenshotTaken EVREventType_VREvent_ScreenshotTaken} - Sent by compositor to the application that the screenshot has been taken</li>
      * <li>{@link #EVREventType_VREvent_ScreenshotFailed EVREventType_VREvent_ScreenshotFailed} - Sent by compositor to the application that the screenshot failed to be taken</li>
      * <li>{@link #EVREventType_VREvent_SubmitScreenshotToDashboard EVREventType_VREvent_SubmitScreenshotToDashboard} - Sent by compositor to the dashboard that a completed screenshot was submitted</li>
      * <li>{@link #EVREventType_VREvent_ScreenshotProgressToDashboard EVREventType_VREvent_ScreenshotProgressToDashboard} - Sent by compositor to the dashboard that a completed screenshot was submitted</li>
      * <li>{@link #EVREventType_VREvent_PrimaryDashboardDeviceChanged EVREventType_VREvent_PrimaryDashboardDeviceChanged}</li>
+     * <li>{@link #EVREventType_VREvent_RoomViewShown EVREventType_VREvent_RoomViewShown} - Sent by compositor whenever room-view is enabled</li>
+     * <li>{@link #EVREventType_VREvent_RoomViewHidden EVREventType_VREvent_RoomViewHidden} - Sent by compositor whenever room-view is disabled</li>
      * <li>{@link #EVREventType_VREvent_Notification_Shown EVREventType_VREvent_Notification_Shown}</li>
      * <li>{@link #EVREventType_VREvent_Notification_Hidden EVREventType_VREvent_Notification_Hidden}</li>
      * <li>{@link #EVREventType_VREvent_Notification_BeginInteraction EVREventType_VREvent_Notification_BeginInteraction}</li>
@@ -928,6 +953,7 @@ public class VR {
         EVREventType_VREvent_SceneFocusChanged                         = 405,
         EVREventType_VREvent_InputFocusChanged                         = 406,
         EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted = 407,
+        EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter = 408,
         EVREventType_VREvent_HideRenderModels                          = 410,
         EVREventType_VREvent_ShowRenderModels                          = 411,
         EVREventType_VREvent_ConsoleOpened                             = 420,
@@ -946,17 +972,18 @@ public class VR {
         EVREventType_VREvent_OverlayGamepadFocusGained                 = 511,
         EVREventType_VREvent_OverlayGamepadFocusLost                   = 512,
         EVREventType_VREvent_OverlaySharedTextureChanged               = 513,
-        EVREventType_VREvent_DashboardGuideButtonDown                  = 514,
-        EVREventType_VREvent_DashboardGuideButtonUp                    = 515,
         EVREventType_VREvent_ScreenshotTriggered                       = 516,
         EVREventType_VREvent_ImageFailed                               = 517,
         EVREventType_VREvent_DashboardOverlayCreated                   = 518,
+        EVREventType_VREvent_SwitchGamepadFocus                        = 519,
         EVREventType_VREvent_RequestScreenshot                         = 520,
         EVREventType_VREvent_ScreenshotTaken                           = 521,
         EVREventType_VREvent_ScreenshotFailed                          = 522,
         EVREventType_VREvent_SubmitScreenshotToDashboard               = 523,
         EVREventType_VREvent_ScreenshotProgressToDashboard             = 524,
         EVREventType_VREvent_PrimaryDashboardDeviceChanged             = 525,
+        EVREventType_VREvent_RoomViewShown                             = 526,
+        EVREventType_VREvent_RoomViewHidden                            = 527,
         EVREventType_VREvent_Notification_Shown                        = 600,
         EVREventType_VREvent_Notification_Hidden                       = 601,
         EVREventType_VREvent_Notification_BeginInteraction             = 602,
@@ -1397,6 +1424,7 @@ public class VR {
      * <li>{@link #EVRInitError_VRInitError_Init_FirmwareUpdateBusy EVRInitError_VRInitError_Init_FirmwareUpdateBusy}</li>
      * <li>{@link #EVRInitError_VRInitError_Init_FirmwareRecoveryBusy EVRInitError_VRInitError_Init_FirmwareRecoveryBusy}</li>
      * <li>{@link #EVRInitError_VRInitError_Init_USBServiceBusy EVRInitError_VRInitError_Init_USBServiceBusy}</li>
+     * <li>{@link #EVRInitError_VRInitError_Init_VRWebHelperStartupFailed EVRInitError_VRInitError_Init_VRWebHelperStartupFailed}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_Failed EVRInitError_VRInitError_Driver_Failed}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_Unknown EVRInitError_VRInitError_Driver_Unknown}</li>
      * <li>{@link #EVRInitError_VRInitError_Driver_HmdUnknown EVRInitError_VRInitError_Driver_HmdUnknown}</li>
@@ -1486,6 +1514,7 @@ public class VR {
         EVRInitError_VRInitError_Init_FirmwareUpdateBusy                            = 138,
         EVRInitError_VRInitError_Init_FirmwareRecoveryBusy                          = 139,
         EVRInitError_VRInitError_Init_USBServiceBusy                                = 140,
+        EVRInitError_VRInitError_Init_VRWebHelperStartupFailed                      = 141,
         EVRInitError_VRInitError_Driver_Failed                                      = 200,
         EVRInitError_VRInitError_Driver_Unknown                                     = 201,
         EVRInitError_VRInitError_Driver_HmdUnknown                                  = 202,

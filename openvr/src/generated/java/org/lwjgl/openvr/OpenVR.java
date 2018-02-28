@@ -459,12 +459,14 @@ public final class OpenVR {
 
         public final long
             GetDriverCount,
-            GetDriverName;
+            GetDriverName,
+            GetDriverHandle;
 
         public IVRDriverManager(long tableAddress) {
-            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 2);
+            PointerBuffer table = MemoryUtil.memPointerBuffer(tableAddress, 3);
             GetDriverCount = table.get(0);
             GetDriverName = table.get(1);
+            GetDriverHandle = table.get(2);
         }
 
     }

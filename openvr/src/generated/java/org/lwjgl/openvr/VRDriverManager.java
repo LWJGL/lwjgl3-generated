@@ -73,4 +73,44 @@ public class VRDriverManager {
         }
     }
 
+    // --- [ VRDriverManager_GetDriverHandle ] ---
+
+    /** Unsafe version of: {@link #VRDriverManager_GetDriverHandle GetDriverHandle} */
+    public static long nVRDriverManager_GetDriverHandle(long pchDriverName) {
+        long __functionAddress = OpenVR.VRDriverManager.GetDriverHandle;
+        if (CHECKS) {
+            check(__functionAddress);
+        }
+        return callPJ(__functionAddress, pchDriverName);
+    }
+
+    /**
+     * Returns the property container handle for the specified driver.
+     *
+     * @param pchDriverName the driver name
+     */
+    @NativeType("DriverHandle_t")
+    public static long VRDriverManager_GetDriverHandle(@NativeType("char *") ByteBuffer pchDriverName) {
+        if (CHECKS) {
+            checkNT1(pchDriverName);
+        }
+        return nVRDriverManager_GetDriverHandle(memAddress(pchDriverName));
+    }
+
+    /**
+     * Returns the property container handle for the specified driver.
+     *
+     * @param pchDriverName the driver name
+     */
+    @NativeType("DriverHandle_t")
+    public static long VRDriverManager_GetDriverHandle(@NativeType("char *") CharSequence pchDriverName) {
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer pchDriverNameEncoded = stack.ASCII(pchDriverName);
+            return nVRDriverManager_GetDriverHandle(memAddress(pchDriverNameEncoded));
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
 }

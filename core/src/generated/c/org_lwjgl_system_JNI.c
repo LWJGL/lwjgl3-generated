@@ -353,6 +353,7 @@ ARITYn(jlong, callJ__JI, return ((jlong (APIENTRY *) (jint))(intptr_t)__function
 ARITYn(jlong, callJ__JII, return ((jlong (APIENTRY *) (jint, jint))(intptr_t)__functionAddress)(param0, param1), jint param0, jint param1)
 ARITYn(jlong, callPJ__JIIJ, return ((jlong (APIENTRY *) (jint, jint, intptr_t))(intptr_t)__functionAddress)(param0, param1, (intptr_t)param2), jint param0, jint param1, jlong param2)
 ARITYn(jlong, callJ__JIIZII, return ((jlong (APIENTRY *) (jint, jint, jboolean, jint, jint))(intptr_t)__functionAddress)(param0, param1, param2, param3, param4), jint param0, jint param1, jboolean param2, jint param3, jint param4)
+ARITYn(jlong, callPJ__JJ, return ((jlong (APIENTRY *) (intptr_t))(intptr_t)__functionAddress)((intptr_t)param0), jlong param0)
 ARITYn(jlong, callPPJ__JJIJ, return ((jlong (APIENTRY *) (intptr_t, jint, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, param1, (intptr_t)param2), jlong param0, jint param1, jlong param2)
 ARITYn(jlong, callPPJ__JJJ, return ((jlong (APIENTRY *) (intptr_t, intptr_t))(intptr_t)__functionAddress)((intptr_t)param0, (intptr_t)param1), jlong param0, jlong param1)
 ARITY0(jlong, callP__J, return (jlong)((intptr_t (APIENTRY *) ())(intptr_t)__functionAddress)())

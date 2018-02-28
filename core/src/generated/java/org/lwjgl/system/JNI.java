@@ -368,6 +368,7 @@ public final class JNI {
     public static native long callJ(long __functionAddress, int param0, int param1);
     public static native long callPJ(long __functionAddress, int param0, int param1, long param2);
     public static native long callJ(long __functionAddress, int param0, int param1, boolean param2, int param3, int param4);
+    public static native long callPJ(long __functionAddress, long param0);
     public static native long callPPJ(long __functionAddress, long param0, int param1, long param2);
     public static native long callPPJ(long __functionAddress, long param0, long param1);
     public static native long callP(long __functionAddress);
