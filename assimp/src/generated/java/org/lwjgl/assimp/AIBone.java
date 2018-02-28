@@ -20,15 +20,21 @@ import static org.lwjgl.system.MemoryStack.*;
  * A single bone of a mesh.
  * 
  * <p>A bone has a name by which it can be found in the frame hierarchy and by which it can be addressed by animations. In addition it has a number of
- * influences on vertices.</p>
+ * influences on vertices, and a matrix relating the mesh position to the position of the bone at the time of binding.</p>
  * 
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code mName} &ndash; The name of the bone.</li>
- * <li>{@code mNumWeights} &ndash; The number of vertices affected by this bone. The maximum value for this member is {@link Assimp#AI_MAX_BONE_WEIGHTS}.</li>
- * <li>{@code mWeights} &ndash; The vertices affected by this bone</li>
- * <li>{@code mOffsetMatrix} &ndash; Matrix that transforms from mesh space to bone space in bind pose</li>
+ * <li>{@code mName} &ndash; the name of the bone.</li>
+ * <li>{@code mNumWeights} &ndash; the number of vertices affected by this bone. The maximum value for this member is {@link Assimp#AI_MAX_BONE_WEIGHTS}.</li>
+ * <li>{@code mWeights} &ndash; the influence weights of this bone, by vertex index</li>
+ * <li>{@code mOffsetMatrix} &ndash; 
+ * matrix that transforms from bone space to mesh space in bind pose.
+ * 
+ * <p>This matrix describes the position of the mesh in the local space of this bone when the skeleton was bound. Thus it can be used directly to determine a
+ * desired vertex position, given the world-space transform of the bone when animated, and the position of the vertex in mesh space.</p>
+ * 
+ * <p>It is sometimes called an inverse-bind matrix, or inverse bind pose matrix.</p></li>
  * </ul>
  * 
  * <h3>Layout</h3>
