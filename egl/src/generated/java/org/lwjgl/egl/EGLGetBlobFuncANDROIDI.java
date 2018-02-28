@@ -26,7 +26,7 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
 @NativeType("EGLGetBlobFuncANDROID")
 public interface EGLGetBlobFuncANDROIDI extends CallbackI.P {
 
-    String SIGNATURE = "(pppp)p";
+    String SIGNATURE = Callback.__stdcall("(pppp)p");
 
     @Override
     default String getSignature() { return SIGNATURE; }
