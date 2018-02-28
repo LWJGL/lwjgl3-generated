@@ -52,8 +52,21 @@ public class TinyFileDialogs {
         return memASCII(__result);
     }
 
-    /** The library version. */
+    /** Contains tinyfd current version number. */
     public static final String tinyfd_version = tinyfd_version();
+
+    // --- [ tinyfd_needs ] ---
+
+    private static native long ntinyfd_needs();
+
+    @NativeType("char *")
+    private static String tinyfd_needs() {
+        long __result = ntinyfd_needs();
+        return memASCII(__result);
+    }
+
+    /** Contains info about requirements. */
+    public static final String tinyfd_needs = tinyfd_needs();
 
     // --- [ tinyfd_winUtf8 ] ---
 
