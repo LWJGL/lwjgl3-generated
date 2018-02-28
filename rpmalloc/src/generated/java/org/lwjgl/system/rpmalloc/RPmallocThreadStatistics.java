@@ -19,8 +19,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * <h3>Member documentation</h3>
  * 
  * <ul>
- * <li>{@code requested} &ndash; Amount of memory currently requested in allocations (only if {@code ENABLE_STATISTICS=1})</li>
- * <li>{@code allocated} &ndash; Amount of memory actually allocated in memory blocks (only if {@code ENABLE_STATISTICS=1})</li>
  * <li>{@code active} &ndash; Current number of bytes available for allocation from active spans</li>
  * <li>{@code sizecache} &ndash; Current number of bytes available in thread size class caches</li>
  * <li>{@code spancache} &ndash; Current number of bytes available in thread span caches</li>
@@ -33,8 +31,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct rpmalloc_thread_statistics_t {
- *     size_t requested;
- *     size_t allocated;
  *     size_t active;
  *     size_t sizecache;
  *     size_t spancache;
@@ -53,8 +49,6 @@ public class RPmallocThreadStatistics extends Struct implements NativeResource {
 
     /** The struct member offsets. */
     public static final int
-        REQUESTED,
-        ALLOCATED,
         ACTIVE,
         SIZECACHE,
         SPANCACHE,
@@ -69,22 +63,18 @@ public class RPmallocThreadStatistics extends Struct implements NativeResource {
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
-            __member(POINTER_SIZE),
-            __member(POINTER_SIZE),
             __member(POINTER_SIZE)
         );
 
         SIZEOF = layout.getSize();
         ALIGNOF = layout.getAlignment();
 
-        REQUESTED = layout.offsetof(0);
-        ALLOCATED = layout.offsetof(1);
-        ACTIVE = layout.offsetof(2);
-        SIZECACHE = layout.offsetof(3);
-        SPANCACHE = layout.offsetof(4);
-        DEFERRED = layout.offsetof(5);
-        THREAD_TO_GLOBAL = layout.offsetof(6);
-        GLOBAL_TO_THREAD = layout.offsetof(7);
+        ACTIVE = layout.offsetof(0);
+        SIZECACHE = layout.offsetof(1);
+        SPANCACHE = layout.offsetof(2);
+        DEFERRED = layout.offsetof(3);
+        THREAD_TO_GLOBAL = layout.offsetof(4);
+        GLOBAL_TO_THREAD = layout.offsetof(5);
     }
 
     RPmallocThreadStatistics(long address, @Nullable ByteBuffer container) {
@@ -104,12 +94,6 @@ public class RPmallocThreadStatistics extends Struct implements NativeResource {
     @Override
     public int sizeof() { return SIZEOF; }
 
-    /** Returns the value of the {@code requested} field. */
-    @NativeType("size_t")
-    public long requested() { return nrequested(address()); }
-    /** Returns the value of the {@code allocated} field. */
-    @NativeType("size_t")
-    public long allocated() { return nallocated(address()); }
     /** Returns the value of the {@code active} field. */
     @NativeType("size_t")
     public long active() { return nactive(address()); }
@@ -270,10 +254,6 @@ public class RPmallocThreadStatistics extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #requested}. */
-    public static long nrequested(long struct) { return memGetAddress(struct + RPmallocThreadStatistics.REQUESTED); }
-    /** Unsafe version of {@link #allocated}. */
-    public static long nallocated(long struct) { return memGetAddress(struct + RPmallocThreadStatistics.ALLOCATED); }
     /** Unsafe version of {@link #active}. */
     public static long nactive(long struct) { return memGetAddress(struct + RPmallocThreadStatistics.ACTIVE); }
     /** Unsafe version of {@link #sizecache}. */
@@ -333,12 +313,6 @@ public class RPmallocThreadStatistics extends Struct implements NativeResource {
             return SIZEOF;
         }
 
-        /** Returns the value of the {@code requested} field. */
-        @NativeType("size_t")
-        public long requested() { return RPmallocThreadStatistics.nrequested(address()); }
-        /** Returns the value of the {@code allocated} field. */
-        @NativeType("size_t")
-        public long allocated() { return RPmallocThreadStatistics.nallocated(address()); }
         /** Returns the value of the {@code active} field. */
         @NativeType("size_t")
         public long active() { return RPmallocThreadStatistics.nactive(address()); }

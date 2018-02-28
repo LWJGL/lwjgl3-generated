@@ -102,6 +102,16 @@ public class RPmalloc {
         return nrpmalloc_initialize_config(memAddressSafe(config)) != 0;
     }
 
+    // --- [ rpmalloc_config ] ---
+
+    public static native long nrpmalloc_config();
+
+    @NativeType("rpmalloc_config_t const *")
+    public static RPMallocConfig rpmalloc_config() {
+        long __result = nrpmalloc_config();
+        return RPMallocConfig.create(__result);
+    }
+
     // --- [ rpmalloc_finalize ] ---
 
     /**

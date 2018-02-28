@@ -33,8 +33,17 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code page_size} &ndash; 
  * the size of memory pages.
  * 
- * <p>All allocation requests will be made in multiples of this page size. If set to 0, rpmalloc will use system calls to determine the page size. The page
- * size MUST be a power of two in {@code [512,16384]} range ({@code 2^9} to {@code 2^14}).</p></li>
+ * <p>The page size MUST be a power of two in {@code [512,16384]} range (2<sup>9</sup> to 2<sup>14</sup>) unless 0 - set to 0 to use system page size. All
+ * memory mapping requests to {@code memory_map} will be made with size set to a multiple of the page size.</p></li>
+ * <li>{@code span_size} &ndash; 
+ * size of a span of memory pages.
+ * 
+ * <p>MUST be a multiple of page size, and in {@code [4096,262144]} range (unless 0 - set to 0 to use the default span size).</p></li>
+ * <li>{@code span_map_count} &ndash; 
+ * number of spans to map at each request to map new virtual memory blocks.
+ * 
+ * <p>This can be used to minimize the system call overhead at the cost of virtual memory address space. The extra mapped pages will not be written until
+ * actually used, so physical committed memory should not be affected in the default implementation.</p></li>
  * <li>{@code memory_overwrite} &ndash; the memory overwrite callback function</li>
  * </ul>
  * 
@@ -42,9 +51,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <code><pre>
  * struct rpmalloc_config_t {
- *     void * (*{@link RPMemoryMapCallbackI memory_map}) (size_t size);
- *     void (*{@link RPMemoryUnmapCallbackI memory_unmap}) (void *address, size_t size);
+ *     void * (*{@link RPMemoryMapCallbackI memory_map}) (size_t size, size_t *offset);
+ *     void (*{@link RPMemoryUnmapCallbackI memory_unmap}) (void *address, size_t size, size_t offset, int release);
  *     size_t page_size;
+ *     size_t span_size;
+ *     size_t span_map_count;
  *     void (*{@link RPMemoryOverwriteCallbackI memory_overwrite}) (void *address);
  * }</pre></code>
  */
@@ -61,10 +72,14 @@ public class RPMallocConfig extends Struct implements NativeResource {
         MEMORY_MAP,
         MEMORY_UNMAP,
         PAGE_SIZE,
+        SPAN_SIZE,
+        SPAN_MAP_COUNT,
         MEMORY_OVERWRITE;
 
     static {
         Layout layout = __struct(
+            __member(POINTER_SIZE),
+            __member(POINTER_SIZE),
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
             __member(POINTER_SIZE),
@@ -77,7 +92,9 @@ public class RPMallocConfig extends Struct implements NativeResource {
         MEMORY_MAP = layout.offsetof(0);
         MEMORY_UNMAP = layout.offsetof(1);
         PAGE_SIZE = layout.offsetof(2);
-        MEMORY_OVERWRITE = layout.offsetof(3);
+        SPAN_SIZE = layout.offsetof(3);
+        SPAN_MAP_COUNT = layout.offsetof(4);
+        MEMORY_OVERWRITE = layout.offsetof(5);
     }
 
     RPMallocConfig(long address, @Nullable ByteBuffer container) {
@@ -99,26 +116,36 @@ public class RPMallocConfig extends Struct implements NativeResource {
 
     /** Returns the value of the {@code memory_map} field. */
     @Nullable
-    @NativeType("void * (*) (size_t)")
+    @NativeType("void * (*) (size_t, size_t *)")
     public RPMemoryMapCallback memory_map() { return nmemory_map(address()); }
     /** Returns the value of the {@code memory_unmap} field. */
     @Nullable
-    @NativeType("void (*) (void *, size_t)")
+    @NativeType("void (*) (void *, size_t, size_t, int)")
     public RPMemoryUnmapCallback memory_unmap() { return nmemory_unmap(address()); }
     /** Returns the value of the {@code page_size} field. */
     @NativeType("size_t")
     public long page_size() { return npage_size(address()); }
+    /** Returns the value of the {@code span_size} field. */
+    @NativeType("size_t")
+    public long span_size() { return nspan_size(address()); }
+    /** Returns the value of the {@code span_map_count} field. */
+    @NativeType("size_t")
+    public long span_map_count() { return nspan_map_count(address()); }
     /** Returns the value of the {@code memory_overwrite} field. */
     @Nullable
     @NativeType("void (*) (void *)")
     public RPMemoryOverwriteCallback memory_overwrite() { return nmemory_overwrite(address()); }
 
     /** Sets the specified value to the {@code memory_map} field. */
-    public RPMallocConfig memory_map(@Nullable @NativeType("void * (*) (size_t)") RPMemoryMapCallbackI value) { nmemory_map(address(), value); return this; }
+    public RPMallocConfig memory_map(@Nullable @NativeType("void * (*) (size_t, size_t *)") RPMemoryMapCallbackI value) { nmemory_map(address(), value); return this; }
     /** Sets the specified value to the {@code memory_unmap} field. */
-    public RPMallocConfig memory_unmap(@Nullable @NativeType("void (*) (void *, size_t)") RPMemoryUnmapCallbackI value) { nmemory_unmap(address(), value); return this; }
+    public RPMallocConfig memory_unmap(@Nullable @NativeType("void (*) (void *, size_t, size_t, int)") RPMemoryUnmapCallbackI value) { nmemory_unmap(address(), value); return this; }
     /** Sets the specified value to the {@code page_size} field. */
     public RPMallocConfig page_size(@NativeType("size_t") long value) { npage_size(address(), value); return this; }
+    /** Sets the specified value to the {@code span_size} field. */
+    public RPMallocConfig span_size(@NativeType("size_t") long value) { nspan_size(address(), value); return this; }
+    /** Sets the specified value to the {@code span_map_count} field. */
+    public RPMallocConfig span_map_count(@NativeType("size_t") long value) { nspan_map_count(address(), value); return this; }
     /** Sets the specified value to the {@code memory_overwrite} field. */
     public RPMallocConfig memory_overwrite(@Nullable @NativeType("void (*) (void *)") RPMemoryOverwriteCallbackI value) { nmemory_overwrite(address(), value); return this; }
 
@@ -127,11 +154,15 @@ public class RPMallocConfig extends Struct implements NativeResource {
         RPMemoryMapCallbackI memory_map,
         RPMemoryUnmapCallbackI memory_unmap,
         long page_size,
+        long span_size,
+        long span_map_count,
         RPMemoryOverwriteCallbackI memory_overwrite
     ) {
         memory_map(memory_map);
         memory_unmap(memory_unmap);
         page_size(page_size);
+        span_size(span_size);
+        span_map_count(span_map_count);
         memory_overwrite(memory_overwrite);
 
         return this;
@@ -296,6 +327,10 @@ public class RPMallocConfig extends Struct implements NativeResource {
     @Nullable public static RPMemoryUnmapCallback nmemory_unmap(long struct) { return RPMemoryUnmapCallback.createSafe(memGetAddress(struct + RPMallocConfig.MEMORY_UNMAP)); }
     /** Unsafe version of {@link #page_size}. */
     public static long npage_size(long struct) { return memGetAddress(struct + RPMallocConfig.PAGE_SIZE); }
+    /** Unsafe version of {@link #span_size}. */
+    public static long nspan_size(long struct) { return memGetAddress(struct + RPMallocConfig.SPAN_SIZE); }
+    /** Unsafe version of {@link #span_map_count}. */
+    public static long nspan_map_count(long struct) { return memGetAddress(struct + RPMallocConfig.SPAN_MAP_COUNT); }
     /** Unsafe version of {@link #memory_overwrite}. */
     @Nullable public static RPMemoryOverwriteCallback nmemory_overwrite(long struct) { return RPMemoryOverwriteCallback.createSafe(memGetAddress(struct + RPMallocConfig.MEMORY_OVERWRITE)); }
 
@@ -305,6 +340,10 @@ public class RPMallocConfig extends Struct implements NativeResource {
     public static void nmemory_unmap(long struct, @Nullable RPMemoryUnmapCallbackI value) { memPutAddress(struct + RPMallocConfig.MEMORY_UNMAP, memAddressSafe(value)); }
     /** Unsafe version of {@link #page_size(long) page_size}. */
     public static void npage_size(long struct, long value) { memPutAddress(struct + RPMallocConfig.PAGE_SIZE, value); }
+    /** Unsafe version of {@link #span_size(long) span_size}. */
+    public static void nspan_size(long struct, long value) { memPutAddress(struct + RPMallocConfig.SPAN_SIZE, value); }
+    /** Unsafe version of {@link #span_map_count(long) span_map_count}. */
+    public static void nspan_map_count(long struct, long value) { memPutAddress(struct + RPMallocConfig.SPAN_MAP_COUNT, value); }
     /** Unsafe version of {@link #memory_overwrite(RPMemoryOverwriteCallbackI) memory_overwrite}. */
     public static void nmemory_overwrite(long struct, @Nullable RPMemoryOverwriteCallbackI value) { memPutAddress(struct + RPMallocConfig.MEMORY_OVERWRITE, memAddressSafe(value)); }
 
@@ -356,26 +395,36 @@ public class RPMallocConfig extends Struct implements NativeResource {
 
         /** Returns the value of the {@code memory_map} field. */
         @Nullable
-        @NativeType("void * (*) (size_t)")
+        @NativeType("void * (*) (size_t, size_t *)")
         public RPMemoryMapCallback memory_map() { return RPMallocConfig.nmemory_map(address()); }
         /** Returns the value of the {@code memory_unmap} field. */
         @Nullable
-        @NativeType("void (*) (void *, size_t)")
+        @NativeType("void (*) (void *, size_t, size_t, int)")
         public RPMemoryUnmapCallback memory_unmap() { return RPMallocConfig.nmemory_unmap(address()); }
         /** Returns the value of the {@code page_size} field. */
         @NativeType("size_t")
         public long page_size() { return RPMallocConfig.npage_size(address()); }
+        /** Returns the value of the {@code span_size} field. */
+        @NativeType("size_t")
+        public long span_size() { return RPMallocConfig.nspan_size(address()); }
+        /** Returns the value of the {@code span_map_count} field. */
+        @NativeType("size_t")
+        public long span_map_count() { return RPMallocConfig.nspan_map_count(address()); }
         /** Returns the value of the {@code memory_overwrite} field. */
         @Nullable
         @NativeType("void (*) (void *)")
         public RPMemoryOverwriteCallback memory_overwrite() { return RPMallocConfig.nmemory_overwrite(address()); }
 
         /** Sets the specified value to the {@code memory_map} field. */
-        public RPMallocConfig.Buffer memory_map(@Nullable @NativeType("void * (*) (size_t)") RPMemoryMapCallbackI value) { RPMallocConfig.nmemory_map(address(), value); return this; }
+        public RPMallocConfig.Buffer memory_map(@Nullable @NativeType("void * (*) (size_t, size_t *)") RPMemoryMapCallbackI value) { RPMallocConfig.nmemory_map(address(), value); return this; }
         /** Sets the specified value to the {@code memory_unmap} field. */
-        public RPMallocConfig.Buffer memory_unmap(@Nullable @NativeType("void (*) (void *, size_t)") RPMemoryUnmapCallbackI value) { RPMallocConfig.nmemory_unmap(address(), value); return this; }
+        public RPMallocConfig.Buffer memory_unmap(@Nullable @NativeType("void (*) (void *, size_t, size_t, int)") RPMemoryUnmapCallbackI value) { RPMallocConfig.nmemory_unmap(address(), value); return this; }
         /** Sets the specified value to the {@code page_size} field. */
         public RPMallocConfig.Buffer page_size(@NativeType("size_t") long value) { RPMallocConfig.npage_size(address(), value); return this; }
+        /** Sets the specified value to the {@code span_size} field. */
+        public RPMallocConfig.Buffer span_size(@NativeType("size_t") long value) { RPMallocConfig.nspan_size(address(), value); return this; }
+        /** Sets the specified value to the {@code span_map_count} field. */
+        public RPMallocConfig.Buffer span_map_count(@NativeType("size_t") long value) { RPMallocConfig.nspan_map_count(address(), value); return this; }
         /** Sets the specified value to the {@code memory_overwrite} field. */
         public RPMallocConfig.Buffer memory_overwrite(@Nullable @NativeType("void (*) (void *)") RPMemoryOverwriteCallbackI value) { RPMallocConfig.nmemory_overwrite(address(), value); return this; }
 

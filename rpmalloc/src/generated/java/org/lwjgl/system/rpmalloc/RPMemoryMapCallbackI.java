@@ -16,14 +16,15 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * 
  * <code><pre>
  * void * (*) (
- *     size_t size
+ *     size_t size,
+ *     size_t *offset
  * )</pre></code>
  */
 @FunctionalInterface
-@NativeType("void * (*) (size_t)")
+@NativeType("void * (*) (size_t, size_t *)")
 public interface RPMemoryMapCallbackI extends CallbackI.P {
 
-    String SIGNATURE = "(p)p";
+    String SIGNATURE = "(pp)p";
 
     @Override
     default String getSignature() { return SIGNATURE; }
@@ -31,6 +32,7 @@ public interface RPMemoryMapCallbackI extends CallbackI.P {
     @Override
     default long callback(long args) {
         return invoke(
+            dcbArgPointer(args),
             dcbArgPointer(args)
         );
     }
@@ -38,11 +40,14 @@ public interface RPMemoryMapCallbackI extends CallbackI.P {
     /**
      * Map memory pages for the given number of bytes.
      * 
-     * <p>The returned address MUST be 2 byte aligned, and should ideally be 64KiB aligned. If memory returned is not 64KiB aligned rpmalloc will call unmap and
-     * then another map request with size padded by 64KiB in order to align it internally.</p>
+     * <p>The returned address MUST be aligned to the rpmalloc span size, which will always be a power of two. Optionally the function can store an alignment
+     * offset in the offset variable in case it performs alignment and the returned pointer is offset from the actual start of the memory region due to this
+     * alignment. The alignment offset will be passed to the memory unmap function. The alignment offset MUST NOT be larger than 65535 (storable in an
+     * {@code uint16_t}), if it is you must use natural alignment to shift it into 16 bits.</p>
      *
-     * @param size the number of bytes to map
+     * @param size   the number of bytes to map
+     * @param offset the alignment offset
      */
-    @NativeType("void *") long invoke(@NativeType("size_t") long size);
+    @NativeType("void *") long invoke(@NativeType("size_t") long size, @NativeType("size_t *") long offset);
 
 }

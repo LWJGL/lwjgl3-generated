@@ -19,7 +19,9 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * void (*) (
  *     void *address,
- *     size_t size
+ *     size_t size,
+ *     size_t offset,
+ *     int release
  * )</pre></code>
  */
 public abstract class RPMemoryUnmapCallback extends Callback implements RPMemoryUnmapCallbackI {
@@ -67,8 +69,8 @@ public abstract class RPMemoryUnmapCallback extends Callback implements RPMemory
         }
 
         @Override
-        public void invoke(long address, long size) {
-            delegate.invoke(address, size);
+        public void invoke(long address, long size, long offset, boolean release) {
+            delegate.invoke(address, size, offset, release);
         }
 
     }
