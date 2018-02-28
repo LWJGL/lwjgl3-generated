@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkPopupState struct nk_popup_state} popup;
  *     {@link NkEditState struct nk_edit_state} edit;
  *     unsigned int scrolled;
- *     nk_table * tables;
+ *     struct nk_table * tables;
  *     unsigned int table_count;
  *     {@link NkWindow struct nk_window} * next;
  *     {@link NkWindow struct nk_window} * prev;
@@ -171,7 +171,7 @@ public class NkWindow extends Struct {
     @NativeType("unsigned int")
     public int scrolled() { return nscrolled(address()); }
     /** Returns the value of the {@code tables} field. */
-    @NativeType("nk_table *")
+    @NativeType("struct nk_table *")
     public long tables() { return ntables(address()); }
     /** Returns the value of the {@code table_count} field. */
     @NativeType("unsigned int")
@@ -344,7 +344,7 @@ public class NkWindow extends Struct {
         @NativeType("unsigned int")
         public int scrolled() { return NkWindow.nscrolled(address()); }
         /** Returns the value of the {@code tables} field. */
-        @NativeType("nk_table *")
+        @NativeType("struct nk_table *")
         public long tables() { return NkWindow.ntables(address()); }
         /** Returns the value of the {@code table_count} field. */
         @NativeType("unsigned int")

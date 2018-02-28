@@ -24,7 +24,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     char const *_filePath,
  *     uint16_t _line,
  *     char const *_format,
- *     va_list *_argList
+ *     va_list _argList
  * )</pre></code>
  */
 public abstract class BGFXTraceVarArgsCallback extends Callback implements BGFXTraceVarArgsCallbackI {

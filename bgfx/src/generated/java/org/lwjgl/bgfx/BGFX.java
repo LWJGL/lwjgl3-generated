@@ -2056,7 +2056,7 @@ public class BGFX {
      * @param _format  `printf` style format
      * @param _argList additional arguments for format string
      */
-    public static void bgfx_dbg_text_vprintf(@NativeType("uint16_t") int _x, @NativeType("uint16_t") int _y, @NativeType("uint8_t") int _attr, @NativeType("char const *") ByteBuffer _format, @NativeType("va_list *") long _argList) {
+    public static void bgfx_dbg_text_vprintf(@NativeType("uint16_t") int _x, @NativeType("uint16_t") int _y, @NativeType("uint8_t") int _attr, @NativeType("char const *") ByteBuffer _format, @NativeType("va_list") long _argList) {
         if (CHECKS) {
             checkNT1(_format);
         }
@@ -2072,7 +2072,7 @@ public class BGFX {
      * @param _format  `printf` style format
      * @param _argList additional arguments for format string
      */
-    public static void bgfx_dbg_text_vprintf(@NativeType("uint16_t") int _x, @NativeType("uint16_t") int _y, @NativeType("uint8_t") int _attr, @NativeType("char const *") CharSequence _format, @NativeType("va_list *") long _argList) {
+    public static void bgfx_dbg_text_vprintf(@NativeType("uint16_t") int _x, @NativeType("uint16_t") int _y, @NativeType("uint8_t") int _attr, @NativeType("char const *") CharSequence _format, @NativeType("va_list") long _argList) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer _formatEncoded = stack.ASCII(_format);

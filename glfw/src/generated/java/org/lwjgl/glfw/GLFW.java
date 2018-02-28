@@ -4653,7 +4653,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    @NativeType("GLFWglproc *")
+    @NativeType("GLFWglproc")
     public static long glfwGetProcAddress(@NativeType("char const *") ByteBuffer procname) {
         if (CHECKS) {
             checkNT1(procname);
@@ -4685,7 +4685,7 @@ public class GLFW {
      *
      * @since version 1.0
      */
-    @NativeType("GLFWglproc *")
+    @NativeType("GLFWglproc")
     public static long glfwGetProcAddress(@NativeType("char const *") CharSequence procname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {

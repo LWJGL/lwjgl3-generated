@@ -152,7 +152,7 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
-    @NativeType("GLFWvkproc *")
+    @NativeType("GLFWvkproc")
     public static long glfwGetInstanceProcAddress(@Nullable VkInstance instance, @NativeType("char const *") ByteBuffer procname) {
         if (CHECKS) {
             checkNT1(procname);
@@ -189,7 +189,7 @@ public class GLFWVulkan {
      *
      * @since version 3.2
      */
-    @NativeType("GLFWvkproc *")
+    @NativeType("GLFWvkproc")
     public static long glfwGetInstanceProcAddress(@Nullable VkInstance instance, @NativeType("char const *") CharSequence procname) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {

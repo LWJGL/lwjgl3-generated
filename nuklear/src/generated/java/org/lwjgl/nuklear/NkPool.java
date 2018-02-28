@@ -21,8 +21,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     {@link NkAllocator struct nk_allocator} alloc;
  *     enum nk_allocation_type type;
  *     unsigned int page_count;
- *     nk_page * pages;
- *     nk_page_element * freelist;
+ *     struct nk_page * pages;
+ *     struct nk_page_element * freelist;
  *     unsigned capacity;
  *     nk_size size;
  *     nk_size cap;
@@ -99,10 +99,10 @@ class NkPool extends Struct {
     @NativeType("unsigned int")
     public int page_count() { return npage_count(address()); }
     /** Returns the value of the {@code pages} field. */
-    @NativeType("nk_page *")
+    @NativeType("struct nk_page *")
     public long pages() { return npages(address()); }
     /** Returns the value of the {@code freelist} field. */
-    @NativeType("nk_page_element *")
+    @NativeType("struct nk_page_element *")
     public long freelist() { return nfreelist(address()); }
     /** Returns the value of the {@code capacity} field. */
     @NativeType("unsigned")
@@ -218,10 +218,10 @@ class NkPool extends Struct {
         @NativeType("unsigned int")
         public int page_count() { return NkPool.npage_count(address()); }
         /** Returns the value of the {@code pages} field. */
-        @NativeType("nk_page *")
+        @NativeType("struct nk_page *")
         public long pages() { return NkPool.npages(address()); }
         /** Returns the value of the {@code freelist} field. */
-        @NativeType("nk_page_element *")
+        @NativeType("struct nk_page_element *")
         public long freelist() { return NkPool.nfreelist(address()); }
         /** Returns the value of the {@code capacity} field. */
         @NativeType("unsigned")

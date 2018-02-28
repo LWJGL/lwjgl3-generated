@@ -39,7 +39,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link NkWindow struct nk_window} * end;
  *     {@link NkWindow struct nk_window} * active;
  *     {@link NkWindow struct nk_window} * current;
- *     nk_page_element * freelist;
+ *     struct nk_page_element * freelist;
  *     unsigned int count;
  *     unsigned int seq;
  * }</pre></code>

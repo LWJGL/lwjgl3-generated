@@ -47,7 +47,7 @@ public class LibCStdio {
      *
      * @return the number of receiving arguments successfully assigned, or {@code EOF} if read failure occurs before the first receiving argument was assigned
      */
-    public static int vsscanf(@NativeType("char const *") ByteBuffer buffer, @NativeType("char const *") ByteBuffer format, @NativeType("va_list *") long vlist) {
+    public static int vsscanf(@NativeType("char const *") ByteBuffer buffer, @NativeType("char const *") ByteBuffer format, @NativeType("va_list") long vlist) {
         if (CHECKS) {
             checkNT1(buffer);
             checkNT1(format);
@@ -66,7 +66,7 @@ public class LibCStdio {
      *
      * @return the number of receiving arguments successfully assigned, or {@code EOF} if read failure occurs before the first receiving argument was assigned
      */
-    public static int vsscanf(@NativeType("char const *") CharSequence buffer, @NativeType("char const *") CharSequence format, @NativeType("va_list *") long vlist) {
+    public static int vsscanf(@NativeType("char const *") CharSequence buffer, @NativeType("char const *") CharSequence format, @NativeType("va_list") long vlist) {
         if (CHECKS) {
             check(vlist);
         }
@@ -117,7 +117,7 @@ public class LibCStdio {
      *         limit, function returns the total number of characters (not including the terminating null-byte) which would have been written, if the limit was not
      *         imposed.
      */
-    public static int vsnprintf(@Nullable @NativeType("char *") ByteBuffer buffer, @NativeType("char const *") ByteBuffer format, @NativeType("va_list *") long vlist) {
+    public static int vsnprintf(@Nullable @NativeType("char *") ByteBuffer buffer, @NativeType("char const *") ByteBuffer format, @NativeType("va_list") long vlist) {
         if (CHECKS) {
             checkNT1(format);
             check(vlist);
@@ -137,7 +137,7 @@ public class LibCStdio {
      *         limit, function returns the total number of characters (not including the terminating null-byte) which would have been written, if the limit was not
      *         imposed.
      */
-    public static int vsnprintf(@Nullable @NativeType("char *") ByteBuffer buffer, @NativeType("char const *") CharSequence format, @NativeType("va_list *") long vlist) {
+    public static int vsnprintf(@Nullable @NativeType("char *") ByteBuffer buffer, @NativeType("char const *") CharSequence format, @NativeType("va_list") long vlist) {
         if (CHECKS) {
             check(vlist);
         }

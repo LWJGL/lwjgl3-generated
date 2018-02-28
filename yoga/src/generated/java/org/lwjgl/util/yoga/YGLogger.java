@@ -20,7 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     YGNodeRef const node,
  *     YGLogLevel level,
  *     char const *format,
- *     va_list *args
+ *     va_list args
  * )</pre></code>
  */
 public abstract class YGLogger extends Callback implements YGLoggerI {

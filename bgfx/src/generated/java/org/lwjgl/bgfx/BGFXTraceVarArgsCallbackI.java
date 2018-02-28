@@ -22,11 +22,11 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  *     char const *_filePath,
  *     uint16_t _line,
  *     char const *_format,
- *     va_list *_argList
+ *     va_list _argList
  * )</pre></code>
  */
 @FunctionalInterface
-@NativeType("void (*) (bgfx_callback_interface_t *, char const *, uint16_t, char const *, va_list *)")
+@NativeType("void (*) (bgfx_callback_interface_t *, char const *, uint16_t, char const *, va_list)")
 public interface BGFXTraceVarArgsCallbackI extends CallbackI.V {
 
     String SIGNATURE = "(ppspp)v";
@@ -54,6 +54,6 @@ public interface BGFXTraceVarArgsCallbackI extends CallbackI.V {
      * @param _format   {@code printf} style format
      * @param _argList  variable arguments list initialized with {@code va_start}
      */
-    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("char const *") long _filePath, @NativeType("uint16_t") short _line, @NativeType("char const *") long _format, @NativeType("va_list *") long _argList);
+    void invoke(@NativeType("bgfx_callback_interface_t *") long _this, @NativeType("char const *") long _filePath, @NativeType("uint16_t") short _line, @NativeType("char const *") long _format, @NativeType("va_list") long _argList);
 
 }
