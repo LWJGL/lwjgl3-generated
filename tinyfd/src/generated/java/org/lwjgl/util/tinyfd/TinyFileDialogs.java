@@ -46,11 +46,10 @@ public class TinyFileDialogs {
 
     private static native long ntinyfd_version();
 
-    @Nullable
     @NativeType("char *")
     private static String tinyfd_version() {
         long __result = ntinyfd_version();
-        return memASCIISafe(__result);
+        return memASCII(__result);
     }
 
     /** The library version. */
@@ -101,11 +100,10 @@ public class TinyFileDialogs {
      * 
      * <p>For the console mode: dialog whiptail basicinput</p>
      */
-    @Nullable
     @NativeType("char *")
     public static String tinyfd_response() {
         long __result = ntinyfd_response();
-        return memUTF8Safe(__result);
+        return memUTF8(__result);
     }
 
     // --- [ tinyfd_beep ] ---
