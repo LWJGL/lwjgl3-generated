@@ -18,6 +18,16 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure specifying a clear depth stencil value.
  * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>Unless the {@link EXTDepthRangeUnrestricted VK_EXT_depth_range_unrestricted} extension is enabled {@code depth} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
+ * </ul>
+ * 
+ * <h5>See Also</h5>
+ * 
+ * <p>{@link VkClearValue}, {@link VK10#vkCmdClearDepthStencilImage CmdClearDepthStencilImage}</p>
+ * 
  * <h3>Member documentation</h3>
  * 
  * <ul>

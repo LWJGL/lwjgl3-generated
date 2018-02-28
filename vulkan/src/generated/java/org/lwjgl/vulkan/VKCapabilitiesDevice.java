@@ -137,6 +137,10 @@ public class VKCapabilitiesDevice {
         vkCmdEndRenderPass,
         vkCmdExecuteCommands;
 
+    // AMD_buffer_marker
+    public final long
+        vkCmdWriteBufferMarkerAMD;
+
     // AMD_draw_indirect_count
     public final long
         vkCmdDrawIndirectCountAMD,
@@ -299,6 +303,8 @@ public class VKCapabilitiesDevice {
 
     /** When true, {@link VK10} is supported. */
     public final boolean Vulkan10;
+    /** When true, {@link AMDBufferMarker} is supported. */
+    public final boolean VK_AMD_buffer_marker;
     /** When true, {@link AMDDrawIndirectCount} is supported. */
     public final boolean VK_AMD_draw_indirect_count;
     /** When true, {@link AMDGCNShader} is supported. */
@@ -593,6 +599,11 @@ public class VKCapabilitiesDevice {
             vkCmdEndRenderPass = isSupported(provider, "vkCmdEndRenderPass", supported);
             vkCmdExecuteCommands = isSupported(provider, "vkCmdExecuteCommands", supported);
             Vulkan10 = supported && VK.checkExtension("Vulkan10", VK10.isAvailable(capsInstance, this));
+        }
+        {
+            supported = ext.contains("VK_AMD_buffer_marker");
+            vkCmdWriteBufferMarkerAMD = isSupported(provider, "vkCmdWriteBufferMarkerAMD", supported);
+            VK_AMD_buffer_marker = supported && VK.checkExtension("VK_AMD_buffer_marker", AMDBufferMarker.isAvailable(this));
         }
         {
             supported = ext.contains("VK_AMD_draw_indirect_count");

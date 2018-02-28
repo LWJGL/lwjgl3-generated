@@ -28,6 +28,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>If {@code buffer} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code buffer} <b>must</b> have been created without {@link VK10#VK_BUFFER_CREATE_SPARSE_BINDING_BIT BUFFER_CREATE_SPARSE_BINDING_BIT} set in {@link VkBufferCreateInfo}{@code ::flags}</li>
  * <li>If {@code image} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} and {@link VkMemoryAllocateInfo} defines a memory import operation, the memory being imported <b>must</b> also be a dedicated image allocation and {@code image} must be identical to the image associated with the imported memory.</li>
  * <li>If {@code buffer} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} and {@link VkMemoryAllocateInfo} defines a memory import operation, the memory being imported <b>must</b> also be a dedicated buffer allocation and {@code buffer} must be identical to the buffer associated with the imported memory.</li>
+ * <li>If {@code image} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code image} <b>must</b> not have been created with {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} set in {@link VkImageCreateInfo}{@code ::flags}</li>
  * </ul>
  * 
  * <h5>Valid Usage (Implicit)</h5>

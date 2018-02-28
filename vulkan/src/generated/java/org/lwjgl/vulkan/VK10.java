@@ -1054,7 +1054,7 @@ public class VK10 {
      * 
      * <h5>See Also</h5>
      * 
-     * <p>{@code VkPipelineStageFlags}, {@link #vkCmdWriteTimestamp CmdWriteTimestamp}</p>
+     * <p>{@code VkPipelineStageFlags}, {@link AMDBufferMarker#vkCmdWriteBufferMarkerAMD CmdWriteBufferMarkerAMD}, {@link #vkCmdWriteTimestamp CmdWriteTimestamp}</p>
      */
     public static final int
         VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT                    = 0x1,
@@ -1944,6 +1944,7 @@ public class VK10 {
      * <ul>
      * <li>{@link #VK_FILTER_NEAREST FILTER_NEAREST} specifies nearest filtering.</li>
      * <li>{@link #VK_FILTER_LINEAR FILTER_LINEAR} specifies linear filtering.</li>
+     * <li>{@link IMGFilterCubic#VK_FILTER_CUBIC_IMG FILTER_CUBIC_IMG} specifies cubic filtering.</li>
      * </ul>
      * 
      * <p>These filters are described in detail in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#textures-texel-filtering">Texel Filtering</a>.</p>
@@ -2033,9 +2034,27 @@ public class VK10 {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}, or {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC} specify that the elements of the {@link VkWriteDescriptorSet}{@code ::pBufferInfo} array of {@link VkDescriptorBufferInfo} structures will be used to update the descriptors, and other arrays will be ignored.</li>
-     * <li>{@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} specify that the {@link VkWriteDescriptorSet}{@code ::pTexelBufferView} array will be used to update the descriptors, and other arrays will be ignored.</li>
-     * <li>{@link #VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER}, {@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, {@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}, or {@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT} specify that the elements of the {@link VkWriteDescriptorSet}{@code ::pImageInfo} array of {@link VkDescriptorImageInfo} structures will be used to update the descriptors, and other arrays will be ignored.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-sampler">sampler descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-combinedimagesampler">combined image sampler descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storageimage">storage image descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-sampledimage">sampled image descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-uniformtexelbuffer">uniform texel buffer descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storagetexelbuffer">storage texel buffer descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-uniformbuffer">uniform buffer descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storagebuffer">storage buffer descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-uniformbufferdynamic">dynamic uniform buffer descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-storagebufferdynamic">dynamic storage buffer descriptor</a>.</li>
+     * <li>{@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT} specifies a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#descriptorsets-inputattachment">input attachment descriptor</a>.</li>
+     * </ul>
+     * 
+     * <p>When a descriptor set is updated via elements of {@link VkWriteDescriptorSet}, members of {@code pImageInfo}, {@code pBufferInfo} and {@code pTexelBufferView} are only accessed by the implementation when they correspond to descriptor type being defined - otherwise they are ignored. The members accessed are as follows for each descriptor type:</p>
+     * 
+     * <ul>
+     * <li>For {@link #VK_DESCRIPTOR_TYPE_SAMPLER DESCRIPTOR_TYPE_SAMPLER}, only the {@code sample} member of each element of {@link VkWriteDescriptorSet}{@code ::pImageInfo} is accessed.</li>
+     * <li>For {@link #VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE DESCRIPTOR_TYPE_SAMPLED_IMAGE}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_IMAGE DESCRIPTOR_TYPE_STORAGE_IMAGE}, or {@link #VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT DESCRIPTOR_TYPE_INPUT_ATTACHMENT}, only the {@code imageView} and {@code imageLayout} members of each element of {@link VkWriteDescriptorSet}{@code ::pImageInfo} are accessed.</li>
+     * <li>For {@link #VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER}, all members of each element of {@link VkWriteDescriptorSet}{@code ::pImageInfo} are accessed.</li>
+     * <li>For {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER DESCRIPTOR_TYPE_UNIFORM_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER DESCRIPTOR_TYPE_STORAGE_BUFFER}, {@link #VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC}, or {@link #VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC}, all members of each element of {@link VkWriteDescriptorSet}{@code ::pBufferInfo} are accessed.</li>
+     * <li>For {@link #VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER} or {@link #VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER}, each element of {@link VkWriteDescriptorSet}{@code ::pTexelBufferView} is accessed.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -3047,7 +3066,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkGetInstanceProcAddr GetInstanceProcAddr} itself is obtained in a platform- and loader- specific manner. Typically, the loader library will export this command as a function symbol, so applications <b>can</b> link against the loader library, or load it dynamically and look up the symbol using platform-specific APIs. Loaders are encouraged to export function symbols for all other core Vulkan commands as well; if this is done, then applications that use only the core Vulkan commands have no need to use {@link #vkGetInstanceProcAddr GetInstanceProcAddr}.</p>
+     * <p>{@link #vkGetInstanceProcAddr GetInstanceProcAddr} itself is obtained in a platform- and loader- specific manner. Typically, the loader library will export this command as a function symbol, so applications <b>can</b> link against the loader library, or load it dynamically and look up the symbol using platform-specific APIs.</p>
      * 
      * <p>The table below defines the various use cases for {@link #vkGetInstanceProcAddr GetInstanceProcAddr} and expected return value ("{@code fp}" is "{@code function pointer}") for each case.</p>
      * 
@@ -3073,9 +3092,9 @@ public class VK10 {
      * 
      * <dl>
      * <dt>1</dt>
-     * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code instance} or a child of {@code instance}. e.g. {@code VkInstance}, {@code VkPhysicalDevice}, {@code VkDevice}, {@code VkQueue}, or {@code VkCommandBuffer}.</dd>
+     * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code instance} or a child of {@code instance}.</dd>
      * <dt>2</dt>
-     * <dd>An “available extension” is an extension function supported by any of the loader, driver or layer.</dd>
+     * <dd>An “available device extension” is a device extension supported by any physical device enumerated by {@code instance}.</dd>
      * </dl>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -3114,7 +3133,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>{@link #vkGetInstanceProcAddr GetInstanceProcAddr} itself is obtained in a platform- and loader- specific manner. Typically, the loader library will export this command as a function symbol, so applications <b>can</b> link against the loader library, or load it dynamically and look up the symbol using platform-specific APIs. Loaders are encouraged to export function symbols for all other core Vulkan commands as well; if this is done, then applications that use only the core Vulkan commands have no need to use {@link #vkGetInstanceProcAddr GetInstanceProcAddr}.</p>
+     * <p>{@link #vkGetInstanceProcAddr GetInstanceProcAddr} itself is obtained in a platform- and loader- specific manner. Typically, the loader library will export this command as a function symbol, so applications <b>can</b> link against the loader library, or load it dynamically and look up the symbol using platform-specific APIs.</p>
      * 
      * <p>The table below defines the various use cases for {@link #vkGetInstanceProcAddr GetInstanceProcAddr} and expected return value ("{@code fp}" is "{@code function pointer}") for each case.</p>
      * 
@@ -3140,9 +3159,9 @@ public class VK10 {
      * 
      * <dl>
      * <dt>1</dt>
-     * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code instance} or a child of {@code instance}. e.g. {@code VkInstance}, {@code VkPhysicalDevice}, {@code VkDevice}, {@code VkQueue}, or {@code VkCommandBuffer}.</dd>
+     * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code instance} or a child of {@code instance}.</dd>
      * <dt>2</dt>
-     * <dd>An “available extension” is an extension function supported by any of the loader, driver or layer.</dd>
+     * <dd>An “available device extension” is a device extension supported by any physical device enumerated by {@code instance}.</dd>
      * </dl>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -3183,7 +3202,7 @@ public class VK10 {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>In order to support systems with multiple Vulkan implementations comprising heterogeneous collections of hardware and software, the function pointers returned by {@link #vkGetInstanceProcAddr GetInstanceProcAddr} <b>may</b> point to dispatch code, which calls a different real implementation for different {@code VkDevice} objects (and objects created from them). The overhead of this internal dispatch <b>can</b> be avoided by obtaining device-specific function pointers for any commands that use a device or device-child object as their dispatchable object. Such function pointers <b>can</b> be obtained with the command:</p>
+     * <p>In order to support systems with multiple Vulkan implementations comprising heterogeneous collections of hardware and software, the function pointers returned by {@link #vkGetInstanceProcAddr GetInstanceProcAddr} <b>may</b> point to dispatch code, which calls a different real implementation for different {@code VkDevice} objects or their child objects. The overhead of this internal dispatch <b>can</b> be avoided for commands that dispatch from device-level objects by calling device-specific function pointers. Such function pointers <b>can</b> be obtained with the command:</p>
      * 
      * <code><pre>
      * PFN_vkVoidFunction vkGetDeviceProcAddr(
@@ -3192,7 +3211,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The returned function pointer is of type {@code PFN_vkVoidFunction}, and must be cast to the type of the command being queried.</p>
+     * <p>The returned function pointer is of type {@code PFN_vkVoidFunction}, and must be cast to the type of the command being queried. The function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code device} or a child of {@code device}.</p>
      * 
      * <h6>vkGetDeviceProcAddr behavior</h6>
      * 
@@ -3202,16 +3221,11 @@ public class VK10 {
      * <tr><td>{@code NULL}</td><td>*</td><td>undefined</td></tr>
      * <tr><td>invalid device</td><td>*</td><td>undefined</td></tr>
      * <tr><td>device</td><td>{@code NULL}</td><td>undefined</td></tr>
-     * <tr><td>device</td><td>core Vulkan command</td><td>fp<sup>1</sup></td></tr>
-     * <tr><td>device</td><td>enabled extension commands</td><td>fp<sup>1</sup></td></tr>
+     * <tr><td>device</td><td>core device-level Vulkan command</td><td>fp</td></tr>
+     * <tr><td>device</td><td>enabled device extension commands</td><td>fp</td></tr>
      * <tr><td>device</td><td>* (any {@code pName} not covered above)</td><td>{@code NULL}</td></tr>
      * </tbody>
      * </table>
-     * 
-     * <dl>
-     * <dt>1</dt>
-     * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code device} or a child of {@code device}. e.g. {@code VkDevice}, {@code VkQueue}, or {@code VkCommandBuffer}.</dd>
-     * </dl>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -3240,7 +3254,7 @@ public class VK10 {
      * 
      * <h5>C Specification</h5>
      * 
-     * <p>In order to support systems with multiple Vulkan implementations comprising heterogeneous collections of hardware and software, the function pointers returned by {@link #vkGetInstanceProcAddr GetInstanceProcAddr} <b>may</b> point to dispatch code, which calls a different real implementation for different {@code VkDevice} objects (and objects created from them). The overhead of this internal dispatch <b>can</b> be avoided by obtaining device-specific function pointers for any commands that use a device or device-child object as their dispatchable object. Such function pointers <b>can</b> be obtained with the command:</p>
+     * <p>In order to support systems with multiple Vulkan implementations comprising heterogeneous collections of hardware and software, the function pointers returned by {@link #vkGetInstanceProcAddr GetInstanceProcAddr} <b>may</b> point to dispatch code, which calls a different real implementation for different {@code VkDevice} objects or their child objects. The overhead of this internal dispatch <b>can</b> be avoided for commands that dispatch from device-level objects by calling device-specific function pointers. Such function pointers <b>can</b> be obtained with the command:</p>
      * 
      * <code><pre>
      * PFN_vkVoidFunction vkGetDeviceProcAddr(
@@ -3249,7 +3263,7 @@ public class VK10 {
      * 
      * <h5>Description</h5>
      * 
-     * <p>The returned function pointer is of type {@code PFN_vkVoidFunction}, and must be cast to the type of the command being queried.</p>
+     * <p>The returned function pointer is of type {@code PFN_vkVoidFunction}, and must be cast to the type of the command being queried. The function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code device} or a child of {@code device}.</p>
      * 
      * <h6>vkGetDeviceProcAddr behavior</h6>
      * 
@@ -3259,16 +3273,11 @@ public class VK10 {
      * <tr><td>{@code NULL}</td><td>*</td><td>undefined</td></tr>
      * <tr><td>invalid device</td><td>*</td><td>undefined</td></tr>
      * <tr><td>device</td><td>{@code NULL}</td><td>undefined</td></tr>
-     * <tr><td>device</td><td>core Vulkan command</td><td>fp<sup>1</sup></td></tr>
-     * <tr><td>device</td><td>enabled extension commands</td><td>fp<sup>1</sup></td></tr>
+     * <tr><td>device</td><td>core device-level Vulkan command</td><td>fp</td></tr>
+     * <tr><td>device</td><td>enabled device extension commands</td><td>fp</td></tr>
      * <tr><td>device</td><td>* (any {@code pName} not covered above)</td><td>{@code NULL}</td></tr>
      * </tbody>
      * </table>
-     * 
-     * <dl>
-     * <dt>1</dt>
-     * <dd>The returned function pointer <b>must</b> only be called with a dispatchable object (the first parameter) that is {@code device} or a child of {@code device}. e.g. {@code VkDevice}, {@code VkQueue}, or {@code VkCommandBuffer}.</dd>
-     * </dl>
      * 
      * <h5>Valid Usage (Implicit)</h5>
      * 
@@ -10135,7 +10144,7 @@ public class VK10 {
      * 
      * <p><code>m</code> is computed as described above. If the depth buffer uses a fixed-point representation, <code>m</code> is a function of depth values in the range <code>[0,1]</code>, and <code>o</code> is applied to depth values in the same range.</p>
      * 
-     * <p>For fixed-point depth buffers, fragment depth values are always limited to the range <code>[0,1]</code> by clamping after depth bias addition is performed. Fragment depth values are clamped even when the depth buffer uses a floating-point representation.</p>
+     * <p>For fixed-point depth buffers, fragment depth values are always limited to the range <code>[0,1]</code> by clamping after depth bias addition is performed. Unless the {@link EXTDepthRangeUnrestricted VK_EXT_depth_range_unrestricted} extension is enabled, fragment depth values are clamped even when the depth buffer uses a floating-point representation.</p>
      * 
      * <h5>Valid Usage</h5>
      * 
@@ -10253,6 +10262,8 @@ public class VK10 {
      * 
      * <ul>
      * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_DEPTH_BOUNDS DYNAMIC_STATE_DEPTH_BOUNDS} dynamic state enabled</li>
+     * <li>Unless the {@link EXTDepthRangeUnrestricted VK_EXT_depth_range_unrestricted} extension is enabled {@code minDepthBounds} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
+     * <li>Unless the {@link EXTDepthRangeUnrestricted VK_EXT_depth_range_unrestricted} extension is enabled {@code maxDepthBounds} <b>must</b> be between {@code 0.0} and {@code 1.0}, inclusive</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11359,6 +11370,8 @@ public class VK10 {
      * <li>The {@code dstSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
      * <li>The <code>srcSubresource.baseArrayLayer srcSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
      * <li>The <code>dstSubresource.baseArrayLayer dstSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
+     * <li>The {@code srcOffset} and and {@code extent} members of each element of {@code pRegions} <b>must</b> respect the image transfer granularity requirements of {@code commandBuffer}&#8217;s command pool&#8217;s queue family, as described in {@link VkQueueFamilyProperties}</li>
+     * <li>The {@code dstOffset} and and {@code extent} members of each element of {@code pRegions} <b>must</b> respect the image transfer granularity requirements of {@code commandBuffer}&#8217;s command pool&#8217;s queue family, as described in {@link VkQueueFamilyProperties}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11637,6 +11650,7 @@ public class VK10 {
      * <li>{@code dstImageLayout} <b>must</b> be {@link #VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL}, {@link #VK_IMAGE_LAYOUT_GENERAL IMAGE_LAYOUT_GENERAL}, or {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR}</li>
      * <li>The {@code imageSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
      * <li>The <code>imageSubresource.baseArrayLayer imageSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code dstImage} was created</li>
+     * <li>The {@code imageOffset} and and {@code imageExtent} members of each element of {@code pRegions} <b>must</b> respect the image transfer granularity requirements of {@code commandBuffer}&#8217;s command pool&#8217;s queue family, as described in {@link VkQueueFamilyProperties}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -11732,6 +11746,7 @@ public class VK10 {
      * <li>If {@code dstBuffer} is non-sparse then it <b>must</b> be bound completely and contiguously to a single {@code VkDeviceMemory} object</li>
      * <li>The {@code imageSubresource.mipLevel} member of each element of {@code pRegions} <b>must</b> be less than the {@code mipLevels} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
      * <li>The <code>imageSubresource.baseArrayLayer imageSubresource.layerCount</code> of each element of {@code pRegions} <b>must</b> be less than or equal to the {@code arrayLayers} specified in {@link VkImageCreateInfo} when {@code srcImage} was created</li>
+     * <li>The {@code imageOffset} and and {@code imageExtent} members of each element of {@code pRegions} <b>must</b> respect the image transfer granularity requirements of {@code commandBuffer}&#8217;s command pool&#8217;s queue family, as described in {@link VkQueueFamilyProperties}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -13737,7 +13752,8 @@ public class VK10 {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each shader stage in {@code stageFlags}, there <b>must</b> be a push constant range in {@code layout} that includes that byte and that stage</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each push constant range that overlaps that byte, {@code stageFlags} <b>must</b> include all stages in that push constant range&#8217;s {@link VkPushConstantRange}{@code ::stageFlags}</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code size} <b>must</b> be a multiple of 4</li>
      * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
@@ -13801,7 +13817,8 @@ public class VK10 {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each shader stage in {@code stageFlags}, there <b>must</b> be a push constant range in {@code layout} that includes that byte and that stage</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each push constant range that overlaps that byte, {@code stageFlags} <b>must</b> include all stages in that push constant range&#8217;s {@link VkPushConstantRange}{@code ::stageFlags}</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code size} <b>must</b> be a multiple of 4</li>
      * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
@@ -13865,7 +13882,8 @@ public class VK10 {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each shader stage in {@code stageFlags}, there <b>must</b> be a push constant range in {@code layout} that includes that byte and that stage</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each push constant range that overlaps that byte, {@code stageFlags} <b>must</b> include all stages in that push constant range&#8217;s {@link VkPushConstantRange}{@code ::stageFlags}</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code size} <b>must</b> be a multiple of 4</li>
      * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
@@ -13929,7 +13947,8 @@ public class VK10 {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each shader stage in {@code stageFlags}, there <b>must</b> be a push constant range in {@code layout} that includes that byte and that stage</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each push constant range that overlaps that byte, {@code stageFlags} <b>must</b> include all stages in that push constant range&#8217;s {@link VkPushConstantRange}{@code ::stageFlags}</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code size} <b>must</b> be a multiple of 4</li>
      * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
@@ -13993,7 +14012,8 @@ public class VK10 {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each shader stage in {@code stageFlags}, there <b>must</b> be a push constant range in {@code layout} that includes that byte and that stage</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each push constant range that overlaps that byte, {@code stageFlags} <b>must</b> include all stages in that push constant range&#8217;s {@link VkPushConstantRange}{@code ::stageFlags}</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code size} <b>must</b> be a multiple of 4</li>
      * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>
@@ -14057,7 +14077,8 @@ public class VK10 {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>{@code stageFlags} <b>must</b> match exactly the shader stages used in {@code layout} for the range specified by {@code offset} and {@code size}</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each shader stage in {@code stageFlags}, there <b>must</b> be a push constant range in {@code layout} that includes that byte and that stage</li>
+     * <li>For each byte in the range specified by {@code offset} and {@code size} and for each push constant range that overlaps that byte, {@code stageFlags} <b>must</b> include all stages in that push constant range&#8217;s {@link VkPushConstantRange}{@code ::stageFlags}</li>
      * <li>{@code offset} <b>must</b> be a multiple of 4</li>
      * <li>{@code size} <b>must</b> be a multiple of 4</li>
      * <li>{@code offset} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxPushConstantsSize}</li>

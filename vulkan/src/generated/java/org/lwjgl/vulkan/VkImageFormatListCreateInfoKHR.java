@@ -17,6 +17,37 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * Specify that an image <b>can</b> be used with a particular set of formats.
+ * 
+ * <h5>Description</h5>
+ * 
+ * <p>If {@code viewFormatCount} is zero, {@code pViewFormats} is ignored and the image is created as if the {@link VkImageFormatListCreateInfoKHR} structure were not included in the {@code pNext} list of {@link VkImageCreateInfo}.</p>
+ * 
+ * <h5>Valid Usage</h5>
+ * 
+ * <ul>
+ * <li>If {@code viewFormatCount} is not 0, all of the formats in the {@code pViewFormats} array <b>must</b> be compatible with the format specified in the {@code format} field of {@link VkImageCreateInfo}, as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#resources-image-views-compatibility">compatibility table</a>.</li>
+ * <li>If {@link VkImageCreateInfo}{@code ::flags} does not contain {@link VK10#VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT IMAGE_CREATE_MUTABLE_FORMAT_BIT}, {@code viewFormatCount} <b>must</b> be 0 or 1.</li>
+ * <li>If {@code viewFormatCount} is not 0, {@link VkImageCreateInfo}{@code ::format} <b>must</b> be in {@code pViewFormats}.</li>
+ * </ul>
+ * 
+ * <h5>Valid Usage (Implicit)</h5>
+ * 
+ * <ul>
+ * <li>{@code sType} <b>must</b> be {@link KHRImageFormatList#VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO_KHR STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO_KHR}</li>
+ * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
+ * <li>If {@code viewFormatCount} is not 0, {@code pViewFormats} <b>must</b> be a valid pointer to an array of {@code viewFormatCount} valid {@code VkFormat} values</li>
+ * </ul>
+ * 
+ * <h3>Member documentation</h3>
+ * 
+ * <ul>
+ * <li>{@code sType} &ndash; the type of this structure.</li>
+ * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
+ * <li>{@code viewFormatCount} &ndash; the number of entries in the {@code pViewFormats} array.</li>
+ * <li>{@code pViewFormats} &ndash; an array which lists of all formats which <b>can</b> be used when creating views of this image.</li>
+ * </ul>
+ * 
  * <h3>Layout</h3>
  * 
  * <code><pre>

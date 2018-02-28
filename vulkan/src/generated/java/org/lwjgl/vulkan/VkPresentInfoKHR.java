@@ -19,6 +19,15 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Structure describing parameters of a queue presentation.
  * 
+ * <h5>Description</h5>
+ * 
+ * <p>Before an application <b>can</b> present an image, the image's layout <b>must</b> be transitioned to the {@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR} layout, or for a shared presentable image the {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR} layout.</p>
+ * 
+ * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+ * 
+ * <p>When transitioning the image to {@link KHRSharedPresentableImage#VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR IMAGE_LAYOUT_SHARED_PRESENT_KHR} or {@link KHRSwapchain#VK_IMAGE_LAYOUT_PRESENT_SRC_KHR IMAGE_LAYOUT_PRESENT_SRC_KHR}, there is no need to delay subsequent processing, or perform any visibility operations (as {@link KHRSwapchain#vkQueuePresentKHR QueuePresentKHR} performs automatic visibility operations). To achieve this, the {@code dstAccessMask} member of the {@link VkImageMemoryBarrier} <b>should</b> be set to 0, and the {@code dstStageMask} parameter <b>should</b> be set to {@link VK10#VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT}.</p>
+ * </div>
+ * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>

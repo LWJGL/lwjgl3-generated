@@ -369,6 +369,7 @@ public class KHRSwapchain {
      * <li>If {@code semaphore} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> not have any uncompleted signal or wait operations pending</li>
      * <li>If {@code fence} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE} it <b>must</b> be unsignaled and <b>must</b> not be associated with any other queue command that has not yet completed execution on that queue</li>
      * <li>{@code semaphore} and {@code fence} <b>must</b> not both be equal to {@link VK10#VK_NULL_HANDLE NULL_HANDLE}</li>
+     * <li>If the number of currently acquired images is greater than the difference between the number of images in {@code swapchain} and the value of {@link VkSurfaceCapabilitiesKHR}{@code ::minImageCount} as returned by a call to {@link KHRGetSurfaceCapabilities2#vkGetPhysicalDeviceSurfaceCapabilities2KHR GetPhysicalDeviceSurfaceCapabilities2KHR} with the {@code surface} used to create {@code swapchain}, {@code timeout} <b>must</b> not be {@code UINT64_MAX}</li>
      * </ul>
      * 
      * <h5>Valid Usage (Implicit)</h5>
@@ -450,6 +451,13 @@ public class KHRSwapchain {
      * VkResult vkQueuePresentKHR(
      *     VkQueue                                     queue,
      *     const VkPresentInfoKHR*                     pPresentInfo);</pre></code>
+     * 
+     * <h5>Description</h5>
+     * 
+     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
+     * 
+     * <p>There is no requirement for an application to present images in the same order that they were acquired - applications can arbitrarily present any image that is currently acquired.</p>
+     * </div>
      * 
      * <h5>Valid Usage</h5>
      * 
